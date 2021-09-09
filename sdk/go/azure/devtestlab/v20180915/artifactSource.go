@@ -11,40 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties of an artifact source.
 type ArtifactSource struct {
 	pulumi.CustomResourceState
 
-	// The folder containing Azure Resource Manager templates.
 	ArmTemplateFolderPath pulumi.StringPtrOutput `pulumi:"armTemplateFolderPath"`
-	// The artifact source's branch reference.
-	BranchRef pulumi.StringPtrOutput `pulumi:"branchRef"`
-	// The artifact source's creation date.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// The artifact source's display name.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The folder containing artifacts.
-	FolderPath pulumi.StringPtrOutput `pulumi:"folderPath"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The security token to authenticate to the artifact source.
-	SecurityToken pulumi.StringPtrOutput `pulumi:"securityToken"`
-	// The artifact source's type.
-	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
-	// Indicates if the artifact source is enabled (values: Enabled, Disabled).
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringOutput `pulumi:"uniqueIdentifier"`
-	// The artifact source's URI.
-	Uri pulumi.StringPtrOutput `pulumi:"uri"`
+	BranchRef             pulumi.StringPtrOutput `pulumi:"branchRef"`
+	CreatedDate           pulumi.StringOutput    `pulumi:"createdDate"`
+	DisplayName           pulumi.StringPtrOutput `pulumi:"displayName"`
+	FolderPath            pulumi.StringPtrOutput `pulumi:"folderPath"`
+	Location              pulumi.StringPtrOutput `pulumi:"location"`
+	Name                  pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState     pulumi.StringOutput    `pulumi:"provisioningState"`
+	SecurityToken         pulumi.StringPtrOutput `pulumi:"securityToken"`
+	SourceType            pulumi.StringPtrOutput `pulumi:"sourceType"`
+	Status                pulumi.StringPtrOutput `pulumi:"status"`
+	Tags                  pulumi.StringMapOutput `pulumi:"tags"`
+	Type                  pulumi.StringOutput    `pulumi:"type"`
+	UniqueIdentifier      pulumi.StringOutput    `pulumi:"uniqueIdentifier"`
+	Uri                   pulumi.StringPtrOutput `pulumi:"uri"`
 }
 
 // NewArtifactSource registers a new resource with the given unique name, arguments, and options.
@@ -116,62 +100,36 @@ func (ArtifactSourceState) ElementType() reflect.Type {
 }
 
 type artifactSourceArgs struct {
-	// The folder containing Azure Resource Manager templates.
-	ArmTemplateFolderPath *string `pulumi:"armTemplateFolderPath"`
-	// The artifact source's branch reference.
-	BranchRef *string `pulumi:"branchRef"`
-	// The artifact source's display name.
-	DisplayName *string `pulumi:"displayName"`
-	// The folder containing artifacts.
-	FolderPath *string `pulumi:"folderPath"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the artifact source.
-	Name *string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The security token to authenticate to the artifact source.
-	SecurityToken *string `pulumi:"securityToken"`
-	// The artifact source's type.
-	SourceType *string `pulumi:"sourceType"`
-	// Indicates if the artifact source is enabled (values: Enabled, Disabled).
-	Status *string `pulumi:"status"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The artifact source's URI.
-	Uri *string `pulumi:"uri"`
+	ArmTemplateFolderPath *string           `pulumi:"armTemplateFolderPath"`
+	BranchRef             *string           `pulumi:"branchRef"`
+	DisplayName           *string           `pulumi:"displayName"`
+	FolderPath            *string           `pulumi:"folderPath"`
+	LabName               string            `pulumi:"labName"`
+	Location              *string           `pulumi:"location"`
+	Name                  *string           `pulumi:"name"`
+	ResourceGroupName     string            `pulumi:"resourceGroupName"`
+	SecurityToken         *string           `pulumi:"securityToken"`
+	SourceType            *string           `pulumi:"sourceType"`
+	Status                *string           `pulumi:"status"`
+	Tags                  map[string]string `pulumi:"tags"`
+	Uri                   *string           `pulumi:"uri"`
 }
 
 // The set of arguments for constructing a ArtifactSource resource.
 type ArtifactSourceArgs struct {
-	// The folder containing Azure Resource Manager templates.
 	ArmTemplateFolderPath pulumi.StringPtrInput
-	// The artifact source's branch reference.
-	BranchRef pulumi.StringPtrInput
-	// The artifact source's display name.
-	DisplayName pulumi.StringPtrInput
-	// The folder containing artifacts.
-	FolderPath pulumi.StringPtrInput
-	// The name of the lab.
-	LabName pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the artifact source.
-	Name pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The security token to authenticate to the artifact source.
-	SecurityToken pulumi.StringPtrInput
-	// The artifact source's type.
-	SourceType pulumi.StringPtrInput
-	// Indicates if the artifact source is enabled (values: Enabled, Disabled).
-	Status pulumi.StringPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The artifact source's URI.
-	Uri pulumi.StringPtrInput
+	BranchRef             pulumi.StringPtrInput
+	DisplayName           pulumi.StringPtrInput
+	FolderPath            pulumi.StringPtrInput
+	LabName               pulumi.StringInput
+	Location              pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
+	SecurityToken         pulumi.StringPtrInput
+	SourceType            pulumi.StringPtrInput
+	Status                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	Uri                   pulumi.StringPtrInput
 }
 
 func (ArtifactSourceArgs) ElementType() reflect.Type {
@@ -197,9 +155,7 @@ func (i *ArtifactSource) ToArtifactSourceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactSourceOutput)
 }
 
-type ArtifactSourceOutput struct {
-	*pulumi.OutputState
-}
+type ArtifactSourceOutput struct{ *pulumi.OutputState }
 
 func (ArtifactSourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ArtifactSource)(nil))

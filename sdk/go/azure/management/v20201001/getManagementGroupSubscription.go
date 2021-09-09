@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The details of subscription under management group.
 func LookupManagementGroupSubscription(ctx *pulumi.Context, args *LookupManagementGroupSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupManagementGroupSubscriptionResult, error) {
 	var rv LookupManagementGroupSubscriptionResult
 	err := ctx.Invoke("azure-native:management/v20201001:getManagementGroupSubscription", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupManagementGroupSubscription(ctx *pulumi.Context, args *LookupManageme
 }
 
 type LookupManagementGroupSubscriptionArgs struct {
-	// Management Group ID.
-	GroupId string `pulumi:"groupId"`
-	// Subscription ID.
+	GroupId        string  `pulumi:"groupId"`
 	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // The details of subscription under management group.
 type LookupManagementGroupSubscriptionResult struct {
-	// The friendly name of the subscription.
-	DisplayName *string `pulumi:"displayName"`
-	// The fully qualified ID for the subscription.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/subscriptions/0000000-0000-0000-0000-000000000001
-	Id string `pulumi:"id"`
-	// The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
-	Name string `pulumi:"name"`
-	// The ID of the parent management group.
-	Parent *DescendantParentGroupInfoResponse `pulumi:"parent"`
-	// The state of the subscription.
-	State *string `pulumi:"state"`
-	// The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000
-	Tenant *string `pulumi:"tenant"`
-	// The type of the resource.  For example, Microsoft.Management/managementGroups/subscriptions
-	Type string `pulumi:"type"`
+	DisplayName *string                            `pulumi:"displayName"`
+	Id          string                             `pulumi:"id"`
+	Name        string                             `pulumi:"name"`
+	Parent      *DescendantParentGroupInfoResponse `pulumi:"parent"`
+	State       *string                            `pulumi:"state"`
+	Tenant      *string                            `pulumi:"tenant"`
+	Type        string                             `pulumi:"type"`
 }

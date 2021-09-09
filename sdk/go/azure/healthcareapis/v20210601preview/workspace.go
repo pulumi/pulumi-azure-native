@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Workspace resource.
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Workspaces resource specific properties.
+	Etag       pulumi.StringPtrOutput            `pulumi:"etag"`
+	Location   pulumi.StringPtrOutput            `pulumi:"location"`
+	Name       pulumi.StringOutput               `pulumi:"name"`
 	Properties WorkspaceResponsePropertiesOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput          `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput            `pulumi:"tags"`
+	Type       pulumi.StringOutput               `pulumi:"type"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -85,30 +77,20 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group that contains the service instance.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of workspace resource.
-	WorkspaceName *string `pulumi:"workspaceName"`
+	Etag              *string           `pulumi:"etag"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	WorkspaceName     *string           `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group that contains the service instance.
+	Etag              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of workspace resource.
-	WorkspaceName pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	WorkspaceName     pulumi.StringPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {
@@ -134,9 +116,7 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceOutput)
 }
 
-type WorkspaceOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workspace)(nil))

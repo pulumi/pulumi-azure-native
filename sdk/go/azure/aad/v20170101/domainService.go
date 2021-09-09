@@ -11,50 +11,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Domain service.
 type DomainService struct {
 	pulumi.CustomResourceState
 
-	// Deployment Id
-	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
-	// List of Domain Controller IP Address
-	DomainControllerIpAddress pulumi.StringArrayOutput `pulumi:"domainControllerIpAddress"`
-	// The name of the Azure domain that the user would like to deploy Domain Services to.
-	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
-	// DomainSecurity Settings
-	DomainSecuritySettings DomainSecuritySettingsResponsePtrOutput `pulumi:"domainSecuritySettings"`
-	// Resource etag
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Enabled or Disabled flag to turn on Group-based filtered sync
-	FilteredSync pulumi.StringPtrOutput `pulumi:"filteredSync"`
-	// List of Domain Health Alerts
-	HealthAlerts HealthAlertResponseArrayOutput `pulumi:"healthAlerts"`
-	// Last domain evaluation run DateTime
-	HealthLastEvaluated pulumi.StringOutput `pulumi:"healthLastEvaluated"`
-	// List of Domain Health Monitors
-	HealthMonitors HealthMonitorResponseArrayOutput `pulumi:"healthMonitors"`
-	// Secure LDAP Settings
-	LdapsSettings LdapsSettingsResponsePtrOutput `pulumi:"ldapsSettings"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Notification Settings
-	NotificationSettings NotificationSettingsResponsePtrOutput `pulumi:"notificationSettings"`
-	// the current deployment or provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Status of Domain Service instance
-	ServiceStatus pulumi.StringOutput `pulumi:"serviceStatus"`
-	// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
-	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure Active Directory tenant id
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Virtual network site id
-	VnetSiteId pulumi.StringOutput `pulumi:"vnetSiteId"`
+	DeploymentId              pulumi.StringOutput                     `pulumi:"deploymentId"`
+	DomainControllerIpAddress pulumi.StringArrayOutput                `pulumi:"domainControllerIpAddress"`
+	DomainName                pulumi.StringPtrOutput                  `pulumi:"domainName"`
+	DomainSecuritySettings    DomainSecuritySettingsResponsePtrOutput `pulumi:"domainSecuritySettings"`
+	Etag                      pulumi.StringPtrOutput                  `pulumi:"etag"`
+	FilteredSync              pulumi.StringPtrOutput                  `pulumi:"filteredSync"`
+	HealthAlerts              HealthAlertResponseArrayOutput          `pulumi:"healthAlerts"`
+	HealthLastEvaluated       pulumi.StringOutput                     `pulumi:"healthLastEvaluated"`
+	HealthMonitors            HealthMonitorResponseArrayOutput        `pulumi:"healthMonitors"`
+	LdapsSettings             LdapsSettingsResponsePtrOutput          `pulumi:"ldapsSettings"`
+	Location                  pulumi.StringPtrOutput                  `pulumi:"location"`
+	Name                      pulumi.StringOutput                     `pulumi:"name"`
+	NotificationSettings      NotificationSettingsResponsePtrOutput   `pulumi:"notificationSettings"`
+	ProvisioningState         pulumi.StringOutput                     `pulumi:"provisioningState"`
+	ServiceStatus             pulumi.StringOutput                     `pulumi:"serviceStatus"`
+	SubnetId                  pulumi.StringPtrOutput                  `pulumi:"subnetId"`
+	Tags                      pulumi.StringMapOutput                  `pulumi:"tags"`
+	TenantId                  pulumi.StringOutput                     `pulumi:"tenantId"`
+	Type                      pulumi.StringOutput                     `pulumi:"type"`
+	VnetSiteId                pulumi.StringOutput                     `pulumi:"vnetSiteId"`
 }
 
 // NewDomainService registers a new resource with the given unique name, arguments, and options.
@@ -135,54 +114,32 @@ func (DomainServiceState) ElementType() reflect.Type {
 }
 
 type domainServiceArgs struct {
-	// The name of the Azure domain that the user would like to deploy Domain Services to.
-	DomainName *string `pulumi:"domainName"`
-	// DomainSecurity Settings
+	DomainName             *string                 `pulumi:"domainName"`
 	DomainSecuritySettings *DomainSecuritySettings `pulumi:"domainSecuritySettings"`
-	// The name of the domain service.
-	DomainServiceName *string `pulumi:"domainServiceName"`
-	// Resource etag
-	Etag *string `pulumi:"etag"`
-	// Enabled or Disabled flag to turn on Group-based filtered sync
-	FilteredSync *string `pulumi:"filteredSync"`
-	// Secure LDAP Settings
-	LdapsSettings *LdapsSettings `pulumi:"ldapsSettings"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Notification Settings
-	NotificationSettings *NotificationSettings `pulumi:"notificationSettings"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
-	SubnetId *string `pulumi:"subnetId"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	DomainServiceName      *string                 `pulumi:"domainServiceName"`
+	Etag                   *string                 `pulumi:"etag"`
+	FilteredSync           *string                 `pulumi:"filteredSync"`
+	LdapsSettings          *LdapsSettings          `pulumi:"ldapsSettings"`
+	Location               *string                 `pulumi:"location"`
+	NotificationSettings   *NotificationSettings   `pulumi:"notificationSettings"`
+	ResourceGroupName      string                  `pulumi:"resourceGroupName"`
+	SubnetId               *string                 `pulumi:"subnetId"`
+	Tags                   map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DomainService resource.
 type DomainServiceArgs struct {
-	// The name of the Azure domain that the user would like to deploy Domain Services to.
-	DomainName pulumi.StringPtrInput
-	// DomainSecurity Settings
+	DomainName             pulumi.StringPtrInput
 	DomainSecuritySettings DomainSecuritySettingsPtrInput
-	// The name of the domain service.
-	DomainServiceName pulumi.StringPtrInput
-	// Resource etag
-	Etag pulumi.StringPtrInput
-	// Enabled or Disabled flag to turn on Group-based filtered sync
-	FilteredSync pulumi.StringPtrInput
-	// Secure LDAP Settings
-	LdapsSettings LdapsSettingsPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Notification Settings
-	NotificationSettings NotificationSettingsPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
-	SubnetId pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	DomainServiceName      pulumi.StringPtrInput
+	Etag                   pulumi.StringPtrInput
+	FilteredSync           pulumi.StringPtrInput
+	LdapsSettings          LdapsSettingsPtrInput
+	Location               pulumi.StringPtrInput
+	NotificationSettings   NotificationSettingsPtrInput
+	ResourceGroupName      pulumi.StringInput
+	SubnetId               pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (DomainServiceArgs) ElementType() reflect.Type {
@@ -208,9 +165,7 @@ func (i *DomainService) ToDomainServiceOutputWithContext(ctx context.Context) Do
 	return pulumi.ToOutputWithContext(ctx, i).(DomainServiceOutput)
 }
 
-type DomainServiceOutput struct {
-	*pulumi.OutputState
-}
+type DomainServiceOutput struct{ *pulumi.OutputState }
 
 func (DomainServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainService)(nil))

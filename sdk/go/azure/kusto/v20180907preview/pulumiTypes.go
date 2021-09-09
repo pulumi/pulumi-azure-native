@@ -11,12 +11,9 @@ import (
 )
 
 type AzureSku struct {
-	// SKU capacity.
-	Capacity *int `pulumi:"capacity"`
-	// SKU name.
-	Name string `pulumi:"name"`
-	// SKU tier.
-	Tier string `pulumi:"tier"`
+	Capacity *int   `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
+	Tier     string `pulumi:"tier"`
 }
 
 // AzureSkuInput is an input type that accepts AzureSkuArgs and AzureSkuOutput values.
@@ -31,12 +28,9 @@ type AzureSkuInput interface {
 }
 
 type AzureSkuArgs struct {
-	// SKU capacity.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// SKU name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// SKU tier.
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Name     pulumi.StringInput `pulumi:"name"`
+	Tier     pulumi.StringInput `pulumi:"tier"`
 }
 
 func (AzureSkuArgs) ElementType() reflect.Type {
@@ -111,22 +105,19 @@ func (o AzureSkuOutput) ToAzureSkuPtrOutput() AzureSkuPtrOutput {
 }
 
 func (o AzureSkuOutput) ToAzureSkuPtrOutputWithContext(ctx context.Context) AzureSkuPtrOutput {
-	return o.ApplyT(func(v AzureSku) *AzureSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSku) *AzureSku {
 		return &v
 	}).(AzureSkuPtrOutput)
 }
 
-// SKU capacity.
 func (o AzureSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// SKU name.
 func (o AzureSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// SKU tier.
 func (o AzureSkuOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSku) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -146,10 +137,15 @@ func (o AzureSkuPtrOutput) ToAzureSkuPtrOutputWithContext(ctx context.Context) A
 }
 
 func (o AzureSkuPtrOutput) Elem() AzureSkuOutput {
-	return o.ApplyT(func(v *AzureSku) AzureSku { return *v }).(AzureSkuOutput)
+	return o.ApplyT(func(v *AzureSku) AzureSku {
+		if v != nil {
+			return *v
+		}
+		var ret AzureSku
+		return ret
+	}).(AzureSkuOutput)
 }
 
-// SKU capacity.
 func (o AzureSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureSku) *int {
 		if v == nil {
@@ -159,7 +155,6 @@ func (o AzureSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// SKU name.
 func (o AzureSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSku) *string {
 		if v == nil {
@@ -169,7 +164,6 @@ func (o AzureSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU tier.
 func (o AzureSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSku) *string {
 		if v == nil {
@@ -180,12 +174,9 @@ func (o AzureSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type AzureSkuResponse struct {
-	// SKU capacity.
-	Capacity *int `pulumi:"capacity"`
-	// SKU name.
-	Name string `pulumi:"name"`
-	// SKU tier.
-	Tier string `pulumi:"tier"`
+	Capacity *int   `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
+	Tier     string `pulumi:"tier"`
 }
 
 // AzureSkuResponseInput is an input type that accepts AzureSkuResponseArgs and AzureSkuResponseOutput values.
@@ -200,12 +191,9 @@ type AzureSkuResponseInput interface {
 }
 
 type AzureSkuResponseArgs struct {
-	// SKU capacity.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// SKU name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// SKU tier.
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Name     pulumi.StringInput `pulumi:"name"`
+	Tier     pulumi.StringInput `pulumi:"tier"`
 }
 
 func (AzureSkuResponseArgs) ElementType() reflect.Type {
@@ -280,22 +268,19 @@ func (o AzureSkuResponseOutput) ToAzureSkuResponsePtrOutput() AzureSkuResponsePt
 }
 
 func (o AzureSkuResponseOutput) ToAzureSkuResponsePtrOutputWithContext(ctx context.Context) AzureSkuResponsePtrOutput {
-	return o.ApplyT(func(v AzureSkuResponse) *AzureSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSkuResponse) *AzureSkuResponse {
 		return &v
 	}).(AzureSkuResponsePtrOutput)
 }
 
-// SKU capacity.
 func (o AzureSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// SKU name.
 func (o AzureSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// SKU tier.
 func (o AzureSkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -315,10 +300,15 @@ func (o AzureSkuResponsePtrOutput) ToAzureSkuResponsePtrOutputWithContext(ctx co
 }
 
 func (o AzureSkuResponsePtrOutput) Elem() AzureSkuResponseOutput {
-	return o.ApplyT(func(v *AzureSkuResponse) AzureSkuResponse { return *v }).(AzureSkuResponseOutput)
+	return o.ApplyT(func(v *AzureSkuResponse) AzureSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureSkuResponse
+		return ret
+	}).(AzureSkuResponseOutput)
 }
 
-// SKU capacity.
 func (o AzureSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureSkuResponse) *int {
 		if v == nil {
@@ -328,7 +318,6 @@ func (o AzureSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// SKU name.
 func (o AzureSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSkuResponse) *string {
 		if v == nil {
@@ -338,7 +327,6 @@ func (o AzureSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU tier.
 func (o AzureSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSkuResponse) *string {
 		if v == nil {
@@ -349,18 +337,12 @@ func (o AzureSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type DatabasePrincipalResponse struct {
-	// Application id - relevant only for application principal type.
 	AppId *string `pulumi:"appId"`
-	// Database principal email if exists.
 	Email *string `pulumi:"email"`
-	// Database principal fully qualified name.
-	Fqn *string `pulumi:"fqn"`
-	// Database principal name.
-	Name string `pulumi:"name"`
-	// Database principal role.
-	Role string `pulumi:"role"`
-	// Database principal type.
-	Type string `pulumi:"type"`
+	Fqn   *string `pulumi:"fqn"`
+	Name  string  `pulumi:"name"`
+	Role  string  `pulumi:"role"`
+	Type  string  `pulumi:"type"`
 }
 
 // DatabasePrincipalResponseInput is an input type that accepts DatabasePrincipalResponseArgs and DatabasePrincipalResponseOutput values.
@@ -375,18 +357,12 @@ type DatabasePrincipalResponseInput interface {
 }
 
 type DatabasePrincipalResponseArgs struct {
-	// Application id - relevant only for application principal type.
 	AppId pulumi.StringPtrInput `pulumi:"appId"`
-	// Database principal email if exists.
 	Email pulumi.StringPtrInput `pulumi:"email"`
-	// Database principal fully qualified name.
-	Fqn pulumi.StringPtrInput `pulumi:"fqn"`
-	// Database principal name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Database principal role.
-	Role pulumi.StringInput `pulumi:"role"`
-	// Database principal type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Fqn   pulumi.StringPtrInput `pulumi:"fqn"`
+	Name  pulumi.StringInput    `pulumi:"name"`
+	Role  pulumi.StringInput    `pulumi:"role"`
+	Type  pulumi.StringInput    `pulumi:"type"`
 }
 
 func (DatabasePrincipalResponseArgs) ElementType() reflect.Type {
@@ -440,32 +416,26 @@ func (o DatabasePrincipalResponseOutput) ToDatabasePrincipalResponseOutputWithCo
 	return o
 }
 
-// Application id - relevant only for application principal type.
 func (o DatabasePrincipalResponseOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabasePrincipalResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-// Database principal email if exists.
 func (o DatabasePrincipalResponseOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabasePrincipalResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// Database principal fully qualified name.
 func (o DatabasePrincipalResponseOutput) Fqn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabasePrincipalResponse) *string { return v.Fqn }).(pulumi.StringPtrOutput)
 }
 
-// Database principal name.
 func (o DatabasePrincipalResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabasePrincipalResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Database principal role.
 func (o DatabasePrincipalResponseOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabasePrincipalResponse) string { return v.Role }).(pulumi.StringOutput)
 }
 
-// Database principal type.
 func (o DatabasePrincipalResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabasePrincipalResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -491,7 +461,6 @@ func (o DatabasePrincipalResponseArrayOutput) Index(i pulumi.IntInput) DatabaseP
 }
 
 type DatabaseStatisticsResponse struct {
-	// The database size - the total size of compressed data and index in bytes.
 	Size *float64 `pulumi:"size"`
 }
 
@@ -507,7 +476,6 @@ type DatabaseStatisticsResponseInput interface {
 }
 
 type DatabaseStatisticsResponseArgs struct {
-	// The database size - the total size of compressed data and index in bytes.
 	Size pulumi.Float64PtrInput `pulumi:"size"`
 }
 
@@ -583,12 +551,11 @@ func (o DatabaseStatisticsResponseOutput) ToDatabaseStatisticsResponsePtrOutput(
 }
 
 func (o DatabaseStatisticsResponseOutput) ToDatabaseStatisticsResponsePtrOutputWithContext(ctx context.Context) DatabaseStatisticsResponsePtrOutput {
-	return o.ApplyT(func(v DatabaseStatisticsResponse) *DatabaseStatisticsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseStatisticsResponse) *DatabaseStatisticsResponse {
 		return &v
 	}).(DatabaseStatisticsResponsePtrOutput)
 }
 
-// The database size - the total size of compressed data and index in bytes.
 func (o DatabaseStatisticsResponseOutput) Size() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DatabaseStatisticsResponse) *float64 { return v.Size }).(pulumi.Float64PtrOutput)
 }
@@ -608,10 +575,15 @@ func (o DatabaseStatisticsResponsePtrOutput) ToDatabaseStatisticsResponsePtrOutp
 }
 
 func (o DatabaseStatisticsResponsePtrOutput) Elem() DatabaseStatisticsResponseOutput {
-	return o.ApplyT(func(v *DatabaseStatisticsResponse) DatabaseStatisticsResponse { return *v }).(DatabaseStatisticsResponseOutput)
+	return o.ApplyT(func(v *DatabaseStatisticsResponse) DatabaseStatisticsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseStatisticsResponse
+		return ret
+	}).(DatabaseStatisticsResponseOutput)
 }
 
-// The database size - the total size of compressed data and index in bytes.
 func (o DatabaseStatisticsResponsePtrOutput) Size() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DatabaseStatisticsResponse) *float64 {
 		if v == nil {
@@ -622,7 +594,6 @@ func (o DatabaseStatisticsResponsePtrOutput) Size() pulumi.Float64PtrOutput {
 }
 
 type TrustedExternalTenant struct {
-	// GUID representing an external tenant.
 	Value *string `pulumi:"value"`
 }
 
@@ -638,7 +609,6 @@ type TrustedExternalTenantInput interface {
 }
 
 type TrustedExternalTenantArgs struct {
-	// GUID representing an external tenant.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -693,7 +663,6 @@ func (o TrustedExternalTenantOutput) ToTrustedExternalTenantOutputWithContext(ct
 	return o
 }
 
-// GUID representing an external tenant.
 func (o TrustedExternalTenantOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustedExternalTenant) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -719,7 +688,6 @@ func (o TrustedExternalTenantArrayOutput) Index(i pulumi.IntInput) TrustedExtern
 }
 
 type TrustedExternalTenantResponse struct {
-	// GUID representing an external tenant.
 	Value *string `pulumi:"value"`
 }
 
@@ -735,7 +703,6 @@ type TrustedExternalTenantResponseInput interface {
 }
 
 type TrustedExternalTenantResponseArgs struct {
-	// GUID representing an external tenant.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -790,7 +757,6 @@ func (o TrustedExternalTenantResponseOutput) ToTrustedExternalTenantResponseOutp
 	return o
 }
 
-// GUID representing an external tenant.
 func (o TrustedExternalTenantResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustedExternalTenantResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

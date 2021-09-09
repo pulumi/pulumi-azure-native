@@ -11,10 +11,8 @@ import (
 )
 
 type AccessControl struct {
-	// The behavior for IP access control in Key Delivery.
-	DefaultAction *string `pulumi:"defaultAction"`
-	// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
-	IpAllowList []string `pulumi:"ipAllowList"`
+	DefaultAction *string  `pulumi:"defaultAction"`
+	IpAllowList   []string `pulumi:"ipAllowList"`
 }
 
 // AccessControlInput is an input type that accepts AccessControlArgs and AccessControlOutput values.
@@ -29,10 +27,8 @@ type AccessControlInput interface {
 }
 
 type AccessControlArgs struct {
-	// The behavior for IP access control in Key Delivery.
-	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
-	// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
-	IpAllowList pulumi.StringArrayInput `pulumi:"ipAllowList"`
+	DefaultAction pulumi.StringPtrInput   `pulumi:"defaultAction"`
+	IpAllowList   pulumi.StringArrayInput `pulumi:"ipAllowList"`
 }
 
 func (AccessControlArgs) ElementType() reflect.Type {
@@ -107,17 +103,15 @@ func (o AccessControlOutput) ToAccessControlPtrOutput() AccessControlPtrOutput {
 }
 
 func (o AccessControlOutput) ToAccessControlPtrOutputWithContext(ctx context.Context) AccessControlPtrOutput {
-	return o.ApplyT(func(v AccessControl) *AccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessControl) *AccessControl {
 		return &v
 	}).(AccessControlPtrOutput)
 }
 
-// The behavior for IP access control in Key Delivery.
 func (o AccessControlOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessControl) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
-// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
 func (o AccessControlOutput) IpAllowList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccessControl) []string { return v.IpAllowList }).(pulumi.StringArrayOutput)
 }
@@ -137,10 +131,15 @@ func (o AccessControlPtrOutput) ToAccessControlPtrOutputWithContext(ctx context.
 }
 
 func (o AccessControlPtrOutput) Elem() AccessControlOutput {
-	return o.ApplyT(func(v *AccessControl) AccessControl { return *v }).(AccessControlOutput)
+	return o.ApplyT(func(v *AccessControl) AccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret AccessControl
+		return ret
+	}).(AccessControlOutput)
 }
 
-// The behavior for IP access control in Key Delivery.
 func (o AccessControlPtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessControl) *string {
 		if v == nil {
@@ -150,7 +149,6 @@ func (o AccessControlPtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
 func (o AccessControlPtrOutput) IpAllowList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccessControl) []string {
 		if v == nil {
@@ -161,10 +159,8 @@ func (o AccessControlPtrOutput) IpAllowList() pulumi.StringArrayOutput {
 }
 
 type AccessControlResponse struct {
-	// The behavior for IP access control in Key Delivery.
-	DefaultAction *string `pulumi:"defaultAction"`
-	// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
-	IpAllowList []string `pulumi:"ipAllowList"`
+	DefaultAction *string  `pulumi:"defaultAction"`
+	IpAllowList   []string `pulumi:"ipAllowList"`
 }
 
 // AccessControlResponseInput is an input type that accepts AccessControlResponseArgs and AccessControlResponseOutput values.
@@ -179,10 +175,8 @@ type AccessControlResponseInput interface {
 }
 
 type AccessControlResponseArgs struct {
-	// The behavior for IP access control in Key Delivery.
-	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
-	// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
-	IpAllowList pulumi.StringArrayInput `pulumi:"ipAllowList"`
+	DefaultAction pulumi.StringPtrInput   `pulumi:"defaultAction"`
+	IpAllowList   pulumi.StringArrayInput `pulumi:"ipAllowList"`
 }
 
 func (AccessControlResponseArgs) ElementType() reflect.Type {
@@ -257,17 +251,15 @@ func (o AccessControlResponseOutput) ToAccessControlResponsePtrOutput() AccessCo
 }
 
 func (o AccessControlResponseOutput) ToAccessControlResponsePtrOutputWithContext(ctx context.Context) AccessControlResponsePtrOutput {
-	return o.ApplyT(func(v AccessControlResponse) *AccessControlResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessControlResponse) *AccessControlResponse {
 		return &v
 	}).(AccessControlResponsePtrOutput)
 }
 
-// The behavior for IP access control in Key Delivery.
 func (o AccessControlResponseOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessControlResponse) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
-// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
 func (o AccessControlResponseOutput) IpAllowList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccessControlResponse) []string { return v.IpAllowList }).(pulumi.StringArrayOutput)
 }
@@ -287,10 +279,15 @@ func (o AccessControlResponsePtrOutput) ToAccessControlResponsePtrOutputWithCont
 }
 
 func (o AccessControlResponsePtrOutput) Elem() AccessControlResponseOutput {
-	return o.ApplyT(func(v *AccessControlResponse) AccessControlResponse { return *v }).(AccessControlResponseOutput)
+	return o.ApplyT(func(v *AccessControlResponse) AccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AccessControlResponse
+		return ret
+	}).(AccessControlResponseOutput)
 }
 
-// The behavior for IP access control in Key Delivery.
 func (o AccessControlResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessControlResponse) *string {
 		if v == nil {
@@ -300,7 +297,6 @@ func (o AccessControlResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
 func (o AccessControlResponsePtrOutput) IpAllowList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccessControlResponse) []string {
 		if v == nil {
@@ -311,10 +307,8 @@ func (o AccessControlResponsePtrOutput) IpAllowList() pulumi.StringArrayOutput {
 }
 
 type AccountEncryption struct {
-	// The properties of the key used to encrypt the account.
 	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
-	// The type of key used to encrypt the Account Key.
-	Type string `pulumi:"type"`
+	Type               string              `pulumi:"type"`
 }
 
 // AccountEncryptionInput is an input type that accepts AccountEncryptionArgs and AccountEncryptionOutput values.
@@ -329,10 +323,8 @@ type AccountEncryptionInput interface {
 }
 
 type AccountEncryptionArgs struct {
-	// The properties of the key used to encrypt the account.
 	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
-	// The type of key used to encrypt the Account Key.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type               pulumi.StringInput         `pulumi:"type"`
 }
 
 func (AccountEncryptionArgs) ElementType() reflect.Type {
@@ -407,17 +399,15 @@ func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutput() AccountEncryptio
 }
 
 func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
-	return o.ApplyT(func(v AccountEncryption) *AccountEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryption) *AccountEncryption {
 		return &v
 	}).(AccountEncryptionPtrOutput)
 }
 
-// The properties of the key used to encrypt the account.
 func (o AccountEncryptionOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v AccountEncryption) *KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesPtrOutput)
 }
 
-// The type of key used to encrypt the Account Key.
 func (o AccountEncryptionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountEncryption) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -437,10 +427,15 @@ func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutputWithContext(ctx 
 }
 
 func (o AccountEncryptionPtrOutput) Elem() AccountEncryptionOutput {
-	return o.ApplyT(func(v *AccountEncryption) AccountEncryption { return *v }).(AccountEncryptionOutput)
+	return o.ApplyT(func(v *AccountEncryption) AccountEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret AccountEncryption
+		return ret
+	}).(AccountEncryptionOutput)
 }
 
-// The properties of the key used to encrypt the account.
 func (o AccountEncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v *AccountEncryption) *KeyVaultProperties {
 		if v == nil {
@@ -450,7 +445,6 @@ func (o AccountEncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOu
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// The type of key used to encrypt the Account Key.
 func (o AccountEncryptionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountEncryption) *string {
 		if v == nil {
@@ -461,10 +455,8 @@ func (o AccountEncryptionPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type AccountEncryptionResponse struct {
-	// The properties of the key used to encrypt the account.
 	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
-	// The type of key used to encrypt the Account Key.
-	Type string `pulumi:"type"`
+	Type               string                      `pulumi:"type"`
 }
 
 // AccountEncryptionResponseInput is an input type that accepts AccountEncryptionResponseArgs and AccountEncryptionResponseOutput values.
@@ -479,10 +471,8 @@ type AccountEncryptionResponseInput interface {
 }
 
 type AccountEncryptionResponseArgs struct {
-	// The properties of the key used to encrypt the account.
 	KeyVaultProperties KeyVaultPropertiesResponsePtrInput `pulumi:"keyVaultProperties"`
-	// The type of key used to encrypt the Account Key.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type               pulumi.StringInput                 `pulumi:"type"`
 }
 
 func (AccountEncryptionResponseArgs) ElementType() reflect.Type {
@@ -557,17 +547,15 @@ func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponsePtrOutput() 
 }
 
 func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponsePtrOutputWithContext(ctx context.Context) AccountEncryptionResponsePtrOutput {
-	return o.ApplyT(func(v AccountEncryptionResponse) *AccountEncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryptionResponse) *AccountEncryptionResponse {
 		return &v
 	}).(AccountEncryptionResponsePtrOutput)
 }
 
-// The properties of the key used to encrypt the account.
 func (o AccountEncryptionResponseOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v AccountEncryptionResponse) *KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// The type of key used to encrypt the Account Key.
 func (o AccountEncryptionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountEncryptionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -587,10 +575,15 @@ func (o AccountEncryptionResponsePtrOutput) ToAccountEncryptionResponsePtrOutput
 }
 
 func (o AccountEncryptionResponsePtrOutput) Elem() AccountEncryptionResponseOutput {
-	return o.ApplyT(func(v *AccountEncryptionResponse) AccountEncryptionResponse { return *v }).(AccountEncryptionResponseOutput)
+	return o.ApplyT(func(v *AccountEncryptionResponse) AccountEncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AccountEncryptionResponse
+		return ret
+	}).(AccountEncryptionResponseOutput)
 }
 
-// The properties of the key used to encrypt the account.
 func (o AccountEncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *AccountEncryptionResponse) *KeyVaultPropertiesResponse {
 		if v == nil {
@@ -600,7 +593,6 @@ func (o AccountEncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropert
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// The type of key used to encrypt the Account Key.
 func (o AccountEncryptionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountEncryptionResponse) *string {
 		if v == nil {
@@ -611,14 +603,10 @@ func (o AccountEncryptionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type EdgeUsageDataCollectionPolicyResponse struct {
-	// Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H.
-	DataCollectionFrequency *string `pulumi:"dataCollectionFrequency"`
-	// Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H.
-	DataReportingFrequency *string `pulumi:"dataReportingFrequency"`
-	// Details of Event Hub where the usage will be reported.
-	EventHubDetails *EdgeUsageDataEventHubResponse `pulumi:"eventHubDetails"`
-	// Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
-	MaxAllowedUnreportedUsageDuration *string `pulumi:"maxAllowedUnreportedUsageDuration"`
+	DataCollectionFrequency           *string                        `pulumi:"dataCollectionFrequency"`
+	DataReportingFrequency            *string                        `pulumi:"dataReportingFrequency"`
+	EventHubDetails                   *EdgeUsageDataEventHubResponse `pulumi:"eventHubDetails"`
+	MaxAllowedUnreportedUsageDuration *string                        `pulumi:"maxAllowedUnreportedUsageDuration"`
 }
 
 // EdgeUsageDataCollectionPolicyResponseInput is an input type that accepts EdgeUsageDataCollectionPolicyResponseArgs and EdgeUsageDataCollectionPolicyResponseOutput values.
@@ -633,14 +621,10 @@ type EdgeUsageDataCollectionPolicyResponseInput interface {
 }
 
 type EdgeUsageDataCollectionPolicyResponseArgs struct {
-	// Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H.
-	DataCollectionFrequency pulumi.StringPtrInput `pulumi:"dataCollectionFrequency"`
-	// Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H.
-	DataReportingFrequency pulumi.StringPtrInput `pulumi:"dataReportingFrequency"`
-	// Details of Event Hub where the usage will be reported.
-	EventHubDetails EdgeUsageDataEventHubResponsePtrInput `pulumi:"eventHubDetails"`
-	// Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
-	MaxAllowedUnreportedUsageDuration pulumi.StringPtrInput `pulumi:"maxAllowedUnreportedUsageDuration"`
+	DataCollectionFrequency           pulumi.StringPtrInput                 `pulumi:"dataCollectionFrequency"`
+	DataReportingFrequency            pulumi.StringPtrInput                 `pulumi:"dataReportingFrequency"`
+	EventHubDetails                   EdgeUsageDataEventHubResponsePtrInput `pulumi:"eventHubDetails"`
+	MaxAllowedUnreportedUsageDuration pulumi.StringPtrInput                 `pulumi:"maxAllowedUnreportedUsageDuration"`
 }
 
 func (EdgeUsageDataCollectionPolicyResponseArgs) ElementType() reflect.Type {
@@ -669,33 +653,26 @@ func (o EdgeUsageDataCollectionPolicyResponseOutput) ToEdgeUsageDataCollectionPo
 	return o
 }
 
-// Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H.
 func (o EdgeUsageDataCollectionPolicyResponseOutput) DataCollectionFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *string { return v.DataCollectionFrequency }).(pulumi.StringPtrOutput)
 }
 
-// Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H.
 func (o EdgeUsageDataCollectionPolicyResponseOutput) DataReportingFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *string { return v.DataReportingFrequency }).(pulumi.StringPtrOutput)
 }
 
-// Details of Event Hub where the usage will be reported.
 func (o EdgeUsageDataCollectionPolicyResponseOutput) EventHubDetails() EdgeUsageDataEventHubResponsePtrOutput {
 	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *EdgeUsageDataEventHubResponse { return v.EventHubDetails }).(EdgeUsageDataEventHubResponsePtrOutput)
 }
 
-// Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
 func (o EdgeUsageDataCollectionPolicyResponseOutput) MaxAllowedUnreportedUsageDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *string { return v.MaxAllowedUnreportedUsageDuration }).(pulumi.StringPtrOutput)
 }
 
 type EdgeUsageDataEventHubResponse struct {
-	// Name of the Event Hub where usage will be reported.
-	Name *string `pulumi:"name"`
-	// Namespace of the Event Hub where usage will be reported.
+	Name      *string `pulumi:"name"`
 	Namespace *string `pulumi:"namespace"`
-	// SAS token needed to interact with Event Hub.
-	Token *string `pulumi:"token"`
+	Token     *string `pulumi:"token"`
 }
 
 // EdgeUsageDataEventHubResponseInput is an input type that accepts EdgeUsageDataEventHubResponseArgs and EdgeUsageDataEventHubResponseOutput values.
@@ -710,12 +687,9 @@ type EdgeUsageDataEventHubResponseInput interface {
 }
 
 type EdgeUsageDataEventHubResponseArgs struct {
-	// Name of the Event Hub where usage will be reported.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Namespace of the Event Hub where usage will be reported.
+	Name      pulumi.StringPtrInput `pulumi:"name"`
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	// SAS token needed to interact with Event Hub.
-	Token pulumi.StringPtrInput `pulumi:"token"`
+	Token     pulumi.StringPtrInput `pulumi:"token"`
 }
 
 func (EdgeUsageDataEventHubResponseArgs) ElementType() reflect.Type {
@@ -790,22 +764,19 @@ func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponsePtrO
 }
 
 func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponsePtrOutput {
-	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *EdgeUsageDataEventHubResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdgeUsageDataEventHubResponse) *EdgeUsageDataEventHubResponse {
 		return &v
 	}).(EdgeUsageDataEventHubResponsePtrOutput)
 }
 
-// Name of the Event Hub where usage will be reported.
 func (o EdgeUsageDataEventHubResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Namespace of the Event Hub where usage will be reported.
 func (o EdgeUsageDataEventHubResponseOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// SAS token needed to interact with Event Hub.
 func (o EdgeUsageDataEventHubResponseOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
@@ -825,10 +796,15 @@ func (o EdgeUsageDataEventHubResponsePtrOutput) ToEdgeUsageDataEventHubResponseP
 }
 
 func (o EdgeUsageDataEventHubResponsePtrOutput) Elem() EdgeUsageDataEventHubResponseOutput {
-	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) EdgeUsageDataEventHubResponse { return *v }).(EdgeUsageDataEventHubResponseOutput)
+	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) EdgeUsageDataEventHubResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdgeUsageDataEventHubResponse
+		return ret
+	}).(EdgeUsageDataEventHubResponseOutput)
 }
 
-// Name of the Event Hub where usage will be reported.
 func (o EdgeUsageDataEventHubResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) *string {
 		if v == nil {
@@ -838,7 +814,6 @@ func (o EdgeUsageDataEventHubResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Namespace of the Event Hub where usage will be reported.
 func (o EdgeUsageDataEventHubResponsePtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) *string {
 		if v == nil {
@@ -848,7 +823,6 @@ func (o EdgeUsageDataEventHubResponsePtrOutput) Namespace() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// SAS token needed to interact with Event Hub.
 func (o EdgeUsageDataEventHubResponsePtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) *string {
 		if v == nil {
@@ -859,7 +833,6 @@ func (o EdgeUsageDataEventHubResponsePtrOutput) Token() pulumi.StringPtrOutput {
 }
 
 type KeyDelivery struct {
-	// The access control properties for Key Delivery.
 	AccessControl *AccessControl `pulumi:"accessControl"`
 }
 
@@ -875,7 +848,6 @@ type KeyDeliveryInput interface {
 }
 
 type KeyDeliveryArgs struct {
-	// The access control properties for Key Delivery.
 	AccessControl AccessControlPtrInput `pulumi:"accessControl"`
 }
 
@@ -951,12 +923,11 @@ func (o KeyDeliveryOutput) ToKeyDeliveryPtrOutput() KeyDeliveryPtrOutput {
 }
 
 func (o KeyDeliveryOutput) ToKeyDeliveryPtrOutputWithContext(ctx context.Context) KeyDeliveryPtrOutput {
-	return o.ApplyT(func(v KeyDelivery) *KeyDelivery {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyDelivery) *KeyDelivery {
 		return &v
 	}).(KeyDeliveryPtrOutput)
 }
 
-// The access control properties for Key Delivery.
 func (o KeyDeliveryOutput) AccessControl() AccessControlPtrOutput {
 	return o.ApplyT(func(v KeyDelivery) *AccessControl { return v.AccessControl }).(AccessControlPtrOutput)
 }
@@ -976,10 +947,15 @@ func (o KeyDeliveryPtrOutput) ToKeyDeliveryPtrOutputWithContext(ctx context.Cont
 }
 
 func (o KeyDeliveryPtrOutput) Elem() KeyDeliveryOutput {
-	return o.ApplyT(func(v *KeyDelivery) KeyDelivery { return *v }).(KeyDeliveryOutput)
+	return o.ApplyT(func(v *KeyDelivery) KeyDelivery {
+		if v != nil {
+			return *v
+		}
+		var ret KeyDelivery
+		return ret
+	}).(KeyDeliveryOutput)
 }
 
-// The access control properties for Key Delivery.
 func (o KeyDeliveryPtrOutput) AccessControl() AccessControlPtrOutput {
 	return o.ApplyT(func(v *KeyDelivery) *AccessControl {
 		if v == nil {
@@ -990,7 +966,6 @@ func (o KeyDeliveryPtrOutput) AccessControl() AccessControlPtrOutput {
 }
 
 type KeyDeliveryResponse struct {
-	// The access control properties for Key Delivery.
 	AccessControl *AccessControlResponse `pulumi:"accessControl"`
 }
 
@@ -1006,7 +981,6 @@ type KeyDeliveryResponseInput interface {
 }
 
 type KeyDeliveryResponseArgs struct {
-	// The access control properties for Key Delivery.
 	AccessControl AccessControlResponsePtrInput `pulumi:"accessControl"`
 }
 
@@ -1082,12 +1056,11 @@ func (o KeyDeliveryResponseOutput) ToKeyDeliveryResponsePtrOutput() KeyDeliveryR
 }
 
 func (o KeyDeliveryResponseOutput) ToKeyDeliveryResponsePtrOutputWithContext(ctx context.Context) KeyDeliveryResponsePtrOutput {
-	return o.ApplyT(func(v KeyDeliveryResponse) *KeyDeliveryResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyDeliveryResponse) *KeyDeliveryResponse {
 		return &v
 	}).(KeyDeliveryResponsePtrOutput)
 }
 
-// The access control properties for Key Delivery.
 func (o KeyDeliveryResponseOutput) AccessControl() AccessControlResponsePtrOutput {
 	return o.ApplyT(func(v KeyDeliveryResponse) *AccessControlResponse { return v.AccessControl }).(AccessControlResponsePtrOutput)
 }
@@ -1107,10 +1080,15 @@ func (o KeyDeliveryResponsePtrOutput) ToKeyDeliveryResponsePtrOutputWithContext(
 }
 
 func (o KeyDeliveryResponsePtrOutput) Elem() KeyDeliveryResponseOutput {
-	return o.ApplyT(func(v *KeyDeliveryResponse) KeyDeliveryResponse { return *v }).(KeyDeliveryResponseOutput)
+	return o.ApplyT(func(v *KeyDeliveryResponse) KeyDeliveryResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyDeliveryResponse
+		return ret
+	}).(KeyDeliveryResponseOutput)
 }
 
-// The access control properties for Key Delivery.
 func (o KeyDeliveryResponsePtrOutput) AccessControl() AccessControlResponsePtrOutput {
 	return o.ApplyT(func(v *KeyDeliveryResponse) *AccessControlResponse {
 		if v == nil {
@@ -1121,7 +1099,6 @@ func (o KeyDeliveryResponsePtrOutput) AccessControl() AccessControlResponsePtrOu
 }
 
 type KeyVaultProperties struct {
-	// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
 	KeyIdentifier *string `pulumi:"keyIdentifier"`
 }
 
@@ -1137,7 +1114,6 @@ type KeyVaultPropertiesInput interface {
 }
 
 type KeyVaultPropertiesArgs struct {
-	// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
 	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
 }
 
@@ -1213,12 +1189,11 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultProper
 }
 
 func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
 		return &v
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
 func (o KeyVaultPropertiesOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -1238,10 +1213,15 @@ func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ct
 }
 
 func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultProperties
+		return ret
+	}).(KeyVaultPropertiesOutput)
 }
 
-// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
 func (o KeyVaultPropertiesPtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -1252,10 +1232,8 @@ func (o KeyVaultPropertiesPtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
 }
 
 type KeyVaultPropertiesResponse struct {
-	// The current key used to encrypt the Media Services account, including the key version.
-	CurrentKeyIdentifier string `pulumi:"currentKeyIdentifier"`
-	// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-	KeyIdentifier *string `pulumi:"keyIdentifier"`
+	CurrentKeyIdentifier string  `pulumi:"currentKeyIdentifier"`
+	KeyIdentifier        *string `pulumi:"keyIdentifier"`
 }
 
 // KeyVaultPropertiesResponseInput is an input type that accepts KeyVaultPropertiesResponseArgs and KeyVaultPropertiesResponseOutput values.
@@ -1270,10 +1248,8 @@ type KeyVaultPropertiesResponseInput interface {
 }
 
 type KeyVaultPropertiesResponseArgs struct {
-	// The current key used to encrypt the Media Services account, including the key version.
-	CurrentKeyIdentifier pulumi.StringInput `pulumi:"currentKeyIdentifier"`
-	// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
+	CurrentKeyIdentifier pulumi.StringInput    `pulumi:"currentKeyIdentifier"`
+	KeyIdentifier        pulumi.StringPtrInput `pulumi:"keyIdentifier"`
 }
 
 func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1348,17 +1324,15 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput(
 }
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
 		return &v
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// The current key used to encrypt the Media Services account, including the key version.
 func (o KeyVaultPropertiesResponseOutput) CurrentKeyIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.CurrentKeyIdentifier }).(pulumi.StringOutput)
 }
 
-// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
 func (o KeyVaultPropertiesResponseOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -1378,10 +1352,15 @@ func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutp
 }
 
 func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultPropertiesResponse
+		return ret
+	}).(KeyVaultPropertiesResponseOutput)
 }
 
-// The current key used to encrypt the Media Services account, including the key version.
 func (o KeyVaultPropertiesResponsePtrOutput) CurrentKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -1391,7 +1370,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) CurrentKeyIdentifier() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
 func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -1402,7 +1380,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOut
 }
 
 type MediaServiceIdentity struct {
-	// The identity type.
 	Type string `pulumi:"type"`
 }
 
@@ -1418,7 +1395,6 @@ type MediaServiceIdentityInput interface {
 }
 
 type MediaServiceIdentityArgs struct {
-	// The identity type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1494,12 +1470,11 @@ func (o MediaServiceIdentityOutput) ToMediaServiceIdentityPtrOutput() MediaServi
 }
 
 func (o MediaServiceIdentityOutput) ToMediaServiceIdentityPtrOutputWithContext(ctx context.Context) MediaServiceIdentityPtrOutput {
-	return o.ApplyT(func(v MediaServiceIdentity) *MediaServiceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaServiceIdentity) *MediaServiceIdentity {
 		return &v
 	}).(MediaServiceIdentityPtrOutput)
 }
 
-// The identity type.
 func (o MediaServiceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1519,10 +1494,15 @@ func (o MediaServiceIdentityPtrOutput) ToMediaServiceIdentityPtrOutputWithContex
 }
 
 func (o MediaServiceIdentityPtrOutput) Elem() MediaServiceIdentityOutput {
-	return o.ApplyT(func(v *MediaServiceIdentity) MediaServiceIdentity { return *v }).(MediaServiceIdentityOutput)
+	return o.ApplyT(func(v *MediaServiceIdentity) MediaServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret MediaServiceIdentity
+		return ret
+	}).(MediaServiceIdentityOutput)
 }
 
-// The identity type.
 func (o MediaServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaServiceIdentity) *string {
 		if v == nil {
@@ -1533,12 +1513,9 @@ func (o MediaServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type MediaServiceIdentityResponse struct {
-	// The Principal ID of the identity.
 	PrincipalId string `pulumi:"principalId"`
-	// The Tenant ID of the identity.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type string `pulumi:"type"`
+	TenantId    string `pulumi:"tenantId"`
+	Type        string `pulumi:"type"`
 }
 
 // MediaServiceIdentityResponseInput is an input type that accepts MediaServiceIdentityResponseArgs and MediaServiceIdentityResponseOutput values.
@@ -1553,12 +1530,9 @@ type MediaServiceIdentityResponseInput interface {
 }
 
 type MediaServiceIdentityResponseArgs struct {
-	// The Principal ID of the identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The Tenant ID of the identity.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringInput `pulumi:"type"`
+	TenantId    pulumi.StringInput `pulumi:"tenantId"`
+	Type        pulumi.StringInput `pulumi:"type"`
 }
 
 func (MediaServiceIdentityResponseArgs) ElementType() reflect.Type {
@@ -1633,22 +1607,19 @@ func (o MediaServiceIdentityResponseOutput) ToMediaServiceIdentityResponsePtrOut
 }
 
 func (o MediaServiceIdentityResponseOutput) ToMediaServiceIdentityResponsePtrOutputWithContext(ctx context.Context) MediaServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v MediaServiceIdentityResponse) *MediaServiceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaServiceIdentityResponse) *MediaServiceIdentityResponse {
 		return &v
 	}).(MediaServiceIdentityResponsePtrOutput)
 }
 
-// The Principal ID of the identity.
 func (o MediaServiceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaServiceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The Tenant ID of the identity.
 func (o MediaServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaServiceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
 func (o MediaServiceIdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaServiceIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1668,10 +1639,15 @@ func (o MediaServiceIdentityResponsePtrOutput) ToMediaServiceIdentityResponsePtr
 }
 
 func (o MediaServiceIdentityResponsePtrOutput) Elem() MediaServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *MediaServiceIdentityResponse) MediaServiceIdentityResponse { return *v }).(MediaServiceIdentityResponseOutput)
+	return o.ApplyT(func(v *MediaServiceIdentityResponse) MediaServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MediaServiceIdentityResponse
+		return ret
+	}).(MediaServiceIdentityResponseOutput)
 }
 
-// The Principal ID of the identity.
 func (o MediaServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaServiceIdentityResponse) *string {
 		if v == nil {
@@ -1681,7 +1657,6 @@ func (o MediaServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID of the identity.
 func (o MediaServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaServiceIdentityResponse) *string {
 		if v == nil {
@@ -1691,7 +1666,6 @@ func (o MediaServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o MediaServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaServiceIdentityResponse) *string {
 		if v == nil {
@@ -1701,9 +1675,7 @@ func (o MediaServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponse struct {
-	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
 }
 
@@ -1718,9 +1690,7 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseArgs struct {
-	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -1777,7 +1747,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -1797,12 +1766,11 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -1822,10 +1790,15 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -1835,14 +1808,10 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionState struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -1856,14 +1825,10 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -1919,7 +1884,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -1939,22 +1903,19 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1974,10 +1935,15 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1987,7 +1953,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1997,7 +1962,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -2007,14 +1971,10 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -2028,14 +1988,10 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -2091,7 +2047,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -2111,22 +2066,19 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -2147,11 +2099,14 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -2161,7 +2116,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -2171,7 +2125,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -2181,12 +2134,9 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage account details.
 type StorageAccount struct {
-	// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
-	Id *string `pulumi:"id"`
-	// The type of the storage account.
-	Type string `pulumi:"type"`
+	Id   *string `pulumi:"id"`
+	Type string  `pulumi:"type"`
 }
 
 // StorageAccountInput is an input type that accepts StorageAccountArgs and StorageAccountOutput values.
@@ -2200,12 +2150,9 @@ type StorageAccountInput interface {
 	ToStorageAccountOutputWithContext(context.Context) StorageAccountOutput
 }
 
-// The storage account details.
 type StorageAccountArgs struct {
-	// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The type of the storage account.
-	Type pulumi.StringInput `pulumi:"type"`
+	Id   pulumi.StringPtrInput `pulumi:"id"`
+	Type pulumi.StringInput    `pulumi:"type"`
 }
 
 func (StorageAccountArgs) ElementType() reflect.Type {
@@ -2245,7 +2192,6 @@ func (i StorageAccountArray) ToStorageAccountArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountArrayOutput)
 }
 
-// The storage account details.
 type StorageAccountOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountOutput) ElementType() reflect.Type {
@@ -2260,12 +2206,10 @@ func (o StorageAccountOutput) ToStorageAccountOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
 func (o StorageAccountOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The type of the storage account.
 func (o StorageAccountOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccount) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2290,12 +2234,9 @@ func (o StorageAccountArrayOutput) Index(i pulumi.IntInput) StorageAccountOutput
 	}).(StorageAccountOutput)
 }
 
-// The storage account details.
 type StorageAccountResponse struct {
-	// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
-	Id *string `pulumi:"id"`
-	// The type of the storage account.
-	Type string `pulumi:"type"`
+	Id   *string `pulumi:"id"`
+	Type string  `pulumi:"type"`
 }
 
 // StorageAccountResponseInput is an input type that accepts StorageAccountResponseArgs and StorageAccountResponseOutput values.
@@ -2309,12 +2250,9 @@ type StorageAccountResponseInput interface {
 	ToStorageAccountResponseOutputWithContext(context.Context) StorageAccountResponseOutput
 }
 
-// The storage account details.
 type StorageAccountResponseArgs struct {
-	// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The type of the storage account.
-	Type pulumi.StringInput `pulumi:"type"`
+	Id   pulumi.StringPtrInput `pulumi:"id"`
+	Type pulumi.StringInput    `pulumi:"type"`
 }
 
 func (StorageAccountResponseArgs) ElementType() reflect.Type {
@@ -2354,7 +2292,6 @@ func (i StorageAccountResponseArray) ToStorageAccountResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponseArrayOutput)
 }
 
-// The storage account details.
 type StorageAccountResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountResponseOutput) ElementType() reflect.Type {
@@ -2369,12 +2306,10 @@ func (o StorageAccountResponseOutput) ToStorageAccountResponseOutputWithContext(
 	return o
 }
 
-// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
 func (o StorageAccountResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccountResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The type of the storage account.
 func (o StorageAccountResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2399,19 +2334,12 @@ func (o StorageAccountResponseArrayOutput) Index(i pulumi.IntInput) StorageAccou
 	}).(StorageAccountResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -2426,19 +2354,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -2495,7 +2416,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -2515,37 +2435,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -2565,10 +2479,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2578,7 +2497,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2588,7 +2506,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2598,7 +2515,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2608,7 +2524,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2618,7 +2533,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

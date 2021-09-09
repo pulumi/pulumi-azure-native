@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The X509 Certificate.
 type DpsCertificate struct {
 	pulumi.CustomResourceState
 
-	// The entity tag.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The name of the certificate.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// properties of a certificate
+	Etag       pulumi.StringOutput                 `pulumi:"etag"`
+	Name       pulumi.StringOutput                 `pulumi:"name"`
 	Properties CertificatePropertiesResponseOutput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewDpsCertificate registers a new resource with the given unique name, arguments, and options.
@@ -112,30 +107,20 @@ func (DpsCertificateState) ElementType() reflect.Type {
 }
 
 type dpsCertificateArgs struct {
-	// Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
-	Certificate *string `pulumi:"certificate"`
-	// The name of the certificate create or update.
-	CertificateName *string `pulumi:"certificateName"`
-	// True indicates that the certificate will be created in verified state and proof of possession will not be required.
-	IsVerified *bool `pulumi:"isVerified"`
-	// The name of the provisioning service.
-	ProvisioningServiceName string `pulumi:"provisioningServiceName"`
-	// Resource group identifier.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Certificate             *string `pulumi:"certificate"`
+	CertificateName         *string `pulumi:"certificateName"`
+	IsVerified              *bool   `pulumi:"isVerified"`
+	ProvisioningServiceName string  `pulumi:"provisioningServiceName"`
+	ResourceGroupName       string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a DpsCertificate resource.
 type DpsCertificateArgs struct {
-	// Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
-	Certificate pulumi.StringPtrInput
-	// The name of the certificate create or update.
-	CertificateName pulumi.StringPtrInput
-	// True indicates that the certificate will be created in verified state and proof of possession will not be required.
-	IsVerified pulumi.BoolPtrInput
-	// The name of the provisioning service.
+	Certificate             pulumi.StringPtrInput
+	CertificateName         pulumi.StringPtrInput
+	IsVerified              pulumi.BoolPtrInput
 	ProvisioningServiceName pulumi.StringInput
-	// Resource group identifier.
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName       pulumi.StringInput
 }
 
 func (DpsCertificateArgs) ElementType() reflect.Type {
@@ -161,9 +146,7 @@ func (i *DpsCertificate) ToDpsCertificateOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DpsCertificateOutput)
 }
 
-type DpsCertificateOutput struct {
-	*pulumi.OutputState
-}
+type DpsCertificateOutput struct{ *pulumi.OutputState }
 
 func (DpsCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DpsCertificate)(nil))

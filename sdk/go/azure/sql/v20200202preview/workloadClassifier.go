@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Workload classifier operations for a data warehouse
 type WorkloadClassifier struct {
 	pulumi.CustomResourceState
 
-	// The workload classifier context.
-	Context pulumi.StringPtrOutput `pulumi:"context"`
-	// The workload classifier end time for classification.
-	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
-	// The workload classifier importance.
+	Context    pulumi.StringPtrOutput `pulumi:"context"`
+	EndTime    pulumi.StringPtrOutput `pulumi:"endTime"`
 	Importance pulumi.StringPtrOutput `pulumi:"importance"`
-	// The workload classifier label.
-	Label pulumi.StringPtrOutput `pulumi:"label"`
-	// The workload classifier member name.
-	MemberName pulumi.StringOutput `pulumi:"memberName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The workload classifier start time for classification.
-	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Label      pulumi.StringPtrOutput `pulumi:"label"`
+	MemberName pulumi.StringOutput    `pulumi:"memberName"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
+	StartTime  pulumi.StringPtrOutput `pulumi:"startTime"`
+	Type       pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewWorkloadClassifier registers a new resource with the given unique name, arguments, and options.
@@ -123,54 +114,32 @@ func (WorkloadClassifierState) ElementType() reflect.Type {
 }
 
 type workloadClassifierArgs struct {
-	// The workload classifier context.
-	Context *string `pulumi:"context"`
-	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The workload classifier end time for classification.
-	EndTime *string `pulumi:"endTime"`
-	// The workload classifier importance.
-	Importance *string `pulumi:"importance"`
-	// The workload classifier label.
-	Label *string `pulumi:"label"`
-	// The workload classifier member name.
-	MemberName string `pulumi:"memberName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The workload classifier start time for classification.
-	StartTime *string `pulumi:"startTime"`
-	// The name of the workload classifier to create/update.
+	Context                *string `pulumi:"context"`
+	DatabaseName           string  `pulumi:"databaseName"`
+	EndTime                *string `pulumi:"endTime"`
+	Importance             *string `pulumi:"importance"`
+	Label                  *string `pulumi:"label"`
+	MemberName             string  `pulumi:"memberName"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
+	ServerName             string  `pulumi:"serverName"`
+	StartTime              *string `pulumi:"startTime"`
 	WorkloadClassifierName *string `pulumi:"workloadClassifierName"`
-	// The name of the workload group from which to receive the classifier from.
-	WorkloadGroupName string `pulumi:"workloadGroupName"`
+	WorkloadGroupName      string  `pulumi:"workloadGroupName"`
 }
 
 // The set of arguments for constructing a WorkloadClassifier resource.
 type WorkloadClassifierArgs struct {
-	// The workload classifier context.
-	Context pulumi.StringPtrInput
-	// The name of the database.
-	DatabaseName pulumi.StringInput
-	// The workload classifier end time for classification.
-	EndTime pulumi.StringPtrInput
-	// The workload classifier importance.
-	Importance pulumi.StringPtrInput
-	// The workload classifier label.
-	Label pulumi.StringPtrInput
-	// The workload classifier member name.
-	MemberName pulumi.StringInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
-	// The workload classifier start time for classification.
-	StartTime pulumi.StringPtrInput
-	// The name of the workload classifier to create/update.
+	Context                pulumi.StringPtrInput
+	DatabaseName           pulumi.StringInput
+	EndTime                pulumi.StringPtrInput
+	Importance             pulumi.StringPtrInput
+	Label                  pulumi.StringPtrInput
+	MemberName             pulumi.StringInput
+	ResourceGroupName      pulumi.StringInput
+	ServerName             pulumi.StringInput
+	StartTime              pulumi.StringPtrInput
 	WorkloadClassifierName pulumi.StringPtrInput
-	// The name of the workload group from which to receive the classifier from.
-	WorkloadGroupName pulumi.StringInput
+	WorkloadGroupName      pulumi.StringInput
 }
 
 func (WorkloadClassifierArgs) ElementType() reflect.Type {
@@ -196,9 +165,7 @@ func (i *WorkloadClassifier) ToWorkloadClassifierOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadClassifierOutput)
 }
 
-type WorkloadClassifierOutput struct {
-	*pulumi.OutputState
-}
+type WorkloadClassifierOutput struct{ *pulumi.OutputState }
 
 func (WorkloadClassifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadClassifier)(nil))

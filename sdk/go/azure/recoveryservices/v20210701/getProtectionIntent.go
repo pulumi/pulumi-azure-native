@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Base class for backup ProtectionIntent.
 func LookupProtectionIntent(ctx *pulumi.Context, args *LookupProtectionIntentArgs, opts ...pulumi.InvokeOption) (*LookupProtectionIntentResult, error) {
 	var rv LookupProtectionIntentResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20210701:getProtectionIntent", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupProtectionIntent(ctx *pulumi.Context, args *LookupProtectionIntentArg
 }
 
 type LookupProtectionIntentArgs struct {
-	// Fabric name associated with the backed up item.
-	FabricName string `pulumi:"fabricName"`
-	// Backed up item name whose details are to be fetched.
-	IntentObjectName string `pulumi:"intentObjectName"`
-	// The name of the resource group where the recovery services vault is present.
+	FabricName        string `pulumi:"fabricName"`
+	IntentObjectName  string `pulumi:"intentObjectName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	VaultName string `pulumi:"vaultName"`
+	VaultName         string `pulumi:"vaultName"`
 }
 
 // Base class for backup ProtectionIntent.
 type LookupProtectionIntentResult struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Resource Id represents the complete path to the resource.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name string `pulumi:"name"`
-	// ProtectionIntentResource properties
-	Properties interface{} `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type string `pulumi:"type"`
+	ETag       *string           `pulumi:"eTag"`
+	Id         string            `pulumi:"id"`
+	Location   *string           `pulumi:"location"`
+	Name       string            `pulumi:"name"`
+	Properties interface{}       `pulumi:"properties"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

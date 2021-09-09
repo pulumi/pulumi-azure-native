@@ -170,9 +170,7 @@ func (i *ArcSetting) ToArcSettingOutputWithContext(ctx context.Context) ArcSetti
 	return pulumi.ToOutputWithContext(ctx, i).(ArcSettingOutput)
 }
 
-type ArcSettingOutput struct {
-	*pulumi.OutputState
-}
+type ArcSettingOutput struct{ *pulumi.OutputState }
 
 func (ArcSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ArcSetting)(nil))

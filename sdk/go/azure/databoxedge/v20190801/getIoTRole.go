@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Compute role.
 func LookupIoTRole(ctx *pulumi.Context, args *LookupIoTRoleArgs, opts ...pulumi.InvokeOption) (*LookupIoTRoleResult, error) {
 	var rv LookupIoTRoleResult
 	err := ctx.Invoke("azure-native:databoxedge/v20190801:getIoTRole", args, &rv, opts...)
@@ -18,33 +17,20 @@ func LookupIoTRole(ctx *pulumi.Context, args *LookupIoTRoleArgs, opts ...pulumi.
 }
 
 type LookupIoTRoleArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The role name.
-	Name string `pulumi:"name"`
-	// The resource group name.
+	DeviceName        string `pulumi:"deviceName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Compute role.
 type LookupIoTRoleResult struct {
-	// Host OS supported by the IoT role.
-	HostPlatform string `pulumi:"hostPlatform"`
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// IoT device metadata to which data box edge device needs to be connected.
-	IoTDeviceDetails IoTDeviceInfoResponse `pulumi:"ioTDeviceDetails"`
-	// IoT edge device to which the IoT role needs to be configured.
-	IoTEdgeDeviceDetails IoTDeviceInfoResponse `pulumi:"ioTEdgeDeviceDetails"`
-	// Role type.
-	// Expected value is 'IOT'.
-	Kind string `pulumi:"kind"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// Role status.
-	RoleStatus string `pulumi:"roleStatus"`
-	// Mount points of shares in role(s).
-	ShareMappings []MountPointMapResponse `pulumi:"shareMappings"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
+	HostPlatform         string                  `pulumi:"hostPlatform"`
+	Id                   string                  `pulumi:"id"`
+	IoTDeviceDetails     IoTDeviceInfoResponse   `pulumi:"ioTDeviceDetails"`
+	IoTEdgeDeviceDetails IoTDeviceInfoResponse   `pulumi:"ioTEdgeDeviceDetails"`
+	Kind                 string                  `pulumi:"kind"`
+	Name                 string                  `pulumi:"name"`
+	RoleStatus           string                  `pulumi:"roleStatus"`
+	ShareMappings        []MountPointMapResponse `pulumi:"shareMappings"`
+	Type                 string                  `pulumi:"type"`
 }

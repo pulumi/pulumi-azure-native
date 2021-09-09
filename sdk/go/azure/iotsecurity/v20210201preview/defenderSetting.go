@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IoT Defender settings
 type DefenderSetting struct {
 	pulumi.CustomResourceState
 
-	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
-	DeviceQuota pulumi.IntOutput `pulumi:"deviceQuota"`
-	// End time of the evaluation period, if such exist
-	EvaluationEndTime pulumi.StringOutput `pulumi:"evaluationEndTime"`
-	// MDE integration configuration
-	MdeIntegration DefenderSettingsPropertiesResponseMdeIntegrationOutput `pulumi:"mdeIntegration"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The kind of onboarding for the subscription
-	OnboardingKind pulumi.StringOutput `pulumi:"onboardingKind"`
-	// Sentinel Workspace Resource Ids
-	SentinelWorkspaceResourceIds pulumi.StringArrayOutput `pulumi:"sentinelWorkspaceResourceIds"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	DeviceQuota                  pulumi.IntOutput                                       `pulumi:"deviceQuota"`
+	EvaluationEndTime            pulumi.StringOutput                                    `pulumi:"evaluationEndTime"`
+	MdeIntegration               DefenderSettingsPropertiesResponseMdeIntegrationOutput `pulumi:"mdeIntegration"`
+	Name                         pulumi.StringOutput                                    `pulumi:"name"`
+	OnboardingKind               pulumi.StringOutput                                    `pulumi:"onboardingKind"`
+	SentinelWorkspaceResourceIds pulumi.StringArrayOutput                               `pulumi:"sentinelWorkspaceResourceIds"`
+	Type                         pulumi.StringOutput                                    `pulumi:"type"`
 }
 
 // NewDefenderSetting registers a new resource with the given unique name, arguments, and options.
@@ -94,25 +86,17 @@ func (DefenderSettingState) ElementType() reflect.Type {
 }
 
 type defenderSettingArgs struct {
-	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
-	DeviceQuota int `pulumi:"deviceQuota"`
-	// MDE integration configuration
-	MdeIntegration DefenderSettingsPropertiesMdeIntegration `pulumi:"mdeIntegration"`
-	// The kind of onboarding for the subscription
-	OnboardingKind string `pulumi:"onboardingKind"`
-	// Sentinel Workspace Resource Ids
-	SentinelWorkspaceResourceIds []string `pulumi:"sentinelWorkspaceResourceIds"`
+	DeviceQuota                  int                                      `pulumi:"deviceQuota"`
+	MdeIntegration               DefenderSettingsPropertiesMdeIntegration `pulumi:"mdeIntegration"`
+	OnboardingKind               string                                   `pulumi:"onboardingKind"`
+	SentinelWorkspaceResourceIds []string                                 `pulumi:"sentinelWorkspaceResourceIds"`
 }
 
 // The set of arguments for constructing a DefenderSetting resource.
 type DefenderSettingArgs struct {
-	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
-	DeviceQuota pulumi.IntInput
-	// MDE integration configuration
-	MdeIntegration DefenderSettingsPropertiesMdeIntegrationInput
-	// The kind of onboarding for the subscription
-	OnboardingKind pulumi.StringInput
-	// Sentinel Workspace Resource Ids
+	DeviceQuota                  pulumi.IntInput
+	MdeIntegration               DefenderSettingsPropertiesMdeIntegrationInput
+	OnboardingKind               pulumi.StringInput
 	SentinelWorkspaceResourceIds pulumi.StringArrayInput
 }
 
@@ -139,9 +123,7 @@ func (i *DefenderSetting) ToDefenderSettingOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DefenderSettingOutput)
 }
 
-type DefenderSettingOutput struct {
-	*pulumi.OutputState
-}
+type DefenderSettingOutput struct{ *pulumi.OutputState }
 
 func (DefenderSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DefenderSetting)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A network interface in a resource group.
 func LookupNetworkInterface(ctx *pulumi.Context, args *LookupNetworkInterfaceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceResult, error) {
 	var rv LookupNetworkInterfaceResult
 	err := ctx.Invoke("azure-native:network/v20150615:getNetworkInterface", args, &rv, opts...)
@@ -18,44 +17,26 @@ func LookupNetworkInterface(ctx *pulumi.Context, args *LookupNetworkInterfaceArg
 }
 
 type LookupNetworkInterfaceArgs struct {
-	// Expands referenced resources.
-	Expand *string `pulumi:"expand"`
-	// The name of the network interface.
-	NetworkInterfaceName string `pulumi:"networkInterfaceName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand               *string `pulumi:"expand"`
+	NetworkInterfaceName string  `pulumi:"networkInterfaceName"`
+	ResourceGroupName    string  `pulumi:"resourceGroupName"`
 }
 
 // A network interface in a resource group.
 type LookupNetworkInterfaceResult struct {
-	// The DNS settings in network interface.
-	DnsSettings *NetworkInterfaceDnsSettingsResponse `pulumi:"dnsSettings"`
-	// Indicates whether IP forwarding is enabled on this network interface.
-	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource Identifier.
-	Id *string `pulumi:"id"`
-	// A list of IPConfigurations of the network interface.
-	IpConfigurations []NetworkInterfaceIPConfigurationResponse `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The MAC address of the network interface.
-	MacAddress *string `pulumi:"macAddress"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The reference of the NetworkSecurityGroup resource.
-	NetworkSecurityGroup *NetworkSecurityGroupResponse `pulumi:"networkSecurityGroup"`
-	// Gets whether this is a primary network interface on a virtual machine.
-	Primary *bool `pulumi:"primary"`
-	// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource GUID property of the network interface resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The reference of a virtual machine.
-	VirtualMachine *SubResourceResponse `pulumi:"virtualMachine"`
+	DnsSettings          *NetworkInterfaceDnsSettingsResponse      `pulumi:"dnsSettings"`
+	EnableIPForwarding   *bool                                     `pulumi:"enableIPForwarding"`
+	Etag                 *string                                   `pulumi:"etag"`
+	Id                   *string                                   `pulumi:"id"`
+	IpConfigurations     []NetworkInterfaceIPConfigurationResponse `pulumi:"ipConfigurations"`
+	Location             *string                                   `pulumi:"location"`
+	MacAddress           *string                                   `pulumi:"macAddress"`
+	Name                 string                                    `pulumi:"name"`
+	NetworkSecurityGroup *NetworkSecurityGroupResponse             `pulumi:"networkSecurityGroup"`
+	Primary              *bool                                     `pulumi:"primary"`
+	ProvisioningState    *string                                   `pulumi:"provisioningState"`
+	ResourceGuid         *string                                   `pulumi:"resourceGuid"`
+	Tags                 map[string]string                         `pulumi:"tags"`
+	Type                 string                                    `pulumi:"type"`
+	VirtualMachine       *SubResourceResponse                      `pulumi:"virtualMachine"`
 }

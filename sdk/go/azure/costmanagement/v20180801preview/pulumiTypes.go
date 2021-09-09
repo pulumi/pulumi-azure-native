@@ -10,13 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Details of any error encountered on last collection attempt
 type ConnectorCollectionErrorInfoResponse struct {
-	// Short error message
-	ErrorCode string `pulumi:"errorCode"`
-	// Detailed error message
-	ErrorMessage string `pulumi:"errorMessage"`
-	// Time the error started occurring (Last time error occurred in lastRun)
+	ErrorCode      string `pulumi:"errorCode"`
+	ErrorMessage   string `pulumi:"errorMessage"`
 	ErrorStartTime string `pulumi:"errorStartTime"`
 }
 
@@ -31,13 +27,9 @@ type ConnectorCollectionErrorInfoResponseInput interface {
 	ToConnectorCollectionErrorInfoResponseOutputWithContext(context.Context) ConnectorCollectionErrorInfoResponseOutput
 }
 
-// Details of any error encountered on last collection attempt
 type ConnectorCollectionErrorInfoResponseArgs struct {
-	// Short error message
-	ErrorCode pulumi.StringInput `pulumi:"errorCode"`
-	// Detailed error message
-	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
-	// Time the error started occurring (Last time error occurred in lastRun)
+	ErrorCode      pulumi.StringInput `pulumi:"errorCode"`
+	ErrorMessage   pulumi.StringInput `pulumi:"errorMessage"`
 	ErrorStartTime pulumi.StringInput `pulumi:"errorStartTime"`
 }
 
@@ -94,7 +86,6 @@ func (i *connectorCollectionErrorInfoResponsePtrType) ToConnectorCollectionError
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionErrorInfoResponsePtrOutput)
 }
 
-// Details of any error encountered on last collection attempt
 type ConnectorCollectionErrorInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectorCollectionErrorInfoResponseOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o ConnectorCollectionErrorInfoResponseOutput) ToConnectorCollectionErrorIn
 }
 
 func (o ConnectorCollectionErrorInfoResponseOutput) ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponsePtrOutput {
-	return o.ApplyT(func(v ConnectorCollectionErrorInfoResponse) *ConnectorCollectionErrorInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorCollectionErrorInfoResponse) *ConnectorCollectionErrorInfoResponse {
 		return &v
 	}).(ConnectorCollectionErrorInfoResponsePtrOutput)
 }
 
-// Short error message
 func (o ConnectorCollectionErrorInfoResponseOutput) ErrorCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorCollectionErrorInfoResponse) string { return v.ErrorCode }).(pulumi.StringOutput)
 }
 
-// Detailed error message
 func (o ConnectorCollectionErrorInfoResponseOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorCollectionErrorInfoResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
-// Time the error started occurring (Last time error occurred in lastRun)
 func (o ConnectorCollectionErrorInfoResponseOutput) ErrorStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorCollectionErrorInfoResponse) string { return v.ErrorStartTime }).(pulumi.StringOutput)
 }
@@ -149,10 +137,15 @@ func (o ConnectorCollectionErrorInfoResponsePtrOutput) ToConnectorCollectionErro
 }
 
 func (o ConnectorCollectionErrorInfoResponsePtrOutput) Elem() ConnectorCollectionErrorInfoResponseOutput {
-	return o.ApplyT(func(v *ConnectorCollectionErrorInfoResponse) ConnectorCollectionErrorInfoResponse { return *v }).(ConnectorCollectionErrorInfoResponseOutput)
+	return o.ApplyT(func(v *ConnectorCollectionErrorInfoResponse) ConnectorCollectionErrorInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorCollectionErrorInfoResponse
+		return ret
+	}).(ConnectorCollectionErrorInfoResponseOutput)
 }
 
-// Short error message
 func (o ConnectorCollectionErrorInfoResponsePtrOutput) ErrorCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorCollectionErrorInfoResponse) *string {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o ConnectorCollectionErrorInfoResponsePtrOutput) ErrorCode() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Detailed error message
 func (o ConnectorCollectionErrorInfoResponsePtrOutput) ErrorMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorCollectionErrorInfoResponse) *string {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o ConnectorCollectionErrorInfoResponsePtrOutput) ErrorMessage() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time the error started occurring (Last time error occurred in lastRun)
 func (o ConnectorCollectionErrorInfoResponsePtrOutput) ErrorStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorCollectionErrorInfoResponse) *string {
 		if v == nil {
@@ -182,16 +173,11 @@ func (o ConnectorCollectionErrorInfoResponsePtrOutput) ErrorStartTime() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Collection and ingestion information
 type ConnectorCollectionInfoResponse struct {
-	// Error information of last collection
-	Error *ConnectorCollectionErrorInfoResponse `pulumi:"error"`
-	// Last time the data acquisition process completed (even if no new data was found)
-	LastRun string `pulumi:"lastRun"`
-	// Last time the external data was updated into Azure
-	LastUpdated string `pulumi:"lastUpdated"`
-	// Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
-	SourceLastUpdated string `pulumi:"sourceLastUpdated"`
+	Error             *ConnectorCollectionErrorInfoResponse `pulumi:"error"`
+	LastRun           string                                `pulumi:"lastRun"`
+	LastUpdated       string                                `pulumi:"lastUpdated"`
+	SourceLastUpdated string                                `pulumi:"sourceLastUpdated"`
 }
 
 // ConnectorCollectionInfoResponseInput is an input type that accepts ConnectorCollectionInfoResponseArgs and ConnectorCollectionInfoResponseOutput values.
@@ -205,16 +191,11 @@ type ConnectorCollectionInfoResponseInput interface {
 	ToConnectorCollectionInfoResponseOutputWithContext(context.Context) ConnectorCollectionInfoResponseOutput
 }
 
-// Collection and ingestion information
 type ConnectorCollectionInfoResponseArgs struct {
-	// Error information of last collection
-	Error ConnectorCollectionErrorInfoResponsePtrInput `pulumi:"error"`
-	// Last time the data acquisition process completed (even if no new data was found)
-	LastRun pulumi.StringInput `pulumi:"lastRun"`
-	// Last time the external data was updated into Azure
-	LastUpdated pulumi.StringInput `pulumi:"lastUpdated"`
-	// Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
-	SourceLastUpdated pulumi.StringInput `pulumi:"sourceLastUpdated"`
+	Error             ConnectorCollectionErrorInfoResponsePtrInput `pulumi:"error"`
+	LastRun           pulumi.StringInput                           `pulumi:"lastRun"`
+	LastUpdated       pulumi.StringInput                           `pulumi:"lastUpdated"`
+	SourceLastUpdated pulumi.StringInput                           `pulumi:"sourceLastUpdated"`
 }
 
 func (ConnectorCollectionInfoResponseArgs) ElementType() reflect.Type {
@@ -270,7 +251,6 @@ func (i *connectorCollectionInfoResponsePtrType) ToConnectorCollectionInfoRespon
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionInfoResponsePtrOutput)
 }
 
-// Collection and ingestion information
 type ConnectorCollectionInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectorCollectionInfoResponseOutput) ElementType() reflect.Type {
@@ -290,27 +270,23 @@ func (o ConnectorCollectionInfoResponseOutput) ToConnectorCollectionInfoResponse
 }
 
 func (o ConnectorCollectionInfoResponseOutput) ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponsePtrOutput {
-	return o.ApplyT(func(v ConnectorCollectionInfoResponse) *ConnectorCollectionInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorCollectionInfoResponse) *ConnectorCollectionInfoResponse {
 		return &v
 	}).(ConnectorCollectionInfoResponsePtrOutput)
 }
 
-// Error information of last collection
 func (o ConnectorCollectionInfoResponseOutput) Error() ConnectorCollectionErrorInfoResponsePtrOutput {
 	return o.ApplyT(func(v ConnectorCollectionInfoResponse) *ConnectorCollectionErrorInfoResponse { return v.Error }).(ConnectorCollectionErrorInfoResponsePtrOutput)
 }
 
-// Last time the data acquisition process completed (even if no new data was found)
 func (o ConnectorCollectionInfoResponseOutput) LastRun() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorCollectionInfoResponse) string { return v.LastRun }).(pulumi.StringOutput)
 }
 
-// Last time the external data was updated into Azure
 func (o ConnectorCollectionInfoResponseOutput) LastUpdated() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorCollectionInfoResponse) string { return v.LastUpdated }).(pulumi.StringOutput)
 }
 
-// Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
 func (o ConnectorCollectionInfoResponseOutput) SourceLastUpdated() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorCollectionInfoResponse) string { return v.SourceLastUpdated }).(pulumi.StringOutput)
 }
@@ -330,10 +306,15 @@ func (o ConnectorCollectionInfoResponsePtrOutput) ToConnectorCollectionInfoRespo
 }
 
 func (o ConnectorCollectionInfoResponsePtrOutput) Elem() ConnectorCollectionInfoResponseOutput {
-	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) ConnectorCollectionInfoResponse { return *v }).(ConnectorCollectionInfoResponseOutput)
+	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) ConnectorCollectionInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorCollectionInfoResponse
+		return ret
+	}).(ConnectorCollectionInfoResponseOutput)
 }
 
-// Error information of last collection
 func (o ConnectorCollectionInfoResponsePtrOutput) Error() ConnectorCollectionErrorInfoResponsePtrOutput {
 	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) *ConnectorCollectionErrorInfoResponse {
 		if v == nil {
@@ -343,7 +324,6 @@ func (o ConnectorCollectionInfoResponsePtrOutput) Error() ConnectorCollectionErr
 	}).(ConnectorCollectionErrorInfoResponsePtrOutput)
 }
 
-// Last time the data acquisition process completed (even if no new data was found)
 func (o ConnectorCollectionInfoResponsePtrOutput) LastRun() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) *string {
 		if v == nil {
@@ -353,7 +333,6 @@ func (o ConnectorCollectionInfoResponsePtrOutput) LastRun() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last time the external data was updated into Azure
 func (o ConnectorCollectionInfoResponsePtrOutput) LastUpdated() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) *string {
 		if v == nil {
@@ -363,7 +342,6 @@ func (o ConnectorCollectionInfoResponsePtrOutput) LastUpdated() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
 func (o ConnectorCollectionInfoResponsePtrOutput) SourceLastUpdated() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) *string {
 		if v == nil {
@@ -373,12 +351,9 @@ func (o ConnectorCollectionInfoResponsePtrOutput) SourceLastUpdated() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The aggregation expression to be used in the report.
 type ReportAggregation struct {
-	// The name of the aggregation function to use.
 	Function string `pulumi:"function"`
-	// The name of the column to aggregate.
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 }
 
 // ReportAggregationInput is an input type that accepts ReportAggregationArgs and ReportAggregationOutput values.
@@ -392,12 +367,9 @@ type ReportAggregationInput interface {
 	ToReportAggregationOutputWithContext(context.Context) ReportAggregationOutput
 }
 
-// The aggregation expression to be used in the report.
 type ReportAggregationArgs struct {
-	// The name of the aggregation function to use.
 	Function pulumi.StringInput `pulumi:"function"`
-	// The name of the column to aggregate.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (ReportAggregationArgs) ElementType() reflect.Type {
@@ -437,7 +409,6 @@ func (i ReportAggregationMap) ToReportAggregationMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ReportAggregationMapOutput)
 }
 
-// The aggregation expression to be used in the report.
 type ReportAggregationOutput struct{ *pulumi.OutputState }
 
 func (ReportAggregationOutput) ElementType() reflect.Type {
@@ -452,12 +423,10 @@ func (o ReportAggregationOutput) ToReportAggregationOutputWithContext(ctx contex
 	return o
 }
 
-// The name of the aggregation function to use.
 func (o ReportAggregationOutput) Function() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportAggregation) string { return v.Function }).(pulumi.StringOutput)
 }
 
-// The name of the column to aggregate.
 func (o ReportAggregationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportAggregation) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -482,12 +451,9 @@ func (o ReportAggregationMapOutput) MapIndex(k pulumi.StringInput) ReportAggrega
 	}).(ReportAggregationOutput)
 }
 
-// The aggregation expression to be used in the report.
 type ReportAggregationResponse struct {
-	// The name of the aggregation function to use.
 	Function string `pulumi:"function"`
-	// The name of the column to aggregate.
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 }
 
 // ReportAggregationResponseInput is an input type that accepts ReportAggregationResponseArgs and ReportAggregationResponseOutput values.
@@ -501,12 +467,9 @@ type ReportAggregationResponseInput interface {
 	ToReportAggregationResponseOutputWithContext(context.Context) ReportAggregationResponseOutput
 }
 
-// The aggregation expression to be used in the report.
 type ReportAggregationResponseArgs struct {
-	// The name of the aggregation function to use.
 	Function pulumi.StringInput `pulumi:"function"`
-	// The name of the column to aggregate.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (ReportAggregationResponseArgs) ElementType() reflect.Type {
@@ -546,7 +509,6 @@ func (i ReportAggregationResponseMap) ToReportAggregationResponseMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ReportAggregationResponseMapOutput)
 }
 
-// The aggregation expression to be used in the report.
 type ReportAggregationResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportAggregationResponseOutput) ElementType() reflect.Type {
@@ -561,12 +523,10 @@ func (o ReportAggregationResponseOutput) ToReportAggregationResponseOutputWithCo
 	return o
 }
 
-// The name of the aggregation function to use.
 func (o ReportAggregationResponseOutput) Function() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportAggregationResponse) string { return v.Function }).(pulumi.StringOutput)
 }
 
-// The name of the column to aggregate.
 func (o ReportAggregationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportAggregationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -591,14 +551,10 @@ func (o ReportAggregationResponseMapOutput) MapIndex(k pulumi.StringInput) Repor
 	}).(ReportAggregationResponseOutput)
 }
 
-// The comparison expression to be used in the report.
 type ReportComparisonExpression struct {
-	// The name of the column to use in comparison.
-	Name string `pulumi:"name"`
-	// The operator to use for comparison.
-	Operator string `pulumi:"operator"`
-	// Array of values to use for comparison
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // ReportComparisonExpressionInput is an input type that accepts ReportComparisonExpressionArgs and ReportComparisonExpressionOutput values.
@@ -612,14 +568,10 @@ type ReportComparisonExpressionInput interface {
 	ToReportComparisonExpressionOutputWithContext(context.Context) ReportComparisonExpressionOutput
 }
 
-// The comparison expression to be used in the report.
 type ReportComparisonExpressionArgs struct {
-	// The name of the column to use in comparison.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The operator to use for comparison.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Array of values to use for comparison
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ReportComparisonExpressionArgs) ElementType() reflect.Type {
@@ -675,7 +627,6 @@ func (i *reportComparisonExpressionPtrType) ToReportComparisonExpressionPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ReportComparisonExpressionPtrOutput)
 }
 
-// The comparison expression to be used in the report.
 type ReportComparisonExpressionOutput struct{ *pulumi.OutputState }
 
 func (ReportComparisonExpressionOutput) ElementType() reflect.Type {
@@ -695,22 +646,19 @@ func (o ReportComparisonExpressionOutput) ToReportComparisonExpressionPtrOutput(
 }
 
 func (o ReportComparisonExpressionOutput) ToReportComparisonExpressionPtrOutputWithContext(ctx context.Context) ReportComparisonExpressionPtrOutput {
-	return o.ApplyT(func(v ReportComparisonExpression) *ReportComparisonExpression {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportComparisonExpression) *ReportComparisonExpression {
 		return &v
 	}).(ReportComparisonExpressionPtrOutput)
 }
 
-// The name of the column to use in comparison.
 func (o ReportComparisonExpressionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportComparisonExpression) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The operator to use for comparison.
 func (o ReportComparisonExpressionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportComparisonExpression) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Array of values to use for comparison
 func (o ReportComparisonExpressionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportComparisonExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -730,10 +678,15 @@ func (o ReportComparisonExpressionPtrOutput) ToReportComparisonExpressionPtrOutp
 }
 
 func (o ReportComparisonExpressionPtrOutput) Elem() ReportComparisonExpressionOutput {
-	return o.ApplyT(func(v *ReportComparisonExpression) ReportComparisonExpression { return *v }).(ReportComparisonExpressionOutput)
+	return o.ApplyT(func(v *ReportComparisonExpression) ReportComparisonExpression {
+		if v != nil {
+			return *v
+		}
+		var ret ReportComparisonExpression
+		return ret
+	}).(ReportComparisonExpressionOutput)
 }
 
-// The name of the column to use in comparison.
 func (o ReportComparisonExpressionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportComparisonExpression) *string {
 		if v == nil {
@@ -743,7 +696,6 @@ func (o ReportComparisonExpressionPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The operator to use for comparison.
 func (o ReportComparisonExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportComparisonExpression) *string {
 		if v == nil {
@@ -753,7 +705,6 @@ func (o ReportComparisonExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of values to use for comparison
 func (o ReportComparisonExpressionPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportComparisonExpression) []string {
 		if v == nil {
@@ -763,14 +714,10 @@ func (o ReportComparisonExpressionPtrOutput) Values() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The comparison expression to be used in the report.
 type ReportComparisonExpressionResponse struct {
-	// The name of the column to use in comparison.
-	Name string `pulumi:"name"`
-	// The operator to use for comparison.
-	Operator string `pulumi:"operator"`
-	// Array of values to use for comparison
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // ReportComparisonExpressionResponseInput is an input type that accepts ReportComparisonExpressionResponseArgs and ReportComparisonExpressionResponseOutput values.
@@ -784,14 +731,10 @@ type ReportComparisonExpressionResponseInput interface {
 	ToReportComparisonExpressionResponseOutputWithContext(context.Context) ReportComparisonExpressionResponseOutput
 }
 
-// The comparison expression to be used in the report.
 type ReportComparisonExpressionResponseArgs struct {
-	// The name of the column to use in comparison.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The operator to use for comparison.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Array of values to use for comparison
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ReportComparisonExpressionResponseArgs) ElementType() reflect.Type {
@@ -847,7 +790,6 @@ func (i *reportComparisonExpressionResponsePtrType) ToReportComparisonExpression
 	return pulumi.ToOutputWithContext(ctx, i).(ReportComparisonExpressionResponsePtrOutput)
 }
 
-// The comparison expression to be used in the report.
 type ReportComparisonExpressionResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportComparisonExpressionResponseOutput) ElementType() reflect.Type {
@@ -867,22 +809,19 @@ func (o ReportComparisonExpressionResponseOutput) ToReportComparisonExpressionRe
 }
 
 func (o ReportComparisonExpressionResponseOutput) ToReportComparisonExpressionResponsePtrOutputWithContext(ctx context.Context) ReportComparisonExpressionResponsePtrOutput {
-	return o.ApplyT(func(v ReportComparisonExpressionResponse) *ReportComparisonExpressionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportComparisonExpressionResponse) *ReportComparisonExpressionResponse {
 		return &v
 	}).(ReportComparisonExpressionResponsePtrOutput)
 }
 
-// The name of the column to use in comparison.
 func (o ReportComparisonExpressionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportComparisonExpressionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The operator to use for comparison.
 func (o ReportComparisonExpressionResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportComparisonExpressionResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Array of values to use for comparison
 func (o ReportComparisonExpressionResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportComparisonExpressionResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -902,10 +841,15 @@ func (o ReportComparisonExpressionResponsePtrOutput) ToReportComparisonExpressio
 }
 
 func (o ReportComparisonExpressionResponsePtrOutput) Elem() ReportComparisonExpressionResponseOutput {
-	return o.ApplyT(func(v *ReportComparisonExpressionResponse) ReportComparisonExpressionResponse { return *v }).(ReportComparisonExpressionResponseOutput)
+	return o.ApplyT(func(v *ReportComparisonExpressionResponse) ReportComparisonExpressionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReportComparisonExpressionResponse
+		return ret
+	}).(ReportComparisonExpressionResponseOutput)
 }
 
-// The name of the column to use in comparison.
 func (o ReportComparisonExpressionResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportComparisonExpressionResponse) *string {
 		if v == nil {
@@ -915,7 +859,6 @@ func (o ReportComparisonExpressionResponsePtrOutput) Name() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The operator to use for comparison.
 func (o ReportComparisonExpressionResponsePtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportComparisonExpressionResponse) *string {
 		if v == nil {
@@ -925,7 +868,6 @@ func (o ReportComparisonExpressionResponsePtrOutput) Operator() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of values to use for comparison
 func (o ReportComparisonExpressionResponsePtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportComparisonExpressionResponse) []string {
 		if v == nil {
@@ -935,18 +877,12 @@ func (o ReportComparisonExpressionResponsePtrOutput) Values() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// The definition of data present in the report.
 type ReportDataset struct {
-	// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-	Aggregation map[string]ReportAggregation `pulumi:"aggregation"`
-	// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
-	Configuration *ReportDatasetConfiguration `pulumi:"configuration"`
-	// Has filter expression to use in the report.
-	Filter *ReportFilter `pulumi:"filter"`
-	// The granularity of rows in the report.
-	Granularity *string `pulumi:"granularity"`
-	// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-	Grouping []ReportGrouping `pulumi:"grouping"`
+	Aggregation   map[string]ReportAggregation `pulumi:"aggregation"`
+	Configuration *ReportDatasetConfiguration  `pulumi:"configuration"`
+	Filter        *ReportFilter                `pulumi:"filter"`
+	Granularity   *string                      `pulumi:"granularity"`
+	Grouping      []ReportGrouping             `pulumi:"grouping"`
 }
 
 // ReportDatasetInput is an input type that accepts ReportDatasetArgs and ReportDatasetOutput values.
@@ -960,18 +896,12 @@ type ReportDatasetInput interface {
 	ToReportDatasetOutputWithContext(context.Context) ReportDatasetOutput
 }
 
-// The definition of data present in the report.
 type ReportDatasetArgs struct {
-	// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-	Aggregation ReportAggregationMapInput `pulumi:"aggregation"`
-	// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+	Aggregation   ReportAggregationMapInput          `pulumi:"aggregation"`
 	Configuration ReportDatasetConfigurationPtrInput `pulumi:"configuration"`
-	// Has filter expression to use in the report.
-	Filter ReportFilterPtrInput `pulumi:"filter"`
-	// The granularity of rows in the report.
-	Granularity pulumi.StringPtrInput `pulumi:"granularity"`
-	// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-	Grouping ReportGroupingArrayInput `pulumi:"grouping"`
+	Filter        ReportFilterPtrInput               `pulumi:"filter"`
+	Granularity   pulumi.StringPtrInput              `pulumi:"granularity"`
+	Grouping      ReportGroupingArrayInput           `pulumi:"grouping"`
 }
 
 func (ReportDatasetArgs) ElementType() reflect.Type {
@@ -1027,7 +957,6 @@ func (i *reportDatasetPtrType) ToReportDatasetPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetPtrOutput)
 }
 
-// The definition of data present in the report.
 type ReportDatasetOutput struct{ *pulumi.OutputState }
 
 func (ReportDatasetOutput) ElementType() reflect.Type {
@@ -1047,32 +976,27 @@ func (o ReportDatasetOutput) ToReportDatasetPtrOutput() ReportDatasetPtrOutput {
 }
 
 func (o ReportDatasetOutput) ToReportDatasetPtrOutputWithContext(ctx context.Context) ReportDatasetPtrOutput {
-	return o.ApplyT(func(v ReportDataset) *ReportDataset {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDataset) *ReportDataset {
 		return &v
 	}).(ReportDatasetPtrOutput)
 }
 
-// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
 func (o ReportDatasetOutput) Aggregation() ReportAggregationMapOutput {
 	return o.ApplyT(func(v ReportDataset) map[string]ReportAggregation { return v.Aggregation }).(ReportAggregationMapOutput)
 }
 
-// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
 func (o ReportDatasetOutput) Configuration() ReportDatasetConfigurationPtrOutput {
 	return o.ApplyT(func(v ReportDataset) *ReportDatasetConfiguration { return v.Configuration }).(ReportDatasetConfigurationPtrOutput)
 }
 
-// Has filter expression to use in the report.
 func (o ReportDatasetOutput) Filter() ReportFilterPtrOutput {
 	return o.ApplyT(func(v ReportDataset) *ReportFilter { return v.Filter }).(ReportFilterPtrOutput)
 }
 
-// The granularity of rows in the report.
 func (o ReportDatasetOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReportDataset) *string { return v.Granularity }).(pulumi.StringPtrOutput)
 }
 
-// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
 func (o ReportDatasetOutput) Grouping() ReportGroupingArrayOutput {
 	return o.ApplyT(func(v ReportDataset) []ReportGrouping { return v.Grouping }).(ReportGroupingArrayOutput)
 }
@@ -1092,10 +1016,15 @@ func (o ReportDatasetPtrOutput) ToReportDatasetPtrOutputWithContext(ctx context.
 }
 
 func (o ReportDatasetPtrOutput) Elem() ReportDatasetOutput {
-	return o.ApplyT(func(v *ReportDataset) ReportDataset { return *v }).(ReportDatasetOutput)
+	return o.ApplyT(func(v *ReportDataset) ReportDataset {
+		if v != nil {
+			return *v
+		}
+		var ret ReportDataset
+		return ret
+	}).(ReportDatasetOutput)
 }
 
-// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
 func (o ReportDatasetPtrOutput) Aggregation() ReportAggregationMapOutput {
 	return o.ApplyT(func(v *ReportDataset) map[string]ReportAggregation {
 		if v == nil {
@@ -1105,7 +1034,6 @@ func (o ReportDatasetPtrOutput) Aggregation() ReportAggregationMapOutput {
 	}).(ReportAggregationMapOutput)
 }
 
-// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
 func (o ReportDatasetPtrOutput) Configuration() ReportDatasetConfigurationPtrOutput {
 	return o.ApplyT(func(v *ReportDataset) *ReportDatasetConfiguration {
 		if v == nil {
@@ -1115,7 +1043,6 @@ func (o ReportDatasetPtrOutput) Configuration() ReportDatasetConfigurationPtrOut
 	}).(ReportDatasetConfigurationPtrOutput)
 }
 
-// Has filter expression to use in the report.
 func (o ReportDatasetPtrOutput) Filter() ReportFilterPtrOutput {
 	return o.ApplyT(func(v *ReportDataset) *ReportFilter {
 		if v == nil {
@@ -1125,7 +1052,6 @@ func (o ReportDatasetPtrOutput) Filter() ReportFilterPtrOutput {
 	}).(ReportFilterPtrOutput)
 }
 
-// The granularity of rows in the report.
 func (o ReportDatasetPtrOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportDataset) *string {
 		if v == nil {
@@ -1135,7 +1061,6 @@ func (o ReportDatasetPtrOutput) Granularity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
 func (o ReportDatasetPtrOutput) Grouping() ReportGroupingArrayOutput {
 	return o.ApplyT(func(v *ReportDataset) []ReportGrouping {
 		if v == nil {
@@ -1145,9 +1070,7 @@ func (o ReportDatasetPtrOutput) Grouping() ReportGroupingArrayOutput {
 	}).(ReportGroupingArrayOutput)
 }
 
-// The configuration of dataset in the report.
 type ReportDatasetConfiguration struct {
-	// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 	Columns []string `pulumi:"columns"`
 }
 
@@ -1162,9 +1085,7 @@ type ReportDatasetConfigurationInput interface {
 	ToReportDatasetConfigurationOutputWithContext(context.Context) ReportDatasetConfigurationOutput
 }
 
-// The configuration of dataset in the report.
 type ReportDatasetConfigurationArgs struct {
-	// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 	Columns pulumi.StringArrayInput `pulumi:"columns"`
 }
 
@@ -1221,7 +1142,6 @@ func (i *reportDatasetConfigurationPtrType) ToReportDatasetConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetConfigurationPtrOutput)
 }
 
-// The configuration of dataset in the report.
 type ReportDatasetConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ReportDatasetConfigurationOutput) ElementType() reflect.Type {
@@ -1241,12 +1161,11 @@ func (o ReportDatasetConfigurationOutput) ToReportDatasetConfigurationPtrOutput(
 }
 
 func (o ReportDatasetConfigurationOutput) ToReportDatasetConfigurationPtrOutputWithContext(ctx context.Context) ReportDatasetConfigurationPtrOutput {
-	return o.ApplyT(func(v ReportDatasetConfiguration) *ReportDatasetConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDatasetConfiguration) *ReportDatasetConfiguration {
 		return &v
 	}).(ReportDatasetConfigurationPtrOutput)
 }
 
-// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 func (o ReportDatasetConfigurationOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportDatasetConfiguration) []string { return v.Columns }).(pulumi.StringArrayOutput)
 }
@@ -1266,10 +1185,15 @@ func (o ReportDatasetConfigurationPtrOutput) ToReportDatasetConfigurationPtrOutp
 }
 
 func (o ReportDatasetConfigurationPtrOutput) Elem() ReportDatasetConfigurationOutput {
-	return o.ApplyT(func(v *ReportDatasetConfiguration) ReportDatasetConfiguration { return *v }).(ReportDatasetConfigurationOutput)
+	return o.ApplyT(func(v *ReportDatasetConfiguration) ReportDatasetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ReportDatasetConfiguration
+		return ret
+	}).(ReportDatasetConfigurationOutput)
 }
 
-// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 func (o ReportDatasetConfigurationPtrOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportDatasetConfiguration) []string {
 		if v == nil {
@@ -1279,9 +1203,7 @@ func (o ReportDatasetConfigurationPtrOutput) Columns() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// The configuration of dataset in the report.
 type ReportDatasetConfigurationResponse struct {
-	// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 	Columns []string `pulumi:"columns"`
 }
 
@@ -1296,9 +1218,7 @@ type ReportDatasetConfigurationResponseInput interface {
 	ToReportDatasetConfigurationResponseOutputWithContext(context.Context) ReportDatasetConfigurationResponseOutput
 }
 
-// The configuration of dataset in the report.
 type ReportDatasetConfigurationResponseArgs struct {
-	// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 	Columns pulumi.StringArrayInput `pulumi:"columns"`
 }
 
@@ -1355,7 +1275,6 @@ func (i *reportDatasetConfigurationResponsePtrType) ToReportDatasetConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetConfigurationResponsePtrOutput)
 }
 
-// The configuration of dataset in the report.
 type ReportDatasetConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportDatasetConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1375,12 +1294,11 @@ func (o ReportDatasetConfigurationResponseOutput) ToReportDatasetConfigurationRe
 }
 
 func (o ReportDatasetConfigurationResponseOutput) ToReportDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) ReportDatasetConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ReportDatasetConfigurationResponse) *ReportDatasetConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDatasetConfigurationResponse) *ReportDatasetConfigurationResponse {
 		return &v
 	}).(ReportDatasetConfigurationResponsePtrOutput)
 }
 
-// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 func (o ReportDatasetConfigurationResponseOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportDatasetConfigurationResponse) []string { return v.Columns }).(pulumi.StringArrayOutput)
 }
@@ -1400,10 +1318,15 @@ func (o ReportDatasetConfigurationResponsePtrOutput) ToReportDatasetConfiguratio
 }
 
 func (o ReportDatasetConfigurationResponsePtrOutput) Elem() ReportDatasetConfigurationResponseOutput {
-	return o.ApplyT(func(v *ReportDatasetConfigurationResponse) ReportDatasetConfigurationResponse { return *v }).(ReportDatasetConfigurationResponseOutput)
+	return o.ApplyT(func(v *ReportDatasetConfigurationResponse) ReportDatasetConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReportDatasetConfigurationResponse
+		return ret
+	}).(ReportDatasetConfigurationResponseOutput)
 }
 
-// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 func (o ReportDatasetConfigurationResponsePtrOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportDatasetConfigurationResponse) []string {
 		if v == nil {
@@ -1413,18 +1336,12 @@ func (o ReportDatasetConfigurationResponsePtrOutput) Columns() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// The definition of data present in the report.
 type ReportDatasetResponse struct {
-	// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-	Aggregation map[string]ReportAggregationResponse `pulumi:"aggregation"`
-	// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
-	Configuration *ReportDatasetConfigurationResponse `pulumi:"configuration"`
-	// Has filter expression to use in the report.
-	Filter *ReportFilterResponse `pulumi:"filter"`
-	// The granularity of rows in the report.
-	Granularity *string `pulumi:"granularity"`
-	// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-	Grouping []ReportGroupingResponse `pulumi:"grouping"`
+	Aggregation   map[string]ReportAggregationResponse `pulumi:"aggregation"`
+	Configuration *ReportDatasetConfigurationResponse  `pulumi:"configuration"`
+	Filter        *ReportFilterResponse                `pulumi:"filter"`
+	Granularity   *string                              `pulumi:"granularity"`
+	Grouping      []ReportGroupingResponse             `pulumi:"grouping"`
 }
 
 // ReportDatasetResponseInput is an input type that accepts ReportDatasetResponseArgs and ReportDatasetResponseOutput values.
@@ -1438,18 +1355,12 @@ type ReportDatasetResponseInput interface {
 	ToReportDatasetResponseOutputWithContext(context.Context) ReportDatasetResponseOutput
 }
 
-// The definition of data present in the report.
 type ReportDatasetResponseArgs struct {
-	// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-	Aggregation ReportAggregationResponseMapInput `pulumi:"aggregation"`
-	// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+	Aggregation   ReportAggregationResponseMapInput          `pulumi:"aggregation"`
 	Configuration ReportDatasetConfigurationResponsePtrInput `pulumi:"configuration"`
-	// Has filter expression to use in the report.
-	Filter ReportFilterResponsePtrInput `pulumi:"filter"`
-	// The granularity of rows in the report.
-	Granularity pulumi.StringPtrInput `pulumi:"granularity"`
-	// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-	Grouping ReportGroupingResponseArrayInput `pulumi:"grouping"`
+	Filter        ReportFilterResponsePtrInput               `pulumi:"filter"`
+	Granularity   pulumi.StringPtrInput                      `pulumi:"granularity"`
+	Grouping      ReportGroupingResponseArrayInput           `pulumi:"grouping"`
 }
 
 func (ReportDatasetResponseArgs) ElementType() reflect.Type {
@@ -1505,7 +1416,6 @@ func (i *reportDatasetResponsePtrType) ToReportDatasetResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetResponsePtrOutput)
 }
 
-// The definition of data present in the report.
 type ReportDatasetResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportDatasetResponseOutput) ElementType() reflect.Type {
@@ -1525,32 +1435,27 @@ func (o ReportDatasetResponseOutput) ToReportDatasetResponsePtrOutput() ReportDa
 }
 
 func (o ReportDatasetResponseOutput) ToReportDatasetResponsePtrOutputWithContext(ctx context.Context) ReportDatasetResponsePtrOutput {
-	return o.ApplyT(func(v ReportDatasetResponse) *ReportDatasetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDatasetResponse) *ReportDatasetResponse {
 		return &v
 	}).(ReportDatasetResponsePtrOutput)
 }
 
-// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
 func (o ReportDatasetResponseOutput) Aggregation() ReportAggregationResponseMapOutput {
 	return o.ApplyT(func(v ReportDatasetResponse) map[string]ReportAggregationResponse { return v.Aggregation }).(ReportAggregationResponseMapOutput)
 }
 
-// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
 func (o ReportDatasetResponseOutput) Configuration() ReportDatasetConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v ReportDatasetResponse) *ReportDatasetConfigurationResponse { return v.Configuration }).(ReportDatasetConfigurationResponsePtrOutput)
 }
 
-// Has filter expression to use in the report.
 func (o ReportDatasetResponseOutput) Filter() ReportFilterResponsePtrOutput {
 	return o.ApplyT(func(v ReportDatasetResponse) *ReportFilterResponse { return v.Filter }).(ReportFilterResponsePtrOutput)
 }
 
-// The granularity of rows in the report.
 func (o ReportDatasetResponseOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReportDatasetResponse) *string { return v.Granularity }).(pulumi.StringPtrOutput)
 }
 
-// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
 func (o ReportDatasetResponseOutput) Grouping() ReportGroupingResponseArrayOutput {
 	return o.ApplyT(func(v ReportDatasetResponse) []ReportGroupingResponse { return v.Grouping }).(ReportGroupingResponseArrayOutput)
 }
@@ -1570,10 +1475,15 @@ func (o ReportDatasetResponsePtrOutput) ToReportDatasetResponsePtrOutputWithCont
 }
 
 func (o ReportDatasetResponsePtrOutput) Elem() ReportDatasetResponseOutput {
-	return o.ApplyT(func(v *ReportDatasetResponse) ReportDatasetResponse { return *v }).(ReportDatasetResponseOutput)
+	return o.ApplyT(func(v *ReportDatasetResponse) ReportDatasetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReportDatasetResponse
+		return ret
+	}).(ReportDatasetResponseOutput)
 }
 
-// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
 func (o ReportDatasetResponsePtrOutput) Aggregation() ReportAggregationResponseMapOutput {
 	return o.ApplyT(func(v *ReportDatasetResponse) map[string]ReportAggregationResponse {
 		if v == nil {
@@ -1583,7 +1493,6 @@ func (o ReportDatasetResponsePtrOutput) Aggregation() ReportAggregationResponseM
 	}).(ReportAggregationResponseMapOutput)
 }
 
-// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
 func (o ReportDatasetResponsePtrOutput) Configuration() ReportDatasetConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *ReportDatasetResponse) *ReportDatasetConfigurationResponse {
 		if v == nil {
@@ -1593,7 +1502,6 @@ func (o ReportDatasetResponsePtrOutput) Configuration() ReportDatasetConfigurati
 	}).(ReportDatasetConfigurationResponsePtrOutput)
 }
 
-// Has filter expression to use in the report.
 func (o ReportDatasetResponsePtrOutput) Filter() ReportFilterResponsePtrOutput {
 	return o.ApplyT(func(v *ReportDatasetResponse) *ReportFilterResponse {
 		if v == nil {
@@ -1603,7 +1511,6 @@ func (o ReportDatasetResponsePtrOutput) Filter() ReportFilterResponsePtrOutput {
 	}).(ReportFilterResponsePtrOutput)
 }
 
-// The granularity of rows in the report.
 func (o ReportDatasetResponsePtrOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportDatasetResponse) *string {
 		if v == nil {
@@ -1613,7 +1520,6 @@ func (o ReportDatasetResponsePtrOutput) Granularity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
 func (o ReportDatasetResponsePtrOutput) Grouping() ReportGroupingResponseArrayOutput {
 	return o.ApplyT(func(v *ReportDatasetResponse) []ReportGroupingResponse {
 		if v == nil {
@@ -1623,16 +1529,11 @@ func (o ReportDatasetResponsePtrOutput) Grouping() ReportGroupingResponseArrayOu
 	}).(ReportGroupingResponseArrayOutput)
 }
 
-// The definition of a report.
 type ReportDefinition struct {
-	// Has definition for data in this report.
-	Dataset *ReportDataset `pulumi:"dataset"`
-	// Has time period for pulling data for the report.
+	Dataset    *ReportDataset    `pulumi:"dataset"`
 	TimePeriod *ReportTimePeriod `pulumi:"timePeriod"`
-	// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-	Timeframe string `pulumi:"timeframe"`
-	// The type of the report.
-	Type string `pulumi:"type"`
+	Timeframe  string            `pulumi:"timeframe"`
+	Type       string            `pulumi:"type"`
 }
 
 // ReportDefinitionInput is an input type that accepts ReportDefinitionArgs and ReportDefinitionOutput values.
@@ -1646,16 +1547,11 @@ type ReportDefinitionInput interface {
 	ToReportDefinitionOutputWithContext(context.Context) ReportDefinitionOutput
 }
 
-// The definition of a report.
 type ReportDefinitionArgs struct {
-	// Has definition for data in this report.
-	Dataset ReportDatasetPtrInput `pulumi:"dataset"`
-	// Has time period for pulling data for the report.
+	Dataset    ReportDatasetPtrInput    `pulumi:"dataset"`
 	TimePeriod ReportTimePeriodPtrInput `pulumi:"timePeriod"`
-	// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-	Timeframe pulumi.StringInput `pulumi:"timeframe"`
-	// The type of the report.
-	Type pulumi.StringInput `pulumi:"type"`
+	Timeframe  pulumi.StringInput       `pulumi:"timeframe"`
+	Type       pulumi.StringInput       `pulumi:"type"`
 }
 
 func (ReportDefinitionArgs) ElementType() reflect.Type {
@@ -1711,7 +1607,6 @@ func (i *reportDefinitionPtrType) ToReportDefinitionPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionPtrOutput)
 }
 
-// The definition of a report.
 type ReportDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ReportDefinitionOutput) ElementType() reflect.Type {
@@ -1731,27 +1626,23 @@ func (o ReportDefinitionOutput) ToReportDefinitionPtrOutput() ReportDefinitionPt
 }
 
 func (o ReportDefinitionOutput) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
-	return o.ApplyT(func(v ReportDefinition) *ReportDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDefinition) *ReportDefinition {
 		return &v
 	}).(ReportDefinitionPtrOutput)
 }
 
-// Has definition for data in this report.
 func (o ReportDefinitionOutput) Dataset() ReportDatasetPtrOutput {
 	return o.ApplyT(func(v ReportDefinition) *ReportDataset { return v.Dataset }).(ReportDatasetPtrOutput)
 }
 
-// Has time period for pulling data for the report.
 func (o ReportDefinitionOutput) TimePeriod() ReportTimePeriodPtrOutput {
 	return o.ApplyT(func(v ReportDefinition) *ReportTimePeriod { return v.TimePeriod }).(ReportTimePeriodPtrOutput)
 }
 
-// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
 func (o ReportDefinitionOutput) Timeframe() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportDefinition) string { return v.Timeframe }).(pulumi.StringOutput)
 }
 
-// The type of the report.
 func (o ReportDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportDefinition) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1771,10 +1662,15 @@ func (o ReportDefinitionPtrOutput) ToReportDefinitionPtrOutputWithContext(ctx co
 }
 
 func (o ReportDefinitionPtrOutput) Elem() ReportDefinitionOutput {
-	return o.ApplyT(func(v *ReportDefinition) ReportDefinition { return *v }).(ReportDefinitionOutput)
+	return o.ApplyT(func(v *ReportDefinition) ReportDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret ReportDefinition
+		return ret
+	}).(ReportDefinitionOutput)
 }
 
-// Has definition for data in this report.
 func (o ReportDefinitionPtrOutput) Dataset() ReportDatasetPtrOutput {
 	return o.ApplyT(func(v *ReportDefinition) *ReportDataset {
 		if v == nil {
@@ -1784,7 +1680,6 @@ func (o ReportDefinitionPtrOutput) Dataset() ReportDatasetPtrOutput {
 	}).(ReportDatasetPtrOutput)
 }
 
-// Has time period for pulling data for the report.
 func (o ReportDefinitionPtrOutput) TimePeriod() ReportTimePeriodPtrOutput {
 	return o.ApplyT(func(v *ReportDefinition) *ReportTimePeriod {
 		if v == nil {
@@ -1794,7 +1689,6 @@ func (o ReportDefinitionPtrOutput) TimePeriod() ReportTimePeriodPtrOutput {
 	}).(ReportTimePeriodPtrOutput)
 }
 
-// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
 func (o ReportDefinitionPtrOutput) Timeframe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportDefinition) *string {
 		if v == nil {
@@ -1804,7 +1698,6 @@ func (o ReportDefinitionPtrOutput) Timeframe() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the report.
 func (o ReportDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportDefinition) *string {
 		if v == nil {
@@ -1814,16 +1707,11 @@ func (o ReportDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The definition of a report.
 type ReportDefinitionResponse struct {
-	// Has definition for data in this report.
-	Dataset *ReportDatasetResponse `pulumi:"dataset"`
-	// Has time period for pulling data for the report.
+	Dataset    *ReportDatasetResponse    `pulumi:"dataset"`
 	TimePeriod *ReportTimePeriodResponse `pulumi:"timePeriod"`
-	// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-	Timeframe string `pulumi:"timeframe"`
-	// The type of the report.
-	Type string `pulumi:"type"`
+	Timeframe  string                    `pulumi:"timeframe"`
+	Type       string                    `pulumi:"type"`
 }
 
 // ReportDefinitionResponseInput is an input type that accepts ReportDefinitionResponseArgs and ReportDefinitionResponseOutput values.
@@ -1837,16 +1725,11 @@ type ReportDefinitionResponseInput interface {
 	ToReportDefinitionResponseOutputWithContext(context.Context) ReportDefinitionResponseOutput
 }
 
-// The definition of a report.
 type ReportDefinitionResponseArgs struct {
-	// Has definition for data in this report.
-	Dataset ReportDatasetResponsePtrInput `pulumi:"dataset"`
-	// Has time period for pulling data for the report.
+	Dataset    ReportDatasetResponsePtrInput    `pulumi:"dataset"`
 	TimePeriod ReportTimePeriodResponsePtrInput `pulumi:"timePeriod"`
-	// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-	Timeframe pulumi.StringInput `pulumi:"timeframe"`
-	// The type of the report.
-	Type pulumi.StringInput `pulumi:"type"`
+	Timeframe  pulumi.StringInput               `pulumi:"timeframe"`
+	Type       pulumi.StringInput               `pulumi:"type"`
 }
 
 func (ReportDefinitionResponseArgs) ElementType() reflect.Type {
@@ -1902,7 +1785,6 @@ func (i *reportDefinitionResponsePtrType) ToReportDefinitionResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionResponsePtrOutput)
 }
 
-// The definition of a report.
 type ReportDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportDefinitionResponseOutput) ElementType() reflect.Type {
@@ -1922,27 +1804,23 @@ func (o ReportDefinitionResponseOutput) ToReportDefinitionResponsePtrOutput() Re
 }
 
 func (o ReportDefinitionResponseOutput) ToReportDefinitionResponsePtrOutputWithContext(ctx context.Context) ReportDefinitionResponsePtrOutput {
-	return o.ApplyT(func(v ReportDefinitionResponse) *ReportDefinitionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDefinitionResponse) *ReportDefinitionResponse {
 		return &v
 	}).(ReportDefinitionResponsePtrOutput)
 }
 
-// Has definition for data in this report.
 func (o ReportDefinitionResponseOutput) Dataset() ReportDatasetResponsePtrOutput {
 	return o.ApplyT(func(v ReportDefinitionResponse) *ReportDatasetResponse { return v.Dataset }).(ReportDatasetResponsePtrOutput)
 }
 
-// Has time period for pulling data for the report.
 func (o ReportDefinitionResponseOutput) TimePeriod() ReportTimePeriodResponsePtrOutput {
 	return o.ApplyT(func(v ReportDefinitionResponse) *ReportTimePeriodResponse { return v.TimePeriod }).(ReportTimePeriodResponsePtrOutput)
 }
 
-// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
 func (o ReportDefinitionResponseOutput) Timeframe() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportDefinitionResponse) string { return v.Timeframe }).(pulumi.StringOutput)
 }
 
-// The type of the report.
 func (o ReportDefinitionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportDefinitionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1962,10 +1840,15 @@ func (o ReportDefinitionResponsePtrOutput) ToReportDefinitionResponsePtrOutputWi
 }
 
 func (o ReportDefinitionResponsePtrOutput) Elem() ReportDefinitionResponseOutput {
-	return o.ApplyT(func(v *ReportDefinitionResponse) ReportDefinitionResponse { return *v }).(ReportDefinitionResponseOutput)
+	return o.ApplyT(func(v *ReportDefinitionResponse) ReportDefinitionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReportDefinitionResponse
+		return ret
+	}).(ReportDefinitionResponseOutput)
 }
 
-// Has definition for data in this report.
 func (o ReportDefinitionResponsePtrOutput) Dataset() ReportDatasetResponsePtrOutput {
 	return o.ApplyT(func(v *ReportDefinitionResponse) *ReportDatasetResponse {
 		if v == nil {
@@ -1975,7 +1858,6 @@ func (o ReportDefinitionResponsePtrOutput) Dataset() ReportDatasetResponsePtrOut
 	}).(ReportDatasetResponsePtrOutput)
 }
 
-// Has time period for pulling data for the report.
 func (o ReportDefinitionResponsePtrOutput) TimePeriod() ReportTimePeriodResponsePtrOutput {
 	return o.ApplyT(func(v *ReportDefinitionResponse) *ReportTimePeriodResponse {
 		if v == nil {
@@ -1985,7 +1867,6 @@ func (o ReportDefinitionResponsePtrOutput) TimePeriod() ReportTimePeriodResponse
 	}).(ReportTimePeriodResponsePtrOutput)
 }
 
-// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
 func (o ReportDefinitionResponsePtrOutput) Timeframe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportDefinitionResponse) *string {
 		if v == nil {
@@ -1995,7 +1876,6 @@ func (o ReportDefinitionResponsePtrOutput) Timeframe() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the report.
 func (o ReportDefinitionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportDefinitionResponse) *string {
 		if v == nil {
@@ -2005,13 +1885,9 @@ func (o ReportDefinitionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The destination information for the delivery of the report.
 type ReportDeliveryDestination struct {
-	// The name of the container where reports will be uploaded.
-	Container string `pulumi:"container"`
-	// The resource id of the storage account where reports will be delivered.
-	ResourceId string `pulumi:"resourceId"`
-	// The name of the directory where reports will be uploaded.
+	Container      string  `pulumi:"container"`
+	ResourceId     string  `pulumi:"resourceId"`
 	RootFolderPath *string `pulumi:"rootFolderPath"`
 }
 
@@ -2026,13 +1902,9 @@ type ReportDeliveryDestinationInput interface {
 	ToReportDeliveryDestinationOutputWithContext(context.Context) ReportDeliveryDestinationOutput
 }
 
-// The destination information for the delivery of the report.
 type ReportDeliveryDestinationArgs struct {
-	// The name of the container where reports will be uploaded.
-	Container pulumi.StringInput `pulumi:"container"`
-	// The resource id of the storage account where reports will be delivered.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// The name of the directory where reports will be uploaded.
+	Container      pulumi.StringInput    `pulumi:"container"`
+	ResourceId     pulumi.StringInput    `pulumi:"resourceId"`
 	RootFolderPath pulumi.StringPtrInput `pulumi:"rootFolderPath"`
 }
 
@@ -2089,7 +1961,6 @@ func (i *reportDeliveryDestinationPtrType) ToReportDeliveryDestinationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryDestinationPtrOutput)
 }
 
-// The destination information for the delivery of the report.
 type ReportDeliveryDestinationOutput struct{ *pulumi.OutputState }
 
 func (ReportDeliveryDestinationOutput) ElementType() reflect.Type {
@@ -2109,22 +1980,19 @@ func (o ReportDeliveryDestinationOutput) ToReportDeliveryDestinationPtrOutput() 
 }
 
 func (o ReportDeliveryDestinationOutput) ToReportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationPtrOutput {
-	return o.ApplyT(func(v ReportDeliveryDestination) *ReportDeliveryDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDeliveryDestination) *ReportDeliveryDestination {
 		return &v
 	}).(ReportDeliveryDestinationPtrOutput)
 }
 
-// The name of the container where reports will be uploaded.
 func (o ReportDeliveryDestinationOutput) Container() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportDeliveryDestination) string { return v.Container }).(pulumi.StringOutput)
 }
 
-// The resource id of the storage account where reports will be delivered.
 func (o ReportDeliveryDestinationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportDeliveryDestination) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The name of the directory where reports will be uploaded.
 func (o ReportDeliveryDestinationOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReportDeliveryDestination) *string { return v.RootFolderPath }).(pulumi.StringPtrOutput)
 }
@@ -2144,10 +2012,15 @@ func (o ReportDeliveryDestinationPtrOutput) ToReportDeliveryDestinationPtrOutput
 }
 
 func (o ReportDeliveryDestinationPtrOutput) Elem() ReportDeliveryDestinationOutput {
-	return o.ApplyT(func(v *ReportDeliveryDestination) ReportDeliveryDestination { return *v }).(ReportDeliveryDestinationOutput)
+	return o.ApplyT(func(v *ReportDeliveryDestination) ReportDeliveryDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ReportDeliveryDestination
+		return ret
+	}).(ReportDeliveryDestinationOutput)
 }
 
-// The name of the container where reports will be uploaded.
 func (o ReportDeliveryDestinationPtrOutput) Container() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportDeliveryDestination) *string {
 		if v == nil {
@@ -2157,7 +2030,6 @@ func (o ReportDeliveryDestinationPtrOutput) Container() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the storage account where reports will be delivered.
 func (o ReportDeliveryDestinationPtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportDeliveryDestination) *string {
 		if v == nil {
@@ -2167,7 +2039,6 @@ func (o ReportDeliveryDestinationPtrOutput) ResourceId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the directory where reports will be uploaded.
 func (o ReportDeliveryDestinationPtrOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportDeliveryDestination) *string {
 		if v == nil {
@@ -2177,13 +2048,9 @@ func (o ReportDeliveryDestinationPtrOutput) RootFolderPath() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The destination information for the delivery of the report.
 type ReportDeliveryDestinationResponse struct {
-	// The name of the container where reports will be uploaded.
-	Container string `pulumi:"container"`
-	// The resource id of the storage account where reports will be delivered.
-	ResourceId string `pulumi:"resourceId"`
-	// The name of the directory where reports will be uploaded.
+	Container      string  `pulumi:"container"`
+	ResourceId     string  `pulumi:"resourceId"`
 	RootFolderPath *string `pulumi:"rootFolderPath"`
 }
 
@@ -2198,13 +2065,9 @@ type ReportDeliveryDestinationResponseInput interface {
 	ToReportDeliveryDestinationResponseOutputWithContext(context.Context) ReportDeliveryDestinationResponseOutput
 }
 
-// The destination information for the delivery of the report.
 type ReportDeliveryDestinationResponseArgs struct {
-	// The name of the container where reports will be uploaded.
-	Container pulumi.StringInput `pulumi:"container"`
-	// The resource id of the storage account where reports will be delivered.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// The name of the directory where reports will be uploaded.
+	Container      pulumi.StringInput    `pulumi:"container"`
+	ResourceId     pulumi.StringInput    `pulumi:"resourceId"`
 	RootFolderPath pulumi.StringPtrInput `pulumi:"rootFolderPath"`
 }
 
@@ -2261,7 +2124,6 @@ func (i *reportDeliveryDestinationResponsePtrType) ToReportDeliveryDestinationRe
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryDestinationResponsePtrOutput)
 }
 
-// The destination information for the delivery of the report.
 type ReportDeliveryDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportDeliveryDestinationResponseOutput) ElementType() reflect.Type {
@@ -2281,22 +2143,19 @@ func (o ReportDeliveryDestinationResponseOutput) ToReportDeliveryDestinationResp
 }
 
 func (o ReportDeliveryDestinationResponseOutput) ToReportDeliveryDestinationResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationResponsePtrOutput {
-	return o.ApplyT(func(v ReportDeliveryDestinationResponse) *ReportDeliveryDestinationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDeliveryDestinationResponse) *ReportDeliveryDestinationResponse {
 		return &v
 	}).(ReportDeliveryDestinationResponsePtrOutput)
 }
 
-// The name of the container where reports will be uploaded.
 func (o ReportDeliveryDestinationResponseOutput) Container() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportDeliveryDestinationResponse) string { return v.Container }).(pulumi.StringOutput)
 }
 
-// The resource id of the storage account where reports will be delivered.
 func (o ReportDeliveryDestinationResponseOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportDeliveryDestinationResponse) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The name of the directory where reports will be uploaded.
 func (o ReportDeliveryDestinationResponseOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReportDeliveryDestinationResponse) *string { return v.RootFolderPath }).(pulumi.StringPtrOutput)
 }
@@ -2316,10 +2175,15 @@ func (o ReportDeliveryDestinationResponsePtrOutput) ToReportDeliveryDestinationR
 }
 
 func (o ReportDeliveryDestinationResponsePtrOutput) Elem() ReportDeliveryDestinationResponseOutput {
-	return o.ApplyT(func(v *ReportDeliveryDestinationResponse) ReportDeliveryDestinationResponse { return *v }).(ReportDeliveryDestinationResponseOutput)
+	return o.ApplyT(func(v *ReportDeliveryDestinationResponse) ReportDeliveryDestinationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReportDeliveryDestinationResponse
+		return ret
+	}).(ReportDeliveryDestinationResponseOutput)
 }
 
-// The name of the container where reports will be uploaded.
 func (o ReportDeliveryDestinationResponsePtrOutput) Container() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportDeliveryDestinationResponse) *string {
 		if v == nil {
@@ -2329,7 +2193,6 @@ func (o ReportDeliveryDestinationResponsePtrOutput) Container() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the storage account where reports will be delivered.
 func (o ReportDeliveryDestinationResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportDeliveryDestinationResponse) *string {
 		if v == nil {
@@ -2339,7 +2202,6 @@ func (o ReportDeliveryDestinationResponsePtrOutput) ResourceId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the directory where reports will be uploaded.
 func (o ReportDeliveryDestinationResponsePtrOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportDeliveryDestinationResponse) *string {
 		if v == nil {
@@ -2349,9 +2211,7 @@ func (o ReportDeliveryDestinationResponsePtrOutput) RootFolderPath() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The delivery information associated with a report.
 type ReportDeliveryInfo struct {
-	// Has destination for the report being delivered.
 	Destination ReportDeliveryDestination `pulumi:"destination"`
 }
 
@@ -2366,9 +2226,7 @@ type ReportDeliveryInfoInput interface {
 	ToReportDeliveryInfoOutputWithContext(context.Context) ReportDeliveryInfoOutput
 }
 
-// The delivery information associated with a report.
 type ReportDeliveryInfoArgs struct {
-	// Has destination for the report being delivered.
 	Destination ReportDeliveryDestinationInput `pulumi:"destination"`
 }
 
@@ -2425,7 +2283,6 @@ func (i *reportDeliveryInfoPtrType) ToReportDeliveryInfoPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryInfoPtrOutput)
 }
 
-// The delivery information associated with a report.
 type ReportDeliveryInfoOutput struct{ *pulumi.OutputState }
 
 func (ReportDeliveryInfoOutput) ElementType() reflect.Type {
@@ -2445,12 +2302,11 @@ func (o ReportDeliveryInfoOutput) ToReportDeliveryInfoPtrOutput() ReportDelivery
 }
 
 func (o ReportDeliveryInfoOutput) ToReportDeliveryInfoPtrOutputWithContext(ctx context.Context) ReportDeliveryInfoPtrOutput {
-	return o.ApplyT(func(v ReportDeliveryInfo) *ReportDeliveryInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDeliveryInfo) *ReportDeliveryInfo {
 		return &v
 	}).(ReportDeliveryInfoPtrOutput)
 }
 
-// Has destination for the report being delivered.
 func (o ReportDeliveryInfoOutput) Destination() ReportDeliveryDestinationOutput {
 	return o.ApplyT(func(v ReportDeliveryInfo) ReportDeliveryDestination { return v.Destination }).(ReportDeliveryDestinationOutput)
 }
@@ -2470,10 +2326,15 @@ func (o ReportDeliveryInfoPtrOutput) ToReportDeliveryInfoPtrOutputWithContext(ct
 }
 
 func (o ReportDeliveryInfoPtrOutput) Elem() ReportDeliveryInfoOutput {
-	return o.ApplyT(func(v *ReportDeliveryInfo) ReportDeliveryInfo { return *v }).(ReportDeliveryInfoOutput)
+	return o.ApplyT(func(v *ReportDeliveryInfo) ReportDeliveryInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ReportDeliveryInfo
+		return ret
+	}).(ReportDeliveryInfoOutput)
 }
 
-// Has destination for the report being delivered.
 func (o ReportDeliveryInfoPtrOutput) Destination() ReportDeliveryDestinationPtrOutput {
 	return o.ApplyT(func(v *ReportDeliveryInfo) *ReportDeliveryDestination {
 		if v == nil {
@@ -2483,9 +2344,7 @@ func (o ReportDeliveryInfoPtrOutput) Destination() ReportDeliveryDestinationPtrO
 	}).(ReportDeliveryDestinationPtrOutput)
 }
 
-// The delivery information associated with a report.
 type ReportDeliveryInfoResponse struct {
-	// Has destination for the report being delivered.
 	Destination ReportDeliveryDestinationResponse `pulumi:"destination"`
 }
 
@@ -2500,9 +2359,7 @@ type ReportDeliveryInfoResponseInput interface {
 	ToReportDeliveryInfoResponseOutputWithContext(context.Context) ReportDeliveryInfoResponseOutput
 }
 
-// The delivery information associated with a report.
 type ReportDeliveryInfoResponseArgs struct {
-	// Has destination for the report being delivered.
 	Destination ReportDeliveryDestinationResponseInput `pulumi:"destination"`
 }
 
@@ -2559,7 +2416,6 @@ func (i *reportDeliveryInfoResponsePtrType) ToReportDeliveryInfoResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryInfoResponsePtrOutput)
 }
 
-// The delivery information associated with a report.
 type ReportDeliveryInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportDeliveryInfoResponseOutput) ElementType() reflect.Type {
@@ -2579,12 +2435,11 @@ func (o ReportDeliveryInfoResponseOutput) ToReportDeliveryInfoResponsePtrOutput(
 }
 
 func (o ReportDeliveryInfoResponseOutput) ToReportDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryInfoResponsePtrOutput {
-	return o.ApplyT(func(v ReportDeliveryInfoResponse) *ReportDeliveryInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDeliveryInfoResponse) *ReportDeliveryInfoResponse {
 		return &v
 	}).(ReportDeliveryInfoResponsePtrOutput)
 }
 
-// Has destination for the report being delivered.
 func (o ReportDeliveryInfoResponseOutput) Destination() ReportDeliveryDestinationResponseOutput {
 	return o.ApplyT(func(v ReportDeliveryInfoResponse) ReportDeliveryDestinationResponse { return v.Destination }).(ReportDeliveryDestinationResponseOutput)
 }
@@ -2604,10 +2459,15 @@ func (o ReportDeliveryInfoResponsePtrOutput) ToReportDeliveryInfoResponsePtrOutp
 }
 
 func (o ReportDeliveryInfoResponsePtrOutput) Elem() ReportDeliveryInfoResponseOutput {
-	return o.ApplyT(func(v *ReportDeliveryInfoResponse) ReportDeliveryInfoResponse { return *v }).(ReportDeliveryInfoResponseOutput)
+	return o.ApplyT(func(v *ReportDeliveryInfoResponse) ReportDeliveryInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReportDeliveryInfoResponse
+		return ret
+	}).(ReportDeliveryInfoResponseOutput)
 }
 
-// Has destination for the report being delivered.
 func (o ReportDeliveryInfoResponsePtrOutput) Destination() ReportDeliveryDestinationResponsePtrOutput {
 	return o.ApplyT(func(v *ReportDeliveryInfoResponse) *ReportDeliveryDestinationResponse {
 		if v == nil {
@@ -2617,18 +2477,12 @@ func (o ReportDeliveryInfoResponsePtrOutput) Destination() ReportDeliveryDestina
 	}).(ReportDeliveryDestinationResponsePtrOutput)
 }
 
-// The filter expression to be used in the report.
 type ReportFilter struct {
-	// The logical "AND" expression. Must have at least 2 items.
-	And []ReportFilter `pulumi:"and"`
-	// Has comparison expression for a dimension
+	And       []ReportFilter              `pulumi:"and"`
 	Dimension *ReportComparisonExpression `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not *ReportFilter `pulumi:"not"`
-	// The logical "OR" expression. Must have at least 2 items.
-	Or []ReportFilter `pulumi:"or"`
-	// Has comparison expression for a tag
-	Tag *ReportComparisonExpression `pulumi:"tag"`
+	Not       *ReportFilter               `pulumi:"not"`
+	Or        []ReportFilter              `pulumi:"or"`
+	Tag       *ReportComparisonExpression `pulumi:"tag"`
 }
 
 // ReportFilterInput is an input type that accepts ReportFilterArgs and ReportFilterOutput values.
@@ -2642,18 +2496,12 @@ type ReportFilterInput interface {
 	ToReportFilterOutputWithContext(context.Context) ReportFilterOutput
 }
 
-// The filter expression to be used in the report.
 type ReportFilterArgs struct {
-	// The logical "AND" expression. Must have at least 2 items.
-	And ReportFilterArrayInput `pulumi:"and"`
-	// Has comparison expression for a dimension
+	And       ReportFilterArrayInput             `pulumi:"and"`
 	Dimension ReportComparisonExpressionPtrInput `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not ReportFilterPtrInput `pulumi:"not"`
-	// The logical "OR" expression. Must have at least 2 items.
-	Or ReportFilterArrayInput `pulumi:"or"`
-	// Has comparison expression for a tag
-	Tag ReportComparisonExpressionPtrInput `pulumi:"tag"`
+	Not       ReportFilterPtrInput               `pulumi:"not"`
+	Or        ReportFilterArrayInput             `pulumi:"or"`
+	Tag       ReportComparisonExpressionPtrInput `pulumi:"tag"`
 }
 
 func (ReportFilterArgs) ElementType() reflect.Type {
@@ -2734,7 +2582,6 @@ func (i ReportFilterArray) ToReportFilterArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ReportFilterArrayOutput)
 }
 
-// The filter expression to be used in the report.
 type ReportFilterOutput struct{ *pulumi.OutputState }
 
 func (ReportFilterOutput) ElementType() reflect.Type {
@@ -2754,32 +2601,27 @@ func (o ReportFilterOutput) ToReportFilterPtrOutput() ReportFilterPtrOutput {
 }
 
 func (o ReportFilterOutput) ToReportFilterPtrOutputWithContext(ctx context.Context) ReportFilterPtrOutput {
-	return o.ApplyT(func(v ReportFilter) *ReportFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportFilter) *ReportFilter {
 		return &v
 	}).(ReportFilterPtrOutput)
 }
 
-// The logical "AND" expression. Must have at least 2 items.
 func (o ReportFilterOutput) And() ReportFilterArrayOutput {
 	return o.ApplyT(func(v ReportFilter) []ReportFilter { return v.And }).(ReportFilterArrayOutput)
 }
 
-// Has comparison expression for a dimension
 func (o ReportFilterOutput) Dimension() ReportComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v ReportFilter) *ReportComparisonExpression { return v.Dimension }).(ReportComparisonExpressionPtrOutput)
 }
 
-// The logical "NOT" expression.
 func (o ReportFilterOutput) Not() ReportFilterPtrOutput {
 	return o.ApplyT(func(v ReportFilter) *ReportFilter { return v.Not }).(ReportFilterPtrOutput)
 }
 
-// The logical "OR" expression. Must have at least 2 items.
 func (o ReportFilterOutput) Or() ReportFilterArrayOutput {
 	return o.ApplyT(func(v ReportFilter) []ReportFilter { return v.Or }).(ReportFilterArrayOutput)
 }
 
-// Has comparison expression for a tag
 func (o ReportFilterOutput) Tag() ReportComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v ReportFilter) *ReportComparisonExpression { return v.Tag }).(ReportComparisonExpressionPtrOutput)
 }
@@ -2799,10 +2641,15 @@ func (o ReportFilterPtrOutput) ToReportFilterPtrOutputWithContext(ctx context.Co
 }
 
 func (o ReportFilterPtrOutput) Elem() ReportFilterOutput {
-	return o.ApplyT(func(v *ReportFilter) ReportFilter { return *v }).(ReportFilterOutput)
+	return o.ApplyT(func(v *ReportFilter) ReportFilter {
+		if v != nil {
+			return *v
+		}
+		var ret ReportFilter
+		return ret
+	}).(ReportFilterOutput)
 }
 
-// The logical "AND" expression. Must have at least 2 items.
 func (o ReportFilterPtrOutput) And() ReportFilterArrayOutput {
 	return o.ApplyT(func(v *ReportFilter) []ReportFilter {
 		if v == nil {
@@ -2812,7 +2659,6 @@ func (o ReportFilterPtrOutput) And() ReportFilterArrayOutput {
 	}).(ReportFilterArrayOutput)
 }
 
-// Has comparison expression for a dimension
 func (o ReportFilterPtrOutput) Dimension() ReportComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v *ReportFilter) *ReportComparisonExpression {
 		if v == nil {
@@ -2822,7 +2668,6 @@ func (o ReportFilterPtrOutput) Dimension() ReportComparisonExpressionPtrOutput {
 	}).(ReportComparisonExpressionPtrOutput)
 }
 
-// The logical "NOT" expression.
 func (o ReportFilterPtrOutput) Not() ReportFilterPtrOutput {
 	return o.ApplyT(func(v *ReportFilter) *ReportFilter {
 		if v == nil {
@@ -2832,7 +2677,6 @@ func (o ReportFilterPtrOutput) Not() ReportFilterPtrOutput {
 	}).(ReportFilterPtrOutput)
 }
 
-// The logical "OR" expression. Must have at least 2 items.
 func (o ReportFilterPtrOutput) Or() ReportFilterArrayOutput {
 	return o.ApplyT(func(v *ReportFilter) []ReportFilter {
 		if v == nil {
@@ -2842,7 +2686,6 @@ func (o ReportFilterPtrOutput) Or() ReportFilterArrayOutput {
 	}).(ReportFilterArrayOutput)
 }
 
-// Has comparison expression for a tag
 func (o ReportFilterPtrOutput) Tag() ReportComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v *ReportFilter) *ReportComparisonExpression {
 		if v == nil {
@@ -2872,18 +2715,12 @@ func (o ReportFilterArrayOutput) Index(i pulumi.IntInput) ReportFilterOutput {
 	}).(ReportFilterOutput)
 }
 
-// The filter expression to be used in the report.
 type ReportFilterResponse struct {
-	// The logical "AND" expression. Must have at least 2 items.
-	And []ReportFilterResponse `pulumi:"and"`
-	// Has comparison expression for a dimension
+	And       []ReportFilterResponse              `pulumi:"and"`
 	Dimension *ReportComparisonExpressionResponse `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not *ReportFilterResponse `pulumi:"not"`
-	// The logical "OR" expression. Must have at least 2 items.
-	Or []ReportFilterResponse `pulumi:"or"`
-	// Has comparison expression for a tag
-	Tag *ReportComparisonExpressionResponse `pulumi:"tag"`
+	Not       *ReportFilterResponse               `pulumi:"not"`
+	Or        []ReportFilterResponse              `pulumi:"or"`
+	Tag       *ReportComparisonExpressionResponse `pulumi:"tag"`
 }
 
 // ReportFilterResponseInput is an input type that accepts ReportFilterResponseArgs and ReportFilterResponseOutput values.
@@ -2897,18 +2734,12 @@ type ReportFilterResponseInput interface {
 	ToReportFilterResponseOutputWithContext(context.Context) ReportFilterResponseOutput
 }
 
-// The filter expression to be used in the report.
 type ReportFilterResponseArgs struct {
-	// The logical "AND" expression. Must have at least 2 items.
-	And ReportFilterResponseArrayInput `pulumi:"and"`
-	// Has comparison expression for a dimension
+	And       ReportFilterResponseArrayInput             `pulumi:"and"`
 	Dimension ReportComparisonExpressionResponsePtrInput `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not ReportFilterResponsePtrInput `pulumi:"not"`
-	// The logical "OR" expression. Must have at least 2 items.
-	Or ReportFilterResponseArrayInput `pulumi:"or"`
-	// Has comparison expression for a tag
-	Tag ReportComparisonExpressionResponsePtrInput `pulumi:"tag"`
+	Not       ReportFilterResponsePtrInput               `pulumi:"not"`
+	Or        ReportFilterResponseArrayInput             `pulumi:"or"`
+	Tag       ReportComparisonExpressionResponsePtrInput `pulumi:"tag"`
 }
 
 func (ReportFilterResponseArgs) ElementType() reflect.Type {
@@ -2989,7 +2820,6 @@ func (i ReportFilterResponseArray) ToReportFilterResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReportFilterResponseArrayOutput)
 }
 
-// The filter expression to be used in the report.
 type ReportFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportFilterResponseOutput) ElementType() reflect.Type {
@@ -3009,32 +2839,27 @@ func (o ReportFilterResponseOutput) ToReportFilterResponsePtrOutput() ReportFilt
 }
 
 func (o ReportFilterResponseOutput) ToReportFilterResponsePtrOutputWithContext(ctx context.Context) ReportFilterResponsePtrOutput {
-	return o.ApplyT(func(v ReportFilterResponse) *ReportFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportFilterResponse) *ReportFilterResponse {
 		return &v
 	}).(ReportFilterResponsePtrOutput)
 }
 
-// The logical "AND" expression. Must have at least 2 items.
 func (o ReportFilterResponseOutput) And() ReportFilterResponseArrayOutput {
 	return o.ApplyT(func(v ReportFilterResponse) []ReportFilterResponse { return v.And }).(ReportFilterResponseArrayOutput)
 }
 
-// Has comparison expression for a dimension
 func (o ReportFilterResponseOutput) Dimension() ReportComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v ReportFilterResponse) *ReportComparisonExpressionResponse { return v.Dimension }).(ReportComparisonExpressionResponsePtrOutput)
 }
 
-// The logical "NOT" expression.
 func (o ReportFilterResponseOutput) Not() ReportFilterResponsePtrOutput {
 	return o.ApplyT(func(v ReportFilterResponse) *ReportFilterResponse { return v.Not }).(ReportFilterResponsePtrOutput)
 }
 
-// The logical "OR" expression. Must have at least 2 items.
 func (o ReportFilterResponseOutput) Or() ReportFilterResponseArrayOutput {
 	return o.ApplyT(func(v ReportFilterResponse) []ReportFilterResponse { return v.Or }).(ReportFilterResponseArrayOutput)
 }
 
-// Has comparison expression for a tag
 func (o ReportFilterResponseOutput) Tag() ReportComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v ReportFilterResponse) *ReportComparisonExpressionResponse { return v.Tag }).(ReportComparisonExpressionResponsePtrOutput)
 }
@@ -3054,10 +2879,15 @@ func (o ReportFilterResponsePtrOutput) ToReportFilterResponsePtrOutputWithContex
 }
 
 func (o ReportFilterResponsePtrOutput) Elem() ReportFilterResponseOutput {
-	return o.ApplyT(func(v *ReportFilterResponse) ReportFilterResponse { return *v }).(ReportFilterResponseOutput)
+	return o.ApplyT(func(v *ReportFilterResponse) ReportFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReportFilterResponse
+		return ret
+	}).(ReportFilterResponseOutput)
 }
 
-// The logical "AND" expression. Must have at least 2 items.
 func (o ReportFilterResponsePtrOutput) And() ReportFilterResponseArrayOutput {
 	return o.ApplyT(func(v *ReportFilterResponse) []ReportFilterResponse {
 		if v == nil {
@@ -3067,7 +2897,6 @@ func (o ReportFilterResponsePtrOutput) And() ReportFilterResponseArrayOutput {
 	}).(ReportFilterResponseArrayOutput)
 }
 
-// Has comparison expression for a dimension
 func (o ReportFilterResponsePtrOutput) Dimension() ReportComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v *ReportFilterResponse) *ReportComparisonExpressionResponse {
 		if v == nil {
@@ -3077,7 +2906,6 @@ func (o ReportFilterResponsePtrOutput) Dimension() ReportComparisonExpressionRes
 	}).(ReportComparisonExpressionResponsePtrOutput)
 }
 
-// The logical "NOT" expression.
 func (o ReportFilterResponsePtrOutput) Not() ReportFilterResponsePtrOutput {
 	return o.ApplyT(func(v *ReportFilterResponse) *ReportFilterResponse {
 		if v == nil {
@@ -3087,7 +2915,6 @@ func (o ReportFilterResponsePtrOutput) Not() ReportFilterResponsePtrOutput {
 	}).(ReportFilterResponsePtrOutput)
 }
 
-// The logical "OR" expression. Must have at least 2 items.
 func (o ReportFilterResponsePtrOutput) Or() ReportFilterResponseArrayOutput {
 	return o.ApplyT(func(v *ReportFilterResponse) []ReportFilterResponse {
 		if v == nil {
@@ -3097,7 +2924,6 @@ func (o ReportFilterResponsePtrOutput) Or() ReportFilterResponseArrayOutput {
 	}).(ReportFilterResponseArrayOutput)
 }
 
-// Has comparison expression for a tag
 func (o ReportFilterResponsePtrOutput) Tag() ReportComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v *ReportFilterResponse) *ReportComparisonExpressionResponse {
 		if v == nil {
@@ -3127,11 +2953,8 @@ func (o ReportFilterResponseArrayOutput) Index(i pulumi.IntInput) ReportFilterRe
 	}).(ReportFilterResponseOutput)
 }
 
-// The group by expression to be used in the report.
 type ReportGrouping struct {
-	// The name of the column to group.
 	Name string `pulumi:"name"`
-	// Has type of the column to group.
 	Type string `pulumi:"type"`
 }
 
@@ -3146,11 +2969,8 @@ type ReportGroupingInput interface {
 	ToReportGroupingOutputWithContext(context.Context) ReportGroupingOutput
 }
 
-// The group by expression to be used in the report.
 type ReportGroupingArgs struct {
-	// The name of the column to group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Has type of the column to group.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3191,7 +3011,6 @@ func (i ReportGroupingArray) ToReportGroupingArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupingArrayOutput)
 }
 
-// The group by expression to be used in the report.
 type ReportGroupingOutput struct{ *pulumi.OutputState }
 
 func (ReportGroupingOutput) ElementType() reflect.Type {
@@ -3206,12 +3025,10 @@ func (o ReportGroupingOutput) ToReportGroupingOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The name of the column to group.
 func (o ReportGroupingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportGrouping) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Has type of the column to group.
 func (o ReportGroupingOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportGrouping) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3236,11 +3053,8 @@ func (o ReportGroupingArrayOutput) Index(i pulumi.IntInput) ReportGroupingOutput
 	}).(ReportGroupingOutput)
 }
 
-// The group by expression to be used in the report.
 type ReportGroupingResponse struct {
-	// The name of the column to group.
 	Name string `pulumi:"name"`
-	// Has type of the column to group.
 	Type string `pulumi:"type"`
 }
 
@@ -3255,11 +3069,8 @@ type ReportGroupingResponseInput interface {
 	ToReportGroupingResponseOutputWithContext(context.Context) ReportGroupingResponseOutput
 }
 
-// The group by expression to be used in the report.
 type ReportGroupingResponseArgs struct {
-	// The name of the column to group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Has type of the column to group.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3300,7 +3111,6 @@ func (i ReportGroupingResponseArray) ToReportGroupingResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupingResponseArrayOutput)
 }
 
-// The group by expression to be used in the report.
 type ReportGroupingResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportGroupingResponseOutput) ElementType() reflect.Type {
@@ -3315,12 +3125,10 @@ func (o ReportGroupingResponseOutput) ToReportGroupingResponseOutputWithContext(
 	return o
 }
 
-// The name of the column to group.
 func (o ReportGroupingResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportGroupingResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Has type of the column to group.
 func (o ReportGroupingResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportGroupingResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3345,12 +3153,9 @@ func (o ReportGroupingResponseArrayOutput) Index(i pulumi.IntInput) ReportGroupi
 	}).(ReportGroupingResponseOutput)
 }
 
-// The start and end date for recurrence schedule.
 type ReportRecurrencePeriod struct {
-	// The start date of recurrence.
-	From string `pulumi:"from"`
-	// The end date of recurrence.
-	To *string `pulumi:"to"`
+	From string  `pulumi:"from"`
+	To   *string `pulumi:"to"`
 }
 
 // ReportRecurrencePeriodInput is an input type that accepts ReportRecurrencePeriodArgs and ReportRecurrencePeriodOutput values.
@@ -3364,12 +3169,9 @@ type ReportRecurrencePeriodInput interface {
 	ToReportRecurrencePeriodOutputWithContext(context.Context) ReportRecurrencePeriodOutput
 }
 
-// The start and end date for recurrence schedule.
 type ReportRecurrencePeriodArgs struct {
-	// The start date of recurrence.
-	From pulumi.StringInput `pulumi:"from"`
-	// The end date of recurrence.
-	To pulumi.StringPtrInput `pulumi:"to"`
+	From pulumi.StringInput    `pulumi:"from"`
+	To   pulumi.StringPtrInput `pulumi:"to"`
 }
 
 func (ReportRecurrencePeriodArgs) ElementType() reflect.Type {
@@ -3425,7 +3227,6 @@ func (i *reportRecurrencePeriodPtrType) ToReportRecurrencePeriodPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ReportRecurrencePeriodPtrOutput)
 }
 
-// The start and end date for recurrence schedule.
 type ReportRecurrencePeriodOutput struct{ *pulumi.OutputState }
 
 func (ReportRecurrencePeriodOutput) ElementType() reflect.Type {
@@ -3445,17 +3246,15 @@ func (o ReportRecurrencePeriodOutput) ToReportRecurrencePeriodPtrOutput() Report
 }
 
 func (o ReportRecurrencePeriodOutput) ToReportRecurrencePeriodPtrOutputWithContext(ctx context.Context) ReportRecurrencePeriodPtrOutput {
-	return o.ApplyT(func(v ReportRecurrencePeriod) *ReportRecurrencePeriod {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportRecurrencePeriod) *ReportRecurrencePeriod {
 		return &v
 	}).(ReportRecurrencePeriodPtrOutput)
 }
 
-// The start date of recurrence.
 func (o ReportRecurrencePeriodOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportRecurrencePeriod) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date of recurrence.
 func (o ReportRecurrencePeriodOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReportRecurrencePeriod) *string { return v.To }).(pulumi.StringPtrOutput)
 }
@@ -3475,10 +3274,15 @@ func (o ReportRecurrencePeriodPtrOutput) ToReportRecurrencePeriodPtrOutputWithCo
 }
 
 func (o ReportRecurrencePeriodPtrOutput) Elem() ReportRecurrencePeriodOutput {
-	return o.ApplyT(func(v *ReportRecurrencePeriod) ReportRecurrencePeriod { return *v }).(ReportRecurrencePeriodOutput)
+	return o.ApplyT(func(v *ReportRecurrencePeriod) ReportRecurrencePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret ReportRecurrencePeriod
+		return ret
+	}).(ReportRecurrencePeriodOutput)
 }
 
-// The start date of recurrence.
 func (o ReportRecurrencePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportRecurrencePeriod) *string {
 		if v == nil {
@@ -3488,7 +3292,6 @@ func (o ReportRecurrencePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date of recurrence.
 func (o ReportRecurrencePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportRecurrencePeriod) *string {
 		if v == nil {
@@ -3498,12 +3301,9 @@ func (o ReportRecurrencePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start and end date for recurrence schedule.
 type ReportRecurrencePeriodResponse struct {
-	// The start date of recurrence.
-	From string `pulumi:"from"`
-	// The end date of recurrence.
-	To *string `pulumi:"to"`
+	From string  `pulumi:"from"`
+	To   *string `pulumi:"to"`
 }
 
 // ReportRecurrencePeriodResponseInput is an input type that accepts ReportRecurrencePeriodResponseArgs and ReportRecurrencePeriodResponseOutput values.
@@ -3517,12 +3317,9 @@ type ReportRecurrencePeriodResponseInput interface {
 	ToReportRecurrencePeriodResponseOutputWithContext(context.Context) ReportRecurrencePeriodResponseOutput
 }
 
-// The start and end date for recurrence schedule.
 type ReportRecurrencePeriodResponseArgs struct {
-	// The start date of recurrence.
-	From pulumi.StringInput `pulumi:"from"`
-	// The end date of recurrence.
-	To pulumi.StringPtrInput `pulumi:"to"`
+	From pulumi.StringInput    `pulumi:"from"`
+	To   pulumi.StringPtrInput `pulumi:"to"`
 }
 
 func (ReportRecurrencePeriodResponseArgs) ElementType() reflect.Type {
@@ -3578,7 +3375,6 @@ func (i *reportRecurrencePeriodResponsePtrType) ToReportRecurrencePeriodResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ReportRecurrencePeriodResponsePtrOutput)
 }
 
-// The start and end date for recurrence schedule.
 type ReportRecurrencePeriodResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportRecurrencePeriodResponseOutput) ElementType() reflect.Type {
@@ -3598,17 +3394,15 @@ func (o ReportRecurrencePeriodResponseOutput) ToReportRecurrencePeriodResponsePt
 }
 
 func (o ReportRecurrencePeriodResponseOutput) ToReportRecurrencePeriodResponsePtrOutputWithContext(ctx context.Context) ReportRecurrencePeriodResponsePtrOutput {
-	return o.ApplyT(func(v ReportRecurrencePeriodResponse) *ReportRecurrencePeriodResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportRecurrencePeriodResponse) *ReportRecurrencePeriodResponse {
 		return &v
 	}).(ReportRecurrencePeriodResponsePtrOutput)
 }
 
-// The start date of recurrence.
 func (o ReportRecurrencePeriodResponseOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportRecurrencePeriodResponse) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date of recurrence.
 func (o ReportRecurrencePeriodResponseOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReportRecurrencePeriodResponse) *string { return v.To }).(pulumi.StringPtrOutput)
 }
@@ -3628,10 +3422,15 @@ func (o ReportRecurrencePeriodResponsePtrOutput) ToReportRecurrencePeriodRespons
 }
 
 func (o ReportRecurrencePeriodResponsePtrOutput) Elem() ReportRecurrencePeriodResponseOutput {
-	return o.ApplyT(func(v *ReportRecurrencePeriodResponse) ReportRecurrencePeriodResponse { return *v }).(ReportRecurrencePeriodResponseOutput)
+	return o.ApplyT(func(v *ReportRecurrencePeriodResponse) ReportRecurrencePeriodResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReportRecurrencePeriodResponse
+		return ret
+	}).(ReportRecurrencePeriodResponseOutput)
 }
 
-// The start date of recurrence.
 func (o ReportRecurrencePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportRecurrencePeriodResponse) *string {
 		if v == nil {
@@ -3641,7 +3440,6 @@ func (o ReportRecurrencePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date of recurrence.
 func (o ReportRecurrencePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportRecurrencePeriodResponse) *string {
 		if v == nil {
@@ -3651,14 +3449,10 @@ func (o ReportRecurrencePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The schedule associated with a report.
 type ReportSchedule struct {
-	// The schedule recurrence.
-	Recurrence string `pulumi:"recurrence"`
-	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	Recurrence       string                  `pulumi:"recurrence"`
 	RecurrencePeriod *ReportRecurrencePeriod `pulumi:"recurrencePeriod"`
-	// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
-	Status *string `pulumi:"status"`
+	Status           *string                 `pulumi:"status"`
 }
 
 // ReportScheduleInput is an input type that accepts ReportScheduleArgs and ReportScheduleOutput values.
@@ -3672,14 +3466,10 @@ type ReportScheduleInput interface {
 	ToReportScheduleOutputWithContext(context.Context) ReportScheduleOutput
 }
 
-// The schedule associated with a report.
 type ReportScheduleArgs struct {
-	// The schedule recurrence.
-	Recurrence pulumi.StringInput `pulumi:"recurrence"`
-	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	Recurrence       pulumi.StringInput             `pulumi:"recurrence"`
 	RecurrencePeriod ReportRecurrencePeriodPtrInput `pulumi:"recurrencePeriod"`
-	// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status           pulumi.StringPtrInput          `pulumi:"status"`
 }
 
 func (ReportScheduleArgs) ElementType() reflect.Type {
@@ -3735,7 +3525,6 @@ func (i *reportSchedulePtrType) ToReportSchedulePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ReportSchedulePtrOutput)
 }
 
-// The schedule associated with a report.
 type ReportScheduleOutput struct{ *pulumi.OutputState }
 
 func (ReportScheduleOutput) ElementType() reflect.Type {
@@ -3755,22 +3544,19 @@ func (o ReportScheduleOutput) ToReportSchedulePtrOutput() ReportSchedulePtrOutpu
 }
 
 func (o ReportScheduleOutput) ToReportSchedulePtrOutputWithContext(ctx context.Context) ReportSchedulePtrOutput {
-	return o.ApplyT(func(v ReportSchedule) *ReportSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportSchedule) *ReportSchedule {
 		return &v
 	}).(ReportSchedulePtrOutput)
 }
 
-// The schedule recurrence.
 func (o ReportScheduleOutput) Recurrence() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportSchedule) string { return v.Recurrence }).(pulumi.StringOutput)
 }
 
-// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 func (o ReportScheduleOutput) RecurrencePeriod() ReportRecurrencePeriodPtrOutput {
 	return o.ApplyT(func(v ReportSchedule) *ReportRecurrencePeriod { return v.RecurrencePeriod }).(ReportRecurrencePeriodPtrOutput)
 }
 
-// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
 func (o ReportScheduleOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReportSchedule) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -3790,10 +3576,15 @@ func (o ReportSchedulePtrOutput) ToReportSchedulePtrOutputWithContext(ctx contex
 }
 
 func (o ReportSchedulePtrOutput) Elem() ReportScheduleOutput {
-	return o.ApplyT(func(v *ReportSchedule) ReportSchedule { return *v }).(ReportScheduleOutput)
+	return o.ApplyT(func(v *ReportSchedule) ReportSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret ReportSchedule
+		return ret
+	}).(ReportScheduleOutput)
 }
 
-// The schedule recurrence.
 func (o ReportSchedulePtrOutput) Recurrence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportSchedule) *string {
 		if v == nil {
@@ -3803,7 +3594,6 @@ func (o ReportSchedulePtrOutput) Recurrence() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 func (o ReportSchedulePtrOutput) RecurrencePeriod() ReportRecurrencePeriodPtrOutput {
 	return o.ApplyT(func(v *ReportSchedule) *ReportRecurrencePeriod {
 		if v == nil {
@@ -3813,7 +3603,6 @@ func (o ReportSchedulePtrOutput) RecurrencePeriod() ReportRecurrencePeriodPtrOut
 	}).(ReportRecurrencePeriodPtrOutput)
 }
 
-// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
 func (o ReportSchedulePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportSchedule) *string {
 		if v == nil {
@@ -3823,14 +3612,10 @@ func (o ReportSchedulePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The schedule associated with a report.
 type ReportScheduleResponse struct {
-	// The schedule recurrence.
-	Recurrence string `pulumi:"recurrence"`
-	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	Recurrence       string                          `pulumi:"recurrence"`
 	RecurrencePeriod *ReportRecurrencePeriodResponse `pulumi:"recurrencePeriod"`
-	// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
-	Status *string `pulumi:"status"`
+	Status           *string                         `pulumi:"status"`
 }
 
 // ReportScheduleResponseInput is an input type that accepts ReportScheduleResponseArgs and ReportScheduleResponseOutput values.
@@ -3844,14 +3629,10 @@ type ReportScheduleResponseInput interface {
 	ToReportScheduleResponseOutputWithContext(context.Context) ReportScheduleResponseOutput
 }
 
-// The schedule associated with a report.
 type ReportScheduleResponseArgs struct {
-	// The schedule recurrence.
-	Recurrence pulumi.StringInput `pulumi:"recurrence"`
-	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	Recurrence       pulumi.StringInput                     `pulumi:"recurrence"`
 	RecurrencePeriod ReportRecurrencePeriodResponsePtrInput `pulumi:"recurrencePeriod"`
-	// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status           pulumi.StringPtrInput                  `pulumi:"status"`
 }
 
 func (ReportScheduleResponseArgs) ElementType() reflect.Type {
@@ -3907,7 +3688,6 @@ func (i *reportScheduleResponsePtrType) ToReportScheduleResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ReportScheduleResponsePtrOutput)
 }
 
-// The schedule associated with a report.
 type ReportScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportScheduleResponseOutput) ElementType() reflect.Type {
@@ -3927,22 +3707,19 @@ func (o ReportScheduleResponseOutput) ToReportScheduleResponsePtrOutput() Report
 }
 
 func (o ReportScheduleResponseOutput) ToReportScheduleResponsePtrOutputWithContext(ctx context.Context) ReportScheduleResponsePtrOutput {
-	return o.ApplyT(func(v ReportScheduleResponse) *ReportScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportScheduleResponse) *ReportScheduleResponse {
 		return &v
 	}).(ReportScheduleResponsePtrOutput)
 }
 
-// The schedule recurrence.
 func (o ReportScheduleResponseOutput) Recurrence() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportScheduleResponse) string { return v.Recurrence }).(pulumi.StringOutput)
 }
 
-// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 func (o ReportScheduleResponseOutput) RecurrencePeriod() ReportRecurrencePeriodResponsePtrOutput {
 	return o.ApplyT(func(v ReportScheduleResponse) *ReportRecurrencePeriodResponse { return v.RecurrencePeriod }).(ReportRecurrencePeriodResponsePtrOutput)
 }
 
-// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
 func (o ReportScheduleResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReportScheduleResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -3962,10 +3739,15 @@ func (o ReportScheduleResponsePtrOutput) ToReportScheduleResponsePtrOutputWithCo
 }
 
 func (o ReportScheduleResponsePtrOutput) Elem() ReportScheduleResponseOutput {
-	return o.ApplyT(func(v *ReportScheduleResponse) ReportScheduleResponse { return *v }).(ReportScheduleResponseOutput)
+	return o.ApplyT(func(v *ReportScheduleResponse) ReportScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReportScheduleResponse
+		return ret
+	}).(ReportScheduleResponseOutput)
 }
 
-// The schedule recurrence.
 func (o ReportScheduleResponsePtrOutput) Recurrence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportScheduleResponse) *string {
 		if v == nil {
@@ -3975,7 +3757,6 @@ func (o ReportScheduleResponsePtrOutput) Recurrence() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 func (o ReportScheduleResponsePtrOutput) RecurrencePeriod() ReportRecurrencePeriodResponsePtrOutput {
 	return o.ApplyT(func(v *ReportScheduleResponse) *ReportRecurrencePeriodResponse {
 		if v == nil {
@@ -3985,7 +3766,6 @@ func (o ReportScheduleResponsePtrOutput) RecurrencePeriod() ReportRecurrencePeri
 	}).(ReportRecurrencePeriodResponsePtrOutput)
 }
 
-// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
 func (o ReportScheduleResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportScheduleResponse) *string {
 		if v == nil {
@@ -3995,12 +3775,9 @@ func (o ReportScheduleResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start and end date for pulling data for the report.
 type ReportTimePeriod struct {
-	// The start date to pull data from.
 	From string `pulumi:"from"`
-	// The end date to pull data to.
-	To string `pulumi:"to"`
+	To   string `pulumi:"to"`
 }
 
 // ReportTimePeriodInput is an input type that accepts ReportTimePeriodArgs and ReportTimePeriodOutput values.
@@ -4014,12 +3791,9 @@ type ReportTimePeriodInput interface {
 	ToReportTimePeriodOutputWithContext(context.Context) ReportTimePeriodOutput
 }
 
-// The start and end date for pulling data for the report.
 type ReportTimePeriodArgs struct {
-	// The start date to pull data from.
 	From pulumi.StringInput `pulumi:"from"`
-	// The end date to pull data to.
-	To pulumi.StringInput `pulumi:"to"`
+	To   pulumi.StringInput `pulumi:"to"`
 }
 
 func (ReportTimePeriodArgs) ElementType() reflect.Type {
@@ -4075,7 +3849,6 @@ func (i *reportTimePeriodPtrType) ToReportTimePeriodPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ReportTimePeriodPtrOutput)
 }
 
-// The start and end date for pulling data for the report.
 type ReportTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (ReportTimePeriodOutput) ElementType() reflect.Type {
@@ -4095,17 +3868,15 @@ func (o ReportTimePeriodOutput) ToReportTimePeriodPtrOutput() ReportTimePeriodPt
 }
 
 func (o ReportTimePeriodOutput) ToReportTimePeriodPtrOutputWithContext(ctx context.Context) ReportTimePeriodPtrOutput {
-	return o.ApplyT(func(v ReportTimePeriod) *ReportTimePeriod {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportTimePeriod) *ReportTimePeriod {
 		return &v
 	}).(ReportTimePeriodPtrOutput)
 }
 
-// The start date to pull data from.
 func (o ReportTimePeriodOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportTimePeriod) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date to pull data to.
 func (o ReportTimePeriodOutput) To() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportTimePeriod) string { return v.To }).(pulumi.StringOutput)
 }
@@ -4125,10 +3896,15 @@ func (o ReportTimePeriodPtrOutput) ToReportTimePeriodPtrOutputWithContext(ctx co
 }
 
 func (o ReportTimePeriodPtrOutput) Elem() ReportTimePeriodOutput {
-	return o.ApplyT(func(v *ReportTimePeriod) ReportTimePeriod { return *v }).(ReportTimePeriodOutput)
+	return o.ApplyT(func(v *ReportTimePeriod) ReportTimePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret ReportTimePeriod
+		return ret
+	}).(ReportTimePeriodOutput)
 }
 
-// The start date to pull data from.
 func (o ReportTimePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportTimePeriod) *string {
 		if v == nil {
@@ -4138,7 +3914,6 @@ func (o ReportTimePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date to pull data to.
 func (o ReportTimePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportTimePeriod) *string {
 		if v == nil {
@@ -4148,12 +3923,9 @@ func (o ReportTimePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start and end date for pulling data for the report.
 type ReportTimePeriodResponse struct {
-	// The start date to pull data from.
 	From string `pulumi:"from"`
-	// The end date to pull data to.
-	To string `pulumi:"to"`
+	To   string `pulumi:"to"`
 }
 
 // ReportTimePeriodResponseInput is an input type that accepts ReportTimePeriodResponseArgs and ReportTimePeriodResponseOutput values.
@@ -4167,12 +3939,9 @@ type ReportTimePeriodResponseInput interface {
 	ToReportTimePeriodResponseOutputWithContext(context.Context) ReportTimePeriodResponseOutput
 }
 
-// The start and end date for pulling data for the report.
 type ReportTimePeriodResponseArgs struct {
-	// The start date to pull data from.
 	From pulumi.StringInput `pulumi:"from"`
-	// The end date to pull data to.
-	To pulumi.StringInput `pulumi:"to"`
+	To   pulumi.StringInput `pulumi:"to"`
 }
 
 func (ReportTimePeriodResponseArgs) ElementType() reflect.Type {
@@ -4228,7 +3997,6 @@ func (i *reportTimePeriodResponsePtrType) ToReportTimePeriodResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ReportTimePeriodResponsePtrOutput)
 }
 
-// The start and end date for pulling data for the report.
 type ReportTimePeriodResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportTimePeriodResponseOutput) ElementType() reflect.Type {
@@ -4248,17 +4016,15 @@ func (o ReportTimePeriodResponseOutput) ToReportTimePeriodResponsePtrOutput() Re
 }
 
 func (o ReportTimePeriodResponseOutput) ToReportTimePeriodResponsePtrOutputWithContext(ctx context.Context) ReportTimePeriodResponsePtrOutput {
-	return o.ApplyT(func(v ReportTimePeriodResponse) *ReportTimePeriodResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportTimePeriodResponse) *ReportTimePeriodResponse {
 		return &v
 	}).(ReportTimePeriodResponsePtrOutput)
 }
 
-// The start date to pull data from.
 func (o ReportTimePeriodResponseOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportTimePeriodResponse) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date to pull data to.
 func (o ReportTimePeriodResponseOutput) To() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportTimePeriodResponse) string { return v.To }).(pulumi.StringOutput)
 }
@@ -4278,10 +4044,15 @@ func (o ReportTimePeriodResponsePtrOutput) ToReportTimePeriodResponsePtrOutputWi
 }
 
 func (o ReportTimePeriodResponsePtrOutput) Elem() ReportTimePeriodResponseOutput {
-	return o.ApplyT(func(v *ReportTimePeriodResponse) ReportTimePeriodResponse { return *v }).(ReportTimePeriodResponseOutput)
+	return o.ApplyT(func(v *ReportTimePeriodResponse) ReportTimePeriodResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReportTimePeriodResponse
+		return ret
+	}).(ReportTimePeriodResponseOutput)
 }
 
-// The start date to pull data from.
 func (o ReportTimePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportTimePeriodResponse) *string {
 		if v == nil {
@@ -4291,7 +4062,6 @@ func (o ReportTimePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date to pull data to.
 func (o ReportTimePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportTimePeriodResponse) *string {
 		if v == nil {

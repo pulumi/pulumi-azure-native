@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The extended info of the manager.
 func LookupManagerExtendedInfo(ctx *pulumi.Context, args *LookupManagerExtendedInfoArgs, opts ...pulumi.InvokeOption) (*LookupManagerExtendedInfoResult, error) {
 	var rv LookupManagerExtendedInfoResult
 	err := ctx.Invoke("azure-native:storsimple/v20161001:getManagerExtendedInfo", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupManagerExtendedInfo(ctx *pulumi.Context, args *LookupManagerExtendedI
 }
 
 type LookupManagerExtendedInfoArgs struct {
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
+	ManagerName       string `pulumi:"managerName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The extended info of the manager.
 type LookupManagerExtendedInfoResult struct {
-	// Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
-	Algorithm string `pulumi:"algorithm"`
-	// Represents the CEK of the resource
-	EncryptionKey *string `pulumi:"encryptionKey"`
-	// Represents the Cert thumbprint that was used to encrypt the CEK
-	EncryptionKeyThumbprint *string `pulumi:"encryptionKeyThumbprint"`
-	// ETag of the Resource
-	Etag *string `pulumi:"etag"`
-	// The identifier.
-	Id string `pulumi:"id"`
-	// Represents the CIK of the resource
-	IntegrityKey string `pulumi:"integrityKey"`
-	// The name.
-	Name string `pulumi:"name"`
-	// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+	Algorithm                   string  `pulumi:"algorithm"`
+	EncryptionKey               *string `pulumi:"encryptionKey"`
+	EncryptionKeyThumbprint     *string `pulumi:"encryptionKeyThumbprint"`
+	Etag                        *string `pulumi:"etag"`
+	Id                          string  `pulumi:"id"`
+	IntegrityKey                string  `pulumi:"integrityKey"`
+	Name                        string  `pulumi:"name"`
 	PortalCertificateThumbprint *string `pulumi:"portalCertificateThumbprint"`
-	// The type.
-	Type string `pulumi:"type"`
-	// Represents the version of the ExtendedInfo object being persisted
-	Version *string `pulumi:"version"`
+	Type                        string  `pulumi:"type"`
+	Version                     *string `pulumi:"version"`
 }

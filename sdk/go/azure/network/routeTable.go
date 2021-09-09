@@ -371,9 +371,7 @@ func (i *RouteTable) ToRouteTableOutputWithContext(ctx context.Context) RouteTab
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableOutput)
 }
 
-type RouteTableOutput struct {
-	*pulumi.OutputState
-}
+type RouteTableOutput struct{ *pulumi.OutputState }
 
 func (RouteTableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteTable)(nil))

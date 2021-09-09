@@ -129,9 +129,7 @@ func (i *ScopeAssignment) ToScopeAssignmentOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeAssignmentOutput)
 }
 
-type ScopeAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type ScopeAssignmentOutput struct{ *pulumi.OutputState }
 
 func (ScopeAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScopeAssignment)(nil))

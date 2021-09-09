@@ -11,38 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Private link service resource.
 type PrivateLinkService struct {
 	pulumi.CustomResourceState
 
-	// The alias of the private link service.
-	Alias pulumi.StringOutput `pulumi:"alias"`
-	// The auto-approval list of the private link service.
-	AutoApproval PrivateLinkServicePropertiesResponseAutoApprovalPtrOutput `pulumi:"autoApproval"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The list of Fqdn.
-	Fqdns pulumi.StringArrayOutput `pulumi:"fqdns"`
-	// An array of private link service IP configurations.
-	IpConfigurations PrivateLinkServiceIpConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
-	// An array of references to the load balancer IP configurations.
-	LoadBalancerFrontendIpConfigurations FrontendIPConfigurationResponseArrayOutput `pulumi:"loadBalancerFrontendIpConfigurations"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// An array of references to the network interfaces created for this private link service.
-	NetworkInterfaces NetworkInterfaceResponseArrayOutput `pulumi:"networkInterfaces"`
-	// An array of list about connections to the private endpoint.
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// The provisioning state of the private link service resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The visibility list of the private link service.
-	Visibility PrivateLinkServicePropertiesResponseVisibilityPtrOutput `pulumi:"visibility"`
+	Alias                                pulumi.StringOutput                                       `pulumi:"alias"`
+	AutoApproval                         PrivateLinkServicePropertiesResponseAutoApprovalPtrOutput `pulumi:"autoApproval"`
+	Etag                                 pulumi.StringPtrOutput                                    `pulumi:"etag"`
+	Fqdns                                pulumi.StringArrayOutput                                  `pulumi:"fqdns"`
+	IpConfigurations                     PrivateLinkServiceIpConfigurationResponseArrayOutput      `pulumi:"ipConfigurations"`
+	LoadBalancerFrontendIpConfigurations FrontendIPConfigurationResponseArrayOutput                `pulumi:"loadBalancerFrontendIpConfigurations"`
+	Location                             pulumi.StringPtrOutput                                    `pulumi:"location"`
+	Name                                 pulumi.StringOutput                                       `pulumi:"name"`
+	NetworkInterfaces                    NetworkInterfaceResponseArrayOutput                       `pulumi:"networkInterfaces"`
+	PrivateEndpointConnections           PrivateEndpointConnectionResponseArrayOutput              `pulumi:"privateEndpointConnections"`
+	ProvisioningState                    pulumi.StringOutput                                       `pulumi:"provisioningState"`
+	Tags                                 pulumi.StringMapOutput                                    `pulumi:"tags"`
+	Type                                 pulumi.StringOutput                                       `pulumi:"type"`
+	Visibility                           PrivateLinkServicePropertiesResponseVisibilityPtrOutput   `pulumi:"visibility"`
 }
 
 // NewPrivateLinkService registers a new resource with the given unique name, arguments, and options.
@@ -189,58 +174,34 @@ func (PrivateLinkServiceState) ElementType() reflect.Type {
 }
 
 type privateLinkServiceArgs struct {
-	// The auto-approval list of the private link service.
-	AutoApproval *PrivateLinkServicePropertiesAutoApproval `pulumi:"autoApproval"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The list of Fqdn.
-	Fqdns []string `pulumi:"fqdns"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// An array of private link service IP configurations.
-	IpConfigurations []PrivateLinkServiceIpConfiguration `pulumi:"ipConfigurations"`
-	// An array of references to the load balancer IP configurations.
-	LoadBalancerFrontendIpConfigurations []FrontendIPConfiguration `pulumi:"loadBalancerFrontendIpConfigurations"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// An array of list about connections to the private endpoint.
-	PrivateEndpointConnections []PrivateEndpointConnection `pulumi:"privateEndpointConnections"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the private link service.
-	ServiceName *string `pulumi:"serviceName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The visibility list of the private link service.
-	Visibility *PrivateLinkServicePropertiesVisibility `pulumi:"visibility"`
+	AutoApproval                         *PrivateLinkServicePropertiesAutoApproval `pulumi:"autoApproval"`
+	Etag                                 *string                                   `pulumi:"etag"`
+	Fqdns                                []string                                  `pulumi:"fqdns"`
+	Id                                   *string                                   `pulumi:"id"`
+	IpConfigurations                     []PrivateLinkServiceIpConfiguration       `pulumi:"ipConfigurations"`
+	LoadBalancerFrontendIpConfigurations []FrontendIPConfiguration                 `pulumi:"loadBalancerFrontendIpConfigurations"`
+	Location                             *string                                   `pulumi:"location"`
+	PrivateEndpointConnections           []PrivateEndpointConnection               `pulumi:"privateEndpointConnections"`
+	ResourceGroupName                    string                                    `pulumi:"resourceGroupName"`
+	ServiceName                          *string                                   `pulumi:"serviceName"`
+	Tags                                 map[string]string                         `pulumi:"tags"`
+	Visibility                           *PrivateLinkServicePropertiesVisibility   `pulumi:"visibility"`
 }
 
 // The set of arguments for constructing a PrivateLinkService resource.
 type PrivateLinkServiceArgs struct {
-	// The auto-approval list of the private link service.
-	AutoApproval PrivateLinkServicePropertiesAutoApprovalPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The list of Fqdn.
-	Fqdns pulumi.StringArrayInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// An array of private link service IP configurations.
-	IpConfigurations PrivateLinkServiceIpConfigurationArrayInput
-	// An array of references to the load balancer IP configurations.
+	AutoApproval                         PrivateLinkServicePropertiesAutoApprovalPtrInput
+	Etag                                 pulumi.StringPtrInput
+	Fqdns                                pulumi.StringArrayInput
+	Id                                   pulumi.StringPtrInput
+	IpConfigurations                     PrivateLinkServiceIpConfigurationArrayInput
 	LoadBalancerFrontendIpConfigurations FrontendIPConfigurationArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// An array of list about connections to the private endpoint.
-	PrivateEndpointConnections PrivateEndpointConnectionArrayInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the private link service.
-	ServiceName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The visibility list of the private link service.
-	Visibility PrivateLinkServicePropertiesVisibilityPtrInput
+	Location                             pulumi.StringPtrInput
+	PrivateEndpointConnections           PrivateEndpointConnectionArrayInput
+	ResourceGroupName                    pulumi.StringInput
+	ServiceName                          pulumi.StringPtrInput
+	Tags                                 pulumi.StringMapInput
+	Visibility                           PrivateLinkServicePropertiesVisibilityPtrInput
 }
 
 func (PrivateLinkServiceArgs) ElementType() reflect.Type {
@@ -266,9 +227,7 @@ func (i *PrivateLinkService) ToPrivateLinkServiceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceOutput)
 }
 
-type PrivateLinkServiceOutput struct {
-	*pulumi.OutputState
-}
+type PrivateLinkServiceOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkService)(nil))

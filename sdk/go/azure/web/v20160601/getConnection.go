@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API connection
 func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...pulumi.InvokeOption) (*LookupConnectionResult, error) {
 	var rv LookupConnectionResult
 	err := ctx.Invoke("azure-native:web/v20160601:getConnection", args, &rv, opts...)
@@ -18,27 +17,18 @@ func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...p
 }
 
 type LookupConnectionArgs struct {
-	// Connection name
-	ConnectionName string `pulumi:"connectionName"`
-	// The resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Subscription Id
-	SubscriptionId *string `pulumi:"subscriptionId"`
+	ConnectionName    string  `pulumi:"connectionName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	SubscriptionId    *string `pulumi:"subscriptionId"`
 }
 
 // API connection
 type LookupConnectionResult struct {
-	// Resource ETag
-	Etag *string `pulumi:"etag"`
-	// Resource id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
+	Etag       *string                                   `pulumi:"etag"`
+	Id         string                                    `pulumi:"id"`
+	Location   *string                                   `pulumi:"location"`
 	Name       string                                    `pulumi:"name"`
 	Properties ApiConnectionDefinitionResponseProperties `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Tags       map[string]string                         `pulumi:"tags"`
+	Type       string                                    `pulumi:"type"`
 }

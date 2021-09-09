@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The resource representation of a service in a service topology.
 type Service struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The Azure location to which the resources in the service belong to or should be deployed to.
-	TargetLocation pulumi.StringOutput `pulumi:"targetLocation"`
-	// The subscription to which the resources in the service belong to or should be deployed to.
-	TargetSubscriptionId pulumi.StringOutput `pulumi:"targetSubscriptionId"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location             pulumi.StringOutput    `pulumi:"location"`
+	Name                 pulumi.StringOutput    `pulumi:"name"`
+	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
+	TargetLocation       pulumi.StringOutput    `pulumi:"targetLocation"`
+	TargetSubscriptionId pulumi.StringOutput    `pulumi:"targetSubscriptionId"`
+	Type                 pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -98,37 +91,23 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the service resource.
-	ServiceName *string `pulumi:"serviceName"`
-	// The name of the service topology .
-	ServiceTopologyName string `pulumi:"serviceTopologyName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The Azure location to which the resources in the service belong to or should be deployed to.
-	TargetLocation string `pulumi:"targetLocation"`
-	// The subscription to which the resources in the service belong to or should be deployed to.
-	TargetSubscriptionId string `pulumi:"targetSubscriptionId"`
+	Location             *string           `pulumi:"location"`
+	ResourceGroupName    string            `pulumi:"resourceGroupName"`
+	ServiceName          *string           `pulumi:"serviceName"`
+	ServiceTopologyName  string            `pulumi:"serviceTopologyName"`
+	Tags                 map[string]string `pulumi:"tags"`
+	TargetLocation       string            `pulumi:"targetLocation"`
+	TargetSubscriptionId string            `pulumi:"targetSubscriptionId"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the service resource.
-	ServiceName pulumi.StringPtrInput
-	// The name of the service topology .
-	ServiceTopologyName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The Azure location to which the resources in the service belong to or should be deployed to.
-	TargetLocation pulumi.StringInput
-	// The subscription to which the resources in the service belong to or should be deployed to.
+	Location             pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
+	ServiceName          pulumi.StringPtrInput
+	ServiceTopologyName  pulumi.StringInput
+	Tags                 pulumi.StringMapInput
+	TargetLocation       pulumi.StringInput
 	TargetSubscriptionId pulumi.StringInput
 }
 
@@ -155,9 +134,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
-type ServiceOutput struct {
-	*pulumi.OutputState
-}
+type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Service)(nil))

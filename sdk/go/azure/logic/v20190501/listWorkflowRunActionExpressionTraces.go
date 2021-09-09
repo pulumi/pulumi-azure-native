@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The expression traces.
 func ListWorkflowRunActionExpressionTraces(ctx *pulumi.Context, args *ListWorkflowRunActionExpressionTracesArgs, opts ...pulumi.InvokeOption) (*ListWorkflowRunActionExpressionTracesResult, error) {
 	var rv ListWorkflowRunActionExpressionTracesResult
 	err := ctx.Invoke("azure-native:logic/v20190501:listWorkflowRunActionExpressionTraces", args, &rv, opts...)
@@ -18,14 +17,10 @@ func ListWorkflowRunActionExpressionTraces(ctx *pulumi.Context, args *ListWorkfl
 }
 
 type ListWorkflowRunActionExpressionTracesArgs struct {
-	// The workflow action name.
-	ActionName string `pulumi:"actionName"`
-	// The resource group name.
+	ActionName        string `pulumi:"actionName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The workflow run name.
-	RunName string `pulumi:"runName"`
-	// The workflow name.
-	WorkflowName string `pulumi:"workflowName"`
+	RunName           string `pulumi:"runName"`
+	WorkflowName      string `pulumi:"workflowName"`
 }
 
 // The expression traces.

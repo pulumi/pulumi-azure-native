@@ -144,9 +144,7 @@ func (i *ServiceRunner) ToServiceRunnerOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceRunnerOutput)
 }
 
-type ServiceRunnerOutput struct {
-	*pulumi.OutputState
-}
+type ServiceRunnerOutput struct{ *pulumi.OutputState }
 
 func (ServiceRunnerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceRunner)(nil))

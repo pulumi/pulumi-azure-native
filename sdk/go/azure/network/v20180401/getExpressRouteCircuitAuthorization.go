@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Authorization in an ExpressRouteCircuit resource.
 func LookupExpressRouteCircuitAuthorization(ctx *pulumi.Context, args *LookupExpressRouteCircuitAuthorizationArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitAuthorizationResult, error) {
 	var rv LookupExpressRouteCircuitAuthorizationResult
 	err := ctx.Invoke("azure-native:network/v20180401:getExpressRouteCircuitAuthorization", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupExpressRouteCircuitAuthorization(ctx *pulumi.Context, args *LookupExp
 }
 
 type LookupExpressRouteCircuitAuthorizationArgs struct {
-	// The name of the authorization.
 	AuthorizationName string `pulumi:"authorizationName"`
-	// The name of the express route circuit.
-	CircuitName string `pulumi:"circuitName"`
-	// The name of the resource group.
+	CircuitName       string `pulumi:"circuitName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Authorization in an ExpressRouteCircuit resource.
 type LookupExpressRouteCircuitAuthorizationResult struct {
-	// The authorization key.
-	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
+	AuthorizationKey       *string `pulumi:"authorizationKey"`
 	AuthorizationUseStatus *string `pulumi:"authorizationUseStatus"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	Etag                   string  `pulumi:"etag"`
+	Id                     *string `pulumi:"id"`
+	Name                   *string `pulumi:"name"`
+	ProvisioningState      *string `pulumi:"provisioningState"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Collection of backup items.
 func ListWebAppSiteBackups(ctx *pulumi.Context, args *ListWebAppSiteBackupsArgs, opts ...pulumi.InvokeOption) (*ListWebAppSiteBackupsResult, error) {
 	var rv ListWebAppSiteBackupsResult
 	err := ctx.Invoke("azure-native:web/v20190801:listWebAppSiteBackups", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListWebAppSiteBackups(ctx *pulumi.Context, args *ListWebAppSiteBackupsArgs,
 }
 
 type ListWebAppSiteBackupsArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Collection of backup items.
 type ListWebAppSiteBackupsResult struct {
-	// Link to next page of resources.
-	NextLink string `pulumi:"nextLink"`
-	// Collection of resources.
-	Value []BackupItemResponse `pulumi:"value"`
+	NextLink string               `pulumi:"nextLink"`
+	Value    []BackupItemResponse `pulumi:"value"`
 }

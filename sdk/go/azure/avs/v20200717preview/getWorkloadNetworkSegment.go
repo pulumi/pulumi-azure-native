@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NSX Segment
 func LookupWorkloadNetworkSegment(ctx *pulumi.Context, args *LookupWorkloadNetworkSegmentArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkSegmentResult, error) {
 	var rv LookupWorkloadNetworkSegmentResult
 	err := ctx.Invoke("azure-native:avs/v20200717preview:getWorkloadNetworkSegment", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupWorkloadNetworkSegment(ctx *pulumi.Context, args *LookupWorkloadNetwo
 }
 
 type LookupWorkloadNetworkSegmentArgs struct {
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
+	PrivateCloudName  string `pulumi:"privateCloudName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// NSX Segment identifier. Generally the same as the Segment's display name
-	SegmentId string `pulumi:"segmentId"`
+	SegmentId         string `pulumi:"segmentId"`
 }
 
 // NSX Segment
 type LookupWorkloadNetworkSegmentResult struct {
-	// Gateway which to connect segment to.
-	ConnectedGateway *string `pulumi:"connectedGateway"`
-	// Display name of the segment.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Port Vif which segment is associated with.
-	PortVif []WorkloadNetworkSegmentPortVifResponse `pulumi:"portVif"`
-	// The provisioning state
-	ProvisioningState string `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// Segment status.
-	Status string `pulumi:"status"`
-	// Subnet which to connect segment to.
-	Subnet *WorkloadNetworkSegmentSubnetResponse `pulumi:"subnet"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	ConnectedGateway  *string                                 `pulumi:"connectedGateway"`
+	DisplayName       *string                                 `pulumi:"displayName"`
+	Id                string                                  `pulumi:"id"`
+	Name              string                                  `pulumi:"name"`
+	PortVif           []WorkloadNetworkSegmentPortVifResponse `pulumi:"portVif"`
+	ProvisioningState string                                  `pulumi:"provisioningState"`
+	Revision          *float64                                `pulumi:"revision"`
+	Status            string                                  `pulumi:"status"`
+	Subnet            *WorkloadNetworkSegmentSubnetResponse   `pulumi:"subnet"`
+	Type              string                                  `pulumi:"type"`
 }

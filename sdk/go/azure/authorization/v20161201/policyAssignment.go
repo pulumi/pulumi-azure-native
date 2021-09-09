@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The policy assignment.
 type PolicyAssignment struct {
 	pulumi.CustomResourceState
 
-	// This message will be part of response in case of policy violation.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The display name of the policy assignment.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The name of the policy assignment.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Required if a parameter is used in policy rule.
-	Parameters pulumi.AnyOutput `pulumi:"parameters"`
-	// The ID of the policy definition.
+	Description        pulumi.StringPtrOutput `pulumi:"description"`
+	DisplayName        pulumi.StringPtrOutput `pulumi:"displayName"`
+	Name               pulumi.StringPtrOutput `pulumi:"name"`
+	Parameters         pulumi.AnyOutput       `pulumi:"parameters"`
 	PolicyDefinitionId pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
-	// The scope for the policy assignment.
-	Scope pulumi.StringPtrOutput `pulumi:"scope"`
-	// The type of the policy assignment.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Scope              pulumi.StringPtrOutput `pulumi:"scope"`
+	Type               pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewPolicyAssignment registers a new resource with the given unique name, arguments, and options.
@@ -151,42 +143,26 @@ func (PolicyAssignmentState) ElementType() reflect.Type {
 }
 
 type policyAssignmentArgs struct {
-	// This message will be part of response in case of policy violation.
-	Description *string `pulumi:"description"`
-	// The display name of the policy assignment.
-	DisplayName *string `pulumi:"displayName"`
-	// The name of the policy assignment.
-	Name *string `pulumi:"name"`
-	// Required if a parameter is used in policy rule.
-	Parameters interface{} `pulumi:"parameters"`
-	// The name of the policy assignment.
-	PolicyAssignmentName *string `pulumi:"policyAssignmentName"`
-	// The ID of the policy definition.
-	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
-	// The scope for the policy assignment.
-	Scope string `pulumi:"scope"`
-	// The type of the policy assignment.
-	Type *string `pulumi:"type"`
+	Description          *string     `pulumi:"description"`
+	DisplayName          *string     `pulumi:"displayName"`
+	Name                 *string     `pulumi:"name"`
+	Parameters           interface{} `pulumi:"parameters"`
+	PolicyAssignmentName *string     `pulumi:"policyAssignmentName"`
+	PolicyDefinitionId   *string     `pulumi:"policyDefinitionId"`
+	Scope                string      `pulumi:"scope"`
+	Type                 *string     `pulumi:"type"`
 }
 
 // The set of arguments for constructing a PolicyAssignment resource.
 type PolicyAssignmentArgs struct {
-	// This message will be part of response in case of policy violation.
-	Description pulumi.StringPtrInput
-	// The display name of the policy assignment.
-	DisplayName pulumi.StringPtrInput
-	// The name of the policy assignment.
-	Name pulumi.StringPtrInput
-	// Required if a parameter is used in policy rule.
-	Parameters pulumi.Input
-	// The name of the policy assignment.
+	Description          pulumi.StringPtrInput
+	DisplayName          pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	Parameters           pulumi.Input
 	PolicyAssignmentName pulumi.StringPtrInput
-	// The ID of the policy definition.
-	PolicyDefinitionId pulumi.StringPtrInput
-	// The scope for the policy assignment.
-	Scope pulumi.StringInput
-	// The type of the policy assignment.
-	Type pulumi.StringPtrInput
+	PolicyDefinitionId   pulumi.StringPtrInput
+	Scope                pulumi.StringInput
+	Type                 pulumi.StringPtrInput
 }
 
 func (PolicyAssignmentArgs) ElementType() reflect.Type {
@@ -212,9 +188,7 @@ func (i *PolicyAssignment) ToPolicyAssignmentOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentOutput)
 }
 
-type PolicyAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type PolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (PolicyAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyAssignment)(nil))

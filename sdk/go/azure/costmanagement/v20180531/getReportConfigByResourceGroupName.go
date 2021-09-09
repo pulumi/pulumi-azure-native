@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A report config resource.
 func LookupReportConfigByResourceGroupName(ctx *pulumi.Context, args *LookupReportConfigByResourceGroupNameArgs, opts ...pulumi.InvokeOption) (*LookupReportConfigByResourceGroupNameResult, error) {
 	var rv LookupReportConfigByResourceGroupNameResult
 	err := ctx.Invoke("azure-native:costmanagement/v20180531:getReportConfigByResourceGroupName", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupReportConfigByResourceGroupName(ctx *pulumi.Context, args *LookupRepo
 }
 
 type LookupReportConfigByResourceGroupNameArgs struct {
-	// Report Config Name.
-	ReportConfigName string `pulumi:"reportConfigName"`
-	// Azure Resource Group Name.
+	ReportConfigName  string `pulumi:"reportConfigName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A report config resource.
 type LookupReportConfigByResourceGroupNameResult struct {
-	// Has definition for the report config.
-	Definition ReportConfigDefinitionResponse `pulumi:"definition"`
-	// Has delivery information for the report config.
+	Definition   ReportConfigDefinitionResponse   `pulumi:"definition"`
 	DeliveryInfo ReportConfigDeliveryInfoResponse `pulumi:"deliveryInfo"`
-	// The format of the report being delivered.
-	Format *string `pulumi:"format"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Has schedule information for the report config.
-	Schedule *ReportConfigScheduleResponse `pulumi:"schedule"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Format       *string                          `pulumi:"format"`
+	Id           string                           `pulumi:"id"`
+	Name         string                           `pulumi:"name"`
+	Schedule     *ReportConfigScheduleResponse    `pulumi:"schedule"`
+	Tags         map[string]string                `pulumi:"tags"`
+	Type         string                           `pulumi:"type"`
 }

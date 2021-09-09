@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies information about the gallery image definition that you want to create or update.
 func LookupGalleryImage(ctx *pulumi.Context, args *LookupGalleryImageArgs, opts ...pulumi.InvokeOption) (*LookupGalleryImageResult, error) {
 	var rv LookupGalleryImageResult
 	err := ctx.Invoke("azure-native:compute/v20210701:getGalleryImage", args, &rv, opts...)
@@ -18,52 +17,30 @@ func LookupGalleryImage(ctx *pulumi.Context, args *LookupGalleryImageArgs, opts 
 }
 
 type LookupGalleryImageArgs struct {
-	// The name of the gallery image definition to be retrieved.
-	GalleryImageName string `pulumi:"galleryImageName"`
-	// The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
-	GalleryName string `pulumi:"galleryName"`
-	// The name of the resource group.
+	GalleryImageName  string `pulumi:"galleryImageName"`
+	GalleryName       string `pulumi:"galleryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Specifies information about the gallery image definition that you want to create or update.
 type LookupGalleryImageResult struct {
-	// The description of this gallery image definition resource. This property is updatable.
-	Description *string `pulumi:"description"`
-	// Describes the disallowed disk types.
-	Disallowed *DisallowedResponse `pulumi:"disallowed"`
-	// The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
-	// The Eula agreement for the gallery image definition.
-	Eula *string `pulumi:"eula"`
-	// A list of gallery image features.
-	Features []GalleryImageFeatureResponse `pulumi:"features"`
-	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// This is the gallery image definition identifier.
-	Identifier GalleryImageIdentifierResponse `pulumi:"identifier"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
-	OsState string `pulumi:"osState"`
-	// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType string `pulumi:"osType"`
-	// The privacy statement uri.
-	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Describes the gallery image definition purchase plan. This is used by marketplace images.
-	PurchasePlan *ImagePurchasePlanResponse `pulumi:"purchasePlan"`
-	// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
-	Recommended *RecommendedMachineConfigurationResponse `pulumi:"recommended"`
-	// The release note uri.
-	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Description         *string                                  `pulumi:"description"`
+	Disallowed          *DisallowedResponse                      `pulumi:"disallowed"`
+	EndOfLifeDate       *string                                  `pulumi:"endOfLifeDate"`
+	Eula                *string                                  `pulumi:"eula"`
+	Features            []GalleryImageFeatureResponse            `pulumi:"features"`
+	HyperVGeneration    *string                                  `pulumi:"hyperVGeneration"`
+	Id                  string                                   `pulumi:"id"`
+	Identifier          GalleryImageIdentifierResponse           `pulumi:"identifier"`
+	Location            string                                   `pulumi:"location"`
+	Name                string                                   `pulumi:"name"`
+	OsState             string                                   `pulumi:"osState"`
+	OsType              string                                   `pulumi:"osType"`
+	PrivacyStatementUri *string                                  `pulumi:"privacyStatementUri"`
+	ProvisioningState   string                                   `pulumi:"provisioningState"`
+	PurchasePlan        *ImagePurchasePlanResponse               `pulumi:"purchasePlan"`
+	Recommended         *RecommendedMachineConfigurationResponse `pulumi:"recommended"`
+	ReleaseNoteUri      *string                                  `pulumi:"releaseNoteUri"`
+	Tags                map[string]string                        `pulumi:"tags"`
+	Type                string                                   `pulumi:"type"`
 }

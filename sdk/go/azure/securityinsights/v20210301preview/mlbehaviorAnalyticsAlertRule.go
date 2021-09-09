@@ -11,35 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents MLBehaviorAnalytics alert rule.
 type MLBehaviorAnalyticsAlertRule struct {
 	pulumi.CustomResourceState
 
-	// The Name of the alert rule template used to create this rule.
-	AlertRuleTemplateName pulumi.StringOutput `pulumi:"alertRuleTemplateName"`
-	// The description of the alert rule.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// The display name for alerts created by this alert rule.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Determines whether this alert rule is enabled or disabled.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The kind of the alert rule
-	// Expected value is 'MLBehaviorAnalytics'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The last time that this alert rule has been modified.
-	LastModifiedUtc pulumi.StringOutput `pulumi:"lastModifiedUtc"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The severity for alerts created by this alert rule.
-	Severity pulumi.StringOutput `pulumi:"severity"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The tactics of the alert rule
-	Tactics pulumi.StringArrayOutput `pulumi:"tactics"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	AlertRuleTemplateName pulumi.StringOutput      `pulumi:"alertRuleTemplateName"`
+	Description           pulumi.StringOutput      `pulumi:"description"`
+	DisplayName           pulumi.StringOutput      `pulumi:"displayName"`
+	Enabled               pulumi.BoolOutput        `pulumi:"enabled"`
+	Etag                  pulumi.StringPtrOutput   `pulumi:"etag"`
+	Kind                  pulumi.StringOutput      `pulumi:"kind"`
+	LastModifiedUtc       pulumi.StringOutput      `pulumi:"lastModifiedUtc"`
+	Name                  pulumi.StringOutput      `pulumi:"name"`
+	Severity              pulumi.StringOutput      `pulumi:"severity"`
+	SystemData            SystemDataResponseOutput `pulumi:"systemData"`
+	Tactics               pulumi.StringArrayOutput `pulumi:"tactics"`
+	Type                  pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewMLBehaviorAnalyticsAlertRule registers a new resource with the given unique name, arguments, and options.
@@ -124,44 +110,26 @@ func (MLBehaviorAnalyticsAlertRuleState) ElementType() reflect.Type {
 }
 
 type mlbehaviorAnalyticsAlertRuleArgs struct {
-	// The Name of the alert rule template used to create this rule.
-	AlertRuleTemplateName string `pulumi:"alertRuleTemplateName"`
-	// Determines whether this alert rule is enabled or disabled.
-	Enabled bool `pulumi:"enabled"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The kind of the alert rule
-	// Expected value is 'MLBehaviorAnalytics'.
-	Kind string `pulumi:"kind"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Alert rule ID
-	RuleId *string `pulumi:"ruleId"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	AlertRuleTemplateName               string  `pulumi:"alertRuleTemplateName"`
+	Enabled                             bool    `pulumi:"enabled"`
+	Etag                                *string `pulumi:"etag"`
+	Kind                                string  `pulumi:"kind"`
+	OperationalInsightsResourceProvider string  `pulumi:"operationalInsightsResourceProvider"`
+	ResourceGroupName                   string  `pulumi:"resourceGroupName"`
+	RuleId                              *string `pulumi:"ruleId"`
+	WorkspaceName                       string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a MLBehaviorAnalyticsAlertRule resource.
 type MLBehaviorAnalyticsAlertRuleArgs struct {
-	// The Name of the alert rule template used to create this rule.
-	AlertRuleTemplateName pulumi.StringInput
-	// Determines whether this alert rule is enabled or disabled.
-	Enabled pulumi.BoolInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The kind of the alert rule
-	// Expected value is 'MLBehaviorAnalytics'.
-	Kind pulumi.StringInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	AlertRuleTemplateName               pulumi.StringInput
+	Enabled                             pulumi.BoolInput
+	Etag                                pulumi.StringPtrInput
+	Kind                                pulumi.StringInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Alert rule ID
-	RuleId pulumi.StringPtrInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	ResourceGroupName                   pulumi.StringInput
+	RuleId                              pulumi.StringPtrInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (MLBehaviorAnalyticsAlertRuleArgs) ElementType() reflect.Type {
@@ -187,9 +155,7 @@ func (i *MLBehaviorAnalyticsAlertRule) ToMLBehaviorAnalyticsAlertRuleOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(MLBehaviorAnalyticsAlertRuleOutput)
 }
 
-type MLBehaviorAnalyticsAlertRuleOutput struct {
-	*pulumi.OutputState
-}
+type MLBehaviorAnalyticsAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (MLBehaviorAnalyticsAlertRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MLBehaviorAnalyticsAlertRule)(nil))

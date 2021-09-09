@@ -10,20 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An API key used for authenticating with a configuration store endpoint.
 type ApiKeyResponse struct {
-	// A connection string that can be used by supporting clients for authentication.
 	ConnectionString string `pulumi:"connectionString"`
-	// The key ID.
-	Id string `pulumi:"id"`
-	// The last time any of the key's properties were modified.
-	LastModified string `pulumi:"lastModified"`
-	// A name for the key describing its usage.
-	Name string `pulumi:"name"`
-	// Whether this key can only be used for read operations.
-	ReadOnly bool `pulumi:"readOnly"`
-	// The value of the key that is used for authentication purposes.
-	Value string `pulumi:"value"`
+	Id               string `pulumi:"id"`
+	LastModified     string `pulumi:"lastModified"`
+	Name             string `pulumi:"name"`
+	ReadOnly         bool   `pulumi:"readOnly"`
+	Value            string `pulumi:"value"`
 }
 
 // ApiKeyResponseInput is an input type that accepts ApiKeyResponseArgs and ApiKeyResponseOutput values.
@@ -37,20 +30,13 @@ type ApiKeyResponseInput interface {
 	ToApiKeyResponseOutputWithContext(context.Context) ApiKeyResponseOutput
 }
 
-// An API key used for authenticating with a configuration store endpoint.
 type ApiKeyResponseArgs struct {
-	// A connection string that can be used by supporting clients for authentication.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
-	// The key ID.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The last time any of the key's properties were modified.
-	LastModified pulumi.StringInput `pulumi:"lastModified"`
-	// A name for the key describing its usage.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Whether this key can only be used for read operations.
-	ReadOnly pulumi.BoolInput `pulumi:"readOnly"`
-	// The value of the key that is used for authentication purposes.
-	Value pulumi.StringInput `pulumi:"value"`
+	Id               pulumi.StringInput `pulumi:"id"`
+	LastModified     pulumi.StringInput `pulumi:"lastModified"`
+	Name             pulumi.StringInput `pulumi:"name"`
+	ReadOnly         pulumi.BoolInput   `pulumi:"readOnly"`
+	Value            pulumi.StringInput `pulumi:"value"`
 }
 
 func (ApiKeyResponseArgs) ElementType() reflect.Type {
@@ -90,7 +76,6 @@ func (i ApiKeyResponseArray) ToApiKeyResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyResponseArrayOutput)
 }
 
-// An API key used for authenticating with a configuration store endpoint.
 type ApiKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyResponseOutput) ElementType() reflect.Type {
@@ -105,32 +90,26 @@ func (o ApiKeyResponseOutput) ToApiKeyResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// A connection string that can be used by supporting clients for authentication.
 func (o ApiKeyResponseOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyResponse) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
-// The key ID.
 func (o ApiKeyResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The last time any of the key's properties were modified.
 func (o ApiKeyResponseOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyResponse) string { return v.LastModified }).(pulumi.StringOutput)
 }
 
-// A name for the key describing its usage.
 func (o ApiKeyResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether this key can only be used for read operations.
 func (o ApiKeyResponseOutput) ReadOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v ApiKeyResponse) bool { return v.ReadOnly }).(pulumi.BoolOutput)
 }
 
-// The value of the key that is used for authentication purposes.
 func (o ApiKeyResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -156,9 +135,7 @@ func (o ApiKeyResponseArrayOutput) Index(i pulumi.IntInput) ApiKeyResponseOutput
 }
 
 type ResourceIdentity struct {
-	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
-	Type *string `pulumi:"type"`
-	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	Type                   *string                `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -174,10 +151,8 @@ type ResourceIdentityInput interface {
 }
 
 type ResourceIdentityArgs struct {
-	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	Type                   pulumi.StringPtrInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput       `pulumi:"userAssignedIdentities"`
 }
 
 func (ResourceIdentityArgs) ElementType() reflect.Type {
@@ -252,17 +227,15 @@ func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPt
 }
 
 func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return o.ApplyT(func(v ResourceIdentity) *ResourceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentity) *ResourceIdentity {
 		return &v
 	}).(ResourceIdentityPtrOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 func (o ResourceIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ResourceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v ResourceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -282,10 +255,15 @@ func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx co
 }
 
 func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
-	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity { return *v }).(ResourceIdentityOutput)
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentity
+		return ret
+	}).(ResourceIdentityOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentity) *string {
 		if v == nil {
@@ -295,7 +273,6 @@ func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ResourceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *ResourceIdentity) map[string]interface{} {
 		if v == nil {
@@ -306,13 +283,9 @@ func (o ResourceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 }
 
 type ResourceIdentityResponse struct {
-	// The principal id of the identity. This property will only be provided for a system-assigned identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
-	TenantId string `pulumi:"tenantId"`
-	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
-	Type *string `pulumi:"type"`
-	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            string                          `pulumi:"principalId"`
+	TenantId               string                          `pulumi:"tenantId"`
+	Type                   *string                         `pulumi:"type"`
 	UserAssignedIdentities map[string]UserIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -328,13 +301,9 @@ type ResourceIdentityResponseInput interface {
 }
 
 type ResourceIdentityResponseArgs struct {
-	// The principal id of the identity. This property will only be provided for a system-assigned identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            pulumi.StringInput           `pulumi:"principalId"`
+	TenantId               pulumi.StringInput           `pulumi:"tenantId"`
+	Type                   pulumi.StringPtrInput        `pulumi:"type"`
 	UserAssignedIdentities UserIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -410,27 +379,23 @@ func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutput() Re
 }
 
 func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ResourceIdentityResponse) *ResourceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityResponse) *ResourceIdentityResponse {
 		return &v
 	}).(ResourceIdentityResponsePtrOutput)
 }
 
-// The principal id of the identity. This property will only be provided for a system-assigned identity.
 func (o ResourceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
 func (o ResourceIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 func (o ResourceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ResourceIdentityResponseOutput) UserAssignedIdentities() UserIdentityResponseMapOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) map[string]UserIdentityResponse { return v.UserAssignedIdentities }).(UserIdentityResponseMapOutput)
 }
@@ -450,10 +415,15 @@ func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWi
 }
 
 func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse { return *v }).(ResourceIdentityResponseOutput)
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentityResponse
+		return ret
+	}).(ResourceIdentityResponseOutput)
 }
 
-// The principal id of the identity. This property will only be provided for a system-assigned identity.
 func (o ResourceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
@@ -463,7 +433,6 @@ func (o ResourceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
 func (o ResourceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
@@ -473,7 +442,6 @@ func (o ResourceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
@@ -483,7 +451,6 @@ func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ResourceIdentityResponsePtrOutput) UserAssignedIdentities() UserIdentityResponseMapOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) map[string]UserIdentityResponse {
 		if v == nil {
@@ -493,9 +460,7 @@ func (o ResourceIdentityResponsePtrOutput) UserAssignedIdentities() UserIdentity
 	}).(UserIdentityResponseMapOutput)
 }
 
-// Describes a configuration store SKU.
 type Sku struct {
-	// The SKU name of the configuration store.
 	Name string `pulumi:"name"`
 }
 
@@ -510,9 +475,7 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Describes a configuration store SKU.
 type SkuArgs struct {
-	// The SKU name of the configuration store.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -569,7 +532,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Describes a configuration store SKU.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -589,12 +551,11 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The SKU name of the configuration store.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -614,10 +575,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The SKU name of the configuration store.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -627,9 +593,7 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a configuration store SKU.
 type SkuResponse struct {
-	// The SKU name of the configuration store.
 	Name string `pulumi:"name"`
 }
 
@@ -644,9 +608,7 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// Describes a configuration store SKU.
 type SkuResponseArgs struct {
-	// The SKU name of the configuration store.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -703,7 +665,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// Describes a configuration store SKU.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -723,12 +684,11 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The SKU name of the configuration store.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -748,10 +708,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The SKU name of the configuration store.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -762,9 +727,7 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type UserIdentityResponse struct {
-	// The client ID of the user-assigned identity.
-	ClientId string `pulumi:"clientId"`
-	// The principal ID of the user-assigned identity.
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
 }
 
@@ -780,9 +743,7 @@ type UserIdentityResponseInput interface {
 }
 
 type UserIdentityResponseArgs struct {
-	// The client ID of the user-assigned identity.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The principal ID of the user-assigned identity.
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
@@ -837,12 +798,10 @@ func (o UserIdentityResponseOutput) ToUserIdentityResponseOutputWithContext(ctx 
 	return o
 }
 
-// The client ID of the user-assigned identity.
 func (o UserIdentityResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The principal ID of the user-assigned identity.
 func (o UserIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }

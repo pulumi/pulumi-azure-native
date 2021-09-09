@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The response to an extension resource GET request.
 func LookupExtension(ctx *pulumi.Context, args *LookupExtensionArgs, opts ...pulumi.InvokeOption) (*LookupExtensionResult, error) {
 	var rv LookupExtensionResult
 	err := ctx.Invoke("azure-native:visualstudio/v20140401preview:getExtension", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupExtension(ctx *pulumi.Context, args *LookupExtensionArgs, opts ...pul
 }
 
 type LookupExtensionArgs struct {
-	// The name of the Visual Studio Team Services account resource.
-	AccountResourceName string `pulumi:"accountResourceName"`
-	// The name of the extension.
+	AccountResourceName   string `pulumi:"accountResourceName"`
 	ExtensionResourceName string `pulumi:"extensionResourceName"`
-	// Name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // The response to an extension resource GET request.
 type LookupExtensionResult struct {
-	// Unique identifier of the resource.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The extension plan that was purchased.
-	Plan *ExtensionResourcePlanResponse `pulumi:"plan"`
-	// Resource properties.
-	Properties map[string]string `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id         string                         `pulumi:"id"`
+	Location   *string                        `pulumi:"location"`
+	Name       string                         `pulumi:"name"`
+	Plan       *ExtensionResourcePlanResponse `pulumi:"plan"`
+	Properties map[string]string              `pulumi:"properties"`
+	Tags       map[string]string              `pulumi:"tags"`
+	Type       string                         `pulumi:"type"`
 }

@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ExpressRouteConnection resource.
 type ExpressRouteConnection struct {
 	pulumi.CustomResourceState
 
-	// Authorization key to establish the connection.
-	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
-	// The ExpressRoute circuit peering.
+	AuthorizationKey           pulumi.StringPtrOutput                     `pulumi:"authorizationKey"`
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdResponseOutput `pulumi:"expressRouteCircuitPeering"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The routing weight associated to the connection.
-	RoutingWeight pulumi.IntPtrOutput `pulumi:"routingWeight"`
+	Name                       pulumi.StringOutput                        `pulumi:"name"`
+	ProvisioningState          pulumi.StringOutput                        `pulumi:"provisioningState"`
+	RoutingWeight              pulumi.IntPtrOutput                        `pulumi:"routingWeight"`
 }
 
 // NewExpressRouteConnection registers a new resource with the given unique name, arguments, and options.
@@ -210,42 +204,26 @@ func (ExpressRouteConnectionState) ElementType() reflect.Type {
 }
 
 type expressRouteConnectionArgs struct {
-	// Authorization key to establish the connection.
-	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// The name of the connection subresource.
-	ConnectionName *string `pulumi:"connectionName"`
-	// The ExpressRoute circuit peering.
+	AuthorizationKey           *string                      `pulumi:"authorizationKey"`
+	ConnectionName             *string                      `pulumi:"connectionName"`
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringId `pulumi:"expressRouteCircuitPeering"`
-	// The name of the ExpressRoute gateway.
-	ExpressRouteGatewayName string `pulumi:"expressRouteGatewayName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The routing weight associated to the connection.
-	RoutingWeight *int `pulumi:"routingWeight"`
+	ExpressRouteGatewayName    string                       `pulumi:"expressRouteGatewayName"`
+	Id                         *string                      `pulumi:"id"`
+	Name                       string                       `pulumi:"name"`
+	ResourceGroupName          string                       `pulumi:"resourceGroupName"`
+	RoutingWeight              *int                         `pulumi:"routingWeight"`
 }
 
 // The set of arguments for constructing a ExpressRouteConnection resource.
 type ExpressRouteConnectionArgs struct {
-	// Authorization key to establish the connection.
-	AuthorizationKey pulumi.StringPtrInput
-	// The name of the connection subresource.
-	ConnectionName pulumi.StringPtrInput
-	// The ExpressRoute circuit peering.
+	AuthorizationKey           pulumi.StringPtrInput
+	ConnectionName             pulumi.StringPtrInput
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdInput
-	// The name of the ExpressRoute gateway.
-	ExpressRouteGatewayName pulumi.StringInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The routing weight associated to the connection.
-	RoutingWeight pulumi.IntPtrInput
+	ExpressRouteGatewayName    pulumi.StringInput
+	Id                         pulumi.StringPtrInput
+	Name                       pulumi.StringInput
+	ResourceGroupName          pulumi.StringInput
+	RoutingWeight              pulumi.IntPtrInput
 }
 
 func (ExpressRouteConnectionArgs) ElementType() reflect.Type {
@@ -271,9 +249,7 @@ func (i *ExpressRouteConnection) ToExpressRouteConnectionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteConnectionOutput)
 }
 
-type ExpressRouteConnectionOutput struct {
-	*pulumi.OutputState
-}
+type ExpressRouteConnectionOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRouteConnection)(nil))

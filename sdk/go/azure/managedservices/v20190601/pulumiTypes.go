@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type Authorization struct {
-	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
 	DelegatedRoleDefinitionIds []string `pulumi:"delegatedRoleDefinitionIds"`
-	// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
-	PrincipalId string `pulumi:"principalId"`
-	// Display name of the principal Id.
-	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
-	// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+	PrincipalId                string   `pulumi:"principalId"`
+	PrincipalIdDisplayName     *string  `pulumi:"principalIdDisplayName"`
+	RoleDefinitionId           string   `pulumi:"roleDefinitionId"`
 }
 
 // AuthorizationInput is an input type that accepts AuthorizationArgs and AuthorizationOutput values.
@@ -33,16 +28,11 @@ type AuthorizationInput interface {
 	ToAuthorizationOutputWithContext(context.Context) AuthorizationOutput
 }
 
-// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationArgs struct {
-	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
 	DelegatedRoleDefinitionIds pulumi.StringArrayInput `pulumi:"delegatedRoleDefinitionIds"`
-	// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Display name of the principal Id.
-	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
-	// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
-	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+	PrincipalId                pulumi.StringInput      `pulumi:"principalId"`
+	PrincipalIdDisplayName     pulumi.StringPtrInput   `pulumi:"principalIdDisplayName"`
+	RoleDefinitionId           pulumi.StringInput      `pulumi:"roleDefinitionId"`
 }
 
 func (AuthorizationArgs) ElementType() reflect.Type {
@@ -82,7 +72,6 @@ func (i AuthorizationArray) ToAuthorizationArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationArrayOutput)
 }
 
-// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationOutput) ElementType() reflect.Type {
@@ -97,22 +86,18 @@ func (o AuthorizationOutput) ToAuthorizationOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
 func (o AuthorizationOutput) DelegatedRoleDefinitionIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Authorization) []string { return v.DelegatedRoleDefinitionIds }).(pulumi.StringArrayOutput)
 }
 
-// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
 func (o AuthorizationOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v Authorization) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Display name of the principal Id.
 func (o AuthorizationOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Authorization) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
 func (o AuthorizationOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v Authorization) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
@@ -137,16 +122,11 @@ func (o AuthorizationArrayOutput) Index(i pulumi.IntInput) AuthorizationOutput {
 	}).(AuthorizationOutput)
 }
 
-// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationResponse struct {
-	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
 	DelegatedRoleDefinitionIds []string `pulumi:"delegatedRoleDefinitionIds"`
-	// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
-	PrincipalId string `pulumi:"principalId"`
-	// Display name of the principal Id.
-	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
-	// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+	PrincipalId                string   `pulumi:"principalId"`
+	PrincipalIdDisplayName     *string  `pulumi:"principalIdDisplayName"`
+	RoleDefinitionId           string   `pulumi:"roleDefinitionId"`
 }
 
 // AuthorizationResponseInput is an input type that accepts AuthorizationResponseArgs and AuthorizationResponseOutput values.
@@ -160,16 +140,11 @@ type AuthorizationResponseInput interface {
 	ToAuthorizationResponseOutputWithContext(context.Context) AuthorizationResponseOutput
 }
 
-// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationResponseArgs struct {
-	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
 	DelegatedRoleDefinitionIds pulumi.StringArrayInput `pulumi:"delegatedRoleDefinitionIds"`
-	// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Display name of the principal Id.
-	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
-	// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
-	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+	PrincipalId                pulumi.StringInput      `pulumi:"principalId"`
+	PrincipalIdDisplayName     pulumi.StringPtrInput   `pulumi:"principalIdDisplayName"`
+	RoleDefinitionId           pulumi.StringInput      `pulumi:"roleDefinitionId"`
 }
 
 func (AuthorizationResponseArgs) ElementType() reflect.Type {
@@ -209,7 +184,6 @@ func (i AuthorizationResponseArray) ToAuthorizationResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationResponseArrayOutput)
 }
 
-// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationResponseOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationResponseOutput) ElementType() reflect.Type {
@@ -224,22 +198,18 @@ func (o AuthorizationResponseOutput) ToAuthorizationResponseOutputWithContext(ct
 	return o
 }
 
-// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
 func (o AuthorizationResponseOutput) DelegatedRoleDefinitionIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AuthorizationResponse) []string { return v.DelegatedRoleDefinitionIds }).(pulumi.StringArrayOutput)
 }
 
-// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
 func (o AuthorizationResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthorizationResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Display name of the principal Id.
 func (o AuthorizationResponseOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthorizationResponse) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
 func (o AuthorizationResponseOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthorizationResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
@@ -264,16 +234,11 @@ func (o AuthorizationResponseArrayOutput) Index(i pulumi.IntInput) Authorization
 	}).(AuthorizationResponseOutput)
 }
 
-// Plan details for the managed services.
 type Plan struct {
-	// The plan name.
-	Name string `pulumi:"name"`
-	// The product code.
-	Product string `pulumi:"product"`
-	// The publisher ID.
+	Name      string `pulumi:"name"`
+	Product   string `pulumi:"product"`
 	Publisher string `pulumi:"publisher"`
-	// The plan's version.
-	Version string `pulumi:"version"`
+	Version   string `pulumi:"version"`
 }
 
 // PlanInput is an input type that accepts PlanArgs and PlanOutput values.
@@ -287,16 +252,11 @@ type PlanInput interface {
 	ToPlanOutputWithContext(context.Context) PlanOutput
 }
 
-// Plan details for the managed services.
 type PlanArgs struct {
-	// The plan name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The product code.
-	Product pulumi.StringInput `pulumi:"product"`
-	// The publisher ID.
+	Name      pulumi.StringInput `pulumi:"name"`
+	Product   pulumi.StringInput `pulumi:"product"`
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The plan's version.
-	Version pulumi.StringInput `pulumi:"version"`
+	Version   pulumi.StringInput `pulumi:"version"`
 }
 
 func (PlanArgs) ElementType() reflect.Type {
@@ -352,7 +312,6 @@ func (i *planPtrType) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PlanPtrOutput)
 }
 
-// Plan details for the managed services.
 type PlanOutput struct{ *pulumi.OutputState }
 
 func (PlanOutput) ElementType() reflect.Type {
@@ -372,27 +331,23 @@ func (o PlanOutput) ToPlanPtrOutput() PlanPtrOutput {
 }
 
 func (o PlanOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput {
-	return o.ApplyT(func(v Plan) *Plan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Plan) *Plan {
 		return &v
 	}).(PlanPtrOutput)
 }
 
-// The plan name.
 func (o PlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Plan) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The product code.
 func (o PlanOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v Plan) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// The publisher ID.
 func (o PlanOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v Plan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The plan's version.
 func (o PlanOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v Plan) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -412,10 +367,15 @@ func (o PlanPtrOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOu
 }
 
 func (o PlanPtrOutput) Elem() PlanOutput {
-	return o.ApplyT(func(v *Plan) Plan { return *v }).(PlanOutput)
+	return o.ApplyT(func(v *Plan) Plan {
+		if v != nil {
+			return *v
+		}
+		var ret Plan
+		return ret
+	}).(PlanOutput)
 }
 
-// The plan name.
 func (o PlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -425,7 +385,6 @@ func (o PlanPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The product code.
 func (o PlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -435,7 +394,6 @@ func (o PlanPtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o PlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -445,7 +403,6 @@ func (o PlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plan's version.
 func (o PlanPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -455,16 +412,11 @@ func (o PlanPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Plan details for the managed services.
 type PlanResponse struct {
-	// The plan name.
-	Name string `pulumi:"name"`
-	// The product code.
-	Product string `pulumi:"product"`
-	// The publisher ID.
+	Name      string `pulumi:"name"`
+	Product   string `pulumi:"product"`
 	Publisher string `pulumi:"publisher"`
-	// The plan's version.
-	Version string `pulumi:"version"`
+	Version   string `pulumi:"version"`
 }
 
 // PlanResponseInput is an input type that accepts PlanResponseArgs and PlanResponseOutput values.
@@ -478,16 +430,11 @@ type PlanResponseInput interface {
 	ToPlanResponseOutputWithContext(context.Context) PlanResponseOutput
 }
 
-// Plan details for the managed services.
 type PlanResponseArgs struct {
-	// The plan name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The product code.
-	Product pulumi.StringInput `pulumi:"product"`
-	// The publisher ID.
+	Name      pulumi.StringInput `pulumi:"name"`
+	Product   pulumi.StringInput `pulumi:"product"`
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The plan's version.
-	Version pulumi.StringInput `pulumi:"version"`
+	Version   pulumi.StringInput `pulumi:"version"`
 }
 
 func (PlanResponseArgs) ElementType() reflect.Type {
@@ -543,7 +490,6 @@ func (i *planResponsePtrType) ToPlanResponsePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PlanResponsePtrOutput)
 }
 
-// Plan details for the managed services.
 type PlanResponseOutput struct{ *pulumi.OutputState }
 
 func (PlanResponseOutput) ElementType() reflect.Type {
@@ -563,27 +509,23 @@ func (o PlanResponseOutput) ToPlanResponsePtrOutput() PlanResponsePtrOutput {
 }
 
 func (o PlanResponseOutput) ToPlanResponsePtrOutputWithContext(ctx context.Context) PlanResponsePtrOutput {
-	return o.ApplyT(func(v PlanResponse) *PlanResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanResponse) *PlanResponse {
 		return &v
 	}).(PlanResponsePtrOutput)
 }
 
-// The plan name.
 func (o PlanResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The product code.
 func (o PlanResponseOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// The publisher ID.
 func (o PlanResponseOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The plan's version.
 func (o PlanResponseOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -603,10 +545,15 @@ func (o PlanResponsePtrOutput) ToPlanResponsePtrOutputWithContext(ctx context.Co
 }
 
 func (o PlanResponsePtrOutput) Elem() PlanResponseOutput {
-	return o.ApplyT(func(v *PlanResponse) PlanResponse { return *v }).(PlanResponseOutput)
+	return o.ApplyT(func(v *PlanResponse) PlanResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PlanResponse
+		return ret
+	}).(PlanResponseOutput)
 }
 
-// The plan name.
 func (o PlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -616,7 +563,6 @@ func (o PlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The product code.
 func (o PlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -626,7 +572,6 @@ func (o PlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -636,7 +581,6 @@ func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plan's version.
 func (o PlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -646,9 +590,7 @@ func (o PlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a registration assignment.
 type RegistrationAssignmentProperties struct {
-	// Fully qualified path of the registration definition.
 	RegistrationDefinitionId string `pulumi:"registrationDefinitionId"`
 }
 
@@ -663,9 +605,7 @@ type RegistrationAssignmentPropertiesInput interface {
 	ToRegistrationAssignmentPropertiesOutputWithContext(context.Context) RegistrationAssignmentPropertiesOutput
 }
 
-// Properties of a registration assignment.
 type RegistrationAssignmentPropertiesArgs struct {
-	// Fully qualified path of the registration definition.
 	RegistrationDefinitionId pulumi.StringInput `pulumi:"registrationDefinitionId"`
 }
 
@@ -722,7 +662,6 @@ func (i *registrationAssignmentPropertiesPtrType) ToRegistrationAssignmentProper
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesPtrOutput)
 }
 
-// Properties of a registration assignment.
 type RegistrationAssignmentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentPropertiesOutput) ElementType() reflect.Type {
@@ -742,12 +681,11 @@ func (o RegistrationAssignmentPropertiesOutput) ToRegistrationAssignmentProperti
 }
 
 func (o RegistrationAssignmentPropertiesOutput) ToRegistrationAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesPtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentProperties) *RegistrationAssignmentProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationAssignmentProperties) *RegistrationAssignmentProperties {
 		return &v
 	}).(RegistrationAssignmentPropertiesPtrOutput)
 }
 
-// Fully qualified path of the registration definition.
 func (o RegistrationAssignmentPropertiesOutput) RegistrationDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationAssignmentProperties) string { return v.RegistrationDefinitionId }).(pulumi.StringOutput)
 }
@@ -767,10 +705,15 @@ func (o RegistrationAssignmentPropertiesPtrOutput) ToRegistrationAssignmentPrope
 }
 
 func (o RegistrationAssignmentPropertiesPtrOutput) Elem() RegistrationAssignmentPropertiesOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentProperties) RegistrationAssignmentProperties { return *v }).(RegistrationAssignmentPropertiesOutput)
+	return o.ApplyT(func(v *RegistrationAssignmentProperties) RegistrationAssignmentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationAssignmentProperties
+		return ret
+	}).(RegistrationAssignmentPropertiesOutput)
 }
 
-// Fully qualified path of the registration definition.
 func (o RegistrationAssignmentPropertiesPtrOutput) RegistrationDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentProperties) *string {
 		if v == nil {
@@ -780,14 +723,10 @@ func (o RegistrationAssignmentPropertiesPtrOutput) RegistrationDefinitionId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a registration assignment.
 type RegistrationAssignmentPropertiesResponse struct {
-	// Current state of the registration assignment.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Registration definition inside registration assignment.
-	RegistrationDefinition RegistrationAssignmentPropertiesResponseRegistrationDefinition `pulumi:"registrationDefinition"`
-	// Fully qualified path of the registration definition.
-	RegistrationDefinitionId string `pulumi:"registrationDefinitionId"`
+	ProvisioningState        string                                                         `pulumi:"provisioningState"`
+	RegistrationDefinition   RegistrationAssignmentPropertiesResponseRegistrationDefinition `pulumi:"registrationDefinition"`
+	RegistrationDefinitionId string                                                         `pulumi:"registrationDefinitionId"`
 }
 
 // RegistrationAssignmentPropertiesResponseInput is an input type that accepts RegistrationAssignmentPropertiesResponseArgs and RegistrationAssignmentPropertiesResponseOutput values.
@@ -801,14 +740,10 @@ type RegistrationAssignmentPropertiesResponseInput interface {
 	ToRegistrationAssignmentPropertiesResponseOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponseOutput
 }
 
-// Properties of a registration assignment.
 type RegistrationAssignmentPropertiesResponseArgs struct {
-	// Current state of the registration assignment.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Registration definition inside registration assignment.
-	RegistrationDefinition RegistrationAssignmentPropertiesResponseRegistrationDefinitionInput `pulumi:"registrationDefinition"`
-	// Fully qualified path of the registration definition.
-	RegistrationDefinitionId pulumi.StringInput `pulumi:"registrationDefinitionId"`
+	ProvisioningState        pulumi.StringInput                                                  `pulumi:"provisioningState"`
+	RegistrationDefinition   RegistrationAssignmentPropertiesResponseRegistrationDefinitionInput `pulumi:"registrationDefinition"`
+	RegistrationDefinitionId pulumi.StringInput                                                  `pulumi:"registrationDefinitionId"`
 }
 
 func (RegistrationAssignmentPropertiesResponseArgs) ElementType() reflect.Type {
@@ -864,7 +799,6 @@ func (i *registrationAssignmentPropertiesResponsePtrType) ToRegistrationAssignme
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponsePtrOutput)
 }
 
-// Properties of a registration assignment.
 type RegistrationAssignmentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -884,24 +818,21 @@ func (o RegistrationAssignmentPropertiesResponseOutput) ToRegistrationAssignment
 }
 
 func (o RegistrationAssignmentPropertiesResponseOutput) ToRegistrationAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponse) *RegistrationAssignmentPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationAssignmentPropertiesResponse) *RegistrationAssignmentPropertiesResponse {
 		return &v
 	}).(RegistrationAssignmentPropertiesResponsePtrOutput)
 }
 
-// Current state of the registration assignment.
 func (o RegistrationAssignmentPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Registration definition inside registration assignment.
 func (o RegistrationAssignmentPropertiesResponseOutput) RegistrationDefinition() RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponse) RegistrationAssignmentPropertiesResponseRegistrationDefinition {
 		return v.RegistrationDefinition
 	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput)
 }
 
-// Fully qualified path of the registration definition.
 func (o RegistrationAssignmentPropertiesResponseOutput) RegistrationDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponse) string { return v.RegistrationDefinitionId }).(pulumi.StringOutput)
 }
@@ -921,10 +852,15 @@ func (o RegistrationAssignmentPropertiesResponsePtrOutput) ToRegistrationAssignm
 }
 
 func (o RegistrationAssignmentPropertiesResponsePtrOutput) Elem() RegistrationAssignmentPropertiesResponseOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) RegistrationAssignmentPropertiesResponse { return *v }).(RegistrationAssignmentPropertiesResponseOutput)
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) RegistrationAssignmentPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationAssignmentPropertiesResponse
+		return ret
+	}).(RegistrationAssignmentPropertiesResponseOutput)
 }
 
-// Current state of the registration assignment.
 func (o RegistrationAssignmentPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -934,7 +870,6 @@ func (o RegistrationAssignmentPropertiesResponsePtrOutput) ProvisioningState() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Registration definition inside registration assignment.
 func (o RegistrationAssignmentPropertiesResponsePtrOutput) RegistrationDefinition() RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) *RegistrationAssignmentPropertiesResponseRegistrationDefinition {
 		if v == nil {
@@ -944,7 +879,6 @@ func (o RegistrationAssignmentPropertiesResponsePtrOutput) RegistrationDefinitio
 	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 }
 
-// Fully qualified path of the registration definition.
 func (o RegistrationAssignmentPropertiesResponsePtrOutput) RegistrationDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -954,24 +888,15 @@ func (o RegistrationAssignmentPropertiesResponsePtrOutput) RegistrationDefinitio
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of registration definition inside registration assignment.
 type RegistrationAssignmentPropertiesResponseProperties struct {
-	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
-	Authorizations []AuthorizationResponse `pulumi:"authorizations"`
-	// Description of the registration definition.
-	Description *string `pulumi:"description"`
-	// Id of the managedBy tenant.
-	ManagedByTenantId *string `pulumi:"managedByTenantId"`
-	// Name of the managedBy tenant.
-	ManagedByTenantName *string `pulumi:"managedByTenantName"`
-	// Id of the home tenant.
-	ManageeTenantId *string `pulumi:"manageeTenantId"`
-	// Name of the home tenant.
-	ManageeTenantName *string `pulumi:"manageeTenantName"`
-	// Current state of the registration definition.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Name of the registration definition.
-	RegistrationDefinitionName *string `pulumi:"registrationDefinitionName"`
+	Authorizations             []AuthorizationResponse `pulumi:"authorizations"`
+	Description                *string                 `pulumi:"description"`
+	ManagedByTenantId          *string                 `pulumi:"managedByTenantId"`
+	ManagedByTenantName        *string                 `pulumi:"managedByTenantName"`
+	ManageeTenantId            *string                 `pulumi:"manageeTenantId"`
+	ManageeTenantName          *string                 `pulumi:"manageeTenantName"`
+	ProvisioningState          *string                 `pulumi:"provisioningState"`
+	RegistrationDefinitionName *string                 `pulumi:"registrationDefinitionName"`
 }
 
 // RegistrationAssignmentPropertiesResponsePropertiesInput is an input type that accepts RegistrationAssignmentPropertiesResponsePropertiesArgs and RegistrationAssignmentPropertiesResponsePropertiesOutput values.
@@ -985,24 +910,15 @@ type RegistrationAssignmentPropertiesResponsePropertiesInput interface {
 	ToRegistrationAssignmentPropertiesResponsePropertiesOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponsePropertiesOutput
 }
 
-// Properties of registration definition inside registration assignment.
 type RegistrationAssignmentPropertiesResponsePropertiesArgs struct {
-	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
-	Authorizations AuthorizationResponseArrayInput `pulumi:"authorizations"`
-	// Description of the registration definition.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Id of the managedBy tenant.
-	ManagedByTenantId pulumi.StringPtrInput `pulumi:"managedByTenantId"`
-	// Name of the managedBy tenant.
-	ManagedByTenantName pulumi.StringPtrInput `pulumi:"managedByTenantName"`
-	// Id of the home tenant.
-	ManageeTenantId pulumi.StringPtrInput `pulumi:"manageeTenantId"`
-	// Name of the home tenant.
-	ManageeTenantName pulumi.StringPtrInput `pulumi:"manageeTenantName"`
-	// Current state of the registration definition.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Name of the registration definition.
-	RegistrationDefinitionName pulumi.StringPtrInput `pulumi:"registrationDefinitionName"`
+	Authorizations             AuthorizationResponseArrayInput `pulumi:"authorizations"`
+	Description                pulumi.StringPtrInput           `pulumi:"description"`
+	ManagedByTenantId          pulumi.StringPtrInput           `pulumi:"managedByTenantId"`
+	ManagedByTenantName        pulumi.StringPtrInput           `pulumi:"managedByTenantName"`
+	ManageeTenantId            pulumi.StringPtrInput           `pulumi:"manageeTenantId"`
+	ManageeTenantName          pulumi.StringPtrInput           `pulumi:"manageeTenantName"`
+	ProvisioningState          pulumi.StringPtrInput           `pulumi:"provisioningState"`
+	RegistrationDefinitionName pulumi.StringPtrInput           `pulumi:"registrationDefinitionName"`
 }
 
 func (RegistrationAssignmentPropertiesResponsePropertiesArgs) ElementType() reflect.Type {
@@ -1058,7 +974,6 @@ func (i *registrationAssignmentPropertiesResponsePropertiesPtrType) ToRegistrati
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
 }
 
-// Properties of registration definition inside registration assignment.
 type RegistrationAssignmentPropertiesResponsePropertiesOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentPropertiesResponsePropertiesOutput) ElementType() reflect.Type {
@@ -1078,49 +993,41 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ToRegistration
 }
 
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ToRegistrationAssignmentPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *RegistrationAssignmentPropertiesResponseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationAssignmentPropertiesResponseProperties) *RegistrationAssignmentPropertiesResponseProperties {
 		return &v
 	}).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
 }
 
-// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) Authorizations() AuthorizationResponseArrayOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) []AuthorizationResponse {
 		return v.Authorizations
 	}).(AuthorizationResponseArrayOutput)
 }
 
-// Description of the registration definition.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Id of the managedBy tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ManagedByTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.ManagedByTenantId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the managedBy tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ManagedByTenantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.ManagedByTenantName }).(pulumi.StringPtrOutput)
 }
 
-// Id of the home tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ManageeTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.ManageeTenantId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the home tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ManageeTenantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.ManageeTenantName }).(pulumi.StringPtrOutput)
 }
 
-// Current state of the registration definition.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Name of the registration definition.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string {
 		return v.RegistrationDefinitionName
@@ -1143,11 +1050,14 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ToRegistrat
 
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Elem() RegistrationAssignmentPropertiesResponsePropertiesOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) RegistrationAssignmentPropertiesResponseProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationAssignmentPropertiesResponseProperties
+		return ret
 	}).(RegistrationAssignmentPropertiesResponsePropertiesOutput)
 }
 
-// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Authorizations() AuthorizationResponseArrayOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) []AuthorizationResponse {
 		if v == nil {
@@ -1157,7 +1067,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Authorizati
 	}).(AuthorizationResponseArrayOutput)
 }
 
-// Description of the registration definition.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
 		if v == nil {
@@ -1167,7 +1076,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Description
 	}).(pulumi.StringPtrOutput)
 }
 
-// Id of the managedBy tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManagedByTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
 		if v == nil {
@@ -1177,7 +1085,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManagedByTe
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the managedBy tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManagedByTenantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
 		if v == nil {
@@ -1187,7 +1094,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManagedByTe
 	}).(pulumi.StringPtrOutput)
 }
 
-// Id of the home tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManageeTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
 		if v == nil {
@@ -1197,7 +1103,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManageeTena
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the home tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManageeTenantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
 		if v == nil {
@@ -1207,7 +1112,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManageeTena
 	}).(pulumi.StringPtrOutput)
 }
 
-// Current state of the registration definition.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
 		if v == nil {
@@ -1217,7 +1121,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Provisionin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the registration definition.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
 		if v == nil {
@@ -1227,18 +1130,12 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Registratio
 	}).(pulumi.StringPtrOutput)
 }
 
-// Registration definition inside registration assignment.
 type RegistrationAssignmentPropertiesResponseRegistrationDefinition struct {
-	// Fully qualified path of the registration definition.
-	Id string `pulumi:"id"`
-	// Name of the registration definition.
-	Name string `pulumi:"name"`
-	// Plan details for the managed services.
-	Plan *PlanResponse `pulumi:"plan"`
-	// Properties of registration definition inside registration assignment.
+	Id         string                                              `pulumi:"id"`
+	Name       string                                              `pulumi:"name"`
+	Plan       *PlanResponse                                       `pulumi:"plan"`
 	Properties *RegistrationAssignmentPropertiesResponseProperties `pulumi:"properties"`
-	// Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
-	Type string `pulumi:"type"`
+	Type       string                                              `pulumi:"type"`
 }
 
 // RegistrationAssignmentPropertiesResponseRegistrationDefinitionInput is an input type that accepts RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs and RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput values.
@@ -1252,18 +1149,12 @@ type RegistrationAssignmentPropertiesResponseRegistrationDefinitionInput interfa
 	ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput
 }
 
-// Registration definition inside registration assignment.
 type RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs struct {
-	// Fully qualified path of the registration definition.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Name of the registration definition.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Plan details for the managed services.
-	Plan PlanResponsePtrInput `pulumi:"plan"`
-	// Properties of registration definition inside registration assignment.
+	Id         pulumi.StringInput                                         `pulumi:"id"`
+	Name       pulumi.StringInput                                         `pulumi:"name"`
+	Plan       PlanResponsePtrInput                                       `pulumi:"plan"`
 	Properties RegistrationAssignmentPropertiesResponsePropertiesPtrInput `pulumi:"properties"`
-	// Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                                         `pulumi:"type"`
 }
 
 func (RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs) ElementType() reflect.Type {
@@ -1319,7 +1210,6 @@ func (i *registrationAssignmentPropertiesResponseRegistrationDefinitionPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 }
 
-// Registration definition inside registration assignment.
 type RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) ElementType() reflect.Type {
@@ -1339,34 +1229,29 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) To
 }
 
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) *RegistrationAssignmentPropertiesResponseRegistrationDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationAssignmentPropertiesResponseRegistrationDefinition) *RegistrationAssignmentPropertiesResponseRegistrationDefinition {
 		return &v
 	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 }
 
-// Fully qualified path of the registration definition.
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the registration definition.
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Plan details for the managed services.
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Plan() PlanResponsePtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) *PlanResponse { return v.Plan }).(PlanResponsePtrOutput)
 }
 
-// Properties of registration definition inside registration assignment.
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Properties() RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) *RegistrationAssignmentPropertiesResponseProperties {
 		return v.Properties
 	}).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
 }
 
-// Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1387,11 +1272,14 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Elem() RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) RegistrationAssignmentPropertiesResponseRegistrationDefinition {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationAssignmentPropertiesResponseRegistrationDefinition
+		return ret
 	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput)
 }
 
-// Fully qualified path of the registration definition.
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *string {
 		if v == nil {
@@ -1401,7 +1289,6 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the registration definition.
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *string {
 		if v == nil {
@@ -1411,7 +1298,6 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// Plan details for the managed services.
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Plan() PlanResponsePtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *PlanResponse {
 		if v == nil {
@@ -1421,7 +1307,6 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 	}).(PlanResponsePtrOutput)
 }
 
-// Properties of registration definition inside registration assignment.
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Properties() RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *RegistrationAssignmentPropertiesResponseProperties {
 		if v == nil {
@@ -1431,7 +1316,6 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 	}).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
 }
 
-// Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *string {
 		if v == nil {
@@ -1441,16 +1325,11 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a registration definition.
 type RegistrationDefinitionProperties struct {
-	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
-	Authorizations []Authorization `pulumi:"authorizations"`
-	// Description of the registration definition.
-	Description *string `pulumi:"description"`
-	// Id of the managedBy tenant.
-	ManagedByTenantId string `pulumi:"managedByTenantId"`
-	// Name of the registration definition.
-	RegistrationDefinitionName *string `pulumi:"registrationDefinitionName"`
+	Authorizations             []Authorization `pulumi:"authorizations"`
+	Description                *string         `pulumi:"description"`
+	ManagedByTenantId          string          `pulumi:"managedByTenantId"`
+	RegistrationDefinitionName *string         `pulumi:"registrationDefinitionName"`
 }
 
 // RegistrationDefinitionPropertiesInput is an input type that accepts RegistrationDefinitionPropertiesArgs and RegistrationDefinitionPropertiesOutput values.
@@ -1464,16 +1343,11 @@ type RegistrationDefinitionPropertiesInput interface {
 	ToRegistrationDefinitionPropertiesOutputWithContext(context.Context) RegistrationDefinitionPropertiesOutput
 }
 
-// Properties of a registration definition.
 type RegistrationDefinitionPropertiesArgs struct {
-	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
-	Authorizations AuthorizationArrayInput `pulumi:"authorizations"`
-	// Description of the registration definition.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Id of the managedBy tenant.
-	ManagedByTenantId pulumi.StringInput `pulumi:"managedByTenantId"`
-	// Name of the registration definition.
-	RegistrationDefinitionName pulumi.StringPtrInput `pulumi:"registrationDefinitionName"`
+	Authorizations             AuthorizationArrayInput `pulumi:"authorizations"`
+	Description                pulumi.StringPtrInput   `pulumi:"description"`
+	ManagedByTenantId          pulumi.StringInput      `pulumi:"managedByTenantId"`
+	RegistrationDefinitionName pulumi.StringPtrInput   `pulumi:"registrationDefinitionName"`
 }
 
 func (RegistrationDefinitionPropertiesArgs) ElementType() reflect.Type {
@@ -1529,7 +1403,6 @@ func (i *registrationDefinitionPropertiesPtrType) ToRegistrationDefinitionProper
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationDefinitionPropertiesPtrOutput)
 }
 
-// Properties of a registration definition.
 type RegistrationDefinitionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (RegistrationDefinitionPropertiesOutput) ElementType() reflect.Type {
@@ -1549,27 +1422,23 @@ func (o RegistrationDefinitionPropertiesOutput) ToRegistrationDefinitionProperti
 }
 
 func (o RegistrationDefinitionPropertiesOutput) ToRegistrationDefinitionPropertiesPtrOutputWithContext(ctx context.Context) RegistrationDefinitionPropertiesPtrOutput {
-	return o.ApplyT(func(v RegistrationDefinitionProperties) *RegistrationDefinitionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationDefinitionProperties) *RegistrationDefinitionProperties {
 		return &v
 	}).(RegistrationDefinitionPropertiesPtrOutput)
 }
 
-// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
 func (o RegistrationDefinitionPropertiesOutput) Authorizations() AuthorizationArrayOutput {
 	return o.ApplyT(func(v RegistrationDefinitionProperties) []Authorization { return v.Authorizations }).(AuthorizationArrayOutput)
 }
 
-// Description of the registration definition.
 func (o RegistrationDefinitionPropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationDefinitionProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Id of the managedBy tenant.
 func (o RegistrationDefinitionPropertiesOutput) ManagedByTenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationDefinitionProperties) string { return v.ManagedByTenantId }).(pulumi.StringOutput)
 }
 
-// Name of the registration definition.
 func (o RegistrationDefinitionPropertiesOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationDefinitionProperties) *string { return v.RegistrationDefinitionName }).(pulumi.StringPtrOutput)
 }
@@ -1589,10 +1458,15 @@ func (o RegistrationDefinitionPropertiesPtrOutput) ToRegistrationDefinitionPrope
 }
 
 func (o RegistrationDefinitionPropertiesPtrOutput) Elem() RegistrationDefinitionPropertiesOutput {
-	return o.ApplyT(func(v *RegistrationDefinitionProperties) RegistrationDefinitionProperties { return *v }).(RegistrationDefinitionPropertiesOutput)
+	return o.ApplyT(func(v *RegistrationDefinitionProperties) RegistrationDefinitionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationDefinitionProperties
+		return ret
+	}).(RegistrationDefinitionPropertiesOutput)
 }
 
-// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
 func (o RegistrationDefinitionPropertiesPtrOutput) Authorizations() AuthorizationArrayOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionProperties) []Authorization {
 		if v == nil {
@@ -1602,7 +1476,6 @@ func (o RegistrationDefinitionPropertiesPtrOutput) Authorizations() Authorizatio
 	}).(AuthorizationArrayOutput)
 }
 
-// Description of the registration definition.
 func (o RegistrationDefinitionPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionProperties) *string {
 		if v == nil {
@@ -1612,7 +1485,6 @@ func (o RegistrationDefinitionPropertiesPtrOutput) Description() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Id of the managedBy tenant.
 func (o RegistrationDefinitionPropertiesPtrOutput) ManagedByTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionProperties) *string {
 		if v == nil {
@@ -1622,7 +1494,6 @@ func (o RegistrationDefinitionPropertiesPtrOutput) ManagedByTenantId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the registration definition.
 func (o RegistrationDefinitionPropertiesPtrOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionProperties) *string {
 		if v == nil {
@@ -1632,20 +1503,13 @@ func (o RegistrationDefinitionPropertiesPtrOutput) RegistrationDefinitionName() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a registration definition.
 type RegistrationDefinitionPropertiesResponse struct {
-	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
-	Authorizations []AuthorizationResponse `pulumi:"authorizations"`
-	// Description of the registration definition.
-	Description *string `pulumi:"description"`
-	// Id of the managedBy tenant.
-	ManagedByTenantId string `pulumi:"managedByTenantId"`
-	// Name of the managedBy tenant.
-	ManagedByTenantName string `pulumi:"managedByTenantName"`
-	// Current state of the registration definition.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Name of the registration definition.
-	RegistrationDefinitionName *string `pulumi:"registrationDefinitionName"`
+	Authorizations             []AuthorizationResponse `pulumi:"authorizations"`
+	Description                *string                 `pulumi:"description"`
+	ManagedByTenantId          string                  `pulumi:"managedByTenantId"`
+	ManagedByTenantName        string                  `pulumi:"managedByTenantName"`
+	ProvisioningState          string                  `pulumi:"provisioningState"`
+	RegistrationDefinitionName *string                 `pulumi:"registrationDefinitionName"`
 }
 
 // RegistrationDefinitionPropertiesResponseInput is an input type that accepts RegistrationDefinitionPropertiesResponseArgs and RegistrationDefinitionPropertiesResponseOutput values.
@@ -1659,20 +1523,13 @@ type RegistrationDefinitionPropertiesResponseInput interface {
 	ToRegistrationDefinitionPropertiesResponseOutputWithContext(context.Context) RegistrationDefinitionPropertiesResponseOutput
 }
 
-// Properties of a registration definition.
 type RegistrationDefinitionPropertiesResponseArgs struct {
-	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
-	Authorizations AuthorizationResponseArrayInput `pulumi:"authorizations"`
-	// Description of the registration definition.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Id of the managedBy tenant.
-	ManagedByTenantId pulumi.StringInput `pulumi:"managedByTenantId"`
-	// Name of the managedBy tenant.
-	ManagedByTenantName pulumi.StringInput `pulumi:"managedByTenantName"`
-	// Current state of the registration definition.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Name of the registration definition.
-	RegistrationDefinitionName pulumi.StringPtrInput `pulumi:"registrationDefinitionName"`
+	Authorizations             AuthorizationResponseArrayInput `pulumi:"authorizations"`
+	Description                pulumi.StringPtrInput           `pulumi:"description"`
+	ManagedByTenantId          pulumi.StringInput              `pulumi:"managedByTenantId"`
+	ManagedByTenantName        pulumi.StringInput              `pulumi:"managedByTenantName"`
+	ProvisioningState          pulumi.StringInput              `pulumi:"provisioningState"`
+	RegistrationDefinitionName pulumi.StringPtrInput           `pulumi:"registrationDefinitionName"`
 }
 
 func (RegistrationDefinitionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1728,7 +1585,6 @@ func (i *registrationDefinitionPropertiesResponsePtrType) ToRegistrationDefiniti
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationDefinitionPropertiesResponsePtrOutput)
 }
 
-// Properties of a registration definition.
 type RegistrationDefinitionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RegistrationDefinitionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1748,37 +1604,31 @@ func (o RegistrationDefinitionPropertiesResponseOutput) ToRegistrationDefinition
 }
 
 func (o RegistrationDefinitionPropertiesResponseOutput) ToRegistrationDefinitionPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistrationDefinitionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) *RegistrationDefinitionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationDefinitionPropertiesResponse) *RegistrationDefinitionPropertiesResponse {
 		return &v
 	}).(RegistrationDefinitionPropertiesResponsePtrOutput)
 }
 
-// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
 func (o RegistrationDefinitionPropertiesResponseOutput) Authorizations() AuthorizationResponseArrayOutput {
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) []AuthorizationResponse { return v.Authorizations }).(AuthorizationResponseArrayOutput)
 }
 
-// Description of the registration definition.
 func (o RegistrationDefinitionPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Id of the managedBy tenant.
 func (o RegistrationDefinitionPropertiesResponseOutput) ManagedByTenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) string { return v.ManagedByTenantId }).(pulumi.StringOutput)
 }
 
-// Name of the managedBy tenant.
 func (o RegistrationDefinitionPropertiesResponseOutput) ManagedByTenantName() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) string { return v.ManagedByTenantName }).(pulumi.StringOutput)
 }
 
-// Current state of the registration definition.
 func (o RegistrationDefinitionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Name of the registration definition.
 func (o RegistrationDefinitionPropertiesResponseOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) *string { return v.RegistrationDefinitionName }).(pulumi.StringPtrOutput)
 }
@@ -1798,10 +1648,15 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) ToRegistrationDefinit
 }
 
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) Elem() RegistrationDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) RegistrationDefinitionPropertiesResponse { return *v }).(RegistrationDefinitionPropertiesResponseOutput)
+	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) RegistrationDefinitionPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationDefinitionPropertiesResponse
+		return ret
+	}).(RegistrationDefinitionPropertiesResponseOutput)
 }
 
-// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) Authorizations() AuthorizationResponseArrayOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) []AuthorizationResponse {
 		if v == nil {
@@ -1811,7 +1666,6 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) Authorizations() Auth
 	}).(AuthorizationResponseArrayOutput)
 }
 
-// Description of the registration definition.
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
 		if v == nil {
@@ -1821,7 +1675,6 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) Description() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Id of the managedBy tenant.
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) ManagedByTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
 		if v == nil {
@@ -1831,7 +1684,6 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) ManagedByTenantId() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the managedBy tenant.
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) ManagedByTenantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
 		if v == nil {
@@ -1841,7 +1693,6 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) ManagedByTenantName()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Current state of the registration definition.
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
 		if v == nil {
@@ -1851,7 +1702,6 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) ProvisioningState() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the registration definition.
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
 		if v == nil {

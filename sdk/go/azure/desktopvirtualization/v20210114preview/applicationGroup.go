@@ -11,43 +11,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a ApplicationGroup definition.
 type ApplicationGroup struct {
 	pulumi.CustomResourceState
 
-	// Resource Type of ApplicationGroup.
-	ApplicationGroupType pulumi.StringOutput `pulumi:"applicationGroupType"`
-	// Is cloud pc resource.
-	CloudPcResource pulumi.BoolOutput `pulumi:"cloudPcResource"`
-	// Description of ApplicationGroup.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Friendly name of ApplicationGroup.
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// HostPool arm path of ApplicationGroup.
-	HostPoolArmPath pulumi.StringOutput                                          `pulumi:"hostPoolArmPath"`
-	Identity        ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput `pulumi:"identity"`
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-	ManagedBy pulumi.StringPtrOutput `pulumi:"managedBy"`
-	// The registration info of HostPool.
-	MigrationRequest MigrationRequestPropertiesResponsePtrOutput `pulumi:"migrationRequest"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// ObjectId of ApplicationGroup. (internal use)
-	ObjectId pulumi.StringOutput                                      `pulumi:"objectId"`
-	Plan     ResourceModelWithAllowedPropertySetResponsePlanPtrOutput `pulumi:"plan"`
-	Sku      ResourceModelWithAllowedPropertySetResponseSkuPtrOutput  `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Workspace arm path of ApplicationGroup.
-	WorkspaceArmPath pulumi.StringOutput `pulumi:"workspaceArmPath"`
+	ApplicationGroupType pulumi.StringOutput                                          `pulumi:"applicationGroupType"`
+	CloudPcResource      pulumi.BoolOutput                                            `pulumi:"cloudPcResource"`
+	Description          pulumi.StringPtrOutput                                       `pulumi:"description"`
+	Etag                 pulumi.StringOutput                                          `pulumi:"etag"`
+	FriendlyName         pulumi.StringPtrOutput                                       `pulumi:"friendlyName"`
+	HostPoolArmPath      pulumi.StringOutput                                          `pulumi:"hostPoolArmPath"`
+	Identity             ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput `pulumi:"identity"`
+	Kind                 pulumi.StringPtrOutput                                       `pulumi:"kind"`
+	Location             pulumi.StringPtrOutput                                       `pulumi:"location"`
+	ManagedBy            pulumi.StringPtrOutput                                       `pulumi:"managedBy"`
+	MigrationRequest     MigrationRequestPropertiesResponsePtrOutput                  `pulumi:"migrationRequest"`
+	Name                 pulumi.StringOutput                                          `pulumi:"name"`
+	ObjectId             pulumi.StringOutput                                          `pulumi:"objectId"`
+	Plan                 ResourceModelWithAllowedPropertySetResponsePlanPtrOutput     `pulumi:"plan"`
+	Sku                  ResourceModelWithAllowedPropertySetResponseSkuPtrOutput      `pulumi:"sku"`
+	Tags                 pulumi.StringMapOutput                                       `pulumi:"tags"`
+	Type                 pulumi.StringOutput                                          `pulumi:"type"`
+	WorkspaceArmPath     pulumi.StringOutput                                          `pulumi:"workspaceArmPath"`
 }
 
 // NewApplicationGroup registers a new resource with the given unique name, arguments, and options.
@@ -176,60 +160,38 @@ func (ApplicationGroupState) ElementType() reflect.Type {
 }
 
 type applicationGroupArgs struct {
-	// The name of the application group
-	ApplicationGroupName *string `pulumi:"applicationGroupName"`
-	// Resource Type of ApplicationGroup.
-	ApplicationGroupType string `pulumi:"applicationGroupType"`
-	// Description of ApplicationGroup.
-	Description *string `pulumi:"description"`
-	// Friendly name of ApplicationGroup.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// HostPool arm path of ApplicationGroup.
-	HostPoolArmPath string                                       `pulumi:"hostPoolArmPath"`
-	Identity        *ResourceModelWithAllowedPropertySetIdentity `pulumi:"identity"`
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-	ManagedBy *string `pulumi:"managedBy"`
-	// The registration info of HostPool.
-	MigrationRequest *MigrationRequestProperties              `pulumi:"migrationRequest"`
-	Plan             *ResourceModelWithAllowedPropertySetPlan `pulumi:"plan"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string                                  `pulumi:"resourceGroupName"`
-	Sku               *ResourceModelWithAllowedPropertySetSku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ApplicationGroupName *string                                      `pulumi:"applicationGroupName"`
+	ApplicationGroupType string                                       `pulumi:"applicationGroupType"`
+	Description          *string                                      `pulumi:"description"`
+	FriendlyName         *string                                      `pulumi:"friendlyName"`
+	HostPoolArmPath      string                                       `pulumi:"hostPoolArmPath"`
+	Identity             *ResourceModelWithAllowedPropertySetIdentity `pulumi:"identity"`
+	Kind                 *string                                      `pulumi:"kind"`
+	Location             *string                                      `pulumi:"location"`
+	ManagedBy            *string                                      `pulumi:"managedBy"`
+	MigrationRequest     *MigrationRequestProperties                  `pulumi:"migrationRequest"`
+	Plan                 *ResourceModelWithAllowedPropertySetPlan     `pulumi:"plan"`
+	ResourceGroupName    string                                       `pulumi:"resourceGroupName"`
+	Sku                  *ResourceModelWithAllowedPropertySetSku      `pulumi:"sku"`
+	Tags                 map[string]string                            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ApplicationGroup resource.
 type ApplicationGroupArgs struct {
-	// The name of the application group
 	ApplicationGroupName pulumi.StringPtrInput
-	// Resource Type of ApplicationGroup.
 	ApplicationGroupType pulumi.StringInput
-	// Description of ApplicationGroup.
-	Description pulumi.StringPtrInput
-	// Friendly name of ApplicationGroup.
-	FriendlyName pulumi.StringPtrInput
-	// HostPool arm path of ApplicationGroup.
-	HostPoolArmPath pulumi.StringInput
-	Identity        ResourceModelWithAllowedPropertySetIdentityPtrInput
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-	Kind pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-	ManagedBy pulumi.StringPtrInput
-	// The registration info of HostPool.
-	MigrationRequest MigrationRequestPropertiesPtrInput
-	Plan             ResourceModelWithAllowedPropertySetPlanPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	Sku               ResourceModelWithAllowedPropertySetSkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Description          pulumi.StringPtrInput
+	FriendlyName         pulumi.StringPtrInput
+	HostPoolArmPath      pulumi.StringInput
+	Identity             ResourceModelWithAllowedPropertySetIdentityPtrInput
+	Kind                 pulumi.StringPtrInput
+	Location             pulumi.StringPtrInput
+	ManagedBy            pulumi.StringPtrInput
+	MigrationRequest     MigrationRequestPropertiesPtrInput
+	Plan                 ResourceModelWithAllowedPropertySetPlanPtrInput
+	ResourceGroupName    pulumi.StringInput
+	Sku                  ResourceModelWithAllowedPropertySetSkuPtrInput
+	Tags                 pulumi.StringMapInput
 }
 
 func (ApplicationGroupArgs) ElementType() reflect.Type {
@@ -255,9 +217,7 @@ func (i *ApplicationGroup) ToApplicationGroupOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGroupOutput)
 }
 
-type ApplicationGroupOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationGroupOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationGroup)(nil))

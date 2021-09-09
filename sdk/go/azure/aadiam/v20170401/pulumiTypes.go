@@ -10,13 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettings struct {
-	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	Category *string `pulumi:"category"`
-	// A value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// The retention policy for this log.
+	Category        *string          `pulumi:"category"`
+	Enabled         bool             `pulumi:"enabled"`
 	RetentionPolicy *RetentionPolicy `pulumi:"retentionPolicy"`
 }
 
@@ -31,13 +27,9 @@ type LogSettingsInput interface {
 	ToLogSettingsOutputWithContext(context.Context) LogSettingsOutput
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettingsArgs struct {
-	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// A value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The retention policy for this log.
+	Category        pulumi.StringPtrInput   `pulumi:"category"`
+	Enabled         pulumi.BoolInput        `pulumi:"enabled"`
 	RetentionPolicy RetentionPolicyPtrInput `pulumi:"retentionPolicy"`
 }
 
@@ -78,7 +70,6 @@ func (i LogSettingsArray) ToLogSettingsArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LogSettingsArrayOutput)
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettingsOutput struct{ *pulumi.OutputState }
 
 func (LogSettingsOutput) ElementType() reflect.Type {
@@ -93,17 +84,14 @@ func (o LogSettingsOutput) ToLogSettingsOutputWithContext(ctx context.Context) L
 	return o
 }
 
-// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
 func (o LogSettingsOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogSettings) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether this log is enabled.
 func (o LogSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LogSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The retention policy for this log.
 func (o LogSettingsOutput) RetentionPolicy() RetentionPolicyPtrOutput {
 	return o.ApplyT(func(v LogSettings) *RetentionPolicy { return v.RetentionPolicy }).(RetentionPolicyPtrOutput)
 }
@@ -128,13 +116,9 @@ func (o LogSettingsArrayOutput) Index(i pulumi.IntInput) LogSettingsOutput {
 	}).(LogSettingsOutput)
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettingsResponse struct {
-	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	Category *string `pulumi:"category"`
-	// A value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// The retention policy for this log.
+	Category        *string                  `pulumi:"category"`
+	Enabled         bool                     `pulumi:"enabled"`
 	RetentionPolicy *RetentionPolicyResponse `pulumi:"retentionPolicy"`
 }
 
@@ -149,13 +133,9 @@ type LogSettingsResponseInput interface {
 	ToLogSettingsResponseOutputWithContext(context.Context) LogSettingsResponseOutput
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettingsResponseArgs struct {
-	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// A value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The retention policy for this log.
+	Category        pulumi.StringPtrInput           `pulumi:"category"`
+	Enabled         pulumi.BoolInput                `pulumi:"enabled"`
 	RetentionPolicy RetentionPolicyResponsePtrInput `pulumi:"retentionPolicy"`
 }
 
@@ -196,7 +176,6 @@ func (i LogSettingsResponseArray) ToLogSettingsResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LogSettingsResponseArrayOutput)
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (LogSettingsResponseOutput) ElementType() reflect.Type {
@@ -211,17 +190,14 @@ func (o LogSettingsResponseOutput) ToLogSettingsResponseOutputWithContext(ctx co
 	return o
 }
 
-// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
 func (o LogSettingsResponseOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogSettingsResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether this log is enabled.
 func (o LogSettingsResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LogSettingsResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The retention policy for this log.
 func (o LogSettingsResponseOutput) RetentionPolicy() RetentionPolicyResponsePtrOutput {
 	return o.ApplyT(func(v LogSettingsResponse) *RetentionPolicyResponse { return v.RetentionPolicy }).(RetentionPolicyResponsePtrOutput)
 }
@@ -246,11 +222,8 @@ func (o LogSettingsResponseArrayOutput) Index(i pulumi.IntInput) LogSettingsResp
 	}).(LogSettingsResponseOutput)
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicy struct {
-	// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days int `pulumi:"days"`
-	// A value indicating whether the retention policy is enabled.
+	Days    int  `pulumi:"days"`
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -265,11 +238,8 @@ type RetentionPolicyInput interface {
 	ToRetentionPolicyOutputWithContext(context.Context) RetentionPolicyOutput
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicyArgs struct {
-	// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days pulumi.IntInput `pulumi:"days"`
-	// A value indicating whether the retention policy is enabled.
+	Days    pulumi.IntInput  `pulumi:"days"`
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -326,7 +296,6 @@ func (i *retentionPolicyPtrType) ToRetentionPolicyPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyPtrOutput)
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (RetentionPolicyOutput) ElementType() reflect.Type {
@@ -346,17 +315,15 @@ func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutput() RetentionPolicyPtrOu
 }
 
 func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutputWithContext(ctx context.Context) RetentionPolicyPtrOutput {
-	return o.ApplyT(func(v RetentionPolicy) *RetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPolicy) *RetentionPolicy {
 		return &v
 	}).(RetentionPolicyPtrOutput)
 }
 
-// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
 func (o RetentionPolicyOutput) Days() pulumi.IntOutput {
 	return o.ApplyT(func(v RetentionPolicy) int { return v.Days }).(pulumi.IntOutput)
 }
 
-// A value indicating whether the retention policy is enabled.
 func (o RetentionPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -376,10 +343,15 @@ func (o RetentionPolicyPtrOutput) ToRetentionPolicyPtrOutputWithContext(ctx cont
 }
 
 func (o RetentionPolicyPtrOutput) Elem() RetentionPolicyOutput {
-	return o.ApplyT(func(v *RetentionPolicy) RetentionPolicy { return *v }).(RetentionPolicyOutput)
+	return o.ApplyT(func(v *RetentionPolicy) RetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RetentionPolicy
+		return ret
+	}).(RetentionPolicyOutput)
 }
 
-// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
 func (o RetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicy) *int {
 		if v == nil {
@@ -389,7 +361,6 @@ func (o RetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether the retention policy is enabled.
 func (o RetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicy) *bool {
 		if v == nil {
@@ -399,11 +370,8 @@ func (o RetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicyResponse struct {
-	// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days int `pulumi:"days"`
-	// A value indicating whether the retention policy is enabled.
+	Days    int  `pulumi:"days"`
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -418,11 +386,8 @@ type RetentionPolicyResponseInput interface {
 	ToRetentionPolicyResponseOutputWithContext(context.Context) RetentionPolicyResponseOutput
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicyResponseArgs struct {
-	// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days pulumi.IntInput `pulumi:"days"`
-	// A value indicating whether the retention policy is enabled.
+	Days    pulumi.IntInput  `pulumi:"days"`
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -479,7 +444,6 @@ func (i *retentionPolicyResponsePtrType) ToRetentionPolicyResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyResponsePtrOutput)
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (RetentionPolicyResponseOutput) ElementType() reflect.Type {
@@ -499,17 +463,15 @@ func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutput() Rete
 }
 
 func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyResponsePtrOutput {
-	return o.ApplyT(func(v RetentionPolicyResponse) *RetentionPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPolicyResponse) *RetentionPolicyResponse {
 		return &v
 	}).(RetentionPolicyResponsePtrOutput)
 }
 
-// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
 func (o RetentionPolicyResponseOutput) Days() pulumi.IntOutput {
 	return o.ApplyT(func(v RetentionPolicyResponse) int { return v.Days }).(pulumi.IntOutput)
 }
 
-// A value indicating whether the retention policy is enabled.
 func (o RetentionPolicyResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RetentionPolicyResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -529,10 +491,15 @@ func (o RetentionPolicyResponsePtrOutput) ToRetentionPolicyResponsePtrOutputWith
 }
 
 func (o RetentionPolicyResponsePtrOutput) Elem() RetentionPolicyResponseOutput {
-	return o.ApplyT(func(v *RetentionPolicyResponse) RetentionPolicyResponse { return *v }).(RetentionPolicyResponseOutput)
+	return o.ApplyT(func(v *RetentionPolicyResponse) RetentionPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RetentionPolicyResponse
+		return ret
+	}).(RetentionPolicyResponseOutput)
 }
 
-// The number of days for the retention in days. A value of 0 will retain the events indefinitely.
 func (o RetentionPolicyResponsePtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicyResponse) *int {
 		if v == nil {
@@ -542,7 +509,6 @@ func (o RetentionPolicyResponsePtrOutput) Days() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether the retention policy is enabled.
 func (o RetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicyResponse) *bool {
 		if v == nil {

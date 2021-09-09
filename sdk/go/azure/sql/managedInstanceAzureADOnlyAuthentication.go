@@ -147,9 +147,7 @@ func (i *ManagedInstanceAzureADOnlyAuthentication) ToManagedInstanceAzureADOnlyA
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceAzureADOnlyAuthenticationOutput)
 }
 
-type ManagedInstanceAzureADOnlyAuthenticationOutput struct {
-	*pulumi.OutputState
-}
+type ManagedInstanceAzureADOnlyAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceAzureADOnlyAuthenticationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedInstanceAzureADOnlyAuthentication)(nil))

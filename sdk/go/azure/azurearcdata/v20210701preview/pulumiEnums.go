@@ -10,15 +10,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The type of the extended location.
-type ExtendedLocationTypes pulumi.String
+type ExtendedLocationTypes string
 
 const (
 	ExtendedLocationTypesCustomLocation = ExtendedLocationTypes("CustomLocation")
 )
 
 func (ExtendedLocationTypes) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ExtendedLocationTypes)(nil)).Elem()
+}
+
+func (e ExtendedLocationTypes) ToExtendedLocationTypesOutput() ExtendedLocationTypesOutput {
+	return pulumi.ToOutput(e).(ExtendedLocationTypesOutput)
+}
+
+func (e ExtendedLocationTypes) ToExtendedLocationTypesOutputWithContext(ctx context.Context) ExtendedLocationTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ExtendedLocationTypesOutput)
+}
+
+func (e ExtendedLocationTypes) ToExtendedLocationTypesPtrOutput() ExtendedLocationTypesPtrOutput {
+	return e.ToExtendedLocationTypesPtrOutputWithContext(context.Background())
+}
+
+func (e ExtendedLocationTypes) ToExtendedLocationTypesPtrOutputWithContext(ctx context.Context) ExtendedLocationTypesPtrOutput {
+	return ExtendedLocationTypes(e).ToExtendedLocationTypesOutputWithContext(ctx).ToExtendedLocationTypesPtrOutputWithContext(ctx)
 }
 
 func (e ExtendedLocationTypes) ToStringOutput() pulumi.StringOutput {
@@ -37,8 +52,128 @@ func (e ExtendedLocationTypes) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The infrastructure the data controller is running on.
-type Infrastructure pulumi.String
+type ExtendedLocationTypesOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocationTypes)(nil)).Elem()
+}
+
+func (o ExtendedLocationTypesOutput) ToExtendedLocationTypesOutput() ExtendedLocationTypesOutput {
+	return o
+}
+
+func (o ExtendedLocationTypesOutput) ToExtendedLocationTypesOutputWithContext(ctx context.Context) ExtendedLocationTypesOutput {
+	return o
+}
+
+func (o ExtendedLocationTypesOutput) ToExtendedLocationTypesPtrOutput() ExtendedLocationTypesPtrOutput {
+	return o.ToExtendedLocationTypesPtrOutputWithContext(context.Background())
+}
+
+func (o ExtendedLocationTypesOutput) ToExtendedLocationTypesPtrOutputWithContext(ctx context.Context) ExtendedLocationTypesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedLocationTypes) *ExtendedLocationTypes {
+		return &v
+	}).(ExtendedLocationTypesPtrOutput)
+}
+
+func (o ExtendedLocationTypesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ExtendedLocationTypesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExtendedLocationTypes) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ExtendedLocationTypesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ExtendedLocationTypesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExtendedLocationTypes) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExtendedLocationTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocationTypes)(nil)).Elem()
+}
+
+func (o ExtendedLocationTypesPtrOutput) ToExtendedLocationTypesPtrOutput() ExtendedLocationTypesPtrOutput {
+	return o
+}
+
+func (o ExtendedLocationTypesPtrOutput) ToExtendedLocationTypesPtrOutputWithContext(ctx context.Context) ExtendedLocationTypesPtrOutput {
+	return o
+}
+
+func (o ExtendedLocationTypesPtrOutput) Elem() ExtendedLocationTypesOutput {
+	return o.ApplyT(func(v *ExtendedLocationTypes) ExtendedLocationTypes {
+		if v != nil {
+			return *v
+		}
+		var ret ExtendedLocationTypes
+		return ret
+	}).(ExtendedLocationTypesOutput)
+}
+
+func (o ExtendedLocationTypesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ExtendedLocationTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ExtendedLocationTypes) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ExtendedLocationTypesInput is an input type that accepts ExtendedLocationTypesArgs and ExtendedLocationTypesOutput values.
+// You can construct a concrete instance of `ExtendedLocationTypesInput` via:
+//
+//          ExtendedLocationTypesArgs{...}
+type ExtendedLocationTypesInput interface {
+	pulumi.Input
+
+	ToExtendedLocationTypesOutput() ExtendedLocationTypesOutput
+	ToExtendedLocationTypesOutputWithContext(context.Context) ExtendedLocationTypesOutput
+}
+
+var extendedLocationTypesPtrType = reflect.TypeOf((**ExtendedLocationTypes)(nil)).Elem()
+
+type ExtendedLocationTypesPtrInput interface {
+	pulumi.Input
+
+	ToExtendedLocationTypesPtrOutput() ExtendedLocationTypesPtrOutput
+	ToExtendedLocationTypesPtrOutputWithContext(context.Context) ExtendedLocationTypesPtrOutput
+}
+
+type extendedLocationTypesPtr string
+
+func ExtendedLocationTypesPtr(v string) ExtendedLocationTypesPtrInput {
+	return (*extendedLocationTypesPtr)(&v)
+}
+
+func (*extendedLocationTypesPtr) ElementType() reflect.Type {
+	return extendedLocationTypesPtrType
+}
+
+func (in *extendedLocationTypesPtr) ToExtendedLocationTypesPtrOutput() ExtendedLocationTypesPtrOutput {
+	return pulumi.ToOutput(in).(ExtendedLocationTypesPtrOutput)
+}
+
+func (in *extendedLocationTypesPtr) ToExtendedLocationTypesPtrOutputWithContext(ctx context.Context) ExtendedLocationTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ExtendedLocationTypesPtrOutput)
+}
+
+type Infrastructure string
 
 const (
 	InfrastructureAzure      = Infrastructure("azure")
@@ -50,7 +185,23 @@ const (
 )
 
 func (Infrastructure) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*Infrastructure)(nil)).Elem()
+}
+
+func (e Infrastructure) ToInfrastructureOutput() InfrastructureOutput {
+	return pulumi.ToOutput(e).(InfrastructureOutput)
+}
+
+func (e Infrastructure) ToInfrastructureOutputWithContext(ctx context.Context) InfrastructureOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InfrastructureOutput)
+}
+
+func (e Infrastructure) ToInfrastructurePtrOutput() InfrastructurePtrOutput {
+	return e.ToInfrastructurePtrOutputWithContext(context.Background())
+}
+
+func (e Infrastructure) ToInfrastructurePtrOutputWithContext(ctx context.Context) InfrastructurePtrOutput {
+	return Infrastructure(e).ToInfrastructureOutputWithContext(ctx).ToInfrastructurePtrOutputWithContext(ctx)
 }
 
 func (e Infrastructure) ToStringOutput() pulumi.StringOutput {
@@ -69,8 +220,128 @@ func (e Infrastructure) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The license type to apply for this managed instance.
-type LicenseType pulumi.String
+type InfrastructureOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Infrastructure)(nil)).Elem()
+}
+
+func (o InfrastructureOutput) ToInfrastructureOutput() InfrastructureOutput {
+	return o
+}
+
+func (o InfrastructureOutput) ToInfrastructureOutputWithContext(ctx context.Context) InfrastructureOutput {
+	return o
+}
+
+func (o InfrastructureOutput) ToInfrastructurePtrOutput() InfrastructurePtrOutput {
+	return o.ToInfrastructurePtrOutputWithContext(context.Background())
+}
+
+func (o InfrastructureOutput) ToInfrastructurePtrOutputWithContext(ctx context.Context) InfrastructurePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Infrastructure) *Infrastructure {
+		return &v
+	}).(InfrastructurePtrOutput)
+}
+
+func (o InfrastructureOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfrastructureOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Infrastructure) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfrastructureOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfrastructureOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Infrastructure) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfrastructurePtrOutput struct{ *pulumi.OutputState }
+
+func (InfrastructurePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Infrastructure)(nil)).Elem()
+}
+
+func (o InfrastructurePtrOutput) ToInfrastructurePtrOutput() InfrastructurePtrOutput {
+	return o
+}
+
+func (o InfrastructurePtrOutput) ToInfrastructurePtrOutputWithContext(ctx context.Context) InfrastructurePtrOutput {
+	return o
+}
+
+func (o InfrastructurePtrOutput) Elem() InfrastructureOutput {
+	return o.ApplyT(func(v *Infrastructure) Infrastructure {
+		if v != nil {
+			return *v
+		}
+		var ret Infrastructure
+		return ret
+	}).(InfrastructureOutput)
+}
+
+func (o InfrastructurePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfrastructurePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Infrastructure) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InfrastructureInput is an input type that accepts InfrastructureArgs and InfrastructureOutput values.
+// You can construct a concrete instance of `InfrastructureInput` via:
+//
+//          InfrastructureArgs{...}
+type InfrastructureInput interface {
+	pulumi.Input
+
+	ToInfrastructureOutput() InfrastructureOutput
+	ToInfrastructureOutputWithContext(context.Context) InfrastructureOutput
+}
+
+var infrastructurePtrType = reflect.TypeOf((**Infrastructure)(nil)).Elem()
+
+type InfrastructurePtrInput interface {
+	pulumi.Input
+
+	ToInfrastructurePtrOutput() InfrastructurePtrOutput
+	ToInfrastructurePtrOutputWithContext(context.Context) InfrastructurePtrOutput
+}
+
+type infrastructurePtr string
+
+func InfrastructurePtr(v string) InfrastructurePtrInput {
+	return (*infrastructurePtr)(&v)
+}
+
+func (*infrastructurePtr) ElementType() reflect.Type {
+	return infrastructurePtrType
+}
+
+func (in *infrastructurePtr) ToInfrastructurePtrOutput() InfrastructurePtrOutput {
+	return pulumi.ToOutput(in).(InfrastructurePtrOutput)
+}
+
+func (in *infrastructurePtr) ToInfrastructurePtrOutputWithContext(ctx context.Context) InfrastructurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InfrastructurePtrOutput)
+}
+
+type LicenseType string
 
 const (
 	LicenseTypeBasePrice       = LicenseType("BasePrice")
@@ -78,7 +349,23 @@ const (
 )
 
 func (LicenseType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*LicenseType)(nil)).Elem()
+}
+
+func (e LicenseType) ToLicenseTypeOutput() LicenseTypeOutput {
+	return pulumi.ToOutput(e).(LicenseTypeOutput)
+}
+
+func (e LicenseType) ToLicenseTypeOutputWithContext(ctx context.Context) LicenseTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LicenseTypeOutput)
+}
+
+func (e LicenseType) ToLicenseTypePtrOutput() LicenseTypePtrOutput {
+	return e.ToLicenseTypePtrOutputWithContext(context.Background())
+}
+
+func (e LicenseType) ToLicenseTypePtrOutputWithContext(ctx context.Context) LicenseTypePtrOutput {
+	return LicenseType(e).ToLicenseTypeOutputWithContext(ctx).ToLicenseTypePtrOutputWithContext(ctx)
 }
 
 func (e LicenseType) ToStringOutput() pulumi.StringOutput {
@@ -97,15 +384,151 @@ func (e LicenseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.St
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-type PostgresInstanceSkuTier pulumi.String
+type LicenseTypeOutput struct{ *pulumi.OutputState }
+
+func (LicenseTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseType)(nil)).Elem()
+}
+
+func (o LicenseTypeOutput) ToLicenseTypeOutput() LicenseTypeOutput {
+	return o
+}
+
+func (o LicenseTypeOutput) ToLicenseTypeOutputWithContext(ctx context.Context) LicenseTypeOutput {
+	return o
+}
+
+func (o LicenseTypeOutput) ToLicenseTypePtrOutput() LicenseTypePtrOutput {
+	return o.ToLicenseTypePtrOutputWithContext(context.Background())
+}
+
+func (o LicenseTypeOutput) ToLicenseTypePtrOutputWithContext(ctx context.Context) LicenseTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LicenseType) *LicenseType {
+		return &v
+	}).(LicenseTypePtrOutput)
+}
+
+func (o LicenseTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LicenseTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LicenseType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LicenseTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LicenseTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LicenseType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LicenseTypePtrOutput struct{ *pulumi.OutputState }
+
+func (LicenseTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseType)(nil)).Elem()
+}
+
+func (o LicenseTypePtrOutput) ToLicenseTypePtrOutput() LicenseTypePtrOutput {
+	return o
+}
+
+func (o LicenseTypePtrOutput) ToLicenseTypePtrOutputWithContext(ctx context.Context) LicenseTypePtrOutput {
+	return o
+}
+
+func (o LicenseTypePtrOutput) Elem() LicenseTypeOutput {
+	return o.ApplyT(func(v *LicenseType) LicenseType {
+		if v != nil {
+			return *v
+		}
+		var ret LicenseType
+		return ret
+	}).(LicenseTypeOutput)
+}
+
+func (o LicenseTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LicenseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LicenseType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LicenseTypeInput is an input type that accepts LicenseTypeArgs and LicenseTypeOutput values.
+// You can construct a concrete instance of `LicenseTypeInput` via:
+//
+//          LicenseTypeArgs{...}
+type LicenseTypeInput interface {
+	pulumi.Input
+
+	ToLicenseTypeOutput() LicenseTypeOutput
+	ToLicenseTypeOutputWithContext(context.Context) LicenseTypeOutput
+}
+
+var licenseTypePtrType = reflect.TypeOf((**LicenseType)(nil)).Elem()
+
+type LicenseTypePtrInput interface {
+	pulumi.Input
+
+	ToLicenseTypePtrOutput() LicenseTypePtrOutput
+	ToLicenseTypePtrOutputWithContext(context.Context) LicenseTypePtrOutput
+}
+
+type licenseTypePtr string
+
+func LicenseTypePtr(v string) LicenseTypePtrInput {
+	return (*licenseTypePtr)(&v)
+}
+
+func (*licenseTypePtr) ElementType() reflect.Type {
+	return licenseTypePtrType
+}
+
+func (in *licenseTypePtr) ToLicenseTypePtrOutput() LicenseTypePtrOutput {
+	return pulumi.ToOutput(in).(LicenseTypePtrOutput)
+}
+
+func (in *licenseTypePtr) ToLicenseTypePtrOutputWithContext(ctx context.Context) LicenseTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LicenseTypePtrOutput)
+}
+
+type PostgresInstanceSkuTier string
 
 const (
 	PostgresInstanceSkuTierHyperscale = PostgresInstanceSkuTier("Hyperscale")
 )
 
 func (PostgresInstanceSkuTier) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*PostgresInstanceSkuTier)(nil)).Elem()
+}
+
+func (e PostgresInstanceSkuTier) ToPostgresInstanceSkuTierOutput() PostgresInstanceSkuTierOutput {
+	return pulumi.ToOutput(e).(PostgresInstanceSkuTierOutput)
+}
+
+func (e PostgresInstanceSkuTier) ToPostgresInstanceSkuTierOutputWithContext(ctx context.Context) PostgresInstanceSkuTierOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PostgresInstanceSkuTierOutput)
+}
+
+func (e PostgresInstanceSkuTier) ToPostgresInstanceSkuTierPtrOutput() PostgresInstanceSkuTierPtrOutput {
+	return e.ToPostgresInstanceSkuTierPtrOutputWithContext(context.Background())
+}
+
+func (e PostgresInstanceSkuTier) ToPostgresInstanceSkuTierPtrOutputWithContext(ctx context.Context) PostgresInstanceSkuTierPtrOutput {
+	return PostgresInstanceSkuTier(e).ToPostgresInstanceSkuTierOutputWithContext(ctx).ToPostgresInstanceSkuTierPtrOutputWithContext(ctx)
 }
 
 func (e PostgresInstanceSkuTier) ToStringOutput() pulumi.StringOutput {
@@ -124,8 +547,128 @@ func (e PostgresInstanceSkuTier) ToStringPtrOutputWithContext(ctx context.Contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The tier for this managed instance.
-type SqlManagedInstanceSkuTier pulumi.String
+type PostgresInstanceSkuTierOutput struct{ *pulumi.OutputState }
+
+func (PostgresInstanceSkuTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostgresInstanceSkuTier)(nil)).Elem()
+}
+
+func (o PostgresInstanceSkuTierOutput) ToPostgresInstanceSkuTierOutput() PostgresInstanceSkuTierOutput {
+	return o
+}
+
+func (o PostgresInstanceSkuTierOutput) ToPostgresInstanceSkuTierOutputWithContext(ctx context.Context) PostgresInstanceSkuTierOutput {
+	return o
+}
+
+func (o PostgresInstanceSkuTierOutput) ToPostgresInstanceSkuTierPtrOutput() PostgresInstanceSkuTierPtrOutput {
+	return o.ToPostgresInstanceSkuTierPtrOutputWithContext(context.Background())
+}
+
+func (o PostgresInstanceSkuTierOutput) ToPostgresInstanceSkuTierPtrOutputWithContext(ctx context.Context) PostgresInstanceSkuTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresInstanceSkuTier) *PostgresInstanceSkuTier {
+		return &v
+	}).(PostgresInstanceSkuTierPtrOutput)
+}
+
+func (o PostgresInstanceSkuTierOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PostgresInstanceSkuTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresInstanceSkuTier) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PostgresInstanceSkuTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PostgresInstanceSkuTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresInstanceSkuTier) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PostgresInstanceSkuTierPtrOutput struct{ *pulumi.OutputState }
+
+func (PostgresInstanceSkuTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PostgresInstanceSkuTier)(nil)).Elem()
+}
+
+func (o PostgresInstanceSkuTierPtrOutput) ToPostgresInstanceSkuTierPtrOutput() PostgresInstanceSkuTierPtrOutput {
+	return o
+}
+
+func (o PostgresInstanceSkuTierPtrOutput) ToPostgresInstanceSkuTierPtrOutputWithContext(ctx context.Context) PostgresInstanceSkuTierPtrOutput {
+	return o
+}
+
+func (o PostgresInstanceSkuTierPtrOutput) Elem() PostgresInstanceSkuTierOutput {
+	return o.ApplyT(func(v *PostgresInstanceSkuTier) PostgresInstanceSkuTier {
+		if v != nil {
+			return *v
+		}
+		var ret PostgresInstanceSkuTier
+		return ret
+	}).(PostgresInstanceSkuTierOutput)
+}
+
+func (o PostgresInstanceSkuTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PostgresInstanceSkuTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PostgresInstanceSkuTier) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PostgresInstanceSkuTierInput is an input type that accepts PostgresInstanceSkuTierArgs and PostgresInstanceSkuTierOutput values.
+// You can construct a concrete instance of `PostgresInstanceSkuTierInput` via:
+//
+//          PostgresInstanceSkuTierArgs{...}
+type PostgresInstanceSkuTierInput interface {
+	pulumi.Input
+
+	ToPostgresInstanceSkuTierOutput() PostgresInstanceSkuTierOutput
+	ToPostgresInstanceSkuTierOutputWithContext(context.Context) PostgresInstanceSkuTierOutput
+}
+
+var postgresInstanceSkuTierPtrType = reflect.TypeOf((**PostgresInstanceSkuTier)(nil)).Elem()
+
+type PostgresInstanceSkuTierPtrInput interface {
+	pulumi.Input
+
+	ToPostgresInstanceSkuTierPtrOutput() PostgresInstanceSkuTierPtrOutput
+	ToPostgresInstanceSkuTierPtrOutputWithContext(context.Context) PostgresInstanceSkuTierPtrOutput
+}
+
+type postgresInstanceSkuTierPtr string
+
+func PostgresInstanceSkuTierPtr(v string) PostgresInstanceSkuTierPtrInput {
+	return (*postgresInstanceSkuTierPtr)(&v)
+}
+
+func (*postgresInstanceSkuTierPtr) ElementType() reflect.Type {
+	return postgresInstanceSkuTierPtrType
+}
+
+func (in *postgresInstanceSkuTierPtr) ToPostgresInstanceSkuTierPtrOutput() PostgresInstanceSkuTierPtrOutput {
+	return pulumi.ToOutput(in).(PostgresInstanceSkuTierPtrOutput)
+}
+
+func (in *postgresInstanceSkuTierPtr) ToPostgresInstanceSkuTierPtrOutputWithContext(ctx context.Context) PostgresInstanceSkuTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PostgresInstanceSkuTierPtrOutput)
+}
+
+type SqlManagedInstanceSkuTier string
 
 const (
 	SqlManagedInstanceSkuTierGeneralPurpose   = SqlManagedInstanceSkuTier("GeneralPurpose")
@@ -133,7 +676,23 @@ const (
 )
 
 func (SqlManagedInstanceSkuTier) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*SqlManagedInstanceSkuTier)(nil)).Elem()
+}
+
+func (e SqlManagedInstanceSkuTier) ToSqlManagedInstanceSkuTierOutput() SqlManagedInstanceSkuTierOutput {
+	return pulumi.ToOutput(e).(SqlManagedInstanceSkuTierOutput)
+}
+
+func (e SqlManagedInstanceSkuTier) ToSqlManagedInstanceSkuTierOutputWithContext(ctx context.Context) SqlManagedInstanceSkuTierOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SqlManagedInstanceSkuTierOutput)
+}
+
+func (e SqlManagedInstanceSkuTier) ToSqlManagedInstanceSkuTierPtrOutput() SqlManagedInstanceSkuTierPtrOutput {
+	return e.ToSqlManagedInstanceSkuTierPtrOutputWithContext(context.Background())
+}
+
+func (e SqlManagedInstanceSkuTier) ToSqlManagedInstanceSkuTierPtrOutputWithContext(ctx context.Context) SqlManagedInstanceSkuTierPtrOutput {
+	return SqlManagedInstanceSkuTier(e).ToSqlManagedInstanceSkuTierOutputWithContext(ctx).ToSqlManagedInstanceSkuTierPtrOutputWithContext(ctx)
 }
 
 func (e SqlManagedInstanceSkuTier) ToStringOutput() pulumi.StringOutput {
@@ -150,4 +709,138 @@ func (e SqlManagedInstanceSkuTier) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e SqlManagedInstanceSkuTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SqlManagedInstanceSkuTierOutput struct{ *pulumi.OutputState }
+
+func (SqlManagedInstanceSkuTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlManagedInstanceSkuTier)(nil)).Elem()
+}
+
+func (o SqlManagedInstanceSkuTierOutput) ToSqlManagedInstanceSkuTierOutput() SqlManagedInstanceSkuTierOutput {
+	return o
+}
+
+func (o SqlManagedInstanceSkuTierOutput) ToSqlManagedInstanceSkuTierOutputWithContext(ctx context.Context) SqlManagedInstanceSkuTierOutput {
+	return o
+}
+
+func (o SqlManagedInstanceSkuTierOutput) ToSqlManagedInstanceSkuTierPtrOutput() SqlManagedInstanceSkuTierPtrOutput {
+	return o.ToSqlManagedInstanceSkuTierPtrOutputWithContext(context.Background())
+}
+
+func (o SqlManagedInstanceSkuTierOutput) ToSqlManagedInstanceSkuTierPtrOutputWithContext(ctx context.Context) SqlManagedInstanceSkuTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlManagedInstanceSkuTier) *SqlManagedInstanceSkuTier {
+		return &v
+	}).(SqlManagedInstanceSkuTierPtrOutput)
+}
+
+func (o SqlManagedInstanceSkuTierOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SqlManagedInstanceSkuTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SqlManagedInstanceSkuTier) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SqlManagedInstanceSkuTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SqlManagedInstanceSkuTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SqlManagedInstanceSkuTier) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SqlManagedInstanceSkuTierPtrOutput struct{ *pulumi.OutputState }
+
+func (SqlManagedInstanceSkuTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlManagedInstanceSkuTier)(nil)).Elem()
+}
+
+func (o SqlManagedInstanceSkuTierPtrOutput) ToSqlManagedInstanceSkuTierPtrOutput() SqlManagedInstanceSkuTierPtrOutput {
+	return o
+}
+
+func (o SqlManagedInstanceSkuTierPtrOutput) ToSqlManagedInstanceSkuTierPtrOutputWithContext(ctx context.Context) SqlManagedInstanceSkuTierPtrOutput {
+	return o
+}
+
+func (o SqlManagedInstanceSkuTierPtrOutput) Elem() SqlManagedInstanceSkuTierOutput {
+	return o.ApplyT(func(v *SqlManagedInstanceSkuTier) SqlManagedInstanceSkuTier {
+		if v != nil {
+			return *v
+		}
+		var ret SqlManagedInstanceSkuTier
+		return ret
+	}).(SqlManagedInstanceSkuTierOutput)
+}
+
+func (o SqlManagedInstanceSkuTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SqlManagedInstanceSkuTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SqlManagedInstanceSkuTier) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SqlManagedInstanceSkuTierInput is an input type that accepts SqlManagedInstanceSkuTierArgs and SqlManagedInstanceSkuTierOutput values.
+// You can construct a concrete instance of `SqlManagedInstanceSkuTierInput` via:
+//
+//          SqlManagedInstanceSkuTierArgs{...}
+type SqlManagedInstanceSkuTierInput interface {
+	pulumi.Input
+
+	ToSqlManagedInstanceSkuTierOutput() SqlManagedInstanceSkuTierOutput
+	ToSqlManagedInstanceSkuTierOutputWithContext(context.Context) SqlManagedInstanceSkuTierOutput
+}
+
+var sqlManagedInstanceSkuTierPtrType = reflect.TypeOf((**SqlManagedInstanceSkuTier)(nil)).Elem()
+
+type SqlManagedInstanceSkuTierPtrInput interface {
+	pulumi.Input
+
+	ToSqlManagedInstanceSkuTierPtrOutput() SqlManagedInstanceSkuTierPtrOutput
+	ToSqlManagedInstanceSkuTierPtrOutputWithContext(context.Context) SqlManagedInstanceSkuTierPtrOutput
+}
+
+type sqlManagedInstanceSkuTierPtr string
+
+func SqlManagedInstanceSkuTierPtr(v string) SqlManagedInstanceSkuTierPtrInput {
+	return (*sqlManagedInstanceSkuTierPtr)(&v)
+}
+
+func (*sqlManagedInstanceSkuTierPtr) ElementType() reflect.Type {
+	return sqlManagedInstanceSkuTierPtrType
+}
+
+func (in *sqlManagedInstanceSkuTierPtr) ToSqlManagedInstanceSkuTierPtrOutput() SqlManagedInstanceSkuTierPtrOutput {
+	return pulumi.ToOutput(in).(SqlManagedInstanceSkuTierPtrOutput)
+}
+
+func (in *sqlManagedInstanceSkuTierPtr) ToSqlManagedInstanceSkuTierPtrOutputWithContext(ctx context.Context) SqlManagedInstanceSkuTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SqlManagedInstanceSkuTierPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ExtendedLocationTypesOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationTypesPtrOutput{})
+	pulumi.RegisterOutputType(InfrastructureOutput{})
+	pulumi.RegisterOutputType(InfrastructurePtrOutput{})
+	pulumi.RegisterOutputType(LicenseTypeOutput{})
+	pulumi.RegisterOutputType(LicenseTypePtrOutput{})
+	pulumi.RegisterOutputType(PostgresInstanceSkuTierOutput{})
+	pulumi.RegisterOutputType(PostgresInstanceSkuTierPtrOutput{})
+	pulumi.RegisterOutputType(SqlManagedInstanceSkuTierOutput{})
+	pulumi.RegisterOutputType(SqlManagedInstanceSkuTierPtrOutput{})
 }

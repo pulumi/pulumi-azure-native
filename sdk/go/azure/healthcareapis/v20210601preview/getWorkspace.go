@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Workspace resource.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("azure-native:healthcareapis/v20210601preview:getWorkspace", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 }
 
 type LookupWorkspaceArgs struct {
-	// The name of the resource group that contains the service instance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of workspace resource.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Workspace resource.
 type LookupWorkspaceResult struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Workspaces resource specific properties.
+	Etag       *string                     `pulumi:"etag"`
+	Id         string                      `pulumi:"id"`
+	Location   *string                     `pulumi:"location"`
+	Name       string                      `pulumi:"name"`
 	Properties WorkspaceResponseProperties `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	SystemData SystemDataResponse          `pulumi:"systemData"`
+	Tags       map[string]string           `pulumi:"tags"`
+	Type       string                      `pulumi:"type"`
 }

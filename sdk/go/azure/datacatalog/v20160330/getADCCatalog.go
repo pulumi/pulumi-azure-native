@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Data Catalog.
 func LookupADCCatalog(ctx *pulumi.Context, args *LookupADCCatalogArgs, opts ...pulumi.InvokeOption) (*LookupADCCatalogResult, error) {
 	var rv LookupADCCatalogResult
 	err := ctx.Invoke("azure-native:datacatalog/v20160330:getADCCatalog", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupADCCatalog(ctx *pulumi.Context, args *LookupADCCatalogArgs, opts ...p
 }
 
 type LookupADCCatalogArgs struct {
-	// The name of the data catalog in the specified subscription and resource group.
-	CatalogName string `pulumi:"catalogName"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	CatalogName       string `pulumi:"catalogName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Azure Data Catalog.
 type LookupADCCatalogResult struct {
-	// Azure data catalog admin list.
-	Admins []PrincipalsResponse `pulumi:"admins"`
-	// Automatic unit adjustment enabled or not.
-	EnableAutomaticUnitAdjustment *bool `pulumi:"enableAutomaticUnitAdjustment"`
-	// Resource etag
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Azure data catalog SKU.
-	Sku *string `pulumi:"sku"`
-	// Azure data catalog provision status.
-	SuccessfullyProvisioned *bool `pulumi:"successfullyProvisioned"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// Azure data catalog units.
-	Units *int `pulumi:"units"`
-	// Azure data catalog user list.
-	Users []PrincipalsResponse `pulumi:"users"`
+	Admins                        []PrincipalsResponse `pulumi:"admins"`
+	EnableAutomaticUnitAdjustment *bool                `pulumi:"enableAutomaticUnitAdjustment"`
+	Etag                          *string              `pulumi:"etag"`
+	Id                            string               `pulumi:"id"`
+	Location                      *string              `pulumi:"location"`
+	Name                          string               `pulumi:"name"`
+	Sku                           *string              `pulumi:"sku"`
+	SuccessfullyProvisioned       *bool                `pulumi:"successfullyProvisioned"`
+	Tags                          map[string]string    `pulumi:"tags"`
+	Type                          string               `pulumi:"type"`
+	Units                         *int                 `pulumi:"units"`
+	Users                         []PrincipalsResponse `pulumi:"users"`
 }

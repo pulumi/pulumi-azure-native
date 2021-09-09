@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The customer's prefix that is registered by the peering service provider.
 type RegisteredPrefix struct {
 	pulumi.CustomResourceState
 
-	// The error message associated with the validation state, if any.
-	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The peering service prefix key that is to be shared with the customer.
-	PeeringServicePrefixKey pulumi.StringOutput `pulumi:"peeringServicePrefixKey"`
-	// The customer's prefix from which traffic originates.
-	Prefix pulumi.StringPtrOutput `pulumi:"prefix"`
-	// The prefix validation state.
-	PrefixValidationState pulumi.StringOutput `pulumi:"prefixValidationState"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ErrorMessage            pulumi.StringOutput    `pulumi:"errorMessage"`
+	Name                    pulumi.StringOutput    `pulumi:"name"`
+	PeeringServicePrefixKey pulumi.StringOutput    `pulumi:"peeringServicePrefixKey"`
+	Prefix                  pulumi.StringPtrOutput `pulumi:"prefix"`
+	PrefixValidationState   pulumi.StringOutput    `pulumi:"prefixValidationState"`
+	ProvisioningState       pulumi.StringOutput    `pulumi:"provisioningState"`
+	Type                    pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewRegisteredPrefix registers a new resource with the given unique name, arguments, and options.
@@ -112,26 +104,18 @@ func (RegisteredPrefixState) ElementType() reflect.Type {
 }
 
 type registeredPrefixArgs struct {
-	// The name of the peering.
-	PeeringName string `pulumi:"peeringName"`
-	// The customer's prefix from which traffic originates.
-	Prefix *string `pulumi:"prefix"`
-	// The name of the registered prefix.
+	PeeringName          string  `pulumi:"peeringName"`
+	Prefix               *string `pulumi:"prefix"`
 	RegisteredPrefixName *string `pulumi:"registeredPrefixName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName    string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a RegisteredPrefix resource.
 type RegisteredPrefixArgs struct {
-	// The name of the peering.
-	PeeringName pulumi.StringInput
-	// The customer's prefix from which traffic originates.
-	Prefix pulumi.StringPtrInput
-	// The name of the registered prefix.
+	PeeringName          pulumi.StringInput
+	Prefix               pulumi.StringPtrInput
 	RegisteredPrefixName pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName    pulumi.StringInput
 }
 
 func (RegisteredPrefixArgs) ElementType() reflect.Type {
@@ -157,9 +141,7 @@ func (i *RegisteredPrefix) ToRegisteredPrefixOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredPrefixOutput)
 }
 
-type RegisteredPrefixOutput struct {
-	*pulumi.OutputState
-}
+type RegisteredPrefixOutput struct{ *pulumi.OutputState }
 
 func (RegisteredPrefixOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegisteredPrefix)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in a List or Get AuthorizationRule operation
 func LookupEventHubAuthorizationRule(ctx *pulumi.Context, args *LookupEventHubAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupEventHubAuthorizationRuleResult, error) {
 	var rv LookupEventHubAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:eventhub/v20180101preview:getEventHubAuthorizationRule", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupEventHubAuthorizationRule(ctx *pulumi.Context, args *LookupEventHubAu
 }
 
 type LookupEventHubAuthorizationRuleArgs struct {
-	// The authorization rule name.
 	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
-	// The Event Hub name
-	EventHubName string `pulumi:"eventHubName"`
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	EventHubName          string `pulumi:"eventHubName"`
+	NamespaceName         string `pulumi:"namespaceName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Single item in a List or Get AuthorizationRule operation
 type LookupEventHubAuthorizationRuleResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The rights associated with the rule.
+	Id     string   `pulumi:"id"`
+	Name   string   `pulumi:"name"`
 	Rights []string `pulumi:"rights"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type   string   `pulumi:"type"`
 }

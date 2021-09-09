@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Settings defined at the Management Group scope.
 func LookupHierarchySetting(ctx *pulumi.Context, args *LookupHierarchySettingArgs, opts ...pulumi.InvokeOption) (*LookupHierarchySettingResult, error) {
 	var rv LookupHierarchySettingResult
 	err := ctx.Invoke("azure-native:management/v20200501:getHierarchySetting", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupHierarchySetting(ctx *pulumi.Context, args *LookupHierarchySettingArg
 }
 
 type LookupHierarchySettingArgs struct {
-	// Management Group ID.
 	GroupId string `pulumi:"groupId"`
 }
 
 // Settings defined at the Management Group scope.
 type LookupHierarchySettingResult struct {
-	// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
-	DefaultManagementGroup *string `pulumi:"defaultManagementGroup"`
-	// The fully qualified ID for the settings object.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/settings/default.
-	Id string `pulumi:"id"`
-	// The name of the object. In this case, default.
-	Name string `pulumi:"name"`
-	// Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
-	RequireAuthorizationForGroupCreation *bool `pulumi:"requireAuthorizationForGroupCreation"`
-	// The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
-	TenantId *string `pulumi:"tenantId"`
-	// The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
-	Type string `pulumi:"type"`
+	DefaultManagementGroup               *string `pulumi:"defaultManagementGroup"`
+	Id                                   string  `pulumi:"id"`
+	Name                                 string  `pulumi:"name"`
+	RequireAuthorizationForGroupCreation *bool   `pulumi:"requireAuthorizationForGroupCreation"`
+	TenantId                             *string `pulumi:"tenantId"`
+	Type                                 string  `pulumi:"type"`
 }

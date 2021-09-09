@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The response to an account resource GET request.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure-native:visualstudio/v20171101preview:getAccount", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 }
 
 type LookupAccountArgs struct {
-	// Name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // The response to an account resource GET request.
 type LookupAccountResult struct {
-	// Unique identifier of the resource.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Resource properties.
+	Id         string            `pulumi:"id"`
+	Location   *string           `pulumi:"location"`
+	Name       string            `pulumi:"name"`
 	Properties map[string]string `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

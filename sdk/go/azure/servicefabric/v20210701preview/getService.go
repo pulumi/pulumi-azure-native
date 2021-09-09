@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The service resource.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
 	err := ctx.Invoke("azure-native:servicefabric/v20210701preview:getService", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 }
 
 type LookupServiceArgs struct {
-	// The name of the application resource.
-	ApplicationName string `pulumi:"applicationName"`
-	// The name of the cluster resource.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the resource group.
+	ApplicationName   string `pulumi:"applicationName"`
+	ClusterName       string `pulumi:"clusterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the service resource in the format of {applicationName}~{serviceName}.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // The service resource.
 type LookupServiceResult struct {
-	// Azure resource identifier.
-	Id string `pulumi:"id"`
-	// Resource location depends on the parent resource.
-	Location *string `pulumi:"location"`
-	// Azure resource name.
-	Name string `pulumi:"name"`
-	// The service resource properties.
-	Properties interface{} `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
+	Id         string             `pulumi:"id"`
+	Location   *string            `pulumi:"location"`
+	Name       string             `pulumi:"name"`
+	Properties interface{}        `pulumi:"properties"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
-	Type string `pulumi:"type"`
+	Tags       map[string]string  `pulumi:"tags"`
+	Type       string             `pulumi:"type"`
 }

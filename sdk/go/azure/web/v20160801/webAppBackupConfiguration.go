@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a backup which will be performed.
 type WebAppBackupConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Name of the backup.
-	BackupRequestName pulumi.StringOutput `pulumi:"backupRequestName"`
-	// Schedule for the backup if it is executed periodically.
-	BackupSchedule BackupScheduleResponsePtrOutput `pulumi:"backupSchedule"`
-	// Databases included in the backup.
-	Databases DatabaseBackupSettingResponseArrayOutput `pulumi:"databases"`
-	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// SAS URL to the container.
-	StorageAccountUrl pulumi.StringOutput `pulumi:"storageAccountUrl"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	BackupRequestName pulumi.StringOutput                      `pulumi:"backupRequestName"`
+	BackupSchedule    BackupScheduleResponsePtrOutput          `pulumi:"backupSchedule"`
+	Databases         DatabaseBackupSettingResponseArrayOutput `pulumi:"databases"`
+	Enabled           pulumi.BoolPtrOutput                     `pulumi:"enabled"`
+	Kind              pulumi.StringPtrOutput                   `pulumi:"kind"`
+	Name              pulumi.StringOutput                      `pulumi:"name"`
+	StorageAccountUrl pulumi.StringOutput                      `pulumi:"storageAccountUrl"`
+	Type              pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewWebAppBackupConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -162,46 +153,28 @@ func (WebAppBackupConfigurationState) ElementType() reflect.Type {
 }
 
 type webAppBackupConfigurationArgs struct {
-	// Name of the backup.
-	BackupRequestName string `pulumi:"backupRequestName"`
-	// Schedule for the backup if it is executed periodically.
-	BackupSchedule *BackupSchedule `pulumi:"backupSchedule"`
-	// Databases included in the backup.
-	Databases []DatabaseBackupSetting `pulumi:"databases"`
-	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SAS URL to the container.
-	StorageAccountUrl string `pulumi:"storageAccountUrl"`
-	// Type of the backup.
-	Type *string `pulumi:"type"`
+	BackupRequestName string                      `pulumi:"backupRequestName"`
+	BackupSchedule    *BackupSchedule             `pulumi:"backupSchedule"`
+	Databases         []DatabaseBackupSetting     `pulumi:"databases"`
+	Enabled           *bool                       `pulumi:"enabled"`
+	Kind              *string                     `pulumi:"kind"`
+	Name              string                      `pulumi:"name"`
+	ResourceGroupName string                      `pulumi:"resourceGroupName"`
+	StorageAccountUrl string                      `pulumi:"storageAccountUrl"`
+	Type              *BackupRestoreOperationType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a WebAppBackupConfiguration resource.
 type WebAppBackupConfigurationArgs struct {
-	// Name of the backup.
 	BackupRequestName pulumi.StringInput
-	// Schedule for the backup if it is executed periodically.
-	BackupSchedule BackupSchedulePtrInput
-	// Databases included in the backup.
-	Databases DatabaseBackupSettingArrayInput
-	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
-	Enabled pulumi.BoolPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the app.
-	Name pulumi.StringInput
-	// Name of the resource group to which the resource belongs.
+	BackupSchedule    BackupSchedulePtrInput
+	Databases         DatabaseBackupSettingArrayInput
+	Enabled           pulumi.BoolPtrInput
+	Kind              pulumi.StringPtrInput
+	Name              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// SAS URL to the container.
 	StorageAccountUrl pulumi.StringInput
-	// Type of the backup.
-	Type *BackupRestoreOperationType
+	Type              BackupRestoreOperationTypePtrInput
 }
 
 func (WebAppBackupConfigurationArgs) ElementType() reflect.Type {
@@ -227,9 +200,7 @@ func (i *WebAppBackupConfiguration) ToWebAppBackupConfigurationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppBackupConfigurationOutput)
 }
 
-type WebAppBackupConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type WebAppBackupConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebAppBackupConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppBackupConfiguration)(nil))

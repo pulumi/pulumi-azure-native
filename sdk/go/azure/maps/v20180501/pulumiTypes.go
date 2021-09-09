@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Additional Map account properties
 type MapsAccountPropertiesResponse struct {
-	// A unique identifier for the maps account
 	XMsClientId *string `pulumi:"xMsClientId"`
 }
 
@@ -27,9 +25,7 @@ type MapsAccountPropertiesResponseInput interface {
 	ToMapsAccountPropertiesResponseOutputWithContext(context.Context) MapsAccountPropertiesResponseOutput
 }
 
-// Additional Map account properties
 type MapsAccountPropertiesResponseArgs struct {
-	// A unique identifier for the maps account
 	XMsClientId pulumi.StringPtrInput `pulumi:"xMsClientId"`
 }
 
@@ -86,7 +82,6 @@ func (i *mapsAccountPropertiesResponsePtrType) ToMapsAccountPropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(MapsAccountPropertiesResponsePtrOutput)
 }
 
-// Additional Map account properties
 type MapsAccountPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MapsAccountPropertiesResponseOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o MapsAccountPropertiesResponseOutput) ToMapsAccountPropertiesResponsePtrO
 }
 
 func (o MapsAccountPropertiesResponseOutput) ToMapsAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) MapsAccountPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MapsAccountPropertiesResponse) *MapsAccountPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MapsAccountPropertiesResponse) *MapsAccountPropertiesResponse {
 		return &v
 	}).(MapsAccountPropertiesResponsePtrOutput)
 }
 
-// A unique identifier for the maps account
 func (o MapsAccountPropertiesResponseOutput) XMsClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MapsAccountPropertiesResponse) *string { return v.XMsClientId }).(pulumi.StringPtrOutput)
 }
@@ -131,10 +125,15 @@ func (o MapsAccountPropertiesResponsePtrOutput) ToMapsAccountPropertiesResponseP
 }
 
 func (o MapsAccountPropertiesResponsePtrOutput) Elem() MapsAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v *MapsAccountPropertiesResponse) MapsAccountPropertiesResponse { return *v }).(MapsAccountPropertiesResponseOutput)
+	return o.ApplyT(func(v *MapsAccountPropertiesResponse) MapsAccountPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MapsAccountPropertiesResponse
+		return ret
+	}).(MapsAccountPropertiesResponseOutput)
 }
 
-// A unique identifier for the maps account
 func (o MapsAccountPropertiesResponsePtrOutput) XMsClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MapsAccountPropertiesResponse) *string {
 		if v == nil {
@@ -144,9 +143,7 @@ func (o MapsAccountPropertiesResponsePtrOutput) XMsClientId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the Maps Account.
 type Sku struct {
-	// The name of the SKU, in standard format (such as S0).
 	Name string `pulumi:"name"`
 }
 
@@ -161,9 +158,7 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU of the Maps Account.
 type SkuArgs struct {
-	// The name of the SKU, in standard format (such as S0).
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -220,7 +215,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU of the Maps Account.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -240,12 +234,11 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The name of the SKU, in standard format (such as S0).
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -265,10 +258,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The name of the SKU, in standard format (such as S0).
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -278,11 +276,8 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the Maps Account.
 type SkuResponse struct {
-	// The name of the SKU, in standard format (such as S0).
 	Name string `pulumi:"name"`
-	// Gets the sku tier. This is based on the SKU name.
 	Tier string `pulumi:"tier"`
 }
 
@@ -297,11 +292,8 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU of the Maps Account.
 type SkuResponseArgs struct {
-	// The name of the SKU, in standard format (such as S0).
 	Name pulumi.StringInput `pulumi:"name"`
-	// Gets the sku tier. This is based on the SKU name.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -358,7 +350,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU of the Maps Account.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -378,17 +369,15 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The name of the SKU, in standard format (such as S0).
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Gets the sku tier. This is based on the SKU name.
 func (o SkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -408,10 +397,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The name of the SKU, in standard format (such as S0).
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -421,7 +415,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the sku tier. This is based on the SKU name.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

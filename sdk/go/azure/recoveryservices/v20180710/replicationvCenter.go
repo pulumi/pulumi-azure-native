@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// vCenter definition.
 type ReplicationvCenter struct {
 	pulumi.CustomResourceState
 
-	// Resource Location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// VCenter related data.
+	Location   pulumi.StringPtrOutput          `pulumi:"location"`
+	Name       pulumi.StringOutput             `pulumi:"name"`
 	Properties VCenterPropertiesResponseOutput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput             `pulumi:"type"`
 }
 
 // NewReplicationvCenter registers a new resource with the given unique name, arguments, and options.
@@ -127,30 +122,20 @@ func (ReplicationvCenterState) ElementType() reflect.Type {
 }
 
 type replicationvCenterArgs struct {
-	// Fabric name.
-	FabricName string `pulumi:"fabricName"`
-	// The properties of an add vCenter request.
-	Properties *AddVCenterRequestProperties `pulumi:"properties"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
-	// vCenter name.
-	VCenterName *string `pulumi:"vCenterName"`
+	FabricName        string                       `pulumi:"fabricName"`
+	Properties        *AddVCenterRequestProperties `pulumi:"properties"`
+	ResourceGroupName string                       `pulumi:"resourceGroupName"`
+	ResourceName      string                       `pulumi:"resourceName"`
+	VCenterName       *string                      `pulumi:"vCenterName"`
 }
 
 // The set of arguments for constructing a ReplicationvCenter resource.
 type ReplicationvCenterArgs struct {
-	// Fabric name.
-	FabricName pulumi.StringInput
-	// The properties of an add vCenter request.
-	Properties AddVCenterRequestPropertiesPtrInput
-	// The name of the resource group where the recovery services vault is present.
+	FabricName        pulumi.StringInput
+	Properties        AddVCenterRequestPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the recovery services vault.
-	ResourceName pulumi.StringInput
-	// vCenter name.
-	VCenterName pulumi.StringPtrInput
+	ResourceName      pulumi.StringInput
+	VCenterName       pulumi.StringPtrInput
 }
 
 func (ReplicationvCenterArgs) ElementType() reflect.Type {
@@ -176,9 +161,7 @@ func (i *ReplicationvCenter) ToReplicationvCenterOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationvCenterOutput)
 }
 
-type ReplicationvCenterOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationvCenterOutput struct{ *pulumi.OutputState }
 
 func (ReplicationvCenterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationvCenter)(nil))

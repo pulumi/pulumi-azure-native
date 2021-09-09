@@ -11,33 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A sensitivity label.
 type ManagedDatabaseSensitivityLabel struct {
 	pulumi.CustomResourceState
 
-	// The column name.
-	ColumnName pulumi.StringOutput `pulumi:"columnName"`
-	// The information type.
-	InformationType pulumi.StringPtrOutput `pulumi:"informationType"`
-	// The information type ID.
+	ColumnName        pulumi.StringOutput    `pulumi:"columnName"`
+	InformationType   pulumi.StringPtrOutput `pulumi:"informationType"`
 	InformationTypeId pulumi.StringPtrOutput `pulumi:"informationTypeId"`
-	// Is sensitivity recommendation disabled. Applicable for recommended sensitivity label only. Specifies whether the sensitivity recommendation on this column is disabled (dismissed) or not.
-	IsDisabled pulumi.BoolOutput `pulumi:"isDisabled"`
-	// The label ID.
-	LabelId pulumi.StringPtrOutput `pulumi:"labelId"`
-	// The label name.
-	LabelName pulumi.StringPtrOutput `pulumi:"labelName"`
-	// Resource that manages the sensitivity label.
-	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
-	// Resource name.
-	Name pulumi.StringOutput    `pulumi:"name"`
-	Rank pulumi.StringPtrOutput `pulumi:"rank"`
-	// The schema name.
-	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
-	// The table name.
-	TableName pulumi.StringOutput `pulumi:"tableName"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	IsDisabled        pulumi.BoolOutput      `pulumi:"isDisabled"`
+	LabelId           pulumi.StringPtrOutput `pulumi:"labelId"`
+	LabelName         pulumi.StringPtrOutput `pulumi:"labelName"`
+	ManagedBy         pulumi.StringOutput    `pulumi:"managedBy"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	Rank              pulumi.StringPtrOutput `pulumi:"rank"`
+	SchemaName        pulumi.StringOutput    `pulumi:"schemaName"`
+	TableName         pulumi.StringOutput    `pulumi:"tableName"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewManagedDatabaseSensitivityLabel registers a new resource with the given unique name, arguments, and options.
@@ -133,56 +121,34 @@ func (ManagedDatabaseSensitivityLabelState) ElementType() reflect.Type {
 }
 
 type managedDatabaseSensitivityLabelArgs struct {
-	// The name of the column.
-	ColumnName string `pulumi:"columnName"`
-	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The information type.
-	InformationType *string `pulumi:"informationType"`
-	// The information type ID.
-	InformationTypeId *string `pulumi:"informationTypeId"`
-	// The label ID.
-	LabelId *string `pulumi:"labelId"`
-	// The label name.
-	LabelName *string `pulumi:"labelName"`
-	// The name of the managed instance.
-	ManagedInstanceName string  `pulumi:"managedInstanceName"`
-	Rank                *string `pulumi:"rank"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the schema.
-	SchemaName string `pulumi:"schemaName"`
-	// The source of the sensitivity label.
-	SensitivityLabelSource *string `pulumi:"sensitivityLabelSource"`
-	// The name of the table.
-	TableName string `pulumi:"tableName"`
+	ColumnName             string                `pulumi:"columnName"`
+	DatabaseName           string                `pulumi:"databaseName"`
+	InformationType        *string               `pulumi:"informationType"`
+	InformationTypeId      *string               `pulumi:"informationTypeId"`
+	LabelId                *string               `pulumi:"labelId"`
+	LabelName              *string               `pulumi:"labelName"`
+	ManagedInstanceName    string                `pulumi:"managedInstanceName"`
+	Rank                   *SensitivityLabelRank `pulumi:"rank"`
+	ResourceGroupName      string                `pulumi:"resourceGroupName"`
+	SchemaName             string                `pulumi:"schemaName"`
+	SensitivityLabelSource *string               `pulumi:"sensitivityLabelSource"`
+	TableName              string                `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a ManagedDatabaseSensitivityLabel resource.
 type ManagedDatabaseSensitivityLabelArgs struct {
-	// The name of the column.
-	ColumnName pulumi.StringInput
-	// The name of the database.
-	DatabaseName pulumi.StringInput
-	// The information type.
-	InformationType pulumi.StringPtrInput
-	// The information type ID.
-	InformationTypeId pulumi.StringPtrInput
-	// The label ID.
-	LabelId pulumi.StringPtrInput
-	// The label name.
-	LabelName pulumi.StringPtrInput
-	// The name of the managed instance.
-	ManagedInstanceName pulumi.StringInput
-	Rank                *SensitivityLabelRank
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// The name of the schema.
-	SchemaName pulumi.StringInput
-	// The source of the sensitivity label.
+	ColumnName             pulumi.StringInput
+	DatabaseName           pulumi.StringInput
+	InformationType        pulumi.StringPtrInput
+	InformationTypeId      pulumi.StringPtrInput
+	LabelId                pulumi.StringPtrInput
+	LabelName              pulumi.StringPtrInput
+	ManagedInstanceName    pulumi.StringInput
+	Rank                   SensitivityLabelRankPtrInput
+	ResourceGroupName      pulumi.StringInput
+	SchemaName             pulumi.StringInput
 	SensitivityLabelSource pulumi.StringPtrInput
-	// The name of the table.
-	TableName pulumi.StringInput
+	TableName              pulumi.StringInput
 }
 
 func (ManagedDatabaseSensitivityLabelArgs) ElementType() reflect.Type {
@@ -208,9 +174,7 @@ func (i *ManagedDatabaseSensitivityLabel) ToManagedDatabaseSensitivityLabelOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseSensitivityLabelOutput)
 }
 
-type ManagedDatabaseSensitivityLabelOutput struct {
-	*pulumi.OutputState
-}
+type ManagedDatabaseSensitivityLabelOutput struct{ *pulumi.OutputState }
 
 func (ManagedDatabaseSensitivityLabelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedDatabaseSensitivityLabel)(nil))

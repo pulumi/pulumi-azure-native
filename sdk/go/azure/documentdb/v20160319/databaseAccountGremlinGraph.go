@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB Gremlin graph.
 type DatabaseAccountGremlinGraph struct {
 	pulumi.CustomResourceState
 
-	// The conflict resolution policy for the graph.
 	ConflictResolutionPolicy ConflictResolutionPolicyResponsePtrOutput `pulumi:"conflictResolutionPolicy"`
-	// Default time to live
-	DefaultTtl pulumi.IntPtrOutput `pulumi:"defaultTtl"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
-	IndexingPolicy IndexingPolicyResponsePtrOutput `pulumi:"indexingPolicy"`
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the database account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The configuration of the partition key to be used for partitioning data into multiple partitions
-	PartitionKey ContainerPartitionKeyResponsePtrOutput `pulumi:"partitionKey"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringPtrOutput `pulumi:"rid"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.AnyOutput `pulumi:"ts"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-	UniqueKeyPolicy UniqueKeyPolicyResponsePtrOutput `pulumi:"uniqueKeyPolicy"`
+	DefaultTtl               pulumi.IntPtrOutput                       `pulumi:"defaultTtl"`
+	Etag                     pulumi.StringPtrOutput                    `pulumi:"etag"`
+	IndexingPolicy           IndexingPolicyResponsePtrOutput           `pulumi:"indexingPolicy"`
+	Location                 pulumi.StringPtrOutput                    `pulumi:"location"`
+	Name                     pulumi.StringOutput                       `pulumi:"name"`
+	PartitionKey             ContainerPartitionKeyResponsePtrOutput    `pulumi:"partitionKey"`
+	Rid                      pulumi.StringPtrOutput                    `pulumi:"rid"`
+	Tags                     pulumi.StringMapOutput                    `pulumi:"tags"`
+	Ts                       pulumi.AnyOutput                          `pulumi:"ts"`
+	Type                     pulumi.StringOutput                       `pulumi:"type"`
+	UniqueKeyPolicy          UniqueKeyPolicyResponsePtrOutput          `pulumi:"uniqueKeyPolicy"`
 }
 
 // NewDatabaseAccountGremlinGraph registers a new resource with the given unique name, arguments, and options.
@@ -215,33 +202,21 @@ func (DatabaseAccountGremlinGraphState) ElementType() reflect.Type {
 }
 
 type databaseAccountGremlinGraphArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Cosmos DB database name.
-	DatabaseName string `pulumi:"databaseName"`
-	// Cosmos DB graph name.
-	GraphName *string `pulumi:"graphName"`
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options map[string]string `pulumi:"options"`
-	// The standard JSON format of a Gremlin graph
-	Resource GremlinGraphResource `pulumi:"resource"`
-	// Name of an Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName       string               `pulumi:"accountName"`
+	DatabaseName      string               `pulumi:"databaseName"`
+	GraphName         *string              `pulumi:"graphName"`
+	Options           map[string]string    `pulumi:"options"`
+	Resource          GremlinGraphResource `pulumi:"resource"`
+	ResourceGroupName string               `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a DatabaseAccountGremlinGraph resource.
 type DatabaseAccountGremlinGraphArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Cosmos DB database name.
-	DatabaseName pulumi.StringInput
-	// Cosmos DB graph name.
-	GraphName pulumi.StringPtrInput
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options pulumi.StringMapInput
-	// The standard JSON format of a Gremlin graph
-	Resource GremlinGraphResourceInput
-	// Name of an Azure resource group.
+	AccountName       pulumi.StringInput
+	DatabaseName      pulumi.StringInput
+	GraphName         pulumi.StringPtrInput
+	Options           pulumi.StringMapInput
+	Resource          GremlinGraphResourceInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -268,9 +243,7 @@ func (i *DatabaseAccountGremlinGraph) ToDatabaseAccountGremlinGraphOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountGremlinGraphOutput)
 }
 
-type DatabaseAccountGremlinGraphOutput struct {
-	*pulumi.OutputState
-}
+type DatabaseAccountGremlinGraphOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAccountGremlinGraphOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAccountGremlinGraph)(nil))

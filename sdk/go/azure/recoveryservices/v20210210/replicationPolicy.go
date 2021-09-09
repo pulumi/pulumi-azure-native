@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Protection profile details.
 type ReplicationPolicy struct {
 	pulumi.CustomResourceState
 
-	// Resource Location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The custom data.
+	Location   pulumi.StringPtrOutput         `pulumi:"location"`
+	Name       pulumi.StringOutput            `pulumi:"name"`
 	Properties PolicyPropertiesResponseOutput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput            `pulumi:"type"`
 }
 
 // NewReplicationPolicy registers a new resource with the given unique name, arguments, and options.
@@ -124,26 +119,18 @@ func (ReplicationPolicyState) ElementType() reflect.Type {
 }
 
 type replicationPolicyArgs struct {
-	// Replication policy name.
-	PolicyName *string `pulumi:"policyName"`
-	// Policy creation properties.
-	Properties *CreatePolicyInputProperties `pulumi:"properties"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
+	PolicyName        *string                      `pulumi:"policyName"`
+	Properties        *CreatePolicyInputProperties `pulumi:"properties"`
+	ResourceGroupName string                       `pulumi:"resourceGroupName"`
+	ResourceName      string                       `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a ReplicationPolicy resource.
 type ReplicationPolicyArgs struct {
-	// Replication policy name.
-	PolicyName pulumi.StringPtrInput
-	// Policy creation properties.
-	Properties CreatePolicyInputPropertiesPtrInput
-	// The name of the resource group where the recovery services vault is present.
+	PolicyName        pulumi.StringPtrInput
+	Properties        CreatePolicyInputPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the recovery services vault.
-	ResourceName pulumi.StringInput
+	ResourceName      pulumi.StringInput
 }
 
 func (ReplicationPolicyArgs) ElementType() reflect.Type {
@@ -169,9 +156,7 @@ func (i *ReplicationPolicy) ToReplicationPolicyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationPolicyOutput)
 }
 
-type ReplicationPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationPolicyOutput struct{ *pulumi.OutputState }
 
 func (ReplicationPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationPolicy)(nil))

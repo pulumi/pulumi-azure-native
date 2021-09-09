@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a Namespace AuthorizationRules.
 func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespaceAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceAuthorizationRuleResult, error) {
 	var rv LookupNamespaceAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:notificationhubs/v20160301:getNamespaceAuthorizationRule", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespace
 }
 
 type LookupNamespaceAuthorizationRuleArgs struct {
-	// Authorization rule name.
 	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	NamespaceName         string `pulumi:"namespaceName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Description of a Namespace AuthorizationRules.
 type LookupNamespaceAuthorizationRuleResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-	// The sku of the created namespace
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id       string            `pulumi:"id"`
+	Location string            `pulumi:"location"`
+	Name     string            `pulumi:"name"`
+	Rights   []string          `pulumi:"rights"`
+	Sku      *SkuResponse      `pulumi:"sku"`
+	Tags     map[string]string `pulumi:"tags"`
+	Type     string            `pulumi:"type"`
 }

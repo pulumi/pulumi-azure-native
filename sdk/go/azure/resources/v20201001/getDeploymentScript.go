@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Deployment script object.
-//
 // Deprecated: Please use one of the variants: AzureCliScript, AzurePowerShellScript.
 func LookupDeploymentScript(ctx *pulumi.Context, args *LookupDeploymentScriptArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentScriptResult, error) {
 	var rv LookupDeploymentScriptResult
@@ -20,28 +18,18 @@ func LookupDeploymentScript(ctx *pulumi.Context, args *LookupDeploymentScriptArg
 }
 
 type LookupDeploymentScriptArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment script.
-	ScriptName string `pulumi:"scriptName"`
+	ScriptName        string `pulumi:"scriptName"`
 }
 
 // Deployment script object.
 type LookupDeploymentScriptResult struct {
-	// String Id used to locate any resource on Azure.
-	Id string `pulumi:"id"`
-	// Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
-	// Type of the script.
-	Kind string `pulumi:"kind"`
-	// The location of the ACI and the storage account for the deployment script.
-	Location string `pulumi:"location"`
-	// Name of this resource.
-	Name string `pulumi:"name"`
-	// The system metadata related to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of this resource.
-	Type string `pulumi:"type"`
+	Id         string                          `pulumi:"id"`
+	Identity   *ManagedServiceIdentityResponse `pulumi:"identity"`
+	Kind       string                          `pulumi:"kind"`
+	Location   string                          `pulumi:"location"`
+	Name       string                          `pulumi:"name"`
+	SystemData SystemDataResponse              `pulumi:"systemData"`
+	Tags       map[string]string               `pulumi:"tags"`
+	Type       string                          `pulumi:"type"`
 }

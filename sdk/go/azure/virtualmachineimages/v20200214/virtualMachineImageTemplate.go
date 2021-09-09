@@ -11,36 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
 type VirtualMachineImageTemplate struct {
 	pulumi.CustomResourceState
 
-	// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
-	BuildTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"buildTimeoutInMinutes"`
-	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize pulumi.ArrayOutput `pulumi:"customize"`
-	// The distribution targets where the image output needs to go to.
-	Distribute pulumi.ArrayOutput `pulumi:"distribute"`
-	// The identity of the image template, if configured.
-	Identity ImageTemplateIdentityResponseOutput `pulumi:"identity"`
-	// State of 'run' that is currently executing or was last executed.
-	LastRunStatus ImageTemplateLastRunStatusResponseOutput `pulumi:"lastRunStatus"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning error, if any
-	ProvisioningError ProvisioningErrorResponseOutput `pulumi:"provisioningError"`
-	// Provisioning state of the resource
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Specifies the properties used to describe the source image.
-	Source pulumi.AnyOutput `pulumi:"source"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Describes how virtual machine is set up to build images
-	VmProfile ImageTemplateVmProfileResponsePtrOutput `pulumi:"vmProfile"`
+	BuildTimeoutInMinutes pulumi.IntPtrOutput                      `pulumi:"buildTimeoutInMinutes"`
+	Customize             pulumi.ArrayOutput                       `pulumi:"customize"`
+	Distribute            pulumi.ArrayOutput                       `pulumi:"distribute"`
+	Identity              ImageTemplateIdentityResponseOutput      `pulumi:"identity"`
+	LastRunStatus         ImageTemplateLastRunStatusResponseOutput `pulumi:"lastRunStatus"`
+	Location              pulumi.StringOutput                      `pulumi:"location"`
+	Name                  pulumi.StringOutput                      `pulumi:"name"`
+	ProvisioningError     ProvisioningErrorResponseOutput          `pulumi:"provisioningError"`
+	ProvisioningState     pulumi.StringOutput                      `pulumi:"provisioningState"`
+	Source                pulumi.AnyOutput                         `pulumi:"source"`
+	Tags                  pulumi.StringMapOutput                   `pulumi:"tags"`
+	Type                  pulumi.StringOutput                      `pulumi:"type"`
+	VmProfile             ImageTemplateVmProfileResponsePtrOutput  `pulumi:"vmProfile"`
 }
 
 // NewVirtualMachineImageTemplate registers a new resource with the given unique name, arguments, and options.
@@ -127,50 +113,30 @@ func (VirtualMachineImageTemplateState) ElementType() reflect.Type {
 }
 
 type virtualMachineImageTemplateArgs struct {
-	// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
-	BuildTimeoutInMinutes *int `pulumi:"buildTimeoutInMinutes"`
-	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize []interface{} `pulumi:"customize"`
-	// The distribution targets where the image output needs to go to.
-	Distribute []interface{} `pulumi:"distribute"`
-	// The identity of the image template, if configured.
-	Identity ImageTemplateIdentity `pulumi:"identity"`
-	// The name of the image Template
-	ImageTemplateName *string `pulumi:"imageTemplateName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the properties used to describe the source image.
-	Source interface{} `pulumi:"source"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Describes how virtual machine is set up to build images
-	VmProfile *ImageTemplateVmProfile `pulumi:"vmProfile"`
+	BuildTimeoutInMinutes *int                    `pulumi:"buildTimeoutInMinutes"`
+	Customize             []interface{}           `pulumi:"customize"`
+	Distribute            []interface{}           `pulumi:"distribute"`
+	Identity              ImageTemplateIdentity   `pulumi:"identity"`
+	ImageTemplateName     *string                 `pulumi:"imageTemplateName"`
+	Location              *string                 `pulumi:"location"`
+	ResourceGroupName     string                  `pulumi:"resourceGroupName"`
+	Source                interface{}             `pulumi:"source"`
+	Tags                  map[string]string       `pulumi:"tags"`
+	VmProfile             *ImageTemplateVmProfile `pulumi:"vmProfile"`
 }
 
 // The set of arguments for constructing a VirtualMachineImageTemplate resource.
 type VirtualMachineImageTemplateArgs struct {
-	// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
 	BuildTimeoutInMinutes pulumi.IntPtrInput
-	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize pulumi.ArrayInput
-	// The distribution targets where the image output needs to go to.
-	Distribute pulumi.ArrayInput
-	// The identity of the image template, if configured.
-	Identity ImageTemplateIdentityInput
-	// The name of the image Template
-	ImageTemplateName pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Specifies the properties used to describe the source image.
-	Source pulumi.Input
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Describes how virtual machine is set up to build images
-	VmProfile ImageTemplateVmProfilePtrInput
+	Customize             pulumi.ArrayInput
+	Distribute            pulumi.ArrayInput
+	Identity              ImageTemplateIdentityInput
+	ImageTemplateName     pulumi.StringPtrInput
+	Location              pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
+	Source                pulumi.Input
+	Tags                  pulumi.StringMapInput
+	VmProfile             ImageTemplateVmProfilePtrInput
 }
 
 func (VirtualMachineImageTemplateArgs) ElementType() reflect.Type {
@@ -196,9 +162,7 @@ func (i *VirtualMachineImageTemplate) ToVirtualMachineImageTemplateOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineImageTemplateOutput)
 }
 
-type VirtualMachineImageTemplateOutput struct {
-	*pulumi.OutputState
-}
+type VirtualMachineImageTemplateOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineImageTemplateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineImageTemplate)(nil))

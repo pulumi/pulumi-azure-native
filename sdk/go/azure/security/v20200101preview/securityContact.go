@@ -10,22 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contact details and configurations for notifications coming from Azure Security Center.
 type SecurityContact struct {
 	pulumi.CustomResourceState
 
-	// Defines whether to send email notifications about new security alerts
-	AlertNotifications SecurityContactPropertiesResponseAlertNotificationsPtrOutput `pulumi:"alertNotifications"`
-	// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
-	Emails pulumi.StringPtrOutput `pulumi:"emails"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	AlertNotifications  SecurityContactPropertiesResponseAlertNotificationsPtrOutput  `pulumi:"alertNotifications"`
+	Emails              pulumi.StringPtrOutput                                        `pulumi:"emails"`
+	Name                pulumi.StringOutput                                           `pulumi:"name"`
 	NotificationsByRole SecurityContactPropertiesResponseNotificationsByRolePtrOutput `pulumi:"notificationsByRole"`
-	// The security contact's phone number
-	Phone pulumi.StringPtrOutput `pulumi:"phone"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Phone               pulumi.StringPtrOutput                                        `pulumi:"phone"`
+	Type                pulumi.StringOutput                                           `pulumi:"type"`
 }
 
 // NewSecurityContact registers a new resource with the given unique name, arguments, and options.
@@ -85,29 +78,19 @@ func (SecurityContactState) ElementType() reflect.Type {
 }
 
 type securityContactArgs struct {
-	// Defines whether to send email notifications about new security alerts
-	AlertNotifications *SecurityContactPropertiesAlertNotifications `pulumi:"alertNotifications"`
-	// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
-	Emails *string `pulumi:"emails"`
-	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	AlertNotifications  *SecurityContactPropertiesAlertNotifications  `pulumi:"alertNotifications"`
+	Emails              *string                                       `pulumi:"emails"`
 	NotificationsByRole *SecurityContactPropertiesNotificationsByRole `pulumi:"notificationsByRole"`
-	// The security contact's phone number
-	Phone *string `pulumi:"phone"`
-	// Name of the security contact object
-	SecurityContactName *string `pulumi:"securityContactName"`
+	Phone               *string                                       `pulumi:"phone"`
+	SecurityContactName *string                                       `pulumi:"securityContactName"`
 }
 
 // The set of arguments for constructing a SecurityContact resource.
 type SecurityContactArgs struct {
-	// Defines whether to send email notifications about new security alerts
-	AlertNotifications SecurityContactPropertiesAlertNotificationsPtrInput
-	// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
-	Emails pulumi.StringPtrInput
-	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	AlertNotifications  SecurityContactPropertiesAlertNotificationsPtrInput
+	Emails              pulumi.StringPtrInput
 	NotificationsByRole SecurityContactPropertiesNotificationsByRolePtrInput
-	// The security contact's phone number
-	Phone pulumi.StringPtrInput
-	// Name of the security contact object
+	Phone               pulumi.StringPtrInput
 	SecurityContactName pulumi.StringPtrInput
 }
 
@@ -134,9 +117,7 @@ func (i *SecurityContact) ToSecurityContactOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactOutput)
 }
 
-type SecurityContactOutput struct {
-	*pulumi.OutputState
-}
+type SecurityContactOutput struct{ *pulumi.OutputState }
 
 func (SecurityContactOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityContact)(nil))

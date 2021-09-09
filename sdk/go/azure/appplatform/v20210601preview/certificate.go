@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Certificate resource payload.
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the certificate resource payload.
+	Name       pulumi.StringOutput                 `pulumi:"name"`
 	Properties CertificatePropertiesResponseOutput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
@@ -98,26 +94,18 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// The name of the certificate resource.
-	CertificateName *string `pulumi:"certificateName"`
-	// Properties of the certificate resource payload.
-	Properties *CertificateProperties `pulumi:"properties"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Service resource.
-	ServiceName string `pulumi:"serviceName"`
+	CertificateName   *string                `pulumi:"certificateName"`
+	Properties        *CertificateProperties `pulumi:"properties"`
+	ResourceGroupName string                 `pulumi:"resourceGroupName"`
+	ServiceName       string                 `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// The name of the certificate resource.
-	CertificateName pulumi.StringPtrInput
-	// Properties of the certificate resource payload.
-	Properties CertificatePropertiesPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	CertificateName   pulumi.StringPtrInput
+	Properties        CertificatePropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Service resource.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {
@@ -143,9 +131,7 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
 }
 
-type CertificateOutput struct {
-	*pulumi.OutputState
-}
+type CertificateOutput struct{ *pulumi.OutputState }
 
 func (CertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Certificate)(nil))

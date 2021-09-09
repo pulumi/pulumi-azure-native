@@ -468,7 +468,7 @@ func (o DistributionGroupListReceiverValueOutput) ToDistributionGroupListReceive
 }
 
 func (o DistributionGroupListReceiverValueOutput) ToDistributionGroupListReceiverValuePtrOutputWithContext(ctx context.Context) DistributionGroupListReceiverValuePtrOutput {
-	return o.ApplyT(func(v DistributionGroupListReceiverValue) *DistributionGroupListReceiverValue {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionGroupListReceiverValue) *DistributionGroupListReceiverValue {
 		return &v
 	}).(DistributionGroupListReceiverValuePtrOutput)
 }
@@ -493,7 +493,13 @@ func (o DistributionGroupListReceiverValuePtrOutput) ToDistributionGroupListRece
 }
 
 func (o DistributionGroupListReceiverValuePtrOutput) Elem() DistributionGroupListReceiverValueOutput {
-	return o.ApplyT(func(v *DistributionGroupListReceiverValue) DistributionGroupListReceiverValue { return *v }).(DistributionGroupListReceiverValueOutput)
+	return o.ApplyT(func(v *DistributionGroupListReceiverValue) DistributionGroupListReceiverValue {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionGroupListReceiverValue
+		return ret
+	}).(DistributionGroupListReceiverValueOutput)
 }
 
 // The list of distribution groups.
@@ -602,7 +608,7 @@ func (o DistributionGroupListReceiverValueResponseOutput) ToDistributionGroupLis
 }
 
 func (o DistributionGroupListReceiverValueResponseOutput) ToDistributionGroupListReceiverValueResponsePtrOutputWithContext(ctx context.Context) DistributionGroupListReceiverValueResponsePtrOutput {
-	return o.ApplyT(func(v DistributionGroupListReceiverValueResponse) *DistributionGroupListReceiverValueResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionGroupListReceiverValueResponse) *DistributionGroupListReceiverValueResponse {
 		return &v
 	}).(DistributionGroupListReceiverValueResponsePtrOutput)
 }
@@ -628,7 +634,11 @@ func (o DistributionGroupListReceiverValueResponsePtrOutput) ToDistributionGroup
 
 func (o DistributionGroupListReceiverValueResponsePtrOutput) Elem() DistributionGroupListReceiverValueResponseOutput {
 	return o.ApplyT(func(v *DistributionGroupListReceiverValueResponse) DistributionGroupListReceiverValueResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DistributionGroupListReceiverValueResponse
+		return ret
 	}).(DistributionGroupListReceiverValueResponseOutput)
 }
 
@@ -964,7 +974,7 @@ func (o NotificationReceiverValueOutput) ToNotificationReceiverValuePtrOutput() 
 }
 
 func (o NotificationReceiverValueOutput) ToNotificationReceiverValuePtrOutputWithContext(ctx context.Context) NotificationReceiverValuePtrOutput {
-	return o.ApplyT(func(v NotificationReceiverValue) *NotificationReceiverValue {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationReceiverValue) *NotificationReceiverValue {
 		return &v
 	}).(NotificationReceiverValuePtrOutput)
 }
@@ -1001,7 +1011,13 @@ func (o NotificationReceiverValuePtrOutput) ToNotificationReceiverValuePtrOutput
 }
 
 func (o NotificationReceiverValuePtrOutput) Elem() NotificationReceiverValueOutput {
-	return o.ApplyT(func(v *NotificationReceiverValue) NotificationReceiverValue { return *v }).(NotificationReceiverValueOutput)
+	return o.ApplyT(func(v *NotificationReceiverValue) NotificationReceiverValue {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationReceiverValue
+		return ret
+	}).(NotificationReceiverValueOutput)
 }
 
 // The user object receiver value.
@@ -1138,7 +1154,7 @@ func (o NotificationReceiverValueResponseOutput) ToNotificationReceiverValueResp
 }
 
 func (o NotificationReceiverValueResponseOutput) ToNotificationReceiverValueResponsePtrOutputWithContext(ctx context.Context) NotificationReceiverValueResponsePtrOutput {
-	return o.ApplyT(func(v NotificationReceiverValueResponse) *NotificationReceiverValueResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationReceiverValueResponse) *NotificationReceiverValueResponse {
 		return &v
 	}).(NotificationReceiverValueResponsePtrOutput)
 }
@@ -1179,7 +1195,13 @@ func (o NotificationReceiverValueResponsePtrOutput) ToNotificationReceiverValueR
 }
 
 func (o NotificationReceiverValueResponsePtrOutput) Elem() NotificationReceiverValueResponseOutput {
-	return o.ApplyT(func(v *NotificationReceiverValueResponse) NotificationReceiverValueResponse { return *v }).(NotificationReceiverValueResponseOutput)
+	return o.ApplyT(func(v *NotificationReceiverValueResponse) NotificationReceiverValueResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationReceiverValueResponse
+		return ret
+	}).(NotificationReceiverValueResponseOutput)
 }
 
 // The user object receiver value.
@@ -1434,7 +1456,7 @@ func (o SubscriptionReceiverValueOutput) ToSubscriptionReceiverValuePtrOutput() 
 }
 
 func (o SubscriptionReceiverValueOutput) ToSubscriptionReceiverValuePtrOutputWithContext(ctx context.Context) SubscriptionReceiverValuePtrOutput {
-	return o.ApplyT(func(v SubscriptionReceiverValue) *SubscriptionReceiverValue {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionReceiverValue) *SubscriptionReceiverValue {
 		return &v
 	}).(SubscriptionReceiverValuePtrOutput)
 }
@@ -1469,7 +1491,13 @@ func (o SubscriptionReceiverValuePtrOutput) ToSubscriptionReceiverValuePtrOutput
 }
 
 func (o SubscriptionReceiverValuePtrOutput) Elem() SubscriptionReceiverValueOutput {
-	return o.ApplyT(func(v *SubscriptionReceiverValue) SubscriptionReceiverValue { return *v }).(SubscriptionReceiverValueOutput)
+	return o.ApplyT(func(v *SubscriptionReceiverValue) SubscriptionReceiverValue {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriptionReceiverValue
+		return ret
+	}).(SubscriptionReceiverValueOutput)
 }
 
 // The role of the notification receiver.
@@ -1606,7 +1634,7 @@ func (o SubscriptionReceiverValueResponseOutput) ToSubscriptionReceiverValueResp
 }
 
 func (o SubscriptionReceiverValueResponseOutput) ToSubscriptionReceiverValueResponsePtrOutputWithContext(ctx context.Context) SubscriptionReceiverValueResponsePtrOutput {
-	return o.ApplyT(func(v SubscriptionReceiverValueResponse) *SubscriptionReceiverValueResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionReceiverValueResponse) *SubscriptionReceiverValueResponse {
 		return &v
 	}).(SubscriptionReceiverValueResponsePtrOutput)
 }
@@ -1641,7 +1669,13 @@ func (o SubscriptionReceiverValueResponsePtrOutput) ToSubscriptionReceiverValueR
 }
 
 func (o SubscriptionReceiverValueResponsePtrOutput) Elem() SubscriptionReceiverValueResponseOutput {
-	return o.ApplyT(func(v *SubscriptionReceiverValueResponse) SubscriptionReceiverValueResponse { return *v }).(SubscriptionReceiverValueResponseOutput)
+	return o.ApplyT(func(v *SubscriptionReceiverValueResponse) SubscriptionReceiverValueResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriptionReceiverValueResponse
+		return ret
+	}).(SubscriptionReceiverValueResponseOutput)
 }
 
 // The role of the notification receiver.
@@ -1790,7 +1824,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -1840,7 +1874,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -2347,7 +2387,7 @@ func (o TestBaseAccountSKUOutput) ToTestBaseAccountSKUPtrOutput() TestBaseAccoun
 }
 
 func (o TestBaseAccountSKUOutput) ToTestBaseAccountSKUPtrOutputWithContext(ctx context.Context) TestBaseAccountSKUPtrOutput {
-	return o.ApplyT(func(v TestBaseAccountSKU) *TestBaseAccountSKU {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TestBaseAccountSKU) *TestBaseAccountSKU {
 		return &v
 	}).(TestBaseAccountSKUPtrOutput)
 }
@@ -2387,7 +2427,13 @@ func (o TestBaseAccountSKUPtrOutput) ToTestBaseAccountSKUPtrOutputWithContext(ct
 }
 
 func (o TestBaseAccountSKUPtrOutput) Elem() TestBaseAccountSKUOutput {
-	return o.ApplyT(func(v *TestBaseAccountSKU) TestBaseAccountSKU { return *v }).(TestBaseAccountSKUOutput)
+	return o.ApplyT(func(v *TestBaseAccountSKU) TestBaseAccountSKU {
+		if v != nil {
+			return *v
+		}
+		var ret TestBaseAccountSKU
+		return ret
+	}).(TestBaseAccountSKUOutput)
 }
 
 // The locations that the SKU is available.
@@ -2651,7 +2697,7 @@ func (o TestBaseAccountSKUResponseOutput) ToTestBaseAccountSKUResponsePtrOutput(
 }
 
 func (o TestBaseAccountSKUResponseOutput) ToTestBaseAccountSKUResponsePtrOutputWithContext(ctx context.Context) TestBaseAccountSKUResponsePtrOutput {
-	return o.ApplyT(func(v TestBaseAccountSKUResponse) *TestBaseAccountSKUResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TestBaseAccountSKUResponse) *TestBaseAccountSKUResponse {
 		return &v
 	}).(TestBaseAccountSKUResponsePtrOutput)
 }
@@ -2696,7 +2742,13 @@ func (o TestBaseAccountSKUResponsePtrOutput) ToTestBaseAccountSKUResponsePtrOutp
 }
 
 func (o TestBaseAccountSKUResponsePtrOutput) Elem() TestBaseAccountSKUResponseOutput {
-	return o.ApplyT(func(v *TestBaseAccountSKUResponse) TestBaseAccountSKUResponse { return *v }).(TestBaseAccountSKUResponseOutput)
+	return o.ApplyT(func(v *TestBaseAccountSKUResponse) TestBaseAccountSKUResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TestBaseAccountSKUResponse
+		return ret
+	}).(TestBaseAccountSKUResponseOutput)
 }
 
 // The capabilities of a SKU.
@@ -2972,7 +3024,7 @@ func (o UserObjectReceiverValueOutput) ToUserObjectReceiverValuePtrOutput() User
 }
 
 func (o UserObjectReceiverValueOutput) ToUserObjectReceiverValuePtrOutputWithContext(ctx context.Context) UserObjectReceiverValuePtrOutput {
-	return o.ApplyT(func(v UserObjectReceiverValue) *UserObjectReceiverValue {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserObjectReceiverValue) *UserObjectReceiverValue {
 		return &v
 	}).(UserObjectReceiverValuePtrOutput)
 }
@@ -2997,7 +3049,13 @@ func (o UserObjectReceiverValuePtrOutput) ToUserObjectReceiverValuePtrOutputWith
 }
 
 func (o UserObjectReceiverValuePtrOutput) Elem() UserObjectReceiverValueOutput {
-	return o.ApplyT(func(v *UserObjectReceiverValue) UserObjectReceiverValue { return *v }).(UserObjectReceiverValueOutput)
+	return o.ApplyT(func(v *UserObjectReceiverValue) UserObjectReceiverValue {
+		if v != nil {
+			return *v
+		}
+		var ret UserObjectReceiverValue
+		return ret
+	}).(UserObjectReceiverValueOutput)
 }
 
 // user object ids.
@@ -3106,7 +3164,7 @@ func (o UserObjectReceiverValueResponseOutput) ToUserObjectReceiverValueResponse
 }
 
 func (o UserObjectReceiverValueResponseOutput) ToUserObjectReceiverValueResponsePtrOutputWithContext(ctx context.Context) UserObjectReceiverValueResponsePtrOutput {
-	return o.ApplyT(func(v UserObjectReceiverValueResponse) *UserObjectReceiverValueResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserObjectReceiverValueResponse) *UserObjectReceiverValueResponse {
 		return &v
 	}).(UserObjectReceiverValueResponsePtrOutput)
 }
@@ -3131,7 +3189,13 @@ func (o UserObjectReceiverValueResponsePtrOutput) ToUserObjectReceiverValueRespo
 }
 
 func (o UserObjectReceiverValueResponsePtrOutput) Elem() UserObjectReceiverValueResponseOutput {
-	return o.ApplyT(func(v *UserObjectReceiverValueResponse) UserObjectReceiverValueResponse { return *v }).(UserObjectReceiverValueResponseOutput)
+	return o.ApplyT(func(v *UserObjectReceiverValueResponse) UserObjectReceiverValueResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserObjectReceiverValueResponse
+		return ret
+	}).(UserObjectReceiverValueResponseOutput)
 }
 
 // user object ids.

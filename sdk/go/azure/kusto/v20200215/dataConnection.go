@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing an data connection.
-//
 // Deprecated: Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.
 type DataConnection struct {
 	pulumi.CustomResourceState
 
-	// Kind of the endpoint for the data connection
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource location.
+	Kind     pulumi.StringOutput    `pulumi:"kind"`
 	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name     pulumi.StringOutput    `pulumi:"name"`
+	Type     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewDataConnection registers a new resource with the given unique name, arguments, and options.
@@ -138,34 +132,22 @@ func (DataConnectionState) ElementType() reflect.Type {
 }
 
 type dataConnectionArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the data connection.
+	ClusterName        string  `pulumi:"clusterName"`
 	DataConnectionName *string `pulumi:"dataConnectionName"`
-	// The name of the database in the Kusto cluster.
-	DatabaseName string `pulumi:"databaseName"`
-	// Kind of the endpoint for the data connection
-	Kind string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	DatabaseName       string  `pulumi:"databaseName"`
+	Kind               string  `pulumi:"kind"`
+	Location           *string `pulumi:"location"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a DataConnection resource.
 type DataConnectionArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName pulumi.StringInput
-	// The name of the data connection.
+	ClusterName        pulumi.StringInput
 	DataConnectionName pulumi.StringPtrInput
-	// The name of the database in the Kusto cluster.
-	DatabaseName pulumi.StringInput
-	// Kind of the endpoint for the data connection
-	Kind pulumi.StringInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName pulumi.StringInput
+	DatabaseName       pulumi.StringInput
+	Kind               pulumi.StringInput
+	Location           pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
 }
 
 func (DataConnectionArgs) ElementType() reflect.Type {
@@ -191,9 +173,7 @@ func (i *DataConnection) ToDataConnectionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectionOutput)
 }
 
-type DataConnectionOutput struct {
-	*pulumi.OutputState
-}
+type DataConnectionOutput struct{ *pulumi.OutputState }
 
 func (DataConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataConnection)(nil))

@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure DevOps Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
 type Pipeline struct {
 	pulumi.CustomResourceState
 
-	// Configuration used to bootstrap the Pipeline.
 	BootstrapConfiguration BootstrapConfigurationResponseOutput `pulumi:"bootstrapConfiguration"`
-	// Resource Location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Reference to the Azure DevOps Organization containing the Pipeline.
-	Organization OrganizationReferenceResponseOutput `pulumi:"organization"`
-	// Unique identifier of the Azure Pipeline within the Azure DevOps Project.
-	PipelineId pulumi.IntOutput `pulumi:"pipelineId"`
-	// Reference to the Azure DevOps Project containing the Pipeline.
-	Project ProjectReferenceResponseOutput `pulumi:"project"`
-	// Resource Tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource Type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location               pulumi.StringPtrOutput               `pulumi:"location"`
+	Name                   pulumi.StringOutput                  `pulumi:"name"`
+	Organization           OrganizationReferenceResponseOutput  `pulumi:"organization"`
+	PipelineId             pulumi.IntOutput                     `pulumi:"pipelineId"`
+	Project                ProjectReferenceResponseOutput       `pulumi:"project"`
+	Tags                   pulumi.StringMapOutput               `pulumi:"tags"`
+	Type                   pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
@@ -102,38 +93,24 @@ func (PipelineState) ElementType() reflect.Type {
 }
 
 type pipelineArgs struct {
-	// Configuration used to bootstrap the Pipeline.
 	BootstrapConfiguration BootstrapConfiguration `pulumi:"bootstrapConfiguration"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Reference to the Azure DevOps Organization containing the Pipeline.
-	Organization OrganizationReference `pulumi:"organization"`
-	// The name of the Azure Pipeline resource in ARM.
-	PipelineName *string `pulumi:"pipelineName"`
-	// Reference to the Azure DevOps Project containing the Pipeline.
-	Project ProjectReference `pulumi:"project"`
-	// Name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource Tags
-	Tags map[string]string `pulumi:"tags"`
+	Location               *string                `pulumi:"location"`
+	Organization           OrganizationReference  `pulumi:"organization"`
+	PipelineName           *string                `pulumi:"pipelineName"`
+	Project                ProjectReference       `pulumi:"project"`
+	ResourceGroupName      string                 `pulumi:"resourceGroupName"`
+	Tags                   map[string]string      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
-	// Configuration used to bootstrap the Pipeline.
 	BootstrapConfiguration BootstrapConfigurationInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Reference to the Azure DevOps Organization containing the Pipeline.
-	Organization OrganizationReferenceInput
-	// The name of the Azure Pipeline resource in ARM.
-	PipelineName pulumi.StringPtrInput
-	// Reference to the Azure DevOps Project containing the Pipeline.
-	Project ProjectReferenceInput
-	// Name of the resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// Resource Tags
-	Tags pulumi.StringMapInput
+	Location               pulumi.StringPtrInput
+	Organization           OrganizationReferenceInput
+	PipelineName           pulumi.StringPtrInput
+	Project                ProjectReferenceInput
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (PipelineArgs) ElementType() reflect.Type {
@@ -159,9 +136,7 @@ func (i *Pipeline) ToPipelineOutputWithContext(ctx context.Context) PipelineOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineOutput)
 }
 
-type PipelineOutput struct {
-	*pulumi.OutputState
-}
+type PipelineOutput struct{ *pulumi.OutputState }
 
 func (PipelineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Pipeline)(nil))

@@ -172,9 +172,7 @@ func (i *IntegrationAccountCertificate) ToIntegrationAccountCertificateOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCertificateOutput)
 }
 
-type IntegrationAccountCertificateOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountCertificateOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountCertificate)(nil))

@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Application Insights component linked storage accounts
 type ComponentLinkedStorageAccount struct {
 	pulumi.CustomResourceState
 
-	// Linked storage account resource ID
 	LinkedStorageAccount pulumi.StringPtrOutput `pulumi:"linkedStorageAccount"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name                 pulumi.StringOutput    `pulumi:"name"`
+	Type                 pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewComponentLinkedStorageAccount registers a new resource with the given unique name, arguments, and options.
@@ -80,26 +76,18 @@ func (ComponentLinkedStorageAccountState) ElementType() reflect.Type {
 }
 
 type componentLinkedStorageAccountArgs struct {
-	// Linked storage account resource ID
 	LinkedStorageAccount *string `pulumi:"linkedStorageAccount"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Application Insights component resource.
-	ResourceName string `pulumi:"resourceName"`
-	// The type of the Application Insights component data source for the linked storage account.
-	StorageType *string `pulumi:"storageType"`
+	ResourceGroupName    string  `pulumi:"resourceGroupName"`
+	ResourceName         string  `pulumi:"resourceName"`
+	StorageType          *string `pulumi:"storageType"`
 }
 
 // The set of arguments for constructing a ComponentLinkedStorageAccount resource.
 type ComponentLinkedStorageAccountArgs struct {
-	// Linked storage account resource ID
 	LinkedStorageAccount pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the Application Insights component resource.
-	ResourceName pulumi.StringInput
-	// The type of the Application Insights component data source for the linked storage account.
-	StorageType pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
+	ResourceName         pulumi.StringInput
+	StorageType          pulumi.StringPtrInput
 }
 
 func (ComponentLinkedStorageAccountArgs) ElementType() reflect.Type {
@@ -125,9 +113,7 @@ func (i *ComponentLinkedStorageAccount) ToComponentLinkedStorageAccountOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentLinkedStorageAccountOutput)
 }
 
-type ComponentLinkedStorageAccountOutput struct {
-	*pulumi.OutputState
-}
+type ComponentLinkedStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (ComponentLinkedStorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ComponentLinkedStorageAccount)(nil))

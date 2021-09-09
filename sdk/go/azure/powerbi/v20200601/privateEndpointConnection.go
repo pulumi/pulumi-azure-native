@@ -14,18 +14,12 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Specifies the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the private endpoint.
-	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
-	// Specifies the connection state.
+	Name                              pulumi.StringOutput              `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState ConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the Private Endpoint Connection.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Specifies the type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringPtrOutput           `pulumi:"provisioningState"`
+	SystemData                        SystemDataResponseOutput         `pulumi:"systemData"`
+	Type                              pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -85,34 +79,22 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// The name of the Azure resource.
-	AzureResourceName string `pulumi:"azureResourceName"`
-	// Specifies the private endpoint.
-	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
-	// The name of the private endpoint.
-	PrivateEndpointName *string `pulumi:"privateEndpointName"`
-	// Specifies the connection state.
+	AzureResourceName                 string           `pulumi:"azureResourceName"`
+	PrivateEndpoint                   *PrivateEndpoint `pulumi:"privateEndpoint"`
+	PrivateEndpointName               *string          `pulumi:"privateEndpointName"`
 	PrivateLinkServiceConnectionState *ConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the Private Endpoint Connection.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ProvisioningState                 *string          `pulumi:"provisioningState"`
+	ResourceGroupName                 string           `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// The name of the Azure resource.
-	AzureResourceName pulumi.StringInput
-	// Specifies the private endpoint.
-	PrivateEndpoint PrivateEndpointPtrInput
-	// The name of the private endpoint.
-	PrivateEndpointName pulumi.StringPtrInput
-	// Specifies the connection state.
+	AzureResourceName                 pulumi.StringInput
+	PrivateEndpoint                   PrivateEndpointPtrInput
+	PrivateEndpointName               pulumi.StringPtrInput
 	PrivateLinkServiceConnectionState ConnectionStatePtrInput
-	// Provisioning state of the Private Endpoint Connection.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	ProvisioningState                 pulumi.StringPtrInput
+	ResourceGroupName                 pulumi.StringInput
 }
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {
@@ -138,9 +120,7 @@ func (i *PrivateEndpointConnection) ToPrivateEndpointConnectionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionOutput)
 }
 
-type PrivateEndpointConnectionOutput struct {
-	*pulumi.OutputState
-}
+type PrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpointConnection)(nil))

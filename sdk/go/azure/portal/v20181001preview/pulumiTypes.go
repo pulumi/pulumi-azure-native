@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A dashboard lens.
 type DashboardLens struct {
-	// The dashboard len's metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
-	// The lens order.
-	Order int `pulumi:"order"`
-	// The dashboard parts.
-	Parts map[string]DashboardParts `pulumi:"parts"`
+	Metadata map[string]interface{}    `pulumi:"metadata"`
+	Order    int                       `pulumi:"order"`
+	Parts    map[string]DashboardParts `pulumi:"parts"`
 }
 
 // DashboardLensInput is an input type that accepts DashboardLensArgs and DashboardLensOutput values.
@@ -31,14 +27,10 @@ type DashboardLensInput interface {
 	ToDashboardLensOutputWithContext(context.Context) DashboardLensOutput
 }
 
-// A dashboard lens.
 type DashboardLensArgs struct {
-	// The dashboard len's metadata.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
-	// The lens order.
-	Order pulumi.IntInput `pulumi:"order"`
-	// The dashboard parts.
-	Parts DashboardPartsMapInput `pulumi:"parts"`
+	Metadata pulumi.MapInput        `pulumi:"metadata"`
+	Order    pulumi.IntInput        `pulumi:"order"`
+	Parts    DashboardPartsMapInput `pulumi:"parts"`
 }
 
 func (DashboardLensArgs) ElementType() reflect.Type {
@@ -78,7 +70,6 @@ func (i DashboardLensMap) ToDashboardLensMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardLensMapOutput)
 }
 
-// A dashboard lens.
 type DashboardLensOutput struct{ *pulumi.OutputState }
 
 func (DashboardLensOutput) ElementType() reflect.Type {
@@ -93,17 +84,14 @@ func (o DashboardLensOutput) ToDashboardLensOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The dashboard len's metadata.
 func (o DashboardLensOutput) Metadata() pulumi.MapOutput {
 	return o.ApplyT(func(v DashboardLens) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
-// The lens order.
 func (o DashboardLensOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardLens) int { return v.Order }).(pulumi.IntOutput)
 }
 
-// The dashboard parts.
 func (o DashboardLensOutput) Parts() DashboardPartsMapOutput {
 	return o.ApplyT(func(v DashboardLens) map[string]DashboardParts { return v.Parts }).(DashboardPartsMapOutput)
 }
@@ -128,14 +116,10 @@ func (o DashboardLensMapOutput) MapIndex(k pulumi.StringInput) DashboardLensOutp
 	}).(DashboardLensOutput)
 }
 
-// A dashboard lens.
 type DashboardLensResponse struct {
-	// The dashboard len's metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
-	// The lens order.
-	Order int `pulumi:"order"`
-	// The dashboard parts.
-	Parts map[string]DashboardPartsResponse `pulumi:"parts"`
+	Metadata map[string]interface{}            `pulumi:"metadata"`
+	Order    int                               `pulumi:"order"`
+	Parts    map[string]DashboardPartsResponse `pulumi:"parts"`
 }
 
 // DashboardLensResponseInput is an input type that accepts DashboardLensResponseArgs and DashboardLensResponseOutput values.
@@ -149,14 +133,10 @@ type DashboardLensResponseInput interface {
 	ToDashboardLensResponseOutputWithContext(context.Context) DashboardLensResponseOutput
 }
 
-// A dashboard lens.
 type DashboardLensResponseArgs struct {
-	// The dashboard len's metadata.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
-	// The lens order.
-	Order pulumi.IntInput `pulumi:"order"`
-	// The dashboard parts.
-	Parts DashboardPartsResponseMapInput `pulumi:"parts"`
+	Metadata pulumi.MapInput                `pulumi:"metadata"`
+	Order    pulumi.IntInput                `pulumi:"order"`
+	Parts    DashboardPartsResponseMapInput `pulumi:"parts"`
 }
 
 func (DashboardLensResponseArgs) ElementType() reflect.Type {
@@ -196,7 +176,6 @@ func (i DashboardLensResponseMap) ToDashboardLensResponseMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardLensResponseMapOutput)
 }
 
-// A dashboard lens.
 type DashboardLensResponseOutput struct{ *pulumi.OutputState }
 
 func (DashboardLensResponseOutput) ElementType() reflect.Type {
@@ -211,17 +190,14 @@ func (o DashboardLensResponseOutput) ToDashboardLensResponseOutputWithContext(ct
 	return o
 }
 
-// The dashboard len's metadata.
 func (o DashboardLensResponseOutput) Metadata() pulumi.MapOutput {
 	return o.ApplyT(func(v DashboardLensResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
-// The lens order.
 func (o DashboardLensResponseOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardLensResponse) int { return v.Order }).(pulumi.IntOutput)
 }
 
-// The dashboard parts.
 func (o DashboardLensResponseOutput) Parts() DashboardPartsResponseMapOutput {
 	return o.ApplyT(func(v DashboardLensResponse) map[string]DashboardPartsResponse { return v.Parts }).(DashboardPartsResponseMapOutput)
 }
@@ -246,11 +222,8 @@ func (o DashboardLensResponseMapOutput) MapIndex(k pulumi.StringInput) Dashboard
 	}).(DashboardLensResponseOutput)
 }
 
-// A dashboard part.
 type DashboardParts struct {
-	// A dashboard part metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The dashboard's part position.
+	Metadata interface{}            `pulumi:"metadata"`
 	Position DashboardPartsPosition `pulumi:"position"`
 }
 
@@ -265,11 +238,8 @@ type DashboardPartsInput interface {
 	ToDashboardPartsOutputWithContext(context.Context) DashboardPartsOutput
 }
 
-// A dashboard part.
 type DashboardPartsArgs struct {
-	// A dashboard part metadata.
-	Metadata pulumi.Input `pulumi:"metadata"`
-	// The dashboard's part position.
+	Metadata pulumi.Input                `pulumi:"metadata"`
 	Position DashboardPartsPositionInput `pulumi:"position"`
 }
 
@@ -310,7 +280,6 @@ func (i DashboardPartsMap) ToDashboardPartsMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsMapOutput)
 }
 
-// A dashboard part.
 type DashboardPartsOutput struct{ *pulumi.OutputState }
 
 func (DashboardPartsOutput) ElementType() reflect.Type {
@@ -325,12 +294,10 @@ func (o DashboardPartsOutput) ToDashboardPartsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// A dashboard part metadata.
 func (o DashboardPartsOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v DashboardParts) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
-// The dashboard's part position.
 func (o DashboardPartsOutput) Position() DashboardPartsPositionOutput {
 	return o.ApplyT(func(v DashboardParts) DashboardPartsPosition { return v.Position }).(DashboardPartsPositionOutput)
 }
@@ -355,18 +322,12 @@ func (o DashboardPartsMapOutput) MapIndex(k pulumi.StringInput) DashboardPartsOu
 	}).(DashboardPartsOutput)
 }
 
-// The dashboard's part position.
 type DashboardPartsPosition struct {
-	// The dashboard's part column span.
-	ColSpan int `pulumi:"colSpan"`
-	// The dashboard part's metadata.
+	ColSpan  int                    `pulumi:"colSpan"`
 	Metadata map[string]interface{} `pulumi:"metadata"`
-	// The dashboard's part row span.
-	RowSpan int `pulumi:"rowSpan"`
-	// The dashboard's part x coordinate.
-	X int `pulumi:"x"`
-	// The dashboard's part y coordinate.
-	Y int `pulumi:"y"`
+	RowSpan  int                    `pulumi:"rowSpan"`
+	X        int                    `pulumi:"x"`
+	Y        int                    `pulumi:"y"`
 }
 
 // DashboardPartsPositionInput is an input type that accepts DashboardPartsPositionArgs and DashboardPartsPositionOutput values.
@@ -380,18 +341,12 @@ type DashboardPartsPositionInput interface {
 	ToDashboardPartsPositionOutputWithContext(context.Context) DashboardPartsPositionOutput
 }
 
-// The dashboard's part position.
 type DashboardPartsPositionArgs struct {
-	// The dashboard's part column span.
-	ColSpan pulumi.IntInput `pulumi:"colSpan"`
-	// The dashboard part's metadata.
+	ColSpan  pulumi.IntInput `pulumi:"colSpan"`
 	Metadata pulumi.MapInput `pulumi:"metadata"`
-	// The dashboard's part row span.
-	RowSpan pulumi.IntInput `pulumi:"rowSpan"`
-	// The dashboard's part x coordinate.
-	X pulumi.IntInput `pulumi:"x"`
-	// The dashboard's part y coordinate.
-	Y pulumi.IntInput `pulumi:"y"`
+	RowSpan  pulumi.IntInput `pulumi:"rowSpan"`
+	X        pulumi.IntInput `pulumi:"x"`
+	Y        pulumi.IntInput `pulumi:"y"`
 }
 
 func (DashboardPartsPositionArgs) ElementType() reflect.Type {
@@ -406,7 +361,6 @@ func (i DashboardPartsPositionArgs) ToDashboardPartsPositionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsPositionOutput)
 }
 
-// The dashboard's part position.
 type DashboardPartsPositionOutput struct{ *pulumi.OutputState }
 
 func (DashboardPartsPositionOutput) ElementType() reflect.Type {
@@ -421,36 +375,28 @@ func (o DashboardPartsPositionOutput) ToDashboardPartsPositionOutputWithContext(
 	return o
 }
 
-// The dashboard's part column span.
 func (o DashboardPartsPositionOutput) ColSpan() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsPosition) int { return v.ColSpan }).(pulumi.IntOutput)
 }
 
-// The dashboard part's metadata.
 func (o DashboardPartsPositionOutput) Metadata() pulumi.MapOutput {
 	return o.ApplyT(func(v DashboardPartsPosition) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
-// The dashboard's part row span.
 func (o DashboardPartsPositionOutput) RowSpan() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsPosition) int { return v.RowSpan }).(pulumi.IntOutput)
 }
 
-// The dashboard's part x coordinate.
 func (o DashboardPartsPositionOutput) X() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsPosition) int { return v.X }).(pulumi.IntOutput)
 }
 
-// The dashboard's part y coordinate.
 func (o DashboardPartsPositionOutput) Y() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsPosition) int { return v.Y }).(pulumi.IntOutput)
 }
 
-// A dashboard part.
 type DashboardPartsResponse struct {
-	// A dashboard part metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The dashboard's part position.
+	Metadata interface{}                    `pulumi:"metadata"`
 	Position DashboardPartsResponsePosition `pulumi:"position"`
 }
 
@@ -465,11 +411,8 @@ type DashboardPartsResponseInput interface {
 	ToDashboardPartsResponseOutputWithContext(context.Context) DashboardPartsResponseOutput
 }
 
-// A dashboard part.
 type DashboardPartsResponseArgs struct {
-	// A dashboard part metadata.
-	Metadata pulumi.Input `pulumi:"metadata"`
-	// The dashboard's part position.
+	Metadata pulumi.Input                        `pulumi:"metadata"`
 	Position DashboardPartsResponsePositionInput `pulumi:"position"`
 }
 
@@ -510,7 +453,6 @@ func (i DashboardPartsResponseMap) ToDashboardPartsResponseMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsResponseMapOutput)
 }
 
-// A dashboard part.
 type DashboardPartsResponseOutput struct{ *pulumi.OutputState }
 
 func (DashboardPartsResponseOutput) ElementType() reflect.Type {
@@ -525,12 +467,10 @@ func (o DashboardPartsResponseOutput) ToDashboardPartsResponseOutputWithContext(
 	return o
 }
 
-// A dashboard part metadata.
 func (o DashboardPartsResponseOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v DashboardPartsResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
-// The dashboard's part position.
 func (o DashboardPartsResponseOutput) Position() DashboardPartsResponsePositionOutput {
 	return o.ApplyT(func(v DashboardPartsResponse) DashboardPartsResponsePosition { return v.Position }).(DashboardPartsResponsePositionOutput)
 }
@@ -555,18 +495,12 @@ func (o DashboardPartsResponseMapOutput) MapIndex(k pulumi.StringInput) Dashboar
 	}).(DashboardPartsResponseOutput)
 }
 
-// The dashboard's part position.
 type DashboardPartsResponsePosition struct {
-	// The dashboard's part column span.
-	ColSpan int `pulumi:"colSpan"`
-	// The dashboard part's metadata.
+	ColSpan  int                    `pulumi:"colSpan"`
 	Metadata map[string]interface{} `pulumi:"metadata"`
-	// The dashboard's part row span.
-	RowSpan int `pulumi:"rowSpan"`
-	// The dashboard's part x coordinate.
-	X int `pulumi:"x"`
-	// The dashboard's part y coordinate.
-	Y int `pulumi:"y"`
+	RowSpan  int                    `pulumi:"rowSpan"`
+	X        int                    `pulumi:"x"`
+	Y        int                    `pulumi:"y"`
 }
 
 // DashboardPartsResponsePositionInput is an input type that accepts DashboardPartsResponsePositionArgs and DashboardPartsResponsePositionOutput values.
@@ -580,18 +514,12 @@ type DashboardPartsResponsePositionInput interface {
 	ToDashboardPartsResponsePositionOutputWithContext(context.Context) DashboardPartsResponsePositionOutput
 }
 
-// The dashboard's part position.
 type DashboardPartsResponsePositionArgs struct {
-	// The dashboard's part column span.
-	ColSpan pulumi.IntInput `pulumi:"colSpan"`
-	// The dashboard part's metadata.
+	ColSpan  pulumi.IntInput `pulumi:"colSpan"`
 	Metadata pulumi.MapInput `pulumi:"metadata"`
-	// The dashboard's part row span.
-	RowSpan pulumi.IntInput `pulumi:"rowSpan"`
-	// The dashboard's part x coordinate.
-	X pulumi.IntInput `pulumi:"x"`
-	// The dashboard's part y coordinate.
-	Y pulumi.IntInput `pulumi:"y"`
+	RowSpan  pulumi.IntInput `pulumi:"rowSpan"`
+	X        pulumi.IntInput `pulumi:"x"`
+	Y        pulumi.IntInput `pulumi:"y"`
 }
 
 func (DashboardPartsResponsePositionArgs) ElementType() reflect.Type {
@@ -606,7 +534,6 @@ func (i DashboardPartsResponsePositionArgs) ToDashboardPartsResponsePositionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsResponsePositionOutput)
 }
 
-// The dashboard's part position.
 type DashboardPartsResponsePositionOutput struct{ *pulumi.OutputState }
 
 func (DashboardPartsResponsePositionOutput) ElementType() reflect.Type {
@@ -621,27 +548,22 @@ func (o DashboardPartsResponsePositionOutput) ToDashboardPartsResponsePositionOu
 	return o
 }
 
-// The dashboard's part column span.
 func (o DashboardPartsResponsePositionOutput) ColSpan() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsResponsePosition) int { return v.ColSpan }).(pulumi.IntOutput)
 }
 
-// The dashboard part's metadata.
 func (o DashboardPartsResponsePositionOutput) Metadata() pulumi.MapOutput {
 	return o.ApplyT(func(v DashboardPartsResponsePosition) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
-// The dashboard's part row span.
 func (o DashboardPartsResponsePositionOutput) RowSpan() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsResponsePosition) int { return v.RowSpan }).(pulumi.IntOutput)
 }
 
-// The dashboard's part x coordinate.
 func (o DashboardPartsResponsePositionOutput) X() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsResponsePosition) int { return v.X }).(pulumi.IntOutput)
 }
 
-// The dashboard's part y coordinate.
 func (o DashboardPartsResponsePositionOutput) Y() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsResponsePosition) int { return v.Y }).(pulumi.IntOutput)
 }

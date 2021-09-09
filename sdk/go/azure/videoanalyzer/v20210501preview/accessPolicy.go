@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Policy that determines how a video can be accessed.
 type AccessPolicy struct {
 	pulumi.CustomResourceState
 
-	// Authentication method to be used when validating client API access.
 	Authentication JwtAuthenticationResponsePtrOutput `pulumi:"authentication"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Defines the access level granted by this policy.
-	Role pulumi.StringPtrOutput `pulumi:"role"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name           pulumi.StringOutput                `pulumi:"name"`
+	Role           pulumi.StringPtrOutput             `pulumi:"role"`
+	SystemData     SystemDataResponseOutput           `pulumi:"systemData"`
+	Type           pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewAccessPolicy registers a new resource with the given unique name, arguments, and options.
@@ -84,30 +78,20 @@ func (AccessPolicyState) ElementType() reflect.Type {
 }
 
 type accessPolicyArgs struct {
-	// The name of the access policy to create or update.
-	AccessPolicyName *string `pulumi:"accessPolicyName"`
-	// The Azure Video Analyzer account name.
-	AccountName string `pulumi:"accountName"`
-	// Authentication method to be used when validating client API access.
-	Authentication *JwtAuthentication `pulumi:"authentication"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Defines the access level granted by this policy.
-	Role *string `pulumi:"role"`
+	AccessPolicyName  *string            `pulumi:"accessPolicyName"`
+	AccountName       string             `pulumi:"accountName"`
+	Authentication    *JwtAuthentication `pulumi:"authentication"`
+	ResourceGroupName string             `pulumi:"resourceGroupName"`
+	Role              *string            `pulumi:"role"`
 }
 
 // The set of arguments for constructing a AccessPolicy resource.
 type AccessPolicyArgs struct {
-	// The name of the access policy to create or update.
-	AccessPolicyName pulumi.StringPtrInput
-	// The Azure Video Analyzer account name.
-	AccountName pulumi.StringInput
-	// Authentication method to be used when validating client API access.
-	Authentication JwtAuthenticationPtrInput
-	// The name of the resource group. The name is case insensitive.
+	AccessPolicyName  pulumi.StringPtrInput
+	AccountName       pulumi.StringInput
+	Authentication    JwtAuthenticationPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Defines the access level granted by this policy.
-	Role pulumi.StringPtrInput
+	Role              pulumi.StringPtrInput
 }
 
 func (AccessPolicyArgs) ElementType() reflect.Type {
@@ -133,9 +117,7 @@ func (i *AccessPolicy) ToAccessPolicyOutputWithContext(ctx context.Context) Acce
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyOutput)
 }
 
-type AccessPolicyOutput struct {
-	*pulumi.OutputState
-}
+type AccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (AccessPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccessPolicy)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Trigger details.
 func LookupFileEventTrigger(ctx *pulumi.Context, args *LookupFileEventTriggerArgs, opts ...pulumi.InvokeOption) (*LookupFileEventTriggerResult, error) {
 	var rv LookupFileEventTriggerResult
 	err := ctx.Invoke("azure-native:databoxedge/v20210201:getFileEventTrigger", args, &rv, opts...)
@@ -18,31 +17,19 @@ func LookupFileEventTrigger(ctx *pulumi.Context, args *LookupFileEventTriggerArg
 }
 
 type LookupFileEventTriggerArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The trigger name.
-	Name string `pulumi:"name"`
-	// The resource group name.
+	DeviceName        string `pulumi:"deviceName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Trigger details.
 type LookupFileEventTriggerResult struct {
-	// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
-	CustomContextTag *string `pulumi:"customContextTag"`
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// Trigger Kind.
-	// Expected value is 'FileEvent'.
-	Kind string `pulumi:"kind"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// Role sink info.
-	SinkInfo RoleSinkInfoResponse `pulumi:"sinkInfo"`
-	// File event source details.
-	SourceInfo FileSourceInfoResponse `pulumi:"sourceInfo"`
-	// Trigger in DataBoxEdge Resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
+	CustomContextTag *string                `pulumi:"customContextTag"`
+	Id               string                 `pulumi:"id"`
+	Kind             string                 `pulumi:"kind"`
+	Name             string                 `pulumi:"name"`
+	SinkInfo         RoleSinkInfoResponse   `pulumi:"sinkInfo"`
+	SourceInfo       FileSourceInfoResponse `pulumi:"sourceInfo"`
+	SystemData       SystemDataResponse     `pulumi:"systemData"`
+	Type             string                 `pulumi:"type"`
 }

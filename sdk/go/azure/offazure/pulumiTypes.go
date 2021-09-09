@@ -114,7 +114,7 @@ func (o MasterSitePropertiesOutput) ToMasterSitePropertiesPtrOutput() MasterSite
 }
 
 func (o MasterSitePropertiesOutput) ToMasterSitePropertiesPtrOutputWithContext(ctx context.Context) MasterSitePropertiesPtrOutput {
-	return o.ApplyT(func(v MasterSiteProperties) *MasterSiteProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MasterSiteProperties) *MasterSiteProperties {
 		return &v
 	}).(MasterSitePropertiesPtrOutput)
 }
@@ -149,7 +149,13 @@ func (o MasterSitePropertiesPtrOutput) ToMasterSitePropertiesPtrOutputWithContex
 }
 
 func (o MasterSitePropertiesPtrOutput) Elem() MasterSitePropertiesOutput {
-	return o.ApplyT(func(v *MasterSiteProperties) MasterSiteProperties { return *v }).(MasterSitePropertiesOutput)
+	return o.ApplyT(func(v *MasterSiteProperties) MasterSiteProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MasterSiteProperties
+		return ret
+	}).(MasterSitePropertiesOutput)
 }
 
 // Value indicating whether multiple sites per site type are allowed.
@@ -286,7 +292,7 @@ func (o MasterSitePropertiesResponseOutput) ToMasterSitePropertiesResponsePtrOut
 }
 
 func (o MasterSitePropertiesResponseOutput) ToMasterSitePropertiesResponsePtrOutputWithContext(ctx context.Context) MasterSitePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MasterSitePropertiesResponse) *MasterSitePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MasterSitePropertiesResponse) *MasterSitePropertiesResponse {
 		return &v
 	}).(MasterSitePropertiesResponsePtrOutput)
 }
@@ -321,7 +327,13 @@ func (o MasterSitePropertiesResponsePtrOutput) ToMasterSitePropertiesResponsePtr
 }
 
 func (o MasterSitePropertiesResponsePtrOutput) Elem() MasterSitePropertiesResponseOutput {
-	return o.ApplyT(func(v *MasterSitePropertiesResponse) MasterSitePropertiesResponse { return *v }).(MasterSitePropertiesResponseOutput)
+	return o.ApplyT(func(v *MasterSitePropertiesResponse) MasterSitePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MasterSitePropertiesResponse
+		return ret
+	}).(MasterSitePropertiesResponseOutput)
 }
 
 // Value indicating whether multiple sites per site type are allowed.
@@ -454,7 +466,7 @@ func (o SiteAgentPropertiesOutput) ToSiteAgentPropertiesPtrOutput() SiteAgentPro
 }
 
 func (o SiteAgentPropertiesOutput) ToSiteAgentPropertiesPtrOutputWithContext(ctx context.Context) SiteAgentPropertiesPtrOutput {
-	return o.ApplyT(func(v SiteAgentProperties) *SiteAgentProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteAgentProperties) *SiteAgentProperties {
 		return &v
 	}).(SiteAgentPropertiesPtrOutput)
 }
@@ -484,7 +496,13 @@ func (o SiteAgentPropertiesPtrOutput) ToSiteAgentPropertiesPtrOutputWithContext(
 }
 
 func (o SiteAgentPropertiesPtrOutput) Elem() SiteAgentPropertiesOutput {
-	return o.ApplyT(func(v *SiteAgentProperties) SiteAgentProperties { return *v }).(SiteAgentPropertiesOutput)
+	return o.ApplyT(func(v *SiteAgentProperties) SiteAgentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SiteAgentProperties
+		return ret
+	}).(SiteAgentPropertiesOutput)
 }
 
 // Key vault ARM Id.
@@ -619,7 +637,7 @@ func (o SiteAgentPropertiesResponseOutput) ToSiteAgentPropertiesResponsePtrOutpu
 }
 
 func (o SiteAgentPropertiesResponseOutput) ToSiteAgentPropertiesResponsePtrOutputWithContext(ctx context.Context) SiteAgentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SiteAgentPropertiesResponse) *SiteAgentPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteAgentPropertiesResponse) *SiteAgentPropertiesResponse {
 		return &v
 	}).(SiteAgentPropertiesResponsePtrOutput)
 }
@@ -664,7 +682,13 @@ func (o SiteAgentPropertiesResponsePtrOutput) ToSiteAgentPropertiesResponsePtrOu
 }
 
 func (o SiteAgentPropertiesResponsePtrOutput) Elem() SiteAgentPropertiesResponseOutput {
-	return o.ApplyT(func(v *SiteAgentPropertiesResponse) SiteAgentPropertiesResponse { return *v }).(SiteAgentPropertiesResponseOutput)
+	return o.ApplyT(func(v *SiteAgentPropertiesResponse) SiteAgentPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SiteAgentPropertiesResponse
+		return ret
+	}).(SiteAgentPropertiesResponseOutput)
 }
 
 // ID of the agent.
@@ -825,7 +849,7 @@ func (o SitePropertiesOutput) ToSitePropertiesPtrOutput() SitePropertiesPtrOutpu
 }
 
 func (o SitePropertiesOutput) ToSitePropertiesPtrOutputWithContext(ctx context.Context) SitePropertiesPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *SiteProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteProperties) *SiteProperties {
 		return &v
 	}).(SitePropertiesPtrOutput)
 }
@@ -865,7 +889,13 @@ func (o SitePropertiesPtrOutput) ToSitePropertiesPtrOutputWithContext(ctx contex
 }
 
 func (o SitePropertiesPtrOutput) Elem() SitePropertiesOutput {
-	return o.ApplyT(func(v *SiteProperties) SiteProperties { return *v }).(SitePropertiesOutput)
+	return o.ApplyT(func(v *SiteProperties) SiteProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SiteProperties
+		return ret
+	}).(SitePropertiesOutput)
 }
 
 // On-premises agent details.
@@ -1020,7 +1050,7 @@ func (o SitePropertiesResponseOutput) ToSitePropertiesResponsePtrOutput() SitePr
 }
 
 func (o SitePropertiesResponseOutput) ToSitePropertiesResponsePtrOutputWithContext(ctx context.Context) SitePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SitePropertiesResponse) *SitePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SitePropertiesResponse) *SitePropertiesResponse {
 		return &v
 	}).(SitePropertiesResponsePtrOutput)
 }
@@ -1065,7 +1095,13 @@ func (o SitePropertiesResponsePtrOutput) ToSitePropertiesResponsePtrOutputWithCo
 }
 
 func (o SitePropertiesResponsePtrOutput) Elem() SitePropertiesResponseOutput {
-	return o.ApplyT(func(v *SitePropertiesResponse) SitePropertiesResponse { return *v }).(SitePropertiesResponseOutput)
+	return o.ApplyT(func(v *SitePropertiesResponse) SitePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SitePropertiesResponse
+		return ret
+	}).(SitePropertiesResponseOutput)
 }
 
 // On-premises agent details.
@@ -1234,7 +1270,7 @@ func (o SiteSpnPropertiesOutput) ToSiteSpnPropertiesPtrOutput() SiteSpnPropertie
 }
 
 func (o SiteSpnPropertiesOutput) ToSiteSpnPropertiesPtrOutputWithContext(ctx context.Context) SiteSpnPropertiesPtrOutput {
-	return o.ApplyT(func(v SiteSpnProperties) *SiteSpnProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteSpnProperties) *SiteSpnProperties {
 		return &v
 	}).(SiteSpnPropertiesPtrOutput)
 }
@@ -1284,7 +1320,13 @@ func (o SiteSpnPropertiesPtrOutput) ToSiteSpnPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o SiteSpnPropertiesPtrOutput) Elem() SiteSpnPropertiesOutput {
-	return o.ApplyT(func(v *SiteSpnProperties) SiteSpnProperties { return *v }).(SiteSpnPropertiesOutput)
+	return o.ApplyT(func(v *SiteSpnProperties) SiteSpnProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SiteSpnProperties
+		return ret
+	}).(SiteSpnPropertiesOutput)
 }
 
 // AAD Authority URL which was used to request the token for the service principal.
@@ -1463,7 +1505,7 @@ func (o SiteSpnPropertiesResponseOutput) ToSiteSpnPropertiesResponsePtrOutput() 
 }
 
 func (o SiteSpnPropertiesResponseOutput) ToSiteSpnPropertiesResponsePtrOutputWithContext(ctx context.Context) SiteSpnPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SiteSpnPropertiesResponse) *SiteSpnPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteSpnPropertiesResponse) *SiteSpnPropertiesResponse {
 		return &v
 	}).(SiteSpnPropertiesResponsePtrOutput)
 }
@@ -1513,7 +1555,13 @@ func (o SiteSpnPropertiesResponsePtrOutput) ToSiteSpnPropertiesResponsePtrOutput
 }
 
 func (o SiteSpnPropertiesResponsePtrOutput) Elem() SiteSpnPropertiesResponseOutput {
-	return o.ApplyT(func(v *SiteSpnPropertiesResponse) SiteSpnPropertiesResponse { return *v }).(SiteSpnPropertiesResponseOutput)
+	return o.ApplyT(func(v *SiteSpnPropertiesResponse) SiteSpnPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SiteSpnPropertiesResponse
+		return ret
+	}).(SiteSpnPropertiesResponseOutput)
 }
 
 // AAD Authority URL which was used to request the token for the service principal.

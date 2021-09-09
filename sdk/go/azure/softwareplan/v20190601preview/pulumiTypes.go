@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The SKU to be applied for this resource
 type Sku struct {
-	// Name of the SKU to be applied
 	Name *string `pulumi:"name"`
 }
 
@@ -27,9 +25,7 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU to be applied for this resource
 type SkuArgs struct {
-	// Name of the SKU to be applied
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -86,7 +82,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU to be applied for this resource
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// Name of the SKU to be applied
 func (o SkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -131,10 +125,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// Name of the SKU to be applied
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -144,9 +143,7 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU to be applied for this resource
 type SkuResponse struct {
-	// Name of the SKU to be applied
 	Name *string `pulumi:"name"`
 }
 
@@ -161,9 +158,7 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU to be applied for this resource
 type SkuResponseArgs struct {
-	// Name of the SKU to be applied
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -220,7 +215,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU to be applied for this resource
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -240,12 +234,11 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// Name of the SKU to be applied
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -265,10 +258,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// Name of the SKU to be applied
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

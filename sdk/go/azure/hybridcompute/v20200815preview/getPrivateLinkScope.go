@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Arc PrivateLinkScope definition.
 func LookupPrivateLinkScope(ctx *pulumi.Context, args *LookupPrivateLinkScopeArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkScopeResult, error) {
 	var rv LookupPrivateLinkScopeResult
 	err := ctx.Invoke("azure-native:hybridcompute/v20200815preview:getPrivateLinkScope", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupPrivateLinkScope(ctx *pulumi.Context, args *LookupPrivateLinkScopeArg
 }
 
 type LookupPrivateLinkScopeArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Azure Arc PrivateLinkScope resource.
-	ScopeName string `pulumi:"scopeName"`
+	ScopeName         string `pulumi:"scopeName"`
 }
 
 // An Azure Arc PrivateLinkScope definition.
 type LookupPrivateLinkScopeResult struct {
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// List of private endpoint connections.
+	Id                         string                              `pulumi:"id"`
+	Location                   string                              `pulumi:"location"`
+	Name                       string                              `pulumi:"name"`
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	ProvisioningState          string                              `pulumi:"provisioningState"`
+	PublicNetworkAccess        *string                             `pulumi:"publicNetworkAccess"`
+	Tags                       map[string]string                   `pulumi:"tags"`
+	Type                       string                              `pulumi:"type"`
 }

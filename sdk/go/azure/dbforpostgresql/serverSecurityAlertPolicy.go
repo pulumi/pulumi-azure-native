@@ -49,6 +49,9 @@ func NewServerSecurityAlertPolicy(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
+	if args.State == nil {
+		return nil, errors.New("invalid value for required argument 'State'")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql:ServerSecurityAlertPolicy"),
@@ -114,7 +117,7 @@ type serverSecurityAlertPolicyArgs struct {
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 	// Specifies the state of the policy, whether it is enabled or disabled.
-	State string `pulumi:"state"`
+	State ServerSecurityAlertPolicyStateEnum `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
@@ -138,7 +141,7 @@ type ServerSecurityAlertPolicyArgs struct {
 	// The name of the server.
 	ServerName pulumi.StringInput
 	// Specifies the state of the policy, whether it is enabled or disabled.
-	State ServerSecurityAlertPolicyStateEnum
+	State ServerSecurityAlertPolicyStateEnumInput
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
@@ -168,9 +171,7 @@ func (i *ServerSecurityAlertPolicy) ToServerSecurityAlertPolicyOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ServerSecurityAlertPolicyOutput)
 }
 
-type ServerSecurityAlertPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ServerSecurityAlertPolicyOutput struct{ *pulumi.OutputState }
 
 func (ServerSecurityAlertPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerSecurityAlertPolicy)(nil))

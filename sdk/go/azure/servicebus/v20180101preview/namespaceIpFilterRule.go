@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in a List or Get IpFilterRules operation
 type NamespaceIpFilterRule struct {
 	pulumi.CustomResourceState
 
-	// The IP Filter Action
-	Action pulumi.StringPtrOutput `pulumi:"action"`
-	// IP Filter name
+	Action     pulumi.StringPtrOutput `pulumi:"action"`
 	FilterName pulumi.StringPtrOutput `pulumi:"filterName"`
-	// IP Mask
-	IpMask pulumi.StringPtrOutput `pulumi:"ipMask"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	IpMask     pulumi.StringPtrOutput `pulumi:"ipMask"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
+	Type       pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewNamespaceIpFilterRule registers a new resource with the given unique name, arguments, and options.
@@ -84,33 +78,21 @@ func (NamespaceIpFilterRuleState) ElementType() reflect.Type {
 }
 
 type namespaceIpFilterRuleArgs struct {
-	// The IP Filter Action
-	Action *string `pulumi:"action"`
-	// IP Filter name
-	FilterName *string `pulumi:"filterName"`
-	// The IP Filter Rule name.
-	IpFilterRuleName *string `pulumi:"ipFilterRuleName"`
-	// IP Mask
-	IpMask *string `pulumi:"ipMask"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Action            *string `pulumi:"action"`
+	FilterName        *string `pulumi:"filterName"`
+	IpFilterRuleName  *string `pulumi:"ipFilterRuleName"`
+	IpMask            *string `pulumi:"ipMask"`
+	NamespaceName     string  `pulumi:"namespaceName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a NamespaceIpFilterRule resource.
 type NamespaceIpFilterRuleArgs struct {
-	// The IP Filter Action
-	Action pulumi.StringPtrInput
-	// IP Filter name
-	FilterName pulumi.StringPtrInput
-	// The IP Filter Rule name.
-	IpFilterRuleName pulumi.StringPtrInput
-	// IP Mask
-	IpMask pulumi.StringPtrInput
-	// The namespace name
-	NamespaceName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
+	Action            pulumi.StringPtrInput
+	FilterName        pulumi.StringPtrInput
+	IpFilterRuleName  pulumi.StringPtrInput
+	IpMask            pulumi.StringPtrInput
+	NamespaceName     pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -137,9 +119,7 @@ func (i *NamespaceIpFilterRule) ToNamespaceIpFilterRuleOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceIpFilterRuleOutput)
 }
 
-type NamespaceIpFilterRuleOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceIpFilterRuleOutput struct{ *pulumi.OutputState }
 
 func (NamespaceIpFilterRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NamespaceIpFilterRule)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration account certificate.
 func LookupIntegrationAccountCertificate(ctx *pulumi.Context, args *LookupIntegrationAccountCertificateArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountCertificateResult, error) {
 	var rv LookupIntegrationAccountCertificateResult
 	err := ctx.Invoke("azure-native:logic/v20180701preview:getIntegrationAccountCertificate", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupIntegrationAccountCertificate(ctx *pulumi.Context, args *LookupIntegr
 }
 
 type LookupIntegrationAccountCertificateArgs struct {
-	// The integration account certificate name.
-	CertificateName string `pulumi:"certificateName"`
-	// The integration account name.
+	CertificateName        string `pulumi:"certificateName"`
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 // The integration account certificate.
 type LookupIntegrationAccountCertificateResult struct {
-	// The changed time.
-	ChangedTime string `pulumi:"changedTime"`
-	// The created time.
-	CreatedTime string `pulumi:"createdTime"`
-	// The resource id.
-	Id string `pulumi:"id"`
-	// The key details in the key vault.
-	Key *KeyVaultKeyReferenceResponse `pulumi:"key"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The public certificate.
-	PublicCertificate *string `pulumi:"publicCertificate"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
+	ChangedTime       string                        `pulumi:"changedTime"`
+	CreatedTime       string                        `pulumi:"createdTime"`
+	Id                string                        `pulumi:"id"`
+	Key               *KeyVaultKeyReferenceResponse `pulumi:"key"`
+	Location          *string                       `pulumi:"location"`
+	Metadata          interface{}                   `pulumi:"metadata"`
+	Name              string                        `pulumi:"name"`
+	PublicCertificate *string                       `pulumi:"publicCertificate"`
+	Tags              map[string]string             `pulumi:"tags"`
+	Type              string                        `pulumi:"type"`
 }

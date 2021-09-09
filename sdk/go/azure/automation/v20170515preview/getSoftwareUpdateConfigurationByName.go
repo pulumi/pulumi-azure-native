@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Software update configuration properties.
 func LookupSoftwareUpdateConfigurationByName(ctx *pulumi.Context, args *LookupSoftwareUpdateConfigurationByNameArgs, opts ...pulumi.InvokeOption) (*LookupSoftwareUpdateConfigurationByNameResult, error) {
 	var rv LookupSoftwareUpdateConfigurationByNameResult
 	err := ctx.Invoke("azure-native:automation/v20170515preview:getSoftwareUpdateConfigurationByName", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupSoftwareUpdateConfigurationByName(ctx *pulumi.Context, args *LookupSo
 }
 
 type LookupSoftwareUpdateConfigurationByNameArgs struct {
-	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the software update configuration to be created.
+	AutomationAccountName           string `pulumi:"automationAccountName"`
+	ResourceGroupName               string `pulumi:"resourceGroupName"`
 	SoftwareUpdateConfigurationName string `pulumi:"softwareUpdateConfigurationName"`
 }
 
 // Software update configuration properties.
 type LookupSoftwareUpdateConfigurationByNameResult struct {
-	// CreatedBy property, which only appears in the response.
-	CreatedBy string `pulumi:"createdBy"`
-	// Creation time of the resource, which only appears in the response.
-	CreationTime string `pulumi:"creationTime"`
-	// Details of provisioning error
-	Error *ErrorResponseResponse `pulumi:"error"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// LastModifiedBy property, which only appears in the response.
-	LastModifiedBy string `pulumi:"lastModifiedBy"`
-	// Last time resource was modified, which only appears in the response.
-	LastModifiedTime string `pulumi:"lastModifiedTime"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Provisioning state for the software update configuration, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Schedule information for the Software update configuration
-	ScheduleInfo SchedulePropertiesResponse `pulumi:"scheduleInfo"`
-	// Tasks information for the Software update configuration.
-	Tasks *SoftwareUpdateConfigurationTasksResponse `pulumi:"tasks"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// update specific properties for the Software update configuration
-	UpdateConfiguration UpdateConfigurationResponse `pulumi:"updateConfiguration"`
+	CreatedBy           string                                    `pulumi:"createdBy"`
+	CreationTime        string                                    `pulumi:"creationTime"`
+	Error               *ErrorResponseResponse                    `pulumi:"error"`
+	Id                  string                                    `pulumi:"id"`
+	LastModifiedBy      string                                    `pulumi:"lastModifiedBy"`
+	LastModifiedTime    string                                    `pulumi:"lastModifiedTime"`
+	Name                string                                    `pulumi:"name"`
+	ProvisioningState   string                                    `pulumi:"provisioningState"`
+	ScheduleInfo        SchedulePropertiesResponse                `pulumi:"scheduleInfo"`
+	Tasks               *SoftwareUpdateConfigurationTasksResponse `pulumi:"tasks"`
+	Type                string                                    `pulumi:"type"`
+	UpdateConfiguration UpdateConfigurationResponse               `pulumi:"updateConfiguration"`
 }

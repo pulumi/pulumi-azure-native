@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A common class for general resource information
 func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *LookupVirtualNetworkGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkGatewayResult, error) {
 	var rv LookupVirtualNetworkGatewayResult
 	err := ctx.Invoke("azure-native:network/v20160601:getVirtualNetworkGateway", args, &rv, opts...)
@@ -18,46 +17,27 @@ func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *LookupVirtualNetwork
 }
 
 type LookupVirtualNetworkGatewayArgs struct {
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the virtual network gateway.
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
 	VirtualNetworkGatewayName string `pulumi:"virtualNetworkGatewayName"`
 }
 
 // A common class for general resource information
 type LookupVirtualNetworkGatewayResult struct {
-	// ActiveActive flag
-	ActiveActive *bool `pulumi:"activeActive"`
-	// Virtual network gateway's BGP speaker settings
-	BgpSettings *BgpSettingsResponse `pulumi:"bgpSettings"`
-	// EnableBgp Flag
-	EnableBgp *bool `pulumi:"enableBgp"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets the reference of the LocalNetworkGateway resource which represents Local network site having default routes. Assign Null value in case of removing existing default site setting.
-	GatewayDefaultSite *SubResourceResponse `pulumi:"gatewayDefaultSite"`
-	// The type of this virtual network gateway.
-	GatewayType *string `pulumi:"gatewayType"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// IpConfigurations for Virtual network gateway.
-	IpConfigurations []VirtualNetworkGatewayIPConfigurationResponse `pulumi:"ipConfigurations"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Gets provisioning state of the VirtualNetworkGateway resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets resource guid property of the VirtualNetworkGateway resource
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Gets or sets the reference of the VirtualNetworkGatewaySku resource which represents the sku selected for Virtual network gateway.
-	Sku *VirtualNetworkGatewaySkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// Gets or sets the reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-	VpnClientConfiguration *VpnClientConfigurationResponse `pulumi:"vpnClientConfiguration"`
-	// The type of this virtual network gateway.
-	VpnType *string `pulumi:"vpnType"`
+	ActiveActive           *bool                                          `pulumi:"activeActive"`
+	BgpSettings            *BgpSettingsResponse                           `pulumi:"bgpSettings"`
+	EnableBgp              *bool                                          `pulumi:"enableBgp"`
+	Etag                   *string                                        `pulumi:"etag"`
+	GatewayDefaultSite     *SubResourceResponse                           `pulumi:"gatewayDefaultSite"`
+	GatewayType            *string                                        `pulumi:"gatewayType"`
+	Id                     *string                                        `pulumi:"id"`
+	IpConfigurations       []VirtualNetworkGatewayIPConfigurationResponse `pulumi:"ipConfigurations"`
+	Location               *string                                        `pulumi:"location"`
+	Name                   string                                         `pulumi:"name"`
+	ProvisioningState      *string                                        `pulumi:"provisioningState"`
+	ResourceGuid           *string                                        `pulumi:"resourceGuid"`
+	Sku                    *VirtualNetworkGatewaySkuResponse              `pulumi:"sku"`
+	Tags                   map[string]string                              `pulumi:"tags"`
+	Type                   string                                         `pulumi:"type"`
+	VpnClientConfiguration *VpnClientConfigurationResponse                `pulumi:"vpnClientConfiguration"`
+	VpnType                *string                                        `pulumi:"vpnType"`
 }

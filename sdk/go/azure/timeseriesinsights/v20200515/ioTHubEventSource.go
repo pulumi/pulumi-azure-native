@@ -11,39 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An event source that receives its data from an Azure IoTHub.
 type IoTHubEventSource struct {
 	pulumi.CustomResourceState
 
-	// The name of the iot hub's consumer group that holds the partitions from which events will be read.
-	ConsumerGroupName pulumi.StringOutput `pulumi:"consumerGroupName"`
-	// The time the resource was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// The resource id of the event source in Azure Resource Manager.
-	EventSourceResourceId pulumi.StringOutput `pulumi:"eventSourceResourceId"`
-	// The name of the iot hub.
-	IotHubName pulumi.StringOutput `pulumi:"iotHubName"`
-	// The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
-	KeyName pulumi.StringOutput `pulumi:"keyName"`
-	// The kind of the event source.
-	// Expected value is 'Microsoft.IoTHub'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
-	LocalTimestamp LocalTimestampResponsePtrOutput `pulumi:"localTimestamp"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
-	Time pulumi.StringPtrOutput `pulumi:"time"`
-	// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
-	TimestampPropertyName pulumi.StringPtrOutput `pulumi:"timestampPropertyName"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ConsumerGroupName     pulumi.StringOutput             `pulumi:"consumerGroupName"`
+	CreationTime          pulumi.StringOutput             `pulumi:"creationTime"`
+	EventSourceResourceId pulumi.StringOutput             `pulumi:"eventSourceResourceId"`
+	IotHubName            pulumi.StringOutput             `pulumi:"iotHubName"`
+	KeyName               pulumi.StringOutput             `pulumi:"keyName"`
+	Kind                  pulumi.StringOutput             `pulumi:"kind"`
+	LocalTimestamp        LocalTimestampResponsePtrOutput `pulumi:"localTimestamp"`
+	Location              pulumi.StringOutput             `pulumi:"location"`
+	Name                  pulumi.StringOutput             `pulumi:"name"`
+	ProvisioningState     pulumi.StringOutput             `pulumi:"provisioningState"`
+	Tags                  pulumi.StringMapOutput          `pulumi:"tags"`
+	Time                  pulumi.StringPtrOutput          `pulumi:"time"`
+	TimestampPropertyName pulumi.StringPtrOutput          `pulumi:"timestampPropertyName"`
+	Type                  pulumi.StringOutput             `pulumi:"type"`
 }
 
 // NewIoTHubEventSource registers a new resource with the given unique name, arguments, and options.
@@ -146,72 +130,40 @@ func (IoTHubEventSourceState) ElementType() reflect.Type {
 }
 
 type ioTHubEventSourceArgs struct {
-	// The name of the iot hub's consumer group that holds the partitions from which events will be read.
-	ConsumerGroupName string `pulumi:"consumerGroupName"`
-	// The name of the Time Series Insights environment associated with the specified resource group.
-	EnvironmentName string `pulumi:"environmentName"`
-	// Name of the event source.
-	EventSourceName *string `pulumi:"eventSourceName"`
-	// The resource id of the event source in Azure Resource Manager.
-	EventSourceResourceId string `pulumi:"eventSourceResourceId"`
-	// The name of the iot hub.
-	IotHubName string `pulumi:"iotHubName"`
-	// The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
-	KeyName string `pulumi:"keyName"`
-	// The kind of the event source.
-	// Expected value is 'Microsoft.IoTHub'.
-	Kind string `pulumi:"kind"`
-	// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
-	LocalTimestamp *LocalTimestamp `pulumi:"localTimestamp"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The value of the Shared Access Policy key that grants the Time Series Insights service read access to the iot hub. This property is not shown in event source responses.
-	SharedAccessKey string `pulumi:"sharedAccessKey"`
-	// Key-value pairs of additional properties for the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
-	Time *string `pulumi:"time"`
-	// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
-	TimestampPropertyName *string `pulumi:"timestampPropertyName"`
-	// The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
-	Type *string `pulumi:"type"`
+	ConsumerGroupName     string            `pulumi:"consumerGroupName"`
+	EnvironmentName       string            `pulumi:"environmentName"`
+	EventSourceName       *string           `pulumi:"eventSourceName"`
+	EventSourceResourceId string            `pulumi:"eventSourceResourceId"`
+	IotHubName            string            `pulumi:"iotHubName"`
+	KeyName               string            `pulumi:"keyName"`
+	Kind                  string            `pulumi:"kind"`
+	LocalTimestamp        *LocalTimestamp   `pulumi:"localTimestamp"`
+	Location              *string           `pulumi:"location"`
+	ResourceGroupName     string            `pulumi:"resourceGroupName"`
+	SharedAccessKey       string            `pulumi:"sharedAccessKey"`
+	Tags                  map[string]string `pulumi:"tags"`
+	Time                  *string           `pulumi:"time"`
+	TimestampPropertyName *string           `pulumi:"timestampPropertyName"`
+	Type                  *string           `pulumi:"type"`
 }
 
 // The set of arguments for constructing a IoTHubEventSource resource.
 type IoTHubEventSourceArgs struct {
-	// The name of the iot hub's consumer group that holds the partitions from which events will be read.
-	ConsumerGroupName pulumi.StringInput
-	// The name of the Time Series Insights environment associated with the specified resource group.
-	EnvironmentName pulumi.StringInput
-	// Name of the event source.
-	EventSourceName pulumi.StringPtrInput
-	// The resource id of the event source in Azure Resource Manager.
+	ConsumerGroupName     pulumi.StringInput
+	EnvironmentName       pulumi.StringInput
+	EventSourceName       pulumi.StringPtrInput
 	EventSourceResourceId pulumi.StringInput
-	// The name of the iot hub.
-	IotHubName pulumi.StringInput
-	// The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
-	KeyName pulumi.StringInput
-	// The kind of the event source.
-	// Expected value is 'Microsoft.IoTHub'.
-	Kind pulumi.StringInput
-	// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
-	LocalTimestamp LocalTimestampPtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
-	// The value of the Shared Access Policy key that grants the Time Series Insights service read access to the iot hub. This property is not shown in event source responses.
-	SharedAccessKey pulumi.StringInput
-	// Key-value pairs of additional properties for the resource.
-	Tags pulumi.StringMapInput
-	// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
-	Time pulumi.StringPtrInput
-	// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+	IotHubName            pulumi.StringInput
+	KeyName               pulumi.StringInput
+	Kind                  pulumi.StringInput
+	LocalTimestamp        LocalTimestampPtrInput
+	Location              pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
+	SharedAccessKey       pulumi.StringInput
+	Tags                  pulumi.StringMapInput
+	Time                  pulumi.StringPtrInput
 	TimestampPropertyName pulumi.StringPtrInput
-	// The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
-	Type pulumi.StringPtrInput
+	Type                  pulumi.StringPtrInput
 }
 
 func (IoTHubEventSourceArgs) ElementType() reflect.Type {
@@ -237,9 +189,7 @@ func (i *IoTHubEventSource) ToIoTHubEventSourceOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubEventSourceOutput)
 }
 
-type IoTHubEventSourceOutput struct {
-	*pulumi.OutputState
-}
+type IoTHubEventSourceOutput struct{ *pulumi.OutputState }
 
 func (IoTHubEventSourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IoTHubEventSource)(nil))

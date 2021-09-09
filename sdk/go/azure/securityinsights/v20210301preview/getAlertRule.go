@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Alert rule.
-//
 // Deprecated: Please use one of the variants: FusionAlertRule, MLBehaviorAnalyticsAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule, ThreatIntelligenceAlertRule.
 func LookupAlertRule(ctx *pulumi.Context, args *LookupAlertRuleArgs, opts ...pulumi.InvokeOption) (*LookupAlertRuleResult, error) {
 	var rv LookupAlertRuleResult
@@ -20,28 +18,18 @@ func LookupAlertRule(ctx *pulumi.Context, args *LookupAlertRuleArgs, opts ...pul
 }
 
 type LookupAlertRuleArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Alert rule ID
-	RuleId string `pulumi:"ruleId"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	RuleId                              string `pulumi:"ruleId"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Alert rule.
 type LookupAlertRuleResult struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The kind of the alert rule
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	Etag       *string            `pulumi:"etag"`
+	Id         string             `pulumi:"id"`
+	Kind       string             `pulumi:"kind"`
+	Name       string             `pulumi:"name"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

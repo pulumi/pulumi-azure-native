@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Payload of the transaction node which is the request/response of the resource provider.
 type TransactionNode struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets the transaction node dns endpoint.
-	Dns pulumi.StringOutput `pulumi:"dns"`
-	// Gets or sets the firewall rules.
-	FirewallRules FirewallRuleResponseArrayOutput `pulumi:"firewallRules"`
-	// Gets or sets the transaction node location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Sets the transaction node dns endpoint basic auth password.
-	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// Gets or sets the blockchain member provision state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Gets or sets the transaction node public key.
-	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
-	// The type of the service - e.g. "Microsoft.Blockchain"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Gets or sets the transaction node dns endpoint basic auth user name.
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	Dns               pulumi.StringOutput             `pulumi:"dns"`
+	FirewallRules     FirewallRuleResponseArrayOutput `pulumi:"firewallRules"`
+	Location          pulumi.StringPtrOutput          `pulumi:"location"`
+	Name              pulumi.StringOutput             `pulumi:"name"`
+	Password          pulumi.StringPtrOutput          `pulumi:"password"`
+	ProvisioningState pulumi.StringOutput             `pulumi:"provisioningState"`
+	PublicKey         pulumi.StringOutput             `pulumi:"publicKey"`
+	Type              pulumi.StringOutput             `pulumi:"type"`
+	UserName          pulumi.StringOutput             `pulumi:"userName"`
 }
 
 // NewTransactionNode registers a new resource with the given unique name, arguments, and options.
@@ -92,34 +82,22 @@ func (TransactionNodeState) ElementType() reflect.Type {
 }
 
 type transactionNodeArgs struct {
-	// Blockchain member name.
-	BlockchainMemberName string `pulumi:"blockchainMemberName"`
-	// Gets or sets the firewall rules.
-	FirewallRules []FirewallRule `pulumi:"firewallRules"`
-	// Gets or sets the transaction node location.
-	Location *string `pulumi:"location"`
-	// Sets the transaction node dns endpoint basic auth password.
-	Password *string `pulumi:"password"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Transaction node name.
-	TransactionNodeName *string `pulumi:"transactionNodeName"`
+	BlockchainMemberName string         `pulumi:"blockchainMemberName"`
+	FirewallRules        []FirewallRule `pulumi:"firewallRules"`
+	Location             *string        `pulumi:"location"`
+	Password             *string        `pulumi:"password"`
+	ResourceGroupName    string         `pulumi:"resourceGroupName"`
+	TransactionNodeName  *string        `pulumi:"transactionNodeName"`
 }
 
 // The set of arguments for constructing a TransactionNode resource.
 type TransactionNodeArgs struct {
-	// Blockchain member name.
 	BlockchainMemberName pulumi.StringInput
-	// Gets or sets the firewall rules.
-	FirewallRules FirewallRuleArrayInput
-	// Gets or sets the transaction node location.
-	Location pulumi.StringPtrInput
-	// Sets the transaction node dns endpoint basic auth password.
-	Password pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// Transaction node name.
-	TransactionNodeName pulumi.StringPtrInput
+	FirewallRules        FirewallRuleArrayInput
+	Location             pulumi.StringPtrInput
+	Password             pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
+	TransactionNodeName  pulumi.StringPtrInput
 }
 
 func (TransactionNodeArgs) ElementType() reflect.Type {
@@ -145,9 +123,7 @@ func (i *TransactionNode) ToTransactionNodeOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(TransactionNodeOutput)
 }
 
-type TransactionNodeOutput struct {
-	*pulumi.OutputState
-}
+type TransactionNodeOutput struct{ *pulumi.OutputState }
 
 func (TransactionNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TransactionNode)(nil))

@@ -253,9 +253,7 @@ func (i *AccessReviewScheduleDefinitionById) ToAccessReviewScheduleDefinitionByI
 	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewScheduleDefinitionByIdOutput)
 }
 
-type AccessReviewScheduleDefinitionByIdOutput struct {
-	*pulumi.OutputState
-}
+type AccessReviewScheduleDefinitionByIdOutput struct{ *pulumi.OutputState }
 
 func (AccessReviewScheduleDefinitionByIdOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccessReviewScheduleDefinitionById)(nil))

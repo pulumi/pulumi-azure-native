@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This type describes a volume resource.
 type Volume struct {
 	pulumi.CustomResourceState
 
-	// This type describes a volume provided by an Azure Files file share.
 	AzureFileParameters VolumeProviderParametersAzureFileResponsePtrOutput `pulumi:"azureFileParameters"`
-	// User readable description of the volume.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provider of the volume.
-	Provider pulumi.StringOutput `pulumi:"provider"`
-	// State of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Status of the volume.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Gives additional information about the current status of the volume.
-	StatusDetails pulumi.StringOutput `pulumi:"statusDetails"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Description         pulumi.StringPtrOutput                             `pulumi:"description"`
+	Location            pulumi.StringOutput                                `pulumi:"location"`
+	Name                pulumi.StringOutput                                `pulumi:"name"`
+	Provider            pulumi.StringOutput                                `pulumi:"provider"`
+	ProvisioningState   pulumi.StringOutput                                `pulumi:"provisioningState"`
+	Status              pulumi.StringOutput                                `pulumi:"status"`
+	StatusDetails       pulumi.StringOutput                                `pulumi:"statusDetails"`
+	Tags                pulumi.StringMapOutput                             `pulumi:"tags"`
+	Type                pulumi.StringOutput                                `pulumi:"type"`
 }
 
 // NewVolume registers a new resource with the given unique name, arguments, and options.
@@ -100,38 +89,24 @@ func (VolumeState) ElementType() reflect.Type {
 }
 
 type volumeArgs struct {
-	// This type describes a volume provided by an Azure Files file share.
 	AzureFileParameters *VolumeProviderParametersAzureFile `pulumi:"azureFileParameters"`
-	// User readable description of the volume.
-	Description *string `pulumi:"description"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Provider of the volume.
-	Provider string `pulumi:"provider"`
-	// Azure resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The identity of the volume.
-	VolumeResourceName *string `pulumi:"volumeResourceName"`
+	Description         *string                            `pulumi:"description"`
+	Location            *string                            `pulumi:"location"`
+	Provider            string                             `pulumi:"provider"`
+	ResourceGroupName   string                             `pulumi:"resourceGroupName"`
+	Tags                map[string]string                  `pulumi:"tags"`
+	VolumeResourceName  *string                            `pulumi:"volumeResourceName"`
 }
 
 // The set of arguments for constructing a Volume resource.
 type VolumeArgs struct {
-	// This type describes a volume provided by an Azure Files file share.
 	AzureFileParameters VolumeProviderParametersAzureFilePtrInput
-	// User readable description of the volume.
-	Description pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Provider of the volume.
-	Provider pulumi.StringInput
-	// Azure resource group name
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The identity of the volume.
-	VolumeResourceName pulumi.StringPtrInput
+	Description         pulumi.StringPtrInput
+	Location            pulumi.StringPtrInput
+	Provider            pulumi.StringInput
+	ResourceGroupName   pulumi.StringInput
+	Tags                pulumi.StringMapInput
+	VolumeResourceName  pulumi.StringPtrInput
 }
 
 func (VolumeArgs) ElementType() reflect.Type {
@@ -157,9 +132,7 @@ func (i *Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOutput)
 }
 
-type VolumeOutput struct {
-	*pulumi.OutputState
-}
+type VolumeOutput struct{ *pulumi.OutputState }
 
 func (VolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Volume)(nil))

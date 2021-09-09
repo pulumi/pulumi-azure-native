@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Management lock information.
 func LookupManagementLockAtResourceGroupLevel(ctx *pulumi.Context, args *LookupManagementLockAtResourceGroupLevelArgs, opts ...pulumi.InvokeOption) (*LookupManagementLockAtResourceGroupLevelResult, error) {
 	var rv LookupManagementLockAtResourceGroupLevelResult
 	err := ctx.Invoke("azure-native:authorization/v20150101:getManagementLockAtResourceGroupLevel", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupManagementLockAtResourceGroupLevel(ctx *pulumi.Context, args *LookupM
 }
 
 type LookupManagementLockAtResourceGroupLevelArgs struct {
-	// The lock name.
-	LockName string `pulumi:"lockName"`
-	// The resource group name.
+	LockName          string `pulumi:"lockName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Management lock information.
 type LookupManagementLockAtResourceGroupLevelResult struct {
-	// The Id of the lock.
-	Id string `pulumi:"id"`
-	// The lock level of the management lock.
+	Id    string  `pulumi:"id"`
 	Level *string `pulumi:"level"`
-	// The name of the lock.
-	Name *string `pulumi:"name"`
-	// The notes of the management lock.
+	Name  *string `pulumi:"name"`
 	Notes *string `pulumi:"notes"`
-	// The type of the lock.
-	Type string `pulumi:"type"`
+	Type  string  `pulumi:"type"`
 }

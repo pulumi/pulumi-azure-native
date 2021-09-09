@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Trigger data transfer object.
-//
 // Deprecated: Please use one of the variants: ScheduledTrigger.
 func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.InvokeOption) (*LookupTriggerResult, error) {
 	var rv LookupTriggerResult
@@ -20,24 +18,16 @@ func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.
 }
 
 type LookupTriggerArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the shareSubscription.
+	AccountName           string `pulumi:"accountName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
-	// The name of the trigger.
-	TriggerName string `pulumi:"triggerName"`
+	TriggerName           string `pulumi:"triggerName"`
 }
 
 // A Trigger data transfer object.
 type LookupTriggerResult struct {
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of synchronization on trigger.
+	Id   string `pulumi:"id"`
 	Kind string `pulumi:"kind"`
-	// Name of the azure resource
 	Name string `pulumi:"name"`
-	// Type of the azure resource
 	Type string `pulumi:"type"`
 }

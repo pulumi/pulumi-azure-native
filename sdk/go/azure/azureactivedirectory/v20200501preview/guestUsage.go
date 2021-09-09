@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Guest Usages Resource
 type GuestUsage struct {
 	pulumi.CustomResourceState
 
-	// Location of the Guest Usages resource.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the Guest Usages resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// An identifier for the tenant for which the resource is being created
+	Name     pulumi.StringOutput    `pulumi:"name"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
 	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// The type of the Guest Usages resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewGuestUsage registers a new resource with the given unique name, arguments, and options.
@@ -81,30 +75,20 @@ func (GuestUsageState) ElementType() reflect.Type {
 }
 
 type guestUsageArgs struct {
-	// Location of the Guest Usages resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The initial domain name of the AAD tenant.
-	ResourceName *string `pulumi:"resourceName"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags map[string]string `pulumi:"tags"`
-	// An identifier for the tenant for which the resource is being created
-	TenantId *string `pulumi:"tenantId"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ResourceName      *string           `pulumi:"resourceName"`
+	Tags              map[string]string `pulumi:"tags"`
+	TenantId          *string           `pulumi:"tenantId"`
 }
 
 // The set of arguments for constructing a GuestUsage resource.
 type GuestUsageArgs struct {
-	// Location of the Guest Usages resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The initial domain name of the AAD tenant.
-	ResourceName pulumi.StringPtrInput
-	// Key-value pairs of additional resource provisioning properties.
-	Tags pulumi.StringMapInput
-	// An identifier for the tenant for which the resource is being created
-	TenantId pulumi.StringPtrInput
+	ResourceName      pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TenantId          pulumi.StringPtrInput
 }
 
 func (GuestUsageArgs) ElementType() reflect.Type {
@@ -130,9 +114,7 @@ func (i *GuestUsage) ToGuestUsageOutputWithContext(ctx context.Context) GuestUsa
 	return pulumi.ToOutputWithContext(ctx, i).(GuestUsageOutput)
 }
 
-type GuestUsageOutput struct {
-	*pulumi.OutputState
-}
+type GuestUsageOutput struct{ *pulumi.OutputState }
 
 func (GuestUsageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GuestUsage)(nil))

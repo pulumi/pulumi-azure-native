@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
 type DatabaseVulnerabilityAssessmentRuleBaselineItem struct {
-	// The rule baseline result
 	Result []string `pulumi:"result"`
 }
 
@@ -27,9 +25,7 @@ type DatabaseVulnerabilityAssessmentRuleBaselineItemInput interface {
 	ToDatabaseVulnerabilityAssessmentRuleBaselineItemOutputWithContext(context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemOutput
 }
 
-// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
 type DatabaseVulnerabilityAssessmentRuleBaselineItemArgs struct {
-	// The rule baseline result
 	Result pulumi.StringArrayInput `pulumi:"result"`
 }
 
@@ -70,7 +66,6 @@ func (i DatabaseVulnerabilityAssessmentRuleBaselineItemArray) ToDatabaseVulnerab
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseVulnerabilityAssessmentRuleBaselineItemArrayOutput)
 }
 
-// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
 type DatabaseVulnerabilityAssessmentRuleBaselineItemOutput struct{ *pulumi.OutputState }
 
 func (DatabaseVulnerabilityAssessmentRuleBaselineItemOutput) ElementType() reflect.Type {
@@ -85,7 +80,6 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineItemOutput) ToDatabaseVulnera
 	return o
 }
 
-// The rule baseline result
 func (o DatabaseVulnerabilityAssessmentRuleBaselineItemOutput) Result() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DatabaseVulnerabilityAssessmentRuleBaselineItem) []string { return v.Result }).(pulumi.StringArrayOutput)
 }
@@ -110,9 +104,7 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineItemArrayOutput) Index(i pulu
 	}).(DatabaseVulnerabilityAssessmentRuleBaselineItemOutput)
 }
 
-// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
 type DatabaseVulnerabilityAssessmentRuleBaselineItemResponse struct {
-	// The rule baseline result
 	Result []string `pulumi:"result"`
 }
 
@@ -127,9 +119,7 @@ type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseInput interface {
 	ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput
 }
 
-// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
 type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArgs struct {
-	// The rule baseline result
 	Result pulumi.StringArrayInput `pulumi:"result"`
 }
 
@@ -170,7 +160,6 @@ func (i DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArray) ToDatabase
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput)
 }
 
-// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
 type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput) ElementType() reflect.Type {
@@ -185,7 +174,6 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput) ToDatabas
 	return o
 }
 
-// The rule baseline result
 func (o DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput) Result() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DatabaseVulnerabilityAssessmentRuleBaselineItemResponse) []string { return v.Result }).(pulumi.StringArrayOutput)
 }
@@ -210,11 +198,8 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput) Inde
 	}).(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput)
 }
 
-// Per database settings of an elastic pool.
 type ElasticPoolPerDatabaseSettings struct {
-	// The maximum capacity any one database can consume.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
-	// The minimum capacity all databases are guaranteed.
 	MinCapacity *float64 `pulumi:"minCapacity"`
 }
 
@@ -229,11 +214,8 @@ type ElasticPoolPerDatabaseSettingsInput interface {
 	ToElasticPoolPerDatabaseSettingsOutputWithContext(context.Context) ElasticPoolPerDatabaseSettingsOutput
 }
 
-// Per database settings of an elastic pool.
 type ElasticPoolPerDatabaseSettingsArgs struct {
-	// The maximum capacity any one database can consume.
 	MaxCapacity pulumi.Float64PtrInput `pulumi:"maxCapacity"`
-	// The minimum capacity all databases are guaranteed.
 	MinCapacity pulumi.Float64PtrInput `pulumi:"minCapacity"`
 }
 
@@ -290,7 +272,6 @@ func (i *elasticPoolPerDatabaseSettingsPtrType) ToElasticPoolPerDatabaseSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsPtrOutput)
 }
 
-// Per database settings of an elastic pool.
 type ElasticPoolPerDatabaseSettingsOutput struct{ *pulumi.OutputState }
 
 func (ElasticPoolPerDatabaseSettingsOutput) ElementType() reflect.Type {
@@ -310,17 +291,15 @@ func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsPt
 }
 
 func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsPtrOutput {
-	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) *ElasticPoolPerDatabaseSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticPoolPerDatabaseSettings) *ElasticPoolPerDatabaseSettings {
 		return &v
 	}).(ElasticPoolPerDatabaseSettingsPtrOutput)
 }
 
-// The maximum capacity any one database can consume.
 func (o ElasticPoolPerDatabaseSettingsOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) *float64 { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
 }
 
-// The minimum capacity all databases are guaranteed.
 func (o ElasticPoolPerDatabaseSettingsOutput) MinCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) *float64 { return v.MinCapacity }).(pulumi.Float64PtrOutput)
 }
@@ -340,10 +319,15 @@ func (o ElasticPoolPerDatabaseSettingsPtrOutput) ToElasticPoolPerDatabaseSetting
 }
 
 func (o ElasticPoolPerDatabaseSettingsPtrOutput) Elem() ElasticPoolPerDatabaseSettingsOutput {
-	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) ElasticPoolPerDatabaseSettings { return *v }).(ElasticPoolPerDatabaseSettingsOutput)
+	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) ElasticPoolPerDatabaseSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ElasticPoolPerDatabaseSettings
+		return ret
+	}).(ElasticPoolPerDatabaseSettingsOutput)
 }
 
-// The maximum capacity any one database can consume.
 func (o ElasticPoolPerDatabaseSettingsPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) *float64 {
 		if v == nil {
@@ -353,7 +337,6 @@ func (o ElasticPoolPerDatabaseSettingsPtrOutput) MaxCapacity() pulumi.Float64Ptr
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The minimum capacity all databases are guaranteed.
 func (o ElasticPoolPerDatabaseSettingsPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) *float64 {
 		if v == nil {
@@ -363,11 +346,8 @@ func (o ElasticPoolPerDatabaseSettingsPtrOutput) MinCapacity() pulumi.Float64Ptr
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Per database settings of an elastic pool.
 type ElasticPoolPerDatabaseSettingsResponse struct {
-	// The maximum capacity any one database can consume.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
-	// The minimum capacity all databases are guaranteed.
 	MinCapacity *float64 `pulumi:"minCapacity"`
 }
 
@@ -382,11 +362,8 @@ type ElasticPoolPerDatabaseSettingsResponseInput interface {
 	ToElasticPoolPerDatabaseSettingsResponseOutputWithContext(context.Context) ElasticPoolPerDatabaseSettingsResponseOutput
 }
 
-// Per database settings of an elastic pool.
 type ElasticPoolPerDatabaseSettingsResponseArgs struct {
-	// The maximum capacity any one database can consume.
 	MaxCapacity pulumi.Float64PtrInput `pulumi:"maxCapacity"`
-	// The minimum capacity all databases are guaranteed.
 	MinCapacity pulumi.Float64PtrInput `pulumi:"minCapacity"`
 }
 
@@ -443,7 +420,6 @@ func (i *elasticPoolPerDatabaseSettingsResponsePtrType) ToElasticPoolPerDatabase
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsResponsePtrOutput)
 }
 
-// Per database settings of an elastic pool.
 type ElasticPoolPerDatabaseSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ElasticPoolPerDatabaseSettingsResponseOutput) ElementType() reflect.Type {
@@ -463,17 +439,15 @@ func (o ElasticPoolPerDatabaseSettingsResponseOutput) ToElasticPoolPerDatabaseSe
 }
 
 func (o ElasticPoolPerDatabaseSettingsResponseOutput) ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsResponsePtrOutput {
-	return o.ApplyT(func(v ElasticPoolPerDatabaseSettingsResponse) *ElasticPoolPerDatabaseSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticPoolPerDatabaseSettingsResponse) *ElasticPoolPerDatabaseSettingsResponse {
 		return &v
 	}).(ElasticPoolPerDatabaseSettingsResponsePtrOutput)
 }
 
-// The maximum capacity any one database can consume.
 func (o ElasticPoolPerDatabaseSettingsResponseOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ElasticPoolPerDatabaseSettingsResponse) *float64 { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
 }
 
-// The minimum capacity all databases are guaranteed.
 func (o ElasticPoolPerDatabaseSettingsResponseOutput) MinCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ElasticPoolPerDatabaseSettingsResponse) *float64 { return v.MinCapacity }).(pulumi.Float64PtrOutput)
 }
@@ -493,10 +467,15 @@ func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) ToElasticPoolPerDatabas
 }
 
 func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) Elem() ElasticPoolPerDatabaseSettingsResponseOutput {
-	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettingsResponse) ElasticPoolPerDatabaseSettingsResponse { return *v }).(ElasticPoolPerDatabaseSettingsResponseOutput)
+	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettingsResponse) ElasticPoolPerDatabaseSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ElasticPoolPerDatabaseSettingsResponse
+		return ret
+	}).(ElasticPoolPerDatabaseSettingsResponseOutput)
 }
 
-// The maximum capacity any one database can consume.
 func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettingsResponse) *float64 {
 		if v == nil {
@@ -506,7 +485,6 @@ func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) MaxCapacity() pulumi.Fl
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The minimum capacity all databases are guaranteed.
 func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) MinCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettingsResponse) *float64 {
 		if v == nil {
@@ -516,9 +494,7 @@ func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) MinCapacity() pulumi.Fl
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Read-only endpoint of the failover group instance.
 type InstanceFailoverGroupReadOnlyEndpoint struct {
-	// Failover policy of the read-only endpoint for the failover group.
 	FailoverPolicy *string `pulumi:"failoverPolicy"`
 }
 
@@ -533,9 +509,7 @@ type InstanceFailoverGroupReadOnlyEndpointInput interface {
 	ToInstanceFailoverGroupReadOnlyEndpointOutputWithContext(context.Context) InstanceFailoverGroupReadOnlyEndpointOutput
 }
 
-// Read-only endpoint of the failover group instance.
 type InstanceFailoverGroupReadOnlyEndpointArgs struct {
-	// Failover policy of the read-only endpoint for the failover group.
 	FailoverPolicy pulumi.StringPtrInput `pulumi:"failoverPolicy"`
 }
 
@@ -592,7 +566,6 @@ func (i *instanceFailoverGroupReadOnlyEndpointPtrType) ToInstanceFailoverGroupRe
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupReadOnlyEndpointPtrOutput)
 }
 
-// Read-only endpoint of the failover group instance.
 type InstanceFailoverGroupReadOnlyEndpointOutput struct{ *pulumi.OutputState }
 
 func (InstanceFailoverGroupReadOnlyEndpointOutput) ElementType() reflect.Type {
@@ -612,12 +585,11 @@ func (o InstanceFailoverGroupReadOnlyEndpointOutput) ToInstanceFailoverGroupRead
 }
 
 func (o InstanceFailoverGroupReadOnlyEndpointOutput) ToInstanceFailoverGroupReadOnlyEndpointPtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadOnlyEndpointPtrOutput {
-	return o.ApplyT(func(v InstanceFailoverGroupReadOnlyEndpoint) *InstanceFailoverGroupReadOnlyEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFailoverGroupReadOnlyEndpoint) *InstanceFailoverGroupReadOnlyEndpoint {
 		return &v
 	}).(InstanceFailoverGroupReadOnlyEndpointPtrOutput)
 }
 
-// Failover policy of the read-only endpoint for the failover group.
 func (o InstanceFailoverGroupReadOnlyEndpointOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceFailoverGroupReadOnlyEndpoint) *string { return v.FailoverPolicy }).(pulumi.StringPtrOutput)
 }
@@ -637,10 +609,15 @@ func (o InstanceFailoverGroupReadOnlyEndpointPtrOutput) ToInstanceFailoverGroupR
 }
 
 func (o InstanceFailoverGroupReadOnlyEndpointPtrOutput) Elem() InstanceFailoverGroupReadOnlyEndpointOutput {
-	return o.ApplyT(func(v *InstanceFailoverGroupReadOnlyEndpoint) InstanceFailoverGroupReadOnlyEndpoint { return *v }).(InstanceFailoverGroupReadOnlyEndpointOutput)
+	return o.ApplyT(func(v *InstanceFailoverGroupReadOnlyEndpoint) InstanceFailoverGroupReadOnlyEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceFailoverGroupReadOnlyEndpoint
+		return ret
+	}).(InstanceFailoverGroupReadOnlyEndpointOutput)
 }
 
-// Failover policy of the read-only endpoint for the failover group.
 func (o InstanceFailoverGroupReadOnlyEndpointPtrOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadOnlyEndpoint) *string {
 		if v == nil {
@@ -650,9 +627,7 @@ func (o InstanceFailoverGroupReadOnlyEndpointPtrOutput) FailoverPolicy() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Read-only endpoint of the failover group instance.
 type InstanceFailoverGroupReadOnlyEndpointResponse struct {
-	// Failover policy of the read-only endpoint for the failover group.
 	FailoverPolicy *string `pulumi:"failoverPolicy"`
 }
 
@@ -667,9 +642,7 @@ type InstanceFailoverGroupReadOnlyEndpointResponseInput interface {
 	ToInstanceFailoverGroupReadOnlyEndpointResponseOutputWithContext(context.Context) InstanceFailoverGroupReadOnlyEndpointResponseOutput
 }
 
-// Read-only endpoint of the failover group instance.
 type InstanceFailoverGroupReadOnlyEndpointResponseArgs struct {
-	// Failover policy of the read-only endpoint for the failover group.
 	FailoverPolicy pulumi.StringPtrInput `pulumi:"failoverPolicy"`
 }
 
@@ -726,7 +699,6 @@ func (i *instanceFailoverGroupReadOnlyEndpointResponsePtrType) ToInstanceFailove
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput)
 }
 
-// Read-only endpoint of the failover group instance.
 type InstanceFailoverGroupReadOnlyEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (InstanceFailoverGroupReadOnlyEndpointResponseOutput) ElementType() reflect.Type {
@@ -746,12 +718,11 @@ func (o InstanceFailoverGroupReadOnlyEndpointResponseOutput) ToInstanceFailoverG
 }
 
 func (o InstanceFailoverGroupReadOnlyEndpointResponseOutput) ToInstanceFailoverGroupReadOnlyEndpointResponsePtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput {
-	return o.ApplyT(func(v InstanceFailoverGroupReadOnlyEndpointResponse) *InstanceFailoverGroupReadOnlyEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFailoverGroupReadOnlyEndpointResponse) *InstanceFailoverGroupReadOnlyEndpointResponse {
 		return &v
 	}).(InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput)
 }
 
-// Failover policy of the read-only endpoint for the failover group.
 func (o InstanceFailoverGroupReadOnlyEndpointResponseOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceFailoverGroupReadOnlyEndpointResponse) *string { return v.FailoverPolicy }).(pulumi.StringPtrOutput)
 }
@@ -772,11 +743,14 @@ func (o InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput) ToInstanceFailov
 
 func (o InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput) Elem() InstanceFailoverGroupReadOnlyEndpointResponseOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadOnlyEndpointResponse) InstanceFailoverGroupReadOnlyEndpointResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret InstanceFailoverGroupReadOnlyEndpointResponse
+		return ret
 	}).(InstanceFailoverGroupReadOnlyEndpointResponseOutput)
 }
 
-// Failover policy of the read-only endpoint for the failover group.
 func (o InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadOnlyEndpointResponse) *string {
 		if v == nil {
@@ -786,12 +760,9 @@ func (o InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput) FailoverPolicy()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Read-write endpoint of the failover group instance.
 type InstanceFailoverGroupReadWriteEndpoint struct {
-	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverPolicy string `pulumi:"failoverPolicy"`
-	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverWithDataLossGracePeriodMinutes *int `pulumi:"failoverWithDataLossGracePeriodMinutes"`
+	FailoverPolicy                         string `pulumi:"failoverPolicy"`
+	FailoverWithDataLossGracePeriodMinutes *int   `pulumi:"failoverWithDataLossGracePeriodMinutes"`
 }
 
 // InstanceFailoverGroupReadWriteEndpointInput is an input type that accepts InstanceFailoverGroupReadWriteEndpointArgs and InstanceFailoverGroupReadWriteEndpointOutput values.
@@ -805,11 +776,8 @@ type InstanceFailoverGroupReadWriteEndpointInput interface {
 	ToInstanceFailoverGroupReadWriteEndpointOutputWithContext(context.Context) InstanceFailoverGroupReadWriteEndpointOutput
 }
 
-// Read-write endpoint of the failover group instance.
 type InstanceFailoverGroupReadWriteEndpointArgs struct {
-	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverPolicy pulumi.StringInput `pulumi:"failoverPolicy"`
-	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverPolicy                         pulumi.StringInput `pulumi:"failoverPolicy"`
 	FailoverWithDataLossGracePeriodMinutes pulumi.IntPtrInput `pulumi:"failoverWithDataLossGracePeriodMinutes"`
 }
 
@@ -866,7 +834,6 @@ func (i *instanceFailoverGroupReadWriteEndpointPtrType) ToInstanceFailoverGroupR
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupReadWriteEndpointPtrOutput)
 }
 
-// Read-write endpoint of the failover group instance.
 type InstanceFailoverGroupReadWriteEndpointOutput struct{ *pulumi.OutputState }
 
 func (InstanceFailoverGroupReadWriteEndpointOutput) ElementType() reflect.Type {
@@ -886,17 +853,15 @@ func (o InstanceFailoverGroupReadWriteEndpointOutput) ToInstanceFailoverGroupRea
 }
 
 func (o InstanceFailoverGroupReadWriteEndpointOutput) ToInstanceFailoverGroupReadWriteEndpointPtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointPtrOutput {
-	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpoint) *InstanceFailoverGroupReadWriteEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFailoverGroupReadWriteEndpoint) *InstanceFailoverGroupReadWriteEndpoint {
 		return &v
 	}).(InstanceFailoverGroupReadWriteEndpointPtrOutput)
 }
 
-// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o InstanceFailoverGroupReadWriteEndpointOutput) FailoverPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpoint) string { return v.FailoverPolicy }).(pulumi.StringOutput)
 }
 
-// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o InstanceFailoverGroupReadWriteEndpointOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpoint) *int { return v.FailoverWithDataLossGracePeriodMinutes }).(pulumi.IntPtrOutput)
 }
@@ -916,10 +881,15 @@ func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) ToInstanceFailoverGroup
 }
 
 func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) Elem() InstanceFailoverGroupReadWriteEndpointOutput {
-	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpoint) InstanceFailoverGroupReadWriteEndpoint { return *v }).(InstanceFailoverGroupReadWriteEndpointOutput)
+	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpoint) InstanceFailoverGroupReadWriteEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceFailoverGroupReadWriteEndpoint
+		return ret
+	}).(InstanceFailoverGroupReadWriteEndpointOutput)
 }
 
-// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpoint) *string {
 		if v == nil {
@@ -929,7 +899,6 @@ func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) FailoverPolicy() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpoint) *int {
 		if v == nil {
@@ -939,12 +908,9 @@ func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) FailoverWithDataLossGra
 	}).(pulumi.IntPtrOutput)
 }
 
-// Read-write endpoint of the failover group instance.
 type InstanceFailoverGroupReadWriteEndpointResponse struct {
-	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverPolicy string `pulumi:"failoverPolicy"`
-	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverWithDataLossGracePeriodMinutes *int `pulumi:"failoverWithDataLossGracePeriodMinutes"`
+	FailoverPolicy                         string `pulumi:"failoverPolicy"`
+	FailoverWithDataLossGracePeriodMinutes *int   `pulumi:"failoverWithDataLossGracePeriodMinutes"`
 }
 
 // InstanceFailoverGroupReadWriteEndpointResponseInput is an input type that accepts InstanceFailoverGroupReadWriteEndpointResponseArgs and InstanceFailoverGroupReadWriteEndpointResponseOutput values.
@@ -958,11 +924,8 @@ type InstanceFailoverGroupReadWriteEndpointResponseInput interface {
 	ToInstanceFailoverGroupReadWriteEndpointResponseOutputWithContext(context.Context) InstanceFailoverGroupReadWriteEndpointResponseOutput
 }
 
-// Read-write endpoint of the failover group instance.
 type InstanceFailoverGroupReadWriteEndpointResponseArgs struct {
-	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-	FailoverPolicy pulumi.StringInput `pulumi:"failoverPolicy"`
-	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverPolicy                         pulumi.StringInput `pulumi:"failoverPolicy"`
 	FailoverWithDataLossGracePeriodMinutes pulumi.IntPtrInput `pulumi:"failoverWithDataLossGracePeriodMinutes"`
 }
 
@@ -1019,7 +982,6 @@ func (i *instanceFailoverGroupReadWriteEndpointResponsePtrType) ToInstanceFailov
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupReadWriteEndpointResponsePtrOutput)
 }
 
-// Read-write endpoint of the failover group instance.
 type InstanceFailoverGroupReadWriteEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (InstanceFailoverGroupReadWriteEndpointResponseOutput) ElementType() reflect.Type {
@@ -1039,17 +1001,15 @@ func (o InstanceFailoverGroupReadWriteEndpointResponseOutput) ToInstanceFailover
 }
 
 func (o InstanceFailoverGroupReadWriteEndpointResponseOutput) ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointResponsePtrOutput {
-	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpointResponse) *InstanceFailoverGroupReadWriteEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFailoverGroupReadWriteEndpointResponse) *InstanceFailoverGroupReadWriteEndpointResponse {
 		return &v
 	}).(InstanceFailoverGroupReadWriteEndpointResponsePtrOutput)
 }
 
-// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o InstanceFailoverGroupReadWriteEndpointResponseOutput) FailoverPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpointResponse) string { return v.FailoverPolicy }).(pulumi.StringOutput)
 }
 
-// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o InstanceFailoverGroupReadWriteEndpointResponseOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpointResponse) *int {
 		return v.FailoverWithDataLossGracePeriodMinutes
@@ -1072,11 +1032,14 @@ func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) ToInstanceFailo
 
 func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) Elem() InstanceFailoverGroupReadWriteEndpointResponseOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpointResponse) InstanceFailoverGroupReadWriteEndpointResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret InstanceFailoverGroupReadWriteEndpointResponse
+		return ret
 	}).(InstanceFailoverGroupReadWriteEndpointResponseOutput)
 }
 
-// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) FailoverPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpointResponse) *string {
 		if v == nil {
@@ -1086,7 +1049,6 @@ func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) FailoverPolicy(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpointResponse) *int {
 		if v == nil {
@@ -1096,11 +1058,8 @@ func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) FailoverWithDat
 	}).(pulumi.IntPtrOutput)
 }
 
-// Pairs of Managed Instances in the failover group.
 type ManagedInstancePairInfo struct {
-	// Id of Partner Managed Instance in pair.
 	PartnerManagedInstanceId *string `pulumi:"partnerManagedInstanceId"`
-	// Id of Primary Managed Instance in pair.
 	PrimaryManagedInstanceId *string `pulumi:"primaryManagedInstanceId"`
 }
 
@@ -1115,11 +1074,8 @@ type ManagedInstancePairInfoInput interface {
 	ToManagedInstancePairInfoOutputWithContext(context.Context) ManagedInstancePairInfoOutput
 }
 
-// Pairs of Managed Instances in the failover group.
 type ManagedInstancePairInfoArgs struct {
-	// Id of Partner Managed Instance in pair.
 	PartnerManagedInstanceId pulumi.StringPtrInput `pulumi:"partnerManagedInstanceId"`
-	// Id of Primary Managed Instance in pair.
 	PrimaryManagedInstanceId pulumi.StringPtrInput `pulumi:"primaryManagedInstanceId"`
 }
 
@@ -1160,7 +1116,6 @@ func (i ManagedInstancePairInfoArray) ToManagedInstancePairInfoArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePairInfoArrayOutput)
 }
 
-// Pairs of Managed Instances in the failover group.
 type ManagedInstancePairInfoOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstancePairInfoOutput) ElementType() reflect.Type {
@@ -1175,12 +1130,10 @@ func (o ManagedInstancePairInfoOutput) ToManagedInstancePairInfoOutputWithContex
 	return o
 }
 
-// Id of Partner Managed Instance in pair.
 func (o ManagedInstancePairInfoOutput) PartnerManagedInstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstancePairInfo) *string { return v.PartnerManagedInstanceId }).(pulumi.StringPtrOutput)
 }
 
-// Id of Primary Managed Instance in pair.
 func (o ManagedInstancePairInfoOutput) PrimaryManagedInstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstancePairInfo) *string { return v.PrimaryManagedInstanceId }).(pulumi.StringPtrOutput)
 }
@@ -1205,11 +1158,8 @@ func (o ManagedInstancePairInfoArrayOutput) Index(i pulumi.IntInput) ManagedInst
 	}).(ManagedInstancePairInfoOutput)
 }
 
-// Pairs of Managed Instances in the failover group.
 type ManagedInstancePairInfoResponse struct {
-	// Id of Partner Managed Instance in pair.
 	PartnerManagedInstanceId *string `pulumi:"partnerManagedInstanceId"`
-	// Id of Primary Managed Instance in pair.
 	PrimaryManagedInstanceId *string `pulumi:"primaryManagedInstanceId"`
 }
 
@@ -1224,11 +1174,8 @@ type ManagedInstancePairInfoResponseInput interface {
 	ToManagedInstancePairInfoResponseOutputWithContext(context.Context) ManagedInstancePairInfoResponseOutput
 }
 
-// Pairs of Managed Instances in the failover group.
 type ManagedInstancePairInfoResponseArgs struct {
-	// Id of Partner Managed Instance in pair.
 	PartnerManagedInstanceId pulumi.StringPtrInput `pulumi:"partnerManagedInstanceId"`
-	// Id of Primary Managed Instance in pair.
 	PrimaryManagedInstanceId pulumi.StringPtrInput `pulumi:"primaryManagedInstanceId"`
 }
 
@@ -1269,7 +1216,6 @@ func (i ManagedInstancePairInfoResponseArray) ToManagedInstancePairInfoResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePairInfoResponseArrayOutput)
 }
 
-// Pairs of Managed Instances in the failover group.
 type ManagedInstancePairInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstancePairInfoResponseOutput) ElementType() reflect.Type {
@@ -1284,12 +1230,10 @@ func (o ManagedInstancePairInfoResponseOutput) ToManagedInstancePairInfoResponse
 	return o
 }
 
-// Id of Partner Managed Instance in pair.
 func (o ManagedInstancePairInfoResponseOutput) PartnerManagedInstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstancePairInfoResponse) *string { return v.PartnerManagedInstanceId }).(pulumi.StringPtrOutput)
 }
 
-// Id of Primary Managed Instance in pair.
 func (o ManagedInstancePairInfoResponseOutput) PrimaryManagedInstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstancePairInfoResponse) *string { return v.PrimaryManagedInstanceId }).(pulumi.StringPtrOutput)
 }
@@ -1314,9 +1258,7 @@ func (o ManagedInstancePairInfoResponseArrayOutput) Index(i pulumi.IntInput) Man
 	}).(ManagedInstancePairInfoResponseOutput)
 }
 
-// Partner region information for the failover group.
 type PartnerRegionInfo struct {
-	// Geo location of the partner managed instances.
 	Location *string `pulumi:"location"`
 }
 
@@ -1331,9 +1273,7 @@ type PartnerRegionInfoInput interface {
 	ToPartnerRegionInfoOutputWithContext(context.Context) PartnerRegionInfoOutput
 }
 
-// Partner region information for the failover group.
 type PartnerRegionInfoArgs struct {
-	// Geo location of the partner managed instances.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 }
 
@@ -1374,7 +1314,6 @@ func (i PartnerRegionInfoArray) ToPartnerRegionInfoArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerRegionInfoArrayOutput)
 }
 
-// Partner region information for the failover group.
 type PartnerRegionInfoOutput struct{ *pulumi.OutputState }
 
 func (PartnerRegionInfoOutput) ElementType() reflect.Type {
@@ -1389,7 +1328,6 @@ func (o PartnerRegionInfoOutput) ToPartnerRegionInfoOutputWithContext(ctx contex
 	return o
 }
 
-// Geo location of the partner managed instances.
 func (o PartnerRegionInfoOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartnerRegionInfo) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -1414,12 +1352,9 @@ func (o PartnerRegionInfoArrayOutput) Index(i pulumi.IntInput) PartnerRegionInfo
 	}).(PartnerRegionInfoOutput)
 }
 
-// Partner region information for the failover group.
 type PartnerRegionInfoResponse struct {
-	// Geo location of the partner managed instances.
-	Location *string `pulumi:"location"`
-	// Replication role of the partner managed instances.
-	ReplicationRole string `pulumi:"replicationRole"`
+	Location        *string `pulumi:"location"`
+	ReplicationRole string  `pulumi:"replicationRole"`
 }
 
 // PartnerRegionInfoResponseInput is an input type that accepts PartnerRegionInfoResponseArgs and PartnerRegionInfoResponseOutput values.
@@ -1433,12 +1368,9 @@ type PartnerRegionInfoResponseInput interface {
 	ToPartnerRegionInfoResponseOutputWithContext(context.Context) PartnerRegionInfoResponseOutput
 }
 
-// Partner region information for the failover group.
 type PartnerRegionInfoResponseArgs struct {
-	// Geo location of the partner managed instances.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Replication role of the partner managed instances.
-	ReplicationRole pulumi.StringInput `pulumi:"replicationRole"`
+	Location        pulumi.StringPtrInput `pulumi:"location"`
+	ReplicationRole pulumi.StringInput    `pulumi:"replicationRole"`
 }
 
 func (PartnerRegionInfoResponseArgs) ElementType() reflect.Type {
@@ -1478,7 +1410,6 @@ func (i PartnerRegionInfoResponseArray) ToPartnerRegionInfoResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerRegionInfoResponseArrayOutput)
 }
 
-// Partner region information for the failover group.
 type PartnerRegionInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (PartnerRegionInfoResponseOutput) ElementType() reflect.Type {
@@ -1493,12 +1424,10 @@ func (o PartnerRegionInfoResponseOutput) ToPartnerRegionInfoResponseOutputWithCo
 	return o
 }
 
-// Geo location of the partner managed instances.
 func (o PartnerRegionInfoResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartnerRegionInfoResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Replication role of the partner managed instances.
 func (o PartnerRegionInfoResponseOutput) ReplicationRole() pulumi.StringOutput {
 	return o.ApplyT(func(v PartnerRegionInfoResponse) string { return v.ReplicationRole }).(pulumi.StringOutput)
 }
@@ -1523,18 +1452,12 @@ func (o PartnerRegionInfoResponseArrayOutput) Index(i pulumi.IntInput) PartnerRe
 	}).(PartnerRegionInfoResponseOutput)
 }
 
-// An ARM Resource SKU.
 type Sku struct {
-	// Capacity of the particular SKU.
-	Capacity *int `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name string `pulumi:"name"`
-	// Size of the particular SKU
-	Size *string `pulumi:"size"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -1548,18 +1471,12 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// An ARM Resource SKU.
 type SkuArgs struct {
-	// Capacity of the particular SKU.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Size of the particular SKU
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -1615,7 +1532,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// An ARM Resource SKU.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -1635,32 +1551,27 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// Capacity of the particular SKU.
 func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Size of the particular SKU
 func (o SkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1680,10 +1591,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// Capacity of the particular SKU.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -1693,7 +1609,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1703,7 +1618,6 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1713,7 +1627,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of the particular SKU
 func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1723,7 +1636,6 @@ func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1733,18 +1645,12 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An ARM Resource SKU.
 type SkuResponse struct {
-	// Capacity of the particular SKU.
-	Capacity *int `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name string `pulumi:"name"`
-	// Size of the particular SKU
-	Size *string `pulumi:"size"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -1758,18 +1664,12 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// An ARM Resource SKU.
 type SkuResponseArgs struct {
-	// Capacity of the particular SKU.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Size of the particular SKU
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -1825,7 +1725,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// An ARM Resource SKU.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -1845,32 +1744,27 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// Capacity of the particular SKU.
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Size of the particular SKU
 func (o SkuResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1890,10 +1784,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// Capacity of the particular SKU.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -1903,7 +1802,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1913,7 +1811,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1923,7 +1820,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of the particular SKU
 func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1933,7 +1829,6 @@ func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1943,14 +1838,10 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansProperties struct {
-	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
-	EmailSubscriptionAdmins *bool `pulumi:"emailSubscriptionAdmins"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
-	Emails []string `pulumi:"emails"`
-	// Recurring scans state.
-	IsEnabled *bool `pulumi:"isEnabled"`
+	EmailSubscriptionAdmins *bool    `pulumi:"emailSubscriptionAdmins"`
+	Emails                  []string `pulumi:"emails"`
+	IsEnabled               *bool    `pulumi:"isEnabled"`
 }
 
 // VulnerabilityAssessmentRecurringScansPropertiesInput is an input type that accepts VulnerabilityAssessmentRecurringScansPropertiesArgs and VulnerabilityAssessmentRecurringScansPropertiesOutput values.
@@ -1964,14 +1855,10 @@ type VulnerabilityAssessmentRecurringScansPropertiesInput interface {
 	ToVulnerabilityAssessmentRecurringScansPropertiesOutputWithContext(context.Context) VulnerabilityAssessmentRecurringScansPropertiesOutput
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesArgs struct {
-	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
-	EmailSubscriptionAdmins pulumi.BoolPtrInput `pulumi:"emailSubscriptionAdmins"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
-	Emails pulumi.StringArrayInput `pulumi:"emails"`
-	// Recurring scans state.
-	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	EmailSubscriptionAdmins pulumi.BoolPtrInput     `pulumi:"emailSubscriptionAdmins"`
+	Emails                  pulumi.StringArrayInput `pulumi:"emails"`
+	IsEnabled               pulumi.BoolPtrInput     `pulumi:"isEnabled"`
 }
 
 func (VulnerabilityAssessmentRecurringScansPropertiesArgs) ElementType() reflect.Type {
@@ -2027,7 +1914,6 @@ func (i *vulnerabilityAssessmentRecurringScansPropertiesPtrType) ToVulnerability
 	return pulumi.ToOutputWithContext(ctx, i).(VulnerabilityAssessmentRecurringScansPropertiesPtrOutput)
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesOutput struct{ *pulumi.OutputState }
 
 func (VulnerabilityAssessmentRecurringScansPropertiesOutput) ElementType() reflect.Type {
@@ -2047,22 +1933,19 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) ToVulnerabilityAs
 }
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) ToVulnerabilityAssessmentRecurringScansPropertiesPtrOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesPtrOutput {
-	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansProperties) *VulnerabilityAssessmentRecurringScansProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VulnerabilityAssessmentRecurringScansProperties) *VulnerabilityAssessmentRecurringScansProperties {
 		return &v
 	}).(VulnerabilityAssessmentRecurringScansPropertiesPtrOutput)
 }
 
-// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansProperties) *bool { return v.EmailSubscriptionAdmins }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
 func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansProperties) []string { return v.Emails }).(pulumi.StringArrayOutput)
 }
 
-// Recurring scans state.
 func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansProperties) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -2083,11 +1966,14 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) ToVulnerabilit
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) Elem() VulnerabilityAssessmentRecurringScansPropertiesOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansProperties) VulnerabilityAssessmentRecurringScansProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VulnerabilityAssessmentRecurringScansProperties
+		return ret
 	}).(VulnerabilityAssessmentRecurringScansPropertiesOutput)
 }
 
-// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansProperties) *bool {
 		if v == nil {
@@ -2097,7 +1983,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) EmailSubscript
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
 func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansProperties) []string {
 		if v == nil {
@@ -2107,7 +1992,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) Emails() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// Recurring scans state.
 func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansProperties) *bool {
 		if v == nil {
@@ -2117,14 +2001,10 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) IsEnabled() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesResponse struct {
-	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
-	EmailSubscriptionAdmins *bool `pulumi:"emailSubscriptionAdmins"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
-	Emails []string `pulumi:"emails"`
-	// Recurring scans state.
-	IsEnabled *bool `pulumi:"isEnabled"`
+	EmailSubscriptionAdmins *bool    `pulumi:"emailSubscriptionAdmins"`
+	Emails                  []string `pulumi:"emails"`
+	IsEnabled               *bool    `pulumi:"isEnabled"`
 }
 
 // VulnerabilityAssessmentRecurringScansPropertiesResponseInput is an input type that accepts VulnerabilityAssessmentRecurringScansPropertiesResponseArgs and VulnerabilityAssessmentRecurringScansPropertiesResponseOutput values.
@@ -2138,14 +2018,10 @@ type VulnerabilityAssessmentRecurringScansPropertiesResponseInput interface {
 	ToVulnerabilityAssessmentRecurringScansPropertiesResponseOutputWithContext(context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponseOutput
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesResponseArgs struct {
-	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
-	EmailSubscriptionAdmins pulumi.BoolPtrInput `pulumi:"emailSubscriptionAdmins"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
-	Emails pulumi.StringArrayInput `pulumi:"emails"`
-	// Recurring scans state.
-	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	EmailSubscriptionAdmins pulumi.BoolPtrInput     `pulumi:"emailSubscriptionAdmins"`
+	Emails                  pulumi.StringArrayInput `pulumi:"emails"`
+	IsEnabled               pulumi.BoolPtrInput     `pulumi:"isEnabled"`
 }
 
 func (VulnerabilityAssessmentRecurringScansPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2201,7 +2077,6 @@ func (i *vulnerabilityAssessmentRecurringScansPropertiesResponsePtrType) ToVulne
 	return pulumi.ToOutputWithContext(ctx, i).(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput)
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2221,24 +2096,21 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnera
 }
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesResponse) *VulnerabilityAssessmentRecurringScansPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VulnerabilityAssessmentRecurringScansPropertiesResponse) *VulnerabilityAssessmentRecurringScansPropertiesResponse {
 		return &v
 	}).(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput)
 }
 
-// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesResponse) *bool {
 		return v.EmailSubscriptionAdmins
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesResponse) []string { return v.Emails }).(pulumi.StringArrayOutput)
 }
 
-// Recurring scans state.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesResponse) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -2259,11 +2131,14 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) ToVuln
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) Elem() VulnerabilityAssessmentRecurringScansPropertiesResponseOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansPropertiesResponse) VulnerabilityAssessmentRecurringScansPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VulnerabilityAssessmentRecurringScansPropertiesResponse
+		return ret
 	}).(VulnerabilityAssessmentRecurringScansPropertiesResponseOutput)
 }
 
-// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansPropertiesResponse) *bool {
 		if v == nil {
@@ -2273,7 +2148,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) EmailS
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansPropertiesResponse) []string {
 		if v == nil {
@@ -2283,7 +2157,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) Emails
 	}).(pulumi.StringArrayOutput)
 }
 
-// Recurring scans state.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansPropertiesResponse) *bool {
 		if v == nil {

@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The batch configuration resource definition.
 type IntegrationAccountBatchConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The batch configuration properties.
+	Location   pulumi.StringPtrOutput                     `pulumi:"location"`
+	Name       pulumi.StringOutput                        `pulumi:"name"`
 	Properties BatchConfigurationPropertiesResponseOutput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type       pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewIntegrationAccountBatchConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -99,34 +93,22 @@ func (IntegrationAccountBatchConfigurationState) ElementType() reflect.Type {
 }
 
 type integrationAccountBatchConfigurationArgs struct {
-	// The batch configuration name.
-	BatchConfigurationName *string `pulumi:"batchConfigurationName"`
-	// The integration account name.
-	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The batch configuration properties.
-	Properties BatchConfigurationProperties `pulumi:"properties"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	BatchConfigurationName *string                      `pulumi:"batchConfigurationName"`
+	IntegrationAccountName string                       `pulumi:"integrationAccountName"`
+	Location               *string                      `pulumi:"location"`
+	Properties             BatchConfigurationProperties `pulumi:"properties"`
+	ResourceGroupName      string                       `pulumi:"resourceGroupName"`
+	Tags                   map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IntegrationAccountBatchConfiguration resource.
 type IntegrationAccountBatchConfigurationArgs struct {
-	// The batch configuration name.
 	BatchConfigurationName pulumi.StringPtrInput
-	// The integration account name.
 	IntegrationAccountName pulumi.StringInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The batch configuration properties.
-	Properties BatchConfigurationPropertiesInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	Location               pulumi.StringPtrInput
+	Properties             BatchConfigurationPropertiesInput
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (IntegrationAccountBatchConfigurationArgs) ElementType() reflect.Type {
@@ -152,9 +134,7 @@ func (i *IntegrationAccountBatchConfiguration) ToIntegrationAccountBatchConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationOutput)
 }
 
-type IntegrationAccountBatchConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountBatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountBatchConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountBatchConfiguration)(nil))

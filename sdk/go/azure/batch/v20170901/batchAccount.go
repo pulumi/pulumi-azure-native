@@ -11,32 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contains information about an Azure Batch account.
 type BatchAccount struct {
 	pulumi.CustomResourceState
 
-	// The account endpoint used to interact with the Batch service.
-	AccountEndpoint              pulumi.StringOutput `pulumi:"accountEndpoint"`
-	ActiveJobAndJobScheduleQuota pulumi.IntOutput    `pulumi:"activeJobAndJobScheduleQuota"`
-	// Contains information about the auto-storage account associated with a Batch account.
-	AutoStorage        AutoStoragePropertiesResponseOutput `pulumi:"autoStorage"`
-	DedicatedCoreQuota pulumi.IntOutput                    `pulumi:"dedicatedCoreQuota"`
-	// Identifies the Azure key vault associated with a Batch account.
-	KeyVaultReference KeyVaultReferenceResponseOutput `pulumi:"keyVaultReference"`
-	// The location of the resource.
-	Location             pulumi.StringOutput `pulumi:"location"`
-	LowPriorityCoreQuota pulumi.IntOutput    `pulumi:"lowPriorityCoreQuota"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The allocation mode for creating pools in the Batch account.
-	PoolAllocationMode pulumi.StringOutput `pulumi:"poolAllocationMode"`
-	PoolQuota          pulumi.IntOutput    `pulumi:"poolQuota"`
-	// The provisioned state of the resource
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AccountEndpoint              pulumi.StringOutput                 `pulumi:"accountEndpoint"`
+	ActiveJobAndJobScheduleQuota pulumi.IntOutput                    `pulumi:"activeJobAndJobScheduleQuota"`
+	AutoStorage                  AutoStoragePropertiesResponseOutput `pulumi:"autoStorage"`
+	DedicatedCoreQuota           pulumi.IntOutput                    `pulumi:"dedicatedCoreQuota"`
+	KeyVaultReference            KeyVaultReferenceResponseOutput     `pulumi:"keyVaultReference"`
+	Location                     pulumi.StringOutput                 `pulumi:"location"`
+	LowPriorityCoreQuota         pulumi.IntOutput                    `pulumi:"lowPriorityCoreQuota"`
+	Name                         pulumi.StringOutput                 `pulumi:"name"`
+	PoolAllocationMode           pulumi.StringOutput                 `pulumi:"poolAllocationMode"`
+	PoolQuota                    pulumi.IntOutput                    `pulumi:"poolQuota"`
+	ProvisioningState            pulumi.StringOutput                 `pulumi:"provisioningState"`
+	Tags                         pulumi.StringMapOutput              `pulumi:"tags"`
+	Type                         pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewBatchAccount registers a new resource with the given unique name, arguments, and options.
@@ -159,38 +149,24 @@ func (BatchAccountState) ElementType() reflect.Type {
 }
 
 type batchAccountArgs struct {
-	// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
-	AccountName *string `pulumi:"accountName"`
-	// The properties related to the auto-storage account.
-	AutoStorage *AutoStorageBaseProperties `pulumi:"autoStorage"`
-	// A reference to the Azure key vault associated with the Batch account.
-	KeyVaultReference *KeyVaultReference `pulumi:"keyVaultReference"`
-	// The region in which to create the account.
-	Location *string `pulumi:"location"`
-	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
-	PoolAllocationMode *string `pulumi:"poolAllocationMode"`
-	// The name of the resource group that contains the Batch account.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The user-specified tags associated with the account.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName        *string                    `pulumi:"accountName"`
+	AutoStorage        *AutoStorageBaseProperties `pulumi:"autoStorage"`
+	KeyVaultReference  *KeyVaultReference         `pulumi:"keyVaultReference"`
+	Location           *string                    `pulumi:"location"`
+	PoolAllocationMode *PoolAllocationMode        `pulumi:"poolAllocationMode"`
+	ResourceGroupName  string                     `pulumi:"resourceGroupName"`
+	Tags               map[string]string          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a BatchAccount resource.
 type BatchAccountArgs struct {
-	// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
-	AccountName pulumi.StringPtrInput
-	// The properties related to the auto-storage account.
-	AutoStorage AutoStorageBasePropertiesPtrInput
-	// A reference to the Azure key vault associated with the Batch account.
-	KeyVaultReference KeyVaultReferencePtrInput
-	// The region in which to create the account.
-	Location pulumi.StringPtrInput
-	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
-	PoolAllocationMode *PoolAllocationMode
-	// The name of the resource group that contains the Batch account.
-	ResourceGroupName pulumi.StringInput
-	// The user-specified tags associated with the account.
-	Tags pulumi.StringMapInput
+	AccountName        pulumi.StringPtrInput
+	AutoStorage        AutoStorageBasePropertiesPtrInput
+	KeyVaultReference  KeyVaultReferencePtrInput
+	Location           pulumi.StringPtrInput
+	PoolAllocationMode PoolAllocationModePtrInput
+	ResourceGroupName  pulumi.StringInput
+	Tags               pulumi.StringMapInput
 }
 
 func (BatchAccountArgs) ElementType() reflect.Type {
@@ -216,9 +192,7 @@ func (i *BatchAccount) ToBatchAccountOutputWithContext(ctx context.Context) Batc
 	return pulumi.ToOutputWithContext(ctx, i).(BatchAccountOutput)
 }
 
-type BatchAccountOutput struct {
-	*pulumi.OutputState
-}
+type BatchAccountOutput struct{ *pulumi.OutputState }
 
 func (BatchAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BatchAccount)(nil))

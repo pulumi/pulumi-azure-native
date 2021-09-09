@@ -147,9 +147,7 @@ func (i *DelegatedSubnetServiceDetails) ToDelegatedSubnetServiceDetailsOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DelegatedSubnetServiceDetailsOutput)
 }
 
-type DelegatedSubnetServiceDetailsOutput struct {
-	*pulumi.OutputState
-}
+type DelegatedSubnetServiceDetailsOutput struct{ *pulumi.OutputState }
 
 func (DelegatedSubnetServiceDetailsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DelegatedSubnetServiceDetails)(nil))

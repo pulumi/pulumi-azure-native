@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Route resource.
 type Route struct {
 	pulumi.CustomResourceState
 
-	// The destination CIDR to which the route applies.
-	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-	NextHopIpAddress pulumi.StringPtrOutput `pulumi:"nextHopIpAddress"`
-	// The type of Azure hop the packet should be sent to.
-	NextHopType pulumi.StringOutput `pulumi:"nextHopType"`
-	// The provisioning state of the route resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	AddressPrefix     pulumi.StringPtrOutput `pulumi:"addressPrefix"`
+	Etag              pulumi.StringOutput    `pulumi:"etag"`
+	Name              pulumi.StringPtrOutput `pulumi:"name"`
+	NextHopIpAddress  pulumi.StringPtrOutput `pulumi:"nextHopIpAddress"`
+	NextHopType       pulumi.StringOutput    `pulumi:"nextHopType"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
 }
 
 // NewRoute registers a new resource with the given unique name, arguments, and options.
@@ -311,42 +304,26 @@ func (RouteState) ElementType() reflect.Type {
 }
 
 type routeArgs struct {
-	// The destination CIDR to which the route applies.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-	NextHopIpAddress *string `pulumi:"nextHopIpAddress"`
-	// The type of Azure hop the packet should be sent to.
-	NextHopType string `pulumi:"nextHopType"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the route.
-	RouteName *string `pulumi:"routeName"`
-	// The name of the route table.
-	RouteTableName string `pulumi:"routeTableName"`
+	AddressPrefix     *string `pulumi:"addressPrefix"`
+	Id                *string `pulumi:"id"`
+	Name              *string `pulumi:"name"`
+	NextHopIpAddress  *string `pulumi:"nextHopIpAddress"`
+	NextHopType       string  `pulumi:"nextHopType"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	RouteName         *string `pulumi:"routeName"`
+	RouteTableName    string  `pulumi:"routeTableName"`
 }
 
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
-	// The destination CIDR to which the route applies.
-	AddressPrefix pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-	NextHopIpAddress pulumi.StringPtrInput
-	// The type of Azure hop the packet should be sent to.
-	NextHopType pulumi.StringInput
-	// The name of the resource group.
+	AddressPrefix     pulumi.StringPtrInput
+	Id                pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	NextHopIpAddress  pulumi.StringPtrInput
+	NextHopType       pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the route.
-	RouteName pulumi.StringPtrInput
-	// The name of the route table.
-	RouteTableName pulumi.StringInput
+	RouteName         pulumi.StringPtrInput
+	RouteTableName    pulumi.StringInput
 }
 
 func (RouteArgs) ElementType() reflect.Type {
@@ -372,9 +349,7 @@ func (i *Route) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteOutput)
 }
 
-type RouteOutput struct {
-	*pulumi.OutputState
-}
+type RouteOutput struct{ *pulumi.OutputState }
 
 func (RouteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Route)(nil))

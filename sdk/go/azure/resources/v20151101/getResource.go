@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource information.
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
 	var rv LookupResourceResult
 	err := ctx.Invoke("azure-native:resources/v20151101:getResource", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 }
 
 type LookupResourceArgs struct {
-	// Resource identity.
-	ParentResourcePath string `pulumi:"parentResourcePath"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource identity.
-	ResourceName string `pulumi:"resourceName"`
-	// Resource identity.
+	ParentResourcePath        string `pulumi:"parentResourcePath"`
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
+	ResourceName              string `pulumi:"resourceName"`
 	ResourceProviderNamespace string `pulumi:"resourceProviderNamespace"`
-	// Resource identity.
-	ResourceType string `pulumi:"resourceType"`
+	ResourceType              string `pulumi:"resourceType"`
 }
 
 // Resource information.
 type LookupResourceResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Gets or sets the plan of the resource.
-	Plan *PlanResponse `pulumi:"plan"`
-	// Gets or sets the resource properties.
-	Properties interface{} `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id         string            `pulumi:"id"`
+	Location   string            `pulumi:"location"`
+	Name       string            `pulumi:"name"`
+	Plan       *PlanResponse     `pulumi:"plan"`
+	Properties interface{}       `pulumi:"properties"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

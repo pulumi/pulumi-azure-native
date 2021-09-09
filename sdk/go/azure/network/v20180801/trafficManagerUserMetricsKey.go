@@ -10,15 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing Traffic Manager User Metrics.
 type TrafficManagerUserMetricsKey struct {
 	pulumi.CustomResourceState
 
-	// The key returned by the User Metrics operation.
-	Key pulumi.StringPtrOutput `pulumi:"key"`
-	// The name of the resource
+	Key  pulumi.StringPtrOutput `pulumi:"key"`
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
@@ -108,9 +104,7 @@ func (i *TrafficManagerUserMetricsKey) ToTrafficManagerUserMetricsKeyOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerUserMetricsKeyOutput)
 }
 
-type TrafficManagerUserMetricsKeyOutput struct {
-	*pulumi.OutputState
-}
+type TrafficManagerUserMetricsKeyOutput struct{ *pulumi.OutputState }
 
 func (TrafficManagerUserMetricsKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TrafficManagerUserMetricsKey)(nil))

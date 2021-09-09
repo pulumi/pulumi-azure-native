@@ -321,9 +321,7 @@ func (i *ManagedInstance) ToManagedInstanceOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceOutput)
 }
 
-type ManagedInstanceOutput struct {
-	*pulumi.OutputState
-}
+type ManagedInstanceOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedInstance)(nil))

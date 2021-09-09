@@ -10,21 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes Advanced Audio Codec (AAC) audio encoding settings.
 type AacAudio struct {
-	// The bitrate, in bits per second, of the output encoded audio.
-	Bitrate *int `pulumi:"bitrate"`
-	// The number of channels in the audio.
-	Channels *int `pulumi:"channels"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.AacAudio'.
-	OdataType string `pulumi:"odataType"`
-	// The encoding profile to be used when encoding audio with AAC.
-	Profile *string `pulumi:"profile"`
-	// The sampling rate to use for encoding in hertz.
-	SamplingRate *int `pulumi:"samplingRate"`
+	Bitrate      *int    `pulumi:"bitrate"`
+	Channels     *int    `pulumi:"channels"`
+	Label        *string `pulumi:"label"`
+	OdataType    string  `pulumi:"odataType"`
+	Profile      *string `pulumi:"profile"`
+	SamplingRate *int    `pulumi:"samplingRate"`
 }
 
 // AacAudioInput is an input type that accepts AacAudioArgs and AacAudioOutput values.
@@ -38,21 +30,13 @@ type AacAudioInput interface {
 	ToAacAudioOutputWithContext(context.Context) AacAudioOutput
 }
 
-// Describes Advanced Audio Codec (AAC) audio encoding settings.
 type AacAudioArgs struct {
-	// The bitrate, in bits per second, of the output encoded audio.
-	Bitrate pulumi.IntPtrInput `pulumi:"bitrate"`
-	// The number of channels in the audio.
-	Channels pulumi.IntPtrInput `pulumi:"channels"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.AacAudio'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The encoding profile to be used when encoding audio with AAC.
-	Profile pulumi.StringPtrInput `pulumi:"profile"`
-	// The sampling rate to use for encoding in hertz.
-	SamplingRate pulumi.IntPtrInput `pulumi:"samplingRate"`
+	Bitrate      pulumi.IntPtrInput    `pulumi:"bitrate"`
+	Channels     pulumi.IntPtrInput    `pulumi:"channels"`
+	Label        pulumi.StringPtrInput `pulumi:"label"`
+	OdataType    pulumi.StringInput    `pulumi:"odataType"`
+	Profile      pulumi.StringPtrInput `pulumi:"profile"`
+	SamplingRate pulumi.IntPtrInput    `pulumi:"samplingRate"`
 }
 
 func (AacAudioArgs) ElementType() reflect.Type {
@@ -67,7 +51,6 @@ func (i AacAudioArgs) ToAacAudioOutputWithContext(ctx context.Context) AacAudioO
 	return pulumi.ToOutputWithContext(ctx, i).(AacAudioOutput)
 }
 
-// Describes Advanced Audio Codec (AAC) audio encoding settings.
 type AacAudioOutput struct{ *pulumi.OutputState }
 
 func (AacAudioOutput) ElementType() reflect.Type {
@@ -82,52 +65,37 @@ func (o AacAudioOutput) ToAacAudioOutputWithContext(ctx context.Context) AacAudi
 	return o
 }
 
-// The bitrate, in bits per second, of the output encoded audio.
 func (o AacAudioOutput) Bitrate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AacAudio) *int { return v.Bitrate }).(pulumi.IntPtrOutput)
 }
 
-// The number of channels in the audio.
 func (o AacAudioOutput) Channels() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AacAudio) *int { return v.Channels }).(pulumi.IntPtrOutput)
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o AacAudioOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AacAudio) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.AacAudio'.
 func (o AacAudioOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AacAudio) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The encoding profile to be used when encoding audio with AAC.
 func (o AacAudioOutput) Profile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AacAudio) *string { return v.Profile }).(pulumi.StringPtrOutput)
 }
 
-// The sampling rate to use for encoding in hertz.
 func (o AacAudioOutput) SamplingRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AacAudio) *int { return v.SamplingRate }).(pulumi.IntPtrOutput)
 }
 
-// Describes Advanced Audio Codec (AAC) audio encoding settings.
 type AacAudioResponse struct {
-	// The bitrate, in bits per second, of the output encoded audio.
-	Bitrate *int `pulumi:"bitrate"`
-	// The number of channels in the audio.
-	Channels *int `pulumi:"channels"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.AacAudio'.
-	OdataType string `pulumi:"odataType"`
-	// The encoding profile to be used when encoding audio with AAC.
-	Profile *string `pulumi:"profile"`
-	// The sampling rate to use for encoding in hertz.
-	SamplingRate *int `pulumi:"samplingRate"`
+	Bitrate      *int    `pulumi:"bitrate"`
+	Channels     *int    `pulumi:"channels"`
+	Label        *string `pulumi:"label"`
+	OdataType    string  `pulumi:"odataType"`
+	Profile      *string `pulumi:"profile"`
+	SamplingRate *int    `pulumi:"samplingRate"`
 }
 
 // AacAudioResponseInput is an input type that accepts AacAudioResponseArgs and AacAudioResponseOutput values.
@@ -141,21 +109,13 @@ type AacAudioResponseInput interface {
 	ToAacAudioResponseOutputWithContext(context.Context) AacAudioResponseOutput
 }
 
-// Describes Advanced Audio Codec (AAC) audio encoding settings.
 type AacAudioResponseArgs struct {
-	// The bitrate, in bits per second, of the output encoded audio.
-	Bitrate pulumi.IntPtrInput `pulumi:"bitrate"`
-	// The number of channels in the audio.
-	Channels pulumi.IntPtrInput `pulumi:"channels"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.AacAudio'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The encoding profile to be used when encoding audio with AAC.
-	Profile pulumi.StringPtrInput `pulumi:"profile"`
-	// The sampling rate to use for encoding in hertz.
-	SamplingRate pulumi.IntPtrInput `pulumi:"samplingRate"`
+	Bitrate      pulumi.IntPtrInput    `pulumi:"bitrate"`
+	Channels     pulumi.IntPtrInput    `pulumi:"channels"`
+	Label        pulumi.StringPtrInput `pulumi:"label"`
+	OdataType    pulumi.StringInput    `pulumi:"odataType"`
+	Profile      pulumi.StringPtrInput `pulumi:"profile"`
+	SamplingRate pulumi.IntPtrInput    `pulumi:"samplingRate"`
 }
 
 func (AacAudioResponseArgs) ElementType() reflect.Type {
@@ -170,7 +130,6 @@ func (i AacAudioResponseArgs) ToAacAudioResponseOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AacAudioResponseOutput)
 }
 
-// Describes Advanced Audio Codec (AAC) audio encoding settings.
 type AacAudioResponseOutput struct{ *pulumi.OutputState }
 
 func (AacAudioResponseOutput) ElementType() reflect.Type {
@@ -185,40 +144,31 @@ func (o AacAudioResponseOutput) ToAacAudioResponseOutputWithContext(ctx context.
 	return o
 }
 
-// The bitrate, in bits per second, of the output encoded audio.
 func (o AacAudioResponseOutput) Bitrate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AacAudioResponse) *int { return v.Bitrate }).(pulumi.IntPtrOutput)
 }
 
-// The number of channels in the audio.
 func (o AacAudioResponseOutput) Channels() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AacAudioResponse) *int { return v.Channels }).(pulumi.IntPtrOutput)
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o AacAudioResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AacAudioResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.AacAudio'.
 func (o AacAudioResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AacAudioResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The encoding profile to be used when encoding audio with AAC.
 func (o AacAudioResponseOutput) Profile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AacAudioResponse) *string { return v.Profile }).(pulumi.StringPtrOutput)
 }
 
-// The sampling rate to use for encoding in hertz.
 func (o AacAudioResponseOutput) SamplingRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AacAudioResponse) *int { return v.SamplingRate }).(pulumi.IntPtrOutput)
 }
 
-// Akamai access control
 type AkamaiAccessControl struct {
-	// authentication key list
 	AkamaiSignatureHeaderAuthenticationKeyList []AkamaiSignatureHeaderAuthenticationKey `pulumi:"akamaiSignatureHeaderAuthenticationKeyList"`
 }
 
@@ -233,9 +183,7 @@ type AkamaiAccessControlInput interface {
 	ToAkamaiAccessControlOutputWithContext(context.Context) AkamaiAccessControlOutput
 }
 
-// Akamai access control
 type AkamaiAccessControlArgs struct {
-	// authentication key list
 	AkamaiSignatureHeaderAuthenticationKeyList AkamaiSignatureHeaderAuthenticationKeyArrayInput `pulumi:"akamaiSignatureHeaderAuthenticationKeyList"`
 }
 
@@ -292,7 +240,6 @@ func (i *akamaiAccessControlPtrType) ToAkamaiAccessControlPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AkamaiAccessControlPtrOutput)
 }
 
-// Akamai access control
 type AkamaiAccessControlOutput struct{ *pulumi.OutputState }
 
 func (AkamaiAccessControlOutput) ElementType() reflect.Type {
@@ -312,12 +259,11 @@ func (o AkamaiAccessControlOutput) ToAkamaiAccessControlPtrOutput() AkamaiAccess
 }
 
 func (o AkamaiAccessControlOutput) ToAkamaiAccessControlPtrOutputWithContext(ctx context.Context) AkamaiAccessControlPtrOutput {
-	return o.ApplyT(func(v AkamaiAccessControl) *AkamaiAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AkamaiAccessControl) *AkamaiAccessControl {
 		return &v
 	}).(AkamaiAccessControlPtrOutput)
 }
 
-// authentication key list
 func (o AkamaiAccessControlOutput) AkamaiSignatureHeaderAuthenticationKeyList() AkamaiSignatureHeaderAuthenticationKeyArrayOutput {
 	return o.ApplyT(func(v AkamaiAccessControl) []AkamaiSignatureHeaderAuthenticationKey {
 		return v.AkamaiSignatureHeaderAuthenticationKeyList
@@ -339,10 +285,15 @@ func (o AkamaiAccessControlPtrOutput) ToAkamaiAccessControlPtrOutputWithContext(
 }
 
 func (o AkamaiAccessControlPtrOutput) Elem() AkamaiAccessControlOutput {
-	return o.ApplyT(func(v *AkamaiAccessControl) AkamaiAccessControl { return *v }).(AkamaiAccessControlOutput)
+	return o.ApplyT(func(v *AkamaiAccessControl) AkamaiAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret AkamaiAccessControl
+		return ret
+	}).(AkamaiAccessControlOutput)
 }
 
-// authentication key list
 func (o AkamaiAccessControlPtrOutput) AkamaiSignatureHeaderAuthenticationKeyList() AkamaiSignatureHeaderAuthenticationKeyArrayOutput {
 	return o.ApplyT(func(v *AkamaiAccessControl) []AkamaiSignatureHeaderAuthenticationKey {
 		if v == nil {
@@ -352,9 +303,7 @@ func (o AkamaiAccessControlPtrOutput) AkamaiSignatureHeaderAuthenticationKeyList
 	}).(AkamaiSignatureHeaderAuthenticationKeyArrayOutput)
 }
 
-// Akamai access control
 type AkamaiAccessControlResponse struct {
-	// authentication key list
 	AkamaiSignatureHeaderAuthenticationKeyList []AkamaiSignatureHeaderAuthenticationKeyResponse `pulumi:"akamaiSignatureHeaderAuthenticationKeyList"`
 }
 
@@ -369,9 +318,7 @@ type AkamaiAccessControlResponseInput interface {
 	ToAkamaiAccessControlResponseOutputWithContext(context.Context) AkamaiAccessControlResponseOutput
 }
 
-// Akamai access control
 type AkamaiAccessControlResponseArgs struct {
-	// authentication key list
 	AkamaiSignatureHeaderAuthenticationKeyList AkamaiSignatureHeaderAuthenticationKeyResponseArrayInput `pulumi:"akamaiSignatureHeaderAuthenticationKeyList"`
 }
 
@@ -428,7 +375,6 @@ func (i *akamaiAccessControlResponsePtrType) ToAkamaiAccessControlResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AkamaiAccessControlResponsePtrOutput)
 }
 
-// Akamai access control
 type AkamaiAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (AkamaiAccessControlResponseOutput) ElementType() reflect.Type {
@@ -448,12 +394,11 @@ func (o AkamaiAccessControlResponseOutput) ToAkamaiAccessControlResponsePtrOutpu
 }
 
 func (o AkamaiAccessControlResponseOutput) ToAkamaiAccessControlResponsePtrOutputWithContext(ctx context.Context) AkamaiAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v AkamaiAccessControlResponse) *AkamaiAccessControlResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AkamaiAccessControlResponse) *AkamaiAccessControlResponse {
 		return &v
 	}).(AkamaiAccessControlResponsePtrOutput)
 }
 
-// authentication key list
 func (o AkamaiAccessControlResponseOutput) AkamaiSignatureHeaderAuthenticationKeyList() AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput {
 	return o.ApplyT(func(v AkamaiAccessControlResponse) []AkamaiSignatureHeaderAuthenticationKeyResponse {
 		return v.AkamaiSignatureHeaderAuthenticationKeyList
@@ -475,10 +420,15 @@ func (o AkamaiAccessControlResponsePtrOutput) ToAkamaiAccessControlResponsePtrOu
 }
 
 func (o AkamaiAccessControlResponsePtrOutput) Elem() AkamaiAccessControlResponseOutput {
-	return o.ApplyT(func(v *AkamaiAccessControlResponse) AkamaiAccessControlResponse { return *v }).(AkamaiAccessControlResponseOutput)
+	return o.ApplyT(func(v *AkamaiAccessControlResponse) AkamaiAccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AkamaiAccessControlResponse
+		return ret
+	}).(AkamaiAccessControlResponseOutput)
 }
 
-// authentication key list
 func (o AkamaiAccessControlResponsePtrOutput) AkamaiSignatureHeaderAuthenticationKeyList() AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput {
 	return o.ApplyT(func(v *AkamaiAccessControlResponse) []AkamaiSignatureHeaderAuthenticationKeyResponse {
 		if v == nil {
@@ -488,13 +438,9 @@ func (o AkamaiAccessControlResponsePtrOutput) AkamaiSignatureHeaderAuthenticatio
 	}).(AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput)
 }
 
-// Akamai Signature Header authentication key.
 type AkamaiSignatureHeaderAuthenticationKey struct {
-	// authentication key
-	Base64Key *string `pulumi:"base64Key"`
-	// The exact time the authentication key.
+	Base64Key  *string `pulumi:"base64Key"`
 	Expiration *string `pulumi:"expiration"`
-	// identifier of the key
 	Identifier *string `pulumi:"identifier"`
 }
 
@@ -509,13 +455,9 @@ type AkamaiSignatureHeaderAuthenticationKeyInput interface {
 	ToAkamaiSignatureHeaderAuthenticationKeyOutputWithContext(context.Context) AkamaiSignatureHeaderAuthenticationKeyOutput
 }
 
-// Akamai Signature Header authentication key.
 type AkamaiSignatureHeaderAuthenticationKeyArgs struct {
-	// authentication key
-	Base64Key pulumi.StringPtrInput `pulumi:"base64Key"`
-	// The exact time the authentication key.
+	Base64Key  pulumi.StringPtrInput `pulumi:"base64Key"`
 	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
-	// identifier of the key
 	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
 }
 
@@ -556,7 +498,6 @@ func (i AkamaiSignatureHeaderAuthenticationKeyArray) ToAkamaiSignatureHeaderAuth
 	return pulumi.ToOutputWithContext(ctx, i).(AkamaiSignatureHeaderAuthenticationKeyArrayOutput)
 }
 
-// Akamai Signature Header authentication key.
 type AkamaiSignatureHeaderAuthenticationKeyOutput struct{ *pulumi.OutputState }
 
 func (AkamaiSignatureHeaderAuthenticationKeyOutput) ElementType() reflect.Type {
@@ -571,17 +512,14 @@ func (o AkamaiSignatureHeaderAuthenticationKeyOutput) ToAkamaiSignatureHeaderAut
 	return o
 }
 
-// authentication key
 func (o AkamaiSignatureHeaderAuthenticationKeyOutput) Base64Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKey) *string { return v.Base64Key }).(pulumi.StringPtrOutput)
 }
 
-// The exact time the authentication key.
 func (o AkamaiSignatureHeaderAuthenticationKeyOutput) Expiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKey) *string { return v.Expiration }).(pulumi.StringPtrOutput)
 }
 
-// identifier of the key
 func (o AkamaiSignatureHeaderAuthenticationKeyOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKey) *string { return v.Identifier }).(pulumi.StringPtrOutput)
 }
@@ -606,13 +544,9 @@ func (o AkamaiSignatureHeaderAuthenticationKeyArrayOutput) Index(i pulumi.IntInp
 	}).(AkamaiSignatureHeaderAuthenticationKeyOutput)
 }
 
-// Akamai Signature Header authentication key.
 type AkamaiSignatureHeaderAuthenticationKeyResponse struct {
-	// authentication key
-	Base64Key *string `pulumi:"base64Key"`
-	// The exact time the authentication key.
+	Base64Key  *string `pulumi:"base64Key"`
 	Expiration *string `pulumi:"expiration"`
-	// identifier of the key
 	Identifier *string `pulumi:"identifier"`
 }
 
@@ -627,13 +561,9 @@ type AkamaiSignatureHeaderAuthenticationKeyResponseInput interface {
 	ToAkamaiSignatureHeaderAuthenticationKeyResponseOutputWithContext(context.Context) AkamaiSignatureHeaderAuthenticationKeyResponseOutput
 }
 
-// Akamai Signature Header authentication key.
 type AkamaiSignatureHeaderAuthenticationKeyResponseArgs struct {
-	// authentication key
-	Base64Key pulumi.StringPtrInput `pulumi:"base64Key"`
-	// The exact time the authentication key.
+	Base64Key  pulumi.StringPtrInput `pulumi:"base64Key"`
 	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
-	// identifier of the key
 	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
 }
 
@@ -674,7 +604,6 @@ func (i AkamaiSignatureHeaderAuthenticationKeyResponseArray) ToAkamaiSignatureHe
 	return pulumi.ToOutputWithContext(ctx, i).(AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput)
 }
 
-// Akamai Signature Header authentication key.
 type AkamaiSignatureHeaderAuthenticationKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (AkamaiSignatureHeaderAuthenticationKeyResponseOutput) ElementType() reflect.Type {
@@ -689,17 +618,14 @@ func (o AkamaiSignatureHeaderAuthenticationKeyResponseOutput) ToAkamaiSignatureH
 	return o
 }
 
-// authentication key
 func (o AkamaiSignatureHeaderAuthenticationKeyResponseOutput) Base64Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKeyResponse) *string { return v.Base64Key }).(pulumi.StringPtrOutput)
 }
 
-// The exact time the authentication key.
 func (o AkamaiSignatureHeaderAuthenticationKeyResponseOutput) Expiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKeyResponse) *string { return v.Expiration }).(pulumi.StringPtrOutput)
 }
 
-// identifier of the key
 func (o AkamaiSignatureHeaderAuthenticationKeyResponseOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKeyResponse) *string { return v.Identifier }).(pulumi.StringPtrOutput)
 }
@@ -724,19 +650,12 @@ func (o AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput) Index(i pulum
 	}).(AkamaiSignatureHeaderAuthenticationKeyResponseOutput)
 }
 
-// Defines the common properties for all audio codecs.
 type Audio struct {
-	// The bitrate, in bits per second, of the output encoded audio.
-	Bitrate *int `pulumi:"bitrate"`
-	// The number of channels in the audio.
-	Channels *int `pulumi:"channels"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Audio'.
-	OdataType string `pulumi:"odataType"`
-	// The sampling rate to use for encoding in hertz.
-	SamplingRate *int `pulumi:"samplingRate"`
+	Bitrate      *int    `pulumi:"bitrate"`
+	Channels     *int    `pulumi:"channels"`
+	Label        *string `pulumi:"label"`
+	OdataType    string  `pulumi:"odataType"`
+	SamplingRate *int    `pulumi:"samplingRate"`
 }
 
 // AudioInput is an input type that accepts AudioArgs and AudioOutput values.
@@ -750,19 +669,12 @@ type AudioInput interface {
 	ToAudioOutputWithContext(context.Context) AudioOutput
 }
 
-// Defines the common properties for all audio codecs.
 type AudioArgs struct {
-	// The bitrate, in bits per second, of the output encoded audio.
-	Bitrate pulumi.IntPtrInput `pulumi:"bitrate"`
-	// The number of channels in the audio.
-	Channels pulumi.IntPtrInput `pulumi:"channels"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Audio'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The sampling rate to use for encoding in hertz.
-	SamplingRate pulumi.IntPtrInput `pulumi:"samplingRate"`
+	Bitrate      pulumi.IntPtrInput    `pulumi:"bitrate"`
+	Channels     pulumi.IntPtrInput    `pulumi:"channels"`
+	Label        pulumi.StringPtrInput `pulumi:"label"`
+	OdataType    pulumi.StringInput    `pulumi:"odataType"`
+	SamplingRate pulumi.IntPtrInput    `pulumi:"samplingRate"`
 }
 
 func (AudioArgs) ElementType() reflect.Type {
@@ -777,7 +689,6 @@ func (i AudioArgs) ToAudioOutputWithContext(ctx context.Context) AudioOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AudioOutput)
 }
 
-// Defines the common properties for all audio codecs.
 type AudioOutput struct{ *pulumi.OutputState }
 
 func (AudioOutput) ElementType() reflect.Type {
@@ -792,39 +703,29 @@ func (o AudioOutput) ToAudioOutputWithContext(ctx context.Context) AudioOutput {
 	return o
 }
 
-// The bitrate, in bits per second, of the output encoded audio.
 func (o AudioOutput) Bitrate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Audio) *int { return v.Bitrate }).(pulumi.IntPtrOutput)
 }
 
-// The number of channels in the audio.
 func (o AudioOutput) Channels() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Audio) *int { return v.Channels }).(pulumi.IntPtrOutput)
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o AudioOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Audio) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Audio'.
 func (o AudioOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v Audio) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The sampling rate to use for encoding in hertz.
 func (o AudioOutput) SamplingRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Audio) *int { return v.SamplingRate }).(pulumi.IntPtrOutput)
 }
 
-// The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
 type AudioAnalyzerPreset struct {
-	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
 	AudioLanguage *string `pulumi:"audioLanguage"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
-	OdataType string `pulumi:"odataType"`
+	OdataType     string  `pulumi:"odataType"`
 }
 
 // AudioAnalyzerPresetInput is an input type that accepts AudioAnalyzerPresetArgs and AudioAnalyzerPresetOutput values.
@@ -838,13 +739,9 @@ type AudioAnalyzerPresetInput interface {
 	ToAudioAnalyzerPresetOutputWithContext(context.Context) AudioAnalyzerPresetOutput
 }
 
-// The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
 type AudioAnalyzerPresetArgs struct {
-	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
 	AudioLanguage pulumi.StringPtrInput `pulumi:"audioLanguage"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	OdataType     pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (AudioAnalyzerPresetArgs) ElementType() reflect.Type {
@@ -859,7 +756,6 @@ func (i AudioAnalyzerPresetArgs) ToAudioAnalyzerPresetOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AudioAnalyzerPresetOutput)
 }
 
-// The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
 type AudioAnalyzerPresetOutput struct{ *pulumi.OutputState }
 
 func (AudioAnalyzerPresetOutput) ElementType() reflect.Type {
@@ -874,24 +770,17 @@ func (o AudioAnalyzerPresetOutput) ToAudioAnalyzerPresetOutputWithContext(ctx co
 	return o
 }
 
-// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
 func (o AudioAnalyzerPresetOutput) AudioLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioAnalyzerPreset) *string { return v.AudioLanguage }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
 func (o AudioAnalyzerPresetOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AudioAnalyzerPreset) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
 type AudioAnalyzerPresetResponse struct {
-	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
 	AudioLanguage *string `pulumi:"audioLanguage"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
-	OdataType string `pulumi:"odataType"`
+	OdataType     string  `pulumi:"odataType"`
 }
 
 // AudioAnalyzerPresetResponseInput is an input type that accepts AudioAnalyzerPresetResponseArgs and AudioAnalyzerPresetResponseOutput values.
@@ -905,13 +794,9 @@ type AudioAnalyzerPresetResponseInput interface {
 	ToAudioAnalyzerPresetResponseOutputWithContext(context.Context) AudioAnalyzerPresetResponseOutput
 }
 
-// The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
 type AudioAnalyzerPresetResponseArgs struct {
-	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
 	AudioLanguage pulumi.StringPtrInput `pulumi:"audioLanguage"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	OdataType     pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (AudioAnalyzerPresetResponseArgs) ElementType() reflect.Type {
@@ -926,7 +811,6 @@ func (i AudioAnalyzerPresetResponseArgs) ToAudioAnalyzerPresetResponseOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AudioAnalyzerPresetResponseOutput)
 }
 
-// The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
 type AudioAnalyzerPresetResponseOutput struct{ *pulumi.OutputState }
 
 func (AudioAnalyzerPresetResponseOutput) ElementType() reflect.Type {
@@ -941,34 +825,22 @@ func (o AudioAnalyzerPresetResponseOutput) ToAudioAnalyzerPresetResponseOutputWi
 	return o
 }
 
-// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
 func (o AudioAnalyzerPresetResponseOutput) AudioLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioAnalyzerPresetResponse) *string { return v.AudioLanguage }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
 func (o AudioAnalyzerPresetResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AudioAnalyzerPresetResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Describes the properties of an audio overlay.
 type AudioOverlay struct {
-	// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
-	AudioGainLevel *float64 `pulumi:"audioGainLevel"`
-	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
-	End *string `pulumi:"end"`
-	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
-	FadeInDuration *string `pulumi:"fadeInDuration"`
-	// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
-	FadeOutDuration *string `pulumi:"fadeOutDuration"`
-	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
-	InputLabel *string `pulumi:"inputLabel"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.AudioOverlay'.
-	OdataType string `pulumi:"odataType"`
-	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
-	Start *string `pulumi:"start"`
+	AudioGainLevel  *float64 `pulumi:"audioGainLevel"`
+	End             *string  `pulumi:"end"`
+	FadeInDuration  *string  `pulumi:"fadeInDuration"`
+	FadeOutDuration *string  `pulumi:"fadeOutDuration"`
+	InputLabel      *string  `pulumi:"inputLabel"`
+	OdataType       string   `pulumi:"odataType"`
+	Start           *string  `pulumi:"start"`
 }
 
 // AudioOverlayInput is an input type that accepts AudioOverlayArgs and AudioOverlayOutput values.
@@ -982,23 +854,14 @@ type AudioOverlayInput interface {
 	ToAudioOverlayOutputWithContext(context.Context) AudioOverlayOutput
 }
 
-// Describes the properties of an audio overlay.
 type AudioOverlayArgs struct {
-	// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
-	AudioGainLevel pulumi.Float64PtrInput `pulumi:"audioGainLevel"`
-	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
-	End pulumi.StringPtrInput `pulumi:"end"`
-	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
-	FadeInDuration pulumi.StringPtrInput `pulumi:"fadeInDuration"`
-	// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
-	FadeOutDuration pulumi.StringPtrInput `pulumi:"fadeOutDuration"`
-	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
-	InputLabel pulumi.StringPtrInput `pulumi:"inputLabel"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.AudioOverlay'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
-	Start pulumi.StringPtrInput `pulumi:"start"`
+	AudioGainLevel  pulumi.Float64PtrInput `pulumi:"audioGainLevel"`
+	End             pulumi.StringPtrInput  `pulumi:"end"`
+	FadeInDuration  pulumi.StringPtrInput  `pulumi:"fadeInDuration"`
+	FadeOutDuration pulumi.StringPtrInput  `pulumi:"fadeOutDuration"`
+	InputLabel      pulumi.StringPtrInput  `pulumi:"inputLabel"`
+	OdataType       pulumi.StringInput     `pulumi:"odataType"`
+	Start           pulumi.StringPtrInput  `pulumi:"start"`
 }
 
 func (AudioOverlayArgs) ElementType() reflect.Type {
@@ -1013,7 +876,6 @@ func (i AudioOverlayArgs) ToAudioOverlayOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AudioOverlayOutput)
 }
 
-// Describes the properties of an audio overlay.
 type AudioOverlayOutput struct{ *pulumi.OutputState }
 
 func (AudioOverlayOutput) ElementType() reflect.Type {
@@ -1028,59 +890,42 @@ func (o AudioOverlayOutput) ToAudioOverlayOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
 func (o AudioOverlayOutput) AudioGainLevel() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AudioOverlay) *float64 { return v.AudioGainLevel }).(pulumi.Float64PtrOutput)
 }
 
-// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
 func (o AudioOverlayOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioOverlay) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
-// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
 func (o AudioOverlayOutput) FadeInDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioOverlay) *string { return v.FadeInDuration }).(pulumi.StringPtrOutput)
 }
 
-// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
 func (o AudioOverlayOutput) FadeOutDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioOverlay) *string { return v.FadeOutDuration }).(pulumi.StringPtrOutput)
 }
 
-// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
 func (o AudioOverlayOutput) InputLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioOverlay) *string { return v.InputLabel }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.AudioOverlay'.
 func (o AudioOverlayOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AudioOverlay) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
 func (o AudioOverlayOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioOverlay) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties of an audio overlay.
 type AudioOverlayResponse struct {
-	// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
-	AudioGainLevel *float64 `pulumi:"audioGainLevel"`
-	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
-	End *string `pulumi:"end"`
-	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
-	FadeInDuration *string `pulumi:"fadeInDuration"`
-	// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
-	FadeOutDuration *string `pulumi:"fadeOutDuration"`
-	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
-	InputLabel *string `pulumi:"inputLabel"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.AudioOverlay'.
-	OdataType string `pulumi:"odataType"`
-	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
-	Start *string `pulumi:"start"`
+	AudioGainLevel  *float64 `pulumi:"audioGainLevel"`
+	End             *string  `pulumi:"end"`
+	FadeInDuration  *string  `pulumi:"fadeInDuration"`
+	FadeOutDuration *string  `pulumi:"fadeOutDuration"`
+	InputLabel      *string  `pulumi:"inputLabel"`
+	OdataType       string   `pulumi:"odataType"`
+	Start           *string  `pulumi:"start"`
 }
 
 // AudioOverlayResponseInput is an input type that accepts AudioOverlayResponseArgs and AudioOverlayResponseOutput values.
@@ -1094,23 +939,14 @@ type AudioOverlayResponseInput interface {
 	ToAudioOverlayResponseOutputWithContext(context.Context) AudioOverlayResponseOutput
 }
 
-// Describes the properties of an audio overlay.
 type AudioOverlayResponseArgs struct {
-	// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
-	AudioGainLevel pulumi.Float64PtrInput `pulumi:"audioGainLevel"`
-	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
-	End pulumi.StringPtrInput `pulumi:"end"`
-	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
-	FadeInDuration pulumi.StringPtrInput `pulumi:"fadeInDuration"`
-	// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
-	FadeOutDuration pulumi.StringPtrInput `pulumi:"fadeOutDuration"`
-	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
-	InputLabel pulumi.StringPtrInput `pulumi:"inputLabel"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.AudioOverlay'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
-	Start pulumi.StringPtrInput `pulumi:"start"`
+	AudioGainLevel  pulumi.Float64PtrInput `pulumi:"audioGainLevel"`
+	End             pulumi.StringPtrInput  `pulumi:"end"`
+	FadeInDuration  pulumi.StringPtrInput  `pulumi:"fadeInDuration"`
+	FadeOutDuration pulumi.StringPtrInput  `pulumi:"fadeOutDuration"`
+	InputLabel      pulumi.StringPtrInput  `pulumi:"inputLabel"`
+	OdataType       pulumi.StringInput     `pulumi:"odataType"`
+	Start           pulumi.StringPtrInput  `pulumi:"start"`
 }
 
 func (AudioOverlayResponseArgs) ElementType() reflect.Type {
@@ -1125,7 +961,6 @@ func (i AudioOverlayResponseArgs) ToAudioOverlayResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AudioOverlayResponseOutput)
 }
 
-// Describes the properties of an audio overlay.
 type AudioOverlayResponseOutput struct{ *pulumi.OutputState }
 
 func (AudioOverlayResponseOutput) ElementType() reflect.Type {
@@ -1140,55 +975,40 @@ func (o AudioOverlayResponseOutput) ToAudioOverlayResponseOutputWithContext(ctx 
 	return o
 }
 
-// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
 func (o AudioOverlayResponseOutput) AudioGainLevel() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AudioOverlayResponse) *float64 { return v.AudioGainLevel }).(pulumi.Float64PtrOutput)
 }
 
-// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
 func (o AudioOverlayResponseOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioOverlayResponse) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
-// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
 func (o AudioOverlayResponseOutput) FadeInDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioOverlayResponse) *string { return v.FadeInDuration }).(pulumi.StringPtrOutput)
 }
 
-// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
 func (o AudioOverlayResponseOutput) FadeOutDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioOverlayResponse) *string { return v.FadeOutDuration }).(pulumi.StringPtrOutput)
 }
 
-// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
 func (o AudioOverlayResponseOutput) InputLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioOverlayResponse) *string { return v.InputLabel }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.AudioOverlay'.
 func (o AudioOverlayResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AudioOverlayResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
 func (o AudioOverlayResponseOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioOverlayResponse) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
 
-// Defines the common properties for all audio codecs.
 type AudioResponse struct {
-	// The bitrate, in bits per second, of the output encoded audio.
-	Bitrate *int `pulumi:"bitrate"`
-	// The number of channels in the audio.
-	Channels *int `pulumi:"channels"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Audio'.
-	OdataType string `pulumi:"odataType"`
-	// The sampling rate to use for encoding in hertz.
-	SamplingRate *int `pulumi:"samplingRate"`
+	Bitrate      *int    `pulumi:"bitrate"`
+	Channels     *int    `pulumi:"channels"`
+	Label        *string `pulumi:"label"`
+	OdataType    string  `pulumi:"odataType"`
+	SamplingRate *int    `pulumi:"samplingRate"`
 }
 
 // AudioResponseInput is an input type that accepts AudioResponseArgs and AudioResponseOutput values.
@@ -1202,19 +1022,12 @@ type AudioResponseInput interface {
 	ToAudioResponseOutputWithContext(context.Context) AudioResponseOutput
 }
 
-// Defines the common properties for all audio codecs.
 type AudioResponseArgs struct {
-	// The bitrate, in bits per second, of the output encoded audio.
-	Bitrate pulumi.IntPtrInput `pulumi:"bitrate"`
-	// The number of channels in the audio.
-	Channels pulumi.IntPtrInput `pulumi:"channels"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Audio'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The sampling rate to use for encoding in hertz.
-	SamplingRate pulumi.IntPtrInput `pulumi:"samplingRate"`
+	Bitrate      pulumi.IntPtrInput    `pulumi:"bitrate"`
+	Channels     pulumi.IntPtrInput    `pulumi:"channels"`
+	Label        pulumi.StringPtrInput `pulumi:"label"`
+	OdataType    pulumi.StringInput    `pulumi:"odataType"`
+	SamplingRate pulumi.IntPtrInput    `pulumi:"samplingRate"`
 }
 
 func (AudioResponseArgs) ElementType() reflect.Type {
@@ -1229,7 +1042,6 @@ func (i AudioResponseArgs) ToAudioResponseOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AudioResponseOutput)
 }
 
-// Defines the common properties for all audio codecs.
 type AudioResponseOutput struct{ *pulumi.OutputState }
 
 func (AudioResponseOutput) ElementType() reflect.Type {
@@ -1244,38 +1056,28 @@ func (o AudioResponseOutput) ToAudioResponseOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The bitrate, in bits per second, of the output encoded audio.
 func (o AudioResponseOutput) Bitrate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AudioResponse) *int { return v.Bitrate }).(pulumi.IntPtrOutput)
 }
 
-// The number of channels in the audio.
 func (o AudioResponseOutput) Channels() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AudioResponse) *int { return v.Channels }).(pulumi.IntPtrOutput)
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o AudioResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Audio'.
 func (o AudioResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AudioResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The sampling rate to use for encoding in hertz.
 func (o AudioResponseOutput) SamplingRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AudioResponse) *int { return v.SamplingRate }).(pulumi.IntPtrOutput)
 }
 
-// Describes a built-in preset for encoding the input video with the Standard Encoder.
 type BuiltInStandardEncoderPreset struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
-	OdataType string `pulumi:"odataType"`
-	// The built-in preset to be used for encoding videos.
+	OdataType  string `pulumi:"odataType"`
 	PresetName string `pulumi:"presetName"`
 }
 
@@ -1290,12 +1092,8 @@ type BuiltInStandardEncoderPresetInput interface {
 	ToBuiltInStandardEncoderPresetOutputWithContext(context.Context) BuiltInStandardEncoderPresetOutput
 }
 
-// Describes a built-in preset for encoding the input video with the Standard Encoder.
 type BuiltInStandardEncoderPresetArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The built-in preset to be used for encoding videos.
+	OdataType  pulumi.StringInput `pulumi:"odataType"`
 	PresetName pulumi.StringInput `pulumi:"presetName"`
 }
 
@@ -1311,7 +1109,6 @@ func (i BuiltInStandardEncoderPresetArgs) ToBuiltInStandardEncoderPresetOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BuiltInStandardEncoderPresetOutput)
 }
 
-// Describes a built-in preset for encoding the input video with the Standard Encoder.
 type BuiltInStandardEncoderPresetOutput struct{ *pulumi.OutputState }
 
 func (BuiltInStandardEncoderPresetOutput) ElementType() reflect.Type {
@@ -1326,23 +1123,16 @@ func (o BuiltInStandardEncoderPresetOutput) ToBuiltInStandardEncoderPresetOutput
 	return o
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
 func (o BuiltInStandardEncoderPresetOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v BuiltInStandardEncoderPreset) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The built-in preset to be used for encoding videos.
 func (o BuiltInStandardEncoderPresetOutput) PresetName() pulumi.StringOutput {
 	return o.ApplyT(func(v BuiltInStandardEncoderPreset) string { return v.PresetName }).(pulumi.StringOutput)
 }
 
-// Describes a built-in preset for encoding the input video with the Standard Encoder.
 type BuiltInStandardEncoderPresetResponse struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
-	OdataType string `pulumi:"odataType"`
-	// The built-in preset to be used for encoding videos.
+	OdataType  string `pulumi:"odataType"`
 	PresetName string `pulumi:"presetName"`
 }
 
@@ -1357,12 +1147,8 @@ type BuiltInStandardEncoderPresetResponseInput interface {
 	ToBuiltInStandardEncoderPresetResponseOutputWithContext(context.Context) BuiltInStandardEncoderPresetResponseOutput
 }
 
-// Describes a built-in preset for encoding the input video with the Standard Encoder.
 type BuiltInStandardEncoderPresetResponseArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The built-in preset to be used for encoding videos.
+	OdataType  pulumi.StringInput `pulumi:"odataType"`
 	PresetName pulumi.StringInput `pulumi:"presetName"`
 }
 
@@ -1378,7 +1164,6 @@ func (i BuiltInStandardEncoderPresetResponseArgs) ToBuiltInStandardEncoderPreset
 	return pulumi.ToOutputWithContext(ctx, i).(BuiltInStandardEncoderPresetResponseOutput)
 }
 
-// Describes a built-in preset for encoding the input video with the Standard Encoder.
 type BuiltInStandardEncoderPresetResponseOutput struct{ *pulumi.OutputState }
 
 func (BuiltInStandardEncoderPresetResponseOutput) ElementType() reflect.Type {
@@ -1393,25 +1178,18 @@ func (o BuiltInStandardEncoderPresetResponseOutput) ToBuiltInStandardEncoderPres
 	return o
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
 func (o BuiltInStandardEncoderPresetResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v BuiltInStandardEncoderPresetResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The built-in preset to be used for encoding videos.
 func (o BuiltInStandardEncoderPresetResponseOutput) PresetName() pulumi.StringOutput {
 	return o.ApplyT(func(v BuiltInStandardEncoderPresetResponse) string { return v.PresetName }).(pulumi.StringOutput)
 }
 
-// Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
 type CbcsDrmConfiguration struct {
-	// FairPlay configurations
-	FairPlay *StreamingPolicyFairPlayConfiguration `pulumi:"fairPlay"`
-	// PlayReady configurations
+	FairPlay  *StreamingPolicyFairPlayConfiguration  `pulumi:"fairPlay"`
 	PlayReady *StreamingPolicyPlayReadyConfiguration `pulumi:"playReady"`
-	// Widevine configurations
-	Widevine *StreamingPolicyWidevineConfiguration `pulumi:"widevine"`
+	Widevine  *StreamingPolicyWidevineConfiguration  `pulumi:"widevine"`
 }
 
 // CbcsDrmConfigurationInput is an input type that accepts CbcsDrmConfigurationArgs and CbcsDrmConfigurationOutput values.
@@ -1425,14 +1203,10 @@ type CbcsDrmConfigurationInput interface {
 	ToCbcsDrmConfigurationOutputWithContext(context.Context) CbcsDrmConfigurationOutput
 }
 
-// Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
 type CbcsDrmConfigurationArgs struct {
-	// FairPlay configurations
-	FairPlay StreamingPolicyFairPlayConfigurationPtrInput `pulumi:"fairPlay"`
-	// PlayReady configurations
+	FairPlay  StreamingPolicyFairPlayConfigurationPtrInput  `pulumi:"fairPlay"`
 	PlayReady StreamingPolicyPlayReadyConfigurationPtrInput `pulumi:"playReady"`
-	// Widevine configurations
-	Widevine StreamingPolicyWidevineConfigurationPtrInput `pulumi:"widevine"`
+	Widevine  StreamingPolicyWidevineConfigurationPtrInput  `pulumi:"widevine"`
 }
 
 func (CbcsDrmConfigurationArgs) ElementType() reflect.Type {
@@ -1488,7 +1262,6 @@ func (i *cbcsDrmConfigurationPtrType) ToCbcsDrmConfigurationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CbcsDrmConfigurationPtrOutput)
 }
 
-// Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
 type CbcsDrmConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CbcsDrmConfigurationOutput) ElementType() reflect.Type {
@@ -1508,22 +1281,19 @@ func (o CbcsDrmConfigurationOutput) ToCbcsDrmConfigurationPtrOutput() CbcsDrmCon
 }
 
 func (o CbcsDrmConfigurationOutput) ToCbcsDrmConfigurationPtrOutputWithContext(ctx context.Context) CbcsDrmConfigurationPtrOutput {
-	return o.ApplyT(func(v CbcsDrmConfiguration) *CbcsDrmConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CbcsDrmConfiguration) *CbcsDrmConfiguration {
 		return &v
 	}).(CbcsDrmConfigurationPtrOutput)
 }
 
-// FairPlay configurations
 func (o CbcsDrmConfigurationOutput) FairPlay() StreamingPolicyFairPlayConfigurationPtrOutput {
 	return o.ApplyT(func(v CbcsDrmConfiguration) *StreamingPolicyFairPlayConfiguration { return v.FairPlay }).(StreamingPolicyFairPlayConfigurationPtrOutput)
 }
 
-// PlayReady configurations
 func (o CbcsDrmConfigurationOutput) PlayReady() StreamingPolicyPlayReadyConfigurationPtrOutput {
 	return o.ApplyT(func(v CbcsDrmConfiguration) *StreamingPolicyPlayReadyConfiguration { return v.PlayReady }).(StreamingPolicyPlayReadyConfigurationPtrOutput)
 }
 
-// Widevine configurations
 func (o CbcsDrmConfigurationOutput) Widevine() StreamingPolicyWidevineConfigurationPtrOutput {
 	return o.ApplyT(func(v CbcsDrmConfiguration) *StreamingPolicyWidevineConfiguration { return v.Widevine }).(StreamingPolicyWidevineConfigurationPtrOutput)
 }
@@ -1543,10 +1313,15 @@ func (o CbcsDrmConfigurationPtrOutput) ToCbcsDrmConfigurationPtrOutputWithContex
 }
 
 func (o CbcsDrmConfigurationPtrOutput) Elem() CbcsDrmConfigurationOutput {
-	return o.ApplyT(func(v *CbcsDrmConfiguration) CbcsDrmConfiguration { return *v }).(CbcsDrmConfigurationOutput)
+	return o.ApplyT(func(v *CbcsDrmConfiguration) CbcsDrmConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CbcsDrmConfiguration
+		return ret
+	}).(CbcsDrmConfigurationOutput)
 }
 
-// FairPlay configurations
 func (o CbcsDrmConfigurationPtrOutput) FairPlay() StreamingPolicyFairPlayConfigurationPtrOutput {
 	return o.ApplyT(func(v *CbcsDrmConfiguration) *StreamingPolicyFairPlayConfiguration {
 		if v == nil {
@@ -1556,7 +1331,6 @@ func (o CbcsDrmConfigurationPtrOutput) FairPlay() StreamingPolicyFairPlayConfigu
 	}).(StreamingPolicyFairPlayConfigurationPtrOutput)
 }
 
-// PlayReady configurations
 func (o CbcsDrmConfigurationPtrOutput) PlayReady() StreamingPolicyPlayReadyConfigurationPtrOutput {
 	return o.ApplyT(func(v *CbcsDrmConfiguration) *StreamingPolicyPlayReadyConfiguration {
 		if v == nil {
@@ -1566,7 +1340,6 @@ func (o CbcsDrmConfigurationPtrOutput) PlayReady() StreamingPolicyPlayReadyConfi
 	}).(StreamingPolicyPlayReadyConfigurationPtrOutput)
 }
 
-// Widevine configurations
 func (o CbcsDrmConfigurationPtrOutput) Widevine() StreamingPolicyWidevineConfigurationPtrOutput {
 	return o.ApplyT(func(v *CbcsDrmConfiguration) *StreamingPolicyWidevineConfiguration {
 		if v == nil {
@@ -1576,14 +1349,10 @@ func (o CbcsDrmConfigurationPtrOutput) Widevine() StreamingPolicyWidevineConfigu
 	}).(StreamingPolicyWidevineConfigurationPtrOutput)
 }
 
-// Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
 type CbcsDrmConfigurationResponse struct {
-	// FairPlay configurations
-	FairPlay *StreamingPolicyFairPlayConfigurationResponse `pulumi:"fairPlay"`
-	// PlayReady configurations
+	FairPlay  *StreamingPolicyFairPlayConfigurationResponse  `pulumi:"fairPlay"`
 	PlayReady *StreamingPolicyPlayReadyConfigurationResponse `pulumi:"playReady"`
-	// Widevine configurations
-	Widevine *StreamingPolicyWidevineConfigurationResponse `pulumi:"widevine"`
+	Widevine  *StreamingPolicyWidevineConfigurationResponse  `pulumi:"widevine"`
 }
 
 // CbcsDrmConfigurationResponseInput is an input type that accepts CbcsDrmConfigurationResponseArgs and CbcsDrmConfigurationResponseOutput values.
@@ -1597,14 +1366,10 @@ type CbcsDrmConfigurationResponseInput interface {
 	ToCbcsDrmConfigurationResponseOutputWithContext(context.Context) CbcsDrmConfigurationResponseOutput
 }
 
-// Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
 type CbcsDrmConfigurationResponseArgs struct {
-	// FairPlay configurations
-	FairPlay StreamingPolicyFairPlayConfigurationResponsePtrInput `pulumi:"fairPlay"`
-	// PlayReady configurations
+	FairPlay  StreamingPolicyFairPlayConfigurationResponsePtrInput  `pulumi:"fairPlay"`
 	PlayReady StreamingPolicyPlayReadyConfigurationResponsePtrInput `pulumi:"playReady"`
-	// Widevine configurations
-	Widevine StreamingPolicyWidevineConfigurationResponsePtrInput `pulumi:"widevine"`
+	Widevine  StreamingPolicyWidevineConfigurationResponsePtrInput  `pulumi:"widevine"`
 }
 
 func (CbcsDrmConfigurationResponseArgs) ElementType() reflect.Type {
@@ -1660,7 +1425,6 @@ func (i *cbcsDrmConfigurationResponsePtrType) ToCbcsDrmConfigurationResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CbcsDrmConfigurationResponsePtrOutput)
 }
 
-// Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
 type CbcsDrmConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (CbcsDrmConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1680,24 +1444,21 @@ func (o CbcsDrmConfigurationResponseOutput) ToCbcsDrmConfigurationResponsePtrOut
 }
 
 func (o CbcsDrmConfigurationResponseOutput) ToCbcsDrmConfigurationResponsePtrOutputWithContext(ctx context.Context) CbcsDrmConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v CbcsDrmConfigurationResponse) *CbcsDrmConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CbcsDrmConfigurationResponse) *CbcsDrmConfigurationResponse {
 		return &v
 	}).(CbcsDrmConfigurationResponsePtrOutput)
 }
 
-// FairPlay configurations
 func (o CbcsDrmConfigurationResponseOutput) FairPlay() StreamingPolicyFairPlayConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v CbcsDrmConfigurationResponse) *StreamingPolicyFairPlayConfigurationResponse { return v.FairPlay }).(StreamingPolicyFairPlayConfigurationResponsePtrOutput)
 }
 
-// PlayReady configurations
 func (o CbcsDrmConfigurationResponseOutput) PlayReady() StreamingPolicyPlayReadyConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v CbcsDrmConfigurationResponse) *StreamingPolicyPlayReadyConfigurationResponse {
 		return v.PlayReady
 	}).(StreamingPolicyPlayReadyConfigurationResponsePtrOutput)
 }
 
-// Widevine configurations
 func (o CbcsDrmConfigurationResponseOutput) Widevine() StreamingPolicyWidevineConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v CbcsDrmConfigurationResponse) *StreamingPolicyWidevineConfigurationResponse { return v.Widevine }).(StreamingPolicyWidevineConfigurationResponsePtrOutput)
 }
@@ -1717,10 +1478,15 @@ func (o CbcsDrmConfigurationResponsePtrOutput) ToCbcsDrmConfigurationResponsePtr
 }
 
 func (o CbcsDrmConfigurationResponsePtrOutput) Elem() CbcsDrmConfigurationResponseOutput {
-	return o.ApplyT(func(v *CbcsDrmConfigurationResponse) CbcsDrmConfigurationResponse { return *v }).(CbcsDrmConfigurationResponseOutput)
+	return o.ApplyT(func(v *CbcsDrmConfigurationResponse) CbcsDrmConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CbcsDrmConfigurationResponse
+		return ret
+	}).(CbcsDrmConfigurationResponseOutput)
 }
 
-// FairPlay configurations
 func (o CbcsDrmConfigurationResponsePtrOutput) FairPlay() StreamingPolicyFairPlayConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *CbcsDrmConfigurationResponse) *StreamingPolicyFairPlayConfigurationResponse {
 		if v == nil {
@@ -1730,7 +1496,6 @@ func (o CbcsDrmConfigurationResponsePtrOutput) FairPlay() StreamingPolicyFairPla
 	}).(StreamingPolicyFairPlayConfigurationResponsePtrOutput)
 }
 
-// PlayReady configurations
 func (o CbcsDrmConfigurationResponsePtrOutput) PlayReady() StreamingPolicyPlayReadyConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *CbcsDrmConfigurationResponse) *StreamingPolicyPlayReadyConfigurationResponse {
 		if v == nil {
@@ -1740,7 +1505,6 @@ func (o CbcsDrmConfigurationResponsePtrOutput) PlayReady() StreamingPolicyPlayRe
 	}).(StreamingPolicyPlayReadyConfigurationResponsePtrOutput)
 }
 
-// Widevine configurations
 func (o CbcsDrmConfigurationResponsePtrOutput) Widevine() StreamingPolicyWidevineConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *CbcsDrmConfigurationResponse) *StreamingPolicyWidevineConfigurationResponse {
 		if v == nil {
@@ -1750,12 +1514,9 @@ func (o CbcsDrmConfigurationResponsePtrOutput) Widevine() StreamingPolicyWidevin
 	}).(StreamingPolicyWidevineConfigurationResponsePtrOutput)
 }
 
-// Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy
 type CencDrmConfiguration struct {
-	// PlayReady configurations
 	PlayReady *StreamingPolicyPlayReadyConfiguration `pulumi:"playReady"`
-	// Widevine configurations
-	Widevine *StreamingPolicyWidevineConfiguration `pulumi:"widevine"`
+	Widevine  *StreamingPolicyWidevineConfiguration  `pulumi:"widevine"`
 }
 
 // CencDrmConfigurationInput is an input type that accepts CencDrmConfigurationArgs and CencDrmConfigurationOutput values.
@@ -1769,12 +1530,9 @@ type CencDrmConfigurationInput interface {
 	ToCencDrmConfigurationOutputWithContext(context.Context) CencDrmConfigurationOutput
 }
 
-// Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy
 type CencDrmConfigurationArgs struct {
-	// PlayReady configurations
 	PlayReady StreamingPolicyPlayReadyConfigurationPtrInput `pulumi:"playReady"`
-	// Widevine configurations
-	Widevine StreamingPolicyWidevineConfigurationPtrInput `pulumi:"widevine"`
+	Widevine  StreamingPolicyWidevineConfigurationPtrInput  `pulumi:"widevine"`
 }
 
 func (CencDrmConfigurationArgs) ElementType() reflect.Type {
@@ -1830,7 +1588,6 @@ func (i *cencDrmConfigurationPtrType) ToCencDrmConfigurationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CencDrmConfigurationPtrOutput)
 }
 
-// Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy
 type CencDrmConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CencDrmConfigurationOutput) ElementType() reflect.Type {
@@ -1850,17 +1607,15 @@ func (o CencDrmConfigurationOutput) ToCencDrmConfigurationPtrOutput() CencDrmCon
 }
 
 func (o CencDrmConfigurationOutput) ToCencDrmConfigurationPtrOutputWithContext(ctx context.Context) CencDrmConfigurationPtrOutput {
-	return o.ApplyT(func(v CencDrmConfiguration) *CencDrmConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CencDrmConfiguration) *CencDrmConfiguration {
 		return &v
 	}).(CencDrmConfigurationPtrOutput)
 }
 
-// PlayReady configurations
 func (o CencDrmConfigurationOutput) PlayReady() StreamingPolicyPlayReadyConfigurationPtrOutput {
 	return o.ApplyT(func(v CencDrmConfiguration) *StreamingPolicyPlayReadyConfiguration { return v.PlayReady }).(StreamingPolicyPlayReadyConfigurationPtrOutput)
 }
 
-// Widevine configurations
 func (o CencDrmConfigurationOutput) Widevine() StreamingPolicyWidevineConfigurationPtrOutput {
 	return o.ApplyT(func(v CencDrmConfiguration) *StreamingPolicyWidevineConfiguration { return v.Widevine }).(StreamingPolicyWidevineConfigurationPtrOutput)
 }
@@ -1880,10 +1635,15 @@ func (o CencDrmConfigurationPtrOutput) ToCencDrmConfigurationPtrOutputWithContex
 }
 
 func (o CencDrmConfigurationPtrOutput) Elem() CencDrmConfigurationOutput {
-	return o.ApplyT(func(v *CencDrmConfiguration) CencDrmConfiguration { return *v }).(CencDrmConfigurationOutput)
+	return o.ApplyT(func(v *CencDrmConfiguration) CencDrmConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CencDrmConfiguration
+		return ret
+	}).(CencDrmConfigurationOutput)
 }
 
-// PlayReady configurations
 func (o CencDrmConfigurationPtrOutput) PlayReady() StreamingPolicyPlayReadyConfigurationPtrOutput {
 	return o.ApplyT(func(v *CencDrmConfiguration) *StreamingPolicyPlayReadyConfiguration {
 		if v == nil {
@@ -1893,7 +1653,6 @@ func (o CencDrmConfigurationPtrOutput) PlayReady() StreamingPolicyPlayReadyConfi
 	}).(StreamingPolicyPlayReadyConfigurationPtrOutput)
 }
 
-// Widevine configurations
 func (o CencDrmConfigurationPtrOutput) Widevine() StreamingPolicyWidevineConfigurationPtrOutput {
 	return o.ApplyT(func(v *CencDrmConfiguration) *StreamingPolicyWidevineConfiguration {
 		if v == nil {
@@ -1903,12 +1662,9 @@ func (o CencDrmConfigurationPtrOutput) Widevine() StreamingPolicyWidevineConfigu
 	}).(StreamingPolicyWidevineConfigurationPtrOutput)
 }
 
-// Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy
 type CencDrmConfigurationResponse struct {
-	// PlayReady configurations
 	PlayReady *StreamingPolicyPlayReadyConfigurationResponse `pulumi:"playReady"`
-	// Widevine configurations
-	Widevine *StreamingPolicyWidevineConfigurationResponse `pulumi:"widevine"`
+	Widevine  *StreamingPolicyWidevineConfigurationResponse  `pulumi:"widevine"`
 }
 
 // CencDrmConfigurationResponseInput is an input type that accepts CencDrmConfigurationResponseArgs and CencDrmConfigurationResponseOutput values.
@@ -1922,12 +1678,9 @@ type CencDrmConfigurationResponseInput interface {
 	ToCencDrmConfigurationResponseOutputWithContext(context.Context) CencDrmConfigurationResponseOutput
 }
 
-// Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy
 type CencDrmConfigurationResponseArgs struct {
-	// PlayReady configurations
 	PlayReady StreamingPolicyPlayReadyConfigurationResponsePtrInput `pulumi:"playReady"`
-	// Widevine configurations
-	Widevine StreamingPolicyWidevineConfigurationResponsePtrInput `pulumi:"widevine"`
+	Widevine  StreamingPolicyWidevineConfigurationResponsePtrInput  `pulumi:"widevine"`
 }
 
 func (CencDrmConfigurationResponseArgs) ElementType() reflect.Type {
@@ -1983,7 +1736,6 @@ func (i *cencDrmConfigurationResponsePtrType) ToCencDrmConfigurationResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CencDrmConfigurationResponsePtrOutput)
 }
 
-// Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy
 type CencDrmConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (CencDrmConfigurationResponseOutput) ElementType() reflect.Type {
@@ -2003,19 +1755,17 @@ func (o CencDrmConfigurationResponseOutput) ToCencDrmConfigurationResponsePtrOut
 }
 
 func (o CencDrmConfigurationResponseOutput) ToCencDrmConfigurationResponsePtrOutputWithContext(ctx context.Context) CencDrmConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v CencDrmConfigurationResponse) *CencDrmConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CencDrmConfigurationResponse) *CencDrmConfigurationResponse {
 		return &v
 	}).(CencDrmConfigurationResponsePtrOutput)
 }
 
-// PlayReady configurations
 func (o CencDrmConfigurationResponseOutput) PlayReady() StreamingPolicyPlayReadyConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v CencDrmConfigurationResponse) *StreamingPolicyPlayReadyConfigurationResponse {
 		return v.PlayReady
 	}).(StreamingPolicyPlayReadyConfigurationResponsePtrOutput)
 }
 
-// Widevine configurations
 func (o CencDrmConfigurationResponseOutput) Widevine() StreamingPolicyWidevineConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v CencDrmConfigurationResponse) *StreamingPolicyWidevineConfigurationResponse { return v.Widevine }).(StreamingPolicyWidevineConfigurationResponsePtrOutput)
 }
@@ -2035,10 +1785,15 @@ func (o CencDrmConfigurationResponsePtrOutput) ToCencDrmConfigurationResponsePtr
 }
 
 func (o CencDrmConfigurationResponsePtrOutput) Elem() CencDrmConfigurationResponseOutput {
-	return o.ApplyT(func(v *CencDrmConfigurationResponse) CencDrmConfigurationResponse { return *v }).(CencDrmConfigurationResponseOutput)
+	return o.ApplyT(func(v *CencDrmConfigurationResponse) CencDrmConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CencDrmConfigurationResponse
+		return ret
+	}).(CencDrmConfigurationResponseOutput)
 }
 
-// PlayReady configurations
 func (o CencDrmConfigurationResponsePtrOutput) PlayReady() StreamingPolicyPlayReadyConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *CencDrmConfigurationResponse) *StreamingPolicyPlayReadyConfigurationResponse {
 		if v == nil {
@@ -2048,7 +1803,6 @@ func (o CencDrmConfigurationResponsePtrOutput) PlayReady() StreamingPolicyPlayRe
 	}).(StreamingPolicyPlayReadyConfigurationResponsePtrOutput)
 }
 
-// Widevine configurations
 func (o CencDrmConfigurationResponsePtrOutput) Widevine() StreamingPolicyWidevineConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *CencDrmConfigurationResponse) *StreamingPolicyWidevineConfigurationResponse {
 		if v == nil {
@@ -2058,16 +1812,11 @@ func (o CencDrmConfigurationResponsePtrOutput) Widevine() StreamingPolicyWidevin
 	}).(StreamingPolicyWidevineConfigurationResponsePtrOutput)
 }
 
-// Class for CommonEncryptionCbcs encryption scheme
 type CommonEncryptionCbcs struct {
-	// Representing which tracks should not be encrypted
-	ClearTracks []TrackSelection `pulumi:"clearTracks"`
-	// Representing default content key for each encryption scheme and separate content keys for specific tracks
-	ContentKeys *StreamingPolicyContentKeys `pulumi:"contentKeys"`
-	// Configuration of DRMs for current encryption scheme
-	Drm *CbcsDrmConfiguration `pulumi:"drm"`
-	// Representing supported protocols
-	EnabledProtocols *EnabledProtocols `pulumi:"enabledProtocols"`
+	ClearTracks      []TrackSelection            `pulumi:"clearTracks"`
+	ContentKeys      *StreamingPolicyContentKeys `pulumi:"contentKeys"`
+	Drm              *CbcsDrmConfiguration       `pulumi:"drm"`
+	EnabledProtocols *EnabledProtocols           `pulumi:"enabledProtocols"`
 }
 
 // CommonEncryptionCbcsInput is an input type that accepts CommonEncryptionCbcsArgs and CommonEncryptionCbcsOutput values.
@@ -2081,16 +1830,11 @@ type CommonEncryptionCbcsInput interface {
 	ToCommonEncryptionCbcsOutputWithContext(context.Context) CommonEncryptionCbcsOutput
 }
 
-// Class for CommonEncryptionCbcs encryption scheme
 type CommonEncryptionCbcsArgs struct {
-	// Representing which tracks should not be encrypted
-	ClearTracks TrackSelectionArrayInput `pulumi:"clearTracks"`
-	// Representing default content key for each encryption scheme and separate content keys for specific tracks
-	ContentKeys StreamingPolicyContentKeysPtrInput `pulumi:"contentKeys"`
-	// Configuration of DRMs for current encryption scheme
-	Drm CbcsDrmConfigurationPtrInput `pulumi:"drm"`
-	// Representing supported protocols
-	EnabledProtocols EnabledProtocolsPtrInput `pulumi:"enabledProtocols"`
+	ClearTracks      TrackSelectionArrayInput           `pulumi:"clearTracks"`
+	ContentKeys      StreamingPolicyContentKeysPtrInput `pulumi:"contentKeys"`
+	Drm              CbcsDrmConfigurationPtrInput       `pulumi:"drm"`
+	EnabledProtocols EnabledProtocolsPtrInput           `pulumi:"enabledProtocols"`
 }
 
 func (CommonEncryptionCbcsArgs) ElementType() reflect.Type {
@@ -2146,7 +1890,6 @@ func (i *commonEncryptionCbcsPtrType) ToCommonEncryptionCbcsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CommonEncryptionCbcsPtrOutput)
 }
 
-// Class for CommonEncryptionCbcs encryption scheme
 type CommonEncryptionCbcsOutput struct{ *pulumi.OutputState }
 
 func (CommonEncryptionCbcsOutput) ElementType() reflect.Type {
@@ -2166,27 +1909,23 @@ func (o CommonEncryptionCbcsOutput) ToCommonEncryptionCbcsPtrOutput() CommonEncr
 }
 
 func (o CommonEncryptionCbcsOutput) ToCommonEncryptionCbcsPtrOutputWithContext(ctx context.Context) CommonEncryptionCbcsPtrOutput {
-	return o.ApplyT(func(v CommonEncryptionCbcs) *CommonEncryptionCbcs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommonEncryptionCbcs) *CommonEncryptionCbcs {
 		return &v
 	}).(CommonEncryptionCbcsPtrOutput)
 }
 
-// Representing which tracks should not be encrypted
 func (o CommonEncryptionCbcsOutput) ClearTracks() TrackSelectionArrayOutput {
 	return o.ApplyT(func(v CommonEncryptionCbcs) []TrackSelection { return v.ClearTracks }).(TrackSelectionArrayOutput)
 }
 
-// Representing default content key for each encryption scheme and separate content keys for specific tracks
 func (o CommonEncryptionCbcsOutput) ContentKeys() StreamingPolicyContentKeysPtrOutput {
 	return o.ApplyT(func(v CommonEncryptionCbcs) *StreamingPolicyContentKeys { return v.ContentKeys }).(StreamingPolicyContentKeysPtrOutput)
 }
 
-// Configuration of DRMs for current encryption scheme
 func (o CommonEncryptionCbcsOutput) Drm() CbcsDrmConfigurationPtrOutput {
 	return o.ApplyT(func(v CommonEncryptionCbcs) *CbcsDrmConfiguration { return v.Drm }).(CbcsDrmConfigurationPtrOutput)
 }
 
-// Representing supported protocols
 func (o CommonEncryptionCbcsOutput) EnabledProtocols() EnabledProtocolsPtrOutput {
 	return o.ApplyT(func(v CommonEncryptionCbcs) *EnabledProtocols { return v.EnabledProtocols }).(EnabledProtocolsPtrOutput)
 }
@@ -2206,10 +1945,15 @@ func (o CommonEncryptionCbcsPtrOutput) ToCommonEncryptionCbcsPtrOutputWithContex
 }
 
 func (o CommonEncryptionCbcsPtrOutput) Elem() CommonEncryptionCbcsOutput {
-	return o.ApplyT(func(v *CommonEncryptionCbcs) CommonEncryptionCbcs { return *v }).(CommonEncryptionCbcsOutput)
+	return o.ApplyT(func(v *CommonEncryptionCbcs) CommonEncryptionCbcs {
+		if v != nil {
+			return *v
+		}
+		var ret CommonEncryptionCbcs
+		return ret
+	}).(CommonEncryptionCbcsOutput)
 }
 
-// Representing which tracks should not be encrypted
 func (o CommonEncryptionCbcsPtrOutput) ClearTracks() TrackSelectionArrayOutput {
 	return o.ApplyT(func(v *CommonEncryptionCbcs) []TrackSelection {
 		if v == nil {
@@ -2219,7 +1963,6 @@ func (o CommonEncryptionCbcsPtrOutput) ClearTracks() TrackSelectionArrayOutput {
 	}).(TrackSelectionArrayOutput)
 }
 
-// Representing default content key for each encryption scheme and separate content keys for specific tracks
 func (o CommonEncryptionCbcsPtrOutput) ContentKeys() StreamingPolicyContentKeysPtrOutput {
 	return o.ApplyT(func(v *CommonEncryptionCbcs) *StreamingPolicyContentKeys {
 		if v == nil {
@@ -2229,7 +1972,6 @@ func (o CommonEncryptionCbcsPtrOutput) ContentKeys() StreamingPolicyContentKeysP
 	}).(StreamingPolicyContentKeysPtrOutput)
 }
 
-// Configuration of DRMs for current encryption scheme
 func (o CommonEncryptionCbcsPtrOutput) Drm() CbcsDrmConfigurationPtrOutput {
 	return o.ApplyT(func(v *CommonEncryptionCbcs) *CbcsDrmConfiguration {
 		if v == nil {
@@ -2239,7 +1981,6 @@ func (o CommonEncryptionCbcsPtrOutput) Drm() CbcsDrmConfigurationPtrOutput {
 	}).(CbcsDrmConfigurationPtrOutput)
 }
 
-// Representing supported protocols
 func (o CommonEncryptionCbcsPtrOutput) EnabledProtocols() EnabledProtocolsPtrOutput {
 	return o.ApplyT(func(v *CommonEncryptionCbcs) *EnabledProtocols {
 		if v == nil {
@@ -2249,16 +1990,11 @@ func (o CommonEncryptionCbcsPtrOutput) EnabledProtocols() EnabledProtocolsPtrOut
 	}).(EnabledProtocolsPtrOutput)
 }
 
-// Class for CommonEncryptionCbcs encryption scheme
 type CommonEncryptionCbcsResponse struct {
-	// Representing which tracks should not be encrypted
-	ClearTracks []TrackSelectionResponse `pulumi:"clearTracks"`
-	// Representing default content key for each encryption scheme and separate content keys for specific tracks
-	ContentKeys *StreamingPolicyContentKeysResponse `pulumi:"contentKeys"`
-	// Configuration of DRMs for current encryption scheme
-	Drm *CbcsDrmConfigurationResponse `pulumi:"drm"`
-	// Representing supported protocols
-	EnabledProtocols *EnabledProtocolsResponse `pulumi:"enabledProtocols"`
+	ClearTracks      []TrackSelectionResponse            `pulumi:"clearTracks"`
+	ContentKeys      *StreamingPolicyContentKeysResponse `pulumi:"contentKeys"`
+	Drm              *CbcsDrmConfigurationResponse       `pulumi:"drm"`
+	EnabledProtocols *EnabledProtocolsResponse           `pulumi:"enabledProtocols"`
 }
 
 // CommonEncryptionCbcsResponseInput is an input type that accepts CommonEncryptionCbcsResponseArgs and CommonEncryptionCbcsResponseOutput values.
@@ -2272,16 +2008,11 @@ type CommonEncryptionCbcsResponseInput interface {
 	ToCommonEncryptionCbcsResponseOutputWithContext(context.Context) CommonEncryptionCbcsResponseOutput
 }
 
-// Class for CommonEncryptionCbcs encryption scheme
 type CommonEncryptionCbcsResponseArgs struct {
-	// Representing which tracks should not be encrypted
-	ClearTracks TrackSelectionResponseArrayInput `pulumi:"clearTracks"`
-	// Representing default content key for each encryption scheme and separate content keys for specific tracks
-	ContentKeys StreamingPolicyContentKeysResponsePtrInput `pulumi:"contentKeys"`
-	// Configuration of DRMs for current encryption scheme
-	Drm CbcsDrmConfigurationResponsePtrInput `pulumi:"drm"`
-	// Representing supported protocols
-	EnabledProtocols EnabledProtocolsResponsePtrInput `pulumi:"enabledProtocols"`
+	ClearTracks      TrackSelectionResponseArrayInput           `pulumi:"clearTracks"`
+	ContentKeys      StreamingPolicyContentKeysResponsePtrInput `pulumi:"contentKeys"`
+	Drm              CbcsDrmConfigurationResponsePtrInput       `pulumi:"drm"`
+	EnabledProtocols EnabledProtocolsResponsePtrInput           `pulumi:"enabledProtocols"`
 }
 
 func (CommonEncryptionCbcsResponseArgs) ElementType() reflect.Type {
@@ -2337,7 +2068,6 @@ func (i *commonEncryptionCbcsResponsePtrType) ToCommonEncryptionCbcsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CommonEncryptionCbcsResponsePtrOutput)
 }
 
-// Class for CommonEncryptionCbcs encryption scheme
 type CommonEncryptionCbcsResponseOutput struct{ *pulumi.OutputState }
 
 func (CommonEncryptionCbcsResponseOutput) ElementType() reflect.Type {
@@ -2357,27 +2087,23 @@ func (o CommonEncryptionCbcsResponseOutput) ToCommonEncryptionCbcsResponsePtrOut
 }
 
 func (o CommonEncryptionCbcsResponseOutput) ToCommonEncryptionCbcsResponsePtrOutputWithContext(ctx context.Context) CommonEncryptionCbcsResponsePtrOutput {
-	return o.ApplyT(func(v CommonEncryptionCbcsResponse) *CommonEncryptionCbcsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommonEncryptionCbcsResponse) *CommonEncryptionCbcsResponse {
 		return &v
 	}).(CommonEncryptionCbcsResponsePtrOutput)
 }
 
-// Representing which tracks should not be encrypted
 func (o CommonEncryptionCbcsResponseOutput) ClearTracks() TrackSelectionResponseArrayOutput {
 	return o.ApplyT(func(v CommonEncryptionCbcsResponse) []TrackSelectionResponse { return v.ClearTracks }).(TrackSelectionResponseArrayOutput)
 }
 
-// Representing default content key for each encryption scheme and separate content keys for specific tracks
 func (o CommonEncryptionCbcsResponseOutput) ContentKeys() StreamingPolicyContentKeysResponsePtrOutput {
 	return o.ApplyT(func(v CommonEncryptionCbcsResponse) *StreamingPolicyContentKeysResponse { return v.ContentKeys }).(StreamingPolicyContentKeysResponsePtrOutput)
 }
 
-// Configuration of DRMs for current encryption scheme
 func (o CommonEncryptionCbcsResponseOutput) Drm() CbcsDrmConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v CommonEncryptionCbcsResponse) *CbcsDrmConfigurationResponse { return v.Drm }).(CbcsDrmConfigurationResponsePtrOutput)
 }
 
-// Representing supported protocols
 func (o CommonEncryptionCbcsResponseOutput) EnabledProtocols() EnabledProtocolsResponsePtrOutput {
 	return o.ApplyT(func(v CommonEncryptionCbcsResponse) *EnabledProtocolsResponse { return v.EnabledProtocols }).(EnabledProtocolsResponsePtrOutput)
 }
@@ -2397,10 +2123,15 @@ func (o CommonEncryptionCbcsResponsePtrOutput) ToCommonEncryptionCbcsResponsePtr
 }
 
 func (o CommonEncryptionCbcsResponsePtrOutput) Elem() CommonEncryptionCbcsResponseOutput {
-	return o.ApplyT(func(v *CommonEncryptionCbcsResponse) CommonEncryptionCbcsResponse { return *v }).(CommonEncryptionCbcsResponseOutput)
+	return o.ApplyT(func(v *CommonEncryptionCbcsResponse) CommonEncryptionCbcsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CommonEncryptionCbcsResponse
+		return ret
+	}).(CommonEncryptionCbcsResponseOutput)
 }
 
-// Representing which tracks should not be encrypted
 func (o CommonEncryptionCbcsResponsePtrOutput) ClearTracks() TrackSelectionResponseArrayOutput {
 	return o.ApplyT(func(v *CommonEncryptionCbcsResponse) []TrackSelectionResponse {
 		if v == nil {
@@ -2410,7 +2141,6 @@ func (o CommonEncryptionCbcsResponsePtrOutput) ClearTracks() TrackSelectionRespo
 	}).(TrackSelectionResponseArrayOutput)
 }
 
-// Representing default content key for each encryption scheme and separate content keys for specific tracks
 func (o CommonEncryptionCbcsResponsePtrOutput) ContentKeys() StreamingPolicyContentKeysResponsePtrOutput {
 	return o.ApplyT(func(v *CommonEncryptionCbcsResponse) *StreamingPolicyContentKeysResponse {
 		if v == nil {
@@ -2420,7 +2150,6 @@ func (o CommonEncryptionCbcsResponsePtrOutput) ContentKeys() StreamingPolicyCont
 	}).(StreamingPolicyContentKeysResponsePtrOutput)
 }
 
-// Configuration of DRMs for current encryption scheme
 func (o CommonEncryptionCbcsResponsePtrOutput) Drm() CbcsDrmConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *CommonEncryptionCbcsResponse) *CbcsDrmConfigurationResponse {
 		if v == nil {
@@ -2430,7 +2159,6 @@ func (o CommonEncryptionCbcsResponsePtrOutput) Drm() CbcsDrmConfigurationRespons
 	}).(CbcsDrmConfigurationResponsePtrOutput)
 }
 
-// Representing supported protocols
 func (o CommonEncryptionCbcsResponsePtrOutput) EnabledProtocols() EnabledProtocolsResponsePtrOutput {
 	return o.ApplyT(func(v *CommonEncryptionCbcsResponse) *EnabledProtocolsResponse {
 		if v == nil {
@@ -2440,16 +2168,11 @@ func (o CommonEncryptionCbcsResponsePtrOutput) EnabledProtocols() EnabledProtoco
 	}).(EnabledProtocolsResponsePtrOutput)
 }
 
-// Class for envelope encryption scheme
 type CommonEncryptionCenc struct {
-	// Representing which tracks should not be encrypted
-	ClearTracks []TrackSelection `pulumi:"clearTracks"`
-	// Representing default content key for each encryption scheme and separate content keys for specific tracks
-	ContentKeys *StreamingPolicyContentKeys `pulumi:"contentKeys"`
-	// Configuration of DRMs for CommonEncryptionCenc encryption scheme
-	Drm *CencDrmConfiguration `pulumi:"drm"`
-	// Representing supported protocols
-	EnabledProtocols *EnabledProtocols `pulumi:"enabledProtocols"`
+	ClearTracks      []TrackSelection            `pulumi:"clearTracks"`
+	ContentKeys      *StreamingPolicyContentKeys `pulumi:"contentKeys"`
+	Drm              *CencDrmConfiguration       `pulumi:"drm"`
+	EnabledProtocols *EnabledProtocols           `pulumi:"enabledProtocols"`
 }
 
 // CommonEncryptionCencInput is an input type that accepts CommonEncryptionCencArgs and CommonEncryptionCencOutput values.
@@ -2463,16 +2186,11 @@ type CommonEncryptionCencInput interface {
 	ToCommonEncryptionCencOutputWithContext(context.Context) CommonEncryptionCencOutput
 }
 
-// Class for envelope encryption scheme
 type CommonEncryptionCencArgs struct {
-	// Representing which tracks should not be encrypted
-	ClearTracks TrackSelectionArrayInput `pulumi:"clearTracks"`
-	// Representing default content key for each encryption scheme and separate content keys for specific tracks
-	ContentKeys StreamingPolicyContentKeysPtrInput `pulumi:"contentKeys"`
-	// Configuration of DRMs for CommonEncryptionCenc encryption scheme
-	Drm CencDrmConfigurationPtrInput `pulumi:"drm"`
-	// Representing supported protocols
-	EnabledProtocols EnabledProtocolsPtrInput `pulumi:"enabledProtocols"`
+	ClearTracks      TrackSelectionArrayInput           `pulumi:"clearTracks"`
+	ContentKeys      StreamingPolicyContentKeysPtrInput `pulumi:"contentKeys"`
+	Drm              CencDrmConfigurationPtrInput       `pulumi:"drm"`
+	EnabledProtocols EnabledProtocolsPtrInput           `pulumi:"enabledProtocols"`
 }
 
 func (CommonEncryptionCencArgs) ElementType() reflect.Type {
@@ -2528,7 +2246,6 @@ func (i *commonEncryptionCencPtrType) ToCommonEncryptionCencPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CommonEncryptionCencPtrOutput)
 }
 
-// Class for envelope encryption scheme
 type CommonEncryptionCencOutput struct{ *pulumi.OutputState }
 
 func (CommonEncryptionCencOutput) ElementType() reflect.Type {
@@ -2548,27 +2265,23 @@ func (o CommonEncryptionCencOutput) ToCommonEncryptionCencPtrOutput() CommonEncr
 }
 
 func (o CommonEncryptionCencOutput) ToCommonEncryptionCencPtrOutputWithContext(ctx context.Context) CommonEncryptionCencPtrOutput {
-	return o.ApplyT(func(v CommonEncryptionCenc) *CommonEncryptionCenc {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommonEncryptionCenc) *CommonEncryptionCenc {
 		return &v
 	}).(CommonEncryptionCencPtrOutput)
 }
 
-// Representing which tracks should not be encrypted
 func (o CommonEncryptionCencOutput) ClearTracks() TrackSelectionArrayOutput {
 	return o.ApplyT(func(v CommonEncryptionCenc) []TrackSelection { return v.ClearTracks }).(TrackSelectionArrayOutput)
 }
 
-// Representing default content key for each encryption scheme and separate content keys for specific tracks
 func (o CommonEncryptionCencOutput) ContentKeys() StreamingPolicyContentKeysPtrOutput {
 	return o.ApplyT(func(v CommonEncryptionCenc) *StreamingPolicyContentKeys { return v.ContentKeys }).(StreamingPolicyContentKeysPtrOutput)
 }
 
-// Configuration of DRMs for CommonEncryptionCenc encryption scheme
 func (o CommonEncryptionCencOutput) Drm() CencDrmConfigurationPtrOutput {
 	return o.ApplyT(func(v CommonEncryptionCenc) *CencDrmConfiguration { return v.Drm }).(CencDrmConfigurationPtrOutput)
 }
 
-// Representing supported protocols
 func (o CommonEncryptionCencOutput) EnabledProtocols() EnabledProtocolsPtrOutput {
 	return o.ApplyT(func(v CommonEncryptionCenc) *EnabledProtocols { return v.EnabledProtocols }).(EnabledProtocolsPtrOutput)
 }
@@ -2588,10 +2301,15 @@ func (o CommonEncryptionCencPtrOutput) ToCommonEncryptionCencPtrOutputWithContex
 }
 
 func (o CommonEncryptionCencPtrOutput) Elem() CommonEncryptionCencOutput {
-	return o.ApplyT(func(v *CommonEncryptionCenc) CommonEncryptionCenc { return *v }).(CommonEncryptionCencOutput)
+	return o.ApplyT(func(v *CommonEncryptionCenc) CommonEncryptionCenc {
+		if v != nil {
+			return *v
+		}
+		var ret CommonEncryptionCenc
+		return ret
+	}).(CommonEncryptionCencOutput)
 }
 
-// Representing which tracks should not be encrypted
 func (o CommonEncryptionCencPtrOutput) ClearTracks() TrackSelectionArrayOutput {
 	return o.ApplyT(func(v *CommonEncryptionCenc) []TrackSelection {
 		if v == nil {
@@ -2601,7 +2319,6 @@ func (o CommonEncryptionCencPtrOutput) ClearTracks() TrackSelectionArrayOutput {
 	}).(TrackSelectionArrayOutput)
 }
 
-// Representing default content key for each encryption scheme and separate content keys for specific tracks
 func (o CommonEncryptionCencPtrOutput) ContentKeys() StreamingPolicyContentKeysPtrOutput {
 	return o.ApplyT(func(v *CommonEncryptionCenc) *StreamingPolicyContentKeys {
 		if v == nil {
@@ -2611,7 +2328,6 @@ func (o CommonEncryptionCencPtrOutput) ContentKeys() StreamingPolicyContentKeysP
 	}).(StreamingPolicyContentKeysPtrOutput)
 }
 
-// Configuration of DRMs for CommonEncryptionCenc encryption scheme
 func (o CommonEncryptionCencPtrOutput) Drm() CencDrmConfigurationPtrOutput {
 	return o.ApplyT(func(v *CommonEncryptionCenc) *CencDrmConfiguration {
 		if v == nil {
@@ -2621,7 +2337,6 @@ func (o CommonEncryptionCencPtrOutput) Drm() CencDrmConfigurationPtrOutput {
 	}).(CencDrmConfigurationPtrOutput)
 }
 
-// Representing supported protocols
 func (o CommonEncryptionCencPtrOutput) EnabledProtocols() EnabledProtocolsPtrOutput {
 	return o.ApplyT(func(v *CommonEncryptionCenc) *EnabledProtocols {
 		if v == nil {
@@ -2631,16 +2346,11 @@ func (o CommonEncryptionCencPtrOutput) EnabledProtocols() EnabledProtocolsPtrOut
 	}).(EnabledProtocolsPtrOutput)
 }
 
-// Class for envelope encryption scheme
 type CommonEncryptionCencResponse struct {
-	// Representing which tracks should not be encrypted
-	ClearTracks []TrackSelectionResponse `pulumi:"clearTracks"`
-	// Representing default content key for each encryption scheme and separate content keys for specific tracks
-	ContentKeys *StreamingPolicyContentKeysResponse `pulumi:"contentKeys"`
-	// Configuration of DRMs for CommonEncryptionCenc encryption scheme
-	Drm *CencDrmConfigurationResponse `pulumi:"drm"`
-	// Representing supported protocols
-	EnabledProtocols *EnabledProtocolsResponse `pulumi:"enabledProtocols"`
+	ClearTracks      []TrackSelectionResponse            `pulumi:"clearTracks"`
+	ContentKeys      *StreamingPolicyContentKeysResponse `pulumi:"contentKeys"`
+	Drm              *CencDrmConfigurationResponse       `pulumi:"drm"`
+	EnabledProtocols *EnabledProtocolsResponse           `pulumi:"enabledProtocols"`
 }
 
 // CommonEncryptionCencResponseInput is an input type that accepts CommonEncryptionCencResponseArgs and CommonEncryptionCencResponseOutput values.
@@ -2654,16 +2364,11 @@ type CommonEncryptionCencResponseInput interface {
 	ToCommonEncryptionCencResponseOutputWithContext(context.Context) CommonEncryptionCencResponseOutput
 }
 
-// Class for envelope encryption scheme
 type CommonEncryptionCencResponseArgs struct {
-	// Representing which tracks should not be encrypted
-	ClearTracks TrackSelectionResponseArrayInput `pulumi:"clearTracks"`
-	// Representing default content key for each encryption scheme and separate content keys for specific tracks
-	ContentKeys StreamingPolicyContentKeysResponsePtrInput `pulumi:"contentKeys"`
-	// Configuration of DRMs for CommonEncryptionCenc encryption scheme
-	Drm CencDrmConfigurationResponsePtrInput `pulumi:"drm"`
-	// Representing supported protocols
-	EnabledProtocols EnabledProtocolsResponsePtrInput `pulumi:"enabledProtocols"`
+	ClearTracks      TrackSelectionResponseArrayInput           `pulumi:"clearTracks"`
+	ContentKeys      StreamingPolicyContentKeysResponsePtrInput `pulumi:"contentKeys"`
+	Drm              CencDrmConfigurationResponsePtrInput       `pulumi:"drm"`
+	EnabledProtocols EnabledProtocolsResponsePtrInput           `pulumi:"enabledProtocols"`
 }
 
 func (CommonEncryptionCencResponseArgs) ElementType() reflect.Type {
@@ -2719,7 +2424,6 @@ func (i *commonEncryptionCencResponsePtrType) ToCommonEncryptionCencResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CommonEncryptionCencResponsePtrOutput)
 }
 
-// Class for envelope encryption scheme
 type CommonEncryptionCencResponseOutput struct{ *pulumi.OutputState }
 
 func (CommonEncryptionCencResponseOutput) ElementType() reflect.Type {
@@ -2739,27 +2443,23 @@ func (o CommonEncryptionCencResponseOutput) ToCommonEncryptionCencResponsePtrOut
 }
 
 func (o CommonEncryptionCencResponseOutput) ToCommonEncryptionCencResponsePtrOutputWithContext(ctx context.Context) CommonEncryptionCencResponsePtrOutput {
-	return o.ApplyT(func(v CommonEncryptionCencResponse) *CommonEncryptionCencResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommonEncryptionCencResponse) *CommonEncryptionCencResponse {
 		return &v
 	}).(CommonEncryptionCencResponsePtrOutput)
 }
 
-// Representing which tracks should not be encrypted
 func (o CommonEncryptionCencResponseOutput) ClearTracks() TrackSelectionResponseArrayOutput {
 	return o.ApplyT(func(v CommonEncryptionCencResponse) []TrackSelectionResponse { return v.ClearTracks }).(TrackSelectionResponseArrayOutput)
 }
 
-// Representing default content key for each encryption scheme and separate content keys for specific tracks
 func (o CommonEncryptionCencResponseOutput) ContentKeys() StreamingPolicyContentKeysResponsePtrOutput {
 	return o.ApplyT(func(v CommonEncryptionCencResponse) *StreamingPolicyContentKeysResponse { return v.ContentKeys }).(StreamingPolicyContentKeysResponsePtrOutput)
 }
 
-// Configuration of DRMs for CommonEncryptionCenc encryption scheme
 func (o CommonEncryptionCencResponseOutput) Drm() CencDrmConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v CommonEncryptionCencResponse) *CencDrmConfigurationResponse { return v.Drm }).(CencDrmConfigurationResponsePtrOutput)
 }
 
-// Representing supported protocols
 func (o CommonEncryptionCencResponseOutput) EnabledProtocols() EnabledProtocolsResponsePtrOutput {
 	return o.ApplyT(func(v CommonEncryptionCencResponse) *EnabledProtocolsResponse { return v.EnabledProtocols }).(EnabledProtocolsResponsePtrOutput)
 }
@@ -2779,10 +2479,15 @@ func (o CommonEncryptionCencResponsePtrOutput) ToCommonEncryptionCencResponsePtr
 }
 
 func (o CommonEncryptionCencResponsePtrOutput) Elem() CommonEncryptionCencResponseOutput {
-	return o.ApplyT(func(v *CommonEncryptionCencResponse) CommonEncryptionCencResponse { return *v }).(CommonEncryptionCencResponseOutput)
+	return o.ApplyT(func(v *CommonEncryptionCencResponse) CommonEncryptionCencResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CommonEncryptionCencResponse
+		return ret
+	}).(CommonEncryptionCencResponseOutput)
 }
 
-// Representing which tracks should not be encrypted
 func (o CommonEncryptionCencResponsePtrOutput) ClearTracks() TrackSelectionResponseArrayOutput {
 	return o.ApplyT(func(v *CommonEncryptionCencResponse) []TrackSelectionResponse {
 		if v == nil {
@@ -2792,7 +2497,6 @@ func (o CommonEncryptionCencResponsePtrOutput) ClearTracks() TrackSelectionRespo
 	}).(TrackSelectionResponseArrayOutput)
 }
 
-// Representing default content key for each encryption scheme and separate content keys for specific tracks
 func (o CommonEncryptionCencResponsePtrOutput) ContentKeys() StreamingPolicyContentKeysResponsePtrOutput {
 	return o.ApplyT(func(v *CommonEncryptionCencResponse) *StreamingPolicyContentKeysResponse {
 		if v == nil {
@@ -2802,7 +2506,6 @@ func (o CommonEncryptionCencResponsePtrOutput) ContentKeys() StreamingPolicyCont
 	}).(StreamingPolicyContentKeysResponsePtrOutput)
 }
 
-// Configuration of DRMs for CommonEncryptionCenc encryption scheme
 func (o CommonEncryptionCencResponsePtrOutput) Drm() CencDrmConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *CommonEncryptionCencResponse) *CencDrmConfigurationResponse {
 		if v == nil {
@@ -2812,7 +2515,6 @@ func (o CommonEncryptionCencResponsePtrOutput) Drm() CencDrmConfigurationRespons
 	}).(CencDrmConfigurationResponsePtrOutput)
 }
 
-// Representing supported protocols
 func (o CommonEncryptionCencResponsePtrOutput) EnabledProtocols() EnabledProtocolsResponsePtrOutput {
 	return o.ApplyT(func(v *CommonEncryptionCencResponse) *EnabledProtocolsResponse {
 		if v == nil {
@@ -2822,10 +2524,7 @@ func (o CommonEncryptionCencResponsePtrOutput) EnabledProtocols() EnabledProtoco
 	}).(EnabledProtocolsResponsePtrOutput)
 }
 
-// Represents a configuration for non-DRM keys.
 type ContentKeyPolicyClearKeyConfiguration struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -2840,10 +2539,7 @@ type ContentKeyPolicyClearKeyConfigurationInput interface {
 	ToContentKeyPolicyClearKeyConfigurationOutputWithContext(context.Context) ContentKeyPolicyClearKeyConfigurationOutput
 }
 
-// Represents a configuration for non-DRM keys.
 type ContentKeyPolicyClearKeyConfigurationArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -2859,7 +2555,6 @@ func (i ContentKeyPolicyClearKeyConfigurationArgs) ToContentKeyPolicyClearKeyCon
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyClearKeyConfigurationOutput)
 }
 
-// Represents a configuration for non-DRM keys.
 type ContentKeyPolicyClearKeyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyClearKeyConfigurationOutput) ElementType() reflect.Type {
@@ -2874,16 +2569,11 @@ func (o ContentKeyPolicyClearKeyConfigurationOutput) ToContentKeyPolicyClearKeyC
 	return o
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
 func (o ContentKeyPolicyClearKeyConfigurationOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyClearKeyConfiguration) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Represents a configuration for non-DRM keys.
 type ContentKeyPolicyClearKeyConfigurationResponse struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -2898,10 +2588,7 @@ type ContentKeyPolicyClearKeyConfigurationResponseInput interface {
 	ToContentKeyPolicyClearKeyConfigurationResponseOutputWithContext(context.Context) ContentKeyPolicyClearKeyConfigurationResponseOutput
 }
 
-// Represents a configuration for non-DRM keys.
 type ContentKeyPolicyClearKeyConfigurationResponseArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -2917,7 +2604,6 @@ func (i ContentKeyPolicyClearKeyConfigurationResponseArgs) ToContentKeyPolicyCle
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyClearKeyConfigurationResponseOutput)
 }
 
-// Represents a configuration for non-DRM keys.
 type ContentKeyPolicyClearKeyConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyClearKeyConfigurationResponseOutput) ElementType() reflect.Type {
@@ -2932,27 +2618,17 @@ func (o ContentKeyPolicyClearKeyConfigurationResponseOutput) ToContentKeyPolicyC
 	return o
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
 func (o ContentKeyPolicyClearKeyConfigurationResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyClearKeyConfigurationResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Specifies a configuration for FairPlay licenses.
 type ContentKeyPolicyFairPlayConfiguration struct {
-	// The key that must be used as FairPlay ASk.
-	Ask string `pulumi:"ask"`
-	// The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
-	FairPlayPfx string `pulumi:"fairPlayPfx"`
-	// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
-	FairPlayPfxPassword string `pulumi:"fairPlayPfxPassword"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
-	OdataType string `pulumi:"odataType"`
-	// The rental and lease key type.
-	RentalAndLeaseKeyType string `pulumi:"rentalAndLeaseKeyType"`
-	// The rental duration. Must be greater than or equal to 0.
-	RentalDuration float64 `pulumi:"rentalDuration"`
+	Ask                   string  `pulumi:"ask"`
+	FairPlayPfx           string  `pulumi:"fairPlayPfx"`
+	FairPlayPfxPassword   string  `pulumi:"fairPlayPfxPassword"`
+	OdataType             string  `pulumi:"odataType"`
+	RentalAndLeaseKeyType string  `pulumi:"rentalAndLeaseKeyType"`
+	RentalDuration        float64 `pulumi:"rentalDuration"`
 }
 
 // ContentKeyPolicyFairPlayConfigurationInput is an input type that accepts ContentKeyPolicyFairPlayConfigurationArgs and ContentKeyPolicyFairPlayConfigurationOutput values.
@@ -2966,21 +2642,13 @@ type ContentKeyPolicyFairPlayConfigurationInput interface {
 	ToContentKeyPolicyFairPlayConfigurationOutputWithContext(context.Context) ContentKeyPolicyFairPlayConfigurationOutput
 }
 
-// Specifies a configuration for FairPlay licenses.
 type ContentKeyPolicyFairPlayConfigurationArgs struct {
-	// The key that must be used as FairPlay ASk.
-	Ask pulumi.StringInput `pulumi:"ask"`
-	// The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
-	FairPlayPfx pulumi.StringInput `pulumi:"fairPlayPfx"`
-	// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
-	FairPlayPfxPassword pulumi.StringInput `pulumi:"fairPlayPfxPassword"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The rental and lease key type.
-	RentalAndLeaseKeyType pulumi.StringInput `pulumi:"rentalAndLeaseKeyType"`
-	// The rental duration. Must be greater than or equal to 0.
-	RentalDuration pulumi.Float64Input `pulumi:"rentalDuration"`
+	Ask                   pulumi.StringInput  `pulumi:"ask"`
+	FairPlayPfx           pulumi.StringInput  `pulumi:"fairPlayPfx"`
+	FairPlayPfxPassword   pulumi.StringInput  `pulumi:"fairPlayPfxPassword"`
+	OdataType             pulumi.StringInput  `pulumi:"odataType"`
+	RentalAndLeaseKeyType pulumi.StringInput  `pulumi:"rentalAndLeaseKeyType"`
+	RentalDuration        pulumi.Float64Input `pulumi:"rentalDuration"`
 }
 
 func (ContentKeyPolicyFairPlayConfigurationArgs) ElementType() reflect.Type {
@@ -2995,7 +2663,6 @@ func (i ContentKeyPolicyFairPlayConfigurationArgs) ToContentKeyPolicyFairPlayCon
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyFairPlayConfigurationOutput)
 }
 
-// Specifies a configuration for FairPlay licenses.
 type ContentKeyPolicyFairPlayConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyFairPlayConfigurationOutput) ElementType() reflect.Type {
@@ -3010,52 +2677,37 @@ func (o ContentKeyPolicyFairPlayConfigurationOutput) ToContentKeyPolicyFairPlayC
 	return o
 }
 
-// The key that must be used as FairPlay ASk.
 func (o ContentKeyPolicyFairPlayConfigurationOutput) Ask() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfiguration) string { return v.Ask }).(pulumi.StringOutput)
 }
 
-// The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
 func (o ContentKeyPolicyFairPlayConfigurationOutput) FairPlayPfx() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfiguration) string { return v.FairPlayPfx }).(pulumi.StringOutput)
 }
 
-// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
 func (o ContentKeyPolicyFairPlayConfigurationOutput) FairPlayPfxPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfiguration) string { return v.FairPlayPfxPassword }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
 func (o ContentKeyPolicyFairPlayConfigurationOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfiguration) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The rental and lease key type.
 func (o ContentKeyPolicyFairPlayConfigurationOutput) RentalAndLeaseKeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfiguration) string { return v.RentalAndLeaseKeyType }).(pulumi.StringOutput)
 }
 
-// The rental duration. Must be greater than or equal to 0.
 func (o ContentKeyPolicyFairPlayConfigurationOutput) RentalDuration() pulumi.Float64Output {
 	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfiguration) float64 { return v.RentalDuration }).(pulumi.Float64Output)
 }
 
-// Specifies a configuration for FairPlay licenses.
 type ContentKeyPolicyFairPlayConfigurationResponse struct {
-	// The key that must be used as FairPlay ASk.
-	Ask string `pulumi:"ask"`
-	// The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
-	FairPlayPfx string `pulumi:"fairPlayPfx"`
-	// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
-	FairPlayPfxPassword string `pulumi:"fairPlayPfxPassword"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
-	OdataType string `pulumi:"odataType"`
-	// The rental and lease key type.
-	RentalAndLeaseKeyType string `pulumi:"rentalAndLeaseKeyType"`
-	// The rental duration. Must be greater than or equal to 0.
-	RentalDuration float64 `pulumi:"rentalDuration"`
+	Ask                   string  `pulumi:"ask"`
+	FairPlayPfx           string  `pulumi:"fairPlayPfx"`
+	FairPlayPfxPassword   string  `pulumi:"fairPlayPfxPassword"`
+	OdataType             string  `pulumi:"odataType"`
+	RentalAndLeaseKeyType string  `pulumi:"rentalAndLeaseKeyType"`
+	RentalDuration        float64 `pulumi:"rentalDuration"`
 }
 
 // ContentKeyPolicyFairPlayConfigurationResponseInput is an input type that accepts ContentKeyPolicyFairPlayConfigurationResponseArgs and ContentKeyPolicyFairPlayConfigurationResponseOutput values.
@@ -3069,21 +2721,13 @@ type ContentKeyPolicyFairPlayConfigurationResponseInput interface {
 	ToContentKeyPolicyFairPlayConfigurationResponseOutputWithContext(context.Context) ContentKeyPolicyFairPlayConfigurationResponseOutput
 }
 
-// Specifies a configuration for FairPlay licenses.
 type ContentKeyPolicyFairPlayConfigurationResponseArgs struct {
-	// The key that must be used as FairPlay ASk.
-	Ask pulumi.StringInput `pulumi:"ask"`
-	// The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
-	FairPlayPfx pulumi.StringInput `pulumi:"fairPlayPfx"`
-	// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
-	FairPlayPfxPassword pulumi.StringInput `pulumi:"fairPlayPfxPassword"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The rental and lease key type.
-	RentalAndLeaseKeyType pulumi.StringInput `pulumi:"rentalAndLeaseKeyType"`
-	// The rental duration. Must be greater than or equal to 0.
-	RentalDuration pulumi.Float64Input `pulumi:"rentalDuration"`
+	Ask                   pulumi.StringInput  `pulumi:"ask"`
+	FairPlayPfx           pulumi.StringInput  `pulumi:"fairPlayPfx"`
+	FairPlayPfxPassword   pulumi.StringInput  `pulumi:"fairPlayPfxPassword"`
+	OdataType             pulumi.StringInput  `pulumi:"odataType"`
+	RentalAndLeaseKeyType pulumi.StringInput  `pulumi:"rentalAndLeaseKeyType"`
+	RentalDuration        pulumi.Float64Input `pulumi:"rentalDuration"`
 }
 
 func (ContentKeyPolicyFairPlayConfigurationResponseArgs) ElementType() reflect.Type {
@@ -3098,7 +2742,6 @@ func (i ContentKeyPolicyFairPlayConfigurationResponseArgs) ToContentKeyPolicyFai
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyFairPlayConfigurationResponseOutput)
 }
 
-// Specifies a configuration for FairPlay licenses.
 type ContentKeyPolicyFairPlayConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyFairPlayConfigurationResponseOutput) ElementType() reflect.Type {
@@ -3113,41 +2756,31 @@ func (o ContentKeyPolicyFairPlayConfigurationResponseOutput) ToContentKeyPolicyF
 	return o
 }
 
-// The key that must be used as FairPlay ASk.
 func (o ContentKeyPolicyFairPlayConfigurationResponseOutput) Ask() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationResponse) string { return v.Ask }).(pulumi.StringOutput)
 }
 
-// The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
 func (o ContentKeyPolicyFairPlayConfigurationResponseOutput) FairPlayPfx() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationResponse) string { return v.FairPlayPfx }).(pulumi.StringOutput)
 }
 
-// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
 func (o ContentKeyPolicyFairPlayConfigurationResponseOutput) FairPlayPfxPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationResponse) string { return v.FairPlayPfxPassword }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
 func (o ContentKeyPolicyFairPlayConfigurationResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The rental and lease key type.
 func (o ContentKeyPolicyFairPlayConfigurationResponseOutput) RentalAndLeaseKeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationResponse) string { return v.RentalAndLeaseKeyType }).(pulumi.StringOutput)
 }
 
-// The rental duration. Must be greater than or equal to 0.
 func (o ContentKeyPolicyFairPlayConfigurationResponseOutput) RentalDuration() pulumi.Float64Output {
 	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationResponse) float64 { return v.RentalDuration }).(pulumi.Float64Output)
 }
 
-// Represents an open restriction. License or key will be delivered on every request.
 type ContentKeyPolicyOpenRestriction struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -3162,10 +2795,7 @@ type ContentKeyPolicyOpenRestrictionInput interface {
 	ToContentKeyPolicyOpenRestrictionOutputWithContext(context.Context) ContentKeyPolicyOpenRestrictionOutput
 }
 
-// Represents an open restriction. License or key will be delivered on every request.
 type ContentKeyPolicyOpenRestrictionArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -3181,7 +2811,6 @@ func (i ContentKeyPolicyOpenRestrictionArgs) ToContentKeyPolicyOpenRestrictionOu
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyOpenRestrictionOutput)
 }
 
-// Represents an open restriction. License or key will be delivered on every request.
 type ContentKeyPolicyOpenRestrictionOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyOpenRestrictionOutput) ElementType() reflect.Type {
@@ -3196,16 +2825,11 @@ func (o ContentKeyPolicyOpenRestrictionOutput) ToContentKeyPolicyOpenRestriction
 	return o
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
 func (o ContentKeyPolicyOpenRestrictionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOpenRestriction) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Represents an open restriction. License or key will be delivered on every request.
 type ContentKeyPolicyOpenRestrictionResponse struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -3220,10 +2844,7 @@ type ContentKeyPolicyOpenRestrictionResponseInput interface {
 	ToContentKeyPolicyOpenRestrictionResponseOutputWithContext(context.Context) ContentKeyPolicyOpenRestrictionResponseOutput
 }
 
-// Represents an open restriction. License or key will be delivered on every request.
 type ContentKeyPolicyOpenRestrictionResponseArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -3239,7 +2860,6 @@ func (i ContentKeyPolicyOpenRestrictionResponseArgs) ToContentKeyPolicyOpenRestr
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyOpenRestrictionResponseOutput)
 }
 
-// Represents an open restriction. License or key will be delivered on every request.
 type ContentKeyPolicyOpenRestrictionResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyOpenRestrictionResponseOutput) ElementType() reflect.Type {
@@ -3254,20 +2874,14 @@ func (o ContentKeyPolicyOpenRestrictionResponseOutput) ToContentKeyPolicyOpenRes
 	return o
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
 func (o ContentKeyPolicyOpenRestrictionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOpenRestrictionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Represents a policy option.
 type ContentKeyPolicyOption struct {
-	// The key delivery configuration.
 	Configuration interface{} `pulumi:"configuration"`
-	// The Policy Option description.
-	Name *string `pulumi:"name"`
-	// The requirements that must be met to deliver keys with this configuration
-	Restriction interface{} `pulumi:"restriction"`
+	Name          *string     `pulumi:"name"`
+	Restriction   interface{} `pulumi:"restriction"`
 }
 
 // ContentKeyPolicyOptionInput is an input type that accepts ContentKeyPolicyOptionArgs and ContentKeyPolicyOptionOutput values.
@@ -3281,14 +2895,10 @@ type ContentKeyPolicyOptionInput interface {
 	ToContentKeyPolicyOptionOutputWithContext(context.Context) ContentKeyPolicyOptionOutput
 }
 
-// Represents a policy option.
 type ContentKeyPolicyOptionArgs struct {
-	// The key delivery configuration.
-	Configuration pulumi.Input `pulumi:"configuration"`
-	// The Policy Option description.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The requirements that must be met to deliver keys with this configuration
-	Restriction pulumi.Input `pulumi:"restriction"`
+	Configuration pulumi.Input          `pulumi:"configuration"`
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Restriction   pulumi.Input          `pulumi:"restriction"`
 }
 
 func (ContentKeyPolicyOptionArgs) ElementType() reflect.Type {
@@ -3328,7 +2938,6 @@ func (i ContentKeyPolicyOptionArray) ToContentKeyPolicyOptionArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyOptionArrayOutput)
 }
 
-// Represents a policy option.
 type ContentKeyPolicyOptionOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyOptionOutput) ElementType() reflect.Type {
@@ -3343,17 +2952,14 @@ func (o ContentKeyPolicyOptionOutput) ToContentKeyPolicyOptionOutputWithContext(
 	return o
 }
 
-// The key delivery configuration.
 func (o ContentKeyPolicyOptionOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOption) interface{} { return v.Configuration }).(pulumi.AnyOutput)
 }
 
-// The Policy Option description.
 func (o ContentKeyPolicyOptionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOption) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The requirements that must be met to deliver keys with this configuration
 func (o ContentKeyPolicyOptionOutput) Restriction() pulumi.AnyOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOption) interface{} { return v.Restriction }).(pulumi.AnyOutput)
 }
@@ -3378,16 +2984,11 @@ func (o ContentKeyPolicyOptionArrayOutput) Index(i pulumi.IntInput) ContentKeyPo
 	}).(ContentKeyPolicyOptionOutput)
 }
 
-// Represents a policy option.
 type ContentKeyPolicyOptionResponse struct {
-	// The key delivery configuration.
-	Configuration interface{} `pulumi:"configuration"`
-	// The Policy Option description.
-	Name *string `pulumi:"name"`
-	// The legacy Policy Option ID.
-	PolicyOptionId string `pulumi:"policyOptionId"`
-	// The requirements that must be met to deliver keys with this configuration
-	Restriction interface{} `pulumi:"restriction"`
+	Configuration  interface{} `pulumi:"configuration"`
+	Name           *string     `pulumi:"name"`
+	PolicyOptionId string      `pulumi:"policyOptionId"`
+	Restriction    interface{} `pulumi:"restriction"`
 }
 
 // ContentKeyPolicyOptionResponseInput is an input type that accepts ContentKeyPolicyOptionResponseArgs and ContentKeyPolicyOptionResponseOutput values.
@@ -3401,16 +3002,11 @@ type ContentKeyPolicyOptionResponseInput interface {
 	ToContentKeyPolicyOptionResponseOutputWithContext(context.Context) ContentKeyPolicyOptionResponseOutput
 }
 
-// Represents a policy option.
 type ContentKeyPolicyOptionResponseArgs struct {
-	// The key delivery configuration.
-	Configuration pulumi.Input `pulumi:"configuration"`
-	// The Policy Option description.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The legacy Policy Option ID.
-	PolicyOptionId pulumi.StringInput `pulumi:"policyOptionId"`
-	// The requirements that must be met to deliver keys with this configuration
-	Restriction pulumi.Input `pulumi:"restriction"`
+	Configuration  pulumi.Input          `pulumi:"configuration"`
+	Name           pulumi.StringPtrInput `pulumi:"name"`
+	PolicyOptionId pulumi.StringInput    `pulumi:"policyOptionId"`
+	Restriction    pulumi.Input          `pulumi:"restriction"`
 }
 
 func (ContentKeyPolicyOptionResponseArgs) ElementType() reflect.Type {
@@ -3450,7 +3046,6 @@ func (i ContentKeyPolicyOptionResponseArray) ToContentKeyPolicyOptionResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyOptionResponseArrayOutput)
 }
 
-// Represents a policy option.
 type ContentKeyPolicyOptionResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyOptionResponseOutput) ElementType() reflect.Type {
@@ -3465,22 +3060,18 @@ func (o ContentKeyPolicyOptionResponseOutput) ToContentKeyPolicyOptionResponseOu
 	return o
 }
 
-// The key delivery configuration.
 func (o ContentKeyPolicyOptionResponseOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOptionResponse) interface{} { return v.Configuration }).(pulumi.AnyOutput)
 }
 
-// The Policy Option description.
 func (o ContentKeyPolicyOptionResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOptionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The legacy Policy Option ID.
 func (o ContentKeyPolicyOptionResponseOutput) PolicyOptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOptionResponse) string { return v.PolicyOptionId }).(pulumi.StringOutput)
 }
 
-// The requirements that must be met to deliver keys with this configuration
 func (o ContentKeyPolicyOptionResponseOutput) Restriction() pulumi.AnyOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOptionResponse) interface{} { return v.Restriction }).(pulumi.AnyOutput)
 }
@@ -3505,15 +3096,10 @@ func (o ContentKeyPolicyOptionResponseArrayOutput) Index(i pulumi.IntInput) Cont
 	}).(ContentKeyPolicyOptionResponseOutput)
 }
 
-// Specifies a configuration for PlayReady licenses.
 type ContentKeyPolicyPlayReadyConfiguration struct {
-	// The PlayReady licenses.
-	Licenses []ContentKeyPolicyPlayReadyLicense `pulumi:"licenses"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
-	OdataType string `pulumi:"odataType"`
-	// The custom response data.
-	ResponseCustomData *string `pulumi:"responseCustomData"`
+	Licenses           []ContentKeyPolicyPlayReadyLicense `pulumi:"licenses"`
+	OdataType          string                             `pulumi:"odataType"`
+	ResponseCustomData *string                            `pulumi:"responseCustomData"`
 }
 
 // ContentKeyPolicyPlayReadyConfigurationInput is an input type that accepts ContentKeyPolicyPlayReadyConfigurationArgs and ContentKeyPolicyPlayReadyConfigurationOutput values.
@@ -3527,15 +3113,10 @@ type ContentKeyPolicyPlayReadyConfigurationInput interface {
 	ToContentKeyPolicyPlayReadyConfigurationOutputWithContext(context.Context) ContentKeyPolicyPlayReadyConfigurationOutput
 }
 
-// Specifies a configuration for PlayReady licenses.
 type ContentKeyPolicyPlayReadyConfigurationArgs struct {
-	// The PlayReady licenses.
-	Licenses ContentKeyPolicyPlayReadyLicenseArrayInput `pulumi:"licenses"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The custom response data.
-	ResponseCustomData pulumi.StringPtrInput `pulumi:"responseCustomData"`
+	Licenses           ContentKeyPolicyPlayReadyLicenseArrayInput `pulumi:"licenses"`
+	OdataType          pulumi.StringInput                         `pulumi:"odataType"`
+	ResponseCustomData pulumi.StringPtrInput                      `pulumi:"responseCustomData"`
 }
 
 func (ContentKeyPolicyPlayReadyConfigurationArgs) ElementType() reflect.Type {
@@ -3550,7 +3131,6 @@ func (i ContentKeyPolicyPlayReadyConfigurationArgs) ToContentKeyPolicyPlayReadyC
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyConfigurationOutput)
 }
 
-// Specifies a configuration for PlayReady licenses.
 type ContentKeyPolicyPlayReadyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPlayReadyConfigurationOutput) ElementType() reflect.Type {
@@ -3565,31 +3145,22 @@ func (o ContentKeyPolicyPlayReadyConfigurationOutput) ToContentKeyPolicyPlayRead
 	return o
 }
 
-// The PlayReady licenses.
 func (o ContentKeyPolicyPlayReadyConfigurationOutput) Licenses() ContentKeyPolicyPlayReadyLicenseArrayOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyConfiguration) []ContentKeyPolicyPlayReadyLicense { return v.Licenses }).(ContentKeyPolicyPlayReadyLicenseArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
 func (o ContentKeyPolicyPlayReadyConfigurationOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyConfiguration) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The custom response data.
 func (o ContentKeyPolicyPlayReadyConfigurationOutput) ResponseCustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyConfiguration) *string { return v.ResponseCustomData }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a configuration for PlayReady licenses.
 type ContentKeyPolicyPlayReadyConfigurationResponse struct {
-	// The PlayReady licenses.
-	Licenses []ContentKeyPolicyPlayReadyLicenseResponse `pulumi:"licenses"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
-	OdataType string `pulumi:"odataType"`
-	// The custom response data.
-	ResponseCustomData *string `pulumi:"responseCustomData"`
+	Licenses           []ContentKeyPolicyPlayReadyLicenseResponse `pulumi:"licenses"`
+	OdataType          string                                     `pulumi:"odataType"`
+	ResponseCustomData *string                                    `pulumi:"responseCustomData"`
 }
 
 // ContentKeyPolicyPlayReadyConfigurationResponseInput is an input type that accepts ContentKeyPolicyPlayReadyConfigurationResponseArgs and ContentKeyPolicyPlayReadyConfigurationResponseOutput values.
@@ -3603,15 +3174,10 @@ type ContentKeyPolicyPlayReadyConfigurationResponseInput interface {
 	ToContentKeyPolicyPlayReadyConfigurationResponseOutputWithContext(context.Context) ContentKeyPolicyPlayReadyConfigurationResponseOutput
 }
 
-// Specifies a configuration for PlayReady licenses.
 type ContentKeyPolicyPlayReadyConfigurationResponseArgs struct {
-	// The PlayReady licenses.
-	Licenses ContentKeyPolicyPlayReadyLicenseResponseArrayInput `pulumi:"licenses"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The custom response data.
-	ResponseCustomData pulumi.StringPtrInput `pulumi:"responseCustomData"`
+	Licenses           ContentKeyPolicyPlayReadyLicenseResponseArrayInput `pulumi:"licenses"`
+	OdataType          pulumi.StringInput                                 `pulumi:"odataType"`
+	ResponseCustomData pulumi.StringPtrInput                              `pulumi:"responseCustomData"`
 }
 
 func (ContentKeyPolicyPlayReadyConfigurationResponseArgs) ElementType() reflect.Type {
@@ -3626,7 +3192,6 @@ func (i ContentKeyPolicyPlayReadyConfigurationResponseArgs) ToContentKeyPolicyPl
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyConfigurationResponseOutput)
 }
 
-// Specifies a configuration for PlayReady licenses.
 type ContentKeyPolicyPlayReadyConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPlayReadyConfigurationResponseOutput) ElementType() reflect.Type {
@@ -3641,28 +3206,21 @@ func (o ContentKeyPolicyPlayReadyConfigurationResponseOutput) ToContentKeyPolicy
 	return o
 }
 
-// The PlayReady licenses.
 func (o ContentKeyPolicyPlayReadyConfigurationResponseOutput) Licenses() ContentKeyPolicyPlayReadyLicenseResponseArrayOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyConfigurationResponse) []ContentKeyPolicyPlayReadyLicenseResponse {
 		return v.Licenses
 	}).(ContentKeyPolicyPlayReadyLicenseResponseArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
 func (o ContentKeyPolicyPlayReadyConfigurationResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyConfigurationResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The custom response data.
 func (o ContentKeyPolicyPlayReadyConfigurationResponseOutput) ResponseCustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyConfigurationResponse) *string { return v.ResponseCustomData }).(pulumi.StringPtrOutput)
 }
 
-// Specifies that the content key ID is in the PlayReady header.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -3677,10 +3235,7 @@ type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInput interface {
 	ToContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderOutputWithContext(context.Context) ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderOutput
 }
 
-// Specifies that the content key ID is in the PlayReady header.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -3696,7 +3251,6 @@ func (i ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgs) ToContentKe
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderOutput)
 }
 
-// Specifies that the content key ID is in the PlayReady header.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderOutput) ElementType() reflect.Type {
@@ -3711,16 +3265,11 @@ func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderOutput) ToContent
 	return o
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
 func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Specifies that the content key ID is in the PlayReady header.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -3735,10 +3284,7 @@ type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseInput interf
 	ToContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseOutputWithContext(context.Context) ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseOutput
 }
 
-// Specifies that the content key ID is in the PlayReady header.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -3754,7 +3300,6 @@ func (i ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseArgs) ToC
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseOutput)
 }
 
-// Specifies that the content key ID is in the PlayReady header.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseOutput) ElementType() reflect.Type {
@@ -3769,18 +3314,12 @@ func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseOutput) T
 	return o
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
 func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Specifies that the content key ID is specified in the PlayReady configuration.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier struct {
-	// The content key ID.
-	KeyId string `pulumi:"keyId"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
+	KeyId     string `pulumi:"keyId"`
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -3795,12 +3334,8 @@ type ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInput interfa
 	ToContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierOutputWithContext(context.Context) ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierOutput
 }
 
-// Specifies that the content key ID is specified in the PlayReady configuration.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgs struct {
-	// The content key ID.
-	KeyId pulumi.StringInput `pulumi:"keyId"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
+	KeyId     pulumi.StringInput `pulumi:"keyId"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -3816,7 +3351,6 @@ func (i ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgs) ToCo
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierOutput)
 }
 
-// Specifies that the content key ID is specified in the PlayReady configuration.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierOutput) ElementType() reflect.Type {
@@ -3831,23 +3365,16 @@ func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierOutput) To
 	return o
 }
 
-// The content key ID.
 func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier) string { return v.KeyId }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
 func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Specifies that the content key ID is specified in the PlayReady configuration.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse struct {
-	// The content key ID.
-	KeyId string `pulumi:"keyId"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
+	KeyId     string `pulumi:"keyId"`
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -3862,12 +3389,8 @@ type ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseInput
 	ToContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseOutputWithContext(context.Context) ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseOutput
 }
 
-// Specifies that the content key ID is specified in the PlayReady configuration.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseArgs struct {
-	// The content key ID.
-	KeyId pulumi.StringInput `pulumi:"keyId"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
+	KeyId     pulumi.StringInput `pulumi:"keyId"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -3883,7 +3406,6 @@ func (i ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseAr
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseOutput)
 }
 
-// Specifies that the content key ID is specified in the PlayReady configuration.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseOutput) ElementType() reflect.Type {
@@ -3898,25 +3420,19 @@ func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseOu
 	return o
 }
 
-// The content key ID.
 func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse) string { return v.KeyId }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
 func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse) string {
 		return v.OdataType
 	}).(pulumi.StringOutput)
 }
 
-// Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.
 type ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction struct {
-	// Indicates whether this restriction is enforced on a Best Effort basis.
-	BestEffort bool `pulumi:"bestEffort"`
-	// Configures the restriction control bits. Must be between 0 and 3 inclusive.
-	ConfigurationData int `pulumi:"configurationData"`
+	BestEffort        bool `pulumi:"bestEffort"`
+	ConfigurationData int  `pulumi:"configurationData"`
 }
 
 // ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInput is an input type that accepts ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgs and ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionOutput values.
@@ -3930,12 +3446,9 @@ type ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInput interface
 	ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionOutputWithContext(context.Context) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionOutput
 }
 
-// Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.
 type ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgs struct {
-	// Indicates whether this restriction is enforced on a Best Effort basis.
-	BestEffort pulumi.BoolInput `pulumi:"bestEffort"`
-	// Configures the restriction control bits. Must be between 0 and 3 inclusive.
-	ConfigurationData pulumi.IntInput `pulumi:"configurationData"`
+	BestEffort        pulumi.BoolInput `pulumi:"bestEffort"`
+	ConfigurationData pulumi.IntInput  `pulumi:"configurationData"`
 }
 
 func (ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgs) ElementType() reflect.Type {
@@ -3991,7 +3504,6 @@ func (i *contentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrType) To
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput)
 }
 
-// Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.
 type ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionOutput) ElementType() reflect.Type {
@@ -4011,17 +3523,15 @@ func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionOutput) ToCo
 }
 
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionOutput) ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput {
-	return o.ApplyT(func(v ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction) *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction) *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction {
 		return &v
 	}).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput)
 }
 
-// Indicates whether this restriction is enforced on a Best Effort basis.
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionOutput) BestEffort() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction) bool { return v.BestEffort }).(pulumi.BoolOutput)
 }
 
-// Configures the restriction control bits. Must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionOutput) ConfigurationData() pulumi.IntOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction) int { return v.ConfigurationData }).(pulumi.IntOutput)
 }
@@ -4042,11 +3552,14 @@ func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput) T
 
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput) Elem() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction
+		return ret
 	}).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionOutput)
 }
 
-// Indicates whether this restriction is enforced on a Best Effort basis.
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput) BestEffort() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction) *bool {
 		if v == nil {
@@ -4056,7 +3569,6 @@ func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput) B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Configures the restriction control bits. Must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput) ConfigurationData() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction) *int {
 		if v == nil {
@@ -4066,12 +3578,9 @@ func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput) C
 	}).(pulumi.IntPtrOutput)
 }
 
-// Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.
 type ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse struct {
-	// Indicates whether this restriction is enforced on a Best Effort basis.
-	BestEffort bool `pulumi:"bestEffort"`
-	// Configures the restriction control bits. Must be between 0 and 3 inclusive.
-	ConfigurationData int `pulumi:"configurationData"`
+	BestEffort        bool `pulumi:"bestEffort"`
+	ConfigurationData int  `pulumi:"configurationData"`
 }
 
 // ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseInput is an input type that accepts ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseArgs and ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseOutput values.
@@ -4085,12 +3594,9 @@ type ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseInput i
 	ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseOutputWithContext(context.Context) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseOutput
 }
 
-// Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.
 type ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseArgs struct {
-	// Indicates whether this restriction is enforced on a Best Effort basis.
-	BestEffort pulumi.BoolInput `pulumi:"bestEffort"`
-	// Configures the restriction control bits. Must be between 0 and 3 inclusive.
-	ConfigurationData pulumi.IntInput `pulumi:"configurationData"`
+	BestEffort        pulumi.BoolInput `pulumi:"bestEffort"`
+	ConfigurationData pulumi.IntInput  `pulumi:"configurationData"`
 }
 
 func (ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseArgs) ElementType() reflect.Type {
@@ -4146,7 +3652,6 @@ func (i *contentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtr
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrOutput)
 }
 
-// Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.
 type ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseOutput) ElementType() reflect.Type {
@@ -4166,17 +3671,15 @@ func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseOutp
 }
 
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseOutput) ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrOutput {
-	return o.ApplyT(func(v ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse) *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse) *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse {
 		return &v
 	}).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrOutput)
 }
 
-// Indicates whether this restriction is enforced on a Best Effort basis.
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseOutput) BestEffort() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse) bool { return v.BestEffort }).(pulumi.BoolOutput)
 }
 
-// Configures the restriction control bits. Must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseOutput) ConfigurationData() pulumi.IntOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse) int {
 		return v.ConfigurationData
@@ -4199,11 +3702,14 @@ func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrO
 
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrOutput) Elem() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse
+		return ret
 	}).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseOutput)
 }
 
-// Indicates whether this restriction is enforced on a Best Effort basis.
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrOutput) BestEffort() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse) *bool {
 		if v == nil {
@@ -4213,7 +3719,6 @@ func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Configures the restriction control bits. Must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrOutput) ConfigurationData() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse) *int {
 		if v == nil {
@@ -4223,28 +3728,17 @@ func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The PlayReady license
 type ContentKeyPolicyPlayReadyLicense struct {
-	// A flag indicating whether test devices can use the license.
-	AllowTestDevices bool `pulumi:"allowTestDevices"`
-	// The begin date of license
-	BeginDate *string `pulumi:"beginDate"`
-	// The content key location.
-	ContentKeyLocation interface{} `pulumi:"contentKeyLocation"`
-	// The PlayReady content type.
-	ContentType string `pulumi:"contentType"`
-	// The expiration date of license.
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// The grace period of license.
-	GracePeriod *string `pulumi:"gracePeriod"`
-	// The license type.
-	LicenseType string `pulumi:"licenseType"`
-	// The license PlayRight
-	PlayRight *ContentKeyPolicyPlayReadyPlayRight `pulumi:"playRight"`
-	// The relative begin date of license.
-	RelativeBeginDate *string `pulumi:"relativeBeginDate"`
-	// The relative expiration date of license.
-	RelativeExpirationDate *string `pulumi:"relativeExpirationDate"`
+	AllowTestDevices       bool                                `pulumi:"allowTestDevices"`
+	BeginDate              *string                             `pulumi:"beginDate"`
+	ContentKeyLocation     interface{}                         `pulumi:"contentKeyLocation"`
+	ContentType            string                              `pulumi:"contentType"`
+	ExpirationDate         *string                             `pulumi:"expirationDate"`
+	GracePeriod            *string                             `pulumi:"gracePeriod"`
+	LicenseType            string                              `pulumi:"licenseType"`
+	PlayRight              *ContentKeyPolicyPlayReadyPlayRight `pulumi:"playRight"`
+	RelativeBeginDate      *string                             `pulumi:"relativeBeginDate"`
+	RelativeExpirationDate *string                             `pulumi:"relativeExpirationDate"`
 }
 
 // ContentKeyPolicyPlayReadyLicenseInput is an input type that accepts ContentKeyPolicyPlayReadyLicenseArgs and ContentKeyPolicyPlayReadyLicenseOutput values.
@@ -4258,28 +3752,17 @@ type ContentKeyPolicyPlayReadyLicenseInput interface {
 	ToContentKeyPolicyPlayReadyLicenseOutputWithContext(context.Context) ContentKeyPolicyPlayReadyLicenseOutput
 }
 
-// The PlayReady license
 type ContentKeyPolicyPlayReadyLicenseArgs struct {
-	// A flag indicating whether test devices can use the license.
-	AllowTestDevices pulumi.BoolInput `pulumi:"allowTestDevices"`
-	// The begin date of license
-	BeginDate pulumi.StringPtrInput `pulumi:"beginDate"`
-	// The content key location.
-	ContentKeyLocation pulumi.Input `pulumi:"contentKeyLocation"`
-	// The PlayReady content type.
-	ContentType pulumi.StringInput `pulumi:"contentType"`
-	// The expiration date of license.
-	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
-	// The grace period of license.
-	GracePeriod pulumi.StringPtrInput `pulumi:"gracePeriod"`
-	// The license type.
-	LicenseType pulumi.StringInput `pulumi:"licenseType"`
-	// The license PlayRight
-	PlayRight ContentKeyPolicyPlayReadyPlayRightPtrInput `pulumi:"playRight"`
-	// The relative begin date of license.
-	RelativeBeginDate pulumi.StringPtrInput `pulumi:"relativeBeginDate"`
-	// The relative expiration date of license.
-	RelativeExpirationDate pulumi.StringPtrInput `pulumi:"relativeExpirationDate"`
+	AllowTestDevices       pulumi.BoolInput                           `pulumi:"allowTestDevices"`
+	BeginDate              pulumi.StringPtrInput                      `pulumi:"beginDate"`
+	ContentKeyLocation     pulumi.Input                               `pulumi:"contentKeyLocation"`
+	ContentType            pulumi.StringInput                         `pulumi:"contentType"`
+	ExpirationDate         pulumi.StringPtrInput                      `pulumi:"expirationDate"`
+	GracePeriod            pulumi.StringPtrInput                      `pulumi:"gracePeriod"`
+	LicenseType            pulumi.StringInput                         `pulumi:"licenseType"`
+	PlayRight              ContentKeyPolicyPlayReadyPlayRightPtrInput `pulumi:"playRight"`
+	RelativeBeginDate      pulumi.StringPtrInput                      `pulumi:"relativeBeginDate"`
+	RelativeExpirationDate pulumi.StringPtrInput                      `pulumi:"relativeExpirationDate"`
 }
 
 func (ContentKeyPolicyPlayReadyLicenseArgs) ElementType() reflect.Type {
@@ -4319,7 +3802,6 @@ func (i ContentKeyPolicyPlayReadyLicenseArray) ToContentKeyPolicyPlayReadyLicens
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyLicenseArrayOutput)
 }
 
-// The PlayReady license
 type ContentKeyPolicyPlayReadyLicenseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPlayReadyLicenseOutput) ElementType() reflect.Type {
@@ -4334,52 +3816,42 @@ func (o ContentKeyPolicyPlayReadyLicenseOutput) ToContentKeyPolicyPlayReadyLicen
 	return o
 }
 
-// A flag indicating whether test devices can use the license.
 func (o ContentKeyPolicyPlayReadyLicenseOutput) AllowTestDevices() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicense) bool { return v.AllowTestDevices }).(pulumi.BoolOutput)
 }
 
-// The begin date of license
 func (o ContentKeyPolicyPlayReadyLicenseOutput) BeginDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicense) *string { return v.BeginDate }).(pulumi.StringPtrOutput)
 }
 
-// The content key location.
 func (o ContentKeyPolicyPlayReadyLicenseOutput) ContentKeyLocation() pulumi.AnyOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicense) interface{} { return v.ContentKeyLocation }).(pulumi.AnyOutput)
 }
 
-// The PlayReady content type.
 func (o ContentKeyPolicyPlayReadyLicenseOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicense) string { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// The expiration date of license.
 func (o ContentKeyPolicyPlayReadyLicenseOutput) ExpirationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicense) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }
 
-// The grace period of license.
 func (o ContentKeyPolicyPlayReadyLicenseOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicense) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
 }
 
-// The license type.
 func (o ContentKeyPolicyPlayReadyLicenseOutput) LicenseType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicense) string { return v.LicenseType }).(pulumi.StringOutput)
 }
 
-// The license PlayRight
 func (o ContentKeyPolicyPlayReadyLicenseOutput) PlayRight() ContentKeyPolicyPlayReadyPlayRightPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicense) *ContentKeyPolicyPlayReadyPlayRight { return v.PlayRight }).(ContentKeyPolicyPlayReadyPlayRightPtrOutput)
 }
 
-// The relative begin date of license.
 func (o ContentKeyPolicyPlayReadyLicenseOutput) RelativeBeginDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicense) *string { return v.RelativeBeginDate }).(pulumi.StringPtrOutput)
 }
 
-// The relative expiration date of license.
 func (o ContentKeyPolicyPlayReadyLicenseOutput) RelativeExpirationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicense) *string { return v.RelativeExpirationDate }).(pulumi.StringPtrOutput)
 }
@@ -4404,28 +3876,17 @@ func (o ContentKeyPolicyPlayReadyLicenseArrayOutput) Index(i pulumi.IntInput) Co
 	}).(ContentKeyPolicyPlayReadyLicenseOutput)
 }
 
-// The PlayReady license
 type ContentKeyPolicyPlayReadyLicenseResponse struct {
-	// A flag indicating whether test devices can use the license.
-	AllowTestDevices bool `pulumi:"allowTestDevices"`
-	// The begin date of license
-	BeginDate *string `pulumi:"beginDate"`
-	// The content key location.
-	ContentKeyLocation interface{} `pulumi:"contentKeyLocation"`
-	// The PlayReady content type.
-	ContentType string `pulumi:"contentType"`
-	// The expiration date of license.
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// The grace period of license.
-	GracePeriod *string `pulumi:"gracePeriod"`
-	// The license type.
-	LicenseType string `pulumi:"licenseType"`
-	// The license PlayRight
-	PlayRight *ContentKeyPolicyPlayReadyPlayRightResponse `pulumi:"playRight"`
-	// The relative begin date of license.
-	RelativeBeginDate *string `pulumi:"relativeBeginDate"`
-	// The relative expiration date of license.
-	RelativeExpirationDate *string `pulumi:"relativeExpirationDate"`
+	AllowTestDevices       bool                                        `pulumi:"allowTestDevices"`
+	BeginDate              *string                                     `pulumi:"beginDate"`
+	ContentKeyLocation     interface{}                                 `pulumi:"contentKeyLocation"`
+	ContentType            string                                      `pulumi:"contentType"`
+	ExpirationDate         *string                                     `pulumi:"expirationDate"`
+	GracePeriod            *string                                     `pulumi:"gracePeriod"`
+	LicenseType            string                                      `pulumi:"licenseType"`
+	PlayRight              *ContentKeyPolicyPlayReadyPlayRightResponse `pulumi:"playRight"`
+	RelativeBeginDate      *string                                     `pulumi:"relativeBeginDate"`
+	RelativeExpirationDate *string                                     `pulumi:"relativeExpirationDate"`
 }
 
 // ContentKeyPolicyPlayReadyLicenseResponseInput is an input type that accepts ContentKeyPolicyPlayReadyLicenseResponseArgs and ContentKeyPolicyPlayReadyLicenseResponseOutput values.
@@ -4439,28 +3900,17 @@ type ContentKeyPolicyPlayReadyLicenseResponseInput interface {
 	ToContentKeyPolicyPlayReadyLicenseResponseOutputWithContext(context.Context) ContentKeyPolicyPlayReadyLicenseResponseOutput
 }
 
-// The PlayReady license
 type ContentKeyPolicyPlayReadyLicenseResponseArgs struct {
-	// A flag indicating whether test devices can use the license.
-	AllowTestDevices pulumi.BoolInput `pulumi:"allowTestDevices"`
-	// The begin date of license
-	BeginDate pulumi.StringPtrInput `pulumi:"beginDate"`
-	// The content key location.
-	ContentKeyLocation pulumi.Input `pulumi:"contentKeyLocation"`
-	// The PlayReady content type.
-	ContentType pulumi.StringInput `pulumi:"contentType"`
-	// The expiration date of license.
-	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
-	// The grace period of license.
-	GracePeriod pulumi.StringPtrInput `pulumi:"gracePeriod"`
-	// The license type.
-	LicenseType pulumi.StringInput `pulumi:"licenseType"`
-	// The license PlayRight
-	PlayRight ContentKeyPolicyPlayReadyPlayRightResponsePtrInput `pulumi:"playRight"`
-	// The relative begin date of license.
-	RelativeBeginDate pulumi.StringPtrInput `pulumi:"relativeBeginDate"`
-	// The relative expiration date of license.
-	RelativeExpirationDate pulumi.StringPtrInput `pulumi:"relativeExpirationDate"`
+	AllowTestDevices       pulumi.BoolInput                                   `pulumi:"allowTestDevices"`
+	BeginDate              pulumi.StringPtrInput                              `pulumi:"beginDate"`
+	ContentKeyLocation     pulumi.Input                                       `pulumi:"contentKeyLocation"`
+	ContentType            pulumi.StringInput                                 `pulumi:"contentType"`
+	ExpirationDate         pulumi.StringPtrInput                              `pulumi:"expirationDate"`
+	GracePeriod            pulumi.StringPtrInput                              `pulumi:"gracePeriod"`
+	LicenseType            pulumi.StringInput                                 `pulumi:"licenseType"`
+	PlayRight              ContentKeyPolicyPlayReadyPlayRightResponsePtrInput `pulumi:"playRight"`
+	RelativeBeginDate      pulumi.StringPtrInput                              `pulumi:"relativeBeginDate"`
+	RelativeExpirationDate pulumi.StringPtrInput                              `pulumi:"relativeExpirationDate"`
 }
 
 func (ContentKeyPolicyPlayReadyLicenseResponseArgs) ElementType() reflect.Type {
@@ -4500,7 +3950,6 @@ func (i ContentKeyPolicyPlayReadyLicenseResponseArray) ToContentKeyPolicyPlayRea
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyLicenseResponseArrayOutput)
 }
 
-// The PlayReady license
 type ContentKeyPolicyPlayReadyLicenseResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPlayReadyLicenseResponseOutput) ElementType() reflect.Type {
@@ -4515,54 +3964,44 @@ func (o ContentKeyPolicyPlayReadyLicenseResponseOutput) ToContentKeyPolicyPlayRe
 	return o
 }
 
-// A flag indicating whether test devices can use the license.
 func (o ContentKeyPolicyPlayReadyLicenseResponseOutput) AllowTestDevices() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseResponse) bool { return v.AllowTestDevices }).(pulumi.BoolOutput)
 }
 
-// The begin date of license
 func (o ContentKeyPolicyPlayReadyLicenseResponseOutput) BeginDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseResponse) *string { return v.BeginDate }).(pulumi.StringPtrOutput)
 }
 
-// The content key location.
 func (o ContentKeyPolicyPlayReadyLicenseResponseOutput) ContentKeyLocation() pulumi.AnyOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseResponse) interface{} { return v.ContentKeyLocation }).(pulumi.AnyOutput)
 }
 
-// The PlayReady content type.
 func (o ContentKeyPolicyPlayReadyLicenseResponseOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseResponse) string { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// The expiration date of license.
 func (o ContentKeyPolicyPlayReadyLicenseResponseOutput) ExpirationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseResponse) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }
 
-// The grace period of license.
 func (o ContentKeyPolicyPlayReadyLicenseResponseOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseResponse) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
 }
 
-// The license type.
 func (o ContentKeyPolicyPlayReadyLicenseResponseOutput) LicenseType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseResponse) string { return v.LicenseType }).(pulumi.StringOutput)
 }
 
-// The license PlayRight
 func (o ContentKeyPolicyPlayReadyLicenseResponseOutput) PlayRight() ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseResponse) *ContentKeyPolicyPlayReadyPlayRightResponse {
 		return v.PlayRight
 	}).(ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput)
 }
 
-// The relative begin date of license.
 func (o ContentKeyPolicyPlayReadyLicenseResponseOutput) RelativeBeginDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseResponse) *string { return v.RelativeBeginDate }).(pulumi.StringPtrOutput)
 }
 
-// The relative expiration date of license.
 func (o ContentKeyPolicyPlayReadyLicenseResponseOutput) RelativeExpirationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseResponse) *string { return v.RelativeExpirationDate }).(pulumi.StringPtrOutput)
 }
@@ -4587,34 +4026,20 @@ func (o ContentKeyPolicyPlayReadyLicenseResponseArrayOutput) Index(i pulumi.IntI
 	}).(ContentKeyPolicyPlayReadyLicenseResponseOutput)
 }
 
-// Configures the Play Right in the PlayReady license.
 type ContentKeyPolicyPlayReadyPlayRight struct {
-	// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
-	AgcAndColorStripeRestriction *int `pulumi:"agcAndColorStripeRestriction"`
-	// Configures Unknown output handling settings of the license.
-	AllowPassingVideoContentToUnknownOutput string `pulumi:"allowPassingVideoContentToUnknownOutput"`
-	// Specifies the output protection level for compressed digital audio.
-	AnalogVideoOpl *int `pulumi:"analogVideoOpl"`
-	// Specifies the output protection level for compressed digital audio.
-	CompressedDigitalAudioOpl *int `pulumi:"compressedDigitalAudioOpl"`
-	// Specifies the output protection level for compressed digital video.
-	CompressedDigitalVideoOpl *int `pulumi:"compressedDigitalVideoOpl"`
-	// Enables the Image Constraint For Analog Component Video Restriction in the license.
-	DigitalVideoOnlyContentRestriction bool `pulumi:"digitalVideoOnlyContentRestriction"`
-	// Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
-	ExplicitAnalogTelevisionOutputRestriction *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction `pulumi:"explicitAnalogTelevisionOutputRestriction"`
-	// The amount of time that the license is valid after the license is first used to play content.
-	FirstPlayExpiration *string `pulumi:"firstPlayExpiration"`
-	// Enables the Image Constraint For Analog Component Video Restriction in the license.
-	ImageConstraintForAnalogComponentVideoRestriction bool `pulumi:"imageConstraintForAnalogComponentVideoRestriction"`
-	// Enables the Image Constraint For Analog Component Video Restriction in the license.
-	ImageConstraintForAnalogComputerMonitorRestriction bool `pulumi:"imageConstraintForAnalogComputerMonitorRestriction"`
-	// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
-	ScmsRestriction *int `pulumi:"scmsRestriction"`
-	// Specifies the output protection level for uncompressed digital audio.
-	UncompressedDigitalAudioOpl *int `pulumi:"uncompressedDigitalAudioOpl"`
-	// Specifies the output protection level for uncompressed digital video.
-	UncompressedDigitalVideoOpl *int `pulumi:"uncompressedDigitalVideoOpl"`
+	AgcAndColorStripeRestriction                       *int                                                          `pulumi:"agcAndColorStripeRestriction"`
+	AllowPassingVideoContentToUnknownOutput            string                                                        `pulumi:"allowPassingVideoContentToUnknownOutput"`
+	AnalogVideoOpl                                     *int                                                          `pulumi:"analogVideoOpl"`
+	CompressedDigitalAudioOpl                          *int                                                          `pulumi:"compressedDigitalAudioOpl"`
+	CompressedDigitalVideoOpl                          *int                                                          `pulumi:"compressedDigitalVideoOpl"`
+	DigitalVideoOnlyContentRestriction                 bool                                                          `pulumi:"digitalVideoOnlyContentRestriction"`
+	ExplicitAnalogTelevisionOutputRestriction          *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction `pulumi:"explicitAnalogTelevisionOutputRestriction"`
+	FirstPlayExpiration                                *string                                                       `pulumi:"firstPlayExpiration"`
+	ImageConstraintForAnalogComponentVideoRestriction  bool                                                          `pulumi:"imageConstraintForAnalogComponentVideoRestriction"`
+	ImageConstraintForAnalogComputerMonitorRestriction bool                                                          `pulumi:"imageConstraintForAnalogComputerMonitorRestriction"`
+	ScmsRestriction                                    *int                                                          `pulumi:"scmsRestriction"`
+	UncompressedDigitalAudioOpl                        *int                                                          `pulumi:"uncompressedDigitalAudioOpl"`
+	UncompressedDigitalVideoOpl                        *int                                                          `pulumi:"uncompressedDigitalVideoOpl"`
 }
 
 // ContentKeyPolicyPlayReadyPlayRightInput is an input type that accepts ContentKeyPolicyPlayReadyPlayRightArgs and ContentKeyPolicyPlayReadyPlayRightOutput values.
@@ -4628,34 +4053,20 @@ type ContentKeyPolicyPlayReadyPlayRightInput interface {
 	ToContentKeyPolicyPlayReadyPlayRightOutputWithContext(context.Context) ContentKeyPolicyPlayReadyPlayRightOutput
 }
 
-// Configures the Play Right in the PlayReady license.
 type ContentKeyPolicyPlayReadyPlayRightArgs struct {
-	// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
-	AgcAndColorStripeRestriction pulumi.IntPtrInput `pulumi:"agcAndColorStripeRestriction"`
-	// Configures Unknown output handling settings of the license.
-	AllowPassingVideoContentToUnknownOutput pulumi.StringInput `pulumi:"allowPassingVideoContentToUnknownOutput"`
-	// Specifies the output protection level for compressed digital audio.
-	AnalogVideoOpl pulumi.IntPtrInput `pulumi:"analogVideoOpl"`
-	// Specifies the output protection level for compressed digital audio.
-	CompressedDigitalAudioOpl pulumi.IntPtrInput `pulumi:"compressedDigitalAudioOpl"`
-	// Specifies the output protection level for compressed digital video.
-	CompressedDigitalVideoOpl pulumi.IntPtrInput `pulumi:"compressedDigitalVideoOpl"`
-	// Enables the Image Constraint For Analog Component Video Restriction in the license.
-	DigitalVideoOnlyContentRestriction pulumi.BoolInput `pulumi:"digitalVideoOnlyContentRestriction"`
-	// Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
-	ExplicitAnalogTelevisionOutputRestriction ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrInput `pulumi:"explicitAnalogTelevisionOutputRestriction"`
-	// The amount of time that the license is valid after the license is first used to play content.
-	FirstPlayExpiration pulumi.StringPtrInput `pulumi:"firstPlayExpiration"`
-	// Enables the Image Constraint For Analog Component Video Restriction in the license.
-	ImageConstraintForAnalogComponentVideoRestriction pulumi.BoolInput `pulumi:"imageConstraintForAnalogComponentVideoRestriction"`
-	// Enables the Image Constraint For Analog Component Video Restriction in the license.
-	ImageConstraintForAnalogComputerMonitorRestriction pulumi.BoolInput `pulumi:"imageConstraintForAnalogComputerMonitorRestriction"`
-	// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
-	ScmsRestriction pulumi.IntPtrInput `pulumi:"scmsRestriction"`
-	// Specifies the output protection level for uncompressed digital audio.
-	UncompressedDigitalAudioOpl pulumi.IntPtrInput `pulumi:"uncompressedDigitalAudioOpl"`
-	// Specifies the output protection level for uncompressed digital video.
-	UncompressedDigitalVideoOpl pulumi.IntPtrInput `pulumi:"uncompressedDigitalVideoOpl"`
+	AgcAndColorStripeRestriction                       pulumi.IntPtrInput                                                   `pulumi:"agcAndColorStripeRestriction"`
+	AllowPassingVideoContentToUnknownOutput            pulumi.StringInput                                                   `pulumi:"allowPassingVideoContentToUnknownOutput"`
+	AnalogVideoOpl                                     pulumi.IntPtrInput                                                   `pulumi:"analogVideoOpl"`
+	CompressedDigitalAudioOpl                          pulumi.IntPtrInput                                                   `pulumi:"compressedDigitalAudioOpl"`
+	CompressedDigitalVideoOpl                          pulumi.IntPtrInput                                                   `pulumi:"compressedDigitalVideoOpl"`
+	DigitalVideoOnlyContentRestriction                 pulumi.BoolInput                                                     `pulumi:"digitalVideoOnlyContentRestriction"`
+	ExplicitAnalogTelevisionOutputRestriction          ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrInput `pulumi:"explicitAnalogTelevisionOutputRestriction"`
+	FirstPlayExpiration                                pulumi.StringPtrInput                                                `pulumi:"firstPlayExpiration"`
+	ImageConstraintForAnalogComponentVideoRestriction  pulumi.BoolInput                                                     `pulumi:"imageConstraintForAnalogComponentVideoRestriction"`
+	ImageConstraintForAnalogComputerMonitorRestriction pulumi.BoolInput                                                     `pulumi:"imageConstraintForAnalogComputerMonitorRestriction"`
+	ScmsRestriction                                    pulumi.IntPtrInput                                                   `pulumi:"scmsRestriction"`
+	UncompressedDigitalAudioOpl                        pulumi.IntPtrInput                                                   `pulumi:"uncompressedDigitalAudioOpl"`
+	UncompressedDigitalVideoOpl                        pulumi.IntPtrInput                                                   `pulumi:"uncompressedDigitalVideoOpl"`
 }
 
 func (ContentKeyPolicyPlayReadyPlayRightArgs) ElementType() reflect.Type {
@@ -4711,7 +4122,6 @@ func (i *contentKeyPolicyPlayReadyPlayRightPtrType) ToContentKeyPolicyPlayReadyP
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyPlayRightPtrOutput)
 }
 
-// Configures the Play Right in the PlayReady license.
 type ContentKeyPolicyPlayReadyPlayRightOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPlayReadyPlayRightOutput) ElementType() reflect.Type {
@@ -4731,78 +4141,65 @@ func (o ContentKeyPolicyPlayReadyPlayRightOutput) ToContentKeyPolicyPlayReadyPla
 }
 
 func (o ContentKeyPolicyPlayReadyPlayRightOutput) ToContentKeyPolicyPlayReadyPlayRightPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyPlayRightPtrOutput {
-	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRight) *ContentKeyPolicyPlayReadyPlayRight {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPlayReadyPlayRight) *ContentKeyPolicyPlayReadyPlayRight {
 		return &v
 	}).(ContentKeyPolicyPlayReadyPlayRightPtrOutput)
 }
 
-// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyPlayRightOutput) AgcAndColorStripeRestriction() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRight) *int { return v.AgcAndColorStripeRestriction }).(pulumi.IntPtrOutput)
 }
 
-// Configures Unknown output handling settings of the license.
 func (o ContentKeyPolicyPlayReadyPlayRightOutput) AllowPassingVideoContentToUnknownOutput() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRight) string { return v.AllowPassingVideoContentToUnknownOutput }).(pulumi.StringOutput)
 }
 
-// Specifies the output protection level for compressed digital audio.
 func (o ContentKeyPolicyPlayReadyPlayRightOutput) AnalogVideoOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRight) *int { return v.AnalogVideoOpl }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the output protection level for compressed digital audio.
 func (o ContentKeyPolicyPlayReadyPlayRightOutput) CompressedDigitalAudioOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRight) *int { return v.CompressedDigitalAudioOpl }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the output protection level for compressed digital video.
 func (o ContentKeyPolicyPlayReadyPlayRightOutput) CompressedDigitalVideoOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRight) *int { return v.CompressedDigitalVideoOpl }).(pulumi.IntPtrOutput)
 }
 
-// Enables the Image Constraint For Analog Component Video Restriction in the license.
 func (o ContentKeyPolicyPlayReadyPlayRightOutput) DigitalVideoOnlyContentRestriction() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRight) bool { return v.DigitalVideoOnlyContentRestriction }).(pulumi.BoolOutput)
 }
 
-// Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyPlayRightOutput) ExplicitAnalogTelevisionOutputRestriction() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRight) *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction {
 		return v.ExplicitAnalogTelevisionOutputRestriction
 	}).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput)
 }
 
-// The amount of time that the license is valid after the license is first used to play content.
 func (o ContentKeyPolicyPlayReadyPlayRightOutput) FirstPlayExpiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRight) *string { return v.FirstPlayExpiration }).(pulumi.StringPtrOutput)
 }
 
-// Enables the Image Constraint For Analog Component Video Restriction in the license.
 func (o ContentKeyPolicyPlayReadyPlayRightOutput) ImageConstraintForAnalogComponentVideoRestriction() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRight) bool {
 		return v.ImageConstraintForAnalogComponentVideoRestriction
 	}).(pulumi.BoolOutput)
 }
 
-// Enables the Image Constraint For Analog Component Video Restriction in the license.
 func (o ContentKeyPolicyPlayReadyPlayRightOutput) ImageConstraintForAnalogComputerMonitorRestriction() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRight) bool {
 		return v.ImageConstraintForAnalogComputerMonitorRestriction
 	}).(pulumi.BoolOutput)
 }
 
-// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyPlayRightOutput) ScmsRestriction() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRight) *int { return v.ScmsRestriction }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the output protection level for uncompressed digital audio.
 func (o ContentKeyPolicyPlayReadyPlayRightOutput) UncompressedDigitalAudioOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRight) *int { return v.UncompressedDigitalAudioOpl }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the output protection level for uncompressed digital video.
 func (o ContentKeyPolicyPlayReadyPlayRightOutput) UncompressedDigitalVideoOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRight) *int { return v.UncompressedDigitalVideoOpl }).(pulumi.IntPtrOutput)
 }
@@ -4822,10 +4219,15 @@ func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) ToContentKeyPolicyPlayReady
 }
 
 func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) Elem() ContentKeyPolicyPlayReadyPlayRightOutput {
-	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) ContentKeyPolicyPlayReadyPlayRight { return *v }).(ContentKeyPolicyPlayReadyPlayRightOutput)
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) ContentKeyPolicyPlayReadyPlayRight {
+		if v != nil {
+			return *v
+		}
+		var ret ContentKeyPolicyPlayReadyPlayRight
+		return ret
+	}).(ContentKeyPolicyPlayReadyPlayRightOutput)
 }
 
-// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) AgcAndColorStripeRestriction() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) *int {
 		if v == nil {
@@ -4835,7 +4237,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) AgcAndColorStripeRestrictio
 	}).(pulumi.IntPtrOutput)
 }
 
-// Configures Unknown output handling settings of the license.
 func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) AllowPassingVideoContentToUnknownOutput() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) *string {
 		if v == nil {
@@ -4845,7 +4246,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) AllowPassingVideoContentToU
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the output protection level for compressed digital audio.
 func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) AnalogVideoOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) *int {
 		if v == nil {
@@ -4855,7 +4255,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) AnalogVideoOpl() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the output protection level for compressed digital audio.
 func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) CompressedDigitalAudioOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) *int {
 		if v == nil {
@@ -4865,7 +4264,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) CompressedDigitalAudioOpl()
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the output protection level for compressed digital video.
 func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) CompressedDigitalVideoOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) *int {
 		if v == nil {
@@ -4875,7 +4273,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) CompressedDigitalVideoOpl()
 	}).(pulumi.IntPtrOutput)
 }
 
-// Enables the Image Constraint For Analog Component Video Restriction in the license.
 func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) DigitalVideoOnlyContentRestriction() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) *bool {
 		if v == nil {
@@ -4885,7 +4282,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) DigitalVideoOnlyContentRest
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) ExplicitAnalogTelevisionOutputRestriction() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction {
 		if v == nil {
@@ -4895,7 +4291,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) ExplicitAnalogTelevisionOut
 	}).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput)
 }
 
-// The amount of time that the license is valid after the license is first used to play content.
 func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) FirstPlayExpiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) *string {
 		if v == nil {
@@ -4905,7 +4300,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) FirstPlayExpiration() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enables the Image Constraint For Analog Component Video Restriction in the license.
 func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) ImageConstraintForAnalogComponentVideoRestriction() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) *bool {
 		if v == nil {
@@ -4915,7 +4309,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) ImageConstraintForAnalogCom
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enables the Image Constraint For Analog Component Video Restriction in the license.
 func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) ImageConstraintForAnalogComputerMonitorRestriction() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) *bool {
 		if v == nil {
@@ -4925,7 +4318,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) ImageConstraintForAnalogCom
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) ScmsRestriction() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) *int {
 		if v == nil {
@@ -4935,7 +4327,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) ScmsRestriction() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the output protection level for uncompressed digital audio.
 func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) UncompressedDigitalAudioOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) *int {
 		if v == nil {
@@ -4945,7 +4336,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) UncompressedDigitalAudioOpl
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the output protection level for uncompressed digital video.
 func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) UncompressedDigitalVideoOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) *int {
 		if v == nil {
@@ -4955,34 +4345,20 @@ func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) UncompressedDigitalVideoOpl
 	}).(pulumi.IntPtrOutput)
 }
 
-// Configures the Play Right in the PlayReady license.
 type ContentKeyPolicyPlayReadyPlayRightResponse struct {
-	// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
-	AgcAndColorStripeRestriction *int `pulumi:"agcAndColorStripeRestriction"`
-	// Configures Unknown output handling settings of the license.
-	AllowPassingVideoContentToUnknownOutput string `pulumi:"allowPassingVideoContentToUnknownOutput"`
-	// Specifies the output protection level for compressed digital audio.
-	AnalogVideoOpl *int `pulumi:"analogVideoOpl"`
-	// Specifies the output protection level for compressed digital audio.
-	CompressedDigitalAudioOpl *int `pulumi:"compressedDigitalAudioOpl"`
-	// Specifies the output protection level for compressed digital video.
-	CompressedDigitalVideoOpl *int `pulumi:"compressedDigitalVideoOpl"`
-	// Enables the Image Constraint For Analog Component Video Restriction in the license.
-	DigitalVideoOnlyContentRestriction bool `pulumi:"digitalVideoOnlyContentRestriction"`
-	// Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
-	ExplicitAnalogTelevisionOutputRestriction *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse `pulumi:"explicitAnalogTelevisionOutputRestriction"`
-	// The amount of time that the license is valid after the license is first used to play content.
-	FirstPlayExpiration *string `pulumi:"firstPlayExpiration"`
-	// Enables the Image Constraint For Analog Component Video Restriction in the license.
-	ImageConstraintForAnalogComponentVideoRestriction bool `pulumi:"imageConstraintForAnalogComponentVideoRestriction"`
-	// Enables the Image Constraint For Analog Component Video Restriction in the license.
-	ImageConstraintForAnalogComputerMonitorRestriction bool `pulumi:"imageConstraintForAnalogComputerMonitorRestriction"`
-	// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
-	ScmsRestriction *int `pulumi:"scmsRestriction"`
-	// Specifies the output protection level for uncompressed digital audio.
-	UncompressedDigitalAudioOpl *int `pulumi:"uncompressedDigitalAudioOpl"`
-	// Specifies the output protection level for uncompressed digital video.
-	UncompressedDigitalVideoOpl *int `pulumi:"uncompressedDigitalVideoOpl"`
+	AgcAndColorStripeRestriction                       *int                                                                  `pulumi:"agcAndColorStripeRestriction"`
+	AllowPassingVideoContentToUnknownOutput            string                                                                `pulumi:"allowPassingVideoContentToUnknownOutput"`
+	AnalogVideoOpl                                     *int                                                                  `pulumi:"analogVideoOpl"`
+	CompressedDigitalAudioOpl                          *int                                                                  `pulumi:"compressedDigitalAudioOpl"`
+	CompressedDigitalVideoOpl                          *int                                                                  `pulumi:"compressedDigitalVideoOpl"`
+	DigitalVideoOnlyContentRestriction                 bool                                                                  `pulumi:"digitalVideoOnlyContentRestriction"`
+	ExplicitAnalogTelevisionOutputRestriction          *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse `pulumi:"explicitAnalogTelevisionOutputRestriction"`
+	FirstPlayExpiration                                *string                                                               `pulumi:"firstPlayExpiration"`
+	ImageConstraintForAnalogComponentVideoRestriction  bool                                                                  `pulumi:"imageConstraintForAnalogComponentVideoRestriction"`
+	ImageConstraintForAnalogComputerMonitorRestriction bool                                                                  `pulumi:"imageConstraintForAnalogComputerMonitorRestriction"`
+	ScmsRestriction                                    *int                                                                  `pulumi:"scmsRestriction"`
+	UncompressedDigitalAudioOpl                        *int                                                                  `pulumi:"uncompressedDigitalAudioOpl"`
+	UncompressedDigitalVideoOpl                        *int                                                                  `pulumi:"uncompressedDigitalVideoOpl"`
 }
 
 // ContentKeyPolicyPlayReadyPlayRightResponseInput is an input type that accepts ContentKeyPolicyPlayReadyPlayRightResponseArgs and ContentKeyPolicyPlayReadyPlayRightResponseOutput values.
@@ -4996,34 +4372,20 @@ type ContentKeyPolicyPlayReadyPlayRightResponseInput interface {
 	ToContentKeyPolicyPlayReadyPlayRightResponseOutputWithContext(context.Context) ContentKeyPolicyPlayReadyPlayRightResponseOutput
 }
 
-// Configures the Play Right in the PlayReady license.
 type ContentKeyPolicyPlayReadyPlayRightResponseArgs struct {
-	// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
-	AgcAndColorStripeRestriction pulumi.IntPtrInput `pulumi:"agcAndColorStripeRestriction"`
-	// Configures Unknown output handling settings of the license.
-	AllowPassingVideoContentToUnknownOutput pulumi.StringInput `pulumi:"allowPassingVideoContentToUnknownOutput"`
-	// Specifies the output protection level for compressed digital audio.
-	AnalogVideoOpl pulumi.IntPtrInput `pulumi:"analogVideoOpl"`
-	// Specifies the output protection level for compressed digital audio.
-	CompressedDigitalAudioOpl pulumi.IntPtrInput `pulumi:"compressedDigitalAudioOpl"`
-	// Specifies the output protection level for compressed digital video.
-	CompressedDigitalVideoOpl pulumi.IntPtrInput `pulumi:"compressedDigitalVideoOpl"`
-	// Enables the Image Constraint For Analog Component Video Restriction in the license.
-	DigitalVideoOnlyContentRestriction pulumi.BoolInput `pulumi:"digitalVideoOnlyContentRestriction"`
-	// Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
-	ExplicitAnalogTelevisionOutputRestriction ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrInput `pulumi:"explicitAnalogTelevisionOutputRestriction"`
-	// The amount of time that the license is valid after the license is first used to play content.
-	FirstPlayExpiration pulumi.StringPtrInput `pulumi:"firstPlayExpiration"`
-	// Enables the Image Constraint For Analog Component Video Restriction in the license.
-	ImageConstraintForAnalogComponentVideoRestriction pulumi.BoolInput `pulumi:"imageConstraintForAnalogComponentVideoRestriction"`
-	// Enables the Image Constraint For Analog Component Video Restriction in the license.
-	ImageConstraintForAnalogComputerMonitorRestriction pulumi.BoolInput `pulumi:"imageConstraintForAnalogComputerMonitorRestriction"`
-	// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
-	ScmsRestriction pulumi.IntPtrInput `pulumi:"scmsRestriction"`
-	// Specifies the output protection level for uncompressed digital audio.
-	UncompressedDigitalAudioOpl pulumi.IntPtrInput `pulumi:"uncompressedDigitalAudioOpl"`
-	// Specifies the output protection level for uncompressed digital video.
-	UncompressedDigitalVideoOpl pulumi.IntPtrInput `pulumi:"uncompressedDigitalVideoOpl"`
+	AgcAndColorStripeRestriction                       pulumi.IntPtrInput                                                           `pulumi:"agcAndColorStripeRestriction"`
+	AllowPassingVideoContentToUnknownOutput            pulumi.StringInput                                                           `pulumi:"allowPassingVideoContentToUnknownOutput"`
+	AnalogVideoOpl                                     pulumi.IntPtrInput                                                           `pulumi:"analogVideoOpl"`
+	CompressedDigitalAudioOpl                          pulumi.IntPtrInput                                                           `pulumi:"compressedDigitalAudioOpl"`
+	CompressedDigitalVideoOpl                          pulumi.IntPtrInput                                                           `pulumi:"compressedDigitalVideoOpl"`
+	DigitalVideoOnlyContentRestriction                 pulumi.BoolInput                                                             `pulumi:"digitalVideoOnlyContentRestriction"`
+	ExplicitAnalogTelevisionOutputRestriction          ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrInput `pulumi:"explicitAnalogTelevisionOutputRestriction"`
+	FirstPlayExpiration                                pulumi.StringPtrInput                                                        `pulumi:"firstPlayExpiration"`
+	ImageConstraintForAnalogComponentVideoRestriction  pulumi.BoolInput                                                             `pulumi:"imageConstraintForAnalogComponentVideoRestriction"`
+	ImageConstraintForAnalogComputerMonitorRestriction pulumi.BoolInput                                                             `pulumi:"imageConstraintForAnalogComputerMonitorRestriction"`
+	ScmsRestriction                                    pulumi.IntPtrInput                                                           `pulumi:"scmsRestriction"`
+	UncompressedDigitalAudioOpl                        pulumi.IntPtrInput                                                           `pulumi:"uncompressedDigitalAudioOpl"`
+	UncompressedDigitalVideoOpl                        pulumi.IntPtrInput                                                           `pulumi:"uncompressedDigitalVideoOpl"`
 }
 
 func (ContentKeyPolicyPlayReadyPlayRightResponseArgs) ElementType() reflect.Type {
@@ -5079,7 +4441,6 @@ func (i *contentKeyPolicyPlayReadyPlayRightResponsePtrType) ToContentKeyPolicyPl
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput)
 }
 
-// Configures the Play Right in the PlayReady license.
 type ContentKeyPolicyPlayReadyPlayRightResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPlayReadyPlayRightResponseOutput) ElementType() reflect.Type {
@@ -5099,80 +4460,67 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) ToContentKeyPolicyPlay
 }
 
 func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) ToContentKeyPolicyPlayReadyPlayRightResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput {
-	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightResponse) *ContentKeyPolicyPlayReadyPlayRightResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPlayReadyPlayRightResponse) *ContentKeyPolicyPlayReadyPlayRightResponse {
 		return &v
 	}).(ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput)
 }
 
-// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) AgcAndColorStripeRestriction() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightResponse) *int { return v.AgcAndColorStripeRestriction }).(pulumi.IntPtrOutput)
 }
 
-// Configures Unknown output handling settings of the license.
 func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) AllowPassingVideoContentToUnknownOutput() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightResponse) string {
 		return v.AllowPassingVideoContentToUnknownOutput
 	}).(pulumi.StringOutput)
 }
 
-// Specifies the output protection level for compressed digital audio.
 func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) AnalogVideoOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightResponse) *int { return v.AnalogVideoOpl }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the output protection level for compressed digital audio.
 func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) CompressedDigitalAudioOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightResponse) *int { return v.CompressedDigitalAudioOpl }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the output protection level for compressed digital video.
 func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) CompressedDigitalVideoOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightResponse) *int { return v.CompressedDigitalVideoOpl }).(pulumi.IntPtrOutput)
 }
 
-// Enables the Image Constraint For Analog Component Video Restriction in the license.
 func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) DigitalVideoOnlyContentRestriction() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightResponse) bool { return v.DigitalVideoOnlyContentRestriction }).(pulumi.BoolOutput)
 }
 
-// Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) ExplicitAnalogTelevisionOutputRestriction() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightResponse) *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse {
 		return v.ExplicitAnalogTelevisionOutputRestriction
 	}).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrOutput)
 }
 
-// The amount of time that the license is valid after the license is first used to play content.
 func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) FirstPlayExpiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightResponse) *string { return v.FirstPlayExpiration }).(pulumi.StringPtrOutput)
 }
 
-// Enables the Image Constraint For Analog Component Video Restriction in the license.
 func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) ImageConstraintForAnalogComponentVideoRestriction() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightResponse) bool {
 		return v.ImageConstraintForAnalogComponentVideoRestriction
 	}).(pulumi.BoolOutput)
 }
 
-// Enables the Image Constraint For Analog Component Video Restriction in the license.
 func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) ImageConstraintForAnalogComputerMonitorRestriction() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightResponse) bool {
 		return v.ImageConstraintForAnalogComputerMonitorRestriction
 	}).(pulumi.BoolOutput)
 }
 
-// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) ScmsRestriction() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightResponse) *int { return v.ScmsRestriction }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the output protection level for uncompressed digital audio.
 func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) UncompressedDigitalAudioOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightResponse) *int { return v.UncompressedDigitalAudioOpl }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the output protection level for uncompressed digital video.
 func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) UncompressedDigitalVideoOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightResponse) *int { return v.UncompressedDigitalVideoOpl }).(pulumi.IntPtrOutput)
 }
@@ -5193,11 +4541,14 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) ToContentKeyPolicyP
 
 func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) Elem() ContentKeyPolicyPlayReadyPlayRightResponseOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightResponse) ContentKeyPolicyPlayReadyPlayRightResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContentKeyPolicyPlayReadyPlayRightResponse
+		return ret
 	}).(ContentKeyPolicyPlayReadyPlayRightResponseOutput)
 }
 
-// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) AgcAndColorStripeRestriction() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightResponse) *int {
 		if v == nil {
@@ -5207,7 +4558,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) AgcAndColorStripeRe
 	}).(pulumi.IntPtrOutput)
 }
 
-// Configures Unknown output handling settings of the license.
 func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) AllowPassingVideoContentToUnknownOutput() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightResponse) *string {
 		if v == nil {
@@ -5217,7 +4567,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) AllowPassingVideoCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the output protection level for compressed digital audio.
 func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) AnalogVideoOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightResponse) *int {
 		if v == nil {
@@ -5227,7 +4576,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) AnalogVideoOpl() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the output protection level for compressed digital audio.
 func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) CompressedDigitalAudioOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightResponse) *int {
 		if v == nil {
@@ -5237,7 +4585,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) CompressedDigitalAu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the output protection level for compressed digital video.
 func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) CompressedDigitalVideoOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightResponse) *int {
 		if v == nil {
@@ -5247,7 +4594,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) CompressedDigitalVi
 	}).(pulumi.IntPtrOutput)
 }
 
-// Enables the Image Constraint For Analog Component Video Restriction in the license.
 func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) DigitalVideoOnlyContentRestriction() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightResponse) *bool {
 		if v == nil {
@@ -5257,7 +4603,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) DigitalVideoOnlyCon
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) ExplicitAnalogTelevisionOutputRestriction() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightResponse) *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse {
 		if v == nil {
@@ -5267,7 +4612,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) ExplicitAnalogTelev
 	}).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrOutput)
 }
 
-// The amount of time that the license is valid after the license is first used to play content.
 func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) FirstPlayExpiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightResponse) *string {
 		if v == nil {
@@ -5277,7 +4621,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) FirstPlayExpiration
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enables the Image Constraint For Analog Component Video Restriction in the license.
 func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) ImageConstraintForAnalogComponentVideoRestriction() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightResponse) *bool {
 		if v == nil {
@@ -5287,7 +4630,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) ImageConstraintForA
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enables the Image Constraint For Analog Component Video Restriction in the license.
 func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) ImageConstraintForAnalogComputerMonitorRestriction() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightResponse) *bool {
 		if v == nil {
@@ -5297,7 +4639,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) ImageConstraintForA
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) ScmsRestriction() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightResponse) *int {
 		if v == nil {
@@ -5307,7 +4648,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) ScmsRestriction() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the output protection level for uncompressed digital audio.
 func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) UncompressedDigitalAudioOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightResponse) *int {
 		if v == nil {
@@ -5317,7 +4657,6 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) UncompressedDigital
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the output protection level for uncompressed digital video.
 func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) UncompressedDigitalVideoOpl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightResponse) *int {
 		if v == nil {
@@ -5327,14 +4666,9 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) UncompressedDigital
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies a RSA key for token validation
 type ContentKeyPolicyRsaTokenKey struct {
-	// The RSA Parameter exponent
-	Exponent string `pulumi:"exponent"`
-	// The RSA Parameter modulus
-	Modulus string `pulumi:"modulus"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
+	Exponent  string `pulumi:"exponent"`
+	Modulus   string `pulumi:"modulus"`
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -5349,14 +4683,9 @@ type ContentKeyPolicyRsaTokenKeyInput interface {
 	ToContentKeyPolicyRsaTokenKeyOutputWithContext(context.Context) ContentKeyPolicyRsaTokenKeyOutput
 }
 
-// Specifies a RSA key for token validation
 type ContentKeyPolicyRsaTokenKeyArgs struct {
-	// The RSA Parameter exponent
-	Exponent pulumi.StringInput `pulumi:"exponent"`
-	// The RSA Parameter modulus
-	Modulus pulumi.StringInput `pulumi:"modulus"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
+	Exponent  pulumi.StringInput `pulumi:"exponent"`
+	Modulus   pulumi.StringInput `pulumi:"modulus"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -5372,7 +4701,6 @@ func (i ContentKeyPolicyRsaTokenKeyArgs) ToContentKeyPolicyRsaTokenKeyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyRsaTokenKeyOutput)
 }
 
-// Specifies a RSA key for token validation
 type ContentKeyPolicyRsaTokenKeyOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyRsaTokenKeyOutput) ElementType() reflect.Type {
@@ -5387,30 +4715,21 @@ func (o ContentKeyPolicyRsaTokenKeyOutput) ToContentKeyPolicyRsaTokenKeyOutputWi
 	return o
 }
 
-// The RSA Parameter exponent
 func (o ContentKeyPolicyRsaTokenKeyOutput) Exponent() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyRsaTokenKey) string { return v.Exponent }).(pulumi.StringOutput)
 }
 
-// The RSA Parameter modulus
 func (o ContentKeyPolicyRsaTokenKeyOutput) Modulus() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyRsaTokenKey) string { return v.Modulus }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
 func (o ContentKeyPolicyRsaTokenKeyOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyRsaTokenKey) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Specifies a RSA key for token validation
 type ContentKeyPolicyRsaTokenKeyResponse struct {
-	// The RSA Parameter exponent
-	Exponent string `pulumi:"exponent"`
-	// The RSA Parameter modulus
-	Modulus string `pulumi:"modulus"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
+	Exponent  string `pulumi:"exponent"`
+	Modulus   string `pulumi:"modulus"`
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -5425,14 +4744,9 @@ type ContentKeyPolicyRsaTokenKeyResponseInput interface {
 	ToContentKeyPolicyRsaTokenKeyResponseOutputWithContext(context.Context) ContentKeyPolicyRsaTokenKeyResponseOutput
 }
 
-// Specifies a RSA key for token validation
 type ContentKeyPolicyRsaTokenKeyResponseArgs struct {
-	// The RSA Parameter exponent
-	Exponent pulumi.StringInput `pulumi:"exponent"`
-	// The RSA Parameter modulus
-	Modulus pulumi.StringInput `pulumi:"modulus"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
+	Exponent  pulumi.StringInput `pulumi:"exponent"`
+	Modulus   pulumi.StringInput `pulumi:"modulus"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -5448,7 +4762,6 @@ func (i ContentKeyPolicyRsaTokenKeyResponseArgs) ToContentKeyPolicyRsaTokenKeyRe
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyRsaTokenKeyResponseOutput)
 }
 
-// Specifies a RSA key for token validation
 type ContentKeyPolicyRsaTokenKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyRsaTokenKeyResponseOutput) ElementType() reflect.Type {
@@ -5463,28 +4776,20 @@ func (o ContentKeyPolicyRsaTokenKeyResponseOutput) ToContentKeyPolicyRsaTokenKey
 	return o
 }
 
-// The RSA Parameter exponent
 func (o ContentKeyPolicyRsaTokenKeyResponseOutput) Exponent() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyRsaTokenKeyResponse) string { return v.Exponent }).(pulumi.StringOutput)
 }
 
-// The RSA Parameter modulus
 func (o ContentKeyPolicyRsaTokenKeyResponseOutput) Modulus() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyRsaTokenKeyResponse) string { return v.Modulus }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
 func (o ContentKeyPolicyRsaTokenKeyResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyRsaTokenKeyResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Specifies a symmetric key for token validation.
 type ContentKeyPolicySymmetricTokenKey struct {
-	// The key value of the key
-	KeyValue string `pulumi:"keyValue"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
+	KeyValue  string `pulumi:"keyValue"`
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -5499,12 +4804,8 @@ type ContentKeyPolicySymmetricTokenKeyInput interface {
 	ToContentKeyPolicySymmetricTokenKeyOutputWithContext(context.Context) ContentKeyPolicySymmetricTokenKeyOutput
 }
 
-// Specifies a symmetric key for token validation.
 type ContentKeyPolicySymmetricTokenKeyArgs struct {
-	// The key value of the key
-	KeyValue pulumi.StringInput `pulumi:"keyValue"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
+	KeyValue  pulumi.StringInput `pulumi:"keyValue"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -5520,7 +4821,6 @@ func (i ContentKeyPolicySymmetricTokenKeyArgs) ToContentKeyPolicySymmetricTokenK
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicySymmetricTokenKeyOutput)
 }
 
-// Specifies a symmetric key for token validation.
 type ContentKeyPolicySymmetricTokenKeyOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicySymmetricTokenKeyOutput) ElementType() reflect.Type {
@@ -5535,23 +4835,16 @@ func (o ContentKeyPolicySymmetricTokenKeyOutput) ToContentKeyPolicySymmetricToke
 	return o
 }
 
-// The key value of the key
 func (o ContentKeyPolicySymmetricTokenKeyOutput) KeyValue() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicySymmetricTokenKey) string { return v.KeyValue }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
 func (o ContentKeyPolicySymmetricTokenKeyOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicySymmetricTokenKey) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Specifies a symmetric key for token validation.
 type ContentKeyPolicySymmetricTokenKeyResponse struct {
-	// The key value of the key
-	KeyValue string `pulumi:"keyValue"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
+	KeyValue  string `pulumi:"keyValue"`
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -5566,12 +4859,8 @@ type ContentKeyPolicySymmetricTokenKeyResponseInput interface {
 	ToContentKeyPolicySymmetricTokenKeyResponseOutputWithContext(context.Context) ContentKeyPolicySymmetricTokenKeyResponseOutput
 }
 
-// Specifies a symmetric key for token validation.
 type ContentKeyPolicySymmetricTokenKeyResponseArgs struct {
-	// The key value of the key
-	KeyValue pulumi.StringInput `pulumi:"keyValue"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
+	KeyValue  pulumi.StringInput `pulumi:"keyValue"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -5587,7 +4876,6 @@ func (i ContentKeyPolicySymmetricTokenKeyResponseArgs) ToContentKeyPolicySymmetr
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicySymmetricTokenKeyResponseOutput)
 }
 
-// Specifies a symmetric key for token validation.
 type ContentKeyPolicySymmetricTokenKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicySymmetricTokenKeyResponseOutput) ElementType() reflect.Type {
@@ -5602,22 +4890,16 @@ func (o ContentKeyPolicySymmetricTokenKeyResponseOutput) ToContentKeyPolicySymme
 	return o
 }
 
-// The key value of the key
 func (o ContentKeyPolicySymmetricTokenKeyResponseOutput) KeyValue() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicySymmetricTokenKeyResponse) string { return v.KeyValue }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
 func (o ContentKeyPolicySymmetricTokenKeyResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicySymmetricTokenKeyResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Represents a token claim.
 type ContentKeyPolicyTokenClaim struct {
-	// Token claim type.
-	ClaimType *string `pulumi:"claimType"`
-	// Token claim value.
+	ClaimType  *string `pulumi:"claimType"`
 	ClaimValue *string `pulumi:"claimValue"`
 }
 
@@ -5632,11 +4914,8 @@ type ContentKeyPolicyTokenClaimInput interface {
 	ToContentKeyPolicyTokenClaimOutputWithContext(context.Context) ContentKeyPolicyTokenClaimOutput
 }
 
-// Represents a token claim.
 type ContentKeyPolicyTokenClaimArgs struct {
-	// Token claim type.
-	ClaimType pulumi.StringPtrInput `pulumi:"claimType"`
-	// Token claim value.
+	ClaimType  pulumi.StringPtrInput `pulumi:"claimType"`
 	ClaimValue pulumi.StringPtrInput `pulumi:"claimValue"`
 }
 
@@ -5677,7 +4956,6 @@ func (i ContentKeyPolicyTokenClaimArray) ToContentKeyPolicyTokenClaimArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyTokenClaimArrayOutput)
 }
 
-// Represents a token claim.
 type ContentKeyPolicyTokenClaimOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyTokenClaimOutput) ElementType() reflect.Type {
@@ -5692,12 +4970,10 @@ func (o ContentKeyPolicyTokenClaimOutput) ToContentKeyPolicyTokenClaimOutputWith
 	return o
 }
 
-// Token claim type.
 func (o ContentKeyPolicyTokenClaimOutput) ClaimType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenClaim) *string { return v.ClaimType }).(pulumi.StringPtrOutput)
 }
 
-// Token claim value.
 func (o ContentKeyPolicyTokenClaimOutput) ClaimValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenClaim) *string { return v.ClaimValue }).(pulumi.StringPtrOutput)
 }
@@ -5722,11 +4998,8 @@ func (o ContentKeyPolicyTokenClaimArrayOutput) Index(i pulumi.IntInput) ContentK
 	}).(ContentKeyPolicyTokenClaimOutput)
 }
 
-// Represents a token claim.
 type ContentKeyPolicyTokenClaimResponse struct {
-	// Token claim type.
-	ClaimType *string `pulumi:"claimType"`
-	// Token claim value.
+	ClaimType  *string `pulumi:"claimType"`
 	ClaimValue *string `pulumi:"claimValue"`
 }
 
@@ -5741,11 +5014,8 @@ type ContentKeyPolicyTokenClaimResponseInput interface {
 	ToContentKeyPolicyTokenClaimResponseOutputWithContext(context.Context) ContentKeyPolicyTokenClaimResponseOutput
 }
 
-// Represents a token claim.
 type ContentKeyPolicyTokenClaimResponseArgs struct {
-	// Token claim type.
-	ClaimType pulumi.StringPtrInput `pulumi:"claimType"`
-	// Token claim value.
+	ClaimType  pulumi.StringPtrInput `pulumi:"claimType"`
 	ClaimValue pulumi.StringPtrInput `pulumi:"claimValue"`
 }
 
@@ -5786,7 +5056,6 @@ func (i ContentKeyPolicyTokenClaimResponseArray) ToContentKeyPolicyTokenClaimRes
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyTokenClaimResponseArrayOutput)
 }
 
-// Represents a token claim.
 type ContentKeyPolicyTokenClaimResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyTokenClaimResponseOutput) ElementType() reflect.Type {
@@ -5801,12 +5070,10 @@ func (o ContentKeyPolicyTokenClaimResponseOutput) ToContentKeyPolicyTokenClaimRe
 	return o
 }
 
-// Token claim type.
 func (o ContentKeyPolicyTokenClaimResponseOutput) ClaimType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenClaimResponse) *string { return v.ClaimType }).(pulumi.StringPtrOutput)
 }
 
-// Token claim value.
 func (o ContentKeyPolicyTokenClaimResponseOutput) ClaimValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenClaimResponse) *string { return v.ClaimValue }).(pulumi.StringPtrOutput)
 }
@@ -5831,25 +5098,15 @@ func (o ContentKeyPolicyTokenClaimResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(ContentKeyPolicyTokenClaimResponseOutput)
 }
 
-// Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
 type ContentKeyPolicyTokenRestriction struct {
-	// A list of alternative verification keys.
-	AlternateVerificationKeys []interface{} `pulumi:"alternateVerificationKeys"`
-	// The audience for the token.
-	Audience string `pulumi:"audience"`
-	// The token issuer.
-	Issuer string `pulumi:"issuer"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
-	OdataType string `pulumi:"odataType"`
-	// The OpenID connect discovery document.
-	OpenIdConnectDiscoveryDocument *string `pulumi:"openIdConnectDiscoveryDocument"`
-	// The primary verification key.
-	PrimaryVerificationKey interface{} `pulumi:"primaryVerificationKey"`
-	// A list of required token claims.
-	RequiredClaims []ContentKeyPolicyTokenClaim `pulumi:"requiredClaims"`
-	// The type of token.
-	RestrictionTokenType string `pulumi:"restrictionTokenType"`
+	AlternateVerificationKeys      []interface{}                `pulumi:"alternateVerificationKeys"`
+	Audience                       string                       `pulumi:"audience"`
+	Issuer                         string                       `pulumi:"issuer"`
+	OdataType                      string                       `pulumi:"odataType"`
+	OpenIdConnectDiscoveryDocument *string                      `pulumi:"openIdConnectDiscoveryDocument"`
+	PrimaryVerificationKey         interface{}                  `pulumi:"primaryVerificationKey"`
+	RequiredClaims                 []ContentKeyPolicyTokenClaim `pulumi:"requiredClaims"`
+	RestrictionTokenType           string                       `pulumi:"restrictionTokenType"`
 }
 
 // ContentKeyPolicyTokenRestrictionInput is an input type that accepts ContentKeyPolicyTokenRestrictionArgs and ContentKeyPolicyTokenRestrictionOutput values.
@@ -5863,25 +5120,15 @@ type ContentKeyPolicyTokenRestrictionInput interface {
 	ToContentKeyPolicyTokenRestrictionOutputWithContext(context.Context) ContentKeyPolicyTokenRestrictionOutput
 }
 
-// Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
 type ContentKeyPolicyTokenRestrictionArgs struct {
-	// A list of alternative verification keys.
-	AlternateVerificationKeys pulumi.ArrayInput `pulumi:"alternateVerificationKeys"`
-	// The audience for the token.
-	Audience pulumi.StringInput `pulumi:"audience"`
-	// The token issuer.
-	Issuer pulumi.StringInput `pulumi:"issuer"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The OpenID connect discovery document.
-	OpenIdConnectDiscoveryDocument pulumi.StringPtrInput `pulumi:"openIdConnectDiscoveryDocument"`
-	// The primary verification key.
-	PrimaryVerificationKey pulumi.Input `pulumi:"primaryVerificationKey"`
-	// A list of required token claims.
-	RequiredClaims ContentKeyPolicyTokenClaimArrayInput `pulumi:"requiredClaims"`
-	// The type of token.
-	RestrictionTokenType pulumi.StringInput `pulumi:"restrictionTokenType"`
+	AlternateVerificationKeys      pulumi.ArrayInput                    `pulumi:"alternateVerificationKeys"`
+	Audience                       pulumi.StringInput                   `pulumi:"audience"`
+	Issuer                         pulumi.StringInput                   `pulumi:"issuer"`
+	OdataType                      pulumi.StringInput                   `pulumi:"odataType"`
+	OpenIdConnectDiscoveryDocument pulumi.StringPtrInput                `pulumi:"openIdConnectDiscoveryDocument"`
+	PrimaryVerificationKey         pulumi.Input                         `pulumi:"primaryVerificationKey"`
+	RequiredClaims                 ContentKeyPolicyTokenClaimArrayInput `pulumi:"requiredClaims"`
+	RestrictionTokenType           pulumi.StringInput                   `pulumi:"restrictionTokenType"`
 }
 
 func (ContentKeyPolicyTokenRestrictionArgs) ElementType() reflect.Type {
@@ -5896,7 +5143,6 @@ func (i ContentKeyPolicyTokenRestrictionArgs) ToContentKeyPolicyTokenRestriction
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyTokenRestrictionOutput)
 }
 
-// Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
 type ContentKeyPolicyTokenRestrictionOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyTokenRestrictionOutput) ElementType() reflect.Type {
@@ -5911,66 +5157,47 @@ func (o ContentKeyPolicyTokenRestrictionOutput) ToContentKeyPolicyTokenRestricti
 	return o
 }
 
-// A list of alternative verification keys.
 func (o ContentKeyPolicyTokenRestrictionOutput) AlternateVerificationKeys() pulumi.ArrayOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestriction) []interface{} { return v.AlternateVerificationKeys }).(pulumi.ArrayOutput)
 }
 
-// The audience for the token.
 func (o ContentKeyPolicyTokenRestrictionOutput) Audience() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestriction) string { return v.Audience }).(pulumi.StringOutput)
 }
 
-// The token issuer.
 func (o ContentKeyPolicyTokenRestrictionOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestriction) string { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
 func (o ContentKeyPolicyTokenRestrictionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestriction) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The OpenID connect discovery document.
 func (o ContentKeyPolicyTokenRestrictionOutput) OpenIdConnectDiscoveryDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestriction) *string { return v.OpenIdConnectDiscoveryDocument }).(pulumi.StringPtrOutput)
 }
 
-// The primary verification key.
 func (o ContentKeyPolicyTokenRestrictionOutput) PrimaryVerificationKey() pulumi.AnyOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestriction) interface{} { return v.PrimaryVerificationKey }).(pulumi.AnyOutput)
 }
 
-// A list of required token claims.
 func (o ContentKeyPolicyTokenRestrictionOutput) RequiredClaims() ContentKeyPolicyTokenClaimArrayOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestriction) []ContentKeyPolicyTokenClaim { return v.RequiredClaims }).(ContentKeyPolicyTokenClaimArrayOutput)
 }
 
-// The type of token.
 func (o ContentKeyPolicyTokenRestrictionOutput) RestrictionTokenType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestriction) string { return v.RestrictionTokenType }).(pulumi.StringOutput)
 }
 
-// Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
 type ContentKeyPolicyTokenRestrictionResponse struct {
-	// A list of alternative verification keys.
-	AlternateVerificationKeys []interface{} `pulumi:"alternateVerificationKeys"`
-	// The audience for the token.
-	Audience string `pulumi:"audience"`
-	// The token issuer.
-	Issuer string `pulumi:"issuer"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
-	OdataType string `pulumi:"odataType"`
-	// The OpenID connect discovery document.
-	OpenIdConnectDiscoveryDocument *string `pulumi:"openIdConnectDiscoveryDocument"`
-	// The primary verification key.
-	PrimaryVerificationKey interface{} `pulumi:"primaryVerificationKey"`
-	// A list of required token claims.
-	RequiredClaims []ContentKeyPolicyTokenClaimResponse `pulumi:"requiredClaims"`
-	// The type of token.
-	RestrictionTokenType string `pulumi:"restrictionTokenType"`
+	AlternateVerificationKeys      []interface{}                        `pulumi:"alternateVerificationKeys"`
+	Audience                       string                               `pulumi:"audience"`
+	Issuer                         string                               `pulumi:"issuer"`
+	OdataType                      string                               `pulumi:"odataType"`
+	OpenIdConnectDiscoveryDocument *string                              `pulumi:"openIdConnectDiscoveryDocument"`
+	PrimaryVerificationKey         interface{}                          `pulumi:"primaryVerificationKey"`
+	RequiredClaims                 []ContentKeyPolicyTokenClaimResponse `pulumi:"requiredClaims"`
+	RestrictionTokenType           string                               `pulumi:"restrictionTokenType"`
 }
 
 // ContentKeyPolicyTokenRestrictionResponseInput is an input type that accepts ContentKeyPolicyTokenRestrictionResponseArgs and ContentKeyPolicyTokenRestrictionResponseOutput values.
@@ -5984,25 +5211,15 @@ type ContentKeyPolicyTokenRestrictionResponseInput interface {
 	ToContentKeyPolicyTokenRestrictionResponseOutputWithContext(context.Context) ContentKeyPolicyTokenRestrictionResponseOutput
 }
 
-// Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
 type ContentKeyPolicyTokenRestrictionResponseArgs struct {
-	// A list of alternative verification keys.
-	AlternateVerificationKeys pulumi.ArrayInput `pulumi:"alternateVerificationKeys"`
-	// The audience for the token.
-	Audience pulumi.StringInput `pulumi:"audience"`
-	// The token issuer.
-	Issuer pulumi.StringInput `pulumi:"issuer"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The OpenID connect discovery document.
-	OpenIdConnectDiscoveryDocument pulumi.StringPtrInput `pulumi:"openIdConnectDiscoveryDocument"`
-	// The primary verification key.
-	PrimaryVerificationKey pulumi.Input `pulumi:"primaryVerificationKey"`
-	// A list of required token claims.
-	RequiredClaims ContentKeyPolicyTokenClaimResponseArrayInput `pulumi:"requiredClaims"`
-	// The type of token.
-	RestrictionTokenType pulumi.StringInput `pulumi:"restrictionTokenType"`
+	AlternateVerificationKeys      pulumi.ArrayInput                            `pulumi:"alternateVerificationKeys"`
+	Audience                       pulumi.StringInput                           `pulumi:"audience"`
+	Issuer                         pulumi.StringInput                           `pulumi:"issuer"`
+	OdataType                      pulumi.StringInput                           `pulumi:"odataType"`
+	OpenIdConnectDiscoveryDocument pulumi.StringPtrInput                        `pulumi:"openIdConnectDiscoveryDocument"`
+	PrimaryVerificationKey         pulumi.Input                                 `pulumi:"primaryVerificationKey"`
+	RequiredClaims                 ContentKeyPolicyTokenClaimResponseArrayInput `pulumi:"requiredClaims"`
+	RestrictionTokenType           pulumi.StringInput                           `pulumi:"restrictionTokenType"`
 }
 
 func (ContentKeyPolicyTokenRestrictionResponseArgs) ElementType() reflect.Type {
@@ -6017,7 +5234,6 @@ func (i ContentKeyPolicyTokenRestrictionResponseArgs) ToContentKeyPolicyTokenRes
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyTokenRestrictionResponseOutput)
 }
 
-// Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
 type ContentKeyPolicyTokenRestrictionResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyTokenRestrictionResponseOutput) ElementType() reflect.Type {
@@ -6032,53 +5248,41 @@ func (o ContentKeyPolicyTokenRestrictionResponseOutput) ToContentKeyPolicyTokenR
 	return o
 }
 
-// A list of alternative verification keys.
 func (o ContentKeyPolicyTokenRestrictionResponseOutput) AlternateVerificationKeys() pulumi.ArrayOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionResponse) []interface{} { return v.AlternateVerificationKeys }).(pulumi.ArrayOutput)
 }
 
-// The audience for the token.
 func (o ContentKeyPolicyTokenRestrictionResponseOutput) Audience() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionResponse) string { return v.Audience }).(pulumi.StringOutput)
 }
 
-// The token issuer.
 func (o ContentKeyPolicyTokenRestrictionResponseOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionResponse) string { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
 func (o ContentKeyPolicyTokenRestrictionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The OpenID connect discovery document.
 func (o ContentKeyPolicyTokenRestrictionResponseOutput) OpenIdConnectDiscoveryDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionResponse) *string { return v.OpenIdConnectDiscoveryDocument }).(pulumi.StringPtrOutput)
 }
 
-// The primary verification key.
 func (o ContentKeyPolicyTokenRestrictionResponseOutput) PrimaryVerificationKey() pulumi.AnyOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionResponse) interface{} { return v.PrimaryVerificationKey }).(pulumi.AnyOutput)
 }
 
-// A list of required token claims.
 func (o ContentKeyPolicyTokenRestrictionResponseOutput) RequiredClaims() ContentKeyPolicyTokenClaimResponseArrayOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionResponse) []ContentKeyPolicyTokenClaimResponse {
 		return v.RequiredClaims
 	}).(ContentKeyPolicyTokenClaimResponseArrayOutput)
 }
 
-// The type of token.
 func (o ContentKeyPolicyTokenRestrictionResponseOutput) RestrictionTokenType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionResponse) string { return v.RestrictionTokenType }).(pulumi.StringOutput)
 }
 
-// Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
 type ContentKeyPolicyUnknownConfiguration struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -6093,10 +5297,7 @@ type ContentKeyPolicyUnknownConfigurationInput interface {
 	ToContentKeyPolicyUnknownConfigurationOutputWithContext(context.Context) ContentKeyPolicyUnknownConfigurationOutput
 }
 
-// Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
 type ContentKeyPolicyUnknownConfigurationArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -6112,7 +5313,6 @@ func (i ContentKeyPolicyUnknownConfigurationArgs) ToContentKeyPolicyUnknownConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyUnknownConfigurationOutput)
 }
 
-// Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
 type ContentKeyPolicyUnknownConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyUnknownConfigurationOutput) ElementType() reflect.Type {
@@ -6127,16 +5327,11 @@ func (o ContentKeyPolicyUnknownConfigurationOutput) ToContentKeyPolicyUnknownCon
 	return o
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
 func (o ContentKeyPolicyUnknownConfigurationOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyUnknownConfiguration) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
 type ContentKeyPolicyUnknownConfigurationResponse struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -6151,10 +5346,7 @@ type ContentKeyPolicyUnknownConfigurationResponseInput interface {
 	ToContentKeyPolicyUnknownConfigurationResponseOutputWithContext(context.Context) ContentKeyPolicyUnknownConfigurationResponseOutput
 }
 
-// Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
 type ContentKeyPolicyUnknownConfigurationResponseArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -6170,7 +5362,6 @@ func (i ContentKeyPolicyUnknownConfigurationResponseArgs) ToContentKeyPolicyUnkn
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyUnknownConfigurationResponseOutput)
 }
 
-// Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
 type ContentKeyPolicyUnknownConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyUnknownConfigurationResponseOutput) ElementType() reflect.Type {
@@ -6185,16 +5376,11 @@ func (o ContentKeyPolicyUnknownConfigurationResponseOutput) ToContentKeyPolicyUn
 	return o
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
 func (o ContentKeyPolicyUnknownConfigurationResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyUnknownConfigurationResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
 type ContentKeyPolicyUnknownRestriction struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -6209,10 +5395,7 @@ type ContentKeyPolicyUnknownRestrictionInput interface {
 	ToContentKeyPolicyUnknownRestrictionOutputWithContext(context.Context) ContentKeyPolicyUnknownRestrictionOutput
 }
 
-// Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
 type ContentKeyPolicyUnknownRestrictionArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -6228,7 +5411,6 @@ func (i ContentKeyPolicyUnknownRestrictionArgs) ToContentKeyPolicyUnknownRestric
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyUnknownRestrictionOutput)
 }
 
-// Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
 type ContentKeyPolicyUnknownRestrictionOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyUnknownRestrictionOutput) ElementType() reflect.Type {
@@ -6243,16 +5425,11 @@ func (o ContentKeyPolicyUnknownRestrictionOutput) ToContentKeyPolicyUnknownRestr
 	return o
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
 func (o ContentKeyPolicyUnknownRestrictionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyUnknownRestriction) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
 type ContentKeyPolicyUnknownRestrictionResponse struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -6267,10 +5444,7 @@ type ContentKeyPolicyUnknownRestrictionResponseInput interface {
 	ToContentKeyPolicyUnknownRestrictionResponseOutputWithContext(context.Context) ContentKeyPolicyUnknownRestrictionResponseOutput
 }
 
-// Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
 type ContentKeyPolicyUnknownRestrictionResponseArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -6286,7 +5460,6 @@ func (i ContentKeyPolicyUnknownRestrictionResponseArgs) ToContentKeyPolicyUnknow
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyUnknownRestrictionResponseOutput)
 }
 
-// Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
 type ContentKeyPolicyUnknownRestrictionResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyUnknownRestrictionResponseOutput) ElementType() reflect.Type {
@@ -6301,18 +5474,12 @@ func (o ContentKeyPolicyUnknownRestrictionResponseOutput) ToContentKeyPolicyUnkn
 	return o
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
 func (o ContentKeyPolicyUnknownRestrictionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyUnknownRestrictionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Specifies a configuration for Widevine licenses.
 type ContentKeyPolicyWidevineConfiguration struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
-	OdataType string `pulumi:"odataType"`
-	// The Widevine template.
+	OdataType        string `pulumi:"odataType"`
 	WidevineTemplate string `pulumi:"widevineTemplate"`
 }
 
@@ -6327,12 +5494,8 @@ type ContentKeyPolicyWidevineConfigurationInput interface {
 	ToContentKeyPolicyWidevineConfigurationOutputWithContext(context.Context) ContentKeyPolicyWidevineConfigurationOutput
 }
 
-// Specifies a configuration for Widevine licenses.
 type ContentKeyPolicyWidevineConfigurationArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The Widevine template.
+	OdataType        pulumi.StringInput `pulumi:"odataType"`
 	WidevineTemplate pulumi.StringInput `pulumi:"widevineTemplate"`
 }
 
@@ -6348,7 +5511,6 @@ func (i ContentKeyPolicyWidevineConfigurationArgs) ToContentKeyPolicyWidevineCon
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyWidevineConfigurationOutput)
 }
 
-// Specifies a configuration for Widevine licenses.
 type ContentKeyPolicyWidevineConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyWidevineConfigurationOutput) ElementType() reflect.Type {
@@ -6363,23 +5525,16 @@ func (o ContentKeyPolicyWidevineConfigurationOutput) ToContentKeyPolicyWidevineC
 	return o
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
 func (o ContentKeyPolicyWidevineConfigurationOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyWidevineConfiguration) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The Widevine template.
 func (o ContentKeyPolicyWidevineConfigurationOutput) WidevineTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyWidevineConfiguration) string { return v.WidevineTemplate }).(pulumi.StringOutput)
 }
 
-// Specifies a configuration for Widevine licenses.
 type ContentKeyPolicyWidevineConfigurationResponse struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
-	OdataType string `pulumi:"odataType"`
-	// The Widevine template.
+	OdataType        string `pulumi:"odataType"`
 	WidevineTemplate string `pulumi:"widevineTemplate"`
 }
 
@@ -6394,12 +5549,8 @@ type ContentKeyPolicyWidevineConfigurationResponseInput interface {
 	ToContentKeyPolicyWidevineConfigurationResponseOutputWithContext(context.Context) ContentKeyPolicyWidevineConfigurationResponseOutput
 }
 
-// Specifies a configuration for Widevine licenses.
 type ContentKeyPolicyWidevineConfigurationResponseArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The Widevine template.
+	OdataType        pulumi.StringInput `pulumi:"odataType"`
 	WidevineTemplate pulumi.StringInput `pulumi:"widevineTemplate"`
 }
 
@@ -6415,7 +5566,6 @@ func (i ContentKeyPolicyWidevineConfigurationResponseArgs) ToContentKeyPolicyWid
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyWidevineConfigurationResponseOutput)
 }
 
-// Specifies a configuration for Widevine licenses.
 type ContentKeyPolicyWidevineConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyWidevineConfigurationResponseOutput) ElementType() reflect.Type {
@@ -6430,24 +5580,17 @@ func (o ContentKeyPolicyWidevineConfigurationResponseOutput) ToContentKeyPolicyW
 	return o
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
 func (o ContentKeyPolicyWidevineConfigurationResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyWidevineConfigurationResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The Widevine template.
 func (o ContentKeyPolicyWidevineConfigurationResponseOutput) WidevineTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyWidevineConfigurationResponse) string { return v.WidevineTemplate }).(pulumi.StringOutput)
 }
 
-// Specifies a certificate for token validation.
 type ContentKeyPolicyX509CertificateTokenKey struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
 	OdataType string `pulumi:"odataType"`
-	// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
-	RawBody string `pulumi:"rawBody"`
+	RawBody   string `pulumi:"rawBody"`
 }
 
 // ContentKeyPolicyX509CertificateTokenKeyInput is an input type that accepts ContentKeyPolicyX509CertificateTokenKeyArgs and ContentKeyPolicyX509CertificateTokenKeyOutput values.
@@ -6461,13 +5604,9 @@ type ContentKeyPolicyX509CertificateTokenKeyInput interface {
 	ToContentKeyPolicyX509CertificateTokenKeyOutputWithContext(context.Context) ContentKeyPolicyX509CertificateTokenKeyOutput
 }
 
-// Specifies a certificate for token validation.
 type ContentKeyPolicyX509CertificateTokenKeyArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
-	RawBody pulumi.StringInput `pulumi:"rawBody"`
+	RawBody   pulumi.StringInput `pulumi:"rawBody"`
 }
 
 func (ContentKeyPolicyX509CertificateTokenKeyArgs) ElementType() reflect.Type {
@@ -6482,7 +5621,6 @@ func (i ContentKeyPolicyX509CertificateTokenKeyArgs) ToContentKeyPolicyX509Certi
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyX509CertificateTokenKeyOutput)
 }
 
-// Specifies a certificate for token validation.
 type ContentKeyPolicyX509CertificateTokenKeyOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyX509CertificateTokenKeyOutput) ElementType() reflect.Type {
@@ -6497,24 +5635,17 @@ func (o ContentKeyPolicyX509CertificateTokenKeyOutput) ToContentKeyPolicyX509Cer
 	return o
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
 func (o ContentKeyPolicyX509CertificateTokenKeyOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyX509CertificateTokenKey) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
 func (o ContentKeyPolicyX509CertificateTokenKeyOutput) RawBody() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyX509CertificateTokenKey) string { return v.RawBody }).(pulumi.StringOutput)
 }
 
-// Specifies a certificate for token validation.
 type ContentKeyPolicyX509CertificateTokenKeyResponse struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
 	OdataType string `pulumi:"odataType"`
-	// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
-	RawBody string `pulumi:"rawBody"`
+	RawBody   string `pulumi:"rawBody"`
 }
 
 // ContentKeyPolicyX509CertificateTokenKeyResponseInput is an input type that accepts ContentKeyPolicyX509CertificateTokenKeyResponseArgs and ContentKeyPolicyX509CertificateTokenKeyResponseOutput values.
@@ -6528,13 +5659,9 @@ type ContentKeyPolicyX509CertificateTokenKeyResponseInput interface {
 	ToContentKeyPolicyX509CertificateTokenKeyResponseOutputWithContext(context.Context) ContentKeyPolicyX509CertificateTokenKeyResponseOutput
 }
 
-// Specifies a certificate for token validation.
 type ContentKeyPolicyX509CertificateTokenKeyResponseArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
-	RawBody pulumi.StringInput `pulumi:"rawBody"`
+	RawBody   pulumi.StringInput `pulumi:"rawBody"`
 }
 
 func (ContentKeyPolicyX509CertificateTokenKeyResponseArgs) ElementType() reflect.Type {
@@ -6549,7 +5676,6 @@ func (i ContentKeyPolicyX509CertificateTokenKeyResponseArgs) ToContentKeyPolicyX
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyX509CertificateTokenKeyResponseOutput)
 }
 
-// Specifies a certificate for token validation.
 type ContentKeyPolicyX509CertificateTokenKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyX509CertificateTokenKeyResponseOutput) ElementType() reflect.Type {
@@ -6564,24 +5690,17 @@ func (o ContentKeyPolicyX509CertificateTokenKeyResponseOutput) ToContentKeyPolic
 	return o
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
 func (o ContentKeyPolicyX509CertificateTokenKeyResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyX509CertificateTokenKeyResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
 func (o ContentKeyPolicyX509CertificateTokenKeyResponseOutput) RawBody() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyX509CertificateTokenKeyResponse) string { return v.RawBody }).(pulumi.StringOutput)
 }
 
-// A codec flag, which tells the encoder to copy the input audio bitstream.
 type CopyAudio struct {
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.CopyAudio'.
-	OdataType string `pulumi:"odataType"`
+	Label     *string `pulumi:"label"`
+	OdataType string  `pulumi:"odataType"`
 }
 
 // CopyAudioInput is an input type that accepts CopyAudioArgs and CopyAudioOutput values.
@@ -6595,13 +5714,9 @@ type CopyAudioInput interface {
 	ToCopyAudioOutputWithContext(context.Context) CopyAudioOutput
 }
 
-// A codec flag, which tells the encoder to copy the input audio bitstream.
 type CopyAudioArgs struct {
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.CopyAudio'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	Label     pulumi.StringPtrInput `pulumi:"label"`
+	OdataType pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (CopyAudioArgs) ElementType() reflect.Type {
@@ -6616,7 +5731,6 @@ func (i CopyAudioArgs) ToCopyAudioOutputWithContext(ctx context.Context) CopyAud
 	return pulumi.ToOutputWithContext(ctx, i).(CopyAudioOutput)
 }
 
-// A codec flag, which tells the encoder to copy the input audio bitstream.
 type CopyAudioOutput struct{ *pulumi.OutputState }
 
 func (CopyAudioOutput) ElementType() reflect.Type {
@@ -6631,24 +5745,17 @@ func (o CopyAudioOutput) ToCopyAudioOutputWithContext(ctx context.Context) CopyA
 	return o
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o CopyAudioOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CopyAudio) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.CopyAudio'.
 func (o CopyAudioOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyAudio) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// A codec flag, which tells the encoder to copy the input audio bitstream.
 type CopyAudioResponse struct {
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.CopyAudio'.
-	OdataType string `pulumi:"odataType"`
+	Label     *string `pulumi:"label"`
+	OdataType string  `pulumi:"odataType"`
 }
 
 // CopyAudioResponseInput is an input type that accepts CopyAudioResponseArgs and CopyAudioResponseOutput values.
@@ -6662,13 +5769,9 @@ type CopyAudioResponseInput interface {
 	ToCopyAudioResponseOutputWithContext(context.Context) CopyAudioResponseOutput
 }
 
-// A codec flag, which tells the encoder to copy the input audio bitstream.
 type CopyAudioResponseArgs struct {
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.CopyAudio'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	Label     pulumi.StringPtrInput `pulumi:"label"`
+	OdataType pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (CopyAudioResponseArgs) ElementType() reflect.Type {
@@ -6683,7 +5786,6 @@ func (i CopyAudioResponseArgs) ToCopyAudioResponseOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CopyAudioResponseOutput)
 }
 
-// A codec flag, which tells the encoder to copy the input audio bitstream.
 type CopyAudioResponseOutput struct{ *pulumi.OutputState }
 
 func (CopyAudioResponseOutput) ElementType() reflect.Type {
@@ -6698,24 +5800,17 @@ func (o CopyAudioResponseOutput) ToCopyAudioResponseOutputWithContext(ctx contex
 	return o
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o CopyAudioResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CopyAudioResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.CopyAudio'.
 func (o CopyAudioResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyAudioResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// A codec flag, which tells the encoder to copy the input video bitstream without re-encoding.
 type CopyVideo struct {
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.CopyVideo'.
-	OdataType string `pulumi:"odataType"`
+	Label     *string `pulumi:"label"`
+	OdataType string  `pulumi:"odataType"`
 }
 
 // CopyVideoInput is an input type that accepts CopyVideoArgs and CopyVideoOutput values.
@@ -6729,13 +5824,9 @@ type CopyVideoInput interface {
 	ToCopyVideoOutputWithContext(context.Context) CopyVideoOutput
 }
 
-// A codec flag, which tells the encoder to copy the input video bitstream without re-encoding.
 type CopyVideoArgs struct {
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.CopyVideo'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	Label     pulumi.StringPtrInput `pulumi:"label"`
+	OdataType pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (CopyVideoArgs) ElementType() reflect.Type {
@@ -6750,7 +5841,6 @@ func (i CopyVideoArgs) ToCopyVideoOutputWithContext(ctx context.Context) CopyVid
 	return pulumi.ToOutputWithContext(ctx, i).(CopyVideoOutput)
 }
 
-// A codec flag, which tells the encoder to copy the input video bitstream without re-encoding.
 type CopyVideoOutput struct{ *pulumi.OutputState }
 
 func (CopyVideoOutput) ElementType() reflect.Type {
@@ -6765,24 +5855,17 @@ func (o CopyVideoOutput) ToCopyVideoOutputWithContext(ctx context.Context) CopyV
 	return o
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o CopyVideoOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CopyVideo) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.CopyVideo'.
 func (o CopyVideoOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyVideo) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// A codec flag, which tells the encoder to copy the input video bitstream without re-encoding.
 type CopyVideoResponse struct {
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.CopyVideo'.
-	OdataType string `pulumi:"odataType"`
+	Label     *string `pulumi:"label"`
+	OdataType string  `pulumi:"odataType"`
 }
 
 // CopyVideoResponseInput is an input type that accepts CopyVideoResponseArgs and CopyVideoResponseOutput values.
@@ -6796,13 +5879,9 @@ type CopyVideoResponseInput interface {
 	ToCopyVideoResponseOutputWithContext(context.Context) CopyVideoResponseOutput
 }
 
-// A codec flag, which tells the encoder to copy the input video bitstream without re-encoding.
 type CopyVideoResponseArgs struct {
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.CopyVideo'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	Label     pulumi.StringPtrInput `pulumi:"label"`
+	OdataType pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (CopyVideoResponseArgs) ElementType() reflect.Type {
@@ -6817,7 +5896,6 @@ func (i CopyVideoResponseArgs) ToCopyVideoResponseOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CopyVideoResponseOutput)
 }
 
-// A codec flag, which tells the encoder to copy the input video bitstream without re-encoding.
 type CopyVideoResponseOutput struct{ *pulumi.OutputState }
 
 func (CopyVideoResponseOutput) ElementType() reflect.Type {
@@ -6832,23 +5910,17 @@ func (o CopyVideoResponseOutput) ToCopyVideoResponseOutputWithContext(ctx contex
 	return o
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o CopyVideoResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CopyVideoResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.CopyVideo'.
 func (o CopyVideoResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyVideoResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The client access policy.
 type CrossSiteAccessPolicies struct {
-	// The content of clientaccesspolicy.xml used by Silverlight.
 	ClientAccessPolicy *string `pulumi:"clientAccessPolicy"`
-	// The content of crossdomain.xml used by Silverlight.
-	CrossDomainPolicy *string `pulumi:"crossDomainPolicy"`
+	CrossDomainPolicy  *string `pulumi:"crossDomainPolicy"`
 }
 
 // CrossSiteAccessPoliciesInput is an input type that accepts CrossSiteAccessPoliciesArgs and CrossSiteAccessPoliciesOutput values.
@@ -6862,12 +5934,9 @@ type CrossSiteAccessPoliciesInput interface {
 	ToCrossSiteAccessPoliciesOutputWithContext(context.Context) CrossSiteAccessPoliciesOutput
 }
 
-// The client access policy.
 type CrossSiteAccessPoliciesArgs struct {
-	// The content of clientaccesspolicy.xml used by Silverlight.
 	ClientAccessPolicy pulumi.StringPtrInput `pulumi:"clientAccessPolicy"`
-	// The content of crossdomain.xml used by Silverlight.
-	CrossDomainPolicy pulumi.StringPtrInput `pulumi:"crossDomainPolicy"`
+	CrossDomainPolicy  pulumi.StringPtrInput `pulumi:"crossDomainPolicy"`
 }
 
 func (CrossSiteAccessPoliciesArgs) ElementType() reflect.Type {
@@ -6923,7 +5992,6 @@ func (i *crossSiteAccessPoliciesPtrType) ToCrossSiteAccessPoliciesPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(CrossSiteAccessPoliciesPtrOutput)
 }
 
-// The client access policy.
 type CrossSiteAccessPoliciesOutput struct{ *pulumi.OutputState }
 
 func (CrossSiteAccessPoliciesOutput) ElementType() reflect.Type {
@@ -6943,17 +6011,15 @@ func (o CrossSiteAccessPoliciesOutput) ToCrossSiteAccessPoliciesPtrOutput() Cros
 }
 
 func (o CrossSiteAccessPoliciesOutput) ToCrossSiteAccessPoliciesPtrOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesPtrOutput {
-	return o.ApplyT(func(v CrossSiteAccessPolicies) *CrossSiteAccessPolicies {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrossSiteAccessPolicies) *CrossSiteAccessPolicies {
 		return &v
 	}).(CrossSiteAccessPoliciesPtrOutput)
 }
 
-// The content of clientaccesspolicy.xml used by Silverlight.
 func (o CrossSiteAccessPoliciesOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrossSiteAccessPolicies) *string { return v.ClientAccessPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The content of crossdomain.xml used by Silverlight.
 func (o CrossSiteAccessPoliciesOutput) CrossDomainPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrossSiteAccessPolicies) *string { return v.CrossDomainPolicy }).(pulumi.StringPtrOutput)
 }
@@ -6973,10 +6039,15 @@ func (o CrossSiteAccessPoliciesPtrOutput) ToCrossSiteAccessPoliciesPtrOutputWith
 }
 
 func (o CrossSiteAccessPoliciesPtrOutput) Elem() CrossSiteAccessPoliciesOutput {
-	return o.ApplyT(func(v *CrossSiteAccessPolicies) CrossSiteAccessPolicies { return *v }).(CrossSiteAccessPoliciesOutput)
+	return o.ApplyT(func(v *CrossSiteAccessPolicies) CrossSiteAccessPolicies {
+		if v != nil {
+			return *v
+		}
+		var ret CrossSiteAccessPolicies
+		return ret
+	}).(CrossSiteAccessPoliciesOutput)
 }
 
-// The content of clientaccesspolicy.xml used by Silverlight.
 func (o CrossSiteAccessPoliciesPtrOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrossSiteAccessPolicies) *string {
 		if v == nil {
@@ -6986,7 +6057,6 @@ func (o CrossSiteAccessPoliciesPtrOutput) ClientAccessPolicy() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content of crossdomain.xml used by Silverlight.
 func (o CrossSiteAccessPoliciesPtrOutput) CrossDomainPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrossSiteAccessPolicies) *string {
 		if v == nil {
@@ -6996,12 +6066,9 @@ func (o CrossSiteAccessPoliciesPtrOutput) CrossDomainPolicy() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The client access policy.
 type CrossSiteAccessPoliciesResponse struct {
-	// The content of clientaccesspolicy.xml used by Silverlight.
 	ClientAccessPolicy *string `pulumi:"clientAccessPolicy"`
-	// The content of crossdomain.xml used by Silverlight.
-	CrossDomainPolicy *string `pulumi:"crossDomainPolicy"`
+	CrossDomainPolicy  *string `pulumi:"crossDomainPolicy"`
 }
 
 // CrossSiteAccessPoliciesResponseInput is an input type that accepts CrossSiteAccessPoliciesResponseArgs and CrossSiteAccessPoliciesResponseOutput values.
@@ -7015,12 +6082,9 @@ type CrossSiteAccessPoliciesResponseInput interface {
 	ToCrossSiteAccessPoliciesResponseOutputWithContext(context.Context) CrossSiteAccessPoliciesResponseOutput
 }
 
-// The client access policy.
 type CrossSiteAccessPoliciesResponseArgs struct {
-	// The content of clientaccesspolicy.xml used by Silverlight.
 	ClientAccessPolicy pulumi.StringPtrInput `pulumi:"clientAccessPolicy"`
-	// The content of crossdomain.xml used by Silverlight.
-	CrossDomainPolicy pulumi.StringPtrInput `pulumi:"crossDomainPolicy"`
+	CrossDomainPolicy  pulumi.StringPtrInput `pulumi:"crossDomainPolicy"`
 }
 
 func (CrossSiteAccessPoliciesResponseArgs) ElementType() reflect.Type {
@@ -7076,7 +6140,6 @@ func (i *crossSiteAccessPoliciesResponsePtrType) ToCrossSiteAccessPoliciesRespon
 	return pulumi.ToOutputWithContext(ctx, i).(CrossSiteAccessPoliciesResponsePtrOutput)
 }
 
-// The client access policy.
 type CrossSiteAccessPoliciesResponseOutput struct{ *pulumi.OutputState }
 
 func (CrossSiteAccessPoliciesResponseOutput) ElementType() reflect.Type {
@@ -7096,17 +6159,15 @@ func (o CrossSiteAccessPoliciesResponseOutput) ToCrossSiteAccessPoliciesResponse
 }
 
 func (o CrossSiteAccessPoliciesResponseOutput) ToCrossSiteAccessPoliciesResponsePtrOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesResponsePtrOutput {
-	return o.ApplyT(func(v CrossSiteAccessPoliciesResponse) *CrossSiteAccessPoliciesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrossSiteAccessPoliciesResponse) *CrossSiteAccessPoliciesResponse {
 		return &v
 	}).(CrossSiteAccessPoliciesResponsePtrOutput)
 }
 
-// The content of clientaccesspolicy.xml used by Silverlight.
 func (o CrossSiteAccessPoliciesResponseOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrossSiteAccessPoliciesResponse) *string { return v.ClientAccessPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The content of crossdomain.xml used by Silverlight.
 func (o CrossSiteAccessPoliciesResponseOutput) CrossDomainPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrossSiteAccessPoliciesResponse) *string { return v.CrossDomainPolicy }).(pulumi.StringPtrOutput)
 }
@@ -7126,10 +6187,15 @@ func (o CrossSiteAccessPoliciesResponsePtrOutput) ToCrossSiteAccessPoliciesRespo
 }
 
 func (o CrossSiteAccessPoliciesResponsePtrOutput) Elem() CrossSiteAccessPoliciesResponseOutput {
-	return o.ApplyT(func(v *CrossSiteAccessPoliciesResponse) CrossSiteAccessPoliciesResponse { return *v }).(CrossSiteAccessPoliciesResponseOutput)
+	return o.ApplyT(func(v *CrossSiteAccessPoliciesResponse) CrossSiteAccessPoliciesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CrossSiteAccessPoliciesResponse
+		return ret
+	}).(CrossSiteAccessPoliciesResponseOutput)
 }
 
-// The content of clientaccesspolicy.xml used by Silverlight.
 func (o CrossSiteAccessPoliciesResponsePtrOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrossSiteAccessPoliciesResponse) *string {
 		if v == nil {
@@ -7139,7 +6205,6 @@ func (o CrossSiteAccessPoliciesResponsePtrOutput) ClientAccessPolicy() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content of crossdomain.xml used by Silverlight.
 func (o CrossSiteAccessPoliciesResponsePtrOutput) CrossDomainPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrossSiteAccessPoliciesResponse) *string {
 		if v == nil {
@@ -7149,11 +6214,8 @@ func (o CrossSiteAccessPoliciesResponsePtrOutput) CrossDomainPolicy() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class to specify properties of default content key for each encryption scheme
 type DefaultKey struct {
-	// Label can be used to specify Content Key when creating a Streaming Locator
-	Label *string `pulumi:"label"`
-	// Policy used by Default Key
+	Label      *string `pulumi:"label"`
 	PolicyName *string `pulumi:"policyName"`
 }
 
@@ -7168,11 +6230,8 @@ type DefaultKeyInput interface {
 	ToDefaultKeyOutputWithContext(context.Context) DefaultKeyOutput
 }
 
-// Class to specify properties of default content key for each encryption scheme
 type DefaultKeyArgs struct {
-	// Label can be used to specify Content Key when creating a Streaming Locator
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Policy used by Default Key
+	Label      pulumi.StringPtrInput `pulumi:"label"`
 	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
 }
 
@@ -7229,7 +6288,6 @@ func (i *defaultKeyPtrType) ToDefaultKeyPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultKeyPtrOutput)
 }
 
-// Class to specify properties of default content key for each encryption scheme
 type DefaultKeyOutput struct{ *pulumi.OutputState }
 
 func (DefaultKeyOutput) ElementType() reflect.Type {
@@ -7249,17 +6307,15 @@ func (o DefaultKeyOutput) ToDefaultKeyPtrOutput() DefaultKeyPtrOutput {
 }
 
 func (o DefaultKeyOutput) ToDefaultKeyPtrOutputWithContext(ctx context.Context) DefaultKeyPtrOutput {
-	return o.ApplyT(func(v DefaultKey) *DefaultKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultKey) *DefaultKey {
 		return &v
 	}).(DefaultKeyPtrOutput)
 }
 
-// Label can be used to specify Content Key when creating a Streaming Locator
 func (o DefaultKeyOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultKey) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// Policy used by Default Key
 func (o DefaultKeyOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultKey) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
@@ -7279,10 +6335,15 @@ func (o DefaultKeyPtrOutput) ToDefaultKeyPtrOutputWithContext(ctx context.Contex
 }
 
 func (o DefaultKeyPtrOutput) Elem() DefaultKeyOutput {
-	return o.ApplyT(func(v *DefaultKey) DefaultKey { return *v }).(DefaultKeyOutput)
+	return o.ApplyT(func(v *DefaultKey) DefaultKey {
+		if v != nil {
+			return *v
+		}
+		var ret DefaultKey
+		return ret
+	}).(DefaultKeyOutput)
 }
 
-// Label can be used to specify Content Key when creating a Streaming Locator
 func (o DefaultKeyPtrOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DefaultKey) *string {
 		if v == nil {
@@ -7292,7 +6353,6 @@ func (o DefaultKeyPtrOutput) Label() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Policy used by Default Key
 func (o DefaultKeyPtrOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DefaultKey) *string {
 		if v == nil {
@@ -7302,11 +6362,8 @@ func (o DefaultKeyPtrOutput) PolicyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class to specify properties of default content key for each encryption scheme
 type DefaultKeyResponse struct {
-	// Label can be used to specify Content Key when creating a Streaming Locator
-	Label *string `pulumi:"label"`
-	// Policy used by Default Key
+	Label      *string `pulumi:"label"`
 	PolicyName *string `pulumi:"policyName"`
 }
 
@@ -7321,11 +6378,8 @@ type DefaultKeyResponseInput interface {
 	ToDefaultKeyResponseOutputWithContext(context.Context) DefaultKeyResponseOutput
 }
 
-// Class to specify properties of default content key for each encryption scheme
 type DefaultKeyResponseArgs struct {
-	// Label can be used to specify Content Key when creating a Streaming Locator
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Policy used by Default Key
+	Label      pulumi.StringPtrInput `pulumi:"label"`
 	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
 }
 
@@ -7382,7 +6436,6 @@ func (i *defaultKeyResponsePtrType) ToDefaultKeyResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultKeyResponsePtrOutput)
 }
 
-// Class to specify properties of default content key for each encryption scheme
 type DefaultKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (DefaultKeyResponseOutput) ElementType() reflect.Type {
@@ -7402,17 +6455,15 @@ func (o DefaultKeyResponseOutput) ToDefaultKeyResponsePtrOutput() DefaultKeyResp
 }
 
 func (o DefaultKeyResponseOutput) ToDefaultKeyResponsePtrOutputWithContext(ctx context.Context) DefaultKeyResponsePtrOutput {
-	return o.ApplyT(func(v DefaultKeyResponse) *DefaultKeyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultKeyResponse) *DefaultKeyResponse {
 		return &v
 	}).(DefaultKeyResponsePtrOutput)
 }
 
-// Label can be used to specify Content Key when creating a Streaming Locator
 func (o DefaultKeyResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultKeyResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// Policy used by Default Key
 func (o DefaultKeyResponseOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultKeyResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
@@ -7432,10 +6483,15 @@ func (o DefaultKeyResponsePtrOutput) ToDefaultKeyResponsePtrOutputWithContext(ct
 }
 
 func (o DefaultKeyResponsePtrOutput) Elem() DefaultKeyResponseOutput {
-	return o.ApplyT(func(v *DefaultKeyResponse) DefaultKeyResponse { return *v }).(DefaultKeyResponseOutput)
+	return o.ApplyT(func(v *DefaultKeyResponse) DefaultKeyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DefaultKeyResponse
+		return ret
+	}).(DefaultKeyResponseOutput)
 }
 
-// Label can be used to specify Content Key when creating a Streaming Locator
 func (o DefaultKeyResponsePtrOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DefaultKeyResponse) *string {
 		if v == nil {
@@ -7445,7 +6501,6 @@ func (o DefaultKeyResponsePtrOutput) Label() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Policy used by Default Key
 func (o DefaultKeyResponsePtrOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DefaultKeyResponse) *string {
 		if v == nil {
@@ -7455,11 +6510,8 @@ func (o DefaultKeyResponsePtrOutput) PolicyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the de-interlacing settings.
 type Deinterlace struct {
-	// The deinterlacing mode. Defaults to AutoPixelAdaptive.
-	Mode *string `pulumi:"mode"`
-	// The field parity for de-interlacing, defaults to Auto.
+	Mode   *string `pulumi:"mode"`
 	Parity *string `pulumi:"parity"`
 }
 
@@ -7474,11 +6526,8 @@ type DeinterlaceInput interface {
 	ToDeinterlaceOutputWithContext(context.Context) DeinterlaceOutput
 }
 
-// Describes the de-interlacing settings.
 type DeinterlaceArgs struct {
-	// The deinterlacing mode. Defaults to AutoPixelAdaptive.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// The field parity for de-interlacing, defaults to Auto.
+	Mode   pulumi.StringPtrInput `pulumi:"mode"`
 	Parity pulumi.StringPtrInput `pulumi:"parity"`
 }
 
@@ -7535,7 +6584,6 @@ func (i *deinterlacePtrType) ToDeinterlacePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DeinterlacePtrOutput)
 }
 
-// Describes the de-interlacing settings.
 type DeinterlaceOutput struct{ *pulumi.OutputState }
 
 func (DeinterlaceOutput) ElementType() reflect.Type {
@@ -7555,17 +6603,15 @@ func (o DeinterlaceOutput) ToDeinterlacePtrOutput() DeinterlacePtrOutput {
 }
 
 func (o DeinterlaceOutput) ToDeinterlacePtrOutputWithContext(ctx context.Context) DeinterlacePtrOutput {
-	return o.ApplyT(func(v Deinterlace) *Deinterlace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Deinterlace) *Deinterlace {
 		return &v
 	}).(DeinterlacePtrOutput)
 }
 
-// The deinterlacing mode. Defaults to AutoPixelAdaptive.
 func (o DeinterlaceOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Deinterlace) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// The field parity for de-interlacing, defaults to Auto.
 func (o DeinterlaceOutput) Parity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Deinterlace) *string { return v.Parity }).(pulumi.StringPtrOutput)
 }
@@ -7585,10 +6631,15 @@ func (o DeinterlacePtrOutput) ToDeinterlacePtrOutputWithContext(ctx context.Cont
 }
 
 func (o DeinterlacePtrOutput) Elem() DeinterlaceOutput {
-	return o.ApplyT(func(v *Deinterlace) Deinterlace { return *v }).(DeinterlaceOutput)
+	return o.ApplyT(func(v *Deinterlace) Deinterlace {
+		if v != nil {
+			return *v
+		}
+		var ret Deinterlace
+		return ret
+	}).(DeinterlaceOutput)
 }
 
-// The deinterlacing mode. Defaults to AutoPixelAdaptive.
 func (o DeinterlacePtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deinterlace) *string {
 		if v == nil {
@@ -7598,7 +6649,6 @@ func (o DeinterlacePtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The field parity for de-interlacing, defaults to Auto.
 func (o DeinterlacePtrOutput) Parity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deinterlace) *string {
 		if v == nil {
@@ -7608,11 +6658,8 @@ func (o DeinterlacePtrOutput) Parity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the de-interlacing settings.
 type DeinterlaceResponse struct {
-	// The deinterlacing mode. Defaults to AutoPixelAdaptive.
-	Mode *string `pulumi:"mode"`
-	// The field parity for de-interlacing, defaults to Auto.
+	Mode   *string `pulumi:"mode"`
 	Parity *string `pulumi:"parity"`
 }
 
@@ -7627,11 +6674,8 @@ type DeinterlaceResponseInput interface {
 	ToDeinterlaceResponseOutputWithContext(context.Context) DeinterlaceResponseOutput
 }
 
-// Describes the de-interlacing settings.
 type DeinterlaceResponseArgs struct {
-	// The deinterlacing mode. Defaults to AutoPixelAdaptive.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// The field parity for de-interlacing, defaults to Auto.
+	Mode   pulumi.StringPtrInput `pulumi:"mode"`
 	Parity pulumi.StringPtrInput `pulumi:"parity"`
 }
 
@@ -7688,7 +6732,6 @@ func (i *deinterlaceResponsePtrType) ToDeinterlaceResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DeinterlaceResponsePtrOutput)
 }
 
-// Describes the de-interlacing settings.
 type DeinterlaceResponseOutput struct{ *pulumi.OutputState }
 
 func (DeinterlaceResponseOutput) ElementType() reflect.Type {
@@ -7708,17 +6751,15 @@ func (o DeinterlaceResponseOutput) ToDeinterlaceResponsePtrOutput() DeinterlaceR
 }
 
 func (o DeinterlaceResponseOutput) ToDeinterlaceResponsePtrOutputWithContext(ctx context.Context) DeinterlaceResponsePtrOutput {
-	return o.ApplyT(func(v DeinterlaceResponse) *DeinterlaceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeinterlaceResponse) *DeinterlaceResponse {
 		return &v
 	}).(DeinterlaceResponsePtrOutput)
 }
 
-// The deinterlacing mode. Defaults to AutoPixelAdaptive.
 func (o DeinterlaceResponseOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeinterlaceResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// The field parity for de-interlacing, defaults to Auto.
 func (o DeinterlaceResponseOutput) Parity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeinterlaceResponse) *string { return v.Parity }).(pulumi.StringPtrOutput)
 }
@@ -7738,10 +6779,15 @@ func (o DeinterlaceResponsePtrOutput) ToDeinterlaceResponsePtrOutputWithContext(
 }
 
 func (o DeinterlaceResponsePtrOutput) Elem() DeinterlaceResponseOutput {
-	return o.ApplyT(func(v *DeinterlaceResponse) DeinterlaceResponse { return *v }).(DeinterlaceResponseOutput)
+	return o.ApplyT(func(v *DeinterlaceResponse) DeinterlaceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DeinterlaceResponse
+		return ret
+	}).(DeinterlaceResponseOutput)
 }
 
-// The deinterlacing mode. Defaults to AutoPixelAdaptive.
 func (o DeinterlaceResponsePtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeinterlaceResponse) *string {
 		if v == nil {
@@ -7751,7 +6797,6 @@ func (o DeinterlaceResponsePtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The field parity for de-interlacing, defaults to Auto.
 func (o DeinterlaceResponsePtrOutput) Parity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeinterlaceResponse) *string {
 		if v == nil {
@@ -7761,15 +6806,10 @@ func (o DeinterlaceResponsePtrOutput) Parity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class to specify which protocols are enabled
 type EnabledProtocols struct {
-	// Enable DASH protocol or not
-	Dash bool `pulumi:"dash"`
-	// Enable Download protocol or not
-	Download bool `pulumi:"download"`
-	// Enable HLS protocol or not
-	Hls bool `pulumi:"hls"`
-	// Enable SmoothStreaming protocol or not
+	Dash            bool `pulumi:"dash"`
+	Download        bool `pulumi:"download"`
+	Hls             bool `pulumi:"hls"`
 	SmoothStreaming bool `pulumi:"smoothStreaming"`
 }
 
@@ -7784,15 +6824,10 @@ type EnabledProtocolsInput interface {
 	ToEnabledProtocolsOutputWithContext(context.Context) EnabledProtocolsOutput
 }
 
-// Class to specify which protocols are enabled
 type EnabledProtocolsArgs struct {
-	// Enable DASH protocol or not
-	Dash pulumi.BoolInput `pulumi:"dash"`
-	// Enable Download protocol or not
-	Download pulumi.BoolInput `pulumi:"download"`
-	// Enable HLS protocol or not
-	Hls pulumi.BoolInput `pulumi:"hls"`
-	// Enable SmoothStreaming protocol or not
+	Dash            pulumi.BoolInput `pulumi:"dash"`
+	Download        pulumi.BoolInput `pulumi:"download"`
+	Hls             pulumi.BoolInput `pulumi:"hls"`
 	SmoothStreaming pulumi.BoolInput `pulumi:"smoothStreaming"`
 }
 
@@ -7849,7 +6884,6 @@ func (i *enabledProtocolsPtrType) ToEnabledProtocolsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(EnabledProtocolsPtrOutput)
 }
 
-// Class to specify which protocols are enabled
 type EnabledProtocolsOutput struct{ *pulumi.OutputState }
 
 func (EnabledProtocolsOutput) ElementType() reflect.Type {
@@ -7869,27 +6903,23 @@ func (o EnabledProtocolsOutput) ToEnabledProtocolsPtrOutput() EnabledProtocolsPt
 }
 
 func (o EnabledProtocolsOutput) ToEnabledProtocolsPtrOutputWithContext(ctx context.Context) EnabledProtocolsPtrOutput {
-	return o.ApplyT(func(v EnabledProtocols) *EnabledProtocols {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnabledProtocols) *EnabledProtocols {
 		return &v
 	}).(EnabledProtocolsPtrOutput)
 }
 
-// Enable DASH protocol or not
 func (o EnabledProtocolsOutput) Dash() pulumi.BoolOutput {
 	return o.ApplyT(func(v EnabledProtocols) bool { return v.Dash }).(pulumi.BoolOutput)
 }
 
-// Enable Download protocol or not
 func (o EnabledProtocolsOutput) Download() pulumi.BoolOutput {
 	return o.ApplyT(func(v EnabledProtocols) bool { return v.Download }).(pulumi.BoolOutput)
 }
 
-// Enable HLS protocol or not
 func (o EnabledProtocolsOutput) Hls() pulumi.BoolOutput {
 	return o.ApplyT(func(v EnabledProtocols) bool { return v.Hls }).(pulumi.BoolOutput)
 }
 
-// Enable SmoothStreaming protocol or not
 func (o EnabledProtocolsOutput) SmoothStreaming() pulumi.BoolOutput {
 	return o.ApplyT(func(v EnabledProtocols) bool { return v.SmoothStreaming }).(pulumi.BoolOutput)
 }
@@ -7909,10 +6939,15 @@ func (o EnabledProtocolsPtrOutput) ToEnabledProtocolsPtrOutputWithContext(ctx co
 }
 
 func (o EnabledProtocolsPtrOutput) Elem() EnabledProtocolsOutput {
-	return o.ApplyT(func(v *EnabledProtocols) EnabledProtocols { return *v }).(EnabledProtocolsOutput)
+	return o.ApplyT(func(v *EnabledProtocols) EnabledProtocols {
+		if v != nil {
+			return *v
+		}
+		var ret EnabledProtocols
+		return ret
+	}).(EnabledProtocolsOutput)
 }
 
-// Enable DASH protocol or not
 func (o EnabledProtocolsPtrOutput) Dash() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnabledProtocols) *bool {
 		if v == nil {
@@ -7922,7 +6957,6 @@ func (o EnabledProtocolsPtrOutput) Dash() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enable Download protocol or not
 func (o EnabledProtocolsPtrOutput) Download() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnabledProtocols) *bool {
 		if v == nil {
@@ -7932,7 +6966,6 @@ func (o EnabledProtocolsPtrOutput) Download() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enable HLS protocol or not
 func (o EnabledProtocolsPtrOutput) Hls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnabledProtocols) *bool {
 		if v == nil {
@@ -7942,7 +6975,6 @@ func (o EnabledProtocolsPtrOutput) Hls() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enable SmoothStreaming protocol or not
 func (o EnabledProtocolsPtrOutput) SmoothStreaming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnabledProtocols) *bool {
 		if v == nil {
@@ -7952,15 +6984,10 @@ func (o EnabledProtocolsPtrOutput) SmoothStreaming() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Class to specify which protocols are enabled
 type EnabledProtocolsResponse struct {
-	// Enable DASH protocol or not
-	Dash bool `pulumi:"dash"`
-	// Enable Download protocol or not
-	Download bool `pulumi:"download"`
-	// Enable HLS protocol or not
-	Hls bool `pulumi:"hls"`
-	// Enable SmoothStreaming protocol or not
+	Dash            bool `pulumi:"dash"`
+	Download        bool `pulumi:"download"`
+	Hls             bool `pulumi:"hls"`
 	SmoothStreaming bool `pulumi:"smoothStreaming"`
 }
 
@@ -7975,15 +7002,10 @@ type EnabledProtocolsResponseInput interface {
 	ToEnabledProtocolsResponseOutputWithContext(context.Context) EnabledProtocolsResponseOutput
 }
 
-// Class to specify which protocols are enabled
 type EnabledProtocolsResponseArgs struct {
-	// Enable DASH protocol or not
-	Dash pulumi.BoolInput `pulumi:"dash"`
-	// Enable Download protocol or not
-	Download pulumi.BoolInput `pulumi:"download"`
-	// Enable HLS protocol or not
-	Hls pulumi.BoolInput `pulumi:"hls"`
-	// Enable SmoothStreaming protocol or not
+	Dash            pulumi.BoolInput `pulumi:"dash"`
+	Download        pulumi.BoolInput `pulumi:"download"`
+	Hls             pulumi.BoolInput `pulumi:"hls"`
 	SmoothStreaming pulumi.BoolInput `pulumi:"smoothStreaming"`
 }
 
@@ -8040,7 +7062,6 @@ func (i *enabledProtocolsResponsePtrType) ToEnabledProtocolsResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EnabledProtocolsResponsePtrOutput)
 }
 
-// Class to specify which protocols are enabled
 type EnabledProtocolsResponseOutput struct{ *pulumi.OutputState }
 
 func (EnabledProtocolsResponseOutput) ElementType() reflect.Type {
@@ -8060,27 +7081,23 @@ func (o EnabledProtocolsResponseOutput) ToEnabledProtocolsResponsePtrOutput() En
 }
 
 func (o EnabledProtocolsResponseOutput) ToEnabledProtocolsResponsePtrOutputWithContext(ctx context.Context) EnabledProtocolsResponsePtrOutput {
-	return o.ApplyT(func(v EnabledProtocolsResponse) *EnabledProtocolsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnabledProtocolsResponse) *EnabledProtocolsResponse {
 		return &v
 	}).(EnabledProtocolsResponsePtrOutput)
 }
 
-// Enable DASH protocol or not
 func (o EnabledProtocolsResponseOutput) Dash() pulumi.BoolOutput {
 	return o.ApplyT(func(v EnabledProtocolsResponse) bool { return v.Dash }).(pulumi.BoolOutput)
 }
 
-// Enable Download protocol or not
 func (o EnabledProtocolsResponseOutput) Download() pulumi.BoolOutput {
 	return o.ApplyT(func(v EnabledProtocolsResponse) bool { return v.Download }).(pulumi.BoolOutput)
 }
 
-// Enable HLS protocol or not
 func (o EnabledProtocolsResponseOutput) Hls() pulumi.BoolOutput {
 	return o.ApplyT(func(v EnabledProtocolsResponse) bool { return v.Hls }).(pulumi.BoolOutput)
 }
 
-// Enable SmoothStreaming protocol or not
 func (o EnabledProtocolsResponseOutput) SmoothStreaming() pulumi.BoolOutput {
 	return o.ApplyT(func(v EnabledProtocolsResponse) bool { return v.SmoothStreaming }).(pulumi.BoolOutput)
 }
@@ -8100,10 +7117,15 @@ func (o EnabledProtocolsResponsePtrOutput) ToEnabledProtocolsResponsePtrOutputWi
 }
 
 func (o EnabledProtocolsResponsePtrOutput) Elem() EnabledProtocolsResponseOutput {
-	return o.ApplyT(func(v *EnabledProtocolsResponse) EnabledProtocolsResponse { return *v }).(EnabledProtocolsResponseOutput)
+	return o.ApplyT(func(v *EnabledProtocolsResponse) EnabledProtocolsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EnabledProtocolsResponse
+		return ret
+	}).(EnabledProtocolsResponseOutput)
 }
 
-// Enable DASH protocol or not
 func (o EnabledProtocolsResponsePtrOutput) Dash() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnabledProtocolsResponse) *bool {
 		if v == nil {
@@ -8113,7 +7135,6 @@ func (o EnabledProtocolsResponsePtrOutput) Dash() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enable Download protocol or not
 func (o EnabledProtocolsResponsePtrOutput) Download() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnabledProtocolsResponse) *bool {
 		if v == nil {
@@ -8123,7 +7144,6 @@ func (o EnabledProtocolsResponsePtrOutput) Download() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enable HLS protocol or not
 func (o EnabledProtocolsResponsePtrOutput) Hls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnabledProtocolsResponse) *bool {
 		if v == nil {
@@ -8133,7 +7153,6 @@ func (o EnabledProtocolsResponsePtrOutput) Hls() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enable SmoothStreaming protocol or not
 func (o EnabledProtocolsResponsePtrOutput) SmoothStreaming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnabledProtocolsResponse) *bool {
 		if v == nil {
@@ -8143,16 +7162,11 @@ func (o EnabledProtocolsResponsePtrOutput) SmoothStreaming() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Class for EnvelopeEncryption encryption scheme
 type EnvelopeEncryption struct {
-	// Representing which tracks should not be encrypted
-	ClearTracks []TrackSelection `pulumi:"clearTracks"`
-	// Representing default content key for each encryption scheme and separate content keys for specific tracks
-	ContentKeys *StreamingPolicyContentKeys `pulumi:"contentKeys"`
-	// KeyAcquisitionUrlTemplate is used to point to user specified service to delivery content keys
-	CustomKeyAcquisitionUrlTemplate *string `pulumi:"customKeyAcquisitionUrlTemplate"`
-	// Representing supported protocols
-	EnabledProtocols *EnabledProtocols `pulumi:"enabledProtocols"`
+	ClearTracks                     []TrackSelection            `pulumi:"clearTracks"`
+	ContentKeys                     *StreamingPolicyContentKeys `pulumi:"contentKeys"`
+	CustomKeyAcquisitionUrlTemplate *string                     `pulumi:"customKeyAcquisitionUrlTemplate"`
+	EnabledProtocols                *EnabledProtocols           `pulumi:"enabledProtocols"`
 }
 
 // EnvelopeEncryptionInput is an input type that accepts EnvelopeEncryptionArgs and EnvelopeEncryptionOutput values.
@@ -8166,16 +7180,11 @@ type EnvelopeEncryptionInput interface {
 	ToEnvelopeEncryptionOutputWithContext(context.Context) EnvelopeEncryptionOutput
 }
 
-// Class for EnvelopeEncryption encryption scheme
 type EnvelopeEncryptionArgs struct {
-	// Representing which tracks should not be encrypted
-	ClearTracks TrackSelectionArrayInput `pulumi:"clearTracks"`
-	// Representing default content key for each encryption scheme and separate content keys for specific tracks
-	ContentKeys StreamingPolicyContentKeysPtrInput `pulumi:"contentKeys"`
-	// KeyAcquisitionUrlTemplate is used to point to user specified service to delivery content keys
-	CustomKeyAcquisitionUrlTemplate pulumi.StringPtrInput `pulumi:"customKeyAcquisitionUrlTemplate"`
-	// Representing supported protocols
-	EnabledProtocols EnabledProtocolsPtrInput `pulumi:"enabledProtocols"`
+	ClearTracks                     TrackSelectionArrayInput           `pulumi:"clearTracks"`
+	ContentKeys                     StreamingPolicyContentKeysPtrInput `pulumi:"contentKeys"`
+	CustomKeyAcquisitionUrlTemplate pulumi.StringPtrInput              `pulumi:"customKeyAcquisitionUrlTemplate"`
+	EnabledProtocols                EnabledProtocolsPtrInput           `pulumi:"enabledProtocols"`
 }
 
 func (EnvelopeEncryptionArgs) ElementType() reflect.Type {
@@ -8231,7 +7240,6 @@ func (i *envelopeEncryptionPtrType) ToEnvelopeEncryptionPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EnvelopeEncryptionPtrOutput)
 }
 
-// Class for EnvelopeEncryption encryption scheme
 type EnvelopeEncryptionOutput struct{ *pulumi.OutputState }
 
 func (EnvelopeEncryptionOutput) ElementType() reflect.Type {
@@ -8251,27 +7259,23 @@ func (o EnvelopeEncryptionOutput) ToEnvelopeEncryptionPtrOutput() EnvelopeEncryp
 }
 
 func (o EnvelopeEncryptionOutput) ToEnvelopeEncryptionPtrOutputWithContext(ctx context.Context) EnvelopeEncryptionPtrOutput {
-	return o.ApplyT(func(v EnvelopeEncryption) *EnvelopeEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvelopeEncryption) *EnvelopeEncryption {
 		return &v
 	}).(EnvelopeEncryptionPtrOutput)
 }
 
-// Representing which tracks should not be encrypted
 func (o EnvelopeEncryptionOutput) ClearTracks() TrackSelectionArrayOutput {
 	return o.ApplyT(func(v EnvelopeEncryption) []TrackSelection { return v.ClearTracks }).(TrackSelectionArrayOutput)
 }
 
-// Representing default content key for each encryption scheme and separate content keys for specific tracks
 func (o EnvelopeEncryptionOutput) ContentKeys() StreamingPolicyContentKeysPtrOutput {
 	return o.ApplyT(func(v EnvelopeEncryption) *StreamingPolicyContentKeys { return v.ContentKeys }).(StreamingPolicyContentKeysPtrOutput)
 }
 
-// KeyAcquisitionUrlTemplate is used to point to user specified service to delivery content keys
 func (o EnvelopeEncryptionOutput) CustomKeyAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvelopeEncryption) *string { return v.CustomKeyAcquisitionUrlTemplate }).(pulumi.StringPtrOutput)
 }
 
-// Representing supported protocols
 func (o EnvelopeEncryptionOutput) EnabledProtocols() EnabledProtocolsPtrOutput {
 	return o.ApplyT(func(v EnvelopeEncryption) *EnabledProtocols { return v.EnabledProtocols }).(EnabledProtocolsPtrOutput)
 }
@@ -8291,10 +7295,15 @@ func (o EnvelopeEncryptionPtrOutput) ToEnvelopeEncryptionPtrOutputWithContext(ct
 }
 
 func (o EnvelopeEncryptionPtrOutput) Elem() EnvelopeEncryptionOutput {
-	return o.ApplyT(func(v *EnvelopeEncryption) EnvelopeEncryption { return *v }).(EnvelopeEncryptionOutput)
+	return o.ApplyT(func(v *EnvelopeEncryption) EnvelopeEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret EnvelopeEncryption
+		return ret
+	}).(EnvelopeEncryptionOutput)
 }
 
-// Representing which tracks should not be encrypted
 func (o EnvelopeEncryptionPtrOutput) ClearTracks() TrackSelectionArrayOutput {
 	return o.ApplyT(func(v *EnvelopeEncryption) []TrackSelection {
 		if v == nil {
@@ -8304,7 +7313,6 @@ func (o EnvelopeEncryptionPtrOutput) ClearTracks() TrackSelectionArrayOutput {
 	}).(TrackSelectionArrayOutput)
 }
 
-// Representing default content key for each encryption scheme and separate content keys for specific tracks
 func (o EnvelopeEncryptionPtrOutput) ContentKeys() StreamingPolicyContentKeysPtrOutput {
 	return o.ApplyT(func(v *EnvelopeEncryption) *StreamingPolicyContentKeys {
 		if v == nil {
@@ -8314,7 +7322,6 @@ func (o EnvelopeEncryptionPtrOutput) ContentKeys() StreamingPolicyContentKeysPtr
 	}).(StreamingPolicyContentKeysPtrOutput)
 }
 
-// KeyAcquisitionUrlTemplate is used to point to user specified service to delivery content keys
 func (o EnvelopeEncryptionPtrOutput) CustomKeyAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvelopeEncryption) *string {
 		if v == nil {
@@ -8324,7 +7331,6 @@ func (o EnvelopeEncryptionPtrOutput) CustomKeyAcquisitionUrlTemplate() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Representing supported protocols
 func (o EnvelopeEncryptionPtrOutput) EnabledProtocols() EnabledProtocolsPtrOutput {
 	return o.ApplyT(func(v *EnvelopeEncryption) *EnabledProtocols {
 		if v == nil {
@@ -8334,16 +7340,11 @@ func (o EnvelopeEncryptionPtrOutput) EnabledProtocols() EnabledProtocolsPtrOutpu
 	}).(EnabledProtocolsPtrOutput)
 }
 
-// Class for EnvelopeEncryption encryption scheme
 type EnvelopeEncryptionResponse struct {
-	// Representing which tracks should not be encrypted
-	ClearTracks []TrackSelectionResponse `pulumi:"clearTracks"`
-	// Representing default content key for each encryption scheme and separate content keys for specific tracks
-	ContentKeys *StreamingPolicyContentKeysResponse `pulumi:"contentKeys"`
-	// KeyAcquisitionUrlTemplate is used to point to user specified service to delivery content keys
-	CustomKeyAcquisitionUrlTemplate *string `pulumi:"customKeyAcquisitionUrlTemplate"`
-	// Representing supported protocols
-	EnabledProtocols *EnabledProtocolsResponse `pulumi:"enabledProtocols"`
+	ClearTracks                     []TrackSelectionResponse            `pulumi:"clearTracks"`
+	ContentKeys                     *StreamingPolicyContentKeysResponse `pulumi:"contentKeys"`
+	CustomKeyAcquisitionUrlTemplate *string                             `pulumi:"customKeyAcquisitionUrlTemplate"`
+	EnabledProtocols                *EnabledProtocolsResponse           `pulumi:"enabledProtocols"`
 }
 
 // EnvelopeEncryptionResponseInput is an input type that accepts EnvelopeEncryptionResponseArgs and EnvelopeEncryptionResponseOutput values.
@@ -8357,16 +7358,11 @@ type EnvelopeEncryptionResponseInput interface {
 	ToEnvelopeEncryptionResponseOutputWithContext(context.Context) EnvelopeEncryptionResponseOutput
 }
 
-// Class for EnvelopeEncryption encryption scheme
 type EnvelopeEncryptionResponseArgs struct {
-	// Representing which tracks should not be encrypted
-	ClearTracks TrackSelectionResponseArrayInput `pulumi:"clearTracks"`
-	// Representing default content key for each encryption scheme and separate content keys for specific tracks
-	ContentKeys StreamingPolicyContentKeysResponsePtrInput `pulumi:"contentKeys"`
-	// KeyAcquisitionUrlTemplate is used to point to user specified service to delivery content keys
-	CustomKeyAcquisitionUrlTemplate pulumi.StringPtrInput `pulumi:"customKeyAcquisitionUrlTemplate"`
-	// Representing supported protocols
-	EnabledProtocols EnabledProtocolsResponsePtrInput `pulumi:"enabledProtocols"`
+	ClearTracks                     TrackSelectionResponseArrayInput           `pulumi:"clearTracks"`
+	ContentKeys                     StreamingPolicyContentKeysResponsePtrInput `pulumi:"contentKeys"`
+	CustomKeyAcquisitionUrlTemplate pulumi.StringPtrInput                      `pulumi:"customKeyAcquisitionUrlTemplate"`
+	EnabledProtocols                EnabledProtocolsResponsePtrInput           `pulumi:"enabledProtocols"`
 }
 
 func (EnvelopeEncryptionResponseArgs) ElementType() reflect.Type {
@@ -8422,7 +7418,6 @@ func (i *envelopeEncryptionResponsePtrType) ToEnvelopeEncryptionResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EnvelopeEncryptionResponsePtrOutput)
 }
 
-// Class for EnvelopeEncryption encryption scheme
 type EnvelopeEncryptionResponseOutput struct{ *pulumi.OutputState }
 
 func (EnvelopeEncryptionResponseOutput) ElementType() reflect.Type {
@@ -8442,27 +7437,23 @@ func (o EnvelopeEncryptionResponseOutput) ToEnvelopeEncryptionResponsePtrOutput(
 }
 
 func (o EnvelopeEncryptionResponseOutput) ToEnvelopeEncryptionResponsePtrOutputWithContext(ctx context.Context) EnvelopeEncryptionResponsePtrOutput {
-	return o.ApplyT(func(v EnvelopeEncryptionResponse) *EnvelopeEncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvelopeEncryptionResponse) *EnvelopeEncryptionResponse {
 		return &v
 	}).(EnvelopeEncryptionResponsePtrOutput)
 }
 
-// Representing which tracks should not be encrypted
 func (o EnvelopeEncryptionResponseOutput) ClearTracks() TrackSelectionResponseArrayOutput {
 	return o.ApplyT(func(v EnvelopeEncryptionResponse) []TrackSelectionResponse { return v.ClearTracks }).(TrackSelectionResponseArrayOutput)
 }
 
-// Representing default content key for each encryption scheme and separate content keys for specific tracks
 func (o EnvelopeEncryptionResponseOutput) ContentKeys() StreamingPolicyContentKeysResponsePtrOutput {
 	return o.ApplyT(func(v EnvelopeEncryptionResponse) *StreamingPolicyContentKeysResponse { return v.ContentKeys }).(StreamingPolicyContentKeysResponsePtrOutput)
 }
 
-// KeyAcquisitionUrlTemplate is used to point to user specified service to delivery content keys
 func (o EnvelopeEncryptionResponseOutput) CustomKeyAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvelopeEncryptionResponse) *string { return v.CustomKeyAcquisitionUrlTemplate }).(pulumi.StringPtrOutput)
 }
 
-// Representing supported protocols
 func (o EnvelopeEncryptionResponseOutput) EnabledProtocols() EnabledProtocolsResponsePtrOutput {
 	return o.ApplyT(func(v EnvelopeEncryptionResponse) *EnabledProtocolsResponse { return v.EnabledProtocols }).(EnabledProtocolsResponsePtrOutput)
 }
@@ -8482,10 +7473,15 @@ func (o EnvelopeEncryptionResponsePtrOutput) ToEnvelopeEncryptionResponsePtrOutp
 }
 
 func (o EnvelopeEncryptionResponsePtrOutput) Elem() EnvelopeEncryptionResponseOutput {
-	return o.ApplyT(func(v *EnvelopeEncryptionResponse) EnvelopeEncryptionResponse { return *v }).(EnvelopeEncryptionResponseOutput)
+	return o.ApplyT(func(v *EnvelopeEncryptionResponse) EnvelopeEncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EnvelopeEncryptionResponse
+		return ret
+	}).(EnvelopeEncryptionResponseOutput)
 }
 
-// Representing which tracks should not be encrypted
 func (o EnvelopeEncryptionResponsePtrOutput) ClearTracks() TrackSelectionResponseArrayOutput {
 	return o.ApplyT(func(v *EnvelopeEncryptionResponse) []TrackSelectionResponse {
 		if v == nil {
@@ -8495,7 +7491,6 @@ func (o EnvelopeEncryptionResponsePtrOutput) ClearTracks() TrackSelectionRespons
 	}).(TrackSelectionResponseArrayOutput)
 }
 
-// Representing default content key for each encryption scheme and separate content keys for specific tracks
 func (o EnvelopeEncryptionResponsePtrOutput) ContentKeys() StreamingPolicyContentKeysResponsePtrOutput {
 	return o.ApplyT(func(v *EnvelopeEncryptionResponse) *StreamingPolicyContentKeysResponse {
 		if v == nil {
@@ -8505,7 +7500,6 @@ func (o EnvelopeEncryptionResponsePtrOutput) ContentKeys() StreamingPolicyConten
 	}).(StreamingPolicyContentKeysResponsePtrOutput)
 }
 
-// KeyAcquisitionUrlTemplate is used to point to user specified service to delivery content keys
 func (o EnvelopeEncryptionResponsePtrOutput) CustomKeyAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvelopeEncryptionResponse) *string {
 		if v == nil {
@@ -8515,7 +7509,6 @@ func (o EnvelopeEncryptionResponsePtrOutput) CustomKeyAcquisitionUrlTemplate() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Representing supported protocols
 func (o EnvelopeEncryptionResponsePtrOutput) EnabledProtocols() EnabledProtocolsResponsePtrOutput {
 	return o.ApplyT(func(v *EnvelopeEncryptionResponse) *EnabledProtocolsResponse {
 		if v == nil {
@@ -8525,16 +7518,11 @@ func (o EnvelopeEncryptionResponsePtrOutput) EnabledProtocols() EnabledProtocols
 	}).(EnabledProtocolsResponsePtrOutput)
 }
 
-// Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
 type Filters struct {
-	// The parameters for the rectangular window with which to crop the input video.
-	Crop *Rectangle `pulumi:"crop"`
-	// The de-interlacing settings.
-	Deinterlace *Deinterlace `pulumi:"deinterlace"`
-	// The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
-	Overlays []interface{} `pulumi:"overlays"`
-	// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
-	Rotation *string `pulumi:"rotation"`
+	Crop        *Rectangle    `pulumi:"crop"`
+	Deinterlace *Deinterlace  `pulumi:"deinterlace"`
+	Overlays    []interface{} `pulumi:"overlays"`
+	Rotation    *string       `pulumi:"rotation"`
 }
 
 // FiltersInput is an input type that accepts FiltersArgs and FiltersOutput values.
@@ -8548,16 +7536,11 @@ type FiltersInput interface {
 	ToFiltersOutputWithContext(context.Context) FiltersOutput
 }
 
-// Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
 type FiltersArgs struct {
-	// The parameters for the rectangular window with which to crop the input video.
-	Crop RectanglePtrInput `pulumi:"crop"`
-	// The de-interlacing settings.
-	Deinterlace DeinterlacePtrInput `pulumi:"deinterlace"`
-	// The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
-	Overlays pulumi.ArrayInput `pulumi:"overlays"`
-	// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
-	Rotation pulumi.StringPtrInput `pulumi:"rotation"`
+	Crop        RectanglePtrInput     `pulumi:"crop"`
+	Deinterlace DeinterlacePtrInput   `pulumi:"deinterlace"`
+	Overlays    pulumi.ArrayInput     `pulumi:"overlays"`
+	Rotation    pulumi.StringPtrInput `pulumi:"rotation"`
 }
 
 func (FiltersArgs) ElementType() reflect.Type {
@@ -8613,7 +7596,6 @@ func (i *filtersPtrType) ToFiltersPtrOutputWithContext(ctx context.Context) Filt
 	return pulumi.ToOutputWithContext(ctx, i).(FiltersPtrOutput)
 }
 
-// Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
 type FiltersOutput struct{ *pulumi.OutputState }
 
 func (FiltersOutput) ElementType() reflect.Type {
@@ -8633,27 +7615,23 @@ func (o FiltersOutput) ToFiltersPtrOutput() FiltersPtrOutput {
 }
 
 func (o FiltersOutput) ToFiltersPtrOutputWithContext(ctx context.Context) FiltersPtrOutput {
-	return o.ApplyT(func(v Filters) *Filters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Filters) *Filters {
 		return &v
 	}).(FiltersPtrOutput)
 }
 
-// The parameters for the rectangular window with which to crop the input video.
 func (o FiltersOutput) Crop() RectanglePtrOutput {
 	return o.ApplyT(func(v Filters) *Rectangle { return v.Crop }).(RectanglePtrOutput)
 }
 
-// The de-interlacing settings.
 func (o FiltersOutput) Deinterlace() DeinterlacePtrOutput {
 	return o.ApplyT(func(v Filters) *Deinterlace { return v.Deinterlace }).(DeinterlacePtrOutput)
 }
 
-// The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
 func (o FiltersOutput) Overlays() pulumi.ArrayOutput {
 	return o.ApplyT(func(v Filters) []interface{} { return v.Overlays }).(pulumi.ArrayOutput)
 }
 
-// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
 func (o FiltersOutput) Rotation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Filters) *string { return v.Rotation }).(pulumi.StringPtrOutput)
 }
@@ -8673,10 +7651,15 @@ func (o FiltersPtrOutput) ToFiltersPtrOutputWithContext(ctx context.Context) Fil
 }
 
 func (o FiltersPtrOutput) Elem() FiltersOutput {
-	return o.ApplyT(func(v *Filters) Filters { return *v }).(FiltersOutput)
+	return o.ApplyT(func(v *Filters) Filters {
+		if v != nil {
+			return *v
+		}
+		var ret Filters
+		return ret
+	}).(FiltersOutput)
 }
 
-// The parameters for the rectangular window with which to crop the input video.
 func (o FiltersPtrOutput) Crop() RectanglePtrOutput {
 	return o.ApplyT(func(v *Filters) *Rectangle {
 		if v == nil {
@@ -8686,7 +7669,6 @@ func (o FiltersPtrOutput) Crop() RectanglePtrOutput {
 	}).(RectanglePtrOutput)
 }
 
-// The de-interlacing settings.
 func (o FiltersPtrOutput) Deinterlace() DeinterlacePtrOutput {
 	return o.ApplyT(func(v *Filters) *Deinterlace {
 		if v == nil {
@@ -8696,7 +7678,6 @@ func (o FiltersPtrOutput) Deinterlace() DeinterlacePtrOutput {
 	}).(DeinterlacePtrOutput)
 }
 
-// The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
 func (o FiltersPtrOutput) Overlays() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *Filters) []interface{} {
 		if v == nil {
@@ -8706,7 +7687,6 @@ func (o FiltersPtrOutput) Overlays() pulumi.ArrayOutput {
 	}).(pulumi.ArrayOutput)
 }
 
-// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
 func (o FiltersPtrOutput) Rotation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Filters) *string {
 		if v == nil {
@@ -8716,16 +7696,11 @@ func (o FiltersPtrOutput) Rotation() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
 type FiltersResponse struct {
-	// The parameters for the rectangular window with which to crop the input video.
-	Crop *RectangleResponse `pulumi:"crop"`
-	// The de-interlacing settings.
+	Crop        *RectangleResponse   `pulumi:"crop"`
 	Deinterlace *DeinterlaceResponse `pulumi:"deinterlace"`
-	// The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
-	Overlays []interface{} `pulumi:"overlays"`
-	// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
-	Rotation *string `pulumi:"rotation"`
+	Overlays    []interface{}        `pulumi:"overlays"`
+	Rotation    *string              `pulumi:"rotation"`
 }
 
 // FiltersResponseInput is an input type that accepts FiltersResponseArgs and FiltersResponseOutput values.
@@ -8739,16 +7714,11 @@ type FiltersResponseInput interface {
 	ToFiltersResponseOutputWithContext(context.Context) FiltersResponseOutput
 }
 
-// Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
 type FiltersResponseArgs struct {
-	// The parameters for the rectangular window with which to crop the input video.
-	Crop RectangleResponsePtrInput `pulumi:"crop"`
-	// The de-interlacing settings.
+	Crop        RectangleResponsePtrInput   `pulumi:"crop"`
 	Deinterlace DeinterlaceResponsePtrInput `pulumi:"deinterlace"`
-	// The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
-	Overlays pulumi.ArrayInput `pulumi:"overlays"`
-	// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
-	Rotation pulumi.StringPtrInput `pulumi:"rotation"`
+	Overlays    pulumi.ArrayInput           `pulumi:"overlays"`
+	Rotation    pulumi.StringPtrInput       `pulumi:"rotation"`
 }
 
 func (FiltersResponseArgs) ElementType() reflect.Type {
@@ -8804,7 +7774,6 @@ func (i *filtersResponsePtrType) ToFiltersResponsePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(FiltersResponsePtrOutput)
 }
 
-// Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
 type FiltersResponseOutput struct{ *pulumi.OutputState }
 
 func (FiltersResponseOutput) ElementType() reflect.Type {
@@ -8824,27 +7793,23 @@ func (o FiltersResponseOutput) ToFiltersResponsePtrOutput() FiltersResponsePtrOu
 }
 
 func (o FiltersResponseOutput) ToFiltersResponsePtrOutputWithContext(ctx context.Context) FiltersResponsePtrOutput {
-	return o.ApplyT(func(v FiltersResponse) *FiltersResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FiltersResponse) *FiltersResponse {
 		return &v
 	}).(FiltersResponsePtrOutput)
 }
 
-// The parameters for the rectangular window with which to crop the input video.
 func (o FiltersResponseOutput) Crop() RectangleResponsePtrOutput {
 	return o.ApplyT(func(v FiltersResponse) *RectangleResponse { return v.Crop }).(RectangleResponsePtrOutput)
 }
 
-// The de-interlacing settings.
 func (o FiltersResponseOutput) Deinterlace() DeinterlaceResponsePtrOutput {
 	return o.ApplyT(func(v FiltersResponse) *DeinterlaceResponse { return v.Deinterlace }).(DeinterlaceResponsePtrOutput)
 }
 
-// The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
 func (o FiltersResponseOutput) Overlays() pulumi.ArrayOutput {
 	return o.ApplyT(func(v FiltersResponse) []interface{} { return v.Overlays }).(pulumi.ArrayOutput)
 }
 
-// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
 func (o FiltersResponseOutput) Rotation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FiltersResponse) *string { return v.Rotation }).(pulumi.StringPtrOutput)
 }
@@ -8864,10 +7829,15 @@ func (o FiltersResponsePtrOutput) ToFiltersResponsePtrOutputWithContext(ctx cont
 }
 
 func (o FiltersResponsePtrOutput) Elem() FiltersResponseOutput {
-	return o.ApplyT(func(v *FiltersResponse) FiltersResponse { return *v }).(FiltersResponseOutput)
+	return o.ApplyT(func(v *FiltersResponse) FiltersResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FiltersResponse
+		return ret
+	}).(FiltersResponseOutput)
 }
 
-// The parameters for the rectangular window with which to crop the input video.
 func (o FiltersResponsePtrOutput) Crop() RectangleResponsePtrOutput {
 	return o.ApplyT(func(v *FiltersResponse) *RectangleResponse {
 		if v == nil {
@@ -8877,7 +7847,6 @@ func (o FiltersResponsePtrOutput) Crop() RectangleResponsePtrOutput {
 	}).(RectangleResponsePtrOutput)
 }
 
-// The de-interlacing settings.
 func (o FiltersResponsePtrOutput) Deinterlace() DeinterlaceResponsePtrOutput {
 	return o.ApplyT(func(v *FiltersResponse) *DeinterlaceResponse {
 		if v == nil {
@@ -8887,7 +7856,6 @@ func (o FiltersResponsePtrOutput) Deinterlace() DeinterlaceResponsePtrOutput {
 	}).(DeinterlaceResponsePtrOutput)
 }
 
-// The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
 func (o FiltersResponsePtrOutput) Overlays() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *FiltersResponse) []interface{} {
 		if v == nil {
@@ -8897,7 +7865,6 @@ func (o FiltersResponsePtrOutput) Overlays() pulumi.ArrayOutput {
 	}).(pulumi.ArrayOutput)
 }
 
-// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
 func (o FiltersResponsePtrOutput) Rotation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FiltersResponse) *string {
 		if v == nil {
@@ -8907,39 +7874,22 @@ func (o FiltersResponsePtrOutput) Rotation() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
 type H264Layer struct {
-	// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
-	AdaptiveBFrame *bool `pulumi:"adaptiveBFrame"`
-	// The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
-	BFrames *int `pulumi:"bFrames"`
-	// The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
-	Bitrate *int `pulumi:"bitrate"`
-	// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
-	BufferWindow *string `pulumi:"bufferWindow"`
-	// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
-	EntropyMode *string `pulumi:"entropyMode"`
-	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
-	FrameRate *string `pulumi:"frameRate"`
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
-	Height *string `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-	Label *string `pulumi:"label"`
-	// Which level of the H.264 standard should be used when encoding this layer. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
-	Level *string `pulumi:"level"`
-	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
-	MaxBitrate *int `pulumi:"maxBitrate"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.H264Layer'.
-	OdataType string `pulumi:"odataType"`
-	// Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
-	Profile *string `pulumi:"profile"`
-	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
-	ReferenceFrames *int `pulumi:"referenceFrames"`
-	// The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
-	Slices *int `pulumi:"slices"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
-	Width *string `pulumi:"width"`
+	AdaptiveBFrame  *bool   `pulumi:"adaptiveBFrame"`
+	BFrames         *int    `pulumi:"bFrames"`
+	Bitrate         *int    `pulumi:"bitrate"`
+	BufferWindow    *string `pulumi:"bufferWindow"`
+	EntropyMode     *string `pulumi:"entropyMode"`
+	FrameRate       *string `pulumi:"frameRate"`
+	Height          *string `pulumi:"height"`
+	Label           *string `pulumi:"label"`
+	Level           *string `pulumi:"level"`
+	MaxBitrate      *int    `pulumi:"maxBitrate"`
+	OdataType       string  `pulumi:"odataType"`
+	Profile         *string `pulumi:"profile"`
+	ReferenceFrames *int    `pulumi:"referenceFrames"`
+	Slices          *int    `pulumi:"slices"`
+	Width           *string `pulumi:"width"`
 }
 
 // H264LayerInput is an input type that accepts H264LayerArgs and H264LayerOutput values.
@@ -8953,39 +7903,22 @@ type H264LayerInput interface {
 	ToH264LayerOutputWithContext(context.Context) H264LayerOutput
 }
 
-// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
 type H264LayerArgs struct {
-	// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
-	AdaptiveBFrame pulumi.BoolPtrInput `pulumi:"adaptiveBFrame"`
-	// The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
-	BFrames pulumi.IntPtrInput `pulumi:"bFrames"`
-	// The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
-	Bitrate pulumi.IntPtrInput `pulumi:"bitrate"`
-	// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
-	BufferWindow pulumi.StringPtrInput `pulumi:"bufferWindow"`
-	// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
-	EntropyMode pulumi.StringPtrInput `pulumi:"entropyMode"`
-	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
-	FrameRate pulumi.StringPtrInput `pulumi:"frameRate"`
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
-	Height pulumi.StringPtrInput `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Which level of the H.264 standard should be used when encoding this layer. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
-	Level pulumi.StringPtrInput `pulumi:"level"`
-	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
-	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.H264Layer'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
-	Profile pulumi.StringPtrInput `pulumi:"profile"`
-	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
-	ReferenceFrames pulumi.IntPtrInput `pulumi:"referenceFrames"`
-	// The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
-	Slices pulumi.IntPtrInput `pulumi:"slices"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
-	Width pulumi.StringPtrInput `pulumi:"width"`
+	AdaptiveBFrame  pulumi.BoolPtrInput   `pulumi:"adaptiveBFrame"`
+	BFrames         pulumi.IntPtrInput    `pulumi:"bFrames"`
+	Bitrate         pulumi.IntPtrInput    `pulumi:"bitrate"`
+	BufferWindow    pulumi.StringPtrInput `pulumi:"bufferWindow"`
+	EntropyMode     pulumi.StringPtrInput `pulumi:"entropyMode"`
+	FrameRate       pulumi.StringPtrInput `pulumi:"frameRate"`
+	Height          pulumi.StringPtrInput `pulumi:"height"`
+	Label           pulumi.StringPtrInput `pulumi:"label"`
+	Level           pulumi.StringPtrInput `pulumi:"level"`
+	MaxBitrate      pulumi.IntPtrInput    `pulumi:"maxBitrate"`
+	OdataType       pulumi.StringInput    `pulumi:"odataType"`
+	Profile         pulumi.StringPtrInput `pulumi:"profile"`
+	ReferenceFrames pulumi.IntPtrInput    `pulumi:"referenceFrames"`
+	Slices          pulumi.IntPtrInput    `pulumi:"slices"`
+	Width           pulumi.StringPtrInput `pulumi:"width"`
 }
 
 func (H264LayerArgs) ElementType() reflect.Type {
@@ -9025,7 +7958,6 @@ func (i H264LayerArray) ToH264LayerArrayOutputWithContext(ctx context.Context) H
 	return pulumi.ToOutputWithContext(ctx, i).(H264LayerArrayOutput)
 }
 
-// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
 type H264LayerOutput struct{ *pulumi.OutputState }
 
 func (H264LayerOutput) ElementType() reflect.Type {
@@ -9040,78 +7972,62 @@ func (o H264LayerOutput) ToH264LayerOutputWithContext(ctx context.Context) H264L
 	return o
 }
 
-// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
 func (o H264LayerOutput) AdaptiveBFrame() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v H264Layer) *bool { return v.AdaptiveBFrame }).(pulumi.BoolPtrOutput)
 }
 
-// The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
 func (o H264LayerOutput) BFrames() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v H264Layer) *int { return v.BFrames }).(pulumi.IntPtrOutput)
 }
 
-// The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
 func (o H264LayerOutput) Bitrate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v H264Layer) *int { return v.Bitrate }).(pulumi.IntPtrOutput)
 }
 
-// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
 func (o H264LayerOutput) BufferWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264Layer) *string { return v.BufferWindow }).(pulumi.StringPtrOutput)
 }
 
-// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
 func (o H264LayerOutput) EntropyMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264Layer) *string { return v.EntropyMode }).(pulumi.StringPtrOutput)
 }
 
-// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
 func (o H264LayerOutput) FrameRate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264Layer) *string { return v.FrameRate }).(pulumi.StringPtrOutput)
 }
 
-// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
 func (o H264LayerOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264Layer) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
 
-// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 func (o H264LayerOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264Layer) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// Which level of the H.264 standard should be used when encoding this layer. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
 func (o H264LayerOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264Layer) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 func (o H264LayerOutput) MaxBitrate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v H264Layer) *int { return v.MaxBitrate }).(pulumi.IntPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.H264Layer'.
 func (o H264LayerOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v H264Layer) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
 func (o H264LayerOutput) Profile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264Layer) *string { return v.Profile }).(pulumi.StringPtrOutput)
 }
 
-// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
 func (o H264LayerOutput) ReferenceFrames() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v H264Layer) *int { return v.ReferenceFrames }).(pulumi.IntPtrOutput)
 }
 
-// The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
 func (o H264LayerOutput) Slices() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v H264Layer) *int { return v.Slices }).(pulumi.IntPtrOutput)
 }
 
-// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
 func (o H264LayerOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264Layer) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -9136,39 +8052,22 @@ func (o H264LayerArrayOutput) Index(i pulumi.IntInput) H264LayerOutput {
 	}).(H264LayerOutput)
 }
 
-// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
 type H264LayerResponse struct {
-	// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
-	AdaptiveBFrame *bool `pulumi:"adaptiveBFrame"`
-	// The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
-	BFrames *int `pulumi:"bFrames"`
-	// The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
-	Bitrate *int `pulumi:"bitrate"`
-	// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
-	BufferWindow *string `pulumi:"bufferWindow"`
-	// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
-	EntropyMode *string `pulumi:"entropyMode"`
-	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
-	FrameRate *string `pulumi:"frameRate"`
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
-	Height *string `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-	Label *string `pulumi:"label"`
-	// Which level of the H.264 standard should be used when encoding this layer. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
-	Level *string `pulumi:"level"`
-	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
-	MaxBitrate *int `pulumi:"maxBitrate"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.H264Layer'.
-	OdataType string `pulumi:"odataType"`
-	// Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
-	Profile *string `pulumi:"profile"`
-	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
-	ReferenceFrames *int `pulumi:"referenceFrames"`
-	// The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
-	Slices *int `pulumi:"slices"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
-	Width *string `pulumi:"width"`
+	AdaptiveBFrame  *bool   `pulumi:"adaptiveBFrame"`
+	BFrames         *int    `pulumi:"bFrames"`
+	Bitrate         *int    `pulumi:"bitrate"`
+	BufferWindow    *string `pulumi:"bufferWindow"`
+	EntropyMode     *string `pulumi:"entropyMode"`
+	FrameRate       *string `pulumi:"frameRate"`
+	Height          *string `pulumi:"height"`
+	Label           *string `pulumi:"label"`
+	Level           *string `pulumi:"level"`
+	MaxBitrate      *int    `pulumi:"maxBitrate"`
+	OdataType       string  `pulumi:"odataType"`
+	Profile         *string `pulumi:"profile"`
+	ReferenceFrames *int    `pulumi:"referenceFrames"`
+	Slices          *int    `pulumi:"slices"`
+	Width           *string `pulumi:"width"`
 }
 
 // H264LayerResponseInput is an input type that accepts H264LayerResponseArgs and H264LayerResponseOutput values.
@@ -9182,39 +8081,22 @@ type H264LayerResponseInput interface {
 	ToH264LayerResponseOutputWithContext(context.Context) H264LayerResponseOutput
 }
 
-// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
 type H264LayerResponseArgs struct {
-	// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
-	AdaptiveBFrame pulumi.BoolPtrInput `pulumi:"adaptiveBFrame"`
-	// The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
-	BFrames pulumi.IntPtrInput `pulumi:"bFrames"`
-	// The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
-	Bitrate pulumi.IntPtrInput `pulumi:"bitrate"`
-	// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
-	BufferWindow pulumi.StringPtrInput `pulumi:"bufferWindow"`
-	// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
-	EntropyMode pulumi.StringPtrInput `pulumi:"entropyMode"`
-	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
-	FrameRate pulumi.StringPtrInput `pulumi:"frameRate"`
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
-	Height pulumi.StringPtrInput `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Which level of the H.264 standard should be used when encoding this layer. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
-	Level pulumi.StringPtrInput `pulumi:"level"`
-	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
-	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.H264Layer'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
-	Profile pulumi.StringPtrInput `pulumi:"profile"`
-	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
-	ReferenceFrames pulumi.IntPtrInput `pulumi:"referenceFrames"`
-	// The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
-	Slices pulumi.IntPtrInput `pulumi:"slices"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
-	Width pulumi.StringPtrInput `pulumi:"width"`
+	AdaptiveBFrame  pulumi.BoolPtrInput   `pulumi:"adaptiveBFrame"`
+	BFrames         pulumi.IntPtrInput    `pulumi:"bFrames"`
+	Bitrate         pulumi.IntPtrInput    `pulumi:"bitrate"`
+	BufferWindow    pulumi.StringPtrInput `pulumi:"bufferWindow"`
+	EntropyMode     pulumi.StringPtrInput `pulumi:"entropyMode"`
+	FrameRate       pulumi.StringPtrInput `pulumi:"frameRate"`
+	Height          pulumi.StringPtrInput `pulumi:"height"`
+	Label           pulumi.StringPtrInput `pulumi:"label"`
+	Level           pulumi.StringPtrInput `pulumi:"level"`
+	MaxBitrate      pulumi.IntPtrInput    `pulumi:"maxBitrate"`
+	OdataType       pulumi.StringInput    `pulumi:"odataType"`
+	Profile         pulumi.StringPtrInput `pulumi:"profile"`
+	ReferenceFrames pulumi.IntPtrInput    `pulumi:"referenceFrames"`
+	Slices          pulumi.IntPtrInput    `pulumi:"slices"`
+	Width           pulumi.StringPtrInput `pulumi:"width"`
 }
 
 func (H264LayerResponseArgs) ElementType() reflect.Type {
@@ -9254,7 +8136,6 @@ func (i H264LayerResponseArray) ToH264LayerResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(H264LayerResponseArrayOutput)
 }
 
-// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
 type H264LayerResponseOutput struct{ *pulumi.OutputState }
 
 func (H264LayerResponseOutput) ElementType() reflect.Type {
@@ -9269,78 +8150,62 @@ func (o H264LayerResponseOutput) ToH264LayerResponseOutputWithContext(ctx contex
 	return o
 }
 
-// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
 func (o H264LayerResponseOutput) AdaptiveBFrame() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v H264LayerResponse) *bool { return v.AdaptiveBFrame }).(pulumi.BoolPtrOutput)
 }
 
-// The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
 func (o H264LayerResponseOutput) BFrames() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v H264LayerResponse) *int { return v.BFrames }).(pulumi.IntPtrOutput)
 }
 
-// The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
 func (o H264LayerResponseOutput) Bitrate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v H264LayerResponse) *int { return v.Bitrate }).(pulumi.IntPtrOutput)
 }
 
-// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
 func (o H264LayerResponseOutput) BufferWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264LayerResponse) *string { return v.BufferWindow }).(pulumi.StringPtrOutput)
 }
 
-// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
 func (o H264LayerResponseOutput) EntropyMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264LayerResponse) *string { return v.EntropyMode }).(pulumi.StringPtrOutput)
 }
 
-// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
 func (o H264LayerResponseOutput) FrameRate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264LayerResponse) *string { return v.FrameRate }).(pulumi.StringPtrOutput)
 }
 
-// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
 func (o H264LayerResponseOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264LayerResponse) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
 
-// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 func (o H264LayerResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264LayerResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// Which level of the H.264 standard should be used when encoding this layer. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
 func (o H264LayerResponseOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264LayerResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 func (o H264LayerResponseOutput) MaxBitrate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v H264LayerResponse) *int { return v.MaxBitrate }).(pulumi.IntPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.H264Layer'.
 func (o H264LayerResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v H264LayerResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
 func (o H264LayerResponseOutput) Profile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264LayerResponse) *string { return v.Profile }).(pulumi.StringPtrOutput)
 }
 
-// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
 func (o H264LayerResponseOutput) ReferenceFrames() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v H264LayerResponse) *int { return v.ReferenceFrames }).(pulumi.IntPtrOutput)
 }
 
-// The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
 func (o H264LayerResponseOutput) Slices() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v H264LayerResponse) *int { return v.Slices }).(pulumi.IntPtrOutput)
 }
 
-// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
 func (o H264LayerResponseOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264LayerResponse) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -9365,23 +8230,14 @@ func (o H264LayerResponseArrayOutput) Index(i pulumi.IntInput) H264LayerResponse
 	}).(H264LayerResponseOutput)
 }
 
-// Describes all the properties for encoding a video with the H.264 codec.
 type H264Video struct {
-	// Tells the encoder how to choose its encoding settings. The default value is Balanced.
-	Complexity *string `pulumi:"complexity"`
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
-	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// The collection of output H.264 layers to be produced by the encoder.
-	Layers []H264Layer `pulumi:"layers"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.H264Video'.
-	OdataType string `pulumi:"odataType"`
-	// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
-	SceneChangeDetection *bool `pulumi:"sceneChangeDetection"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode *string `pulumi:"stretchMode"`
+	Complexity           *string     `pulumi:"complexity"`
+	KeyFrameInterval     *string     `pulumi:"keyFrameInterval"`
+	Label                *string     `pulumi:"label"`
+	Layers               []H264Layer `pulumi:"layers"`
+	OdataType            string      `pulumi:"odataType"`
+	SceneChangeDetection *bool       `pulumi:"sceneChangeDetection"`
+	StretchMode          *string     `pulumi:"stretchMode"`
 }
 
 // H264VideoInput is an input type that accepts H264VideoArgs and H264VideoOutput values.
@@ -9395,23 +8251,14 @@ type H264VideoInput interface {
 	ToH264VideoOutputWithContext(context.Context) H264VideoOutput
 }
 
-// Describes all the properties for encoding a video with the H.264 codec.
 type H264VideoArgs struct {
-	// Tells the encoder how to choose its encoding settings. The default value is Balanced.
-	Complexity pulumi.StringPtrInput `pulumi:"complexity"`
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
-	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The collection of output H.264 layers to be produced by the encoder.
-	Layers H264LayerArrayInput `pulumi:"layers"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.H264Video'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
-	SceneChangeDetection pulumi.BoolPtrInput `pulumi:"sceneChangeDetection"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+	Complexity           pulumi.StringPtrInput `pulumi:"complexity"`
+	KeyFrameInterval     pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	Label                pulumi.StringPtrInput `pulumi:"label"`
+	Layers               H264LayerArrayInput   `pulumi:"layers"`
+	OdataType            pulumi.StringInput    `pulumi:"odataType"`
+	SceneChangeDetection pulumi.BoolPtrInput   `pulumi:"sceneChangeDetection"`
+	StretchMode          pulumi.StringPtrInput `pulumi:"stretchMode"`
 }
 
 func (H264VideoArgs) ElementType() reflect.Type {
@@ -9426,7 +8273,6 @@ func (i H264VideoArgs) ToH264VideoOutputWithContext(ctx context.Context) H264Vid
 	return pulumi.ToOutputWithContext(ctx, i).(H264VideoOutput)
 }
 
-// Describes all the properties for encoding a video with the H.264 codec.
 type H264VideoOutput struct{ *pulumi.OutputState }
 
 func (H264VideoOutput) ElementType() reflect.Type {
@@ -9441,59 +8287,42 @@ func (o H264VideoOutput) ToH264VideoOutputWithContext(ctx context.Context) H264V
 	return o
 }
 
-// Tells the encoder how to choose its encoding settings. The default value is Balanced.
 func (o H264VideoOutput) Complexity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264Video) *string { return v.Complexity }).(pulumi.StringPtrOutput)
 }
 
-// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 func (o H264VideoOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264Video) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o H264VideoOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264Video) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The collection of output H.264 layers to be produced by the encoder.
 func (o H264VideoOutput) Layers() H264LayerArrayOutput {
 	return o.ApplyT(func(v H264Video) []H264Layer { return v.Layers }).(H264LayerArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.H264Video'.
 func (o H264VideoOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v H264Video) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
 func (o H264VideoOutput) SceneChangeDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v H264Video) *bool { return v.SceneChangeDetection }).(pulumi.BoolPtrOutput)
 }
 
-// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 func (o H264VideoOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264Video) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
-// Describes all the properties for encoding a video with the H.264 codec.
 type H264VideoResponse struct {
-	// Tells the encoder how to choose its encoding settings. The default value is Balanced.
-	Complexity *string `pulumi:"complexity"`
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
-	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// The collection of output H.264 layers to be produced by the encoder.
-	Layers []H264LayerResponse `pulumi:"layers"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.H264Video'.
-	OdataType string `pulumi:"odataType"`
-	// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
-	SceneChangeDetection *bool `pulumi:"sceneChangeDetection"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode *string `pulumi:"stretchMode"`
+	Complexity           *string             `pulumi:"complexity"`
+	KeyFrameInterval     *string             `pulumi:"keyFrameInterval"`
+	Label                *string             `pulumi:"label"`
+	Layers               []H264LayerResponse `pulumi:"layers"`
+	OdataType            string              `pulumi:"odataType"`
+	SceneChangeDetection *bool               `pulumi:"sceneChangeDetection"`
+	StretchMode          *string             `pulumi:"stretchMode"`
 }
 
 // H264VideoResponseInput is an input type that accepts H264VideoResponseArgs and H264VideoResponseOutput values.
@@ -9507,23 +8336,14 @@ type H264VideoResponseInput interface {
 	ToH264VideoResponseOutputWithContext(context.Context) H264VideoResponseOutput
 }
 
-// Describes all the properties for encoding a video with the H.264 codec.
 type H264VideoResponseArgs struct {
-	// Tells the encoder how to choose its encoding settings. The default value is Balanced.
-	Complexity pulumi.StringPtrInput `pulumi:"complexity"`
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
-	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The collection of output H.264 layers to be produced by the encoder.
-	Layers H264LayerResponseArrayInput `pulumi:"layers"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.H264Video'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
-	SceneChangeDetection pulumi.BoolPtrInput `pulumi:"sceneChangeDetection"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+	Complexity           pulumi.StringPtrInput       `pulumi:"complexity"`
+	KeyFrameInterval     pulumi.StringPtrInput       `pulumi:"keyFrameInterval"`
+	Label                pulumi.StringPtrInput       `pulumi:"label"`
+	Layers               H264LayerResponseArrayInput `pulumi:"layers"`
+	OdataType            pulumi.StringInput          `pulumi:"odataType"`
+	SceneChangeDetection pulumi.BoolPtrInput         `pulumi:"sceneChangeDetection"`
+	StretchMode          pulumi.StringPtrInput       `pulumi:"stretchMode"`
 }
 
 func (H264VideoResponseArgs) ElementType() reflect.Type {
@@ -9538,7 +8358,6 @@ func (i H264VideoResponseArgs) ToH264VideoResponseOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(H264VideoResponseOutput)
 }
 
-// Describes all the properties for encoding a video with the H.264 codec.
 type H264VideoResponseOutput struct{ *pulumi.OutputState }
 
 func (H264VideoResponseOutput) ElementType() reflect.Type {
@@ -9553,45 +8372,35 @@ func (o H264VideoResponseOutput) ToH264VideoResponseOutputWithContext(ctx contex
 	return o
 }
 
-// Tells the encoder how to choose its encoding settings. The default value is Balanced.
 func (o H264VideoResponseOutput) Complexity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264VideoResponse) *string { return v.Complexity }).(pulumi.StringPtrOutput)
 }
 
-// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 func (o H264VideoResponseOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264VideoResponse) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o H264VideoResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264VideoResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The collection of output H.264 layers to be produced by the encoder.
 func (o H264VideoResponseOutput) Layers() H264LayerResponseArrayOutput {
 	return o.ApplyT(func(v H264VideoResponse) []H264LayerResponse { return v.Layers }).(H264LayerResponseArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.H264Video'.
 func (o H264VideoResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v H264VideoResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
 func (o H264VideoResponseOutput) SceneChangeDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v H264VideoResponse) *bool { return v.SceneChangeDetection }).(pulumi.BoolPtrOutput)
 }
 
-// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 func (o H264VideoResponseOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v H264VideoResponse) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
-// The HLS configuration.
 type Hls struct {
-	// The amount of fragments per HTTP Live Streaming (HLS) segment.
 	FragmentsPerTsSegment *int `pulumi:"fragmentsPerTsSegment"`
 }
 
@@ -9606,9 +8415,7 @@ type HlsInput interface {
 	ToHlsOutputWithContext(context.Context) HlsOutput
 }
 
-// The HLS configuration.
 type HlsArgs struct {
-	// The amount of fragments per HTTP Live Streaming (HLS) segment.
 	FragmentsPerTsSegment pulumi.IntPtrInput `pulumi:"fragmentsPerTsSegment"`
 }
 
@@ -9665,7 +8472,6 @@ func (i *hlsPtrType) ToHlsPtrOutputWithContext(ctx context.Context) HlsPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(HlsPtrOutput)
 }
 
-// The HLS configuration.
 type HlsOutput struct{ *pulumi.OutputState }
 
 func (HlsOutput) ElementType() reflect.Type {
@@ -9685,12 +8491,11 @@ func (o HlsOutput) ToHlsPtrOutput() HlsPtrOutput {
 }
 
 func (o HlsOutput) ToHlsPtrOutputWithContext(ctx context.Context) HlsPtrOutput {
-	return o.ApplyT(func(v Hls) *Hls {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Hls) *Hls {
 		return &v
 	}).(HlsPtrOutput)
 }
 
-// The amount of fragments per HTTP Live Streaming (HLS) segment.
 func (o HlsOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Hls) *int { return v.FragmentsPerTsSegment }).(pulumi.IntPtrOutput)
 }
@@ -9710,10 +8515,15 @@ func (o HlsPtrOutput) ToHlsPtrOutputWithContext(ctx context.Context) HlsPtrOutpu
 }
 
 func (o HlsPtrOutput) Elem() HlsOutput {
-	return o.ApplyT(func(v *Hls) Hls { return *v }).(HlsOutput)
+	return o.ApplyT(func(v *Hls) Hls {
+		if v != nil {
+			return *v
+		}
+		var ret Hls
+		return ret
+	}).(HlsOutput)
 }
 
-// The amount of fragments per HTTP Live Streaming (HLS) segment.
 func (o HlsPtrOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Hls) *int {
 		if v == nil {
@@ -9723,9 +8533,7 @@ func (o HlsPtrOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The HLS configuration.
 type HlsResponse struct {
-	// The amount of fragments per HTTP Live Streaming (HLS) segment.
 	FragmentsPerTsSegment *int `pulumi:"fragmentsPerTsSegment"`
 }
 
@@ -9740,9 +8548,7 @@ type HlsResponseInput interface {
 	ToHlsResponseOutputWithContext(context.Context) HlsResponseOutput
 }
 
-// The HLS configuration.
 type HlsResponseArgs struct {
-	// The amount of fragments per HTTP Live Streaming (HLS) segment.
 	FragmentsPerTsSegment pulumi.IntPtrInput `pulumi:"fragmentsPerTsSegment"`
 }
 
@@ -9799,7 +8605,6 @@ func (i *hlsResponsePtrType) ToHlsResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HlsResponsePtrOutput)
 }
 
-// The HLS configuration.
 type HlsResponseOutput struct{ *pulumi.OutputState }
 
 func (HlsResponseOutput) ElementType() reflect.Type {
@@ -9819,12 +8624,11 @@ func (o HlsResponseOutput) ToHlsResponsePtrOutput() HlsResponsePtrOutput {
 }
 
 func (o HlsResponseOutput) ToHlsResponsePtrOutputWithContext(ctx context.Context) HlsResponsePtrOutput {
-	return o.ApplyT(func(v HlsResponse) *HlsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HlsResponse) *HlsResponse {
 		return &v
 	}).(HlsResponsePtrOutput)
 }
 
-// The amount of fragments per HTTP Live Streaming (HLS) segment.
 func (o HlsResponseOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HlsResponse) *int { return v.FragmentsPerTsSegment }).(pulumi.IntPtrOutput)
 }
@@ -9844,10 +8648,15 @@ func (o HlsResponsePtrOutput) ToHlsResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o HlsResponsePtrOutput) Elem() HlsResponseOutput {
-	return o.ApplyT(func(v *HlsResponse) HlsResponse { return *v }).(HlsResponseOutput)
+	return o.ApplyT(func(v *HlsResponse) HlsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HlsResponse
+		return ret
+	}).(HlsResponseOutput)
 }
 
-// The amount of fragments per HTTP Live Streaming (HLS) segment.
 func (o HlsResponsePtrOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HlsResponse) *int {
 		if v == nil {
@@ -9857,9 +8666,7 @@ func (o HlsResponsePtrOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The IP access control.
 type IPAccessControl struct {
-	// The IP allow list.
 	Allow []IPRange `pulumi:"allow"`
 }
 
@@ -9874,9 +8681,7 @@ type IPAccessControlInput interface {
 	ToIPAccessControlOutputWithContext(context.Context) IPAccessControlOutput
 }
 
-// The IP access control.
 type IPAccessControlArgs struct {
-	// The IP allow list.
 	Allow IPRangeArrayInput `pulumi:"allow"`
 }
 
@@ -9933,7 +8738,6 @@ func (i *ipaccessControlPtrType) ToIPAccessControlPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(IPAccessControlPtrOutput)
 }
 
-// The IP access control.
 type IPAccessControlOutput struct{ *pulumi.OutputState }
 
 func (IPAccessControlOutput) ElementType() reflect.Type {
@@ -9953,12 +8757,11 @@ func (o IPAccessControlOutput) ToIPAccessControlPtrOutput() IPAccessControlPtrOu
 }
 
 func (o IPAccessControlOutput) ToIPAccessControlPtrOutputWithContext(ctx context.Context) IPAccessControlPtrOutput {
-	return o.ApplyT(func(v IPAccessControl) *IPAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPAccessControl) *IPAccessControl {
 		return &v
 	}).(IPAccessControlPtrOutput)
 }
 
-// The IP allow list.
 func (o IPAccessControlOutput) Allow() IPRangeArrayOutput {
 	return o.ApplyT(func(v IPAccessControl) []IPRange { return v.Allow }).(IPRangeArrayOutput)
 }
@@ -9978,10 +8781,15 @@ func (o IPAccessControlPtrOutput) ToIPAccessControlPtrOutputWithContext(ctx cont
 }
 
 func (o IPAccessControlPtrOutput) Elem() IPAccessControlOutput {
-	return o.ApplyT(func(v *IPAccessControl) IPAccessControl { return *v }).(IPAccessControlOutput)
+	return o.ApplyT(func(v *IPAccessControl) IPAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret IPAccessControl
+		return ret
+	}).(IPAccessControlOutput)
 }
 
-// The IP allow list.
 func (o IPAccessControlPtrOutput) Allow() IPRangeArrayOutput {
 	return o.ApplyT(func(v *IPAccessControl) []IPRange {
 		if v == nil {
@@ -9991,9 +8799,7 @@ func (o IPAccessControlPtrOutput) Allow() IPRangeArrayOutput {
 	}).(IPRangeArrayOutput)
 }
 
-// The IP access control.
 type IPAccessControlResponse struct {
-	// The IP allow list.
 	Allow []IPRangeResponse `pulumi:"allow"`
 }
 
@@ -10008,9 +8814,7 @@ type IPAccessControlResponseInput interface {
 	ToIPAccessControlResponseOutputWithContext(context.Context) IPAccessControlResponseOutput
 }
 
-// The IP access control.
 type IPAccessControlResponseArgs struct {
-	// The IP allow list.
 	Allow IPRangeResponseArrayInput `pulumi:"allow"`
 }
 
@@ -10067,7 +8871,6 @@ func (i *ipaccessControlResponsePtrType) ToIPAccessControlResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(IPAccessControlResponsePtrOutput)
 }
 
-// The IP access control.
 type IPAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (IPAccessControlResponseOutput) ElementType() reflect.Type {
@@ -10087,12 +8890,11 @@ func (o IPAccessControlResponseOutput) ToIPAccessControlResponsePtrOutput() IPAc
 }
 
 func (o IPAccessControlResponseOutput) ToIPAccessControlResponsePtrOutputWithContext(ctx context.Context) IPAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v IPAccessControlResponse) *IPAccessControlResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPAccessControlResponse) *IPAccessControlResponse {
 		return &v
 	}).(IPAccessControlResponsePtrOutput)
 }
 
-// The IP allow list.
 func (o IPAccessControlResponseOutput) Allow() IPRangeResponseArrayOutput {
 	return o.ApplyT(func(v IPAccessControlResponse) []IPRangeResponse { return v.Allow }).(IPRangeResponseArrayOutput)
 }
@@ -10112,10 +8914,15 @@ func (o IPAccessControlResponsePtrOutput) ToIPAccessControlResponsePtrOutputWith
 }
 
 func (o IPAccessControlResponsePtrOutput) Elem() IPAccessControlResponseOutput {
-	return o.ApplyT(func(v *IPAccessControlResponse) IPAccessControlResponse { return *v }).(IPAccessControlResponseOutput)
+	return o.ApplyT(func(v *IPAccessControlResponse) IPAccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IPAccessControlResponse
+		return ret
+	}).(IPAccessControlResponseOutput)
 }
 
-// The IP allow list.
 func (o IPAccessControlResponsePtrOutput) Allow() IPRangeResponseArrayOutput {
 	return o.ApplyT(func(v *IPAccessControlResponse) []IPRangeResponse {
 		if v == nil {
@@ -10125,14 +8932,10 @@ func (o IPAccessControlResponsePtrOutput) Allow() IPRangeResponseArrayOutput {
 	}).(IPRangeResponseArrayOutput)
 }
 
-// The IP address range in the CIDR scheme.
 type IPRange struct {
-	// The IP address.
-	Address *string `pulumi:"address"`
-	// The friendly name for the IP address range.
-	Name *string `pulumi:"name"`
-	// The subnet mask prefix length (see CIDR notation).
-	SubnetPrefixLength *int `pulumi:"subnetPrefixLength"`
+	Address            *string `pulumi:"address"`
+	Name               *string `pulumi:"name"`
+	SubnetPrefixLength *int    `pulumi:"subnetPrefixLength"`
 }
 
 // IPRangeInput is an input type that accepts IPRangeArgs and IPRangeOutput values.
@@ -10146,14 +8949,10 @@ type IPRangeInput interface {
 	ToIPRangeOutputWithContext(context.Context) IPRangeOutput
 }
 
-// The IP address range in the CIDR scheme.
 type IPRangeArgs struct {
-	// The IP address.
-	Address pulumi.StringPtrInput `pulumi:"address"`
-	// The friendly name for the IP address range.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The subnet mask prefix length (see CIDR notation).
-	SubnetPrefixLength pulumi.IntPtrInput `pulumi:"subnetPrefixLength"`
+	Address            pulumi.StringPtrInput `pulumi:"address"`
+	Name               pulumi.StringPtrInput `pulumi:"name"`
+	SubnetPrefixLength pulumi.IntPtrInput    `pulumi:"subnetPrefixLength"`
 }
 
 func (IPRangeArgs) ElementType() reflect.Type {
@@ -10193,7 +8992,6 @@ func (i IPRangeArray) ToIPRangeArrayOutputWithContext(ctx context.Context) IPRan
 	return pulumi.ToOutputWithContext(ctx, i).(IPRangeArrayOutput)
 }
 
-// The IP address range in the CIDR scheme.
 type IPRangeOutput struct{ *pulumi.OutputState }
 
 func (IPRangeOutput) ElementType() reflect.Type {
@@ -10208,17 +9006,14 @@ func (o IPRangeOutput) ToIPRangeOutputWithContext(ctx context.Context) IPRangeOu
 	return o
 }
 
-// The IP address.
 func (o IPRangeOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IPRange) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// The friendly name for the IP address range.
 func (o IPRangeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IPRange) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The subnet mask prefix length (see CIDR notation).
 func (o IPRangeOutput) SubnetPrefixLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IPRange) *int { return v.SubnetPrefixLength }).(pulumi.IntPtrOutput)
 }
@@ -10243,14 +9038,10 @@ func (o IPRangeArrayOutput) Index(i pulumi.IntInput) IPRangeOutput {
 	}).(IPRangeOutput)
 }
 
-// The IP address range in the CIDR scheme.
 type IPRangeResponse struct {
-	// The IP address.
-	Address *string `pulumi:"address"`
-	// The friendly name for the IP address range.
-	Name *string `pulumi:"name"`
-	// The subnet mask prefix length (see CIDR notation).
-	SubnetPrefixLength *int `pulumi:"subnetPrefixLength"`
+	Address            *string `pulumi:"address"`
+	Name               *string `pulumi:"name"`
+	SubnetPrefixLength *int    `pulumi:"subnetPrefixLength"`
 }
 
 // IPRangeResponseInput is an input type that accepts IPRangeResponseArgs and IPRangeResponseOutput values.
@@ -10264,14 +9055,10 @@ type IPRangeResponseInput interface {
 	ToIPRangeResponseOutputWithContext(context.Context) IPRangeResponseOutput
 }
 
-// The IP address range in the CIDR scheme.
 type IPRangeResponseArgs struct {
-	// The IP address.
-	Address pulumi.StringPtrInput `pulumi:"address"`
-	// The friendly name for the IP address range.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The subnet mask prefix length (see CIDR notation).
-	SubnetPrefixLength pulumi.IntPtrInput `pulumi:"subnetPrefixLength"`
+	Address            pulumi.StringPtrInput `pulumi:"address"`
+	Name               pulumi.StringPtrInput `pulumi:"name"`
+	SubnetPrefixLength pulumi.IntPtrInput    `pulumi:"subnetPrefixLength"`
 }
 
 func (IPRangeResponseArgs) ElementType() reflect.Type {
@@ -10311,7 +9098,6 @@ func (i IPRangeResponseArray) ToIPRangeResponseArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(IPRangeResponseArrayOutput)
 }
 
-// The IP address range in the CIDR scheme.
 type IPRangeResponseOutput struct{ *pulumi.OutputState }
 
 func (IPRangeResponseOutput) ElementType() reflect.Type {
@@ -10326,17 +9112,14 @@ func (o IPRangeResponseOutput) ToIPRangeResponseOutputWithContext(ctx context.Co
 	return o
 }
 
-// The IP address.
 func (o IPRangeResponseOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IPRangeResponse) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// The friendly name for the IP address range.
 func (o IPRangeResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IPRangeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The subnet mask prefix length (see CIDR notation).
 func (o IPRangeResponseOutput) SubnetPrefixLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IPRangeResponse) *int { return v.SubnetPrefixLength }).(pulumi.IntPtrOutput)
 }
@@ -10361,23 +9144,14 @@ func (o IPRangeResponseArrayOutput) Index(i pulumi.IntInput) IPRangeResponseOutp
 	}).(IPRangeResponseOutput)
 }
 
-// Describes the basic properties for generating thumbnails from the input video
 type Image struct {
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Image'.
-	OdataType string `pulumi:"odataType"`
-	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
-	Range *string `pulumi:"range"`
-	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
-	Start *string `pulumi:"start"`
-	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
-	Step *string `pulumi:"step"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode *string `pulumi:"stretchMode"`
+	Label            *string `pulumi:"label"`
+	OdataType        string  `pulumi:"odataType"`
+	Range            *string `pulumi:"range"`
+	Start            *string `pulumi:"start"`
+	Step             *string `pulumi:"step"`
+	StretchMode      *string `pulumi:"stretchMode"`
 }
 
 // ImageInput is an input type that accepts ImageArgs and ImageOutput values.
@@ -10391,23 +9165,14 @@ type ImageInput interface {
 	ToImageOutputWithContext(context.Context) ImageOutput
 }
 
-// Describes the basic properties for generating thumbnails from the input video
 type ImageArgs struct {
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Image'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
-	Range pulumi.StringPtrInput `pulumi:"range"`
-	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
-	Start pulumi.StringPtrInput `pulumi:"start"`
-	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
-	Step pulumi.StringPtrInput `pulumi:"step"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+	Label            pulumi.StringPtrInput `pulumi:"label"`
+	OdataType        pulumi.StringInput    `pulumi:"odataType"`
+	Range            pulumi.StringPtrInput `pulumi:"range"`
+	Start            pulumi.StringPtrInput `pulumi:"start"`
+	Step             pulumi.StringPtrInput `pulumi:"step"`
+	StretchMode      pulumi.StringPtrInput `pulumi:"stretchMode"`
 }
 
 func (ImageArgs) ElementType() reflect.Type {
@@ -10422,7 +9187,6 @@ func (i ImageArgs) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOutput)
 }
 
-// Describes the basic properties for generating thumbnails from the input video
 type ImageOutput struct{ *pulumi.OutputState }
 
 func (ImageOutput) ElementType() reflect.Type {
@@ -10437,49 +9201,37 @@ func (o ImageOutput) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return o
 }
 
-// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 func (o ImageOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Image) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o ImageOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Image) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Image'.
 func (o ImageOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v Image) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 func (o ImageOutput) Range() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Image) *string { return v.Range }).(pulumi.StringPtrOutput)
 }
 
-// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
 func (o ImageOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Image) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
 
-// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
 func (o ImageOutput) Step() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Image) *string { return v.Step }).(pulumi.StringPtrOutput)
 }
 
-// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 func (o ImageOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Image) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties for an output image file.
 type ImageFormat struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ImageFormat'.
-	OdataType string `pulumi:"odataType"`
+	OdataType       string  `pulumi:"odataType"`
 }
 
 // ImageFormatInput is an input type that accepts ImageFormatArgs and ImageFormatOutput values.
@@ -10493,13 +9245,9 @@ type ImageFormatInput interface {
 	ToImageFormatOutputWithContext(context.Context) ImageFormatOutput
 }
 
-// Describes the properties for an output image file.
 type ImageFormatArgs struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ImageFormat'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	OdataType       pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (ImageFormatArgs) ElementType() reflect.Type {
@@ -10514,7 +9262,6 @@ func (i ImageFormatArgs) ToImageFormatOutputWithContext(ctx context.Context) Ima
 	return pulumi.ToOutputWithContext(ctx, i).(ImageFormatOutput)
 }
 
-// Describes the properties for an output image file.
 type ImageFormatOutput struct{ *pulumi.OutputState }
 
 func (ImageFormatOutput) ElementType() reflect.Type {
@@ -10529,24 +9276,17 @@ func (o ImageFormatOutput) ToImageFormatOutputWithContext(ctx context.Context) I
 	return o
 }
 
-// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o ImageFormatOutput) FilenamePattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageFormat) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ImageFormat'.
 func (o ImageFormatOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageFormat) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Describes the properties for an output image file.
 type ImageFormatResponse struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ImageFormat'.
-	OdataType string `pulumi:"odataType"`
+	OdataType       string  `pulumi:"odataType"`
 }
 
 // ImageFormatResponseInput is an input type that accepts ImageFormatResponseArgs and ImageFormatResponseOutput values.
@@ -10560,13 +9300,9 @@ type ImageFormatResponseInput interface {
 	ToImageFormatResponseOutputWithContext(context.Context) ImageFormatResponseOutput
 }
 
-// Describes the properties for an output image file.
 type ImageFormatResponseArgs struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ImageFormat'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	OdataType       pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (ImageFormatResponseArgs) ElementType() reflect.Type {
@@ -10581,7 +9317,6 @@ func (i ImageFormatResponseArgs) ToImageFormatResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ImageFormatResponseOutput)
 }
 
-// Describes the properties for an output image file.
 type ImageFormatResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageFormatResponseOutput) ElementType() reflect.Type {
@@ -10596,34 +9331,22 @@ func (o ImageFormatResponseOutput) ToImageFormatResponseOutputWithContext(ctx co
 	return o
 }
 
-// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o ImageFormatResponseOutput) FilenamePattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageFormatResponse) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ImageFormat'.
 func (o ImageFormatResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageFormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Describes the basic properties for generating thumbnails from the input video
 type ImageResponse struct {
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Image'.
-	OdataType string `pulumi:"odataType"`
-	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
-	Range *string `pulumi:"range"`
-	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
-	Start *string `pulumi:"start"`
-	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
-	Step *string `pulumi:"step"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode *string `pulumi:"stretchMode"`
+	Label            *string `pulumi:"label"`
+	OdataType        string  `pulumi:"odataType"`
+	Range            *string `pulumi:"range"`
+	Start            *string `pulumi:"start"`
+	Step             *string `pulumi:"step"`
+	StretchMode      *string `pulumi:"stretchMode"`
 }
 
 // ImageResponseInput is an input type that accepts ImageResponseArgs and ImageResponseOutput values.
@@ -10637,23 +9360,14 @@ type ImageResponseInput interface {
 	ToImageResponseOutputWithContext(context.Context) ImageResponseOutput
 }
 
-// Describes the basic properties for generating thumbnails from the input video
 type ImageResponseArgs struct {
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Image'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
-	Range pulumi.StringPtrInput `pulumi:"range"`
-	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
-	Start pulumi.StringPtrInput `pulumi:"start"`
-	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
-	Step pulumi.StringPtrInput `pulumi:"step"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+	Label            pulumi.StringPtrInput `pulumi:"label"`
+	OdataType        pulumi.StringInput    `pulumi:"odataType"`
+	Range            pulumi.StringPtrInput `pulumi:"range"`
+	Start            pulumi.StringPtrInput `pulumi:"start"`
+	Step             pulumi.StringPtrInput `pulumi:"step"`
+	StretchMode      pulumi.StringPtrInput `pulumi:"stretchMode"`
 }
 
 func (ImageResponseArgs) ElementType() reflect.Type {
@@ -10668,7 +9382,6 @@ func (i ImageResponseArgs) ToImageResponseOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ImageResponseOutput)
 }
 
-// Describes the basic properties for generating thumbnails from the input video
 type ImageResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageResponseOutput) ElementType() reflect.Type {
@@ -10683,47 +9396,36 @@ func (o ImageResponseOutput) ToImageResponseOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 func (o ImageResponseOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageResponse) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o ImageResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Image'.
 func (o ImageResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 func (o ImageResponseOutput) Range() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageResponse) *string { return v.Range }).(pulumi.StringPtrOutput)
 }
 
-// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
 func (o ImageResponseOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageResponse) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
 
-// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
 func (o ImageResponseOutput) Step() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageResponse) *string { return v.Step }).(pulumi.StringPtrOutput)
 }
 
-// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 func (o ImageResponseOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageResponse) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
-// Details of JobOutput errors.
 type JobErrorDetailResponse struct {
-	// Code describing the error detail.
-	Code string `pulumi:"code"`
-	// A human-readable representation of the error.
+	Code    string `pulumi:"code"`
 	Message string `pulumi:"message"`
 }
 
@@ -10738,11 +9440,8 @@ type JobErrorDetailResponseInput interface {
 	ToJobErrorDetailResponseOutputWithContext(context.Context) JobErrorDetailResponseOutput
 }
 
-// Details of JobOutput errors.
 type JobErrorDetailResponseArgs struct {
-	// Code describing the error detail.
-	Code pulumi.StringInput `pulumi:"code"`
-	// A human-readable representation of the error.
+	Code    pulumi.StringInput `pulumi:"code"`
 	Message pulumi.StringInput `pulumi:"message"`
 }
 
@@ -10783,7 +9482,6 @@ func (i JobErrorDetailResponseArray) ToJobErrorDetailResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(JobErrorDetailResponseArrayOutput)
 }
 
-// Details of JobOutput errors.
 type JobErrorDetailResponseOutput struct{ *pulumi.OutputState }
 
 func (JobErrorDetailResponseOutput) ElementType() reflect.Type {
@@ -10798,12 +9496,10 @@ func (o JobErrorDetailResponseOutput) ToJobErrorDetailResponseOutputWithContext(
 	return o
 }
 
-// Code describing the error detail.
 func (o JobErrorDetailResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v JobErrorDetailResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// A human-readable representation of the error.
 func (o JobErrorDetailResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v JobErrorDetailResponse) string { return v.Message }).(pulumi.StringOutput)
 }
@@ -10828,18 +9524,12 @@ func (o JobErrorDetailResponseArrayOutput) Index(i pulumi.IntInput) JobErrorDeta
 	}).(JobErrorDetailResponseOutput)
 }
 
-// Details of JobOutput errors.
 type JobErrorResponse struct {
-	// Helps with categorization of errors.
-	Category string `pulumi:"category"`
-	// Error code describing the error.
-	Code string `pulumi:"code"`
-	// An array of details about specific errors that led to this reported error.
-	Details []JobErrorDetailResponse `pulumi:"details"`
-	// A human-readable language-dependent representation of the error.
-	Message string `pulumi:"message"`
-	// Indicates that it may be possible to retry the Job. If retry is unsuccessful, please contact Azure support via Azure Portal.
-	Retry string `pulumi:"retry"`
+	Category string                   `pulumi:"category"`
+	Code     string                   `pulumi:"code"`
+	Details  []JobErrorDetailResponse `pulumi:"details"`
+	Message  string                   `pulumi:"message"`
+	Retry    string                   `pulumi:"retry"`
 }
 
 // JobErrorResponseInput is an input type that accepts JobErrorResponseArgs and JobErrorResponseOutput values.
@@ -10853,18 +9543,12 @@ type JobErrorResponseInput interface {
 	ToJobErrorResponseOutputWithContext(context.Context) JobErrorResponseOutput
 }
 
-// Details of JobOutput errors.
 type JobErrorResponseArgs struct {
-	// Helps with categorization of errors.
-	Category pulumi.StringInput `pulumi:"category"`
-	// Error code describing the error.
-	Code pulumi.StringInput `pulumi:"code"`
-	// An array of details about specific errors that led to this reported error.
-	Details JobErrorDetailResponseArrayInput `pulumi:"details"`
-	// A human-readable language-dependent representation of the error.
-	Message pulumi.StringInput `pulumi:"message"`
-	// Indicates that it may be possible to retry the Job. If retry is unsuccessful, please contact Azure support via Azure Portal.
-	Retry pulumi.StringInput `pulumi:"retry"`
+	Category pulumi.StringInput               `pulumi:"category"`
+	Code     pulumi.StringInput               `pulumi:"code"`
+	Details  JobErrorDetailResponseArrayInput `pulumi:"details"`
+	Message  pulumi.StringInput               `pulumi:"message"`
+	Retry    pulumi.StringInput               `pulumi:"retry"`
 }
 
 func (JobErrorResponseArgs) ElementType() reflect.Type {
@@ -10879,7 +9563,6 @@ func (i JobErrorResponseArgs) ToJobErrorResponseOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(JobErrorResponseOutput)
 }
 
-// Details of JobOutput errors.
 type JobErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (JobErrorResponseOutput) ElementType() reflect.Type {
@@ -10894,42 +9577,31 @@ func (o JobErrorResponseOutput) ToJobErrorResponseOutputWithContext(ctx context.
 	return o
 }
 
-// Helps with categorization of errors.
 func (o JobErrorResponseOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v JobErrorResponse) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// Error code describing the error.
 func (o JobErrorResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v JobErrorResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// An array of details about specific errors that led to this reported error.
 func (o JobErrorResponseOutput) Details() JobErrorDetailResponseArrayOutput {
 	return o.ApplyT(func(v JobErrorResponse) []JobErrorDetailResponse { return v.Details }).(JobErrorDetailResponseArrayOutput)
 }
 
-// A human-readable language-dependent representation of the error.
 func (o JobErrorResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v JobErrorResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// Indicates that it may be possible to retry the Job. If retry is unsuccessful, please contact Azure support via Azure Portal.
 func (o JobErrorResponseOutput) Retry() pulumi.StringOutput {
 	return o.ApplyT(func(v JobErrorResponse) string { return v.Retry }).(pulumi.StringOutput)
 }
 
-// Represents an Asset for input into a Job.
 type JobInputAsset struct {
-	// The name of the input Asset.
-	AssetName string `pulumi:"assetName"`
-	// List of files. Required for JobInputHttp.
-	Files []string `pulumi:"files"`
-	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputAsset'.
-	OdataType string `pulumi:"odataType"`
+	AssetName string   `pulumi:"assetName"`
+	Files     []string `pulumi:"files"`
+	Label     *string  `pulumi:"label"`
+	OdataType string   `pulumi:"odataType"`
 }
 
 // JobInputAssetInput is an input type that accepts JobInputAssetArgs and JobInputAssetOutput values.
@@ -10943,17 +9615,11 @@ type JobInputAssetInput interface {
 	ToJobInputAssetOutputWithContext(context.Context) JobInputAssetOutput
 }
 
-// Represents an Asset for input into a Job.
 type JobInputAssetArgs struct {
-	// The name of the input Asset.
-	AssetName pulumi.StringInput `pulumi:"assetName"`
-	// List of files. Required for JobInputHttp.
-	Files pulumi.StringArrayInput `pulumi:"files"`
-	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputAsset'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	AssetName pulumi.StringInput      `pulumi:"assetName"`
+	Files     pulumi.StringArrayInput `pulumi:"files"`
+	Label     pulumi.StringPtrInput   `pulumi:"label"`
+	OdataType pulumi.StringInput      `pulumi:"odataType"`
 }
 
 func (JobInputAssetArgs) ElementType() reflect.Type {
@@ -10968,7 +9634,6 @@ func (i JobInputAssetArgs) ToJobInputAssetOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(JobInputAssetOutput)
 }
 
-// Represents an Asset for input into a Job.
 type JobInputAssetOutput struct{ *pulumi.OutputState }
 
 func (JobInputAssetOutput) ElementType() reflect.Type {
@@ -10983,38 +9648,27 @@ func (o JobInputAssetOutput) ToJobInputAssetOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The name of the input Asset.
 func (o JobInputAssetOutput) AssetName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputAsset) string { return v.AssetName }).(pulumi.StringOutput)
 }
 
-// List of files. Required for JobInputHttp.
 func (o JobInputAssetOutput) Files() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobInputAsset) []string { return v.Files }).(pulumi.StringArrayOutput)
 }
 
-// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 func (o JobInputAssetOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobInputAsset) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JobInputAsset'.
 func (o JobInputAssetOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputAsset) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Represents an Asset for input into a Job.
 type JobInputAssetResponse struct {
-	// The name of the input Asset.
-	AssetName string `pulumi:"assetName"`
-	// List of files. Required for JobInputHttp.
-	Files []string `pulumi:"files"`
-	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputAsset'.
-	OdataType string `pulumi:"odataType"`
+	AssetName string   `pulumi:"assetName"`
+	Files     []string `pulumi:"files"`
+	Label     *string  `pulumi:"label"`
+	OdataType string   `pulumi:"odataType"`
 }
 
 // JobInputAssetResponseInput is an input type that accepts JobInputAssetResponseArgs and JobInputAssetResponseOutput values.
@@ -11028,17 +9682,11 @@ type JobInputAssetResponseInput interface {
 	ToJobInputAssetResponseOutputWithContext(context.Context) JobInputAssetResponseOutput
 }
 
-// Represents an Asset for input into a Job.
 type JobInputAssetResponseArgs struct {
-	// The name of the input Asset.
-	AssetName pulumi.StringInput `pulumi:"assetName"`
-	// List of files. Required for JobInputHttp.
-	Files pulumi.StringArrayInput `pulumi:"files"`
-	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputAsset'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	AssetName pulumi.StringInput      `pulumi:"assetName"`
+	Files     pulumi.StringArrayInput `pulumi:"files"`
+	Label     pulumi.StringPtrInput   `pulumi:"label"`
+	OdataType pulumi.StringInput      `pulumi:"odataType"`
 }
 
 func (JobInputAssetResponseArgs) ElementType() reflect.Type {
@@ -11053,7 +9701,6 @@ func (i JobInputAssetResponseArgs) ToJobInputAssetResponseOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(JobInputAssetResponseOutput)
 }
 
-// Represents an Asset for input into a Job.
 type JobInputAssetResponseOutput struct{ *pulumi.OutputState }
 
 func (JobInputAssetResponseOutput) ElementType() reflect.Type {
@@ -11068,36 +9715,26 @@ func (o JobInputAssetResponseOutput) ToJobInputAssetResponseOutputWithContext(ct
 	return o
 }
 
-// The name of the input Asset.
 func (o JobInputAssetResponseOutput) AssetName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputAssetResponse) string { return v.AssetName }).(pulumi.StringOutput)
 }
 
-// List of files. Required for JobInputHttp.
 func (o JobInputAssetResponseOutput) Files() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobInputAssetResponse) []string { return v.Files }).(pulumi.StringArrayOutput)
 }
 
-// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 func (o JobInputAssetResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobInputAssetResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JobInputAsset'.
 func (o JobInputAssetResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputAssetResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Represents input files for a Job.
 type JobInputClip struct {
-	// List of files. Required for JobInputHttp.
-	Files []string `pulumi:"files"`
-	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputClip'.
-	OdataType string `pulumi:"odataType"`
+	Files     []string `pulumi:"files"`
+	Label     *string  `pulumi:"label"`
+	OdataType string   `pulumi:"odataType"`
 }
 
 // JobInputClipInput is an input type that accepts JobInputClipArgs and JobInputClipOutput values.
@@ -11111,15 +9748,10 @@ type JobInputClipInput interface {
 	ToJobInputClipOutputWithContext(context.Context) JobInputClipOutput
 }
 
-// Represents input files for a Job.
 type JobInputClipArgs struct {
-	// List of files. Required for JobInputHttp.
-	Files pulumi.StringArrayInput `pulumi:"files"`
-	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputClip'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	Files     pulumi.StringArrayInput `pulumi:"files"`
+	Label     pulumi.StringPtrInput   `pulumi:"label"`
+	OdataType pulumi.StringInput      `pulumi:"odataType"`
 }
 
 func (JobInputClipArgs) ElementType() reflect.Type {
@@ -11134,7 +9766,6 @@ func (i JobInputClipArgs) ToJobInputClipOutputWithContext(ctx context.Context) J
 	return pulumi.ToOutputWithContext(ctx, i).(JobInputClipOutput)
 }
 
-// Represents input files for a Job.
 type JobInputClipOutput struct{ *pulumi.OutputState }
 
 func (JobInputClipOutput) ElementType() reflect.Type {
@@ -11149,31 +9780,22 @@ func (o JobInputClipOutput) ToJobInputClipOutputWithContext(ctx context.Context)
 	return o
 }
 
-// List of files. Required for JobInputHttp.
 func (o JobInputClipOutput) Files() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobInputClip) []string { return v.Files }).(pulumi.StringArrayOutput)
 }
 
-// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 func (o JobInputClipOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobInputClip) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JobInputClip'.
 func (o JobInputClipOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputClip) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Represents input files for a Job.
 type JobInputClipResponse struct {
-	// List of files. Required for JobInputHttp.
-	Files []string `pulumi:"files"`
-	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputClip'.
-	OdataType string `pulumi:"odataType"`
+	Files     []string `pulumi:"files"`
+	Label     *string  `pulumi:"label"`
+	OdataType string   `pulumi:"odataType"`
 }
 
 // JobInputClipResponseInput is an input type that accepts JobInputClipResponseArgs and JobInputClipResponseOutput values.
@@ -11187,15 +9809,10 @@ type JobInputClipResponseInput interface {
 	ToJobInputClipResponseOutputWithContext(context.Context) JobInputClipResponseOutput
 }
 
-// Represents input files for a Job.
 type JobInputClipResponseArgs struct {
-	// List of files. Required for JobInputHttp.
-	Files pulumi.StringArrayInput `pulumi:"files"`
-	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputClip'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	Files     pulumi.StringArrayInput `pulumi:"files"`
+	Label     pulumi.StringPtrInput   `pulumi:"label"`
+	OdataType pulumi.StringInput      `pulumi:"odataType"`
 }
 
 func (JobInputClipResponseArgs) ElementType() reflect.Type {
@@ -11210,7 +9827,6 @@ func (i JobInputClipResponseArgs) ToJobInputClipResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(JobInputClipResponseOutput)
 }
 
-// Represents input files for a Job.
 type JobInputClipResponseOutput struct{ *pulumi.OutputState }
 
 func (JobInputClipResponseOutput) ElementType() reflect.Type {
@@ -11225,33 +9841,23 @@ func (o JobInputClipResponseOutput) ToJobInputClipResponseOutputWithContext(ctx 
 	return o
 }
 
-// List of files. Required for JobInputHttp.
 func (o JobInputClipResponseOutput) Files() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobInputClipResponse) []string { return v.Files }).(pulumi.StringArrayOutput)
 }
 
-// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 func (o JobInputClipResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobInputClipResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JobInputClip'.
 func (o JobInputClipResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputClipResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Represents HTTPS job input.
 type JobInputHttp struct {
-	// Base URI for HTTPS job input. It will be concatenated with provided file names.   If no base uri is given, then the provided file list is assumed to be fully qualified uris.
-	BaseUri *string `pulumi:"baseUri"`
-	// List of files. Required for JobInputHttp.
-	Files []string `pulumi:"files"`
-	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputHttp'.
-	OdataType string `pulumi:"odataType"`
+	BaseUri   *string  `pulumi:"baseUri"`
+	Files     []string `pulumi:"files"`
+	Label     *string  `pulumi:"label"`
+	OdataType string   `pulumi:"odataType"`
 }
 
 // JobInputHttpInput is an input type that accepts JobInputHttpArgs and JobInputHttpOutput values.
@@ -11265,17 +9871,11 @@ type JobInputHttpInput interface {
 	ToJobInputHttpOutputWithContext(context.Context) JobInputHttpOutput
 }
 
-// Represents HTTPS job input.
 type JobInputHttpArgs struct {
-	// Base URI for HTTPS job input. It will be concatenated with provided file names.   If no base uri is given, then the provided file list is assumed to be fully qualified uris.
-	BaseUri pulumi.StringPtrInput `pulumi:"baseUri"`
-	// List of files. Required for JobInputHttp.
-	Files pulumi.StringArrayInput `pulumi:"files"`
-	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputHttp'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	BaseUri   pulumi.StringPtrInput   `pulumi:"baseUri"`
+	Files     pulumi.StringArrayInput `pulumi:"files"`
+	Label     pulumi.StringPtrInput   `pulumi:"label"`
+	OdataType pulumi.StringInput      `pulumi:"odataType"`
 }
 
 func (JobInputHttpArgs) ElementType() reflect.Type {
@@ -11290,7 +9890,6 @@ func (i JobInputHttpArgs) ToJobInputHttpOutputWithContext(ctx context.Context) J
 	return pulumi.ToOutputWithContext(ctx, i).(JobInputHttpOutput)
 }
 
-// Represents HTTPS job input.
 type JobInputHttpOutput struct{ *pulumi.OutputState }
 
 func (JobInputHttpOutput) ElementType() reflect.Type {
@@ -11305,38 +9904,27 @@ func (o JobInputHttpOutput) ToJobInputHttpOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Base URI for HTTPS job input. It will be concatenated with provided file names.   If no base uri is given, then the provided file list is assumed to be fully qualified uris.
 func (o JobInputHttpOutput) BaseUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobInputHttp) *string { return v.BaseUri }).(pulumi.StringPtrOutput)
 }
 
-// List of files. Required for JobInputHttp.
 func (o JobInputHttpOutput) Files() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobInputHttp) []string { return v.Files }).(pulumi.StringArrayOutput)
 }
 
-// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 func (o JobInputHttpOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobInputHttp) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JobInputHttp'.
 func (o JobInputHttpOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputHttp) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Represents HTTPS job input.
 type JobInputHttpResponse struct {
-	// Base URI for HTTPS job input. It will be concatenated with provided file names.   If no base uri is given, then the provided file list is assumed to be fully qualified uris.
-	BaseUri *string `pulumi:"baseUri"`
-	// List of files. Required for JobInputHttp.
-	Files []string `pulumi:"files"`
-	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputHttp'.
-	OdataType string `pulumi:"odataType"`
+	BaseUri   *string  `pulumi:"baseUri"`
+	Files     []string `pulumi:"files"`
+	Label     *string  `pulumi:"label"`
+	OdataType string   `pulumi:"odataType"`
 }
 
 // JobInputHttpResponseInput is an input type that accepts JobInputHttpResponseArgs and JobInputHttpResponseOutput values.
@@ -11350,17 +9938,11 @@ type JobInputHttpResponseInput interface {
 	ToJobInputHttpResponseOutputWithContext(context.Context) JobInputHttpResponseOutput
 }
 
-// Represents HTTPS job input.
 type JobInputHttpResponseArgs struct {
-	// Base URI for HTTPS job input. It will be concatenated with provided file names.   If no base uri is given, then the provided file list is assumed to be fully qualified uris.
-	BaseUri pulumi.StringPtrInput `pulumi:"baseUri"`
-	// List of files. Required for JobInputHttp.
-	Files pulumi.StringArrayInput `pulumi:"files"`
-	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputHttp'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	BaseUri   pulumi.StringPtrInput   `pulumi:"baseUri"`
+	Files     pulumi.StringArrayInput `pulumi:"files"`
+	Label     pulumi.StringPtrInput   `pulumi:"label"`
+	OdataType pulumi.StringInput      `pulumi:"odataType"`
 }
 
 func (JobInputHttpResponseArgs) ElementType() reflect.Type {
@@ -11375,7 +9957,6 @@ func (i JobInputHttpResponseArgs) ToJobInputHttpResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(JobInputHttpResponseOutput)
 }
 
-// Represents HTTPS job input.
 type JobInputHttpResponseOutput struct{ *pulumi.OutputState }
 
 func (JobInputHttpResponseOutput) ElementType() reflect.Type {
@@ -11390,36 +9971,26 @@ func (o JobInputHttpResponseOutput) ToJobInputHttpResponseOutputWithContext(ctx 
 	return o
 }
 
-// Base URI for HTTPS job input. It will be concatenated with provided file names.   If no base uri is given, then the provided file list is assumed to be fully qualified uris.
 func (o JobInputHttpResponseOutput) BaseUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobInputHttpResponse) *string { return v.BaseUri }).(pulumi.StringPtrOutput)
 }
 
-// List of files. Required for JobInputHttp.
 func (o JobInputHttpResponseOutput) Files() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobInputHttpResponse) []string { return v.Files }).(pulumi.StringArrayOutput)
 }
 
-// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 func (o JobInputHttpResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobInputHttpResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JobInputHttp'.
 func (o JobInputHttpResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputHttpResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Describes a list of inputs to a Job.
 type JobInputs struct {
-	// List of inputs to a Job.
-	Inputs []interface{} `pulumi:"inputs"`
-	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputs'.
-	OdataType string `pulumi:"odataType"`
+	Inputs    []interface{} `pulumi:"inputs"`
+	Label     *string       `pulumi:"label"`
+	OdataType string        `pulumi:"odataType"`
 }
 
 // JobInputsInput is an input type that accepts JobInputsArgs and JobInputsOutput values.
@@ -11433,15 +10004,10 @@ type JobInputsInput interface {
 	ToJobInputsOutputWithContext(context.Context) JobInputsOutput
 }
 
-// Describes a list of inputs to a Job.
 type JobInputsArgs struct {
-	// List of inputs to a Job.
-	Inputs pulumi.ArrayInput `pulumi:"inputs"`
-	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputs'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	Inputs    pulumi.ArrayInput     `pulumi:"inputs"`
+	Label     pulumi.StringPtrInput `pulumi:"label"`
+	OdataType pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (JobInputsArgs) ElementType() reflect.Type {
@@ -11456,7 +10022,6 @@ func (i JobInputsArgs) ToJobInputsOutputWithContext(ctx context.Context) JobInpu
 	return pulumi.ToOutputWithContext(ctx, i).(JobInputsOutput)
 }
 
-// Describes a list of inputs to a Job.
 type JobInputsOutput struct{ *pulumi.OutputState }
 
 func (JobInputsOutput) ElementType() reflect.Type {
@@ -11471,31 +10036,22 @@ func (o JobInputsOutput) ToJobInputsOutputWithContext(ctx context.Context) JobIn
 	return o
 }
 
-// List of inputs to a Job.
 func (o JobInputsOutput) Inputs() pulumi.ArrayOutput {
 	return o.ApplyT(func(v JobInputs) []interface{} { return v.Inputs }).(pulumi.ArrayOutput)
 }
 
-// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 func (o JobInputsOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobInputs) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JobInputs'.
 func (o JobInputsOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputs) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Describes a list of inputs to a Job.
 type JobInputsResponse struct {
-	// List of inputs to a Job.
-	Inputs []interface{} `pulumi:"inputs"`
-	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputs'.
-	OdataType string `pulumi:"odataType"`
+	Inputs    []interface{} `pulumi:"inputs"`
+	Label     *string       `pulumi:"label"`
+	OdataType string        `pulumi:"odataType"`
 }
 
 // JobInputsResponseInput is an input type that accepts JobInputsResponseArgs and JobInputsResponseOutput values.
@@ -11509,15 +10065,10 @@ type JobInputsResponseInput interface {
 	ToJobInputsResponseOutputWithContext(context.Context) JobInputsResponseOutput
 }
 
-// Describes a list of inputs to a Job.
 type JobInputsResponseArgs struct {
-	// List of inputs to a Job.
-	Inputs pulumi.ArrayInput `pulumi:"inputs"`
-	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputs'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	Inputs    pulumi.ArrayInput     `pulumi:"inputs"`
+	Label     pulumi.StringPtrInput `pulumi:"label"`
+	OdataType pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (JobInputsResponseArgs) ElementType() reflect.Type {
@@ -11532,7 +10083,6 @@ func (i JobInputsResponseArgs) ToJobInputsResponseOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(JobInputsResponseOutput)
 }
 
-// Describes a list of inputs to a Job.
 type JobInputsResponseOutput struct{ *pulumi.OutputState }
 
 func (JobInputsResponseOutput) ElementType() reflect.Type {
@@ -11547,28 +10097,20 @@ func (o JobInputsResponseOutput) ToJobInputsResponseOutputWithContext(ctx contex
 	return o
 }
 
-// List of inputs to a Job.
 func (o JobInputsResponseOutput) Inputs() pulumi.ArrayOutput {
 	return o.ApplyT(func(v JobInputsResponse) []interface{} { return v.Inputs }).(pulumi.ArrayOutput)
 }
 
-// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 func (o JobInputsResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobInputsResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JobInputs'.
 func (o JobInputsResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputsResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Represents an Asset used as a JobOutput.
 type JobOutputAsset struct {
-	// The name of the output Asset.
 	AssetName string `pulumi:"assetName"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobOutputAsset'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -11583,12 +10125,8 @@ type JobOutputAssetInput interface {
 	ToJobOutputAssetOutputWithContext(context.Context) JobOutputAssetOutput
 }
 
-// Represents an Asset used as a JobOutput.
 type JobOutputAssetArgs struct {
-	// The name of the output Asset.
 	AssetName pulumi.StringInput `pulumi:"assetName"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobOutputAsset'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -11629,7 +10167,6 @@ func (i JobOutputAssetArray) ToJobOutputAssetArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(JobOutputAssetArrayOutput)
 }
 
-// Represents an Asset used as a JobOutput.
 type JobOutputAssetOutput struct{ *pulumi.OutputState }
 
 func (JobOutputAssetOutput) ElementType() reflect.Type {
@@ -11644,13 +10181,10 @@ func (o JobOutputAssetOutput) ToJobOutputAssetOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The name of the output Asset.
 func (o JobOutputAssetOutput) AssetName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobOutputAsset) string { return v.AssetName }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JobOutputAsset'.
 func (o JobOutputAssetOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobOutputAsset) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -11675,19 +10209,12 @@ func (o JobOutputAssetArrayOutput) Index(i pulumi.IntInput) JobOutputAssetOutput
 	}).(JobOutputAssetOutput)
 }
 
-// Represents an Asset used as a JobOutput.
 type JobOutputAssetResponse struct {
-	// The name of the output Asset.
-	AssetName string `pulumi:"assetName"`
-	// If the JobOutput is in the Error state, it contains the details of the error.
-	Error JobErrorResponse `pulumi:"error"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobOutputAsset'.
-	OdataType string `pulumi:"odataType"`
-	// If the JobOutput is in a Processing state, this contains the job completion percentage.  The value is an estimate and not intended to be used to predict job completion times. To determine if the JobOutput is complete, use the State property.
-	Progress int `pulumi:"progress"`
-	// Describes the state of the JobOutput.
-	State string `pulumi:"state"`
+	AssetName string           `pulumi:"assetName"`
+	Error     JobErrorResponse `pulumi:"error"`
+	OdataType string           `pulumi:"odataType"`
+	Progress  int              `pulumi:"progress"`
+	State     string           `pulumi:"state"`
 }
 
 // JobOutputAssetResponseInput is an input type that accepts JobOutputAssetResponseArgs and JobOutputAssetResponseOutput values.
@@ -11701,19 +10228,12 @@ type JobOutputAssetResponseInput interface {
 	ToJobOutputAssetResponseOutputWithContext(context.Context) JobOutputAssetResponseOutput
 }
 
-// Represents an Asset used as a JobOutput.
 type JobOutputAssetResponseArgs struct {
-	// The name of the output Asset.
-	AssetName pulumi.StringInput `pulumi:"assetName"`
-	// If the JobOutput is in the Error state, it contains the details of the error.
-	Error JobErrorResponseInput `pulumi:"error"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobOutputAsset'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// If the JobOutput is in a Processing state, this contains the job completion percentage.  The value is an estimate and not intended to be used to predict job completion times. To determine if the JobOutput is complete, use the State property.
-	Progress pulumi.IntInput `pulumi:"progress"`
-	// Describes the state of the JobOutput.
-	State pulumi.StringInput `pulumi:"state"`
+	AssetName pulumi.StringInput    `pulumi:"assetName"`
+	Error     JobErrorResponseInput `pulumi:"error"`
+	OdataType pulumi.StringInput    `pulumi:"odataType"`
+	Progress  pulumi.IntInput       `pulumi:"progress"`
+	State     pulumi.StringInput    `pulumi:"state"`
 }
 
 func (JobOutputAssetResponseArgs) ElementType() reflect.Type {
@@ -11753,7 +10273,6 @@ func (i JobOutputAssetResponseArray) ToJobOutputAssetResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(JobOutputAssetResponseArrayOutput)
 }
 
-// Represents an Asset used as a JobOutput.
 type JobOutputAssetResponseOutput struct{ *pulumi.OutputState }
 
 func (JobOutputAssetResponseOutput) ElementType() reflect.Type {
@@ -11768,28 +10287,22 @@ func (o JobOutputAssetResponseOutput) ToJobOutputAssetResponseOutputWithContext(
 	return o
 }
 
-// The name of the output Asset.
 func (o JobOutputAssetResponseOutput) AssetName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobOutputAssetResponse) string { return v.AssetName }).(pulumi.StringOutput)
 }
 
-// If the JobOutput is in the Error state, it contains the details of the error.
 func (o JobOutputAssetResponseOutput) Error() JobErrorResponseOutput {
 	return o.ApplyT(func(v JobOutputAssetResponse) JobErrorResponse { return v.Error }).(JobErrorResponseOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JobOutputAsset'.
 func (o JobOutputAssetResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobOutputAssetResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// If the JobOutput is in a Processing state, this contains the job completion percentage.  The value is an estimate and not intended to be used to predict job completion times. To determine if the JobOutput is complete, use the State property.
 func (o JobOutputAssetResponseOutput) Progress() pulumi.IntOutput {
 	return o.ApplyT(func(v JobOutputAssetResponse) int { return v.Progress }).(pulumi.IntOutput)
 }
 
-// Describes the state of the JobOutput.
 func (o JobOutputAssetResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v JobOutputAssetResponse) string { return v.State }).(pulumi.StringOutput)
 }
@@ -11814,13 +10327,9 @@ func (o JobOutputAssetResponseArrayOutput) Index(i pulumi.IntInput) JobOutputAss
 	}).(JobOutputAssetResponseOutput)
 }
 
-// Describes the settings for producing JPEG thumbnails.
 type JpgFormat struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JpgFormat'.
-	OdataType string `pulumi:"odataType"`
+	OdataType       string  `pulumi:"odataType"`
 }
 
 // JpgFormatInput is an input type that accepts JpgFormatArgs and JpgFormatOutput values.
@@ -11834,13 +10343,9 @@ type JpgFormatInput interface {
 	ToJpgFormatOutputWithContext(context.Context) JpgFormatOutput
 }
 
-// Describes the settings for producing JPEG thumbnails.
 type JpgFormatArgs struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JpgFormat'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	OdataType       pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (JpgFormatArgs) ElementType() reflect.Type {
@@ -11855,7 +10360,6 @@ func (i JpgFormatArgs) ToJpgFormatOutputWithContext(ctx context.Context) JpgForm
 	return pulumi.ToOutputWithContext(ctx, i).(JpgFormatOutput)
 }
 
-// Describes the settings for producing JPEG thumbnails.
 type JpgFormatOutput struct{ *pulumi.OutputState }
 
 func (JpgFormatOutput) ElementType() reflect.Type {
@@ -11870,24 +10374,17 @@ func (o JpgFormatOutput) ToJpgFormatOutputWithContext(ctx context.Context) JpgFo
 	return o
 }
 
-// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o JpgFormatOutput) FilenamePattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgFormat) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JpgFormat'.
 func (o JpgFormatOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JpgFormat) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Describes the settings for producing JPEG thumbnails.
 type JpgFormatResponse struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JpgFormat'.
-	OdataType string `pulumi:"odataType"`
+	OdataType       string  `pulumi:"odataType"`
 }
 
 // JpgFormatResponseInput is an input type that accepts JpgFormatResponseArgs and JpgFormatResponseOutput values.
@@ -11901,13 +10398,9 @@ type JpgFormatResponseInput interface {
 	ToJpgFormatResponseOutputWithContext(context.Context) JpgFormatResponseOutput
 }
 
-// Describes the settings for producing JPEG thumbnails.
 type JpgFormatResponseArgs struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JpgFormat'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	OdataType       pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (JpgFormatResponseArgs) ElementType() reflect.Type {
@@ -11922,7 +10415,6 @@ func (i JpgFormatResponseArgs) ToJpgFormatResponseOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(JpgFormatResponseOutput)
 }
 
-// Describes the settings for producing JPEG thumbnails.
 type JpgFormatResponseOutput struct{ *pulumi.OutputState }
 
 func (JpgFormatResponseOutput) ElementType() reflect.Type {
@@ -11937,36 +10429,23 @@ func (o JpgFormatResponseOutput) ToJpgFormatResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o JpgFormatResponseOutput) FilenamePattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgFormatResponse) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JpgFormat'.
 func (o JpgFormatResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JpgFormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Describes the properties for producing a series of JPEG images from the input video.
 type JpgImage struct {
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
-	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// A collection of output JPEG image layers to be produced by the encoder.
-	Layers []JpgLayer `pulumi:"layers"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JpgImage'.
-	OdataType string `pulumi:"odataType"`
-	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
-	Range *string `pulumi:"range"`
-	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
-	Start *string `pulumi:"start"`
-	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
-	Step *string `pulumi:"step"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode *string `pulumi:"stretchMode"`
+	KeyFrameInterval *string    `pulumi:"keyFrameInterval"`
+	Label            *string    `pulumi:"label"`
+	Layers           []JpgLayer `pulumi:"layers"`
+	OdataType        string     `pulumi:"odataType"`
+	Range            *string    `pulumi:"range"`
+	Start            *string    `pulumi:"start"`
+	Step             *string    `pulumi:"step"`
+	StretchMode      *string    `pulumi:"stretchMode"`
 }
 
 // JpgImageInput is an input type that accepts JpgImageArgs and JpgImageOutput values.
@@ -11980,25 +10459,15 @@ type JpgImageInput interface {
 	ToJpgImageOutputWithContext(context.Context) JpgImageOutput
 }
 
-// Describes the properties for producing a series of JPEG images from the input video.
 type JpgImageArgs struct {
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// A collection of output JPEG image layers to be produced by the encoder.
-	Layers JpgLayerArrayInput `pulumi:"layers"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JpgImage'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
-	Range pulumi.StringPtrInput `pulumi:"range"`
-	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
-	Start pulumi.StringPtrInput `pulumi:"start"`
-	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
-	Step pulumi.StringPtrInput `pulumi:"step"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+	Label            pulumi.StringPtrInput `pulumi:"label"`
+	Layers           JpgLayerArrayInput    `pulumi:"layers"`
+	OdataType        pulumi.StringInput    `pulumi:"odataType"`
+	Range            pulumi.StringPtrInput `pulumi:"range"`
+	Start            pulumi.StringPtrInput `pulumi:"start"`
+	Step             pulumi.StringPtrInput `pulumi:"step"`
+	StretchMode      pulumi.StringPtrInput `pulumi:"stretchMode"`
 }
 
 func (JpgImageArgs) ElementType() reflect.Type {
@@ -12013,7 +10482,6 @@ func (i JpgImageArgs) ToJpgImageOutputWithContext(ctx context.Context) JpgImageO
 	return pulumi.ToOutputWithContext(ctx, i).(JpgImageOutput)
 }
 
-// Describes the properties for producing a series of JPEG images from the input video.
 type JpgImageOutput struct{ *pulumi.OutputState }
 
 func (JpgImageOutput) ElementType() reflect.Type {
@@ -12028,66 +10496,47 @@ func (o JpgImageOutput) ToJpgImageOutputWithContext(ctx context.Context) JpgImag
 	return o
 }
 
-// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 func (o JpgImageOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgImage) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o JpgImageOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgImage) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// A collection of output JPEG image layers to be produced by the encoder.
 func (o JpgImageOutput) Layers() JpgLayerArrayOutput {
 	return o.ApplyT(func(v JpgImage) []JpgLayer { return v.Layers }).(JpgLayerArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JpgImage'.
 func (o JpgImageOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JpgImage) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 func (o JpgImageOutput) Range() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgImage) *string { return v.Range }).(pulumi.StringPtrOutput)
 }
 
-// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
 func (o JpgImageOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgImage) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
 
-// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
 func (o JpgImageOutput) Step() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgImage) *string { return v.Step }).(pulumi.StringPtrOutput)
 }
 
-// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 func (o JpgImageOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgImage) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties for producing a series of JPEG images from the input video.
 type JpgImageResponse struct {
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
-	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// A collection of output JPEG image layers to be produced by the encoder.
-	Layers []JpgLayerResponse `pulumi:"layers"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JpgImage'.
-	OdataType string `pulumi:"odataType"`
-	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
-	Range *string `pulumi:"range"`
-	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
-	Start *string `pulumi:"start"`
-	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
-	Step *string `pulumi:"step"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode *string `pulumi:"stretchMode"`
+	KeyFrameInterval *string            `pulumi:"keyFrameInterval"`
+	Label            *string            `pulumi:"label"`
+	Layers           []JpgLayerResponse `pulumi:"layers"`
+	OdataType        string             `pulumi:"odataType"`
+	Range            *string            `pulumi:"range"`
+	Start            *string            `pulumi:"start"`
+	Step             *string            `pulumi:"step"`
+	StretchMode      *string            `pulumi:"stretchMode"`
 }
 
 // JpgImageResponseInput is an input type that accepts JpgImageResponseArgs and JpgImageResponseOutput values.
@@ -12101,25 +10550,15 @@ type JpgImageResponseInput interface {
 	ToJpgImageResponseOutputWithContext(context.Context) JpgImageResponseOutput
 }
 
-// Describes the properties for producing a series of JPEG images from the input video.
 type JpgImageResponseArgs struct {
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
-	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// A collection of output JPEG image layers to be produced by the encoder.
-	Layers JpgLayerResponseArrayInput `pulumi:"layers"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JpgImage'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
-	Range pulumi.StringPtrInput `pulumi:"range"`
-	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
-	Start pulumi.StringPtrInput `pulumi:"start"`
-	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
-	Step pulumi.StringPtrInput `pulumi:"step"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+	KeyFrameInterval pulumi.StringPtrInput      `pulumi:"keyFrameInterval"`
+	Label            pulumi.StringPtrInput      `pulumi:"label"`
+	Layers           JpgLayerResponseArrayInput `pulumi:"layers"`
+	OdataType        pulumi.StringInput         `pulumi:"odataType"`
+	Range            pulumi.StringPtrInput      `pulumi:"range"`
+	Start            pulumi.StringPtrInput      `pulumi:"start"`
+	Step             pulumi.StringPtrInput      `pulumi:"step"`
+	StretchMode      pulumi.StringPtrInput      `pulumi:"stretchMode"`
 }
 
 func (JpgImageResponseArgs) ElementType() reflect.Type {
@@ -12134,7 +10573,6 @@ func (i JpgImageResponseArgs) ToJpgImageResponseOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(JpgImageResponseOutput)
 }
 
-// Describes the properties for producing a series of JPEG images from the input video.
 type JpgImageResponseOutput struct{ *pulumi.OutputState }
 
 func (JpgImageResponseOutput) ElementType() reflect.Type {
@@ -12149,60 +10587,44 @@ func (o JpgImageResponseOutput) ToJpgImageResponseOutputWithContext(ctx context.
 	return o
 }
 
-// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 func (o JpgImageResponseOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgImageResponse) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o JpgImageResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgImageResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// A collection of output JPEG image layers to be produced by the encoder.
 func (o JpgImageResponseOutput) Layers() JpgLayerResponseArrayOutput {
 	return o.ApplyT(func(v JpgImageResponse) []JpgLayerResponse { return v.Layers }).(JpgLayerResponseArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JpgImage'.
 func (o JpgImageResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JpgImageResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 func (o JpgImageResponseOutput) Range() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgImageResponse) *string { return v.Range }).(pulumi.StringPtrOutput)
 }
 
-// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
 func (o JpgImageResponseOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgImageResponse) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
 
-// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
 func (o JpgImageResponseOutput) Step() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgImageResponse) *string { return v.Step }).(pulumi.StringPtrOutput)
 }
 
-// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 func (o JpgImageResponseOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgImageResponse) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
-// Describes the settings to produce a JPEG image from the input video.
 type JpgLayer struct {
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
-	Height *string `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JpgLayer'.
-	OdataType string `pulumi:"odataType"`
-	// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
-	Quality *int `pulumi:"quality"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
-	Width *string `pulumi:"width"`
+	Height    *string `pulumi:"height"`
+	Label     *string `pulumi:"label"`
+	OdataType string  `pulumi:"odataType"`
+	Quality   *int    `pulumi:"quality"`
+	Width     *string `pulumi:"width"`
 }
 
 // JpgLayerInput is an input type that accepts JpgLayerArgs and JpgLayerOutput values.
@@ -12216,19 +10638,12 @@ type JpgLayerInput interface {
 	ToJpgLayerOutputWithContext(context.Context) JpgLayerOutput
 }
 
-// Describes the settings to produce a JPEG image from the input video.
 type JpgLayerArgs struct {
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
-	Height pulumi.StringPtrInput `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JpgLayer'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
-	Quality pulumi.IntPtrInput `pulumi:"quality"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
-	Width pulumi.StringPtrInput `pulumi:"width"`
+	Height    pulumi.StringPtrInput `pulumi:"height"`
+	Label     pulumi.StringPtrInput `pulumi:"label"`
+	OdataType pulumi.StringInput    `pulumi:"odataType"`
+	Quality   pulumi.IntPtrInput    `pulumi:"quality"`
+	Width     pulumi.StringPtrInput `pulumi:"width"`
 }
 
 func (JpgLayerArgs) ElementType() reflect.Type {
@@ -12268,7 +10683,6 @@ func (i JpgLayerArray) ToJpgLayerArrayOutputWithContext(ctx context.Context) Jpg
 	return pulumi.ToOutputWithContext(ctx, i).(JpgLayerArrayOutput)
 }
 
-// Describes the settings to produce a JPEG image from the input video.
 type JpgLayerOutput struct{ *pulumi.OutputState }
 
 func (JpgLayerOutput) ElementType() reflect.Type {
@@ -12283,28 +10697,22 @@ func (o JpgLayerOutput) ToJpgLayerOutputWithContext(ctx context.Context) JpgLaye
 	return o
 }
 
-// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
 func (o JpgLayerOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgLayer) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
 
-// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 func (o JpgLayerOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgLayer) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JpgLayer'.
 func (o JpgLayerOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JpgLayer) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
 func (o JpgLayerOutput) Quality() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JpgLayer) *int { return v.Quality }).(pulumi.IntPtrOutput)
 }
 
-// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
 func (o JpgLayerOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgLayer) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -12329,19 +10737,12 @@ func (o JpgLayerArrayOutput) Index(i pulumi.IntInput) JpgLayerOutput {
 	}).(JpgLayerOutput)
 }
 
-// Describes the settings to produce a JPEG image from the input video.
 type JpgLayerResponse struct {
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
-	Height *string `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JpgLayer'.
-	OdataType string `pulumi:"odataType"`
-	// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
-	Quality *int `pulumi:"quality"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
-	Width *string `pulumi:"width"`
+	Height    *string `pulumi:"height"`
+	Label     *string `pulumi:"label"`
+	OdataType string  `pulumi:"odataType"`
+	Quality   *int    `pulumi:"quality"`
+	Width     *string `pulumi:"width"`
 }
 
 // JpgLayerResponseInput is an input type that accepts JpgLayerResponseArgs and JpgLayerResponseOutput values.
@@ -12355,19 +10756,12 @@ type JpgLayerResponseInput interface {
 	ToJpgLayerResponseOutputWithContext(context.Context) JpgLayerResponseOutput
 }
 
-// Describes the settings to produce a JPEG image from the input video.
 type JpgLayerResponseArgs struct {
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
-	Height pulumi.StringPtrInput `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JpgLayer'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
-	Quality pulumi.IntPtrInput `pulumi:"quality"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
-	Width pulumi.StringPtrInput `pulumi:"width"`
+	Height    pulumi.StringPtrInput `pulumi:"height"`
+	Label     pulumi.StringPtrInput `pulumi:"label"`
+	OdataType pulumi.StringInput    `pulumi:"odataType"`
+	Quality   pulumi.IntPtrInput    `pulumi:"quality"`
+	Width     pulumi.StringPtrInput `pulumi:"width"`
 }
 
 func (JpgLayerResponseArgs) ElementType() reflect.Type {
@@ -12407,7 +10801,6 @@ func (i JpgLayerResponseArray) ToJpgLayerResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(JpgLayerResponseArrayOutput)
 }
 
-// Describes the settings to produce a JPEG image from the input video.
 type JpgLayerResponseOutput struct{ *pulumi.OutputState }
 
 func (JpgLayerResponseOutput) ElementType() reflect.Type {
@@ -12422,28 +10815,22 @@ func (o JpgLayerResponseOutput) ToJpgLayerResponseOutputWithContext(ctx context.
 	return o
 }
 
-// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
 func (o JpgLayerResponseOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgLayerResponse) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
 
-// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 func (o JpgLayerResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgLayerResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JpgLayer'.
 func (o JpgLayerResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JpgLayerResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
 func (o JpgLayerResponseOutput) Quality() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JpgLayerResponse) *int { return v.Quality }).(pulumi.IntPtrOutput)
 }
 
-// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
 func (o JpgLayerResponseOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgLayerResponse) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -12468,12 +10855,9 @@ func (o JpgLayerResponseArrayOutput) Index(i pulumi.IntInput) JpgLayerResponseOu
 	}).(JpgLayerResponseOutput)
 }
 
-// The Live Event encoding.
 type LiveEventEncoding struct {
-	// The encoding type for Live Event.
-	EncodingType *string `pulumi:"encodingType"`
-	// The encoding preset name.
-	PresetName *string `pulumi:"presetName"`
+	EncodingType *LiveEventEncodingType `pulumi:"encodingType"`
+	PresetName   *string                `pulumi:"presetName"`
 }
 
 // LiveEventEncodingInput is an input type that accepts LiveEventEncodingArgs and LiveEventEncodingOutput values.
@@ -12487,12 +10871,9 @@ type LiveEventEncodingInput interface {
 	ToLiveEventEncodingOutputWithContext(context.Context) LiveEventEncodingOutput
 }
 
-// The Live Event encoding.
 type LiveEventEncodingArgs struct {
-	// The encoding type for Live Event.
-	EncodingType *LiveEventEncodingType `pulumi:"encodingType"`
-	// The encoding preset name.
-	PresetName pulumi.StringPtrInput `pulumi:"presetName"`
+	EncodingType LiveEventEncodingTypePtrInput `pulumi:"encodingType"`
+	PresetName   pulumi.StringPtrInput         `pulumi:"presetName"`
 }
 
 func (LiveEventEncodingArgs) ElementType() reflect.Type {
@@ -12548,7 +10929,6 @@ func (i *liveEventEncodingPtrType) ToLiveEventEncodingPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEncodingPtrOutput)
 }
 
-// The Live Event encoding.
 type LiveEventEncodingOutput struct{ *pulumi.OutputState }
 
 func (LiveEventEncodingOutput) ElementType() reflect.Type {
@@ -12568,17 +10948,15 @@ func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutput() LiveEventEncodin
 }
 
 func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutputWithContext(ctx context.Context) LiveEventEncodingPtrOutput {
-	return o.ApplyT(func(v LiveEventEncoding) *LiveEventEncoding {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventEncoding) *LiveEventEncoding {
 		return &v
 	}).(LiveEventEncodingPtrOutput)
 }
 
-// The encoding type for Live Event.
-func (o LiveEventEncodingOutput) EncodingType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LiveEventEncoding) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
+func (o LiveEventEncodingOutput) EncodingType() LiveEventEncodingTypePtrOutput {
+	return o.ApplyT(func(v LiveEventEncoding) *LiveEventEncodingType { return v.EncodingType }).(LiveEventEncodingTypePtrOutput)
 }
 
-// The encoding preset name.
 func (o LiveEventEncodingOutput) PresetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncoding) *string { return v.PresetName }).(pulumi.StringPtrOutput)
 }
@@ -12598,20 +10976,24 @@ func (o LiveEventEncodingPtrOutput) ToLiveEventEncodingPtrOutputWithContext(ctx 
 }
 
 func (o LiveEventEncodingPtrOutput) Elem() LiveEventEncodingOutput {
-	return o.ApplyT(func(v *LiveEventEncoding) LiveEventEncoding { return *v }).(LiveEventEncodingOutput)
+	return o.ApplyT(func(v *LiveEventEncoding) LiveEventEncoding {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventEncoding
+		return ret
+	}).(LiveEventEncodingOutput)
 }
 
-// The encoding type for Live Event.
-func (o LiveEventEncodingPtrOutput) EncodingType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LiveEventEncoding) *string {
+func (o LiveEventEncodingPtrOutput) EncodingType() LiveEventEncodingTypePtrOutput {
+	return o.ApplyT(func(v *LiveEventEncoding) *LiveEventEncodingType {
 		if v == nil {
 			return nil
 		}
 		return v.EncodingType
-	}).(pulumi.StringPtrOutput)
+	}).(LiveEventEncodingTypePtrOutput)
 }
 
-// The encoding preset name.
 func (o LiveEventEncodingPtrOutput) PresetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventEncoding) *string {
 		if v == nil {
@@ -12621,12 +11003,9 @@ func (o LiveEventEncodingPtrOutput) PresetName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Live Event encoding.
 type LiveEventEncodingResponse struct {
-	// The encoding type for Live Event.
 	EncodingType *string `pulumi:"encodingType"`
-	// The encoding preset name.
-	PresetName *string `pulumi:"presetName"`
+	PresetName   *string `pulumi:"presetName"`
 }
 
 // LiveEventEncodingResponseInput is an input type that accepts LiveEventEncodingResponseArgs and LiveEventEncodingResponseOutput values.
@@ -12640,12 +11019,9 @@ type LiveEventEncodingResponseInput interface {
 	ToLiveEventEncodingResponseOutputWithContext(context.Context) LiveEventEncodingResponseOutput
 }
 
-// The Live Event encoding.
 type LiveEventEncodingResponseArgs struct {
-	// The encoding type for Live Event.
 	EncodingType pulumi.StringPtrInput `pulumi:"encodingType"`
-	// The encoding preset name.
-	PresetName pulumi.StringPtrInput `pulumi:"presetName"`
+	PresetName   pulumi.StringPtrInput `pulumi:"presetName"`
 }
 
 func (LiveEventEncodingResponseArgs) ElementType() reflect.Type {
@@ -12701,7 +11077,6 @@ func (i *liveEventEncodingResponsePtrType) ToLiveEventEncodingResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEncodingResponsePtrOutput)
 }
 
-// The Live Event encoding.
 type LiveEventEncodingResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventEncodingResponseOutput) ElementType() reflect.Type {
@@ -12721,17 +11096,15 @@ func (o LiveEventEncodingResponseOutput) ToLiveEventEncodingResponsePtrOutput() 
 }
 
 func (o LiveEventEncodingResponseOutput) ToLiveEventEncodingResponsePtrOutputWithContext(ctx context.Context) LiveEventEncodingResponsePtrOutput {
-	return o.ApplyT(func(v LiveEventEncodingResponse) *LiveEventEncodingResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventEncodingResponse) *LiveEventEncodingResponse {
 		return &v
 	}).(LiveEventEncodingResponsePtrOutput)
 }
 
-// The encoding type for Live Event.
 func (o LiveEventEncodingResponseOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncodingResponse) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
 }
 
-// The encoding preset name.
 func (o LiveEventEncodingResponseOutput) PresetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncodingResponse) *string { return v.PresetName }).(pulumi.StringPtrOutput)
 }
@@ -12751,10 +11124,15 @@ func (o LiveEventEncodingResponsePtrOutput) ToLiveEventEncodingResponsePtrOutput
 }
 
 func (o LiveEventEncodingResponsePtrOutput) Elem() LiveEventEncodingResponseOutput {
-	return o.ApplyT(func(v *LiveEventEncodingResponse) LiveEventEncodingResponse { return *v }).(LiveEventEncodingResponseOutput)
+	return o.ApplyT(func(v *LiveEventEncodingResponse) LiveEventEncodingResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventEncodingResponse
+		return ret
+	}).(LiveEventEncodingResponseOutput)
 }
 
-// The encoding type for Live Event.
 func (o LiveEventEncodingResponsePtrOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventEncodingResponse) *string {
 		if v == nil {
@@ -12764,7 +11142,6 @@ func (o LiveEventEncodingResponsePtrOutput) EncodingType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encoding preset name.
 func (o LiveEventEncodingResponsePtrOutput) PresetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventEncodingResponse) *string {
 		if v == nil {
@@ -12774,12 +11151,9 @@ func (o LiveEventEncodingResponsePtrOutput) PresetName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Live Event endpoint.
 type LiveEventEndpoint struct {
-	// The endpoint protocol.
 	Protocol *string `pulumi:"protocol"`
-	// The endpoint URL.
-	Url *string `pulumi:"url"`
+	Url      *string `pulumi:"url"`
 }
 
 // LiveEventEndpointInput is an input type that accepts LiveEventEndpointArgs and LiveEventEndpointOutput values.
@@ -12793,12 +11167,9 @@ type LiveEventEndpointInput interface {
 	ToLiveEventEndpointOutputWithContext(context.Context) LiveEventEndpointOutput
 }
 
-// The Live Event endpoint.
 type LiveEventEndpointArgs struct {
-	// The endpoint protocol.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// The endpoint URL.
-	Url pulumi.StringPtrInput `pulumi:"url"`
+	Url      pulumi.StringPtrInput `pulumi:"url"`
 }
 
 func (LiveEventEndpointArgs) ElementType() reflect.Type {
@@ -12838,7 +11209,6 @@ func (i LiveEventEndpointArray) ToLiveEventEndpointArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEndpointArrayOutput)
 }
 
-// The Live Event endpoint.
 type LiveEventEndpointOutput struct{ *pulumi.OutputState }
 
 func (LiveEventEndpointOutput) ElementType() reflect.Type {
@@ -12853,12 +11223,10 @@ func (o LiveEventEndpointOutput) ToLiveEventEndpointOutputWithContext(ctx contex
 	return o
 }
 
-// The endpoint protocol.
 func (o LiveEventEndpointOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEndpoint) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// The endpoint URL.
 func (o LiveEventEndpointOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEndpoint) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -12883,12 +11251,9 @@ func (o LiveEventEndpointArrayOutput) Index(i pulumi.IntInput) LiveEventEndpoint
 	}).(LiveEventEndpointOutput)
 }
 
-// The Live Event endpoint.
 type LiveEventEndpointResponse struct {
-	// The endpoint protocol.
 	Protocol *string `pulumi:"protocol"`
-	// The endpoint URL.
-	Url *string `pulumi:"url"`
+	Url      *string `pulumi:"url"`
 }
 
 // LiveEventEndpointResponseInput is an input type that accepts LiveEventEndpointResponseArgs and LiveEventEndpointResponseOutput values.
@@ -12902,12 +11267,9 @@ type LiveEventEndpointResponseInput interface {
 	ToLiveEventEndpointResponseOutputWithContext(context.Context) LiveEventEndpointResponseOutput
 }
 
-// The Live Event endpoint.
 type LiveEventEndpointResponseArgs struct {
-	// The endpoint protocol.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// The endpoint URL.
-	Url pulumi.StringPtrInput `pulumi:"url"`
+	Url      pulumi.StringPtrInput `pulumi:"url"`
 }
 
 func (LiveEventEndpointResponseArgs) ElementType() reflect.Type {
@@ -12947,7 +11309,6 @@ func (i LiveEventEndpointResponseArray) ToLiveEventEndpointResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEndpointResponseArrayOutput)
 }
 
-// The Live Event endpoint.
 type LiveEventEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventEndpointResponseOutput) ElementType() reflect.Type {
@@ -12962,12 +11323,10 @@ func (o LiveEventEndpointResponseOutput) ToLiveEventEndpointResponseOutputWithCo
 	return o
 }
 
-// The endpoint protocol.
 func (o LiveEventEndpointResponseOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEndpointResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// The endpoint URL.
 func (o LiveEventEndpointResponseOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEndpointResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -12992,16 +11351,11 @@ func (o LiveEventEndpointResponseArrayOutput) Index(i pulumi.IntInput) LiveEvent
 	}).(LiveEventEndpointResponseOutput)
 }
 
-// The Live Event input.
 type LiveEventInputType struct {
-	// The access token.
-	AccessToken *string `pulumi:"accessToken"`
-	// The input endpoints for the Live Event.
-	Endpoints []LiveEventEndpoint `pulumi:"endpoints"`
-	// ISO 8601 timespan duration of the key frame interval duration.
-	KeyFrameIntervalDuration *string `pulumi:"keyFrameIntervalDuration"`
-	// The streaming protocol for the Live Event.
-	StreamingProtocol string `pulumi:"streamingProtocol"`
+	AccessToken              *string                `pulumi:"accessToken"`
+	Endpoints                []LiveEventEndpoint    `pulumi:"endpoints"`
+	KeyFrameIntervalDuration *string                `pulumi:"keyFrameIntervalDuration"`
+	StreamingProtocol        LiveEventInputProtocol `pulumi:"streamingProtocol"`
 }
 
 // LiveEventInputTypeInput is an input type that accepts LiveEventInputTypeArgs and LiveEventInputTypeOutput values.
@@ -13015,16 +11369,11 @@ type LiveEventInputTypeInput interface {
 	ToLiveEventInputTypeOutputWithContext(context.Context) LiveEventInputTypeOutput
 }
 
-// The Live Event input.
 type LiveEventInputTypeArgs struct {
-	// The access token.
-	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
-	// The input endpoints for the Live Event.
-	Endpoints LiveEventEndpointArrayInput `pulumi:"endpoints"`
-	// ISO 8601 timespan duration of the key frame interval duration.
-	KeyFrameIntervalDuration pulumi.StringPtrInput `pulumi:"keyFrameIntervalDuration"`
-	// The streaming protocol for the Live Event.
-	StreamingProtocol LiveEventInputProtocol `pulumi:"streamingProtocol"`
+	AccessToken              pulumi.StringPtrInput       `pulumi:"accessToken"`
+	Endpoints                LiveEventEndpointArrayInput `pulumi:"endpoints"`
+	KeyFrameIntervalDuration pulumi.StringPtrInput       `pulumi:"keyFrameIntervalDuration"`
+	StreamingProtocol        LiveEventInputProtocolInput `pulumi:"streamingProtocol"`
 }
 
 func (LiveEventInputTypeArgs) ElementType() reflect.Type {
@@ -13080,7 +11429,6 @@ func (i *liveEventInputTypePtrType) ToLiveEventInputTypePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTypePtrOutput)
 }
 
-// The Live Event input.
 type LiveEventInputTypeOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputTypeOutput) ElementType() reflect.Type {
@@ -13100,29 +11448,25 @@ func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutput() LiveEventInput
 }
 
 func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
-	return o.ApplyT(func(v LiveEventInputType) *LiveEventInputType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputType) *LiveEventInputType {
 		return &v
 	}).(LiveEventInputTypePtrOutput)
 }
 
-// The access token.
 func (o LiveEventInputTypeOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputType) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
-// The input endpoints for the Live Event.
 func (o LiveEventInputTypeOutput) Endpoints() LiveEventEndpointArrayOutput {
 	return o.ApplyT(func(v LiveEventInputType) []LiveEventEndpoint { return v.Endpoints }).(LiveEventEndpointArrayOutput)
 }
 
-// ISO 8601 timespan duration of the key frame interval duration.
 func (o LiveEventInputTypeOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputType) *string { return v.KeyFrameIntervalDuration }).(pulumi.StringPtrOutput)
 }
 
-// The streaming protocol for the Live Event.
-func (o LiveEventInputTypeOutput) StreamingProtocol() pulumi.StringOutput {
-	return o.ApplyT(func(v LiveEventInputType) string { return v.StreamingProtocol }).(pulumi.StringOutput)
+func (o LiveEventInputTypeOutput) StreamingProtocol() LiveEventInputProtocolOutput {
+	return o.ApplyT(func(v LiveEventInputType) LiveEventInputProtocol { return v.StreamingProtocol }).(LiveEventInputProtocolOutput)
 }
 
 type LiveEventInputTypePtrOutput struct{ *pulumi.OutputState }
@@ -13140,10 +11484,15 @@ func (o LiveEventInputTypePtrOutput) ToLiveEventInputTypePtrOutputWithContext(ct
 }
 
 func (o LiveEventInputTypePtrOutput) Elem() LiveEventInputTypeOutput {
-	return o.ApplyT(func(v *LiveEventInputType) LiveEventInputType { return *v }).(LiveEventInputTypeOutput)
+	return o.ApplyT(func(v *LiveEventInputType) LiveEventInputType {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventInputType
+		return ret
+	}).(LiveEventInputTypeOutput)
 }
 
-// The access token.
 func (o LiveEventInputTypePtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInputType) *string {
 		if v == nil {
@@ -13153,7 +11502,6 @@ func (o LiveEventInputTypePtrOutput) AccessToken() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The input endpoints for the Live Event.
 func (o LiveEventInputTypePtrOutput) Endpoints() LiveEventEndpointArrayOutput {
 	return o.ApplyT(func(v *LiveEventInputType) []LiveEventEndpoint {
 		if v == nil {
@@ -13163,7 +11511,6 @@ func (o LiveEventInputTypePtrOutput) Endpoints() LiveEventEndpointArrayOutput {
 	}).(LiveEventEndpointArrayOutput)
 }
 
-// ISO 8601 timespan duration of the key frame interval duration.
 func (o LiveEventInputTypePtrOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInputType) *string {
 		if v == nil {
@@ -13173,26 +11520,20 @@ func (o LiveEventInputTypePtrOutput) KeyFrameIntervalDuration() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The streaming protocol for the Live Event.
-func (o LiveEventInputTypePtrOutput) StreamingProtocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LiveEventInputType) *string {
+func (o LiveEventInputTypePtrOutput) StreamingProtocol() LiveEventInputProtocolPtrOutput {
+	return o.ApplyT(func(v *LiveEventInputType) *LiveEventInputProtocol {
 		if v == nil {
 			return nil
 		}
 		return &v.StreamingProtocol
-	}).(pulumi.StringPtrOutput)
+	}).(LiveEventInputProtocolPtrOutput)
 }
 
-// The Live Event input.
 type LiveEventInputResponse struct {
-	// The access token.
-	AccessToken *string `pulumi:"accessToken"`
-	// The input endpoints for the Live Event.
-	Endpoints []LiveEventEndpointResponse `pulumi:"endpoints"`
-	// ISO 8601 timespan duration of the key frame interval duration.
-	KeyFrameIntervalDuration *string `pulumi:"keyFrameIntervalDuration"`
-	// The streaming protocol for the Live Event.
-	StreamingProtocol string `pulumi:"streamingProtocol"`
+	AccessToken              *string                     `pulumi:"accessToken"`
+	Endpoints                []LiveEventEndpointResponse `pulumi:"endpoints"`
+	KeyFrameIntervalDuration *string                     `pulumi:"keyFrameIntervalDuration"`
+	StreamingProtocol        string                      `pulumi:"streamingProtocol"`
 }
 
 // LiveEventInputResponseInput is an input type that accepts LiveEventInputResponseArgs and LiveEventInputResponseOutput values.
@@ -13206,16 +11547,11 @@ type LiveEventInputResponseInput interface {
 	ToLiveEventInputResponseOutputWithContext(context.Context) LiveEventInputResponseOutput
 }
 
-// The Live Event input.
 type LiveEventInputResponseArgs struct {
-	// The access token.
-	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
-	// The input endpoints for the Live Event.
-	Endpoints LiveEventEndpointResponseArrayInput `pulumi:"endpoints"`
-	// ISO 8601 timespan duration of the key frame interval duration.
-	KeyFrameIntervalDuration pulumi.StringPtrInput `pulumi:"keyFrameIntervalDuration"`
-	// The streaming protocol for the Live Event.
-	StreamingProtocol pulumi.StringInput `pulumi:"streamingProtocol"`
+	AccessToken              pulumi.StringPtrInput               `pulumi:"accessToken"`
+	Endpoints                LiveEventEndpointResponseArrayInput `pulumi:"endpoints"`
+	KeyFrameIntervalDuration pulumi.StringPtrInput               `pulumi:"keyFrameIntervalDuration"`
+	StreamingProtocol        pulumi.StringInput                  `pulumi:"streamingProtocol"`
 }
 
 func (LiveEventInputResponseArgs) ElementType() reflect.Type {
@@ -13271,7 +11607,6 @@ func (i *liveEventInputResponsePtrType) ToLiveEventInputResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputResponsePtrOutput)
 }
 
-// The Live Event input.
 type LiveEventInputResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputResponseOutput) ElementType() reflect.Type {
@@ -13291,27 +11626,23 @@ func (o LiveEventInputResponseOutput) ToLiveEventInputResponsePtrOutput() LiveEv
 }
 
 func (o LiveEventInputResponseOutput) ToLiveEventInputResponsePtrOutputWithContext(ctx context.Context) LiveEventInputResponsePtrOutput {
-	return o.ApplyT(func(v LiveEventInputResponse) *LiveEventInputResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputResponse) *LiveEventInputResponse {
 		return &v
 	}).(LiveEventInputResponsePtrOutput)
 }
 
-// The access token.
 func (o LiveEventInputResponseOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputResponse) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
-// The input endpoints for the Live Event.
 func (o LiveEventInputResponseOutput) Endpoints() LiveEventEndpointResponseArrayOutput {
 	return o.ApplyT(func(v LiveEventInputResponse) []LiveEventEndpointResponse { return v.Endpoints }).(LiveEventEndpointResponseArrayOutput)
 }
 
-// ISO 8601 timespan duration of the key frame interval duration.
 func (o LiveEventInputResponseOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputResponse) *string { return v.KeyFrameIntervalDuration }).(pulumi.StringPtrOutput)
 }
 
-// The streaming protocol for the Live Event.
 func (o LiveEventInputResponseOutput) StreamingProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LiveEventInputResponse) string { return v.StreamingProtocol }).(pulumi.StringOutput)
 }
@@ -13331,10 +11662,15 @@ func (o LiveEventInputResponsePtrOutput) ToLiveEventInputResponsePtrOutputWithCo
 }
 
 func (o LiveEventInputResponsePtrOutput) Elem() LiveEventInputResponseOutput {
-	return o.ApplyT(func(v *LiveEventInputResponse) LiveEventInputResponse { return *v }).(LiveEventInputResponseOutput)
+	return o.ApplyT(func(v *LiveEventInputResponse) LiveEventInputResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventInputResponse
+		return ret
+	}).(LiveEventInputResponseOutput)
 }
 
-// The access token.
 func (o LiveEventInputResponsePtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInputResponse) *string {
 		if v == nil {
@@ -13344,7 +11680,6 @@ func (o LiveEventInputResponsePtrOutput) AccessToken() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The input endpoints for the Live Event.
 func (o LiveEventInputResponsePtrOutput) Endpoints() LiveEventEndpointResponseArrayOutput {
 	return o.ApplyT(func(v *LiveEventInputResponse) []LiveEventEndpointResponse {
 		if v == nil {
@@ -13354,7 +11689,6 @@ func (o LiveEventInputResponsePtrOutput) Endpoints() LiveEventEndpointResponseAr
 	}).(LiveEventEndpointResponseArrayOutput)
 }
 
-// ISO 8601 timespan duration of the key frame interval duration.
 func (o LiveEventInputResponsePtrOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInputResponse) *string {
 		if v == nil {
@@ -13364,7 +11698,6 @@ func (o LiveEventInputResponsePtrOutput) KeyFrameIntervalDuration() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The streaming protocol for the Live Event.
 func (o LiveEventInputResponsePtrOutput) StreamingProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInputResponse) *string {
 		if v == nil {
@@ -13374,18 +11707,12 @@ func (o LiveEventInputResponsePtrOutput) StreamingProtocol() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Live Event preview.
 type LiveEventPreview struct {
-	// The access control for LiveEvent preview.
-	AccessControl *LiveEventPreviewAccessControl `pulumi:"accessControl"`
-	// An Alternative Media Identifier associated with the preview url.  This identifier can be used to distinguish the preview of different live events for authorization purposes in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-	AlternativeMediaId *string `pulumi:"alternativeMediaId"`
-	// The endpoints for preview.
-	Endpoints []LiveEventEndpoint `pulumi:"endpoints"`
-	// The preview locator Guid.
-	PreviewLocator *string `pulumi:"previewLocator"`
-	// The name of streaming policy used for LiveEvent preview
-	StreamingPolicyName *string `pulumi:"streamingPolicyName"`
+	AccessControl       *LiveEventPreviewAccessControl `pulumi:"accessControl"`
+	AlternativeMediaId  *string                        `pulumi:"alternativeMediaId"`
+	Endpoints           []LiveEventEndpoint            `pulumi:"endpoints"`
+	PreviewLocator      *string                        `pulumi:"previewLocator"`
+	StreamingPolicyName *string                        `pulumi:"streamingPolicyName"`
 }
 
 // LiveEventPreviewInput is an input type that accepts LiveEventPreviewArgs and LiveEventPreviewOutput values.
@@ -13399,18 +11726,12 @@ type LiveEventPreviewInput interface {
 	ToLiveEventPreviewOutputWithContext(context.Context) LiveEventPreviewOutput
 }
 
-// The Live Event preview.
 type LiveEventPreviewArgs struct {
-	// The access control for LiveEvent preview.
-	AccessControl LiveEventPreviewAccessControlPtrInput `pulumi:"accessControl"`
-	// An Alternative Media Identifier associated with the preview url.  This identifier can be used to distinguish the preview of different live events for authorization purposes in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-	AlternativeMediaId pulumi.StringPtrInput `pulumi:"alternativeMediaId"`
-	// The endpoints for preview.
-	Endpoints LiveEventEndpointArrayInput `pulumi:"endpoints"`
-	// The preview locator Guid.
-	PreviewLocator pulumi.StringPtrInput `pulumi:"previewLocator"`
-	// The name of streaming policy used for LiveEvent preview
-	StreamingPolicyName pulumi.StringPtrInput `pulumi:"streamingPolicyName"`
+	AccessControl       LiveEventPreviewAccessControlPtrInput `pulumi:"accessControl"`
+	AlternativeMediaId  pulumi.StringPtrInput                 `pulumi:"alternativeMediaId"`
+	Endpoints           LiveEventEndpointArrayInput           `pulumi:"endpoints"`
+	PreviewLocator      pulumi.StringPtrInput                 `pulumi:"previewLocator"`
+	StreamingPolicyName pulumi.StringPtrInput                 `pulumi:"streamingPolicyName"`
 }
 
 func (LiveEventPreviewArgs) ElementType() reflect.Type {
@@ -13466,7 +11787,6 @@ func (i *liveEventPreviewPtrType) ToLiveEventPreviewPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewPtrOutput)
 }
 
-// The Live Event preview.
 type LiveEventPreviewOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewOutput) ElementType() reflect.Type {
@@ -13486,32 +11806,27 @@ func (o LiveEventPreviewOutput) ToLiveEventPreviewPtrOutput() LiveEventPreviewPt
 }
 
 func (o LiveEventPreviewOutput) ToLiveEventPreviewPtrOutputWithContext(ctx context.Context) LiveEventPreviewPtrOutput {
-	return o.ApplyT(func(v LiveEventPreview) *LiveEventPreview {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreview) *LiveEventPreview {
 		return &v
 	}).(LiveEventPreviewPtrOutput)
 }
 
-// The access control for LiveEvent preview.
 func (o LiveEventPreviewOutput) AccessControl() LiveEventPreviewAccessControlPtrOutput {
 	return o.ApplyT(func(v LiveEventPreview) *LiveEventPreviewAccessControl { return v.AccessControl }).(LiveEventPreviewAccessControlPtrOutput)
 }
 
-// An Alternative Media Identifier associated with the preview url.  This identifier can be used to distinguish the preview of different live events for authorization purposes in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
 func (o LiveEventPreviewOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreview) *string { return v.AlternativeMediaId }).(pulumi.StringPtrOutput)
 }
 
-// The endpoints for preview.
 func (o LiveEventPreviewOutput) Endpoints() LiveEventEndpointArrayOutput {
 	return o.ApplyT(func(v LiveEventPreview) []LiveEventEndpoint { return v.Endpoints }).(LiveEventEndpointArrayOutput)
 }
 
-// The preview locator Guid.
 func (o LiveEventPreviewOutput) PreviewLocator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreview) *string { return v.PreviewLocator }).(pulumi.StringPtrOutput)
 }
 
-// The name of streaming policy used for LiveEvent preview
 func (o LiveEventPreviewOutput) StreamingPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreview) *string { return v.StreamingPolicyName }).(pulumi.StringPtrOutput)
 }
@@ -13531,10 +11846,15 @@ func (o LiveEventPreviewPtrOutput) ToLiveEventPreviewPtrOutputWithContext(ctx co
 }
 
 func (o LiveEventPreviewPtrOutput) Elem() LiveEventPreviewOutput {
-	return o.ApplyT(func(v *LiveEventPreview) LiveEventPreview { return *v }).(LiveEventPreviewOutput)
+	return o.ApplyT(func(v *LiveEventPreview) LiveEventPreview {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventPreview
+		return ret
+	}).(LiveEventPreviewOutput)
 }
 
-// The access control for LiveEvent preview.
 func (o LiveEventPreviewPtrOutput) AccessControl() LiveEventPreviewAccessControlPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreview) *LiveEventPreviewAccessControl {
 		if v == nil {
@@ -13544,7 +11864,6 @@ func (o LiveEventPreviewPtrOutput) AccessControl() LiveEventPreviewAccessControl
 	}).(LiveEventPreviewAccessControlPtrOutput)
 }
 
-// An Alternative Media Identifier associated with the preview url.  This identifier can be used to distinguish the preview of different live events for authorization purposes in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
 func (o LiveEventPreviewPtrOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreview) *string {
 		if v == nil {
@@ -13554,7 +11873,6 @@ func (o LiveEventPreviewPtrOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The endpoints for preview.
 func (o LiveEventPreviewPtrOutput) Endpoints() LiveEventEndpointArrayOutput {
 	return o.ApplyT(func(v *LiveEventPreview) []LiveEventEndpoint {
 		if v == nil {
@@ -13564,7 +11882,6 @@ func (o LiveEventPreviewPtrOutput) Endpoints() LiveEventEndpointArrayOutput {
 	}).(LiveEventEndpointArrayOutput)
 }
 
-// The preview locator Guid.
 func (o LiveEventPreviewPtrOutput) PreviewLocator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreview) *string {
 		if v == nil {
@@ -13574,7 +11891,6 @@ func (o LiveEventPreviewPtrOutput) PreviewLocator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of streaming policy used for LiveEvent preview
 func (o LiveEventPreviewPtrOutput) StreamingPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreview) *string {
 		if v == nil {
@@ -13584,9 +11900,7 @@ func (o LiveEventPreviewPtrOutput) StreamingPolicyName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP access control for Live Event preview.
 type LiveEventPreviewAccessControl struct {
-	// The IP access control properties.
 	Ip *IPAccessControl `pulumi:"ip"`
 }
 
@@ -13601,9 +11915,7 @@ type LiveEventPreviewAccessControlInput interface {
 	ToLiveEventPreviewAccessControlOutputWithContext(context.Context) LiveEventPreviewAccessControlOutput
 }
 
-// The IP access control for Live Event preview.
 type LiveEventPreviewAccessControlArgs struct {
-	// The IP access control properties.
 	Ip IPAccessControlPtrInput `pulumi:"ip"`
 }
 
@@ -13660,7 +11972,6 @@ func (i *liveEventPreviewAccessControlPtrType) ToLiveEventPreviewAccessControlPt
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewAccessControlPtrOutput)
 }
 
-// The IP access control for Live Event preview.
 type LiveEventPreviewAccessControlOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewAccessControlOutput) ElementType() reflect.Type {
@@ -13680,12 +11991,11 @@ func (o LiveEventPreviewAccessControlOutput) ToLiveEventPreviewAccessControlPtrO
 }
 
 func (o LiveEventPreviewAccessControlOutput) ToLiveEventPreviewAccessControlPtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlPtrOutput {
-	return o.ApplyT(func(v LiveEventPreviewAccessControl) *LiveEventPreviewAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreviewAccessControl) *LiveEventPreviewAccessControl {
 		return &v
 	}).(LiveEventPreviewAccessControlPtrOutput)
 }
 
-// The IP access control properties.
 func (o LiveEventPreviewAccessControlOutput) Ip() IPAccessControlPtrOutput {
 	return o.ApplyT(func(v LiveEventPreviewAccessControl) *IPAccessControl { return v.Ip }).(IPAccessControlPtrOutput)
 }
@@ -13705,10 +12015,15 @@ func (o LiveEventPreviewAccessControlPtrOutput) ToLiveEventPreviewAccessControlP
 }
 
 func (o LiveEventPreviewAccessControlPtrOutput) Elem() LiveEventPreviewAccessControlOutput {
-	return o.ApplyT(func(v *LiveEventPreviewAccessControl) LiveEventPreviewAccessControl { return *v }).(LiveEventPreviewAccessControlOutput)
+	return o.ApplyT(func(v *LiveEventPreviewAccessControl) LiveEventPreviewAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventPreviewAccessControl
+		return ret
+	}).(LiveEventPreviewAccessControlOutput)
 }
 
-// The IP access control properties.
 func (o LiveEventPreviewAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreviewAccessControl) *IPAccessControl {
 		if v == nil {
@@ -13718,9 +12033,7 @@ func (o LiveEventPreviewAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 	}).(IPAccessControlPtrOutput)
 }
 
-// The IP access control for Live Event preview.
 type LiveEventPreviewAccessControlResponse struct {
-	// The IP access control properties.
 	Ip *IPAccessControlResponse `pulumi:"ip"`
 }
 
@@ -13735,9 +12048,7 @@ type LiveEventPreviewAccessControlResponseInput interface {
 	ToLiveEventPreviewAccessControlResponseOutputWithContext(context.Context) LiveEventPreviewAccessControlResponseOutput
 }
 
-// The IP access control for Live Event preview.
 type LiveEventPreviewAccessControlResponseArgs struct {
-	// The IP access control properties.
 	Ip IPAccessControlResponsePtrInput `pulumi:"ip"`
 }
 
@@ -13794,7 +12105,6 @@ func (i *liveEventPreviewAccessControlResponsePtrType) ToLiveEventPreviewAccessC
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewAccessControlResponsePtrOutput)
 }
 
-// The IP access control for Live Event preview.
 type LiveEventPreviewAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewAccessControlResponseOutput) ElementType() reflect.Type {
@@ -13814,12 +12124,11 @@ func (o LiveEventPreviewAccessControlResponseOutput) ToLiveEventPreviewAccessCon
 }
 
 func (o LiveEventPreviewAccessControlResponseOutput) ToLiveEventPreviewAccessControlResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v LiveEventPreviewAccessControlResponse) *LiveEventPreviewAccessControlResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreviewAccessControlResponse) *LiveEventPreviewAccessControlResponse {
 		return &v
 	}).(LiveEventPreviewAccessControlResponsePtrOutput)
 }
 
-// The IP access control properties.
 func (o LiveEventPreviewAccessControlResponseOutput) Ip() IPAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v LiveEventPreviewAccessControlResponse) *IPAccessControlResponse { return v.Ip }).(IPAccessControlResponsePtrOutput)
 }
@@ -13839,10 +12148,15 @@ func (o LiveEventPreviewAccessControlResponsePtrOutput) ToLiveEventPreviewAccess
 }
 
 func (o LiveEventPreviewAccessControlResponsePtrOutput) Elem() LiveEventPreviewAccessControlResponseOutput {
-	return o.ApplyT(func(v *LiveEventPreviewAccessControlResponse) LiveEventPreviewAccessControlResponse { return *v }).(LiveEventPreviewAccessControlResponseOutput)
+	return o.ApplyT(func(v *LiveEventPreviewAccessControlResponse) LiveEventPreviewAccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventPreviewAccessControlResponse
+		return ret
+	}).(LiveEventPreviewAccessControlResponseOutput)
 }
 
-// The IP access control properties.
 func (o LiveEventPreviewAccessControlResponsePtrOutput) Ip() IPAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v *LiveEventPreviewAccessControlResponse) *IPAccessControlResponse {
 		if v == nil {
@@ -13852,18 +12166,12 @@ func (o LiveEventPreviewAccessControlResponsePtrOutput) Ip() IPAccessControlResp
 	}).(IPAccessControlResponsePtrOutput)
 }
 
-// The Live Event preview.
 type LiveEventPreviewResponse struct {
-	// The access control for LiveEvent preview.
-	AccessControl *LiveEventPreviewAccessControlResponse `pulumi:"accessControl"`
-	// An Alternative Media Identifier associated with the preview url.  This identifier can be used to distinguish the preview of different live events for authorization purposes in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-	AlternativeMediaId *string `pulumi:"alternativeMediaId"`
-	// The endpoints for preview.
-	Endpoints []LiveEventEndpointResponse `pulumi:"endpoints"`
-	// The preview locator Guid.
-	PreviewLocator *string `pulumi:"previewLocator"`
-	// The name of streaming policy used for LiveEvent preview
-	StreamingPolicyName *string `pulumi:"streamingPolicyName"`
+	AccessControl       *LiveEventPreviewAccessControlResponse `pulumi:"accessControl"`
+	AlternativeMediaId  *string                                `pulumi:"alternativeMediaId"`
+	Endpoints           []LiveEventEndpointResponse            `pulumi:"endpoints"`
+	PreviewLocator      *string                                `pulumi:"previewLocator"`
+	StreamingPolicyName *string                                `pulumi:"streamingPolicyName"`
 }
 
 // LiveEventPreviewResponseInput is an input type that accepts LiveEventPreviewResponseArgs and LiveEventPreviewResponseOutput values.
@@ -13877,18 +12185,12 @@ type LiveEventPreviewResponseInput interface {
 	ToLiveEventPreviewResponseOutputWithContext(context.Context) LiveEventPreviewResponseOutput
 }
 
-// The Live Event preview.
 type LiveEventPreviewResponseArgs struct {
-	// The access control for LiveEvent preview.
-	AccessControl LiveEventPreviewAccessControlResponsePtrInput `pulumi:"accessControl"`
-	// An Alternative Media Identifier associated with the preview url.  This identifier can be used to distinguish the preview of different live events for authorization purposes in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-	AlternativeMediaId pulumi.StringPtrInput `pulumi:"alternativeMediaId"`
-	// The endpoints for preview.
-	Endpoints LiveEventEndpointResponseArrayInput `pulumi:"endpoints"`
-	// The preview locator Guid.
-	PreviewLocator pulumi.StringPtrInput `pulumi:"previewLocator"`
-	// The name of streaming policy used for LiveEvent preview
-	StreamingPolicyName pulumi.StringPtrInput `pulumi:"streamingPolicyName"`
+	AccessControl       LiveEventPreviewAccessControlResponsePtrInput `pulumi:"accessControl"`
+	AlternativeMediaId  pulumi.StringPtrInput                         `pulumi:"alternativeMediaId"`
+	Endpoints           LiveEventEndpointResponseArrayInput           `pulumi:"endpoints"`
+	PreviewLocator      pulumi.StringPtrInput                         `pulumi:"previewLocator"`
+	StreamingPolicyName pulumi.StringPtrInput                         `pulumi:"streamingPolicyName"`
 }
 
 func (LiveEventPreviewResponseArgs) ElementType() reflect.Type {
@@ -13944,7 +12246,6 @@ func (i *liveEventPreviewResponsePtrType) ToLiveEventPreviewResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewResponsePtrOutput)
 }
 
-// The Live Event preview.
 type LiveEventPreviewResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewResponseOutput) ElementType() reflect.Type {
@@ -13964,32 +12265,27 @@ func (o LiveEventPreviewResponseOutput) ToLiveEventPreviewResponsePtrOutput() Li
 }
 
 func (o LiveEventPreviewResponseOutput) ToLiveEventPreviewResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewResponsePtrOutput {
-	return o.ApplyT(func(v LiveEventPreviewResponse) *LiveEventPreviewResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreviewResponse) *LiveEventPreviewResponse {
 		return &v
 	}).(LiveEventPreviewResponsePtrOutput)
 }
 
-// The access control for LiveEvent preview.
 func (o LiveEventPreviewResponseOutput) AccessControl() LiveEventPreviewAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v LiveEventPreviewResponse) *LiveEventPreviewAccessControlResponse { return v.AccessControl }).(LiveEventPreviewAccessControlResponsePtrOutput)
 }
 
-// An Alternative Media Identifier associated with the preview url.  This identifier can be used to distinguish the preview of different live events for authorization purposes in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
 func (o LiveEventPreviewResponseOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreviewResponse) *string { return v.AlternativeMediaId }).(pulumi.StringPtrOutput)
 }
 
-// The endpoints for preview.
 func (o LiveEventPreviewResponseOutput) Endpoints() LiveEventEndpointResponseArrayOutput {
 	return o.ApplyT(func(v LiveEventPreviewResponse) []LiveEventEndpointResponse { return v.Endpoints }).(LiveEventEndpointResponseArrayOutput)
 }
 
-// The preview locator Guid.
 func (o LiveEventPreviewResponseOutput) PreviewLocator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreviewResponse) *string { return v.PreviewLocator }).(pulumi.StringPtrOutput)
 }
 
-// The name of streaming policy used for LiveEvent preview
 func (o LiveEventPreviewResponseOutput) StreamingPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreviewResponse) *string { return v.StreamingPolicyName }).(pulumi.StringPtrOutput)
 }
@@ -14009,10 +12305,15 @@ func (o LiveEventPreviewResponsePtrOutput) ToLiveEventPreviewResponsePtrOutputWi
 }
 
 func (o LiveEventPreviewResponsePtrOutput) Elem() LiveEventPreviewResponseOutput {
-	return o.ApplyT(func(v *LiveEventPreviewResponse) LiveEventPreviewResponse { return *v }).(LiveEventPreviewResponseOutput)
+	return o.ApplyT(func(v *LiveEventPreviewResponse) LiveEventPreviewResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventPreviewResponse
+		return ret
+	}).(LiveEventPreviewResponseOutput)
 }
 
-// The access control for LiveEvent preview.
 func (o LiveEventPreviewResponsePtrOutput) AccessControl() LiveEventPreviewAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v *LiveEventPreviewResponse) *LiveEventPreviewAccessControlResponse {
 		if v == nil {
@@ -14022,7 +12323,6 @@ func (o LiveEventPreviewResponsePtrOutput) AccessControl() LiveEventPreviewAcces
 	}).(LiveEventPreviewAccessControlResponsePtrOutput)
 }
 
-// An Alternative Media Identifier associated with the preview url.  This identifier can be used to distinguish the preview of different live events for authorization purposes in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
 func (o LiveEventPreviewResponsePtrOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreviewResponse) *string {
 		if v == nil {
@@ -14032,7 +12332,6 @@ func (o LiveEventPreviewResponsePtrOutput) AlternativeMediaId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The endpoints for preview.
 func (o LiveEventPreviewResponsePtrOutput) Endpoints() LiveEventEndpointResponseArrayOutput {
 	return o.ApplyT(func(v *LiveEventPreviewResponse) []LiveEventEndpointResponse {
 		if v == nil {
@@ -14042,7 +12341,6 @@ func (o LiveEventPreviewResponsePtrOutput) Endpoints() LiveEventEndpointResponse
 	}).(LiveEventEndpointResponseArrayOutput)
 }
 
-// The preview locator Guid.
 func (o LiveEventPreviewResponsePtrOutput) PreviewLocator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreviewResponse) *string {
 		if v == nil {
@@ -14052,7 +12350,6 @@ func (o LiveEventPreviewResponsePtrOutput) PreviewLocator() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of streaming policy used for LiveEvent preview
 func (o LiveEventPreviewResponsePtrOutput) StreamingPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreviewResponse) *string {
 		if v == nil {
@@ -14062,15 +12359,10 @@ func (o LiveEventPreviewResponsePtrOutput) StreamingPolicyName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties for an output ISO MP4 file.
 type Mp4Format struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
-	FilenamePattern *string `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Mp4Format'.
-	OdataType string `pulumi:"odataType"`
-	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
-	OutputFiles []OutputFile `pulumi:"outputFiles"`
+	FilenamePattern *string      `pulumi:"filenamePattern"`
+	OdataType       string       `pulumi:"odataType"`
+	OutputFiles     []OutputFile `pulumi:"outputFiles"`
 }
 
 // Mp4FormatInput is an input type that accepts Mp4FormatArgs and Mp4FormatOutput values.
@@ -14084,15 +12376,10 @@ type Mp4FormatInput interface {
 	ToMp4FormatOutputWithContext(context.Context) Mp4FormatOutput
 }
 
-// Describes the properties for an output ISO MP4 file.
 type Mp4FormatArgs struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Mp4Format'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
-	OutputFiles OutputFileArrayInput `pulumi:"outputFiles"`
+	OdataType       pulumi.StringInput    `pulumi:"odataType"`
+	OutputFiles     OutputFileArrayInput  `pulumi:"outputFiles"`
 }
 
 func (Mp4FormatArgs) ElementType() reflect.Type {
@@ -14107,7 +12394,6 @@ func (i Mp4FormatArgs) ToMp4FormatOutputWithContext(ctx context.Context) Mp4Form
 	return pulumi.ToOutputWithContext(ctx, i).(Mp4FormatOutput)
 }
 
-// Describes the properties for an output ISO MP4 file.
 type Mp4FormatOutput struct{ *pulumi.OutputState }
 
 func (Mp4FormatOutput) ElementType() reflect.Type {
@@ -14122,31 +12408,22 @@ func (o Mp4FormatOutput) ToMp4FormatOutputWithContext(ctx context.Context) Mp4Fo
 	return o
 }
 
-// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o Mp4FormatOutput) FilenamePattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Mp4Format) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Mp4Format'.
 func (o Mp4FormatOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v Mp4Format) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 func (o Mp4FormatOutput) OutputFiles() OutputFileArrayOutput {
 	return o.ApplyT(func(v Mp4Format) []OutputFile { return v.OutputFiles }).(OutputFileArrayOutput)
 }
 
-// Describes the properties for an output ISO MP4 file.
 type Mp4FormatResponse struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
-	FilenamePattern *string `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Mp4Format'.
-	OdataType string `pulumi:"odataType"`
-	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
-	OutputFiles []OutputFileResponse `pulumi:"outputFiles"`
+	FilenamePattern *string              `pulumi:"filenamePattern"`
+	OdataType       string               `pulumi:"odataType"`
+	OutputFiles     []OutputFileResponse `pulumi:"outputFiles"`
 }
 
 // Mp4FormatResponseInput is an input type that accepts Mp4FormatResponseArgs and Mp4FormatResponseOutput values.
@@ -14160,15 +12437,10 @@ type Mp4FormatResponseInput interface {
 	ToMp4FormatResponseOutputWithContext(context.Context) Mp4FormatResponseOutput
 }
 
-// Describes the properties for an output ISO MP4 file.
 type Mp4FormatResponseArgs struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
-	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Mp4Format'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
-	OutputFiles OutputFileResponseArrayInput `pulumi:"outputFiles"`
+	FilenamePattern pulumi.StringPtrInput        `pulumi:"filenamePattern"`
+	OdataType       pulumi.StringInput           `pulumi:"odataType"`
+	OutputFiles     OutputFileResponseArrayInput `pulumi:"outputFiles"`
 }
 
 func (Mp4FormatResponseArgs) ElementType() reflect.Type {
@@ -14183,7 +12455,6 @@ func (i Mp4FormatResponseArgs) ToMp4FormatResponseOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(Mp4FormatResponseOutput)
 }
 
-// Describes the properties for an output ISO MP4 file.
 type Mp4FormatResponseOutput struct{ *pulumi.OutputState }
 
 func (Mp4FormatResponseOutput) ElementType() reflect.Type {
@@ -14198,31 +12469,22 @@ func (o Mp4FormatResponseOutput) ToMp4FormatResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o Mp4FormatResponseOutput) FilenamePattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Mp4FormatResponse) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Mp4Format'.
 func (o Mp4FormatResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v Mp4FormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 func (o Mp4FormatResponseOutput) OutputFiles() OutputFileResponseArrayOutput {
 	return o.ApplyT(func(v Mp4FormatResponse) []OutputFileResponse { return v.OutputFiles }).(OutputFileResponseArrayOutput)
 }
 
-// Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
 type MultiBitrateFormat struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
-	FilenamePattern *string `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
-	OdataType string `pulumi:"odataType"`
-	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
-	OutputFiles []OutputFile `pulumi:"outputFiles"`
+	FilenamePattern *string      `pulumi:"filenamePattern"`
+	OdataType       string       `pulumi:"odataType"`
+	OutputFiles     []OutputFile `pulumi:"outputFiles"`
 }
 
 // MultiBitrateFormatInput is an input type that accepts MultiBitrateFormatArgs and MultiBitrateFormatOutput values.
@@ -14236,15 +12498,10 @@ type MultiBitrateFormatInput interface {
 	ToMultiBitrateFormatOutputWithContext(context.Context) MultiBitrateFormatOutput
 }
 
-// Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
 type MultiBitrateFormatArgs struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
-	OutputFiles OutputFileArrayInput `pulumi:"outputFiles"`
+	OdataType       pulumi.StringInput    `pulumi:"odataType"`
+	OutputFiles     OutputFileArrayInput  `pulumi:"outputFiles"`
 }
 
 func (MultiBitrateFormatArgs) ElementType() reflect.Type {
@@ -14259,7 +12516,6 @@ func (i MultiBitrateFormatArgs) ToMultiBitrateFormatOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(MultiBitrateFormatOutput)
 }
 
-// Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
 type MultiBitrateFormatOutput struct{ *pulumi.OutputState }
 
 func (MultiBitrateFormatOutput) ElementType() reflect.Type {
@@ -14274,31 +12530,22 @@ func (o MultiBitrateFormatOutput) ToMultiBitrateFormatOutputWithContext(ctx cont
 	return o
 }
 
-// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o MultiBitrateFormatOutput) FilenamePattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MultiBitrateFormat) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
 func (o MultiBitrateFormatOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiBitrateFormat) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 func (o MultiBitrateFormatOutput) OutputFiles() OutputFileArrayOutput {
 	return o.ApplyT(func(v MultiBitrateFormat) []OutputFile { return v.OutputFiles }).(OutputFileArrayOutput)
 }
 
-// Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
 type MultiBitrateFormatResponse struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
-	FilenamePattern *string `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
-	OdataType string `pulumi:"odataType"`
-	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
-	OutputFiles []OutputFileResponse `pulumi:"outputFiles"`
+	FilenamePattern *string              `pulumi:"filenamePattern"`
+	OdataType       string               `pulumi:"odataType"`
+	OutputFiles     []OutputFileResponse `pulumi:"outputFiles"`
 }
 
 // MultiBitrateFormatResponseInput is an input type that accepts MultiBitrateFormatResponseArgs and MultiBitrateFormatResponseOutput values.
@@ -14312,15 +12559,10 @@ type MultiBitrateFormatResponseInput interface {
 	ToMultiBitrateFormatResponseOutputWithContext(context.Context) MultiBitrateFormatResponseOutput
 }
 
-// Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
 type MultiBitrateFormatResponseArgs struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
-	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
-	OutputFiles OutputFileResponseArrayInput `pulumi:"outputFiles"`
+	FilenamePattern pulumi.StringPtrInput        `pulumi:"filenamePattern"`
+	OdataType       pulumi.StringInput           `pulumi:"odataType"`
+	OutputFiles     OutputFileResponseArrayInput `pulumi:"outputFiles"`
 }
 
 func (MultiBitrateFormatResponseArgs) ElementType() reflect.Type {
@@ -14335,7 +12577,6 @@ func (i MultiBitrateFormatResponseArgs) ToMultiBitrateFormatResponseOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MultiBitrateFormatResponseOutput)
 }
 
-// Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
 type MultiBitrateFormatResponseOutput struct{ *pulumi.OutputState }
 
 func (MultiBitrateFormatResponseOutput) ElementType() reflect.Type {
@@ -14350,25 +12591,19 @@ func (o MultiBitrateFormatResponseOutput) ToMultiBitrateFormatResponseOutputWith
 	return o
 }
 
-// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o MultiBitrateFormatResponseOutput) FilenamePattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MultiBitrateFormatResponse) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
 func (o MultiBitrateFormatResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiBitrateFormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 func (o MultiBitrateFormatResponseOutput) OutputFiles() OutputFileResponseArrayOutput {
 	return o.ApplyT(func(v MultiBitrateFormatResponse) []OutputFileResponse { return v.OutputFiles }).(OutputFileResponseArrayOutput)
 }
 
-// Class for NoEncryption scheme
 type NoEncryption struct {
-	// Representing supported protocols
 	EnabledProtocols *EnabledProtocols `pulumi:"enabledProtocols"`
 }
 
@@ -14383,9 +12618,7 @@ type NoEncryptionInput interface {
 	ToNoEncryptionOutputWithContext(context.Context) NoEncryptionOutput
 }
 
-// Class for NoEncryption scheme
 type NoEncryptionArgs struct {
-	// Representing supported protocols
 	EnabledProtocols EnabledProtocolsPtrInput `pulumi:"enabledProtocols"`
 }
 
@@ -14442,7 +12675,6 @@ func (i *noEncryptionPtrType) ToNoEncryptionPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(NoEncryptionPtrOutput)
 }
 
-// Class for NoEncryption scheme
 type NoEncryptionOutput struct{ *pulumi.OutputState }
 
 func (NoEncryptionOutput) ElementType() reflect.Type {
@@ -14462,12 +12694,11 @@ func (o NoEncryptionOutput) ToNoEncryptionPtrOutput() NoEncryptionPtrOutput {
 }
 
 func (o NoEncryptionOutput) ToNoEncryptionPtrOutputWithContext(ctx context.Context) NoEncryptionPtrOutput {
-	return o.ApplyT(func(v NoEncryption) *NoEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NoEncryption) *NoEncryption {
 		return &v
 	}).(NoEncryptionPtrOutput)
 }
 
-// Representing supported protocols
 func (o NoEncryptionOutput) EnabledProtocols() EnabledProtocolsPtrOutput {
 	return o.ApplyT(func(v NoEncryption) *EnabledProtocols { return v.EnabledProtocols }).(EnabledProtocolsPtrOutput)
 }
@@ -14487,10 +12718,15 @@ func (o NoEncryptionPtrOutput) ToNoEncryptionPtrOutputWithContext(ctx context.Co
 }
 
 func (o NoEncryptionPtrOutput) Elem() NoEncryptionOutput {
-	return o.ApplyT(func(v *NoEncryption) NoEncryption { return *v }).(NoEncryptionOutput)
+	return o.ApplyT(func(v *NoEncryption) NoEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret NoEncryption
+		return ret
+	}).(NoEncryptionOutput)
 }
 
-// Representing supported protocols
 func (o NoEncryptionPtrOutput) EnabledProtocols() EnabledProtocolsPtrOutput {
 	return o.ApplyT(func(v *NoEncryption) *EnabledProtocols {
 		if v == nil {
@@ -14500,9 +12736,7 @@ func (o NoEncryptionPtrOutput) EnabledProtocols() EnabledProtocolsPtrOutput {
 	}).(EnabledProtocolsPtrOutput)
 }
 
-// Class for NoEncryption scheme
 type NoEncryptionResponse struct {
-	// Representing supported protocols
 	EnabledProtocols *EnabledProtocolsResponse `pulumi:"enabledProtocols"`
 }
 
@@ -14517,9 +12751,7 @@ type NoEncryptionResponseInput interface {
 	ToNoEncryptionResponseOutputWithContext(context.Context) NoEncryptionResponseOutput
 }
 
-// Class for NoEncryption scheme
 type NoEncryptionResponseArgs struct {
-	// Representing supported protocols
 	EnabledProtocols EnabledProtocolsResponsePtrInput `pulumi:"enabledProtocols"`
 }
 
@@ -14576,7 +12808,6 @@ func (i *noEncryptionResponsePtrType) ToNoEncryptionResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(NoEncryptionResponsePtrOutput)
 }
 
-// Class for NoEncryption scheme
 type NoEncryptionResponseOutput struct{ *pulumi.OutputState }
 
 func (NoEncryptionResponseOutput) ElementType() reflect.Type {
@@ -14596,12 +12827,11 @@ func (o NoEncryptionResponseOutput) ToNoEncryptionResponsePtrOutput() NoEncrypti
 }
 
 func (o NoEncryptionResponseOutput) ToNoEncryptionResponsePtrOutputWithContext(ctx context.Context) NoEncryptionResponsePtrOutput {
-	return o.ApplyT(func(v NoEncryptionResponse) *NoEncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NoEncryptionResponse) *NoEncryptionResponse {
 		return &v
 	}).(NoEncryptionResponsePtrOutput)
 }
 
-// Representing supported protocols
 func (o NoEncryptionResponseOutput) EnabledProtocols() EnabledProtocolsResponsePtrOutput {
 	return o.ApplyT(func(v NoEncryptionResponse) *EnabledProtocolsResponse { return v.EnabledProtocols }).(EnabledProtocolsResponsePtrOutput)
 }
@@ -14621,10 +12851,15 @@ func (o NoEncryptionResponsePtrOutput) ToNoEncryptionResponsePtrOutputWithContex
 }
 
 func (o NoEncryptionResponsePtrOutput) Elem() NoEncryptionResponseOutput {
-	return o.ApplyT(func(v *NoEncryptionResponse) NoEncryptionResponse { return *v }).(NoEncryptionResponseOutput)
+	return o.ApplyT(func(v *NoEncryptionResponse) NoEncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NoEncryptionResponse
+		return ret
+	}).(NoEncryptionResponseOutput)
 }
 
-// Representing supported protocols
 func (o NoEncryptionResponsePtrOutput) EnabledProtocols() EnabledProtocolsResponsePtrOutput {
 	return o.ApplyT(func(v *NoEncryptionResponse) *EnabledProtocolsResponse {
 		if v == nil {
@@ -14634,9 +12869,7 @@ func (o NoEncryptionResponsePtrOutput) EnabledProtocols() EnabledProtocolsRespon
 	}).(EnabledProtocolsResponsePtrOutput)
 }
 
-// Represents an output file produced.
 type OutputFile struct {
-	// The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
 	Labels []string `pulumi:"labels"`
 }
 
@@ -14651,9 +12884,7 @@ type OutputFileInput interface {
 	ToOutputFileOutputWithContext(context.Context) OutputFileOutput
 }
 
-// Represents an output file produced.
 type OutputFileArgs struct {
-	// The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
 	Labels pulumi.StringArrayInput `pulumi:"labels"`
 }
 
@@ -14694,7 +12925,6 @@ func (i OutputFileArray) ToOutputFileArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(OutputFileArrayOutput)
 }
 
-// Represents an output file produced.
 type OutputFileOutput struct{ *pulumi.OutputState }
 
 func (OutputFileOutput) ElementType() reflect.Type {
@@ -14709,7 +12939,6 @@ func (o OutputFileOutput) ToOutputFileOutputWithContext(ctx context.Context) Out
 	return o
 }
 
-// The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
 func (o OutputFileOutput) Labels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OutputFile) []string { return v.Labels }).(pulumi.StringArrayOutput)
 }
@@ -14734,9 +12963,7 @@ func (o OutputFileArrayOutput) Index(i pulumi.IntInput) OutputFileOutput {
 	}).(OutputFileOutput)
 }
 
-// Represents an output file produced.
 type OutputFileResponse struct {
-	// The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
 	Labels []string `pulumi:"labels"`
 }
 
@@ -14751,9 +12978,7 @@ type OutputFileResponseInput interface {
 	ToOutputFileResponseOutputWithContext(context.Context) OutputFileResponseOutput
 }
 
-// Represents an output file produced.
 type OutputFileResponseArgs struct {
-	// The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
 	Labels pulumi.StringArrayInput `pulumi:"labels"`
 }
 
@@ -14794,7 +13019,6 @@ func (i OutputFileResponseArray) ToOutputFileResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(OutputFileResponseArrayOutput)
 }
 
-// Represents an output file produced.
 type OutputFileResponseOutput struct{ *pulumi.OutputState }
 
 func (OutputFileResponseOutput) ElementType() reflect.Type {
@@ -14809,7 +13033,6 @@ func (o OutputFileResponseOutput) ToOutputFileResponseOutputWithContext(ctx cont
 	return o
 }
 
-// The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
 func (o OutputFileResponseOutput) Labels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OutputFileResponse) []string { return v.Labels }).(pulumi.StringArrayOutput)
 }
@@ -14834,13 +13057,9 @@ func (o OutputFileResponseArrayOutput) Index(i pulumi.IntInput) OutputFileRespon
 	}).(OutputFileResponseOutput)
 }
 
-// Describes the settings for producing PNG thumbnails.
 type PngFormat struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.PngFormat'.
-	OdataType string `pulumi:"odataType"`
+	OdataType       string  `pulumi:"odataType"`
 }
 
 // PngFormatInput is an input type that accepts PngFormatArgs and PngFormatOutput values.
@@ -14854,13 +13073,9 @@ type PngFormatInput interface {
 	ToPngFormatOutputWithContext(context.Context) PngFormatOutput
 }
 
-// Describes the settings for producing PNG thumbnails.
 type PngFormatArgs struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.PngFormat'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	OdataType       pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (PngFormatArgs) ElementType() reflect.Type {
@@ -14875,7 +13090,6 @@ func (i PngFormatArgs) ToPngFormatOutputWithContext(ctx context.Context) PngForm
 	return pulumi.ToOutputWithContext(ctx, i).(PngFormatOutput)
 }
 
-// Describes the settings for producing PNG thumbnails.
 type PngFormatOutput struct{ *pulumi.OutputState }
 
 func (PngFormatOutput) ElementType() reflect.Type {
@@ -14890,24 +13104,17 @@ func (o PngFormatOutput) ToPngFormatOutputWithContext(ctx context.Context) PngFo
 	return o
 }
 
-// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o PngFormatOutput) FilenamePattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngFormat) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.PngFormat'.
 func (o PngFormatOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v PngFormat) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Describes the settings for producing PNG thumbnails.
 type PngFormatResponse struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.PngFormat'.
-	OdataType string `pulumi:"odataType"`
+	OdataType       string  `pulumi:"odataType"`
 }
 
 // PngFormatResponseInput is an input type that accepts PngFormatResponseArgs and PngFormatResponseOutput values.
@@ -14921,13 +13128,9 @@ type PngFormatResponseInput interface {
 	ToPngFormatResponseOutputWithContext(context.Context) PngFormatResponseOutput
 }
 
-// Describes the settings for producing PNG thumbnails.
 type PngFormatResponseArgs struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.PngFormat'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	OdataType       pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (PngFormatResponseArgs) ElementType() reflect.Type {
@@ -14942,7 +13145,6 @@ func (i PngFormatResponseArgs) ToPngFormatResponseOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PngFormatResponseOutput)
 }
 
-// Describes the settings for producing PNG thumbnails.
 type PngFormatResponseOutput struct{ *pulumi.OutputState }
 
 func (PngFormatResponseOutput) ElementType() reflect.Type {
@@ -14957,36 +13159,23 @@ func (o PngFormatResponseOutput) ToPngFormatResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o PngFormatResponseOutput) FilenamePattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngFormatResponse) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.PngFormat'.
 func (o PngFormatResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v PngFormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Describes the properties for producing a series of PNG images from the input video.
 type PngImage struct {
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
-	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// A collection of output PNG image layers to be produced by the encoder.
-	Layers []PngLayer `pulumi:"layers"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.PngImage'.
-	OdataType string `pulumi:"odataType"`
-	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
-	Range *string `pulumi:"range"`
-	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
-	Start *string `pulumi:"start"`
-	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
-	Step *string `pulumi:"step"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode *string `pulumi:"stretchMode"`
+	KeyFrameInterval *string    `pulumi:"keyFrameInterval"`
+	Label            *string    `pulumi:"label"`
+	Layers           []PngLayer `pulumi:"layers"`
+	OdataType        string     `pulumi:"odataType"`
+	Range            *string    `pulumi:"range"`
+	Start            *string    `pulumi:"start"`
+	Step             *string    `pulumi:"step"`
+	StretchMode      *string    `pulumi:"stretchMode"`
 }
 
 // PngImageInput is an input type that accepts PngImageArgs and PngImageOutput values.
@@ -15000,25 +13189,15 @@ type PngImageInput interface {
 	ToPngImageOutputWithContext(context.Context) PngImageOutput
 }
 
-// Describes the properties for producing a series of PNG images from the input video.
 type PngImageArgs struct {
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// A collection of output PNG image layers to be produced by the encoder.
-	Layers PngLayerArrayInput `pulumi:"layers"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.PngImage'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
-	Range pulumi.StringPtrInput `pulumi:"range"`
-	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
-	Start pulumi.StringPtrInput `pulumi:"start"`
-	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
-	Step pulumi.StringPtrInput `pulumi:"step"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+	Label            pulumi.StringPtrInput `pulumi:"label"`
+	Layers           PngLayerArrayInput    `pulumi:"layers"`
+	OdataType        pulumi.StringInput    `pulumi:"odataType"`
+	Range            pulumi.StringPtrInput `pulumi:"range"`
+	Start            pulumi.StringPtrInput `pulumi:"start"`
+	Step             pulumi.StringPtrInput `pulumi:"step"`
+	StretchMode      pulumi.StringPtrInput `pulumi:"stretchMode"`
 }
 
 func (PngImageArgs) ElementType() reflect.Type {
@@ -15033,7 +13212,6 @@ func (i PngImageArgs) ToPngImageOutputWithContext(ctx context.Context) PngImageO
 	return pulumi.ToOutputWithContext(ctx, i).(PngImageOutput)
 }
 
-// Describes the properties for producing a series of PNG images from the input video.
 type PngImageOutput struct{ *pulumi.OutputState }
 
 func (PngImageOutput) ElementType() reflect.Type {
@@ -15048,66 +13226,47 @@ func (o PngImageOutput) ToPngImageOutputWithContext(ctx context.Context) PngImag
 	return o
 }
 
-// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 func (o PngImageOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngImage) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o PngImageOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngImage) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// A collection of output PNG image layers to be produced by the encoder.
 func (o PngImageOutput) Layers() PngLayerArrayOutput {
 	return o.ApplyT(func(v PngImage) []PngLayer { return v.Layers }).(PngLayerArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.PngImage'.
 func (o PngImageOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v PngImage) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 func (o PngImageOutput) Range() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngImage) *string { return v.Range }).(pulumi.StringPtrOutput)
 }
 
-// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
 func (o PngImageOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngImage) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
 
-// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
 func (o PngImageOutput) Step() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngImage) *string { return v.Step }).(pulumi.StringPtrOutput)
 }
 
-// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 func (o PngImageOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngImage) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties for producing a series of PNG images from the input video.
 type PngImageResponse struct {
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
-	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// A collection of output PNG image layers to be produced by the encoder.
-	Layers []PngLayerResponse `pulumi:"layers"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.PngImage'.
-	OdataType string `pulumi:"odataType"`
-	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
-	Range *string `pulumi:"range"`
-	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
-	Start *string `pulumi:"start"`
-	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
-	Step *string `pulumi:"step"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode *string `pulumi:"stretchMode"`
+	KeyFrameInterval *string            `pulumi:"keyFrameInterval"`
+	Label            *string            `pulumi:"label"`
+	Layers           []PngLayerResponse `pulumi:"layers"`
+	OdataType        string             `pulumi:"odataType"`
+	Range            *string            `pulumi:"range"`
+	Start            *string            `pulumi:"start"`
+	Step             *string            `pulumi:"step"`
+	StretchMode      *string            `pulumi:"stretchMode"`
 }
 
 // PngImageResponseInput is an input type that accepts PngImageResponseArgs and PngImageResponseOutput values.
@@ -15121,25 +13280,15 @@ type PngImageResponseInput interface {
 	ToPngImageResponseOutputWithContext(context.Context) PngImageResponseOutput
 }
 
-// Describes the properties for producing a series of PNG images from the input video.
 type PngImageResponseArgs struct {
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
-	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// A collection of output PNG image layers to be produced by the encoder.
-	Layers PngLayerResponseArrayInput `pulumi:"layers"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.PngImage'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
-	Range pulumi.StringPtrInput `pulumi:"range"`
-	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
-	Start pulumi.StringPtrInput `pulumi:"start"`
-	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
-	Step pulumi.StringPtrInput `pulumi:"step"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+	KeyFrameInterval pulumi.StringPtrInput      `pulumi:"keyFrameInterval"`
+	Label            pulumi.StringPtrInput      `pulumi:"label"`
+	Layers           PngLayerResponseArrayInput `pulumi:"layers"`
+	OdataType        pulumi.StringInput         `pulumi:"odataType"`
+	Range            pulumi.StringPtrInput      `pulumi:"range"`
+	Start            pulumi.StringPtrInput      `pulumi:"start"`
+	Step             pulumi.StringPtrInput      `pulumi:"step"`
+	StretchMode      pulumi.StringPtrInput      `pulumi:"stretchMode"`
 }
 
 func (PngImageResponseArgs) ElementType() reflect.Type {
@@ -15154,7 +13303,6 @@ func (i PngImageResponseArgs) ToPngImageResponseOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PngImageResponseOutput)
 }
 
-// Describes the properties for producing a series of PNG images from the input video.
 type PngImageResponseOutput struct{ *pulumi.OutputState }
 
 func (PngImageResponseOutput) ElementType() reflect.Type {
@@ -15169,58 +13317,43 @@ func (o PngImageResponseOutput) ToPngImageResponseOutputWithContext(ctx context.
 	return o
 }
 
-// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 func (o PngImageResponseOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngImageResponse) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o PngImageResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngImageResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// A collection of output PNG image layers to be produced by the encoder.
 func (o PngImageResponseOutput) Layers() PngLayerResponseArrayOutput {
 	return o.ApplyT(func(v PngImageResponse) []PngLayerResponse { return v.Layers }).(PngLayerResponseArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.PngImage'.
 func (o PngImageResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v PngImageResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 func (o PngImageResponseOutput) Range() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngImageResponse) *string { return v.Range }).(pulumi.StringPtrOutput)
 }
 
-// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
 func (o PngImageResponseOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngImageResponse) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
 
-// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
 func (o PngImageResponseOutput) Step() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngImageResponse) *string { return v.Step }).(pulumi.StringPtrOutput)
 }
 
-// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 func (o PngImageResponseOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngImageResponse) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
-// Describes the settings to produce a PNG image from the input video.
 type PngLayer struct {
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
-	Height *string `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.PngLayer'.
-	OdataType string `pulumi:"odataType"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
-	Width *string `pulumi:"width"`
+	Height    *string `pulumi:"height"`
+	Label     *string `pulumi:"label"`
+	OdataType string  `pulumi:"odataType"`
+	Width     *string `pulumi:"width"`
 }
 
 // PngLayerInput is an input type that accepts PngLayerArgs and PngLayerOutput values.
@@ -15234,17 +13367,11 @@ type PngLayerInput interface {
 	ToPngLayerOutputWithContext(context.Context) PngLayerOutput
 }
 
-// Describes the settings to produce a PNG image from the input video.
 type PngLayerArgs struct {
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
-	Height pulumi.StringPtrInput `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.PngLayer'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
-	Width pulumi.StringPtrInput `pulumi:"width"`
+	Height    pulumi.StringPtrInput `pulumi:"height"`
+	Label     pulumi.StringPtrInput `pulumi:"label"`
+	OdataType pulumi.StringInput    `pulumi:"odataType"`
+	Width     pulumi.StringPtrInput `pulumi:"width"`
 }
 
 func (PngLayerArgs) ElementType() reflect.Type {
@@ -15284,7 +13411,6 @@ func (i PngLayerArray) ToPngLayerArrayOutputWithContext(ctx context.Context) Png
 	return pulumi.ToOutputWithContext(ctx, i).(PngLayerArrayOutput)
 }
 
-// Describes the settings to produce a PNG image from the input video.
 type PngLayerOutput struct{ *pulumi.OutputState }
 
 func (PngLayerOutput) ElementType() reflect.Type {
@@ -15299,23 +13425,18 @@ func (o PngLayerOutput) ToPngLayerOutputWithContext(ctx context.Context) PngLaye
 	return o
 }
 
-// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
 func (o PngLayerOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngLayer) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
 
-// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 func (o PngLayerOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngLayer) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.PngLayer'.
 func (o PngLayerOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v PngLayer) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
 func (o PngLayerOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngLayer) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -15340,17 +13461,11 @@ func (o PngLayerArrayOutput) Index(i pulumi.IntInput) PngLayerOutput {
 	}).(PngLayerOutput)
 }
 
-// Describes the settings to produce a PNG image from the input video.
 type PngLayerResponse struct {
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
-	Height *string `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.PngLayer'.
-	OdataType string `pulumi:"odataType"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
-	Width *string `pulumi:"width"`
+	Height    *string `pulumi:"height"`
+	Label     *string `pulumi:"label"`
+	OdataType string  `pulumi:"odataType"`
+	Width     *string `pulumi:"width"`
 }
 
 // PngLayerResponseInput is an input type that accepts PngLayerResponseArgs and PngLayerResponseOutput values.
@@ -15364,17 +13479,11 @@ type PngLayerResponseInput interface {
 	ToPngLayerResponseOutputWithContext(context.Context) PngLayerResponseOutput
 }
 
-// Describes the settings to produce a PNG image from the input video.
 type PngLayerResponseArgs struct {
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
-	Height pulumi.StringPtrInput `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.PngLayer'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
-	Width pulumi.StringPtrInput `pulumi:"width"`
+	Height    pulumi.StringPtrInput `pulumi:"height"`
+	Label     pulumi.StringPtrInput `pulumi:"label"`
+	OdataType pulumi.StringInput    `pulumi:"odataType"`
+	Width     pulumi.StringPtrInput `pulumi:"width"`
 }
 
 func (PngLayerResponseArgs) ElementType() reflect.Type {
@@ -15414,7 +13523,6 @@ func (i PngLayerResponseArray) ToPngLayerResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PngLayerResponseArrayOutput)
 }
 
-// Describes the settings to produce a PNG image from the input video.
 type PngLayerResponseOutput struct{ *pulumi.OutputState }
 
 func (PngLayerResponseOutput) ElementType() reflect.Type {
@@ -15429,23 +13537,18 @@ func (o PngLayerResponseOutput) ToPngLayerResponseOutputWithContext(ctx context.
 	return o
 }
 
-// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
 func (o PngLayerResponseOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngLayerResponse) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
 
-// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 func (o PngLayerResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngLayerResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.PngLayer'.
 func (o PngLayerResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v PngLayerResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
 func (o PngLayerResponseOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngLayerResponse) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -15470,16 +13573,11 @@ func (o PngLayerResponseArrayOutput) Index(i pulumi.IntInput) PngLayerResponseOu
 	}).(PngLayerResponseOutput)
 }
 
-// Describes the properties of a rectangular window applied to the input media before processing it.
 type Rectangle struct {
-	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 	Height *string `pulumi:"height"`
-	// The number of pixels from the left-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
-	Left *string `pulumi:"left"`
-	// The number of pixels from the top-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
-	Top *string `pulumi:"top"`
-	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
-	Width *string `pulumi:"width"`
+	Left   *string `pulumi:"left"`
+	Top    *string `pulumi:"top"`
+	Width  *string `pulumi:"width"`
 }
 
 // RectangleInput is an input type that accepts RectangleArgs and RectangleOutput values.
@@ -15493,16 +13591,11 @@ type RectangleInput interface {
 	ToRectangleOutputWithContext(context.Context) RectangleOutput
 }
 
-// Describes the properties of a rectangular window applied to the input media before processing it.
 type RectangleArgs struct {
-	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 	Height pulumi.StringPtrInput `pulumi:"height"`
-	// The number of pixels from the left-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
-	Left pulumi.StringPtrInput `pulumi:"left"`
-	// The number of pixels from the top-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
-	Top pulumi.StringPtrInput `pulumi:"top"`
-	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
-	Width pulumi.StringPtrInput `pulumi:"width"`
+	Left   pulumi.StringPtrInput `pulumi:"left"`
+	Top    pulumi.StringPtrInput `pulumi:"top"`
+	Width  pulumi.StringPtrInput `pulumi:"width"`
 }
 
 func (RectangleArgs) ElementType() reflect.Type {
@@ -15558,7 +13651,6 @@ func (i *rectanglePtrType) ToRectanglePtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RectanglePtrOutput)
 }
 
-// Describes the properties of a rectangular window applied to the input media before processing it.
 type RectangleOutput struct{ *pulumi.OutputState }
 
 func (RectangleOutput) ElementType() reflect.Type {
@@ -15578,27 +13670,23 @@ func (o RectangleOutput) ToRectanglePtrOutput() RectanglePtrOutput {
 }
 
 func (o RectangleOutput) ToRectanglePtrOutputWithContext(ctx context.Context) RectanglePtrOutput {
-	return o.ApplyT(func(v Rectangle) *Rectangle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Rectangle) *Rectangle {
 		return &v
 	}).(RectanglePtrOutput)
 }
 
-// The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 func (o RectangleOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Rectangle) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the left-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 func (o RectangleOutput) Left() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Rectangle) *string { return v.Left }).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the top-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 func (o RectangleOutput) Top() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Rectangle) *string { return v.Top }).(pulumi.StringPtrOutput)
 }
 
-// The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 func (o RectangleOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Rectangle) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -15618,10 +13706,15 @@ func (o RectanglePtrOutput) ToRectanglePtrOutputWithContext(ctx context.Context)
 }
 
 func (o RectanglePtrOutput) Elem() RectangleOutput {
-	return o.ApplyT(func(v *Rectangle) Rectangle { return *v }).(RectangleOutput)
+	return o.ApplyT(func(v *Rectangle) Rectangle {
+		if v != nil {
+			return *v
+		}
+		var ret Rectangle
+		return ret
+	}).(RectangleOutput)
 }
 
-// The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 func (o RectanglePtrOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rectangle) *string {
 		if v == nil {
@@ -15631,7 +13724,6 @@ func (o RectanglePtrOutput) Height() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the left-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 func (o RectanglePtrOutput) Left() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rectangle) *string {
 		if v == nil {
@@ -15641,7 +13733,6 @@ func (o RectanglePtrOutput) Left() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the top-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 func (o RectanglePtrOutput) Top() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rectangle) *string {
 		if v == nil {
@@ -15651,7 +13742,6 @@ func (o RectanglePtrOutput) Top() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 func (o RectanglePtrOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rectangle) *string {
 		if v == nil {
@@ -15661,16 +13751,11 @@ func (o RectanglePtrOutput) Width() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties of a rectangular window applied to the input media before processing it.
 type RectangleResponse struct {
-	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 	Height *string `pulumi:"height"`
-	// The number of pixels from the left-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
-	Left *string `pulumi:"left"`
-	// The number of pixels from the top-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
-	Top *string `pulumi:"top"`
-	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
-	Width *string `pulumi:"width"`
+	Left   *string `pulumi:"left"`
+	Top    *string `pulumi:"top"`
+	Width  *string `pulumi:"width"`
 }
 
 // RectangleResponseInput is an input type that accepts RectangleResponseArgs and RectangleResponseOutput values.
@@ -15684,16 +13769,11 @@ type RectangleResponseInput interface {
 	ToRectangleResponseOutputWithContext(context.Context) RectangleResponseOutput
 }
 
-// Describes the properties of a rectangular window applied to the input media before processing it.
 type RectangleResponseArgs struct {
-	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 	Height pulumi.StringPtrInput `pulumi:"height"`
-	// The number of pixels from the left-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
-	Left pulumi.StringPtrInput `pulumi:"left"`
-	// The number of pixels from the top-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
-	Top pulumi.StringPtrInput `pulumi:"top"`
-	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
-	Width pulumi.StringPtrInput `pulumi:"width"`
+	Left   pulumi.StringPtrInput `pulumi:"left"`
+	Top    pulumi.StringPtrInput `pulumi:"top"`
+	Width  pulumi.StringPtrInput `pulumi:"width"`
 }
 
 func (RectangleResponseArgs) ElementType() reflect.Type {
@@ -15749,7 +13829,6 @@ func (i *rectangleResponsePtrType) ToRectangleResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RectangleResponsePtrOutput)
 }
 
-// Describes the properties of a rectangular window applied to the input media before processing it.
 type RectangleResponseOutput struct{ *pulumi.OutputState }
 
 func (RectangleResponseOutput) ElementType() reflect.Type {
@@ -15769,27 +13848,23 @@ func (o RectangleResponseOutput) ToRectangleResponsePtrOutput() RectangleRespons
 }
 
 func (o RectangleResponseOutput) ToRectangleResponsePtrOutputWithContext(ctx context.Context) RectangleResponsePtrOutput {
-	return o.ApplyT(func(v RectangleResponse) *RectangleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RectangleResponse) *RectangleResponse {
 		return &v
 	}).(RectangleResponsePtrOutput)
 }
 
-// The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 func (o RectangleResponseOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RectangleResponse) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the left-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 func (o RectangleResponseOutput) Left() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RectangleResponse) *string { return v.Left }).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the top-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 func (o RectangleResponseOutput) Top() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RectangleResponse) *string { return v.Top }).(pulumi.StringPtrOutput)
 }
 
-// The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 func (o RectangleResponseOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RectangleResponse) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -15809,10 +13884,15 @@ func (o RectangleResponsePtrOutput) ToRectangleResponsePtrOutputWithContext(ctx 
 }
 
 func (o RectangleResponsePtrOutput) Elem() RectangleResponseOutput {
-	return o.ApplyT(func(v *RectangleResponse) RectangleResponse { return *v }).(RectangleResponseOutput)
+	return o.ApplyT(func(v *RectangleResponse) RectangleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RectangleResponse
+		return ret
+	}).(RectangleResponseOutput)
 }
 
-// The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 func (o RectangleResponsePtrOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RectangleResponse) *string {
 		if v == nil {
@@ -15822,7 +13902,6 @@ func (o RectangleResponsePtrOutput) Height() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the left-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 func (o RectangleResponsePtrOutput) Left() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RectangleResponse) *string {
 		if v == nil {
@@ -15832,7 +13911,6 @@ func (o RectangleResponsePtrOutput) Left() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the top-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 func (o RectangleResponsePtrOutput) Top() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RectangleResponse) *string {
 		if v == nil {
@@ -15842,7 +13920,6 @@ func (o RectangleResponsePtrOutput) Top() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 func (o RectangleResponsePtrOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RectangleResponse) *string {
 		if v == nil {
@@ -15852,17 +13929,11 @@ func (o RectangleResponsePtrOutput) Width() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes all the settings to be used when encoding the input video with the Standard Encoder.
 type StandardEncoderPreset struct {
-	// The list of codecs to be used when encoding the input video.
-	Codecs []interface{} `pulumi:"codecs"`
-	// One or more filtering operations that are applied to the input media before encoding.
-	Filters *Filters `pulumi:"filters"`
-	// The list of outputs to be produced by the encoder.
-	Formats []interface{} `pulumi:"formats"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
-	OdataType string `pulumi:"odataType"`
+	Codecs    []interface{} `pulumi:"codecs"`
+	Filters   *Filters      `pulumi:"filters"`
+	Formats   []interface{} `pulumi:"formats"`
+	OdataType string        `pulumi:"odataType"`
 }
 
 // StandardEncoderPresetInput is an input type that accepts StandardEncoderPresetArgs and StandardEncoderPresetOutput values.
@@ -15876,16 +13947,10 @@ type StandardEncoderPresetInput interface {
 	ToStandardEncoderPresetOutputWithContext(context.Context) StandardEncoderPresetOutput
 }
 
-// Describes all the settings to be used when encoding the input video with the Standard Encoder.
 type StandardEncoderPresetArgs struct {
-	// The list of codecs to be used when encoding the input video.
-	Codecs pulumi.ArrayInput `pulumi:"codecs"`
-	// One or more filtering operations that are applied to the input media before encoding.
-	Filters FiltersPtrInput `pulumi:"filters"`
-	// The list of outputs to be produced by the encoder.
-	Formats pulumi.ArrayInput `pulumi:"formats"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
+	Codecs    pulumi.ArrayInput  `pulumi:"codecs"`
+	Filters   FiltersPtrInput    `pulumi:"filters"`
+	Formats   pulumi.ArrayInput  `pulumi:"formats"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -15901,7 +13966,6 @@ func (i StandardEncoderPresetArgs) ToStandardEncoderPresetOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(StandardEncoderPresetOutput)
 }
 
-// Describes all the settings to be used when encoding the input video with the Standard Encoder.
 type StandardEncoderPresetOutput struct{ *pulumi.OutputState }
 
 func (StandardEncoderPresetOutput) ElementType() reflect.Type {
@@ -15916,38 +13980,27 @@ func (o StandardEncoderPresetOutput) ToStandardEncoderPresetOutputWithContext(ct
 	return o
 }
 
-// The list of codecs to be used when encoding the input video.
 func (o StandardEncoderPresetOutput) Codecs() pulumi.ArrayOutput {
 	return o.ApplyT(func(v StandardEncoderPreset) []interface{} { return v.Codecs }).(pulumi.ArrayOutput)
 }
 
-// One or more filtering operations that are applied to the input media before encoding.
 func (o StandardEncoderPresetOutput) Filters() FiltersPtrOutput {
 	return o.ApplyT(func(v StandardEncoderPreset) *Filters { return v.Filters }).(FiltersPtrOutput)
 }
 
-// The list of outputs to be produced by the encoder.
 func (o StandardEncoderPresetOutput) Formats() pulumi.ArrayOutput {
 	return o.ApplyT(func(v StandardEncoderPreset) []interface{} { return v.Formats }).(pulumi.ArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
 func (o StandardEncoderPresetOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v StandardEncoderPreset) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Describes all the settings to be used when encoding the input video with the Standard Encoder.
 type StandardEncoderPresetResponse struct {
-	// The list of codecs to be used when encoding the input video.
-	Codecs []interface{} `pulumi:"codecs"`
-	// One or more filtering operations that are applied to the input media before encoding.
-	Filters *FiltersResponse `pulumi:"filters"`
-	// The list of outputs to be produced by the encoder.
-	Formats []interface{} `pulumi:"formats"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
-	OdataType string `pulumi:"odataType"`
+	Codecs    []interface{}    `pulumi:"codecs"`
+	Filters   *FiltersResponse `pulumi:"filters"`
+	Formats   []interface{}    `pulumi:"formats"`
+	OdataType string           `pulumi:"odataType"`
 }
 
 // StandardEncoderPresetResponseInput is an input type that accepts StandardEncoderPresetResponseArgs and StandardEncoderPresetResponseOutput values.
@@ -15961,17 +14014,11 @@ type StandardEncoderPresetResponseInput interface {
 	ToStandardEncoderPresetResponseOutputWithContext(context.Context) StandardEncoderPresetResponseOutput
 }
 
-// Describes all the settings to be used when encoding the input video with the Standard Encoder.
 type StandardEncoderPresetResponseArgs struct {
-	// The list of codecs to be used when encoding the input video.
-	Codecs pulumi.ArrayInput `pulumi:"codecs"`
-	// One or more filtering operations that are applied to the input media before encoding.
-	Filters FiltersResponsePtrInput `pulumi:"filters"`
-	// The list of outputs to be produced by the encoder.
-	Formats pulumi.ArrayInput `pulumi:"formats"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	Codecs    pulumi.ArrayInput       `pulumi:"codecs"`
+	Filters   FiltersResponsePtrInput `pulumi:"filters"`
+	Formats   pulumi.ArrayInput       `pulumi:"formats"`
+	OdataType pulumi.StringInput      `pulumi:"odataType"`
 }
 
 func (StandardEncoderPresetResponseArgs) ElementType() reflect.Type {
@@ -15986,7 +14033,6 @@ func (i StandardEncoderPresetResponseArgs) ToStandardEncoderPresetResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(StandardEncoderPresetResponseOutput)
 }
 
-// Describes all the settings to be used when encoding the input video with the Standard Encoder.
 type StandardEncoderPresetResponseOutput struct{ *pulumi.OutputState }
 
 func (StandardEncoderPresetResponseOutput) ElementType() reflect.Type {
@@ -16001,33 +14047,25 @@ func (o StandardEncoderPresetResponseOutput) ToStandardEncoderPresetResponseOutp
 	return o
 }
 
-// The list of codecs to be used when encoding the input video.
 func (o StandardEncoderPresetResponseOutput) Codecs() pulumi.ArrayOutput {
 	return o.ApplyT(func(v StandardEncoderPresetResponse) []interface{} { return v.Codecs }).(pulumi.ArrayOutput)
 }
 
-// One or more filtering operations that are applied to the input media before encoding.
 func (o StandardEncoderPresetResponseOutput) Filters() FiltersResponsePtrOutput {
 	return o.ApplyT(func(v StandardEncoderPresetResponse) *FiltersResponse { return v.Filters }).(FiltersResponsePtrOutput)
 }
 
-// The list of outputs to be produced by the encoder.
 func (o StandardEncoderPresetResponseOutput) Formats() pulumi.ArrayOutput {
 	return o.ApplyT(func(v StandardEncoderPresetResponse) []interface{} { return v.Formats }).(pulumi.ArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
 func (o StandardEncoderPresetResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v StandardEncoderPresetResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The storage account details.
 type StorageAccount struct {
-	// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
-	Id *string `pulumi:"id"`
-	// The type of the storage account.
-	Type string `pulumi:"type"`
+	Id   *string `pulumi:"id"`
+	Type string  `pulumi:"type"`
 }
 
 // StorageAccountInput is an input type that accepts StorageAccountArgs and StorageAccountOutput values.
@@ -16041,12 +14079,9 @@ type StorageAccountInput interface {
 	ToStorageAccountOutputWithContext(context.Context) StorageAccountOutput
 }
 
-// The storage account details.
 type StorageAccountArgs struct {
-	// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The type of the storage account.
-	Type pulumi.StringInput `pulumi:"type"`
+	Id   pulumi.StringPtrInput `pulumi:"id"`
+	Type pulumi.StringInput    `pulumi:"type"`
 }
 
 func (StorageAccountArgs) ElementType() reflect.Type {
@@ -16086,7 +14121,6 @@ func (i StorageAccountArray) ToStorageAccountArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountArrayOutput)
 }
 
-// The storage account details.
 type StorageAccountOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountOutput) ElementType() reflect.Type {
@@ -16101,12 +14135,10 @@ func (o StorageAccountOutput) ToStorageAccountOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
 func (o StorageAccountOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The type of the storage account.
 func (o StorageAccountOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccount) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -16131,12 +14163,9 @@ func (o StorageAccountArrayOutput) Index(i pulumi.IntInput) StorageAccountOutput
 	}).(StorageAccountOutput)
 }
 
-// The storage account details.
 type StorageAccountResponse struct {
-	// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
-	Id *string `pulumi:"id"`
-	// The type of the storage account.
-	Type string `pulumi:"type"`
+	Id   *string `pulumi:"id"`
+	Type string  `pulumi:"type"`
 }
 
 // StorageAccountResponseInput is an input type that accepts StorageAccountResponseArgs and StorageAccountResponseOutput values.
@@ -16150,12 +14179,9 @@ type StorageAccountResponseInput interface {
 	ToStorageAccountResponseOutputWithContext(context.Context) StorageAccountResponseOutput
 }
 
-// The storage account details.
 type StorageAccountResponseArgs struct {
-	// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The type of the storage account.
-	Type pulumi.StringInput `pulumi:"type"`
+	Id   pulumi.StringPtrInput `pulumi:"id"`
+	Type pulumi.StringInput    `pulumi:"type"`
 }
 
 func (StorageAccountResponseArgs) ElementType() reflect.Type {
@@ -16195,7 +14221,6 @@ func (i StorageAccountResponseArray) ToStorageAccountResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponseArrayOutput)
 }
 
-// The storage account details.
 type StorageAccountResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountResponseOutput) ElementType() reflect.Type {
@@ -16210,12 +14235,10 @@ func (o StorageAccountResponseOutput) ToStorageAccountResponseOutputWithContext(
 	return o
 }
 
-// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
 func (o StorageAccountResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccountResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The type of the storage account.
 func (o StorageAccountResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -16240,12 +14263,9 @@ func (o StorageAccountResponseArrayOutput) Index(i pulumi.IntInput) StorageAccou
 	}).(StorageAccountResponseOutput)
 }
 
-// StreamingEndpoint access control definition.
 type StreamingEndpointAccessControl struct {
-	// The access control of Akamai
 	Akamai *AkamaiAccessControl `pulumi:"akamai"`
-	// The IP access control of the StreamingEndpoint.
-	Ip *IPAccessControl `pulumi:"ip"`
+	Ip     *IPAccessControl     `pulumi:"ip"`
 }
 
 // StreamingEndpointAccessControlInput is an input type that accepts StreamingEndpointAccessControlArgs and StreamingEndpointAccessControlOutput values.
@@ -16259,12 +14279,9 @@ type StreamingEndpointAccessControlInput interface {
 	ToStreamingEndpointAccessControlOutputWithContext(context.Context) StreamingEndpointAccessControlOutput
 }
 
-// StreamingEndpoint access control definition.
 type StreamingEndpointAccessControlArgs struct {
-	// The access control of Akamai
 	Akamai AkamaiAccessControlPtrInput `pulumi:"akamai"`
-	// The IP access control of the StreamingEndpoint.
-	Ip IPAccessControlPtrInput `pulumi:"ip"`
+	Ip     IPAccessControlPtrInput     `pulumi:"ip"`
 }
 
 func (StreamingEndpointAccessControlArgs) ElementType() reflect.Type {
@@ -16320,7 +14337,6 @@ func (i *streamingEndpointAccessControlPtrType) ToStreamingEndpointAccessControl
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlPtrOutput)
 }
 
-// StreamingEndpoint access control definition.
 type StreamingEndpointAccessControlOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointAccessControlOutput) ElementType() reflect.Type {
@@ -16340,17 +14356,15 @@ func (o StreamingEndpointAccessControlOutput) ToStreamingEndpointAccessControlPt
 }
 
 func (o StreamingEndpointAccessControlOutput) ToStreamingEndpointAccessControlPtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlPtrOutput {
-	return o.ApplyT(func(v StreamingEndpointAccessControl) *StreamingEndpointAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingEndpointAccessControl) *StreamingEndpointAccessControl {
 		return &v
 	}).(StreamingEndpointAccessControlPtrOutput)
 }
 
-// The access control of Akamai
 func (o StreamingEndpointAccessControlOutput) Akamai() AkamaiAccessControlPtrOutput {
 	return o.ApplyT(func(v StreamingEndpointAccessControl) *AkamaiAccessControl { return v.Akamai }).(AkamaiAccessControlPtrOutput)
 }
 
-// The IP access control of the StreamingEndpoint.
 func (o StreamingEndpointAccessControlOutput) Ip() IPAccessControlPtrOutput {
 	return o.ApplyT(func(v StreamingEndpointAccessControl) *IPAccessControl { return v.Ip }).(IPAccessControlPtrOutput)
 }
@@ -16370,10 +14384,15 @@ func (o StreamingEndpointAccessControlPtrOutput) ToStreamingEndpointAccessContro
 }
 
 func (o StreamingEndpointAccessControlPtrOutput) Elem() StreamingEndpointAccessControlOutput {
-	return o.ApplyT(func(v *StreamingEndpointAccessControl) StreamingEndpointAccessControl { return *v }).(StreamingEndpointAccessControlOutput)
+	return o.ApplyT(func(v *StreamingEndpointAccessControl) StreamingEndpointAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingEndpointAccessControl
+		return ret
+	}).(StreamingEndpointAccessControlOutput)
 }
 
-// The access control of Akamai
 func (o StreamingEndpointAccessControlPtrOutput) Akamai() AkamaiAccessControlPtrOutput {
 	return o.ApplyT(func(v *StreamingEndpointAccessControl) *AkamaiAccessControl {
 		if v == nil {
@@ -16383,7 +14402,6 @@ func (o StreamingEndpointAccessControlPtrOutput) Akamai() AkamaiAccessControlPtr
 	}).(AkamaiAccessControlPtrOutput)
 }
 
-// The IP access control of the StreamingEndpoint.
 func (o StreamingEndpointAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 	return o.ApplyT(func(v *StreamingEndpointAccessControl) *IPAccessControl {
 		if v == nil {
@@ -16393,12 +14411,9 @@ func (o StreamingEndpointAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 	}).(IPAccessControlPtrOutput)
 }
 
-// StreamingEndpoint access control definition.
 type StreamingEndpointAccessControlResponse struct {
-	// The access control of Akamai
 	Akamai *AkamaiAccessControlResponse `pulumi:"akamai"`
-	// The IP access control of the StreamingEndpoint.
-	Ip *IPAccessControlResponse `pulumi:"ip"`
+	Ip     *IPAccessControlResponse     `pulumi:"ip"`
 }
 
 // StreamingEndpointAccessControlResponseInput is an input type that accepts StreamingEndpointAccessControlResponseArgs and StreamingEndpointAccessControlResponseOutput values.
@@ -16412,12 +14427,9 @@ type StreamingEndpointAccessControlResponseInput interface {
 	ToStreamingEndpointAccessControlResponseOutputWithContext(context.Context) StreamingEndpointAccessControlResponseOutput
 }
 
-// StreamingEndpoint access control definition.
 type StreamingEndpointAccessControlResponseArgs struct {
-	// The access control of Akamai
 	Akamai AkamaiAccessControlResponsePtrInput `pulumi:"akamai"`
-	// The IP access control of the StreamingEndpoint.
-	Ip IPAccessControlResponsePtrInput `pulumi:"ip"`
+	Ip     IPAccessControlResponsePtrInput     `pulumi:"ip"`
 }
 
 func (StreamingEndpointAccessControlResponseArgs) ElementType() reflect.Type {
@@ -16473,7 +14485,6 @@ func (i *streamingEndpointAccessControlResponsePtrType) ToStreamingEndpointAcces
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlResponsePtrOutput)
 }
 
-// StreamingEndpoint access control definition.
 type StreamingEndpointAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointAccessControlResponseOutput) ElementType() reflect.Type {
@@ -16493,17 +14504,15 @@ func (o StreamingEndpointAccessControlResponseOutput) ToStreamingEndpointAccessC
 }
 
 func (o StreamingEndpointAccessControlResponseOutput) ToStreamingEndpointAccessControlResponsePtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v StreamingEndpointAccessControlResponse) *StreamingEndpointAccessControlResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingEndpointAccessControlResponse) *StreamingEndpointAccessControlResponse {
 		return &v
 	}).(StreamingEndpointAccessControlResponsePtrOutput)
 }
 
-// The access control of Akamai
 func (o StreamingEndpointAccessControlResponseOutput) Akamai() AkamaiAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v StreamingEndpointAccessControlResponse) *AkamaiAccessControlResponse { return v.Akamai }).(AkamaiAccessControlResponsePtrOutput)
 }
 
-// The IP access control of the StreamingEndpoint.
 func (o StreamingEndpointAccessControlResponseOutput) Ip() IPAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v StreamingEndpointAccessControlResponse) *IPAccessControlResponse { return v.Ip }).(IPAccessControlResponsePtrOutput)
 }
@@ -16523,10 +14532,15 @@ func (o StreamingEndpointAccessControlResponsePtrOutput) ToStreamingEndpointAcce
 }
 
 func (o StreamingEndpointAccessControlResponsePtrOutput) Elem() StreamingEndpointAccessControlResponseOutput {
-	return o.ApplyT(func(v *StreamingEndpointAccessControlResponse) StreamingEndpointAccessControlResponse { return *v }).(StreamingEndpointAccessControlResponseOutput)
+	return o.ApplyT(func(v *StreamingEndpointAccessControlResponse) StreamingEndpointAccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingEndpointAccessControlResponse
+		return ret
+	}).(StreamingEndpointAccessControlResponseOutput)
 }
 
-// The access control of Akamai
 func (o StreamingEndpointAccessControlResponsePtrOutput) Akamai() AkamaiAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v *StreamingEndpointAccessControlResponse) *AkamaiAccessControlResponse {
 		if v == nil {
@@ -16536,7 +14550,6 @@ func (o StreamingEndpointAccessControlResponsePtrOutput) Akamai() AkamaiAccessCo
 	}).(AkamaiAccessControlResponsePtrOutput)
 }
 
-// The IP access control of the StreamingEndpoint.
 func (o StreamingEndpointAccessControlResponsePtrOutput) Ip() IPAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v *StreamingEndpointAccessControlResponse) *IPAccessControlResponse {
 		if v == nil {
@@ -16546,16 +14559,11 @@ func (o StreamingEndpointAccessControlResponsePtrOutput) Ip() IPAccessControlRes
 	}).(IPAccessControlResponsePtrOutput)
 }
 
-// Class for content key in Streaming Locator
 type StreamingLocatorContentKey struct {
-	// ID of Content Key
-	Id string `pulumi:"id"`
-	// Label of Content Key
-	Label *string `pulumi:"label"`
-	// Tracks which use this Content Key
+	Id     string           `pulumi:"id"`
+	Label  *string          `pulumi:"label"`
 	Tracks []TrackSelection `pulumi:"tracks"`
-	// Value of Content Key
-	Value *string `pulumi:"value"`
+	Value  *string          `pulumi:"value"`
 }
 
 // StreamingLocatorContentKeyInput is an input type that accepts StreamingLocatorContentKeyArgs and StreamingLocatorContentKeyOutput values.
@@ -16569,16 +14577,11 @@ type StreamingLocatorContentKeyInput interface {
 	ToStreamingLocatorContentKeyOutputWithContext(context.Context) StreamingLocatorContentKeyOutput
 }
 
-// Class for content key in Streaming Locator
 type StreamingLocatorContentKeyArgs struct {
-	// ID of Content Key
-	Id pulumi.StringInput `pulumi:"id"`
-	// Label of Content Key
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Tracks which use this Content Key
+	Id     pulumi.StringInput       `pulumi:"id"`
+	Label  pulumi.StringPtrInput    `pulumi:"label"`
 	Tracks TrackSelectionArrayInput `pulumi:"tracks"`
-	// Value of Content Key
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value  pulumi.StringPtrInput    `pulumi:"value"`
 }
 
 func (StreamingLocatorContentKeyArgs) ElementType() reflect.Type {
@@ -16618,7 +14621,6 @@ func (i StreamingLocatorContentKeyArray) ToStreamingLocatorContentKeyArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorContentKeyArrayOutput)
 }
 
-// Class for content key in Streaming Locator
 type StreamingLocatorContentKeyOutput struct{ *pulumi.OutputState }
 
 func (StreamingLocatorContentKeyOutput) ElementType() reflect.Type {
@@ -16633,22 +14635,18 @@ func (o StreamingLocatorContentKeyOutput) ToStreamingLocatorContentKeyOutputWith
 	return o
 }
 
-// ID of Content Key
 func (o StreamingLocatorContentKeyOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamingLocatorContentKey) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Label of Content Key
 func (o StreamingLocatorContentKeyOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingLocatorContentKey) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// Tracks which use this Content Key
 func (o StreamingLocatorContentKeyOutput) Tracks() TrackSelectionArrayOutput {
 	return o.ApplyT(func(v StreamingLocatorContentKey) []TrackSelection { return v.Tracks }).(TrackSelectionArrayOutput)
 }
 
-// Value of Content Key
 func (o StreamingLocatorContentKeyOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingLocatorContentKey) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -16673,20 +14671,13 @@ func (o StreamingLocatorContentKeyArrayOutput) Index(i pulumi.IntInput) Streamin
 	}).(StreamingLocatorContentKeyOutput)
 }
 
-// Class for content key in Streaming Locator
 type StreamingLocatorContentKeyResponse struct {
-	// ID of Content Key
-	Id string `pulumi:"id"`
-	// Label of Content Key
-	Label *string `pulumi:"label"`
-	// ContentKeyPolicy used by Content Key
-	PolicyName string `pulumi:"policyName"`
-	// Tracks which use this Content Key
-	Tracks []TrackSelectionResponse `pulumi:"tracks"`
-	// Encryption type of Content Key
-	Type string `pulumi:"type"`
-	// Value of Content Key
-	Value *string `pulumi:"value"`
+	Id         string                   `pulumi:"id"`
+	Label      *string                  `pulumi:"label"`
+	PolicyName string                   `pulumi:"policyName"`
+	Tracks     []TrackSelectionResponse `pulumi:"tracks"`
+	Type       string                   `pulumi:"type"`
+	Value      *string                  `pulumi:"value"`
 }
 
 // StreamingLocatorContentKeyResponseInput is an input type that accepts StreamingLocatorContentKeyResponseArgs and StreamingLocatorContentKeyResponseOutput values.
@@ -16700,20 +14691,13 @@ type StreamingLocatorContentKeyResponseInput interface {
 	ToStreamingLocatorContentKeyResponseOutputWithContext(context.Context) StreamingLocatorContentKeyResponseOutput
 }
 
-// Class for content key in Streaming Locator
 type StreamingLocatorContentKeyResponseArgs struct {
-	// ID of Content Key
-	Id pulumi.StringInput `pulumi:"id"`
-	// Label of Content Key
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// ContentKeyPolicy used by Content Key
-	PolicyName pulumi.StringInput `pulumi:"policyName"`
-	// Tracks which use this Content Key
-	Tracks TrackSelectionResponseArrayInput `pulumi:"tracks"`
-	// Encryption type of Content Key
-	Type pulumi.StringInput `pulumi:"type"`
-	// Value of Content Key
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Id         pulumi.StringInput               `pulumi:"id"`
+	Label      pulumi.StringPtrInput            `pulumi:"label"`
+	PolicyName pulumi.StringInput               `pulumi:"policyName"`
+	Tracks     TrackSelectionResponseArrayInput `pulumi:"tracks"`
+	Type       pulumi.StringInput               `pulumi:"type"`
+	Value      pulumi.StringPtrInput            `pulumi:"value"`
 }
 
 func (StreamingLocatorContentKeyResponseArgs) ElementType() reflect.Type {
@@ -16753,7 +14737,6 @@ func (i StreamingLocatorContentKeyResponseArray) ToStreamingLocatorContentKeyRes
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorContentKeyResponseArrayOutput)
 }
 
-// Class for content key in Streaming Locator
 type StreamingLocatorContentKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (StreamingLocatorContentKeyResponseOutput) ElementType() reflect.Type {
@@ -16768,32 +14751,26 @@ func (o StreamingLocatorContentKeyResponseOutput) ToStreamingLocatorContentKeyRe
 	return o
 }
 
-// ID of Content Key
 func (o StreamingLocatorContentKeyResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamingLocatorContentKeyResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Label of Content Key
 func (o StreamingLocatorContentKeyResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingLocatorContentKeyResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// ContentKeyPolicy used by Content Key
 func (o StreamingLocatorContentKeyResponseOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamingLocatorContentKeyResponse) string { return v.PolicyName }).(pulumi.StringOutput)
 }
 
-// Tracks which use this Content Key
 func (o StreamingLocatorContentKeyResponseOutput) Tracks() TrackSelectionResponseArrayOutput {
 	return o.ApplyT(func(v StreamingLocatorContentKeyResponse) []TrackSelectionResponse { return v.Tracks }).(TrackSelectionResponseArrayOutput)
 }
 
-// Encryption type of Content Key
 func (o StreamingLocatorContentKeyResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamingLocatorContentKeyResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Value of Content Key
 func (o StreamingLocatorContentKeyResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingLocatorContentKeyResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -16818,14 +14795,10 @@ func (o StreamingLocatorContentKeyResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(StreamingLocatorContentKeyResponseOutput)
 }
 
-// Class of paths for streaming
 type StreamingPathResponse struct {
-	// Encryption scheme
-	EncryptionScheme string `pulumi:"encryptionScheme"`
-	// Streaming paths for each protocol and encryptionScheme pair
-	Paths []string `pulumi:"paths"`
-	// Streaming protocol
-	StreamingProtocol string `pulumi:"streamingProtocol"`
+	EncryptionScheme  string   `pulumi:"encryptionScheme"`
+	Paths             []string `pulumi:"paths"`
+	StreamingProtocol string   `pulumi:"streamingProtocol"`
 }
 
 // StreamingPathResponseInput is an input type that accepts StreamingPathResponseArgs and StreamingPathResponseOutput values.
@@ -16839,14 +14812,10 @@ type StreamingPathResponseInput interface {
 	ToStreamingPathResponseOutputWithContext(context.Context) StreamingPathResponseOutput
 }
 
-// Class of paths for streaming
 type StreamingPathResponseArgs struct {
-	// Encryption scheme
-	EncryptionScheme pulumi.StringInput `pulumi:"encryptionScheme"`
-	// Streaming paths for each protocol and encryptionScheme pair
-	Paths pulumi.StringArrayInput `pulumi:"paths"`
-	// Streaming protocol
-	StreamingProtocol pulumi.StringInput `pulumi:"streamingProtocol"`
+	EncryptionScheme  pulumi.StringInput      `pulumi:"encryptionScheme"`
+	Paths             pulumi.StringArrayInput `pulumi:"paths"`
+	StreamingProtocol pulumi.StringInput      `pulumi:"streamingProtocol"`
 }
 
 func (StreamingPathResponseArgs) ElementType() reflect.Type {
@@ -16886,7 +14855,6 @@ func (i StreamingPathResponseArray) ToStreamingPathResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPathResponseArrayOutput)
 }
 
-// Class of paths for streaming
 type StreamingPathResponseOutput struct{ *pulumi.OutputState }
 
 func (StreamingPathResponseOutput) ElementType() reflect.Type {
@@ -16901,17 +14869,14 @@ func (o StreamingPathResponseOutput) ToStreamingPathResponseOutputWithContext(ct
 	return o
 }
 
-// Encryption scheme
 func (o StreamingPathResponseOutput) EncryptionScheme() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamingPathResponse) string { return v.EncryptionScheme }).(pulumi.StringOutput)
 }
 
-// Streaming paths for each protocol and encryptionScheme pair
 func (o StreamingPathResponseOutput) Paths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StreamingPathResponse) []string { return v.Paths }).(pulumi.StringArrayOutput)
 }
 
-// Streaming protocol
 func (o StreamingPathResponseOutput) StreamingProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamingPathResponse) string { return v.StreamingProtocol }).(pulumi.StringOutput)
 }
@@ -16936,14 +14901,10 @@ func (o StreamingPathResponseArrayOutput) Index(i pulumi.IntInput) StreamingPath
 	}).(StreamingPathResponseOutput)
 }
 
-// Class to specify properties of content key
 type StreamingPolicyContentKey struct {
-	// Label can be used to specify Content Key when creating a Streaming Locator
-	Label *string `pulumi:"label"`
-	// Policy used by Content Key
-	PolicyName *string `pulumi:"policyName"`
-	// Tracks which use this content key
-	Tracks []TrackSelection `pulumi:"tracks"`
+	Label      *string          `pulumi:"label"`
+	PolicyName *string          `pulumi:"policyName"`
+	Tracks     []TrackSelection `pulumi:"tracks"`
 }
 
 // StreamingPolicyContentKeyInput is an input type that accepts StreamingPolicyContentKeyArgs and StreamingPolicyContentKeyOutput values.
@@ -16957,14 +14918,10 @@ type StreamingPolicyContentKeyInput interface {
 	ToStreamingPolicyContentKeyOutputWithContext(context.Context) StreamingPolicyContentKeyOutput
 }
 
-// Class to specify properties of content key
 type StreamingPolicyContentKeyArgs struct {
-	// Label can be used to specify Content Key when creating a Streaming Locator
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Policy used by Content Key
-	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
-	// Tracks which use this content key
-	Tracks TrackSelectionArrayInput `pulumi:"tracks"`
+	Label      pulumi.StringPtrInput    `pulumi:"label"`
+	PolicyName pulumi.StringPtrInput    `pulumi:"policyName"`
+	Tracks     TrackSelectionArrayInput `pulumi:"tracks"`
 }
 
 func (StreamingPolicyContentKeyArgs) ElementType() reflect.Type {
@@ -17004,7 +14961,6 @@ func (i StreamingPolicyContentKeyArray) ToStreamingPolicyContentKeyArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyContentKeyArrayOutput)
 }
 
-// Class to specify properties of content key
 type StreamingPolicyContentKeyOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyContentKeyOutput) ElementType() reflect.Type {
@@ -17019,17 +14975,14 @@ func (o StreamingPolicyContentKeyOutput) ToStreamingPolicyContentKeyOutputWithCo
 	return o
 }
 
-// Label can be used to specify Content Key when creating a Streaming Locator
 func (o StreamingPolicyContentKeyOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingPolicyContentKey) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// Policy used by Content Key
 func (o StreamingPolicyContentKeyOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingPolicyContentKey) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
-// Tracks which use this content key
 func (o StreamingPolicyContentKeyOutput) Tracks() TrackSelectionArrayOutput {
 	return o.ApplyT(func(v StreamingPolicyContentKey) []TrackSelection { return v.Tracks }).(TrackSelectionArrayOutput)
 }
@@ -17054,14 +15007,10 @@ func (o StreamingPolicyContentKeyArrayOutput) Index(i pulumi.IntInput) Streaming
 	}).(StreamingPolicyContentKeyOutput)
 }
 
-// Class to specify properties of content key
 type StreamingPolicyContentKeyResponse struct {
-	// Label can be used to specify Content Key when creating a Streaming Locator
-	Label *string `pulumi:"label"`
-	// Policy used by Content Key
-	PolicyName *string `pulumi:"policyName"`
-	// Tracks which use this content key
-	Tracks []TrackSelectionResponse `pulumi:"tracks"`
+	Label      *string                  `pulumi:"label"`
+	PolicyName *string                  `pulumi:"policyName"`
+	Tracks     []TrackSelectionResponse `pulumi:"tracks"`
 }
 
 // StreamingPolicyContentKeyResponseInput is an input type that accepts StreamingPolicyContentKeyResponseArgs and StreamingPolicyContentKeyResponseOutput values.
@@ -17075,14 +15024,10 @@ type StreamingPolicyContentKeyResponseInput interface {
 	ToStreamingPolicyContentKeyResponseOutputWithContext(context.Context) StreamingPolicyContentKeyResponseOutput
 }
 
-// Class to specify properties of content key
 type StreamingPolicyContentKeyResponseArgs struct {
-	// Label can be used to specify Content Key when creating a Streaming Locator
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Policy used by Content Key
-	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
-	// Tracks which use this content key
-	Tracks TrackSelectionResponseArrayInput `pulumi:"tracks"`
+	Label      pulumi.StringPtrInput            `pulumi:"label"`
+	PolicyName pulumi.StringPtrInput            `pulumi:"policyName"`
+	Tracks     TrackSelectionResponseArrayInput `pulumi:"tracks"`
 }
 
 func (StreamingPolicyContentKeyResponseArgs) ElementType() reflect.Type {
@@ -17122,7 +15067,6 @@ func (i StreamingPolicyContentKeyResponseArray) ToStreamingPolicyContentKeyRespo
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyContentKeyResponseArrayOutput)
 }
 
-// Class to specify properties of content key
 type StreamingPolicyContentKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyContentKeyResponseOutput) ElementType() reflect.Type {
@@ -17137,17 +15081,14 @@ func (o StreamingPolicyContentKeyResponseOutput) ToStreamingPolicyContentKeyResp
 	return o
 }
 
-// Label can be used to specify Content Key when creating a Streaming Locator
 func (o StreamingPolicyContentKeyResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingPolicyContentKeyResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// Policy used by Content Key
 func (o StreamingPolicyContentKeyResponseOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingPolicyContentKeyResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
-// Tracks which use this content key
 func (o StreamingPolicyContentKeyResponseOutput) Tracks() TrackSelectionResponseArrayOutput {
 	return o.ApplyT(func(v StreamingPolicyContentKeyResponse) []TrackSelectionResponse { return v.Tracks }).(TrackSelectionResponseArrayOutput)
 }
@@ -17172,11 +15113,8 @@ func (o StreamingPolicyContentKeyResponseArrayOutput) Index(i pulumi.IntInput) S
 	}).(StreamingPolicyContentKeyResponseOutput)
 }
 
-// Class to specify properties of all content keys in Streaming Policy
 type StreamingPolicyContentKeys struct {
-	// Default content key for an encryption scheme
-	DefaultKey *DefaultKey `pulumi:"defaultKey"`
-	// Representing tracks needs separate content key
+	DefaultKey         *DefaultKey                 `pulumi:"defaultKey"`
 	KeyToTrackMappings []StreamingPolicyContentKey `pulumi:"keyToTrackMappings"`
 }
 
@@ -17191,11 +15129,8 @@ type StreamingPolicyContentKeysInput interface {
 	ToStreamingPolicyContentKeysOutputWithContext(context.Context) StreamingPolicyContentKeysOutput
 }
 
-// Class to specify properties of all content keys in Streaming Policy
 type StreamingPolicyContentKeysArgs struct {
-	// Default content key for an encryption scheme
-	DefaultKey DefaultKeyPtrInput `pulumi:"defaultKey"`
-	// Representing tracks needs separate content key
+	DefaultKey         DefaultKeyPtrInput                  `pulumi:"defaultKey"`
 	KeyToTrackMappings StreamingPolicyContentKeyArrayInput `pulumi:"keyToTrackMappings"`
 }
 
@@ -17252,7 +15187,6 @@ func (i *streamingPolicyContentKeysPtrType) ToStreamingPolicyContentKeysPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyContentKeysPtrOutput)
 }
 
-// Class to specify properties of all content keys in Streaming Policy
 type StreamingPolicyContentKeysOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyContentKeysOutput) ElementType() reflect.Type {
@@ -17272,17 +15206,15 @@ func (o StreamingPolicyContentKeysOutput) ToStreamingPolicyContentKeysPtrOutput(
 }
 
 func (o StreamingPolicyContentKeysOutput) ToStreamingPolicyContentKeysPtrOutputWithContext(ctx context.Context) StreamingPolicyContentKeysPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyContentKeys) *StreamingPolicyContentKeys {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyContentKeys) *StreamingPolicyContentKeys {
 		return &v
 	}).(StreamingPolicyContentKeysPtrOutput)
 }
 
-// Default content key for an encryption scheme
 func (o StreamingPolicyContentKeysOutput) DefaultKey() DefaultKeyPtrOutput {
 	return o.ApplyT(func(v StreamingPolicyContentKeys) *DefaultKey { return v.DefaultKey }).(DefaultKeyPtrOutput)
 }
 
-// Representing tracks needs separate content key
 func (o StreamingPolicyContentKeysOutput) KeyToTrackMappings() StreamingPolicyContentKeyArrayOutput {
 	return o.ApplyT(func(v StreamingPolicyContentKeys) []StreamingPolicyContentKey { return v.KeyToTrackMappings }).(StreamingPolicyContentKeyArrayOutput)
 }
@@ -17302,10 +15234,15 @@ func (o StreamingPolicyContentKeysPtrOutput) ToStreamingPolicyContentKeysPtrOutp
 }
 
 func (o StreamingPolicyContentKeysPtrOutput) Elem() StreamingPolicyContentKeysOutput {
-	return o.ApplyT(func(v *StreamingPolicyContentKeys) StreamingPolicyContentKeys { return *v }).(StreamingPolicyContentKeysOutput)
+	return o.ApplyT(func(v *StreamingPolicyContentKeys) StreamingPolicyContentKeys {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyContentKeys
+		return ret
+	}).(StreamingPolicyContentKeysOutput)
 }
 
-// Default content key for an encryption scheme
 func (o StreamingPolicyContentKeysPtrOutput) DefaultKey() DefaultKeyPtrOutput {
 	return o.ApplyT(func(v *StreamingPolicyContentKeys) *DefaultKey {
 		if v == nil {
@@ -17315,7 +15252,6 @@ func (o StreamingPolicyContentKeysPtrOutput) DefaultKey() DefaultKeyPtrOutput {
 	}).(DefaultKeyPtrOutput)
 }
 
-// Representing tracks needs separate content key
 func (o StreamingPolicyContentKeysPtrOutput) KeyToTrackMappings() StreamingPolicyContentKeyArrayOutput {
 	return o.ApplyT(func(v *StreamingPolicyContentKeys) []StreamingPolicyContentKey {
 		if v == nil {
@@ -17325,11 +15261,8 @@ func (o StreamingPolicyContentKeysPtrOutput) KeyToTrackMappings() StreamingPolic
 	}).(StreamingPolicyContentKeyArrayOutput)
 }
 
-// Class to specify properties of all content keys in Streaming Policy
 type StreamingPolicyContentKeysResponse struct {
-	// Default content key for an encryption scheme
-	DefaultKey *DefaultKeyResponse `pulumi:"defaultKey"`
-	// Representing tracks needs separate content key
+	DefaultKey         *DefaultKeyResponse                 `pulumi:"defaultKey"`
 	KeyToTrackMappings []StreamingPolicyContentKeyResponse `pulumi:"keyToTrackMappings"`
 }
 
@@ -17344,11 +15277,8 @@ type StreamingPolicyContentKeysResponseInput interface {
 	ToStreamingPolicyContentKeysResponseOutputWithContext(context.Context) StreamingPolicyContentKeysResponseOutput
 }
 
-// Class to specify properties of all content keys in Streaming Policy
 type StreamingPolicyContentKeysResponseArgs struct {
-	// Default content key for an encryption scheme
-	DefaultKey DefaultKeyResponsePtrInput `pulumi:"defaultKey"`
-	// Representing tracks needs separate content key
+	DefaultKey         DefaultKeyResponsePtrInput                  `pulumi:"defaultKey"`
 	KeyToTrackMappings StreamingPolicyContentKeyResponseArrayInput `pulumi:"keyToTrackMappings"`
 }
 
@@ -17405,7 +15335,6 @@ func (i *streamingPolicyContentKeysResponsePtrType) ToStreamingPolicyContentKeys
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyContentKeysResponsePtrOutput)
 }
 
-// Class to specify properties of all content keys in Streaming Policy
 type StreamingPolicyContentKeysResponseOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyContentKeysResponseOutput) ElementType() reflect.Type {
@@ -17425,17 +15354,15 @@ func (o StreamingPolicyContentKeysResponseOutput) ToStreamingPolicyContentKeysRe
 }
 
 func (o StreamingPolicyContentKeysResponseOutput) ToStreamingPolicyContentKeysResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyContentKeysResponsePtrOutput {
-	return o.ApplyT(func(v StreamingPolicyContentKeysResponse) *StreamingPolicyContentKeysResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyContentKeysResponse) *StreamingPolicyContentKeysResponse {
 		return &v
 	}).(StreamingPolicyContentKeysResponsePtrOutput)
 }
 
-// Default content key for an encryption scheme
 func (o StreamingPolicyContentKeysResponseOutput) DefaultKey() DefaultKeyResponsePtrOutput {
 	return o.ApplyT(func(v StreamingPolicyContentKeysResponse) *DefaultKeyResponse { return v.DefaultKey }).(DefaultKeyResponsePtrOutput)
 }
 
-// Representing tracks needs separate content key
 func (o StreamingPolicyContentKeysResponseOutput) KeyToTrackMappings() StreamingPolicyContentKeyResponseArrayOutput {
 	return o.ApplyT(func(v StreamingPolicyContentKeysResponse) []StreamingPolicyContentKeyResponse {
 		return v.KeyToTrackMappings
@@ -17457,10 +15384,15 @@ func (o StreamingPolicyContentKeysResponsePtrOutput) ToStreamingPolicyContentKey
 }
 
 func (o StreamingPolicyContentKeysResponsePtrOutput) Elem() StreamingPolicyContentKeysResponseOutput {
-	return o.ApplyT(func(v *StreamingPolicyContentKeysResponse) StreamingPolicyContentKeysResponse { return *v }).(StreamingPolicyContentKeysResponseOutput)
+	return o.ApplyT(func(v *StreamingPolicyContentKeysResponse) StreamingPolicyContentKeysResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyContentKeysResponse
+		return ret
+	}).(StreamingPolicyContentKeysResponseOutput)
 }
 
-// Default content key for an encryption scheme
 func (o StreamingPolicyContentKeysResponsePtrOutput) DefaultKey() DefaultKeyResponsePtrOutput {
 	return o.ApplyT(func(v *StreamingPolicyContentKeysResponse) *DefaultKeyResponse {
 		if v == nil {
@@ -17470,7 +15402,6 @@ func (o StreamingPolicyContentKeysResponsePtrOutput) DefaultKey() DefaultKeyResp
 	}).(DefaultKeyResponsePtrOutput)
 }
 
-// Representing tracks needs separate content key
 func (o StreamingPolicyContentKeysResponsePtrOutput) KeyToTrackMappings() StreamingPolicyContentKeyResponseArrayOutput {
 	return o.ApplyT(func(v *StreamingPolicyContentKeysResponse) []StreamingPolicyContentKeyResponse {
 		if v == nil {
@@ -17480,11 +15411,8 @@ func (o StreamingPolicyContentKeysResponsePtrOutput) KeyToTrackMappings() Stream
 	}).(StreamingPolicyContentKeyResponseArrayOutput)
 }
 
-// Class to specify configurations of FairPlay in Streaming Policy
 type StreamingPolicyFairPlayConfiguration struct {
-	// All license to be persistent or not
-	AllowPersistentLicense bool `pulumi:"allowPersistentLicense"`
-	// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
+	AllowPersistentLicense              bool    `pulumi:"allowPersistentLicense"`
 	CustomLicenseAcquisitionUrlTemplate *string `pulumi:"customLicenseAcquisitionUrlTemplate"`
 }
 
@@ -17499,11 +15427,8 @@ type StreamingPolicyFairPlayConfigurationInput interface {
 	ToStreamingPolicyFairPlayConfigurationOutputWithContext(context.Context) StreamingPolicyFairPlayConfigurationOutput
 }
 
-// Class to specify configurations of FairPlay in Streaming Policy
 type StreamingPolicyFairPlayConfigurationArgs struct {
-	// All license to be persistent or not
-	AllowPersistentLicense pulumi.BoolInput `pulumi:"allowPersistentLicense"`
-	// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
+	AllowPersistentLicense              pulumi.BoolInput      `pulumi:"allowPersistentLicense"`
 	CustomLicenseAcquisitionUrlTemplate pulumi.StringPtrInput `pulumi:"customLicenseAcquisitionUrlTemplate"`
 }
 
@@ -17560,7 +15485,6 @@ func (i *streamingPolicyFairPlayConfigurationPtrType) ToStreamingPolicyFairPlayC
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyFairPlayConfigurationPtrOutput)
 }
 
-// Class to specify configurations of FairPlay in Streaming Policy
 type StreamingPolicyFairPlayConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyFairPlayConfigurationOutput) ElementType() reflect.Type {
@@ -17580,17 +15504,15 @@ func (o StreamingPolicyFairPlayConfigurationOutput) ToStreamingPolicyFairPlayCon
 }
 
 func (o StreamingPolicyFairPlayConfigurationOutput) ToStreamingPolicyFairPlayConfigurationPtrOutputWithContext(ctx context.Context) StreamingPolicyFairPlayConfigurationPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyFairPlayConfiguration) *StreamingPolicyFairPlayConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyFairPlayConfiguration) *StreamingPolicyFairPlayConfiguration {
 		return &v
 	}).(StreamingPolicyFairPlayConfigurationPtrOutput)
 }
 
-// All license to be persistent or not
 func (o StreamingPolicyFairPlayConfigurationOutput) AllowPersistentLicense() pulumi.BoolOutput {
 	return o.ApplyT(func(v StreamingPolicyFairPlayConfiguration) bool { return v.AllowPersistentLicense }).(pulumi.BoolOutput)
 }
 
-// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 func (o StreamingPolicyFairPlayConfigurationOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingPolicyFairPlayConfiguration) *string { return v.CustomLicenseAcquisitionUrlTemplate }).(pulumi.StringPtrOutput)
 }
@@ -17610,10 +15532,15 @@ func (o StreamingPolicyFairPlayConfigurationPtrOutput) ToStreamingPolicyFairPlay
 }
 
 func (o StreamingPolicyFairPlayConfigurationPtrOutput) Elem() StreamingPolicyFairPlayConfigurationOutput {
-	return o.ApplyT(func(v *StreamingPolicyFairPlayConfiguration) StreamingPolicyFairPlayConfiguration { return *v }).(StreamingPolicyFairPlayConfigurationOutput)
+	return o.ApplyT(func(v *StreamingPolicyFairPlayConfiguration) StreamingPolicyFairPlayConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyFairPlayConfiguration
+		return ret
+	}).(StreamingPolicyFairPlayConfigurationOutput)
 }
 
-// All license to be persistent or not
 func (o StreamingPolicyFairPlayConfigurationPtrOutput) AllowPersistentLicense() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StreamingPolicyFairPlayConfiguration) *bool {
 		if v == nil {
@@ -17623,7 +15550,6 @@ func (o StreamingPolicyFairPlayConfigurationPtrOutput) AllowPersistentLicense() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 func (o StreamingPolicyFairPlayConfigurationPtrOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingPolicyFairPlayConfiguration) *string {
 		if v == nil {
@@ -17633,11 +15559,8 @@ func (o StreamingPolicyFairPlayConfigurationPtrOutput) CustomLicenseAcquisitionU
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class to specify configurations of FairPlay in Streaming Policy
 type StreamingPolicyFairPlayConfigurationResponse struct {
-	// All license to be persistent or not
-	AllowPersistentLicense bool `pulumi:"allowPersistentLicense"`
-	// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
+	AllowPersistentLicense              bool    `pulumi:"allowPersistentLicense"`
 	CustomLicenseAcquisitionUrlTemplate *string `pulumi:"customLicenseAcquisitionUrlTemplate"`
 }
 
@@ -17652,11 +15575,8 @@ type StreamingPolicyFairPlayConfigurationResponseInput interface {
 	ToStreamingPolicyFairPlayConfigurationResponseOutputWithContext(context.Context) StreamingPolicyFairPlayConfigurationResponseOutput
 }
 
-// Class to specify configurations of FairPlay in Streaming Policy
 type StreamingPolicyFairPlayConfigurationResponseArgs struct {
-	// All license to be persistent or not
-	AllowPersistentLicense pulumi.BoolInput `pulumi:"allowPersistentLicense"`
-	// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
+	AllowPersistentLicense              pulumi.BoolInput      `pulumi:"allowPersistentLicense"`
 	CustomLicenseAcquisitionUrlTemplate pulumi.StringPtrInput `pulumi:"customLicenseAcquisitionUrlTemplate"`
 }
 
@@ -17713,7 +15633,6 @@ func (i *streamingPolicyFairPlayConfigurationResponsePtrType) ToStreamingPolicyF
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyFairPlayConfigurationResponsePtrOutput)
 }
 
-// Class to specify configurations of FairPlay in Streaming Policy
 type StreamingPolicyFairPlayConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyFairPlayConfigurationResponseOutput) ElementType() reflect.Type {
@@ -17733,17 +15652,15 @@ func (o StreamingPolicyFairPlayConfigurationResponseOutput) ToStreamingPolicyFai
 }
 
 func (o StreamingPolicyFairPlayConfigurationResponseOutput) ToStreamingPolicyFairPlayConfigurationResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyFairPlayConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v StreamingPolicyFairPlayConfigurationResponse) *StreamingPolicyFairPlayConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyFairPlayConfigurationResponse) *StreamingPolicyFairPlayConfigurationResponse {
 		return &v
 	}).(StreamingPolicyFairPlayConfigurationResponsePtrOutput)
 }
 
-// All license to be persistent or not
 func (o StreamingPolicyFairPlayConfigurationResponseOutput) AllowPersistentLicense() pulumi.BoolOutput {
 	return o.ApplyT(func(v StreamingPolicyFairPlayConfigurationResponse) bool { return v.AllowPersistentLicense }).(pulumi.BoolOutput)
 }
 
-// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 func (o StreamingPolicyFairPlayConfigurationResponseOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingPolicyFairPlayConfigurationResponse) *string {
 		return v.CustomLicenseAcquisitionUrlTemplate
@@ -17766,11 +15683,14 @@ func (o StreamingPolicyFairPlayConfigurationResponsePtrOutput) ToStreamingPolicy
 
 func (o StreamingPolicyFairPlayConfigurationResponsePtrOutput) Elem() StreamingPolicyFairPlayConfigurationResponseOutput {
 	return o.ApplyT(func(v *StreamingPolicyFairPlayConfigurationResponse) StreamingPolicyFairPlayConfigurationResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyFairPlayConfigurationResponse
+		return ret
 	}).(StreamingPolicyFairPlayConfigurationResponseOutput)
 }
 
-// All license to be persistent or not
 func (o StreamingPolicyFairPlayConfigurationResponsePtrOutput) AllowPersistentLicense() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StreamingPolicyFairPlayConfigurationResponse) *bool {
 		if v == nil {
@@ -17780,7 +15700,6 @@ func (o StreamingPolicyFairPlayConfigurationResponsePtrOutput) AllowPersistentLi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 func (o StreamingPolicyFairPlayConfigurationResponsePtrOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingPolicyFairPlayConfigurationResponse) *string {
 		if v == nil {
@@ -17790,12 +15709,9 @@ func (o StreamingPolicyFairPlayConfigurationResponsePtrOutput) CustomLicenseAcqu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class to specify configurations of PlayReady in Streaming Policy
 type StreamingPolicyPlayReadyConfiguration struct {
-	// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 	CustomLicenseAcquisitionUrlTemplate *string `pulumi:"customLicenseAcquisitionUrlTemplate"`
-	// Custom attributes for PlayReady
-	PlayReadyCustomAttributes *string `pulumi:"playReadyCustomAttributes"`
+	PlayReadyCustomAttributes           *string `pulumi:"playReadyCustomAttributes"`
 }
 
 // StreamingPolicyPlayReadyConfigurationInput is an input type that accepts StreamingPolicyPlayReadyConfigurationArgs and StreamingPolicyPlayReadyConfigurationOutput values.
@@ -17809,12 +15725,9 @@ type StreamingPolicyPlayReadyConfigurationInput interface {
 	ToStreamingPolicyPlayReadyConfigurationOutputWithContext(context.Context) StreamingPolicyPlayReadyConfigurationOutput
 }
 
-// Class to specify configurations of PlayReady in Streaming Policy
 type StreamingPolicyPlayReadyConfigurationArgs struct {
-	// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 	CustomLicenseAcquisitionUrlTemplate pulumi.StringPtrInput `pulumi:"customLicenseAcquisitionUrlTemplate"`
-	// Custom attributes for PlayReady
-	PlayReadyCustomAttributes pulumi.StringPtrInput `pulumi:"playReadyCustomAttributes"`
+	PlayReadyCustomAttributes           pulumi.StringPtrInput `pulumi:"playReadyCustomAttributes"`
 }
 
 func (StreamingPolicyPlayReadyConfigurationArgs) ElementType() reflect.Type {
@@ -17870,7 +15783,6 @@ func (i *streamingPolicyPlayReadyConfigurationPtrType) ToStreamingPolicyPlayRead
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyPlayReadyConfigurationPtrOutput)
 }
 
-// Class to specify configurations of PlayReady in Streaming Policy
 type StreamingPolicyPlayReadyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyPlayReadyConfigurationOutput) ElementType() reflect.Type {
@@ -17890,17 +15802,15 @@ func (o StreamingPolicyPlayReadyConfigurationOutput) ToStreamingPolicyPlayReadyC
 }
 
 func (o StreamingPolicyPlayReadyConfigurationOutput) ToStreamingPolicyPlayReadyConfigurationPtrOutputWithContext(ctx context.Context) StreamingPolicyPlayReadyConfigurationPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyPlayReadyConfiguration) *StreamingPolicyPlayReadyConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyPlayReadyConfiguration) *StreamingPolicyPlayReadyConfiguration {
 		return &v
 	}).(StreamingPolicyPlayReadyConfigurationPtrOutput)
 }
 
-// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 func (o StreamingPolicyPlayReadyConfigurationOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingPolicyPlayReadyConfiguration) *string { return v.CustomLicenseAcquisitionUrlTemplate }).(pulumi.StringPtrOutput)
 }
 
-// Custom attributes for PlayReady
 func (o StreamingPolicyPlayReadyConfigurationOutput) PlayReadyCustomAttributes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingPolicyPlayReadyConfiguration) *string { return v.PlayReadyCustomAttributes }).(pulumi.StringPtrOutput)
 }
@@ -17920,10 +15830,15 @@ func (o StreamingPolicyPlayReadyConfigurationPtrOutput) ToStreamingPolicyPlayRea
 }
 
 func (o StreamingPolicyPlayReadyConfigurationPtrOutput) Elem() StreamingPolicyPlayReadyConfigurationOutput {
-	return o.ApplyT(func(v *StreamingPolicyPlayReadyConfiguration) StreamingPolicyPlayReadyConfiguration { return *v }).(StreamingPolicyPlayReadyConfigurationOutput)
+	return o.ApplyT(func(v *StreamingPolicyPlayReadyConfiguration) StreamingPolicyPlayReadyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyPlayReadyConfiguration
+		return ret
+	}).(StreamingPolicyPlayReadyConfigurationOutput)
 }
 
-// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 func (o StreamingPolicyPlayReadyConfigurationPtrOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingPolicyPlayReadyConfiguration) *string {
 		if v == nil {
@@ -17933,7 +15848,6 @@ func (o StreamingPolicyPlayReadyConfigurationPtrOutput) CustomLicenseAcquisition
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom attributes for PlayReady
 func (o StreamingPolicyPlayReadyConfigurationPtrOutput) PlayReadyCustomAttributes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingPolicyPlayReadyConfiguration) *string {
 		if v == nil {
@@ -17943,12 +15857,9 @@ func (o StreamingPolicyPlayReadyConfigurationPtrOutput) PlayReadyCustomAttribute
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class to specify configurations of PlayReady in Streaming Policy
 type StreamingPolicyPlayReadyConfigurationResponse struct {
-	// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 	CustomLicenseAcquisitionUrlTemplate *string `pulumi:"customLicenseAcquisitionUrlTemplate"`
-	// Custom attributes for PlayReady
-	PlayReadyCustomAttributes *string `pulumi:"playReadyCustomAttributes"`
+	PlayReadyCustomAttributes           *string `pulumi:"playReadyCustomAttributes"`
 }
 
 // StreamingPolicyPlayReadyConfigurationResponseInput is an input type that accepts StreamingPolicyPlayReadyConfigurationResponseArgs and StreamingPolicyPlayReadyConfigurationResponseOutput values.
@@ -17962,12 +15873,9 @@ type StreamingPolicyPlayReadyConfigurationResponseInput interface {
 	ToStreamingPolicyPlayReadyConfigurationResponseOutputWithContext(context.Context) StreamingPolicyPlayReadyConfigurationResponseOutput
 }
 
-// Class to specify configurations of PlayReady in Streaming Policy
 type StreamingPolicyPlayReadyConfigurationResponseArgs struct {
-	// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 	CustomLicenseAcquisitionUrlTemplate pulumi.StringPtrInput `pulumi:"customLicenseAcquisitionUrlTemplate"`
-	// Custom attributes for PlayReady
-	PlayReadyCustomAttributes pulumi.StringPtrInput `pulumi:"playReadyCustomAttributes"`
+	PlayReadyCustomAttributes           pulumi.StringPtrInput `pulumi:"playReadyCustomAttributes"`
 }
 
 func (StreamingPolicyPlayReadyConfigurationResponseArgs) ElementType() reflect.Type {
@@ -18023,7 +15931,6 @@ func (i *streamingPolicyPlayReadyConfigurationResponsePtrType) ToStreamingPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyPlayReadyConfigurationResponsePtrOutput)
 }
 
-// Class to specify configurations of PlayReady in Streaming Policy
 type StreamingPolicyPlayReadyConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyPlayReadyConfigurationResponseOutput) ElementType() reflect.Type {
@@ -18043,19 +15950,17 @@ func (o StreamingPolicyPlayReadyConfigurationResponseOutput) ToStreamingPolicyPl
 }
 
 func (o StreamingPolicyPlayReadyConfigurationResponseOutput) ToStreamingPolicyPlayReadyConfigurationResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyPlayReadyConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v StreamingPolicyPlayReadyConfigurationResponse) *StreamingPolicyPlayReadyConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyPlayReadyConfigurationResponse) *StreamingPolicyPlayReadyConfigurationResponse {
 		return &v
 	}).(StreamingPolicyPlayReadyConfigurationResponsePtrOutput)
 }
 
-// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 func (o StreamingPolicyPlayReadyConfigurationResponseOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingPolicyPlayReadyConfigurationResponse) *string {
 		return v.CustomLicenseAcquisitionUrlTemplate
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom attributes for PlayReady
 func (o StreamingPolicyPlayReadyConfigurationResponseOutput) PlayReadyCustomAttributes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingPolicyPlayReadyConfigurationResponse) *string { return v.PlayReadyCustomAttributes }).(pulumi.StringPtrOutput)
 }
@@ -18076,11 +15981,14 @@ func (o StreamingPolicyPlayReadyConfigurationResponsePtrOutput) ToStreamingPolic
 
 func (o StreamingPolicyPlayReadyConfigurationResponsePtrOutput) Elem() StreamingPolicyPlayReadyConfigurationResponseOutput {
 	return o.ApplyT(func(v *StreamingPolicyPlayReadyConfigurationResponse) StreamingPolicyPlayReadyConfigurationResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyPlayReadyConfigurationResponse
+		return ret
 	}).(StreamingPolicyPlayReadyConfigurationResponseOutput)
 }
 
-// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 func (o StreamingPolicyPlayReadyConfigurationResponsePtrOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingPolicyPlayReadyConfigurationResponse) *string {
 		if v == nil {
@@ -18090,7 +15998,6 @@ func (o StreamingPolicyPlayReadyConfigurationResponsePtrOutput) CustomLicenseAcq
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom attributes for PlayReady
 func (o StreamingPolicyPlayReadyConfigurationResponsePtrOutput) PlayReadyCustomAttributes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingPolicyPlayReadyConfigurationResponse) *string {
 		if v == nil {
@@ -18100,9 +16007,7 @@ func (o StreamingPolicyPlayReadyConfigurationResponsePtrOutput) PlayReadyCustomA
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class to specify configurations of Widevine in Streaming Policy
 type StreamingPolicyWidevineConfiguration struct {
-	// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 	CustomLicenseAcquisitionUrlTemplate *string `pulumi:"customLicenseAcquisitionUrlTemplate"`
 }
 
@@ -18117,9 +16022,7 @@ type StreamingPolicyWidevineConfigurationInput interface {
 	ToStreamingPolicyWidevineConfigurationOutputWithContext(context.Context) StreamingPolicyWidevineConfigurationOutput
 }
 
-// Class to specify configurations of Widevine in Streaming Policy
 type StreamingPolicyWidevineConfigurationArgs struct {
-	// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 	CustomLicenseAcquisitionUrlTemplate pulumi.StringPtrInput `pulumi:"customLicenseAcquisitionUrlTemplate"`
 }
 
@@ -18176,7 +16079,6 @@ func (i *streamingPolicyWidevineConfigurationPtrType) ToStreamingPolicyWidevineC
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyWidevineConfigurationPtrOutput)
 }
 
-// Class to specify configurations of Widevine in Streaming Policy
 type StreamingPolicyWidevineConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyWidevineConfigurationOutput) ElementType() reflect.Type {
@@ -18196,12 +16098,11 @@ func (o StreamingPolicyWidevineConfigurationOutput) ToStreamingPolicyWidevineCon
 }
 
 func (o StreamingPolicyWidevineConfigurationOutput) ToStreamingPolicyWidevineConfigurationPtrOutputWithContext(ctx context.Context) StreamingPolicyWidevineConfigurationPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyWidevineConfiguration) *StreamingPolicyWidevineConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyWidevineConfiguration) *StreamingPolicyWidevineConfiguration {
 		return &v
 	}).(StreamingPolicyWidevineConfigurationPtrOutput)
 }
 
-// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 func (o StreamingPolicyWidevineConfigurationOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingPolicyWidevineConfiguration) *string { return v.CustomLicenseAcquisitionUrlTemplate }).(pulumi.StringPtrOutput)
 }
@@ -18221,10 +16122,15 @@ func (o StreamingPolicyWidevineConfigurationPtrOutput) ToStreamingPolicyWidevine
 }
 
 func (o StreamingPolicyWidevineConfigurationPtrOutput) Elem() StreamingPolicyWidevineConfigurationOutput {
-	return o.ApplyT(func(v *StreamingPolicyWidevineConfiguration) StreamingPolicyWidevineConfiguration { return *v }).(StreamingPolicyWidevineConfigurationOutput)
+	return o.ApplyT(func(v *StreamingPolicyWidevineConfiguration) StreamingPolicyWidevineConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyWidevineConfiguration
+		return ret
+	}).(StreamingPolicyWidevineConfigurationOutput)
 }
 
-// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 func (o StreamingPolicyWidevineConfigurationPtrOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingPolicyWidevineConfiguration) *string {
 		if v == nil {
@@ -18234,9 +16140,7 @@ func (o StreamingPolicyWidevineConfigurationPtrOutput) CustomLicenseAcquisitionU
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class to specify configurations of Widevine in Streaming Policy
 type StreamingPolicyWidevineConfigurationResponse struct {
-	// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 	CustomLicenseAcquisitionUrlTemplate *string `pulumi:"customLicenseAcquisitionUrlTemplate"`
 }
 
@@ -18251,9 +16155,7 @@ type StreamingPolicyWidevineConfigurationResponseInput interface {
 	ToStreamingPolicyWidevineConfigurationResponseOutputWithContext(context.Context) StreamingPolicyWidevineConfigurationResponseOutput
 }
 
-// Class to specify configurations of Widevine in Streaming Policy
 type StreamingPolicyWidevineConfigurationResponseArgs struct {
-	// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 	CustomLicenseAcquisitionUrlTemplate pulumi.StringPtrInput `pulumi:"customLicenseAcquisitionUrlTemplate"`
 }
 
@@ -18310,7 +16212,6 @@ func (i *streamingPolicyWidevineConfigurationResponsePtrType) ToStreamingPolicyW
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyWidevineConfigurationResponsePtrOutput)
 }
 
-// Class to specify configurations of Widevine in Streaming Policy
 type StreamingPolicyWidevineConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyWidevineConfigurationResponseOutput) ElementType() reflect.Type {
@@ -18330,12 +16231,11 @@ func (o StreamingPolicyWidevineConfigurationResponseOutput) ToStreamingPolicyWid
 }
 
 func (o StreamingPolicyWidevineConfigurationResponseOutput) ToStreamingPolicyWidevineConfigurationResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyWidevineConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v StreamingPolicyWidevineConfigurationResponse) *StreamingPolicyWidevineConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyWidevineConfigurationResponse) *StreamingPolicyWidevineConfigurationResponse {
 		return &v
 	}).(StreamingPolicyWidevineConfigurationResponsePtrOutput)
 }
 
-// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 func (o StreamingPolicyWidevineConfigurationResponseOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingPolicyWidevineConfigurationResponse) *string {
 		return v.CustomLicenseAcquisitionUrlTemplate
@@ -18358,11 +16258,14 @@ func (o StreamingPolicyWidevineConfigurationResponsePtrOutput) ToStreamingPolicy
 
 func (o StreamingPolicyWidevineConfigurationResponsePtrOutput) Elem() StreamingPolicyWidevineConfigurationResponseOutput {
 	return o.ApplyT(func(v *StreamingPolicyWidevineConfigurationResponse) StreamingPolicyWidevineConfigurationResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyWidevineConfigurationResponse
+		return ret
 	}).(StreamingPolicyWidevineConfigurationResponseOutput)
 }
 
-// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
 func (o StreamingPolicyWidevineConfigurationResponsePtrOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingPolicyWidevineConfigurationResponse) *string {
 		if v == nil {
@@ -18372,14 +16275,10 @@ func (o StreamingPolicyWidevineConfigurationResponsePtrOutput) CustomLicenseAcqu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class to specify one track property condition
 type TrackPropertyCondition struct {
-	// Track property condition operation
-	Operation string `pulumi:"operation"`
-	// Track property type
-	Property string `pulumi:"property"`
-	// Track property value
-	Value *string `pulumi:"value"`
+	Operation string  `pulumi:"operation"`
+	Property  string  `pulumi:"property"`
+	Value     *string `pulumi:"value"`
 }
 
 // TrackPropertyConditionInput is an input type that accepts TrackPropertyConditionArgs and TrackPropertyConditionOutput values.
@@ -18393,14 +16292,10 @@ type TrackPropertyConditionInput interface {
 	ToTrackPropertyConditionOutputWithContext(context.Context) TrackPropertyConditionOutput
 }
 
-// Class to specify one track property condition
 type TrackPropertyConditionArgs struct {
-	// Track property condition operation
-	Operation pulumi.StringInput `pulumi:"operation"`
-	// Track property type
-	Property pulumi.StringInput `pulumi:"property"`
-	// Track property value
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Operation pulumi.StringInput    `pulumi:"operation"`
+	Property  pulumi.StringInput    `pulumi:"property"`
+	Value     pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (TrackPropertyConditionArgs) ElementType() reflect.Type {
@@ -18440,7 +16335,6 @@ func (i TrackPropertyConditionArray) ToTrackPropertyConditionArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TrackPropertyConditionArrayOutput)
 }
 
-// Class to specify one track property condition
 type TrackPropertyConditionOutput struct{ *pulumi.OutputState }
 
 func (TrackPropertyConditionOutput) ElementType() reflect.Type {
@@ -18455,17 +16349,14 @@ func (o TrackPropertyConditionOutput) ToTrackPropertyConditionOutputWithContext(
 	return o
 }
 
-// Track property condition operation
 func (o TrackPropertyConditionOutput) Operation() pulumi.StringOutput {
 	return o.ApplyT(func(v TrackPropertyCondition) string { return v.Operation }).(pulumi.StringOutput)
 }
 
-// Track property type
 func (o TrackPropertyConditionOutput) Property() pulumi.StringOutput {
 	return o.ApplyT(func(v TrackPropertyCondition) string { return v.Property }).(pulumi.StringOutput)
 }
 
-// Track property value
 func (o TrackPropertyConditionOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrackPropertyCondition) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -18490,14 +16381,10 @@ func (o TrackPropertyConditionArrayOutput) Index(i pulumi.IntInput) TrackPropert
 	}).(TrackPropertyConditionOutput)
 }
 
-// Class to specify one track property condition
 type TrackPropertyConditionResponse struct {
-	// Track property condition operation
-	Operation string `pulumi:"operation"`
-	// Track property type
-	Property string `pulumi:"property"`
-	// Track property value
-	Value *string `pulumi:"value"`
+	Operation string  `pulumi:"operation"`
+	Property  string  `pulumi:"property"`
+	Value     *string `pulumi:"value"`
 }
 
 // TrackPropertyConditionResponseInput is an input type that accepts TrackPropertyConditionResponseArgs and TrackPropertyConditionResponseOutput values.
@@ -18511,14 +16398,10 @@ type TrackPropertyConditionResponseInput interface {
 	ToTrackPropertyConditionResponseOutputWithContext(context.Context) TrackPropertyConditionResponseOutput
 }
 
-// Class to specify one track property condition
 type TrackPropertyConditionResponseArgs struct {
-	// Track property condition operation
-	Operation pulumi.StringInput `pulumi:"operation"`
-	// Track property type
-	Property pulumi.StringInput `pulumi:"property"`
-	// Track property value
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Operation pulumi.StringInput    `pulumi:"operation"`
+	Property  pulumi.StringInput    `pulumi:"property"`
+	Value     pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (TrackPropertyConditionResponseArgs) ElementType() reflect.Type {
@@ -18558,7 +16441,6 @@ func (i TrackPropertyConditionResponseArray) ToTrackPropertyConditionResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(TrackPropertyConditionResponseArrayOutput)
 }
 
-// Class to specify one track property condition
 type TrackPropertyConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (TrackPropertyConditionResponseOutput) ElementType() reflect.Type {
@@ -18573,17 +16455,14 @@ func (o TrackPropertyConditionResponseOutput) ToTrackPropertyConditionResponseOu
 	return o
 }
 
-// Track property condition operation
 func (o TrackPropertyConditionResponseOutput) Operation() pulumi.StringOutput {
 	return o.ApplyT(func(v TrackPropertyConditionResponse) string { return v.Operation }).(pulumi.StringOutput)
 }
 
-// Track property type
 func (o TrackPropertyConditionResponseOutput) Property() pulumi.StringOutput {
 	return o.ApplyT(func(v TrackPropertyConditionResponse) string { return v.Property }).(pulumi.StringOutput)
 }
 
-// Track property value
 func (o TrackPropertyConditionResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrackPropertyConditionResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -18608,9 +16487,7 @@ func (o TrackPropertyConditionResponseArrayOutput) Index(i pulumi.IntInput) Trac
 	}).(TrackPropertyConditionResponseOutput)
 }
 
-// Class to select a track
 type TrackSelection struct {
-	// TrackSelections is a track property condition list which can specify track(s)
 	TrackSelections []TrackPropertyCondition `pulumi:"trackSelections"`
 }
 
@@ -18625,9 +16502,7 @@ type TrackSelectionInput interface {
 	ToTrackSelectionOutputWithContext(context.Context) TrackSelectionOutput
 }
 
-// Class to select a track
 type TrackSelectionArgs struct {
-	// TrackSelections is a track property condition list which can specify track(s)
 	TrackSelections TrackPropertyConditionArrayInput `pulumi:"trackSelections"`
 }
 
@@ -18668,7 +16543,6 @@ func (i TrackSelectionArray) ToTrackSelectionArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TrackSelectionArrayOutput)
 }
 
-// Class to select a track
 type TrackSelectionOutput struct{ *pulumi.OutputState }
 
 func (TrackSelectionOutput) ElementType() reflect.Type {
@@ -18683,7 +16557,6 @@ func (o TrackSelectionOutput) ToTrackSelectionOutputWithContext(ctx context.Cont
 	return o
 }
 
-// TrackSelections is a track property condition list which can specify track(s)
 func (o TrackSelectionOutput) TrackSelections() TrackPropertyConditionArrayOutput {
 	return o.ApplyT(func(v TrackSelection) []TrackPropertyCondition { return v.TrackSelections }).(TrackPropertyConditionArrayOutput)
 }
@@ -18708,9 +16581,7 @@ func (o TrackSelectionArrayOutput) Index(i pulumi.IntInput) TrackSelectionOutput
 	}).(TrackSelectionOutput)
 }
 
-// Class to select a track
 type TrackSelectionResponse struct {
-	// TrackSelections is a track property condition list which can specify track(s)
 	TrackSelections []TrackPropertyConditionResponse `pulumi:"trackSelections"`
 }
 
@@ -18725,9 +16596,7 @@ type TrackSelectionResponseInput interface {
 	ToTrackSelectionResponseOutputWithContext(context.Context) TrackSelectionResponseOutput
 }
 
-// Class to select a track
 type TrackSelectionResponseArgs struct {
-	// TrackSelections is a track property condition list which can specify track(s)
 	TrackSelections TrackPropertyConditionResponseArrayInput `pulumi:"trackSelections"`
 }
 
@@ -18768,7 +16637,6 @@ func (i TrackSelectionResponseArray) ToTrackSelectionResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TrackSelectionResponseArrayOutput)
 }
 
-// Class to select a track
 type TrackSelectionResponseOutput struct{ *pulumi.OutputState }
 
 func (TrackSelectionResponseOutput) ElementType() reflect.Type {
@@ -18783,7 +16651,6 @@ func (o TrackSelectionResponseOutput) ToTrackSelectionResponseOutputWithContext(
 	return o
 }
 
-// TrackSelections is a track property condition list which can specify track(s)
 func (o TrackSelectionResponseOutput) TrackSelections() TrackPropertyConditionResponseArrayOutput {
 	return o.ApplyT(func(v TrackSelectionResponse) []TrackPropertyConditionResponse { return v.TrackSelections }).(TrackPropertyConditionResponseArrayOutput)
 }
@@ -18808,14 +16675,10 @@ func (o TrackSelectionResponseArrayOutput) Index(i pulumi.IntInput) TrackSelecti
 	}).(TrackSelectionResponseOutput)
 }
 
-// Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
 type TransformOutputType struct {
-	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The default is stop.
-	OnError *string `pulumi:"onError"`
-	// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
-	Preset interface{} `pulumi:"preset"`
-	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
-	RelativePriority *string `pulumi:"relativePriority"`
+	OnError          *string     `pulumi:"onError"`
+	Preset           interface{} `pulumi:"preset"`
+	RelativePriority *string     `pulumi:"relativePriority"`
 }
 
 // TransformOutputTypeInput is an input type that accepts TransformOutputTypeArgs and TransformOutputTypeOutput values.
@@ -18829,13 +16692,9 @@ type TransformOutputTypeInput interface {
 	ToTransformOutputTypeOutputWithContext(context.Context) TransformOutputTypeOutput
 }
 
-// Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
 type TransformOutputTypeArgs struct {
-	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The default is stop.
-	OnError pulumi.StringPtrInput `pulumi:"onError"`
-	// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
-	Preset pulumi.Input `pulumi:"preset"`
-	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
+	OnError          pulumi.StringPtrInput `pulumi:"onError"`
+	Preset           pulumi.Input          `pulumi:"preset"`
 	RelativePriority pulumi.StringPtrInput `pulumi:"relativePriority"`
 }
 
@@ -18876,7 +16735,6 @@ func (i TransformOutputTypeArray) ToTransformOutputTypeArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputTypeArrayOutput)
 }
 
-// Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
 type TransformOutputTypeOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputTypeOutput) ElementType() reflect.Type {
@@ -18891,17 +16749,14 @@ func (o TransformOutputTypeOutput) ToTransformOutputTypeOutputWithContext(ctx co
 	return o
 }
 
-// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The default is stop.
 func (o TransformOutputTypeOutput) OnError() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputType) *string { return v.OnError }).(pulumi.StringPtrOutput)
 }
 
-// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
 func (o TransformOutputTypeOutput) Preset() pulumi.AnyOutput {
 	return o.ApplyT(func(v TransformOutputType) interface{} { return v.Preset }).(pulumi.AnyOutput)
 }
 
-// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
 func (o TransformOutputTypeOutput) RelativePriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputType) *string { return v.RelativePriority }).(pulumi.StringPtrOutput)
 }
@@ -18926,14 +16781,10 @@ func (o TransformOutputTypeArrayOutput) Index(i pulumi.IntInput) TransformOutput
 	}).(TransformOutputTypeOutput)
 }
 
-// Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
 type TransformOutputResponse struct {
-	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The default is stop.
-	OnError *string `pulumi:"onError"`
-	// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
-	Preset interface{} `pulumi:"preset"`
-	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
-	RelativePriority *string `pulumi:"relativePriority"`
+	OnError          *string     `pulumi:"onError"`
+	Preset           interface{} `pulumi:"preset"`
+	RelativePriority *string     `pulumi:"relativePriority"`
 }
 
 // TransformOutputResponseInput is an input type that accepts TransformOutputResponseArgs and TransformOutputResponseOutput values.
@@ -18947,13 +16798,9 @@ type TransformOutputResponseInput interface {
 	ToTransformOutputResponseOutputWithContext(context.Context) TransformOutputResponseOutput
 }
 
-// Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
 type TransformOutputResponseArgs struct {
-	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The default is stop.
-	OnError pulumi.StringPtrInput `pulumi:"onError"`
-	// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
-	Preset pulumi.Input `pulumi:"preset"`
-	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
+	OnError          pulumi.StringPtrInput `pulumi:"onError"`
+	Preset           pulumi.Input          `pulumi:"preset"`
 	RelativePriority pulumi.StringPtrInput `pulumi:"relativePriority"`
 }
 
@@ -18994,7 +16841,6 @@ func (i TransformOutputResponseArray) ToTransformOutputResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputResponseArrayOutput)
 }
 
-// Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
 type TransformOutputResponseOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputResponseOutput) ElementType() reflect.Type {
@@ -19009,17 +16855,14 @@ func (o TransformOutputResponseOutput) ToTransformOutputResponseOutputWithContex
 	return o
 }
 
-// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The default is stop.
 func (o TransformOutputResponseOutput) OnError() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputResponse) *string { return v.OnError }).(pulumi.StringPtrOutput)
 }
 
-// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
 func (o TransformOutputResponseOutput) Preset() pulumi.AnyOutput {
 	return o.ApplyT(func(v TransformOutputResponse) interface{} { return v.Preset }).(pulumi.AnyOutput)
 }
 
-// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
 func (o TransformOutputResponseOutput) RelativePriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputResponse) *string { return v.RelativePriority }).(pulumi.StringPtrOutput)
 }
@@ -19044,15 +16887,10 @@ func (o TransformOutputResponseArrayOutput) Index(i pulumi.IntInput) TransformOu
 	}).(TransformOutputResponseOutput)
 }
 
-// Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
 type TransportStreamFormat struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
-	FilenamePattern *string `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.TransportStreamFormat'.
-	OdataType string `pulumi:"odataType"`
-	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
-	OutputFiles []OutputFile `pulumi:"outputFiles"`
+	FilenamePattern *string      `pulumi:"filenamePattern"`
+	OdataType       string       `pulumi:"odataType"`
+	OutputFiles     []OutputFile `pulumi:"outputFiles"`
 }
 
 // TransportStreamFormatInput is an input type that accepts TransportStreamFormatArgs and TransportStreamFormatOutput values.
@@ -19066,15 +16904,10 @@ type TransportStreamFormatInput interface {
 	ToTransportStreamFormatOutputWithContext(context.Context) TransportStreamFormatOutput
 }
 
-// Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
 type TransportStreamFormatArgs struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.TransportStreamFormat'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
-	OutputFiles OutputFileArrayInput `pulumi:"outputFiles"`
+	OdataType       pulumi.StringInput    `pulumi:"odataType"`
+	OutputFiles     OutputFileArrayInput  `pulumi:"outputFiles"`
 }
 
 func (TransportStreamFormatArgs) ElementType() reflect.Type {
@@ -19089,7 +16922,6 @@ func (i TransportStreamFormatArgs) ToTransportStreamFormatOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TransportStreamFormatOutput)
 }
 
-// Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
 type TransportStreamFormatOutput struct{ *pulumi.OutputState }
 
 func (TransportStreamFormatOutput) ElementType() reflect.Type {
@@ -19104,31 +16936,22 @@ func (o TransportStreamFormatOutput) ToTransportStreamFormatOutputWithContext(ct
 	return o
 }
 
-// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o TransportStreamFormatOutput) FilenamePattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransportStreamFormat) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.TransportStreamFormat'.
 func (o TransportStreamFormatOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v TransportStreamFormat) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 func (o TransportStreamFormatOutput) OutputFiles() OutputFileArrayOutput {
 	return o.ApplyT(func(v TransportStreamFormat) []OutputFile { return v.OutputFiles }).(OutputFileArrayOutput)
 }
 
-// Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
 type TransportStreamFormatResponse struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
-	FilenamePattern *string `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.TransportStreamFormat'.
-	OdataType string `pulumi:"odataType"`
-	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
-	OutputFiles []OutputFileResponse `pulumi:"outputFiles"`
+	FilenamePattern *string              `pulumi:"filenamePattern"`
+	OdataType       string               `pulumi:"odataType"`
+	OutputFiles     []OutputFileResponse `pulumi:"outputFiles"`
 }
 
 // TransportStreamFormatResponseInput is an input type that accepts TransportStreamFormatResponseArgs and TransportStreamFormatResponseOutput values.
@@ -19142,15 +16965,10 @@ type TransportStreamFormatResponseInput interface {
 	ToTransportStreamFormatResponseOutputWithContext(context.Context) TransportStreamFormatResponseOutput
 }
 
-// Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
 type TransportStreamFormatResponseArgs struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
-	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.TransportStreamFormat'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
-	OutputFiles OutputFileResponseArrayInput `pulumi:"outputFiles"`
+	FilenamePattern pulumi.StringPtrInput        `pulumi:"filenamePattern"`
+	OdataType       pulumi.StringInput           `pulumi:"odataType"`
+	OutputFiles     OutputFileResponseArrayInput `pulumi:"outputFiles"`
 }
 
 func (TransportStreamFormatResponseArgs) ElementType() reflect.Type {
@@ -19165,7 +16983,6 @@ func (i TransportStreamFormatResponseArgs) ToTransportStreamFormatResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TransportStreamFormatResponseOutput)
 }
 
-// Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
 type TransportStreamFormatResponseOutput struct{ *pulumi.OutputState }
 
 func (TransportStreamFormatResponseOutput) ElementType() reflect.Type {
@@ -19180,33 +16997,23 @@ func (o TransportStreamFormatResponseOutput) ToTransportStreamFormatResponseOutp
 	return o
 }
 
-// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o TransportStreamFormatResponseOutput) FilenamePattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransportStreamFormatResponse) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.TransportStreamFormat'.
 func (o TransportStreamFormatResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v TransportStreamFormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 func (o TransportStreamFormatResponseOutput) OutputFiles() OutputFileResponseArrayOutput {
 	return o.ApplyT(func(v TransportStreamFormatResponse) []OutputFileResponse { return v.OutputFiles }).(OutputFileResponseArrayOutput)
 }
 
-// Describes the basic properties for encoding the input video.
 type Video struct {
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
-	OdataType string `pulumi:"odataType"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode *string `pulumi:"stretchMode"`
+	Label            *string `pulumi:"label"`
+	OdataType        string  `pulumi:"odataType"`
+	StretchMode      *string `pulumi:"stretchMode"`
 }
 
 // VideoInput is an input type that accepts VideoArgs and VideoOutput values.
@@ -19220,17 +17027,11 @@ type VideoInput interface {
 	ToVideoOutputWithContext(context.Context) VideoOutput
 }
 
-// Describes the basic properties for encoding the input video.
 type VideoArgs struct {
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+	Label            pulumi.StringPtrInput `pulumi:"label"`
+	OdataType        pulumi.StringInput    `pulumi:"odataType"`
+	StretchMode      pulumi.StringPtrInput `pulumi:"stretchMode"`
 }
 
 func (VideoArgs) ElementType() reflect.Type {
@@ -19245,7 +17046,6 @@ func (i VideoArgs) ToVideoOutputWithContext(ctx context.Context) VideoOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VideoOutput)
 }
 
-// Describes the basic properties for encoding the input video.
 type VideoOutput struct{ *pulumi.OutputState }
 
 func (VideoOutput) ElementType() reflect.Type {
@@ -19260,36 +17060,26 @@ func (o VideoOutput) ToVideoOutputWithContext(ctx context.Context) VideoOutput {
 	return o
 }
 
-// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 func (o VideoOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Video) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o VideoOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Video) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Video'.
 func (o VideoOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v Video) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 func (o VideoOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Video) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
-// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
 type VideoAnalyzerPreset struct {
-	// Whether to only extract audio insights when processing a video file.
-	AudioInsightsOnly *bool `pulumi:"audioInsightsOnly"`
-	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
-	AudioLanguage *string `pulumi:"audioLanguage"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.VideoAnalyzerPreset'.
-	OdataType string `pulumi:"odataType"`
+	AudioInsightsOnly *bool   `pulumi:"audioInsightsOnly"`
+	AudioLanguage     *string `pulumi:"audioLanguage"`
+	OdataType         string  `pulumi:"odataType"`
 }
 
 // VideoAnalyzerPresetInput is an input type that accepts VideoAnalyzerPresetArgs and VideoAnalyzerPresetOutput values.
@@ -19303,15 +17093,10 @@ type VideoAnalyzerPresetInput interface {
 	ToVideoAnalyzerPresetOutputWithContext(context.Context) VideoAnalyzerPresetOutput
 }
 
-// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
 type VideoAnalyzerPresetArgs struct {
-	// Whether to only extract audio insights when processing a video file.
-	AudioInsightsOnly pulumi.BoolPtrInput `pulumi:"audioInsightsOnly"`
-	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
-	AudioLanguage pulumi.StringPtrInput `pulumi:"audioLanguage"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.VideoAnalyzerPreset'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	AudioInsightsOnly pulumi.BoolPtrInput   `pulumi:"audioInsightsOnly"`
+	AudioLanguage     pulumi.StringPtrInput `pulumi:"audioLanguage"`
+	OdataType         pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (VideoAnalyzerPresetArgs) ElementType() reflect.Type {
@@ -19326,7 +17111,6 @@ func (i VideoAnalyzerPresetArgs) ToVideoAnalyzerPresetOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VideoAnalyzerPresetOutput)
 }
 
-// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
 type VideoAnalyzerPresetOutput struct{ *pulumi.OutputState }
 
 func (VideoAnalyzerPresetOutput) ElementType() reflect.Type {
@@ -19341,31 +17125,22 @@ func (o VideoAnalyzerPresetOutput) ToVideoAnalyzerPresetOutputWithContext(ctx co
 	return o
 }
 
-// Whether to only extract audio insights when processing a video file.
 func (o VideoAnalyzerPresetOutput) AudioInsightsOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VideoAnalyzerPreset) *bool { return v.AudioInsightsOnly }).(pulumi.BoolPtrOutput)
 }
 
-// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
 func (o VideoAnalyzerPresetOutput) AudioLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoAnalyzerPreset) *string { return v.AudioLanguage }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.VideoAnalyzerPreset'.
 func (o VideoAnalyzerPresetOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v VideoAnalyzerPreset) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
 type VideoAnalyzerPresetResponse struct {
-	// Whether to only extract audio insights when processing a video file.
-	AudioInsightsOnly *bool `pulumi:"audioInsightsOnly"`
-	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
-	AudioLanguage *string `pulumi:"audioLanguage"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.VideoAnalyzerPreset'.
-	OdataType string `pulumi:"odataType"`
+	AudioInsightsOnly *bool   `pulumi:"audioInsightsOnly"`
+	AudioLanguage     *string `pulumi:"audioLanguage"`
+	OdataType         string  `pulumi:"odataType"`
 }
 
 // VideoAnalyzerPresetResponseInput is an input type that accepts VideoAnalyzerPresetResponseArgs and VideoAnalyzerPresetResponseOutput values.
@@ -19379,15 +17154,10 @@ type VideoAnalyzerPresetResponseInput interface {
 	ToVideoAnalyzerPresetResponseOutputWithContext(context.Context) VideoAnalyzerPresetResponseOutput
 }
 
-// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
 type VideoAnalyzerPresetResponseArgs struct {
-	// Whether to only extract audio insights when processing a video file.
-	AudioInsightsOnly pulumi.BoolPtrInput `pulumi:"audioInsightsOnly"`
-	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
-	AudioLanguage pulumi.StringPtrInput `pulumi:"audioLanguage"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.VideoAnalyzerPreset'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	AudioInsightsOnly pulumi.BoolPtrInput   `pulumi:"audioInsightsOnly"`
+	AudioLanguage     pulumi.StringPtrInput `pulumi:"audioLanguage"`
+	OdataType         pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (VideoAnalyzerPresetResponseArgs) ElementType() reflect.Type {
@@ -19402,7 +17172,6 @@ func (i VideoAnalyzerPresetResponseArgs) ToVideoAnalyzerPresetResponseOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VideoAnalyzerPresetResponseOutput)
 }
 
-// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
 type VideoAnalyzerPresetResponseOutput struct{ *pulumi.OutputState }
 
 func (VideoAnalyzerPresetResponseOutput) ElementType() reflect.Type {
@@ -19417,45 +17186,29 @@ func (o VideoAnalyzerPresetResponseOutput) ToVideoAnalyzerPresetResponseOutputWi
 	return o
 }
 
-// Whether to only extract audio insights when processing a video file.
 func (o VideoAnalyzerPresetResponseOutput) AudioInsightsOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VideoAnalyzerPresetResponse) *bool { return v.AudioInsightsOnly }).(pulumi.BoolPtrOutput)
 }
 
-// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
 func (o VideoAnalyzerPresetResponseOutput) AudioLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoAnalyzerPresetResponse) *string { return v.AudioLanguage }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.VideoAnalyzerPreset'.
 func (o VideoAnalyzerPresetResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v VideoAnalyzerPresetResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Describes the properties of a video overlay.
 type VideoOverlay struct {
-	// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
-	AudioGainLevel *float64 `pulumi:"audioGainLevel"`
-	// An optional rectangular window used to crop the overlay image or video.
-	CropRectangle *Rectangle `pulumi:"cropRectangle"`
-	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
-	End *string `pulumi:"end"`
-	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
-	FadeInDuration *string `pulumi:"fadeInDuration"`
-	// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
-	FadeOutDuration *string `pulumi:"fadeOutDuration"`
-	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
-	InputLabel *string `pulumi:"inputLabel"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.VideoOverlay'.
-	OdataType string `pulumi:"odataType"`
-	// The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
-	Opacity *float64 `pulumi:"opacity"`
-	// The location in the input video where the overlay is applied.
-	Position *Rectangle `pulumi:"position"`
-	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
-	Start *string `pulumi:"start"`
+	AudioGainLevel  *float64   `pulumi:"audioGainLevel"`
+	CropRectangle   *Rectangle `pulumi:"cropRectangle"`
+	End             *string    `pulumi:"end"`
+	FadeInDuration  *string    `pulumi:"fadeInDuration"`
+	FadeOutDuration *string    `pulumi:"fadeOutDuration"`
+	InputLabel      *string    `pulumi:"inputLabel"`
+	OdataType       string     `pulumi:"odataType"`
+	Opacity         *float64   `pulumi:"opacity"`
+	Position        *Rectangle `pulumi:"position"`
+	Start           *string    `pulumi:"start"`
 }
 
 // VideoOverlayInput is an input type that accepts VideoOverlayArgs and VideoOverlayOutput values.
@@ -19469,29 +17222,17 @@ type VideoOverlayInput interface {
 	ToVideoOverlayOutputWithContext(context.Context) VideoOverlayOutput
 }
 
-// Describes the properties of a video overlay.
 type VideoOverlayArgs struct {
-	// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
-	AudioGainLevel pulumi.Float64PtrInput `pulumi:"audioGainLevel"`
-	// An optional rectangular window used to crop the overlay image or video.
-	CropRectangle RectanglePtrInput `pulumi:"cropRectangle"`
-	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
-	End pulumi.StringPtrInput `pulumi:"end"`
-	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
-	FadeInDuration pulumi.StringPtrInput `pulumi:"fadeInDuration"`
-	// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
-	FadeOutDuration pulumi.StringPtrInput `pulumi:"fadeOutDuration"`
-	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
-	InputLabel pulumi.StringPtrInput `pulumi:"inputLabel"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.VideoOverlay'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
-	Opacity pulumi.Float64PtrInput `pulumi:"opacity"`
-	// The location in the input video where the overlay is applied.
-	Position RectanglePtrInput `pulumi:"position"`
-	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
-	Start pulumi.StringPtrInput `pulumi:"start"`
+	AudioGainLevel  pulumi.Float64PtrInput `pulumi:"audioGainLevel"`
+	CropRectangle   RectanglePtrInput      `pulumi:"cropRectangle"`
+	End             pulumi.StringPtrInput  `pulumi:"end"`
+	FadeInDuration  pulumi.StringPtrInput  `pulumi:"fadeInDuration"`
+	FadeOutDuration pulumi.StringPtrInput  `pulumi:"fadeOutDuration"`
+	InputLabel      pulumi.StringPtrInput  `pulumi:"inputLabel"`
+	OdataType       pulumi.StringInput     `pulumi:"odataType"`
+	Opacity         pulumi.Float64PtrInput `pulumi:"opacity"`
+	Position        RectanglePtrInput      `pulumi:"position"`
+	Start           pulumi.StringPtrInput  `pulumi:"start"`
 }
 
 func (VideoOverlayArgs) ElementType() reflect.Type {
@@ -19506,7 +17247,6 @@ func (i VideoOverlayArgs) ToVideoOverlayOutputWithContext(ctx context.Context) V
 	return pulumi.ToOutputWithContext(ctx, i).(VideoOverlayOutput)
 }
 
-// Describes the properties of a video overlay.
 type VideoOverlayOutput struct{ *pulumi.OutputState }
 
 func (VideoOverlayOutput) ElementType() reflect.Type {
@@ -19521,80 +17261,57 @@ func (o VideoOverlayOutput) ToVideoOverlayOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
 func (o VideoOverlayOutput) AudioGainLevel() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v VideoOverlay) *float64 { return v.AudioGainLevel }).(pulumi.Float64PtrOutput)
 }
 
-// An optional rectangular window used to crop the overlay image or video.
 func (o VideoOverlayOutput) CropRectangle() RectanglePtrOutput {
 	return o.ApplyT(func(v VideoOverlay) *Rectangle { return v.CropRectangle }).(RectanglePtrOutput)
 }
 
-// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
 func (o VideoOverlayOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoOverlay) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
-// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
 func (o VideoOverlayOutput) FadeInDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoOverlay) *string { return v.FadeInDuration }).(pulumi.StringPtrOutput)
 }
 
-// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
 func (o VideoOverlayOutput) FadeOutDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoOverlay) *string { return v.FadeOutDuration }).(pulumi.StringPtrOutput)
 }
 
-// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
 func (o VideoOverlayOutput) InputLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoOverlay) *string { return v.InputLabel }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.VideoOverlay'.
 func (o VideoOverlayOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v VideoOverlay) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
 func (o VideoOverlayOutput) Opacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v VideoOverlay) *float64 { return v.Opacity }).(pulumi.Float64PtrOutput)
 }
 
-// The location in the input video where the overlay is applied.
 func (o VideoOverlayOutput) Position() RectanglePtrOutput {
 	return o.ApplyT(func(v VideoOverlay) *Rectangle { return v.Position }).(RectanglePtrOutput)
 }
 
-// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
 func (o VideoOverlayOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoOverlay) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties of a video overlay.
 type VideoOverlayResponse struct {
-	// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
-	AudioGainLevel *float64 `pulumi:"audioGainLevel"`
-	// An optional rectangular window used to crop the overlay image or video.
-	CropRectangle *RectangleResponse `pulumi:"cropRectangle"`
-	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
-	End *string `pulumi:"end"`
-	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
-	FadeInDuration *string `pulumi:"fadeInDuration"`
-	// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
-	FadeOutDuration *string `pulumi:"fadeOutDuration"`
-	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
-	InputLabel *string `pulumi:"inputLabel"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.VideoOverlay'.
-	OdataType string `pulumi:"odataType"`
-	// The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
-	Opacity *float64 `pulumi:"opacity"`
-	// The location in the input video where the overlay is applied.
-	Position *RectangleResponse `pulumi:"position"`
-	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
-	Start *string `pulumi:"start"`
+	AudioGainLevel  *float64           `pulumi:"audioGainLevel"`
+	CropRectangle   *RectangleResponse `pulumi:"cropRectangle"`
+	End             *string            `pulumi:"end"`
+	FadeInDuration  *string            `pulumi:"fadeInDuration"`
+	FadeOutDuration *string            `pulumi:"fadeOutDuration"`
+	InputLabel      *string            `pulumi:"inputLabel"`
+	OdataType       string             `pulumi:"odataType"`
+	Opacity         *float64           `pulumi:"opacity"`
+	Position        *RectangleResponse `pulumi:"position"`
+	Start           *string            `pulumi:"start"`
 }
 
 // VideoOverlayResponseInput is an input type that accepts VideoOverlayResponseArgs and VideoOverlayResponseOutput values.
@@ -19608,29 +17325,17 @@ type VideoOverlayResponseInput interface {
 	ToVideoOverlayResponseOutputWithContext(context.Context) VideoOverlayResponseOutput
 }
 
-// Describes the properties of a video overlay.
 type VideoOverlayResponseArgs struct {
-	// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
-	AudioGainLevel pulumi.Float64PtrInput `pulumi:"audioGainLevel"`
-	// An optional rectangular window used to crop the overlay image or video.
-	CropRectangle RectangleResponsePtrInput `pulumi:"cropRectangle"`
-	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
-	End pulumi.StringPtrInput `pulumi:"end"`
-	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
-	FadeInDuration pulumi.StringPtrInput `pulumi:"fadeInDuration"`
-	// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
-	FadeOutDuration pulumi.StringPtrInput `pulumi:"fadeOutDuration"`
-	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
-	InputLabel pulumi.StringPtrInput `pulumi:"inputLabel"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.VideoOverlay'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
-	Opacity pulumi.Float64PtrInput `pulumi:"opacity"`
-	// The location in the input video where the overlay is applied.
-	Position RectangleResponsePtrInput `pulumi:"position"`
-	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
-	Start pulumi.StringPtrInput `pulumi:"start"`
+	AudioGainLevel  pulumi.Float64PtrInput    `pulumi:"audioGainLevel"`
+	CropRectangle   RectangleResponsePtrInput `pulumi:"cropRectangle"`
+	End             pulumi.StringPtrInput     `pulumi:"end"`
+	FadeInDuration  pulumi.StringPtrInput     `pulumi:"fadeInDuration"`
+	FadeOutDuration pulumi.StringPtrInput     `pulumi:"fadeOutDuration"`
+	InputLabel      pulumi.StringPtrInput     `pulumi:"inputLabel"`
+	OdataType       pulumi.StringInput        `pulumi:"odataType"`
+	Opacity         pulumi.Float64PtrInput    `pulumi:"opacity"`
+	Position        RectangleResponsePtrInput `pulumi:"position"`
+	Start           pulumi.StringPtrInput     `pulumi:"start"`
 }
 
 func (VideoOverlayResponseArgs) ElementType() reflect.Type {
@@ -19645,7 +17350,6 @@ func (i VideoOverlayResponseArgs) ToVideoOverlayResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(VideoOverlayResponseOutput)
 }
 
-// Describes the properties of a video overlay.
 type VideoOverlayResponseOutput struct{ *pulumi.OutputState }
 
 func (VideoOverlayResponseOutput) ElementType() reflect.Type {
@@ -19660,68 +17364,51 @@ func (o VideoOverlayResponseOutput) ToVideoOverlayResponseOutputWithContext(ctx 
 	return o
 }
 
-// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
 func (o VideoOverlayResponseOutput) AudioGainLevel() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v VideoOverlayResponse) *float64 { return v.AudioGainLevel }).(pulumi.Float64PtrOutput)
 }
 
-// An optional rectangular window used to crop the overlay image or video.
 func (o VideoOverlayResponseOutput) CropRectangle() RectangleResponsePtrOutput {
 	return o.ApplyT(func(v VideoOverlayResponse) *RectangleResponse { return v.CropRectangle }).(RectangleResponsePtrOutput)
 }
 
-// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
 func (o VideoOverlayResponseOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoOverlayResponse) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
-// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
 func (o VideoOverlayResponseOutput) FadeInDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoOverlayResponse) *string { return v.FadeInDuration }).(pulumi.StringPtrOutput)
 }
 
-// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
 func (o VideoOverlayResponseOutput) FadeOutDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoOverlayResponse) *string { return v.FadeOutDuration }).(pulumi.StringPtrOutput)
 }
 
-// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
 func (o VideoOverlayResponseOutput) InputLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoOverlayResponse) *string { return v.InputLabel }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.VideoOverlay'.
 func (o VideoOverlayResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v VideoOverlayResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
 func (o VideoOverlayResponseOutput) Opacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v VideoOverlayResponse) *float64 { return v.Opacity }).(pulumi.Float64PtrOutput)
 }
 
-// The location in the input video where the overlay is applied.
 func (o VideoOverlayResponseOutput) Position() RectangleResponsePtrOutput {
 	return o.ApplyT(func(v VideoOverlayResponse) *RectangleResponse { return v.Position }).(RectangleResponsePtrOutput)
 }
 
-// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
 func (o VideoOverlayResponseOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoOverlayResponse) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
 
-// Describes the basic properties for encoding the input video.
 type VideoResponse struct {
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
-	OdataType string `pulumi:"odataType"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode *string `pulumi:"stretchMode"`
+	Label            *string `pulumi:"label"`
+	OdataType        string  `pulumi:"odataType"`
+	StretchMode      *string `pulumi:"stretchMode"`
 }
 
 // VideoResponseInput is an input type that accepts VideoResponseArgs and VideoResponseOutput values.
@@ -19735,17 +17422,11 @@ type VideoResponseInput interface {
 	ToVideoResponseOutputWithContext(context.Context) VideoResponseOutput
 }
 
-// Describes the basic properties for encoding the input video.
 type VideoResponseArgs struct {
-	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
-	// An optional label for the codec. The label can be used to control muxing behavior.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+	Label            pulumi.StringPtrInput `pulumi:"label"`
+	OdataType        pulumi.StringInput    `pulumi:"odataType"`
+	StretchMode      pulumi.StringPtrInput `pulumi:"stretchMode"`
 }
 
 func (VideoResponseArgs) ElementType() reflect.Type {
@@ -19760,7 +17441,6 @@ func (i VideoResponseArgs) ToVideoResponseOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(VideoResponseOutput)
 }
 
-// Describes the basic properties for encoding the input video.
 type VideoResponseOutput struct{ *pulumi.OutputState }
 
 func (VideoResponseOutput) ElementType() reflect.Type {
@@ -19775,23 +17455,18 @@ func (o VideoResponseOutput) ToVideoResponseOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
 func (o VideoResponseOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoResponse) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
-// An optional label for the codec. The label can be used to control muxing behavior.
 func (o VideoResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Video'.
 func (o VideoResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v VideoResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 func (o VideoResponseOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoResponse) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }

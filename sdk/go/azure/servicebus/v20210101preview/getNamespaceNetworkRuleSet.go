@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of NetworkRuleSet resource.
 func LookupNamespaceNetworkRuleSet(ctx *pulumi.Context, args *LookupNamespaceNetworkRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceNetworkRuleSetResult, error) {
 	var rv LookupNamespaceNetworkRuleSetResult
 	err := ctx.Invoke("azure-native:servicebus/v20210101preview:getNamespaceNetworkRuleSet", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupNamespaceNetworkRuleSet(ctx *pulumi.Context, args *LookupNamespaceNet
 }
 
 type LookupNamespaceNetworkRuleSetArgs struct {
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
+	NamespaceName     string `pulumi:"namespaceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Description of NetworkRuleSet resource.
 type LookupNamespaceNetworkRuleSetResult struct {
-	// Default Action for Network Rule Set
-	DefaultAction *string `pulumi:"defaultAction"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// List of IpRules
-	IpRules []NWRuleSetIpRulesResponse `pulumi:"ipRules"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// List VirtualNetwork Rules
+	DefaultAction       *string                                `pulumi:"defaultAction"`
+	Id                  string                                 `pulumi:"id"`
+	IpRules             []NWRuleSetIpRulesResponse             `pulumi:"ipRules"`
+	Name                string                                 `pulumi:"name"`
+	SystemData          SystemDataResponse                     `pulumi:"systemData"`
+	Type                string                                 `pulumi:"type"`
 	VirtualNetworkRules []NWRuleSetVirtualNetworkRulesResponse `pulumi:"virtualNetworkRules"`
 }

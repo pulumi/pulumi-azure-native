@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Database.
 type Database struct {
 	pulumi.CustomResourceState
 
-	// The charset of the database.
-	Charset pulumi.StringPtrOutput `pulumi:"charset"`
-	// The collation of the database.
+	Charset   pulumi.StringPtrOutput `pulumi:"charset"`
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name      pulumi.StringOutput    `pulumi:"name"`
+	Type      pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
@@ -82,30 +77,20 @@ func (DatabaseState) ElementType() reflect.Type {
 }
 
 type databaseArgs struct {
-	// The charset of the database.
-	Charset *string `pulumi:"charset"`
-	// The collation of the database.
-	Collation *string `pulumi:"collation"`
-	// The name of the database.
-	DatabaseName *string `pulumi:"databaseName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	Charset           *string `pulumi:"charset"`
+	Collation         *string `pulumi:"collation"`
+	DatabaseName      *string `pulumi:"databaseName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServerName        string  `pulumi:"serverName"`
 }
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
-	// The charset of the database.
-	Charset pulumi.StringPtrInput
-	// The collation of the database.
-	Collation pulumi.StringPtrInput
-	// The name of the database.
-	DatabaseName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	Charset           pulumi.StringPtrInput
+	Collation         pulumi.StringPtrInput
+	DatabaseName      pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
+	ServerName        pulumi.StringInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {
@@ -131,9 +116,7 @@ func (i *Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseOutput)
 }
 
-type DatabaseOutput struct {
-	*pulumi.OutputState
-}
+type DatabaseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Database)(nil))

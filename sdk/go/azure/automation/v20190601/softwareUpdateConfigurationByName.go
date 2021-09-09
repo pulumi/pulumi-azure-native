@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Software update configuration properties.
 type SoftwareUpdateConfigurationByName struct {
 	pulumi.CustomResourceState
 
-	// CreatedBy property, which only appears in the response.
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// Creation time of the resource, which only appears in the response.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// Details of provisioning error
-	Error ErrorResponseResponsePtrOutput `pulumi:"error"`
-	// LastModifiedBy property, which only appears in the response.
-	LastModifiedBy pulumi.StringOutput `pulumi:"lastModifiedBy"`
-	// Last time resource was modified, which only appears in the response.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state for the software update configuration, which only appears in the response.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Schedule information for the Software update configuration
-	ScheduleInfo SUCSchedulePropertiesResponseOutput `pulumi:"scheduleInfo"`
-	// Tasks information for the Software update configuration.
-	Tasks SoftwareUpdateConfigurationTasksResponsePtrOutput `pulumi:"tasks"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// update specific properties for the Software update configuration
-	UpdateConfiguration UpdateConfigurationResponseOutput `pulumi:"updateConfiguration"`
+	CreatedBy           pulumi.StringOutput                               `pulumi:"createdBy"`
+	CreationTime        pulumi.StringOutput                               `pulumi:"creationTime"`
+	Error               ErrorResponseResponsePtrOutput                    `pulumi:"error"`
+	LastModifiedBy      pulumi.StringOutput                               `pulumi:"lastModifiedBy"`
+	LastModifiedTime    pulumi.StringOutput                               `pulumi:"lastModifiedTime"`
+	Name                pulumi.StringOutput                               `pulumi:"name"`
+	ProvisioningState   pulumi.StringOutput                               `pulumi:"provisioningState"`
+	ScheduleInfo        SUCSchedulePropertiesResponseOutput               `pulumi:"scheduleInfo"`
+	Tasks               SoftwareUpdateConfigurationTasksResponsePtrOutput `pulumi:"tasks"`
+	Type                pulumi.StringOutput                               `pulumi:"type"`
+	UpdateConfiguration UpdateConfigurationResponseOutput                 `pulumi:"updateConfiguration"`
 }
 
 // NewSoftwareUpdateConfigurationByName registers a new resource with the given unique name, arguments, and options.
@@ -108,38 +96,24 @@ func (SoftwareUpdateConfigurationByNameState) ElementType() reflect.Type {
 }
 
 type softwareUpdateConfigurationByNameArgs struct {
-	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Details of provisioning error
-	Error *ErrorResponse `pulumi:"error"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Schedule information for the Software update configuration
-	ScheduleInfo SUCScheduleProperties `pulumi:"scheduleInfo"`
-	// The name of the software update configuration to be created.
-	SoftwareUpdateConfigurationName *string `pulumi:"softwareUpdateConfigurationName"`
-	// Tasks information for the Software update configuration.
-	Tasks *SoftwareUpdateConfigurationTasks `pulumi:"tasks"`
-	// update specific properties for the Software update configuration
-	UpdateConfiguration UpdateConfiguration `pulumi:"updateConfiguration"`
+	AutomationAccountName           string                            `pulumi:"automationAccountName"`
+	Error                           *ErrorResponse                    `pulumi:"error"`
+	ResourceGroupName               string                            `pulumi:"resourceGroupName"`
+	ScheduleInfo                    SUCScheduleProperties             `pulumi:"scheduleInfo"`
+	SoftwareUpdateConfigurationName *string                           `pulumi:"softwareUpdateConfigurationName"`
+	Tasks                           *SoftwareUpdateConfigurationTasks `pulumi:"tasks"`
+	UpdateConfiguration             UpdateConfiguration               `pulumi:"updateConfiguration"`
 }
 
 // The set of arguments for constructing a SoftwareUpdateConfigurationByName resource.
 type SoftwareUpdateConfigurationByNameArgs struct {
-	// The name of the automation account.
-	AutomationAccountName pulumi.StringInput
-	// Details of provisioning error
-	Error ErrorResponsePtrInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
-	// Schedule information for the Software update configuration
-	ScheduleInfo SUCSchedulePropertiesInput
-	// The name of the software update configuration to be created.
+	AutomationAccountName           pulumi.StringInput
+	Error                           ErrorResponsePtrInput
+	ResourceGroupName               pulumi.StringInput
+	ScheduleInfo                    SUCSchedulePropertiesInput
 	SoftwareUpdateConfigurationName pulumi.StringPtrInput
-	// Tasks information for the Software update configuration.
-	Tasks SoftwareUpdateConfigurationTasksPtrInput
-	// update specific properties for the Software update configuration
-	UpdateConfiguration UpdateConfigurationInput
+	Tasks                           SoftwareUpdateConfigurationTasksPtrInput
+	UpdateConfiguration             UpdateConfigurationInput
 }
 
 func (SoftwareUpdateConfigurationByNameArgs) ElementType() reflect.Type {
@@ -165,9 +139,7 @@ func (i *SoftwareUpdateConfigurationByName) ToSoftwareUpdateConfigurationByNameO
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationByNameOutput)
 }
 
-type SoftwareUpdateConfigurationByNameOutput struct {
-	*pulumi.OutputState
-}
+type SoftwareUpdateConfigurationByNameOutput struct{ *pulumi.OutputState }
 
 func (SoftwareUpdateConfigurationByNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SoftwareUpdateConfigurationByName)(nil))

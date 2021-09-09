@@ -194,9 +194,7 @@ func (i *KubeEnvironment) ToKubeEnvironmentOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(KubeEnvironmentOutput)
 }
 
-type KubeEnvironmentOutput struct {
-	*pulumi.OutputState
-}
+type KubeEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (KubeEnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubeEnvironment)(nil))

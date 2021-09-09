@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes the result of the request to view entities.
 func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOption) (*GetEntityResult, error) {
 	var rv GetEntityResult
 	err := ctx.Invoke("azure-native:management/v20180101preview:getEntity", args, &rv, opts...)
@@ -18,17 +17,12 @@ func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOp
 }
 
 type GetEntityArgs struct {
-	// A filter which allows the call to be filtered for a specific group.
 	GroupName *string `pulumi:"groupName"`
-	// Page continuation token is only used if a previous operation returned a partial result.
-	// If a previous response contains a nextLink element, the value of the nextLink element will include a token parameter that specifies a starting point to use for subsequent calls.
 	Skiptoken *string `pulumi:"skiptoken"`
 }
 
 // Describes the result of the request to view entities.
 type GetEntityResult struct {
-	// The URL to use for getting the next set of results.
-	NextLink string `pulumi:"nextLink"`
-	// The list of entities.
-	Value []EntityInfoResponse `pulumi:"value"`
+	NextLink string               `pulumi:"nextLink"`
+	Value    []EntityInfoResponse `pulumi:"value"`
 }

@@ -156,9 +156,7 @@ func (i *Blueprint) ToBlueprintOutputWithContext(ctx context.Context) BlueprintO
 	return pulumi.ToOutputWithContext(ctx, i).(BlueprintOutput)
 }
 
-type BlueprintOutput struct {
-	*pulumi.OutputState
-}
+type BlueprintOutput struct{ *pulumi.OutputState }
 
 func (BlueprintOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Blueprint)(nil))

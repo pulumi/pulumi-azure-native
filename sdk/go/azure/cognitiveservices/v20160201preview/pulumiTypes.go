@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The SKU of the cognitive services account.
 type Sku struct {
-	// Gets or sets the sku name. Required for account creation, optional for update.
 	Name string `pulumi:"name"`
 }
 
@@ -27,9 +25,7 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU of the cognitive services account.
 type SkuArgs struct {
-	// Gets or sets the sku name. Required for account creation, optional for update.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -86,7 +82,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU of the cognitive services account.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// Gets or sets the sku name. Required for account creation, optional for update.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -131,10 +125,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// Gets or sets the sku name. Required for account creation, optional for update.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -144,11 +143,8 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the cognitive services account.
 type SkuResponse struct {
-	// Gets or sets the sku name. Required for account creation, optional for update.
 	Name string `pulumi:"name"`
-	// Gets the sku tier. This is based on the SKU name.
 	Tier string `pulumi:"tier"`
 }
 
@@ -163,11 +159,8 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU of the cognitive services account.
 type SkuResponseArgs struct {
-	// Gets or sets the sku name. Required for account creation, optional for update.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Gets the sku tier. This is based on the SKU name.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -224,7 +217,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU of the cognitive services account.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -244,17 +236,15 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// Gets or sets the sku name. Required for account creation, optional for update.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Gets the sku tier. This is based on the SKU name.
 func (o SkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -274,10 +264,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// Gets or sets the sku name. Required for account creation, optional for update.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -287,7 +282,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the sku tier. This is based on the SKU name.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

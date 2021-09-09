@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure SQL DB Server Outbound Firewall Rule.
 func LookupOutboundFirewallRule(ctx *pulumi.Context, args *LookupOutboundFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupOutboundFirewallRuleResult, error) {
 	var rv LookupOutboundFirewallRuleResult
 	err := ctx.Invoke("azure-native:sql/v20210201preview:getOutboundFirewallRule", args, &rv, opts...)
@@ -18,21 +17,15 @@ func LookupOutboundFirewallRule(ctx *pulumi.Context, args *LookupOutboundFirewal
 }
 
 type LookupOutboundFirewallRuleArgs struct {
-	OutboundRuleFqdn string `pulumi:"outboundRuleFqdn"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	OutboundRuleFqdn  string `pulumi:"outboundRuleFqdn"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ServerName        string `pulumi:"serverName"`
 }
 
 // An Azure SQL DB Server Outbound Firewall Rule.
 type LookupOutboundFirewallRuleResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The state of the outbound rule.
+	Id                string `pulumi:"id"`
+	Name              string `pulumi:"name"`
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type              string `pulumi:"type"`
 }

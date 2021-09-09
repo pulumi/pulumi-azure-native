@@ -14,17 +14,13 @@ import (
 type SubAccount struct {
 	pulumi.CustomResourceState
 
-	Identity IdentityPropertiesResponsePtrOutput `pulumi:"identity"`
-	Location pulumi.StringOutput                 `pulumi:"location"`
-	// Name of the monitor resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties specific to the monitor resource.
-	Properties MonitorPropertiesResponseOutput `pulumi:"properties"`
-	// The system metadata relating to this resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	Tags       pulumi.StringMapOutput   `pulumi:"tags"`
-	// The type of the monitor resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity   IdentityPropertiesResponsePtrOutput `pulumi:"identity"`
+	Location   pulumi.StringOutput                 `pulumi:"location"`
+	Name       pulumi.StringOutput                 `pulumi:"name"`
+	Properties MonitorPropertiesResponseOutput     `pulumi:"properties"`
+	SystemData SystemDataResponseOutput            `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput              `pulumi:"tags"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewSubAccount registers a new resource with the given unique name, arguments, and options.
@@ -90,32 +86,24 @@ func (SubAccountState) ElementType() reflect.Type {
 }
 
 type subAccountArgs struct {
-	Identity *IdentityProperties `pulumi:"identity"`
-	Location *string             `pulumi:"location"`
-	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
-	// Properties specific to the monitor resource.
-	Properties *MonitorProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Sub Account resource name
-	SubAccountName *string           `pulumi:"subAccountName"`
-	Tags           map[string]string `pulumi:"tags"`
+	Identity          *IdentityProperties `pulumi:"identity"`
+	Location          *string             `pulumi:"location"`
+	MonitorName       string              `pulumi:"monitorName"`
+	Properties        *MonitorProperties  `pulumi:"properties"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	SubAccountName    *string             `pulumi:"subAccountName"`
+	Tags              map[string]string   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SubAccount resource.
 type SubAccountArgs struct {
-	Identity IdentityPropertiesPtrInput
-	Location pulumi.StringPtrInput
-	// Monitor resource name
-	MonitorName pulumi.StringInput
-	// Properties specific to the monitor resource.
-	Properties MonitorPropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
+	Identity          IdentityPropertiesPtrInput
+	Location          pulumi.StringPtrInput
+	MonitorName       pulumi.StringInput
+	Properties        MonitorPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Sub Account resource name
-	SubAccountName pulumi.StringPtrInput
-	Tags           pulumi.StringMapInput
+	SubAccountName    pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (SubAccountArgs) ElementType() reflect.Type {
@@ -141,9 +129,7 @@ func (i *SubAccount) ToSubAccountOutputWithContext(ctx context.Context) SubAccou
 	return pulumi.ToOutputWithContext(ctx, i).(SubAccountOutput)
 }
 
-type SubAccountOutput struct {
-	*pulumi.OutputState
-}
+type SubAccountOutput struct{ *pulumi.OutputState }
 
 func (SubAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubAccount)(nil))

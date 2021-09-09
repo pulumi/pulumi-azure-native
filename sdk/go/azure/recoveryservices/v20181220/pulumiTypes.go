@@ -84,71 +84,41 @@ func (o AADPropertiesOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 type WorkloadCrrAccessTokenResponse struct {
-	// Access token used for authentication
-	AccessTokenString *string `pulumi:"accessTokenString"`
-	// Active region name of BMS Stamp
-	BMSActiveRegion *string `pulumi:"bMSActiveRegion"`
-	// Backup Management Type
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Container Id
-	ContainerId *string `pulumi:"containerId"`
-	// Container Unique name
-	ContainerName *string `pulumi:"containerName"`
-	// Container Type
-	ContainerType *string `pulumi:"containerType"`
-	// CoordinatorServiceStampId to be used by BCM in restore call
-	CoordinatorServiceStampId *string `pulumi:"coordinatorServiceStampId"`
-	// CoordinatorServiceStampUri to be used by BCM in restore call
-	CoordinatorServiceStampUri *string `pulumi:"coordinatorServiceStampUri"`
-	// Datasource Container Unique Name
-	DatasourceContainerName *string `pulumi:"datasourceContainerName"`
-	// Datasource Id
-	DatasourceId *string `pulumi:"datasourceId"`
-	// Datasource Friendly Name
-	DatasourceName *string `pulumi:"datasourceName"`
-	// Datasource Type
-	DatasourceType *string `pulumi:"datasourceType"`
-	// Type of the specific object - used for deserializing
-	// Expected value is 'WorkloadCrrAccessToken'.
-	ObjectType string `pulumi:"objectType"`
-	// Policy Id
-	PolicyId *string `pulumi:"policyId"`
-	// Policy Name
-	PolicyName                                  *string `pulumi:"policyName"`
-	ProtectableObjectContainerHostOsName        *string `pulumi:"protectableObjectContainerHostOsName"`
-	ProtectableObjectFriendlyName               *string `pulumi:"protectableObjectFriendlyName"`
-	ProtectableObjectParentLogicalContainerName *string `pulumi:"protectableObjectParentLogicalContainerName"`
-	ProtectableObjectProtectionState            *string `pulumi:"protectableObjectProtectionState"`
-	ProtectableObjectUniqueName                 *string `pulumi:"protectableObjectUniqueName"`
-	ProtectableObjectWorkloadType               *string `pulumi:"protectableObjectWorkloadType"`
-	// Protected item container id
-	ProtectionContainerId *float64 `pulumi:"protectionContainerId"`
-	// ProtectionServiceStampId to be used by BCM in restore call
-	ProtectionServiceStampId *string `pulumi:"protectionServiceStampId"`
-	// ProtectionServiceStampUri to be used by BCM in restore call
-	ProtectionServiceStampUri *string `pulumi:"protectionServiceStampUri"`
-	// Recovery Point Id
-	RecoveryPointId *string `pulumi:"recoveryPointId"`
-	// Recovery Point Time
-	RecoveryPointTime *string `pulumi:"recoveryPointTime"`
-	// Resource Group name of the source vault
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Resource Id of the source vault
-	ResourceId *string `pulumi:"resourceId"`
-	// Resource Name of the source vault
-	ResourceName *string `pulumi:"resourceName"`
-	// Recovery point information: Managed virtual machine
-	RpIsManagedVirtualMachine *bool `pulumi:"rpIsManagedVirtualMachine"`
-	// Recovery point information: Original SA option
-	RpOriginalSAOption *bool `pulumi:"rpOriginalSAOption"`
-	// Recovery point Tier Information
-	RpTierInformation map[string]string `pulumi:"rpTierInformation"`
-	// Recovery point information: VM size description
-	RpVMSizeDescription *string `pulumi:"rpVMSizeDescription"`
-	// Subscription Id of the source vault
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Extended Information about the token like FileSpec etc.
-	TokenExtendedInformation *string `pulumi:"tokenExtendedInformation"`
+	AccessTokenString                           *string           `pulumi:"accessTokenString"`
+	BMSActiveRegion                             *string           `pulumi:"bMSActiveRegion"`
+	BackupManagementType                        *string           `pulumi:"backupManagementType"`
+	ContainerId                                 *string           `pulumi:"containerId"`
+	ContainerName                               *string           `pulumi:"containerName"`
+	ContainerType                               *string           `pulumi:"containerType"`
+	CoordinatorServiceStampId                   *string           `pulumi:"coordinatorServiceStampId"`
+	CoordinatorServiceStampUri                  *string           `pulumi:"coordinatorServiceStampUri"`
+	DatasourceContainerName                     *string           `pulumi:"datasourceContainerName"`
+	DatasourceId                                *string           `pulumi:"datasourceId"`
+	DatasourceName                              *string           `pulumi:"datasourceName"`
+	DatasourceType                              *string           `pulumi:"datasourceType"`
+	ObjectType                                  string            `pulumi:"objectType"`
+	PolicyId                                    *string           `pulumi:"policyId"`
+	PolicyName                                  *string           `pulumi:"policyName"`
+	ProtectableObjectContainerHostOsName        *string           `pulumi:"protectableObjectContainerHostOsName"`
+	ProtectableObjectFriendlyName               *string           `pulumi:"protectableObjectFriendlyName"`
+	ProtectableObjectParentLogicalContainerName *string           `pulumi:"protectableObjectParentLogicalContainerName"`
+	ProtectableObjectProtectionState            *string           `pulumi:"protectableObjectProtectionState"`
+	ProtectableObjectUniqueName                 *string           `pulumi:"protectableObjectUniqueName"`
+	ProtectableObjectWorkloadType               *string           `pulumi:"protectableObjectWorkloadType"`
+	ProtectionContainerId                       *float64          `pulumi:"protectionContainerId"`
+	ProtectionServiceStampId                    *string           `pulumi:"protectionServiceStampId"`
+	ProtectionServiceStampUri                   *string           `pulumi:"protectionServiceStampUri"`
+	RecoveryPointId                             *string           `pulumi:"recoveryPointId"`
+	RecoveryPointTime                           *string           `pulumi:"recoveryPointTime"`
+	ResourceGroupName                           *string           `pulumi:"resourceGroupName"`
+	ResourceId                                  *string           `pulumi:"resourceId"`
+	ResourceName                                *string           `pulumi:"resourceName"`
+	RpIsManagedVirtualMachine                   *bool             `pulumi:"rpIsManagedVirtualMachine"`
+	RpOriginalSAOption                          *bool             `pulumi:"rpOriginalSAOption"`
+	RpTierInformation                           map[string]string `pulumi:"rpTierInformation"`
+	RpVMSizeDescription                         *string           `pulumi:"rpVMSizeDescription"`
+	SubscriptionId                              *string           `pulumi:"subscriptionId"`
+	TokenExtendedInformation                    *string           `pulumi:"tokenExtendedInformation"`
 }
 
 // WorkloadCrrAccessTokenResponseInput is an input type that accepts WorkloadCrrAccessTokenResponseArgs and WorkloadCrrAccessTokenResponseOutput values.
@@ -163,71 +133,41 @@ type WorkloadCrrAccessTokenResponseInput interface {
 }
 
 type WorkloadCrrAccessTokenResponseArgs struct {
-	// Access token used for authentication
-	AccessTokenString pulumi.StringPtrInput `pulumi:"accessTokenString"`
-	// Active region name of BMS Stamp
-	BMSActiveRegion pulumi.StringPtrInput `pulumi:"bMSActiveRegion"`
-	// Backup Management Type
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Container Id
-	ContainerId pulumi.StringPtrInput `pulumi:"containerId"`
-	// Container Unique name
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Container Type
-	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
-	// CoordinatorServiceStampId to be used by BCM in restore call
-	CoordinatorServiceStampId pulumi.StringPtrInput `pulumi:"coordinatorServiceStampId"`
-	// CoordinatorServiceStampUri to be used by BCM in restore call
-	CoordinatorServiceStampUri pulumi.StringPtrInput `pulumi:"coordinatorServiceStampUri"`
-	// Datasource Container Unique Name
-	DatasourceContainerName pulumi.StringPtrInput `pulumi:"datasourceContainerName"`
-	// Datasource Id
-	DatasourceId pulumi.StringPtrInput `pulumi:"datasourceId"`
-	// Datasource Friendly Name
-	DatasourceName pulumi.StringPtrInput `pulumi:"datasourceName"`
-	// Datasource Type
-	DatasourceType pulumi.StringPtrInput `pulumi:"datasourceType"`
-	// Type of the specific object - used for deserializing
-	// Expected value is 'WorkloadCrrAccessToken'.
-	ObjectType pulumi.StringInput `pulumi:"objectType"`
-	// Policy Id
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Policy Name
-	PolicyName                                  pulumi.StringPtrInput `pulumi:"policyName"`
-	ProtectableObjectContainerHostOsName        pulumi.StringPtrInput `pulumi:"protectableObjectContainerHostOsName"`
-	ProtectableObjectFriendlyName               pulumi.StringPtrInput `pulumi:"protectableObjectFriendlyName"`
-	ProtectableObjectParentLogicalContainerName pulumi.StringPtrInput `pulumi:"protectableObjectParentLogicalContainerName"`
-	ProtectableObjectProtectionState            pulumi.StringPtrInput `pulumi:"protectableObjectProtectionState"`
-	ProtectableObjectUniqueName                 pulumi.StringPtrInput `pulumi:"protectableObjectUniqueName"`
-	ProtectableObjectWorkloadType               pulumi.StringPtrInput `pulumi:"protectableObjectWorkloadType"`
-	// Protected item container id
-	ProtectionContainerId pulumi.Float64PtrInput `pulumi:"protectionContainerId"`
-	// ProtectionServiceStampId to be used by BCM in restore call
-	ProtectionServiceStampId pulumi.StringPtrInput `pulumi:"protectionServiceStampId"`
-	// ProtectionServiceStampUri to be used by BCM in restore call
-	ProtectionServiceStampUri pulumi.StringPtrInput `pulumi:"protectionServiceStampUri"`
-	// Recovery Point Id
-	RecoveryPointId pulumi.StringPtrInput `pulumi:"recoveryPointId"`
-	// Recovery Point Time
-	RecoveryPointTime pulumi.StringPtrInput `pulumi:"recoveryPointTime"`
-	// Resource Group name of the source vault
-	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
-	// Resource Id of the source vault
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-	// Resource Name of the source vault
-	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
-	// Recovery point information: Managed virtual machine
-	RpIsManagedVirtualMachine pulumi.BoolPtrInput `pulumi:"rpIsManagedVirtualMachine"`
-	// Recovery point information: Original SA option
-	RpOriginalSAOption pulumi.BoolPtrInput `pulumi:"rpOriginalSAOption"`
-	// Recovery point Tier Information
-	RpTierInformation pulumi.StringMapInput `pulumi:"rpTierInformation"`
-	// Recovery point information: VM size description
-	RpVMSizeDescription pulumi.StringPtrInput `pulumi:"rpVMSizeDescription"`
-	// Subscription Id of the source vault
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
-	// Extended Information about the token like FileSpec etc.
-	TokenExtendedInformation pulumi.StringPtrInput `pulumi:"tokenExtendedInformation"`
+	AccessTokenString                           pulumi.StringPtrInput  `pulumi:"accessTokenString"`
+	BMSActiveRegion                             pulumi.StringPtrInput  `pulumi:"bMSActiveRegion"`
+	BackupManagementType                        pulumi.StringPtrInput  `pulumi:"backupManagementType"`
+	ContainerId                                 pulumi.StringPtrInput  `pulumi:"containerId"`
+	ContainerName                               pulumi.StringPtrInput  `pulumi:"containerName"`
+	ContainerType                               pulumi.StringPtrInput  `pulumi:"containerType"`
+	CoordinatorServiceStampId                   pulumi.StringPtrInput  `pulumi:"coordinatorServiceStampId"`
+	CoordinatorServiceStampUri                  pulumi.StringPtrInput  `pulumi:"coordinatorServiceStampUri"`
+	DatasourceContainerName                     pulumi.StringPtrInput  `pulumi:"datasourceContainerName"`
+	DatasourceId                                pulumi.StringPtrInput  `pulumi:"datasourceId"`
+	DatasourceName                              pulumi.StringPtrInput  `pulumi:"datasourceName"`
+	DatasourceType                              pulumi.StringPtrInput  `pulumi:"datasourceType"`
+	ObjectType                                  pulumi.StringInput     `pulumi:"objectType"`
+	PolicyId                                    pulumi.StringPtrInput  `pulumi:"policyId"`
+	PolicyName                                  pulumi.StringPtrInput  `pulumi:"policyName"`
+	ProtectableObjectContainerHostOsName        pulumi.StringPtrInput  `pulumi:"protectableObjectContainerHostOsName"`
+	ProtectableObjectFriendlyName               pulumi.StringPtrInput  `pulumi:"protectableObjectFriendlyName"`
+	ProtectableObjectParentLogicalContainerName pulumi.StringPtrInput  `pulumi:"protectableObjectParentLogicalContainerName"`
+	ProtectableObjectProtectionState            pulumi.StringPtrInput  `pulumi:"protectableObjectProtectionState"`
+	ProtectableObjectUniqueName                 pulumi.StringPtrInput  `pulumi:"protectableObjectUniqueName"`
+	ProtectableObjectWorkloadType               pulumi.StringPtrInput  `pulumi:"protectableObjectWorkloadType"`
+	ProtectionContainerId                       pulumi.Float64PtrInput `pulumi:"protectionContainerId"`
+	ProtectionServiceStampId                    pulumi.StringPtrInput  `pulumi:"protectionServiceStampId"`
+	ProtectionServiceStampUri                   pulumi.StringPtrInput  `pulumi:"protectionServiceStampUri"`
+	RecoveryPointId                             pulumi.StringPtrInput  `pulumi:"recoveryPointId"`
+	RecoveryPointTime                           pulumi.StringPtrInput  `pulumi:"recoveryPointTime"`
+	ResourceGroupName                           pulumi.StringPtrInput  `pulumi:"resourceGroupName"`
+	ResourceId                                  pulumi.StringPtrInput  `pulumi:"resourceId"`
+	ResourceName                                pulumi.StringPtrInput  `pulumi:"resourceName"`
+	RpIsManagedVirtualMachine                   pulumi.BoolPtrInput    `pulumi:"rpIsManagedVirtualMachine"`
+	RpOriginalSAOption                          pulumi.BoolPtrInput    `pulumi:"rpOriginalSAOption"`
+	RpTierInformation                           pulumi.StringMapInput  `pulumi:"rpTierInformation"`
+	RpVMSizeDescription                         pulumi.StringPtrInput  `pulumi:"rpVMSizeDescription"`
+	SubscriptionId                              pulumi.StringPtrInput  `pulumi:"subscriptionId"`
+	TokenExtendedInformation                    pulumi.StringPtrInput  `pulumi:"tokenExtendedInformation"`
 }
 
 func (WorkloadCrrAccessTokenResponseArgs) ElementType() reflect.Type {
@@ -256,78 +196,62 @@ func (o WorkloadCrrAccessTokenResponseOutput) ToWorkloadCrrAccessTokenResponseOu
 	return o
 }
 
-// Access token used for authentication
 func (o WorkloadCrrAccessTokenResponseOutput) AccessTokenString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.AccessTokenString }).(pulumi.StringPtrOutput)
 }
 
-// Active region name of BMS Stamp
 func (o WorkloadCrrAccessTokenResponseOutput) BMSActiveRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.BMSActiveRegion }).(pulumi.StringPtrOutput)
 }
 
-// Backup Management Type
 func (o WorkloadCrrAccessTokenResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Container Id
 func (o WorkloadCrrAccessTokenResponseOutput) ContainerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.ContainerId }).(pulumi.StringPtrOutput)
 }
 
-// Container Unique name
 func (o WorkloadCrrAccessTokenResponseOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Container Type
 func (o WorkloadCrrAccessTokenResponseOutput) ContainerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
 }
 
-// CoordinatorServiceStampId to be used by BCM in restore call
 func (o WorkloadCrrAccessTokenResponseOutput) CoordinatorServiceStampId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.CoordinatorServiceStampId }).(pulumi.StringPtrOutput)
 }
 
-// CoordinatorServiceStampUri to be used by BCM in restore call
 func (o WorkloadCrrAccessTokenResponseOutput) CoordinatorServiceStampUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.CoordinatorServiceStampUri }).(pulumi.StringPtrOutput)
 }
 
-// Datasource Container Unique Name
 func (o WorkloadCrrAccessTokenResponseOutput) DatasourceContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.DatasourceContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Datasource Id
 func (o WorkloadCrrAccessTokenResponseOutput) DatasourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.DatasourceId }).(pulumi.StringPtrOutput)
 }
 
-// Datasource Friendly Name
 func (o WorkloadCrrAccessTokenResponseOutput) DatasourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.DatasourceName }).(pulumi.StringPtrOutput)
 }
 
-// Datasource Type
 func (o WorkloadCrrAccessTokenResponseOutput) DatasourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.DatasourceType }).(pulumi.StringPtrOutput)
 }
 
-// Type of the specific object - used for deserializing
-// Expected value is 'WorkloadCrrAccessToken'.
 func (o WorkloadCrrAccessTokenResponseOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// Policy Id
 func (o WorkloadCrrAccessTokenResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Policy Name
 func (o WorkloadCrrAccessTokenResponseOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
@@ -356,72 +280,58 @@ func (o WorkloadCrrAccessTokenResponseOutput) ProtectableObjectWorkloadType() pu
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.ProtectableObjectWorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Protected item container id
 func (o WorkloadCrrAccessTokenResponseOutput) ProtectionContainerId() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *float64 { return v.ProtectionContainerId }).(pulumi.Float64PtrOutput)
 }
 
-// ProtectionServiceStampId to be used by BCM in restore call
 func (o WorkloadCrrAccessTokenResponseOutput) ProtectionServiceStampId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.ProtectionServiceStampId }).(pulumi.StringPtrOutput)
 }
 
-// ProtectionServiceStampUri to be used by BCM in restore call
 func (o WorkloadCrrAccessTokenResponseOutput) ProtectionServiceStampUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.ProtectionServiceStampUri }).(pulumi.StringPtrOutput)
 }
 
-// Recovery Point Id
 func (o WorkloadCrrAccessTokenResponseOutput) RecoveryPointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.RecoveryPointId }).(pulumi.StringPtrOutput)
 }
 
-// Recovery Point Time
 func (o WorkloadCrrAccessTokenResponseOutput) RecoveryPointTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.RecoveryPointTime }).(pulumi.StringPtrOutput)
 }
 
-// Resource Group name of the source vault
 func (o WorkloadCrrAccessTokenResponseOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id of the source vault
 func (o WorkloadCrrAccessTokenResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Resource Name of the source vault
 func (o WorkloadCrrAccessTokenResponseOutput) ResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
 }
 
-// Recovery point information: Managed virtual machine
 func (o WorkloadCrrAccessTokenResponseOutput) RpIsManagedVirtualMachine() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *bool { return v.RpIsManagedVirtualMachine }).(pulumi.BoolPtrOutput)
 }
 
-// Recovery point information: Original SA option
 func (o WorkloadCrrAccessTokenResponseOutput) RpOriginalSAOption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *bool { return v.RpOriginalSAOption }).(pulumi.BoolPtrOutput)
 }
 
-// Recovery point Tier Information
 func (o WorkloadCrrAccessTokenResponseOutput) RpTierInformation() pulumi.StringMapOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) map[string]string { return v.RpTierInformation }).(pulumi.StringMapOutput)
 }
 
-// Recovery point information: VM size description
 func (o WorkloadCrrAccessTokenResponseOutput) RpVMSizeDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.RpVMSizeDescription }).(pulumi.StringPtrOutput)
 }
 
-// Subscription Id of the source vault
 func (o WorkloadCrrAccessTokenResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
 
-// Extended Information about the token like FileSpec etc.
 func (o WorkloadCrrAccessTokenResponseOutput) TokenExtendedInformation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadCrrAccessTokenResponse) *string { return v.TokenExtendedInformation }).(pulumi.StringPtrOutput)
 }

@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Private Endpoint Connection ARM resource.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Etag identifies change in the resource.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Core resource properties
+	Etag       pulumi.StringOutput                           `pulumi:"etag"`
+	Name       pulumi.StringOutput                           `pulumi:"name"`
 	Properties RemotePrivateEndpointConnectionResponseOutput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                           `pulumi:"type"`
 }
 
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -82,26 +77,18 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The private endpoint connection name.
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// Core resource properties
-	Properties *PrivateLinkConnectionApprovalRequest `pulumi:"properties"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	FactoryName                   string                                `pulumi:"factoryName"`
+	PrivateEndpointConnectionName *string                               `pulumi:"privateEndpointConnectionName"`
+	Properties                    *PrivateLinkConnectionApprovalRequest `pulumi:"properties"`
+	ResourceGroupName             string                                `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// The factory name.
-	FactoryName pulumi.StringInput
-	// The private endpoint connection name.
+	FactoryName                   pulumi.StringInput
 	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// Core resource properties
-	Properties PrivateLinkConnectionApprovalRequestPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
+	Properties                    PrivateLinkConnectionApprovalRequestPtrInput
+	ResourceGroupName             pulumi.StringInput
 }
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {
@@ -127,9 +114,7 @@ func (i *PrivateEndpointConnection) ToPrivateEndpointConnectionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionOutput)
 }
 
-type PrivateEndpointConnectionOutput struct {
-	*pulumi.OutputState
-}
+type PrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpointConnection)(nil))

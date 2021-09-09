@@ -164,9 +164,7 @@ func (i *MaintenanceConfiguration) ToMaintenanceConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceConfigurationOutput)
 }
 
-type MaintenanceConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type MaintenanceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MaintenanceConfiguration)(nil))

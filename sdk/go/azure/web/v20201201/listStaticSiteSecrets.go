@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// String dictionary resource.
 func ListStaticSiteSecrets(ctx *pulumi.Context, args *ListStaticSiteSecretsArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteSecretsResult, error) {
 	var rv ListStaticSiteSecretsResult
 	err := ctx.Invoke("azure-native:web/v20201201:listStaticSiteSecrets", args, &rv, opts...)
@@ -18,22 +17,15 @@ func ListStaticSiteSecrets(ctx *pulumi.Context, args *ListStaticSiteSecretsArgs,
 }
 
 type ListStaticSiteSecretsArgs struct {
-	// Name of the static site.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // String dictionary resource.
 type ListStaticSiteSecretsResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Settings.
+	Id         string            `pulumi:"id"`
+	Kind       *string           `pulumi:"kind"`
+	Name       string            `pulumi:"name"`
 	Properties map[string]string `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type       string            `pulumi:"type"`
 }

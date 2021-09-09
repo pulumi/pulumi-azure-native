@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Restore Point details.
 func LookupRestorePoint(ctx *pulumi.Context, args *LookupRestorePointArgs, opts ...pulumi.InvokeOption) (*LookupRestorePointResult, error) {
 	var rv LookupRestorePointResult
 	err := ctx.Invoke("azure-native:compute/v20210401:getRestorePoint", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupRestorePoint(ctx *pulumi.Context, args *LookupRestorePointArgs, opts 
 }
 
 type LookupRestorePointArgs struct {
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the restore point collection.
+	ResourceGroupName          string `pulumi:"resourceGroupName"`
 	RestorePointCollectionName string `pulumi:"restorePointCollectionName"`
-	// The name of the restore point.
-	RestorePointName string `pulumi:"restorePointName"`
+	RestorePointName           string `pulumi:"restorePointName"`
 }
 
 // Restore Point details.
 type LookupRestorePointResult struct {
-	// Gets the consistency mode for the restore point. Please refer to https://aka.ms/RestorePoints for more details.
-	ConsistencyMode string `pulumi:"consistencyMode"`
-	// List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
-	ExcludeDisks []ApiEntityReferenceResponse `pulumi:"excludeDisks"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Gets the provisioning details set by the server during Create restore point operation.
+	ConsistencyMode     string                                  `pulumi:"consistencyMode"`
+	ExcludeDisks        []ApiEntityReferenceResponse            `pulumi:"excludeDisks"`
+	Id                  string                                  `pulumi:"id"`
+	Name                string                                  `pulumi:"name"`
 	ProvisioningDetails RestorePointProvisioningDetailsResponse `pulumi:"provisioningDetails"`
-	// Gets the provisioning state of the restore point.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Gets the details of the VM captured at the time of the restore point creation.
-	SourceMetadata RestorePointSourceMetadataResponse `pulumi:"sourceMetadata"`
-	// Resource type
-	Type string `pulumi:"type"`
+	ProvisioningState   string                                  `pulumi:"provisioningState"`
+	SourceMetadata      RestorePointSourceMetadataResponse      `pulumi:"sourceMetadata"`
+	Type                string                                  `pulumi:"type"`
 }

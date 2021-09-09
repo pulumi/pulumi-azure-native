@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A project resource
 func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.InvokeOption) (*LookupProjectResult, error) {
 	var rv LookupProjectResult
 	err := ctx.Invoke("azure-native:datamigration/v20210630:getProject", args, &rv, opts...)
@@ -18,40 +17,24 @@ func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.
 }
 
 type LookupProjectArgs struct {
-	// Name of the resource group
-	GroupName string `pulumi:"groupName"`
-	// Name of the project
+	GroupName   string `pulumi:"groupName"`
 	ProjectName string `pulumi:"projectName"`
-	// Name of the service
 	ServiceName string `pulumi:"serviceName"`
 }
 
 // A project resource
 type LookupProjectResult struct {
-	// UTC Date and time when project was created
-	CreationTime string `pulumi:"creationTime"`
-	// List of DatabaseInfo
-	DatabasesInfo []DatabaseInfoResponse `pulumi:"databasesInfo"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The project's provisioning state
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Information for connecting to source
-	SourceConnectionInfo interface{} `pulumi:"sourceConnectionInfo"`
-	// Source platform for the project
-	SourcePlatform string `pulumi:"sourcePlatform"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Information for connecting to target
-	TargetConnectionInfo interface{} `pulumi:"targetConnectionInfo"`
-	// Target platform for the project
-	TargetPlatform string `pulumi:"targetPlatform"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	CreationTime         string                 `pulumi:"creationTime"`
+	DatabasesInfo        []DatabaseInfoResponse `pulumi:"databasesInfo"`
+	Id                   string                 `pulumi:"id"`
+	Location             string                 `pulumi:"location"`
+	Name                 string                 `pulumi:"name"`
+	ProvisioningState    string                 `pulumi:"provisioningState"`
+	SourceConnectionInfo interface{}            `pulumi:"sourceConnectionInfo"`
+	SourcePlatform       string                 `pulumi:"sourcePlatform"`
+	SystemData           SystemDataResponse     `pulumi:"systemData"`
+	Tags                 map[string]string      `pulumi:"tags"`
+	TargetConnectionInfo interface{}            `pulumi:"targetConnectionInfo"`
+	TargetPlatform       string                 `pulumi:"targetPlatform"`
+	Type                 string                 `pulumi:"type"`
 }

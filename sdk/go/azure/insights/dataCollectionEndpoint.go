@@ -159,9 +159,7 @@ func (i *DataCollectionEndpoint) ToDataCollectionEndpointOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointOutput)
 }
 
-type DataCollectionEndpointOutput struct {
-	*pulumi.OutputState
-}
+type DataCollectionEndpointOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataCollectionEndpoint)(nil))

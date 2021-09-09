@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of a storage account for a container registry.
 type StorageAccountProperties struct {
-	// The access key to the storage account.
 	AccessKey string `pulumi:"accessKey"`
-	// The name of the storage account.
-	Name string `pulumi:"name"`
+	Name      string `pulumi:"name"`
 }
 
 // StorageAccountPropertiesInput is an input type that accepts StorageAccountPropertiesArgs and StorageAccountPropertiesOutput values.
@@ -29,12 +26,9 @@ type StorageAccountPropertiesInput interface {
 	ToStorageAccountPropertiesOutputWithContext(context.Context) StorageAccountPropertiesOutput
 }
 
-// The properties of a storage account for a container registry.
 type StorageAccountPropertiesArgs struct {
-	// The access key to the storage account.
 	AccessKey pulumi.StringInput `pulumi:"accessKey"`
-	// The name of the storage account.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name      pulumi.StringInput `pulumi:"name"`
 }
 
 func (StorageAccountPropertiesArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *storageAccountPropertiesPtrType) ToStorageAccountPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesPtrOutput)
 }
 
-// The properties of a storage account for a container registry.
 type StorageAccountPropertiesOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountPropertiesOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o StorageAccountPropertiesOutput) ToStorageAccountPropertiesPtrOutput() St
 }
 
 func (o StorageAccountPropertiesOutput) ToStorageAccountPropertiesPtrOutputWithContext(ctx context.Context) StorageAccountPropertiesPtrOutput {
-	return o.ApplyT(func(v StorageAccountProperties) *StorageAccountProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountProperties) *StorageAccountProperties {
 		return &v
 	}).(StorageAccountPropertiesPtrOutput)
 }
 
-// The access key to the storage account.
 func (o StorageAccountPropertiesOutput) AccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountProperties) string { return v.AccessKey }).(pulumi.StringOutput)
 }
 
-// The name of the storage account.
 func (o StorageAccountPropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountProperties) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -140,10 +131,15 @@ func (o StorageAccountPropertiesPtrOutput) ToStorageAccountPropertiesPtrOutputWi
 }
 
 func (o StorageAccountPropertiesPtrOutput) Elem() StorageAccountPropertiesOutput {
-	return o.ApplyT(func(v *StorageAccountProperties) StorageAccountProperties { return *v }).(StorageAccountPropertiesOutput)
+	return o.ApplyT(func(v *StorageAccountProperties) StorageAccountProperties {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountProperties
+		return ret
+	}).(StorageAccountPropertiesOutput)
 }
 
-// The access key to the storage account.
 func (o StorageAccountPropertiesPtrOutput) AccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountProperties) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o StorageAccountPropertiesPtrOutput) AccessKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the storage account.
 func (o StorageAccountPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountProperties) *string {
 		if v == nil {
@@ -163,12 +158,9 @@ func (o StorageAccountPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a storage account for a container registry.
 type StorageAccountPropertiesResponse struct {
-	// The access key to the storage account.
 	AccessKey string `pulumi:"accessKey"`
-	// The name of the storage account.
-	Name string `pulumi:"name"`
+	Name      string `pulumi:"name"`
 }
 
 // StorageAccountPropertiesResponseInput is an input type that accepts StorageAccountPropertiesResponseArgs and StorageAccountPropertiesResponseOutput values.
@@ -182,12 +174,9 @@ type StorageAccountPropertiesResponseInput interface {
 	ToStorageAccountPropertiesResponseOutputWithContext(context.Context) StorageAccountPropertiesResponseOutput
 }
 
-// The properties of a storage account for a container registry.
 type StorageAccountPropertiesResponseArgs struct {
-	// The access key to the storage account.
 	AccessKey pulumi.StringInput `pulumi:"accessKey"`
-	// The name of the storage account.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name      pulumi.StringInput `pulumi:"name"`
 }
 
 func (StorageAccountPropertiesResponseArgs) ElementType() reflect.Type {
@@ -243,7 +232,6 @@ func (i *storageAccountPropertiesResponsePtrType) ToStorageAccountPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesResponsePtrOutput)
 }
 
-// The properties of a storage account for a container registry.
 type StorageAccountPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountPropertiesResponseOutput) ElementType() reflect.Type {
@@ -263,17 +251,15 @@ func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesRespon
 }
 
 func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageAccountPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
 		return &v
 	}).(StorageAccountPropertiesResponsePtrOutput)
 }
 
-// The access key to the storage account.
 func (o StorageAccountPropertiesResponseOutput) AccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountPropertiesResponse) string { return v.AccessKey }).(pulumi.StringOutput)
 }
 
-// The name of the storage account.
 func (o StorageAccountPropertiesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountPropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -293,10 +279,15 @@ func (o StorageAccountPropertiesResponsePtrOutput) ToStorageAccountPropertiesRes
 }
 
 func (o StorageAccountPropertiesResponsePtrOutput) Elem() StorageAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse { return *v }).(StorageAccountPropertiesResponseOutput)
+	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountPropertiesResponse
+		return ret
+	}).(StorageAccountPropertiesResponseOutput)
 }
 
-// The access key to the storage account.
 func (o StorageAccountPropertiesResponsePtrOutput) AccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o StorageAccountPropertiesResponsePtrOutput) AccessKey() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the storage account.
 func (o StorageAccountPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
 		if v == nil {

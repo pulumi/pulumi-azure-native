@@ -10,10 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Identity for the resource.
 type Identity struct {
-	// The identity type.
-	Type string `pulumi:"type"`
+	Type IdentityType `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -27,10 +25,8 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Identity for the resource.
 type IdentityArgs struct {
-	// The identity type.
-	Type IdentityType `pulumi:"type"`
+	Type IdentityTypeInput `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -86,7 +82,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Identity for the resource.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -106,14 +101,13 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
-// The identity type.
-func (o IdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
+func (o IdentityOutput) Type() IdentityTypeOutput {
+	return o.ApplyT(func(v Identity) IdentityType { return v.Type }).(IdentityTypeOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -131,27 +125,28 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
-// The identity type.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *IdentityType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(IdentityTypePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponse struct {
-	// The principal ID of resource identity.
 	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type string `pulumi:"type"`
+	TenantId    string `pulumi:"tenantId"`
+	Type        string `pulumi:"type"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -165,14 +160,10 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Identity for the resource.
 type IdentityResponseArgs struct {
-	// The principal ID of resource identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringInput `pulumi:"type"`
+	TenantId    pulumi.StringInput `pulumi:"tenantId"`
+	Type        pulumi.StringInput `pulumi:"type"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -228,7 +219,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -248,22 +238,19 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
 func (o IdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -283,10 +270,15 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -296,7 +288,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -316,11 +306,8 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
 type QueryKeyResponse struct {
-	// The value of the query API key.
-	Key string `pulumi:"key"`
-	// The name of the query API key; may be empty.
+	Key  string `pulumi:"key"`
 	Name string `pulumi:"name"`
 }
 
@@ -335,11 +322,8 @@ type QueryKeyResponseInput interface {
 	ToQueryKeyResponseOutputWithContext(context.Context) QueryKeyResponseOutput
 }
 
-// Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
 type QueryKeyResponseArgs struct {
-	// The value of the query API key.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The name of the query API key; may be empty.
+	Key  pulumi.StringInput `pulumi:"key"`
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -380,7 +364,6 @@ func (i QueryKeyResponseArray) ToQueryKeyResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(QueryKeyResponseArrayOutput)
 }
 
-// Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
 type QueryKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (QueryKeyResponseOutput) ElementType() reflect.Type {
@@ -395,12 +378,10 @@ func (o QueryKeyResponseOutput) ToQueryKeyResponseOutputWithContext(ctx context.
 	return o
 }
 
-// The value of the query API key.
 func (o QueryKeyResponseOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryKeyResponse) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The name of the query API key; may be empty.
 func (o QueryKeyResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryKeyResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -425,10 +406,8 @@ func (o QueryKeyResponseArrayOutput) Index(i pulumi.IntInput) QueryKeyResponseOu
 	}).(QueryKeyResponseOutput)
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type Sku struct {
-	// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
-	Name *string `pulumi:"name"`
+	Name *SkuName `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -442,10 +421,8 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuArgs struct {
-	// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
-	Name *SkuName `pulumi:"name"`
+	Name SkuNamePtrInput `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -501,7 +478,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -521,14 +497,13 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
-func (o SkuOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o SkuOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v Sku) *SkuName { return v.Name }).(SkuNamePtrOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -546,22 +521,25 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuResponse struct {
-	// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 	Name *string `pulumi:"name"`
 }
 
@@ -576,9 +554,7 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuResponseArgs struct {
-	// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -635,7 +611,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -655,12 +630,11 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -680,10 +654,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Network profile resource.
 func LookupNetworkProfile(ctx *pulumi.Context, args *LookupNetworkProfileArgs, opts ...pulumi.InvokeOption) (*LookupNetworkProfileResult, error) {
 	var rv LookupNetworkProfileResult
 	err := ctx.Invoke("azure-native:network/v20190901:getNetworkProfile", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupNetworkProfile(ctx *pulumi.Context, args *LookupNetworkProfileArgs, o
 }
 
 type LookupNetworkProfileArgs struct {
-	// Expands referenced resources.
-	Expand *string `pulumi:"expand"`
-	// The name of the public IP prefix.
-	NetworkProfileName string `pulumi:"networkProfileName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand             *string `pulumi:"expand"`
+	NetworkProfileName string  `pulumi:"networkProfileName"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
 }
 
 // Network profile resource.
 type LookupNetworkProfileResult struct {
-	// List of chid container network interface configurations.
 	ContainerNetworkInterfaceConfigurations []ContainerNetworkInterfaceConfigurationResponse `pulumi:"containerNetworkInterfaceConfigurations"`
-	// List of child container network interfaces.
-	ContainerNetworkInterfaces []ContainerNetworkInterfaceResponse `pulumi:"containerNetworkInterfaces"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the network profile resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The resource GUID property of the network profile resource.
-	ResourceGuid string `pulumi:"resourceGuid"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	ContainerNetworkInterfaces              []ContainerNetworkInterfaceResponse              `pulumi:"containerNetworkInterfaces"`
+	Etag                                    string                                           `pulumi:"etag"`
+	Id                                      *string                                          `pulumi:"id"`
+	Location                                *string                                          `pulumi:"location"`
+	Name                                    string                                           `pulumi:"name"`
+	ProvisioningState                       string                                           `pulumi:"provisioningState"`
+	ResourceGuid                            string                                           `pulumi:"resourceGuid"`
+	Tags                                    map[string]string                                `pulumi:"tags"`
+	Type                                    string                                           `pulumi:"type"`
 }

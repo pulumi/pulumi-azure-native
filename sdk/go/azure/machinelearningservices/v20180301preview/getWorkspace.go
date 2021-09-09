@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a machine learning workspace.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("azure-native:machinelearningservices/v20180301preview:getWorkspace", args, &rv, opts...)
@@ -18,46 +17,27 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 }
 
 type LookupWorkspaceArgs struct {
-	// Name of the resource group in which workspace is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // An object that represents a machine learning workspace.
 type LookupWorkspaceResult struct {
-	// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
-	ApplicationInsights *string `pulumi:"applicationInsights"`
-	// ARM id of the Batch AI workspace associated with this workspace. This cannot be changed once the workspace has been created
-	BatchaiWorkspace *string `pulumi:"batchaiWorkspace"`
-	// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
-	ContainerRegistry *string `pulumi:"containerRegistry"`
-	// The creation time of the machine learning workspace in ISO8601 format.
-	CreationTime string `pulumi:"creationTime"`
-	// The description of this workspace.
-	Description *string `pulumi:"description"`
-	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
-	DiscoveryUrl *string `pulumi:"discoveryUrl"`
-	// The friendly name for this workspace. This name in mutable
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Specifies the resource ID.
-	Id string `pulumi:"id"`
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
-	KeyVault *string `pulumi:"keyVault"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
-	StorageAccount *string `pulumi:"storageAccount"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
-	// The immutable id associated with this workspace.
-	WorkspaceId string `pulumi:"workspaceId"`
+	ApplicationInsights *string           `pulumi:"applicationInsights"`
+	BatchaiWorkspace    *string           `pulumi:"batchaiWorkspace"`
+	ContainerRegistry   *string           `pulumi:"containerRegistry"`
+	CreationTime        string            `pulumi:"creationTime"`
+	Description         *string           `pulumi:"description"`
+	DiscoveryUrl        *string           `pulumi:"discoveryUrl"`
+	FriendlyName        *string           `pulumi:"friendlyName"`
+	Id                  string            `pulumi:"id"`
+	Identity            *IdentityResponse `pulumi:"identity"`
+	KeyVault            *string           `pulumi:"keyVault"`
+	Location            *string           `pulumi:"location"`
+	Name                string            `pulumi:"name"`
+	ProvisioningState   string            `pulumi:"provisioningState"`
+	StorageAccount      *string           `pulumi:"storageAccount"`
+	Tags                map[string]string `pulumi:"tags"`
+	Type                string            `pulumi:"type"`
+	WorkspaceId         string            `pulumi:"workspaceId"`
 }

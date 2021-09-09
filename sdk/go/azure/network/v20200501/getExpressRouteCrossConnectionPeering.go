@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Peering in an ExpressRoute Cross Connection resource.
 func LookupExpressRouteCrossConnectionPeering(ctx *pulumi.Context, args *LookupExpressRouteCrossConnectionPeeringArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCrossConnectionPeeringResult, error) {
 	var rv LookupExpressRouteCrossConnectionPeeringResult
 	err := ctx.Invoke("azure-native:network/v20200501:getExpressRouteCrossConnectionPeering", args, &rv, opts...)
@@ -18,50 +17,29 @@ func LookupExpressRouteCrossConnectionPeering(ctx *pulumi.Context, args *LookupE
 }
 
 type LookupExpressRouteCrossConnectionPeeringArgs struct {
-	// The name of the ExpressRouteCrossConnection.
 	CrossConnectionName string `pulumi:"crossConnectionName"`
-	// The name of the peering.
-	PeeringName string `pulumi:"peeringName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PeeringName         string `pulumi:"peeringName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 }
 
 // Peering in an ExpressRoute Cross Connection resource.
 type LookupExpressRouteCrossConnectionPeeringResult struct {
-	// The Azure ASN.
-	AzureASN int `pulumi:"azureASN"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// The GatewayManager Etag.
-	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The IPv6 peering configuration.
-	Ipv6PeeringConfig *Ipv6ExpressRouteCircuitPeeringConfigResponse `pulumi:"ipv6PeeringConfig"`
-	// Who was the last to modify the peering.
-	LastModifiedBy string `pulumi:"lastModifiedBy"`
-	// The Microsoft peering configuration.
-	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringConfigResponse `pulumi:"microsoftPeeringConfig"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The peer ASN.
-	PeerASN *float64 `pulumi:"peerASN"`
-	// The peering type.
-	PeeringType *string `pulumi:"peeringType"`
-	// The primary port.
-	PrimaryAzurePort string `pulumi:"primaryAzurePort"`
-	// The primary address prefix.
-	PrimaryPeerAddressPrefix *string `pulumi:"primaryPeerAddressPrefix"`
-	// The provisioning state of the express route cross connection peering resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The secondary port.
-	SecondaryAzurePort string `pulumi:"secondaryAzurePort"`
-	// The secondary address prefix.
-	SecondaryPeerAddressPrefix *string `pulumi:"secondaryPeerAddressPrefix"`
-	// The shared key.
-	SharedKey *string `pulumi:"sharedKey"`
-	// The peering state.
-	State *string `pulumi:"state"`
-	// The VLAN ID.
-	VlanId *int `pulumi:"vlanId"`
+	AzureASN                   int                                           `pulumi:"azureASN"`
+	Etag                       string                                        `pulumi:"etag"`
+	GatewayManagerEtag         *string                                       `pulumi:"gatewayManagerEtag"`
+	Id                         *string                                       `pulumi:"id"`
+	Ipv6PeeringConfig          *Ipv6ExpressRouteCircuitPeeringConfigResponse `pulumi:"ipv6PeeringConfig"`
+	LastModifiedBy             string                                        `pulumi:"lastModifiedBy"`
+	MicrosoftPeeringConfig     *ExpressRouteCircuitPeeringConfigResponse     `pulumi:"microsoftPeeringConfig"`
+	Name                       *string                                       `pulumi:"name"`
+	PeerASN                    *float64                                      `pulumi:"peerASN"`
+	PeeringType                *string                                       `pulumi:"peeringType"`
+	PrimaryAzurePort           string                                        `pulumi:"primaryAzurePort"`
+	PrimaryPeerAddressPrefix   *string                                       `pulumi:"primaryPeerAddressPrefix"`
+	ProvisioningState          string                                        `pulumi:"provisioningState"`
+	SecondaryAzurePort         string                                        `pulumi:"secondaryAzurePort"`
+	SecondaryPeerAddressPrefix *string                                       `pulumi:"secondaryPeerAddressPrefix"`
+	SharedKey                  *string                                       `pulumi:"sharedKey"`
+	State                      *string                                       `pulumi:"state"`
+	VlanId                     *int                                          `pulumi:"vlanId"`
 }

@@ -200,9 +200,7 @@ func (i *EmailTemplate) ToEmailTemplateOutputWithContext(ctx context.Context) Em
 	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateOutput)
 }
 
-type EmailTemplateOutput struct {
-	*pulumi.OutputState
-}
+type EmailTemplateOutput struct{ *pulumi.OutputState }
 
 func (EmailTemplateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EmailTemplate)(nil))

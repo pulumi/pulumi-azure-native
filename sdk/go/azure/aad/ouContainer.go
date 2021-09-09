@@ -174,9 +174,7 @@ func (i *OuContainer) ToOuContainerOutputWithContext(ctx context.Context) OuCont
 	return pulumi.ToOutputWithContext(ctx, i).(OuContainerOutput)
 }
 
-type OuContainerOutput struct {
-	*pulumi.OutputState
-}
+type OuContainerOutput struct{ *pulumi.OutputState }
 
 func (OuContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OuContainer)(nil))

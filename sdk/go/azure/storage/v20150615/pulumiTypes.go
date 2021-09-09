@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomainResponse struct {
-	// The custom domain name. Name is the CNAME source.
-	Name string `pulumi:"name"`
-	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates
-	UseSubDomainName *bool `pulumi:"useSubDomainName"`
+	Name             string `pulumi:"name"`
+	UseSubDomainName *bool  `pulumi:"useSubDomainName"`
 }
 
 // CustomDomainResponseInput is an input type that accepts CustomDomainResponseArgs and CustomDomainResponseOutput values.
@@ -29,11 +26,8 @@ type CustomDomainResponseInput interface {
 	ToCustomDomainResponseOutputWithContext(context.Context) CustomDomainResponseOutput
 }
 
-// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomainResponseArgs struct {
-	// The custom domain name. Name is the CNAME source.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates
+	Name             pulumi.StringInput  `pulumi:"name"`
 	UseSubDomainName pulumi.BoolPtrInput `pulumi:"useSubDomainName"`
 }
 
@@ -90,7 +84,6 @@ func (i *customDomainResponsePtrType) ToCustomDomainResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainResponsePtrOutput)
 }
 
-// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomainResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainResponseOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o CustomDomainResponseOutput) ToCustomDomainResponsePtrOutput() CustomDoma
 }
 
 func (o CustomDomainResponseOutput) ToCustomDomainResponsePtrOutputWithContext(ctx context.Context) CustomDomainResponsePtrOutput {
-	return o.ApplyT(func(v CustomDomainResponse) *CustomDomainResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomainResponse) *CustomDomainResponse {
 		return &v
 	}).(CustomDomainResponsePtrOutput)
 }
 
-// The custom domain name. Name is the CNAME source.
 func (o CustomDomainResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates
 func (o CustomDomainResponseOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainResponse) *bool { return v.UseSubDomainName }).(pulumi.BoolPtrOutput)
 }
@@ -140,10 +131,15 @@ func (o CustomDomainResponsePtrOutput) ToCustomDomainResponsePtrOutputWithContex
 }
 
 func (o CustomDomainResponsePtrOutput) Elem() CustomDomainResponseOutput {
-	return o.ApplyT(func(v *CustomDomainResponse) CustomDomainResponse { return *v }).(CustomDomainResponseOutput)
+	return o.ApplyT(func(v *CustomDomainResponse) CustomDomainResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CustomDomainResponse
+		return ret
+	}).(CustomDomainResponseOutput)
 }
 
-// The custom domain name. Name is the CNAME source.
 func (o CustomDomainResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDomainResponse) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o CustomDomainResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates
 func (o CustomDomainResponsePtrOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CustomDomainResponse) *bool {
 		if v == nil {
@@ -163,15 +158,10 @@ func (o CustomDomainResponsePtrOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The URIs that are used to perform a retrieval of a public blob, queue or table object.
 type EndpointsResponse struct {
-	// The blob endpoint.
-	Blob *string `pulumi:"blob"`
-	// The file endpoint.
-	File *string `pulumi:"file"`
-	// The queue endpoint.
+	Blob  *string `pulumi:"blob"`
+	File  *string `pulumi:"file"`
 	Queue *string `pulumi:"queue"`
-	// The table endpoint.
 	Table *string `pulumi:"table"`
 }
 
@@ -186,15 +176,10 @@ type EndpointsResponseInput interface {
 	ToEndpointsResponseOutputWithContext(context.Context) EndpointsResponseOutput
 }
 
-// The URIs that are used to perform a retrieval of a public blob, queue or table object.
 type EndpointsResponseArgs struct {
-	// The blob endpoint.
-	Blob pulumi.StringPtrInput `pulumi:"blob"`
-	// The file endpoint.
-	File pulumi.StringPtrInput `pulumi:"file"`
-	// The queue endpoint.
+	Blob  pulumi.StringPtrInput `pulumi:"blob"`
+	File  pulumi.StringPtrInput `pulumi:"file"`
 	Queue pulumi.StringPtrInput `pulumi:"queue"`
-	// The table endpoint.
 	Table pulumi.StringPtrInput `pulumi:"table"`
 }
 
@@ -251,7 +236,6 @@ func (i *endpointsResponsePtrType) ToEndpointsResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointsResponsePtrOutput)
 }
 
-// The URIs that are used to perform a retrieval of a public blob, queue or table object.
 type EndpointsResponseOutput struct{ *pulumi.OutputState }
 
 func (EndpointsResponseOutput) ElementType() reflect.Type {
@@ -271,27 +255,23 @@ func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutput() EndpointsRespons
 }
 
 func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutputWithContext(ctx context.Context) EndpointsResponsePtrOutput {
-	return o.ApplyT(func(v EndpointsResponse) *EndpointsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointsResponse) *EndpointsResponse {
 		return &v
 	}).(EndpointsResponsePtrOutput)
 }
 
-// The blob endpoint.
 func (o EndpointsResponseOutput) Blob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointsResponse) *string { return v.Blob }).(pulumi.StringPtrOutput)
 }
 
-// The file endpoint.
 func (o EndpointsResponseOutput) File() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointsResponse) *string { return v.File }).(pulumi.StringPtrOutput)
 }
 
-// The queue endpoint.
 func (o EndpointsResponseOutput) Queue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointsResponse) *string { return v.Queue }).(pulumi.StringPtrOutput)
 }
 
-// The table endpoint.
 func (o EndpointsResponseOutput) Table() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointsResponse) *string { return v.Table }).(pulumi.StringPtrOutput)
 }
@@ -311,10 +291,15 @@ func (o EndpointsResponsePtrOutput) ToEndpointsResponsePtrOutputWithContext(ctx 
 }
 
 func (o EndpointsResponsePtrOutput) Elem() EndpointsResponseOutput {
-	return o.ApplyT(func(v *EndpointsResponse) EndpointsResponse { return *v }).(EndpointsResponseOutput)
+	return o.ApplyT(func(v *EndpointsResponse) EndpointsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointsResponse
+		return ret
+	}).(EndpointsResponseOutput)
 }
 
-// The blob endpoint.
 func (o EndpointsResponsePtrOutput) Blob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -324,7 +309,6 @@ func (o EndpointsResponsePtrOutput) Blob() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The file endpoint.
 func (o EndpointsResponsePtrOutput) File() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o EndpointsResponsePtrOutput) File() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The queue endpoint.
 func (o EndpointsResponsePtrOutput) Queue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o EndpointsResponsePtrOutput) Queue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The table endpoint.
 func (o EndpointsResponsePtrOutput) Table() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {

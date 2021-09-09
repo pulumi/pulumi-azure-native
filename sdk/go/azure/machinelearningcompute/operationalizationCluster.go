@@ -184,9 +184,7 @@ func (i *OperationalizationCluster) ToOperationalizationClusterOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(OperationalizationClusterOutput)
 }
 
-type OperationalizationClusterOutput struct {
-	*pulumi.OutputState
-}
+type OperationalizationClusterOutput struct{ *pulumi.OutputState }
 
 func (OperationalizationClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OperationalizationCluster)(nil))

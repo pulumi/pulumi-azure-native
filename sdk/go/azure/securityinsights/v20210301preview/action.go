@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Action for alert rule.
 type Action struct {
 	pulumi.CustomResourceState
 
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
-	LogicAppResourceId pulumi.StringOutput `pulumi:"logicAppResourceId"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The name of the logic app's workflow.
-	WorkflowId pulumi.StringPtrOutput `pulumi:"workflowId"`
+	Etag               pulumi.StringPtrOutput   `pulumi:"etag"`
+	LogicAppResourceId pulumi.StringOutput      `pulumi:"logicAppResourceId"`
+	Name               pulumi.StringOutput      `pulumi:"name"`
+	SystemData         SystemDataResponseOutput `pulumi:"systemData"`
+	Type               pulumi.StringOutput      `pulumi:"type"`
+	WorkflowId         pulumi.StringPtrOutput   `pulumi:"workflowId"`
 }
 
 // NewAction registers a new resource with the given unique name, arguments, and options.
@@ -110,42 +103,26 @@ func (ActionState) ElementType() reflect.Type {
 }
 
 type actionArgs struct {
-	// Action ID
-	ActionId *string `pulumi:"actionId"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
-	LogicAppResourceId string `pulumi:"logicAppResourceId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Alert rule ID
-	RuleId string `pulumi:"ruleId"`
-	// Logic App Callback URL for this specific workflow.
-	TriggerUri string `pulumi:"triggerUri"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ActionId                            *string `pulumi:"actionId"`
+	Etag                                *string `pulumi:"etag"`
+	LogicAppResourceId                  string  `pulumi:"logicAppResourceId"`
+	OperationalInsightsResourceProvider string  `pulumi:"operationalInsightsResourceProvider"`
+	ResourceGroupName                   string  `pulumi:"resourceGroupName"`
+	RuleId                              string  `pulumi:"ruleId"`
+	TriggerUri                          string  `pulumi:"triggerUri"`
+	WorkspaceName                       string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Action resource.
 type ActionArgs struct {
-	// Action ID
-	ActionId pulumi.StringPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
-	LogicAppResourceId pulumi.StringInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	ActionId                            pulumi.StringPtrInput
+	Etag                                pulumi.StringPtrInput
+	LogicAppResourceId                  pulumi.StringInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Alert rule ID
-	RuleId pulumi.StringInput
-	// Logic App Callback URL for this specific workflow.
-	TriggerUri pulumi.StringInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	ResourceGroupName                   pulumi.StringInput
+	RuleId                              pulumi.StringInput
+	TriggerUri                          pulumi.StringInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (ActionArgs) ElementType() reflect.Type {
@@ -171,9 +148,7 @@ func (i *Action) ToActionOutputWithContext(ctx context.Context) ActionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionOutput)
 }
 
-type ActionOutput struct {
-	*pulumi.OutputState
-}
+type ActionOutput struct{ *pulumi.OutputState }
 
 func (ActionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Action)(nil))

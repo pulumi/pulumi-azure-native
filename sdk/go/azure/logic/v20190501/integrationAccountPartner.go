@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration account partner.
 type IntegrationAccountPartner struct {
 	pulumi.CustomResourceState
 
-	// The changed time.
-	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
-	// The partner content.
-	Content PartnerContentResponseOutput `pulumi:"content"`
-	// The created time.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The metadata.
-	Metadata pulumi.AnyOutput `pulumi:"metadata"`
-	// Gets the resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The partner type.
-	PartnerType pulumi.StringOutput `pulumi:"partnerType"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ChangedTime pulumi.StringOutput          `pulumi:"changedTime"`
+	Content     PartnerContentResponseOutput `pulumi:"content"`
+	CreatedTime pulumi.StringOutput          `pulumi:"createdTime"`
+	Location    pulumi.StringPtrOutput       `pulumi:"location"`
+	Metadata    pulumi.AnyOutput             `pulumi:"metadata"`
+	Name        pulumi.StringOutput          `pulumi:"name"`
+	PartnerType pulumi.StringOutput          `pulumi:"partnerType"`
+	Tags        pulumi.StringMapOutput       `pulumi:"tags"`
+	Type        pulumi.StringOutput          `pulumi:"type"`
 }
 
 // NewIntegrationAccountPartner registers a new resource with the given unique name, arguments, and options.
@@ -116,42 +106,26 @@ func (IntegrationAccountPartnerState) ElementType() reflect.Type {
 }
 
 type integrationAccountPartnerArgs struct {
-	// The partner content.
-	Content PartnerContent `pulumi:"content"`
-	// The integration account name.
-	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The integration account partner name.
-	PartnerName *string `pulumi:"partnerName"`
-	// The partner type.
-	PartnerType string `pulumi:"partnerType"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Content                PartnerContent    `pulumi:"content"`
+	IntegrationAccountName string            `pulumi:"integrationAccountName"`
+	Location               *string           `pulumi:"location"`
+	Metadata               interface{}       `pulumi:"metadata"`
+	PartnerName            *string           `pulumi:"partnerName"`
+	PartnerType            string            `pulumi:"partnerType"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	Tags                   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IntegrationAccountPartner resource.
 type IntegrationAccountPartnerArgs struct {
-	// The partner content.
-	Content PartnerContentInput
-	// The integration account name.
+	Content                PartnerContentInput
 	IntegrationAccountName pulumi.StringInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The metadata.
-	Metadata pulumi.Input
-	// The integration account partner name.
-	PartnerName pulumi.StringPtrInput
-	// The partner type.
-	PartnerType pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	Location               pulumi.StringPtrInput
+	Metadata               pulumi.Input
+	PartnerName            pulumi.StringPtrInput
+	PartnerType            pulumi.StringInput
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (IntegrationAccountPartnerArgs) ElementType() reflect.Type {
@@ -177,9 +151,7 @@ func (i *IntegrationAccountPartner) ToIntegrationAccountPartnerOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountPartnerOutput)
 }
 
-type IntegrationAccountPartnerOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountPartnerOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountPartnerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountPartner)(nil))

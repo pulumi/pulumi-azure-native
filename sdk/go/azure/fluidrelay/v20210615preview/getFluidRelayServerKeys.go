@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The set of available keys for this server.
 func GetFluidRelayServerKeys(ctx *pulumi.Context, args *GetFluidRelayServerKeysArgs, opts ...pulumi.InvokeOption) (*GetFluidRelayServerKeysResult, error) {
 	var rv GetFluidRelayServerKeysResult
 	err := ctx.Invoke("azure-native:fluidrelay/v20210615preview:getFluidRelayServerKeys", args, &rv, opts...)
@@ -18,16 +17,12 @@ func GetFluidRelayServerKeys(ctx *pulumi.Context, args *GetFluidRelayServerKeysA
 }
 
 type GetFluidRelayServerKeysArgs struct {
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The resource group containing the resource.
+	Name          string `pulumi:"name"`
 	ResourceGroup string `pulumi:"resourceGroup"`
 }
 
 // The set of available keys for this server.
 type GetFluidRelayServerKeysResult struct {
-	// The primary key for this server
 	Key1 string `pulumi:"key1"`
-	// The secondary key for this server
 	Key2 string `pulumi:"key2"`
 }

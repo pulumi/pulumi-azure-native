@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The description of the DigitalTwins service.
 type DigitalTwin struct {
 	pulumi.CustomResourceState
 
-	// Time when DigitalTwinsInstance was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// Api endpoint to work with DigitalTwinsInstance.
-	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// Time when DigitalTwinsInstance was created.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// The resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// This property is reserved for future use, and will be ignored/omitted
-	Sku DigitalTwinsSkuInfoResponsePtrOutput `pulumi:"sku"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CreatedTime       pulumi.StringOutput                  `pulumi:"createdTime"`
+	HostName          pulumi.StringOutput                  `pulumi:"hostName"`
+	LastUpdatedTime   pulumi.StringOutput                  `pulumi:"lastUpdatedTime"`
+	Location          pulumi.StringOutput                  `pulumi:"location"`
+	Name              pulumi.StringOutput                  `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                  `pulumi:"provisioningState"`
+	Sku               DigitalTwinsSkuInfoResponsePtrOutput `pulumi:"sku"`
+	Tags              pulumi.StringMapOutput               `pulumi:"tags"`
+	Type              pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewDigitalTwin registers a new resource with the given unique name, arguments, and options.
@@ -101,30 +91,20 @@ func (DigitalTwinState) ElementType() reflect.Type {
 }
 
 type digitalTwinArgs struct {
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group that contains the DigitalTwinsInstance.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the DigitalTwinsInstance.
-	ResourceName *string `pulumi:"resourceName"`
-	// This property is reserved for future use, and will be ignored/omitted
-	Sku *DigitalTwinsSkuInfo `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string              `pulumi:"location"`
+	ResourceGroupName string               `pulumi:"resourceGroupName"`
+	ResourceName      *string              `pulumi:"resourceName"`
+	Sku               *DigitalTwinsSkuInfo `pulumi:"sku"`
+	Tags              map[string]string    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DigitalTwin resource.
 type DigitalTwinArgs struct {
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group that contains the DigitalTwinsInstance.
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the DigitalTwinsInstance.
-	ResourceName pulumi.StringPtrInput
-	// This property is reserved for future use, and will be ignored/omitted
-	Sku DigitalTwinsSkuInfoPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	ResourceName      pulumi.StringPtrInput
+	Sku               DigitalTwinsSkuInfoPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (DigitalTwinArgs) ElementType() reflect.Type {
@@ -150,9 +130,7 @@ func (i *DigitalTwin) ToDigitalTwinOutputWithContext(ctx context.Context) Digita
 	return pulumi.ToOutputWithContext(ctx, i).(DigitalTwinOutput)
 }
 
-type DigitalTwinOutput struct {
-	*pulumi.OutputState
-}
+type DigitalTwinOutput struct{ *pulumi.OutputState }
 
 func (DigitalTwinOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DigitalTwin)(nil))

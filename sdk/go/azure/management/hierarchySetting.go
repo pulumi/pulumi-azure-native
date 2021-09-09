@@ -141,9 +141,7 @@ func (i *HierarchySetting) ToHierarchySettingOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HierarchySettingOutput)
 }
 
-type HierarchySettingOutput struct {
-	*pulumi.OutputState
-}
+type HierarchySettingOutput struct{ *pulumi.OutputState }
 
 func (HierarchySettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HierarchySetting)(nil))

@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Blueprint assignment.
 type Assignment struct {
 	pulumi.CustomResourceState
 
-	// ID of the Blueprint definition resource.
-	BlueprintId pulumi.StringPtrOutput `pulumi:"blueprintId"`
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Managed Service Identity for this Blueprint assignment
-	Identity ManagedServiceIdentityResponseOutput `pulumi:"identity"`
-	// The location of this Blueprint assignment.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Defines how Blueprint-managed resources will be locked.
-	Locks AssignmentLockSettingsResponsePtrOutput `pulumi:"locks"`
-	// Name of this resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Blueprint parameter values.
-	Parameters ParameterValueBaseResponseMapOutput `pulumi:"parameters"`
-	// State of the assignment.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Names and locations of resource group placeholders.
-	ResourceGroups ResourceGroupValueResponseMapOutput `pulumi:"resourceGroups"`
-	// Status of Blueprint assignment. This field is readonly.
-	Status AssignmentStatusResponseOutput `pulumi:"status"`
-	// Type of this resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	BlueprintId       pulumi.StringPtrOutput                  `pulumi:"blueprintId"`
+	Description       pulumi.StringPtrOutput                  `pulumi:"description"`
+	DisplayName       pulumi.StringPtrOutput                  `pulumi:"displayName"`
+	Identity          ManagedServiceIdentityResponseOutput    `pulumi:"identity"`
+	Location          pulumi.StringOutput                     `pulumi:"location"`
+	Locks             AssignmentLockSettingsResponsePtrOutput `pulumi:"locks"`
+	Name              pulumi.StringOutput                     `pulumi:"name"`
+	Parameters        ParameterValueBaseResponseMapOutput     `pulumi:"parameters"`
+	ProvisioningState pulumi.StringOutput                     `pulumi:"provisioningState"`
+	ResourceGroups    ResourceGroupValueResponseMapOutput     `pulumi:"resourceGroups"`
+	Status            AssignmentStatusResponseOutput          `pulumi:"status"`
+	Type              pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewAssignment registers a new resource with the given unique name, arguments, and options.
@@ -95,49 +82,29 @@ func (AssignmentState) ElementType() reflect.Type {
 }
 
 type assignmentArgs struct {
-	// name of the assignment.
-	AssignmentName *string `pulumi:"assignmentName"`
-	// ID of the Blueprint definition resource.
-	BlueprintId *string `pulumi:"blueprintId"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// Managed Service Identity for this Blueprint assignment
-	Identity ManagedServiceIdentity `pulumi:"identity"`
-	// The location of this Blueprint assignment.
-	Location *string `pulumi:"location"`
-	// Defines how Blueprint-managed resources will be locked.
-	Locks *AssignmentLockSettings `pulumi:"locks"`
-	// Blueprint parameter values.
-	Parameters map[string]ParameterValueBase `pulumi:"parameters"`
-	// Names and locations of resource group placeholders.
+	AssignmentName *string                       `pulumi:"assignmentName"`
+	BlueprintId    *string                       `pulumi:"blueprintId"`
+	Description    *string                       `pulumi:"description"`
+	DisplayName    *string                       `pulumi:"displayName"`
+	Identity       ManagedServiceIdentity        `pulumi:"identity"`
+	Location       *string                       `pulumi:"location"`
+	Locks          *AssignmentLockSettings       `pulumi:"locks"`
+	Parameters     map[string]ParameterValueBase `pulumi:"parameters"`
 	ResourceGroups map[string]ResourceGroupValue `pulumi:"resourceGroups"`
-	// azure subscriptionId, which we assign the blueprint to.
-	SubscriptionId *string `pulumi:"subscriptionId"`
+	SubscriptionId *string                       `pulumi:"subscriptionId"`
 }
 
 // The set of arguments for constructing a Assignment resource.
 type AssignmentArgs struct {
-	// name of the assignment.
 	AssignmentName pulumi.StringPtrInput
-	// ID of the Blueprint definition resource.
-	BlueprintId pulumi.StringPtrInput
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrInput
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrInput
-	// Managed Service Identity for this Blueprint assignment
-	Identity ManagedServiceIdentityInput
-	// The location of this Blueprint assignment.
-	Location pulumi.StringPtrInput
-	// Defines how Blueprint-managed resources will be locked.
-	Locks AssignmentLockSettingsPtrInput
-	// Blueprint parameter values.
-	Parameters ParameterValueBaseMapInput
-	// Names and locations of resource group placeholders.
+	BlueprintId    pulumi.StringPtrInput
+	Description    pulumi.StringPtrInput
+	DisplayName    pulumi.StringPtrInput
+	Identity       ManagedServiceIdentityInput
+	Location       pulumi.StringPtrInput
+	Locks          AssignmentLockSettingsPtrInput
+	Parameters     ParameterValueBaseMapInput
 	ResourceGroups ResourceGroupValueMapInput
-	// azure subscriptionId, which we assign the blueprint to.
 	SubscriptionId pulumi.StringPtrInput
 }
 
@@ -164,9 +131,7 @@ func (i *Assignment) ToAssignmentOutputWithContext(ctx context.Context) Assignme
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentOutput)
 }
 
-type AssignmentOutput struct {
-	*pulumi.OutputState
-}
+type AssignmentOutput struct{ *pulumi.OutputState }
 
 func (AssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Assignment)(nil))

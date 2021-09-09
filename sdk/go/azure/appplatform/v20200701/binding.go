@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Binding resource payload
 type Binding struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Binding resource
+	Name       pulumi.StringOutput                     `pulumi:"name"`
 	Properties BindingResourcePropertiesResponseOutput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewBinding registers a new resource with the given unique name, arguments, and options.
@@ -101,30 +97,20 @@ func (BindingState) ElementType() reflect.Type {
 }
 
 type bindingArgs struct {
-	// The name of the App resource.
-	AppName string `pulumi:"appName"`
-	// The name of the Binding resource.
-	BindingName *string `pulumi:"bindingName"`
-	// Properties of the Binding resource
-	Properties *BindingResourceProperties `pulumi:"properties"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Service resource.
-	ServiceName string `pulumi:"serviceName"`
+	AppName           string                     `pulumi:"appName"`
+	BindingName       *string                    `pulumi:"bindingName"`
+	Properties        *BindingResourceProperties `pulumi:"properties"`
+	ResourceGroupName string                     `pulumi:"resourceGroupName"`
+	ServiceName       string                     `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a Binding resource.
 type BindingArgs struct {
-	// The name of the App resource.
-	AppName pulumi.StringInput
-	// The name of the Binding resource.
-	BindingName pulumi.StringPtrInput
-	// Properties of the Binding resource
-	Properties BindingResourcePropertiesPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	AppName           pulumi.StringInput
+	BindingName       pulumi.StringPtrInput
+	Properties        BindingResourcePropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Service resource.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (BindingArgs) ElementType() reflect.Type {
@@ -150,9 +136,7 @@ func (i *Binding) ToBindingOutputWithContext(ctx context.Context) BindingOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(BindingOutput)
 }
 
-type BindingOutput struct {
-	*pulumi.OutputState
-}
+type BindingOutput struct{ *pulumi.OutputState }
 
 func (BindingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Binding)(nil))

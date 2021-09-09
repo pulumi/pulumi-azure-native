@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Solution REST Resource.
 type Solution struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets the ETAG for optimistic concurrency control.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Gets the name of this REST resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the properties of the solution.
+	Etag       pulumi.StringPtrOutput           `pulumi:"etag"`
+	Name       pulumi.StringOutput              `pulumi:"name"`
 	Properties SolutionPropertiesResponseOutput `pulumi:"properties"`
-	// Gets the type of this REST resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewSolution registers a new resource with the given unique name, arguments, and options.
@@ -82,30 +77,20 @@ func (SolutionState) ElementType() reflect.Type {
 }
 
 type solutionArgs struct {
-	// Gets or sets the ETAG for optimistic concurrency control.
-	Etag *string `pulumi:"etag"`
-	// Name of the Azure Migrate project.
-	MigrateProjectName string `pulumi:"migrateProjectName"`
-	// Gets or sets the properties of the solution.
-	Properties *SolutionProperties `pulumi:"properties"`
-	// Name of the Azure Resource Group that migrate project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Unique name of a migration solution within a migrate project.
-	SolutionName *string `pulumi:"solutionName"`
+	Etag               *string             `pulumi:"etag"`
+	MigrateProjectName string              `pulumi:"migrateProjectName"`
+	Properties         *SolutionProperties `pulumi:"properties"`
+	ResourceGroupName  string              `pulumi:"resourceGroupName"`
+	SolutionName       *string             `pulumi:"solutionName"`
 }
 
 // The set of arguments for constructing a Solution resource.
 type SolutionArgs struct {
-	// Gets or sets the ETAG for optimistic concurrency control.
-	Etag pulumi.StringPtrInput
-	// Name of the Azure Migrate project.
+	Etag               pulumi.StringPtrInput
 	MigrateProjectName pulumi.StringInput
-	// Gets or sets the properties of the solution.
-	Properties SolutionPropertiesPtrInput
-	// Name of the Azure Resource Group that migrate project is part of.
-	ResourceGroupName pulumi.StringInput
-	// Unique name of a migration solution within a migrate project.
-	SolutionName pulumi.StringPtrInput
+	Properties         SolutionPropertiesPtrInput
+	ResourceGroupName  pulumi.StringInput
+	SolutionName       pulumi.StringPtrInput
 }
 
 func (SolutionArgs) ElementType() reflect.Type {
@@ -131,9 +116,7 @@ func (i *Solution) ToSolutionOutputWithContext(ctx context.Context) SolutionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionOutput)
 }
 
-type SolutionOutput struct {
-	*pulumi.OutputState
-}
+type SolutionOutput struct{ *pulumi.OutputState }
 
 func (SolutionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Solution)(nil))

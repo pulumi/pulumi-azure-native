@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an incident comment
 type IncidentComment struct {
 	pulumi.CustomResourceState
 
-	// Describes the client that created the comment
-	Author ClientInfoResponseOutput `pulumi:"author"`
-	// The time the comment was created
-	CreatedTimeUtc pulumi.StringOutput `pulumi:"createdTimeUtc"`
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The time the comment was updated
-	LastModifiedTimeUtc pulumi.StringOutput `pulumi:"lastModifiedTimeUtc"`
-	// The comment message
-	Message pulumi.StringOutput `pulumi:"message"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Author              ClientInfoResponseOutput `pulumi:"author"`
+	CreatedTimeUtc      pulumi.StringOutput      `pulumi:"createdTimeUtc"`
+	Etag                pulumi.StringPtrOutput   `pulumi:"etag"`
+	LastModifiedTimeUtc pulumi.StringOutput      `pulumi:"lastModifiedTimeUtc"`
+	Message             pulumi.StringOutput      `pulumi:"message"`
+	Name                pulumi.StringOutput      `pulumi:"name"`
+	SystemData          SystemDataResponseOutput `pulumi:"systemData"`
+	Type                pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewIncidentComment registers a new resource with the given unique name, arguments, and options.
@@ -108,34 +99,22 @@ func (IncidentCommentState) ElementType() reflect.Type {
 }
 
 type incidentCommentArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Incident comment ID
+	Etag              *string `pulumi:"etag"`
 	IncidentCommentId *string `pulumi:"incidentCommentId"`
-	// Incident ID
-	IncidentId string `pulumi:"incidentId"`
-	// The comment message
-	Message string `pulumi:"message"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	IncidentId        string  `pulumi:"incidentId"`
+	Message           string  `pulumi:"message"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	WorkspaceName     string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a IncidentComment resource.
 type IncidentCommentArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Incident comment ID
+	Etag              pulumi.StringPtrInput
 	IncidentCommentId pulumi.StringPtrInput
-	// Incident ID
-	IncidentId pulumi.StringInput
-	// The comment message
-	Message pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	IncidentId        pulumi.StringInput
+	Message           pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (IncidentCommentArgs) ElementType() reflect.Type {
@@ -161,9 +140,7 @@ func (i *IncidentComment) ToIncidentCommentOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentCommentOutput)
 }
 
-type IncidentCommentOutput struct {
-	*pulumi.OutputState
-}
+type IncidentCommentOutput struct{ *pulumi.OutputState }
 
 func (IncidentCommentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IncidentComment)(nil))

@@ -10,16 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// On-premise IoT sensor
 type OnPremiseSensor struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	Name       pulumi.StringOutput      `pulumi:"name"`
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewOnPremiseSensor registers a new resource with the given unique name, arguments, and options.
@@ -73,13 +69,11 @@ func (OnPremiseSensorState) ElementType() reflect.Type {
 }
 
 type onPremiseSensorArgs struct {
-	// Name of the on-premise IoT sensor
 	OnPremiseSensorName *string `pulumi:"onPremiseSensorName"`
 }
 
 // The set of arguments for constructing a OnPremiseSensor resource.
 type OnPremiseSensorArgs struct {
-	// Name of the on-premise IoT sensor
 	OnPremiseSensorName pulumi.StringPtrInput
 }
 
@@ -106,9 +100,7 @@ func (i *OnPremiseSensor) ToOnPremiseSensorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseSensorOutput)
 }
 
-type OnPremiseSensorOutput struct {
-	*pulumi.OutputState
-}
+type OnPremiseSensorOutput struct{ *pulumi.OutputState }
 
 func (OnPremiseSensorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OnPremiseSensor)(nil))

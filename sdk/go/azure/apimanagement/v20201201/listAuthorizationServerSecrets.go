@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// OAuth Server Secrets Contract.
 func ListAuthorizationServerSecrets(ctx *pulumi.Context, args *ListAuthorizationServerSecretsArgs, opts ...pulumi.InvokeOption) (*ListAuthorizationServerSecretsResult, error) {
 	var rv ListAuthorizationServerSecretsResult
 	err := ctx.Invoke("azure-native:apimanagement/v20201201:listAuthorizationServerSecrets", args, &rv, opts...)
@@ -18,20 +17,14 @@ func ListAuthorizationServerSecrets(ctx *pulumi.Context, args *ListAuthorization
 }
 
 type ListAuthorizationServerSecretsArgs struct {
-	// Identifier of the authorization server.
-	Authsid string `pulumi:"authsid"`
-	// The name of the resource group.
+	Authsid           string `pulumi:"authsid"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // OAuth Server Secrets Contract.
 type ListAuthorizationServerSecretsResult struct {
-	// oAuth Authorization Server Secrets.
-	ClientSecret *string `pulumi:"clientSecret"`
-	// Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
+	ClientSecret          *string `pulumi:"clientSecret"`
 	ResourceOwnerPassword *string `pulumi:"resourceOwnerPassword"`
-	// Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
 	ResourceOwnerUsername *string `pulumi:"resourceOwnerUsername"`
 }

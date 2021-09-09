@@ -269,9 +269,7 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
 }
 
-type CertificateOutput struct {
-	*pulumi.OutputState
-}
+type CertificateOutput struct{ *pulumi.OutputState }
 
 func (CertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Certificate)(nil))

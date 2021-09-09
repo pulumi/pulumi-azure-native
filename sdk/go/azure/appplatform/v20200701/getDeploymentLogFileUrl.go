@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Log file URL payload
 func GetDeploymentLogFileUrl(ctx *pulumi.Context, args *GetDeploymentLogFileUrlArgs, opts ...pulumi.InvokeOption) (*GetDeploymentLogFileUrlResult, error) {
 	var rv GetDeploymentLogFileUrlResult
 	err := ctx.Invoke("azure-native:appplatform/v20200701:getDeploymentLogFileUrl", args, &rv, opts...)
@@ -18,18 +17,13 @@ func GetDeploymentLogFileUrl(ctx *pulumi.Context, args *GetDeploymentLogFileUrlA
 }
 
 type GetDeploymentLogFileUrlArgs struct {
-	// The name of the App resource.
-	AppName string `pulumi:"appName"`
-	// The name of the Deployment resource.
-	DeploymentName string `pulumi:"deploymentName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	AppName           string `pulumi:"appName"`
+	DeploymentName    string `pulumi:"deploymentName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Service resource.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Log file URL payload
 type GetDeploymentLogFileUrlResult struct {
-	// URL of the log file
 	Url string `pulumi:"url"`
 }

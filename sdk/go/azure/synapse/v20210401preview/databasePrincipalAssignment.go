@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a database principal assignment.
 type DatabasePrincipalAssignment struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
-	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
-	// The principal name
-	PrincipalName pulumi.StringOutput `pulumi:"principalName"`
-	// Principal type.
-	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Database principal role.
-	Role pulumi.StringOutput `pulumi:"role"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The tenant id of the principal
-	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// The tenant name of the principal
-	TenantName pulumi.StringOutput `pulumi:"tenantName"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	PrincipalId       pulumi.StringOutput      `pulumi:"principalId"`
+	PrincipalName     pulumi.StringOutput      `pulumi:"principalName"`
+	PrincipalType     pulumi.StringOutput      `pulumi:"principalType"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	Role              pulumi.StringOutput      `pulumi:"role"`
+	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
+	TenantId          pulumi.StringPtrOutput   `pulumi:"tenantId"`
+	TenantName        pulumi.StringOutput      `pulumi:"tenantName"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewDatabasePrincipalAssignment registers a new resource with the given unique name, arguments, and options.
@@ -115,46 +104,28 @@ func (DatabasePrincipalAssignmentState) ElementType() reflect.Type {
 }
 
 type databasePrincipalAssignmentArgs struct {
-	// The name of the database in the Kusto pool.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the Kusto pool.
-	KustoPoolName string `pulumi:"kustoPoolName"`
-	// The name of the Kusto principalAssignment.
+	DatabaseName            string  `pulumi:"databaseName"`
+	KustoPoolName           string  `pulumi:"kustoPoolName"`
 	PrincipalAssignmentName *string `pulumi:"principalAssignmentName"`
-	// The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
-	PrincipalId string `pulumi:"principalId"`
-	// Principal type.
-	PrincipalType string `pulumi:"principalType"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Database principal role.
-	Role string `pulumi:"role"`
-	// The tenant id of the principal
-	TenantId *string `pulumi:"tenantId"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	PrincipalId             string  `pulumi:"principalId"`
+	PrincipalType           string  `pulumi:"principalType"`
+	ResourceGroupName       string  `pulumi:"resourceGroupName"`
+	Role                    string  `pulumi:"role"`
+	TenantId                *string `pulumi:"tenantId"`
+	WorkspaceName           string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a DatabasePrincipalAssignment resource.
 type DatabasePrincipalAssignmentArgs struct {
-	// The name of the database in the Kusto pool.
-	DatabaseName pulumi.StringInput
-	// The name of the Kusto pool.
-	KustoPoolName pulumi.StringInput
-	// The name of the Kusto principalAssignment.
+	DatabaseName            pulumi.StringInput
+	KustoPoolName           pulumi.StringInput
 	PrincipalAssignmentName pulumi.StringPtrInput
-	// The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
-	PrincipalId pulumi.StringInput
-	// Principal type.
-	PrincipalType pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Database principal role.
-	Role pulumi.StringInput
-	// The tenant id of the principal
-	TenantId pulumi.StringPtrInput
-	// The name of the workspace
-	WorkspaceName pulumi.StringInput
+	PrincipalId             pulumi.StringInput
+	PrincipalType           pulumi.StringInput
+	ResourceGroupName       pulumi.StringInput
+	Role                    pulumi.StringInput
+	TenantId                pulumi.StringPtrInput
+	WorkspaceName           pulumi.StringInput
 }
 
 func (DatabasePrincipalAssignmentArgs) ElementType() reflect.Type {
@@ -180,9 +151,7 @@ func (i *DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalAssignmentOutput)
 }
 
-type DatabasePrincipalAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type DatabasePrincipalAssignmentOutput struct{ *pulumi.OutputState }
 
 func (DatabasePrincipalAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabasePrincipalAssignment)(nil))

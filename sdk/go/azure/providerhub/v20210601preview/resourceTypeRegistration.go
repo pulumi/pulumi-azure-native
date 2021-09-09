@@ -14,13 +14,10 @@ import (
 type ResourceTypeRegistration struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
 	Name       pulumi.StringOutput                              `pulumi:"name"`
 	Properties ResourceTypeRegistrationResponsePropertiesOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput                         `pulumi:"systemData"`
+	Type       pulumi.StringOutput                              `pulumi:"type"`
 }
 
 // NewResourceTypeRegistration registers a new resource with the given unique name, arguments, and options.
@@ -89,20 +86,16 @@ func (ResourceTypeRegistrationState) ElementType() reflect.Type {
 }
 
 type resourceTypeRegistrationArgs struct {
-	Properties *ResourceTypeRegistrationProperties `pulumi:"properties"`
-	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace string `pulumi:"providerNamespace"`
-	// The resource type.
-	ResourceType *string `pulumi:"resourceType"`
+	Properties        *ResourceTypeRegistrationProperties `pulumi:"properties"`
+	ProviderNamespace string                              `pulumi:"providerNamespace"`
+	ResourceType      *string                             `pulumi:"resourceType"`
 }
 
 // The set of arguments for constructing a ResourceTypeRegistration resource.
 type ResourceTypeRegistrationArgs struct {
-	Properties ResourceTypeRegistrationPropertiesPtrInput
-	// The name of the resource provider hosted within ProviderHub.
+	Properties        ResourceTypeRegistrationPropertiesPtrInput
 	ProviderNamespace pulumi.StringInput
-	// The resource type.
-	ResourceType pulumi.StringPtrInput
+	ResourceType      pulumi.StringPtrInput
 }
 
 func (ResourceTypeRegistrationArgs) ElementType() reflect.Type {
@@ -128,9 +121,7 @@ func (i *ResourceTypeRegistration) ToResourceTypeRegistrationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceTypeRegistrationOutput)
 }
 
-type ResourceTypeRegistrationOutput struct {
-	*pulumi.OutputState
-}
+type ResourceTypeRegistrationOutput struct{ *pulumi.OutputState }
 
 func (ResourceTypeRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceTypeRegistration)(nil))

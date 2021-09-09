@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
 func LookupInput(ctx *pulumi.Context, args *LookupInputArgs, opts ...pulumi.InvokeOption) (*LookupInputResult, error) {
 	var rv LookupInputResult
 	err := ctx.Invoke("azure-native:streamanalytics/v20160301:getInput", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupInput(ctx *pulumi.Context, args *LookupInputArgs, opts ...pulumi.Invo
 }
 
 type LookupInputArgs struct {
-	// The name of the input.
-	InputName string `pulumi:"inputName"`
-	// The name of the streaming job.
-	JobName string `pulumi:"jobName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	InputName         string `pulumi:"inputName"`
+	JobName           string `pulumi:"jobName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
 type LookupInputResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
+	Id         string      `pulumi:"id"`
+	Name       *string     `pulumi:"name"`
 	Properties interface{} `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Type       string      `pulumi:"type"`
 }

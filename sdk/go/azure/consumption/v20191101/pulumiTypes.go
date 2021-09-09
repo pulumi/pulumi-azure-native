@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The comparison expression to be used in the budgets.
 type BudgetComparisonExpression struct {
-	// The name of the column to use in comparison.
-	Name string `pulumi:"name"`
-	// The operator to use for comparison.
-	Operator string `pulumi:"operator"`
-	// Array of values to use for comparison
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // BudgetComparisonExpressionInput is an input type that accepts BudgetComparisonExpressionArgs and BudgetComparisonExpressionOutput values.
@@ -31,14 +27,10 @@ type BudgetComparisonExpressionInput interface {
 	ToBudgetComparisonExpressionOutputWithContext(context.Context) BudgetComparisonExpressionOutput
 }
 
-// The comparison expression to be used in the budgets.
 type BudgetComparisonExpressionArgs struct {
-	// The name of the column to use in comparison.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The operator to use for comparison.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Array of values to use for comparison
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (BudgetComparisonExpressionArgs) ElementType() reflect.Type {
@@ -94,7 +86,6 @@ func (i *budgetComparisonExpressionPtrType) ToBudgetComparisonExpressionPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetComparisonExpressionPtrOutput)
 }
 
-// The comparison expression to be used in the budgets.
 type BudgetComparisonExpressionOutput struct{ *pulumi.OutputState }
 
 func (BudgetComparisonExpressionOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o BudgetComparisonExpressionOutput) ToBudgetComparisonExpressionPtrOutput(
 }
 
 func (o BudgetComparisonExpressionOutput) ToBudgetComparisonExpressionPtrOutputWithContext(ctx context.Context) BudgetComparisonExpressionPtrOutput {
-	return o.ApplyT(func(v BudgetComparisonExpression) *BudgetComparisonExpression {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetComparisonExpression) *BudgetComparisonExpression {
 		return &v
 	}).(BudgetComparisonExpressionPtrOutput)
 }
 
-// The name of the column to use in comparison.
 func (o BudgetComparisonExpressionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetComparisonExpression) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The operator to use for comparison.
 func (o BudgetComparisonExpressionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetComparisonExpression) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Array of values to use for comparison
 func (o BudgetComparisonExpressionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetComparisonExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -149,10 +137,15 @@ func (o BudgetComparisonExpressionPtrOutput) ToBudgetComparisonExpressionPtrOutp
 }
 
 func (o BudgetComparisonExpressionPtrOutput) Elem() BudgetComparisonExpressionOutput {
-	return o.ApplyT(func(v *BudgetComparisonExpression) BudgetComparisonExpression { return *v }).(BudgetComparisonExpressionOutput)
+	return o.ApplyT(func(v *BudgetComparisonExpression) BudgetComparisonExpression {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetComparisonExpression
+		return ret
+	}).(BudgetComparisonExpressionOutput)
 }
 
-// The name of the column to use in comparison.
 func (o BudgetComparisonExpressionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetComparisonExpression) *string {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o BudgetComparisonExpressionPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The operator to use for comparison.
 func (o BudgetComparisonExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetComparisonExpression) *string {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o BudgetComparisonExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of values to use for comparison
 func (o BudgetComparisonExpressionPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetComparisonExpression) []string {
 		if v == nil {
@@ -182,14 +173,10 @@ func (o BudgetComparisonExpressionPtrOutput) Values() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The comparison expression to be used in the budgets.
 type BudgetComparisonExpressionResponse struct {
-	// The name of the column to use in comparison.
-	Name string `pulumi:"name"`
-	// The operator to use for comparison.
-	Operator string `pulumi:"operator"`
-	// Array of values to use for comparison
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // BudgetComparisonExpressionResponseInput is an input type that accepts BudgetComparisonExpressionResponseArgs and BudgetComparisonExpressionResponseOutput values.
@@ -203,14 +190,10 @@ type BudgetComparisonExpressionResponseInput interface {
 	ToBudgetComparisonExpressionResponseOutputWithContext(context.Context) BudgetComparisonExpressionResponseOutput
 }
 
-// The comparison expression to be used in the budgets.
 type BudgetComparisonExpressionResponseArgs struct {
-	// The name of the column to use in comparison.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The operator to use for comparison.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Array of values to use for comparison
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (BudgetComparisonExpressionResponseArgs) ElementType() reflect.Type {
@@ -266,7 +249,6 @@ func (i *budgetComparisonExpressionResponsePtrType) ToBudgetComparisonExpression
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetComparisonExpressionResponsePtrOutput)
 }
 
-// The comparison expression to be used in the budgets.
 type BudgetComparisonExpressionResponseOutput struct{ *pulumi.OutputState }
 
 func (BudgetComparisonExpressionResponseOutput) ElementType() reflect.Type {
@@ -286,22 +268,19 @@ func (o BudgetComparisonExpressionResponseOutput) ToBudgetComparisonExpressionRe
 }
 
 func (o BudgetComparisonExpressionResponseOutput) ToBudgetComparisonExpressionResponsePtrOutputWithContext(ctx context.Context) BudgetComparisonExpressionResponsePtrOutput {
-	return o.ApplyT(func(v BudgetComparisonExpressionResponse) *BudgetComparisonExpressionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetComparisonExpressionResponse) *BudgetComparisonExpressionResponse {
 		return &v
 	}).(BudgetComparisonExpressionResponsePtrOutput)
 }
 
-// The name of the column to use in comparison.
 func (o BudgetComparisonExpressionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetComparisonExpressionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The operator to use for comparison.
 func (o BudgetComparisonExpressionResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetComparisonExpressionResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Array of values to use for comparison
 func (o BudgetComparisonExpressionResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetComparisonExpressionResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -321,10 +300,15 @@ func (o BudgetComparisonExpressionResponsePtrOutput) ToBudgetComparisonExpressio
 }
 
 func (o BudgetComparisonExpressionResponsePtrOutput) Elem() BudgetComparisonExpressionResponseOutput {
-	return o.ApplyT(func(v *BudgetComparisonExpressionResponse) BudgetComparisonExpressionResponse { return *v }).(BudgetComparisonExpressionResponseOutput)
+	return o.ApplyT(func(v *BudgetComparisonExpressionResponse) BudgetComparisonExpressionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetComparisonExpressionResponse
+		return ret
+	}).(BudgetComparisonExpressionResponseOutput)
 }
 
-// The name of the column to use in comparison.
 func (o BudgetComparisonExpressionResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetComparisonExpressionResponse) *string {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o BudgetComparisonExpressionResponsePtrOutput) Name() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The operator to use for comparison.
 func (o BudgetComparisonExpressionResponsePtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetComparisonExpressionResponse) *string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o BudgetComparisonExpressionResponsePtrOutput) Operator() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of values to use for comparison
 func (o BudgetComparisonExpressionResponsePtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetComparisonExpressionResponse) []string {
 		if v == nil {
@@ -354,16 +336,11 @@ func (o BudgetComparisonExpressionResponsePtrOutput) Values() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// May be used to filter budgets by resource group, resource, or meter.
 type BudgetFilter struct {
-	// The logical "AND" expression. Must have at least 2 items.
-	And []BudgetFilterProperties `pulumi:"and"`
-	// Has comparison expression for a dimension
+	And        []BudgetFilterProperties    `pulumi:"and"`
 	Dimensions *BudgetComparisonExpression `pulumi:"dimensions"`
-	// The logical "NOT" expression.
-	Not *BudgetFilterProperties `pulumi:"not"`
-	// Has comparison expression for a tag
-	Tags *BudgetComparisonExpression `pulumi:"tags"`
+	Not        *BudgetFilterProperties     `pulumi:"not"`
+	Tags       *BudgetComparisonExpression `pulumi:"tags"`
 }
 
 // BudgetFilterInput is an input type that accepts BudgetFilterArgs and BudgetFilterOutput values.
@@ -377,16 +354,11 @@ type BudgetFilterInput interface {
 	ToBudgetFilterOutputWithContext(context.Context) BudgetFilterOutput
 }
 
-// May be used to filter budgets by resource group, resource, or meter.
 type BudgetFilterArgs struct {
-	// The logical "AND" expression. Must have at least 2 items.
-	And BudgetFilterPropertiesArrayInput `pulumi:"and"`
-	// Has comparison expression for a dimension
+	And        BudgetFilterPropertiesArrayInput   `pulumi:"and"`
 	Dimensions BudgetComparisonExpressionPtrInput `pulumi:"dimensions"`
-	// The logical "NOT" expression.
-	Not BudgetFilterPropertiesPtrInput `pulumi:"not"`
-	// Has comparison expression for a tag
-	Tags BudgetComparisonExpressionPtrInput `pulumi:"tags"`
+	Not        BudgetFilterPropertiesPtrInput     `pulumi:"not"`
+	Tags       BudgetComparisonExpressionPtrInput `pulumi:"tags"`
 }
 
 func (BudgetFilterArgs) ElementType() reflect.Type {
@@ -442,7 +414,6 @@ func (i *budgetFilterPtrType) ToBudgetFilterPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterPtrOutput)
 }
 
-// May be used to filter budgets by resource group, resource, or meter.
 type BudgetFilterOutput struct{ *pulumi.OutputState }
 
 func (BudgetFilterOutput) ElementType() reflect.Type {
@@ -462,27 +433,23 @@ func (o BudgetFilterOutput) ToBudgetFilterPtrOutput() BudgetFilterPtrOutput {
 }
 
 func (o BudgetFilterOutput) ToBudgetFilterPtrOutputWithContext(ctx context.Context) BudgetFilterPtrOutput {
-	return o.ApplyT(func(v BudgetFilter) *BudgetFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilter) *BudgetFilter {
 		return &v
 	}).(BudgetFilterPtrOutput)
 }
 
-// The logical "AND" expression. Must have at least 2 items.
 func (o BudgetFilterOutput) And() BudgetFilterPropertiesArrayOutput {
 	return o.ApplyT(func(v BudgetFilter) []BudgetFilterProperties { return v.And }).(BudgetFilterPropertiesArrayOutput)
 }
 
-// Has comparison expression for a dimension
 func (o BudgetFilterOutput) Dimensions() BudgetComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v BudgetFilter) *BudgetComparisonExpression { return v.Dimensions }).(BudgetComparisonExpressionPtrOutput)
 }
 
-// The logical "NOT" expression.
 func (o BudgetFilterOutput) Not() BudgetFilterPropertiesPtrOutput {
 	return o.ApplyT(func(v BudgetFilter) *BudgetFilterProperties { return v.Not }).(BudgetFilterPropertiesPtrOutput)
 }
 
-// Has comparison expression for a tag
 func (o BudgetFilterOutput) Tags() BudgetComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v BudgetFilter) *BudgetComparisonExpression { return v.Tags }).(BudgetComparisonExpressionPtrOutput)
 }
@@ -502,10 +469,15 @@ func (o BudgetFilterPtrOutput) ToBudgetFilterPtrOutputWithContext(ctx context.Co
 }
 
 func (o BudgetFilterPtrOutput) Elem() BudgetFilterOutput {
-	return o.ApplyT(func(v *BudgetFilter) BudgetFilter { return *v }).(BudgetFilterOutput)
+	return o.ApplyT(func(v *BudgetFilter) BudgetFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilter
+		return ret
+	}).(BudgetFilterOutput)
 }
 
-// The logical "AND" expression. Must have at least 2 items.
 func (o BudgetFilterPtrOutput) And() BudgetFilterPropertiesArrayOutput {
 	return o.ApplyT(func(v *BudgetFilter) []BudgetFilterProperties {
 		if v == nil {
@@ -515,7 +487,6 @@ func (o BudgetFilterPtrOutput) And() BudgetFilterPropertiesArrayOutput {
 	}).(BudgetFilterPropertiesArrayOutput)
 }
 
-// Has comparison expression for a dimension
 func (o BudgetFilterPtrOutput) Dimensions() BudgetComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v *BudgetFilter) *BudgetComparisonExpression {
 		if v == nil {
@@ -525,7 +496,6 @@ func (o BudgetFilterPtrOutput) Dimensions() BudgetComparisonExpressionPtrOutput 
 	}).(BudgetComparisonExpressionPtrOutput)
 }
 
-// The logical "NOT" expression.
 func (o BudgetFilterPtrOutput) Not() BudgetFilterPropertiesPtrOutput {
 	return o.ApplyT(func(v *BudgetFilter) *BudgetFilterProperties {
 		if v == nil {
@@ -535,7 +505,6 @@ func (o BudgetFilterPtrOutput) Not() BudgetFilterPropertiesPtrOutput {
 	}).(BudgetFilterPropertiesPtrOutput)
 }
 
-// Has comparison expression for a tag
 func (o BudgetFilterPtrOutput) Tags() BudgetComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v *BudgetFilter) *BudgetComparisonExpression {
 		if v == nil {
@@ -545,12 +514,9 @@ func (o BudgetFilterPtrOutput) Tags() BudgetComparisonExpressionPtrOutput {
 	}).(BudgetComparisonExpressionPtrOutput)
 }
 
-// The Dimensions or Tags to filter a budget by.
 type BudgetFilterProperties struct {
-	// Has comparison expression for a dimension
 	Dimensions *BudgetComparisonExpression `pulumi:"dimensions"`
-	// Has comparison expression for a tag
-	Tags *BudgetComparisonExpression `pulumi:"tags"`
+	Tags       *BudgetComparisonExpression `pulumi:"tags"`
 }
 
 // BudgetFilterPropertiesInput is an input type that accepts BudgetFilterPropertiesArgs and BudgetFilterPropertiesOutput values.
@@ -564,12 +530,9 @@ type BudgetFilterPropertiesInput interface {
 	ToBudgetFilterPropertiesOutputWithContext(context.Context) BudgetFilterPropertiesOutput
 }
 
-// The Dimensions or Tags to filter a budget by.
 type BudgetFilterPropertiesArgs struct {
-	// Has comparison expression for a dimension
 	Dimensions BudgetComparisonExpressionPtrInput `pulumi:"dimensions"`
-	// Has comparison expression for a tag
-	Tags BudgetComparisonExpressionPtrInput `pulumi:"tags"`
+	Tags       BudgetComparisonExpressionPtrInput `pulumi:"tags"`
 }
 
 func (BudgetFilterPropertiesArgs) ElementType() reflect.Type {
@@ -650,7 +613,6 @@ func (i BudgetFilterPropertiesArray) ToBudgetFilterPropertiesArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterPropertiesArrayOutput)
 }
 
-// The Dimensions or Tags to filter a budget by.
 type BudgetFilterPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BudgetFilterPropertiesOutput) ElementType() reflect.Type {
@@ -670,17 +632,15 @@ func (o BudgetFilterPropertiesOutput) ToBudgetFilterPropertiesPtrOutput() Budget
 }
 
 func (o BudgetFilterPropertiesOutput) ToBudgetFilterPropertiesPtrOutputWithContext(ctx context.Context) BudgetFilterPropertiesPtrOutput {
-	return o.ApplyT(func(v BudgetFilterProperties) *BudgetFilterProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterProperties) *BudgetFilterProperties {
 		return &v
 	}).(BudgetFilterPropertiesPtrOutput)
 }
 
-// Has comparison expression for a dimension
 func (o BudgetFilterPropertiesOutput) Dimensions() BudgetComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v BudgetFilterProperties) *BudgetComparisonExpression { return v.Dimensions }).(BudgetComparisonExpressionPtrOutput)
 }
 
-// Has comparison expression for a tag
 func (o BudgetFilterPropertiesOutput) Tags() BudgetComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v BudgetFilterProperties) *BudgetComparisonExpression { return v.Tags }).(BudgetComparisonExpressionPtrOutput)
 }
@@ -700,10 +660,15 @@ func (o BudgetFilterPropertiesPtrOutput) ToBudgetFilterPropertiesPtrOutputWithCo
 }
 
 func (o BudgetFilterPropertiesPtrOutput) Elem() BudgetFilterPropertiesOutput {
-	return o.ApplyT(func(v *BudgetFilterProperties) BudgetFilterProperties { return *v }).(BudgetFilterPropertiesOutput)
+	return o.ApplyT(func(v *BudgetFilterProperties) BudgetFilterProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterProperties
+		return ret
+	}).(BudgetFilterPropertiesOutput)
 }
 
-// Has comparison expression for a dimension
 func (o BudgetFilterPropertiesPtrOutput) Dimensions() BudgetComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterProperties) *BudgetComparisonExpression {
 		if v == nil {
@@ -713,7 +678,6 @@ func (o BudgetFilterPropertiesPtrOutput) Dimensions() BudgetComparisonExpression
 	}).(BudgetComparisonExpressionPtrOutput)
 }
 
-// Has comparison expression for a tag
 func (o BudgetFilterPropertiesPtrOutput) Tags() BudgetComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterProperties) *BudgetComparisonExpression {
 		if v == nil {
@@ -743,12 +707,9 @@ func (o BudgetFilterPropertiesArrayOutput) Index(i pulumi.IntInput) BudgetFilter
 	}).(BudgetFilterPropertiesOutput)
 }
 
-// The Dimensions or Tags to filter a budget by.
 type BudgetFilterPropertiesResponse struct {
-	// Has comparison expression for a dimension
 	Dimensions *BudgetComparisonExpressionResponse `pulumi:"dimensions"`
-	// Has comparison expression for a tag
-	Tags *BudgetComparisonExpressionResponse `pulumi:"tags"`
+	Tags       *BudgetComparisonExpressionResponse `pulumi:"tags"`
 }
 
 // BudgetFilterPropertiesResponseInput is an input type that accepts BudgetFilterPropertiesResponseArgs and BudgetFilterPropertiesResponseOutput values.
@@ -762,12 +723,9 @@ type BudgetFilterPropertiesResponseInput interface {
 	ToBudgetFilterPropertiesResponseOutputWithContext(context.Context) BudgetFilterPropertiesResponseOutput
 }
 
-// The Dimensions or Tags to filter a budget by.
 type BudgetFilterPropertiesResponseArgs struct {
-	// Has comparison expression for a dimension
 	Dimensions BudgetComparisonExpressionResponsePtrInput `pulumi:"dimensions"`
-	// Has comparison expression for a tag
-	Tags BudgetComparisonExpressionResponsePtrInput `pulumi:"tags"`
+	Tags       BudgetComparisonExpressionResponsePtrInput `pulumi:"tags"`
 }
 
 func (BudgetFilterPropertiesResponseArgs) ElementType() reflect.Type {
@@ -848,7 +806,6 @@ func (i BudgetFilterPropertiesResponseArray) ToBudgetFilterPropertiesResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterPropertiesResponseArrayOutput)
 }
 
-// The Dimensions or Tags to filter a budget by.
 type BudgetFilterPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (BudgetFilterPropertiesResponseOutput) ElementType() reflect.Type {
@@ -868,17 +825,15 @@ func (o BudgetFilterPropertiesResponseOutput) ToBudgetFilterPropertiesResponsePt
 }
 
 func (o BudgetFilterPropertiesResponseOutput) ToBudgetFilterPropertiesResponsePtrOutputWithContext(ctx context.Context) BudgetFilterPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v BudgetFilterPropertiesResponse) *BudgetFilterPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterPropertiesResponse) *BudgetFilterPropertiesResponse {
 		return &v
 	}).(BudgetFilterPropertiesResponsePtrOutput)
 }
 
-// Has comparison expression for a dimension
 func (o BudgetFilterPropertiesResponseOutput) Dimensions() BudgetComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v BudgetFilterPropertiesResponse) *BudgetComparisonExpressionResponse { return v.Dimensions }).(BudgetComparisonExpressionResponsePtrOutput)
 }
 
-// Has comparison expression for a tag
 func (o BudgetFilterPropertiesResponseOutput) Tags() BudgetComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v BudgetFilterPropertiesResponse) *BudgetComparisonExpressionResponse { return v.Tags }).(BudgetComparisonExpressionResponsePtrOutput)
 }
@@ -898,10 +853,15 @@ func (o BudgetFilterPropertiesResponsePtrOutput) ToBudgetFilterPropertiesRespons
 }
 
 func (o BudgetFilterPropertiesResponsePtrOutput) Elem() BudgetFilterPropertiesResponseOutput {
-	return o.ApplyT(func(v *BudgetFilterPropertiesResponse) BudgetFilterPropertiesResponse { return *v }).(BudgetFilterPropertiesResponseOutput)
+	return o.ApplyT(func(v *BudgetFilterPropertiesResponse) BudgetFilterPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterPropertiesResponse
+		return ret
+	}).(BudgetFilterPropertiesResponseOutput)
 }
 
-// Has comparison expression for a dimension
 func (o BudgetFilterPropertiesResponsePtrOutput) Dimensions() BudgetComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v *BudgetFilterPropertiesResponse) *BudgetComparisonExpressionResponse {
 		if v == nil {
@@ -911,7 +871,6 @@ func (o BudgetFilterPropertiesResponsePtrOutput) Dimensions() BudgetComparisonEx
 	}).(BudgetComparisonExpressionResponsePtrOutput)
 }
 
-// Has comparison expression for a tag
 func (o BudgetFilterPropertiesResponsePtrOutput) Tags() BudgetComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v *BudgetFilterPropertiesResponse) *BudgetComparisonExpressionResponse {
 		if v == nil {
@@ -941,16 +900,11 @@ func (o BudgetFilterPropertiesResponseArrayOutput) Index(i pulumi.IntInput) Budg
 	}).(BudgetFilterPropertiesResponseOutput)
 }
 
-// May be used to filter budgets by resource group, resource, or meter.
 type BudgetFilterResponse struct {
-	// The logical "AND" expression. Must have at least 2 items.
-	And []BudgetFilterPropertiesResponse `pulumi:"and"`
-	// Has comparison expression for a dimension
+	And        []BudgetFilterPropertiesResponse    `pulumi:"and"`
 	Dimensions *BudgetComparisonExpressionResponse `pulumi:"dimensions"`
-	// The logical "NOT" expression.
-	Not *BudgetFilterPropertiesResponse `pulumi:"not"`
-	// Has comparison expression for a tag
-	Tags *BudgetComparisonExpressionResponse `pulumi:"tags"`
+	Not        *BudgetFilterPropertiesResponse     `pulumi:"not"`
+	Tags       *BudgetComparisonExpressionResponse `pulumi:"tags"`
 }
 
 // BudgetFilterResponseInput is an input type that accepts BudgetFilterResponseArgs and BudgetFilterResponseOutput values.
@@ -964,16 +918,11 @@ type BudgetFilterResponseInput interface {
 	ToBudgetFilterResponseOutputWithContext(context.Context) BudgetFilterResponseOutput
 }
 
-// May be used to filter budgets by resource group, resource, or meter.
 type BudgetFilterResponseArgs struct {
-	// The logical "AND" expression. Must have at least 2 items.
-	And BudgetFilterPropertiesResponseArrayInput `pulumi:"and"`
-	// Has comparison expression for a dimension
+	And        BudgetFilterPropertiesResponseArrayInput   `pulumi:"and"`
 	Dimensions BudgetComparisonExpressionResponsePtrInput `pulumi:"dimensions"`
-	// The logical "NOT" expression.
-	Not BudgetFilterPropertiesResponsePtrInput `pulumi:"not"`
-	// Has comparison expression for a tag
-	Tags BudgetComparisonExpressionResponsePtrInput `pulumi:"tags"`
+	Not        BudgetFilterPropertiesResponsePtrInput     `pulumi:"not"`
+	Tags       BudgetComparisonExpressionResponsePtrInput `pulumi:"tags"`
 }
 
 func (BudgetFilterResponseArgs) ElementType() reflect.Type {
@@ -1029,7 +978,6 @@ func (i *budgetFilterResponsePtrType) ToBudgetFilterResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterResponsePtrOutput)
 }
 
-// May be used to filter budgets by resource group, resource, or meter.
 type BudgetFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (BudgetFilterResponseOutput) ElementType() reflect.Type {
@@ -1049,27 +997,23 @@ func (o BudgetFilterResponseOutput) ToBudgetFilterResponsePtrOutput() BudgetFilt
 }
 
 func (o BudgetFilterResponseOutput) ToBudgetFilterResponsePtrOutputWithContext(ctx context.Context) BudgetFilterResponsePtrOutput {
-	return o.ApplyT(func(v BudgetFilterResponse) *BudgetFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterResponse) *BudgetFilterResponse {
 		return &v
 	}).(BudgetFilterResponsePtrOutput)
 }
 
-// The logical "AND" expression. Must have at least 2 items.
 func (o BudgetFilterResponseOutput) And() BudgetFilterPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v BudgetFilterResponse) []BudgetFilterPropertiesResponse { return v.And }).(BudgetFilterPropertiesResponseArrayOutput)
 }
 
-// Has comparison expression for a dimension
 func (o BudgetFilterResponseOutput) Dimensions() BudgetComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v BudgetFilterResponse) *BudgetComparisonExpressionResponse { return v.Dimensions }).(BudgetComparisonExpressionResponsePtrOutput)
 }
 
-// The logical "NOT" expression.
 func (o BudgetFilterResponseOutput) Not() BudgetFilterPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v BudgetFilterResponse) *BudgetFilterPropertiesResponse { return v.Not }).(BudgetFilterPropertiesResponsePtrOutput)
 }
 
-// Has comparison expression for a tag
 func (o BudgetFilterResponseOutput) Tags() BudgetComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v BudgetFilterResponse) *BudgetComparisonExpressionResponse { return v.Tags }).(BudgetComparisonExpressionResponsePtrOutput)
 }
@@ -1089,10 +1033,15 @@ func (o BudgetFilterResponsePtrOutput) ToBudgetFilterResponsePtrOutputWithContex
 }
 
 func (o BudgetFilterResponsePtrOutput) Elem() BudgetFilterResponseOutput {
-	return o.ApplyT(func(v *BudgetFilterResponse) BudgetFilterResponse { return *v }).(BudgetFilterResponseOutput)
+	return o.ApplyT(func(v *BudgetFilterResponse) BudgetFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterResponse
+		return ret
+	}).(BudgetFilterResponseOutput)
 }
 
-// The logical "AND" expression. Must have at least 2 items.
 func (o BudgetFilterResponsePtrOutput) And() BudgetFilterPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterResponse) []BudgetFilterPropertiesResponse {
 		if v == nil {
@@ -1102,7 +1051,6 @@ func (o BudgetFilterResponsePtrOutput) And() BudgetFilterPropertiesResponseArray
 	}).(BudgetFilterPropertiesResponseArrayOutput)
 }
 
-// Has comparison expression for a dimension
 func (o BudgetFilterResponsePtrOutput) Dimensions() BudgetComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v *BudgetFilterResponse) *BudgetComparisonExpressionResponse {
 		if v == nil {
@@ -1112,7 +1060,6 @@ func (o BudgetFilterResponsePtrOutput) Dimensions() BudgetComparisonExpressionRe
 	}).(BudgetComparisonExpressionResponsePtrOutput)
 }
 
-// The logical "NOT" expression.
 func (o BudgetFilterResponsePtrOutput) Not() BudgetFilterPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *BudgetFilterResponse) *BudgetFilterPropertiesResponse {
 		if v == nil {
@@ -1122,7 +1069,6 @@ func (o BudgetFilterResponsePtrOutput) Not() BudgetFilterPropertiesResponsePtrOu
 	}).(BudgetFilterPropertiesResponsePtrOutput)
 }
 
-// Has comparison expression for a tag
 func (o BudgetFilterResponsePtrOutput) Tags() BudgetComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v *BudgetFilterResponse) *BudgetComparisonExpressionResponse {
 		if v == nil {
@@ -1132,12 +1078,9 @@ func (o BudgetFilterResponsePtrOutput) Tags() BudgetComparisonExpressionResponse
 	}).(BudgetComparisonExpressionResponsePtrOutput)
 }
 
-// The start and end date for a budget.
 type BudgetTimePeriod struct {
-	// The end date for the budget. If not provided, we default this to 10 years from the start date.
-	EndDate *string `pulumi:"endDate"`
-	// The start date for the budget.
-	StartDate string `pulumi:"startDate"`
+	EndDate   *string `pulumi:"endDate"`
+	StartDate string  `pulumi:"startDate"`
 }
 
 // BudgetTimePeriodInput is an input type that accepts BudgetTimePeriodArgs and BudgetTimePeriodOutput values.
@@ -1151,12 +1094,9 @@ type BudgetTimePeriodInput interface {
 	ToBudgetTimePeriodOutputWithContext(context.Context) BudgetTimePeriodOutput
 }
 
-// The start and end date for a budget.
 type BudgetTimePeriodArgs struct {
-	// The end date for the budget. If not provided, we default this to 10 years from the start date.
-	EndDate pulumi.StringPtrInput `pulumi:"endDate"`
-	// The start date for the budget.
-	StartDate pulumi.StringInput `pulumi:"startDate"`
+	EndDate   pulumi.StringPtrInput `pulumi:"endDate"`
+	StartDate pulumi.StringInput    `pulumi:"startDate"`
 }
 
 func (BudgetTimePeriodArgs) ElementType() reflect.Type {
@@ -1212,7 +1152,6 @@ func (i *budgetTimePeriodPtrType) ToBudgetTimePeriodPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodPtrOutput)
 }
 
-// The start and end date for a budget.
 type BudgetTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (BudgetTimePeriodOutput) ElementType() reflect.Type {
@@ -1232,17 +1171,15 @@ func (o BudgetTimePeriodOutput) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPt
 }
 
 func (o BudgetTimePeriodOutput) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
-	return o.ApplyT(func(v BudgetTimePeriod) *BudgetTimePeriod {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetTimePeriod) *BudgetTimePeriod {
 		return &v
 	}).(BudgetTimePeriodPtrOutput)
 }
 
-// The end date for the budget. If not provided, we default this to 10 years from the start date.
 func (o BudgetTimePeriodOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetTimePeriod) *string { return v.EndDate }).(pulumi.StringPtrOutput)
 }
 
-// The start date for the budget.
 func (o BudgetTimePeriodOutput) StartDate() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetTimePeriod) string { return v.StartDate }).(pulumi.StringOutput)
 }
@@ -1262,10 +1199,15 @@ func (o BudgetTimePeriodPtrOutput) ToBudgetTimePeriodPtrOutputWithContext(ctx co
 }
 
 func (o BudgetTimePeriodPtrOutput) Elem() BudgetTimePeriodOutput {
-	return o.ApplyT(func(v *BudgetTimePeriod) BudgetTimePeriod { return *v }).(BudgetTimePeriodOutput)
+	return o.ApplyT(func(v *BudgetTimePeriod) BudgetTimePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetTimePeriod
+		return ret
+	}).(BudgetTimePeriodOutput)
 }
 
-// The end date for the budget. If not provided, we default this to 10 years from the start date.
 func (o BudgetTimePeriodPtrOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetTimePeriod) *string {
 		if v == nil {
@@ -1275,7 +1217,6 @@ func (o BudgetTimePeriodPtrOutput) EndDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start date for the budget.
 func (o BudgetTimePeriodPtrOutput) StartDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetTimePeriod) *string {
 		if v == nil {
@@ -1285,12 +1226,9 @@ func (o BudgetTimePeriodPtrOutput) StartDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start and end date for a budget.
 type BudgetTimePeriodResponse struct {
-	// The end date for the budget. If not provided, we default this to 10 years from the start date.
-	EndDate *string `pulumi:"endDate"`
-	// The start date for the budget.
-	StartDate string `pulumi:"startDate"`
+	EndDate   *string `pulumi:"endDate"`
+	StartDate string  `pulumi:"startDate"`
 }
 
 // BudgetTimePeriodResponseInput is an input type that accepts BudgetTimePeriodResponseArgs and BudgetTimePeriodResponseOutput values.
@@ -1304,12 +1242,9 @@ type BudgetTimePeriodResponseInput interface {
 	ToBudgetTimePeriodResponseOutputWithContext(context.Context) BudgetTimePeriodResponseOutput
 }
 
-// The start and end date for a budget.
 type BudgetTimePeriodResponseArgs struct {
-	// The end date for the budget. If not provided, we default this to 10 years from the start date.
-	EndDate pulumi.StringPtrInput `pulumi:"endDate"`
-	// The start date for the budget.
-	StartDate pulumi.StringInput `pulumi:"startDate"`
+	EndDate   pulumi.StringPtrInput `pulumi:"endDate"`
+	StartDate pulumi.StringInput    `pulumi:"startDate"`
 }
 
 func (BudgetTimePeriodResponseArgs) ElementType() reflect.Type {
@@ -1365,7 +1300,6 @@ func (i *budgetTimePeriodResponsePtrType) ToBudgetTimePeriodResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodResponsePtrOutput)
 }
 
-// The start and end date for a budget.
 type BudgetTimePeriodResponseOutput struct{ *pulumi.OutputState }
 
 func (BudgetTimePeriodResponseOutput) ElementType() reflect.Type {
@@ -1385,17 +1319,15 @@ func (o BudgetTimePeriodResponseOutput) ToBudgetTimePeriodResponsePtrOutput() Bu
 }
 
 func (o BudgetTimePeriodResponseOutput) ToBudgetTimePeriodResponsePtrOutputWithContext(ctx context.Context) BudgetTimePeriodResponsePtrOutput {
-	return o.ApplyT(func(v BudgetTimePeriodResponse) *BudgetTimePeriodResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetTimePeriodResponse) *BudgetTimePeriodResponse {
 		return &v
 	}).(BudgetTimePeriodResponsePtrOutput)
 }
 
-// The end date for the budget. If not provided, we default this to 10 years from the start date.
 func (o BudgetTimePeriodResponseOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetTimePeriodResponse) *string { return v.EndDate }).(pulumi.StringPtrOutput)
 }
 
-// The start date for the budget.
 func (o BudgetTimePeriodResponseOutput) StartDate() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetTimePeriodResponse) string { return v.StartDate }).(pulumi.StringOutput)
 }
@@ -1415,10 +1347,15 @@ func (o BudgetTimePeriodResponsePtrOutput) ToBudgetTimePeriodResponsePtrOutputWi
 }
 
 func (o BudgetTimePeriodResponsePtrOutput) Elem() BudgetTimePeriodResponseOutput {
-	return o.ApplyT(func(v *BudgetTimePeriodResponse) BudgetTimePeriodResponse { return *v }).(BudgetTimePeriodResponseOutput)
+	return o.ApplyT(func(v *BudgetTimePeriodResponse) BudgetTimePeriodResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetTimePeriodResponse
+		return ret
+	}).(BudgetTimePeriodResponseOutput)
 }
 
-// The end date for the budget. If not provided, we default this to 10 years from the start date.
 func (o BudgetTimePeriodResponsePtrOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetTimePeriodResponse) *string {
 		if v == nil {
@@ -1428,7 +1365,6 @@ func (o BudgetTimePeriodResponsePtrOutput) EndDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start date for the budget.
 func (o BudgetTimePeriodResponsePtrOutput) StartDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetTimePeriodResponse) *string {
 		if v == nil {
@@ -1438,12 +1374,9 @@ func (o BudgetTimePeriodResponsePtrOutput) StartDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current amount of cost which is being tracked for a budget.
 type CurrentSpendResponse struct {
-	// The total amount of cost which is being tracked by the budget.
 	Amount float64 `pulumi:"amount"`
-	// The unit of measure for the budget amount.
-	Unit string `pulumi:"unit"`
+	Unit   string  `pulumi:"unit"`
 }
 
 // CurrentSpendResponseInput is an input type that accepts CurrentSpendResponseArgs and CurrentSpendResponseOutput values.
@@ -1457,12 +1390,9 @@ type CurrentSpendResponseInput interface {
 	ToCurrentSpendResponseOutputWithContext(context.Context) CurrentSpendResponseOutput
 }
 
-// The current amount of cost which is being tracked for a budget.
 type CurrentSpendResponseArgs struct {
-	// The total amount of cost which is being tracked by the budget.
 	Amount pulumi.Float64Input `pulumi:"amount"`
-	// The unit of measure for the budget amount.
-	Unit pulumi.StringInput `pulumi:"unit"`
+	Unit   pulumi.StringInput  `pulumi:"unit"`
 }
 
 func (CurrentSpendResponseArgs) ElementType() reflect.Type {
@@ -1518,7 +1448,6 @@ func (i *currentSpendResponsePtrType) ToCurrentSpendResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CurrentSpendResponsePtrOutput)
 }
 
-// The current amount of cost which is being tracked for a budget.
 type CurrentSpendResponseOutput struct{ *pulumi.OutputState }
 
 func (CurrentSpendResponseOutput) ElementType() reflect.Type {
@@ -1538,17 +1467,15 @@ func (o CurrentSpendResponseOutput) ToCurrentSpendResponsePtrOutput() CurrentSpe
 }
 
 func (o CurrentSpendResponseOutput) ToCurrentSpendResponsePtrOutputWithContext(ctx context.Context) CurrentSpendResponsePtrOutput {
-	return o.ApplyT(func(v CurrentSpendResponse) *CurrentSpendResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CurrentSpendResponse) *CurrentSpendResponse {
 		return &v
 	}).(CurrentSpendResponsePtrOutput)
 }
 
-// The total amount of cost which is being tracked by the budget.
 func (o CurrentSpendResponseOutput) Amount() pulumi.Float64Output {
 	return o.ApplyT(func(v CurrentSpendResponse) float64 { return v.Amount }).(pulumi.Float64Output)
 }
 
-// The unit of measure for the budget amount.
 func (o CurrentSpendResponseOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v CurrentSpendResponse) string { return v.Unit }).(pulumi.StringOutput)
 }
@@ -1568,10 +1495,15 @@ func (o CurrentSpendResponsePtrOutput) ToCurrentSpendResponsePtrOutputWithContex
 }
 
 func (o CurrentSpendResponsePtrOutput) Elem() CurrentSpendResponseOutput {
-	return o.ApplyT(func(v *CurrentSpendResponse) CurrentSpendResponse { return *v }).(CurrentSpendResponseOutput)
+	return o.ApplyT(func(v *CurrentSpendResponse) CurrentSpendResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CurrentSpendResponse
+		return ret
+	}).(CurrentSpendResponseOutput)
 }
 
-// The total amount of cost which is being tracked by the budget.
 func (o CurrentSpendResponsePtrOutput) Amount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CurrentSpendResponse) *float64 {
 		if v == nil {
@@ -1581,7 +1513,6 @@ func (o CurrentSpendResponsePtrOutput) Amount() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The unit of measure for the budget amount.
 func (o CurrentSpendResponsePtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CurrentSpendResponse) *string {
 		if v == nil {
@@ -1591,12 +1522,9 @@ func (o CurrentSpendResponsePtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The forecasted cost which is being tracked for a budget.
 type ForecastSpendResponse struct {
-	// The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
 	Amount float64 `pulumi:"amount"`
-	// The unit of measure for the budget amount.
-	Unit string `pulumi:"unit"`
+	Unit   string  `pulumi:"unit"`
 }
 
 // ForecastSpendResponseInput is an input type that accepts ForecastSpendResponseArgs and ForecastSpendResponseOutput values.
@@ -1610,12 +1538,9 @@ type ForecastSpendResponseInput interface {
 	ToForecastSpendResponseOutputWithContext(context.Context) ForecastSpendResponseOutput
 }
 
-// The forecasted cost which is being tracked for a budget.
 type ForecastSpendResponseArgs struct {
-	// The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
 	Amount pulumi.Float64Input `pulumi:"amount"`
-	// The unit of measure for the budget amount.
-	Unit pulumi.StringInput `pulumi:"unit"`
+	Unit   pulumi.StringInput  `pulumi:"unit"`
 }
 
 func (ForecastSpendResponseArgs) ElementType() reflect.Type {
@@ -1671,7 +1596,6 @@ func (i *forecastSpendResponsePtrType) ToForecastSpendResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ForecastSpendResponsePtrOutput)
 }
 
-// The forecasted cost which is being tracked for a budget.
 type ForecastSpendResponseOutput struct{ *pulumi.OutputState }
 
 func (ForecastSpendResponseOutput) ElementType() reflect.Type {
@@ -1691,17 +1615,15 @@ func (o ForecastSpendResponseOutput) ToForecastSpendResponsePtrOutput() Forecast
 }
 
 func (o ForecastSpendResponseOutput) ToForecastSpendResponsePtrOutputWithContext(ctx context.Context) ForecastSpendResponsePtrOutput {
-	return o.ApplyT(func(v ForecastSpendResponse) *ForecastSpendResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ForecastSpendResponse) *ForecastSpendResponse {
 		return &v
 	}).(ForecastSpendResponsePtrOutput)
 }
 
-// The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
 func (o ForecastSpendResponseOutput) Amount() pulumi.Float64Output {
 	return o.ApplyT(func(v ForecastSpendResponse) float64 { return v.Amount }).(pulumi.Float64Output)
 }
 
-// The unit of measure for the budget amount.
 func (o ForecastSpendResponseOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v ForecastSpendResponse) string { return v.Unit }).(pulumi.StringOutput)
 }
@@ -1721,10 +1643,15 @@ func (o ForecastSpendResponsePtrOutput) ToForecastSpendResponsePtrOutputWithCont
 }
 
 func (o ForecastSpendResponsePtrOutput) Elem() ForecastSpendResponseOutput {
-	return o.ApplyT(func(v *ForecastSpendResponse) ForecastSpendResponse { return *v }).(ForecastSpendResponseOutput)
+	return o.ApplyT(func(v *ForecastSpendResponse) ForecastSpendResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ForecastSpendResponse
+		return ret
+	}).(ForecastSpendResponseOutput)
 }
 
-// The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
 func (o ForecastSpendResponsePtrOutput) Amount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ForecastSpendResponse) *float64 {
 		if v == nil {
@@ -1734,7 +1661,6 @@ func (o ForecastSpendResponsePtrOutput) Amount() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The unit of measure for the budget amount.
 func (o ForecastSpendResponsePtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ForecastSpendResponse) *string {
 		if v == nil {
@@ -1744,22 +1670,14 @@ func (o ForecastSpendResponsePtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The notification associated with a budget.
 type Notification struct {
-	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails []string `pulumi:"contactEmails"`
-	// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 	ContactGroups []string `pulumi:"contactGroups"`
-	// Contact roles to send the budget notification to when the threshold is exceeded.
-	ContactRoles []string `pulumi:"contactRoles"`
-	// The notification is enabled or not.
-	Enabled bool `pulumi:"enabled"`
-	// The comparison operator.
-	Operator string `pulumi:"operator"`
-	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-	Threshold float64 `pulumi:"threshold"`
-	// The type of threshold
-	ThresholdType *string `pulumi:"thresholdType"`
+	ContactRoles  []string `pulumi:"contactRoles"`
+	Enabled       bool     `pulumi:"enabled"`
+	Operator      string   `pulumi:"operator"`
+	Threshold     float64  `pulumi:"threshold"`
+	ThresholdType *string  `pulumi:"thresholdType"`
 }
 
 // NotificationInput is an input type that accepts NotificationArgs and NotificationOutput values.
@@ -1773,22 +1691,14 @@ type NotificationInput interface {
 	ToNotificationOutputWithContext(context.Context) NotificationOutput
 }
 
-// The notification associated with a budget.
 type NotificationArgs struct {
-	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
-	// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
-	// Contact roles to send the budget notification to when the threshold is exceeded.
-	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
-	// The notification is enabled or not.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The comparison operator.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// The type of threshold
-	ThresholdType pulumi.StringPtrInput `pulumi:"thresholdType"`
+	ContactRoles  pulumi.StringArrayInput `pulumi:"contactRoles"`
+	Enabled       pulumi.BoolInput        `pulumi:"enabled"`
+	Operator      pulumi.StringInput      `pulumi:"operator"`
+	Threshold     pulumi.Float64Input     `pulumi:"threshold"`
+	ThresholdType pulumi.StringPtrInput   `pulumi:"thresholdType"`
 }
 
 func (NotificationArgs) ElementType() reflect.Type {
@@ -1828,7 +1738,6 @@ func (i NotificationMap) ToNotificationMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationMapOutput)
 }
 
-// The notification associated with a budget.
 type NotificationOutput struct{ *pulumi.OutputState }
 
 func (NotificationOutput) ElementType() reflect.Type {
@@ -1843,37 +1752,30 @@ func (o NotificationOutput) ToNotificationOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 func (o NotificationOutput) ContactEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Notification) []string { return v.ContactEmails }).(pulumi.StringArrayOutput)
 }
 
-// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 func (o NotificationOutput) ContactGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Notification) []string { return v.ContactGroups }).(pulumi.StringArrayOutput)
 }
 
-// Contact roles to send the budget notification to when the threshold is exceeded.
 func (o NotificationOutput) ContactRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Notification) []string { return v.ContactRoles }).(pulumi.StringArrayOutput)
 }
 
-// The notification is enabled or not.
 func (o NotificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v Notification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The comparison operator.
 func (o NotificationOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v Notification) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
 func (o NotificationOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v Notification) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// The type of threshold
 func (o NotificationOutput) ThresholdType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Notification) *string { return v.ThresholdType }).(pulumi.StringPtrOutput)
 }
@@ -1898,22 +1800,14 @@ func (o NotificationMapOutput) MapIndex(k pulumi.StringInput) NotificationOutput
 	}).(NotificationOutput)
 }
 
-// The notification associated with a budget.
 type NotificationResponse struct {
-	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails []string `pulumi:"contactEmails"`
-	// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 	ContactGroups []string `pulumi:"contactGroups"`
-	// Contact roles to send the budget notification to when the threshold is exceeded.
-	ContactRoles []string `pulumi:"contactRoles"`
-	// The notification is enabled or not.
-	Enabled bool `pulumi:"enabled"`
-	// The comparison operator.
-	Operator string `pulumi:"operator"`
-	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-	Threshold float64 `pulumi:"threshold"`
-	// The type of threshold
-	ThresholdType *string `pulumi:"thresholdType"`
+	ContactRoles  []string `pulumi:"contactRoles"`
+	Enabled       bool     `pulumi:"enabled"`
+	Operator      string   `pulumi:"operator"`
+	Threshold     float64  `pulumi:"threshold"`
+	ThresholdType *string  `pulumi:"thresholdType"`
 }
 
 // NotificationResponseInput is an input type that accepts NotificationResponseArgs and NotificationResponseOutput values.
@@ -1927,22 +1821,14 @@ type NotificationResponseInput interface {
 	ToNotificationResponseOutputWithContext(context.Context) NotificationResponseOutput
 }
 
-// The notification associated with a budget.
 type NotificationResponseArgs struct {
-	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
-	// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
-	// Contact roles to send the budget notification to when the threshold is exceeded.
-	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
-	// The notification is enabled or not.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The comparison operator.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// The type of threshold
-	ThresholdType pulumi.StringPtrInput `pulumi:"thresholdType"`
+	ContactRoles  pulumi.StringArrayInput `pulumi:"contactRoles"`
+	Enabled       pulumi.BoolInput        `pulumi:"enabled"`
+	Operator      pulumi.StringInput      `pulumi:"operator"`
+	Threshold     pulumi.Float64Input     `pulumi:"threshold"`
+	ThresholdType pulumi.StringPtrInput   `pulumi:"thresholdType"`
 }
 
 func (NotificationResponseArgs) ElementType() reflect.Type {
@@ -1982,7 +1868,6 @@ func (i NotificationResponseMap) ToNotificationResponseMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationResponseMapOutput)
 }
 
-// The notification associated with a budget.
 type NotificationResponseOutput struct{ *pulumi.OutputState }
 
 func (NotificationResponseOutput) ElementType() reflect.Type {
@@ -1997,37 +1882,30 @@ func (o NotificationResponseOutput) ToNotificationResponseOutputWithContext(ctx 
 	return o
 }
 
-// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 func (o NotificationResponseOutput) ContactEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NotificationResponse) []string { return v.ContactEmails }).(pulumi.StringArrayOutput)
 }
 
-// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 func (o NotificationResponseOutput) ContactGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NotificationResponse) []string { return v.ContactGroups }).(pulumi.StringArrayOutput)
 }
 
-// Contact roles to send the budget notification to when the threshold is exceeded.
 func (o NotificationResponseOutput) ContactRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NotificationResponse) []string { return v.ContactRoles }).(pulumi.StringArrayOutput)
 }
 
-// The notification is enabled or not.
 func (o NotificationResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v NotificationResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The comparison operator.
 func (o NotificationResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
 func (o NotificationResponseOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v NotificationResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// The type of threshold
 func (o NotificationResponseOutput) ThresholdType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationResponse) *string { return v.ThresholdType }).(pulumi.StringPtrOutput)
 }

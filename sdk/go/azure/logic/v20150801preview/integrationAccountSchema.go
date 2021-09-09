@@ -14,30 +14,18 @@ import (
 type IntegrationAccountSchema struct {
 	pulumi.CustomResourceState
 
-	// The changed time.
-	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
-	// The content.
-	Content pulumi.AnyOutput `pulumi:"content"`
-	// The content link.
-	ContentLink IntegrationAccountContentLinkResponseOutput `pulumi:"contentLink"`
-	// The content type.
-	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
-	// The created time.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The metadata.
-	Metadata pulumi.AnyOutput `pulumi:"metadata"`
-	// The resource name.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The schema type.
-	SchemaType pulumi.StringPtrOutput `pulumi:"schemaType"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The target namespace.
-	TargetNamespace pulumi.StringPtrOutput `pulumi:"targetNamespace"`
-	// The resource type.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	ChangedTime     pulumi.StringOutput                         `pulumi:"changedTime"`
+	Content         pulumi.AnyOutput                            `pulumi:"content"`
+	ContentLink     IntegrationAccountContentLinkResponseOutput `pulumi:"contentLink"`
+	ContentType     pulumi.StringPtrOutput                      `pulumi:"contentType"`
+	CreatedTime     pulumi.StringOutput                         `pulumi:"createdTime"`
+	Location        pulumi.StringPtrOutput                      `pulumi:"location"`
+	Metadata        pulumi.AnyOutput                            `pulumi:"metadata"`
+	Name            pulumi.StringPtrOutput                      `pulumi:"name"`
+	SchemaType      pulumi.StringPtrOutput                      `pulumi:"schemaType"`
+	Tags            pulumi.StringMapOutput                      `pulumi:"tags"`
+	TargetNamespace pulumi.StringPtrOutput                      `pulumi:"targetNamespace"`
+	Type            pulumi.StringPtrOutput                      `pulumi:"type"`
 }
 
 // NewIntegrationAccountSchema registers a new resource with the given unique name, arguments, and options.
@@ -115,62 +103,36 @@ func (IntegrationAccountSchemaState) ElementType() reflect.Type {
 }
 
 type integrationAccountSchemaArgs struct {
-	// The content.
-	Content interface{} `pulumi:"content"`
-	// The content type.
-	ContentType *string `pulumi:"contentType"`
-	// The resource id.
-	Id *string `pulumi:"id"`
-	// The integration account name.
-	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The integration account schema name.
-	SchemaName *string `pulumi:"schemaName"`
-	// The schema type.
-	SchemaType *string `pulumi:"schemaType"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The target namespace.
-	TargetNamespace *string `pulumi:"targetNamespace"`
-	// The resource type.
-	Type *string `pulumi:"type"`
+	Content                interface{}       `pulumi:"content"`
+	ContentType            *string           `pulumi:"contentType"`
+	Id                     *string           `pulumi:"id"`
+	IntegrationAccountName string            `pulumi:"integrationAccountName"`
+	Location               *string           `pulumi:"location"`
+	Metadata               interface{}       `pulumi:"metadata"`
+	Name                   *string           `pulumi:"name"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	SchemaName             *string           `pulumi:"schemaName"`
+	SchemaType             *SchemaType       `pulumi:"schemaType"`
+	Tags                   map[string]string `pulumi:"tags"`
+	TargetNamespace        *string           `pulumi:"targetNamespace"`
+	Type                   *string           `pulumi:"type"`
 }
 
 // The set of arguments for constructing a IntegrationAccountSchema resource.
 type IntegrationAccountSchemaArgs struct {
-	// The content.
-	Content pulumi.Input
-	// The content type.
-	ContentType pulumi.StringPtrInput
-	// The resource id.
-	Id pulumi.StringPtrInput
-	// The integration account name.
+	Content                pulumi.Input
+	ContentType            pulumi.StringPtrInput
+	Id                     pulumi.StringPtrInput
 	IntegrationAccountName pulumi.StringInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The metadata.
-	Metadata pulumi.Input
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The integration account schema name.
-	SchemaName pulumi.StringPtrInput
-	// The schema type.
-	SchemaType *SchemaType
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The target namespace.
-	TargetNamespace pulumi.StringPtrInput
-	// The resource type.
-	Type pulumi.StringPtrInput
+	Location               pulumi.StringPtrInput
+	Metadata               pulumi.Input
+	Name                   pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	SchemaName             pulumi.StringPtrInput
+	SchemaType             SchemaTypePtrInput
+	Tags                   pulumi.StringMapInput
+	TargetNamespace        pulumi.StringPtrInput
+	Type                   pulumi.StringPtrInput
 }
 
 func (IntegrationAccountSchemaArgs) ElementType() reflect.Type {
@@ -196,9 +158,7 @@ func (i *IntegrationAccountSchema) ToIntegrationAccountSchemaOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSchemaOutput)
 }
 
-type IntegrationAccountSchemaOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountSchemaOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountSchemaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountSchema)(nil))

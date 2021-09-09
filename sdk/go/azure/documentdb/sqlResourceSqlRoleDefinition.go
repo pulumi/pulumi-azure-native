@@ -134,7 +134,7 @@ type sqlResourceSqlRoleDefinitionArgs struct {
 	// A user-friendly name for the Role Definition. Must be unique for the database account.
 	RoleName *string `pulumi:"roleName"`
 	// Indicates whether the Role Definition was built-in or user created.
-	Type *string `pulumi:"type"`
+	Type *RoleDefinitionType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SqlResourceSqlRoleDefinition resource.
@@ -152,7 +152,7 @@ type SqlResourceSqlRoleDefinitionArgs struct {
 	// A user-friendly name for the Role Definition. Must be unique for the database account.
 	RoleName pulumi.StringPtrInput
 	// Indicates whether the Role Definition was built-in or user created.
-	Type *RoleDefinitionType
+	Type RoleDefinitionTypePtrInput
 }
 
 func (SqlResourceSqlRoleDefinitionArgs) ElementType() reflect.Type {
@@ -178,9 +178,7 @@ func (i *SqlResourceSqlRoleDefinition) ToSqlResourceSqlRoleDefinitionOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlRoleDefinitionOutput)
 }
 
-type SqlResourceSqlRoleDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type SqlResourceSqlRoleDefinitionOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlRoleDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlResourceSqlRoleDefinition)(nil))

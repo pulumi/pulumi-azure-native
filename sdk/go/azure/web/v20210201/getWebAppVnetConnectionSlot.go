@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual Network information ARM resource.
 func LookupWebAppVnetConnectionSlot(ctx *pulumi.Context, args *LookupWebAppVnetConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppVnetConnectionSlotResult, error) {
 	var rv LookupWebAppVnetConnectionSlotResult
 	err := ctx.Invoke("azure-native:web/v20210201:getWebAppVnetConnectionSlot", args, &rv, opts...)
@@ -18,39 +17,23 @@ func LookupWebAppVnetConnectionSlot(ctx *pulumi.Context, args *LookupWebAppVnetC
 }
 
 type LookupWebAppVnetConnectionSlotArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will get the named virtual network for the production slot.
-	Slot string `pulumi:"slot"`
-	// Name of the virtual network.
-	VnetName string `pulumi:"vnetName"`
+	Slot              string `pulumi:"slot"`
+	VnetName          string `pulumi:"vnetName"`
 }
 
 // Virtual Network information ARM resource.
 type LookupWebAppVnetConnectionSlotResult struct {
-	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-	// Point-To-Site VPN connection.
-	CertBlob *string `pulumi:"certBlob"`
-	// The client certificate thumbprint.
-	CertThumbprint string `pulumi:"certThumbprint"`
-	// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
-	DnsServers *string `pulumi:"dnsServers"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Flag that is used to denote if this is VNET injection
-	IsSwift *bool `pulumi:"isSwift"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// <code>true</code> if a resync is required; otherwise, <code>false</code>.
-	ResyncRequired bool `pulumi:"resyncRequired"`
-	// The routes that this Virtual Network connection uses.
-	Routes []VnetRouteResponse `pulumi:"routes"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The Virtual Network's resource ID.
-	VnetResourceId *string `pulumi:"vnetResourceId"`
+	CertBlob       *string             `pulumi:"certBlob"`
+	CertThumbprint string              `pulumi:"certThumbprint"`
+	DnsServers     *string             `pulumi:"dnsServers"`
+	Id             string              `pulumi:"id"`
+	IsSwift        *bool               `pulumi:"isSwift"`
+	Kind           *string             `pulumi:"kind"`
+	Name           string              `pulumi:"name"`
+	ResyncRequired bool                `pulumi:"resyncRequired"`
+	Routes         []VnetRouteResponse `pulumi:"routes"`
+	Type           string              `pulumi:"type"`
+	VnetResourceId *string             `pulumi:"vnetResourceId"`
 }

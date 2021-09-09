@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Tenant configuration.
 func LookupTenantConfiguration(ctx *pulumi.Context, args *LookupTenantConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupTenantConfigurationResult, error) {
 	var rv LookupTenantConfigurationResult
 	err := ctx.Invoke("azure-native:portal/v20190101preview:getTenantConfiguration", args, &rv, opts...)
@@ -18,18 +17,13 @@ func LookupTenantConfiguration(ctx *pulumi.Context, args *LookupTenantConfigurat
 }
 
 type LookupTenantConfigurationArgs struct {
-	// The configuration name. Value must be 'default'
 	ConfigurationName string `pulumi:"configurationName"`
 }
 
 // Tenant configuration.
 type LookupTenantConfigurationResult struct {
-	// When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
-	EnforcePrivateMarkdownStorage *bool `pulumi:"enforcePrivateMarkdownStorage"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	EnforcePrivateMarkdownStorage *bool  `pulumi:"enforcePrivateMarkdownStorage"`
+	Id                            string `pulumi:"id"`
+	Name                          string `pulumi:"name"`
+	Type                          string `pulumi:"type"`
 }

@@ -14,28 +14,17 @@ import (
 type IntegrationAccountMap struct {
 	pulumi.CustomResourceState
 
-	// The changed time.
-	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
-	// The content.
-	Content pulumi.AnyOutput `pulumi:"content"`
-	// The content link.
+	ChangedTime pulumi.StringOutput                         `pulumi:"changedTime"`
+	Content     pulumi.AnyOutput                            `pulumi:"content"`
 	ContentLink IntegrationAccountContentLinkResponseOutput `pulumi:"contentLink"`
-	// The content type.
-	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
-	// The created time.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The map type.
-	MapType pulumi.StringPtrOutput `pulumi:"mapType"`
-	// The metadata.
-	Metadata pulumi.AnyOutput `pulumi:"metadata"`
-	// The resource name.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	ContentType pulumi.StringPtrOutput                      `pulumi:"contentType"`
+	CreatedTime pulumi.StringOutput                         `pulumi:"createdTime"`
+	Location    pulumi.StringPtrOutput                      `pulumi:"location"`
+	MapType     pulumi.StringPtrOutput                      `pulumi:"mapType"`
+	Metadata    pulumi.AnyOutput                            `pulumi:"metadata"`
+	Name        pulumi.StringPtrOutput                      `pulumi:"name"`
+	Tags        pulumi.StringMapOutput                      `pulumi:"tags"`
+	Type        pulumi.StringPtrOutput                      `pulumi:"type"`
 }
 
 // NewIntegrationAccountMap registers a new resource with the given unique name, arguments, and options.
@@ -113,58 +102,34 @@ func (IntegrationAccountMapState) ElementType() reflect.Type {
 }
 
 type integrationAccountMapArgs struct {
-	// The content.
-	Content interface{} `pulumi:"content"`
-	// The content type.
-	ContentType *string `pulumi:"contentType"`
-	// The resource id.
-	Id *string `pulumi:"id"`
-	// The integration account name.
-	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The integration account map name.
-	MapName *string `pulumi:"mapName"`
-	// The map type.
-	MapType *string `pulumi:"mapType"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
+	Content                interface{}       `pulumi:"content"`
+	ContentType            *string           `pulumi:"contentType"`
+	Id                     *string           `pulumi:"id"`
+	IntegrationAccountName string            `pulumi:"integrationAccountName"`
+	Location               *string           `pulumi:"location"`
+	MapName                *string           `pulumi:"mapName"`
+	MapType                *MapType          `pulumi:"mapType"`
+	Metadata               interface{}       `pulumi:"metadata"`
+	Name                   *string           `pulumi:"name"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	Tags                   map[string]string `pulumi:"tags"`
+	Type                   *string           `pulumi:"type"`
 }
 
 // The set of arguments for constructing a IntegrationAccountMap resource.
 type IntegrationAccountMapArgs struct {
-	// The content.
-	Content pulumi.Input
-	// The content type.
-	ContentType pulumi.StringPtrInput
-	// The resource id.
-	Id pulumi.StringPtrInput
-	// The integration account name.
+	Content                pulumi.Input
+	ContentType            pulumi.StringPtrInput
+	Id                     pulumi.StringPtrInput
 	IntegrationAccountName pulumi.StringInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The integration account map name.
-	MapName pulumi.StringPtrInput
-	// The map type.
-	MapType *MapType
-	// The metadata.
-	Metadata pulumi.Input
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
+	Location               pulumi.StringPtrInput
+	MapName                pulumi.StringPtrInput
+	MapType                MapTypePtrInput
+	Metadata               pulumi.Input
+	Name                   pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
+	Type                   pulumi.StringPtrInput
 }
 
 func (IntegrationAccountMapArgs) ElementType() reflect.Type {
@@ -190,9 +155,7 @@ func (i *IntegrationAccountMap) ToIntegrationAccountMapOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapOutput)
 }
 
-type IntegrationAccountMapOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountMapOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountMap)(nil))

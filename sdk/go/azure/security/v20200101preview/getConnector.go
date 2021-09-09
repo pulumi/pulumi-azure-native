@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The connector setting
 func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pulumi.InvokeOption) (*LookupConnectorResult, error) {
 	var rv LookupConnectorResult
 	err := ctx.Invoke("azure-native:security/v20200101preview:getConnector", args, &rv, opts...)
@@ -18,20 +17,14 @@ func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pul
 }
 
 type LookupConnectorArgs struct {
-	// Name of the cloud account connector
 	ConnectorName string `pulumi:"connectorName"`
 }
 
 // The connector setting
 type LookupConnectorResult struct {
-	// Settings for authentication management, these settings are relevant only for the cloud connector.
-	AuthenticationDetails interface{} `pulumi:"authenticationDetails"`
-	// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
+	AuthenticationDetails interface{}                              `pulumi:"authenticationDetails"`
 	HybridComputeSettings *HybridComputeSettingsPropertiesResponse `pulumi:"hybridComputeSettings"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id                    string                                   `pulumi:"id"`
+	Name                  string                                   `pulumi:"name"`
+	Type                  string                                   `pulumi:"type"`
 }

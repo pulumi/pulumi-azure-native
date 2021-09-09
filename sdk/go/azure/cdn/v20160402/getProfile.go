@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
 func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.InvokeOption) (*LookupProfileResult, error) {
 	var rv LookupProfileResult
 	err := ctx.Invoke("azure-native:cdn/v20160402:getProfile", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.
 }
 
 type LookupProfileArgs struct {
-	// Name of the CDN profile within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Name of the resource group within the Azure subscription.
+	ProfileName       string `pulumi:"profileName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
 type LookupProfileResult struct {
-	// Resource ID
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Provisioning status of the profile.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource status of the profile.
-	ResourceState string `pulumi:"resourceState"`
-	// The SKU (pricing tier) of the CDN profile.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id                string            `pulumi:"id"`
+	Location          string            `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	ProvisioningState string            `pulumi:"provisioningState"`
+	ResourceState     string            `pulumi:"resourceState"`
+	Sku               *SkuResponse      `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              string            `pulumi:"type"`
 }

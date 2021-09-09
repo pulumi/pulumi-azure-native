@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Sku sub resource.
 func LookupVendorSkus(ctx *pulumi.Context, args *LookupVendorSkusArgs, opts ...pulumi.InvokeOption) (*LookupVendorSkusResult, error) {
 	var rv LookupVendorSkusResult
 	err := ctx.Invoke("azure-native:hybridnetwork/v20200101preview:getVendorSkus", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupVendorSkus(ctx *pulumi.Context, args *LookupVendorSkusArgs, opts ...p
 }
 
 type LookupVendorSkusArgs struct {
-	// The name of the sku.
-	SkuName string `pulumi:"skuName"`
-	// The name of the vendor.
+	SkuName    string `pulumi:"skuName"`
 	VendorName string `pulumi:"vendorName"`
 }
 
 // Sku sub resource.
 type LookupVendorSkusResult struct {
-	// The sku deployment mode.
-	DeploymentMode *string `pulumi:"deploymentMode"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The parameters for the managed application to be supplied by the vendor.
-	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
-	// The template for the managed application deployment.
-	ManagedApplicationTemplate interface{} `pulumi:"managedApplicationTemplate"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The template definition of the network function.
-	NetworkFunctionTemplate *NetworkFunctionTemplateResponse `pulumi:"networkFunctionTemplate"`
-	// Indicates if the vendor sku is in preview mode.
-	Preview *bool `pulumi:"preview"`
-	// The provisioning state of the vendor sku sub resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The sku type.
-	SkuType *string `pulumi:"skuType"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	DeploymentMode               *string                          `pulumi:"deploymentMode"`
+	Id                           string                           `pulumi:"id"`
+	ManagedApplicationParameters interface{}                      `pulumi:"managedApplicationParameters"`
+	ManagedApplicationTemplate   interface{}                      `pulumi:"managedApplicationTemplate"`
+	Name                         string                           `pulumi:"name"`
+	NetworkFunctionTemplate      *NetworkFunctionTemplateResponse `pulumi:"networkFunctionTemplate"`
+	Preview                      *bool                            `pulumi:"preview"`
+	ProvisioningState            string                           `pulumi:"provisioningState"`
+	SkuType                      *string                          `pulumi:"skuType"`
+	Type                         string                           `pulumi:"type"`
 }

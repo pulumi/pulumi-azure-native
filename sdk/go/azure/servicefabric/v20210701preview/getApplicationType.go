@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The application type name resource
 func LookupApplicationType(ctx *pulumi.Context, args *LookupApplicationTypeArgs, opts ...pulumi.InvokeOption) (*LookupApplicationTypeResult, error) {
 	var rv LookupApplicationTypeResult
 	err := ctx.Invoke("azure-native:servicefabric/v20210701preview:getApplicationType", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupApplicationType(ctx *pulumi.Context, args *LookupApplicationTypeArgs,
 }
 
 type LookupApplicationTypeArgs struct {
-	// The name of the application type name resource.
 	ApplicationTypeName string `pulumi:"applicationTypeName"`
-	// The name of the cluster resource.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ClusterName         string `pulumi:"clusterName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 }
 
 // The application type name resource
 type LookupApplicationTypeResult struct {
-	// Azure resource identifier.
-	Id string `pulumi:"id"`
-	// Resource location depends on the parent resource.
-	Location *string `pulumi:"location"`
-	// Azure resource name.
-	Name string `pulumi:"name"`
-	// The current deployment or provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
-	Type string `pulumi:"type"`
+	Id                string             `pulumi:"id"`
+	Location          *string            `pulumi:"location"`
+	Name              string             `pulumi:"name"`
+	ProvisioningState string             `pulumi:"provisioningState"`
+	SystemData        SystemDataResponse `pulumi:"systemData"`
+	Tags              map[string]string  `pulumi:"tags"`
+	Type              string             `pulumi:"type"`
 }

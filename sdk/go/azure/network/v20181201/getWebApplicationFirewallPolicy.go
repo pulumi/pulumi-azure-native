@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines web application firewall policy.
 func LookupWebApplicationFirewallPolicy(ctx *pulumi.Context, args *LookupWebApplicationFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*LookupWebApplicationFirewallPolicyResult, error) {
 	var rv LookupWebApplicationFirewallPolicyResult
 	err := ctx.Invoke("azure-native:network/v20181201:getWebApplicationFirewallPolicy", args, &rv, opts...)
@@ -18,33 +17,21 @@ func LookupWebApplicationFirewallPolicy(ctx *pulumi.Context, args *LookupWebAppl
 }
 
 type LookupWebApplicationFirewallPolicyArgs struct {
-	// The name of the policy
-	PolicyName string `pulumi:"policyName"`
-	// The name of the resource group.
+	PolicyName        string `pulumi:"policyName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Defines web application firewall policy.
 type LookupWebApplicationFirewallPolicyResult struct {
-	// A collection of references to application gateways.
-	ApplicationGateways []ApplicationGatewayResponse `pulumi:"applicationGateways"`
-	// Describes custom rules inside the policy
-	CustomRules []WebApplicationFirewallCustomRuleResponse `pulumi:"customRules"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Describes  policySettings for policy
-	PolicySettings *PolicySettingsResponse `pulumi:"policySettings"`
-	// Provisioning state of the WebApplicationFirewallPolicy.
-	ProvisioningState string `pulumi:"provisioningState"`
-	ResourceState     string `pulumi:"resourceState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	ApplicationGateways []ApplicationGatewayResponse               `pulumi:"applicationGateways"`
+	CustomRules         []WebApplicationFirewallCustomRuleResponse `pulumi:"customRules"`
+	Etag                *string                                    `pulumi:"etag"`
+	Id                  *string                                    `pulumi:"id"`
+	Location            *string                                    `pulumi:"location"`
+	Name                string                                     `pulumi:"name"`
+	PolicySettings      *PolicySettingsResponse                    `pulumi:"policySettings"`
+	ProvisioningState   string                                     `pulumi:"provisioningState"`
+	ResourceState       string                                     `pulumi:"resourceState"`
+	Tags                map[string]string                          `pulumi:"tags"`
+	Type                string                                     `pulumi:"type"`
 }

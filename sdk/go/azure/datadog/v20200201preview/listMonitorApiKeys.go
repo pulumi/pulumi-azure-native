@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response of a list operation.
 func ListMonitorApiKeys(ctx *pulumi.Context, args *ListMonitorApiKeysArgs, opts ...pulumi.InvokeOption) (*ListMonitorApiKeysResult, error) {
 	var rv ListMonitorApiKeysResult
 	err := ctx.Invoke("azure-native:datadog/v20200201preview:listMonitorApiKeys", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListMonitorApiKeys(ctx *pulumi.Context, args *ListMonitorApiKeysArgs, opts 
 }
 
 type ListMonitorApiKeysArgs struct {
-	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group to which the Datadog resource belongs.
+	MonitorName       string `pulumi:"monitorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Response of a list operation.
 type ListMonitorApiKeysResult struct {
-	// Link to the next set of results, if any.
-	NextLink *string `pulumi:"nextLink"`
-	// Results of a list operation.
-	Value []DatadogApiKeyResponse `pulumi:"value"`
+	NextLink *string                 `pulumi:"nextLink"`
+	Value    []DatadogApiKeyResponse `pulumi:"value"`
 }

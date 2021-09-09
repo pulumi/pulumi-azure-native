@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An ADLS Gen 2 file data set.
 func LookupADLSGen2FileDataSet(ctx *pulumi.Context, args *LookupADLSGen2FileDataSetArgs, opts ...pulumi.InvokeOption) (*LookupADLSGen2FileDataSetResult, error) {
 	var rv LookupADLSGen2FileDataSetResult
 	err := ctx.Invoke("azure-native:datashare/v20181101preview:getADLSGen2FileDataSet", args, &rv, opts...)
@@ -18,37 +17,22 @@ func LookupADLSGen2FileDataSet(ctx *pulumi.Context, args *LookupADLSGen2FileData
 }
 
 type LookupADLSGen2FileDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName string `pulumi:"dataSetName"`
-	// The resource group name.
+	AccountName       string `pulumi:"accountName"`
+	DataSetName       string `pulumi:"dataSetName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share.
-	ShareName string `pulumi:"shareName"`
+	ShareName         string `pulumi:"shareName"`
 }
 
 // An ADLS Gen 2 file data set.
 type LookupADLSGen2FileDataSetResult struct {
-	// Unique id for identifying a data set resource
-	DataSetId string `pulumi:"dataSetId"`
-	// File path within the file system.
-	FilePath string `pulumi:"filePath"`
-	// File system to which the file belongs.
-	FileSystem string `pulumi:"fileSystem"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set.
-	// Expected value is 'AdlsGen2File'.
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Resource group of storage account
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// Storage account name of the source data set
+	DataSetId          string `pulumi:"dataSetId"`
+	FilePath           string `pulumi:"filePath"`
+	FileSystem         string `pulumi:"fileSystem"`
+	Id                 string `pulumi:"id"`
+	Kind               string `pulumi:"kind"`
+	Name               string `pulumi:"name"`
+	ResourceGroup      string `pulumi:"resourceGroup"`
 	StorageAccountName string `pulumi:"storageAccountName"`
-	// Subscription id of storage account
-	SubscriptionId string `pulumi:"subscriptionId"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	SubscriptionId     string `pulumi:"subscriptionId"`
+	Type               string `pulumi:"type"`
 }

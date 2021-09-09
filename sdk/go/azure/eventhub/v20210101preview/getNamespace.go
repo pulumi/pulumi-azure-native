@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single Namespace item in List or Get Operation
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	var rv LookupNamespaceResult
 	err := ctx.Invoke("azure-native:eventhub/v20210101preview:getNamespace", args, &rv, opts...)
@@ -18,54 +17,31 @@ func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pul
 }
 
 type LookupNamespaceArgs struct {
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the resource group within the azure subscription.
+	NamespaceName     string `pulumi:"namespaceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Single Namespace item in List or Get Operation
 type LookupNamespaceResult struct {
-	// Cluster ARM ID of the Namespace.
-	ClusterArmId *string `pulumi:"clusterArmId"`
-	// The time the Namespace was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// Properties of BYOK Encryption description
-	Encryption *EncryptionResponse `pulumi:"encryption"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Properties of BYOK Identity description
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
-	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
-	// Value that indicates whether Kafka is enabled for eventhub namespace.
-	KafkaEnabled *bool `pulumi:"kafkaEnabled"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
-	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
-	// Identifier for Azure Insights metrics.
-	MetricId string `pulumi:"metricId"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// List of private endpoint connections.
+	ClusterArmId               *string                             `pulumi:"clusterArmId"`
+	CreatedAt                  string                              `pulumi:"createdAt"`
+	Encryption                 *EncryptionResponse                 `pulumi:"encryption"`
+	Id                         string                              `pulumi:"id"`
+	Identity                   *IdentityResponse                   `pulumi:"identity"`
+	IsAutoInflateEnabled       *bool                               `pulumi:"isAutoInflateEnabled"`
+	KafkaEnabled               *bool                               `pulumi:"kafkaEnabled"`
+	Location                   *string                             `pulumi:"location"`
+	MaximumThroughputUnits     *int                                `pulumi:"maximumThroughputUnits"`
+	MetricId                   string                              `pulumi:"metricId"`
+	Name                       string                              `pulumi:"name"`
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Provisioning state of the Namespace.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Endpoint you can use to perform Service Bus operations.
-	ServiceBusEndpoint string `pulumi:"serviceBusEndpoint"`
-	// Properties of sku resource
-	Sku *SkuResponse `pulumi:"sku"`
-	// Status of the Namespace.
-	Status string `pulumi:"status"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The time the Namespace was updated.
-	UpdatedAt string `pulumi:"updatedAt"`
-	// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
-	ZoneRedundant *bool `pulumi:"zoneRedundant"`
+	ProvisioningState          string                              `pulumi:"provisioningState"`
+	ServiceBusEndpoint         string                              `pulumi:"serviceBusEndpoint"`
+	Sku                        *SkuResponse                        `pulumi:"sku"`
+	Status                     string                              `pulumi:"status"`
+	SystemData                 SystemDataResponse                  `pulumi:"systemData"`
+	Tags                       map[string]string                   `pulumi:"tags"`
+	Type                       string                              `pulumi:"type"`
+	UpdatedAt                  string                              `pulumi:"updatedAt"`
+	ZoneRedundant              *bool                               `pulumi:"zoneRedundant"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Snapshot of a Volume
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	var rv LookupSnapshotResult
 	err := ctx.Invoke("azure-native:netapp/v20191101:getSnapshot", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulum
 }
 
 type LookupSnapshotArgs struct {
-	// The name of the NetApp account
-	AccountName string `pulumi:"accountName"`
-	// The name of the capacity pool
-	PoolName string `pulumi:"poolName"`
-	// The name of the resource group.
+	AccountName       string `pulumi:"accountName"`
+	PoolName          string `pulumi:"poolName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the snapshot
-	SnapshotName string `pulumi:"snapshotName"`
-	// The name of the volume
-	VolumeName string `pulumi:"volumeName"`
+	SnapshotName      string `pulumi:"snapshotName"`
+	VolumeName        string `pulumi:"volumeName"`
 }
 
 // Snapshot of a Volume
 type LookupSnapshotResult struct {
-	// The creation date of the snapshot
-	Created string `pulumi:"created"`
-	// UUID v4 used to identify the FileSystem
-	FileSystemId *string `pulumi:"fileSystemId"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState string `pulumi:"provisioningState"`
-	// UUID v4 used to identify the Snapshot
-	SnapshotId string `pulumi:"snapshotId"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Created           string  `pulumi:"created"`
+	FileSystemId      *string `pulumi:"fileSystemId"`
+	Id                string  `pulumi:"id"`
+	Location          string  `pulumi:"location"`
+	Name              string  `pulumi:"name"`
+	ProvisioningState string  `pulumi:"provisioningState"`
+	SnapshotId        string  `pulumi:"snapshotId"`
+	Type              string  `pulumi:"type"`
 }

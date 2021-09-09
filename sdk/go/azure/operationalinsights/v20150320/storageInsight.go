@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The top level storage insight resource container.
 type StorageInsight struct {
 	pulumi.CustomResourceState
 
-	// The names of the blob containers that the workspace should read
-	Containers pulumi.StringArrayOutput `pulumi:"containers"`
-	// The ETag of the storage insight.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The status of the storage insight
-	Status StorageInsightStatusResponseOutput `pulumi:"status"`
-	// The storage account connection details
-	StorageAccount StorageAccountResponseOutput `pulumi:"storageAccount"`
-	// The names of the Azure tables that the workspace should read
-	Tables pulumi.StringArrayOutput `pulumi:"tables"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Containers     pulumi.StringArrayOutput           `pulumi:"containers"`
+	ETag           pulumi.StringPtrOutput             `pulumi:"eTag"`
+	Name           pulumi.StringOutput                `pulumi:"name"`
+	Status         StorageInsightStatusResponseOutput `pulumi:"status"`
+	StorageAccount StorageAccountResponseOutput       `pulumi:"storageAccount"`
+	Tables         pulumi.StringArrayOutput           `pulumi:"tables"`
+	Tags           pulumi.StringMapOutput             `pulumi:"tags"`
+	Type           pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewStorageInsight registers a new resource with the given unique name, arguments, and options.
@@ -105,42 +96,26 @@ func (StorageInsightState) ElementType() reflect.Type {
 }
 
 type storageInsightArgs struct {
-	// The names of the blob containers that the workspace should read
-	Containers []string `pulumi:"containers"`
-	// The ETag of the storage insight.
-	ETag *string `pulumi:"eTag"`
-	// The Resource Group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The storage account connection details
-	StorageAccount StorageAccount `pulumi:"storageAccount"`
-	// Name of the storageInsightsConfigs resource
-	StorageInsightName *string `pulumi:"storageInsightName"`
-	// The names of the Azure tables that the workspace should read
-	Tables []string `pulumi:"tables"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The Log Analytics Workspace name.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Containers         []string          `pulumi:"containers"`
+	ETag               *string           `pulumi:"eTag"`
+	ResourceGroupName  string            `pulumi:"resourceGroupName"`
+	StorageAccount     StorageAccount    `pulumi:"storageAccount"`
+	StorageInsightName *string           `pulumi:"storageInsightName"`
+	Tables             []string          `pulumi:"tables"`
+	Tags               map[string]string `pulumi:"tags"`
+	WorkspaceName      string            `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a StorageInsight resource.
 type StorageInsightArgs struct {
-	// The names of the blob containers that the workspace should read
-	Containers pulumi.StringArrayInput
-	// The ETag of the storage insight.
-	ETag pulumi.StringPtrInput
-	// The Resource Group name.
-	ResourceGroupName pulumi.StringInput
-	// The storage account connection details
-	StorageAccount StorageAccountInput
-	// Name of the storageInsightsConfigs resource
+	Containers         pulumi.StringArrayInput
+	ETag               pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	StorageAccount     StorageAccountInput
 	StorageInsightName pulumi.StringPtrInput
-	// The names of the Azure tables that the workspace should read
-	Tables pulumi.StringArrayInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// The Log Analytics Workspace name.
-	WorkspaceName pulumi.StringInput
+	Tables             pulumi.StringArrayInput
+	Tags               pulumi.StringMapInput
+	WorkspaceName      pulumi.StringInput
 }
 
 func (StorageInsightArgs) ElementType() reflect.Type {
@@ -166,9 +141,7 @@ func (i *StorageInsight) ToStorageInsightOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightOutput)
 }
 
-type StorageInsightOutput struct {
-	*pulumi.OutputState
-}
+type StorageInsightOutput struct{ *pulumi.OutputState }
 
 func (StorageInsightOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageInsight)(nil))

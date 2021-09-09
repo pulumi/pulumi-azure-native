@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource information with extended details.
 type ManagedHsm struct {
 	pulumi.CustomResourceState
 
-	// The supported Azure location where the managed HSM Pool should be created.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the managed HSM Pool.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the managed HSM
+	Location   pulumi.StringPtrOutput             `pulumi:"location"`
+	Name       pulumi.StringOutput                `pulumi:"name"`
 	Properties ManagedHsmPropertiesResponseOutput `pulumi:"properties"`
-	// SKU details
-	Sku ManagedHsmSkuResponsePtrOutput `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the key vault resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type of the managed HSM Pool.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        ManagedHsmSkuResponsePtrOutput     `pulumi:"sku"`
+	SystemData SystemDataResponseOutput           `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput             `pulumi:"tags"`
+	Type       pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewManagedHsm registers a new resource with the given unique name, arguments, and options.
@@ -97,34 +89,22 @@ func (ManagedHsmState) ElementType() reflect.Type {
 }
 
 type managedHsmArgs struct {
-	// The supported Azure location where the managed HSM Pool should be created.
-	Location *string `pulumi:"location"`
-	// Name of the managed HSM Pool
-	Name *string `pulumi:"name"`
-	// Properties of the managed HSM
-	Properties *ManagedHsmProperties `pulumi:"properties"`
-	// Name of the resource group that contains the managed HSM pool.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SKU details
-	Sku *ManagedHsmSku `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string               `pulumi:"location"`
+	Name              *string               `pulumi:"name"`
+	Properties        *ManagedHsmProperties `pulumi:"properties"`
+	ResourceGroupName string                `pulumi:"resourceGroupName"`
+	Sku               *ManagedHsmSku        `pulumi:"sku"`
+	Tags              map[string]string     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ManagedHsm resource.
 type ManagedHsmArgs struct {
-	// The supported Azure location where the managed HSM Pool should be created.
-	Location pulumi.StringPtrInput
-	// Name of the managed HSM Pool
-	Name pulumi.StringPtrInput
-	// Properties of the managed HSM
-	Properties ManagedHsmPropertiesPtrInput
-	// Name of the resource group that contains the managed HSM pool.
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	Properties        ManagedHsmPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// SKU details
-	Sku ManagedHsmSkuPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Sku               ManagedHsmSkuPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ManagedHsmArgs) ElementType() reflect.Type {
@@ -150,9 +130,7 @@ func (i *ManagedHsm) ToManagedHsmOutputWithContext(ctx context.Context) ManagedH
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmOutput)
 }
 
-type ManagedHsmOutput struct {
-	*pulumi.OutputState
-}
+type ManagedHsmOutput struct{ *pulumi.OutputState }
 
 func (ManagedHsmOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedHsm)(nil))

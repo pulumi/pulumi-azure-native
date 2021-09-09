@@ -157,7 +157,7 @@ type webAppPublicCertificateSlotArgs struct {
 	// Name of the app.
 	Name string `pulumi:"name"`
 	// Public Certificate Location
-	PublicCertificateLocation *string `pulumi:"publicCertificateLocation"`
+	PublicCertificateLocation *PublicCertificateLocation `pulumi:"publicCertificateLocation"`
 	// Public certificate name.
 	PublicCertificateName *string `pulumi:"publicCertificateName"`
 	// Name of the resource group to which the resource belongs.
@@ -175,7 +175,7 @@ type WebAppPublicCertificateSlotArgs struct {
 	// Name of the app.
 	Name pulumi.StringInput
 	// Public Certificate Location
-	PublicCertificateLocation *PublicCertificateLocation
+	PublicCertificateLocation PublicCertificateLocationPtrInput
 	// Public certificate name.
 	PublicCertificateName pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.
@@ -207,9 +207,7 @@ func (i *WebAppPublicCertificateSlot) ToWebAppPublicCertificateSlotOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppPublicCertificateSlotOutput)
 }
 
-type WebAppPublicCertificateSlotOutput struct {
-	*pulumi.OutputState
-}
+type WebAppPublicCertificateSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppPublicCertificateSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppPublicCertificateSlot)(nil))

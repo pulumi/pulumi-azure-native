@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a Namespace AuthorizationRules.
 func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespaceAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceAuthorizationRuleResult, error) {
 	var rv LookupNamespaceAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:notificationhubs/v20170401:getNamespaceAuthorizationRule", args, &rv, opts...)
@@ -18,44 +17,26 @@ func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespace
 }
 
 type LookupNamespaceAuthorizationRuleArgs struct {
-	// Authorization rule name.
 	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	NamespaceName         string `pulumi:"namespaceName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Description of a Namespace AuthorizationRules.
 type LookupNamespaceAuthorizationRuleResult struct {
-	// A string that describes the claim type
-	ClaimType string `pulumi:"claimType"`
-	// A string that describes the claim value
-	ClaimValue string `pulumi:"claimValue"`
-	// The created time for this rule
-	CreatedTime string `pulumi:"createdTime"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// A string that describes the authorization rule.
-	KeyName string `pulumi:"keyName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The last modified time for this rule
-	ModifiedTime string `pulumi:"modifiedTime"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey string `pulumi:"primaryKey"`
-	// The revision number for the rule
-	Revision int `pulumi:"revision"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	SecondaryKey string `pulumi:"secondaryKey"`
-	// The sku of the created namespace
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	ClaimType    string            `pulumi:"claimType"`
+	ClaimValue   string            `pulumi:"claimValue"`
+	CreatedTime  string            `pulumi:"createdTime"`
+	Id           string            `pulumi:"id"`
+	KeyName      string            `pulumi:"keyName"`
+	Location     *string           `pulumi:"location"`
+	ModifiedTime string            `pulumi:"modifiedTime"`
+	Name         string            `pulumi:"name"`
+	PrimaryKey   string            `pulumi:"primaryKey"`
+	Revision     int               `pulumi:"revision"`
+	Rights       []string          `pulumi:"rights"`
+	SecondaryKey string            `pulumi:"secondaryKey"`
+	Sku          *SkuResponse      `pulumi:"sku"`
+	Tags         map[string]string `pulumi:"tags"`
+	Type         string            `pulumi:"type"`
 }

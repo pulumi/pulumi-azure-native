@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual Appliance Site resource.
 func LookupVirtualApplianceSite(ctx *pulumi.Context, args *LookupVirtualApplianceSiteArgs, opts ...pulumi.InvokeOption) (*LookupVirtualApplianceSiteResult, error) {
 	var rv LookupVirtualApplianceSiteResult
 	err := ctx.Invoke("azure-native:network/v20200701:getVirtualApplianceSite", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupVirtualApplianceSite(ctx *pulumi.Context, args *LookupVirtualApplianc
 }
 
 type LookupVirtualApplianceSiteArgs struct {
-	// The name of the Network Virtual Appliance.
 	NetworkVirtualApplianceName string `pulumi:"networkVirtualApplianceName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the site.
-	SiteName string `pulumi:"siteName"`
+	ResourceGroupName           string `pulumi:"resourceGroupName"`
+	SiteName                    string `pulumi:"siteName"`
 }
 
 // Virtual Appliance Site resource.
 type LookupVirtualApplianceSiteResult struct {
-	// Address Prefix.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Name of the virtual appliance site.
-	Name *string `pulumi:"name"`
-	// Office 365 Policy.
-	O365Policy *Office365PolicyPropertiesResponse `pulumi:"o365Policy"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Site type.
-	Type string `pulumi:"type"`
+	AddressPrefix     *string                            `pulumi:"addressPrefix"`
+	Etag              string                             `pulumi:"etag"`
+	Id                *string                            `pulumi:"id"`
+	Name              *string                            `pulumi:"name"`
+	O365Policy        *Office365PolicyPropertiesResponse `pulumi:"o365Policy"`
+	ProvisioningState string                             `pulumi:"provisioningState"`
+	Type              string                             `pulumi:"type"`
 }

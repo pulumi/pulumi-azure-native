@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines a single ADLS Gen2 storage account path.
 type ADLSGen2StorageAccountPath struct {
-	// Gets or sets the path on the consumer side where the dataset is to be mapped.
-	ConsumerPath *string `pulumi:"consumerPath"`
-	// Gets or sets the container name to share.
-	ContainerName string `pulumi:"containerName"`
-	// Gets or sets the path to file/folder within the container.
-	ProviderPath *string `pulumi:"providerPath"`
+	ConsumerPath  *string `pulumi:"consumerPath"`
+	ContainerName string  `pulumi:"containerName"`
+	ProviderPath  *string `pulumi:"providerPath"`
 }
 
 // ADLSGen2StorageAccountPathInput is an input type that accepts ADLSGen2StorageAccountPathArgs and ADLSGen2StorageAccountPathOutput values.
@@ -31,14 +27,10 @@ type ADLSGen2StorageAccountPathInput interface {
 	ToADLSGen2StorageAccountPathOutputWithContext(context.Context) ADLSGen2StorageAccountPathOutput
 }
 
-// Defines a single ADLS Gen2 storage account path.
 type ADLSGen2StorageAccountPathArgs struct {
-	// Gets or sets the path on the consumer side where the dataset is to be mapped.
-	ConsumerPath pulumi.StringPtrInput `pulumi:"consumerPath"`
-	// Gets or sets the container name to share.
-	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// Gets or sets the path to file/folder within the container.
-	ProviderPath pulumi.StringPtrInput `pulumi:"providerPath"`
+	ConsumerPath  pulumi.StringPtrInput `pulumi:"consumerPath"`
+	ContainerName pulumi.StringInput    `pulumi:"containerName"`
+	ProviderPath  pulumi.StringPtrInput `pulumi:"providerPath"`
 }
 
 func (ADLSGen2StorageAccountPathArgs) ElementType() reflect.Type {
@@ -78,7 +70,6 @@ func (i ADLSGen2StorageAccountPathArray) ToADLSGen2StorageAccountPathArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ADLSGen2StorageAccountPathArrayOutput)
 }
 
-// Defines a single ADLS Gen2 storage account path.
 type ADLSGen2StorageAccountPathOutput struct{ *pulumi.OutputState }
 
 func (ADLSGen2StorageAccountPathOutput) ElementType() reflect.Type {
@@ -93,17 +84,14 @@ func (o ADLSGen2StorageAccountPathOutput) ToADLSGen2StorageAccountPathOutputWith
 	return o
 }
 
-// Gets or sets the path on the consumer side where the dataset is to be mapped.
 func (o ADLSGen2StorageAccountPathOutput) ConsumerPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ADLSGen2StorageAccountPath) *string { return v.ConsumerPath }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the container name to share.
 func (o ADLSGen2StorageAccountPathOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v ADLSGen2StorageAccountPath) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// Gets or sets the path to file/folder within the container.
 func (o ADLSGen2StorageAccountPathOutput) ProviderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ADLSGen2StorageAccountPath) *string { return v.ProviderPath }).(pulumi.StringPtrOutput)
 }
@@ -128,14 +116,10 @@ func (o ADLSGen2StorageAccountPathArrayOutput) Index(i pulumi.IntInput) ADLSGen2
 	}).(ADLSGen2StorageAccountPathOutput)
 }
 
-// Defines a single ADLS Gen2 storage account path.
 type ADLSGen2StorageAccountPathResponse struct {
-	// Gets or sets the path on the consumer side where the dataset is to be mapped.
-	ConsumerPath *string `pulumi:"consumerPath"`
-	// Gets or sets the container name to share.
-	ContainerName string `pulumi:"containerName"`
-	// Gets or sets the path to file/folder within the container.
-	ProviderPath *string `pulumi:"providerPath"`
+	ConsumerPath  *string `pulumi:"consumerPath"`
+	ContainerName string  `pulumi:"containerName"`
+	ProviderPath  *string `pulumi:"providerPath"`
 }
 
 // ADLSGen2StorageAccountPathResponseInput is an input type that accepts ADLSGen2StorageAccountPathResponseArgs and ADLSGen2StorageAccountPathResponseOutput values.
@@ -149,14 +133,10 @@ type ADLSGen2StorageAccountPathResponseInput interface {
 	ToADLSGen2StorageAccountPathResponseOutputWithContext(context.Context) ADLSGen2StorageAccountPathResponseOutput
 }
 
-// Defines a single ADLS Gen2 storage account path.
 type ADLSGen2StorageAccountPathResponseArgs struct {
-	// Gets or sets the path on the consumer side where the dataset is to be mapped.
-	ConsumerPath pulumi.StringPtrInput `pulumi:"consumerPath"`
-	// Gets or sets the container name to share.
-	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// Gets or sets the path to file/folder within the container.
-	ProviderPath pulumi.StringPtrInput `pulumi:"providerPath"`
+	ConsumerPath  pulumi.StringPtrInput `pulumi:"consumerPath"`
+	ContainerName pulumi.StringInput    `pulumi:"containerName"`
+	ProviderPath  pulumi.StringPtrInput `pulumi:"providerPath"`
 }
 
 func (ADLSGen2StorageAccountPathResponseArgs) ElementType() reflect.Type {
@@ -196,7 +176,6 @@ func (i ADLSGen2StorageAccountPathResponseArray) ToADLSGen2StorageAccountPathRes
 	return pulumi.ToOutputWithContext(ctx, i).(ADLSGen2StorageAccountPathResponseArrayOutput)
 }
 
-// Defines a single ADLS Gen2 storage account path.
 type ADLSGen2StorageAccountPathResponseOutput struct{ *pulumi.OutputState }
 
 func (ADLSGen2StorageAccountPathResponseOutput) ElementType() reflect.Type {
@@ -211,17 +190,14 @@ func (o ADLSGen2StorageAccountPathResponseOutput) ToADLSGen2StorageAccountPathRe
 	return o
 }
 
-// Gets or sets the path on the consumer side where the dataset is to be mapped.
 func (o ADLSGen2StorageAccountPathResponseOutput) ConsumerPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ADLSGen2StorageAccountPathResponse) *string { return v.ConsumerPath }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the container name to share.
 func (o ADLSGen2StorageAccountPathResponseOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v ADLSGen2StorageAccountPathResponse) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// Gets or sets the path to file/folder within the container.
 func (o ADLSGen2StorageAccountPathResponseOutput) ProviderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ADLSGen2StorageAccountPathResponse) *string { return v.ProviderPath }).(pulumi.StringPtrOutput)
 }
@@ -246,14 +222,10 @@ func (o ADLSGen2StorageAccountPathResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(ADLSGen2StorageAccountPathResponseOutput)
 }
 
-// Defines a single blob storage account path.
 type BlobStorageAccountPath struct {
-	// Gets or sets the path on the consumer side where the dataset is to be mapped.
-	ConsumerPath *string `pulumi:"consumerPath"`
-	// Gets or sets the container name to share.
-	ContainerName string `pulumi:"containerName"`
-	// Gets or sets the path to file/folder within the container.
-	ProviderPath *string `pulumi:"providerPath"`
+	ConsumerPath  *string `pulumi:"consumerPath"`
+	ContainerName string  `pulumi:"containerName"`
+	ProviderPath  *string `pulumi:"providerPath"`
 }
 
 // BlobStorageAccountPathInput is an input type that accepts BlobStorageAccountPathArgs and BlobStorageAccountPathOutput values.
@@ -267,14 +239,10 @@ type BlobStorageAccountPathInput interface {
 	ToBlobStorageAccountPathOutputWithContext(context.Context) BlobStorageAccountPathOutput
 }
 
-// Defines a single blob storage account path.
 type BlobStorageAccountPathArgs struct {
-	// Gets or sets the path on the consumer side where the dataset is to be mapped.
-	ConsumerPath pulumi.StringPtrInput `pulumi:"consumerPath"`
-	// Gets or sets the container name to share.
-	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// Gets or sets the path to file/folder within the container.
-	ProviderPath pulumi.StringPtrInput `pulumi:"providerPath"`
+	ConsumerPath  pulumi.StringPtrInput `pulumi:"consumerPath"`
+	ContainerName pulumi.StringInput    `pulumi:"containerName"`
+	ProviderPath  pulumi.StringPtrInput `pulumi:"providerPath"`
 }
 
 func (BlobStorageAccountPathArgs) ElementType() reflect.Type {
@@ -314,7 +282,6 @@ func (i BlobStorageAccountPathArray) ToBlobStorageAccountPathArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BlobStorageAccountPathArrayOutput)
 }
 
-// Defines a single blob storage account path.
 type BlobStorageAccountPathOutput struct{ *pulumi.OutputState }
 
 func (BlobStorageAccountPathOutput) ElementType() reflect.Type {
@@ -329,17 +296,14 @@ func (o BlobStorageAccountPathOutput) ToBlobStorageAccountPathOutputWithContext(
 	return o
 }
 
-// Gets or sets the path on the consumer side where the dataset is to be mapped.
 func (o BlobStorageAccountPathOutput) ConsumerPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BlobStorageAccountPath) *string { return v.ConsumerPath }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the container name to share.
 func (o BlobStorageAccountPathOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobStorageAccountPath) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// Gets or sets the path to file/folder within the container.
 func (o BlobStorageAccountPathOutput) ProviderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BlobStorageAccountPath) *string { return v.ProviderPath }).(pulumi.StringPtrOutput)
 }
@@ -364,14 +328,10 @@ func (o BlobStorageAccountPathArrayOutput) Index(i pulumi.IntInput) BlobStorageA
 	}).(BlobStorageAccountPathOutput)
 }
 
-// Defines a single blob storage account path.
 type BlobStorageAccountPathResponse struct {
-	// Gets or sets the path on the consumer side where the dataset is to be mapped.
-	ConsumerPath *string `pulumi:"consumerPath"`
-	// Gets or sets the container name to share.
-	ContainerName string `pulumi:"containerName"`
-	// Gets or sets the path to file/folder within the container.
-	ProviderPath *string `pulumi:"providerPath"`
+	ConsumerPath  *string `pulumi:"consumerPath"`
+	ContainerName string  `pulumi:"containerName"`
+	ProviderPath  *string `pulumi:"providerPath"`
 }
 
 // BlobStorageAccountPathResponseInput is an input type that accepts BlobStorageAccountPathResponseArgs and BlobStorageAccountPathResponseOutput values.
@@ -385,14 +345,10 @@ type BlobStorageAccountPathResponseInput interface {
 	ToBlobStorageAccountPathResponseOutputWithContext(context.Context) BlobStorageAccountPathResponseOutput
 }
 
-// Defines a single blob storage account path.
 type BlobStorageAccountPathResponseArgs struct {
-	// Gets or sets the path on the consumer side where the dataset is to be mapped.
-	ConsumerPath pulumi.StringPtrInput `pulumi:"consumerPath"`
-	// Gets or sets the container name to share.
-	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// Gets or sets the path to file/folder within the container.
-	ProviderPath pulumi.StringPtrInput `pulumi:"providerPath"`
+	ConsumerPath  pulumi.StringPtrInput `pulumi:"consumerPath"`
+	ContainerName pulumi.StringInput    `pulumi:"containerName"`
+	ProviderPath  pulumi.StringPtrInput `pulumi:"providerPath"`
 }
 
 func (BlobStorageAccountPathResponseArgs) ElementType() reflect.Type {
@@ -432,7 +388,6 @@ func (i BlobStorageAccountPathResponseArray) ToBlobStorageAccountPathResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(BlobStorageAccountPathResponseArrayOutput)
 }
 
-// Defines a single blob storage account path.
 type BlobStorageAccountPathResponseOutput struct{ *pulumi.OutputState }
 
 func (BlobStorageAccountPathResponseOutput) ElementType() reflect.Type {
@@ -447,17 +402,14 @@ func (o BlobStorageAccountPathResponseOutput) ToBlobStorageAccountPathResponseOu
 	return o
 }
 
-// Gets or sets the path on the consumer side where the dataset is to be mapped.
 func (o BlobStorageAccountPathResponseOutput) ConsumerPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BlobStorageAccountPathResponse) *string { return v.ConsumerPath }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the container name to share.
 func (o BlobStorageAccountPathResponseOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobStorageAccountPathResponse) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// Gets or sets the path to file/folder within the container.
 func (o BlobStorageAccountPathResponseOutput) ProviderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BlobStorageAccountPathResponse) *string { return v.ProviderPath }).(pulumi.StringPtrOutput)
 }
@@ -482,9 +434,7 @@ func (o BlobStorageAccountPathResponseArrayOutput) Index(i pulumi.IntInput) Blob
 	}).(BlobStorageAccountPathResponseOutput)
 }
 
-// Identity of resource
 type Identity struct {
-	// Identity Type
 	Type *string `pulumi:"type"`
 }
 
@@ -499,9 +449,7 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Identity of resource
 type IdentityArgs struct {
-	// Identity Type
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -558,7 +506,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Identity of resource
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -578,12 +525,11 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
-// Identity Type
 func (o IdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -603,10 +549,15 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
-// Identity Type
 func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
@@ -616,14 +567,10 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity of resource
 type IdentityResponse struct {
-	// service principal Id
-	PrincipalId string `pulumi:"principalId"`
-	// Tenant Id
-	TenantId string `pulumi:"tenantId"`
-	// Identity Type
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -637,14 +584,10 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Identity of resource
 type IdentityResponseArgs struct {
-	// service principal Id
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Tenant Id
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// Identity Type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -700,7 +643,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Identity of resource
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -720,22 +662,19 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
 
-// service principal Id
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Tenant Id
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Identity Type
 func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -755,10 +694,15 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
-// service principal Id
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -768,7 +712,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -778,7 +721,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity Type
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -788,14 +730,9 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A type of synchronization setting based on schedule
 type ScheduledSourceSynchronizationSettingResponse struct {
-	// Kind of synchronization setting on share.
-	// Expected value is 'ScheduleBased'.
-	Kind string `pulumi:"kind"`
-	// Recurrence Interval
-	RecurrenceInterval *string `pulumi:"recurrenceInterval"`
-	// Synchronization time
+	Kind                string  `pulumi:"kind"`
+	RecurrenceInterval  *string `pulumi:"recurrenceInterval"`
 	SynchronizationTime *string `pulumi:"synchronizationTime"`
 }
 
@@ -810,14 +747,9 @@ type ScheduledSourceSynchronizationSettingResponseInput interface {
 	ToScheduledSourceSynchronizationSettingResponseOutputWithContext(context.Context) ScheduledSourceSynchronizationSettingResponseOutput
 }
 
-// A type of synchronization setting based on schedule
 type ScheduledSourceSynchronizationSettingResponseArgs struct {
-	// Kind of synchronization setting on share.
-	// Expected value is 'ScheduleBased'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Recurrence Interval
-	RecurrenceInterval pulumi.StringPtrInput `pulumi:"recurrenceInterval"`
-	// Synchronization time
+	Kind                pulumi.StringInput    `pulumi:"kind"`
+	RecurrenceInterval  pulumi.StringPtrInput `pulumi:"recurrenceInterval"`
 	SynchronizationTime pulumi.StringPtrInput `pulumi:"synchronizationTime"`
 }
 
@@ -858,7 +790,6 @@ func (i ScheduledSourceSynchronizationSettingResponseArray) ToScheduledSourceSyn
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledSourceSynchronizationSettingResponseArrayOutput)
 }
 
-// A type of synchronization setting based on schedule
 type ScheduledSourceSynchronizationSettingResponseOutput struct{ *pulumi.OutputState }
 
 func (ScheduledSourceSynchronizationSettingResponseOutput) ElementType() reflect.Type {
@@ -873,18 +804,14 @@ func (o ScheduledSourceSynchronizationSettingResponseOutput) ToScheduledSourceSy
 	return o
 }
 
-// Kind of synchronization setting on share.
-// Expected value is 'ScheduleBased'.
 func (o ScheduledSourceSynchronizationSettingResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledSourceSynchronizationSettingResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Recurrence Interval
 func (o ScheduledSourceSynchronizationSettingResponseOutput) RecurrenceInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledSourceSynchronizationSettingResponse) *string { return v.RecurrenceInterval }).(pulumi.StringPtrOutput)
 }
 
-// Synchronization time
 func (o ScheduledSourceSynchronizationSettingResponseOutput) SynchronizationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledSourceSynchronizationSettingResponse) *string { return v.SynchronizationTime }).(pulumi.StringPtrOutput)
 }
@@ -909,21 +836,13 @@ func (o ScheduledSourceSynchronizationSettingResponseArrayOutput) Index(i pulumi
 	}).(ScheduledSourceSynchronizationSettingResponseOutput)
 }
 
-// A ShareSubscriptionSynchronization data transfer object.
 type ShareSubscriptionSynchronizationResponse struct {
-	// Synchronization duration
-	DurationMs int `pulumi:"durationMs"`
-	// End time of synchronization
-	EndTime string `pulumi:"endTime"`
-	// message of Synchronization
-	Message string `pulumi:"message"`
-	// start time of synchronization
-	StartTime string `pulumi:"startTime"`
-	// Raw Status
-	Status string `pulumi:"status"`
-	// Synchronization id
-	SynchronizationId string `pulumi:"synchronizationId"`
-	// Synchronization Mode
+	DurationMs          int    `pulumi:"durationMs"`
+	EndTime             string `pulumi:"endTime"`
+	Message             string `pulumi:"message"`
+	StartTime           string `pulumi:"startTime"`
+	Status              string `pulumi:"status"`
+	SynchronizationId   string `pulumi:"synchronizationId"`
 	SynchronizationMode string `pulumi:"synchronizationMode"`
 }
 
@@ -938,21 +857,13 @@ type ShareSubscriptionSynchronizationResponseInput interface {
 	ToShareSubscriptionSynchronizationResponseOutputWithContext(context.Context) ShareSubscriptionSynchronizationResponseOutput
 }
 
-// A ShareSubscriptionSynchronization data transfer object.
 type ShareSubscriptionSynchronizationResponseArgs struct {
-	// Synchronization duration
-	DurationMs pulumi.IntInput `pulumi:"durationMs"`
-	// End time of synchronization
-	EndTime pulumi.StringInput `pulumi:"endTime"`
-	// message of Synchronization
-	Message pulumi.StringInput `pulumi:"message"`
-	// start time of synchronization
-	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// Raw Status
-	Status pulumi.StringInput `pulumi:"status"`
-	// Synchronization id
-	SynchronizationId pulumi.StringInput `pulumi:"synchronizationId"`
-	// Synchronization Mode
+	DurationMs          pulumi.IntInput    `pulumi:"durationMs"`
+	EndTime             pulumi.StringInput `pulumi:"endTime"`
+	Message             pulumi.StringInput `pulumi:"message"`
+	StartTime           pulumi.StringInput `pulumi:"startTime"`
+	Status              pulumi.StringInput `pulumi:"status"`
+	SynchronizationId   pulumi.StringInput `pulumi:"synchronizationId"`
 	SynchronizationMode pulumi.StringInput `pulumi:"synchronizationMode"`
 }
 
@@ -993,7 +904,6 @@ func (i ShareSubscriptionSynchronizationResponseArray) ToShareSubscriptionSynchr
 	return pulumi.ToOutputWithContext(ctx, i).(ShareSubscriptionSynchronizationResponseArrayOutput)
 }
 
-// A ShareSubscriptionSynchronization data transfer object.
 type ShareSubscriptionSynchronizationResponseOutput struct{ *pulumi.OutputState }
 
 func (ShareSubscriptionSynchronizationResponseOutput) ElementType() reflect.Type {
@@ -1008,37 +918,30 @@ func (o ShareSubscriptionSynchronizationResponseOutput) ToShareSubscriptionSynch
 	return o
 }
 
-// Synchronization duration
 func (o ShareSubscriptionSynchronizationResponseOutput) DurationMs() pulumi.IntOutput {
 	return o.ApplyT(func(v ShareSubscriptionSynchronizationResponse) int { return v.DurationMs }).(pulumi.IntOutput)
 }
 
-// End time of synchronization
 func (o ShareSubscriptionSynchronizationResponseOutput) EndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareSubscriptionSynchronizationResponse) string { return v.EndTime }).(pulumi.StringOutput)
 }
 
-// message of Synchronization
 func (o ShareSubscriptionSynchronizationResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareSubscriptionSynchronizationResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// start time of synchronization
 func (o ShareSubscriptionSynchronizationResponseOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareSubscriptionSynchronizationResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// Raw Status
 func (o ShareSubscriptionSynchronizationResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareSubscriptionSynchronizationResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Synchronization id
 func (o ShareSubscriptionSynchronizationResponseOutput) SynchronizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareSubscriptionSynchronizationResponse) string { return v.SynchronizationId }).(pulumi.StringOutput)
 }
 
-// Synchronization Mode
 func (o ShareSubscriptionSynchronizationResponseOutput) SynchronizationMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareSubscriptionSynchronizationResponse) string { return v.SynchronizationMode }).(pulumi.StringOutput)
 }
@@ -1063,28 +966,17 @@ func (o ShareSubscriptionSynchronizationResponseArrayOutput) Index(i pulumi.IntI
 	}).(ShareSubscriptionSynchronizationResponseOutput)
 }
 
-// A ShareSynchronization data transfer object.
 type ShareSynchronizationResponse struct {
-	// Email of the user who created the synchronization
-	ConsumerEmail *string `pulumi:"consumerEmail"`
-	// Name of the user who created the synchronization
-	ConsumerName *string `pulumi:"consumerName"`
-	// Tenant name of the consumer who created the synchronization
-	ConsumerTenantName *string `pulumi:"consumerTenantName"`
-	// synchronization duration
-	DurationMs *int `pulumi:"durationMs"`
-	// End time of synchronization
-	EndTime *string `pulumi:"endTime"`
-	// message of synchronization
-	Message *string `pulumi:"message"`
-	// start time of synchronization
-	StartTime *string `pulumi:"startTime"`
-	// Raw Status
-	Status *string `pulumi:"status"`
-	// Synchronization id
-	SynchronizationId *string `pulumi:"synchronizationId"`
-	// Synchronization mode
-	SynchronizationMode string `pulumi:"synchronizationMode"`
+	ConsumerEmail       *string `pulumi:"consumerEmail"`
+	ConsumerName        *string `pulumi:"consumerName"`
+	ConsumerTenantName  *string `pulumi:"consumerTenantName"`
+	DurationMs          *int    `pulumi:"durationMs"`
+	EndTime             *string `pulumi:"endTime"`
+	Message             *string `pulumi:"message"`
+	StartTime           *string `pulumi:"startTime"`
+	Status              *string `pulumi:"status"`
+	SynchronizationId   *string `pulumi:"synchronizationId"`
+	SynchronizationMode string  `pulumi:"synchronizationMode"`
 }
 
 // ShareSynchronizationResponseInput is an input type that accepts ShareSynchronizationResponseArgs and ShareSynchronizationResponseOutput values.
@@ -1098,28 +990,17 @@ type ShareSynchronizationResponseInput interface {
 	ToShareSynchronizationResponseOutputWithContext(context.Context) ShareSynchronizationResponseOutput
 }
 
-// A ShareSynchronization data transfer object.
 type ShareSynchronizationResponseArgs struct {
-	// Email of the user who created the synchronization
-	ConsumerEmail pulumi.StringPtrInput `pulumi:"consumerEmail"`
-	// Name of the user who created the synchronization
-	ConsumerName pulumi.StringPtrInput `pulumi:"consumerName"`
-	// Tenant name of the consumer who created the synchronization
-	ConsumerTenantName pulumi.StringPtrInput `pulumi:"consumerTenantName"`
-	// synchronization duration
-	DurationMs pulumi.IntPtrInput `pulumi:"durationMs"`
-	// End time of synchronization
-	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// message of synchronization
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// start time of synchronization
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-	// Raw Status
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Synchronization id
-	SynchronizationId pulumi.StringPtrInput `pulumi:"synchronizationId"`
-	// Synchronization mode
-	SynchronizationMode pulumi.StringInput `pulumi:"synchronizationMode"`
+	ConsumerEmail       pulumi.StringPtrInput `pulumi:"consumerEmail"`
+	ConsumerName        pulumi.StringPtrInput `pulumi:"consumerName"`
+	ConsumerTenantName  pulumi.StringPtrInput `pulumi:"consumerTenantName"`
+	DurationMs          pulumi.IntPtrInput    `pulumi:"durationMs"`
+	EndTime             pulumi.StringPtrInput `pulumi:"endTime"`
+	Message             pulumi.StringPtrInput `pulumi:"message"`
+	StartTime           pulumi.StringPtrInput `pulumi:"startTime"`
+	Status              pulumi.StringPtrInput `pulumi:"status"`
+	SynchronizationId   pulumi.StringPtrInput `pulumi:"synchronizationId"`
+	SynchronizationMode pulumi.StringInput    `pulumi:"synchronizationMode"`
 }
 
 func (ShareSynchronizationResponseArgs) ElementType() reflect.Type {
@@ -1159,7 +1040,6 @@ func (i ShareSynchronizationResponseArray) ToShareSynchronizationResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ShareSynchronizationResponseArrayOutput)
 }
 
-// A ShareSynchronization data transfer object.
 type ShareSynchronizationResponseOutput struct{ *pulumi.OutputState }
 
 func (ShareSynchronizationResponseOutput) ElementType() reflect.Type {
@@ -1174,52 +1054,42 @@ func (o ShareSynchronizationResponseOutput) ToShareSynchronizationResponseOutput
 	return o
 }
 
-// Email of the user who created the synchronization
 func (o ShareSynchronizationResponseOutput) ConsumerEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShareSynchronizationResponse) *string { return v.ConsumerEmail }).(pulumi.StringPtrOutput)
 }
 
-// Name of the user who created the synchronization
 func (o ShareSynchronizationResponseOutput) ConsumerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShareSynchronizationResponse) *string { return v.ConsumerName }).(pulumi.StringPtrOutput)
 }
 
-// Tenant name of the consumer who created the synchronization
 func (o ShareSynchronizationResponseOutput) ConsumerTenantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShareSynchronizationResponse) *string { return v.ConsumerTenantName }).(pulumi.StringPtrOutput)
 }
 
-// synchronization duration
 func (o ShareSynchronizationResponseOutput) DurationMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ShareSynchronizationResponse) *int { return v.DurationMs }).(pulumi.IntPtrOutput)
 }
 
-// End time of synchronization
 func (o ShareSynchronizationResponseOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShareSynchronizationResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-// message of synchronization
 func (o ShareSynchronizationResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShareSynchronizationResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// start time of synchronization
 func (o ShareSynchronizationResponseOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShareSynchronizationResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// Raw Status
 func (o ShareSynchronizationResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShareSynchronizationResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Synchronization id
 func (o ShareSynchronizationResponseOutput) SynchronizationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShareSynchronizationResponse) *string { return v.SynchronizationId }).(pulumi.StringPtrOutput)
 }
 
-// Synchronization mode
 func (o ShareSynchronizationResponseOutput) SynchronizationMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareSynchronizationResponse) string { return v.SynchronizationMode }).(pulumi.StringOutput)
 }
@@ -1244,38 +1114,22 @@ func (o ShareSynchronizationResponseArrayOutput) Index(i pulumi.IntInput) ShareS
 	}).(ShareSynchronizationResponseOutput)
 }
 
-// Synchronization details at data set level
 type SynchronizationDetailsResponse struct {
-	// Id of data set
-	DataSetId string `pulumi:"dataSetId"`
-	// Type of the data set
-	DataSetType string `pulumi:"dataSetType"`
-	// Duration of data set level copy
-	DurationMs int `pulumi:"durationMs"`
-	// End time of data set level copy
-	EndTime string `pulumi:"endTime"`
-	// The number of files read from the source data set
-	FilesRead float64 `pulumi:"filesRead"`
-	// The number of files written into the sink data set
+	DataSetId    string  `pulumi:"dataSetId"`
+	DataSetType  string  `pulumi:"dataSetType"`
+	DurationMs   int     `pulumi:"durationMs"`
+	EndTime      string  `pulumi:"endTime"`
+	FilesRead    float64 `pulumi:"filesRead"`
 	FilesWritten float64 `pulumi:"filesWritten"`
-	// Error message if any
-	Message string `pulumi:"message"`
-	// Name of the data set
-	Name string `pulumi:"name"`
-	// The number of files copied into the sink data set
-	RowsCopied float64 `pulumi:"rowsCopied"`
-	// The number of rows read from the source data set.
-	RowsRead float64 `pulumi:"rowsRead"`
-	// The size of the data read from the source data set in bytes
-	SizeRead float64 `pulumi:"sizeRead"`
-	// The size of the data written into the sink data set in bytes
-	SizeWritten float64 `pulumi:"sizeWritten"`
-	// Start time of data set level copy
-	StartTime string `pulumi:"startTime"`
-	// Raw Status
-	Status string `pulumi:"status"`
-	// The vCore units consumed for the data set synchronization
-	VCore float64 `pulumi:"vCore"`
+	Message      string  `pulumi:"message"`
+	Name         string  `pulumi:"name"`
+	RowsCopied   float64 `pulumi:"rowsCopied"`
+	RowsRead     float64 `pulumi:"rowsRead"`
+	SizeRead     float64 `pulumi:"sizeRead"`
+	SizeWritten  float64 `pulumi:"sizeWritten"`
+	StartTime    string  `pulumi:"startTime"`
+	Status       string  `pulumi:"status"`
+	VCore        float64 `pulumi:"vCore"`
 }
 
 // SynchronizationDetailsResponseInput is an input type that accepts SynchronizationDetailsResponseArgs and SynchronizationDetailsResponseOutput values.
@@ -1289,38 +1143,22 @@ type SynchronizationDetailsResponseInput interface {
 	ToSynchronizationDetailsResponseOutputWithContext(context.Context) SynchronizationDetailsResponseOutput
 }
 
-// Synchronization details at data set level
 type SynchronizationDetailsResponseArgs struct {
-	// Id of data set
-	DataSetId pulumi.StringInput `pulumi:"dataSetId"`
-	// Type of the data set
-	DataSetType pulumi.StringInput `pulumi:"dataSetType"`
-	// Duration of data set level copy
-	DurationMs pulumi.IntInput `pulumi:"durationMs"`
-	// End time of data set level copy
-	EndTime pulumi.StringInput `pulumi:"endTime"`
-	// The number of files read from the source data set
-	FilesRead pulumi.Float64Input `pulumi:"filesRead"`
-	// The number of files written into the sink data set
+	DataSetId    pulumi.StringInput  `pulumi:"dataSetId"`
+	DataSetType  pulumi.StringInput  `pulumi:"dataSetType"`
+	DurationMs   pulumi.IntInput     `pulumi:"durationMs"`
+	EndTime      pulumi.StringInput  `pulumi:"endTime"`
+	FilesRead    pulumi.Float64Input `pulumi:"filesRead"`
 	FilesWritten pulumi.Float64Input `pulumi:"filesWritten"`
-	// Error message if any
-	Message pulumi.StringInput `pulumi:"message"`
-	// Name of the data set
-	Name pulumi.StringInput `pulumi:"name"`
-	// The number of files copied into the sink data set
-	RowsCopied pulumi.Float64Input `pulumi:"rowsCopied"`
-	// The number of rows read from the source data set.
-	RowsRead pulumi.Float64Input `pulumi:"rowsRead"`
-	// The size of the data read from the source data set in bytes
-	SizeRead pulumi.Float64Input `pulumi:"sizeRead"`
-	// The size of the data written into the sink data set in bytes
-	SizeWritten pulumi.Float64Input `pulumi:"sizeWritten"`
-	// Start time of data set level copy
-	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// Raw Status
-	Status pulumi.StringInput `pulumi:"status"`
-	// The vCore units consumed for the data set synchronization
-	VCore pulumi.Float64Input `pulumi:"vCore"`
+	Message      pulumi.StringInput  `pulumi:"message"`
+	Name         pulumi.StringInput  `pulumi:"name"`
+	RowsCopied   pulumi.Float64Input `pulumi:"rowsCopied"`
+	RowsRead     pulumi.Float64Input `pulumi:"rowsRead"`
+	SizeRead     pulumi.Float64Input `pulumi:"sizeRead"`
+	SizeWritten  pulumi.Float64Input `pulumi:"sizeWritten"`
+	StartTime    pulumi.StringInput  `pulumi:"startTime"`
+	Status       pulumi.StringInput  `pulumi:"status"`
+	VCore        pulumi.Float64Input `pulumi:"vCore"`
 }
 
 func (SynchronizationDetailsResponseArgs) ElementType() reflect.Type {
@@ -1360,7 +1198,6 @@ func (i SynchronizationDetailsResponseArray) ToSynchronizationDetailsResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(SynchronizationDetailsResponseArrayOutput)
 }
 
-// Synchronization details at data set level
 type SynchronizationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (SynchronizationDetailsResponseOutput) ElementType() reflect.Type {
@@ -1375,77 +1212,62 @@ func (o SynchronizationDetailsResponseOutput) ToSynchronizationDetailsResponseOu
 	return o
 }
 
-// Id of data set
 func (o SynchronizationDetailsResponseOutput) DataSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v SynchronizationDetailsResponse) string { return v.DataSetId }).(pulumi.StringOutput)
 }
 
-// Type of the data set
 func (o SynchronizationDetailsResponseOutput) DataSetType() pulumi.StringOutput {
 	return o.ApplyT(func(v SynchronizationDetailsResponse) string { return v.DataSetType }).(pulumi.StringOutput)
 }
 
-// Duration of data set level copy
 func (o SynchronizationDetailsResponseOutput) DurationMs() pulumi.IntOutput {
 	return o.ApplyT(func(v SynchronizationDetailsResponse) int { return v.DurationMs }).(pulumi.IntOutput)
 }
 
-// End time of data set level copy
 func (o SynchronizationDetailsResponseOutput) EndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v SynchronizationDetailsResponse) string { return v.EndTime }).(pulumi.StringOutput)
 }
 
-// The number of files read from the source data set
 func (o SynchronizationDetailsResponseOutput) FilesRead() pulumi.Float64Output {
 	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.FilesRead }).(pulumi.Float64Output)
 }
 
-// The number of files written into the sink data set
 func (o SynchronizationDetailsResponseOutput) FilesWritten() pulumi.Float64Output {
 	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.FilesWritten }).(pulumi.Float64Output)
 }
 
-// Error message if any
 func (o SynchronizationDetailsResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v SynchronizationDetailsResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// Name of the data set
 func (o SynchronizationDetailsResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SynchronizationDetailsResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of files copied into the sink data set
 func (o SynchronizationDetailsResponseOutput) RowsCopied() pulumi.Float64Output {
 	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.RowsCopied }).(pulumi.Float64Output)
 }
 
-// The number of rows read from the source data set.
 func (o SynchronizationDetailsResponseOutput) RowsRead() pulumi.Float64Output {
 	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.RowsRead }).(pulumi.Float64Output)
 }
 
-// The size of the data read from the source data set in bytes
 func (o SynchronizationDetailsResponseOutput) SizeRead() pulumi.Float64Output {
 	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.SizeRead }).(pulumi.Float64Output)
 }
 
-// The size of the data written into the sink data set in bytes
 func (o SynchronizationDetailsResponseOutput) SizeWritten() pulumi.Float64Output {
 	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.SizeWritten }).(pulumi.Float64Output)
 }
 
-// Start time of data set level copy
 func (o SynchronizationDetailsResponseOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v SynchronizationDetailsResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// Raw Status
 func (o SynchronizationDetailsResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v SynchronizationDetailsResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The vCore units consumed for the data set synchronization
 func (o SynchronizationDetailsResponseOutput) VCore() pulumi.Float64Output {
 	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.VCore }).(pulumi.Float64Output)
 }
@@ -1470,19 +1292,12 @@ func (o SynchronizationDetailsResponseArrayOutput) Index(i pulumi.IntInput) Sync
 	}).(SynchronizationDetailsResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The type of identity that last modified the resource.
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -1497,19 +1312,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The type of identity that last modified the resource.
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1566,7 +1374,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1586,37 +1393,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1636,10 +1437,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1649,7 +1455,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1659,7 +1464,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1669,7 +1473,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1679,7 +1482,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1689,7 +1491,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

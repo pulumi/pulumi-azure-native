@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The response of a list operation.
 func ListLabVhds(ctx *pulumi.Context, args *ListLabVhdsArgs, opts ...pulumi.InvokeOption) (*ListLabVhdsResult, error) {
 	var rv ListLabVhdsResult
 	err := ctx.Invoke("azure-native:devtestlab/v20150521preview:listLabVhds", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListLabVhds(ctx *pulumi.Context, args *ListLabVhdsArgs, opts ...pulumi.Invo
 }
 
 type ListLabVhdsArgs struct {
-	// The name of the lab.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The response of a list operation.
 type ListLabVhdsResult struct {
-	// Link for next set of results.
-	NextLink *string `pulumi:"nextLink"`
-	// Results of the list operation.
-	Value []LabVhdResponse `pulumi:"value"`
+	NextLink *string          `pulumi:"nextLink"`
+	Value    []LabVhdResponse `pulumi:"value"`
 }

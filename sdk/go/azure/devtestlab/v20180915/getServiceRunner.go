@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A container for a managed identity to execute DevTest lab services.
 func LookupServiceRunner(ctx *pulumi.Context, args *LookupServiceRunnerArgs, opts ...pulumi.InvokeOption) (*LookupServiceRunnerResult, error) {
 	var rv LookupServiceRunnerResult
 	err := ctx.Invoke("azure-native:devtestlab/v20180915:getServiceRunner", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupServiceRunner(ctx *pulumi.Context, args *LookupServiceRunnerArgs, opt
 }
 
 type LookupServiceRunnerArgs struct {
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The name of the service runner.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
+	LabName           string `pulumi:"labName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A container for a managed identity to execute DevTest lab services.
 type LookupServiceRunnerResult struct {
-	// The identifier of the resource.
-	Id string `pulumi:"id"`
-	// The identity of the resource.
+	Id       string                      `pulumi:"id"`
 	Identity *IdentityPropertiesResponse `pulumi:"identity"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Location *string                     `pulumi:"location"`
+	Name     string                      `pulumi:"name"`
+	Tags     map[string]string           `pulumi:"tags"`
+	Type     string                      `pulumi:"type"`
 }

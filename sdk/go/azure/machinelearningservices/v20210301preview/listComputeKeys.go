@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Secrets related to a Machine Learning compute. Might differ for every type of compute.
 func ListComputeKeys(ctx *pulumi.Context, args *ListComputeKeysArgs, opts ...pulumi.InvokeOption) (*ListComputeKeysResult, error) {
 	var rv ListComputeKeysResult
 	err := ctx.Invoke("azure-native:machinelearningservices/v20210301preview:listComputeKeys", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListComputeKeys(ctx *pulumi.Context, args *ListComputeKeysArgs, opts ...pul
 }
 
 type ListComputeKeysArgs struct {
-	// Name of the Azure Machine Learning compute.
-	ComputeName string `pulumi:"computeName"`
-	// The name of the resource group. The name is case insensitive.
+	ComputeName       string `pulumi:"computeName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Secrets related to a Machine Learning compute. Might differ for every type of compute.
 type ListComputeKeysResult struct {
-	// The type of compute
 	ComputeType string `pulumi:"computeType"`
 }

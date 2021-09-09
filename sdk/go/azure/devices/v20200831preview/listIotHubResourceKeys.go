@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The list of shared access policies with a next link.
 func ListIotHubResourceKeys(ctx *pulumi.Context, args *ListIotHubResourceKeysArgs, opts ...pulumi.InvokeOption) (*ListIotHubResourceKeysResult, error) {
 	var rv ListIotHubResourceKeysResult
 	err := ctx.Invoke("azure-native:devices/v20200831preview:listIotHubResourceKeys", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListIotHubResourceKeys(ctx *pulumi.Context, args *ListIotHubResourceKeysArg
 }
 
 type ListIotHubResourceKeysArgs struct {
-	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the IoT hub.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // The list of shared access policies with a next link.
 type ListIotHubResourceKeysResult struct {
-	// The next link.
-	NextLink string `pulumi:"nextLink"`
-	// The list of shared access policies.
-	Value []SharedAccessSignatureAuthorizationRuleResponse `pulumi:"value"`
+	NextLink string                                           `pulumi:"nextLink"`
+	Value    []SharedAccessSignatureAuthorizationRuleResponse `pulumi:"value"`
 }

@@ -11,81 +11,44 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of an hostingEnvironment (App Service Environment)
 type ManagedHostingEnvironment struct {
 	pulumi.CustomResourceState
 
-	// List of comma separated strings describing which VM sizes are allowed for front-ends
-	AllowedMultiSizes pulumi.StringPtrOutput `pulumi:"allowedMultiSizes"`
-	// List of comma separated strings describing which VM sizes are allowed for workers
-	AllowedWorkerSizes pulumi.StringPtrOutput `pulumi:"allowedWorkerSizes"`
-	// Api Management Account associated with this Hosting Environment
-	ApiManagementAccountId pulumi.StringPtrOutput `pulumi:"apiManagementAccountId"`
-	// Custom settings for changing the behavior of the hosting environment
-	ClusterSettings NameValuePairResponseArrayOutput `pulumi:"clusterSettings"`
-	// Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
-	DatabaseEdition pulumi.StringPtrOutput `pulumi:"databaseEdition"`
-	// Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
-	DatabaseServiceObjective pulumi.StringPtrOutput `pulumi:"databaseServiceObjective"`
-	// DNS suffix of the hostingEnvironment (App Service Environment)
-	DnsSuffix pulumi.StringPtrOutput `pulumi:"dnsSuffix"`
-	// Current total, used, and available worker capacities
-	EnvironmentCapacities StampCapacityResponseArrayOutput `pulumi:"environmentCapacities"`
-	// True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
-	EnvironmentIsHealthy pulumi.BoolPtrOutput `pulumi:"environmentIsHealthy"`
-	// Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
-	EnvironmentStatus pulumi.StringPtrOutput `pulumi:"environmentStatus"`
-	// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-	InternalLoadBalancingMode pulumi.StringPtrOutput `pulumi:"internalLoadBalancingMode"`
-	// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
-	IpsslAddressCount pulumi.IntPtrOutput `pulumi:"ipsslAddressCount"`
-	// Kind of resource
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Last deployment action on this hostingEnvironment (App Service Environment)
-	LastAction pulumi.StringPtrOutput `pulumi:"lastAction"`
-	// Result of the last deployment action on this hostingEnvironment (App Service Environment)
-	LastActionResult pulumi.StringPtrOutput `pulumi:"lastActionResult"`
-	// Resource Location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Maximum number of VMs in this hostingEnvironment (App Service Environment)
-	MaximumNumberOfMachines pulumi.IntPtrOutput `pulumi:"maximumNumberOfMachines"`
-	// Number of front-end instances
-	MultiRoleCount pulumi.IntPtrOutput `pulumi:"multiRoleCount"`
-	// Front-end VM size, e.g. "Medium", "Large"
-	MultiSize pulumi.StringPtrOutput `pulumi:"multiSize"`
-	// Resource Name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
-	NetworkAccessControlList NetworkAccessControlEntryResponseArrayOutput `pulumi:"networkAccessControlList"`
-	// Provisioning state of the hostingEnvironment (App Service Environment)
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Resource group of the hostingEnvironment (App Service Environment)
-	ResourceGroup pulumi.StringPtrOutput `pulumi:"resourceGroup"`
-	// Current status of the hostingEnvironment (App Service Environment)
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Subscription of the hostingEnvironment (App Service Environment)
-	SubscriptionId pulumi.StringPtrOutput `pulumi:"subscriptionId"`
-	// True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-	//             (most likely because NSG blocked the incoming traffic)
-	Suspended pulumi.BoolPtrOutput `pulumi:"suspended"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// Number of upgrade domains of this hostingEnvironment (App Service Environment)
-	UpgradeDomains pulumi.IntPtrOutput `pulumi:"upgradeDomains"`
-	// Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
-	VipMappings VirtualIPMappingResponseArrayOutput `pulumi:"vipMappings"`
-	// Description of the hostingEnvironment's (App Service Environment) virtual network
-	VirtualNetwork VirtualNetworkProfileResponsePtrOutput `pulumi:"virtualNetwork"`
-	// Name of the hostingEnvironment's (App Service Environment) virtual network
-	VnetName pulumi.StringPtrOutput `pulumi:"vnetName"`
-	// Resource group of the hostingEnvironment's (App Service Environment) virtual network
-	VnetResourceGroupName pulumi.StringPtrOutput `pulumi:"vnetResourceGroupName"`
-	// Subnet of the hostingEnvironment's (App Service Environment) virtual network
-	VnetSubnetName pulumi.StringPtrOutput `pulumi:"vnetSubnetName"`
-	// Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
-	WorkerPools WorkerPoolResponseArrayOutput `pulumi:"workerPools"`
+	AllowedMultiSizes         pulumi.StringPtrOutput                       `pulumi:"allowedMultiSizes"`
+	AllowedWorkerSizes        pulumi.StringPtrOutput                       `pulumi:"allowedWorkerSizes"`
+	ApiManagementAccountId    pulumi.StringPtrOutput                       `pulumi:"apiManagementAccountId"`
+	ClusterSettings           NameValuePairResponseArrayOutput             `pulumi:"clusterSettings"`
+	DatabaseEdition           pulumi.StringPtrOutput                       `pulumi:"databaseEdition"`
+	DatabaseServiceObjective  pulumi.StringPtrOutput                       `pulumi:"databaseServiceObjective"`
+	DnsSuffix                 pulumi.StringPtrOutput                       `pulumi:"dnsSuffix"`
+	EnvironmentCapacities     StampCapacityResponseArrayOutput             `pulumi:"environmentCapacities"`
+	EnvironmentIsHealthy      pulumi.BoolPtrOutput                         `pulumi:"environmentIsHealthy"`
+	EnvironmentStatus         pulumi.StringPtrOutput                       `pulumi:"environmentStatus"`
+	InternalLoadBalancingMode pulumi.StringPtrOutput                       `pulumi:"internalLoadBalancingMode"`
+	IpsslAddressCount         pulumi.IntPtrOutput                          `pulumi:"ipsslAddressCount"`
+	Kind                      pulumi.StringPtrOutput                       `pulumi:"kind"`
+	LastAction                pulumi.StringPtrOutput                       `pulumi:"lastAction"`
+	LastActionResult          pulumi.StringPtrOutput                       `pulumi:"lastActionResult"`
+	Location                  pulumi.StringOutput                          `pulumi:"location"`
+	MaximumNumberOfMachines   pulumi.IntPtrOutput                          `pulumi:"maximumNumberOfMachines"`
+	MultiRoleCount            pulumi.IntPtrOutput                          `pulumi:"multiRoleCount"`
+	MultiSize                 pulumi.StringPtrOutput                       `pulumi:"multiSize"`
+	Name                      pulumi.StringPtrOutput                       `pulumi:"name"`
+	NetworkAccessControlList  NetworkAccessControlEntryResponseArrayOutput `pulumi:"networkAccessControlList"`
+	ProvisioningState         pulumi.StringPtrOutput                       `pulumi:"provisioningState"`
+	ResourceGroup             pulumi.StringPtrOutput                       `pulumi:"resourceGroup"`
+	Status                    pulumi.StringOutput                          `pulumi:"status"`
+	SubscriptionId            pulumi.StringPtrOutput                       `pulumi:"subscriptionId"`
+	Suspended                 pulumi.BoolPtrOutput                         `pulumi:"suspended"`
+	Tags                      pulumi.StringMapOutput                       `pulumi:"tags"`
+	Type                      pulumi.StringPtrOutput                       `pulumi:"type"`
+	UpgradeDomains            pulumi.IntPtrOutput                          `pulumi:"upgradeDomains"`
+	VipMappings               VirtualIPMappingResponseArrayOutput          `pulumi:"vipMappings"`
+	VirtualNetwork            VirtualNetworkProfileResponsePtrOutput       `pulumi:"virtualNetwork"`
+	VnetName                  pulumi.StringPtrOutput                       `pulumi:"vnetName"`
+	VnetResourceGroupName     pulumi.StringPtrOutput                       `pulumi:"vnetResourceGroupName"`
+	VnetSubnetName            pulumi.StringPtrOutput                       `pulumi:"vnetSubnetName"`
+	WorkerPools               WorkerPoolResponseArrayOutput                `pulumi:"workerPools"`
 }
 
 // NewManagedHostingEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -97,6 +60,9 @@ func NewManagedHostingEnvironment(ctx *pulumi.Context,
 
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Status == nil {
+		return nil, errors.New("invalid value for required argument 'Status'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -202,160 +168,84 @@ func (ManagedHostingEnvironmentState) ElementType() reflect.Type {
 }
 
 type managedHostingEnvironmentArgs struct {
-	// List of comma separated strings describing which VM sizes are allowed for front-ends
-	AllowedMultiSizes *string `pulumi:"allowedMultiSizes"`
-	// List of comma separated strings describing which VM sizes are allowed for workers
-	AllowedWorkerSizes *string `pulumi:"allowedWorkerSizes"`
-	// Api Management Account associated with this Hosting Environment
-	ApiManagementAccountId *string `pulumi:"apiManagementAccountId"`
-	// Custom settings for changing the behavior of the hosting environment
-	ClusterSettings []NameValuePair `pulumi:"clusterSettings"`
-	// Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
-	DatabaseEdition *string `pulumi:"databaseEdition"`
-	// Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
-	DatabaseServiceObjective *string `pulumi:"databaseServiceObjective"`
-	// DNS suffix of the hostingEnvironment (App Service Environment)
-	DnsSuffix *string `pulumi:"dnsSuffix"`
-	// Current total, used, and available worker capacities
-	EnvironmentCapacities []StampCapacity `pulumi:"environmentCapacities"`
-	// True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
-	EnvironmentIsHealthy *bool `pulumi:"environmentIsHealthy"`
-	// Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
-	EnvironmentStatus *string `pulumi:"environmentStatus"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
-	// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
-	IpsslAddressCount *int `pulumi:"ipsslAddressCount"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Last deployment action on this hostingEnvironment (App Service Environment)
-	LastAction *string `pulumi:"lastAction"`
-	// Result of the last deployment action on this hostingEnvironment (App Service Environment)
-	LastActionResult *string `pulumi:"lastActionResult"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Maximum number of VMs in this hostingEnvironment (App Service Environment)
-	MaximumNumberOfMachines *int `pulumi:"maximumNumberOfMachines"`
-	// Number of front-end instances
-	MultiRoleCount *int `pulumi:"multiRoleCount"`
-	// Front-end VM size, e.g. "Medium", "Large"
-	MultiSize *string `pulumi:"multiSize"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
-	NetworkAccessControlList []NetworkAccessControlEntry `pulumi:"networkAccessControlList"`
-	// Provisioning state of the hostingEnvironment (App Service Environment)
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource group of the hostingEnvironment (App Service Environment)
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Name of resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Current status of the hostingEnvironment (App Service Environment)
-	Status string `pulumi:"status"`
-	// Subscription of the hostingEnvironment (App Service Environment)
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-	//             (most likely because NSG blocked the incoming traffic)
-	Suspended *bool `pulumi:"suspended"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Number of upgrade domains of this hostingEnvironment (App Service Environment)
-	UpgradeDomains *int `pulumi:"upgradeDomains"`
-	// Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
-	VipMappings []VirtualIPMapping `pulumi:"vipMappings"`
-	// Description of the hostingEnvironment's (App Service Environment) virtual network
-	VirtualNetwork *VirtualNetworkProfile `pulumi:"virtualNetwork"`
-	// Name of the hostingEnvironment's (App Service Environment) virtual network
-	VnetName *string `pulumi:"vnetName"`
-	// Resource group of the hostingEnvironment's (App Service Environment) virtual network
-	VnetResourceGroupName *string `pulumi:"vnetResourceGroupName"`
-	// Subnet of the hostingEnvironment's (App Service Environment) virtual network
-	VnetSubnetName *string `pulumi:"vnetSubnetName"`
-	// Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
-	WorkerPools []WorkerPool `pulumi:"workerPools"`
+	AllowedMultiSizes         *string                     `pulumi:"allowedMultiSizes"`
+	AllowedWorkerSizes        *string                     `pulumi:"allowedWorkerSizes"`
+	ApiManagementAccountId    *string                     `pulumi:"apiManagementAccountId"`
+	ClusterSettings           []NameValuePair             `pulumi:"clusterSettings"`
+	DatabaseEdition           *string                     `pulumi:"databaseEdition"`
+	DatabaseServiceObjective  *string                     `pulumi:"databaseServiceObjective"`
+	DnsSuffix                 *string                     `pulumi:"dnsSuffix"`
+	EnvironmentCapacities     []StampCapacity             `pulumi:"environmentCapacities"`
+	EnvironmentIsHealthy      *bool                       `pulumi:"environmentIsHealthy"`
+	EnvironmentStatus         *string                     `pulumi:"environmentStatus"`
+	Id                        *string                     `pulumi:"id"`
+	InternalLoadBalancingMode *InternalLoadBalancingMode  `pulumi:"internalLoadBalancingMode"`
+	IpsslAddressCount         *int                        `pulumi:"ipsslAddressCount"`
+	Kind                      *string                     `pulumi:"kind"`
+	LastAction                *string                     `pulumi:"lastAction"`
+	LastActionResult          *string                     `pulumi:"lastActionResult"`
+	Location                  *string                     `pulumi:"location"`
+	MaximumNumberOfMachines   *int                        `pulumi:"maximumNumberOfMachines"`
+	MultiRoleCount            *int                        `pulumi:"multiRoleCount"`
+	MultiSize                 *string                     `pulumi:"multiSize"`
+	Name                      *string                     `pulumi:"name"`
+	NetworkAccessControlList  []NetworkAccessControlEntry `pulumi:"networkAccessControlList"`
+	ProvisioningState         *ProvisioningState          `pulumi:"provisioningState"`
+	ResourceGroup             *string                     `pulumi:"resourceGroup"`
+	ResourceGroupName         string                      `pulumi:"resourceGroupName"`
+	Status                    HostingEnvironmentStatus    `pulumi:"status"`
+	SubscriptionId            *string                     `pulumi:"subscriptionId"`
+	Suspended                 *bool                       `pulumi:"suspended"`
+	Tags                      map[string]string           `pulumi:"tags"`
+	Type                      *string                     `pulumi:"type"`
+	UpgradeDomains            *int                        `pulumi:"upgradeDomains"`
+	VipMappings               []VirtualIPMapping          `pulumi:"vipMappings"`
+	VirtualNetwork            *VirtualNetworkProfile      `pulumi:"virtualNetwork"`
+	VnetName                  *string                     `pulumi:"vnetName"`
+	VnetResourceGroupName     *string                     `pulumi:"vnetResourceGroupName"`
+	VnetSubnetName            *string                     `pulumi:"vnetSubnetName"`
+	WorkerPools               []WorkerPool                `pulumi:"workerPools"`
 }
 
 // The set of arguments for constructing a ManagedHostingEnvironment resource.
 type ManagedHostingEnvironmentArgs struct {
-	// List of comma separated strings describing which VM sizes are allowed for front-ends
-	AllowedMultiSizes pulumi.StringPtrInput
-	// List of comma separated strings describing which VM sizes are allowed for workers
-	AllowedWorkerSizes pulumi.StringPtrInput
-	// Api Management Account associated with this Hosting Environment
-	ApiManagementAccountId pulumi.StringPtrInput
-	// Custom settings for changing the behavior of the hosting environment
-	ClusterSettings NameValuePairArrayInput
-	// Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
-	DatabaseEdition pulumi.StringPtrInput
-	// Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
-	DatabaseServiceObjective pulumi.StringPtrInput
-	// DNS suffix of the hostingEnvironment (App Service Environment)
-	DnsSuffix pulumi.StringPtrInput
-	// Current total, used, and available worker capacities
-	EnvironmentCapacities StampCapacityArrayInput
-	// True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
-	EnvironmentIsHealthy pulumi.BoolPtrInput
-	// Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
-	EnvironmentStatus pulumi.StringPtrInput
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-	InternalLoadBalancingMode *InternalLoadBalancingMode
-	// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
-	IpsslAddressCount pulumi.IntPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Last deployment action on this hostingEnvironment (App Service Environment)
-	LastAction pulumi.StringPtrInput
-	// Result of the last deployment action on this hostingEnvironment (App Service Environment)
-	LastActionResult pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Maximum number of VMs in this hostingEnvironment (App Service Environment)
-	MaximumNumberOfMachines pulumi.IntPtrInput
-	// Number of front-end instances
-	MultiRoleCount pulumi.IntPtrInput
-	// Front-end VM size, e.g. "Medium", "Large"
-	MultiSize pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
-	NetworkAccessControlList NetworkAccessControlEntryArrayInput
-	// Provisioning state of the hostingEnvironment (App Service Environment)
-	ProvisioningState *ProvisioningState
-	// Resource group of the hostingEnvironment (App Service Environment)
-	ResourceGroup pulumi.StringPtrInput
-	// Name of resource group
-	ResourceGroupName pulumi.StringInput
-	// Current status of the hostingEnvironment (App Service Environment)
-	Status HostingEnvironmentStatus
-	// Subscription of the hostingEnvironment (App Service Environment)
-	SubscriptionId pulumi.StringPtrInput
-	// True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-	//             (most likely because NSG blocked the incoming traffic)
-	Suspended pulumi.BoolPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Number of upgrade domains of this hostingEnvironment (App Service Environment)
-	UpgradeDomains pulumi.IntPtrInput
-	// Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
-	VipMappings VirtualIPMappingArrayInput
-	// Description of the hostingEnvironment's (App Service Environment) virtual network
-	VirtualNetwork VirtualNetworkProfilePtrInput
-	// Name of the hostingEnvironment's (App Service Environment) virtual network
-	VnetName pulumi.StringPtrInput
-	// Resource group of the hostingEnvironment's (App Service Environment) virtual network
-	VnetResourceGroupName pulumi.StringPtrInput
-	// Subnet of the hostingEnvironment's (App Service Environment) virtual network
-	VnetSubnetName pulumi.StringPtrInput
-	// Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
-	WorkerPools WorkerPoolArrayInput
+	AllowedMultiSizes         pulumi.StringPtrInput
+	AllowedWorkerSizes        pulumi.StringPtrInput
+	ApiManagementAccountId    pulumi.StringPtrInput
+	ClusterSettings           NameValuePairArrayInput
+	DatabaseEdition           pulumi.StringPtrInput
+	DatabaseServiceObjective  pulumi.StringPtrInput
+	DnsSuffix                 pulumi.StringPtrInput
+	EnvironmentCapacities     StampCapacityArrayInput
+	EnvironmentIsHealthy      pulumi.BoolPtrInput
+	EnvironmentStatus         pulumi.StringPtrInput
+	Id                        pulumi.StringPtrInput
+	InternalLoadBalancingMode InternalLoadBalancingModePtrInput
+	IpsslAddressCount         pulumi.IntPtrInput
+	Kind                      pulumi.StringPtrInput
+	LastAction                pulumi.StringPtrInput
+	LastActionResult          pulumi.StringPtrInput
+	Location                  pulumi.StringPtrInput
+	MaximumNumberOfMachines   pulumi.IntPtrInput
+	MultiRoleCount            pulumi.IntPtrInput
+	MultiSize                 pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	NetworkAccessControlList  NetworkAccessControlEntryArrayInput
+	ProvisioningState         ProvisioningStatePtrInput
+	ResourceGroup             pulumi.StringPtrInput
+	ResourceGroupName         pulumi.StringInput
+	Status                    HostingEnvironmentStatusInput
+	SubscriptionId            pulumi.StringPtrInput
+	Suspended                 pulumi.BoolPtrInput
+	Tags                      pulumi.StringMapInput
+	Type                      pulumi.StringPtrInput
+	UpgradeDomains            pulumi.IntPtrInput
+	VipMappings               VirtualIPMappingArrayInput
+	VirtualNetwork            VirtualNetworkProfilePtrInput
+	VnetName                  pulumi.StringPtrInput
+	VnetResourceGroupName     pulumi.StringPtrInput
+	VnetSubnetName            pulumi.StringPtrInput
+	WorkerPools               WorkerPoolArrayInput
 }
 
 func (ManagedHostingEnvironmentArgs) ElementType() reflect.Type {
@@ -381,9 +271,7 @@ func (i *ManagedHostingEnvironment) ToManagedHostingEnvironmentOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedHostingEnvironmentOutput)
 }
 
-type ManagedHostingEnvironmentOutput struct {
-	*pulumi.OutputState
-}
+type ManagedHostingEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (ManagedHostingEnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedHostingEnvironment)(nil))

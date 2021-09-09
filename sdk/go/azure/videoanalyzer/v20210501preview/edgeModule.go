@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The representation of an edge module.
 type EdgeModule struct {
 	pulumi.CustomResourceState
 
-	// Internal ID generated for the instance of the Video Analyzer edge module.
-	EdgeModuleId pulumi.StringOutput `pulumi:"edgeModuleId"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	EdgeModuleId pulumi.StringOutput      `pulumi:"edgeModuleId"`
+	Name         pulumi.StringOutput      `pulumi:"name"`
+	SystemData   SystemDataResponseOutput `pulumi:"systemData"`
+	Type         pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewEdgeModule registers a new resource with the given unique name, arguments, and options.
@@ -82,21 +77,15 @@ func (EdgeModuleState) ElementType() reflect.Type {
 }
 
 type edgeModuleArgs struct {
-	// The Azure Video Analyzer account name.
-	AccountName string `pulumi:"accountName"`
-	// The name of the edge module to create or update.
-	EdgeModuleName *string `pulumi:"edgeModuleName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName       string  `pulumi:"accountName"`
+	EdgeModuleName    *string `pulumi:"edgeModuleName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a EdgeModule resource.
 type EdgeModuleArgs struct {
-	// The Azure Video Analyzer account name.
-	AccountName pulumi.StringInput
-	// The name of the edge module to create or update.
-	EdgeModuleName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	EdgeModuleName    pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -123,9 +112,7 @@ func (i *EdgeModule) ToEdgeModuleOutputWithContext(ctx context.Context) EdgeModu
 	return pulumi.ToOutputWithContext(ctx, i).(EdgeModuleOutput)
 }
 
-type EdgeModuleOutput struct {
-	*pulumi.OutputState
-}
+type EdgeModuleOutput struct{ *pulumi.OutputState }
 
 func (EdgeModuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EdgeModule)(nil))

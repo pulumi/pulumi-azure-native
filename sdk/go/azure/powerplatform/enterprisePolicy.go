@@ -160,9 +160,7 @@ func (i *EnterprisePolicy) ToEnterprisePolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyOutput)
 }
 
-type EnterprisePolicyOutput struct {
-	*pulumi.OutputState
-}
+type EnterprisePolicyOutput struct{ *pulumi.OutputState }
 
 func (EnterprisePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EnterprisePolicy)(nil))

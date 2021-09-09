@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Registration information.
 type Registration struct {
 	pulumi.CustomResourceState
 
-	// Specifies the billing mode for the Azure Stack registration.
 	BillingModel pulumi.StringPtrOutput `pulumi:"billingModel"`
-	// The identifier of the registered Azure Stack.
-	CloudId pulumi.StringPtrOutput `pulumi:"cloudId"`
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Location of the resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The object identifier associated with the Azure Stack connecting to Azure.
-	ObjectId pulumi.StringPtrOutput `pulumi:"objectId"`
-	// Custom tags for the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of Resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CloudId      pulumi.StringPtrOutput `pulumi:"cloudId"`
+	Etag         pulumi.StringPtrOutput `pulumi:"etag"`
+	Location     pulumi.StringOutput    `pulumi:"location"`
+	Name         pulumi.StringOutput    `pulumi:"name"`
+	ObjectId     pulumi.StringPtrOutput `pulumi:"objectId"`
+	Tags         pulumi.StringMapOutput `pulumi:"tags"`
+	Type         pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewRegistration registers a new resource with the given unique name, arguments, and options.
@@ -102,26 +93,18 @@ func (RegistrationState) ElementType() reflect.Type {
 }
 
 type registrationArgs struct {
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// Name of the Azure Stack registration.
-	RegistrationName *string `pulumi:"registrationName"`
-	// The token identifying registered Azure Stack
-	RegistrationToken string `pulumi:"registrationToken"`
-	// Name of the resource group.
-	ResourceGroup string `pulumi:"resourceGroup"`
+	Location          *string `pulumi:"location"`
+	RegistrationName  *string `pulumi:"registrationName"`
+	RegistrationToken string  `pulumi:"registrationToken"`
+	ResourceGroup     string  `pulumi:"resourceGroup"`
 }
 
 // The set of arguments for constructing a Registration resource.
 type RegistrationArgs struct {
-	// Location of the resource.
-	Location pulumi.StringPtrInput
-	// Name of the Azure Stack registration.
-	RegistrationName pulumi.StringPtrInput
-	// The token identifying registered Azure Stack
+	Location          pulumi.StringPtrInput
+	RegistrationName  pulumi.StringPtrInput
 	RegistrationToken pulumi.StringInput
-	// Name of the resource group.
-	ResourceGroup pulumi.StringInput
+	ResourceGroup     pulumi.StringInput
 }
 
 func (RegistrationArgs) ElementType() reflect.Type {
@@ -147,9 +130,7 @@ func (i *Registration) ToRegistrationOutputWithContext(ctx context.Context) Regi
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationOutput)
 }
 
-type RegistrationOutput struct {
-	*pulumi.OutputState
-}
+type RegistrationOutput struct{ *pulumi.OutputState }
 
 func (RegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Registration)(nil))

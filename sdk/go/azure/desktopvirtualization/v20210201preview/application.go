@@ -11,42 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schema for Application properties.
 type Application struct {
 	pulumi.CustomResourceState
 
-	// Resource Type of Application.
-	ApplicationType pulumi.StringPtrOutput `pulumi:"applicationType"`
-	// Command Line Arguments for Application.
-	CommandLineArguments pulumi.StringPtrOutput `pulumi:"commandLineArguments"`
-	// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-	CommandLineSetting pulumi.StringOutput `pulumi:"commandLineSetting"`
-	// Description of Application.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies a path for the executable file for the application.
-	FilePath pulumi.StringPtrOutput `pulumi:"filePath"`
-	// Friendly name of Application.
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// the icon a 64 bit string as a byte array.
-	IconContent pulumi.StringOutput `pulumi:"iconContent"`
-	// Hash of the icon.
-	IconHash pulumi.StringOutput `pulumi:"iconHash"`
-	// Index of the icon.
-	IconIndex pulumi.IntPtrOutput `pulumi:"iconIndex"`
-	// Path to icon.
-	IconPath pulumi.StringPtrOutput `pulumi:"iconPath"`
-	// Specifies the package application Id for MSIX applications
+	ApplicationType          pulumi.StringPtrOutput `pulumi:"applicationType"`
+	CommandLineArguments     pulumi.StringPtrOutput `pulumi:"commandLineArguments"`
+	CommandLineSetting       pulumi.StringOutput    `pulumi:"commandLineSetting"`
+	Description              pulumi.StringPtrOutput `pulumi:"description"`
+	FilePath                 pulumi.StringPtrOutput `pulumi:"filePath"`
+	FriendlyName             pulumi.StringPtrOutput `pulumi:"friendlyName"`
+	IconContent              pulumi.StringOutput    `pulumi:"iconContent"`
+	IconHash                 pulumi.StringOutput    `pulumi:"iconHash"`
+	IconIndex                pulumi.IntPtrOutput    `pulumi:"iconIndex"`
+	IconPath                 pulumi.StringPtrOutput `pulumi:"iconPath"`
 	MsixPackageApplicationId pulumi.StringPtrOutput `pulumi:"msixPackageApplicationId"`
-	// Specifies the package family name for MSIX applications
-	MsixPackageFamilyName pulumi.StringPtrOutput `pulumi:"msixPackageFamilyName"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// ObjectId of Application. (internal use)
-	ObjectId pulumi.StringOutput `pulumi:"objectId"`
-	// Specifies whether to show the RemoteApp program in the RD Web Access server.
-	ShowInPortal pulumi.BoolPtrOutput `pulumi:"showInPortal"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	MsixPackageFamilyName    pulumi.StringPtrOutput `pulumi:"msixPackageFamilyName"`
+	Name                     pulumi.StringOutput    `pulumi:"name"`
+	ObjectId                 pulumi.StringOutput    `pulumi:"objectId"`
+	ShowInPortal             pulumi.BoolPtrOutput   `pulumi:"showInPortal"`
+	Type                     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -175,66 +158,38 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// The name of the application group
-	ApplicationGroupName string `pulumi:"applicationGroupName"`
-	// The name of the application within the specified application group
-	ApplicationName *string `pulumi:"applicationName"`
-	// Resource Type of Application.
-	ApplicationType *string `pulumi:"applicationType"`
-	// Command Line Arguments for Application.
-	CommandLineArguments *string `pulumi:"commandLineArguments"`
-	// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-	CommandLineSetting string `pulumi:"commandLineSetting"`
-	// Description of Application.
-	Description *string `pulumi:"description"`
-	// Specifies a path for the executable file for the application.
-	FilePath *string `pulumi:"filePath"`
-	// Friendly name of Application.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Index of the icon.
-	IconIndex *int `pulumi:"iconIndex"`
-	// Path to icon.
-	IconPath *string `pulumi:"iconPath"`
-	// Specifies the package application Id for MSIX applications
+	ApplicationGroupName     string  `pulumi:"applicationGroupName"`
+	ApplicationName          *string `pulumi:"applicationName"`
+	ApplicationType          *string `pulumi:"applicationType"`
+	CommandLineArguments     *string `pulumi:"commandLineArguments"`
+	CommandLineSetting       string  `pulumi:"commandLineSetting"`
+	Description              *string `pulumi:"description"`
+	FilePath                 *string `pulumi:"filePath"`
+	FriendlyName             *string `pulumi:"friendlyName"`
+	IconIndex                *int    `pulumi:"iconIndex"`
+	IconPath                 *string `pulumi:"iconPath"`
 	MsixPackageApplicationId *string `pulumi:"msixPackageApplicationId"`
-	// Specifies the package family name for MSIX applications
-	MsixPackageFamilyName *string `pulumi:"msixPackageFamilyName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies whether to show the RemoteApp program in the RD Web Access server.
-	ShowInPortal *bool `pulumi:"showInPortal"`
+	MsixPackageFamilyName    *string `pulumi:"msixPackageFamilyName"`
+	ResourceGroupName        string  `pulumi:"resourceGroupName"`
+	ShowInPortal             *bool   `pulumi:"showInPortal"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// The name of the application group
-	ApplicationGroupName pulumi.StringInput
-	// The name of the application within the specified application group
-	ApplicationName pulumi.StringPtrInput
-	// Resource Type of Application.
-	ApplicationType pulumi.StringPtrInput
-	// Command Line Arguments for Application.
-	CommandLineArguments pulumi.StringPtrInput
-	// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-	CommandLineSetting pulumi.StringInput
-	// Description of Application.
-	Description pulumi.StringPtrInput
-	// Specifies a path for the executable file for the application.
-	FilePath pulumi.StringPtrInput
-	// Friendly name of Application.
-	FriendlyName pulumi.StringPtrInput
-	// Index of the icon.
-	IconIndex pulumi.IntPtrInput
-	// Path to icon.
-	IconPath pulumi.StringPtrInput
-	// Specifies the package application Id for MSIX applications
+	ApplicationGroupName     pulumi.StringInput
+	ApplicationName          pulumi.StringPtrInput
+	ApplicationType          pulumi.StringPtrInput
+	CommandLineArguments     pulumi.StringPtrInput
+	CommandLineSetting       pulumi.StringInput
+	Description              pulumi.StringPtrInput
+	FilePath                 pulumi.StringPtrInput
+	FriendlyName             pulumi.StringPtrInput
+	IconIndex                pulumi.IntPtrInput
+	IconPath                 pulumi.StringPtrInput
 	MsixPackageApplicationId pulumi.StringPtrInput
-	// Specifies the package family name for MSIX applications
-	MsixPackageFamilyName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Specifies whether to show the RemoteApp program in the RD Web Access server.
-	ShowInPortal pulumi.BoolPtrInput
+	MsixPackageFamilyName    pulumi.StringPtrInput
+	ResourceGroupName        pulumi.StringInput
+	ShowInPortal             pulumi.BoolPtrInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -260,9 +215,7 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutput)
 }
 
-type ApplicationOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Application)(nil))

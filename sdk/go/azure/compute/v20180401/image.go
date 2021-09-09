@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
 type Image struct {
 	pulumi.CustomResourceState
 
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The source virtual machine from which Image is created.
-	SourceVirtualMachine SubResourceResponsePtrOutput `pulumi:"sourceVirtualMachine"`
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile ImageStorageProfileResponsePtrOutput `pulumi:"storageProfile"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location             pulumi.StringOutput                  `pulumi:"location"`
+	Name                 pulumi.StringOutput                  `pulumi:"name"`
+	ProvisioningState    pulumi.StringOutput                  `pulumi:"provisioningState"`
+	SourceVirtualMachine SubResourceResponsePtrOutput         `pulumi:"sourceVirtualMachine"`
+	StorageProfile       ImageStorageProfileResponsePtrOutput `pulumi:"storageProfile"`
+	Tags                 pulumi.StringMapOutput               `pulumi:"tags"`
+	Type                 pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewImage registers a new resource with the given unique name, arguments, and options.
@@ -163,34 +155,22 @@ func (ImageState) ElementType() reflect.Type {
 }
 
 type imageArgs struct {
-	// The name of the image.
-	ImageName *string `pulumi:"imageName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The source virtual machine from which Image is created.
-	SourceVirtualMachine *SubResource `pulumi:"sourceVirtualMachine"`
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile *ImageStorageProfile `pulumi:"storageProfile"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	ImageName            *string              `pulumi:"imageName"`
+	Location             *string              `pulumi:"location"`
+	ResourceGroupName    string               `pulumi:"resourceGroupName"`
+	SourceVirtualMachine *SubResource         `pulumi:"sourceVirtualMachine"`
+	StorageProfile       *ImageStorageProfile `pulumi:"storageProfile"`
+	Tags                 map[string]string    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Image resource.
 type ImageArgs struct {
-	// The name of the image.
-	ImageName pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The source virtual machine from which Image is created.
+	ImageName            pulumi.StringPtrInput
+	Location             pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
 	SourceVirtualMachine SubResourcePtrInput
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile ImageStorageProfilePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	StorageProfile       ImageStorageProfilePtrInput
+	Tags                 pulumi.StringMapInput
 }
 
 func (ImageArgs) ElementType() reflect.Type {
@@ -216,9 +196,7 @@ func (i *Image) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOutput)
 }
 
-type ImageOutput struct {
-	*pulumi.OutputState
-}
+type ImageOutput struct{ *pulumi.OutputState }
 
 func (ImageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Image)(nil))

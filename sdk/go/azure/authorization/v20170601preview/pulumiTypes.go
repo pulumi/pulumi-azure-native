@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The policy definition reference.
 type PolicyDefinitionReference struct {
-	// Required if a parameter is used in policy rule.
-	Parameters interface{} `pulumi:"parameters"`
-	// The ID of the policy definition or policy set definition.
-	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	Parameters         interface{} `pulumi:"parameters"`
+	PolicyDefinitionId *string     `pulumi:"policyDefinitionId"`
 }
 
 // PolicyDefinitionReferenceInput is an input type that accepts PolicyDefinitionReferenceArgs and PolicyDefinitionReferenceOutput values.
@@ -29,11 +26,8 @@ type PolicyDefinitionReferenceInput interface {
 	ToPolicyDefinitionReferenceOutputWithContext(context.Context) PolicyDefinitionReferenceOutput
 }
 
-// The policy definition reference.
 type PolicyDefinitionReferenceArgs struct {
-	// Required if a parameter is used in policy rule.
-	Parameters pulumi.Input `pulumi:"parameters"`
-	// The ID of the policy definition or policy set definition.
+	Parameters         pulumi.Input          `pulumi:"parameters"`
 	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
 }
 
@@ -74,7 +68,6 @@ func (i PolicyDefinitionReferenceArray) ToPolicyDefinitionReferenceArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionReferenceArrayOutput)
 }
 
-// The policy definition reference.
 type PolicyDefinitionReferenceOutput struct{ *pulumi.OutputState }
 
 func (PolicyDefinitionReferenceOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o PolicyDefinitionReferenceOutput) ToPolicyDefinitionReferenceOutputWithCo
 	return o
 }
 
-// Required if a parameter is used in policy rule.
 func (o PolicyDefinitionReferenceOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v PolicyDefinitionReference) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
-// The ID of the policy definition or policy set definition.
 func (o PolicyDefinitionReferenceOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyDefinitionReference) *string { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
 }
@@ -119,12 +110,9 @@ func (o PolicyDefinitionReferenceArrayOutput) Index(i pulumi.IntInput) PolicyDef
 	}).(PolicyDefinitionReferenceOutput)
 }
 
-// The policy definition reference.
 type PolicyDefinitionReferenceResponse struct {
-	// Required if a parameter is used in policy rule.
-	Parameters interface{} `pulumi:"parameters"`
-	// The ID of the policy definition or policy set definition.
-	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	Parameters         interface{} `pulumi:"parameters"`
+	PolicyDefinitionId *string     `pulumi:"policyDefinitionId"`
 }
 
 // PolicyDefinitionReferenceResponseInput is an input type that accepts PolicyDefinitionReferenceResponseArgs and PolicyDefinitionReferenceResponseOutput values.
@@ -138,11 +126,8 @@ type PolicyDefinitionReferenceResponseInput interface {
 	ToPolicyDefinitionReferenceResponseOutputWithContext(context.Context) PolicyDefinitionReferenceResponseOutput
 }
 
-// The policy definition reference.
 type PolicyDefinitionReferenceResponseArgs struct {
-	// Required if a parameter is used in policy rule.
-	Parameters pulumi.Input `pulumi:"parameters"`
-	// The ID of the policy definition or policy set definition.
+	Parameters         pulumi.Input          `pulumi:"parameters"`
 	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
 }
 
@@ -183,7 +168,6 @@ func (i PolicyDefinitionReferenceResponseArray) ToPolicyDefinitionReferenceRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionReferenceResponseArrayOutput)
 }
 
-// The policy definition reference.
 type PolicyDefinitionReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (PolicyDefinitionReferenceResponseOutput) ElementType() reflect.Type {
@@ -198,12 +182,10 @@ func (o PolicyDefinitionReferenceResponseOutput) ToPolicyDefinitionReferenceResp
 	return o
 }
 
-// Required if a parameter is used in policy rule.
 func (o PolicyDefinitionReferenceResponseOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v PolicyDefinitionReferenceResponse) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
-// The ID of the policy definition or policy set definition.
 func (o PolicyDefinitionReferenceResponseOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyDefinitionReferenceResponse) *string { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
 }
@@ -228,11 +210,8 @@ func (o PolicyDefinitionReferenceResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PolicyDefinitionReferenceResponseOutput)
 }
 
-// The policy sku.
 type PolicySku struct {
-	// The name of the policy sku. Possible values are A0 and A1.
-	Name string `pulumi:"name"`
-	// The policy sku tier. Possible values are Free and Standard.
+	Name string  `pulumi:"name"`
 	Tier *string `pulumi:"tier"`
 }
 
@@ -247,11 +226,8 @@ type PolicySkuInput interface {
 	ToPolicySkuOutputWithContext(context.Context) PolicySkuOutput
 }
 
-// The policy sku.
 type PolicySkuArgs struct {
-	// The name of the policy sku. Possible values are A0 and A1.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The policy sku tier. Possible values are Free and Standard.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -308,7 +284,6 @@ func (i *policySkuPtrType) ToPolicySkuPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuPtrOutput)
 }
 
-// The policy sku.
 type PolicySkuOutput struct{ *pulumi.OutputState }
 
 func (PolicySkuOutput) ElementType() reflect.Type {
@@ -328,17 +303,15 @@ func (o PolicySkuOutput) ToPolicySkuPtrOutput() PolicySkuPtrOutput {
 }
 
 func (o PolicySkuOutput) ToPolicySkuPtrOutputWithContext(ctx context.Context) PolicySkuPtrOutput {
-	return o.ApplyT(func(v PolicySku) *PolicySku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySku) *PolicySku {
 		return &v
 	}).(PolicySkuPtrOutput)
 }
 
-// The name of the policy sku. Possible values are A0 and A1.
 func (o PolicySkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicySku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The policy sku tier. Possible values are Free and Standard.
 func (o PolicySkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -358,10 +331,15 @@ func (o PolicySkuPtrOutput) ToPolicySkuPtrOutputWithContext(ctx context.Context)
 }
 
 func (o PolicySkuPtrOutput) Elem() PolicySkuOutput {
-	return o.ApplyT(func(v *PolicySku) PolicySku { return *v }).(PolicySkuOutput)
+	return o.ApplyT(func(v *PolicySku) PolicySku {
+		if v != nil {
+			return *v
+		}
+		var ret PolicySku
+		return ret
+	}).(PolicySkuOutput)
 }
 
-// The name of the policy sku. Possible values are A0 and A1.
 func (o PolicySkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySku) *string {
 		if v == nil {
@@ -371,7 +349,6 @@ func (o PolicySkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The policy sku tier. Possible values are Free and Standard.
 func (o PolicySkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySku) *string {
 		if v == nil {
@@ -381,11 +358,8 @@ func (o PolicySkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The policy sku.
 type PolicySkuResponse struct {
-	// The name of the policy sku. Possible values are A0 and A1.
-	Name string `pulumi:"name"`
-	// The policy sku tier. Possible values are Free and Standard.
+	Name string  `pulumi:"name"`
 	Tier *string `pulumi:"tier"`
 }
 
@@ -400,11 +374,8 @@ type PolicySkuResponseInput interface {
 	ToPolicySkuResponseOutputWithContext(context.Context) PolicySkuResponseOutput
 }
 
-// The policy sku.
 type PolicySkuResponseArgs struct {
-	// The name of the policy sku. Possible values are A0 and A1.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The policy sku tier. Possible values are Free and Standard.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -461,7 +432,6 @@ func (i *policySkuResponsePtrType) ToPolicySkuResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuResponsePtrOutput)
 }
 
-// The policy sku.
 type PolicySkuResponseOutput struct{ *pulumi.OutputState }
 
 func (PolicySkuResponseOutput) ElementType() reflect.Type {
@@ -481,17 +451,15 @@ func (o PolicySkuResponseOutput) ToPolicySkuResponsePtrOutput() PolicySkuRespons
 }
 
 func (o PolicySkuResponseOutput) ToPolicySkuResponsePtrOutputWithContext(ctx context.Context) PolicySkuResponsePtrOutput {
-	return o.ApplyT(func(v PolicySkuResponse) *PolicySkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySkuResponse) *PolicySkuResponse {
 		return &v
 	}).(PolicySkuResponsePtrOutput)
 }
 
-// The name of the policy sku. Possible values are A0 and A1.
 func (o PolicySkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicySkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The policy sku tier. Possible values are Free and Standard.
 func (o PolicySkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -511,10 +479,15 @@ func (o PolicySkuResponsePtrOutput) ToPolicySkuResponsePtrOutputWithContext(ctx 
 }
 
 func (o PolicySkuResponsePtrOutput) Elem() PolicySkuResponseOutput {
-	return o.ApplyT(func(v *PolicySkuResponse) PolicySkuResponse { return *v }).(PolicySkuResponseOutput)
+	return o.ApplyT(func(v *PolicySkuResponse) PolicySkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PolicySkuResponse
+		return ret
+	}).(PolicySkuResponseOutput)
 }
 
-// The name of the policy sku. Possible values are A0 and A1.
 func (o PolicySkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySkuResponse) *string {
 		if v == nil {
@@ -524,7 +497,6 @@ func (o PolicySkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The policy sku tier. Possible values are Free and Standard.
 func (o PolicySkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySkuResponse) *string {
 		if v == nil {

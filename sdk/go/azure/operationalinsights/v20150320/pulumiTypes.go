@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a storage account connection.
 type StorageAccount struct {
-	// The Azure Resource Manager ID of the storage account resource.
-	Id string `pulumi:"id"`
-	// The storage account key.
+	Id  string `pulumi:"id"`
 	Key string `pulumi:"key"`
 }
 
@@ -29,11 +26,8 @@ type StorageAccountInput interface {
 	ToStorageAccountOutputWithContext(context.Context) StorageAccountOutput
 }
 
-// Describes a storage account connection.
 type StorageAccountArgs struct {
-	// The Azure Resource Manager ID of the storage account resource.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The storage account key.
+	Id  pulumi.StringInput `pulumi:"id"`
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -90,7 +84,6 @@ func (i *storageAccountPtrType) ToStorageAccountPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPtrOutput)
 }
 
-// Describes a storage account connection.
 type StorageAccountOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o StorageAccountOutput) ToStorageAccountPtrOutput() StorageAccountPtrOutpu
 }
 
 func (o StorageAccountOutput) ToStorageAccountPtrOutputWithContext(ctx context.Context) StorageAccountPtrOutput {
-	return o.ApplyT(func(v StorageAccount) *StorageAccount {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccount) *StorageAccount {
 		return &v
 	}).(StorageAccountPtrOutput)
 }
 
-// The Azure Resource Manager ID of the storage account resource.
 func (o StorageAccountOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccount) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The storage account key.
 func (o StorageAccountOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccount) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -140,10 +131,15 @@ func (o StorageAccountPtrOutput) ToStorageAccountPtrOutputWithContext(ctx contex
 }
 
 func (o StorageAccountPtrOutput) Elem() StorageAccountOutput {
-	return o.ApplyT(func(v *StorageAccount) StorageAccount { return *v }).(StorageAccountOutput)
+	return o.ApplyT(func(v *StorageAccount) StorageAccount {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccount
+		return ret
+	}).(StorageAccountOutput)
 }
 
-// The Azure Resource Manager ID of the storage account resource.
 func (o StorageAccountPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccount) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o StorageAccountPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage account key.
 func (o StorageAccountPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccount) *string {
 		if v == nil {
@@ -163,11 +158,8 @@ func (o StorageAccountPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a storage account connection.
 type StorageAccountResponse struct {
-	// The Azure Resource Manager ID of the storage account resource.
-	Id string `pulumi:"id"`
-	// The storage account key.
+	Id  string `pulumi:"id"`
 	Key string `pulumi:"key"`
 }
 
@@ -182,11 +174,8 @@ type StorageAccountResponseInput interface {
 	ToStorageAccountResponseOutputWithContext(context.Context) StorageAccountResponseOutput
 }
 
-// Describes a storage account connection.
 type StorageAccountResponseArgs struct {
-	// The Azure Resource Manager ID of the storage account resource.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The storage account key.
+	Id  pulumi.StringInput `pulumi:"id"`
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -243,7 +232,6 @@ func (i *storageAccountResponsePtrType) ToStorageAccountResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponsePtrOutput)
 }
 
-// Describes a storage account connection.
 type StorageAccountResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountResponseOutput) ElementType() reflect.Type {
@@ -263,17 +251,15 @@ func (o StorageAccountResponseOutput) ToStorageAccountResponsePtrOutput() Storag
 }
 
 func (o StorageAccountResponseOutput) ToStorageAccountResponsePtrOutputWithContext(ctx context.Context) StorageAccountResponsePtrOutput {
-	return o.ApplyT(func(v StorageAccountResponse) *StorageAccountResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountResponse) *StorageAccountResponse {
 		return &v
 	}).(StorageAccountResponsePtrOutput)
 }
 
-// The Azure Resource Manager ID of the storage account resource.
 func (o StorageAccountResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The storage account key.
 func (o StorageAccountResponseOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountResponse) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -293,10 +279,15 @@ func (o StorageAccountResponsePtrOutput) ToStorageAccountResponsePtrOutputWithCo
 }
 
 func (o StorageAccountResponsePtrOutput) Elem() StorageAccountResponseOutput {
-	return o.ApplyT(func(v *StorageAccountResponse) StorageAccountResponse { return *v }).(StorageAccountResponseOutput)
+	return o.ApplyT(func(v *StorageAccountResponse) StorageAccountResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountResponse
+		return ret
+	}).(StorageAccountResponseOutput)
 }
 
-// The Azure Resource Manager ID of the storage account resource.
 func (o StorageAccountResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountResponse) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o StorageAccountResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage account key.
 func (o StorageAccountResponsePtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountResponse) *string {
 		if v == nil {
@@ -316,12 +306,9 @@ func (o StorageAccountResponsePtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of the storage insight.
 type StorageInsightStatusResponse struct {
-	// Description of the state of the storage insight.
 	Description *string `pulumi:"description"`
-	// The state of the storage insight connection to the workspace
-	State string `pulumi:"state"`
+	State       string  `pulumi:"state"`
 }
 
 // StorageInsightStatusResponseInput is an input type that accepts StorageInsightStatusResponseArgs and StorageInsightStatusResponseOutput values.
@@ -335,12 +322,9 @@ type StorageInsightStatusResponseInput interface {
 	ToStorageInsightStatusResponseOutputWithContext(context.Context) StorageInsightStatusResponseOutput
 }
 
-// The status of the storage insight.
 type StorageInsightStatusResponseArgs struct {
-	// Description of the state of the storage insight.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The state of the storage insight connection to the workspace
-	State pulumi.StringInput `pulumi:"state"`
+	State       pulumi.StringInput    `pulumi:"state"`
 }
 
 func (StorageInsightStatusResponseArgs) ElementType() reflect.Type {
@@ -396,7 +380,6 @@ func (i *storageInsightStatusResponsePtrType) ToStorageInsightStatusResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightStatusResponsePtrOutput)
 }
 
-// The status of the storage insight.
 type StorageInsightStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageInsightStatusResponseOutput) ElementType() reflect.Type {
@@ -416,17 +399,15 @@ func (o StorageInsightStatusResponseOutput) ToStorageInsightStatusResponsePtrOut
 }
 
 func (o StorageInsightStatusResponseOutput) ToStorageInsightStatusResponsePtrOutputWithContext(ctx context.Context) StorageInsightStatusResponsePtrOutput {
-	return o.ApplyT(func(v StorageInsightStatusResponse) *StorageInsightStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageInsightStatusResponse) *StorageInsightStatusResponse {
 		return &v
 	}).(StorageInsightStatusResponsePtrOutput)
 }
 
-// Description of the state of the storage insight.
 func (o StorageInsightStatusResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageInsightStatusResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The state of the storage insight connection to the workspace
 func (o StorageInsightStatusResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageInsightStatusResponse) string { return v.State }).(pulumi.StringOutput)
 }
@@ -446,10 +427,15 @@ func (o StorageInsightStatusResponsePtrOutput) ToStorageInsightStatusResponsePtr
 }
 
 func (o StorageInsightStatusResponsePtrOutput) Elem() StorageInsightStatusResponseOutput {
-	return o.ApplyT(func(v *StorageInsightStatusResponse) StorageInsightStatusResponse { return *v }).(StorageInsightStatusResponseOutput)
+	return o.ApplyT(func(v *StorageInsightStatusResponse) StorageInsightStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageInsightStatusResponse
+		return ret
+	}).(StorageInsightStatusResponseOutput)
 }
 
-// Description of the state of the storage insight.
 func (o StorageInsightStatusResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageInsightStatusResponse) *string {
 		if v == nil {
@@ -459,7 +445,6 @@ func (o StorageInsightStatusResponsePtrOutput) Description() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state of the storage insight connection to the workspace
 func (o StorageInsightStatusResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageInsightStatusResponse) *string {
 		if v == nil {
@@ -469,11 +454,8 @@ func (o StorageInsightStatusResponsePtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A tag of a saved search.
 type Tag struct {
-	// The tag name.
-	Name string `pulumi:"name"`
-	// The tag value.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -488,11 +470,8 @@ type TagInput interface {
 	ToTagOutputWithContext(context.Context) TagOutput
 }
 
-// A tag of a saved search.
 type TagArgs struct {
-	// The tag name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The tag value.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -533,7 +512,6 @@ func (i TagArray) ToTagArrayOutputWithContext(ctx context.Context) TagArrayOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TagArrayOutput)
 }
 
-// A tag of a saved search.
 type TagOutput struct{ *pulumi.OutputState }
 
 func (TagOutput) ElementType() reflect.Type {
@@ -548,12 +526,10 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
 }
 
-// The tag name.
 func (o TagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Tag) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tag value.
 func (o TagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v Tag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -578,11 +554,8 @@ func (o TagArrayOutput) Index(i pulumi.IntInput) TagOutput {
 	}).(TagOutput)
 }
 
-// A tag of a saved search.
 type TagResponse struct {
-	// The tag name.
-	Name string `pulumi:"name"`
-	// The tag value.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -597,11 +570,8 @@ type TagResponseInput interface {
 	ToTagResponseOutputWithContext(context.Context) TagResponseOutput
 }
 
-// A tag of a saved search.
 type TagResponseArgs struct {
-	// The tag name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The tag value.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -642,7 +612,6 @@ func (i TagResponseArray) ToTagResponseArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TagResponseArrayOutput)
 }
 
-// A tag of a saved search.
 type TagResponseOutput struct{ *pulumi.OutputState }
 
 func (TagResponseOutput) ElementType() reflect.Type {
@@ -657,12 +626,10 @@ func (o TagResponseOutput) ToTagResponseOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// The tag name.
 func (o TagResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TagResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tag value.
 func (o TagResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TagResponse) string { return v.Value }).(pulumi.StringOutput)
 }

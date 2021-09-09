@@ -141,9 +141,7 @@ func (i *ControllerDetails) ToControllerDetailsOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ControllerDetailsOutput)
 }
 
-type ControllerDetailsOutput struct {
-	*pulumi.OutputState
-}
+type ControllerDetailsOutput struct{ *pulumi.OutputState }
 
 func (ControllerDetailsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ControllerDetails)(nil))

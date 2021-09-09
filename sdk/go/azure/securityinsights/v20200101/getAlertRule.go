@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Alert rule.
-//
 // Deprecated: Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.
 func LookupAlertRule(ctx *pulumi.Context, args *LookupAlertRuleArgs, opts ...pulumi.InvokeOption) (*LookupAlertRuleResult, error) {
 	var rv LookupAlertRuleResult
@@ -20,24 +18,16 @@ func LookupAlertRule(ctx *pulumi.Context, args *LookupAlertRuleArgs, opts ...pul
 }
 
 type LookupAlertRuleArgs struct {
-	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Alert rule ID
-	RuleId string `pulumi:"ruleId"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	RuleId            string `pulumi:"ruleId"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Alert rule.
 type LookupAlertRuleResult struct {
-	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The alert rule kind
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Id   string  `pulumi:"id"`
+	Kind string  `pulumi:"kind"`
+	Name string  `pulumi:"name"`
+	Type string  `pulumi:"type"`
 }

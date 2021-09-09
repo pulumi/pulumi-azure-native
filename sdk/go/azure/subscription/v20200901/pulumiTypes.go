@@ -10,18 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Put subscription properties.
 type PutAliasRequestProperties struct {
-	// Determines whether subscription is fieldLed, partnerLed or LegacyEA
-	BillingScope *string `pulumi:"billingScope"`
-	// The friendly name of the subscription.
-	DisplayName *string `pulumi:"displayName"`
-	// Reseller ID, basically MPN Id
-	ResellerId *string `pulumi:"resellerId"`
-	// This parameter can be used to create alias for existing subscription Id
+	BillingScope   *string `pulumi:"billingScope"`
+	DisplayName    *string `pulumi:"displayName"`
+	ResellerId     *string `pulumi:"resellerId"`
 	SubscriptionId *string `pulumi:"subscriptionId"`
-	// The workload type of the subscription. It can be either Production or DevTest.
-	Workload *string `pulumi:"workload"`
+	Workload       *string `pulumi:"workload"`
 }
 
 // PutAliasRequestPropertiesInput is an input type that accepts PutAliasRequestPropertiesArgs and PutAliasRequestPropertiesOutput values.
@@ -35,18 +29,12 @@ type PutAliasRequestPropertiesInput interface {
 	ToPutAliasRequestPropertiesOutputWithContext(context.Context) PutAliasRequestPropertiesOutput
 }
 
-// Put subscription properties.
 type PutAliasRequestPropertiesArgs struct {
-	// Determines whether subscription is fieldLed, partnerLed or LegacyEA
-	BillingScope pulumi.StringPtrInput `pulumi:"billingScope"`
-	// The friendly name of the subscription.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Reseller ID, basically MPN Id
-	ResellerId pulumi.StringPtrInput `pulumi:"resellerId"`
-	// This parameter can be used to create alias for existing subscription Id
+	BillingScope   pulumi.StringPtrInput `pulumi:"billingScope"`
+	DisplayName    pulumi.StringPtrInput `pulumi:"displayName"`
+	ResellerId     pulumi.StringPtrInput `pulumi:"resellerId"`
 	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
-	// The workload type of the subscription. It can be either Production or DevTest.
-	Workload pulumi.StringPtrInput `pulumi:"workload"`
+	Workload       pulumi.StringPtrInput `pulumi:"workload"`
 }
 
 func (PutAliasRequestPropertiesArgs) ElementType() reflect.Type {
@@ -102,7 +90,6 @@ func (i *putAliasRequestPropertiesPtrType) ToPutAliasRequestPropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(PutAliasRequestPropertiesPtrOutput)
 }
 
-// Put subscription properties.
 type PutAliasRequestPropertiesOutput struct{ *pulumi.OutputState }
 
 func (PutAliasRequestPropertiesOutput) ElementType() reflect.Type {
@@ -122,32 +109,27 @@ func (o PutAliasRequestPropertiesOutput) ToPutAliasRequestPropertiesPtrOutput() 
 }
 
 func (o PutAliasRequestPropertiesOutput) ToPutAliasRequestPropertiesPtrOutputWithContext(ctx context.Context) PutAliasRequestPropertiesPtrOutput {
-	return o.ApplyT(func(v PutAliasRequestProperties) *PutAliasRequestProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PutAliasRequestProperties) *PutAliasRequestProperties {
 		return &v
 	}).(PutAliasRequestPropertiesPtrOutput)
 }
 
-// Determines whether subscription is fieldLed, partnerLed or LegacyEA
 func (o PutAliasRequestPropertiesOutput) BillingScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PutAliasRequestProperties) *string { return v.BillingScope }).(pulumi.StringPtrOutput)
 }
 
-// The friendly name of the subscription.
 func (o PutAliasRequestPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PutAliasRequestProperties) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Reseller ID, basically MPN Id
 func (o PutAliasRequestPropertiesOutput) ResellerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PutAliasRequestProperties) *string { return v.ResellerId }).(pulumi.StringPtrOutput)
 }
 
-// This parameter can be used to create alias for existing subscription Id
 func (o PutAliasRequestPropertiesOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PutAliasRequestProperties) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
 
-// The workload type of the subscription. It can be either Production or DevTest.
 func (o PutAliasRequestPropertiesOutput) Workload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PutAliasRequestProperties) *string { return v.Workload }).(pulumi.StringPtrOutput)
 }
@@ -167,10 +149,15 @@ func (o PutAliasRequestPropertiesPtrOutput) ToPutAliasRequestPropertiesPtrOutput
 }
 
 func (o PutAliasRequestPropertiesPtrOutput) Elem() PutAliasRequestPropertiesOutput {
-	return o.ApplyT(func(v *PutAliasRequestProperties) PutAliasRequestProperties { return *v }).(PutAliasRequestPropertiesOutput)
+	return o.ApplyT(func(v *PutAliasRequestProperties) PutAliasRequestProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PutAliasRequestProperties
+		return ret
+	}).(PutAliasRequestPropertiesOutput)
 }
 
-// Determines whether subscription is fieldLed, partnerLed or LegacyEA
 func (o PutAliasRequestPropertiesPtrOutput) BillingScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PutAliasRequestProperties) *string {
 		if v == nil {
@@ -180,7 +167,6 @@ func (o PutAliasRequestPropertiesPtrOutput) BillingScope() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The friendly name of the subscription.
 func (o PutAliasRequestPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PutAliasRequestProperties) *string {
 		if v == nil {
@@ -190,7 +176,6 @@ func (o PutAliasRequestPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reseller ID, basically MPN Id
 func (o PutAliasRequestPropertiesPtrOutput) ResellerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PutAliasRequestProperties) *string {
 		if v == nil {
@@ -200,7 +185,6 @@ func (o PutAliasRequestPropertiesPtrOutput) ResellerId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// This parameter can be used to create alias for existing subscription Id
 func (o PutAliasRequestPropertiesPtrOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PutAliasRequestProperties) *string {
 		if v == nil {
@@ -210,7 +194,6 @@ func (o PutAliasRequestPropertiesPtrOutput) SubscriptionId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The workload type of the subscription. It can be either Production or DevTest.
 func (o PutAliasRequestPropertiesPtrOutput) Workload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PutAliasRequestProperties) *string {
 		if v == nil {
@@ -220,12 +203,9 @@ func (o PutAliasRequestPropertiesPtrOutput) Workload() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Put subscription creation result properties.
 type PutAliasResponsePropertiesResponse struct {
-	// The provisioning state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Newly created subscription Id.
-	SubscriptionId string `pulumi:"subscriptionId"`
+	SubscriptionId    string  `pulumi:"subscriptionId"`
 }
 
 // PutAliasResponsePropertiesResponseInput is an input type that accepts PutAliasResponsePropertiesResponseArgs and PutAliasResponsePropertiesResponseOutput values.
@@ -239,12 +219,9 @@ type PutAliasResponsePropertiesResponseInput interface {
 	ToPutAliasResponsePropertiesResponseOutputWithContext(context.Context) PutAliasResponsePropertiesResponseOutput
 }
 
-// Put subscription creation result properties.
 type PutAliasResponsePropertiesResponseArgs struct {
-	// The provisioning state of the resource.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Newly created subscription Id.
-	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
+	SubscriptionId    pulumi.StringInput    `pulumi:"subscriptionId"`
 }
 
 func (PutAliasResponsePropertiesResponseArgs) ElementType() reflect.Type {
@@ -300,7 +277,6 @@ func (i *putAliasResponsePropertiesResponsePtrType) ToPutAliasResponseProperties
 	return pulumi.ToOutputWithContext(ctx, i).(PutAliasResponsePropertiesResponsePtrOutput)
 }
 
-// Put subscription creation result properties.
 type PutAliasResponsePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PutAliasResponsePropertiesResponseOutput) ElementType() reflect.Type {
@@ -320,17 +296,15 @@ func (o PutAliasResponsePropertiesResponseOutput) ToPutAliasResponsePropertiesRe
 }
 
 func (o PutAliasResponsePropertiesResponseOutput) ToPutAliasResponsePropertiesResponsePtrOutputWithContext(ctx context.Context) PutAliasResponsePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PutAliasResponsePropertiesResponse) *PutAliasResponsePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PutAliasResponsePropertiesResponse) *PutAliasResponsePropertiesResponse {
 		return &v
 	}).(PutAliasResponsePropertiesResponsePtrOutput)
 }
 
-// The provisioning state of the resource.
 func (o PutAliasResponsePropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PutAliasResponsePropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Newly created subscription Id.
 func (o PutAliasResponsePropertiesResponseOutput) SubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v PutAliasResponsePropertiesResponse) string { return v.SubscriptionId }).(pulumi.StringOutput)
 }
@@ -350,10 +324,15 @@ func (o PutAliasResponsePropertiesResponsePtrOutput) ToPutAliasResponsePropertie
 }
 
 func (o PutAliasResponsePropertiesResponsePtrOutput) Elem() PutAliasResponsePropertiesResponseOutput {
-	return o.ApplyT(func(v *PutAliasResponsePropertiesResponse) PutAliasResponsePropertiesResponse { return *v }).(PutAliasResponsePropertiesResponseOutput)
+	return o.ApplyT(func(v *PutAliasResponsePropertiesResponse) PutAliasResponsePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PutAliasResponsePropertiesResponse
+		return ret
+	}).(PutAliasResponsePropertiesResponseOutput)
 }
 
-// The provisioning state of the resource.
 func (o PutAliasResponsePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PutAliasResponsePropertiesResponse) *string {
 		if v == nil {
@@ -363,7 +342,6 @@ func (o PutAliasResponsePropertiesResponsePtrOutput) ProvisioningState() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Newly created subscription Id.
 func (o PutAliasResponsePropertiesResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PutAliasResponsePropertiesResponse) *string {
 		if v == nil {

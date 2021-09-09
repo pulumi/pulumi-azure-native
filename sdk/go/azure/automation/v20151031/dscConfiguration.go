@@ -11,40 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the configuration type.
 type DscConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets the creation time.
-	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Gets or sets the etag of the resource.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Gets or sets the job count of the configuration.
-	JobCount pulumi.IntPtrOutput `pulumi:"jobCount"`
-	// Gets or sets the last modified time.
-	LastModifiedTime pulumi.StringPtrOutput `pulumi:"lastModifiedTime"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Gets or sets verbose log option.
-	LogVerbose pulumi.BoolPtrOutput `pulumi:"logVerbose"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets the number of compiled node configurations.
-	NodeConfigurationCount pulumi.IntPtrOutput `pulumi:"nodeConfigurationCount"`
-	// Gets or sets the configuration parameters.
-	Parameters DscConfigurationParameterResponseMapOutput `pulumi:"parameters"`
-	// Gets or sets the provisioning state of the configuration.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Gets or sets the source.
-	Source ContentSourceResponsePtrOutput `pulumi:"source"`
-	// Gets or sets the state of the configuration.
-	State pulumi.StringPtrOutput `pulumi:"state"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CreationTime           pulumi.StringPtrOutput                     `pulumi:"creationTime"`
+	Description            pulumi.StringPtrOutput                     `pulumi:"description"`
+	Etag                   pulumi.StringPtrOutput                     `pulumi:"etag"`
+	JobCount               pulumi.IntPtrOutput                        `pulumi:"jobCount"`
+	LastModifiedTime       pulumi.StringPtrOutput                     `pulumi:"lastModifiedTime"`
+	Location               pulumi.StringPtrOutput                     `pulumi:"location"`
+	LogVerbose             pulumi.BoolPtrOutput                       `pulumi:"logVerbose"`
+	Name                   pulumi.StringOutput                        `pulumi:"name"`
+	NodeConfigurationCount pulumi.IntPtrOutput                        `pulumi:"nodeConfigurationCount"`
+	Parameters             DscConfigurationParameterResponseMapOutput `pulumi:"parameters"`
+	ProvisioningState      pulumi.StringPtrOutput                     `pulumi:"provisioningState"`
+	Source                 ContentSourceResponsePtrOutput             `pulumi:"source"`
+	State                  pulumi.StringPtrOutput                     `pulumi:"state"`
+	Tags                   pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type                   pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewDscConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -113,54 +97,32 @@ func (DscConfigurationState) ElementType() reflect.Type {
 }
 
 type dscConfigurationArgs struct {
-	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The create or update parameters for configuration.
-	ConfigurationName *string `pulumi:"configurationName"`
-	// Gets or sets the description of the configuration.
-	Description *string `pulumi:"description"`
-	// Gets or sets the location of the resource.
-	Location *string `pulumi:"location"`
-	// Gets or sets progress log option.
-	LogProgress *bool `pulumi:"logProgress"`
-	// Gets or sets verbose log option.
-	LogVerbose *bool `pulumi:"logVerbose"`
-	// Gets or sets name of the resource.
-	Name *string `pulumi:"name"`
-	// Gets or sets the configuration parameters.
-	Parameters map[string]DscConfigurationParameter `pulumi:"parameters"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets the source.
-	Source ContentSource `pulumi:"source"`
-	// Gets or sets the tags attached to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	AutomationAccountName string                               `pulumi:"automationAccountName"`
+	ConfigurationName     *string                              `pulumi:"configurationName"`
+	Description           *string                              `pulumi:"description"`
+	Location              *string                              `pulumi:"location"`
+	LogProgress           *bool                                `pulumi:"logProgress"`
+	LogVerbose            *bool                                `pulumi:"logVerbose"`
+	Name                  *string                              `pulumi:"name"`
+	Parameters            map[string]DscConfigurationParameter `pulumi:"parameters"`
+	ResourceGroupName     string                               `pulumi:"resourceGroupName"`
+	Source                ContentSource                        `pulumi:"source"`
+	Tags                  map[string]string                    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DscConfiguration resource.
 type DscConfigurationArgs struct {
-	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
-	// The create or update parameters for configuration.
-	ConfigurationName pulumi.StringPtrInput
-	// Gets or sets the description of the configuration.
-	Description pulumi.StringPtrInput
-	// Gets or sets the location of the resource.
-	Location pulumi.StringPtrInput
-	// Gets or sets progress log option.
-	LogProgress pulumi.BoolPtrInput
-	// Gets or sets verbose log option.
-	LogVerbose pulumi.BoolPtrInput
-	// Gets or sets name of the resource.
-	Name pulumi.StringPtrInput
-	// Gets or sets the configuration parameters.
-	Parameters DscConfigurationParameterMapInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets the source.
-	Source ContentSourceInput
-	// Gets or sets the tags attached to the resource.
-	Tags pulumi.StringMapInput
+	ConfigurationName     pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	Location              pulumi.StringPtrInput
+	LogProgress           pulumi.BoolPtrInput
+	LogVerbose            pulumi.BoolPtrInput
+	Name                  pulumi.StringPtrInput
+	Parameters            DscConfigurationParameterMapInput
+	ResourceGroupName     pulumi.StringInput
+	Source                ContentSourceInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (DscConfigurationArgs) ElementType() reflect.Type {
@@ -186,9 +148,7 @@ func (i *DscConfiguration) ToDscConfigurationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DscConfigurationOutput)
 }
 
-type DscConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type DscConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DscConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DscConfiguration)(nil))

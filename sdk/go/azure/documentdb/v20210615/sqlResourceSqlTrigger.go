@@ -11,19 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB trigger.
 type SqlResourceSqlTrigger struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the ARM resource.
+	Location pulumi.StringPtrOutput                           `pulumi:"location"`
 	Name     pulumi.StringOutput                              `pulumi:"name"`
 	Resource SqlTriggerGetPropertiesResponseResourcePtrOutput `pulumi:"resource"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags     pulumi.StringMapOutput                           `pulumi:"tags"`
+	Type     pulumi.StringOutput                              `pulumi:"type"`
 }
 
 // NewSqlResourceSqlTrigger registers a new resource with the given unique name, arguments, and options.
@@ -170,46 +165,28 @@ func (SqlResourceSqlTriggerState) ElementType() reflect.Type {
 }
 
 type sqlResourceSqlTriggerArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Cosmos DB container name.
-	ContainerName string `pulumi:"containerName"`
-	// Cosmos DB database name.
-	DatabaseName string `pulumi:"databaseName"`
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options *CreateUpdateOptions `pulumi:"options"`
-	// The standard JSON format of a trigger
-	Resource SqlTriggerResource `pulumi:"resource"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags map[string]string `pulumi:"tags"`
-	// Cosmos DB trigger name.
-	TriggerName *string `pulumi:"triggerName"`
+	AccountName       string               `pulumi:"accountName"`
+	ContainerName     string               `pulumi:"containerName"`
+	DatabaseName      string               `pulumi:"databaseName"`
+	Location          *string              `pulumi:"location"`
+	Options           *CreateUpdateOptions `pulumi:"options"`
+	Resource          SqlTriggerResource   `pulumi:"resource"`
+	ResourceGroupName string               `pulumi:"resourceGroupName"`
+	Tags              map[string]string    `pulumi:"tags"`
+	TriggerName       *string              `pulumi:"triggerName"`
 }
 
 // The set of arguments for constructing a SqlResourceSqlTrigger resource.
 type SqlResourceSqlTriggerArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Cosmos DB container name.
-	ContainerName pulumi.StringInput
-	// Cosmos DB database name.
-	DatabaseName pulumi.StringInput
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options CreateUpdateOptionsPtrInput
-	// The standard JSON format of a trigger
-	Resource SqlTriggerResourceInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	ContainerName     pulumi.StringInput
+	DatabaseName      pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	Options           CreateUpdateOptionsPtrInput
+	Resource          SqlTriggerResourceInput
 	ResourceGroupName pulumi.StringInput
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapInput
-	// Cosmos DB trigger name.
-	TriggerName pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TriggerName       pulumi.StringPtrInput
 }
 
 func (SqlResourceSqlTriggerArgs) ElementType() reflect.Type {
@@ -235,9 +212,7 @@ func (i *SqlResourceSqlTrigger) ToSqlResourceSqlTriggerOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlTriggerOutput)
 }
 
-type SqlResourceSqlTriggerOutput struct {
-	*pulumi.OutputState
-}
+type SqlResourceSqlTriggerOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlTriggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlResourceSqlTrigger)(nil))

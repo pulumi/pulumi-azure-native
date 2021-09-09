@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Site Extension Information.
 func LookupWebAppSiteExtensionSlot(ctx *pulumi.Context, args *LookupWebAppSiteExtensionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSiteExtensionSlotResult, error) {
 	var rv LookupWebAppSiteExtensionSlotResult
 	err := ctx.Invoke("azure-native:web/v20200901:getWebAppSiteExtensionSlot", args, &rv, opts...)
@@ -18,65 +17,37 @@ func LookupWebAppSiteExtensionSlot(ctx *pulumi.Context, args *LookupWebAppSiteEx
 }
 
 type LookupWebAppSiteExtensionSlotArgs struct {
-	// Site name.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Site extension name.
-	SiteExtensionId string `pulumi:"siteExtensionId"`
-	// Name of the deployment slot. If a slot is not specified, the API uses the production slot.
-	Slot string `pulumi:"slot"`
+	SiteExtensionId   string `pulumi:"siteExtensionId"`
+	Slot              string `pulumi:"slot"`
 }
 
 // Site Extension Information.
 type LookupWebAppSiteExtensionSlotResult struct {
-	// List of authors.
-	Authors []string `pulumi:"authors"`
-	// Site Extension comment.
-	Comment *string `pulumi:"comment"`
-	// Detailed description.
-	Description *string `pulumi:"description"`
-	// Count of downloads.
-	DownloadCount *int `pulumi:"downloadCount"`
-	// Site extension ID.
-	ExtensionId *string `pulumi:"extensionId"`
-	// Site extension type.
-	ExtensionType *string `pulumi:"extensionType"`
-	// Extension URL.
-	ExtensionUrl *string `pulumi:"extensionUrl"`
-	// Feed URL.
-	FeedUrl *string `pulumi:"feedUrl"`
-	// Icon URL.
-	IconUrl *string `pulumi:"iconUrl"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Installed timestamp.
-	InstalledDateTime *string `pulumi:"installedDateTime"`
-	// Installer command line parameters.
-	InstallerCommandLineParams *string `pulumi:"installerCommandLineParams"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// License URL.
-	LicenseUrl *string `pulumi:"licenseUrl"`
-	// <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
-	LocalIsLatestVersion *bool `pulumi:"localIsLatestVersion"`
-	// Local path.
-	LocalPath *string `pulumi:"localPath"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Project URL.
-	ProjectUrl *string `pulumi:"projectUrl"`
-	// Provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Published timestamp.
-	PublishedDateTime *string `pulumi:"publishedDateTime"`
-	// Summary description.
-	Summary *string `pulumi:"summary"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	Title      *string            `pulumi:"title"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// Version information.
-	Version *string `pulumi:"version"`
+	Authors                    []string           `pulumi:"authors"`
+	Comment                    *string            `pulumi:"comment"`
+	Description                *string            `pulumi:"description"`
+	DownloadCount              *int               `pulumi:"downloadCount"`
+	ExtensionId                *string            `pulumi:"extensionId"`
+	ExtensionType              *string            `pulumi:"extensionType"`
+	ExtensionUrl               *string            `pulumi:"extensionUrl"`
+	FeedUrl                    *string            `pulumi:"feedUrl"`
+	IconUrl                    *string            `pulumi:"iconUrl"`
+	Id                         string             `pulumi:"id"`
+	InstalledDateTime          *string            `pulumi:"installedDateTime"`
+	InstallerCommandLineParams *string            `pulumi:"installerCommandLineParams"`
+	Kind                       *string            `pulumi:"kind"`
+	LicenseUrl                 *string            `pulumi:"licenseUrl"`
+	LocalIsLatestVersion       *bool              `pulumi:"localIsLatestVersion"`
+	LocalPath                  *string            `pulumi:"localPath"`
+	Name                       string             `pulumi:"name"`
+	ProjectUrl                 *string            `pulumi:"projectUrl"`
+	ProvisioningState          *string            `pulumi:"provisioningState"`
+	PublishedDateTime          *string            `pulumi:"publishedDateTime"`
+	Summary                    *string            `pulumi:"summary"`
+	SystemData                 SystemDataResponse `pulumi:"systemData"`
+	Title                      *string            `pulumi:"title"`
+	Type                       string             `pulumi:"type"`
+	Version                    *string            `pulumi:"version"`
 }

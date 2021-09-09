@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An instance failover group.
 type InstanceFailoverGroup struct {
 	pulumi.CustomResourceState
 
-	// List of managed instance pairs in the failover group.
-	ManagedInstancePairs ManagedInstancePairInfoResponseArrayOutput `pulumi:"managedInstancePairs"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Partner region information for the failover group.
-	PartnerRegions PartnerRegionInfoResponseArrayOutput `pulumi:"partnerRegions"`
-	// Read-only endpoint of the failover group instance.
-	ReadOnlyEndpoint InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput `pulumi:"readOnlyEndpoint"`
-	// Read-write endpoint of the failover group instance.
-	ReadWriteEndpoint InstanceFailoverGroupReadWriteEndpointResponseOutput `pulumi:"readWriteEndpoint"`
-	// Local replication role of the failover group instance.
-	ReplicationRole pulumi.StringOutput `pulumi:"replicationRole"`
-	// Replication state of the failover group instance.
-	ReplicationState pulumi.StringOutput `pulumi:"replicationState"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ManagedInstancePairs ManagedInstancePairInfoResponseArrayOutput             `pulumi:"managedInstancePairs"`
+	Name                 pulumi.StringOutput                                    `pulumi:"name"`
+	PartnerRegions       PartnerRegionInfoResponseArrayOutput                   `pulumi:"partnerRegions"`
+	ReadOnlyEndpoint     InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput `pulumi:"readOnlyEndpoint"`
+	ReadWriteEndpoint    InstanceFailoverGroupReadWriteEndpointResponseOutput   `pulumi:"readWriteEndpoint"`
+	ReplicationRole      pulumi.StringOutput                                    `pulumi:"replicationRole"`
+	ReplicationState     pulumi.StringOutput                                    `pulumi:"replicationState"`
+	Type                 pulumi.StringOutput                                    `pulumi:"type"`
 }
 
 // NewInstanceFailoverGroup registers a new resource with the given unique name, arguments, and options.
@@ -123,38 +114,24 @@ func (InstanceFailoverGroupState) ElementType() reflect.Type {
 }
 
 type instanceFailoverGroupArgs struct {
-	// The name of the failover group.
-	FailoverGroupName *string `pulumi:"failoverGroupName"`
-	// The name of the region where the resource is located.
-	LocationName string `pulumi:"locationName"`
-	// List of managed instance pairs in the failover group.
-	ManagedInstancePairs []ManagedInstancePairInfo `pulumi:"managedInstancePairs"`
-	// Partner region information for the failover group.
-	PartnerRegions []PartnerRegionInfo `pulumi:"partnerRegions"`
-	// Read-only endpoint of the failover group instance.
-	ReadOnlyEndpoint *InstanceFailoverGroupReadOnlyEndpoint `pulumi:"readOnlyEndpoint"`
-	// Read-write endpoint of the failover group instance.
-	ReadWriteEndpoint InstanceFailoverGroupReadWriteEndpoint `pulumi:"readWriteEndpoint"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	FailoverGroupName    *string                                `pulumi:"failoverGroupName"`
+	LocationName         string                                 `pulumi:"locationName"`
+	ManagedInstancePairs []ManagedInstancePairInfo              `pulumi:"managedInstancePairs"`
+	PartnerRegions       []PartnerRegionInfo                    `pulumi:"partnerRegions"`
+	ReadOnlyEndpoint     *InstanceFailoverGroupReadOnlyEndpoint `pulumi:"readOnlyEndpoint"`
+	ReadWriteEndpoint    InstanceFailoverGroupReadWriteEndpoint `pulumi:"readWriteEndpoint"`
+	ResourceGroupName    string                                 `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a InstanceFailoverGroup resource.
 type InstanceFailoverGroupArgs struct {
-	// The name of the failover group.
-	FailoverGroupName pulumi.StringPtrInput
-	// The name of the region where the resource is located.
-	LocationName pulumi.StringInput
-	// List of managed instance pairs in the failover group.
+	FailoverGroupName    pulumi.StringPtrInput
+	LocationName         pulumi.StringInput
 	ManagedInstancePairs ManagedInstancePairInfoArrayInput
-	// Partner region information for the failover group.
-	PartnerRegions PartnerRegionInfoArrayInput
-	// Read-only endpoint of the failover group instance.
-	ReadOnlyEndpoint InstanceFailoverGroupReadOnlyEndpointPtrInput
-	// Read-write endpoint of the failover group instance.
-	ReadWriteEndpoint InstanceFailoverGroupReadWriteEndpointInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
+	PartnerRegions       PartnerRegionInfoArrayInput
+	ReadOnlyEndpoint     InstanceFailoverGroupReadOnlyEndpointPtrInput
+	ReadWriteEndpoint    InstanceFailoverGroupReadWriteEndpointInput
+	ResourceGroupName    pulumi.StringInput
 }
 
 func (InstanceFailoverGroupArgs) ElementType() reflect.Type {
@@ -180,9 +157,7 @@ func (i *InstanceFailoverGroup) ToInstanceFailoverGroupOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupOutput)
 }
 
-type InstanceFailoverGroupOutput struct {
-	*pulumi.OutputState
-}
+type InstanceFailoverGroupOutput struct{ *pulumi.OutputState }
 
 func (InstanceFailoverGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InstanceFailoverGroup)(nil))

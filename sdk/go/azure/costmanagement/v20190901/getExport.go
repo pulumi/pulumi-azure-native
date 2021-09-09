@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A export resource.
 func LookupExport(ctx *pulumi.Context, args *LookupExportArgs, opts ...pulumi.InvokeOption) (*LookupExportResult, error) {
 	var rv LookupExportResult
 	err := ctx.Invoke("azure-native:costmanagement/v20190901:getExport", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupExport(ctx *pulumi.Context, args *LookupExportArgs, opts ...pulumi.In
 }
 
 type LookupExportArgs struct {
-	// Export Name.
 	ExportName string `pulumi:"exportName"`
-	// The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope and '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope..
-	Scope string `pulumi:"scope"`
+	Scope      string `pulumi:"scope"`
 }
 
 // A export resource.
 type LookupExportResult struct {
-	// Has definition for the export.
-	Definition QueryDefinitionResponse `pulumi:"definition"`
-	// Has delivery information for the export.
+	Definition   QueryDefinitionResponse    `pulumi:"definition"`
 	DeliveryInfo ExportDeliveryInfoResponse `pulumi:"deliveryInfo"`
-	// The format of the export being delivered.
-	Format *string `pulumi:"format"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Has schedule information for the export.
-	Schedule *ExportScheduleResponse `pulumi:"schedule"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Format       *string                    `pulumi:"format"`
+	Id           string                     `pulumi:"id"`
+	Name         string                     `pulumi:"name"`
+	Schedule     *ExportScheduleResponse    `pulumi:"schedule"`
+	Tags         map[string]string          `pulumi:"tags"`
+	Type         string                     `pulumi:"type"`
 }

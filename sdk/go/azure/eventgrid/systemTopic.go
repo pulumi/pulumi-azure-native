@@ -161,9 +161,7 @@ func (i *SystemTopic) ToSystemTopicOutputWithContext(ctx context.Context) System
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicOutput)
 }
 
-type SystemTopicOutput struct {
-	*pulumi.OutputState
-}
+type SystemTopicOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SystemTopic)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response for list BGP peer status API service call.
 func GetVirtualNetworkGatewayBgpPeerStatus(ctx *pulumi.Context, args *GetVirtualNetworkGatewayBgpPeerStatusArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkGatewayBgpPeerStatusResult, error) {
 	var rv GetVirtualNetworkGatewayBgpPeerStatusResult
 	err := ctx.Invoke("azure-native:network/v20200501:getVirtualNetworkGatewayBgpPeerStatus", args, &rv, opts...)
@@ -18,16 +17,12 @@ func GetVirtualNetworkGatewayBgpPeerStatus(ctx *pulumi.Context, args *GetVirtual
 }
 
 type GetVirtualNetworkGatewayBgpPeerStatusArgs struct {
-	// The IP address of the peer to retrieve the status of.
-	Peer *string `pulumi:"peer"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the virtual network gateway.
-	VirtualNetworkGatewayName string `pulumi:"virtualNetworkGatewayName"`
+	Peer                      *string `pulumi:"peer"`
+	ResourceGroupName         string  `pulumi:"resourceGroupName"`
+	VirtualNetworkGatewayName string  `pulumi:"virtualNetworkGatewayName"`
 }
 
 // Response for list BGP peer status API service call.
 type GetVirtualNetworkGatewayBgpPeerStatusResult struct {
-	// List of BGP peers.
 	Value []BgpPeerStatusResponse `pulumi:"value"`
 }

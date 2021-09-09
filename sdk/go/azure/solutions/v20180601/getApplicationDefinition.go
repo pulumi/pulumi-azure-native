@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about managed application definition.
 func LookupApplicationDefinition(ctx *pulumi.Context, args *LookupApplicationDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupApplicationDefinitionResult, error) {
 	var rv LookupApplicationDefinitionResult
 	err := ctx.Invoke("azure-native:solutions/v20180601:getApplicationDefinition", args, &rv, opts...)
@@ -18,46 +17,27 @@ func LookupApplicationDefinition(ctx *pulumi.Context, args *LookupApplicationDef
 }
 
 type LookupApplicationDefinitionArgs struct {
-	// The name of the managed application definition.
 	ApplicationDefinitionName string `pulumi:"applicationDefinitionName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
 }
 
 // Information about managed application definition.
 type LookupApplicationDefinitionResult struct {
-	// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-	Artifacts []ApplicationArtifactResponse `pulumi:"artifacts"`
-	// The managed application provider authorizations.
-	Authorizations []ApplicationProviderAuthorizationResponse `pulumi:"authorizations"`
-	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition interface{} `pulumi:"createUiDefinition"`
-	// The managed application definition description.
-	Description *string `pulumi:"description"`
-	// The managed application definition display name.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource ID
-	Id string `pulumi:"id"`
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// A value indicating whether the package is enabled or not.
-	IsEnabled *string `pulumi:"isEnabled"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The managed application lock level.
-	LockLevel string `pulumi:"lockLevel"`
-	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate interface{} `pulumi:"mainTemplate"`
-	// ID of the resource that manages this resource.
-	ManagedBy *string `pulumi:"managedBy"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The managed application definition package file Uri. Use this element
-	PackageFileUri *string `pulumi:"packageFileUri"`
-	// The SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Artifacts          []ApplicationArtifactResponse              `pulumi:"artifacts"`
+	Authorizations     []ApplicationProviderAuthorizationResponse `pulumi:"authorizations"`
+	CreateUiDefinition interface{}                                `pulumi:"createUiDefinition"`
+	Description        *string                                    `pulumi:"description"`
+	DisplayName        *string                                    `pulumi:"displayName"`
+	Id                 string                                     `pulumi:"id"`
+	Identity           *IdentityResponse                          `pulumi:"identity"`
+	IsEnabled          *string                                    `pulumi:"isEnabled"`
+	Location           *string                                    `pulumi:"location"`
+	LockLevel          string                                     `pulumi:"lockLevel"`
+	MainTemplate       interface{}                                `pulumi:"mainTemplate"`
+	ManagedBy          *string                                    `pulumi:"managedBy"`
+	Name               string                                     `pulumi:"name"`
+	PackageFileUri     *string                                    `pulumi:"packageFileUri"`
+	Sku                *SkuResponse                               `pulumi:"sku"`
+	Tags               map[string]string                          `pulumi:"tags"`
+	Type               string                                     `pulumi:"type"`
 }

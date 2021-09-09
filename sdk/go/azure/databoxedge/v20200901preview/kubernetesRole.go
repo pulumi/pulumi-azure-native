@@ -11,31 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Kubernetes role.
 type KubernetesRole struct {
 	pulumi.CustomResourceState
 
-	// Host OS supported by the Kubernetes role.
-	HostPlatform pulumi.StringOutput `pulumi:"hostPlatform"`
-	// Platform where the runtime is hosted.
-	HostPlatformType pulumi.StringOutput `pulumi:"hostPlatformType"`
-	// Role type.
-	// Expected value is 'Kubernetes'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Kubernetes cluster configuration
-	KubernetesClusterInfo KubernetesClusterInfoResponseOutput `pulumi:"kubernetesClusterInfo"`
-	// Kubernetes role resources
+	HostPlatform            pulumi.StringOutput                   `pulumi:"hostPlatform"`
+	HostPlatformType        pulumi.StringOutput                   `pulumi:"hostPlatformType"`
+	Kind                    pulumi.StringOutput                   `pulumi:"kind"`
+	KubernetesClusterInfo   KubernetesClusterInfoResponseOutput   `pulumi:"kubernetesClusterInfo"`
 	KubernetesRoleResources KubernetesRoleResourcesResponseOutput `pulumi:"kubernetesRoleResources"`
-	// The object name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// State of Kubernetes deployment
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Role status.
-	RoleStatus pulumi.StringOutput `pulumi:"roleStatus"`
-	// Role configured on ASE resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name                    pulumi.StringOutput                   `pulumi:"name"`
+	ProvisioningState       pulumi.StringOutput                   `pulumi:"provisioningState"`
+	RoleStatus              pulumi.StringOutput                   `pulumi:"roleStatus"`
+	SystemData              SystemDataResponseOutput              `pulumi:"systemData"`
+	Type                    pulumi.StringOutput                   `pulumi:"type"`
 }
 
 // NewKubernetesRole registers a new resource with the given unique name, arguments, and options.
@@ -159,44 +147,26 @@ func (KubernetesRoleState) ElementType() reflect.Type {
 }
 
 type kubernetesRoleArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// Host OS supported by the Kubernetes role.
-	HostPlatform string `pulumi:"hostPlatform"`
-	// Role type.
-	// Expected value is 'Kubernetes'.
-	Kind string `pulumi:"kind"`
-	// Kubernetes cluster configuration
-	KubernetesClusterInfo KubernetesClusterInfo `pulumi:"kubernetesClusterInfo"`
-	// Kubernetes role resources
+	DeviceName              string                  `pulumi:"deviceName"`
+	HostPlatform            string                  `pulumi:"hostPlatform"`
+	Kind                    string                  `pulumi:"kind"`
+	KubernetesClusterInfo   KubernetesClusterInfo   `pulumi:"kubernetesClusterInfo"`
 	KubernetesRoleResources KubernetesRoleResources `pulumi:"kubernetesRoleResources"`
-	// The role name.
-	Name *string `pulumi:"name"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Role status.
-	RoleStatus string `pulumi:"roleStatus"`
+	Name                    *string                 `pulumi:"name"`
+	ResourceGroupName       string                  `pulumi:"resourceGroupName"`
+	RoleStatus              string                  `pulumi:"roleStatus"`
 }
 
 // The set of arguments for constructing a KubernetesRole resource.
 type KubernetesRoleArgs struct {
-	// The device name.
-	DeviceName pulumi.StringInput
-	// Host OS supported by the Kubernetes role.
-	HostPlatform pulumi.StringInput
-	// Role type.
-	// Expected value is 'Kubernetes'.
-	Kind pulumi.StringInput
-	// Kubernetes cluster configuration
-	KubernetesClusterInfo KubernetesClusterInfoInput
-	// Kubernetes role resources
+	DeviceName              pulumi.StringInput
+	HostPlatform            pulumi.StringInput
+	Kind                    pulumi.StringInput
+	KubernetesClusterInfo   KubernetesClusterInfoInput
 	KubernetesRoleResources KubernetesRoleResourcesInput
-	// The role name.
-	Name pulumi.StringPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// Role status.
-	RoleStatus pulumi.StringInput
+	Name                    pulumi.StringPtrInput
+	ResourceGroupName       pulumi.StringInput
+	RoleStatus              pulumi.StringInput
 }
 
 func (KubernetesRoleArgs) ElementType() reflect.Type {
@@ -222,9 +192,7 @@ func (i *KubernetesRole) ToKubernetesRoleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesRoleOutput)
 }
 
-type KubernetesRoleOutput struct {
-	*pulumi.OutputState
-}
+type KubernetesRoleOutput struct{ *pulumi.OutputState }
 
 func (KubernetesRoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesRole)(nil))

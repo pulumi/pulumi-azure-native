@@ -155,9 +155,7 @@ func (i *BookmarkRelation) ToBookmarkRelationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(BookmarkRelationOutput)
 }
 
-type BookmarkRelationOutput struct {
-	*pulumi.OutputState
-}
+type BookmarkRelationOutput struct{ *pulumi.OutputState }
 
 func (BookmarkRelationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BookmarkRelation)(nil))

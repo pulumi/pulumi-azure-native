@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Managed Network resource
 type NetworkManager struct {
 	pulumi.CustomResourceState
 
-	// A description of the network manager.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A friendly name for the network manager.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Scope Access.
-	NetworkManagerScopeAccesses pulumi.StringArrayOutput `pulumi:"networkManagerScopeAccesses"`
-	// Scope of Network Manager.
-	NetworkManagerScopes NetworkManagerPropertiesResponseNetworkManagerScopesPtrOutput `pulumi:"networkManagerScopes"`
-	// The provisioning state of the scope assignment resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The system metadata related to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Description                 pulumi.StringPtrOutput                                        `pulumi:"description"`
+	DisplayName                 pulumi.StringPtrOutput                                        `pulumi:"displayName"`
+	Etag                        pulumi.StringOutput                                           `pulumi:"etag"`
+	Location                    pulumi.StringPtrOutput                                        `pulumi:"location"`
+	Name                        pulumi.StringOutput                                           `pulumi:"name"`
+	NetworkManagerScopeAccesses pulumi.StringArrayOutput                                      `pulumi:"networkManagerScopeAccesses"`
+	NetworkManagerScopes        NetworkManagerPropertiesResponseNetworkManagerScopesPtrOutput `pulumi:"networkManagerScopes"`
+	ProvisioningState           pulumi.StringOutput                                           `pulumi:"provisioningState"`
+	SystemData                  SystemDataResponseOutput                                      `pulumi:"systemData"`
+	Tags                        pulumi.StringMapOutput                                        `pulumi:"tags"`
+	Type                        pulumi.StringOutput                                           `pulumi:"type"`
 }
 
 // NewNetworkManager registers a new resource with the given unique name, arguments, and options.
@@ -93,46 +81,28 @@ func (NetworkManagerState) ElementType() reflect.Type {
 }
 
 type networkManagerArgs struct {
-	// A description of the network manager.
-	Description *string `pulumi:"description"`
-	// A friendly name for the network manager.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the network manager.
-	NetworkManagerName *string `pulumi:"networkManagerName"`
-	// Scope Access.
-	NetworkManagerScopeAccesses []string `pulumi:"networkManagerScopeAccesses"`
-	// Scope of Network Manager.
-	NetworkManagerScopes *NetworkManagerPropertiesNetworkManagerScopes `pulumi:"networkManagerScopes"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Description                 *string                                       `pulumi:"description"`
+	DisplayName                 *string                                       `pulumi:"displayName"`
+	Id                          *string                                       `pulumi:"id"`
+	Location                    *string                                       `pulumi:"location"`
+	NetworkManagerName          *string                                       `pulumi:"networkManagerName"`
+	NetworkManagerScopeAccesses []string                                      `pulumi:"networkManagerScopeAccesses"`
+	NetworkManagerScopes        *NetworkManagerPropertiesNetworkManagerScopes `pulumi:"networkManagerScopes"`
+	ResourceGroupName           string                                        `pulumi:"resourceGroupName"`
+	Tags                        map[string]string                             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkManager resource.
 type NetworkManagerArgs struct {
-	// A description of the network manager.
-	Description pulumi.StringPtrInput
-	// A friendly name for the network manager.
-	DisplayName pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the network manager.
-	NetworkManagerName pulumi.StringPtrInput
-	// Scope Access.
+	Description                 pulumi.StringPtrInput
+	DisplayName                 pulumi.StringPtrInput
+	Id                          pulumi.StringPtrInput
+	Location                    pulumi.StringPtrInput
+	NetworkManagerName          pulumi.StringPtrInput
 	NetworkManagerScopeAccesses pulumi.StringArrayInput
-	// Scope of Network Manager.
-	NetworkManagerScopes NetworkManagerPropertiesNetworkManagerScopesPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	NetworkManagerScopes        NetworkManagerPropertiesNetworkManagerScopesPtrInput
+	ResourceGroupName           pulumi.StringInput
+	Tags                        pulumi.StringMapInput
 }
 
 func (NetworkManagerArgs) ElementType() reflect.Type {
@@ -158,9 +128,7 @@ func (i *NetworkManager) ToNetworkManagerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerOutput)
 }
 
-type NetworkManagerOutput struct {
-	*pulumi.OutputState
-}
+type NetworkManagerOutput struct{ *pulumi.OutputState }
 
 func (NetworkManagerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkManager)(nil))

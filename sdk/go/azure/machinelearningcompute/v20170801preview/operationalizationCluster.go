@@ -11,40 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Instance of an Azure ML Operationalization Cluster resource.
 type OperationalizationCluster struct {
 	pulumi.CustomResourceState
 
-	// AppInsights configuration.
-	AppInsights AppInsightsPropertiesResponsePtrOutput `pulumi:"appInsights"`
-	// The cluster type.
-	ClusterType pulumi.StringOutput `pulumi:"clusterType"`
-	// Container Registry properties.
-	ContainerRegistry ContainerRegistryPropertiesResponsePtrOutput `pulumi:"containerRegistry"`
-	// Parameters for the Azure Container Service cluster.
-	ContainerService AcsClusterPropertiesResponsePtrOutput `pulumi:"containerService"`
-	// The date and time when the cluster was created.
-	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
-	// The description of the cluster.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Contains global configuration for the web services in the cluster.
-	GlobalServiceConfiguration GlobalServiceConfigurationResponsePtrOutput `pulumi:"globalServiceConfiguration"`
-	// Specifies the location of the resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The date and time when the cluster was last modified.
-	ModifiedOn pulumi.StringOutput `pulumi:"modifiedOn"`
-	// Specifies the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of provisioning errors reported by the resource provider.
-	ProvisioningErrors ErrorResponseWrapperResponseArrayOutput `pulumi:"provisioningErrors"`
-	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Storage Account properties.
-	StorageAccount StorageAccountPropertiesResponsePtrOutput `pulumi:"storageAccount"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AppInsights                AppInsightsPropertiesResponsePtrOutput       `pulumi:"appInsights"`
+	ClusterType                pulumi.StringOutput                          `pulumi:"clusterType"`
+	ContainerRegistry          ContainerRegistryPropertiesResponsePtrOutput `pulumi:"containerRegistry"`
+	ContainerService           AcsClusterPropertiesResponsePtrOutput        `pulumi:"containerService"`
+	CreatedOn                  pulumi.StringOutput                          `pulumi:"createdOn"`
+	Description                pulumi.StringPtrOutput                       `pulumi:"description"`
+	GlobalServiceConfiguration GlobalServiceConfigurationResponsePtrOutput  `pulumi:"globalServiceConfiguration"`
+	Location                   pulumi.StringOutput                          `pulumi:"location"`
+	ModifiedOn                 pulumi.StringOutput                          `pulumi:"modifiedOn"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
+	ProvisioningErrors         ErrorResponseWrapperResponseArrayOutput      `pulumi:"provisioningErrors"`
+	ProvisioningState          pulumi.StringOutput                          `pulumi:"provisioningState"`
+	StorageAccount             StorageAccountPropertiesResponsePtrOutput    `pulumi:"storageAccount"`
+	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
+	Type                       pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewOperationalizationCluster registers a new resource with the given unique name, arguments, and options.
@@ -110,54 +94,32 @@ func (OperationalizationClusterState) ElementType() reflect.Type {
 }
 
 type operationalizationClusterArgs struct {
-	// AppInsights configuration.
-	AppInsights *AppInsightsProperties `pulumi:"appInsights"`
-	// The name of the cluster.
-	ClusterName *string `pulumi:"clusterName"`
-	// The cluster type.
-	ClusterType string `pulumi:"clusterType"`
-	// Container Registry properties.
-	ContainerRegistry *ContainerRegistryProperties `pulumi:"containerRegistry"`
-	// Parameters for the Azure Container Service cluster.
-	ContainerService *AcsClusterProperties `pulumi:"containerService"`
-	// The description of the cluster.
-	Description *string `pulumi:"description"`
-	// Contains global configuration for the web services in the cluster.
-	GlobalServiceConfiguration *GlobalServiceConfiguration `pulumi:"globalServiceConfiguration"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Name of the resource group in which the cluster is located.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Storage Account properties.
-	StorageAccount *StorageAccountProperties `pulumi:"storageAccount"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
+	AppInsights                *AppInsightsProperties       `pulumi:"appInsights"`
+	ClusterName                *string                      `pulumi:"clusterName"`
+	ClusterType                string                       `pulumi:"clusterType"`
+	ContainerRegistry          *ContainerRegistryProperties `pulumi:"containerRegistry"`
+	ContainerService           *AcsClusterProperties        `pulumi:"containerService"`
+	Description                *string                      `pulumi:"description"`
+	GlobalServiceConfiguration *GlobalServiceConfiguration  `pulumi:"globalServiceConfiguration"`
+	Location                   *string                      `pulumi:"location"`
+	ResourceGroupName          string                       `pulumi:"resourceGroupName"`
+	StorageAccount             *StorageAccountProperties    `pulumi:"storageAccount"`
+	Tags                       map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a OperationalizationCluster resource.
 type OperationalizationClusterArgs struct {
-	// AppInsights configuration.
-	AppInsights AppInsightsPropertiesPtrInput
-	// The name of the cluster.
-	ClusterName pulumi.StringPtrInput
-	// The cluster type.
-	ClusterType pulumi.StringInput
-	// Container Registry properties.
-	ContainerRegistry ContainerRegistryPropertiesPtrInput
-	// Parameters for the Azure Container Service cluster.
-	ContainerService AcsClusterPropertiesPtrInput
-	// The description of the cluster.
-	Description pulumi.StringPtrInput
-	// Contains global configuration for the web services in the cluster.
+	AppInsights                AppInsightsPropertiesPtrInput
+	ClusterName                pulumi.StringPtrInput
+	ClusterType                pulumi.StringInput
+	ContainerRegistry          ContainerRegistryPropertiesPtrInput
+	ContainerService           AcsClusterPropertiesPtrInput
+	Description                pulumi.StringPtrInput
 	GlobalServiceConfiguration GlobalServiceConfigurationPtrInput
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput
-	// Name of the resource group in which the cluster is located.
-	ResourceGroupName pulumi.StringInput
-	// Storage Account properties.
-	StorageAccount StorageAccountPropertiesPtrInput
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput
+	Location                   pulumi.StringPtrInput
+	ResourceGroupName          pulumi.StringInput
+	StorageAccount             StorageAccountPropertiesPtrInput
+	Tags                       pulumi.StringMapInput
 }
 
 func (OperationalizationClusterArgs) ElementType() reflect.Type {
@@ -183,9 +145,7 @@ func (i *OperationalizationCluster) ToOperationalizationClusterOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(OperationalizationClusterOutput)
 }
 
-type OperationalizationClusterOutput struct {
-	*pulumi.OutputState
-}
+type OperationalizationClusterOutput struct{ *pulumi.OutputState }
 
 func (OperationalizationClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OperationalizationCluster)(nil))

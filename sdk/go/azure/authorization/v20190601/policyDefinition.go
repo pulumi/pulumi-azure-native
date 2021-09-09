@@ -10,28 +10,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The policy definition.
 type PolicyDefinition struct {
 	pulumi.CustomResourceState
 
-	// The policy definition description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The policy definition metadata.
-	Metadata pulumi.AnyOutput `pulumi:"metadata"`
-	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
-	Mode pulumi.StringPtrOutput `pulumi:"mode"`
-	// The name of the policy definition.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Required if a parameter is used in policy rule.
-	Parameters pulumi.AnyOutput `pulumi:"parameters"`
-	// The policy rule.
-	PolicyRule pulumi.AnyOutput `pulumi:"policyRule"`
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
-	// The type of the resource (Microsoft.Authorization/policyDefinitions).
-	Type pulumi.StringOutput `pulumi:"type"`
+	Metadata    pulumi.AnyOutput       `pulumi:"metadata"`
+	Mode        pulumi.StringPtrOutput `pulumi:"mode"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Parameters  pulumi.AnyOutput       `pulumi:"parameters"`
+	PolicyRule  pulumi.AnyOutput       `pulumi:"policyRule"`
+	PolicyType  pulumi.StringPtrOutput `pulumi:"policyType"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewPolicyDefinition registers a new resource with the given unique name, arguments, and options.
@@ -145,42 +135,26 @@ func (PolicyDefinitionState) ElementType() reflect.Type {
 }
 
 type policyDefinitionArgs struct {
-	// The policy definition description.
-	Description *string `pulumi:"description"`
-	// The display name of the policy definition.
-	DisplayName *string `pulumi:"displayName"`
-	// The policy definition metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
-	Mode *string `pulumi:"mode"`
-	// Required if a parameter is used in policy rule.
-	Parameters interface{} `pulumi:"parameters"`
-	// The name of the policy definition to create.
-	PolicyDefinitionName *string `pulumi:"policyDefinitionName"`
-	// The policy rule.
-	PolicyRule interface{} `pulumi:"policyRule"`
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-	PolicyType *string `pulumi:"policyType"`
+	Description          *string     `pulumi:"description"`
+	DisplayName          *string     `pulumi:"displayName"`
+	Metadata             interface{} `pulumi:"metadata"`
+	Mode                 *string     `pulumi:"mode"`
+	Parameters           interface{} `pulumi:"parameters"`
+	PolicyDefinitionName *string     `pulumi:"policyDefinitionName"`
+	PolicyRule           interface{} `pulumi:"policyRule"`
+	PolicyType           *string     `pulumi:"policyType"`
 }
 
 // The set of arguments for constructing a PolicyDefinition resource.
 type PolicyDefinitionArgs struct {
-	// The policy definition description.
-	Description pulumi.StringPtrInput
-	// The display name of the policy definition.
-	DisplayName pulumi.StringPtrInput
-	// The policy definition metadata.
-	Metadata pulumi.Input
-	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
-	Mode pulumi.StringPtrInput
-	// Required if a parameter is used in policy rule.
-	Parameters pulumi.Input
-	// The name of the policy definition to create.
+	Description          pulumi.StringPtrInput
+	DisplayName          pulumi.StringPtrInput
+	Metadata             pulumi.Input
+	Mode                 pulumi.StringPtrInput
+	Parameters           pulumi.Input
 	PolicyDefinitionName pulumi.StringPtrInput
-	// The policy rule.
-	PolicyRule pulumi.Input
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-	PolicyType pulumi.StringPtrInput
+	PolicyRule           pulumi.Input
+	PolicyType           pulumi.StringPtrInput
 }
 
 func (PolicyDefinitionArgs) ElementType() reflect.Type {
@@ -206,9 +180,7 @@ func (i *PolicyDefinition) ToPolicyDefinitionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionOutput)
 }
 
-type PolicyDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type PolicyDefinitionOutput struct{ *pulumi.OutputState }
 
 func (PolicyDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyDefinition)(nil))

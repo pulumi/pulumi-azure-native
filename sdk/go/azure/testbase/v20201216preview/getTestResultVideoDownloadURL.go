@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The response of getting a download URL.
 func GetTestResultVideoDownloadURL(ctx *pulumi.Context, args *GetTestResultVideoDownloadURLArgs, opts ...pulumi.InvokeOption) (*GetTestResultVideoDownloadURLResult, error) {
 	var rv GetTestResultVideoDownloadURLResult
 	err := ctx.Invoke("azure-native:testbase/v20201216preview:getTestResultVideoDownloadURL", args, &rv, opts...)
@@ -18,20 +17,14 @@ func GetTestResultVideoDownloadURL(ctx *pulumi.Context, args *GetTestResultVideo
 }
 
 type GetTestResultVideoDownloadURLArgs struct {
-	// The resource name of the Test Base Package.
-	PackageName string `pulumi:"packageName"`
-	// The name of the resource group that contains the resource.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource name of the Test Base Account.
+	PackageName         string `pulumi:"packageName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 	TestBaseAccountName string `pulumi:"testBaseAccountName"`
-	// The Test Result Name. It equals to {osName}-{TestResultId} string.
-	TestResultName string `pulumi:"testResultName"`
+	TestResultName      string `pulumi:"testResultName"`
 }
 
 // The response of getting a download URL.
 type GetTestResultVideoDownloadURLResult struct {
-	// The download URL.
-	DownloadUrl string `pulumi:"downloadUrl"`
-	// Expiry date of the download URL.
+	DownloadUrl    string `pulumi:"downloadUrl"`
 	ExpirationTime string `pulumi:"expirationTime"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of an IoT hub shared access policy.
 func ListIotHubResourceKeysForKeyName(ctx *pulumi.Context, args *ListIotHubResourceKeysForKeyNameArgs, opts ...pulumi.InvokeOption) (*ListIotHubResourceKeysForKeyNameResult, error) {
 	var rv ListIotHubResourceKeysForKeyNameResult
 	err := ctx.Invoke("azure-native:devices/v20210701preview:listIotHubResourceKeysForKeyName", args, &rv, opts...)
@@ -18,22 +17,15 @@ func ListIotHubResourceKeysForKeyName(ctx *pulumi.Context, args *ListIotHubResou
 }
 
 type ListIotHubResourceKeysForKeyNameArgs struct {
-	// The name of the shared access policy.
-	KeyName string `pulumi:"keyName"`
-	// The name of the resource group that contains the IoT hub.
+	KeyName           string `pulumi:"keyName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the IoT hub.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // The properties of an IoT hub shared access policy.
 type ListIotHubResourceKeysForKeyNameResult struct {
-	// The name of the shared access policy.
-	KeyName string `pulumi:"keyName"`
-	// The primary key.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// The permissions assigned to the shared access policy.
-	Rights string `pulumi:"rights"`
-	// The secondary key.
+	KeyName      string  `pulumi:"keyName"`
+	PrimaryKey   *string `pulumi:"primaryKey"`
+	Rights       string  `pulumi:"rights"`
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }

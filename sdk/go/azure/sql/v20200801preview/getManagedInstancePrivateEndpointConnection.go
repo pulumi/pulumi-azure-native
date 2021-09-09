@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A private endpoint connection
 func LookupManagedInstancePrivateEndpointConnection(ctx *pulumi.Context, args *LookupManagedInstancePrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupManagedInstancePrivateEndpointConnectionResult, error) {
 	var rv LookupManagedInstancePrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:sql/v20200801preview:getManagedInstancePrivateEndpointConnection", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupManagedInstancePrivateEndpointConnection(ctx *pulumi.Context, args *L
 }
 
 type LookupManagedInstancePrivateEndpointConnectionArgs struct {
-	// The name of the managed instance.
-	ManagedInstanceName string `pulumi:"managedInstanceName"`
-	// The name of the private endpoint connection.
+	ManagedInstanceName           string `pulumi:"managedInstanceName"`
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
 }
 
 // A private endpoint connection
 type LookupManagedInstancePrivateEndpointConnectionResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *ManagedInstancePrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
-	// Connection State of the Private Endpoint Connection.
+	Id                                string                                                            `pulumi:"id"`
+	Name                              string                                                            `pulumi:"name"`
+	PrivateEndpoint                   *ManagedInstancePrivateEndpointPropertyResponse                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// State of the Private Endpoint Connection.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	ProvisioningState                 string                                                            `pulumi:"provisioningState"`
+	Type                              string                                                            `pulumi:"type"`
 }

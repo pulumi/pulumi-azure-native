@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A share data transfer object.
 type Share struct {
 	pulumi.CustomResourceState
 
-	// Time at which the share was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Share description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the provisioning state
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Share kind.
-	ShareKind pulumi.StringPtrOutput `pulumi:"shareKind"`
-	// Share terms.
-	Terms pulumi.StringPtrOutput `pulumi:"terms"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Email of the user who created the resource
-	UserEmail pulumi.StringOutput `pulumi:"userEmail"`
-	// Name of the user who created the resource
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	CreatedAt         pulumi.StringOutput    `pulumi:"createdAt"`
+	Description       pulumi.StringPtrOutput `pulumi:"description"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	ShareKind         pulumi.StringPtrOutput `pulumi:"shareKind"`
+	Terms             pulumi.StringPtrOutput `pulumi:"terms"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
+	UserEmail         pulumi.StringOutput    `pulumi:"userEmail"`
+	UserName          pulumi.StringOutput    `pulumi:"userName"`
 }
 
 // NewShare registers a new resource with the given unique name, arguments, and options.
@@ -110,34 +100,22 @@ func (ShareState) ElementType() reflect.Type {
 }
 
 type shareArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// Share description.
-	Description *string `pulumi:"description"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Share kind.
-	ShareKind *string `pulumi:"shareKind"`
-	// The name of the share.
-	ShareName *string `pulumi:"shareName"`
-	// Share terms.
-	Terms *string `pulumi:"terms"`
+	AccountName       string  `pulumi:"accountName"`
+	Description       *string `pulumi:"description"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ShareKind         *string `pulumi:"shareKind"`
+	ShareName         *string `pulumi:"shareName"`
+	Terms             *string `pulumi:"terms"`
 }
 
 // The set of arguments for constructing a Share resource.
 type ShareArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// Share description.
-	Description pulumi.StringPtrInput
-	// The resource group name.
+	AccountName       pulumi.StringInput
+	Description       pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Share kind.
-	ShareKind pulumi.StringPtrInput
-	// The name of the share.
-	ShareName pulumi.StringPtrInput
-	// Share terms.
-	Terms pulumi.StringPtrInput
+	ShareKind         pulumi.StringPtrInput
+	ShareName         pulumi.StringPtrInput
+	Terms             pulumi.StringPtrInput
 }
 
 func (ShareArgs) ElementType() reflect.Type {
@@ -163,9 +141,7 @@ func (i *Share) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ShareOutput)
 }
 
-type ShareOutput struct {
-	*pulumi.OutputState
-}
+type ShareOutput struct{ *pulumi.OutputState }
 
 func (ShareOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Share)(nil))

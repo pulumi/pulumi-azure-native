@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Certificate details.
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Subject attribute of the certificate.
-	Subject pulumi.StringOutput `pulumi:"subject"`
-	// Thumbprint of the certificate.
-	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name           pulumi.StringOutput `pulumi:"name"`
+	Subject        pulumi.StringOutput `pulumi:"subject"`
+	Thumbprint     pulumi.StringOutput `pulumi:"thumbprint"`
+	Type           pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
@@ -150,30 +144,20 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
-	CertificateId *string `pulumi:"certificateId"`
-	// Base 64 encoded certificate using the application/x-pkcs12 representation.
-	Data string `pulumi:"data"`
-	// Password for the Certificate
-	Password string `pulumi:"password"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	CertificateId     *string `pulumi:"certificateId"`
+	Data              string  `pulumi:"data"`
+	Password          string  `pulumi:"password"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
-	CertificateId pulumi.StringPtrInput
-	// Base 64 encoded certificate using the application/x-pkcs12 representation.
-	Data pulumi.StringInput
-	// Password for the Certificate
-	Password pulumi.StringInput
-	// The name of the resource group.
+	CertificateId     pulumi.StringPtrInput
+	Data              pulumi.StringInput
+	Password          pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {
@@ -199,9 +183,7 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
 }
 
-type CertificateOutput struct {
-	*pulumi.OutputState
-}
+type CertificateOutput struct{ *pulumi.OutputState }
 
 func (CertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Certificate)(nil))

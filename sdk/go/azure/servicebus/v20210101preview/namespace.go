@@ -11,42 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a namespace resource.
 type Namespace struct {
 	pulumi.CustomResourceState
 
-	// The time the namespace was created
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Properties of BYOK Encryption description
-	Encryption EncryptionResponsePtrOutput `pulumi:"encryption"`
-	// Properties of BYOK Identity description
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// The Geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Identifier for Azure Insights metrics
-	MetricId pulumi.StringOutput `pulumi:"metricId"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of private endpoint connections.
+	CreatedAt                  pulumi.StringOutput                          `pulumi:"createdAt"`
+	Encryption                 EncryptionResponsePtrOutput                  `pulumi:"encryption"`
+	Identity                   IdentityResponsePtrOutput                    `pulumi:"identity"`
+	Location                   pulumi.StringOutput                          `pulumi:"location"`
+	MetricId                   pulumi.StringOutput                          `pulumi:"metricId"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// Provisioning state of the namespace.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Endpoint you can use to perform Service Bus operations.
-	ServiceBusEndpoint pulumi.StringOutput `pulumi:"serviceBusEndpoint"`
-	// Properties of SKU
-	Sku SBSkuResponsePtrOutput `pulumi:"sku"`
-	// Status of the namespace.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The time the namespace was updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
-	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
+	ProvisioningState          pulumi.StringOutput                          `pulumi:"provisioningState"`
+	ServiceBusEndpoint         pulumi.StringOutput                          `pulumi:"serviceBusEndpoint"`
+	Sku                        SBSkuResponsePtrOutput                       `pulumi:"sku"`
+	Status                     pulumi.StringOutput                          `pulumi:"status"`
+	SystemData                 SystemDataResponseOutput                     `pulumi:"systemData"`
+	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
+	Type                       pulumi.StringOutput                          `pulumi:"type"`
+	UpdatedAt                  pulumi.StringOutput                          `pulumi:"updatedAt"`
+	ZoneRedundant              pulumi.BoolPtrOutput                         `pulumi:"zoneRedundant"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -133,46 +116,28 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
-	// Properties of BYOK Encryption description
-	Encryption *Encryption `pulumi:"encryption"`
-	// Properties of BYOK Identity description
-	Identity *Identity `pulumi:"identity"`
-	// The Geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The namespace name.
-	NamespaceName *string `pulumi:"namespaceName"`
-	// List of private endpoint connections.
+	Encryption                 *Encryption                     `pulumi:"encryption"`
+	Identity                   *Identity                       `pulumi:"identity"`
+	Location                   *string                         `pulumi:"location"`
+	NamespaceName              *string                         `pulumi:"namespaceName"`
 	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Properties of SKU
-	Sku *SBSku `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
-	ZoneRedundant *bool `pulumi:"zoneRedundant"`
+	ResourceGroupName          string                          `pulumi:"resourceGroupName"`
+	Sku                        *SBSku                          `pulumi:"sku"`
+	Tags                       map[string]string               `pulumi:"tags"`
+	ZoneRedundant              *bool                           `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
-	// Properties of BYOK Encryption description
-	Encryption EncryptionPtrInput
-	// Properties of BYOK Identity description
-	Identity IdentityPtrInput
-	// The Geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The namespace name.
-	NamespaceName pulumi.StringPtrInput
-	// List of private endpoint connections.
+	Encryption                 EncryptionPtrInput
+	Identity                   IdentityPtrInput
+	Location                   pulumi.StringPtrInput
+	NamespaceName              pulumi.StringPtrInput
 	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// Properties of SKU
-	Sku SBSkuPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
-	ZoneRedundant pulumi.BoolPtrInput
+	ResourceGroupName          pulumi.StringInput
+	Sku                        SBSkuPtrInput
+	Tags                       pulumi.StringMapInput
+	ZoneRedundant              pulumi.BoolPtrInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {
@@ -198,9 +163,7 @@ func (i *Namespace) ToNamespaceOutputWithContext(ctx context.Context) NamespaceO
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceOutput)
 }
 
-type NamespaceOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceOutput struct{ *pulumi.OutputState }
 
 func (NamespaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Namespace)(nil))

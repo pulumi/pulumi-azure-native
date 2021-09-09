@@ -11,27 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a Virtual Machine Scale Set.
 type VirtualMachineScaleSet struct {
 	pulumi.CustomResourceState
 
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
-	OverProvision pulumi.BoolPtrOutput `pulumi:"overProvision"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The virtual machine scale set sku.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The upgrade policy.
-	UpgradePolicy UpgradePolicyResponsePtrOutput `pulumi:"upgradePolicy"`
-	// The virtual machine profile.
+	Location              pulumi.StringOutput                              `pulumi:"location"`
+	Name                  pulumi.StringOutput                              `pulumi:"name"`
+	OverProvision         pulumi.BoolPtrOutput                             `pulumi:"overProvision"`
+	ProvisioningState     pulumi.StringPtrOutput                           `pulumi:"provisioningState"`
+	Sku                   SkuResponsePtrOutput                             `pulumi:"sku"`
+	Tags                  pulumi.StringMapOutput                           `pulumi:"tags"`
+	Type                  pulumi.StringOutput                              `pulumi:"type"`
+	UpgradePolicy         UpgradePolicyResponsePtrOutput                   `pulumi:"upgradePolicy"`
 	VirtualMachineProfile VirtualMachineScaleSetVMProfileResponsePtrOutput `pulumi:"virtualMachineProfile"`
 }
 
@@ -179,45 +169,27 @@ func (VirtualMachineScaleSetState) ElementType() reflect.Type {
 }
 
 type virtualMachineScaleSetArgs struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the VM scale set to create or update.
-	Name *string `pulumi:"name"`
-	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
-	OverProvision *bool `pulumi:"overProvision"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The virtual machine scale set sku.
-	Sku *Sku `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The upgrade policy.
-	UpgradePolicy *UpgradePolicy `pulumi:"upgradePolicy"`
-	// The virtual machine profile.
+	Location              *string                          `pulumi:"location"`
+	Name                  *string                          `pulumi:"name"`
+	OverProvision         *bool                            `pulumi:"overProvision"`
+	ProvisioningState     *string                          `pulumi:"provisioningState"`
+	ResourceGroupName     string                           `pulumi:"resourceGroupName"`
+	Sku                   *Sku                             `pulumi:"sku"`
+	Tags                  map[string]string                `pulumi:"tags"`
+	UpgradePolicy         *UpgradePolicy                   `pulumi:"upgradePolicy"`
 	VirtualMachineProfile *VirtualMachineScaleSetVMProfile `pulumi:"virtualMachineProfile"`
 }
 
 // The set of arguments for constructing a VirtualMachineScaleSet resource.
 type VirtualMachineScaleSetArgs struct {
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the VM scale set to create or update.
-	Name pulumi.StringPtrInput
-	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
-	OverProvision pulumi.BoolPtrInput
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The virtual machine scale set sku.
-	Sku SkuPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// The upgrade policy.
-	UpgradePolicy UpgradePolicyPtrInput
-	// The virtual machine profile.
+	Location              pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
+	OverProvision         pulumi.BoolPtrInput
+	ProvisioningState     pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
+	Sku                   SkuPtrInput
+	Tags                  pulumi.StringMapInput
+	UpgradePolicy         UpgradePolicyPtrInput
 	VirtualMachineProfile VirtualMachineScaleSetVMProfilePtrInput
 }
 
@@ -244,9 +216,7 @@ func (i *VirtualMachineScaleSet) ToVirtualMachineScaleSetOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetOutput)
 }
 
-type VirtualMachineScaleSetOutput struct {
-	*pulumi.OutputState
-}
+type VirtualMachineScaleSetOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineScaleSet)(nil))

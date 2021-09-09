@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// String dictionary resource.
 func ListWebAppFunctionKeysSlot(ctx *pulumi.Context, args *ListWebAppFunctionKeysSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppFunctionKeysSlotResult, error) {
 	var rv ListWebAppFunctionKeysSlotResult
 	err := ctx.Invoke("azure-native:web/v20210201:listWebAppFunctionKeysSlot", args, &rv, opts...)
@@ -18,26 +17,17 @@ func ListWebAppFunctionKeysSlot(ctx *pulumi.Context, args *ListWebAppFunctionKey
 }
 
 type ListWebAppFunctionKeysSlotArgs struct {
-	// Function name.
-	FunctionName string `pulumi:"functionName"`
-	// Site name.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	FunctionName      string `pulumi:"functionName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot.
-	Slot string `pulumi:"slot"`
+	Slot              string `pulumi:"slot"`
 }
 
 // String dictionary resource.
 type ListWebAppFunctionKeysSlotResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Settings.
+	Id         string            `pulumi:"id"`
+	Kind       *string           `pulumi:"kind"`
+	Name       string            `pulumi:"name"`
 	Properties map[string]string `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type       string            `pulumi:"type"`
 }

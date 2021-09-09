@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSku struct {
-	// The number of instances in the read only query pool.
-	Capacity *int `pulumi:"capacity"`
-	// Name of the SKU level.
-	Name string `pulumi:"name"`
-	// The name of the Azure pricing tier to which the SKU applies.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     string  `pulumi:"name"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // ResourceSkuInput is an input type that accepts ResourceSkuArgs and ResourceSkuOutput values.
@@ -31,14 +27,10 @@ type ResourceSkuInput interface {
 	ToResourceSkuOutputWithContext(context.Context) ResourceSkuOutput
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuArgs struct {
-	// The number of instances in the read only query pool.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Name of the SKU level.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Azure pricing tier to which the SKU applies.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (ResourceSkuArgs) ElementType() reflect.Type {
@@ -94,7 +86,6 @@ func (i *resourceSkuPtrType) ToResourceSkuPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuPtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuOutput struct{ *pulumi.OutputState }
 
 func (ResourceSkuOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
 }
 
 func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return o.ApplyT(func(v ResourceSku) *ResourceSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSku) *ResourceSku {
 		return &v
 	}).(ResourceSkuPtrOutput)
 }
 
-// The number of instances in the read only query pool.
 func (o ResourceSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Name of the SKU level.
 func (o ResourceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the Azure pricing tier to which the SKU applies.
 func (o ResourceSkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -149,10 +137,15 @@ func (o ResourceSkuPtrOutput) ToResourceSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
-	return o.ApplyT(func(v *ResourceSku) ResourceSku { return *v }).(ResourceSkuOutput)
+	return o.ApplyT(func(v *ResourceSku) ResourceSku {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSku
+		return ret
+	}).(ResourceSkuOutput)
 }
 
-// The number of instances in the read only query pool.
 func (o ResourceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *int {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o ResourceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the SKU level.
 func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *string {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the Azure pricing tier to which the SKU applies.
 func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *string {
 		if v == nil {
@@ -182,14 +173,10 @@ func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuResponse struct {
-	// The number of instances in the read only query pool.
-	Capacity *int `pulumi:"capacity"`
-	// Name of the SKU level.
-	Name string `pulumi:"name"`
-	// The name of the Azure pricing tier to which the SKU applies.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     string  `pulumi:"name"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // ResourceSkuResponseInput is an input type that accepts ResourceSkuResponseArgs and ResourceSkuResponseOutput values.
@@ -203,14 +190,10 @@ type ResourceSkuResponseInput interface {
 	ToResourceSkuResponseOutputWithContext(context.Context) ResourceSkuResponseOutput
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuResponseArgs struct {
-	// The number of instances in the read only query pool.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Name of the SKU level.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Azure pricing tier to which the SKU applies.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (ResourceSkuResponseArgs) ElementType() reflect.Type {
@@ -266,7 +249,6 @@ func (i *resourceSkuResponsePtrType) ToResourceSkuResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuResponsePtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceSkuResponseOutput) ElementType() reflect.Type {
@@ -286,22 +268,19 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutput() ResourceSkuR
 }
 
 func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return o.ApplyT(func(v ResourceSkuResponse) *ResourceSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSkuResponse) *ResourceSkuResponse {
 		return &v
 	}).(ResourceSkuResponsePtrOutput)
 }
 
-// The number of instances in the read only query pool.
 func (o ResourceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Name of the SKU level.
 func (o ResourceSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the Azure pricing tier to which the SKU applies.
 func (o ResourceSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -321,10 +300,15 @@ func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutputWithContext(
 }
 
 func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse { return *v }).(ResourceSkuResponseOutput)
+	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSkuResponse
+		return ret
+	}).(ResourceSkuResponseOutput)
 }
 
-// The number of instances in the read only query pool.
 func (o ResourceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *int {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o ResourceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the SKU level.
 func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the Azure pricing tier to which the SKU applies.
 func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
@@ -354,9 +336,7 @@ func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An array of administrator user identities
 type ServerAdministrators struct {
-	// An array of administrator user identities.
 	Members []string `pulumi:"members"`
 }
 
@@ -371,9 +351,7 @@ type ServerAdministratorsInput interface {
 	ToServerAdministratorsOutputWithContext(context.Context) ServerAdministratorsOutput
 }
 
-// An array of administrator user identities
 type ServerAdministratorsArgs struct {
-	// An array of administrator user identities.
 	Members pulumi.StringArrayInput `pulumi:"members"`
 }
 
@@ -430,7 +408,6 @@ func (i *serverAdministratorsPtrType) ToServerAdministratorsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAdministratorsPtrOutput)
 }
 
-// An array of administrator user identities
 type ServerAdministratorsOutput struct{ *pulumi.OutputState }
 
 func (ServerAdministratorsOutput) ElementType() reflect.Type {
@@ -450,12 +427,11 @@ func (o ServerAdministratorsOutput) ToServerAdministratorsPtrOutput() ServerAdmi
 }
 
 func (o ServerAdministratorsOutput) ToServerAdministratorsPtrOutputWithContext(ctx context.Context) ServerAdministratorsPtrOutput {
-	return o.ApplyT(func(v ServerAdministrators) *ServerAdministrators {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerAdministrators) *ServerAdministrators {
 		return &v
 	}).(ServerAdministratorsPtrOutput)
 }
 
-// An array of administrator user identities.
 func (o ServerAdministratorsOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerAdministrators) []string { return v.Members }).(pulumi.StringArrayOutput)
 }
@@ -475,10 +451,15 @@ func (o ServerAdministratorsPtrOutput) ToServerAdministratorsPtrOutputWithContex
 }
 
 func (o ServerAdministratorsPtrOutput) Elem() ServerAdministratorsOutput {
-	return o.ApplyT(func(v *ServerAdministrators) ServerAdministrators { return *v }).(ServerAdministratorsOutput)
+	return o.ApplyT(func(v *ServerAdministrators) ServerAdministrators {
+		if v != nil {
+			return *v
+		}
+		var ret ServerAdministrators
+		return ret
+	}).(ServerAdministratorsOutput)
 }
 
-// An array of administrator user identities.
 func (o ServerAdministratorsPtrOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerAdministrators) []string {
 		if v == nil {
@@ -488,9 +469,7 @@ func (o ServerAdministratorsPtrOutput) Members() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of administrator user identities
 type ServerAdministratorsResponse struct {
-	// An array of administrator user identities.
 	Members []string `pulumi:"members"`
 }
 
@@ -505,9 +484,7 @@ type ServerAdministratorsResponseInput interface {
 	ToServerAdministratorsResponseOutputWithContext(context.Context) ServerAdministratorsResponseOutput
 }
 
-// An array of administrator user identities
 type ServerAdministratorsResponseArgs struct {
-	// An array of administrator user identities.
 	Members pulumi.StringArrayInput `pulumi:"members"`
 }
 
@@ -564,7 +541,6 @@ func (i *serverAdministratorsResponsePtrType) ToServerAdministratorsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAdministratorsResponsePtrOutput)
 }
 
-// An array of administrator user identities
 type ServerAdministratorsResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerAdministratorsResponseOutput) ElementType() reflect.Type {
@@ -584,12 +560,11 @@ func (o ServerAdministratorsResponseOutput) ToServerAdministratorsResponsePtrOut
 }
 
 func (o ServerAdministratorsResponseOutput) ToServerAdministratorsResponsePtrOutputWithContext(ctx context.Context) ServerAdministratorsResponsePtrOutput {
-	return o.ApplyT(func(v ServerAdministratorsResponse) *ServerAdministratorsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerAdministratorsResponse) *ServerAdministratorsResponse {
 		return &v
 	}).(ServerAdministratorsResponsePtrOutput)
 }
 
-// An array of administrator user identities.
 func (o ServerAdministratorsResponseOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerAdministratorsResponse) []string { return v.Members }).(pulumi.StringArrayOutput)
 }
@@ -609,10 +584,15 @@ func (o ServerAdministratorsResponsePtrOutput) ToServerAdministratorsResponsePtr
 }
 
 func (o ServerAdministratorsResponsePtrOutput) Elem() ServerAdministratorsResponseOutput {
-	return o.ApplyT(func(v *ServerAdministratorsResponse) ServerAdministratorsResponse { return *v }).(ServerAdministratorsResponseOutput)
+	return o.ApplyT(func(v *ServerAdministratorsResponse) ServerAdministratorsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServerAdministratorsResponse
+		return ret
+	}).(ServerAdministratorsResponseOutput)
 }
 
-// An array of administrator user identities.
 func (o ServerAdministratorsResponsePtrOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerAdministratorsResponse) []string {
 		if v == nil {

@@ -11,38 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents user credentials used for publishing activity
 type SiteDeployment struct {
 	pulumi.CustomResourceState
 
-	// Active
-	Active pulumi.BoolPtrOutput `pulumi:"active"`
-	// Author
-	Author pulumi.StringPtrOutput `pulumi:"author"`
-	// AuthorEmail
+	Active      pulumi.BoolPtrOutput   `pulumi:"active"`
+	Author      pulumi.StringPtrOutput `pulumi:"author"`
 	AuthorEmail pulumi.StringPtrOutput `pulumi:"authorEmail"`
-	// Deployer
-	Deployer pulumi.StringPtrOutput `pulumi:"deployer"`
-	// Detail
-	Details pulumi.StringPtrOutput `pulumi:"details"`
-	// EndTime
-	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
-	// Kind of resource
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Message
-	Message pulumi.StringPtrOutput `pulumi:"message"`
-	// Resource Name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// StartTime
-	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
-	// Status
-	Status pulumi.IntPtrOutput `pulumi:"status"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Deployer    pulumi.StringPtrOutput `pulumi:"deployer"`
+	Details     pulumi.StringPtrOutput `pulumi:"details"`
+	EndTime     pulumi.StringPtrOutput `pulumi:"endTime"`
+	Kind        pulumi.StringPtrOutput `pulumi:"kind"`
+	Location    pulumi.StringOutput    `pulumi:"location"`
+	Message     pulumi.StringPtrOutput `pulumi:"message"`
+	Name        pulumi.StringPtrOutput `pulumi:"name"`
+	StartTime   pulumi.StringPtrOutput `pulumi:"startTime"`
+	Status      pulumi.IntPtrOutput    `pulumi:"status"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	Type        pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewSiteDeployment registers a new resource with the given unique name, arguments, and options.
@@ -168,74 +153,42 @@ func (SiteDeploymentState) ElementType() reflect.Type {
 }
 
 type siteDeploymentArgs struct {
-	// Active
-	Active *bool `pulumi:"active"`
-	// Author
-	Author *string `pulumi:"author"`
-	// AuthorEmail
-	AuthorEmail *string `pulumi:"authorEmail"`
-	// Deployer
-	Deployer *string `pulumi:"deployer"`
-	// Detail
-	Details *string `pulumi:"details"`
-	// EndTime
-	EndTime *string `pulumi:"endTime"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Message
-	Message *string `pulumi:"message"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// Name of resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// StartTime
-	StartTime *string `pulumi:"startTime"`
-	// Status
-	Status *int `pulumi:"status"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Active            *bool             `pulumi:"active"`
+	Author            *string           `pulumi:"author"`
+	AuthorEmail       *string           `pulumi:"authorEmail"`
+	Deployer          *string           `pulumi:"deployer"`
+	Details           *string           `pulumi:"details"`
+	EndTime           *string           `pulumi:"endTime"`
+	Id                *string           `pulumi:"id"`
+	Kind              *string           `pulumi:"kind"`
+	Location          *string           `pulumi:"location"`
+	Message           *string           `pulumi:"message"`
+	Name              string            `pulumi:"name"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	StartTime         *string           `pulumi:"startTime"`
+	Status            *int              `pulumi:"status"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              *string           `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SiteDeployment resource.
 type SiteDeploymentArgs struct {
-	// Active
-	Active pulumi.BoolPtrInput
-	// Author
-	Author pulumi.StringPtrInput
-	// AuthorEmail
-	AuthorEmail pulumi.StringPtrInput
-	// Deployer
-	Deployer pulumi.StringPtrInput
-	// Detail
-	Details pulumi.StringPtrInput
-	// EndTime
-	EndTime pulumi.StringPtrInput
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Message
-	Message pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringInput
-	// Name of resource group
+	Active            pulumi.BoolPtrInput
+	Author            pulumi.StringPtrInput
+	AuthorEmail       pulumi.StringPtrInput
+	Deployer          pulumi.StringPtrInput
+	Details           pulumi.StringPtrInput
+	EndTime           pulumi.StringPtrInput
+	Id                pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Message           pulumi.StringPtrInput
+	Name              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// StartTime
-	StartTime pulumi.StringPtrInput
-	// Status
-	Status pulumi.IntPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
+	StartTime         pulumi.StringPtrInput
+	Status            pulumi.IntPtrInput
+	Tags              pulumi.StringMapInput
+	Type              pulumi.StringPtrInput
 }
 
 func (SiteDeploymentArgs) ElementType() reflect.Type {
@@ -261,9 +214,7 @@ func (i *SiteDeployment) ToSiteDeploymentOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SiteDeploymentOutput)
 }
 
-type SiteDeploymentOutput struct {
-	*pulumi.OutputState
-}
+type SiteDeploymentOutput struct{ *pulumi.OutputState }
 
 func (SiteDeploymentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteDeployment)(nil))

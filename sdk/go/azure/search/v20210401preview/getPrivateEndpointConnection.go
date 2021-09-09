@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:search/v20210401preview:getPrivateEndpointConnection", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEnd
 }
 
 type LookupPrivateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Azure Cognitive Search service associated with the specified resource group.
-	SearchServiceName string `pulumi:"searchServiceName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
+	SearchServiceName             string `pulumi:"searchServiceName"`
 }
 
 // Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 type LookupPrivateEndpointConnectionResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+	Id         string                                      `pulumi:"id"`
+	Name       string                                      `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type       string                                      `pulumi:"type"`
 }

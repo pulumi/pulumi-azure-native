@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gateway authentication keys.
 func ListGatewayKeys(ctx *pulumi.Context, args *ListGatewayKeysArgs, opts ...pulumi.InvokeOption) (*ListGatewayKeysResult, error) {
 	var rv ListGatewayKeysResult
 	err := ctx.Invoke("azure-native:apimanagement/v20201201:listGatewayKeys", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListGatewayKeys(ctx *pulumi.Context, args *ListGatewayKeysArgs, opts ...pul
 }
 
 type ListGatewayKeysArgs struct {
-	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	GatewayId string `pulumi:"gatewayId"`
-	// The name of the resource group.
+	GatewayId         string `pulumi:"gatewayId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Gateway authentication keys.
 type ListGatewayKeysResult struct {
-	// Primary gateway key.
-	Primary *string `pulumi:"primary"`
-	// Secondary gateway key.
+	Primary   *string `pulumi:"primary"`
 	Secondary *string `pulumi:"secondary"`
 }

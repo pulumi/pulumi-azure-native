@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A server key.
 func LookupServerKey(ctx *pulumi.Context, args *LookupServerKeyArgs, opts ...pulumi.InvokeOption) (*LookupServerKeyResult, error) {
 	var rv LookupServerKeyResult
 	err := ctx.Invoke("azure-native:sql/v20150501preview:getServerKey", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupServerKey(ctx *pulumi.Context, args *LookupServerKeyArgs, opts ...pul
 }
 
 type LookupServerKeyArgs struct {
-	// The name of the server key to be retrieved.
-	KeyName string `pulumi:"keyName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	KeyName           string `pulumi:"keyName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ServerName        string `pulumi:"serverName"`
 }
 
 // A server key.
 type LookupServerKeyResult struct {
-	// The server key creation date.
-	CreationDate *string `pulumi:"creationDate"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Kind of encryption protector. This is metadata used for the Azure portal experience.
-	Kind *string `pulumi:"kind"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The server key type like 'ServiceManaged', 'AzureKeyVault'.
-	ServerKeyType string `pulumi:"serverKeyType"`
-	// Subregion of the server key.
-	Subregion string `pulumi:"subregion"`
-	// Thumbprint of the server key.
-	Thumbprint *string `pulumi:"thumbprint"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The URI of the server key.
-	Uri *string `pulumi:"uri"`
+	CreationDate  *string `pulumi:"creationDate"`
+	Id            string  `pulumi:"id"`
+	Kind          *string `pulumi:"kind"`
+	Location      string  `pulumi:"location"`
+	Name          string  `pulumi:"name"`
+	ServerKeyType string  `pulumi:"serverKeyType"`
+	Subregion     string  `pulumi:"subregion"`
+	Thumbprint    *string `pulumi:"thumbprint"`
+	Type          string  `pulumi:"type"`
+	Uri           *string `pulumi:"uri"`
 }

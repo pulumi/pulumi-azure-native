@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Customer Notification Event resource.
 type CustomerEvent struct {
 	pulumi.CustomResourceState
 
-	// The name of the event subscribed to.
-	EventName pulumi.StringOutput `pulumi:"eventName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The notification event receivers.
-	Receivers NotificationEventReceiverResponseArrayOutput `pulumi:"receivers"`
-	// The system metadata relating to this resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	EventName  pulumi.StringOutput                          `pulumi:"eventName"`
+	Name       pulumi.StringOutput                          `pulumi:"name"`
+	Receivers  NotificationEventReceiverResponseArrayOutput `pulumi:"receivers"`
+	SystemData SystemDataResponseOutput                     `pulumi:"systemData"`
+	Type       pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewCustomerEvent registers a new resource with the given unique name, arguments, and options.
@@ -90,29 +84,19 @@ func (CustomerEventState) ElementType() reflect.Type {
 }
 
 type customerEventArgs struct {
-	// The resource name of the Test Base Customer event.
-	CustomerEventName *string `pulumi:"customerEventName"`
-	// The name of the event subscribed to.
-	EventName string `pulumi:"eventName"`
-	// The notification event receivers.
-	Receivers []NotificationEventReceiver `pulumi:"receivers"`
-	// The name of the resource group that contains the resource.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource name of the Test Base Account.
-	TestBaseAccountName string `pulumi:"testBaseAccountName"`
+	CustomerEventName   *string                     `pulumi:"customerEventName"`
+	EventName           string                      `pulumi:"eventName"`
+	Receivers           []NotificationEventReceiver `pulumi:"receivers"`
+	ResourceGroupName   string                      `pulumi:"resourceGroupName"`
+	TestBaseAccountName string                      `pulumi:"testBaseAccountName"`
 }
 
 // The set of arguments for constructing a CustomerEvent resource.
 type CustomerEventArgs struct {
-	// The resource name of the Test Base Customer event.
-	CustomerEventName pulumi.StringPtrInput
-	// The name of the event subscribed to.
-	EventName pulumi.StringInput
-	// The notification event receivers.
-	Receivers NotificationEventReceiverArrayInput
-	// The name of the resource group that contains the resource.
-	ResourceGroupName pulumi.StringInput
-	// The resource name of the Test Base Account.
+	CustomerEventName   pulumi.StringPtrInput
+	EventName           pulumi.StringInput
+	Receivers           NotificationEventReceiverArrayInput
+	ResourceGroupName   pulumi.StringInput
 	TestBaseAccountName pulumi.StringInput
 }
 
@@ -139,9 +123,7 @@ func (i *CustomerEvent) ToCustomerEventOutputWithContext(ctx context.Context) Cu
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerEventOutput)
 }
 
-type CustomerEventOutput struct {
-	*pulumi.OutputState
-}
+type CustomerEventOutput struct{ *pulumi.OutputState }
 
 func (CustomerEventOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomerEvent)(nil))

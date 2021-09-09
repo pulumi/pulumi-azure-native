@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Diagnostic details.
 type Diagnostic struct {
 	pulumi.CustomResourceState
 
-	// Indicates whether a diagnostic should receive data or not.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Enabled pulumi.BoolOutput   `pulumi:"enabled"`
+	Name    pulumi.StringOutput `pulumi:"name"`
+	Type    pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewDiagnostic registers a new resource with the given unique name, arguments, and options.
@@ -131,26 +127,18 @@ func (DiagnosticState) ElementType() reflect.Type {
 }
 
 type diagnosticArgs struct {
-	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	DiagnosticId *string `pulumi:"diagnosticId"`
-	// Indicates whether a diagnostic should receive data or not.
-	Enabled bool `pulumi:"enabled"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	DiagnosticId      *string `pulumi:"diagnosticId"`
+	Enabled           bool    `pulumi:"enabled"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a Diagnostic resource.
 type DiagnosticArgs struct {
-	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	DiagnosticId pulumi.StringPtrInput
-	// Indicates whether a diagnostic should receive data or not.
-	Enabled pulumi.BoolInput
-	// The name of the resource group.
+	DiagnosticId      pulumi.StringPtrInput
+	Enabled           pulumi.BoolInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (DiagnosticArgs) ElementType() reflect.Type {
@@ -176,9 +164,7 @@ func (i *Diagnostic) ToDiagnosticOutputWithContext(ctx context.Context) Diagnost
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticOutput)
 }
 
-type DiagnosticOutput struct {
-	*pulumi.OutputState
-}
+type DiagnosticOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Diagnostic)(nil))

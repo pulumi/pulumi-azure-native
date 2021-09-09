@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties of the PrivateEndpointConnection.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:servicebus/v20210101preview:getPrivateEndpointConnection", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEnd
 }
 
 type LookupPrivateEndpointConnectionArgs struct {
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// The PrivateEndpointConnection name
+	NamespaceName                 string `pulumi:"namespaceName"`
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
 }
 
 // Properties of the PrivateEndpointConnection.
 type LookupPrivateEndpointConnectionResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The Private Endpoint resource for this Connection.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Details about the state of the connection.
+	Id                                string                   `pulumi:"id"`
+	Name                              string                   `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointResponse `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *ConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the Private Endpoint Connection.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type
-	Type string `pulumi:"type"`
+	ProvisioningState                 *string                  `pulumi:"provisioningState"`
+	SystemData                        SystemDataResponse       `pulumi:"systemData"`
+	Type                              string                   `pulumi:"type"`
 }

@@ -7,14 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The limited preview of Kubernetes Cluster Management from the Azure supports:
-// 1. Using a simple turn-key option in Azure Portal, deploy a Kubernetes cluster on your Azure Stack Edge device.
-// 2. Configure Kubernetes cluster running on your device with Arc enabled Kubernetes with a click of a button in the Azure Portal.
-//     Azure Arc enables organizations to view, manage, and govern their on-premises Kubernetes clusters using the Azure Portal, command line tools, and APIs.
-// 3. Easily configure Persistent Volumes using SMB and NFS shares for storing container data.
-//     For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf
-//     Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
-//     By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
 func LookupKubernetesRole(ctx *pulumi.Context, args *LookupKubernetesRoleArgs, opts ...pulumi.InvokeOption) (*LookupKubernetesRoleResult, error) {
 	var rv LookupKubernetesRoleResult
 	err := ctx.Invoke("azure-native:databoxedge/v20210201:getKubernetesRole", args, &rv, opts...)
@@ -25,11 +17,8 @@ func LookupKubernetesRole(ctx *pulumi.Context, args *LookupKubernetesRoleArgs, o
 }
 
 type LookupKubernetesRoleArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The role name.
-	Name string `pulumi:"name"`
-	// The resource group name.
+	DeviceName        string `pulumi:"deviceName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -42,27 +31,15 @@ type LookupKubernetesRoleArgs struct {
 //     Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
 //     By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
 type LookupKubernetesRoleResult struct {
-	// Host OS supported by the Kubernetes role.
-	HostPlatform string `pulumi:"hostPlatform"`
-	// Platform where the runtime is hosted.
-	HostPlatformType string `pulumi:"hostPlatformType"`
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// Role type.
-	// Expected value is 'Kubernetes'.
-	Kind string `pulumi:"kind"`
-	// Kubernetes cluster configuration
-	KubernetesClusterInfo KubernetesClusterInfoResponse `pulumi:"kubernetesClusterInfo"`
-	// Kubernetes role resources
+	HostPlatform            string                          `pulumi:"hostPlatform"`
+	HostPlatformType        string                          `pulumi:"hostPlatformType"`
+	Id                      string                          `pulumi:"id"`
+	Kind                    string                          `pulumi:"kind"`
+	KubernetesClusterInfo   KubernetesClusterInfoResponse   `pulumi:"kubernetesClusterInfo"`
 	KubernetesRoleResources KubernetesRoleResourcesResponse `pulumi:"kubernetesRoleResources"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// State of Kubernetes deployment
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Role status.
-	RoleStatus string `pulumi:"roleStatus"`
-	// Role configured on ASE resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
+	Name                    string                          `pulumi:"name"`
+	ProvisioningState       string                          `pulumi:"provisioningState"`
+	RoleStatus              string                          `pulumi:"roleStatus"`
+	SystemData              SystemDataResponse              `pulumi:"systemData"`
+	Type                    string                          `pulumi:"type"`
 }

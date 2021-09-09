@@ -130,7 +130,7 @@ type profileArgs struct {
 	// Localized display names for the property.
 	DisplayName map[string]string `pulumi:"displayName"`
 	// Type of entity.
-	EntityType *string `pulumi:"entityType"`
+	EntityType *EntityTypes `pulumi:"entityType"`
 	// The properties of the Profile.
 	Fields []PropertyDefinition `pulumi:"fields"`
 	// The name of the hub.
@@ -170,7 +170,7 @@ type ProfileArgs struct {
 	// Localized display names for the property.
 	DisplayName pulumi.StringMapInput
 	// Type of entity.
-	EntityType *EntityTypes
+	EntityType EntityTypesPtrInput
 	// The properties of the Profile.
 	Fields PropertyDefinitionArrayInput
 	// The name of the hub.
@@ -222,9 +222,7 @@ func (i *Profile) ToProfileOutputWithContext(ctx context.Context) ProfileOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileOutput)
 }
 
-type ProfileOutput struct {
-	*pulumi.OutputState
-}
+type ProfileOutput struct{ *pulumi.OutputState }
 
 func (ProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Profile)(nil))

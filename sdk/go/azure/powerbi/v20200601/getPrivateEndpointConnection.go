@@ -17,27 +17,17 @@ func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEnd
 }
 
 type LookupPrivateEndpointConnectionArgs struct {
-	// The name of the Azure resource.
-	AzureResourceName string `pulumi:"azureResourceName"`
-	// The name of the private endpoint.
+	AzureResourceName   string `pulumi:"azureResourceName"`
 	PrivateEndpointName string `pulumi:"privateEndpointName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 }
 
 type LookupPrivateEndpointConnectionResult struct {
-	// Specifies the id of the resource.
-	Id string `pulumi:"id"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// Specifies the private endpoint.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Specifies the connection state.
+	Id                                string                   `pulumi:"id"`
+	Name                              string                   `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointResponse `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *ConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the Private Endpoint Connection.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
+	ProvisioningState                 *string                  `pulumi:"provisioningState"`
+	SystemData                        SystemDataResponse       `pulumi:"systemData"`
+	Type                              string                   `pulumi:"type"`
 }

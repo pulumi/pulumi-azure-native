@@ -10,8 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Elliptical curve algorithm to be used: ES256, ES384 or ES512.
-type AccessPolicyEccAlgo pulumi.String
+type AccessPolicyEccAlgo string
 
 const (
 	// ES265
@@ -23,7 +22,23 @@ const (
 )
 
 func (AccessPolicyEccAlgo) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*AccessPolicyEccAlgo)(nil)).Elem()
+}
+
+func (e AccessPolicyEccAlgo) ToAccessPolicyEccAlgoOutput() AccessPolicyEccAlgoOutput {
+	return pulumi.ToOutput(e).(AccessPolicyEccAlgoOutput)
+}
+
+func (e AccessPolicyEccAlgo) ToAccessPolicyEccAlgoOutputWithContext(ctx context.Context) AccessPolicyEccAlgoOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccessPolicyEccAlgoOutput)
+}
+
+func (e AccessPolicyEccAlgo) ToAccessPolicyEccAlgoPtrOutput() AccessPolicyEccAlgoPtrOutput {
+	return e.ToAccessPolicyEccAlgoPtrOutputWithContext(context.Background())
+}
+
+func (e AccessPolicyEccAlgo) ToAccessPolicyEccAlgoPtrOutputWithContext(ctx context.Context) AccessPolicyEccAlgoPtrOutput {
+	return AccessPolicyEccAlgo(e).ToAccessPolicyEccAlgoOutputWithContext(ctx).ToAccessPolicyEccAlgoPtrOutputWithContext(ctx)
 }
 
 func (e AccessPolicyEccAlgo) ToStringOutput() pulumi.StringOutput {
@@ -42,8 +57,128 @@ func (e AccessPolicyEccAlgo) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Defines the access level granted by this policy.
-type AccessPolicyRole pulumi.String
+type AccessPolicyEccAlgoOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyEccAlgoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicyEccAlgo)(nil)).Elem()
+}
+
+func (o AccessPolicyEccAlgoOutput) ToAccessPolicyEccAlgoOutput() AccessPolicyEccAlgoOutput {
+	return o
+}
+
+func (o AccessPolicyEccAlgoOutput) ToAccessPolicyEccAlgoOutputWithContext(ctx context.Context) AccessPolicyEccAlgoOutput {
+	return o
+}
+
+func (o AccessPolicyEccAlgoOutput) ToAccessPolicyEccAlgoPtrOutput() AccessPolicyEccAlgoPtrOutput {
+	return o.ToAccessPolicyEccAlgoPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyEccAlgoOutput) ToAccessPolicyEccAlgoPtrOutputWithContext(ctx context.Context) AccessPolicyEccAlgoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPolicyEccAlgo) *AccessPolicyEccAlgo {
+		return &v
+	}).(AccessPolicyEccAlgoPtrOutput)
+}
+
+func (o AccessPolicyEccAlgoOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyEccAlgoOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessPolicyEccAlgo) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessPolicyEccAlgoOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyEccAlgoOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessPolicyEccAlgo) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessPolicyEccAlgoPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyEccAlgoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicyEccAlgo)(nil)).Elem()
+}
+
+func (o AccessPolicyEccAlgoPtrOutput) ToAccessPolicyEccAlgoPtrOutput() AccessPolicyEccAlgoPtrOutput {
+	return o
+}
+
+func (o AccessPolicyEccAlgoPtrOutput) ToAccessPolicyEccAlgoPtrOutputWithContext(ctx context.Context) AccessPolicyEccAlgoPtrOutput {
+	return o
+}
+
+func (o AccessPolicyEccAlgoPtrOutput) Elem() AccessPolicyEccAlgoOutput {
+	return o.ApplyT(func(v *AccessPolicyEccAlgo) AccessPolicyEccAlgo {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPolicyEccAlgo
+		return ret
+	}).(AccessPolicyEccAlgoOutput)
+}
+
+func (o AccessPolicyEccAlgoPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyEccAlgoPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessPolicyEccAlgo) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccessPolicyEccAlgoInput is an input type that accepts AccessPolicyEccAlgoArgs and AccessPolicyEccAlgoOutput values.
+// You can construct a concrete instance of `AccessPolicyEccAlgoInput` via:
+//
+//          AccessPolicyEccAlgoArgs{...}
+type AccessPolicyEccAlgoInput interface {
+	pulumi.Input
+
+	ToAccessPolicyEccAlgoOutput() AccessPolicyEccAlgoOutput
+	ToAccessPolicyEccAlgoOutputWithContext(context.Context) AccessPolicyEccAlgoOutput
+}
+
+var accessPolicyEccAlgoPtrType = reflect.TypeOf((**AccessPolicyEccAlgo)(nil)).Elem()
+
+type AccessPolicyEccAlgoPtrInput interface {
+	pulumi.Input
+
+	ToAccessPolicyEccAlgoPtrOutput() AccessPolicyEccAlgoPtrOutput
+	ToAccessPolicyEccAlgoPtrOutputWithContext(context.Context) AccessPolicyEccAlgoPtrOutput
+}
+
+type accessPolicyEccAlgoPtr string
+
+func AccessPolicyEccAlgoPtr(v string) AccessPolicyEccAlgoPtrInput {
+	return (*accessPolicyEccAlgoPtr)(&v)
+}
+
+func (*accessPolicyEccAlgoPtr) ElementType() reflect.Type {
+	return accessPolicyEccAlgoPtrType
+}
+
+func (in *accessPolicyEccAlgoPtr) ToAccessPolicyEccAlgoPtrOutput() AccessPolicyEccAlgoPtrOutput {
+	return pulumi.ToOutput(in).(AccessPolicyEccAlgoPtrOutput)
+}
+
+func (in *accessPolicyEccAlgoPtr) ToAccessPolicyEccAlgoPtrOutputWithContext(ctx context.Context) AccessPolicyEccAlgoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccessPolicyEccAlgoPtrOutput)
+}
+
+type AccessPolicyRole string
 
 const (
 	// Reader role allows for read-only operations to be performed through the client APIs.
@@ -51,7 +186,23 @@ const (
 )
 
 func (AccessPolicyRole) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*AccessPolicyRole)(nil)).Elem()
+}
+
+func (e AccessPolicyRole) ToAccessPolicyRoleOutput() AccessPolicyRoleOutput {
+	return pulumi.ToOutput(e).(AccessPolicyRoleOutput)
+}
+
+func (e AccessPolicyRole) ToAccessPolicyRoleOutputWithContext(ctx context.Context) AccessPolicyRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccessPolicyRoleOutput)
+}
+
+func (e AccessPolicyRole) ToAccessPolicyRolePtrOutput() AccessPolicyRolePtrOutput {
+	return e.ToAccessPolicyRolePtrOutputWithContext(context.Background())
+}
+
+func (e AccessPolicyRole) ToAccessPolicyRolePtrOutputWithContext(ctx context.Context) AccessPolicyRolePtrOutput {
+	return AccessPolicyRole(e).ToAccessPolicyRoleOutputWithContext(ctx).ToAccessPolicyRolePtrOutputWithContext(ctx)
 }
 
 func (e AccessPolicyRole) ToStringOutput() pulumi.StringOutput {
@@ -70,8 +221,128 @@ func (e AccessPolicyRole) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// RSA algorithm to be used: RS256, RS384 or RS512.
-type AccessPolicyRsaAlgo pulumi.String
+type AccessPolicyRoleOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicyRole)(nil)).Elem()
+}
+
+func (o AccessPolicyRoleOutput) ToAccessPolicyRoleOutput() AccessPolicyRoleOutput {
+	return o
+}
+
+func (o AccessPolicyRoleOutput) ToAccessPolicyRoleOutputWithContext(ctx context.Context) AccessPolicyRoleOutput {
+	return o
+}
+
+func (o AccessPolicyRoleOutput) ToAccessPolicyRolePtrOutput() AccessPolicyRolePtrOutput {
+	return o.ToAccessPolicyRolePtrOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyRoleOutput) ToAccessPolicyRolePtrOutputWithContext(ctx context.Context) AccessPolicyRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPolicyRole) *AccessPolicyRole {
+		return &v
+	}).(AccessPolicyRolePtrOutput)
+}
+
+func (o AccessPolicyRoleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyRoleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessPolicyRole) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessPolicyRoleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyRoleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessPolicyRole) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessPolicyRolePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicyRole)(nil)).Elem()
+}
+
+func (o AccessPolicyRolePtrOutput) ToAccessPolicyRolePtrOutput() AccessPolicyRolePtrOutput {
+	return o
+}
+
+func (o AccessPolicyRolePtrOutput) ToAccessPolicyRolePtrOutputWithContext(ctx context.Context) AccessPolicyRolePtrOutput {
+	return o
+}
+
+func (o AccessPolicyRolePtrOutput) Elem() AccessPolicyRoleOutput {
+	return o.ApplyT(func(v *AccessPolicyRole) AccessPolicyRole {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPolicyRole
+		return ret
+	}).(AccessPolicyRoleOutput)
+}
+
+func (o AccessPolicyRolePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessPolicyRole) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccessPolicyRoleInput is an input type that accepts AccessPolicyRoleArgs and AccessPolicyRoleOutput values.
+// You can construct a concrete instance of `AccessPolicyRoleInput` via:
+//
+//          AccessPolicyRoleArgs{...}
+type AccessPolicyRoleInput interface {
+	pulumi.Input
+
+	ToAccessPolicyRoleOutput() AccessPolicyRoleOutput
+	ToAccessPolicyRoleOutputWithContext(context.Context) AccessPolicyRoleOutput
+}
+
+var accessPolicyRolePtrType = reflect.TypeOf((**AccessPolicyRole)(nil)).Elem()
+
+type AccessPolicyRolePtrInput interface {
+	pulumi.Input
+
+	ToAccessPolicyRolePtrOutput() AccessPolicyRolePtrOutput
+	ToAccessPolicyRolePtrOutputWithContext(context.Context) AccessPolicyRolePtrOutput
+}
+
+type accessPolicyRolePtr string
+
+func AccessPolicyRolePtr(v string) AccessPolicyRolePtrInput {
+	return (*accessPolicyRolePtr)(&v)
+}
+
+func (*accessPolicyRolePtr) ElementType() reflect.Type {
+	return accessPolicyRolePtrType
+}
+
+func (in *accessPolicyRolePtr) ToAccessPolicyRolePtrOutput() AccessPolicyRolePtrOutput {
+	return pulumi.ToOutput(in).(AccessPolicyRolePtrOutput)
+}
+
+func (in *accessPolicyRolePtr) ToAccessPolicyRolePtrOutputWithContext(ctx context.Context) AccessPolicyRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccessPolicyRolePtrOutput)
+}
+
+type AccessPolicyRsaAlgo string
 
 const (
 	// RS256
@@ -83,7 +354,23 @@ const (
 )
 
 func (AccessPolicyRsaAlgo) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*AccessPolicyRsaAlgo)(nil)).Elem()
+}
+
+func (e AccessPolicyRsaAlgo) ToAccessPolicyRsaAlgoOutput() AccessPolicyRsaAlgoOutput {
+	return pulumi.ToOutput(e).(AccessPolicyRsaAlgoOutput)
+}
+
+func (e AccessPolicyRsaAlgo) ToAccessPolicyRsaAlgoOutputWithContext(ctx context.Context) AccessPolicyRsaAlgoOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccessPolicyRsaAlgoOutput)
+}
+
+func (e AccessPolicyRsaAlgo) ToAccessPolicyRsaAlgoPtrOutput() AccessPolicyRsaAlgoPtrOutput {
+	return e.ToAccessPolicyRsaAlgoPtrOutputWithContext(context.Background())
+}
+
+func (e AccessPolicyRsaAlgo) ToAccessPolicyRsaAlgoPtrOutputWithContext(ctx context.Context) AccessPolicyRsaAlgoPtrOutput {
+	return AccessPolicyRsaAlgo(e).ToAccessPolicyRsaAlgoOutputWithContext(ctx).ToAccessPolicyRsaAlgoPtrOutputWithContext(ctx)
 }
 
 func (e AccessPolicyRsaAlgo) ToStringOutput() pulumi.StringOutput {
@@ -102,8 +389,128 @@ func (e AccessPolicyRsaAlgo) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The type of key used to encrypt the Account Key.
-type AccountEncryptionKeyType pulumi.String
+type AccessPolicyRsaAlgoOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyRsaAlgoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicyRsaAlgo)(nil)).Elem()
+}
+
+func (o AccessPolicyRsaAlgoOutput) ToAccessPolicyRsaAlgoOutput() AccessPolicyRsaAlgoOutput {
+	return o
+}
+
+func (o AccessPolicyRsaAlgoOutput) ToAccessPolicyRsaAlgoOutputWithContext(ctx context.Context) AccessPolicyRsaAlgoOutput {
+	return o
+}
+
+func (o AccessPolicyRsaAlgoOutput) ToAccessPolicyRsaAlgoPtrOutput() AccessPolicyRsaAlgoPtrOutput {
+	return o.ToAccessPolicyRsaAlgoPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyRsaAlgoOutput) ToAccessPolicyRsaAlgoPtrOutputWithContext(ctx context.Context) AccessPolicyRsaAlgoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPolicyRsaAlgo) *AccessPolicyRsaAlgo {
+		return &v
+	}).(AccessPolicyRsaAlgoPtrOutput)
+}
+
+func (o AccessPolicyRsaAlgoOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyRsaAlgoOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessPolicyRsaAlgo) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessPolicyRsaAlgoOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyRsaAlgoOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessPolicyRsaAlgo) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessPolicyRsaAlgoPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyRsaAlgoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicyRsaAlgo)(nil)).Elem()
+}
+
+func (o AccessPolicyRsaAlgoPtrOutput) ToAccessPolicyRsaAlgoPtrOutput() AccessPolicyRsaAlgoPtrOutput {
+	return o
+}
+
+func (o AccessPolicyRsaAlgoPtrOutput) ToAccessPolicyRsaAlgoPtrOutputWithContext(ctx context.Context) AccessPolicyRsaAlgoPtrOutput {
+	return o
+}
+
+func (o AccessPolicyRsaAlgoPtrOutput) Elem() AccessPolicyRsaAlgoOutput {
+	return o.ApplyT(func(v *AccessPolicyRsaAlgo) AccessPolicyRsaAlgo {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPolicyRsaAlgo
+		return ret
+	}).(AccessPolicyRsaAlgoOutput)
+}
+
+func (o AccessPolicyRsaAlgoPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyRsaAlgoPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessPolicyRsaAlgo) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccessPolicyRsaAlgoInput is an input type that accepts AccessPolicyRsaAlgoArgs and AccessPolicyRsaAlgoOutput values.
+// You can construct a concrete instance of `AccessPolicyRsaAlgoInput` via:
+//
+//          AccessPolicyRsaAlgoArgs{...}
+type AccessPolicyRsaAlgoInput interface {
+	pulumi.Input
+
+	ToAccessPolicyRsaAlgoOutput() AccessPolicyRsaAlgoOutput
+	ToAccessPolicyRsaAlgoOutputWithContext(context.Context) AccessPolicyRsaAlgoOutput
+}
+
+var accessPolicyRsaAlgoPtrType = reflect.TypeOf((**AccessPolicyRsaAlgo)(nil)).Elem()
+
+type AccessPolicyRsaAlgoPtrInput interface {
+	pulumi.Input
+
+	ToAccessPolicyRsaAlgoPtrOutput() AccessPolicyRsaAlgoPtrOutput
+	ToAccessPolicyRsaAlgoPtrOutputWithContext(context.Context) AccessPolicyRsaAlgoPtrOutput
+}
+
+type accessPolicyRsaAlgoPtr string
+
+func AccessPolicyRsaAlgoPtr(v string) AccessPolicyRsaAlgoPtrInput {
+	return (*accessPolicyRsaAlgoPtr)(&v)
+}
+
+func (*accessPolicyRsaAlgoPtr) ElementType() reflect.Type {
+	return accessPolicyRsaAlgoPtrType
+}
+
+func (in *accessPolicyRsaAlgoPtr) ToAccessPolicyRsaAlgoPtrOutput() AccessPolicyRsaAlgoPtrOutput {
+	return pulumi.ToOutput(in).(AccessPolicyRsaAlgoPtrOutput)
+}
+
+func (in *accessPolicyRsaAlgoPtr) ToAccessPolicyRsaAlgoPtrOutputWithContext(ctx context.Context) AccessPolicyRsaAlgoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccessPolicyRsaAlgoPtrOutput)
+}
+
+type AccountEncryptionKeyType string
 
 const (
 	// The Account Key is encrypted with a System Key.
@@ -113,7 +520,23 @@ const (
 )
 
 func (AccountEncryptionKeyType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*AccountEncryptionKeyType)(nil)).Elem()
+}
+
+func (e AccountEncryptionKeyType) ToAccountEncryptionKeyTypeOutput() AccountEncryptionKeyTypeOutput {
+	return pulumi.ToOutput(e).(AccountEncryptionKeyTypeOutput)
+}
+
+func (e AccountEncryptionKeyType) ToAccountEncryptionKeyTypeOutputWithContext(ctx context.Context) AccountEncryptionKeyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccountEncryptionKeyTypeOutput)
+}
+
+func (e AccountEncryptionKeyType) ToAccountEncryptionKeyTypePtrOutput() AccountEncryptionKeyTypePtrOutput {
+	return e.ToAccountEncryptionKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (e AccountEncryptionKeyType) ToAccountEncryptionKeyTypePtrOutputWithContext(ctx context.Context) AccountEncryptionKeyTypePtrOutput {
+	return AccountEncryptionKeyType(e).ToAccountEncryptionKeyTypeOutputWithContext(ctx).ToAccountEncryptionKeyTypePtrOutputWithContext(ctx)
 }
 
 func (e AccountEncryptionKeyType) ToStringOutput() pulumi.StringOutput {
@@ -130,4 +553,136 @@ func (e AccountEncryptionKeyType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e AccountEncryptionKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AccountEncryptionKeyTypeOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionKeyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountEncryptionKeyType)(nil)).Elem()
+}
+
+func (o AccountEncryptionKeyTypeOutput) ToAccountEncryptionKeyTypeOutput() AccountEncryptionKeyTypeOutput {
+	return o
+}
+
+func (o AccountEncryptionKeyTypeOutput) ToAccountEncryptionKeyTypeOutputWithContext(ctx context.Context) AccountEncryptionKeyTypeOutput {
+	return o
+}
+
+func (o AccountEncryptionKeyTypeOutput) ToAccountEncryptionKeyTypePtrOutput() AccountEncryptionKeyTypePtrOutput {
+	return o.ToAccountEncryptionKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (o AccountEncryptionKeyTypeOutput) ToAccountEncryptionKeyTypePtrOutputWithContext(ctx context.Context) AccountEncryptionKeyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryptionKeyType) *AccountEncryptionKeyType {
+		return &v
+	}).(AccountEncryptionKeyTypePtrOutput)
+}
+
+func (o AccountEncryptionKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccountEncryptionKeyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccountEncryptionKeyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountEncryptionKeyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccountEncryptionKeyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccountEncryptionKeyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccountEncryptionKeyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionKeyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryptionKeyType)(nil)).Elem()
+}
+
+func (o AccountEncryptionKeyTypePtrOutput) ToAccountEncryptionKeyTypePtrOutput() AccountEncryptionKeyTypePtrOutput {
+	return o
+}
+
+func (o AccountEncryptionKeyTypePtrOutput) ToAccountEncryptionKeyTypePtrOutputWithContext(ctx context.Context) AccountEncryptionKeyTypePtrOutput {
+	return o
+}
+
+func (o AccountEncryptionKeyTypePtrOutput) Elem() AccountEncryptionKeyTypeOutput {
+	return o.ApplyT(func(v *AccountEncryptionKeyType) AccountEncryptionKeyType {
+		if v != nil {
+			return *v
+		}
+		var ret AccountEncryptionKeyType
+		return ret
+	}).(AccountEncryptionKeyTypeOutput)
+}
+
+func (o AccountEncryptionKeyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccountEncryptionKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccountEncryptionKeyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccountEncryptionKeyTypeInput is an input type that accepts AccountEncryptionKeyTypeArgs and AccountEncryptionKeyTypeOutput values.
+// You can construct a concrete instance of `AccountEncryptionKeyTypeInput` via:
+//
+//          AccountEncryptionKeyTypeArgs{...}
+type AccountEncryptionKeyTypeInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionKeyTypeOutput() AccountEncryptionKeyTypeOutput
+	ToAccountEncryptionKeyTypeOutputWithContext(context.Context) AccountEncryptionKeyTypeOutput
+}
+
+var accountEncryptionKeyTypePtrType = reflect.TypeOf((**AccountEncryptionKeyType)(nil)).Elem()
+
+type AccountEncryptionKeyTypePtrInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionKeyTypePtrOutput() AccountEncryptionKeyTypePtrOutput
+	ToAccountEncryptionKeyTypePtrOutputWithContext(context.Context) AccountEncryptionKeyTypePtrOutput
+}
+
+type accountEncryptionKeyTypePtr string
+
+func AccountEncryptionKeyTypePtr(v string) AccountEncryptionKeyTypePtrInput {
+	return (*accountEncryptionKeyTypePtr)(&v)
+}
+
+func (*accountEncryptionKeyTypePtr) ElementType() reflect.Type {
+	return accountEncryptionKeyTypePtrType
+}
+
+func (in *accountEncryptionKeyTypePtr) ToAccountEncryptionKeyTypePtrOutput() AccountEncryptionKeyTypePtrOutput {
+	return pulumi.ToOutput(in).(AccountEncryptionKeyTypePtrOutput)
+}
+
+func (in *accountEncryptionKeyTypePtr) ToAccountEncryptionKeyTypePtrOutputWithContext(ctx context.Context) AccountEncryptionKeyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccountEncryptionKeyTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(AccessPolicyEccAlgoOutput{})
+	pulumi.RegisterOutputType(AccessPolicyEccAlgoPtrOutput{})
+	pulumi.RegisterOutputType(AccessPolicyRoleOutput{})
+	pulumi.RegisterOutputType(AccessPolicyRolePtrOutput{})
+	pulumi.RegisterOutputType(AccessPolicyRsaAlgoOutput{})
+	pulumi.RegisterOutputType(AccessPolicyRsaAlgoPtrOutput{})
+	pulumi.RegisterOutputType(AccountEncryptionKeyTypeOutput{})
+	pulumi.RegisterOutputType(AccountEncryptionKeyTypePtrOutput{})
 }

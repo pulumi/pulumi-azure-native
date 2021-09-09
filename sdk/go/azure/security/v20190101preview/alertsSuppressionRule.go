@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes the suppression rule
 type AlertsSuppressionRule struct {
 	pulumi.CustomResourceState
 
-	// Type of the alert to automatically suppress. For all alert types, use '*'
-	AlertType pulumi.StringOutput `pulumi:"alertType"`
-	// Any comment regarding the rule
-	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
-	ExpirationDateUtc pulumi.StringPtrOutput `pulumi:"expirationDateUtc"`
-	// The last time this rule was modified
-	LastModifiedUtc pulumi.StringOutput `pulumi:"lastModifiedUtc"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The reason for dismissing the alert
-	Reason pulumi.StringOutput `pulumi:"reason"`
-	// Possible states of the rule
-	State pulumi.StringOutput `pulumi:"state"`
-	// The suppression conditions
+	AlertType              pulumi.StringOutput                     `pulumi:"alertType"`
+	Comment                pulumi.StringPtrOutput                  `pulumi:"comment"`
+	ExpirationDateUtc      pulumi.StringPtrOutput                  `pulumi:"expirationDateUtc"`
+	LastModifiedUtc        pulumi.StringOutput                     `pulumi:"lastModifiedUtc"`
+	Name                   pulumi.StringOutput                     `pulumi:"name"`
+	Reason                 pulumi.StringOutput                     `pulumi:"reason"`
+	State                  pulumi.StringOutput                     `pulumi:"state"`
 	SuppressionAlertsScope SuppressionAlertsScopeResponsePtrOutput `pulumi:"suppressionAlertsScope"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type                   pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewAlertsSuppressionRule registers a new resource with the given unique name, arguments, and options.
@@ -95,38 +85,24 @@ func (AlertsSuppressionRuleState) ElementType() reflect.Type {
 }
 
 type alertsSuppressionRuleArgs struct {
-	// Type of the alert to automatically suppress. For all alert types, use '*'
-	AlertType string `pulumi:"alertType"`
-	// The unique name of the suppression alert rule
-	AlertsSuppressionRuleName *string `pulumi:"alertsSuppressionRuleName"`
-	// Any comment regarding the rule
-	Comment *string `pulumi:"comment"`
-	// Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
-	ExpirationDateUtc *string `pulumi:"expirationDateUtc"`
-	// The reason for dismissing the alert
-	Reason string `pulumi:"reason"`
-	// Possible states of the rule
-	State string `pulumi:"state"`
-	// The suppression conditions
-	SuppressionAlertsScope *SuppressionAlertsScope `pulumi:"suppressionAlertsScope"`
+	AlertType                 string                  `pulumi:"alertType"`
+	AlertsSuppressionRuleName *string                 `pulumi:"alertsSuppressionRuleName"`
+	Comment                   *string                 `pulumi:"comment"`
+	ExpirationDateUtc         *string                 `pulumi:"expirationDateUtc"`
+	Reason                    string                  `pulumi:"reason"`
+	State                     string                  `pulumi:"state"`
+	SuppressionAlertsScope    *SuppressionAlertsScope `pulumi:"suppressionAlertsScope"`
 }
 
 // The set of arguments for constructing a AlertsSuppressionRule resource.
 type AlertsSuppressionRuleArgs struct {
-	// Type of the alert to automatically suppress. For all alert types, use '*'
-	AlertType pulumi.StringInput
-	// The unique name of the suppression alert rule
+	AlertType                 pulumi.StringInput
 	AlertsSuppressionRuleName pulumi.StringPtrInput
-	// Any comment regarding the rule
-	Comment pulumi.StringPtrInput
-	// Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
-	ExpirationDateUtc pulumi.StringPtrInput
-	// The reason for dismissing the alert
-	Reason pulumi.StringInput
-	// Possible states of the rule
-	State pulumi.StringInput
-	// The suppression conditions
-	SuppressionAlertsScope SuppressionAlertsScopePtrInput
+	Comment                   pulumi.StringPtrInput
+	ExpirationDateUtc         pulumi.StringPtrInput
+	Reason                    pulumi.StringInput
+	State                     pulumi.StringInput
+	SuppressionAlertsScope    SuppressionAlertsScopePtrInput
 }
 
 func (AlertsSuppressionRuleArgs) ElementType() reflect.Type {
@@ -152,9 +128,7 @@ func (i *AlertsSuppressionRule) ToAlertsSuppressionRuleOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AlertsSuppressionRuleOutput)
 }
 
-type AlertsSuppressionRuleOutput struct {
-	*pulumi.OutputState
-}
+type AlertsSuppressionRuleOutput struct{ *pulumi.OutputState }
 
 func (AlertsSuppressionRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AlertsSuppressionRule)(nil))

@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Organization resource.
 type Organization struct {
 	pulumi.CustomResourceState
 
-	// The creation time of the resource.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// Location of Organization resource
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Confluent offer detail
-	OfferDetail OrganizationResourcePropertiesResponseOfferDetailPtrOutput `pulumi:"offerDetail"`
-	// Id of the Confluent organization.
-	OrganizationId pulumi.StringOutput `pulumi:"organizationId"`
-	// Provision states for confluent RP
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// SSO url for the Confluent organization.
-	SsoUrl pulumi.StringOutput `pulumi:"ssoUrl"`
-	// Organization resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Subscriber detail
-	UserDetail OrganizationResourcePropertiesResponseUserDetailPtrOutput `pulumi:"userDetail"`
+	CreatedTime       pulumi.StringOutput                                        `pulumi:"createdTime"`
+	Location          pulumi.StringPtrOutput                                     `pulumi:"location"`
+	Name              pulumi.StringOutput                                        `pulumi:"name"`
+	OfferDetail       OrganizationResourcePropertiesResponseOfferDetailPtrOutput `pulumi:"offerDetail"`
+	OrganizationId    pulumi.StringOutput                                        `pulumi:"organizationId"`
+	ProvisioningState pulumi.StringOutput                                        `pulumi:"provisioningState"`
+	SsoUrl            pulumi.StringOutput                                        `pulumi:"ssoUrl"`
+	Tags              pulumi.StringMapOutput                                     `pulumi:"tags"`
+	Type              pulumi.StringOutput                                        `pulumi:"type"`
+	UserDetail        OrganizationResourcePropertiesResponseUserDetailPtrOutput  `pulumi:"userDetail"`
 }
 
 // NewOrganization registers a new resource with the given unique name, arguments, and options.
@@ -103,34 +92,22 @@ func (OrganizationState) ElementType() reflect.Type {
 }
 
 type organizationArgs struct {
-	// Location of Organization resource
-	Location *string `pulumi:"location"`
-	// Confluent offer detail
-	OfferDetail *OrganizationResourcePropertiesOfferDetail `pulumi:"offerDetail"`
-	// Organization resource name
-	OrganizationName *string `pulumi:"organizationName"`
-	// Resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Organization resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Subscriber detail
-	UserDetail *OrganizationResourcePropertiesUserDetail `pulumi:"userDetail"`
+	Location          *string                                    `pulumi:"location"`
+	OfferDetail       *OrganizationResourcePropertiesOfferDetail `pulumi:"offerDetail"`
+	OrganizationName  *string                                    `pulumi:"organizationName"`
+	ResourceGroupName string                                     `pulumi:"resourceGroupName"`
+	Tags              map[string]string                          `pulumi:"tags"`
+	UserDetail        *OrganizationResourcePropertiesUserDetail  `pulumi:"userDetail"`
 }
 
 // The set of arguments for constructing a Organization resource.
 type OrganizationArgs struct {
-	// Location of Organization resource
-	Location pulumi.StringPtrInput
-	// Confluent offer detail
-	OfferDetail OrganizationResourcePropertiesOfferDetailPtrInput
-	// Organization resource name
-	OrganizationName pulumi.StringPtrInput
-	// Resource group name
+	Location          pulumi.StringPtrInput
+	OfferDetail       OrganizationResourcePropertiesOfferDetailPtrInput
+	OrganizationName  pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Organization resource tags
-	Tags pulumi.StringMapInput
-	// Subscriber detail
-	UserDetail OrganizationResourcePropertiesUserDetailPtrInput
+	Tags              pulumi.StringMapInput
+	UserDetail        OrganizationResourcePropertiesUserDetailPtrInput
 }
 
 func (OrganizationArgs) ElementType() reflect.Type {
@@ -156,9 +133,7 @@ func (i *Organization) ToOrganizationOutputWithContext(ctx context.Context) Orga
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationOutput)
 }
 
-type OrganizationOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationOutput struct{ *pulumi.OutputState }
 
 func (OrganizationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Organization)(nil))

@@ -165,9 +165,7 @@ func (i *PrivateLinkForAzureAd) ToPrivateLinkForAzureAdOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkForAzureAdOutput)
 }
 
-type PrivateLinkForAzureAdOutput struct {
-	*pulumi.OutputState
-}
+type PrivateLinkForAzureAdOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkForAzureAdOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkForAzureAd)(nil))

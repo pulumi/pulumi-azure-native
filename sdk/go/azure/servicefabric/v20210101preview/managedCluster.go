@@ -11,68 +11,38 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The manged cluster resource
 type ManagedCluster struct {
 	pulumi.CustomResourceState
 
-	// List of add-on features to enable on the cluster.
-	AddonFeatures pulumi.StringArrayOutput `pulumi:"addonFeatures"`
-	// VM admin user password.
-	AdminPassword pulumi.StringPtrOutput `pulumi:"adminPassword"`
-	// VM admin user name.
-	AdminUserName pulumi.StringOutput `pulumi:"adminUserName"`
-	// Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
-	AllowRdpAccess pulumi.BoolPtrOutput `pulumi:"allowRdpAccess"`
-	// The policy used to clean up unused versions.
+	AddonFeatures                        pulumi.StringArrayOutput                              `pulumi:"addonFeatures"`
+	AdminPassword                        pulumi.StringPtrOutput                                `pulumi:"adminPassword"`
+	AdminUserName                        pulumi.StringOutput                                   `pulumi:"adminUserName"`
+	AllowRdpAccess                       pulumi.BoolPtrOutput                                  `pulumi:"allowRdpAccess"`
 	ApplicationTypeVersionsCleanupPolicy ApplicationTypeVersionsCleanupPolicyResponsePtrOutput `pulumi:"applicationTypeVersionsCleanupPolicy"`
-	// The AAD authentication settings of the cluster.
-	AzureActiveDirectory AzureActiveDirectoryResponsePtrOutput `pulumi:"azureActiveDirectory"`
-	// The port used for client connections to the cluster.
-	ClientConnectionPort pulumi.IntPtrOutput `pulumi:"clientConnectionPort"`
-	// Client certificates that are allowed to manage the cluster.
-	Clients ClientCertificateResponseArrayOutput `pulumi:"clients"`
-	// List of thumbprints of the cluster certificates.
-	ClusterCertificateThumbprints pulumi.StringArrayOutput `pulumi:"clusterCertificateThumbprints"`
-	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
-	ClusterCodeVersion pulumi.StringPtrOutput `pulumi:"clusterCodeVersion"`
-	// A service generated unique identifier for the cluster resource.
-	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
-	// The current state of the cluster.
-	ClusterState pulumi.StringOutput `pulumi:"clusterState"`
-	// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0.
-	ClusterUpgradeCadence pulumi.StringPtrOutput `pulumi:"clusterUpgradeCadence"`
-	// The cluster dns name.
-	DnsName pulumi.StringOutput `pulumi:"dnsName"`
-	// Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
-	EnableAutoOSUpgrade pulumi.BoolPtrOutput `pulumi:"enableAutoOSUpgrade"`
-	// Azure resource etag.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The list of custom fabric settings to configure the cluster.
-	FabricSettings SettingsSectionDescriptionResponseArrayOutput `pulumi:"fabricSettings"`
-	// The fully qualified domain name associated with the public load balancer of the cluster.
-	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
-	// The port used for HTTP connections to the cluster.
-	HttpGatewayConnectionPort pulumi.IntPtrOutput `pulumi:"httpGatewayConnectionPort"`
-	// The IPv4 address associated with the public load balancer of the cluster.
-	Ipv4Address pulumi.StringOutput `pulumi:"ipv4Address"`
-	// Load balancing rules that are applied to the public load balancer of the cluster.
-	LoadBalancingRules LoadBalancingRuleResponseArrayOutput `pulumi:"loadBalancingRules"`
-	// Azure resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Custom Network Security Rules that are applied to the virtual network of the cluster.
-	NetworkSecurityRules NetworkSecurityRuleResponseArrayOutput `pulumi:"networkSecurityRules"`
-	// The provisioning state of the managed cluster resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The sku of the managed cluster
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Azure resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AzureActiveDirectory                 AzureActiveDirectoryResponsePtrOutput                 `pulumi:"azureActiveDirectory"`
+	ClientConnectionPort                 pulumi.IntPtrOutput                                   `pulumi:"clientConnectionPort"`
+	Clients                              ClientCertificateResponseArrayOutput                  `pulumi:"clients"`
+	ClusterCertificateThumbprints        pulumi.StringArrayOutput                              `pulumi:"clusterCertificateThumbprints"`
+	ClusterCodeVersion                   pulumi.StringPtrOutput                                `pulumi:"clusterCodeVersion"`
+	ClusterId                            pulumi.StringOutput                                   `pulumi:"clusterId"`
+	ClusterState                         pulumi.StringOutput                                   `pulumi:"clusterState"`
+	ClusterUpgradeCadence                pulumi.StringPtrOutput                                `pulumi:"clusterUpgradeCadence"`
+	DnsName                              pulumi.StringOutput                                   `pulumi:"dnsName"`
+	EnableAutoOSUpgrade                  pulumi.BoolPtrOutput                                  `pulumi:"enableAutoOSUpgrade"`
+	Etag                                 pulumi.StringOutput                                   `pulumi:"etag"`
+	FabricSettings                       SettingsSectionDescriptionResponseArrayOutput         `pulumi:"fabricSettings"`
+	Fqdn                                 pulumi.StringOutput                                   `pulumi:"fqdn"`
+	HttpGatewayConnectionPort            pulumi.IntPtrOutput                                   `pulumi:"httpGatewayConnectionPort"`
+	Ipv4Address                          pulumi.StringOutput                                   `pulumi:"ipv4Address"`
+	LoadBalancingRules                   LoadBalancingRuleResponseArrayOutput                  `pulumi:"loadBalancingRules"`
+	Location                             pulumi.StringOutput                                   `pulumi:"location"`
+	Name                                 pulumi.StringOutput                                   `pulumi:"name"`
+	NetworkSecurityRules                 NetworkSecurityRuleResponseArrayOutput                `pulumi:"networkSecurityRules"`
+	ProvisioningState                    pulumi.StringOutput                                   `pulumi:"provisioningState"`
+	Sku                                  SkuResponsePtrOutput                                  `pulumi:"sku"`
+	SystemData                           SystemDataResponseOutput                              `pulumi:"systemData"`
+	Tags                                 pulumi.StringMapOutput                                `pulumi:"tags"`
+	Type                                 pulumi.StringOutput                                   `pulumi:"type"`
 }
 
 // NewManagedCluster registers a new resource with the given unique name, arguments, and options.
@@ -159,94 +129,52 @@ func (ManagedClusterState) ElementType() reflect.Type {
 }
 
 type managedClusterArgs struct {
-	// List of add-on features to enable on the cluster.
-	AddonFeatures []string `pulumi:"addonFeatures"`
-	// VM admin user password.
-	AdminPassword *string `pulumi:"adminPassword"`
-	// VM admin user name.
-	AdminUserName string `pulumi:"adminUserName"`
-	// Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
-	AllowRdpAccess *bool `pulumi:"allowRdpAccess"`
-	// The policy used to clean up unused versions.
+	AddonFeatures                        []string                              `pulumi:"addonFeatures"`
+	AdminPassword                        *string                               `pulumi:"adminPassword"`
+	AdminUserName                        string                                `pulumi:"adminUserName"`
+	AllowRdpAccess                       *bool                                 `pulumi:"allowRdpAccess"`
 	ApplicationTypeVersionsCleanupPolicy *ApplicationTypeVersionsCleanupPolicy `pulumi:"applicationTypeVersionsCleanupPolicy"`
-	// The AAD authentication settings of the cluster.
-	AzureActiveDirectory *AzureActiveDirectory `pulumi:"azureActiveDirectory"`
-	// The port used for client connections to the cluster.
-	ClientConnectionPort *int `pulumi:"clientConnectionPort"`
-	// Client certificates that are allowed to manage the cluster.
-	Clients []ClientCertificate `pulumi:"clients"`
-	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
-	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
-	// The name of the cluster resource.
-	ClusterName *string `pulumi:"clusterName"`
-	// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0.
-	ClusterUpgradeCadence *string `pulumi:"clusterUpgradeCadence"`
-	// The cluster dns name.
-	DnsName string `pulumi:"dnsName"`
-	// Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
-	EnableAutoOSUpgrade *bool `pulumi:"enableAutoOSUpgrade"`
-	// The list of custom fabric settings to configure the cluster.
-	FabricSettings []SettingsSectionDescription `pulumi:"fabricSettings"`
-	// The port used for HTTP connections to the cluster.
-	HttpGatewayConnectionPort *int `pulumi:"httpGatewayConnectionPort"`
-	// Load balancing rules that are applied to the public load balancer of the cluster.
-	LoadBalancingRules []LoadBalancingRule `pulumi:"loadBalancingRules"`
-	// Azure resource location.
-	Location *string `pulumi:"location"`
-	// Custom Network Security Rules that are applied to the virtual network of the cluster.
-	NetworkSecurityRules []NetworkSecurityRule `pulumi:"networkSecurityRules"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku of the managed cluster
-	Sku *Sku `pulumi:"sku"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AzureActiveDirectory                 *AzureActiveDirectory                 `pulumi:"azureActiveDirectory"`
+	ClientConnectionPort                 *int                                  `pulumi:"clientConnectionPort"`
+	Clients                              []ClientCertificate                   `pulumi:"clients"`
+	ClusterCodeVersion                   *string                               `pulumi:"clusterCodeVersion"`
+	ClusterName                          *string                               `pulumi:"clusterName"`
+	ClusterUpgradeCadence                *string                               `pulumi:"clusterUpgradeCadence"`
+	DnsName                              string                                `pulumi:"dnsName"`
+	EnableAutoOSUpgrade                  *bool                                 `pulumi:"enableAutoOSUpgrade"`
+	FabricSettings                       []SettingsSectionDescription          `pulumi:"fabricSettings"`
+	HttpGatewayConnectionPort            *int                                  `pulumi:"httpGatewayConnectionPort"`
+	LoadBalancingRules                   []LoadBalancingRule                   `pulumi:"loadBalancingRules"`
+	Location                             *string                               `pulumi:"location"`
+	NetworkSecurityRules                 []NetworkSecurityRule                 `pulumi:"networkSecurityRules"`
+	ResourceGroupName                    string                                `pulumi:"resourceGroupName"`
+	Sku                                  *Sku                                  `pulumi:"sku"`
+	Tags                                 map[string]string                     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ManagedCluster resource.
 type ManagedClusterArgs struct {
-	// List of add-on features to enable on the cluster.
-	AddonFeatures pulumi.StringArrayInput
-	// VM admin user password.
-	AdminPassword pulumi.StringPtrInput
-	// VM admin user name.
-	AdminUserName pulumi.StringInput
-	// Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
-	AllowRdpAccess pulumi.BoolPtrInput
-	// The policy used to clean up unused versions.
+	AddonFeatures                        pulumi.StringArrayInput
+	AdminPassword                        pulumi.StringPtrInput
+	AdminUserName                        pulumi.StringInput
+	AllowRdpAccess                       pulumi.BoolPtrInput
 	ApplicationTypeVersionsCleanupPolicy ApplicationTypeVersionsCleanupPolicyPtrInput
-	// The AAD authentication settings of the cluster.
-	AzureActiveDirectory AzureActiveDirectoryPtrInput
-	// The port used for client connections to the cluster.
-	ClientConnectionPort pulumi.IntPtrInput
-	// Client certificates that are allowed to manage the cluster.
-	Clients ClientCertificateArrayInput
-	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
-	ClusterCodeVersion pulumi.StringPtrInput
-	// The name of the cluster resource.
-	ClusterName pulumi.StringPtrInput
-	// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0.
-	ClusterUpgradeCadence pulumi.StringPtrInput
-	// The cluster dns name.
-	DnsName pulumi.StringInput
-	// Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
-	EnableAutoOSUpgrade pulumi.BoolPtrInput
-	// The list of custom fabric settings to configure the cluster.
-	FabricSettings SettingsSectionDescriptionArrayInput
-	// The port used for HTTP connections to the cluster.
-	HttpGatewayConnectionPort pulumi.IntPtrInput
-	// Load balancing rules that are applied to the public load balancer of the cluster.
-	LoadBalancingRules LoadBalancingRuleArrayInput
-	// Azure resource location.
-	Location pulumi.StringPtrInput
-	// Custom Network Security Rules that are applied to the virtual network of the cluster.
-	NetworkSecurityRules NetworkSecurityRuleArrayInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The sku of the managed cluster
-	Sku SkuPtrInput
-	// Azure resource tags.
-	Tags pulumi.StringMapInput
+	AzureActiveDirectory                 AzureActiveDirectoryPtrInput
+	ClientConnectionPort                 pulumi.IntPtrInput
+	Clients                              ClientCertificateArrayInput
+	ClusterCodeVersion                   pulumi.StringPtrInput
+	ClusterName                          pulumi.StringPtrInput
+	ClusterUpgradeCadence                pulumi.StringPtrInput
+	DnsName                              pulumi.StringInput
+	EnableAutoOSUpgrade                  pulumi.BoolPtrInput
+	FabricSettings                       SettingsSectionDescriptionArrayInput
+	HttpGatewayConnectionPort            pulumi.IntPtrInput
+	LoadBalancingRules                   LoadBalancingRuleArrayInput
+	Location                             pulumi.StringPtrInput
+	NetworkSecurityRules                 NetworkSecurityRuleArrayInput
+	ResourceGroupName                    pulumi.StringInput
+	Sku                                  SkuPtrInput
+	Tags                                 pulumi.StringMapInput
 }
 
 func (ManagedClusterArgs) ElementType() reflect.Type {
@@ -272,9 +200,7 @@ func (i *ManagedCluster) ToManagedClusterOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterOutput)
 }
 
-type ManagedClusterOutput struct {
-	*pulumi.OutputState
-}
+type ManagedClusterOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedCluster)(nil))

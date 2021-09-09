@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure SQL managed instance administrator.
 func LookupManagedInstanceAdministrator(ctx *pulumi.Context, args *LookupManagedInstanceAdministratorArgs, opts ...pulumi.InvokeOption) (*LookupManagedInstanceAdministratorResult, error) {
 	var rv LookupManagedInstanceAdministratorResult
 	err := ctx.Invoke("azure-native:sql/v20201101preview:getManagedInstanceAdministrator", args, &rv, opts...)
@@ -18,27 +17,18 @@ func LookupManagedInstanceAdministrator(ctx *pulumi.Context, args *LookupManaged
 }
 
 type LookupManagedInstanceAdministratorArgs struct {
-	AdministratorName string `pulumi:"administratorName"`
-	// The name of the managed instance.
+	AdministratorName   string `pulumi:"administratorName"`
 	ManagedInstanceName string `pulumi:"managedInstanceName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 }
 
 // An Azure SQL managed instance administrator.
 type LookupManagedInstanceAdministratorResult struct {
-	// Type of the managed instance administrator.
-	AdministratorType string `pulumi:"administratorType"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Login name of the managed instance administrator.
-	Login string `pulumi:"login"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// SID (object ID) of the managed instance administrator.
-	Sid string `pulumi:"sid"`
-	// Tenant ID of the managed instance administrator.
-	TenantId *string `pulumi:"tenantId"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	AdministratorType string  `pulumi:"administratorType"`
+	Id                string  `pulumi:"id"`
+	Login             string  `pulumi:"login"`
+	Name              string  `pulumi:"name"`
+	Sid               string  `pulumi:"sid"`
+	TenantId          *string `pulumi:"tenantId"`
+	Type              string  `pulumi:"type"`
 }

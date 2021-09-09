@@ -201,9 +201,7 @@ func (i *IntegrationAccountSchema) ToIntegrationAccountSchemaOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSchemaOutput)
 }
 
-type IntegrationAccountSchemaOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountSchemaOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountSchemaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountSchema)(nil))

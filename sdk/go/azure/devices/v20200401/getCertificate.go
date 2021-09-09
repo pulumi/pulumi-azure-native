@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The X509 Certificate.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
 	err := ctx.Invoke("azure-native:devices/v20200401:getCertificate", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 }
 
 type LookupCertificateArgs struct {
-	// The name of the certificate
-	CertificateName string `pulumi:"certificateName"`
-	// The name of the resource group that contains the IoT hub.
+	CertificateName   string `pulumi:"certificateName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the IoT hub.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // The X509 Certificate.
 type LookupCertificateResult struct {
-	// The entity tag.
-	Etag string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The name of the certificate.
-	Name string `pulumi:"name"`
-	// The description of an X509 CA Certificate.
+	Etag       string                        `pulumi:"etag"`
+	Id         string                        `pulumi:"id"`
+	Name       string                        `pulumi:"name"`
 	Properties CertificatePropertiesResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type       string                        `pulumi:"type"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents the environments details
 func GetGlobalUserEnvironment(ctx *pulumi.Context, args *GetGlobalUserEnvironmentArgs, opts ...pulumi.InvokeOption) (*GetGlobalUserEnvironmentResult, error) {
 	var rv GetGlobalUserEnvironmentResult
 	err := ctx.Invoke("azure-native:labservices/v20181015:getGlobalUserEnvironment", args, &rv, opts...)
@@ -18,16 +17,12 @@ func GetGlobalUserEnvironment(ctx *pulumi.Context, args *GetGlobalUserEnvironmen
 }
 
 type GetGlobalUserEnvironmentArgs struct {
-	// The resourceId of the environment
-	EnvironmentId string `pulumi:"environmentId"`
-	// Specify the $expand query. Example: 'properties($expand=environment)'
-	Expand *string `pulumi:"expand"`
-	// The name of the user.
-	UserName string `pulumi:"userName"`
+	EnvironmentId string  `pulumi:"environmentId"`
+	Expand        *string `pulumi:"expand"`
+	UserName      string  `pulumi:"userName"`
 }
 
 // Represents the environments details
 type GetGlobalUserEnvironmentResult struct {
-	// Details of the environment
 	Environment EnvironmentDetailsResponse `pulumi:"environment"`
 }

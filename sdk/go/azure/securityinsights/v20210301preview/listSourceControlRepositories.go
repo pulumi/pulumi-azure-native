@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// List all the source controls.
 func ListSourceControlRepositories(ctx *pulumi.Context, args *ListSourceControlRepositoriesArgs, opts ...pulumi.InvokeOption) (*ListSourceControlRepositoriesResult, error) {
 	var rv ListSourceControlRepositoriesResult
 	err := ctx.Invoke("azure-native:securityinsights/v20210301preview:listSourceControlRepositories", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListSourceControlRepositories(ctx *pulumi.Context, args *ListSourceControlR
 }
 
 type ListSourceControlRepositoriesArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // List all the source controls.
 type ListSourceControlRepositoriesResult struct {
-	// URL to fetch the next set of repositories.
-	NextLink string `pulumi:"nextLink"`
-	// Array of repositories.
-	Value []RepoResponse `pulumi:"value"`
+	NextLink string         `pulumi:"nextLink"`
+	Value    []RepoResponse `pulumi:"value"`
 }

@@ -10,13 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a NotificationHub AdmCredential.
 type AdmCredential struct {
-	// The URL of the authorization token.
 	AuthTokenUrl *string `pulumi:"authTokenUrl"`
-	// The client identifier.
-	ClientId *string `pulumi:"clientId"`
-	// The credential secret access key.
+	ClientId     *string `pulumi:"clientId"`
 	ClientSecret *string `pulumi:"clientSecret"`
 }
 
@@ -31,13 +27,9 @@ type AdmCredentialInput interface {
 	ToAdmCredentialOutputWithContext(context.Context) AdmCredentialOutput
 }
 
-// Description of a NotificationHub AdmCredential.
 type AdmCredentialArgs struct {
-	// The URL of the authorization token.
 	AuthTokenUrl pulumi.StringPtrInput `pulumi:"authTokenUrl"`
-	// The client identifier.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The credential secret access key.
+	ClientId     pulumi.StringPtrInput `pulumi:"clientId"`
 	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
 }
 
@@ -94,7 +86,6 @@ func (i *admCredentialPtrType) ToAdmCredentialPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialPtrOutput)
 }
 
-// Description of a NotificationHub AdmCredential.
 type AdmCredentialOutput struct{ *pulumi.OutputState }
 
 func (AdmCredentialOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o AdmCredentialOutput) ToAdmCredentialPtrOutput() AdmCredentialPtrOutput {
 }
 
 func (o AdmCredentialOutput) ToAdmCredentialPtrOutputWithContext(ctx context.Context) AdmCredentialPtrOutput {
-	return o.ApplyT(func(v AdmCredential) *AdmCredential {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdmCredential) *AdmCredential {
 		return &v
 	}).(AdmCredentialPtrOutput)
 }
 
-// The URL of the authorization token.
 func (o AdmCredentialOutput) AuthTokenUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AdmCredential) *string { return v.AuthTokenUrl }).(pulumi.StringPtrOutput)
 }
 
-// The client identifier.
 func (o AdmCredentialOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AdmCredential) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The credential secret access key.
 func (o AdmCredentialOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AdmCredential) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
@@ -149,10 +137,15 @@ func (o AdmCredentialPtrOutput) ToAdmCredentialPtrOutputWithContext(ctx context.
 }
 
 func (o AdmCredentialPtrOutput) Elem() AdmCredentialOutput {
-	return o.ApplyT(func(v *AdmCredential) AdmCredential { return *v }).(AdmCredentialOutput)
+	return o.ApplyT(func(v *AdmCredential) AdmCredential {
+		if v != nil {
+			return *v
+		}
+		var ret AdmCredential
+		return ret
+	}).(AdmCredentialOutput)
 }
 
-// The URL of the authorization token.
 func (o AdmCredentialPtrOutput) AuthTokenUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdmCredential) *string {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o AdmCredentialPtrOutput) AuthTokenUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The client identifier.
 func (o AdmCredentialPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdmCredential) *string {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o AdmCredentialPtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The credential secret access key.
 func (o AdmCredentialPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdmCredential) *string {
 		if v == nil {
@@ -182,13 +173,9 @@ func (o AdmCredentialPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub AdmCredential.
 type AdmCredentialResponse struct {
-	// The URL of the authorization token.
 	AuthTokenUrl *string `pulumi:"authTokenUrl"`
-	// The client identifier.
-	ClientId *string `pulumi:"clientId"`
-	// The credential secret access key.
+	ClientId     *string `pulumi:"clientId"`
 	ClientSecret *string `pulumi:"clientSecret"`
 }
 
@@ -203,13 +190,9 @@ type AdmCredentialResponseInput interface {
 	ToAdmCredentialResponseOutputWithContext(context.Context) AdmCredentialResponseOutput
 }
 
-// Description of a NotificationHub AdmCredential.
 type AdmCredentialResponseArgs struct {
-	// The URL of the authorization token.
 	AuthTokenUrl pulumi.StringPtrInput `pulumi:"authTokenUrl"`
-	// The client identifier.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The credential secret access key.
+	ClientId     pulumi.StringPtrInput `pulumi:"clientId"`
 	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
 }
 
@@ -266,7 +249,6 @@ func (i *admCredentialResponsePtrType) ToAdmCredentialResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialResponsePtrOutput)
 }
 
-// Description of a NotificationHub AdmCredential.
 type AdmCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (AdmCredentialResponseOutput) ElementType() reflect.Type {
@@ -286,22 +268,19 @@ func (o AdmCredentialResponseOutput) ToAdmCredentialResponsePtrOutput() AdmCrede
 }
 
 func (o AdmCredentialResponseOutput) ToAdmCredentialResponsePtrOutputWithContext(ctx context.Context) AdmCredentialResponsePtrOutput {
-	return o.ApplyT(func(v AdmCredentialResponse) *AdmCredentialResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdmCredentialResponse) *AdmCredentialResponse {
 		return &v
 	}).(AdmCredentialResponsePtrOutput)
 }
 
-// The URL of the authorization token.
 func (o AdmCredentialResponseOutput) AuthTokenUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AdmCredentialResponse) *string { return v.AuthTokenUrl }).(pulumi.StringPtrOutput)
 }
 
-// The client identifier.
 func (o AdmCredentialResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AdmCredentialResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The credential secret access key.
 func (o AdmCredentialResponseOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AdmCredentialResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
@@ -321,10 +300,15 @@ func (o AdmCredentialResponsePtrOutput) ToAdmCredentialResponsePtrOutputWithCont
 }
 
 func (o AdmCredentialResponsePtrOutput) Elem() AdmCredentialResponseOutput {
-	return o.ApplyT(func(v *AdmCredentialResponse) AdmCredentialResponse { return *v }).(AdmCredentialResponseOutput)
+	return o.ApplyT(func(v *AdmCredentialResponse) AdmCredentialResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AdmCredentialResponse
+		return ret
+	}).(AdmCredentialResponseOutput)
 }
 
-// The URL of the authorization token.
 func (o AdmCredentialResponsePtrOutput) AuthTokenUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdmCredentialResponse) *string {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o AdmCredentialResponsePtrOutput) AuthTokenUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The client identifier.
 func (o AdmCredentialResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdmCredentialResponse) *string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o AdmCredentialResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The credential secret access key.
 func (o AdmCredentialResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdmCredentialResponse) *string {
 		if v == nil {
@@ -354,24 +336,15 @@ func (o AdmCredentialResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub ApnsCredential.
 type ApnsCredential struct {
-	// The APNS certificate. Specify if using Certificate Authentication Mode.
 	ApnsCertificate *string `pulumi:"apnsCertificate"`
-	// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
-	AppId *string `pulumi:"appId"`
-	// The name of the application or BundleId. Specify if using Token Authentication Mode.
-	AppName *string `pulumi:"appName"`
-	// The APNS certificate password if it exists.
-	CertificateKey *string `pulumi:"certificateKey"`
-	// The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
-	Endpoint *string `pulumi:"endpoint"`
-	// A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
-	KeyId *string `pulumi:"keyId"`
-	// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
-	Thumbprint *string `pulumi:"thumbprint"`
-	// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
-	Token *string `pulumi:"token"`
+	AppId           *string `pulumi:"appId"`
+	AppName         *string `pulumi:"appName"`
+	CertificateKey  *string `pulumi:"certificateKey"`
+	Endpoint        *string `pulumi:"endpoint"`
+	KeyId           *string `pulumi:"keyId"`
+	Thumbprint      *string `pulumi:"thumbprint"`
+	Token           *string `pulumi:"token"`
 }
 
 // ApnsCredentialInput is an input type that accepts ApnsCredentialArgs and ApnsCredentialOutput values.
@@ -385,24 +358,15 @@ type ApnsCredentialInput interface {
 	ToApnsCredentialOutputWithContext(context.Context) ApnsCredentialOutput
 }
 
-// Description of a NotificationHub ApnsCredential.
 type ApnsCredentialArgs struct {
-	// The APNS certificate. Specify if using Certificate Authentication Mode.
 	ApnsCertificate pulumi.StringPtrInput `pulumi:"apnsCertificate"`
-	// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
-	AppId pulumi.StringPtrInput `pulumi:"appId"`
-	// The name of the application or BundleId. Specify if using Token Authentication Mode.
-	AppName pulumi.StringPtrInput `pulumi:"appName"`
-	// The APNS certificate password if it exists.
-	CertificateKey pulumi.StringPtrInput `pulumi:"certificateKey"`
-	// The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
-	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	// A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
-	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
-	// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
-	// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
-	Token pulumi.StringPtrInput `pulumi:"token"`
+	AppId           pulumi.StringPtrInput `pulumi:"appId"`
+	AppName         pulumi.StringPtrInput `pulumi:"appName"`
+	CertificateKey  pulumi.StringPtrInput `pulumi:"certificateKey"`
+	Endpoint        pulumi.StringPtrInput `pulumi:"endpoint"`
+	KeyId           pulumi.StringPtrInput `pulumi:"keyId"`
+	Thumbprint      pulumi.StringPtrInput `pulumi:"thumbprint"`
+	Token           pulumi.StringPtrInput `pulumi:"token"`
 }
 
 func (ApnsCredentialArgs) ElementType() reflect.Type {
@@ -458,7 +422,6 @@ func (i *apnsCredentialPtrType) ToApnsCredentialPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialPtrOutput)
 }
 
-// Description of a NotificationHub ApnsCredential.
 type ApnsCredentialOutput struct{ *pulumi.OutputState }
 
 func (ApnsCredentialOutput) ElementType() reflect.Type {
@@ -478,47 +441,39 @@ func (o ApnsCredentialOutput) ToApnsCredentialPtrOutput() ApnsCredentialPtrOutpu
 }
 
 func (o ApnsCredentialOutput) ToApnsCredentialPtrOutputWithContext(ctx context.Context) ApnsCredentialPtrOutput {
-	return o.ApplyT(func(v ApnsCredential) *ApnsCredential {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApnsCredential) *ApnsCredential {
 		return &v
 	}).(ApnsCredentialPtrOutput)
 }
 
-// The APNS certificate. Specify if using Certificate Authentication Mode.
 func (o ApnsCredentialOutput) ApnsCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApnsCredential) *string { return v.ApnsCertificate }).(pulumi.StringPtrOutput)
 }
 
-// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
 func (o ApnsCredentialOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApnsCredential) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the application or BundleId. Specify if using Token Authentication Mode.
 func (o ApnsCredentialOutput) AppName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApnsCredential) *string { return v.AppName }).(pulumi.StringPtrOutput)
 }
 
-// The APNS certificate password if it exists.
 func (o ApnsCredentialOutput) CertificateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApnsCredential) *string { return v.CertificateKey }).(pulumi.StringPtrOutput)
 }
 
-// The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
 func (o ApnsCredentialOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApnsCredential) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-// A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
 func (o ApnsCredentialOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApnsCredential) *string { return v.KeyId }).(pulumi.StringPtrOutput)
 }
 
-// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
 func (o ApnsCredentialOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApnsCredential) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
-// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
 func (o ApnsCredentialOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApnsCredential) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
@@ -538,10 +493,15 @@ func (o ApnsCredentialPtrOutput) ToApnsCredentialPtrOutputWithContext(ctx contex
 }
 
 func (o ApnsCredentialPtrOutput) Elem() ApnsCredentialOutput {
-	return o.ApplyT(func(v *ApnsCredential) ApnsCredential { return *v }).(ApnsCredentialOutput)
+	return o.ApplyT(func(v *ApnsCredential) ApnsCredential {
+		if v != nil {
+			return *v
+		}
+		var ret ApnsCredential
+		return ret
+	}).(ApnsCredentialOutput)
 }
 
-// The APNS certificate. Specify if using Certificate Authentication Mode.
 func (o ApnsCredentialPtrOutput) ApnsCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredential) *string {
 		if v == nil {
@@ -551,7 +511,6 @@ func (o ApnsCredentialPtrOutput) ApnsCertificate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
 func (o ApnsCredentialPtrOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredential) *string {
 		if v == nil {
@@ -561,7 +520,6 @@ func (o ApnsCredentialPtrOutput) AppId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the application or BundleId. Specify if using Token Authentication Mode.
 func (o ApnsCredentialPtrOutput) AppName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredential) *string {
 		if v == nil {
@@ -571,7 +529,6 @@ func (o ApnsCredentialPtrOutput) AppName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The APNS certificate password if it exists.
 func (o ApnsCredentialPtrOutput) CertificateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredential) *string {
 		if v == nil {
@@ -581,7 +538,6 @@ func (o ApnsCredentialPtrOutput) CertificateKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
 func (o ApnsCredentialPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredential) *string {
 		if v == nil {
@@ -591,7 +547,6 @@ func (o ApnsCredentialPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
 func (o ApnsCredentialPtrOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredential) *string {
 		if v == nil {
@@ -601,7 +556,6 @@ func (o ApnsCredentialPtrOutput) KeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
 func (o ApnsCredentialPtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredential) *string {
 		if v == nil {
@@ -611,7 +565,6 @@ func (o ApnsCredentialPtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
 func (o ApnsCredentialPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredential) *string {
 		if v == nil {
@@ -621,24 +574,15 @@ func (o ApnsCredentialPtrOutput) Token() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub ApnsCredential.
 type ApnsCredentialResponse struct {
-	// The APNS certificate. Specify if using Certificate Authentication Mode.
 	ApnsCertificate *string `pulumi:"apnsCertificate"`
-	// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
-	AppId *string `pulumi:"appId"`
-	// The name of the application or BundleId. Specify if using Token Authentication Mode.
-	AppName *string `pulumi:"appName"`
-	// The APNS certificate password if it exists.
-	CertificateKey *string `pulumi:"certificateKey"`
-	// The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
-	Endpoint *string `pulumi:"endpoint"`
-	// A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
-	KeyId *string `pulumi:"keyId"`
-	// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
-	Thumbprint *string `pulumi:"thumbprint"`
-	// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
-	Token *string `pulumi:"token"`
+	AppId           *string `pulumi:"appId"`
+	AppName         *string `pulumi:"appName"`
+	CertificateKey  *string `pulumi:"certificateKey"`
+	Endpoint        *string `pulumi:"endpoint"`
+	KeyId           *string `pulumi:"keyId"`
+	Thumbprint      *string `pulumi:"thumbprint"`
+	Token           *string `pulumi:"token"`
 }
 
 // ApnsCredentialResponseInput is an input type that accepts ApnsCredentialResponseArgs and ApnsCredentialResponseOutput values.
@@ -652,24 +596,15 @@ type ApnsCredentialResponseInput interface {
 	ToApnsCredentialResponseOutputWithContext(context.Context) ApnsCredentialResponseOutput
 }
 
-// Description of a NotificationHub ApnsCredential.
 type ApnsCredentialResponseArgs struct {
-	// The APNS certificate. Specify if using Certificate Authentication Mode.
 	ApnsCertificate pulumi.StringPtrInput `pulumi:"apnsCertificate"`
-	// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
-	AppId pulumi.StringPtrInput `pulumi:"appId"`
-	// The name of the application or BundleId. Specify if using Token Authentication Mode.
-	AppName pulumi.StringPtrInput `pulumi:"appName"`
-	// The APNS certificate password if it exists.
-	CertificateKey pulumi.StringPtrInput `pulumi:"certificateKey"`
-	// The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
-	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	// A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
-	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
-	// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
-	// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
-	Token pulumi.StringPtrInput `pulumi:"token"`
+	AppId           pulumi.StringPtrInput `pulumi:"appId"`
+	AppName         pulumi.StringPtrInput `pulumi:"appName"`
+	CertificateKey  pulumi.StringPtrInput `pulumi:"certificateKey"`
+	Endpoint        pulumi.StringPtrInput `pulumi:"endpoint"`
+	KeyId           pulumi.StringPtrInput `pulumi:"keyId"`
+	Thumbprint      pulumi.StringPtrInput `pulumi:"thumbprint"`
+	Token           pulumi.StringPtrInput `pulumi:"token"`
 }
 
 func (ApnsCredentialResponseArgs) ElementType() reflect.Type {
@@ -725,7 +660,6 @@ func (i *apnsCredentialResponsePtrType) ToApnsCredentialResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialResponsePtrOutput)
 }
 
-// Description of a NotificationHub ApnsCredential.
 type ApnsCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (ApnsCredentialResponseOutput) ElementType() reflect.Type {
@@ -745,47 +679,39 @@ func (o ApnsCredentialResponseOutput) ToApnsCredentialResponsePtrOutput() ApnsCr
 }
 
 func (o ApnsCredentialResponseOutput) ToApnsCredentialResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialResponsePtrOutput {
-	return o.ApplyT(func(v ApnsCredentialResponse) *ApnsCredentialResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApnsCredentialResponse) *ApnsCredentialResponse {
 		return &v
 	}).(ApnsCredentialResponsePtrOutput)
 }
 
-// The APNS certificate. Specify if using Certificate Authentication Mode.
 func (o ApnsCredentialResponseOutput) ApnsCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApnsCredentialResponse) *string { return v.ApnsCertificate }).(pulumi.StringPtrOutput)
 }
 
-// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
 func (o ApnsCredentialResponseOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApnsCredentialResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the application or BundleId. Specify if using Token Authentication Mode.
 func (o ApnsCredentialResponseOutput) AppName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApnsCredentialResponse) *string { return v.AppName }).(pulumi.StringPtrOutput)
 }
 
-// The APNS certificate password if it exists.
 func (o ApnsCredentialResponseOutput) CertificateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApnsCredentialResponse) *string { return v.CertificateKey }).(pulumi.StringPtrOutput)
 }
 
-// The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
 func (o ApnsCredentialResponseOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApnsCredentialResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-// A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
 func (o ApnsCredentialResponseOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApnsCredentialResponse) *string { return v.KeyId }).(pulumi.StringPtrOutput)
 }
 
-// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
 func (o ApnsCredentialResponseOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApnsCredentialResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
-// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
 func (o ApnsCredentialResponseOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApnsCredentialResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
@@ -805,10 +731,15 @@ func (o ApnsCredentialResponsePtrOutput) ToApnsCredentialResponsePtrOutputWithCo
 }
 
 func (o ApnsCredentialResponsePtrOutput) Elem() ApnsCredentialResponseOutput {
-	return o.ApplyT(func(v *ApnsCredentialResponse) ApnsCredentialResponse { return *v }).(ApnsCredentialResponseOutput)
+	return o.ApplyT(func(v *ApnsCredentialResponse) ApnsCredentialResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApnsCredentialResponse
+		return ret
+	}).(ApnsCredentialResponseOutput)
 }
 
-// The APNS certificate. Specify if using Certificate Authentication Mode.
 func (o ApnsCredentialResponsePtrOutput) ApnsCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredentialResponse) *string {
 		if v == nil {
@@ -818,7 +749,6 @@ func (o ApnsCredentialResponsePtrOutput) ApnsCertificate() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
 func (o ApnsCredentialResponsePtrOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredentialResponse) *string {
 		if v == nil {
@@ -828,7 +758,6 @@ func (o ApnsCredentialResponsePtrOutput) AppId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the application or BundleId. Specify if using Token Authentication Mode.
 func (o ApnsCredentialResponsePtrOutput) AppName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredentialResponse) *string {
 		if v == nil {
@@ -838,7 +767,6 @@ func (o ApnsCredentialResponsePtrOutput) AppName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The APNS certificate password if it exists.
 func (o ApnsCredentialResponsePtrOutput) CertificateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredentialResponse) *string {
 		if v == nil {
@@ -848,7 +776,6 @@ func (o ApnsCredentialResponsePtrOutput) CertificateKey() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
 func (o ApnsCredentialResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredentialResponse) *string {
 		if v == nil {
@@ -858,7 +785,6 @@ func (o ApnsCredentialResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
 func (o ApnsCredentialResponsePtrOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredentialResponse) *string {
 		if v == nil {
@@ -868,7 +794,6 @@ func (o ApnsCredentialResponsePtrOutput) KeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
 func (o ApnsCredentialResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredentialResponse) *string {
 		if v == nil {
@@ -878,7 +803,6 @@ func (o ApnsCredentialResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
 func (o ApnsCredentialResponsePtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredentialResponse) *string {
 		if v == nil {
@@ -888,13 +812,9 @@ func (o ApnsCredentialResponsePtrOutput) Token() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub BaiduCredential.
 type BaiduCredential struct {
-	// Baidu Api Key.
-	BaiduApiKey *string `pulumi:"baiduApiKey"`
-	// Baidu Endpoint.
-	BaiduEndPoint *string `pulumi:"baiduEndPoint"`
-	// Baidu Secret Key
+	BaiduApiKey    *string `pulumi:"baiduApiKey"`
+	BaiduEndPoint  *string `pulumi:"baiduEndPoint"`
 	BaiduSecretKey *string `pulumi:"baiduSecretKey"`
 }
 
@@ -909,13 +829,9 @@ type BaiduCredentialInput interface {
 	ToBaiduCredentialOutputWithContext(context.Context) BaiduCredentialOutput
 }
 
-// Description of a NotificationHub BaiduCredential.
 type BaiduCredentialArgs struct {
-	// Baidu Api Key.
-	BaiduApiKey pulumi.StringPtrInput `pulumi:"baiduApiKey"`
-	// Baidu Endpoint.
-	BaiduEndPoint pulumi.StringPtrInput `pulumi:"baiduEndPoint"`
-	// Baidu Secret Key
+	BaiduApiKey    pulumi.StringPtrInput `pulumi:"baiduApiKey"`
+	BaiduEndPoint  pulumi.StringPtrInput `pulumi:"baiduEndPoint"`
 	BaiduSecretKey pulumi.StringPtrInput `pulumi:"baiduSecretKey"`
 }
 
@@ -972,7 +888,6 @@ func (i *baiduCredentialPtrType) ToBaiduCredentialPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialPtrOutput)
 }
 
-// Description of a NotificationHub BaiduCredential.
 type BaiduCredentialOutput struct{ *pulumi.OutputState }
 
 func (BaiduCredentialOutput) ElementType() reflect.Type {
@@ -992,22 +907,19 @@ func (o BaiduCredentialOutput) ToBaiduCredentialPtrOutput() BaiduCredentialPtrOu
 }
 
 func (o BaiduCredentialOutput) ToBaiduCredentialPtrOutputWithContext(ctx context.Context) BaiduCredentialPtrOutput {
-	return o.ApplyT(func(v BaiduCredential) *BaiduCredential {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BaiduCredential) *BaiduCredential {
 		return &v
 	}).(BaiduCredentialPtrOutput)
 }
 
-// Baidu Api Key.
 func (o BaiduCredentialOutput) BaiduApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaiduCredential) *string { return v.BaiduApiKey }).(pulumi.StringPtrOutput)
 }
 
-// Baidu Endpoint.
 func (o BaiduCredentialOutput) BaiduEndPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaiduCredential) *string { return v.BaiduEndPoint }).(pulumi.StringPtrOutput)
 }
 
-// Baidu Secret Key
 func (o BaiduCredentialOutput) BaiduSecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaiduCredential) *string { return v.BaiduSecretKey }).(pulumi.StringPtrOutput)
 }
@@ -1027,10 +939,15 @@ func (o BaiduCredentialPtrOutput) ToBaiduCredentialPtrOutputWithContext(ctx cont
 }
 
 func (o BaiduCredentialPtrOutput) Elem() BaiduCredentialOutput {
-	return o.ApplyT(func(v *BaiduCredential) BaiduCredential { return *v }).(BaiduCredentialOutput)
+	return o.ApplyT(func(v *BaiduCredential) BaiduCredential {
+		if v != nil {
+			return *v
+		}
+		var ret BaiduCredential
+		return ret
+	}).(BaiduCredentialOutput)
 }
 
-// Baidu Api Key.
 func (o BaiduCredentialPtrOutput) BaiduApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaiduCredential) *string {
 		if v == nil {
@@ -1040,7 +957,6 @@ func (o BaiduCredentialPtrOutput) BaiduApiKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Baidu Endpoint.
 func (o BaiduCredentialPtrOutput) BaiduEndPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaiduCredential) *string {
 		if v == nil {
@@ -1050,7 +966,6 @@ func (o BaiduCredentialPtrOutput) BaiduEndPoint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Baidu Secret Key
 func (o BaiduCredentialPtrOutput) BaiduSecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaiduCredential) *string {
 		if v == nil {
@@ -1060,13 +975,9 @@ func (o BaiduCredentialPtrOutput) BaiduSecretKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub BaiduCredential.
 type BaiduCredentialResponse struct {
-	// Baidu Api Key.
-	BaiduApiKey *string `pulumi:"baiduApiKey"`
-	// Baidu Endpoint.
-	BaiduEndPoint *string `pulumi:"baiduEndPoint"`
-	// Baidu Secret Key
+	BaiduApiKey    *string `pulumi:"baiduApiKey"`
+	BaiduEndPoint  *string `pulumi:"baiduEndPoint"`
 	BaiduSecretKey *string `pulumi:"baiduSecretKey"`
 }
 
@@ -1081,13 +992,9 @@ type BaiduCredentialResponseInput interface {
 	ToBaiduCredentialResponseOutputWithContext(context.Context) BaiduCredentialResponseOutput
 }
 
-// Description of a NotificationHub BaiduCredential.
 type BaiduCredentialResponseArgs struct {
-	// Baidu Api Key.
-	BaiduApiKey pulumi.StringPtrInput `pulumi:"baiduApiKey"`
-	// Baidu Endpoint.
-	BaiduEndPoint pulumi.StringPtrInput `pulumi:"baiduEndPoint"`
-	// Baidu Secret Key
+	BaiduApiKey    pulumi.StringPtrInput `pulumi:"baiduApiKey"`
+	BaiduEndPoint  pulumi.StringPtrInput `pulumi:"baiduEndPoint"`
 	BaiduSecretKey pulumi.StringPtrInput `pulumi:"baiduSecretKey"`
 }
 
@@ -1144,7 +1051,6 @@ func (i *baiduCredentialResponsePtrType) ToBaiduCredentialResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialResponsePtrOutput)
 }
 
-// Description of a NotificationHub BaiduCredential.
 type BaiduCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (BaiduCredentialResponseOutput) ElementType() reflect.Type {
@@ -1164,22 +1070,19 @@ func (o BaiduCredentialResponseOutput) ToBaiduCredentialResponsePtrOutput() Baid
 }
 
 func (o BaiduCredentialResponseOutput) ToBaiduCredentialResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialResponsePtrOutput {
-	return o.ApplyT(func(v BaiduCredentialResponse) *BaiduCredentialResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BaiduCredentialResponse) *BaiduCredentialResponse {
 		return &v
 	}).(BaiduCredentialResponsePtrOutput)
 }
 
-// Baidu Api Key.
 func (o BaiduCredentialResponseOutput) BaiduApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaiduCredentialResponse) *string { return v.BaiduApiKey }).(pulumi.StringPtrOutput)
 }
 
-// Baidu Endpoint.
 func (o BaiduCredentialResponseOutput) BaiduEndPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaiduCredentialResponse) *string { return v.BaiduEndPoint }).(pulumi.StringPtrOutput)
 }
 
-// Baidu Secret Key
 func (o BaiduCredentialResponseOutput) BaiduSecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaiduCredentialResponse) *string { return v.BaiduSecretKey }).(pulumi.StringPtrOutput)
 }
@@ -1199,10 +1102,15 @@ func (o BaiduCredentialResponsePtrOutput) ToBaiduCredentialResponsePtrOutputWith
 }
 
 func (o BaiduCredentialResponsePtrOutput) Elem() BaiduCredentialResponseOutput {
-	return o.ApplyT(func(v *BaiduCredentialResponse) BaiduCredentialResponse { return *v }).(BaiduCredentialResponseOutput)
+	return o.ApplyT(func(v *BaiduCredentialResponse) BaiduCredentialResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BaiduCredentialResponse
+		return ret
+	}).(BaiduCredentialResponseOutput)
 }
 
-// Baidu Api Key.
 func (o BaiduCredentialResponsePtrOutput) BaiduApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaiduCredentialResponse) *string {
 		if v == nil {
@@ -1212,7 +1120,6 @@ func (o BaiduCredentialResponsePtrOutput) BaiduApiKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Baidu Endpoint.
 func (o BaiduCredentialResponsePtrOutput) BaiduEndPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaiduCredentialResponse) *string {
 		if v == nil {
@@ -1222,7 +1129,6 @@ func (o BaiduCredentialResponsePtrOutput) BaiduEndPoint() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Baidu Secret Key
 func (o BaiduCredentialResponsePtrOutput) BaiduSecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaiduCredentialResponse) *string {
 		if v == nil {
@@ -1232,11 +1138,8 @@ func (o BaiduCredentialResponsePtrOutput) BaiduSecretKey() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub GcmCredential.
 type GcmCredential struct {
-	// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
-	GcmEndpoint *string `pulumi:"gcmEndpoint"`
-	// The Google API key.
+	GcmEndpoint  *string `pulumi:"gcmEndpoint"`
 	GoogleApiKey *string `pulumi:"googleApiKey"`
 }
 
@@ -1251,11 +1154,8 @@ type GcmCredentialInput interface {
 	ToGcmCredentialOutputWithContext(context.Context) GcmCredentialOutput
 }
 
-// Description of a NotificationHub GcmCredential.
 type GcmCredentialArgs struct {
-	// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
-	GcmEndpoint pulumi.StringPtrInput `pulumi:"gcmEndpoint"`
-	// The Google API key.
+	GcmEndpoint  pulumi.StringPtrInput `pulumi:"gcmEndpoint"`
 	GoogleApiKey pulumi.StringPtrInput `pulumi:"googleApiKey"`
 }
 
@@ -1312,7 +1212,6 @@ func (i *gcmCredentialPtrType) ToGcmCredentialPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialPtrOutput)
 }
 
-// Description of a NotificationHub GcmCredential.
 type GcmCredentialOutput struct{ *pulumi.OutputState }
 
 func (GcmCredentialOutput) ElementType() reflect.Type {
@@ -1332,17 +1231,15 @@ func (o GcmCredentialOutput) ToGcmCredentialPtrOutput() GcmCredentialPtrOutput {
 }
 
 func (o GcmCredentialOutput) ToGcmCredentialPtrOutputWithContext(ctx context.Context) GcmCredentialPtrOutput {
-	return o.ApplyT(func(v GcmCredential) *GcmCredential {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcmCredential) *GcmCredential {
 		return &v
 	}).(GcmCredentialPtrOutput)
 }
 
-// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
 func (o GcmCredentialOutput) GcmEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GcmCredential) *string { return v.GcmEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// The Google API key.
 func (o GcmCredentialOutput) GoogleApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GcmCredential) *string { return v.GoogleApiKey }).(pulumi.StringPtrOutput)
 }
@@ -1362,10 +1259,15 @@ func (o GcmCredentialPtrOutput) ToGcmCredentialPtrOutputWithContext(ctx context.
 }
 
 func (o GcmCredentialPtrOutput) Elem() GcmCredentialOutput {
-	return o.ApplyT(func(v *GcmCredential) GcmCredential { return *v }).(GcmCredentialOutput)
+	return o.ApplyT(func(v *GcmCredential) GcmCredential {
+		if v != nil {
+			return *v
+		}
+		var ret GcmCredential
+		return ret
+	}).(GcmCredentialOutput)
 }
 
-// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
 func (o GcmCredentialPtrOutput) GcmEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GcmCredential) *string {
 		if v == nil {
@@ -1375,7 +1277,6 @@ func (o GcmCredentialPtrOutput) GcmEndpoint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Google API key.
 func (o GcmCredentialPtrOutput) GoogleApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GcmCredential) *string {
 		if v == nil {
@@ -1385,11 +1286,8 @@ func (o GcmCredentialPtrOutput) GoogleApiKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub GcmCredential.
 type GcmCredentialResponse struct {
-	// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
-	GcmEndpoint *string `pulumi:"gcmEndpoint"`
-	// The Google API key.
+	GcmEndpoint  *string `pulumi:"gcmEndpoint"`
 	GoogleApiKey *string `pulumi:"googleApiKey"`
 }
 
@@ -1404,11 +1302,8 @@ type GcmCredentialResponseInput interface {
 	ToGcmCredentialResponseOutputWithContext(context.Context) GcmCredentialResponseOutput
 }
 
-// Description of a NotificationHub GcmCredential.
 type GcmCredentialResponseArgs struct {
-	// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
-	GcmEndpoint pulumi.StringPtrInput `pulumi:"gcmEndpoint"`
-	// The Google API key.
+	GcmEndpoint  pulumi.StringPtrInput `pulumi:"gcmEndpoint"`
 	GoogleApiKey pulumi.StringPtrInput `pulumi:"googleApiKey"`
 }
 
@@ -1465,7 +1360,6 @@ func (i *gcmCredentialResponsePtrType) ToGcmCredentialResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialResponsePtrOutput)
 }
 
-// Description of a NotificationHub GcmCredential.
 type GcmCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (GcmCredentialResponseOutput) ElementType() reflect.Type {
@@ -1485,17 +1379,15 @@ func (o GcmCredentialResponseOutput) ToGcmCredentialResponsePtrOutput() GcmCrede
 }
 
 func (o GcmCredentialResponseOutput) ToGcmCredentialResponsePtrOutputWithContext(ctx context.Context) GcmCredentialResponsePtrOutput {
-	return o.ApplyT(func(v GcmCredentialResponse) *GcmCredentialResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcmCredentialResponse) *GcmCredentialResponse {
 		return &v
 	}).(GcmCredentialResponsePtrOutput)
 }
 
-// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
 func (o GcmCredentialResponseOutput) GcmEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GcmCredentialResponse) *string { return v.GcmEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// The Google API key.
 func (o GcmCredentialResponseOutput) GoogleApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GcmCredentialResponse) *string { return v.GoogleApiKey }).(pulumi.StringPtrOutput)
 }
@@ -1515,10 +1407,15 @@ func (o GcmCredentialResponsePtrOutput) ToGcmCredentialResponsePtrOutputWithCont
 }
 
 func (o GcmCredentialResponsePtrOutput) Elem() GcmCredentialResponseOutput {
-	return o.ApplyT(func(v *GcmCredentialResponse) GcmCredentialResponse { return *v }).(GcmCredentialResponseOutput)
+	return o.ApplyT(func(v *GcmCredentialResponse) GcmCredentialResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GcmCredentialResponse
+		return ret
+	}).(GcmCredentialResponseOutput)
 }
 
-// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
 func (o GcmCredentialResponsePtrOutput) GcmEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GcmCredentialResponse) *string {
 		if v == nil {
@@ -1528,7 +1425,6 @@ func (o GcmCredentialResponsePtrOutput) GcmEndpoint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Google API key.
 func (o GcmCredentialResponsePtrOutput) GoogleApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GcmCredentialResponse) *string {
 		if v == nil {
@@ -1538,14 +1434,10 @@ func (o GcmCredentialResponsePtrOutput) GoogleApiKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub MpnsCredential.
 type MpnsCredential struct {
-	// The certificate key for this credential.
-	CertificateKey *string `pulumi:"certificateKey"`
-	// The MPNS certificate.
+	CertificateKey  *string `pulumi:"certificateKey"`
 	MpnsCertificate *string `pulumi:"mpnsCertificate"`
-	// The MPNS certificate Thumbprint
-	Thumbprint *string `pulumi:"thumbprint"`
+	Thumbprint      *string `pulumi:"thumbprint"`
 }
 
 // MpnsCredentialInput is an input type that accepts MpnsCredentialArgs and MpnsCredentialOutput values.
@@ -1559,14 +1451,10 @@ type MpnsCredentialInput interface {
 	ToMpnsCredentialOutputWithContext(context.Context) MpnsCredentialOutput
 }
 
-// Description of a NotificationHub MpnsCredential.
 type MpnsCredentialArgs struct {
-	// The certificate key for this credential.
-	CertificateKey pulumi.StringPtrInput `pulumi:"certificateKey"`
-	// The MPNS certificate.
+	CertificateKey  pulumi.StringPtrInput `pulumi:"certificateKey"`
 	MpnsCertificate pulumi.StringPtrInput `pulumi:"mpnsCertificate"`
-	// The MPNS certificate Thumbprint
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+	Thumbprint      pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (MpnsCredentialArgs) ElementType() reflect.Type {
@@ -1622,7 +1510,6 @@ func (i *mpnsCredentialPtrType) ToMpnsCredentialPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialPtrOutput)
 }
 
-// Description of a NotificationHub MpnsCredential.
 type MpnsCredentialOutput struct{ *pulumi.OutputState }
 
 func (MpnsCredentialOutput) ElementType() reflect.Type {
@@ -1642,22 +1529,19 @@ func (o MpnsCredentialOutput) ToMpnsCredentialPtrOutput() MpnsCredentialPtrOutpu
 }
 
 func (o MpnsCredentialOutput) ToMpnsCredentialPtrOutputWithContext(ctx context.Context) MpnsCredentialPtrOutput {
-	return o.ApplyT(func(v MpnsCredential) *MpnsCredential {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MpnsCredential) *MpnsCredential {
 		return &v
 	}).(MpnsCredentialPtrOutput)
 }
 
-// The certificate key for this credential.
 func (o MpnsCredentialOutput) CertificateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MpnsCredential) *string { return v.CertificateKey }).(pulumi.StringPtrOutput)
 }
 
-// The MPNS certificate.
 func (o MpnsCredentialOutput) MpnsCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MpnsCredential) *string { return v.MpnsCertificate }).(pulumi.StringPtrOutput)
 }
 
-// The MPNS certificate Thumbprint
 func (o MpnsCredentialOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MpnsCredential) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
@@ -1677,10 +1561,15 @@ func (o MpnsCredentialPtrOutput) ToMpnsCredentialPtrOutputWithContext(ctx contex
 }
 
 func (o MpnsCredentialPtrOutput) Elem() MpnsCredentialOutput {
-	return o.ApplyT(func(v *MpnsCredential) MpnsCredential { return *v }).(MpnsCredentialOutput)
+	return o.ApplyT(func(v *MpnsCredential) MpnsCredential {
+		if v != nil {
+			return *v
+		}
+		var ret MpnsCredential
+		return ret
+	}).(MpnsCredentialOutput)
 }
 
-// The certificate key for this credential.
 func (o MpnsCredentialPtrOutput) CertificateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MpnsCredential) *string {
 		if v == nil {
@@ -1690,7 +1579,6 @@ func (o MpnsCredentialPtrOutput) CertificateKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The MPNS certificate.
 func (o MpnsCredentialPtrOutput) MpnsCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MpnsCredential) *string {
 		if v == nil {
@@ -1700,7 +1588,6 @@ func (o MpnsCredentialPtrOutput) MpnsCertificate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The MPNS certificate Thumbprint
 func (o MpnsCredentialPtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MpnsCredential) *string {
 		if v == nil {
@@ -1710,14 +1597,10 @@ func (o MpnsCredentialPtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub MpnsCredential.
 type MpnsCredentialResponse struct {
-	// The certificate key for this credential.
-	CertificateKey *string `pulumi:"certificateKey"`
-	// The MPNS certificate.
+	CertificateKey  *string `pulumi:"certificateKey"`
 	MpnsCertificate *string `pulumi:"mpnsCertificate"`
-	// The MPNS certificate Thumbprint
-	Thumbprint *string `pulumi:"thumbprint"`
+	Thumbprint      *string `pulumi:"thumbprint"`
 }
 
 // MpnsCredentialResponseInput is an input type that accepts MpnsCredentialResponseArgs and MpnsCredentialResponseOutput values.
@@ -1731,14 +1614,10 @@ type MpnsCredentialResponseInput interface {
 	ToMpnsCredentialResponseOutputWithContext(context.Context) MpnsCredentialResponseOutput
 }
 
-// Description of a NotificationHub MpnsCredential.
 type MpnsCredentialResponseArgs struct {
-	// The certificate key for this credential.
-	CertificateKey pulumi.StringPtrInput `pulumi:"certificateKey"`
-	// The MPNS certificate.
+	CertificateKey  pulumi.StringPtrInput `pulumi:"certificateKey"`
 	MpnsCertificate pulumi.StringPtrInput `pulumi:"mpnsCertificate"`
-	// The MPNS certificate Thumbprint
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+	Thumbprint      pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (MpnsCredentialResponseArgs) ElementType() reflect.Type {
@@ -1794,7 +1673,6 @@ func (i *mpnsCredentialResponsePtrType) ToMpnsCredentialResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialResponsePtrOutput)
 }
 
-// Description of a NotificationHub MpnsCredential.
 type MpnsCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (MpnsCredentialResponseOutput) ElementType() reflect.Type {
@@ -1814,22 +1692,19 @@ func (o MpnsCredentialResponseOutput) ToMpnsCredentialResponsePtrOutput() MpnsCr
 }
 
 func (o MpnsCredentialResponseOutput) ToMpnsCredentialResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialResponsePtrOutput {
-	return o.ApplyT(func(v MpnsCredentialResponse) *MpnsCredentialResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MpnsCredentialResponse) *MpnsCredentialResponse {
 		return &v
 	}).(MpnsCredentialResponsePtrOutput)
 }
 
-// The certificate key for this credential.
 func (o MpnsCredentialResponseOutput) CertificateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MpnsCredentialResponse) *string { return v.CertificateKey }).(pulumi.StringPtrOutput)
 }
 
-// The MPNS certificate.
 func (o MpnsCredentialResponseOutput) MpnsCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MpnsCredentialResponse) *string { return v.MpnsCertificate }).(pulumi.StringPtrOutput)
 }
 
-// The MPNS certificate Thumbprint
 func (o MpnsCredentialResponseOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MpnsCredentialResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
@@ -1849,10 +1724,15 @@ func (o MpnsCredentialResponsePtrOutput) ToMpnsCredentialResponsePtrOutputWithCo
 }
 
 func (o MpnsCredentialResponsePtrOutput) Elem() MpnsCredentialResponseOutput {
-	return o.ApplyT(func(v *MpnsCredentialResponse) MpnsCredentialResponse { return *v }).(MpnsCredentialResponseOutput)
+	return o.ApplyT(func(v *MpnsCredentialResponse) MpnsCredentialResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MpnsCredentialResponse
+		return ret
+	}).(MpnsCredentialResponseOutput)
 }
 
-// The certificate key for this credential.
 func (o MpnsCredentialResponsePtrOutput) CertificateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MpnsCredentialResponse) *string {
 		if v == nil {
@@ -1862,7 +1742,6 @@ func (o MpnsCredentialResponsePtrOutput) CertificateKey() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The MPNS certificate.
 func (o MpnsCredentialResponsePtrOutput) MpnsCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MpnsCredentialResponse) *string {
 		if v == nil {
@@ -1872,7 +1751,6 @@ func (o MpnsCredentialResponsePtrOutput) MpnsCertificate() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The MPNS certificate Thumbprint
 func (o MpnsCredentialResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MpnsCredentialResponse) *string {
 		if v == nil {
@@ -1882,10 +1760,8 @@ func (o MpnsCredentialResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRuleProperties struct {
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
+	Rights []AccessRights `pulumi:"rights"`
 }
 
 // SharedAccessAuthorizationRulePropertiesInput is an input type that accepts SharedAccessAuthorizationRulePropertiesArgs and SharedAccessAuthorizationRulePropertiesOutput values.
@@ -1899,9 +1775,7 @@ type SharedAccessAuthorizationRulePropertiesInput interface {
 	ToSharedAccessAuthorizationRulePropertiesOutputWithContext(context.Context) SharedAccessAuthorizationRulePropertiesOutput
 }
 
-// SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRulePropertiesArgs struct {
-	// The rights associated with the rule.
 	Rights AccessRightsArrayInput `pulumi:"rights"`
 }
 
@@ -1983,7 +1857,6 @@ func (i SharedAccessAuthorizationRulePropertiesArray) ToSharedAccessAuthorizatio
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesArrayOutput)
 }
 
-// SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRulePropertiesOutput struct{ *pulumi.OutputState }
 
 func (SharedAccessAuthorizationRulePropertiesOutput) ElementType() reflect.Type {
@@ -2003,14 +1876,13 @@ func (o SharedAccessAuthorizationRulePropertiesOutput) ToSharedAccessAuthorizati
 }
 
 func (o SharedAccessAuthorizationRulePropertiesOutput) ToSharedAccessAuthorizationRulePropertiesPtrOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesPtrOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleProperties) *SharedAccessAuthorizationRuleProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedAccessAuthorizationRuleProperties) *SharedAccessAuthorizationRuleProperties {
 		return &v
 	}).(SharedAccessAuthorizationRulePropertiesPtrOutput)
 }
 
-// The rights associated with the rule.
-func (o SharedAccessAuthorizationRulePropertiesOutput) Rights() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleProperties) []string { return v.Rights }).(pulumi.StringArrayOutput)
+func (o SharedAccessAuthorizationRulePropertiesOutput) Rights() AccessRightsArrayOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleProperties) []AccessRights { return v.Rights }).(AccessRightsArrayOutput)
 }
 
 type SharedAccessAuthorizationRulePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -2028,17 +1900,22 @@ func (o SharedAccessAuthorizationRulePropertiesPtrOutput) ToSharedAccessAuthoriz
 }
 
 func (o SharedAccessAuthorizationRulePropertiesPtrOutput) Elem() SharedAccessAuthorizationRulePropertiesOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRuleProperties) SharedAccessAuthorizationRuleProperties { return *v }).(SharedAccessAuthorizationRulePropertiesOutput)
+	return o.ApplyT(func(v *SharedAccessAuthorizationRuleProperties) SharedAccessAuthorizationRuleProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SharedAccessAuthorizationRuleProperties
+		return ret
+	}).(SharedAccessAuthorizationRulePropertiesOutput)
 }
 
-// The rights associated with the rule.
-func (o SharedAccessAuthorizationRulePropertiesPtrOutput) Rights() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRuleProperties) []string {
+func (o SharedAccessAuthorizationRulePropertiesPtrOutput) Rights() AccessRightsArrayOutput {
+	return o.ApplyT(func(v *SharedAccessAuthorizationRuleProperties) []AccessRights {
 		if v == nil {
 			return nil
 		}
 		return v.Rights
-	}).(pulumi.StringArrayOutput)
+	}).(AccessRightsArrayOutput)
 }
 
 type SharedAccessAuthorizationRulePropertiesArrayOutput struct{ *pulumi.OutputState }
@@ -2061,26 +1938,16 @@ func (o SharedAccessAuthorizationRulePropertiesArrayOutput) Index(i pulumi.IntIn
 	}).(SharedAccessAuthorizationRulePropertiesOutput)
 }
 
-// SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRulePropertiesResponse struct {
-	// A string that describes the claim type
-	ClaimType string `pulumi:"claimType"`
-	// A string that describes the claim value
-	ClaimValue string `pulumi:"claimValue"`
-	// The created time for this rule
-	CreatedTime string `pulumi:"createdTime"`
-	// A string that describes the authorization rule.
-	KeyName string `pulumi:"keyName"`
-	// The last modified time for this rule
-	ModifiedTime string `pulumi:"modifiedTime"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey string `pulumi:"primaryKey"`
-	// The revision number for the rule
-	Revision int `pulumi:"revision"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	SecondaryKey string `pulumi:"secondaryKey"`
+	ClaimType    string   `pulumi:"claimType"`
+	ClaimValue   string   `pulumi:"claimValue"`
+	CreatedTime  string   `pulumi:"createdTime"`
+	KeyName      string   `pulumi:"keyName"`
+	ModifiedTime string   `pulumi:"modifiedTime"`
+	PrimaryKey   string   `pulumi:"primaryKey"`
+	Revision     int      `pulumi:"revision"`
+	Rights       []string `pulumi:"rights"`
+	SecondaryKey string   `pulumi:"secondaryKey"`
 }
 
 // SharedAccessAuthorizationRulePropertiesResponseInput is an input type that accepts SharedAccessAuthorizationRulePropertiesResponseArgs and SharedAccessAuthorizationRulePropertiesResponseOutput values.
@@ -2094,26 +1961,16 @@ type SharedAccessAuthorizationRulePropertiesResponseInput interface {
 	ToSharedAccessAuthorizationRulePropertiesResponseOutputWithContext(context.Context) SharedAccessAuthorizationRulePropertiesResponseOutput
 }
 
-// SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRulePropertiesResponseArgs struct {
-	// A string that describes the claim type
-	ClaimType pulumi.StringInput `pulumi:"claimType"`
-	// A string that describes the claim value
-	ClaimValue pulumi.StringInput `pulumi:"claimValue"`
-	// The created time for this rule
-	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
-	// A string that describes the authorization rule.
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// The last modified time for this rule
-	ModifiedTime pulumi.StringInput `pulumi:"modifiedTime"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
-	// The revision number for the rule
-	Revision pulumi.IntInput `pulumi:"revision"`
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput `pulumi:"rights"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	SecondaryKey pulumi.StringInput `pulumi:"secondaryKey"`
+	ClaimType    pulumi.StringInput      `pulumi:"claimType"`
+	ClaimValue   pulumi.StringInput      `pulumi:"claimValue"`
+	CreatedTime  pulumi.StringInput      `pulumi:"createdTime"`
+	KeyName      pulumi.StringInput      `pulumi:"keyName"`
+	ModifiedTime pulumi.StringInput      `pulumi:"modifiedTime"`
+	PrimaryKey   pulumi.StringInput      `pulumi:"primaryKey"`
+	Revision     pulumi.IntInput         `pulumi:"revision"`
+	Rights       pulumi.StringArrayInput `pulumi:"rights"`
+	SecondaryKey pulumi.StringInput      `pulumi:"secondaryKey"`
 }
 
 func (SharedAccessAuthorizationRulePropertiesResponseArgs) ElementType() reflect.Type {
@@ -2153,7 +2010,6 @@ func (i SharedAccessAuthorizationRulePropertiesResponseArray) ToSharedAccessAuth
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesResponseArrayOutput)
 }
 
-// SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRulePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SharedAccessAuthorizationRulePropertiesResponseOutput) ElementType() reflect.Type {
@@ -2168,47 +2024,38 @@ func (o SharedAccessAuthorizationRulePropertiesResponseOutput) ToSharedAccessAut
 	return o
 }
 
-// A string that describes the claim type
 func (o SharedAccessAuthorizationRulePropertiesResponseOutput) ClaimType() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesResponse) string { return v.ClaimType }).(pulumi.StringOutput)
 }
 
-// A string that describes the claim value
 func (o SharedAccessAuthorizationRulePropertiesResponseOutput) ClaimValue() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesResponse) string { return v.ClaimValue }).(pulumi.StringOutput)
 }
 
-// The created time for this rule
 func (o SharedAccessAuthorizationRulePropertiesResponseOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// A string that describes the authorization rule.
 func (o SharedAccessAuthorizationRulePropertiesResponseOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesResponse) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// The last modified time for this rule
 func (o SharedAccessAuthorizationRulePropertiesResponseOutput) ModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesResponse) string { return v.ModifiedTime }).(pulumi.StringOutput)
 }
 
-// A base64-encoded 256-bit primary key for signing and validating the SAS token.
 func (o SharedAccessAuthorizationRulePropertiesResponseOutput) PrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesResponse) string { return v.PrimaryKey }).(pulumi.StringOutput)
 }
 
-// The revision number for the rule
 func (o SharedAccessAuthorizationRulePropertiesResponseOutput) Revision() pulumi.IntOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesResponse) int { return v.Revision }).(pulumi.IntOutput)
 }
 
-// The rights associated with the rule.
 func (o SharedAccessAuthorizationRulePropertiesResponseOutput) Rights() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesResponse) []string { return v.Rights }).(pulumi.StringArrayOutput)
 }
 
-// A base64-encoded 256-bit primary key for signing and validating the SAS token.
 func (o SharedAccessAuthorizationRulePropertiesResponseOutput) SecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesResponse) string { return v.SecondaryKey }).(pulumi.StringOutput)
 }
@@ -2233,38 +2080,22 @@ func (o SharedAccessAuthorizationRulePropertiesResponseArrayOutput) Index(i pulu
 	}).(SharedAccessAuthorizationRulePropertiesResponseOutput)
 }
 
-// Description of a Namespace AuthorizationRules.
 type SharedAccessAuthorizationRuleResourceResponse struct {
-	// A string that describes the claim type
-	ClaimType string `pulumi:"claimType"`
-	// A string that describes the claim value
-	ClaimValue string `pulumi:"claimValue"`
-	// The created time for this rule
-	CreatedTime string `pulumi:"createdTime"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// A string that describes the authorization rule.
-	KeyName string `pulumi:"keyName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The last modified time for this rule
-	ModifiedTime string `pulumi:"modifiedTime"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey string `pulumi:"primaryKey"`
-	// The revision number for the rule
-	Revision int `pulumi:"revision"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	SecondaryKey string `pulumi:"secondaryKey"`
-	// The sku of the created namespace
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	ClaimType    string            `pulumi:"claimType"`
+	ClaimValue   string            `pulumi:"claimValue"`
+	CreatedTime  string            `pulumi:"createdTime"`
+	Id           string            `pulumi:"id"`
+	KeyName      string            `pulumi:"keyName"`
+	Location     *string           `pulumi:"location"`
+	ModifiedTime string            `pulumi:"modifiedTime"`
+	Name         string            `pulumi:"name"`
+	PrimaryKey   string            `pulumi:"primaryKey"`
+	Revision     int               `pulumi:"revision"`
+	Rights       []string          `pulumi:"rights"`
+	SecondaryKey string            `pulumi:"secondaryKey"`
+	Sku          *SkuResponse      `pulumi:"sku"`
+	Tags         map[string]string `pulumi:"tags"`
+	Type         string            `pulumi:"type"`
 }
 
 // SharedAccessAuthorizationRuleResourceResponseInput is an input type that accepts SharedAccessAuthorizationRuleResourceResponseArgs and SharedAccessAuthorizationRuleResourceResponseOutput values.
@@ -2278,38 +2109,22 @@ type SharedAccessAuthorizationRuleResourceResponseInput interface {
 	ToSharedAccessAuthorizationRuleResourceResponseOutputWithContext(context.Context) SharedAccessAuthorizationRuleResourceResponseOutput
 }
 
-// Description of a Namespace AuthorizationRules.
 type SharedAccessAuthorizationRuleResourceResponseArgs struct {
-	// A string that describes the claim type
-	ClaimType pulumi.StringInput `pulumi:"claimType"`
-	// A string that describes the claim value
-	ClaimValue pulumi.StringInput `pulumi:"claimValue"`
-	// The created time for this rule
-	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
-	// Resource Id
-	Id pulumi.StringInput `pulumi:"id"`
-	// A string that describes the authorization rule.
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// Resource location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The last modified time for this rule
-	ModifiedTime pulumi.StringInput `pulumi:"modifiedTime"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
-	// The revision number for the rule
-	Revision pulumi.IntInput `pulumi:"revision"`
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput `pulumi:"rights"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	SecondaryKey pulumi.StringInput `pulumi:"secondaryKey"`
-	// The sku of the created namespace
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
+	ClaimType    pulumi.StringInput      `pulumi:"claimType"`
+	ClaimValue   pulumi.StringInput      `pulumi:"claimValue"`
+	CreatedTime  pulumi.StringInput      `pulumi:"createdTime"`
+	Id           pulumi.StringInput      `pulumi:"id"`
+	KeyName      pulumi.StringInput      `pulumi:"keyName"`
+	Location     pulumi.StringPtrInput   `pulumi:"location"`
+	ModifiedTime pulumi.StringInput      `pulumi:"modifiedTime"`
+	Name         pulumi.StringInput      `pulumi:"name"`
+	PrimaryKey   pulumi.StringInput      `pulumi:"primaryKey"`
+	Revision     pulumi.IntInput         `pulumi:"revision"`
+	Rights       pulumi.StringArrayInput `pulumi:"rights"`
+	SecondaryKey pulumi.StringInput      `pulumi:"secondaryKey"`
+	Sku          SkuResponsePtrInput     `pulumi:"sku"`
+	Tags         pulumi.StringMapInput   `pulumi:"tags"`
+	Type         pulumi.StringInput      `pulumi:"type"`
 }
 
 func (SharedAccessAuthorizationRuleResourceResponseArgs) ElementType() reflect.Type {
@@ -2349,7 +2164,6 @@ func (i SharedAccessAuthorizationRuleResourceResponseArray) ToSharedAccessAuthor
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRuleResourceResponseArrayOutput)
 }
 
-// Description of a Namespace AuthorizationRules.
 type SharedAccessAuthorizationRuleResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SharedAccessAuthorizationRuleResourceResponseOutput) ElementType() reflect.Type {
@@ -2364,77 +2178,62 @@ func (o SharedAccessAuthorizationRuleResourceResponseOutput) ToSharedAccessAutho
 	return o
 }
 
-// A string that describes the claim type
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) ClaimType() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.ClaimType }).(pulumi.StringOutput)
 }
 
-// A string that describes the claim value
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) ClaimValue() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.ClaimValue }).(pulumi.StringOutput)
 }
 
-// The created time for this rule
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Resource Id
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A string that describes the authorization rule.
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// Resource location
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// The last modified time for this rule
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) ModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.ModifiedTime }).(pulumi.StringOutput)
 }
 
-// Resource name
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A base64-encoded 256-bit primary key for signing and validating the SAS token.
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) PrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.PrimaryKey }).(pulumi.StringOutput)
 }
 
-// The revision number for the rule
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) Revision() pulumi.IntOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) int { return v.Revision }).(pulumi.IntOutput)
 }
 
-// The rights associated with the rule.
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) Rights() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) []string { return v.Rights }).(pulumi.StringArrayOutput)
 }
 
-// A base64-encoded 256-bit primary key for signing and validating the SAS token.
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) SecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.SecondaryKey }).(pulumi.StringOutput)
 }
 
-// The sku of the created namespace
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
 }
 
-// Resource tags
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2459,18 +2258,12 @@ func (o SharedAccessAuthorizationRuleResourceResponseArrayOutput) Index(i pulumi
 	}).(SharedAccessAuthorizationRuleResourceResponseOutput)
 }
 
-// The Sku description for a namespace
 type Sku struct {
-	// The capacity of the resource
-	Capacity *int `pulumi:"capacity"`
-	// The Sku Family
-	Family *string `pulumi:"family"`
-	// Name of the notification hub sku
-	Name string `pulumi:"name"`
-	// The Sku size
-	Size *string `pulumi:"size"`
-	// The tier of particular sku
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -2484,18 +2277,12 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The Sku description for a namespace
 type SkuArgs struct {
-	// The capacity of the resource
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The Sku Family
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// Name of the notification hub sku
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Sku size
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier of particular sku
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -2551,7 +2338,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The Sku description for a namespace
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -2571,32 +2357,27 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The capacity of the resource
 func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// The Sku Family
 func (o SkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// Name of the notification hub sku
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Sku size
 func (o SkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The tier of particular sku
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -2616,10 +2397,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The capacity of the resource
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -2629,7 +2415,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Sku Family
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -2639,7 +2424,6 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the notification hub sku
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -2649,7 +2433,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Sku size
 func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -2659,7 +2442,6 @@ func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of particular sku
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -2669,18 +2451,12 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Sku description for a namespace
 type SkuResponse struct {
-	// The capacity of the resource
-	Capacity *int `pulumi:"capacity"`
-	// The Sku Family
-	Family *string `pulumi:"family"`
-	// Name of the notification hub sku
-	Name string `pulumi:"name"`
-	// The Sku size
-	Size *string `pulumi:"size"`
-	// The tier of particular sku
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -2694,18 +2470,12 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The Sku description for a namespace
 type SkuResponseArgs struct {
-	// The capacity of the resource
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The Sku Family
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// Name of the notification hub sku
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Sku size
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier of particular sku
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -2761,7 +2531,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The Sku description for a namespace
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -2781,32 +2550,27 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The capacity of the resource
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// The Sku Family
 func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// Name of the notification hub sku
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Sku size
 func (o SkuResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The tier of particular sku
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -2826,10 +2590,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The capacity of the resource
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -2839,7 +2608,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Sku Family
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -2849,7 +2617,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the notification hub sku
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -2859,7 +2626,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Sku size
 func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -2869,7 +2635,6 @@ func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of particular sku
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -2879,13 +2644,9 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub WnsCredential.
 type WnsCredential struct {
-	// The package ID for this credential.
-	PackageSid *string `pulumi:"packageSid"`
-	// The secret key.
-	SecretKey *string `pulumi:"secretKey"`
-	// The Windows Live endpoint.
+	PackageSid          *string `pulumi:"packageSid"`
+	SecretKey           *string `pulumi:"secretKey"`
 	WindowsLiveEndpoint *string `pulumi:"windowsLiveEndpoint"`
 }
 
@@ -2900,13 +2661,9 @@ type WnsCredentialInput interface {
 	ToWnsCredentialOutputWithContext(context.Context) WnsCredentialOutput
 }
 
-// Description of a NotificationHub WnsCredential.
 type WnsCredentialArgs struct {
-	// The package ID for this credential.
-	PackageSid pulumi.StringPtrInput `pulumi:"packageSid"`
-	// The secret key.
-	SecretKey pulumi.StringPtrInput `pulumi:"secretKey"`
-	// The Windows Live endpoint.
+	PackageSid          pulumi.StringPtrInput `pulumi:"packageSid"`
+	SecretKey           pulumi.StringPtrInput `pulumi:"secretKey"`
 	WindowsLiveEndpoint pulumi.StringPtrInput `pulumi:"windowsLiveEndpoint"`
 }
 
@@ -2963,7 +2720,6 @@ func (i *wnsCredentialPtrType) ToWnsCredentialPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialPtrOutput)
 }
 
-// Description of a NotificationHub WnsCredential.
 type WnsCredentialOutput struct{ *pulumi.OutputState }
 
 func (WnsCredentialOutput) ElementType() reflect.Type {
@@ -2983,22 +2739,19 @@ func (o WnsCredentialOutput) ToWnsCredentialPtrOutput() WnsCredentialPtrOutput {
 }
 
 func (o WnsCredentialOutput) ToWnsCredentialPtrOutputWithContext(ctx context.Context) WnsCredentialPtrOutput {
-	return o.ApplyT(func(v WnsCredential) *WnsCredential {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WnsCredential) *WnsCredential {
 		return &v
 	}).(WnsCredentialPtrOutput)
 }
 
-// The package ID for this credential.
 func (o WnsCredentialOutput) PackageSid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WnsCredential) *string { return v.PackageSid }).(pulumi.StringPtrOutput)
 }
 
-// The secret key.
 func (o WnsCredentialOutput) SecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WnsCredential) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
 }
 
-// The Windows Live endpoint.
 func (o WnsCredentialOutput) WindowsLiveEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WnsCredential) *string { return v.WindowsLiveEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -3018,10 +2771,15 @@ func (o WnsCredentialPtrOutput) ToWnsCredentialPtrOutputWithContext(ctx context.
 }
 
 func (o WnsCredentialPtrOutput) Elem() WnsCredentialOutput {
-	return o.ApplyT(func(v *WnsCredential) WnsCredential { return *v }).(WnsCredentialOutput)
+	return o.ApplyT(func(v *WnsCredential) WnsCredential {
+		if v != nil {
+			return *v
+		}
+		var ret WnsCredential
+		return ret
+	}).(WnsCredentialOutput)
 }
 
-// The package ID for this credential.
 func (o WnsCredentialPtrOutput) PackageSid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WnsCredential) *string {
 		if v == nil {
@@ -3031,7 +2789,6 @@ func (o WnsCredentialPtrOutput) PackageSid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secret key.
 func (o WnsCredentialPtrOutput) SecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WnsCredential) *string {
 		if v == nil {
@@ -3041,7 +2798,6 @@ func (o WnsCredentialPtrOutput) SecretKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Windows Live endpoint.
 func (o WnsCredentialPtrOutput) WindowsLiveEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WnsCredential) *string {
 		if v == nil {
@@ -3051,13 +2807,9 @@ func (o WnsCredentialPtrOutput) WindowsLiveEndpoint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub WnsCredential.
 type WnsCredentialResponse struct {
-	// The package ID for this credential.
-	PackageSid *string `pulumi:"packageSid"`
-	// The secret key.
-	SecretKey *string `pulumi:"secretKey"`
-	// The Windows Live endpoint.
+	PackageSid          *string `pulumi:"packageSid"`
+	SecretKey           *string `pulumi:"secretKey"`
 	WindowsLiveEndpoint *string `pulumi:"windowsLiveEndpoint"`
 }
 
@@ -3072,13 +2824,9 @@ type WnsCredentialResponseInput interface {
 	ToWnsCredentialResponseOutputWithContext(context.Context) WnsCredentialResponseOutput
 }
 
-// Description of a NotificationHub WnsCredential.
 type WnsCredentialResponseArgs struct {
-	// The package ID for this credential.
-	PackageSid pulumi.StringPtrInput `pulumi:"packageSid"`
-	// The secret key.
-	SecretKey pulumi.StringPtrInput `pulumi:"secretKey"`
-	// The Windows Live endpoint.
+	PackageSid          pulumi.StringPtrInput `pulumi:"packageSid"`
+	SecretKey           pulumi.StringPtrInput `pulumi:"secretKey"`
 	WindowsLiveEndpoint pulumi.StringPtrInput `pulumi:"windowsLiveEndpoint"`
 }
 
@@ -3135,7 +2883,6 @@ func (i *wnsCredentialResponsePtrType) ToWnsCredentialResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialResponsePtrOutput)
 }
 
-// Description of a NotificationHub WnsCredential.
 type WnsCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (WnsCredentialResponseOutput) ElementType() reflect.Type {
@@ -3155,22 +2902,19 @@ func (o WnsCredentialResponseOutput) ToWnsCredentialResponsePtrOutput() WnsCrede
 }
 
 func (o WnsCredentialResponseOutput) ToWnsCredentialResponsePtrOutputWithContext(ctx context.Context) WnsCredentialResponsePtrOutput {
-	return o.ApplyT(func(v WnsCredentialResponse) *WnsCredentialResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WnsCredentialResponse) *WnsCredentialResponse {
 		return &v
 	}).(WnsCredentialResponsePtrOutput)
 }
 
-// The package ID for this credential.
 func (o WnsCredentialResponseOutput) PackageSid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WnsCredentialResponse) *string { return v.PackageSid }).(pulumi.StringPtrOutput)
 }
 
-// The secret key.
 func (o WnsCredentialResponseOutput) SecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WnsCredentialResponse) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
 }
 
-// The Windows Live endpoint.
 func (o WnsCredentialResponseOutput) WindowsLiveEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WnsCredentialResponse) *string { return v.WindowsLiveEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -3190,10 +2934,15 @@ func (o WnsCredentialResponsePtrOutput) ToWnsCredentialResponsePtrOutputWithCont
 }
 
 func (o WnsCredentialResponsePtrOutput) Elem() WnsCredentialResponseOutput {
-	return o.ApplyT(func(v *WnsCredentialResponse) WnsCredentialResponse { return *v }).(WnsCredentialResponseOutput)
+	return o.ApplyT(func(v *WnsCredentialResponse) WnsCredentialResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WnsCredentialResponse
+		return ret
+	}).(WnsCredentialResponseOutput)
 }
 
-// The package ID for this credential.
 func (o WnsCredentialResponsePtrOutput) PackageSid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WnsCredentialResponse) *string {
 		if v == nil {
@@ -3203,7 +2952,6 @@ func (o WnsCredentialResponsePtrOutput) PackageSid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secret key.
 func (o WnsCredentialResponsePtrOutput) SecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WnsCredentialResponse) *string {
 		if v == nil {
@@ -3213,7 +2961,6 @@ func (o WnsCredentialResponsePtrOutput) SecretKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Windows Live endpoint.
 func (o WnsCredentialResponsePtrOutput) WindowsLiveEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WnsCredentialResponse) *string {
 		if v == nil {

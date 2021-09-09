@@ -11,27 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Synapse Workspace Sql Pool Table data set mapping
 type SynapseWorkspaceSqlPoolTableDataSetMapping struct {
 	pulumi.CustomResourceState
 
-	// The id of the source data set.
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus pulumi.StringOutput `pulumi:"dataSetMappingStatus"`
-	// Kind of data set mapping.
-	// Expected value is 'SynapseWorkspaceSqlPoolTable'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource id of the Synapse Workspace SQL Pool Table
-	SynapseWorkspaceSqlPoolTableResourceId pulumi.StringOutput `pulumi:"synapseWorkspaceSqlPoolTableResourceId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataSetId                              pulumi.StringOutput      `pulumi:"dataSetId"`
+	DataSetMappingStatus                   pulumi.StringOutput      `pulumi:"dataSetMappingStatus"`
+	Kind                                   pulumi.StringOutput      `pulumi:"kind"`
+	Name                                   pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState                      pulumi.StringOutput      `pulumi:"provisioningState"`
+	SynapseWorkspaceSqlPoolTableResourceId pulumi.StringOutput      `pulumi:"synapseWorkspaceSqlPoolTableResourceId"`
+	SystemData                             SystemDataResponseOutput `pulumi:"systemData"`
+	Type                                   pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewSynapseWorkspaceSqlPoolTableDataSetMapping registers a new resource with the given unique name, arguments, and options.
@@ -122,39 +112,23 @@ func (SynapseWorkspaceSqlPoolTableDataSetMappingState) ElementType() reflect.Typ
 }
 
 type synapseWorkspaceSqlPoolTableDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The id of the source data set.
-	DataSetId string `pulumi:"dataSetId"`
-	// The name of the data set mapping to be created.
-	DataSetMappingName *string `pulumi:"dataSetMappingName"`
-	// Kind of data set mapping.
-	// Expected value is 'SynapseWorkspaceSqlPoolTable'.
-	Kind string `pulumi:"kind"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share subscription which will hold the data set sink.
-	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
-	// Resource id of the Synapse Workspace SQL Pool Table
-	SynapseWorkspaceSqlPoolTableResourceId string `pulumi:"synapseWorkspaceSqlPoolTableResourceId"`
+	AccountName                            string  `pulumi:"accountName"`
+	DataSetId                              string  `pulumi:"dataSetId"`
+	DataSetMappingName                     *string `pulumi:"dataSetMappingName"`
+	Kind                                   string  `pulumi:"kind"`
+	ResourceGroupName                      string  `pulumi:"resourceGroupName"`
+	ShareSubscriptionName                  string  `pulumi:"shareSubscriptionName"`
+	SynapseWorkspaceSqlPoolTableResourceId string  `pulumi:"synapseWorkspaceSqlPoolTableResourceId"`
 }
 
 // The set of arguments for constructing a SynapseWorkspaceSqlPoolTableDataSetMapping resource.
 type SynapseWorkspaceSqlPoolTableDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// The id of the source data set.
-	DataSetId pulumi.StringInput
-	// The name of the data set mapping to be created.
-	DataSetMappingName pulumi.StringPtrInput
-	// Kind of data set mapping.
-	// Expected value is 'SynapseWorkspaceSqlPoolTable'.
-	Kind pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share subscription which will hold the data set sink.
-	ShareSubscriptionName pulumi.StringInput
-	// Resource id of the Synapse Workspace SQL Pool Table
+	AccountName                            pulumi.StringInput
+	DataSetId                              pulumi.StringInput
+	DataSetMappingName                     pulumi.StringPtrInput
+	Kind                                   pulumi.StringInput
+	ResourceGroupName                      pulumi.StringInput
+	ShareSubscriptionName                  pulumi.StringInput
 	SynapseWorkspaceSqlPoolTableResourceId pulumi.StringInput
 }
 
@@ -181,9 +155,7 @@ func (i *SynapseWorkspaceSqlPoolTableDataSetMapping) ToSynapseWorkspaceSqlPoolTa
 	return pulumi.ToOutputWithContext(ctx, i).(SynapseWorkspaceSqlPoolTableDataSetMappingOutput)
 }
 
-type SynapseWorkspaceSqlPoolTableDataSetMappingOutput struct {
-	*pulumi.OutputState
-}
+type SynapseWorkspaceSqlPoolTableDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (SynapseWorkspaceSqlPoolTableDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SynapseWorkspaceSqlPoolTableDataSetMapping)(nil))

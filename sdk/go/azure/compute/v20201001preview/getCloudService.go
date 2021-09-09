@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes the cloud service.
 func LookupCloudService(ctx *pulumi.Context, args *LookupCloudServiceArgs, opts ...pulumi.InvokeOption) (*LookupCloudServiceResult, error) {
 	var rv LookupCloudServiceResult
 	err := ctx.Invoke("azure-native:compute/v20201001preview:getCloudService", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupCloudService(ctx *pulumi.Context, args *LookupCloudServiceArgs, opts 
 }
 
 type LookupCloudServiceArgs struct {
-	// Name of the cloud service.
-	CloudServiceName string `pulumi:"cloudServiceName"`
-	// Name of the resource group.
+	CloudServiceName  string `pulumi:"cloudServiceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Describes the cloud service.
 type LookupCloudServiceResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Cloud service properties
+	Id         string                         `pulumi:"id"`
+	Location   string                         `pulumi:"location"`
+	Name       string                         `pulumi:"name"`
 	Properties CloudServicePropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Tags       map[string]string              `pulumi:"tags"`
+	Type       string                         `pulumi:"type"`
 }

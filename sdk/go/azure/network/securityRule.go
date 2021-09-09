@@ -457,9 +457,7 @@ func (i *SecurityRule) ToSecurityRuleOutputWithContext(ctx context.Context) Secu
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityRuleOutput)
 }
 
-type SecurityRuleOutput struct {
-	*pulumi.OutputState
-}
+type SecurityRuleOutput struct{ *pulumi.OutputState }
 
 func (SecurityRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityRule)(nil))

@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Encryption Scope resource.
 type EncryptionScope struct {
 	pulumi.CustomResourceState
 
-	// Gets the creation date and time of the encryption scope in UTC.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
-	KeyVaultProperties EncryptionScopeKeyVaultPropertiesResponsePtrOutput `pulumi:"keyVaultProperties"`
-	// Gets the last modification date and time of the encryption scope in UTC.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
-	RequireInfrastructureEncryption pulumi.BoolPtrOutput `pulumi:"requireInfrastructureEncryption"`
-	// The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
-	Source pulumi.StringPtrOutput `pulumi:"source"`
-	// The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
-	State pulumi.StringPtrOutput `pulumi:"state"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	CreationTime                    pulumi.StringOutput                                `pulumi:"creationTime"`
+	KeyVaultProperties              EncryptionScopeKeyVaultPropertiesResponsePtrOutput `pulumi:"keyVaultProperties"`
+	LastModifiedTime                pulumi.StringOutput                                `pulumi:"lastModifiedTime"`
+	Name                            pulumi.StringOutput                                `pulumi:"name"`
+	RequireInfrastructureEncryption pulumi.BoolPtrOutput                               `pulumi:"requireInfrastructureEncryption"`
+	Source                          pulumi.StringPtrOutput                             `pulumi:"source"`
+	State                           pulumi.StringPtrOutput                             `pulumi:"state"`
+	Type                            pulumi.StringOutput                                `pulumi:"type"`
 }
 
 // NewEncryptionScope registers a new resource with the given unique name, arguments, and options.
@@ -114,38 +105,24 @@ func (EncryptionScopeState) ElementType() reflect.Type {
 }
 
 type encryptionScopeArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	EncryptionScopeName *string `pulumi:"encryptionScopeName"`
-	// The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
-	KeyVaultProperties *EncryptionScopeKeyVaultProperties `pulumi:"keyVaultProperties"`
-	// A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
-	RequireInfrastructureEncryption *bool `pulumi:"requireInfrastructureEncryption"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
-	Source *string `pulumi:"source"`
-	// The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
-	State *string `pulumi:"state"`
+	AccountName                     string                             `pulumi:"accountName"`
+	EncryptionScopeName             *string                            `pulumi:"encryptionScopeName"`
+	KeyVaultProperties              *EncryptionScopeKeyVaultProperties `pulumi:"keyVaultProperties"`
+	RequireInfrastructureEncryption *bool                              `pulumi:"requireInfrastructureEncryption"`
+	ResourceGroupName               string                             `pulumi:"resourceGroupName"`
+	Source                          *string                            `pulumi:"source"`
+	State                           *string                            `pulumi:"state"`
 }
 
 // The set of arguments for constructing a EncryptionScope resource.
 type EncryptionScopeArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
-	// The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	EncryptionScopeName pulumi.StringPtrInput
-	// The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
-	KeyVaultProperties EncryptionScopeKeyVaultPropertiesPtrInput
-	// A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
+	AccountName                     pulumi.StringInput
+	EncryptionScopeName             pulumi.StringPtrInput
+	KeyVaultProperties              EncryptionScopeKeyVaultPropertiesPtrInput
 	RequireInfrastructureEncryption pulumi.BoolPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
-	Source pulumi.StringPtrInput
-	// The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
-	State pulumi.StringPtrInput
+	ResourceGroupName               pulumi.StringInput
+	Source                          pulumi.StringPtrInput
+	State                           pulumi.StringPtrInput
 }
 
 func (EncryptionScopeArgs) ElementType() reflect.Type {
@@ -171,9 +148,7 @@ func (i *EncryptionScope) ToEncryptionScopeOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionScopeOutput)
 }
 
-type EncryptionScopeOutput struct {
-	*pulumi.OutputState
-}
+type EncryptionScopeOutput struct{ *pulumi.OutputState }
 
 func (EncryptionScopeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EncryptionScope)(nil))

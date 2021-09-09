@@ -17,33 +17,20 @@ func LookupVirtualMachineImageTemplate(ctx *pulumi.Context, args *LookupVirtualM
 }
 
 type LookupVirtualMachineImageTemplateArgs struct {
-	// The name of the image Template
 	ImageTemplateName string `pulumi:"imageTemplateName"`
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 type LookupVirtualMachineImageTemplateResult struct {
-	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize []interface{} `pulumi:"customize"`
-	// The distribution targets where the image output needs to go to.
-	Distribute []interface{} `pulumi:"distribute"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// State of 'run' that is currently executing or was last executed.
-	LastRunStatus ImageTemplateLastRunStatusResponse `pulumi:"lastRunStatus"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Provisioning error, if any
-	ProvisioningError ProvisioningErrorResponse `pulumi:"provisioningError"`
-	// Provisioning state of the resource
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Specifies the properties used to describe the source image.
-	Source interface{} `pulumi:"source"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Customize         []interface{}                      `pulumi:"customize"`
+	Distribute        []interface{}                      `pulumi:"distribute"`
+	Id                string                             `pulumi:"id"`
+	LastRunStatus     ImageTemplateLastRunStatusResponse `pulumi:"lastRunStatus"`
+	Location          string                             `pulumi:"location"`
+	Name              string                             `pulumi:"name"`
+	ProvisioningError ProvisioningErrorResponse          `pulumi:"provisioningError"`
+	ProvisioningState string                             `pulumi:"provisioningState"`
+	Source            interface{}                        `pulumi:"source"`
+	Tags              map[string]string                  `pulumi:"tags"`
+	Type              string                             `pulumi:"type"`
 }

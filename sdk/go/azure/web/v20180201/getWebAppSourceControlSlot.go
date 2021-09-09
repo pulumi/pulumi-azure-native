@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Source control configuration for an app.
 func LookupWebAppSourceControlSlot(ctx *pulumi.Context, args *LookupWebAppSourceControlSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSourceControlSlotResult, error) {
 	var rv LookupWebAppSourceControlSlotResult
 	err := ctx.Invoke("azure-native:web/v20180201:getWebAppSourceControlSlot", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupWebAppSourceControlSlot(ctx *pulumi.Context, args *LookupWebAppSource
 }
 
 type LookupWebAppSourceControlSlotArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will get the source control configuration for the production slot.
-	Slot string `pulumi:"slot"`
+	Slot              string `pulumi:"slot"`
 }
 
 // Source control configuration for an app.
 type LookupWebAppSourceControlSlotResult struct {
-	// Name of branch to use for deployment.
-	Branch *string `pulumi:"branch"`
-	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
-	DeploymentRollbackEnabled *bool `pulumi:"deploymentRollbackEnabled"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
-	IsManualIntegration *bool `pulumi:"isManualIntegration"`
-	// <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
-	IsMercurial *bool `pulumi:"isMercurial"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Repository or source control URL.
-	RepoUrl *string `pulumi:"repoUrl"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Branch                    *string `pulumi:"branch"`
+	DeploymentRollbackEnabled *bool   `pulumi:"deploymentRollbackEnabled"`
+	Id                        string  `pulumi:"id"`
+	IsManualIntegration       *bool   `pulumi:"isManualIntegration"`
+	IsMercurial               *bool   `pulumi:"isMercurial"`
+	Kind                      *string `pulumi:"kind"`
+	Name                      string  `pulumi:"name"`
+	RepoUrl                   *string `pulumi:"repoUrl"`
+	Type                      string  `pulumi:"type"`
 }

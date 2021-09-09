@@ -11,44 +11,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ExpressRoutePort resource definition.
 type ExpressRoutePort struct {
 	pulumi.CustomResourceState
 
-	// Date of the physical port allocation to be used in Letter of Authorization.
-	AllocationDate pulumi.StringOutput `pulumi:"allocationDate"`
-	// Bandwidth of procured ports in Gbps.
-	BandwidthInGbps pulumi.IntPtrOutput `pulumi:"bandwidthInGbps"`
-	// Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
-	Circuits SubResourceResponseArrayOutput `pulumi:"circuits"`
-	// Encapsulation method on physical ports.
-	Encapsulation pulumi.StringPtrOutput `pulumi:"encapsulation"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Ether type of the physical port.
-	EtherType pulumi.StringOutput `pulumi:"etherType"`
-	// The identity of ExpressRoutePort, if configured.
-	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
-	// The set of physical links of the ExpressRoutePort resource.
-	Links ExpressRouteLinkResponseArrayOutput `pulumi:"links"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Maximum transmission unit of the physical port pair(s).
-	Mtu pulumi.StringOutput `pulumi:"mtu"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the peering location that the ExpressRoutePort is mapped to physically.
-	PeeringLocation pulumi.StringPtrOutput `pulumi:"peeringLocation"`
-	// Aggregate Gbps of associated circuit bandwidths.
-	ProvisionedBandwidthInGbps pulumi.Float64Output `pulumi:"provisionedBandwidthInGbps"`
-	// The provisioning state of the express route port resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The resource GUID property of the express route port resource.
-	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AllocationDate             pulumi.StringOutput                     `pulumi:"allocationDate"`
+	BandwidthInGbps            pulumi.IntPtrOutput                     `pulumi:"bandwidthInGbps"`
+	Circuits                   SubResourceResponseArrayOutput          `pulumi:"circuits"`
+	Encapsulation              pulumi.StringPtrOutput                  `pulumi:"encapsulation"`
+	Etag                       pulumi.StringOutput                     `pulumi:"etag"`
+	EtherType                  pulumi.StringOutput                     `pulumi:"etherType"`
+	Identity                   ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
+	Links                      ExpressRouteLinkResponseArrayOutput     `pulumi:"links"`
+	Location                   pulumi.StringPtrOutput                  `pulumi:"location"`
+	Mtu                        pulumi.StringOutput                     `pulumi:"mtu"`
+	Name                       pulumi.StringOutput                     `pulumi:"name"`
+	PeeringLocation            pulumi.StringPtrOutput                  `pulumi:"peeringLocation"`
+	ProvisionedBandwidthInGbps pulumi.Float64Output                    `pulumi:"provisionedBandwidthInGbps"`
+	ProvisioningState          pulumi.StringOutput                     `pulumi:"provisioningState"`
+	ResourceGuid               pulumi.StringPtrOutput                  `pulumi:"resourceGuid"`
+	Tags                       pulumi.StringMapOutput                  `pulumi:"tags"`
+	Type                       pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewExpressRoutePort registers a new resource with the given unique name, arguments, and options.
@@ -225,54 +207,32 @@ func (ExpressRoutePortState) ElementType() reflect.Type {
 }
 
 type expressRoutePortArgs struct {
-	// Bandwidth of procured ports in Gbps.
-	BandwidthInGbps *int `pulumi:"bandwidthInGbps"`
-	// Encapsulation method on physical ports.
-	Encapsulation *string `pulumi:"encapsulation"`
-	// The name of the ExpressRoutePort resource.
-	ExpressRoutePortName *string `pulumi:"expressRoutePortName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The identity of ExpressRoutePort, if configured.
-	Identity *ManagedServiceIdentity `pulumi:"identity"`
-	// The set of physical links of the ExpressRoutePort resource.
-	Links []ExpressRouteLink `pulumi:"links"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the peering location that the ExpressRoutePort is mapped to physically.
-	PeeringLocation *string `pulumi:"peeringLocation"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource GUID property of the express route port resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	BandwidthInGbps      *int                    `pulumi:"bandwidthInGbps"`
+	Encapsulation        *string                 `pulumi:"encapsulation"`
+	ExpressRoutePortName *string                 `pulumi:"expressRoutePortName"`
+	Id                   *string                 `pulumi:"id"`
+	Identity             *ManagedServiceIdentity `pulumi:"identity"`
+	Links                []ExpressRouteLink      `pulumi:"links"`
+	Location             *string                 `pulumi:"location"`
+	PeeringLocation      *string                 `pulumi:"peeringLocation"`
+	ResourceGroupName    string                  `pulumi:"resourceGroupName"`
+	ResourceGuid         *string                 `pulumi:"resourceGuid"`
+	Tags                 map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ExpressRoutePort resource.
 type ExpressRoutePortArgs struct {
-	// Bandwidth of procured ports in Gbps.
-	BandwidthInGbps pulumi.IntPtrInput
-	// Encapsulation method on physical ports.
-	Encapsulation pulumi.StringPtrInput
-	// The name of the ExpressRoutePort resource.
+	BandwidthInGbps      pulumi.IntPtrInput
+	Encapsulation        pulumi.StringPtrInput
 	ExpressRoutePortName pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The identity of ExpressRoutePort, if configured.
-	Identity ManagedServiceIdentityPtrInput
-	// The set of physical links of the ExpressRoutePort resource.
-	Links ExpressRouteLinkArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the peering location that the ExpressRoutePort is mapped to physically.
-	PeeringLocation pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The resource GUID property of the express route port resource.
-	ResourceGuid pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Id                   pulumi.StringPtrInput
+	Identity             ManagedServiceIdentityPtrInput
+	Links                ExpressRouteLinkArrayInput
+	Location             pulumi.StringPtrInput
+	PeeringLocation      pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
+	ResourceGuid         pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
 }
 
 func (ExpressRoutePortArgs) ElementType() reflect.Type {
@@ -298,9 +258,7 @@ func (i *ExpressRoutePort) ToExpressRoutePortOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortOutput)
 }
 
-type ExpressRoutePortOutput struct {
-	*pulumi.OutputState
-}
+type ExpressRoutePortOutput struct{ *pulumi.OutputState }
 
 func (ExpressRoutePortOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRoutePort)(nil))

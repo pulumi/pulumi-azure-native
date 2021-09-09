@@ -133,9 +133,7 @@ func (i *QueryPack) ToQueryPackOutputWithContext(ctx context.Context) QueryPackO
 	return pulumi.ToOutputWithContext(ctx, i).(QueryPackOutput)
 }
 
-type QueryPackOutput struct {
-	*pulumi.OutputState
-}
+type QueryPackOutput struct{ *pulumi.OutputState }
 
 func (QueryPackOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*QueryPack)(nil))

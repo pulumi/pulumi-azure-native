@@ -14,14 +14,10 @@ import (
 type WorkflowAccessKey struct {
 	pulumi.CustomResourceState
 
-	// Gets the workflow access key name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the not-after time.
-	NotAfter pulumi.StringPtrOutput `pulumi:"notAfter"`
-	// Gets or sets the not-before time.
+	Name      pulumi.StringOutput    `pulumi:"name"`
+	NotAfter  pulumi.StringPtrOutput `pulumi:"notAfter"`
 	NotBefore pulumi.StringPtrOutput `pulumi:"notBefore"`
-	// Gets the workflow access key type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type      pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewWorkflowAccessKey registers a new resource with the given unique name, arguments, and options.
@@ -81,34 +77,22 @@ func (WorkflowAccessKeyState) ElementType() reflect.Type {
 }
 
 type workflowAccessKeyArgs struct {
-	// The workflow access key name.
-	AccessKeyName *string `pulumi:"accessKeyName"`
-	// Gets or sets the resource id.
-	Id *string `pulumi:"id"`
-	// Gets or sets the not-after time.
-	NotAfter *string `pulumi:"notAfter"`
-	// Gets or sets the not-before time.
-	NotBefore *string `pulumi:"notBefore"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The workflow name.
-	WorkflowName string `pulumi:"workflowName"`
+	AccessKeyName     *string `pulumi:"accessKeyName"`
+	Id                *string `pulumi:"id"`
+	NotAfter          *string `pulumi:"notAfter"`
+	NotBefore         *string `pulumi:"notBefore"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	WorkflowName      string  `pulumi:"workflowName"`
 }
 
 // The set of arguments for constructing a WorkflowAccessKey resource.
 type WorkflowAccessKeyArgs struct {
-	// The workflow access key name.
-	AccessKeyName pulumi.StringPtrInput
-	// Gets or sets the resource id.
-	Id pulumi.StringPtrInput
-	// Gets or sets the not-after time.
-	NotAfter pulumi.StringPtrInput
-	// Gets or sets the not-before time.
-	NotBefore pulumi.StringPtrInput
-	// The resource group name.
+	AccessKeyName     pulumi.StringPtrInput
+	Id                pulumi.StringPtrInput
+	NotAfter          pulumi.StringPtrInput
+	NotBefore         pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The workflow name.
-	WorkflowName pulumi.StringInput
+	WorkflowName      pulumi.StringInput
 }
 
 func (WorkflowAccessKeyArgs) ElementType() reflect.Type {
@@ -134,9 +118,7 @@ func (i *WorkflowAccessKey) ToWorkflowAccessKeyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessKeyOutput)
 }
 
-type WorkflowAccessKeyOutput struct {
-	*pulumi.OutputState
-}
+type WorkflowAccessKeyOutput struct{ *pulumi.OutputState }
 
 func (WorkflowAccessKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkflowAccessKey)(nil))

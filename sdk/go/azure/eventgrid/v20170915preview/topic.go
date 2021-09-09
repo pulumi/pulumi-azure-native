@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// EventGrid Topic
 type Topic struct {
 	pulumi.CustomResourceState
 
-	// Endpoint for the topic.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// Location of the resource
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the topic.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Tags of the resource
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of the resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	Endpoint          pulumi.StringOutput    `pulumi:"endpoint"`
+	Location          pulumi.StringOutput    `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewTopic registers a new resource with the given unique name, arguments, and options.
@@ -155,26 +148,18 @@ func (TopicState) ElementType() reflect.Type {
 }
 
 type topicArgs struct {
-	// Location of the resource
-	Location *string `pulumi:"location"`
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags of the resource
-	Tags map[string]string `pulumi:"tags"`
-	// Name of the topic
-	TopicName *string `pulumi:"topicName"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	TopicName         *string           `pulumi:"topicName"`
 }
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
-	// Location of the resource
-	Location pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription.
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Tags of the resource
-	Tags pulumi.StringMapInput
-	// Name of the topic
-	TopicName pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TopicName         pulumi.StringPtrInput
 }
 
 func (TopicArgs) ElementType() reflect.Type {
@@ -200,9 +185,7 @@ func (i *Topic) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicOutput)
 }
 
-type TopicOutput struct {
-	*pulumi.OutputState
-}
+type TopicOutput struct{ *pulumi.OutputState }
 
 func (TopicOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Topic)(nil))

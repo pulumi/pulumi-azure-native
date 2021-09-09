@@ -192,9 +192,7 @@ func (i *DataConnection) ToDataConnectionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectionOutput)
 }
 
-type DataConnectionOutput struct {
-	*pulumi.OutputState
-}
+type DataConnectionOutput struct{ *pulumi.OutputState }
 
 func (DataConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataConnection)(nil))

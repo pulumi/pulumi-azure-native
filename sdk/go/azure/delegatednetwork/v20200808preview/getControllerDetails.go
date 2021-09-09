@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an instance of a DNC controller.
 func LookupControllerDetails(ctx *pulumi.Context, args *LookupControllerDetailsArgs, opts ...pulumi.InvokeOption) (*LookupControllerDetailsResult, error) {
 	var rv LookupControllerDetailsResult
 	err := ctx.Invoke("azure-native:delegatednetwork/v20200808preview:getControllerDetails", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupControllerDetails(ctx *pulumi.Context, args *LookupControllerDetailsA
 }
 
 type LookupControllerDetailsArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // Represents an instance of a DNC controller.
 type LookupControllerDetailsResult struct {
-	// dnc application id should be used by customer to authenticate with dnc gateway.
-	DncAppId string `pulumi:"dncAppId"`
-	// dnc endpoint url that customers can use to connect to
-	DncEndpoint string `pulumi:"dncEndpoint"`
-	// tenant id of dnc application id
-	DncTenantId string `pulumi:"dncTenantId"`
-	// An identifier that represents the resource.
-	Id string `pulumi:"id"`
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The current state of dnc controller resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource guid.
-	ResourceGuid string `pulumi:"resourceGuid"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of resource.
-	Type string `pulumi:"type"`
+	DncAppId          string            `pulumi:"dncAppId"`
+	DncEndpoint       string            `pulumi:"dncEndpoint"`
+	DncTenantId       string            `pulumi:"dncTenantId"`
+	Id                string            `pulumi:"id"`
+	Location          *string           `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	ProvisioningState string            `pulumi:"provisioningState"`
+	ResourceGuid      string            `pulumi:"resourceGuid"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              string            `pulumi:"type"`
 }

@@ -11,34 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The key-value resource along with all resource properties.
 type KeyValue struct {
 	pulumi.CustomResourceState
 
-	// The content type of the key-value's value.
-	// Providing a proper content-type can enable transformations of values when they are retrieved by applications.
-	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
-	// An ETag indicating the state of a key-value within a configuration store.
-	ETag pulumi.StringOutput `pulumi:"eTag"`
-	// The primary identifier of a key-value.
-	// The key is used in unison with the label to uniquely identify a key-value.
-	Key pulumi.StringOutput `pulumi:"key"`
-	// A value used to group key-values.
-	// The label is used in unison with the key to uniquely identify a key-value.
-	Label pulumi.StringOutput `pulumi:"label"`
-	// The last time a modifying operation was performed on the given key-value.
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// A value indicating whether the key-value is locked.
-	// A locked key-value may not be modified until it is unlocked.
-	Locked pulumi.BoolOutput `pulumi:"locked"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A dictionary of tags that can help identify what a key-value may be applicable for.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The value of the key-value.
-	Value pulumi.StringPtrOutput `pulumi:"value"`
+	ContentType  pulumi.StringPtrOutput `pulumi:"contentType"`
+	ETag         pulumi.StringOutput    `pulumi:"eTag"`
+	Key          pulumi.StringOutput    `pulumi:"key"`
+	Label        pulumi.StringOutput    `pulumi:"label"`
+	LastModified pulumi.StringOutput    `pulumi:"lastModified"`
+	Locked       pulumi.BoolOutput      `pulumi:"locked"`
+	Name         pulumi.StringOutput    `pulumi:"name"`
+	Tags         pulumi.StringMapOutput `pulumi:"tags"`
+	Type         pulumi.StringOutput    `pulumi:"type"`
+	Value        pulumi.StringPtrOutput `pulumi:"value"`
 }
 
 // NewKeyValue registers a new resource with the given unique name, arguments, and options.
@@ -104,36 +89,22 @@ func (KeyValueState) ElementType() reflect.Type {
 }
 
 type keyValueArgs struct {
-	// The name of the configuration store.
-	ConfigStoreName string `pulumi:"configStoreName"`
-	// The content type of the key-value's value.
-	// Providing a proper content-type can enable transformations of values when they are retrieved by applications.
-	ContentType *string `pulumi:"contentType"`
-	// Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
-	KeyValueName *string `pulumi:"keyValueName"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A dictionary of tags that can help identify what a key-value may be applicable for.
-	Tags map[string]string `pulumi:"tags"`
-	// The value of the key-value.
-	Value *string `pulumi:"value"`
+	ConfigStoreName   string            `pulumi:"configStoreName"`
+	ContentType       *string           `pulumi:"contentType"`
+	KeyValueName      *string           `pulumi:"keyValueName"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	Value             *string           `pulumi:"value"`
 }
 
 // The set of arguments for constructing a KeyValue resource.
 type KeyValueArgs struct {
-	// The name of the configuration store.
-	ConfigStoreName pulumi.StringInput
-	// The content type of the key-value's value.
-	// Providing a proper content-type can enable transformations of values when they are retrieved by applications.
-	ContentType pulumi.StringPtrInput
-	// Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
-	KeyValueName pulumi.StringPtrInput
-	// The name of the resource group to which the container registry belongs.
+	ConfigStoreName   pulumi.StringInput
+	ContentType       pulumi.StringPtrInput
+	KeyValueName      pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// A dictionary of tags that can help identify what a key-value may be applicable for.
-	Tags pulumi.StringMapInput
-	// The value of the key-value.
-	Value pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	Value             pulumi.StringPtrInput
 }
 
 func (KeyValueArgs) ElementType() reflect.Type {
@@ -159,9 +130,7 @@ func (i *KeyValue) ToKeyValueOutputWithContext(ctx context.Context) KeyValueOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KeyValueOutput)
 }
 
-type KeyValueOutput struct {
-	*pulumi.OutputState
-}
+type KeyValueOutput struct{ *pulumi.OutputState }
 
 func (KeyValueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KeyValue)(nil))

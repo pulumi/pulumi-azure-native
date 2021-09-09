@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A DDoS custom policy in a resource group.
 type DdosCustomPolicy struct {
 	pulumi.CustomResourceState
 
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The protocol-specific DDoS policy customization parameters.
+	Etag                   pulumi.StringOutput                             `pulumi:"etag"`
+	Location               pulumi.StringPtrOutput                          `pulumi:"location"`
+	Name                   pulumi.StringOutput                             `pulumi:"name"`
 	ProtocolCustomSettings ProtocolCustomSettingsFormatResponseArrayOutput `pulumi:"protocolCustomSettings"`
-	// The provisioning state of the DDoS custom policy resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
-	PublicIPAddresses SubResourceResponseArrayOutput `pulumi:"publicIPAddresses"`
-	// The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
-	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState      pulumi.StringOutput                             `pulumi:"provisioningState"`
+	PublicIPAddresses      SubResourceResponseArrayOutput                  `pulumi:"publicIPAddresses"`
+	ResourceGuid           pulumi.StringOutput                             `pulumi:"resourceGuid"`
+	Tags                   pulumi.StringMapOutput                          `pulumi:"tags"`
+	Type                   pulumi.StringOutput                             `pulumi:"type"`
 }
 
 // NewDdosCustomPolicy registers a new resource with the given unique name, arguments, and options.
@@ -197,34 +187,22 @@ func (DdosCustomPolicyState) ElementType() reflect.Type {
 }
 
 type ddosCustomPolicyArgs struct {
-	// The name of the DDoS custom policy.
-	DdosCustomPolicyName *string `pulumi:"ddosCustomPolicyName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The protocol-specific DDoS policy customization parameters.
+	DdosCustomPolicyName   *string                        `pulumi:"ddosCustomPolicyName"`
+	Id                     *string                        `pulumi:"id"`
+	Location               *string                        `pulumi:"location"`
 	ProtocolCustomSettings []ProtocolCustomSettingsFormat `pulumi:"protocolCustomSettings"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ResourceGroupName      string                         `pulumi:"resourceGroupName"`
+	Tags                   map[string]string              `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DdosCustomPolicy resource.
 type DdosCustomPolicyArgs struct {
-	// The name of the DDoS custom policy.
-	DdosCustomPolicyName pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The protocol-specific DDoS policy customization parameters.
+	DdosCustomPolicyName   pulumi.StringPtrInput
+	Id                     pulumi.StringPtrInput
+	Location               pulumi.StringPtrInput
 	ProtocolCustomSettings ProtocolCustomSettingsFormatArrayInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (DdosCustomPolicyArgs) ElementType() reflect.Type {
@@ -250,9 +228,7 @@ func (i *DdosCustomPolicy) ToDdosCustomPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DdosCustomPolicyOutput)
 }
 
-type DdosCustomPolicyOutput struct {
-	*pulumi.OutputState
-}
+type DdosCustomPolicyOutput struct{ *pulumi.OutputState }
 
 func (DdosCustomPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DdosCustomPolicy)(nil))

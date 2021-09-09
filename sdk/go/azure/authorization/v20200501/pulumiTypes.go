@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Lock owner properties.
 type ManagementLockOwner struct {
-	// The application ID of the lock owner.
 	ApplicationId *string `pulumi:"applicationId"`
 }
 
@@ -27,9 +25,7 @@ type ManagementLockOwnerInput interface {
 	ToManagementLockOwnerOutputWithContext(context.Context) ManagementLockOwnerOutput
 }
 
-// Lock owner properties.
 type ManagementLockOwnerArgs struct {
-	// The application ID of the lock owner.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
 }
 
@@ -70,7 +66,6 @@ func (i ManagementLockOwnerArray) ToManagementLockOwnerArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockOwnerArrayOutput)
 }
 
-// Lock owner properties.
 type ManagementLockOwnerOutput struct{ *pulumi.OutputState }
 
 func (ManagementLockOwnerOutput) ElementType() reflect.Type {
@@ -85,7 +80,6 @@ func (o ManagementLockOwnerOutput) ToManagementLockOwnerOutputWithContext(ctx co
 	return o
 }
 
-// The application ID of the lock owner.
 func (o ManagementLockOwnerOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementLockOwner) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
@@ -110,9 +104,7 @@ func (o ManagementLockOwnerArrayOutput) Index(i pulumi.IntInput) ManagementLockO
 	}).(ManagementLockOwnerOutput)
 }
 
-// Lock owner properties.
 type ManagementLockOwnerResponse struct {
-	// The application ID of the lock owner.
 	ApplicationId *string `pulumi:"applicationId"`
 }
 
@@ -127,9 +119,7 @@ type ManagementLockOwnerResponseInput interface {
 	ToManagementLockOwnerResponseOutputWithContext(context.Context) ManagementLockOwnerResponseOutput
 }
 
-// Lock owner properties.
 type ManagementLockOwnerResponseArgs struct {
-	// The application ID of the lock owner.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
 }
 
@@ -170,7 +160,6 @@ func (i ManagementLockOwnerResponseArray) ToManagementLockOwnerResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockOwnerResponseArrayOutput)
 }
 
-// Lock owner properties.
 type ManagementLockOwnerResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementLockOwnerResponseOutput) ElementType() reflect.Type {
@@ -185,7 +174,6 @@ func (o ManagementLockOwnerResponseOutput) ToManagementLockOwnerResponseOutputWi
 	return o
 }
 
-// The application ID of the lock owner.
 func (o ManagementLockOwnerResponseOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementLockOwnerResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
@@ -211,7 +199,6 @@ func (o ManagementLockOwnerResponseArrayOutput) Index(i pulumi.IntInput) Managem
 }
 
 type ResourceManagementPrivateLinkEndpointConnectionsResponse struct {
-	// The private endpoint connections.
 	PrivateEndpointConnections []string `pulumi:"privateEndpointConnections"`
 }
 
@@ -227,7 +214,6 @@ type ResourceManagementPrivateLinkEndpointConnectionsResponseInput interface {
 }
 
 type ResourceManagementPrivateLinkEndpointConnectionsResponseArgs struct {
-	// The private endpoint connections.
 	PrivateEndpointConnections pulumi.StringArrayInput `pulumi:"privateEndpointConnections"`
 }
 
@@ -303,12 +289,11 @@ func (o ResourceManagementPrivateLinkEndpointConnectionsResponseOutput) ToResour
 }
 
 func (o ResourceManagementPrivateLinkEndpointConnectionsResponseOutput) ToResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutputWithContext(ctx context.Context) ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput {
-	return o.ApplyT(func(v ResourceManagementPrivateLinkEndpointConnectionsResponse) *ResourceManagementPrivateLinkEndpointConnectionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceManagementPrivateLinkEndpointConnectionsResponse) *ResourceManagementPrivateLinkEndpointConnectionsResponse {
 		return &v
 	}).(ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput)
 }
 
-// The private endpoint connections.
 func (o ResourceManagementPrivateLinkEndpointConnectionsResponseOutput) PrivateEndpointConnections() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceManagementPrivateLinkEndpointConnectionsResponse) []string {
 		return v.PrivateEndpointConnections
@@ -331,11 +316,14 @@ func (o ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput) ToRes
 
 func (o ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput) Elem() ResourceManagementPrivateLinkEndpointConnectionsResponseOutput {
 	return o.ApplyT(func(v *ResourceManagementPrivateLinkEndpointConnectionsResponse) ResourceManagementPrivateLinkEndpointConnectionsResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ResourceManagementPrivateLinkEndpointConnectionsResponse
+		return ret
 	}).(ResourceManagementPrivateLinkEndpointConnectionsResponseOutput)
 }
 
-// The private endpoint connections.
 func (o ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput) PrivateEndpointConnections() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceManagementPrivateLinkEndpointConnectionsResponse) []string {
 		if v == nil {
@@ -345,19 +333,12 @@ func (o ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput) Priva
 	}).(pulumi.StringArrayOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -372,19 +353,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -441,7 +415,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -461,37 +434,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -511,10 +478,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -524,7 +496,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -534,7 +505,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -544,7 +514,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -554,7 +523,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -564,7 +532,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

@@ -110,7 +110,7 @@ func (o BasicLoginInformationOutput) ToBasicLoginInformationPtrOutput() BasicLog
 }
 
 func (o BasicLoginInformationOutput) ToBasicLoginInformationPtrOutputWithContext(ctx context.Context) BasicLoginInformationPtrOutput {
-	return o.ApplyT(func(v BasicLoginInformation) *BasicLoginInformation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BasicLoginInformation) *BasicLoginInformation {
 		return &v
 	}).(BasicLoginInformationPtrOutput)
 }
@@ -140,7 +140,13 @@ func (o BasicLoginInformationPtrOutput) ToBasicLoginInformationPtrOutputWithCont
 }
 
 func (o BasicLoginInformationPtrOutput) Elem() BasicLoginInformationOutput {
-	return o.ApplyT(func(v *BasicLoginInformation) BasicLoginInformation { return *v }).(BasicLoginInformationOutput)
+	return o.ApplyT(func(v *BasicLoginInformation) BasicLoginInformation {
+		if v != nil {
+			return *v
+		}
+		var ret BasicLoginInformation
+		return ret
+	}).(BasicLoginInformationOutput)
 }
 
 // Login password.
@@ -259,7 +265,7 @@ func (o BasicLoginInformationResponseOutput) ToBasicLoginInformationResponsePtrO
 }
 
 func (o BasicLoginInformationResponseOutput) ToBasicLoginInformationResponsePtrOutputWithContext(ctx context.Context) BasicLoginInformationResponsePtrOutput {
-	return o.ApplyT(func(v BasicLoginInformationResponse) *BasicLoginInformationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BasicLoginInformationResponse) *BasicLoginInformationResponse {
 		return &v
 	}).(BasicLoginInformationResponsePtrOutput)
 }
@@ -284,7 +290,13 @@ func (o BasicLoginInformationResponsePtrOutput) ToBasicLoginInformationResponseP
 }
 
 func (o BasicLoginInformationResponsePtrOutput) Elem() BasicLoginInformationResponseOutput {
-	return o.ApplyT(func(v *BasicLoginInformationResponse) BasicLoginInformationResponse { return *v }).(BasicLoginInformationResponseOutput)
+	return o.ApplyT(func(v *BasicLoginInformationResponse) BasicLoginInformationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BasicLoginInformationResponse
+		return ret
+	}).(BasicLoginInformationResponseOutput)
 }
 
 // Login username.
@@ -417,7 +429,7 @@ func (o DataControllerPropertiesOutput) ToDataControllerPropertiesPtrOutput() Da
 }
 
 func (o DataControllerPropertiesOutput) ToDataControllerPropertiesPtrOutputWithContext(ctx context.Context) DataControllerPropertiesPtrOutput {
-	return o.ApplyT(func(v DataControllerProperties) *DataControllerProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataControllerProperties) *DataControllerProperties {
 		return &v
 	}).(DataControllerPropertiesPtrOutput)
 }
@@ -472,7 +484,13 @@ func (o DataControllerPropertiesPtrOutput) ToDataControllerPropertiesPtrOutputWi
 }
 
 func (o DataControllerPropertiesPtrOutput) Elem() DataControllerPropertiesOutput {
-	return o.ApplyT(func(v *DataControllerProperties) DataControllerProperties { return *v }).(DataControllerPropertiesOutput)
+	return o.ApplyT(func(v *DataControllerProperties) DataControllerProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DataControllerProperties
+		return ret
+	}).(DataControllerPropertiesOutput)
 }
 
 // Username and password for basic login authentication.
@@ -667,7 +685,7 @@ func (o DataControllerPropertiesResponseOutput) ToDataControllerPropertiesRespon
 }
 
 func (o DataControllerPropertiesResponseOutput) ToDataControllerPropertiesResponsePtrOutputWithContext(ctx context.Context) DataControllerPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DataControllerPropertiesResponse) *DataControllerPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataControllerPropertiesResponse) *DataControllerPropertiesResponse {
 		return &v
 	}).(DataControllerPropertiesResponsePtrOutput)
 }
@@ -732,7 +750,13 @@ func (o DataControllerPropertiesResponsePtrOutput) ToDataControllerPropertiesRes
 }
 
 func (o DataControllerPropertiesResponsePtrOutput) Elem() DataControllerPropertiesResponseOutput {
-	return o.ApplyT(func(v *DataControllerPropertiesResponse) DataControllerPropertiesResponse { return *v }).(DataControllerPropertiesResponseOutput)
+	return o.ApplyT(func(v *DataControllerPropertiesResponse) DataControllerPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DataControllerPropertiesResponse
+		return ret
+	}).(DataControllerPropertiesResponseOutput)
 }
 
 // Username and password for basic login authentication.
@@ -914,7 +938,7 @@ func (o ExtendedLocationOutput) ToExtendedLocationPtrOutput() ExtendedLocationPt
 }
 
 func (o ExtendedLocationOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
-	return o.ApplyT(func(v ExtendedLocation) *ExtendedLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedLocation) *ExtendedLocation {
 		return &v
 	}).(ExtendedLocationPtrOutput)
 }
@@ -944,7 +968,13 @@ func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutputWithContext(ctx co
 }
 
 func (o ExtendedLocationPtrOutput) Elem() ExtendedLocationOutput {
-	return o.ApplyT(func(v *ExtendedLocation) ExtendedLocation { return *v }).(ExtendedLocationOutput)
+	return o.ApplyT(func(v *ExtendedLocation) ExtendedLocation {
+		if v != nil {
+			return *v
+		}
+		var ret ExtendedLocation
+		return ret
+	}).(ExtendedLocationOutput)
 }
 
 // The name of the extended location.
@@ -1067,7 +1097,7 @@ func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutput() Ex
 }
 
 func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
-	return o.ApplyT(func(v ExtendedLocationResponse) *ExtendedLocationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedLocationResponse) *ExtendedLocationResponse {
 		return &v
 	}).(ExtendedLocationResponsePtrOutput)
 }
@@ -1097,7 +1127,13 @@ func (o ExtendedLocationResponsePtrOutput) ToExtendedLocationResponsePtrOutputWi
 }
 
 func (o ExtendedLocationResponsePtrOutput) Elem() ExtendedLocationResponseOutput {
-	return o.ApplyT(func(v *ExtendedLocationResponse) ExtendedLocationResponse { return *v }).(ExtendedLocationResponseOutput)
+	return o.ApplyT(func(v *ExtendedLocationResponse) ExtendedLocationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExtendedLocationResponse
+		return ret
+	}).(ExtendedLocationResponseOutput)
 }
 
 // The name of the extended location.
@@ -1220,7 +1256,7 @@ func (o LogAnalyticsWorkspaceConfigOutput) ToLogAnalyticsWorkspaceConfigPtrOutpu
 }
 
 func (o LogAnalyticsWorkspaceConfigOutput) ToLogAnalyticsWorkspaceConfigPtrOutputWithContext(ctx context.Context) LogAnalyticsWorkspaceConfigPtrOutput {
-	return o.ApplyT(func(v LogAnalyticsWorkspaceConfig) *LogAnalyticsWorkspaceConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAnalyticsWorkspaceConfig) *LogAnalyticsWorkspaceConfig {
 		return &v
 	}).(LogAnalyticsWorkspaceConfigPtrOutput)
 }
@@ -1250,7 +1286,13 @@ func (o LogAnalyticsWorkspaceConfigPtrOutput) ToLogAnalyticsWorkspaceConfigPtrOu
 }
 
 func (o LogAnalyticsWorkspaceConfigPtrOutput) Elem() LogAnalyticsWorkspaceConfigOutput {
-	return o.ApplyT(func(v *LogAnalyticsWorkspaceConfig) LogAnalyticsWorkspaceConfig { return *v }).(LogAnalyticsWorkspaceConfigOutput)
+	return o.ApplyT(func(v *LogAnalyticsWorkspaceConfig) LogAnalyticsWorkspaceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LogAnalyticsWorkspaceConfig
+		return ret
+	}).(LogAnalyticsWorkspaceConfigOutput)
 }
 
 // Primary key of the workspace
@@ -1369,7 +1411,7 @@ func (o LogAnalyticsWorkspaceConfigResponseOutput) ToLogAnalyticsWorkspaceConfig
 }
 
 func (o LogAnalyticsWorkspaceConfigResponseOutput) ToLogAnalyticsWorkspaceConfigResponsePtrOutputWithContext(ctx context.Context) LogAnalyticsWorkspaceConfigResponsePtrOutput {
-	return o.ApplyT(func(v LogAnalyticsWorkspaceConfigResponse) *LogAnalyticsWorkspaceConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAnalyticsWorkspaceConfigResponse) *LogAnalyticsWorkspaceConfigResponse {
 		return &v
 	}).(LogAnalyticsWorkspaceConfigResponsePtrOutput)
 }
@@ -1394,7 +1436,13 @@ func (o LogAnalyticsWorkspaceConfigResponsePtrOutput) ToLogAnalyticsWorkspaceCon
 }
 
 func (o LogAnalyticsWorkspaceConfigResponsePtrOutput) Elem() LogAnalyticsWorkspaceConfigResponseOutput {
-	return o.ApplyT(func(v *LogAnalyticsWorkspaceConfigResponse) LogAnalyticsWorkspaceConfigResponse { return *v }).(LogAnalyticsWorkspaceConfigResponseOutput)
+	return o.ApplyT(func(v *LogAnalyticsWorkspaceConfigResponse) LogAnalyticsWorkspaceConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LogAnalyticsWorkspaceConfigResponse
+		return ret
+	}).(LogAnalyticsWorkspaceConfigResponseOutput)
 }
 
 // Azure Log Analytics workspace ID
@@ -1511,7 +1559,7 @@ func (o OnPremisePropertyOutput) ToOnPremisePropertyPtrOutput() OnPremisePropert
 }
 
 func (o OnPremisePropertyOutput) ToOnPremisePropertyPtrOutputWithContext(ctx context.Context) OnPremisePropertyPtrOutput {
-	return o.ApplyT(func(v OnPremiseProperty) *OnPremiseProperty {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnPremiseProperty) *OnPremiseProperty {
 		return &v
 	}).(OnPremisePropertyPtrOutput)
 }
@@ -1546,7 +1594,13 @@ func (o OnPremisePropertyPtrOutput) ToOnPremisePropertyPtrOutputWithContext(ctx 
 }
 
 func (o OnPremisePropertyPtrOutput) Elem() OnPremisePropertyOutput {
-	return o.ApplyT(func(v *OnPremiseProperty) OnPremiseProperty { return *v }).(OnPremisePropertyOutput)
+	return o.ApplyT(func(v *OnPremiseProperty) OnPremiseProperty {
+		if v != nil {
+			return *v
+		}
+		var ret OnPremiseProperty
+		return ret
+	}).(OnPremisePropertyOutput)
 }
 
 // A globally unique ID identifying the associated Kubernetes cluster
@@ -1683,7 +1737,7 @@ func (o OnPremisePropertyResponseOutput) ToOnPremisePropertyResponsePtrOutput() 
 }
 
 func (o OnPremisePropertyResponseOutput) ToOnPremisePropertyResponsePtrOutputWithContext(ctx context.Context) OnPremisePropertyResponsePtrOutput {
-	return o.ApplyT(func(v OnPremisePropertyResponse) *OnPremisePropertyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnPremisePropertyResponse) *OnPremisePropertyResponse {
 		return &v
 	}).(OnPremisePropertyResponsePtrOutput)
 }
@@ -1718,7 +1772,13 @@ func (o OnPremisePropertyResponsePtrOutput) ToOnPremisePropertyResponsePtrOutput
 }
 
 func (o OnPremisePropertyResponsePtrOutput) Elem() OnPremisePropertyResponseOutput {
-	return o.ApplyT(func(v *OnPremisePropertyResponse) OnPremisePropertyResponse { return *v }).(OnPremisePropertyResponseOutput)
+	return o.ApplyT(func(v *OnPremisePropertyResponse) OnPremisePropertyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret OnPremisePropertyResponse
+		return ret
+	}).(OnPremisePropertyResponseOutput)
 }
 
 // A globally unique ID identifying the associated Kubernetes cluster
@@ -1863,7 +1923,7 @@ func (o PostgresInstancePropertiesOutput) ToPostgresInstancePropertiesPtrOutput(
 }
 
 func (o PostgresInstancePropertiesOutput) ToPostgresInstancePropertiesPtrOutputWithContext(ctx context.Context) PostgresInstancePropertiesPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceProperties) *PostgresInstanceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresInstanceProperties) *PostgresInstanceProperties {
 		return &v
 	}).(PostgresInstancePropertiesPtrOutput)
 }
@@ -1908,7 +1968,13 @@ func (o PostgresInstancePropertiesPtrOutput) ToPostgresInstancePropertiesPtrOutp
 }
 
 func (o PostgresInstancePropertiesPtrOutput) Elem() PostgresInstancePropertiesOutput {
-	return o.ApplyT(func(v *PostgresInstanceProperties) PostgresInstanceProperties { return *v }).(PostgresInstancePropertiesOutput)
+	return o.ApplyT(func(v *PostgresInstanceProperties) PostgresInstanceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PostgresInstanceProperties
+		return ret
+	}).(PostgresInstancePropertiesOutput)
 }
 
 // The instance admin
@@ -2075,7 +2141,7 @@ func (o PostgresInstancePropertiesResponseOutput) ToPostgresInstancePropertiesRe
 }
 
 func (o PostgresInstancePropertiesResponseOutput) ToPostgresInstancePropertiesResponsePtrOutputWithContext(ctx context.Context) PostgresInstancePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PostgresInstancePropertiesResponse) *PostgresInstancePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresInstancePropertiesResponse) *PostgresInstancePropertiesResponse {
 		return &v
 	}).(PostgresInstancePropertiesResponsePtrOutput)
 }
@@ -2126,7 +2192,13 @@ func (o PostgresInstancePropertiesResponsePtrOutput) ToPostgresInstancePropertie
 }
 
 func (o PostgresInstancePropertiesResponsePtrOutput) Elem() PostgresInstancePropertiesResponseOutput {
-	return o.ApplyT(func(v *PostgresInstancePropertiesResponse) PostgresInstancePropertiesResponse { return *v }).(PostgresInstancePropertiesResponseOutput)
+	return o.ApplyT(func(v *PostgresInstancePropertiesResponse) PostgresInstancePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PostgresInstancePropertiesResponse
+		return ret
+	}).(PostgresInstancePropertiesResponseOutput)
 }
 
 // The instance admin
@@ -2201,7 +2273,7 @@ type PostgresInstanceSku struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size *string `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier *string `pulumi:"tier"`
+	Tier *PostgresInstanceSkuTier `pulumi:"tier"`
 }
 
 // PostgresInstanceSkuInput is an input type that accepts PostgresInstanceSkuArgs and PostgresInstanceSkuOutput values.
@@ -2228,7 +2300,7 @@ type PostgresInstanceSkuArgs struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier *PostgresInstanceSkuTier `pulumi:"tier"`
+	Tier PostgresInstanceSkuTierPtrInput `pulumi:"tier"`
 }
 
 func (PostgresInstanceSkuArgs) ElementType() reflect.Type {
@@ -2304,7 +2376,7 @@ func (o PostgresInstanceSkuOutput) ToPostgresInstanceSkuPtrOutput() PostgresInst
 }
 
 func (o PostgresInstanceSkuOutput) ToPostgresInstanceSkuPtrOutputWithContext(ctx context.Context) PostgresInstanceSkuPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceSku) *PostgresInstanceSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresInstanceSku) *PostgresInstanceSku {
 		return &v
 	}).(PostgresInstanceSkuPtrOutput)
 }
@@ -2335,8 +2407,8 @@ func (o PostgresInstanceSkuOutput) Size() pulumi.StringPtrOutput {
 }
 
 // This field is required to be implemented by the Resource Provider if the service has more than one tier.
-func (o PostgresInstanceSkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+func (o PostgresInstanceSkuOutput) Tier() PostgresInstanceSkuTierPtrOutput {
+	return o.ApplyT(func(v PostgresInstanceSku) *PostgresInstanceSkuTier { return v.Tier }).(PostgresInstanceSkuTierPtrOutput)
 }
 
 type PostgresInstanceSkuPtrOutput struct{ *pulumi.OutputState }
@@ -2354,7 +2426,13 @@ func (o PostgresInstanceSkuPtrOutput) ToPostgresInstanceSkuPtrOutputWithContext(
 }
 
 func (o PostgresInstanceSkuPtrOutput) Elem() PostgresInstanceSkuOutput {
-	return o.ApplyT(func(v *PostgresInstanceSku) PostgresInstanceSku { return *v }).(PostgresInstanceSkuOutput)
+	return o.ApplyT(func(v *PostgresInstanceSku) PostgresInstanceSku {
+		if v != nil {
+			return *v
+		}
+		var ret PostgresInstanceSku
+		return ret
+	}).(PostgresInstanceSkuOutput)
 }
 
 // If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
@@ -2408,13 +2486,13 @@ func (o PostgresInstanceSkuPtrOutput) Size() pulumi.StringPtrOutput {
 }
 
 // This field is required to be implemented by the Resource Provider if the service has more than one tier.
-func (o PostgresInstanceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceSku) *string {
+func (o PostgresInstanceSkuPtrOutput) Tier() PostgresInstanceSkuTierPtrOutput {
+	return o.ApplyT(func(v *PostgresInstanceSku) *PostgresInstanceSkuTier {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(pulumi.StringPtrOutput)
+	}).(PostgresInstanceSkuTierPtrOutput)
 }
 
 // The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
@@ -2533,7 +2611,7 @@ func (o PostgresInstanceSkuResponseOutput) ToPostgresInstanceSkuResponsePtrOutpu
 }
 
 func (o PostgresInstanceSkuResponseOutput) ToPostgresInstanceSkuResponsePtrOutputWithContext(ctx context.Context) PostgresInstanceSkuResponsePtrOutput {
-	return o.ApplyT(func(v PostgresInstanceSkuResponse) *PostgresInstanceSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresInstanceSkuResponse) *PostgresInstanceSkuResponse {
 		return &v
 	}).(PostgresInstanceSkuResponsePtrOutput)
 }
@@ -2583,7 +2661,13 @@ func (o PostgresInstanceSkuResponsePtrOutput) ToPostgresInstanceSkuResponsePtrOu
 }
 
 func (o PostgresInstanceSkuResponsePtrOutput) Elem() PostgresInstanceSkuResponseOutput {
-	return o.ApplyT(func(v *PostgresInstanceSkuResponse) PostgresInstanceSkuResponse { return *v }).(PostgresInstanceSkuResponseOutput)
+	return o.ApplyT(func(v *PostgresInstanceSkuResponse) PostgresInstanceSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PostgresInstanceSkuResponse
+		return ret
+	}).(PostgresInstanceSkuResponseOutput)
 }
 
 // If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
@@ -2766,7 +2850,7 @@ func (o SqlManagedInstancePropertiesOutput) ToSqlManagedInstancePropertiesPtrOut
 }
 
 func (o SqlManagedInstancePropertiesOutput) ToSqlManagedInstancePropertiesPtrOutputWithContext(ctx context.Context) SqlManagedInstancePropertiesPtrOutput {
-	return o.ApplyT(func(v SqlManagedInstanceProperties) *SqlManagedInstanceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlManagedInstanceProperties) *SqlManagedInstanceProperties {
 		return &v
 	}).(SqlManagedInstancePropertiesPtrOutput)
 }
@@ -2821,7 +2905,13 @@ func (o SqlManagedInstancePropertiesPtrOutput) ToSqlManagedInstancePropertiesPtr
 }
 
 func (o SqlManagedInstancePropertiesPtrOutput) Elem() SqlManagedInstancePropertiesOutput {
-	return o.ApplyT(func(v *SqlManagedInstanceProperties) SqlManagedInstanceProperties { return *v }).(SqlManagedInstancePropertiesOutput)
+	return o.ApplyT(func(v *SqlManagedInstanceProperties) SqlManagedInstanceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SqlManagedInstanceProperties
+		return ret
+	}).(SqlManagedInstancePropertiesOutput)
 }
 
 // The instance admin user
@@ -3016,7 +3106,7 @@ func (o SqlManagedInstancePropertiesResponseOutput) ToSqlManagedInstanceProperti
 }
 
 func (o SqlManagedInstancePropertiesResponseOutput) ToSqlManagedInstancePropertiesResponsePtrOutputWithContext(ctx context.Context) SqlManagedInstancePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) *SqlManagedInstancePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlManagedInstancePropertiesResponse) *SqlManagedInstancePropertiesResponse {
 		return &v
 	}).(SqlManagedInstancePropertiesResponsePtrOutput)
 }
@@ -3077,7 +3167,13 @@ func (o SqlManagedInstancePropertiesResponsePtrOutput) ToSqlManagedInstancePrope
 }
 
 func (o SqlManagedInstancePropertiesResponsePtrOutput) Elem() SqlManagedInstancePropertiesResponseOutput {
-	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) SqlManagedInstancePropertiesResponse { return *v }).(SqlManagedInstancePropertiesResponseOutput)
+	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) SqlManagedInstancePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SqlManagedInstancePropertiesResponse
+		return ret
+	}).(SqlManagedInstancePropertiesResponseOutput)
 }
 
 // The instance admin user
@@ -3172,7 +3268,7 @@ type SqlManagedInstanceSku struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size *string `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier *string `pulumi:"tier"`
+	Tier *SqlManagedInstanceSkuTier `pulumi:"tier"`
 }
 
 // SqlManagedInstanceSkuInput is an input type that accepts SqlManagedInstanceSkuArgs and SqlManagedInstanceSkuOutput values.
@@ -3199,7 +3295,7 @@ type SqlManagedInstanceSkuArgs struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier *SqlManagedInstanceSkuTier `pulumi:"tier"`
+	Tier SqlManagedInstanceSkuTierPtrInput `pulumi:"tier"`
 }
 
 func (SqlManagedInstanceSkuArgs) ElementType() reflect.Type {
@@ -3275,7 +3371,7 @@ func (o SqlManagedInstanceSkuOutput) ToSqlManagedInstanceSkuPtrOutput() SqlManag
 }
 
 func (o SqlManagedInstanceSkuOutput) ToSqlManagedInstanceSkuPtrOutputWithContext(ctx context.Context) SqlManagedInstanceSkuPtrOutput {
-	return o.ApplyT(func(v SqlManagedInstanceSku) *SqlManagedInstanceSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlManagedInstanceSku) *SqlManagedInstanceSku {
 		return &v
 	}).(SqlManagedInstanceSkuPtrOutput)
 }
@@ -3306,8 +3402,8 @@ func (o SqlManagedInstanceSkuOutput) Size() pulumi.StringPtrOutput {
 }
 
 // This field is required to be implemented by the Resource Provider if the service has more than one tier.
-func (o SqlManagedInstanceSkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlManagedInstanceSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+func (o SqlManagedInstanceSkuOutput) Tier() SqlManagedInstanceSkuTierPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstanceSku) *SqlManagedInstanceSkuTier { return v.Tier }).(SqlManagedInstanceSkuTierPtrOutput)
 }
 
 type SqlManagedInstanceSkuPtrOutput struct{ *pulumi.OutputState }
@@ -3325,7 +3421,13 @@ func (o SqlManagedInstanceSkuPtrOutput) ToSqlManagedInstanceSkuPtrOutputWithCont
 }
 
 func (o SqlManagedInstanceSkuPtrOutput) Elem() SqlManagedInstanceSkuOutput {
-	return o.ApplyT(func(v *SqlManagedInstanceSku) SqlManagedInstanceSku { return *v }).(SqlManagedInstanceSkuOutput)
+	return o.ApplyT(func(v *SqlManagedInstanceSku) SqlManagedInstanceSku {
+		if v != nil {
+			return *v
+		}
+		var ret SqlManagedInstanceSku
+		return ret
+	}).(SqlManagedInstanceSkuOutput)
 }
 
 // If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
@@ -3379,13 +3481,13 @@ func (o SqlManagedInstanceSkuPtrOutput) Size() pulumi.StringPtrOutput {
 }
 
 // This field is required to be implemented by the Resource Provider if the service has more than one tier.
-func (o SqlManagedInstanceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstanceSku) *string {
+func (o SqlManagedInstanceSkuPtrOutput) Tier() SqlManagedInstanceSkuTierPtrOutput {
+	return o.ApplyT(func(v *SqlManagedInstanceSku) *SqlManagedInstanceSkuTier {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(pulumi.StringPtrOutput)
+	}).(SqlManagedInstanceSkuTierPtrOutput)
 }
 
 // The resource model definition representing SKU for Azure Managed Instance - Azure Arc
@@ -3504,7 +3606,7 @@ func (o SqlManagedInstanceSkuResponseOutput) ToSqlManagedInstanceSkuResponsePtrO
 }
 
 func (o SqlManagedInstanceSkuResponseOutput) ToSqlManagedInstanceSkuResponsePtrOutputWithContext(ctx context.Context) SqlManagedInstanceSkuResponsePtrOutput {
-	return o.ApplyT(func(v SqlManagedInstanceSkuResponse) *SqlManagedInstanceSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlManagedInstanceSkuResponse) *SqlManagedInstanceSkuResponse {
 		return &v
 	}).(SqlManagedInstanceSkuResponsePtrOutput)
 }
@@ -3554,7 +3656,13 @@ func (o SqlManagedInstanceSkuResponsePtrOutput) ToSqlManagedInstanceSkuResponseP
 }
 
 func (o SqlManagedInstanceSkuResponsePtrOutput) Elem() SqlManagedInstanceSkuResponseOutput {
-	return o.ApplyT(func(v *SqlManagedInstanceSkuResponse) SqlManagedInstanceSkuResponse { return *v }).(SqlManagedInstanceSkuResponseOutput)
+	return o.ApplyT(func(v *SqlManagedInstanceSkuResponse) SqlManagedInstanceSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SqlManagedInstanceSkuResponse
+		return ret
+	}).(SqlManagedInstanceSkuResponseOutput)
 }
 
 // If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
@@ -3761,7 +3869,7 @@ func (o SqlServerInstancePropertiesOutput) ToSqlServerInstancePropertiesPtrOutpu
 }
 
 func (o SqlServerInstancePropertiesOutput) ToSqlServerInstancePropertiesPtrOutputWithContext(ctx context.Context) SqlServerInstancePropertiesPtrOutput {
-	return o.ApplyT(func(v SqlServerInstanceProperties) *SqlServerInstanceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlServerInstanceProperties) *SqlServerInstanceProperties {
 		return &v
 	}).(SqlServerInstancePropertiesPtrOutput)
 }
@@ -3846,7 +3954,13 @@ func (o SqlServerInstancePropertiesPtrOutput) ToSqlServerInstancePropertiesPtrOu
 }
 
 func (o SqlServerInstancePropertiesPtrOutput) Elem() SqlServerInstancePropertiesOutput {
-	return o.ApplyT(func(v *SqlServerInstanceProperties) SqlServerInstanceProperties { return *v }).(SqlServerInstancePropertiesOutput)
+	return o.ApplyT(func(v *SqlServerInstanceProperties) SqlServerInstanceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SqlServerInstanceProperties
+		return ret
+	}).(SqlServerInstancePropertiesOutput)
 }
 
 // SQL Server collation.
@@ -4129,7 +4243,7 @@ func (o SqlServerInstancePropertiesResponseOutput) ToSqlServerInstanceProperties
 }
 
 func (o SqlServerInstancePropertiesResponseOutput) ToSqlServerInstancePropertiesResponsePtrOutputWithContext(ctx context.Context) SqlServerInstancePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *SqlServerInstancePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlServerInstancePropertiesResponse) *SqlServerInstancePropertiesResponse {
 		return &v
 	}).(SqlServerInstancePropertiesResponsePtrOutput)
 }
@@ -4223,7 +4337,13 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) ToSqlServerInstancePropert
 }
 
 func (o SqlServerInstancePropertiesResponsePtrOutput) Elem() SqlServerInstancePropertiesResponseOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) SqlServerInstancePropertiesResponse { return *v }).(SqlServerInstancePropertiesResponseOutput)
+	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) SqlServerInstancePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SqlServerInstancePropertiesResponse
+		return ret
+	}).(SqlServerInstancePropertiesResponseOutput)
 }
 
 // SQL Server collation.
@@ -4491,7 +4611,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -4541,7 +4661,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC)
@@ -4712,7 +4838,7 @@ func (o UploadServicePrincipalOutput) ToUploadServicePrincipalPtrOutput() Upload
 }
 
 func (o UploadServicePrincipalOutput) ToUploadServicePrincipalPtrOutputWithContext(ctx context.Context) UploadServicePrincipalPtrOutput {
-	return o.ApplyT(func(v UploadServicePrincipal) *UploadServicePrincipal {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UploadServicePrincipal) *UploadServicePrincipal {
 		return &v
 	}).(UploadServicePrincipalPtrOutput)
 }
@@ -4752,7 +4878,13 @@ func (o UploadServicePrincipalPtrOutput) ToUploadServicePrincipalPtrOutputWithCo
 }
 
 func (o UploadServicePrincipalPtrOutput) Elem() UploadServicePrincipalOutput {
-	return o.ApplyT(func(v *UploadServicePrincipal) UploadServicePrincipal { return *v }).(UploadServicePrincipalOutput)
+	return o.ApplyT(func(v *UploadServicePrincipal) UploadServicePrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret UploadServicePrincipal
+		return ret
+	}).(UploadServicePrincipalOutput)
 }
 
 // Authority for the service principal. Example: https://login.microsoftonline.com/
@@ -4899,7 +5031,7 @@ func (o UploadServicePrincipalResponseOutput) ToUploadServicePrincipalResponsePt
 }
 
 func (o UploadServicePrincipalResponseOutput) ToUploadServicePrincipalResponsePtrOutputWithContext(ctx context.Context) UploadServicePrincipalResponsePtrOutput {
-	return o.ApplyT(func(v UploadServicePrincipalResponse) *UploadServicePrincipalResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UploadServicePrincipalResponse) *UploadServicePrincipalResponse {
 		return &v
 	}).(UploadServicePrincipalResponsePtrOutput)
 }
@@ -4934,7 +5066,13 @@ func (o UploadServicePrincipalResponsePtrOutput) ToUploadServicePrincipalRespons
 }
 
 func (o UploadServicePrincipalResponsePtrOutput) Elem() UploadServicePrincipalResponseOutput {
-	return o.ApplyT(func(v *UploadServicePrincipalResponse) UploadServicePrincipalResponse { return *v }).(UploadServicePrincipalResponseOutput)
+	return o.ApplyT(func(v *UploadServicePrincipalResponse) UploadServicePrincipalResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UploadServicePrincipalResponse
+		return ret
+	}).(UploadServicePrincipalResponseOutput)
 }
 
 // Authority for the service principal. Example: https://login.microsoftonline.com/
@@ -5071,7 +5209,7 @@ func (o UploadWatermarkOutput) ToUploadWatermarkPtrOutput() UploadWatermarkPtrOu
 }
 
 func (o UploadWatermarkOutput) ToUploadWatermarkPtrOutputWithContext(ctx context.Context) UploadWatermarkPtrOutput {
-	return o.ApplyT(func(v UploadWatermark) *UploadWatermark {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UploadWatermark) *UploadWatermark {
 		return &v
 	}).(UploadWatermarkPtrOutput)
 }
@@ -5106,7 +5244,13 @@ func (o UploadWatermarkPtrOutput) ToUploadWatermarkPtrOutputWithContext(ctx cont
 }
 
 func (o UploadWatermarkPtrOutput) Elem() UploadWatermarkOutput {
-	return o.ApplyT(func(v *UploadWatermark) UploadWatermark { return *v }).(UploadWatermarkOutput)
+	return o.ApplyT(func(v *UploadWatermark) UploadWatermark {
+		if v != nil {
+			return *v
+		}
+		var ret UploadWatermark
+		return ret
+	}).(UploadWatermarkOutput)
 }
 
 // Last uploaded date for logs from kubernetes cluster. Defaults to current date time
@@ -5243,7 +5387,7 @@ func (o UploadWatermarkResponseOutput) ToUploadWatermarkResponsePtrOutput() Uplo
 }
 
 func (o UploadWatermarkResponseOutput) ToUploadWatermarkResponsePtrOutputWithContext(ctx context.Context) UploadWatermarkResponsePtrOutput {
-	return o.ApplyT(func(v UploadWatermarkResponse) *UploadWatermarkResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UploadWatermarkResponse) *UploadWatermarkResponse {
 		return &v
 	}).(UploadWatermarkResponsePtrOutput)
 }
@@ -5278,7 +5422,13 @@ func (o UploadWatermarkResponsePtrOutput) ToUploadWatermarkResponsePtrOutputWith
 }
 
 func (o UploadWatermarkResponsePtrOutput) Elem() UploadWatermarkResponseOutput {
-	return o.ApplyT(func(v *UploadWatermarkResponse) UploadWatermarkResponse { return *v }).(UploadWatermarkResponseOutput)
+	return o.ApplyT(func(v *UploadWatermarkResponse) UploadWatermarkResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UploadWatermarkResponse
+		return ret
+	}).(UploadWatermarkResponseOutput)
 }
 
 // Last uploaded date for logs from kubernetes cluster. Defaults to current date time

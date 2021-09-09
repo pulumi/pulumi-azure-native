@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents Amazon Web Services CloudTrail data connector.
 func LookupAwsCloudTrailDataConnector(ctx *pulumi.Context, args *LookupAwsCloudTrailDataConnectorArgs, opts ...pulumi.InvokeOption) (*LookupAwsCloudTrailDataConnectorResult, error) {
 	var rv LookupAwsCloudTrailDataConnectorResult
 	err := ctx.Invoke("azure-native:securityinsights/v20210301preview:getAwsCloudTrailDataConnector", args, &rv, opts...)
@@ -18,33 +17,20 @@ func LookupAwsCloudTrailDataConnector(ctx *pulumi.Context, args *LookupAwsCloudT
 }
 
 type LookupAwsCloudTrailDataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId string `pulumi:"dataConnectorId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	DataConnectorId                     string `pulumi:"dataConnectorId"`
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Represents Amazon Web Services CloudTrail data connector.
 type LookupAwsCloudTrailDataConnectorResult struct {
-	// The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
-	AwsRoleArn *string `pulumi:"awsRoleArn"`
-	// The available data types for the connector.
-	DataTypes AwsCloudTrailDataConnectorDataTypesResponse `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The kind of the data connector
-	// Expected value is 'AmazonWebServicesCloudTrail'.
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	AwsRoleArn *string                                     `pulumi:"awsRoleArn"`
+	DataTypes  AwsCloudTrailDataConnectorDataTypesResponse `pulumi:"dataTypes"`
+	Etag       *string                                     `pulumi:"etag"`
+	Id         string                                      `pulumi:"id"`
+	Kind       string                                      `pulumi:"kind"`
+	Name       string                                      `pulumi:"name"`
+	SystemData SystemDataResponse                          `pulumi:"systemData"`
+	Type       string                                      `pulumi:"type"`
 }

@@ -11,19 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB Gremlin database.
 type GremlinResourceGremlinDatabase struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the ARM resource.
+	Location pulumi.StringPtrOutput                                `pulumi:"location"`
 	Name     pulumi.StringOutput                                   `pulumi:"name"`
 	Resource GremlinDatabaseGetPropertiesResponseResourcePtrOutput `pulumi:"resource"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags     pulumi.StringMapOutput                                `pulumi:"tags"`
+	Type     pulumi.StringOutput                                   `pulumi:"type"`
 }
 
 // NewGremlinResourceGremlinDatabase registers a new resource with the given unique name, arguments, and options.
@@ -197,38 +192,24 @@ func (GremlinResourceGremlinDatabaseState) ElementType() reflect.Type {
 }
 
 type gremlinResourceGremlinDatabaseArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Cosmos DB database name.
-	DatabaseName *string `pulumi:"databaseName"`
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options map[string]string `pulumi:"options"`
-	// The standard JSON format of a Gremlin database
-	Resource GremlinDatabaseResource `pulumi:"resource"`
-	// Name of an Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       string                  `pulumi:"accountName"`
+	DatabaseName      *string                 `pulumi:"databaseName"`
+	Location          *string                 `pulumi:"location"`
+	Options           map[string]string       `pulumi:"options"`
+	Resource          GremlinDatabaseResource `pulumi:"resource"`
+	ResourceGroupName string                  `pulumi:"resourceGroupName"`
+	Tags              map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GremlinResourceGremlinDatabase resource.
 type GremlinResourceGremlinDatabaseArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Cosmos DB database name.
-	DatabaseName pulumi.StringPtrInput
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options pulumi.StringMapInput
-	// The standard JSON format of a Gremlin database
-	Resource GremlinDatabaseResourceInput
-	// Name of an Azure resource group.
+	AccountName       pulumi.StringInput
+	DatabaseName      pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Options           pulumi.StringMapInput
+	Resource          GremlinDatabaseResourceInput
 	ResourceGroupName pulumi.StringInput
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (GremlinResourceGremlinDatabaseArgs) ElementType() reflect.Type {
@@ -254,9 +235,7 @@ func (i *GremlinResourceGremlinDatabase) ToGremlinResourceGremlinDatabaseOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinResourceGremlinDatabaseOutput)
 }
 
-type GremlinResourceGremlinDatabaseOutput struct {
-	*pulumi.OutputState
-}
+type GremlinResourceGremlinDatabaseOutput struct{ *pulumi.OutputState }
 
 func (GremlinResourceGremlinDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GremlinResourceGremlinDatabase)(nil))

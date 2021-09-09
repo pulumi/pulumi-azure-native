@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing the config for the solution in the migrate project.
 func GetSolutionConfig(ctx *pulumi.Context, args *GetSolutionConfigArgs, opts ...pulumi.InvokeOption) (*GetSolutionConfigResult, error) {
 	var rv GetSolutionConfigResult
 	err := ctx.Invoke("azure-native:migrate/v20180901preview:getSolutionConfig", args, &rv, opts...)
@@ -18,16 +17,12 @@ func GetSolutionConfig(ctx *pulumi.Context, args *GetSolutionConfigArgs, opts ..
 }
 
 type GetSolutionConfigArgs struct {
-	// Name of the Azure Migrate project.
 	MigrateProjectName string `pulumi:"migrateProjectName"`
-	// Name of the Azure Resource Group that migrate project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Unique name of a migration solution within a migrate project.
-	SolutionName string `pulumi:"solutionName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
+	SolutionName       string `pulumi:"solutionName"`
 }
 
 // Class representing the config for the solution in the migrate project.
 type GetSolutionConfigResult struct {
-	// Gets or sets the publisher sas uri for the solution.
 	PublisherSasUri *string `pulumi:"publisherSasUri"`
 }

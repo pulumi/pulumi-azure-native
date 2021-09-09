@@ -11,52 +11,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Kusto cluster.
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// The cluster data ingestion URI.
-	DataIngestionUri pulumi.StringOutput `pulumi:"dataIngestionUri"`
-	// A boolean value that indicates if the cluster's disks are encrypted.
-	EnableDiskEncryption pulumi.BoolPtrOutput `pulumi:"enableDiskEncryption"`
-	// A boolean value that indicates if double encryption is enabled.
-	EnableDoubleEncryption pulumi.BoolPtrOutput `pulumi:"enableDoubleEncryption"`
-	// A boolean value that indicates if the purge operations are enabled.
-	EnablePurge pulumi.BoolPtrOutput `pulumi:"enablePurge"`
-	// A boolean value that indicates if the streaming ingest is enabled.
-	EnableStreamingIngest pulumi.BoolPtrOutput `pulumi:"enableStreamingIngest"`
-	// The identity of the cluster, if configured.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// KeyVault properties for the cluster encryption.
-	KeyVaultProperties KeyVaultPropertiesResponsePtrOutput `pulumi:"keyVaultProperties"`
-	// List of the cluster's language extensions.
-	LanguageExtensions LanguageExtensionsListResponseOutput `pulumi:"languageExtensions"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Optimized auto scale definition.
-	OptimizedAutoscale OptimizedAutoscaleResponsePtrOutput `pulumi:"optimizedAutoscale"`
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The SKU of the cluster.
-	Sku AzureSkuResponseOutput `pulumi:"sku"`
-	// The state of the resource.
-	State pulumi.StringOutput `pulumi:"state"`
-	// The reason for the cluster's current state.
-	StateReason pulumi.StringOutput `pulumi:"stateReason"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The cluster's external tenants.
-	TrustedExternalTenants TrustedExternalTenantResponseArrayOutput `pulumi:"trustedExternalTenants"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The cluster URI.
-	Uri pulumi.StringOutput `pulumi:"uri"`
-	// Virtual network definition.
+	DataIngestionUri            pulumi.StringOutput                          `pulumi:"dataIngestionUri"`
+	EnableDiskEncryption        pulumi.BoolPtrOutput                         `pulumi:"enableDiskEncryption"`
+	EnableDoubleEncryption      pulumi.BoolPtrOutput                         `pulumi:"enableDoubleEncryption"`
+	EnablePurge                 pulumi.BoolPtrOutput                         `pulumi:"enablePurge"`
+	EnableStreamingIngest       pulumi.BoolPtrOutput                         `pulumi:"enableStreamingIngest"`
+	Identity                    IdentityResponsePtrOutput                    `pulumi:"identity"`
+	KeyVaultProperties          KeyVaultPropertiesResponsePtrOutput          `pulumi:"keyVaultProperties"`
+	LanguageExtensions          LanguageExtensionsListResponseOutput         `pulumi:"languageExtensions"`
+	Location                    pulumi.StringOutput                          `pulumi:"location"`
+	Name                        pulumi.StringOutput                          `pulumi:"name"`
+	OptimizedAutoscale          OptimizedAutoscaleResponsePtrOutput          `pulumi:"optimizedAutoscale"`
+	ProvisioningState           pulumi.StringOutput                          `pulumi:"provisioningState"`
+	Sku                         AzureSkuResponseOutput                       `pulumi:"sku"`
+	State                       pulumi.StringOutput                          `pulumi:"state"`
+	StateReason                 pulumi.StringOutput                          `pulumi:"stateReason"`
+	Tags                        pulumi.StringMapOutput                       `pulumi:"tags"`
+	TrustedExternalTenants      TrustedExternalTenantResponseArrayOutput     `pulumi:"trustedExternalTenants"`
+	Type                        pulumi.StringOutput                          `pulumi:"type"`
+	Uri                         pulumi.StringOutput                          `pulumi:"uri"`
 	VirtualNetworkConfiguration VirtualNetworkConfigurationResponsePtrOutput `pulumi:"virtualNetworkConfiguration"`
-	// The availability zones of the cluster.
-	Zones pulumi.StringArrayOutput `pulumi:"zones"`
+	Zones                       pulumi.StringArrayOutput                     `pulumi:"zones"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -185,70 +163,40 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName *string `pulumi:"clusterName"`
-	// A boolean value that indicates if the cluster's disks are encrypted.
-	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
-	// A boolean value that indicates if double encryption is enabled.
-	EnableDoubleEncryption *bool `pulumi:"enableDoubleEncryption"`
-	// A boolean value that indicates if the purge operations are enabled.
-	EnablePurge *bool `pulumi:"enablePurge"`
-	// A boolean value that indicates if the streaming ingest is enabled.
-	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
-	// The identity of the cluster, if configured.
-	Identity *Identity `pulumi:"identity"`
-	// KeyVault properties for the cluster encryption.
-	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Optimized auto scale definition.
-	OptimizedAutoscale *OptimizedAutoscale `pulumi:"optimizedAutoscale"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of the cluster.
-	Sku AzureSku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The cluster's external tenants.
-	TrustedExternalTenants []TrustedExternalTenant `pulumi:"trustedExternalTenants"`
-	// Virtual network definition.
+	ClusterName                 *string                      `pulumi:"clusterName"`
+	EnableDiskEncryption        *bool                        `pulumi:"enableDiskEncryption"`
+	EnableDoubleEncryption      *bool                        `pulumi:"enableDoubleEncryption"`
+	EnablePurge                 *bool                        `pulumi:"enablePurge"`
+	EnableStreamingIngest       *bool                        `pulumi:"enableStreamingIngest"`
+	Identity                    *Identity                    `pulumi:"identity"`
+	KeyVaultProperties          *KeyVaultProperties          `pulumi:"keyVaultProperties"`
+	Location                    *string                      `pulumi:"location"`
+	OptimizedAutoscale          *OptimizedAutoscale          `pulumi:"optimizedAutoscale"`
+	ResourceGroupName           string                       `pulumi:"resourceGroupName"`
+	Sku                         AzureSku                     `pulumi:"sku"`
+	Tags                        map[string]string            `pulumi:"tags"`
+	TrustedExternalTenants      []TrustedExternalTenant      `pulumi:"trustedExternalTenants"`
 	VirtualNetworkConfiguration *VirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
-	// The availability zones of the cluster.
-	Zones []string `pulumi:"zones"`
+	Zones                       []string                     `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName pulumi.StringPtrInput
-	// A boolean value that indicates if the cluster's disks are encrypted.
-	EnableDiskEncryption pulumi.BoolPtrInput
-	// A boolean value that indicates if double encryption is enabled.
-	EnableDoubleEncryption pulumi.BoolPtrInput
-	// A boolean value that indicates if the purge operations are enabled.
-	EnablePurge pulumi.BoolPtrInput
-	// A boolean value that indicates if the streaming ingest is enabled.
-	EnableStreamingIngest pulumi.BoolPtrInput
-	// The identity of the cluster, if configured.
-	Identity IdentityPtrInput
-	// KeyVault properties for the cluster encryption.
-	KeyVaultProperties KeyVaultPropertiesPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Optimized auto scale definition.
-	OptimizedAutoscale OptimizedAutoscalePtrInput
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName pulumi.StringInput
-	// The SKU of the cluster.
-	Sku AzureSkuInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The cluster's external tenants.
-	TrustedExternalTenants TrustedExternalTenantArrayInput
-	// Virtual network definition.
+	ClusterName                 pulumi.StringPtrInput
+	EnableDiskEncryption        pulumi.BoolPtrInput
+	EnableDoubleEncryption      pulumi.BoolPtrInput
+	EnablePurge                 pulumi.BoolPtrInput
+	EnableStreamingIngest       pulumi.BoolPtrInput
+	Identity                    IdentityPtrInput
+	KeyVaultProperties          KeyVaultPropertiesPtrInput
+	Location                    pulumi.StringPtrInput
+	OptimizedAutoscale          OptimizedAutoscalePtrInput
+	ResourceGroupName           pulumi.StringInput
+	Sku                         AzureSkuInput
+	Tags                        pulumi.StringMapInput
+	TrustedExternalTenants      TrustedExternalTenantArrayInput
 	VirtualNetworkConfiguration VirtualNetworkConfigurationPtrInput
-	// The availability zones of the cluster.
-	Zones pulumi.StringArrayInput
+	Zones                       pulumi.StringArrayInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -274,9 +222,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
 }
 
-type ClusterOutput struct {
-	*pulumi.OutputState
-}
+type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cluster)(nil))

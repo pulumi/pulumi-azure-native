@@ -153,9 +153,7 @@ func (i *AlertsSuppressionRule) ToAlertsSuppressionRuleOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AlertsSuppressionRuleOutput)
 }
 
-type AlertsSuppressionRuleOutput struct {
-	*pulumi.OutputState
-}
+type AlertsSuppressionRuleOutput struct{ *pulumi.OutputState }
 
 func (AlertsSuppressionRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AlertsSuppressionRule)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Monitor resource.
 func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.InvokeOption) (*LookupMonitorResult, error) {
 	var rv LookupMonitorResult
 	err := ctx.Invoke("azure-native:elastic/v20200701:getMonitor", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.
 }
 
 type LookupMonitorArgs struct {
-	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group to which the Elastic resource belongs.
+	MonitorName       string `pulumi:"monitorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Monitor resource.
 type LookupMonitorResult struct {
-	// ARM id of the monitor resource.
-	Id string `pulumi:"id"`
-	// Identity properties of the monitor resource.
-	Identity *IdentityPropertiesResponse `pulumi:"identity"`
-	// The location of the monitor resource
-	Location string `pulumi:"location"`
-	// Name of the monitor resource.
-	Name string `pulumi:"name"`
-	// Properties of the monitor resource.
-	Properties MonitorPropertiesResponse `pulumi:"properties"`
-	// SKU of the monitor resource.
-	Sku *ResourceSkuResponse `pulumi:"sku"`
-	// The system metadata relating to this resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The tags of the monitor resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the monitor resource.
-	Type string `pulumi:"type"`
+	Id         string                      `pulumi:"id"`
+	Identity   *IdentityPropertiesResponse `pulumi:"identity"`
+	Location   string                      `pulumi:"location"`
+	Name       string                      `pulumi:"name"`
+	Properties MonitorPropertiesResponse   `pulumi:"properties"`
+	Sku        *ResourceSkuResponse        `pulumi:"sku"`
+	SystemData SystemDataResponse          `pulumi:"systemData"`
+	Tags       map[string]string           `pulumi:"tags"`
+	Type       string                      `pulumi:"type"`
 }

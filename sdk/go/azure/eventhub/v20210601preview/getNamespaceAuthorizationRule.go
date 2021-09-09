@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in a List or Get AuthorizationRule operation
 func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespaceAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceAuthorizationRuleResult, error) {
 	var rv LookupNamespaceAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:eventhub/v20210601preview:getNamespaceAuthorizationRule", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespace
 }
 
 type LookupNamespaceAuthorizationRuleArgs struct {
-	// The authorization rule name.
 	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	NamespaceName         string `pulumi:"namespaceName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Single item in a List or Get AuthorizationRule operation
 type LookupNamespaceAuthorizationRuleResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-	// The system meta data relating to this resource.
+	Id         string             `pulumi:"id"`
+	Name       string             `pulumi:"name"`
+	Rights     []string           `pulumi:"rights"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

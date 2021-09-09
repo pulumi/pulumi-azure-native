@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Streaming Locators associated with this Asset.
 func ListAssetStreamingLocators(ctx *pulumi.Context, args *ListAssetStreamingLocatorsArgs, opts ...pulumi.InvokeOption) (*ListAssetStreamingLocatorsResult, error) {
 	var rv ListAssetStreamingLocatorsResult
 	err := ctx.Invoke("azure-native:media/v20180701:listAssetStreamingLocators", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListAssetStreamingLocators(ctx *pulumi.Context, args *ListAssetStreamingLoc
 }
 
 type ListAssetStreamingLocatorsArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// The Asset name.
-	AssetName string `pulumi:"assetName"`
-	// The name of the resource group within the Azure subscription.
+	AccountName       string `pulumi:"accountName"`
+	AssetName         string `pulumi:"assetName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The Streaming Locators associated with this Asset.
 type ListAssetStreamingLocatorsResult struct {
-	// The list of Streaming Locators.
 	StreamingLocators []AssetStreamingLocatorResponse `pulumi:"streamingLocators"`
 }

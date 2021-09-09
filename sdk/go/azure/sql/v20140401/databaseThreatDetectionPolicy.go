@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contains information about a database Threat Detection policy.
 type DatabaseThreatDetectionPolicy struct {
 	pulumi.CustomResourceState
 
-	// Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action.
-	DisabledAlerts pulumi.StringPtrOutput `pulumi:"disabledAlerts"`
-	// Specifies that the alert is sent to the account administrators.
+	DisabledAlerts     pulumi.StringPtrOutput `pulumi:"disabledAlerts"`
 	EmailAccountAdmins pulumi.StringPtrOutput `pulumi:"emailAccountAdmins"`
-	// Specifies the semicolon-separated list of e-mail addresses to which the alert is sent.
-	EmailAddresses pulumi.StringPtrOutput `pulumi:"emailAddresses"`
-	// Resource kind.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the number of days to keep in the Threat Detection audit logs.
-	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
-	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required.
-	StorageEndpoint pulumi.StringPtrOutput `pulumi:"storageEndpoint"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Specifies whether to use the default server policy.
-	UseServerDefault pulumi.StringPtrOutput `pulumi:"useServerDefault"`
+	EmailAddresses     pulumi.StringPtrOutput `pulumi:"emailAddresses"`
+	Kind               pulumi.StringOutput    `pulumi:"kind"`
+	Location           pulumi.StringPtrOutput `pulumi:"location"`
+	Name               pulumi.StringOutput    `pulumi:"name"`
+	RetentionDays      pulumi.IntPtrOutput    `pulumi:"retentionDays"`
+	State              pulumi.StringOutput    `pulumi:"state"`
+	StorageEndpoint    pulumi.StringPtrOutput `pulumi:"storageEndpoint"`
+	Type               pulumi.StringOutput    `pulumi:"type"`
+	UseServerDefault   pulumi.StringPtrOutput `pulumi:"useServerDefault"`
 }
 
 // NewDatabaseThreatDetectionPolicy registers a new resource with the given unique name, arguments, and options.
@@ -132,62 +120,36 @@ func (DatabaseThreatDetectionPolicyState) ElementType() reflect.Type {
 }
 
 type databaseThreatDetectionPolicyArgs struct {
-	// The name of the database for which database Threat Detection policy is defined.
-	DatabaseName string `pulumi:"databaseName"`
-	// Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action.
-	DisabledAlerts *string `pulumi:"disabledAlerts"`
-	// Specifies that the alert is sent to the account administrators.
-	EmailAccountAdmins *string `pulumi:"emailAccountAdmins"`
-	// Specifies the semicolon-separated list of e-mail addresses to which the alert is sent.
-	EmailAddresses *string `pulumi:"emailAddresses"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the number of days to keep in the Threat Detection audit logs.
-	RetentionDays *int `pulumi:"retentionDays"`
-	// The name of the security alert policy.
+	DatabaseName            string  `pulumi:"databaseName"`
+	DisabledAlerts          *string `pulumi:"disabledAlerts"`
+	EmailAccountAdmins      *string `pulumi:"emailAccountAdmins"`
+	EmailAddresses          *string `pulumi:"emailAddresses"`
+	Location                *string `pulumi:"location"`
+	ResourceGroupName       string  `pulumi:"resourceGroupName"`
+	RetentionDays           *int    `pulumi:"retentionDays"`
 	SecurityAlertPolicyName *string `pulumi:"securityAlertPolicyName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
-	State string `pulumi:"state"`
-	// Specifies the identifier key of the Threat Detection audit storage account. If state is Enabled, storageAccountAccessKey is required.
+	ServerName              string  `pulumi:"serverName"`
+	State                   string  `pulumi:"state"`
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required.
-	StorageEndpoint *string `pulumi:"storageEndpoint"`
-	// Specifies whether to use the default server policy.
-	UseServerDefault *string `pulumi:"useServerDefault"`
+	StorageEndpoint         *string `pulumi:"storageEndpoint"`
+	UseServerDefault        *string `pulumi:"useServerDefault"`
 }
 
 // The set of arguments for constructing a DatabaseThreatDetectionPolicy resource.
 type DatabaseThreatDetectionPolicyArgs struct {
-	// The name of the database for which database Threat Detection policy is defined.
-	DatabaseName pulumi.StringInput
-	// Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action.
-	DisabledAlerts pulumi.StringPtrInput
-	// Specifies that the alert is sent to the account administrators.
-	EmailAccountAdmins pulumi.StringPtrInput
-	// Specifies the semicolon-separated list of e-mail addresses to which the alert is sent.
-	EmailAddresses pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// Specifies the number of days to keep in the Threat Detection audit logs.
-	RetentionDays pulumi.IntPtrInput
-	// The name of the security alert policy.
+	DatabaseName            pulumi.StringInput
+	DisabledAlerts          pulumi.StringPtrInput
+	EmailAccountAdmins      pulumi.StringPtrInput
+	EmailAddresses          pulumi.StringPtrInput
+	Location                pulumi.StringPtrInput
+	ResourceGroupName       pulumi.StringInput
+	RetentionDays           pulumi.IntPtrInput
 	SecurityAlertPolicyName pulumi.StringPtrInput
-	// The name of the server.
-	ServerName pulumi.StringInput
-	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
-	State pulumi.StringInput
-	// Specifies the identifier key of the Threat Detection audit storage account. If state is Enabled, storageAccountAccessKey is required.
+	ServerName              pulumi.StringInput
+	State                   pulumi.StringInput
 	StorageAccountAccessKey pulumi.StringPtrInput
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required.
-	StorageEndpoint pulumi.StringPtrInput
-	// Specifies whether to use the default server policy.
-	UseServerDefault pulumi.StringPtrInput
+	StorageEndpoint         pulumi.StringPtrInput
+	UseServerDefault        pulumi.StringPtrInput
 }
 
 func (DatabaseThreatDetectionPolicyArgs) ElementType() reflect.Type {
@@ -213,9 +175,7 @@ func (i *DatabaseThreatDetectionPolicy) ToDatabaseThreatDetectionPolicyOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseThreatDetectionPolicyOutput)
 }
 
-type DatabaseThreatDetectionPolicyOutput struct {
-	*pulumi.OutputState
-}
+type DatabaseThreatDetectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (DatabaseThreatDetectionPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseThreatDetectionPolicy)(nil))

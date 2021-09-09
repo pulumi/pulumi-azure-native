@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of File services in storage account.
 type FileServiceProperties struct {
 	pulumi.CustomResourceState
 
-	// Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
-	Cors CorsRulesResponsePtrOutput `pulumi:"cors"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The file service properties for share soft delete.
+	Cors                       CorsRulesResponsePtrOutput             `pulumi:"cors"`
+	Name                       pulumi.StringOutput                    `pulumi:"name"`
 	ShareDeleteRetentionPolicy DeleteRetentionPolicyResponsePtrOutput `pulumi:"shareDeleteRetentionPolicy"`
-	// Sku name and tier.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku                        SkuResponseOutput                      `pulumi:"sku"`
+	Type                       pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewFileServiceProperties registers a new resource with the given unique name, arguments, and options.
@@ -114,29 +108,19 @@ func (FileServicePropertiesState) ElementType() reflect.Type {
 }
 
 type fileServicePropertiesArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
-	Cors *CorsRules `pulumi:"cors"`
-	// The name of the file Service within the specified storage account. File Service Name must be "default"
-	FileServicesName *string `pulumi:"fileServicesName"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The file service properties for share soft delete.
+	AccountName                string                 `pulumi:"accountName"`
+	Cors                       *CorsRules             `pulumi:"cors"`
+	FileServicesName           *string                `pulumi:"fileServicesName"`
+	ResourceGroupName          string                 `pulumi:"resourceGroupName"`
 	ShareDeleteRetentionPolicy *DeleteRetentionPolicy `pulumi:"shareDeleteRetentionPolicy"`
 }
 
 // The set of arguments for constructing a FileServiceProperties resource.
 type FileServicePropertiesArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
-	// Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
-	Cors CorsRulesPtrInput
-	// The name of the file Service within the specified storage account. File Service Name must be "default"
-	FileServicesName pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The file service properties for share soft delete.
+	AccountName                pulumi.StringInput
+	Cors                       CorsRulesPtrInput
+	FileServicesName           pulumi.StringPtrInput
+	ResourceGroupName          pulumi.StringInput
 	ShareDeleteRetentionPolicy DeleteRetentionPolicyPtrInput
 }
 
@@ -163,9 +147,7 @@ func (i *FileServiceProperties) ToFileServicePropertiesOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(FileServicePropertiesOutput)
 }
 
-type FileServicePropertiesOutput struct {
-	*pulumi.OutputState
-}
+type FileServicePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FileServicePropertiesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FileServiceProperties)(nil))

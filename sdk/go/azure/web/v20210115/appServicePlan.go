@@ -11,67 +11,37 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// App Service plan.
 type AppServicePlan struct {
 	pulumi.CustomResourceState
 
-	// ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
-	ElasticScaleEnabled pulumi.BoolPtrOutput `pulumi:"elasticScaleEnabled"`
-	// Extended Location.
-	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
-	// The time when the server farm free offer expires.
-	FreeOfferExpirationTime pulumi.StringPtrOutput `pulumi:"freeOfferExpirationTime"`
-	// Geographical location for the App Service plan.
-	GeoRegion pulumi.StringOutput `pulumi:"geoRegion"`
-	// Specification for the App Service Environment to use for the App Service plan.
+	ElasticScaleEnabled       pulumi.BoolPtrOutput                       `pulumi:"elasticScaleEnabled"`
+	ExtendedLocation          ExtendedLocationResponsePtrOutput          `pulumi:"extendedLocation"`
+	FreeOfferExpirationTime   pulumi.StringPtrOutput                     `pulumi:"freeOfferExpirationTime"`
+	GeoRegion                 pulumi.StringOutput                        `pulumi:"geoRegion"`
 	HostingEnvironmentProfile HostingEnvironmentProfileResponsePtrOutput `pulumi:"hostingEnvironmentProfile"`
-	// If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-	HyperV pulumi.BoolPtrOutput `pulumi:"hyperV"`
-	// If <code>true</code>, this App Service Plan owns spot instances.
-	IsSpot pulumi.BoolPtrOutput `pulumi:"isSpot"`
-	// Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-	IsXenon pulumi.BoolPtrOutput `pulumi:"isXenon"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Specification for the Kubernetes Environment to use for the App Service plan.
-	KubeEnvironmentProfile KubeEnvironmentProfileResponsePtrOutput `pulumi:"kubeEnvironmentProfile"`
-	// Resource Location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
-	MaximumElasticWorkerCount pulumi.IntPtrOutput `pulumi:"maximumElasticWorkerCount"`
-	// Maximum number of instances that can be assigned to this App Service plan.
-	MaximumNumberOfWorkers pulumi.IntOutput `pulumi:"maximumNumberOfWorkers"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Number of apps assigned to this App Service plan.
-	NumberOfSites pulumi.IntOutput `pulumi:"numberOfSites"`
-	// If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
-	// If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
-	PerSiteScaling pulumi.BoolPtrOutput `pulumi:"perSiteScaling"`
-	// Provisioning state of the App Service Plan.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// If Linux app service plan <code>true</code>, <code>false</code> otherwise.
-	Reserved pulumi.BoolPtrOutput `pulumi:"reserved"`
-	// Resource group of the App Service plan.
-	ResourceGroup pulumi.StringOutput `pulumi:"resourceGroup"`
-	// Description of a SKU for a scalable resource.
-	Sku SkuDescriptionResponsePtrOutput `pulumi:"sku"`
-	// The time when the server farm expires. Valid only if it is a spot server farm.
-	SpotExpirationTime pulumi.StringPtrOutput `pulumi:"spotExpirationTime"`
-	// App Service plan status.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// App Service plan subscription.
-	Subscription pulumi.StringOutput `pulumi:"subscription"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Scaling worker count.
-	TargetWorkerCount pulumi.IntPtrOutput `pulumi:"targetWorkerCount"`
-	// Scaling worker size ID.
-	TargetWorkerSizeId pulumi.IntPtrOutput `pulumi:"targetWorkerSizeId"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Target worker tier assigned to the App Service plan.
-	WorkerTierName pulumi.StringPtrOutput `pulumi:"workerTierName"`
+	HyperV                    pulumi.BoolPtrOutput                       `pulumi:"hyperV"`
+	IsSpot                    pulumi.BoolPtrOutput                       `pulumi:"isSpot"`
+	IsXenon                   pulumi.BoolPtrOutput                       `pulumi:"isXenon"`
+	Kind                      pulumi.StringPtrOutput                     `pulumi:"kind"`
+	KubeEnvironmentProfile    KubeEnvironmentProfileResponsePtrOutput    `pulumi:"kubeEnvironmentProfile"`
+	Location                  pulumi.StringOutput                        `pulumi:"location"`
+	MaximumElasticWorkerCount pulumi.IntPtrOutput                        `pulumi:"maximumElasticWorkerCount"`
+	MaximumNumberOfWorkers    pulumi.IntOutput                           `pulumi:"maximumNumberOfWorkers"`
+	Name                      pulumi.StringOutput                        `pulumi:"name"`
+	NumberOfSites             pulumi.IntOutput                           `pulumi:"numberOfSites"`
+	PerSiteScaling            pulumi.BoolPtrOutput                       `pulumi:"perSiteScaling"`
+	ProvisioningState         pulumi.StringOutput                        `pulumi:"provisioningState"`
+	Reserved                  pulumi.BoolPtrOutput                       `pulumi:"reserved"`
+	ResourceGroup             pulumi.StringOutput                        `pulumi:"resourceGroup"`
+	Sku                       SkuDescriptionResponsePtrOutput            `pulumi:"sku"`
+	SpotExpirationTime        pulumi.StringPtrOutput                     `pulumi:"spotExpirationTime"`
+	Status                    pulumi.StringOutput                        `pulumi:"status"`
+	Subscription              pulumi.StringOutput                        `pulumi:"subscription"`
+	Tags                      pulumi.StringMapOutput                     `pulumi:"tags"`
+	TargetWorkerCount         pulumi.IntPtrOutput                        `pulumi:"targetWorkerCount"`
+	TargetWorkerSizeId        pulumi.IntPtrOutput                        `pulumi:"targetWorkerSizeId"`
+	Type                      pulumi.StringOutput                        `pulumi:"type"`
+	WorkerTierName            pulumi.StringPtrOutput                     `pulumi:"workerTierName"`
 }
 
 // NewAppServicePlan registers a new resource with the given unique name, arguments, and options.
@@ -200,96 +170,52 @@ func (AppServicePlanState) ElementType() reflect.Type {
 }
 
 type appServicePlanArgs struct {
-	// ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
-	ElasticScaleEnabled *bool `pulumi:"elasticScaleEnabled"`
-	// Extended Location.
-	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
-	// The time when the server farm free offer expires.
-	FreeOfferExpirationTime *string `pulumi:"freeOfferExpirationTime"`
-	// Specification for the App Service Environment to use for the App Service plan.
+	ElasticScaleEnabled       *bool                      `pulumi:"elasticScaleEnabled"`
+	ExtendedLocation          *ExtendedLocation          `pulumi:"extendedLocation"`
+	FreeOfferExpirationTime   *string                    `pulumi:"freeOfferExpirationTime"`
 	HostingEnvironmentProfile *HostingEnvironmentProfile `pulumi:"hostingEnvironmentProfile"`
-	// If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-	HyperV *bool `pulumi:"hyperV"`
-	// If <code>true</code>, this App Service Plan owns spot instances.
-	IsSpot *bool `pulumi:"isSpot"`
-	// Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-	IsXenon *bool `pulumi:"isXenon"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Specification for the Kubernetes Environment to use for the App Service plan.
-	KubeEnvironmentProfile *KubeEnvironmentProfile `pulumi:"kubeEnvironmentProfile"`
-	// Resource Location.
-	Location *string `pulumi:"location"`
-	// Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
-	MaximumElasticWorkerCount *int `pulumi:"maximumElasticWorkerCount"`
-	// Name of the App Service plan.
-	Name *string `pulumi:"name"`
-	// If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
-	// If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
-	PerSiteScaling *bool `pulumi:"perSiteScaling"`
-	// If Linux app service plan <code>true</code>, <code>false</code> otherwise.
-	Reserved *bool `pulumi:"reserved"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Description of a SKU for a scalable resource.
-	Sku *SkuDescription `pulumi:"sku"`
-	// The time when the server farm expires. Valid only if it is a spot server farm.
-	SpotExpirationTime *string `pulumi:"spotExpirationTime"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Scaling worker count.
-	TargetWorkerCount *int `pulumi:"targetWorkerCount"`
-	// Scaling worker size ID.
-	TargetWorkerSizeId *int `pulumi:"targetWorkerSizeId"`
-	// Target worker tier assigned to the App Service plan.
-	WorkerTierName *string `pulumi:"workerTierName"`
+	HyperV                    *bool                      `pulumi:"hyperV"`
+	IsSpot                    *bool                      `pulumi:"isSpot"`
+	IsXenon                   *bool                      `pulumi:"isXenon"`
+	Kind                      *string                    `pulumi:"kind"`
+	KubeEnvironmentProfile    *KubeEnvironmentProfile    `pulumi:"kubeEnvironmentProfile"`
+	Location                  *string                    `pulumi:"location"`
+	MaximumElasticWorkerCount *int                       `pulumi:"maximumElasticWorkerCount"`
+	Name                      *string                    `pulumi:"name"`
+	PerSiteScaling            *bool                      `pulumi:"perSiteScaling"`
+	Reserved                  *bool                      `pulumi:"reserved"`
+	ResourceGroupName         string                     `pulumi:"resourceGroupName"`
+	Sku                       *SkuDescription            `pulumi:"sku"`
+	SpotExpirationTime        *string                    `pulumi:"spotExpirationTime"`
+	Tags                      map[string]string          `pulumi:"tags"`
+	TargetWorkerCount         *int                       `pulumi:"targetWorkerCount"`
+	TargetWorkerSizeId        *int                       `pulumi:"targetWorkerSizeId"`
+	WorkerTierName            *string                    `pulumi:"workerTierName"`
 }
 
 // The set of arguments for constructing a AppServicePlan resource.
 type AppServicePlanArgs struct {
-	// ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
-	ElasticScaleEnabled pulumi.BoolPtrInput
-	// Extended Location.
-	ExtendedLocation ExtendedLocationPtrInput
-	// The time when the server farm free offer expires.
-	FreeOfferExpirationTime pulumi.StringPtrInput
-	// Specification for the App Service Environment to use for the App Service plan.
+	ElasticScaleEnabled       pulumi.BoolPtrInput
+	ExtendedLocation          ExtendedLocationPtrInput
+	FreeOfferExpirationTime   pulumi.StringPtrInput
 	HostingEnvironmentProfile HostingEnvironmentProfilePtrInput
-	// If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-	HyperV pulumi.BoolPtrInput
-	// If <code>true</code>, this App Service Plan owns spot instances.
-	IsSpot pulumi.BoolPtrInput
-	// Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-	IsXenon pulumi.BoolPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Specification for the Kubernetes Environment to use for the App Service plan.
-	KubeEnvironmentProfile KubeEnvironmentProfilePtrInput
-	// Resource Location.
-	Location pulumi.StringPtrInput
-	// Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
+	HyperV                    pulumi.BoolPtrInput
+	IsSpot                    pulumi.BoolPtrInput
+	IsXenon                   pulumi.BoolPtrInput
+	Kind                      pulumi.StringPtrInput
+	KubeEnvironmentProfile    KubeEnvironmentProfilePtrInput
+	Location                  pulumi.StringPtrInput
 	MaximumElasticWorkerCount pulumi.IntPtrInput
-	// Name of the App Service plan.
-	Name pulumi.StringPtrInput
-	// If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
-	// If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
-	PerSiteScaling pulumi.BoolPtrInput
-	// If Linux app service plan <code>true</code>, <code>false</code> otherwise.
-	Reserved pulumi.BoolPtrInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
-	// Description of a SKU for a scalable resource.
-	Sku SkuDescriptionPtrInput
-	// The time when the server farm expires. Valid only if it is a spot server farm.
-	SpotExpirationTime pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Scaling worker count.
-	TargetWorkerCount pulumi.IntPtrInput
-	// Scaling worker size ID.
-	TargetWorkerSizeId pulumi.IntPtrInput
-	// Target worker tier assigned to the App Service plan.
-	WorkerTierName pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	PerSiteScaling            pulumi.BoolPtrInput
+	Reserved                  pulumi.BoolPtrInput
+	ResourceGroupName         pulumi.StringInput
+	Sku                       SkuDescriptionPtrInput
+	SpotExpirationTime        pulumi.StringPtrInput
+	Tags                      pulumi.StringMapInput
+	TargetWorkerCount         pulumi.IntPtrInput
+	TargetWorkerSizeId        pulumi.IntPtrInput
+	WorkerTierName            pulumi.StringPtrInput
 }
 
 func (AppServicePlanArgs) ElementType() reflect.Type {
@@ -315,9 +241,7 @@ func (i *AppServicePlan) ToAppServicePlanOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AppServicePlanOutput)
 }
 
-type AppServicePlanOutput struct {
-	*pulumi.OutputState
-}
+type AppServicePlanOutput struct{ *pulumi.OutputState }
 
 func (AppServicePlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppServicePlan)(nil))

@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A task resource
 type Task struct {
 	pulumi.CustomResourceState
 
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Custom task properties
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
+	Etag       pulumi.StringPtrOutput   `pulumi:"etag"`
+	Name       pulumi.StringOutput      `pulumi:"name"`
+	Properties pulumi.AnyOutput         `pulumi:"properties"`
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewTask registers a new resource with the given unique name, arguments, and options.
@@ -117,34 +111,22 @@ func (TaskState) ElementType() reflect.Type {
 }
 
 type taskArgs struct {
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag *string `pulumi:"etag"`
-	// Name of the resource group
-	GroupName string `pulumi:"groupName"`
-	// Name of the project
-	ProjectName string `pulumi:"projectName"`
-	// Custom task properties
-	Properties interface{} `pulumi:"properties"`
-	// Name of the service
-	ServiceName string `pulumi:"serviceName"`
-	// Name of the Task
-	TaskName *string `pulumi:"taskName"`
+	Etag        *string     `pulumi:"etag"`
+	GroupName   string      `pulumi:"groupName"`
+	ProjectName string      `pulumi:"projectName"`
+	Properties  interface{} `pulumi:"properties"`
+	ServiceName string      `pulumi:"serviceName"`
+	TaskName    *string     `pulumi:"taskName"`
 }
 
 // The set of arguments for constructing a Task resource.
 type TaskArgs struct {
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag pulumi.StringPtrInput
-	// Name of the resource group
-	GroupName pulumi.StringInput
-	// Name of the project
+	Etag        pulumi.StringPtrInput
+	GroupName   pulumi.StringInput
 	ProjectName pulumi.StringInput
-	// Custom task properties
-	Properties pulumi.Input
-	// Name of the service
+	Properties  pulumi.Input
 	ServiceName pulumi.StringInput
-	// Name of the Task
-	TaskName pulumi.StringPtrInput
+	TaskName    pulumi.StringPtrInput
 }
 
 func (TaskArgs) ElementType() reflect.Type {
@@ -170,9 +152,7 @@ func (i *Task) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaskOutput)
 }
 
-type TaskOutput struct {
-	*pulumi.OutputState
-}
+type TaskOutput struct{ *pulumi.OutputState }
 
 func (TaskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Task)(nil))

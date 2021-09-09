@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure SQL Database sync group.
 type SyncGroup struct {
 	pulumi.CustomResourceState
 
-	// Conflict resolution policy of the sync group.
-	ConflictResolutionPolicy pulumi.StringPtrOutput `pulumi:"conflictResolutionPolicy"`
-	// User name for the sync group hub database credential.
-	HubDatabaseUserName pulumi.StringPtrOutput `pulumi:"hubDatabaseUserName"`
-	// Sync interval of the sync group.
-	Interval pulumi.IntPtrOutput `pulumi:"interval"`
-	// Last sync time of the sync group.
-	LastSyncTime pulumi.StringOutput `pulumi:"lastSyncTime"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Private endpoint name of the sync group if use private link connection is enabled.
-	PrivateEndpointName pulumi.StringOutput `pulumi:"privateEndpointName"`
-	// Sync schema of the sync group.
-	Schema SyncGroupSchemaResponsePtrOutput `pulumi:"schema"`
-	// ARM resource id of the sync database in the sync group.
-	SyncDatabaseId pulumi.StringPtrOutput `pulumi:"syncDatabaseId"`
-	// Sync state of the sync group.
-	SyncState pulumi.StringOutput `pulumi:"syncState"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// If use private link connection is enabled.
-	UsePrivateLinkConnection pulumi.BoolPtrOutput `pulumi:"usePrivateLinkConnection"`
+	ConflictResolutionPolicy pulumi.StringPtrOutput           `pulumi:"conflictResolutionPolicy"`
+	HubDatabaseUserName      pulumi.StringPtrOutput           `pulumi:"hubDatabaseUserName"`
+	Interval                 pulumi.IntPtrOutput              `pulumi:"interval"`
+	LastSyncTime             pulumi.StringOutput              `pulumi:"lastSyncTime"`
+	Name                     pulumi.StringOutput              `pulumi:"name"`
+	PrivateEndpointName      pulumi.StringOutput              `pulumi:"privateEndpointName"`
+	Schema                   SyncGroupSchemaResponsePtrOutput `pulumi:"schema"`
+	SyncDatabaseId           pulumi.StringPtrOutput           `pulumi:"syncDatabaseId"`
+	SyncState                pulumi.StringOutput              `pulumi:"syncState"`
+	Type                     pulumi.StringOutput              `pulumi:"type"`
+	UsePrivateLinkConnection pulumi.BoolPtrOutput             `pulumi:"usePrivateLinkConnection"`
 }
 
 // NewSyncGroup registers a new resource with the given unique name, arguments, and options.
@@ -129,53 +117,31 @@ func (SyncGroupState) ElementType() reflect.Type {
 }
 
 type syncGroupArgs struct {
-	// Conflict resolution policy of the sync group.
-	ConflictResolutionPolicy *string `pulumi:"conflictResolutionPolicy"`
-	// The name of the database on which the sync group is hosted.
-	DatabaseName string `pulumi:"databaseName"`
-	// Password for the sync group hub database credential.
-	HubDatabasePassword *string `pulumi:"hubDatabasePassword"`
-	// User name for the sync group hub database credential.
-	HubDatabaseUserName *string `pulumi:"hubDatabaseUserName"`
-	// Sync interval of the sync group.
-	Interval *int `pulumi:"interval"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Sync schema of the sync group.
-	Schema *SyncGroupSchema `pulumi:"schema"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// ARM resource id of the sync database in the sync group.
-	SyncDatabaseId *string `pulumi:"syncDatabaseId"`
-	// The name of the sync group.
-	SyncGroupName *string `pulumi:"syncGroupName"`
-	// If use private link connection is enabled.
-	UsePrivateLinkConnection *bool `pulumi:"usePrivateLinkConnection"`
+	ConflictResolutionPolicy *string          `pulumi:"conflictResolutionPolicy"`
+	DatabaseName             string           `pulumi:"databaseName"`
+	HubDatabasePassword      *string          `pulumi:"hubDatabasePassword"`
+	HubDatabaseUserName      *string          `pulumi:"hubDatabaseUserName"`
+	Interval                 *int             `pulumi:"interval"`
+	ResourceGroupName        string           `pulumi:"resourceGroupName"`
+	Schema                   *SyncGroupSchema `pulumi:"schema"`
+	ServerName               string           `pulumi:"serverName"`
+	SyncDatabaseId           *string          `pulumi:"syncDatabaseId"`
+	SyncGroupName            *string          `pulumi:"syncGroupName"`
+	UsePrivateLinkConnection *bool            `pulumi:"usePrivateLinkConnection"`
 }
 
 // The set of arguments for constructing a SyncGroup resource.
 type SyncGroupArgs struct {
-	// Conflict resolution policy of the sync group.
 	ConflictResolutionPolicy pulumi.StringPtrInput
-	// The name of the database on which the sync group is hosted.
-	DatabaseName pulumi.StringInput
-	// Password for the sync group hub database credential.
-	HubDatabasePassword pulumi.StringPtrInput
-	// User name for the sync group hub database credential.
-	HubDatabaseUserName pulumi.StringPtrInput
-	// Sync interval of the sync group.
-	Interval pulumi.IntPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// Sync schema of the sync group.
-	Schema SyncGroupSchemaPtrInput
-	// The name of the server.
-	ServerName pulumi.StringInput
-	// ARM resource id of the sync database in the sync group.
-	SyncDatabaseId pulumi.StringPtrInput
-	// The name of the sync group.
-	SyncGroupName pulumi.StringPtrInput
-	// If use private link connection is enabled.
+	DatabaseName             pulumi.StringInput
+	HubDatabasePassword      pulumi.StringPtrInput
+	HubDatabaseUserName      pulumi.StringPtrInput
+	Interval                 pulumi.IntPtrInput
+	ResourceGroupName        pulumi.StringInput
+	Schema                   SyncGroupSchemaPtrInput
+	ServerName               pulumi.StringInput
+	SyncDatabaseId           pulumi.StringPtrInput
+	SyncGroupName            pulumi.StringPtrInput
 	UsePrivateLinkConnection pulumi.BoolPtrInput
 }
 
@@ -202,9 +168,7 @@ func (i *SyncGroup) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupOutput)
 }
 
-type SyncGroupOutput struct {
-	*pulumi.OutputState
-}
+type SyncGroupOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SyncGroup)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// User credentials used for publishing activity.
 func ListWebAppPublishingCredentials(ctx *pulumi.Context, args *ListWebAppPublishingCredentialsArgs, opts ...pulumi.InvokeOption) (*ListWebAppPublishingCredentialsResult, error) {
 	var rv ListWebAppPublishingCredentialsResult
 	err := ctx.Invoke("azure-native:web/v20201201:listWebAppPublishingCredentials", args, &rv, opts...)
@@ -18,30 +17,19 @@ func ListWebAppPublishingCredentials(ctx *pulumi.Context, args *ListWebAppPublis
 }
 
 type ListWebAppPublishingCredentialsArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // User credentials used for publishing activity.
 type ListWebAppPublishingCredentialsResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Password used for publishing.
-	PublishingPassword *string `pulumi:"publishingPassword"`
-	// Password hash used for publishing.
-	PublishingPasswordHash *string `pulumi:"publishingPasswordHash"`
-	// Password hash salt used for publishing.
+	Id                         string  `pulumi:"id"`
+	Kind                       *string `pulumi:"kind"`
+	Name                       string  `pulumi:"name"`
+	PublishingPassword         *string `pulumi:"publishingPassword"`
+	PublishingPasswordHash     *string `pulumi:"publishingPasswordHash"`
 	PublishingPasswordHashSalt *string `pulumi:"publishingPasswordHashSalt"`
-	// Username used for publishing.
-	PublishingUserName string `pulumi:"publishingUserName"`
-	// Url of SCM site.
-	ScmUri *string `pulumi:"scmUri"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	PublishingUserName         string  `pulumi:"publishingUserName"`
+	ScmUri                     *string `pulumi:"scmUri"`
+	Type                       string  `pulumi:"type"`
 }

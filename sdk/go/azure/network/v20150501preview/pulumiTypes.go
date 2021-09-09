@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AddressSpace contains an array of IP address ranges that can be used by subnets
 type AddressSpace struct {
-	// Gets or sets List of address blocks reserved for this virtual network in CIDR notation
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 }
 
@@ -27,9 +25,7 @@ type AddressSpaceInput interface {
 	ToAddressSpaceOutputWithContext(context.Context) AddressSpaceOutput
 }
 
-// AddressSpace contains an array of IP address ranges that can be used by subnets
 type AddressSpaceArgs struct {
-	// Gets or sets List of address blocks reserved for this virtual network in CIDR notation
 	AddressPrefixes pulumi.StringArrayInput `pulumi:"addressPrefixes"`
 }
 
@@ -86,7 +82,6 @@ func (i *addressSpacePtrType) ToAddressSpacePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AddressSpacePtrOutput)
 }
 
-// AddressSpace contains an array of IP address ranges that can be used by subnets
 type AddressSpaceOutput struct{ *pulumi.OutputState }
 
 func (AddressSpaceOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o AddressSpaceOutput) ToAddressSpacePtrOutput() AddressSpacePtrOutput {
 }
 
 func (o AddressSpaceOutput) ToAddressSpacePtrOutputWithContext(ctx context.Context) AddressSpacePtrOutput {
-	return o.ApplyT(func(v AddressSpace) *AddressSpace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AddressSpace) *AddressSpace {
 		return &v
 	}).(AddressSpacePtrOutput)
 }
 
-// Gets or sets List of address blocks reserved for this virtual network in CIDR notation
 func (o AddressSpaceOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AddressSpace) []string { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
 }
@@ -131,10 +125,15 @@ func (o AddressSpacePtrOutput) ToAddressSpacePtrOutputWithContext(ctx context.Co
 }
 
 func (o AddressSpacePtrOutput) Elem() AddressSpaceOutput {
-	return o.ApplyT(func(v *AddressSpace) AddressSpace { return *v }).(AddressSpaceOutput)
+	return o.ApplyT(func(v *AddressSpace) AddressSpace {
+		if v != nil {
+			return *v
+		}
+		var ret AddressSpace
+		return ret
+	}).(AddressSpaceOutput)
 }
 
-// Gets or sets List of address blocks reserved for this virtual network in CIDR notation
 func (o AddressSpacePtrOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AddressSpace) []string {
 		if v == nil {
@@ -144,9 +143,7 @@ func (o AddressSpacePtrOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// AddressSpace contains an array of IP address ranges that can be used by subnets
 type AddressSpaceResponse struct {
-	// Gets or sets List of address blocks reserved for this virtual network in CIDR notation
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 }
 
@@ -161,9 +158,7 @@ type AddressSpaceResponseInput interface {
 	ToAddressSpaceResponseOutputWithContext(context.Context) AddressSpaceResponseOutput
 }
 
-// AddressSpace contains an array of IP address ranges that can be used by subnets
 type AddressSpaceResponseArgs struct {
-	// Gets or sets List of address blocks reserved for this virtual network in CIDR notation
 	AddressPrefixes pulumi.StringArrayInput `pulumi:"addressPrefixes"`
 }
 
@@ -220,7 +215,6 @@ func (i *addressSpaceResponsePtrType) ToAddressSpaceResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AddressSpaceResponsePtrOutput)
 }
 
-// AddressSpace contains an array of IP address ranges that can be used by subnets
 type AddressSpaceResponseOutput struct{ *pulumi.OutputState }
 
 func (AddressSpaceResponseOutput) ElementType() reflect.Type {
@@ -240,12 +234,11 @@ func (o AddressSpaceResponseOutput) ToAddressSpaceResponsePtrOutput() AddressSpa
 }
 
 func (o AddressSpaceResponseOutput) ToAddressSpaceResponsePtrOutputWithContext(ctx context.Context) AddressSpaceResponsePtrOutput {
-	return o.ApplyT(func(v AddressSpaceResponse) *AddressSpaceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AddressSpaceResponse) *AddressSpaceResponse {
 		return &v
 	}).(AddressSpaceResponsePtrOutput)
 }
 
-// Gets or sets List of address blocks reserved for this virtual network in CIDR notation
 func (o AddressSpaceResponseOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AddressSpaceResponse) []string { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
 }
@@ -265,10 +258,15 @@ func (o AddressSpaceResponsePtrOutput) ToAddressSpaceResponsePtrOutputWithContex
 }
 
 func (o AddressSpaceResponsePtrOutput) Elem() AddressSpaceResponseOutput {
-	return o.ApplyT(func(v *AddressSpaceResponse) AddressSpaceResponse { return *v }).(AddressSpaceResponseOutput)
+	return o.ApplyT(func(v *AddressSpaceResponse) AddressSpaceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AddressSpaceResponse
+		return ret
+	}).(AddressSpaceResponseOutput)
 }
 
-// Gets or sets List of address blocks reserved for this virtual network in CIDR notation
 func (o AddressSpaceResponsePtrOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AddressSpaceResponse) []string {
 		if v == nil {
@@ -278,11 +276,8 @@ func (o AddressSpaceResponsePtrOutput) AddressPrefixes() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Backend Address of application gateway
 type ApplicationGatewayBackendAddress struct {
-	// Gets or sets the dns name
-	Fqdn *string `pulumi:"fqdn"`
-	// Gets or sets the ip address
+	Fqdn      *string `pulumi:"fqdn"`
 	IpAddress *string `pulumi:"ipAddress"`
 }
 
@@ -297,11 +292,8 @@ type ApplicationGatewayBackendAddressInput interface {
 	ToApplicationGatewayBackendAddressOutputWithContext(context.Context) ApplicationGatewayBackendAddressOutput
 }
 
-// Backend Address of application gateway
 type ApplicationGatewayBackendAddressArgs struct {
-	// Gets or sets the dns name
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Gets or sets the ip address
+	Fqdn      pulumi.StringPtrInput `pulumi:"fqdn"`
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 }
 
@@ -342,7 +334,6 @@ func (i ApplicationGatewayBackendAddressArray) ToApplicationGatewayBackendAddres
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendAddressArrayOutput)
 }
 
-// Backend Address of application gateway
 type ApplicationGatewayBackendAddressOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayBackendAddressOutput) ElementType() reflect.Type {
@@ -357,12 +348,10 @@ func (o ApplicationGatewayBackendAddressOutput) ToApplicationGatewayBackendAddre
 	return o
 }
 
-// Gets or sets the dns name
 func (o ApplicationGatewayBackendAddressOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddress) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the ip address
 func (o ApplicationGatewayBackendAddressOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddress) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
@@ -387,20 +376,13 @@ func (o ApplicationGatewayBackendAddressArrayOutput) Index(i pulumi.IntInput) Ap
 	}).(ApplicationGatewayBackendAddressOutput)
 }
 
-// Backend Address Pool of application gateway
 type ApplicationGatewayBackendAddressPool struct {
-	// Gets or sets the backend addresses
-	BackendAddresses []ApplicationGatewayBackendAddress `pulumi:"backendAddresses"`
-	// Gets or sets backendIPConfiguration of application gateway
-	BackendIPConfigurations []SubResource `pulumi:"backendIPConfigurations"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets Provisioning state of the backend address pool resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
+	BackendAddresses        []ApplicationGatewayBackendAddress `pulumi:"backendAddresses"`
+	BackendIPConfigurations []SubResource                      `pulumi:"backendIPConfigurations"`
+	Etag                    *string                            `pulumi:"etag"`
+	Id                      *string                            `pulumi:"id"`
+	Name                    *string                            `pulumi:"name"`
+	ProvisioningState       *string                            `pulumi:"provisioningState"`
 }
 
 // ApplicationGatewayBackendAddressPoolInput is an input type that accepts ApplicationGatewayBackendAddressPoolArgs and ApplicationGatewayBackendAddressPoolOutput values.
@@ -414,20 +396,13 @@ type ApplicationGatewayBackendAddressPoolInput interface {
 	ToApplicationGatewayBackendAddressPoolOutputWithContext(context.Context) ApplicationGatewayBackendAddressPoolOutput
 }
 
-// Backend Address Pool of application gateway
 type ApplicationGatewayBackendAddressPoolArgs struct {
-	// Gets or sets the backend addresses
-	BackendAddresses ApplicationGatewayBackendAddressArrayInput `pulumi:"backendAddresses"`
-	// Gets or sets backendIPConfiguration of application gateway
-	BackendIPConfigurations SubResourceArrayInput `pulumi:"backendIPConfigurations"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets Provisioning state of the backend address pool resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	BackendAddresses        ApplicationGatewayBackendAddressArrayInput `pulumi:"backendAddresses"`
+	BackendIPConfigurations SubResourceArrayInput                      `pulumi:"backendIPConfigurations"`
+	Etag                    pulumi.StringPtrInput                      `pulumi:"etag"`
+	Id                      pulumi.StringPtrInput                      `pulumi:"id"`
+	Name                    pulumi.StringPtrInput                      `pulumi:"name"`
+	ProvisioningState       pulumi.StringPtrInput                      `pulumi:"provisioningState"`
 }
 
 func (ApplicationGatewayBackendAddressPoolArgs) ElementType() reflect.Type {
@@ -467,7 +442,6 @@ func (i ApplicationGatewayBackendAddressPoolArray) ToApplicationGatewayBackendAd
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendAddressPoolArrayOutput)
 }
 
-// Backend Address Pool of application gateway
 type ApplicationGatewayBackendAddressPoolOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayBackendAddressPoolOutput) ElementType() reflect.Type {
@@ -482,34 +456,28 @@ func (o ApplicationGatewayBackendAddressPoolOutput) ToApplicationGatewayBackendA
 	return o
 }
 
-// Gets or sets the backend addresses
 func (o ApplicationGatewayBackendAddressPoolOutput) BackendAddresses() ApplicationGatewayBackendAddressArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPool) []ApplicationGatewayBackendAddress {
 		return v.BackendAddresses
 	}).(ApplicationGatewayBackendAddressArrayOutput)
 }
 
-// Gets or sets backendIPConfiguration of application gateway
 func (o ApplicationGatewayBackendAddressPoolOutput) BackendIPConfigurations() SubResourceArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPool) []SubResource { return v.BackendIPConfigurations }).(SubResourceArrayOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ApplicationGatewayBackendAddressPoolOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPool) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ApplicationGatewayBackendAddressPoolOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPool) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ApplicationGatewayBackendAddressPoolOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPool) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the backend address pool resource Updating/Deleting/Failed
 func (o ApplicationGatewayBackendAddressPoolOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPool) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -534,20 +502,13 @@ func (o ApplicationGatewayBackendAddressPoolArrayOutput) Index(i pulumi.IntInput
 	}).(ApplicationGatewayBackendAddressPoolOutput)
 }
 
-// Backend Address Pool of application gateway
 type ApplicationGatewayBackendAddressPoolResponse struct {
-	// Gets or sets the backend addresses
-	BackendAddresses []ApplicationGatewayBackendAddressResponse `pulumi:"backendAddresses"`
-	// Gets or sets backendIPConfiguration of application gateway
-	BackendIPConfigurations []SubResourceResponse `pulumi:"backendIPConfigurations"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets Provisioning state of the backend address pool resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
+	BackendAddresses        []ApplicationGatewayBackendAddressResponse `pulumi:"backendAddresses"`
+	BackendIPConfigurations []SubResourceResponse                      `pulumi:"backendIPConfigurations"`
+	Etag                    *string                                    `pulumi:"etag"`
+	Id                      *string                                    `pulumi:"id"`
+	Name                    *string                                    `pulumi:"name"`
+	ProvisioningState       *string                                    `pulumi:"provisioningState"`
 }
 
 // ApplicationGatewayBackendAddressPoolResponseInput is an input type that accepts ApplicationGatewayBackendAddressPoolResponseArgs and ApplicationGatewayBackendAddressPoolResponseOutput values.
@@ -561,20 +522,13 @@ type ApplicationGatewayBackendAddressPoolResponseInput interface {
 	ToApplicationGatewayBackendAddressPoolResponseOutputWithContext(context.Context) ApplicationGatewayBackendAddressPoolResponseOutput
 }
 
-// Backend Address Pool of application gateway
 type ApplicationGatewayBackendAddressPoolResponseArgs struct {
-	// Gets or sets the backend addresses
-	BackendAddresses ApplicationGatewayBackendAddressResponseArrayInput `pulumi:"backendAddresses"`
-	// Gets or sets backendIPConfiguration of application gateway
-	BackendIPConfigurations SubResourceResponseArrayInput `pulumi:"backendIPConfigurations"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets Provisioning state of the backend address pool resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	BackendAddresses        ApplicationGatewayBackendAddressResponseArrayInput `pulumi:"backendAddresses"`
+	BackendIPConfigurations SubResourceResponseArrayInput                      `pulumi:"backendIPConfigurations"`
+	Etag                    pulumi.StringPtrInput                              `pulumi:"etag"`
+	Id                      pulumi.StringPtrInput                              `pulumi:"id"`
+	Name                    pulumi.StringPtrInput                              `pulumi:"name"`
+	ProvisioningState       pulumi.StringPtrInput                              `pulumi:"provisioningState"`
 }
 
 func (ApplicationGatewayBackendAddressPoolResponseArgs) ElementType() reflect.Type {
@@ -614,7 +568,6 @@ func (i ApplicationGatewayBackendAddressPoolResponseArray) ToApplicationGatewayB
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendAddressPoolResponseArrayOutput)
 }
 
-// Backend Address Pool of application gateway
 type ApplicationGatewayBackendAddressPoolResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayBackendAddressPoolResponseOutput) ElementType() reflect.Type {
@@ -629,36 +582,30 @@ func (o ApplicationGatewayBackendAddressPoolResponseOutput) ToApplicationGateway
 	return o
 }
 
-// Gets or sets the backend addresses
 func (o ApplicationGatewayBackendAddressPoolResponseOutput) BackendAddresses() ApplicationGatewayBackendAddressResponseArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPoolResponse) []ApplicationGatewayBackendAddressResponse {
 		return v.BackendAddresses
 	}).(ApplicationGatewayBackendAddressResponseArrayOutput)
 }
 
-// Gets or sets backendIPConfiguration of application gateway
 func (o ApplicationGatewayBackendAddressPoolResponseOutput) BackendIPConfigurations() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPoolResponse) []SubResourceResponse {
 		return v.BackendIPConfigurations
 	}).(SubResourceResponseArrayOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ApplicationGatewayBackendAddressPoolResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPoolResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ApplicationGatewayBackendAddressPoolResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPoolResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ApplicationGatewayBackendAddressPoolResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPoolResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the backend address pool resource Updating/Deleting/Failed
 func (o ApplicationGatewayBackendAddressPoolResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPoolResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -683,11 +630,8 @@ func (o ApplicationGatewayBackendAddressPoolResponseArrayOutput) Index(i pulumi.
 	}).(ApplicationGatewayBackendAddressPoolResponseOutput)
 }
 
-// Backend Address of application gateway
 type ApplicationGatewayBackendAddressResponse struct {
-	// Gets or sets the dns name
-	Fqdn *string `pulumi:"fqdn"`
-	// Gets or sets the ip address
+	Fqdn      *string `pulumi:"fqdn"`
 	IpAddress *string `pulumi:"ipAddress"`
 }
 
@@ -702,11 +646,8 @@ type ApplicationGatewayBackendAddressResponseInput interface {
 	ToApplicationGatewayBackendAddressResponseOutputWithContext(context.Context) ApplicationGatewayBackendAddressResponseOutput
 }
 
-// Backend Address of application gateway
 type ApplicationGatewayBackendAddressResponseArgs struct {
-	// Gets or sets the dns name
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Gets or sets the ip address
+	Fqdn      pulumi.StringPtrInput `pulumi:"fqdn"`
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 }
 
@@ -747,7 +688,6 @@ func (i ApplicationGatewayBackendAddressResponseArray) ToApplicationGatewayBacke
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendAddressResponseArrayOutput)
 }
 
-// Backend Address of application gateway
 type ApplicationGatewayBackendAddressResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayBackendAddressResponseOutput) ElementType() reflect.Type {
@@ -762,12 +702,10 @@ func (o ApplicationGatewayBackendAddressResponseOutput) ToApplicationGatewayBack
 	return o
 }
 
-// Gets or sets the dns name
 func (o ApplicationGatewayBackendAddressResponseOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressResponse) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the ip address
 func (o ApplicationGatewayBackendAddressResponseOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
@@ -792,22 +730,14 @@ func (o ApplicationGatewayBackendAddressResponseArrayOutput) Index(i pulumi.IntI
 	}).(ApplicationGatewayBackendAddressResponseOutput)
 }
 
-// Backend address pool settings of application gateway
 type ApplicationGatewayBackendHttpSettings struct {
-	// Gets or sets the cookie affinity
 	CookieBasedAffinity *string `pulumi:"cookieBasedAffinity"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the port
-	Port *int `pulumi:"port"`
-	// Gets or sets the protocol
-	Protocol *string `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the backend http settings resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
+	Etag                *string `pulumi:"etag"`
+	Id                  *string `pulumi:"id"`
+	Name                *string `pulumi:"name"`
+	Port                *int    `pulumi:"port"`
+	Protocol            *string `pulumi:"protocol"`
+	ProvisioningState   *string `pulumi:"provisioningState"`
 }
 
 // ApplicationGatewayBackendHttpSettingsInput is an input type that accepts ApplicationGatewayBackendHttpSettingsArgs and ApplicationGatewayBackendHttpSettingsOutput values.
@@ -821,22 +751,14 @@ type ApplicationGatewayBackendHttpSettingsInput interface {
 	ToApplicationGatewayBackendHttpSettingsOutputWithContext(context.Context) ApplicationGatewayBackendHttpSettingsOutput
 }
 
-// Backend address pool settings of application gateway
 type ApplicationGatewayBackendHttpSettingsArgs struct {
-	// Gets or sets the cookie affinity
 	CookieBasedAffinity pulumi.StringPtrInput `pulumi:"cookieBasedAffinity"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the port
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// Gets or sets the protocol
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the backend http settings resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	Etag                pulumi.StringPtrInput `pulumi:"etag"`
+	Id                  pulumi.StringPtrInput `pulumi:"id"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	Port                pulumi.IntPtrInput    `pulumi:"port"`
+	Protocol            pulumi.StringPtrInput `pulumi:"protocol"`
+	ProvisioningState   pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
 func (ApplicationGatewayBackendHttpSettingsArgs) ElementType() reflect.Type {
@@ -876,7 +798,6 @@ func (i ApplicationGatewayBackendHttpSettingsArray) ToApplicationGatewayBackendH
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendHttpSettingsArrayOutput)
 }
 
-// Backend address pool settings of application gateway
 type ApplicationGatewayBackendHttpSettingsOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayBackendHttpSettingsOutput) ElementType() reflect.Type {
@@ -891,37 +812,30 @@ func (o ApplicationGatewayBackendHttpSettingsOutput) ToApplicationGatewayBackend
 	return o
 }
 
-// Gets or sets the cookie affinity
 func (o ApplicationGatewayBackendHttpSettingsOutput) CookieBasedAffinity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettings) *string { return v.CookieBasedAffinity }).(pulumi.StringPtrOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ApplicationGatewayBackendHttpSettingsOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettings) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ApplicationGatewayBackendHttpSettingsOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettings) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ApplicationGatewayBackendHttpSettingsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettings) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the port
 func (o ApplicationGatewayBackendHttpSettingsOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettings) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the protocol
 func (o ApplicationGatewayBackendHttpSettingsOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettings) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the backend http settings resource Updating/Deleting/Failed
 func (o ApplicationGatewayBackendHttpSettingsOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettings) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -946,22 +860,14 @@ func (o ApplicationGatewayBackendHttpSettingsArrayOutput) Index(i pulumi.IntInpu
 	}).(ApplicationGatewayBackendHttpSettingsOutput)
 }
 
-// Backend address pool settings of application gateway
 type ApplicationGatewayBackendHttpSettingsResponse struct {
-	// Gets or sets the cookie affinity
 	CookieBasedAffinity *string `pulumi:"cookieBasedAffinity"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the port
-	Port *int `pulumi:"port"`
-	// Gets or sets the protocol
-	Protocol *string `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the backend http settings resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
+	Etag                *string `pulumi:"etag"`
+	Id                  *string `pulumi:"id"`
+	Name                *string `pulumi:"name"`
+	Port                *int    `pulumi:"port"`
+	Protocol            *string `pulumi:"protocol"`
+	ProvisioningState   *string `pulumi:"provisioningState"`
 }
 
 // ApplicationGatewayBackendHttpSettingsResponseInput is an input type that accepts ApplicationGatewayBackendHttpSettingsResponseArgs and ApplicationGatewayBackendHttpSettingsResponseOutput values.
@@ -975,22 +881,14 @@ type ApplicationGatewayBackendHttpSettingsResponseInput interface {
 	ToApplicationGatewayBackendHttpSettingsResponseOutputWithContext(context.Context) ApplicationGatewayBackendHttpSettingsResponseOutput
 }
 
-// Backend address pool settings of application gateway
 type ApplicationGatewayBackendHttpSettingsResponseArgs struct {
-	// Gets or sets the cookie affinity
 	CookieBasedAffinity pulumi.StringPtrInput `pulumi:"cookieBasedAffinity"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the port
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// Gets or sets the protocol
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the backend http settings resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	Etag                pulumi.StringPtrInput `pulumi:"etag"`
+	Id                  pulumi.StringPtrInput `pulumi:"id"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	Port                pulumi.IntPtrInput    `pulumi:"port"`
+	Protocol            pulumi.StringPtrInput `pulumi:"protocol"`
+	ProvisioningState   pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
 func (ApplicationGatewayBackendHttpSettingsResponseArgs) ElementType() reflect.Type {
@@ -1030,7 +928,6 @@ func (i ApplicationGatewayBackendHttpSettingsResponseArray) ToApplicationGateway
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendHttpSettingsResponseArrayOutput)
 }
 
-// Backend address pool settings of application gateway
 type ApplicationGatewayBackendHttpSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayBackendHttpSettingsResponseOutput) ElementType() reflect.Type {
@@ -1045,37 +942,30 @@ func (o ApplicationGatewayBackendHttpSettingsResponseOutput) ToApplicationGatewa
 	return o
 }
 
-// Gets or sets the cookie affinity
 func (o ApplicationGatewayBackendHttpSettingsResponseOutput) CookieBasedAffinity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettingsResponse) *string { return v.CookieBasedAffinity }).(pulumi.StringPtrOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ApplicationGatewayBackendHttpSettingsResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettingsResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ApplicationGatewayBackendHttpSettingsResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettingsResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ApplicationGatewayBackendHttpSettingsResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettingsResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the port
 func (o ApplicationGatewayBackendHttpSettingsResponseOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettingsResponse) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the protocol
 func (o ApplicationGatewayBackendHttpSettingsResponseOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettingsResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the backend http settings resource Updating/Deleting/Failed
 func (o ApplicationGatewayBackendHttpSettingsResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettingsResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -1100,24 +990,15 @@ func (o ApplicationGatewayBackendHttpSettingsResponseArrayOutput) Index(i pulumi
 	}).(ApplicationGatewayBackendHttpSettingsResponseOutput)
 }
 
-// Frontend IP configuration of application gateway
 type ApplicationGatewayFrontendIPConfiguration struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the privateIPAddress of the Network Interface IP Configuration
-	PrivateIPAddress *string `pulumi:"privateIPAddress"`
-	// Gets or sets PrivateIP allocation method (Static/Dynamic)
-	PrivateIPAllocationMethod *string `pulumi:"privateIPAllocationMethod"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the reference of the PublicIP resource
-	PublicIPAddress *SubResource `pulumi:"publicIPAddress"`
-	// Gets or sets the reference of the subnet resource
-	Subnet *SubResource `pulumi:"subnet"`
+	Etag                      *string      `pulumi:"etag"`
+	Id                        *string      `pulumi:"id"`
+	Name                      *string      `pulumi:"name"`
+	PrivateIPAddress          *string      `pulumi:"privateIPAddress"`
+	PrivateIPAllocationMethod *string      `pulumi:"privateIPAllocationMethod"`
+	ProvisioningState         *string      `pulumi:"provisioningState"`
+	PublicIPAddress           *SubResource `pulumi:"publicIPAddress"`
+	Subnet                    *SubResource `pulumi:"subnet"`
 }
 
 // ApplicationGatewayFrontendIPConfigurationInput is an input type that accepts ApplicationGatewayFrontendIPConfigurationArgs and ApplicationGatewayFrontendIPConfigurationOutput values.
@@ -1131,24 +1012,15 @@ type ApplicationGatewayFrontendIPConfigurationInput interface {
 	ToApplicationGatewayFrontendIPConfigurationOutputWithContext(context.Context) ApplicationGatewayFrontendIPConfigurationOutput
 }
 
-// Frontend IP configuration of application gateway
 type ApplicationGatewayFrontendIPConfigurationArgs struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the privateIPAddress of the Network Interface IP Configuration
-	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
-	// Gets or sets PrivateIP allocation method (Static/Dynamic)
+	Etag                      pulumi.StringPtrInput `pulumi:"etag"`
+	Id                        pulumi.StringPtrInput `pulumi:"id"`
+	Name                      pulumi.StringPtrInput `pulumi:"name"`
+	PrivateIPAddress          pulumi.StringPtrInput `pulumi:"privateIPAddress"`
 	PrivateIPAllocationMethod pulumi.StringPtrInput `pulumi:"privateIPAllocationMethod"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the reference of the PublicIP resource
-	PublicIPAddress SubResourcePtrInput `pulumi:"publicIPAddress"`
-	// Gets or sets the reference of the subnet resource
-	Subnet SubResourcePtrInput `pulumi:"subnet"`
+	ProvisioningState         pulumi.StringPtrInput `pulumi:"provisioningState"`
+	PublicIPAddress           SubResourcePtrInput   `pulumi:"publicIPAddress"`
+	Subnet                    SubResourcePtrInput   `pulumi:"subnet"`
 }
 
 func (ApplicationGatewayFrontendIPConfigurationArgs) ElementType() reflect.Type {
@@ -1188,7 +1060,6 @@ func (i ApplicationGatewayFrontendIPConfigurationArray) ToApplicationGatewayFron
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayFrontendIPConfigurationArrayOutput)
 }
 
-// Frontend IP configuration of application gateway
 type ApplicationGatewayFrontendIPConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayFrontendIPConfigurationOutput) ElementType() reflect.Type {
@@ -1203,42 +1074,34 @@ func (o ApplicationGatewayFrontendIPConfigurationOutput) ToApplicationGatewayFro
 	return o
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ApplicationGatewayFrontendIPConfigurationOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIPConfiguration) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ApplicationGatewayFrontendIPConfigurationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIPConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ApplicationGatewayFrontendIPConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIPConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the privateIPAddress of the Network Interface IP Configuration
 func (o ApplicationGatewayFrontendIPConfigurationOutput) PrivateIPAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIPConfiguration) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets PrivateIP allocation method (Static/Dynamic)
 func (o ApplicationGatewayFrontendIPConfigurationOutput) PrivateIPAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIPConfiguration) *string { return v.PrivateIPAllocationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o ApplicationGatewayFrontendIPConfigurationOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIPConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference of the PublicIP resource
 func (o ApplicationGatewayFrontendIPConfigurationOutput) PublicIPAddress() SubResourcePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIPConfiguration) *SubResource { return v.PublicIPAddress }).(SubResourcePtrOutput)
 }
 
-// Gets or sets the reference of the subnet resource
 func (o ApplicationGatewayFrontendIPConfigurationOutput) Subnet() SubResourcePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIPConfiguration) *SubResource { return v.Subnet }).(SubResourcePtrOutput)
 }
@@ -1263,24 +1126,15 @@ func (o ApplicationGatewayFrontendIPConfigurationArrayOutput) Index(i pulumi.Int
 	}).(ApplicationGatewayFrontendIPConfigurationOutput)
 }
 
-// Frontend IP configuration of application gateway
 type ApplicationGatewayFrontendIPConfigurationResponse struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the privateIPAddress of the Network Interface IP Configuration
-	PrivateIPAddress *string `pulumi:"privateIPAddress"`
-	// Gets or sets PrivateIP allocation method (Static/Dynamic)
-	PrivateIPAllocationMethod *string `pulumi:"privateIPAllocationMethod"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the reference of the PublicIP resource
-	PublicIPAddress *SubResourceResponse `pulumi:"publicIPAddress"`
-	// Gets or sets the reference of the subnet resource
-	Subnet *SubResourceResponse `pulumi:"subnet"`
+	Etag                      *string              `pulumi:"etag"`
+	Id                        *string              `pulumi:"id"`
+	Name                      *string              `pulumi:"name"`
+	PrivateIPAddress          *string              `pulumi:"privateIPAddress"`
+	PrivateIPAllocationMethod *string              `pulumi:"privateIPAllocationMethod"`
+	ProvisioningState         *string              `pulumi:"provisioningState"`
+	PublicIPAddress           *SubResourceResponse `pulumi:"publicIPAddress"`
+	Subnet                    *SubResourceResponse `pulumi:"subnet"`
 }
 
 // ApplicationGatewayFrontendIPConfigurationResponseInput is an input type that accepts ApplicationGatewayFrontendIPConfigurationResponseArgs and ApplicationGatewayFrontendIPConfigurationResponseOutput values.
@@ -1294,24 +1148,15 @@ type ApplicationGatewayFrontendIPConfigurationResponseInput interface {
 	ToApplicationGatewayFrontendIPConfigurationResponseOutputWithContext(context.Context) ApplicationGatewayFrontendIPConfigurationResponseOutput
 }
 
-// Frontend IP configuration of application gateway
 type ApplicationGatewayFrontendIPConfigurationResponseArgs struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the privateIPAddress of the Network Interface IP Configuration
-	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
-	// Gets or sets PrivateIP allocation method (Static/Dynamic)
-	PrivateIPAllocationMethod pulumi.StringPtrInput `pulumi:"privateIPAllocationMethod"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the reference of the PublicIP resource
-	PublicIPAddress SubResourceResponsePtrInput `pulumi:"publicIPAddress"`
-	// Gets or sets the reference of the subnet resource
-	Subnet SubResourceResponsePtrInput `pulumi:"subnet"`
+	Etag                      pulumi.StringPtrInput       `pulumi:"etag"`
+	Id                        pulumi.StringPtrInput       `pulumi:"id"`
+	Name                      pulumi.StringPtrInput       `pulumi:"name"`
+	PrivateIPAddress          pulumi.StringPtrInput       `pulumi:"privateIPAddress"`
+	PrivateIPAllocationMethod pulumi.StringPtrInput       `pulumi:"privateIPAllocationMethod"`
+	ProvisioningState         pulumi.StringPtrInput       `pulumi:"provisioningState"`
+	PublicIPAddress           SubResourceResponsePtrInput `pulumi:"publicIPAddress"`
+	Subnet                    SubResourceResponsePtrInput `pulumi:"subnet"`
 }
 
 func (ApplicationGatewayFrontendIPConfigurationResponseArgs) ElementType() reflect.Type {
@@ -1351,7 +1196,6 @@ func (i ApplicationGatewayFrontendIPConfigurationResponseArray) ToApplicationGat
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayFrontendIPConfigurationResponseArrayOutput)
 }
 
-// Frontend IP configuration of application gateway
 type ApplicationGatewayFrontendIPConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayFrontendIPConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1366,44 +1210,36 @@ func (o ApplicationGatewayFrontendIPConfigurationResponseOutput) ToApplicationGa
 	return o
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ApplicationGatewayFrontendIPConfigurationResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIPConfigurationResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ApplicationGatewayFrontendIPConfigurationResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIPConfigurationResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ApplicationGatewayFrontendIPConfigurationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIPConfigurationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the privateIPAddress of the Network Interface IP Configuration
 func (o ApplicationGatewayFrontendIPConfigurationResponseOutput) PrivateIPAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIPConfigurationResponse) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets PrivateIP allocation method (Static/Dynamic)
 func (o ApplicationGatewayFrontendIPConfigurationResponseOutput) PrivateIPAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIPConfigurationResponse) *string { return v.PrivateIPAllocationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o ApplicationGatewayFrontendIPConfigurationResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIPConfigurationResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference of the PublicIP resource
 func (o ApplicationGatewayFrontendIPConfigurationResponseOutput) PublicIPAddress() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIPConfigurationResponse) *SubResourceResponse {
 		return v.PublicIPAddress
 	}).(SubResourceResponsePtrOutput)
 }
 
-// Gets or sets the reference of the subnet resource
 func (o ApplicationGatewayFrontendIPConfigurationResponseOutput) Subnet() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIPConfigurationResponse) *SubResourceResponse { return v.Subnet }).(SubResourceResponsePtrOutput)
 }
@@ -1428,17 +1264,11 @@ func (o ApplicationGatewayFrontendIPConfigurationResponseArrayOutput) Index(i pu
 	}).(ApplicationGatewayFrontendIPConfigurationResponseOutput)
 }
 
-// Frontend Port of application gateway
 type ApplicationGatewayFrontendPort struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the frontend port
-	Port *int `pulumi:"port"`
-	// Gets or sets Provisioning state of the frontend port resource Updating/Deleting/Failed
+	Etag              *string `pulumi:"etag"`
+	Id                *string `pulumi:"id"`
+	Name              *string `pulumi:"name"`
+	Port              *int    `pulumi:"port"`
 	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
@@ -1453,17 +1283,11 @@ type ApplicationGatewayFrontendPortInput interface {
 	ToApplicationGatewayFrontendPortOutputWithContext(context.Context) ApplicationGatewayFrontendPortOutput
 }
 
-// Frontend Port of application gateway
 type ApplicationGatewayFrontendPortArgs struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the frontend port
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// Gets or sets Provisioning state of the frontend port resource Updating/Deleting/Failed
+	Etag              pulumi.StringPtrInput `pulumi:"etag"`
+	Id                pulumi.StringPtrInput `pulumi:"id"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
+	Port              pulumi.IntPtrInput    `pulumi:"port"`
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
@@ -1504,7 +1328,6 @@ func (i ApplicationGatewayFrontendPortArray) ToApplicationGatewayFrontendPortArr
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayFrontendPortArrayOutput)
 }
 
-// Frontend Port of application gateway
 type ApplicationGatewayFrontendPortOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayFrontendPortOutput) ElementType() reflect.Type {
@@ -1519,27 +1342,22 @@ func (o ApplicationGatewayFrontendPortOutput) ToApplicationGatewayFrontendPortOu
 	return o
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ApplicationGatewayFrontendPortOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendPort) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ApplicationGatewayFrontendPortOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendPort) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ApplicationGatewayFrontendPortOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendPort) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the frontend port
 func (o ApplicationGatewayFrontendPortOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendPort) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets Provisioning state of the frontend port resource Updating/Deleting/Failed
 func (o ApplicationGatewayFrontendPortOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendPort) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -1564,17 +1382,11 @@ func (o ApplicationGatewayFrontendPortArrayOutput) Index(i pulumi.IntInput) Appl
 	}).(ApplicationGatewayFrontendPortOutput)
 }
 
-// Frontend Port of application gateway
 type ApplicationGatewayFrontendPortResponse struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the frontend port
-	Port *int `pulumi:"port"`
-	// Gets or sets Provisioning state of the frontend port resource Updating/Deleting/Failed
+	Etag              *string `pulumi:"etag"`
+	Id                *string `pulumi:"id"`
+	Name              *string `pulumi:"name"`
+	Port              *int    `pulumi:"port"`
 	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
@@ -1589,17 +1401,11 @@ type ApplicationGatewayFrontendPortResponseInput interface {
 	ToApplicationGatewayFrontendPortResponseOutputWithContext(context.Context) ApplicationGatewayFrontendPortResponseOutput
 }
 
-// Frontend Port of application gateway
 type ApplicationGatewayFrontendPortResponseArgs struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the frontend port
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// Gets or sets Provisioning state of the frontend port resource Updating/Deleting/Failed
+	Etag              pulumi.StringPtrInput `pulumi:"etag"`
+	Id                pulumi.StringPtrInput `pulumi:"id"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
+	Port              pulumi.IntPtrInput    `pulumi:"port"`
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
@@ -1640,7 +1446,6 @@ func (i ApplicationGatewayFrontendPortResponseArray) ToApplicationGatewayFronten
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayFrontendPortResponseArrayOutput)
 }
 
-// Frontend Port of application gateway
 type ApplicationGatewayFrontendPortResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayFrontendPortResponseOutput) ElementType() reflect.Type {
@@ -1655,27 +1460,22 @@ func (o ApplicationGatewayFrontendPortResponseOutput) ToApplicationGatewayFronte
 	return o
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ApplicationGatewayFrontendPortResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendPortResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ApplicationGatewayFrontendPortResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendPortResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ApplicationGatewayFrontendPortResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendPortResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the frontend port
 func (o ApplicationGatewayFrontendPortResponseOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendPortResponse) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets Provisioning state of the frontend port resource Updating/Deleting/Failed
 func (o ApplicationGatewayFrontendPortResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendPortResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -1700,24 +1500,15 @@ func (o ApplicationGatewayFrontendPortResponseArrayOutput) Index(i pulumi.IntInp
 	}).(ApplicationGatewayFrontendPortResponseOutput)
 }
 
-// Http listener of application gateway
 type ApplicationGatewayHttpListener struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets frontend IP configuration resource of application gateway
+	Etag                    *string      `pulumi:"etag"`
 	FrontendIPConfiguration *SubResource `pulumi:"frontendIPConfiguration"`
-	// Gets or sets frontend port resource of application gateway
-	FrontendPort *SubResource `pulumi:"frontendPort"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the protocol
-	Protocol *string `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the http listener resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets ssl certificate resource of application gateway
-	SslCertificate *SubResource `pulumi:"sslCertificate"`
+	FrontendPort            *SubResource `pulumi:"frontendPort"`
+	Id                      *string      `pulumi:"id"`
+	Name                    *string      `pulumi:"name"`
+	Protocol                *string      `pulumi:"protocol"`
+	ProvisioningState       *string      `pulumi:"provisioningState"`
+	SslCertificate          *SubResource `pulumi:"sslCertificate"`
 }
 
 // ApplicationGatewayHttpListenerInput is an input type that accepts ApplicationGatewayHttpListenerArgs and ApplicationGatewayHttpListenerOutput values.
@@ -1731,24 +1522,15 @@ type ApplicationGatewayHttpListenerInput interface {
 	ToApplicationGatewayHttpListenerOutputWithContext(context.Context) ApplicationGatewayHttpListenerOutput
 }
 
-// Http listener of application gateway
 type ApplicationGatewayHttpListenerArgs struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Gets or sets frontend IP configuration resource of application gateway
-	FrontendIPConfiguration SubResourcePtrInput `pulumi:"frontendIPConfiguration"`
-	// Gets or sets frontend port resource of application gateway
-	FrontendPort SubResourcePtrInput `pulumi:"frontendPort"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the protocol
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the http listener resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets ssl certificate resource of application gateway
-	SslCertificate SubResourcePtrInput `pulumi:"sslCertificate"`
+	Etag                    pulumi.StringPtrInput `pulumi:"etag"`
+	FrontendIPConfiguration SubResourcePtrInput   `pulumi:"frontendIPConfiguration"`
+	FrontendPort            SubResourcePtrInput   `pulumi:"frontendPort"`
+	Id                      pulumi.StringPtrInput `pulumi:"id"`
+	Name                    pulumi.StringPtrInput `pulumi:"name"`
+	Protocol                pulumi.StringPtrInput `pulumi:"protocol"`
+	ProvisioningState       pulumi.StringPtrInput `pulumi:"provisioningState"`
+	SslCertificate          SubResourcePtrInput   `pulumi:"sslCertificate"`
 }
 
 func (ApplicationGatewayHttpListenerArgs) ElementType() reflect.Type {
@@ -1788,7 +1570,6 @@ func (i ApplicationGatewayHttpListenerArray) ToApplicationGatewayHttpListenerArr
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayHttpListenerArrayOutput)
 }
 
-// Http listener of application gateway
 type ApplicationGatewayHttpListenerOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayHttpListenerOutput) ElementType() reflect.Type {
@@ -1803,42 +1584,34 @@ func (o ApplicationGatewayHttpListenerOutput) ToApplicationGatewayHttpListenerOu
 	return o
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ApplicationGatewayHttpListenerOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets frontend IP configuration resource of application gateway
 func (o ApplicationGatewayHttpListenerOutput) FrontendIPConfiguration() SubResourcePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) *SubResource { return v.FrontendIPConfiguration }).(SubResourcePtrOutput)
 }
 
-// Gets or sets frontend port resource of application gateway
 func (o ApplicationGatewayHttpListenerOutput) FrontendPort() SubResourcePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) *SubResource { return v.FrontendPort }).(SubResourcePtrOutput)
 }
 
-// Resource Id
 func (o ApplicationGatewayHttpListenerOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ApplicationGatewayHttpListenerOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the protocol
 func (o ApplicationGatewayHttpListenerOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the http listener resource Updating/Deleting/Failed
 func (o ApplicationGatewayHttpListenerOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets ssl certificate resource of application gateway
 func (o ApplicationGatewayHttpListenerOutput) SslCertificate() SubResourcePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) *SubResource { return v.SslCertificate }).(SubResourcePtrOutput)
 }
@@ -1863,24 +1636,15 @@ func (o ApplicationGatewayHttpListenerArrayOutput) Index(i pulumi.IntInput) Appl
 	}).(ApplicationGatewayHttpListenerOutput)
 }
 
-// Http listener of application gateway
 type ApplicationGatewayHttpListenerResponse struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets frontend IP configuration resource of application gateway
+	Etag                    *string              `pulumi:"etag"`
 	FrontendIPConfiguration *SubResourceResponse `pulumi:"frontendIPConfiguration"`
-	// Gets or sets frontend port resource of application gateway
-	FrontendPort *SubResourceResponse `pulumi:"frontendPort"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the protocol
-	Protocol *string `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the http listener resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets ssl certificate resource of application gateway
-	SslCertificate *SubResourceResponse `pulumi:"sslCertificate"`
+	FrontendPort            *SubResourceResponse `pulumi:"frontendPort"`
+	Id                      *string              `pulumi:"id"`
+	Name                    *string              `pulumi:"name"`
+	Protocol                *string              `pulumi:"protocol"`
+	ProvisioningState       *string              `pulumi:"provisioningState"`
+	SslCertificate          *SubResourceResponse `pulumi:"sslCertificate"`
 }
 
 // ApplicationGatewayHttpListenerResponseInput is an input type that accepts ApplicationGatewayHttpListenerResponseArgs and ApplicationGatewayHttpListenerResponseOutput values.
@@ -1894,24 +1658,15 @@ type ApplicationGatewayHttpListenerResponseInput interface {
 	ToApplicationGatewayHttpListenerResponseOutputWithContext(context.Context) ApplicationGatewayHttpListenerResponseOutput
 }
 
-// Http listener of application gateway
 type ApplicationGatewayHttpListenerResponseArgs struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Gets or sets frontend IP configuration resource of application gateway
+	Etag                    pulumi.StringPtrInput       `pulumi:"etag"`
 	FrontendIPConfiguration SubResourceResponsePtrInput `pulumi:"frontendIPConfiguration"`
-	// Gets or sets frontend port resource of application gateway
-	FrontendPort SubResourceResponsePtrInput `pulumi:"frontendPort"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the protocol
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the http listener resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets ssl certificate resource of application gateway
-	SslCertificate SubResourceResponsePtrInput `pulumi:"sslCertificate"`
+	FrontendPort            SubResourceResponsePtrInput `pulumi:"frontendPort"`
+	Id                      pulumi.StringPtrInput       `pulumi:"id"`
+	Name                    pulumi.StringPtrInput       `pulumi:"name"`
+	Protocol                pulumi.StringPtrInput       `pulumi:"protocol"`
+	ProvisioningState       pulumi.StringPtrInput       `pulumi:"provisioningState"`
+	SslCertificate          SubResourceResponsePtrInput `pulumi:"sslCertificate"`
 }
 
 func (ApplicationGatewayHttpListenerResponseArgs) ElementType() reflect.Type {
@@ -1951,7 +1706,6 @@ func (i ApplicationGatewayHttpListenerResponseArray) ToApplicationGatewayHttpLis
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayHttpListenerResponseArrayOutput)
 }
 
-// Http listener of application gateway
 type ApplicationGatewayHttpListenerResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayHttpListenerResponseOutput) ElementType() reflect.Type {
@@ -1966,42 +1720,34 @@ func (o ApplicationGatewayHttpListenerResponseOutput) ToApplicationGatewayHttpLi
 	return o
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ApplicationGatewayHttpListenerResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListenerResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets frontend IP configuration resource of application gateway
 func (o ApplicationGatewayHttpListenerResponseOutput) FrontendIPConfiguration() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListenerResponse) *SubResourceResponse { return v.FrontendIPConfiguration }).(SubResourceResponsePtrOutput)
 }
 
-// Gets or sets frontend port resource of application gateway
 func (o ApplicationGatewayHttpListenerResponseOutput) FrontendPort() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListenerResponse) *SubResourceResponse { return v.FrontendPort }).(SubResourceResponsePtrOutput)
 }
 
-// Resource Id
 func (o ApplicationGatewayHttpListenerResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListenerResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ApplicationGatewayHttpListenerResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListenerResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the protocol
 func (o ApplicationGatewayHttpListenerResponseOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListenerResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the http listener resource Updating/Deleting/Failed
 func (o ApplicationGatewayHttpListenerResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListenerResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets ssl certificate resource of application gateway
 func (o ApplicationGatewayHttpListenerResponseOutput) SslCertificate() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListenerResponse) *SubResourceResponse { return v.SslCertificate }).(SubResourceResponsePtrOutput)
 }
@@ -2026,18 +1772,12 @@ func (o ApplicationGatewayHttpListenerResponseArrayOutput) Index(i pulumi.IntInp
 	}).(ApplicationGatewayHttpListenerResponseOutput)
 }
 
-// IP configuration of application gateway
 type ApplicationGatewayIPConfiguration struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets Provisioning state of the application gateway subnet resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the reference of the subnet resource.A subnet from where application gateway gets its private address
-	Subnet *SubResource `pulumi:"subnet"`
+	Etag              *string      `pulumi:"etag"`
+	Id                *string      `pulumi:"id"`
+	Name              *string      `pulumi:"name"`
+	ProvisioningState *string      `pulumi:"provisioningState"`
+	Subnet            *SubResource `pulumi:"subnet"`
 }
 
 // ApplicationGatewayIPConfigurationInput is an input type that accepts ApplicationGatewayIPConfigurationArgs and ApplicationGatewayIPConfigurationOutput values.
@@ -2051,18 +1791,12 @@ type ApplicationGatewayIPConfigurationInput interface {
 	ToApplicationGatewayIPConfigurationOutputWithContext(context.Context) ApplicationGatewayIPConfigurationOutput
 }
 
-// IP configuration of application gateway
 type ApplicationGatewayIPConfigurationArgs struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets Provisioning state of the application gateway subnet resource Updating/Deleting/Failed
+	Etag              pulumi.StringPtrInput `pulumi:"etag"`
+	Id                pulumi.StringPtrInput `pulumi:"id"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the reference of the subnet resource.A subnet from where application gateway gets its private address
-	Subnet SubResourcePtrInput `pulumi:"subnet"`
+	Subnet            SubResourcePtrInput   `pulumi:"subnet"`
 }
 
 func (ApplicationGatewayIPConfigurationArgs) ElementType() reflect.Type {
@@ -2102,7 +1836,6 @@ func (i ApplicationGatewayIPConfigurationArray) ToApplicationGatewayIPConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayIPConfigurationArrayOutput)
 }
 
-// IP configuration of application gateway
 type ApplicationGatewayIPConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayIPConfigurationOutput) ElementType() reflect.Type {
@@ -2117,27 +1850,22 @@ func (o ApplicationGatewayIPConfigurationOutput) ToApplicationGatewayIPConfigura
 	return o
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ApplicationGatewayIPConfigurationOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayIPConfiguration) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ApplicationGatewayIPConfigurationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayIPConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ApplicationGatewayIPConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayIPConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the application gateway subnet resource Updating/Deleting/Failed
 func (o ApplicationGatewayIPConfigurationOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayIPConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference of the subnet resource.A subnet from where application gateway gets its private address
 func (o ApplicationGatewayIPConfigurationOutput) Subnet() SubResourcePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayIPConfiguration) *SubResource { return v.Subnet }).(SubResourcePtrOutput)
 }
@@ -2162,18 +1890,12 @@ func (o ApplicationGatewayIPConfigurationArrayOutput) Index(i pulumi.IntInput) A
 	}).(ApplicationGatewayIPConfigurationOutput)
 }
 
-// IP configuration of application gateway
 type ApplicationGatewayIPConfigurationResponse struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets Provisioning state of the application gateway subnet resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the reference of the subnet resource.A subnet from where application gateway gets its private address
-	Subnet *SubResourceResponse `pulumi:"subnet"`
+	Etag              *string              `pulumi:"etag"`
+	Id                *string              `pulumi:"id"`
+	Name              *string              `pulumi:"name"`
+	ProvisioningState *string              `pulumi:"provisioningState"`
+	Subnet            *SubResourceResponse `pulumi:"subnet"`
 }
 
 // ApplicationGatewayIPConfigurationResponseInput is an input type that accepts ApplicationGatewayIPConfigurationResponseArgs and ApplicationGatewayIPConfigurationResponseOutput values.
@@ -2187,18 +1909,12 @@ type ApplicationGatewayIPConfigurationResponseInput interface {
 	ToApplicationGatewayIPConfigurationResponseOutputWithContext(context.Context) ApplicationGatewayIPConfigurationResponseOutput
 }
 
-// IP configuration of application gateway
 type ApplicationGatewayIPConfigurationResponseArgs struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets Provisioning state of the application gateway subnet resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the reference of the subnet resource.A subnet from where application gateway gets its private address
-	Subnet SubResourceResponsePtrInput `pulumi:"subnet"`
+	Etag              pulumi.StringPtrInput       `pulumi:"etag"`
+	Id                pulumi.StringPtrInput       `pulumi:"id"`
+	Name              pulumi.StringPtrInput       `pulumi:"name"`
+	ProvisioningState pulumi.StringPtrInput       `pulumi:"provisioningState"`
+	Subnet            SubResourceResponsePtrInput `pulumi:"subnet"`
 }
 
 func (ApplicationGatewayIPConfigurationResponseArgs) ElementType() reflect.Type {
@@ -2238,7 +1954,6 @@ func (i ApplicationGatewayIPConfigurationResponseArray) ToApplicationGatewayIPCo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayIPConfigurationResponseArrayOutput)
 }
 
-// IP configuration of application gateway
 type ApplicationGatewayIPConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayIPConfigurationResponseOutput) ElementType() reflect.Type {
@@ -2253,27 +1968,22 @@ func (o ApplicationGatewayIPConfigurationResponseOutput) ToApplicationGatewayIPC
 	return o
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ApplicationGatewayIPConfigurationResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayIPConfigurationResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ApplicationGatewayIPConfigurationResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayIPConfigurationResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ApplicationGatewayIPConfigurationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayIPConfigurationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the application gateway subnet resource Updating/Deleting/Failed
 func (o ApplicationGatewayIPConfigurationResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayIPConfigurationResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference of the subnet resource.A subnet from where application gateway gets its private address
 func (o ApplicationGatewayIPConfigurationResponseOutput) Subnet() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayIPConfigurationResponse) *SubResourceResponse { return v.Subnet }).(SubResourceResponsePtrOutput)
 }
@@ -2298,24 +2008,15 @@ func (o ApplicationGatewayIPConfigurationResponseArrayOutput) Index(i pulumi.Int
 	}).(ApplicationGatewayIPConfigurationResponseOutput)
 }
 
-// Request routing rule of application gateway
 type ApplicationGatewayRequestRoutingRule struct {
-	// Gets or sets backend address pool resource of application gateway
-	BackendAddressPool *SubResource `pulumi:"backendAddressPool"`
-	// Gets or sets frontend port resource of application gateway
+	BackendAddressPool  *SubResource `pulumi:"backendAddressPool"`
 	BackendHttpSettings *SubResource `pulumi:"backendHttpSettings"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets http listener resource of application gateway
-	HttpListener *SubResource `pulumi:"httpListener"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets Provisioning state of the request routing rule resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the rule type
-	RuleType *string `pulumi:"ruleType"`
+	Etag                *string      `pulumi:"etag"`
+	HttpListener        *SubResource `pulumi:"httpListener"`
+	Id                  *string      `pulumi:"id"`
+	Name                *string      `pulumi:"name"`
+	ProvisioningState   *string      `pulumi:"provisioningState"`
+	RuleType            *string      `pulumi:"ruleType"`
 }
 
 // ApplicationGatewayRequestRoutingRuleInput is an input type that accepts ApplicationGatewayRequestRoutingRuleArgs and ApplicationGatewayRequestRoutingRuleOutput values.
@@ -2329,24 +2030,15 @@ type ApplicationGatewayRequestRoutingRuleInput interface {
 	ToApplicationGatewayRequestRoutingRuleOutputWithContext(context.Context) ApplicationGatewayRequestRoutingRuleOutput
 }
 
-// Request routing rule of application gateway
 type ApplicationGatewayRequestRoutingRuleArgs struct {
-	// Gets or sets backend address pool resource of application gateway
-	BackendAddressPool SubResourcePtrInput `pulumi:"backendAddressPool"`
-	// Gets or sets frontend port resource of application gateway
-	BackendHttpSettings SubResourcePtrInput `pulumi:"backendHttpSettings"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Gets or sets http listener resource of application gateway
-	HttpListener SubResourcePtrInput `pulumi:"httpListener"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets Provisioning state of the request routing rule resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the rule type
-	RuleType pulumi.StringPtrInput `pulumi:"ruleType"`
+	BackendAddressPool  SubResourcePtrInput   `pulumi:"backendAddressPool"`
+	BackendHttpSettings SubResourcePtrInput   `pulumi:"backendHttpSettings"`
+	Etag                pulumi.StringPtrInput `pulumi:"etag"`
+	HttpListener        SubResourcePtrInput   `pulumi:"httpListener"`
+	Id                  pulumi.StringPtrInput `pulumi:"id"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	ProvisioningState   pulumi.StringPtrInput `pulumi:"provisioningState"`
+	RuleType            pulumi.StringPtrInput `pulumi:"ruleType"`
 }
 
 func (ApplicationGatewayRequestRoutingRuleArgs) ElementType() reflect.Type {
@@ -2386,7 +2078,6 @@ func (i ApplicationGatewayRequestRoutingRuleArray) ToApplicationGatewayRequestRo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayRequestRoutingRuleArrayOutput)
 }
 
-// Request routing rule of application gateway
 type ApplicationGatewayRequestRoutingRuleOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayRequestRoutingRuleOutput) ElementType() reflect.Type {
@@ -2401,42 +2092,34 @@ func (o ApplicationGatewayRequestRoutingRuleOutput) ToApplicationGatewayRequestR
 	return o
 }
 
-// Gets or sets backend address pool resource of application gateway
 func (o ApplicationGatewayRequestRoutingRuleOutput) BackendAddressPool() SubResourcePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) *SubResource { return v.BackendAddressPool }).(SubResourcePtrOutput)
 }
 
-// Gets or sets frontend port resource of application gateway
 func (o ApplicationGatewayRequestRoutingRuleOutput) BackendHttpSettings() SubResourcePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) *SubResource { return v.BackendHttpSettings }).(SubResourcePtrOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ApplicationGatewayRequestRoutingRuleOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets http listener resource of application gateway
 func (o ApplicationGatewayRequestRoutingRuleOutput) HttpListener() SubResourcePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) *SubResource { return v.HttpListener }).(SubResourcePtrOutput)
 }
 
-// Resource Id
 func (o ApplicationGatewayRequestRoutingRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ApplicationGatewayRequestRoutingRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the request routing rule resource Updating/Deleting/Failed
 func (o ApplicationGatewayRequestRoutingRuleOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the rule type
 func (o ApplicationGatewayRequestRoutingRuleOutput) RuleType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) *string { return v.RuleType }).(pulumi.StringPtrOutput)
 }
@@ -2461,24 +2144,15 @@ func (o ApplicationGatewayRequestRoutingRuleArrayOutput) Index(i pulumi.IntInput
 	}).(ApplicationGatewayRequestRoutingRuleOutput)
 }
 
-// Request routing rule of application gateway
 type ApplicationGatewayRequestRoutingRuleResponse struct {
-	// Gets or sets backend address pool resource of application gateway
-	BackendAddressPool *SubResourceResponse `pulumi:"backendAddressPool"`
-	// Gets or sets frontend port resource of application gateway
+	BackendAddressPool  *SubResourceResponse `pulumi:"backendAddressPool"`
 	BackendHttpSettings *SubResourceResponse `pulumi:"backendHttpSettings"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets http listener resource of application gateway
-	HttpListener *SubResourceResponse `pulumi:"httpListener"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets Provisioning state of the request routing rule resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the rule type
-	RuleType *string `pulumi:"ruleType"`
+	Etag                *string              `pulumi:"etag"`
+	HttpListener        *SubResourceResponse `pulumi:"httpListener"`
+	Id                  *string              `pulumi:"id"`
+	Name                *string              `pulumi:"name"`
+	ProvisioningState   *string              `pulumi:"provisioningState"`
+	RuleType            *string              `pulumi:"ruleType"`
 }
 
 // ApplicationGatewayRequestRoutingRuleResponseInput is an input type that accepts ApplicationGatewayRequestRoutingRuleResponseArgs and ApplicationGatewayRequestRoutingRuleResponseOutput values.
@@ -2492,24 +2166,15 @@ type ApplicationGatewayRequestRoutingRuleResponseInput interface {
 	ToApplicationGatewayRequestRoutingRuleResponseOutputWithContext(context.Context) ApplicationGatewayRequestRoutingRuleResponseOutput
 }
 
-// Request routing rule of application gateway
 type ApplicationGatewayRequestRoutingRuleResponseArgs struct {
-	// Gets or sets backend address pool resource of application gateway
-	BackendAddressPool SubResourceResponsePtrInput `pulumi:"backendAddressPool"`
-	// Gets or sets frontend port resource of application gateway
+	BackendAddressPool  SubResourceResponsePtrInput `pulumi:"backendAddressPool"`
 	BackendHttpSettings SubResourceResponsePtrInput `pulumi:"backendHttpSettings"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Gets or sets http listener resource of application gateway
-	HttpListener SubResourceResponsePtrInput `pulumi:"httpListener"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets Provisioning state of the request routing rule resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the rule type
-	RuleType pulumi.StringPtrInput `pulumi:"ruleType"`
+	Etag                pulumi.StringPtrInput       `pulumi:"etag"`
+	HttpListener        SubResourceResponsePtrInput `pulumi:"httpListener"`
+	Id                  pulumi.StringPtrInput       `pulumi:"id"`
+	Name                pulumi.StringPtrInput       `pulumi:"name"`
+	ProvisioningState   pulumi.StringPtrInput       `pulumi:"provisioningState"`
+	RuleType            pulumi.StringPtrInput       `pulumi:"ruleType"`
 }
 
 func (ApplicationGatewayRequestRoutingRuleResponseArgs) ElementType() reflect.Type {
@@ -2549,7 +2214,6 @@ func (i ApplicationGatewayRequestRoutingRuleResponseArray) ToApplicationGatewayR
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayRequestRoutingRuleResponseArrayOutput)
 }
 
-// Request routing rule of application gateway
 type ApplicationGatewayRequestRoutingRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayRequestRoutingRuleResponseOutput) ElementType() reflect.Type {
@@ -2564,44 +2228,36 @@ func (o ApplicationGatewayRequestRoutingRuleResponseOutput) ToApplicationGateway
 	return o
 }
 
-// Gets or sets backend address pool resource of application gateway
 func (o ApplicationGatewayRequestRoutingRuleResponseOutput) BackendAddressPool() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRuleResponse) *SubResourceResponse { return v.BackendAddressPool }).(SubResourceResponsePtrOutput)
 }
 
-// Gets or sets frontend port resource of application gateway
 func (o ApplicationGatewayRequestRoutingRuleResponseOutput) BackendHttpSettings() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRuleResponse) *SubResourceResponse {
 		return v.BackendHttpSettings
 	}).(SubResourceResponsePtrOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ApplicationGatewayRequestRoutingRuleResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRuleResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets http listener resource of application gateway
 func (o ApplicationGatewayRequestRoutingRuleResponseOutput) HttpListener() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRuleResponse) *SubResourceResponse { return v.HttpListener }).(SubResourceResponsePtrOutput)
 }
 
-// Resource Id
 func (o ApplicationGatewayRequestRoutingRuleResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ApplicationGatewayRequestRoutingRuleResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRuleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the request routing rule resource Updating/Deleting/Failed
 func (o ApplicationGatewayRequestRoutingRuleResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRuleResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the rule type
 func (o ApplicationGatewayRequestRoutingRuleResponseOutput) RuleType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRuleResponse) *string { return v.RuleType }).(pulumi.StringPtrOutput)
 }
@@ -2626,14 +2282,10 @@ func (o ApplicationGatewayRequestRoutingRuleResponseArrayOutput) Index(i pulumi.
 	}).(ApplicationGatewayRequestRoutingRuleResponseOutput)
 }
 
-// SKU of application gateway
 type ApplicationGatewaySku struct {
-	// Gets or sets capacity (instance count) of application gateway
-	Capacity *int `pulumi:"capacity"`
-	// Gets or sets name of application gateway SKU
-	Name *string `pulumi:"name"`
-	// Gets or sets tier of application gateway
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     *string `pulumi:"name"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // ApplicationGatewaySkuInput is an input type that accepts ApplicationGatewaySkuArgs and ApplicationGatewaySkuOutput values.
@@ -2647,14 +2299,10 @@ type ApplicationGatewaySkuInput interface {
 	ToApplicationGatewaySkuOutputWithContext(context.Context) ApplicationGatewaySkuOutput
 }
 
-// SKU of application gateway
 type ApplicationGatewaySkuArgs struct {
-	// Gets or sets capacity (instance count) of application gateway
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Gets or sets name of application gateway SKU
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets tier of application gateway
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (ApplicationGatewaySkuArgs) ElementType() reflect.Type {
@@ -2710,7 +2358,6 @@ func (i *applicationGatewaySkuPtrType) ToApplicationGatewaySkuPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySkuPtrOutput)
 }
 
-// SKU of application gateway
 type ApplicationGatewaySkuOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewaySkuOutput) ElementType() reflect.Type {
@@ -2730,22 +2377,19 @@ func (o ApplicationGatewaySkuOutput) ToApplicationGatewaySkuPtrOutput() Applicat
 }
 
 func (o ApplicationGatewaySkuOutput) ToApplicationGatewaySkuPtrOutputWithContext(ctx context.Context) ApplicationGatewaySkuPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewaySku) *ApplicationGatewaySku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewaySku) *ApplicationGatewaySku {
 		return &v
 	}).(ApplicationGatewaySkuPtrOutput)
 }
 
-// Gets or sets capacity (instance count) of application gateway
 func (o ApplicationGatewaySkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets name of application gateway SKU
 func (o ApplicationGatewaySkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets tier of application gateway
 func (o ApplicationGatewaySkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -2765,10 +2409,15 @@ func (o ApplicationGatewaySkuPtrOutput) ToApplicationGatewaySkuPtrOutputWithCont
 }
 
 func (o ApplicationGatewaySkuPtrOutput) Elem() ApplicationGatewaySkuOutput {
-	return o.ApplyT(func(v *ApplicationGatewaySku) ApplicationGatewaySku { return *v }).(ApplicationGatewaySkuOutput)
+	return o.ApplyT(func(v *ApplicationGatewaySku) ApplicationGatewaySku {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewaySku
+		return ret
+	}).(ApplicationGatewaySkuOutput)
 }
 
-// Gets or sets capacity (instance count) of application gateway
 func (o ApplicationGatewaySkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySku) *int {
 		if v == nil {
@@ -2778,7 +2427,6 @@ func (o ApplicationGatewaySkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets name of application gateway SKU
 func (o ApplicationGatewaySkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySku) *string {
 		if v == nil {
@@ -2788,7 +2436,6 @@ func (o ApplicationGatewaySkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets tier of application gateway
 func (o ApplicationGatewaySkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySku) *string {
 		if v == nil {
@@ -2798,14 +2445,10 @@ func (o ApplicationGatewaySkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU of application gateway
 type ApplicationGatewaySkuResponse struct {
-	// Gets or sets capacity (instance count) of application gateway
-	Capacity *int `pulumi:"capacity"`
-	// Gets or sets name of application gateway SKU
-	Name *string `pulumi:"name"`
-	// Gets or sets tier of application gateway
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     *string `pulumi:"name"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // ApplicationGatewaySkuResponseInput is an input type that accepts ApplicationGatewaySkuResponseArgs and ApplicationGatewaySkuResponseOutput values.
@@ -2819,14 +2462,10 @@ type ApplicationGatewaySkuResponseInput interface {
 	ToApplicationGatewaySkuResponseOutputWithContext(context.Context) ApplicationGatewaySkuResponseOutput
 }
 
-// SKU of application gateway
 type ApplicationGatewaySkuResponseArgs struct {
-	// Gets or sets capacity (instance count) of application gateway
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Gets or sets name of application gateway SKU
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets tier of application gateway
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (ApplicationGatewaySkuResponseArgs) ElementType() reflect.Type {
@@ -2882,7 +2521,6 @@ func (i *applicationGatewaySkuResponsePtrType) ToApplicationGatewaySkuResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySkuResponsePtrOutput)
 }
 
-// SKU of application gateway
 type ApplicationGatewaySkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewaySkuResponseOutput) ElementType() reflect.Type {
@@ -2902,22 +2540,19 @@ func (o ApplicationGatewaySkuResponseOutput) ToApplicationGatewaySkuResponsePtrO
 }
 
 func (o ApplicationGatewaySkuResponseOutput) ToApplicationGatewaySkuResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewaySkuResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationGatewaySkuResponse) *ApplicationGatewaySkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewaySkuResponse) *ApplicationGatewaySkuResponse {
 		return &v
 	}).(ApplicationGatewaySkuResponsePtrOutput)
 }
 
-// Gets or sets capacity (instance count) of application gateway
 func (o ApplicationGatewaySkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets name of application gateway SKU
 func (o ApplicationGatewaySkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets tier of application gateway
 func (o ApplicationGatewaySkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -2937,10 +2572,15 @@ func (o ApplicationGatewaySkuResponsePtrOutput) ToApplicationGatewaySkuResponseP
 }
 
 func (o ApplicationGatewaySkuResponsePtrOutput) Elem() ApplicationGatewaySkuResponseOutput {
-	return o.ApplyT(func(v *ApplicationGatewaySkuResponse) ApplicationGatewaySkuResponse { return *v }).(ApplicationGatewaySkuResponseOutput)
+	return o.ApplyT(func(v *ApplicationGatewaySkuResponse) ApplicationGatewaySkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewaySkuResponse
+		return ret
+	}).(ApplicationGatewaySkuResponseOutput)
 }
 
-// Gets or sets capacity (instance count) of application gateway
 func (o ApplicationGatewaySkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySkuResponse) *int {
 		if v == nil {
@@ -2950,7 +2590,6 @@ func (o ApplicationGatewaySkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets name of application gateway SKU
 func (o ApplicationGatewaySkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySkuResponse) *string {
 		if v == nil {
@@ -2960,7 +2599,6 @@ func (o ApplicationGatewaySkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets tier of application gateway
 func (o ApplicationGatewaySkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySkuResponse) *string {
 		if v == nil {
@@ -2970,22 +2608,14 @@ func (o ApplicationGatewaySkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSL certificates of application gateway
 type ApplicationGatewaySslCertificate struct {
-	// Gets or sets the certificate data
-	Data *string `pulumi:"data"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the certificate password
-	Password *string `pulumi:"password"`
-	// Gets or sets Provisioning state of the ssl certificate resource Updating/Deleting/Failed
+	Data              *string `pulumi:"data"`
+	Etag              *string `pulumi:"etag"`
+	Id                *string `pulumi:"id"`
+	Name              *string `pulumi:"name"`
+	Password          *string `pulumi:"password"`
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the certificate public data
-	PublicCertData *string `pulumi:"publicCertData"`
+	PublicCertData    *string `pulumi:"publicCertData"`
 }
 
 // ApplicationGatewaySslCertificateInput is an input type that accepts ApplicationGatewaySslCertificateArgs and ApplicationGatewaySslCertificateOutput values.
@@ -2999,22 +2629,14 @@ type ApplicationGatewaySslCertificateInput interface {
 	ToApplicationGatewaySslCertificateOutputWithContext(context.Context) ApplicationGatewaySslCertificateOutput
 }
 
-// SSL certificates of application gateway
 type ApplicationGatewaySslCertificateArgs struct {
-	// Gets or sets the certificate data
-	Data pulumi.StringPtrInput `pulumi:"data"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the certificate password
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Gets or sets Provisioning state of the ssl certificate resource Updating/Deleting/Failed
+	Data              pulumi.StringPtrInput `pulumi:"data"`
+	Etag              pulumi.StringPtrInput `pulumi:"etag"`
+	Id                pulumi.StringPtrInput `pulumi:"id"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
+	Password          pulumi.StringPtrInput `pulumi:"password"`
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the certificate public data
-	PublicCertData pulumi.StringPtrInput `pulumi:"publicCertData"`
+	PublicCertData    pulumi.StringPtrInput `pulumi:"publicCertData"`
 }
 
 func (ApplicationGatewaySslCertificateArgs) ElementType() reflect.Type {
@@ -3054,7 +2676,6 @@ func (i ApplicationGatewaySslCertificateArray) ToApplicationGatewaySslCertificat
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySslCertificateArrayOutput)
 }
 
-// SSL certificates of application gateway
 type ApplicationGatewaySslCertificateOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewaySslCertificateOutput) ElementType() reflect.Type {
@@ -3069,37 +2690,30 @@ func (o ApplicationGatewaySslCertificateOutput) ToApplicationGatewaySslCertifica
 	return o
 }
 
-// Gets or sets the certificate data
 func (o ApplicationGatewaySslCertificateOutput) Data() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificate) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ApplicationGatewaySslCertificateOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificate) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ApplicationGatewaySslCertificateOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificate) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ApplicationGatewaySslCertificateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificate) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the certificate password
 func (o ApplicationGatewaySslCertificateOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificate) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the ssl certificate resource Updating/Deleting/Failed
 func (o ApplicationGatewaySslCertificateOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificate) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the certificate public data
 func (o ApplicationGatewaySslCertificateOutput) PublicCertData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificate) *string { return v.PublicCertData }).(pulumi.StringPtrOutput)
 }
@@ -3124,22 +2738,14 @@ func (o ApplicationGatewaySslCertificateArrayOutput) Index(i pulumi.IntInput) Ap
 	}).(ApplicationGatewaySslCertificateOutput)
 }
 
-// SSL certificates of application gateway
 type ApplicationGatewaySslCertificateResponse struct {
-	// Gets or sets the certificate data
-	Data *string `pulumi:"data"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the certificate password
-	Password *string `pulumi:"password"`
-	// Gets or sets Provisioning state of the ssl certificate resource Updating/Deleting/Failed
+	Data              *string `pulumi:"data"`
+	Etag              *string `pulumi:"etag"`
+	Id                *string `pulumi:"id"`
+	Name              *string `pulumi:"name"`
+	Password          *string `pulumi:"password"`
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the certificate public data
-	PublicCertData *string `pulumi:"publicCertData"`
+	PublicCertData    *string `pulumi:"publicCertData"`
 }
 
 // ApplicationGatewaySslCertificateResponseInput is an input type that accepts ApplicationGatewaySslCertificateResponseArgs and ApplicationGatewaySslCertificateResponseOutput values.
@@ -3153,22 +2759,14 @@ type ApplicationGatewaySslCertificateResponseInput interface {
 	ToApplicationGatewaySslCertificateResponseOutputWithContext(context.Context) ApplicationGatewaySslCertificateResponseOutput
 }
 
-// SSL certificates of application gateway
 type ApplicationGatewaySslCertificateResponseArgs struct {
-	// Gets or sets the certificate data
-	Data pulumi.StringPtrInput `pulumi:"data"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the certificate password
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Gets or sets Provisioning state of the ssl certificate resource Updating/Deleting/Failed
+	Data              pulumi.StringPtrInput `pulumi:"data"`
+	Etag              pulumi.StringPtrInput `pulumi:"etag"`
+	Id                pulumi.StringPtrInput `pulumi:"id"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
+	Password          pulumi.StringPtrInput `pulumi:"password"`
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the certificate public data
-	PublicCertData pulumi.StringPtrInput `pulumi:"publicCertData"`
+	PublicCertData    pulumi.StringPtrInput `pulumi:"publicCertData"`
 }
 
 func (ApplicationGatewaySslCertificateResponseArgs) ElementType() reflect.Type {
@@ -3208,7 +2806,6 @@ func (i ApplicationGatewaySslCertificateResponseArray) ToApplicationGatewaySslCe
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySslCertificateResponseArrayOutput)
 }
 
-// SSL certificates of application gateway
 type ApplicationGatewaySslCertificateResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewaySslCertificateResponseOutput) ElementType() reflect.Type {
@@ -3223,37 +2820,30 @@ func (o ApplicationGatewaySslCertificateResponseOutput) ToApplicationGatewaySslC
 	return o
 }
 
-// Gets or sets the certificate data
 func (o ApplicationGatewaySslCertificateResponseOutput) Data() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificateResponse) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ApplicationGatewaySslCertificateResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificateResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ApplicationGatewaySslCertificateResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificateResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ApplicationGatewaySslCertificateResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificateResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the certificate password
 func (o ApplicationGatewaySslCertificateResponseOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificateResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the ssl certificate resource Updating/Deleting/Failed
 func (o ApplicationGatewaySslCertificateResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificateResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the certificate public data
 func (o ApplicationGatewaySslCertificateResponseOutput) PublicCertData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificateResponse) *string { return v.PublicCertData }).(pulumi.StringPtrOutput)
 }
@@ -3278,22 +2868,14 @@ func (o ApplicationGatewaySslCertificateResponseArrayOutput) Index(i pulumi.IntI
 	}).(ApplicationGatewaySslCertificateResponseOutput)
 }
 
-// Pool of backend IP addresses
 type BackendAddressPool struct {
-	// Gets collection of references to IPs defined in NICs
 	BackendIPConfigurations []SubResource `pulumi:"backendIPConfigurations"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets Load Balancing rules that use this Backend Address Pool
-	LoadBalancingRules []SubResource `pulumi:"loadBalancingRules"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets outbound rules that use this Backend Address Pool
-	OutboundNatRule *SubResource `pulumi:"outboundNatRule"`
-	// Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
+	Etag                    *string       `pulumi:"etag"`
+	Id                      *string       `pulumi:"id"`
+	LoadBalancingRules      []SubResource `pulumi:"loadBalancingRules"`
+	Name                    *string       `pulumi:"name"`
+	OutboundNatRule         *SubResource  `pulumi:"outboundNatRule"`
+	ProvisioningState       *string       `pulumi:"provisioningState"`
 }
 
 // BackendAddressPoolInput is an input type that accepts BackendAddressPoolArgs and BackendAddressPoolOutput values.
@@ -3307,22 +2889,14 @@ type BackendAddressPoolInput interface {
 	ToBackendAddressPoolOutputWithContext(context.Context) BackendAddressPoolOutput
 }
 
-// Pool of backend IP addresses
 type BackendAddressPoolArgs struct {
-	// Gets collection of references to IPs defined in NICs
 	BackendIPConfigurations SubResourceArrayInput `pulumi:"backendIPConfigurations"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets Load Balancing rules that use this Backend Address Pool
-	LoadBalancingRules SubResourceArrayInput `pulumi:"loadBalancingRules"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets outbound rules that use this Backend Address Pool
-	OutboundNatRule SubResourcePtrInput `pulumi:"outboundNatRule"`
-	// Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	Etag                    pulumi.StringPtrInput `pulumi:"etag"`
+	Id                      pulumi.StringPtrInput `pulumi:"id"`
+	LoadBalancingRules      SubResourceArrayInput `pulumi:"loadBalancingRules"`
+	Name                    pulumi.StringPtrInput `pulumi:"name"`
+	OutboundNatRule         SubResourcePtrInput   `pulumi:"outboundNatRule"`
+	ProvisioningState       pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
 func (BackendAddressPoolArgs) ElementType() reflect.Type {
@@ -3362,7 +2936,6 @@ func (i BackendAddressPoolArray) ToBackendAddressPoolArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolArrayOutput)
 }
 
-// Pool of backend IP addresses
 type BackendAddressPoolOutput struct{ *pulumi.OutputState }
 
 func (BackendAddressPoolOutput) ElementType() reflect.Type {
@@ -3377,37 +2950,30 @@ func (o BackendAddressPoolOutput) ToBackendAddressPoolOutputWithContext(ctx cont
 	return o
 }
 
-// Gets collection of references to IPs defined in NICs
 func (o BackendAddressPoolOutput) BackendIPConfigurations() SubResourceArrayOutput {
 	return o.ApplyT(func(v BackendAddressPool) []SubResource { return v.BackendIPConfigurations }).(SubResourceArrayOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o BackendAddressPoolOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendAddressPool) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o BackendAddressPoolOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendAddressPool) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets Load Balancing rules that use this Backend Address Pool
 func (o BackendAddressPoolOutput) LoadBalancingRules() SubResourceArrayOutput {
 	return o.ApplyT(func(v BackendAddressPool) []SubResource { return v.LoadBalancingRules }).(SubResourceArrayOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o BackendAddressPoolOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendAddressPool) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets outbound rules that use this Backend Address Pool
 func (o BackendAddressPoolOutput) OutboundNatRule() SubResourcePtrOutput {
 	return o.ApplyT(func(v BackendAddressPool) *SubResource { return v.OutboundNatRule }).(SubResourcePtrOutput)
 }
 
-// Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o BackendAddressPoolOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendAddressPool) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -3432,22 +2998,14 @@ func (o BackendAddressPoolArrayOutput) Index(i pulumi.IntInput) BackendAddressPo
 	}).(BackendAddressPoolOutput)
 }
 
-// Pool of backend IP addresses
 type BackendAddressPoolResponse struct {
-	// Gets collection of references to IPs defined in NICs
 	BackendIPConfigurations []SubResourceResponse `pulumi:"backendIPConfigurations"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets Load Balancing rules that use this Backend Address Pool
-	LoadBalancingRules []SubResourceResponse `pulumi:"loadBalancingRules"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets outbound rules that use this Backend Address Pool
-	OutboundNatRule *SubResourceResponse `pulumi:"outboundNatRule"`
-	// Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
+	Etag                    *string               `pulumi:"etag"`
+	Id                      *string               `pulumi:"id"`
+	LoadBalancingRules      []SubResourceResponse `pulumi:"loadBalancingRules"`
+	Name                    *string               `pulumi:"name"`
+	OutboundNatRule         *SubResourceResponse  `pulumi:"outboundNatRule"`
+	ProvisioningState       *string               `pulumi:"provisioningState"`
 }
 
 // BackendAddressPoolResponseInput is an input type that accepts BackendAddressPoolResponseArgs and BackendAddressPoolResponseOutput values.
@@ -3461,22 +3019,14 @@ type BackendAddressPoolResponseInput interface {
 	ToBackendAddressPoolResponseOutputWithContext(context.Context) BackendAddressPoolResponseOutput
 }
 
-// Pool of backend IP addresses
 type BackendAddressPoolResponseArgs struct {
-	// Gets collection of references to IPs defined in NICs
 	BackendIPConfigurations SubResourceResponseArrayInput `pulumi:"backendIPConfigurations"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets Load Balancing rules that use this Backend Address Pool
-	LoadBalancingRules SubResourceResponseArrayInput `pulumi:"loadBalancingRules"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets outbound rules that use this Backend Address Pool
-	OutboundNatRule SubResourceResponsePtrInput `pulumi:"outboundNatRule"`
-	// Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	Etag                    pulumi.StringPtrInput         `pulumi:"etag"`
+	Id                      pulumi.StringPtrInput         `pulumi:"id"`
+	LoadBalancingRules      SubResourceResponseArrayInput `pulumi:"loadBalancingRules"`
+	Name                    pulumi.StringPtrInput         `pulumi:"name"`
+	OutboundNatRule         SubResourceResponsePtrInput   `pulumi:"outboundNatRule"`
+	ProvisioningState       pulumi.StringPtrInput         `pulumi:"provisioningState"`
 }
 
 func (BackendAddressPoolResponseArgs) ElementType() reflect.Type {
@@ -3516,7 +3066,6 @@ func (i BackendAddressPoolResponseArray) ToBackendAddressPoolResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolResponseArrayOutput)
 }
 
-// Pool of backend IP addresses
 type BackendAddressPoolResponseOutput struct{ *pulumi.OutputState }
 
 func (BackendAddressPoolResponseOutput) ElementType() reflect.Type {
@@ -3531,37 +3080,30 @@ func (o BackendAddressPoolResponseOutput) ToBackendAddressPoolResponseOutputWith
 	return o
 }
 
-// Gets collection of references to IPs defined in NICs
 func (o BackendAddressPoolResponseOutput) BackendIPConfigurations() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v BackendAddressPoolResponse) []SubResourceResponse { return v.BackendIPConfigurations }).(SubResourceResponseArrayOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o BackendAddressPoolResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendAddressPoolResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o BackendAddressPoolResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendAddressPoolResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets Load Balancing rules that use this Backend Address Pool
 func (o BackendAddressPoolResponseOutput) LoadBalancingRules() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v BackendAddressPoolResponse) []SubResourceResponse { return v.LoadBalancingRules }).(SubResourceResponseArrayOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o BackendAddressPoolResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendAddressPoolResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets outbound rules that use this Backend Address Pool
 func (o BackendAddressPoolResponseOutput) OutboundNatRule() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v BackendAddressPoolResponse) *SubResourceResponse { return v.OutboundNatRule }).(SubResourceResponsePtrOutput)
 }
 
-// Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o BackendAddressPoolResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendAddressPoolResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -3586,9 +3128,7 @@ func (o BackendAddressPoolResponseArrayOutput) Index(i pulumi.IntInput) BackendA
 	}).(BackendAddressPoolResponseOutput)
 }
 
-// DHCPOptions contains an array of DNS servers available to VMs deployed in the virtual networkStandard DHCP option for a subnet overrides VNET DHCP options.
 type DhcpOptions struct {
-	// Gets or sets list of DNS servers IP addresses
 	DnsServers []string `pulumi:"dnsServers"`
 }
 
@@ -3603,9 +3143,7 @@ type DhcpOptionsInput interface {
 	ToDhcpOptionsOutputWithContext(context.Context) DhcpOptionsOutput
 }
 
-// DHCPOptions contains an array of DNS servers available to VMs deployed in the virtual networkStandard DHCP option for a subnet overrides VNET DHCP options.
 type DhcpOptionsArgs struct {
-	// Gets or sets list of DNS servers IP addresses
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
 }
 
@@ -3662,7 +3200,6 @@ func (i *dhcpOptionsPtrType) ToDhcpOptionsPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DhcpOptionsPtrOutput)
 }
 
-// DHCPOptions contains an array of DNS servers available to VMs deployed in the virtual networkStandard DHCP option for a subnet overrides VNET DHCP options.
 type DhcpOptionsOutput struct{ *pulumi.OutputState }
 
 func (DhcpOptionsOutput) ElementType() reflect.Type {
@@ -3682,12 +3219,11 @@ func (o DhcpOptionsOutput) ToDhcpOptionsPtrOutput() DhcpOptionsPtrOutput {
 }
 
 func (o DhcpOptionsOutput) ToDhcpOptionsPtrOutputWithContext(ctx context.Context) DhcpOptionsPtrOutput {
-	return o.ApplyT(func(v DhcpOptions) *DhcpOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DhcpOptions) *DhcpOptions {
 		return &v
 	}).(DhcpOptionsPtrOutput)
 }
 
-// Gets or sets list of DNS servers IP addresses
 func (o DhcpOptionsOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DhcpOptions) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
@@ -3707,10 +3243,15 @@ func (o DhcpOptionsPtrOutput) ToDhcpOptionsPtrOutputWithContext(ctx context.Cont
 }
 
 func (o DhcpOptionsPtrOutput) Elem() DhcpOptionsOutput {
-	return o.ApplyT(func(v *DhcpOptions) DhcpOptions { return *v }).(DhcpOptionsOutput)
+	return o.ApplyT(func(v *DhcpOptions) DhcpOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DhcpOptions
+		return ret
+	}).(DhcpOptionsOutput)
 }
 
-// Gets or sets list of DNS servers IP addresses
 func (o DhcpOptionsPtrOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DhcpOptions) []string {
 		if v == nil {
@@ -3720,9 +3261,7 @@ func (o DhcpOptionsPtrOutput) DnsServers() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// DHCPOptions contains an array of DNS servers available to VMs deployed in the virtual networkStandard DHCP option for a subnet overrides VNET DHCP options.
 type DhcpOptionsResponse struct {
-	// Gets or sets list of DNS servers IP addresses
 	DnsServers []string `pulumi:"dnsServers"`
 }
 
@@ -3737,9 +3276,7 @@ type DhcpOptionsResponseInput interface {
 	ToDhcpOptionsResponseOutputWithContext(context.Context) DhcpOptionsResponseOutput
 }
 
-// DHCPOptions contains an array of DNS servers available to VMs deployed in the virtual networkStandard DHCP option for a subnet overrides VNET DHCP options.
 type DhcpOptionsResponseArgs struct {
-	// Gets or sets list of DNS servers IP addresses
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
 }
 
@@ -3796,7 +3333,6 @@ func (i *dhcpOptionsResponsePtrType) ToDhcpOptionsResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DhcpOptionsResponsePtrOutput)
 }
 
-// DHCPOptions contains an array of DNS servers available to VMs deployed in the virtual networkStandard DHCP option for a subnet overrides VNET DHCP options.
 type DhcpOptionsResponseOutput struct{ *pulumi.OutputState }
 
 func (DhcpOptionsResponseOutput) ElementType() reflect.Type {
@@ -3816,12 +3352,11 @@ func (o DhcpOptionsResponseOutput) ToDhcpOptionsResponsePtrOutput() DhcpOptionsR
 }
 
 func (o DhcpOptionsResponseOutput) ToDhcpOptionsResponsePtrOutputWithContext(ctx context.Context) DhcpOptionsResponsePtrOutput {
-	return o.ApplyT(func(v DhcpOptionsResponse) *DhcpOptionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DhcpOptionsResponse) *DhcpOptionsResponse {
 		return &v
 	}).(DhcpOptionsResponsePtrOutput)
 }
 
-// Gets or sets list of DNS servers IP addresses
 func (o DhcpOptionsResponseOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DhcpOptionsResponse) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
@@ -3841,10 +3376,15 @@ func (o DhcpOptionsResponsePtrOutput) ToDhcpOptionsResponsePtrOutputWithContext(
 }
 
 func (o DhcpOptionsResponsePtrOutput) Elem() DhcpOptionsResponseOutput {
-	return o.ApplyT(func(v *DhcpOptionsResponse) DhcpOptionsResponse { return *v }).(DhcpOptionsResponseOutput)
+	return o.ApplyT(func(v *DhcpOptionsResponse) DhcpOptionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DhcpOptionsResponse
+		return ret
+	}).(DhcpOptionsResponseOutput)
 }
 
-// Gets or sets list of DNS servers IP addresses
 func (o DhcpOptionsResponsePtrOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DhcpOptionsResponse) []string {
 		if v == nil {
@@ -3854,20 +3394,13 @@ func (o DhcpOptionsResponsePtrOutput) DnsServers() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Authorization in a ExpressRouteCircuit resource
 type ExpressRouteCircuitAuthorizationType struct {
-	// Gets or sets the authorization key
-	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// Gets or sets AuthorizationUseStatus
+	AuthorizationKey       *string `pulumi:"authorizationKey"`
 	AuthorizationUseStatus *string `pulumi:"authorizationUseStatus"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
+	Etag                   *string `pulumi:"etag"`
+	Id                     *string `pulumi:"id"`
+	Name                   *string `pulumi:"name"`
+	ProvisioningState      *string `pulumi:"provisioningState"`
 }
 
 // ExpressRouteCircuitAuthorizationTypeInput is an input type that accepts ExpressRouteCircuitAuthorizationTypeArgs and ExpressRouteCircuitAuthorizationTypeOutput values.
@@ -3881,20 +3414,13 @@ type ExpressRouteCircuitAuthorizationTypeInput interface {
 	ToExpressRouteCircuitAuthorizationTypeOutputWithContext(context.Context) ExpressRouteCircuitAuthorizationTypeOutput
 }
 
-// Authorization in a ExpressRouteCircuit resource
 type ExpressRouteCircuitAuthorizationTypeArgs struct {
-	// Gets or sets the authorization key
-	AuthorizationKey pulumi.StringPtrInput `pulumi:"authorizationKey"`
-	// Gets or sets AuthorizationUseStatus
+	AuthorizationKey       pulumi.StringPtrInput `pulumi:"authorizationKey"`
 	AuthorizationUseStatus pulumi.StringPtrInput `pulumi:"authorizationUseStatus"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	Etag                   pulumi.StringPtrInput `pulumi:"etag"`
+	Id                     pulumi.StringPtrInput `pulumi:"id"`
+	Name                   pulumi.StringPtrInput `pulumi:"name"`
+	ProvisioningState      pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
 func (ExpressRouteCircuitAuthorizationTypeArgs) ElementType() reflect.Type {
@@ -3934,7 +3460,6 @@ func (i ExpressRouteCircuitAuthorizationTypeArray) ToExpressRouteCircuitAuthoriz
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitAuthorizationTypeArrayOutput)
 }
 
-// Authorization in a ExpressRouteCircuit resource
 type ExpressRouteCircuitAuthorizationTypeOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitAuthorizationTypeOutput) ElementType() reflect.Type {
@@ -3949,32 +3474,26 @@ func (o ExpressRouteCircuitAuthorizationTypeOutput) ToExpressRouteCircuitAuthori
 	return o
 }
 
-// Gets or sets the authorization key
 func (o ExpressRouteCircuitAuthorizationTypeOutput) AuthorizationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitAuthorizationType) *string { return v.AuthorizationKey }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets AuthorizationUseStatus
 func (o ExpressRouteCircuitAuthorizationTypeOutput) AuthorizationUseStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitAuthorizationType) *string { return v.AuthorizationUseStatus }).(pulumi.StringPtrOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ExpressRouteCircuitAuthorizationTypeOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitAuthorizationType) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ExpressRouteCircuitAuthorizationTypeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitAuthorizationType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ExpressRouteCircuitAuthorizationTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitAuthorizationType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o ExpressRouteCircuitAuthorizationTypeOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitAuthorizationType) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -3999,20 +3518,13 @@ func (o ExpressRouteCircuitAuthorizationTypeArrayOutput) Index(i pulumi.IntInput
 	}).(ExpressRouteCircuitAuthorizationTypeOutput)
 }
 
-// Authorization in a ExpressRouteCircuit resource
 type ExpressRouteCircuitAuthorizationResponse struct {
-	// Gets or sets the authorization key
-	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// Gets or sets AuthorizationUseStatus
+	AuthorizationKey       *string `pulumi:"authorizationKey"`
 	AuthorizationUseStatus *string `pulumi:"authorizationUseStatus"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
+	Etag                   *string `pulumi:"etag"`
+	Id                     *string `pulumi:"id"`
+	Name                   *string `pulumi:"name"`
+	ProvisioningState      *string `pulumi:"provisioningState"`
 }
 
 // ExpressRouteCircuitAuthorizationResponseInput is an input type that accepts ExpressRouteCircuitAuthorizationResponseArgs and ExpressRouteCircuitAuthorizationResponseOutput values.
@@ -4026,20 +3538,13 @@ type ExpressRouteCircuitAuthorizationResponseInput interface {
 	ToExpressRouteCircuitAuthorizationResponseOutputWithContext(context.Context) ExpressRouteCircuitAuthorizationResponseOutput
 }
 
-// Authorization in a ExpressRouteCircuit resource
 type ExpressRouteCircuitAuthorizationResponseArgs struct {
-	// Gets or sets the authorization key
-	AuthorizationKey pulumi.StringPtrInput `pulumi:"authorizationKey"`
-	// Gets or sets AuthorizationUseStatus
+	AuthorizationKey       pulumi.StringPtrInput `pulumi:"authorizationKey"`
 	AuthorizationUseStatus pulumi.StringPtrInput `pulumi:"authorizationUseStatus"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	Etag                   pulumi.StringPtrInput `pulumi:"etag"`
+	Id                     pulumi.StringPtrInput `pulumi:"id"`
+	Name                   pulumi.StringPtrInput `pulumi:"name"`
+	ProvisioningState      pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
 func (ExpressRouteCircuitAuthorizationResponseArgs) ElementType() reflect.Type {
@@ -4079,7 +3584,6 @@ func (i ExpressRouteCircuitAuthorizationResponseArray) ToExpressRouteCircuitAuth
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitAuthorizationResponseArrayOutput)
 }
 
-// Authorization in a ExpressRouteCircuit resource
 type ExpressRouteCircuitAuthorizationResponseOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitAuthorizationResponseOutput) ElementType() reflect.Type {
@@ -4094,32 +3598,26 @@ func (o ExpressRouteCircuitAuthorizationResponseOutput) ToExpressRouteCircuitAut
 	return o
 }
 
-// Gets or sets the authorization key
 func (o ExpressRouteCircuitAuthorizationResponseOutput) AuthorizationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitAuthorizationResponse) *string { return v.AuthorizationKey }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets AuthorizationUseStatus
 func (o ExpressRouteCircuitAuthorizationResponseOutput) AuthorizationUseStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitAuthorizationResponse) *string { return v.AuthorizationUseStatus }).(pulumi.StringPtrOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ExpressRouteCircuitAuthorizationResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitAuthorizationResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ExpressRouteCircuitAuthorizationResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitAuthorizationResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ExpressRouteCircuitAuthorizationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitAuthorizationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o ExpressRouteCircuitAuthorizationResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitAuthorizationResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -4144,40 +3642,23 @@ func (o ExpressRouteCircuitAuthorizationResponseArrayOutput) Index(i pulumi.IntI
 	}).(ExpressRouteCircuitAuthorizationResponseOutput)
 }
 
-// Peering in a ExpressRouteCircuit resource
 type ExpressRouteCircuitPeeringType struct {
-	// Gets or sets the azure ASN
-	AzureASN *int `pulumi:"azureASN"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets or sets the Microsoft peering config
-	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringConfig `pulumi:"microsoftPeeringConfig"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the peer ASN
-	PeerASN *int `pulumi:"peerASN"`
-	// Gets or sets PeeringType
-	PeeringType *string `pulumi:"peeringType"`
-	// Gets or sets the primary port
-	PrimaryAzurePort *string `pulumi:"primaryAzurePort"`
-	// Gets or sets the primary address prefix
-	PrimaryPeerAddressPrefix *string `pulumi:"primaryPeerAddressPrefix"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the secondary port
-	SecondaryAzurePort *string `pulumi:"secondaryAzurePort"`
-	// Gets or sets the secondary address prefix
-	SecondaryPeerAddressPrefix *string `pulumi:"secondaryPeerAddressPrefix"`
-	// Gets or sets the shared key
-	SharedKey *string `pulumi:"sharedKey"`
-	// Gets or sets state of Peering
-	State *string `pulumi:"state"`
-	// Gets or peering stats
-	Stats *ExpressRouteCircuitStats `pulumi:"stats"`
-	// Gets or sets the vlan id
-	VlanId *int `pulumi:"vlanId"`
+	AzureASN                   *int                              `pulumi:"azureASN"`
+	Etag                       *string                           `pulumi:"etag"`
+	Id                         *string                           `pulumi:"id"`
+	MicrosoftPeeringConfig     *ExpressRouteCircuitPeeringConfig `pulumi:"microsoftPeeringConfig"`
+	Name                       *string                           `pulumi:"name"`
+	PeerASN                    *int                              `pulumi:"peerASN"`
+	PeeringType                *string                           `pulumi:"peeringType"`
+	PrimaryAzurePort           *string                           `pulumi:"primaryAzurePort"`
+	PrimaryPeerAddressPrefix   *string                           `pulumi:"primaryPeerAddressPrefix"`
+	ProvisioningState          *string                           `pulumi:"provisioningState"`
+	SecondaryAzurePort         *string                           `pulumi:"secondaryAzurePort"`
+	SecondaryPeerAddressPrefix *string                           `pulumi:"secondaryPeerAddressPrefix"`
+	SharedKey                  *string                           `pulumi:"sharedKey"`
+	State                      *string                           `pulumi:"state"`
+	Stats                      *ExpressRouteCircuitStats         `pulumi:"stats"`
+	VlanId                     *int                              `pulumi:"vlanId"`
 }
 
 // ExpressRouteCircuitPeeringTypeInput is an input type that accepts ExpressRouteCircuitPeeringTypeArgs and ExpressRouteCircuitPeeringTypeOutput values.
@@ -4191,40 +3672,23 @@ type ExpressRouteCircuitPeeringTypeInput interface {
 	ToExpressRouteCircuitPeeringTypeOutputWithContext(context.Context) ExpressRouteCircuitPeeringTypeOutput
 }
 
-// Peering in a ExpressRouteCircuit resource
 type ExpressRouteCircuitPeeringTypeArgs struct {
-	// Gets or sets the azure ASN
-	AzureASN pulumi.IntPtrInput `pulumi:"azureASN"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the Microsoft peering config
-	MicrosoftPeeringConfig ExpressRouteCircuitPeeringConfigPtrInput `pulumi:"microsoftPeeringConfig"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the peer ASN
-	PeerASN pulumi.IntPtrInput `pulumi:"peerASN"`
-	// Gets or sets PeeringType
-	PeeringType pulumi.StringPtrInput `pulumi:"peeringType"`
-	// Gets or sets the primary port
-	PrimaryAzurePort pulumi.StringPtrInput `pulumi:"primaryAzurePort"`
-	// Gets or sets the primary address prefix
-	PrimaryPeerAddressPrefix pulumi.StringPtrInput `pulumi:"primaryPeerAddressPrefix"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the secondary port
-	SecondaryAzurePort pulumi.StringPtrInput `pulumi:"secondaryAzurePort"`
-	// Gets or sets the secondary address prefix
-	SecondaryPeerAddressPrefix pulumi.StringPtrInput `pulumi:"secondaryPeerAddressPrefix"`
-	// Gets or sets the shared key
-	SharedKey pulumi.StringPtrInput `pulumi:"sharedKey"`
-	// Gets or sets state of Peering
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// Gets or peering stats
-	Stats ExpressRouteCircuitStatsPtrInput `pulumi:"stats"`
-	// Gets or sets the vlan id
-	VlanId pulumi.IntPtrInput `pulumi:"vlanId"`
+	AzureASN                   pulumi.IntPtrInput                       `pulumi:"azureASN"`
+	Etag                       pulumi.StringPtrInput                    `pulumi:"etag"`
+	Id                         pulumi.StringPtrInput                    `pulumi:"id"`
+	MicrosoftPeeringConfig     ExpressRouteCircuitPeeringConfigPtrInput `pulumi:"microsoftPeeringConfig"`
+	Name                       pulumi.StringPtrInput                    `pulumi:"name"`
+	PeerASN                    pulumi.IntPtrInput                       `pulumi:"peerASN"`
+	PeeringType                pulumi.StringPtrInput                    `pulumi:"peeringType"`
+	PrimaryAzurePort           pulumi.StringPtrInput                    `pulumi:"primaryAzurePort"`
+	PrimaryPeerAddressPrefix   pulumi.StringPtrInput                    `pulumi:"primaryPeerAddressPrefix"`
+	ProvisioningState          pulumi.StringPtrInput                    `pulumi:"provisioningState"`
+	SecondaryAzurePort         pulumi.StringPtrInput                    `pulumi:"secondaryAzurePort"`
+	SecondaryPeerAddressPrefix pulumi.StringPtrInput                    `pulumi:"secondaryPeerAddressPrefix"`
+	SharedKey                  pulumi.StringPtrInput                    `pulumi:"sharedKey"`
+	State                      pulumi.StringPtrInput                    `pulumi:"state"`
+	Stats                      ExpressRouteCircuitStatsPtrInput         `pulumi:"stats"`
+	VlanId                     pulumi.IntPtrInput                       `pulumi:"vlanId"`
 }
 
 func (ExpressRouteCircuitPeeringTypeArgs) ElementType() reflect.Type {
@@ -4264,7 +3728,6 @@ func (i ExpressRouteCircuitPeeringTypeArray) ToExpressRouteCircuitPeeringTypeArr
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringTypeArrayOutput)
 }
 
-// Peering in a ExpressRouteCircuit resource
 type ExpressRouteCircuitPeeringTypeOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitPeeringTypeOutput) ElementType() reflect.Type {
@@ -4279,84 +3742,68 @@ func (o ExpressRouteCircuitPeeringTypeOutput) ToExpressRouteCircuitPeeringTypeOu
 	return o
 }
 
-// Gets or sets the azure ASN
 func (o ExpressRouteCircuitPeeringTypeOutput) AzureASN() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *int { return v.AzureASN }).(pulumi.IntPtrOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ExpressRouteCircuitPeeringTypeOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ExpressRouteCircuitPeeringTypeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the Microsoft peering config
 func (o ExpressRouteCircuitPeeringTypeOutput) MicrosoftPeeringConfig() ExpressRouteCircuitPeeringConfigPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *ExpressRouteCircuitPeeringConfig {
 		return v.MicrosoftPeeringConfig
 	}).(ExpressRouteCircuitPeeringConfigPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ExpressRouteCircuitPeeringTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the peer ASN
 func (o ExpressRouteCircuitPeeringTypeOutput) PeerASN() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *int { return v.PeerASN }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets PeeringType
 func (o ExpressRouteCircuitPeeringTypeOutput) PeeringType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *string { return v.PeeringType }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the primary port
 func (o ExpressRouteCircuitPeeringTypeOutput) PrimaryAzurePort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *string { return v.PrimaryAzurePort }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the primary address prefix
 func (o ExpressRouteCircuitPeeringTypeOutput) PrimaryPeerAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *string { return v.PrimaryPeerAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o ExpressRouteCircuitPeeringTypeOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the secondary port
 func (o ExpressRouteCircuitPeeringTypeOutput) SecondaryAzurePort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *string { return v.SecondaryAzurePort }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the secondary address prefix
 func (o ExpressRouteCircuitPeeringTypeOutput) SecondaryPeerAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *string { return v.SecondaryPeerAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the shared key
 func (o ExpressRouteCircuitPeeringTypeOutput) SharedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *string { return v.SharedKey }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets state of Peering
 func (o ExpressRouteCircuitPeeringTypeOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Gets or peering stats
 func (o ExpressRouteCircuitPeeringTypeOutput) Stats() ExpressRouteCircuitStatsPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *ExpressRouteCircuitStats { return v.Stats }).(ExpressRouteCircuitStatsPtrOutput)
 }
 
-// Gets or sets the vlan id
 func (o ExpressRouteCircuitPeeringTypeOutput) VlanId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *int { return v.VlanId }).(pulumi.IntPtrOutput)
 }
@@ -4381,16 +3828,11 @@ func (o ExpressRouteCircuitPeeringTypeArrayOutput) Index(i pulumi.IntInput) Expr
 	}).(ExpressRouteCircuitPeeringTypeOutput)
 }
 
-// Specifies the peering config
 type ExpressRouteCircuitPeeringConfig struct {
-	// Gets or sets the reference of AdvertisedPublicPrefixes
-	AdvertisedPublicPrefixes []string `pulumi:"advertisedPublicPrefixes"`
-	// Gets or sets AdvertisedPublicPrefixState of the Peering resource
-	AdvertisedPublicPrefixesState *string `pulumi:"advertisedPublicPrefixesState"`
-	// Gets or Sets CustomerAsn of the peering.
-	CustomerASN *int `pulumi:"customerASN"`
-	// Gets or Sets RoutingRegistryName of the config.
-	RoutingRegistryName *string `pulumi:"routingRegistryName"`
+	AdvertisedPublicPrefixes      []string `pulumi:"advertisedPublicPrefixes"`
+	AdvertisedPublicPrefixesState *string  `pulumi:"advertisedPublicPrefixesState"`
+	CustomerASN                   *int     `pulumi:"customerASN"`
+	RoutingRegistryName           *string  `pulumi:"routingRegistryName"`
 }
 
 // ExpressRouteCircuitPeeringConfigInput is an input type that accepts ExpressRouteCircuitPeeringConfigArgs and ExpressRouteCircuitPeeringConfigOutput values.
@@ -4404,16 +3846,11 @@ type ExpressRouteCircuitPeeringConfigInput interface {
 	ToExpressRouteCircuitPeeringConfigOutputWithContext(context.Context) ExpressRouteCircuitPeeringConfigOutput
 }
 
-// Specifies the peering config
 type ExpressRouteCircuitPeeringConfigArgs struct {
-	// Gets or sets the reference of AdvertisedPublicPrefixes
-	AdvertisedPublicPrefixes pulumi.StringArrayInput `pulumi:"advertisedPublicPrefixes"`
-	// Gets or sets AdvertisedPublicPrefixState of the Peering resource
-	AdvertisedPublicPrefixesState pulumi.StringPtrInput `pulumi:"advertisedPublicPrefixesState"`
-	// Gets or Sets CustomerAsn of the peering.
-	CustomerASN pulumi.IntPtrInput `pulumi:"customerASN"`
-	// Gets or Sets RoutingRegistryName of the config.
-	RoutingRegistryName pulumi.StringPtrInput `pulumi:"routingRegistryName"`
+	AdvertisedPublicPrefixes      pulumi.StringArrayInput `pulumi:"advertisedPublicPrefixes"`
+	AdvertisedPublicPrefixesState pulumi.StringPtrInput   `pulumi:"advertisedPublicPrefixesState"`
+	CustomerASN                   pulumi.IntPtrInput      `pulumi:"customerASN"`
+	RoutingRegistryName           pulumi.StringPtrInput   `pulumi:"routingRegistryName"`
 }
 
 func (ExpressRouteCircuitPeeringConfigArgs) ElementType() reflect.Type {
@@ -4469,7 +3906,6 @@ func (i *expressRouteCircuitPeeringConfigPtrType) ToExpressRouteCircuitPeeringCo
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringConfigPtrOutput)
 }
 
-// Specifies the peering config
 type ExpressRouteCircuitPeeringConfigOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitPeeringConfigOutput) ElementType() reflect.Type {
@@ -4489,27 +3925,23 @@ func (o ExpressRouteCircuitPeeringConfigOutput) ToExpressRouteCircuitPeeringConf
 }
 
 func (o ExpressRouteCircuitPeeringConfigOutput) ToExpressRouteCircuitPeeringConfigPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringConfigPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitPeeringConfig) *ExpressRouteCircuitPeeringConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitPeeringConfig) *ExpressRouteCircuitPeeringConfig {
 		return &v
 	}).(ExpressRouteCircuitPeeringConfigPtrOutput)
 }
 
-// Gets or sets the reference of AdvertisedPublicPrefixes
 func (o ExpressRouteCircuitPeeringConfigOutput) AdvertisedPublicPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringConfig) []string { return v.AdvertisedPublicPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets AdvertisedPublicPrefixState of the Peering resource
 func (o ExpressRouteCircuitPeeringConfigOutput) AdvertisedPublicPrefixesState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringConfig) *string { return v.AdvertisedPublicPrefixesState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or Sets CustomerAsn of the peering.
 func (o ExpressRouteCircuitPeeringConfigOutput) CustomerASN() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringConfig) *int { return v.CustomerASN }).(pulumi.IntPtrOutput)
 }
 
-// Gets or Sets RoutingRegistryName of the config.
 func (o ExpressRouteCircuitPeeringConfigOutput) RoutingRegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringConfig) *string { return v.RoutingRegistryName }).(pulumi.StringPtrOutput)
 }
@@ -4529,10 +3961,15 @@ func (o ExpressRouteCircuitPeeringConfigPtrOutput) ToExpressRouteCircuitPeeringC
 }
 
 func (o ExpressRouteCircuitPeeringConfigPtrOutput) Elem() ExpressRouteCircuitPeeringConfigOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitPeeringConfig) ExpressRouteCircuitPeeringConfig { return *v }).(ExpressRouteCircuitPeeringConfigOutput)
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringConfig) ExpressRouteCircuitPeeringConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRouteCircuitPeeringConfig
+		return ret
+	}).(ExpressRouteCircuitPeeringConfigOutput)
 }
 
-// Gets or sets the reference of AdvertisedPublicPrefixes
 func (o ExpressRouteCircuitPeeringConfigPtrOutput) AdvertisedPublicPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringConfig) []string {
 		if v == nil {
@@ -4542,7 +3979,6 @@ func (o ExpressRouteCircuitPeeringConfigPtrOutput) AdvertisedPublicPrefixes() pu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets AdvertisedPublicPrefixState of the Peering resource
 func (o ExpressRouteCircuitPeeringConfigPtrOutput) AdvertisedPublicPrefixesState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringConfig) *string {
 		if v == nil {
@@ -4552,7 +3988,6 @@ func (o ExpressRouteCircuitPeeringConfigPtrOutput) AdvertisedPublicPrefixesState
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or Sets CustomerAsn of the peering.
 func (o ExpressRouteCircuitPeeringConfigPtrOutput) CustomerASN() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringConfig) *int {
 		if v == nil {
@@ -4562,7 +3997,6 @@ func (o ExpressRouteCircuitPeeringConfigPtrOutput) CustomerASN() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Gets or Sets RoutingRegistryName of the config.
 func (o ExpressRouteCircuitPeeringConfigPtrOutput) RoutingRegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringConfig) *string {
 		if v == nil {
@@ -4572,16 +4006,11 @@ func (o ExpressRouteCircuitPeeringConfigPtrOutput) RoutingRegistryName() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the peering config
 type ExpressRouteCircuitPeeringConfigResponse struct {
-	// Gets or sets the reference of AdvertisedPublicPrefixes
-	AdvertisedPublicPrefixes []string `pulumi:"advertisedPublicPrefixes"`
-	// Gets or sets AdvertisedPublicPrefixState of the Peering resource
-	AdvertisedPublicPrefixesState *string `pulumi:"advertisedPublicPrefixesState"`
-	// Gets or Sets CustomerAsn of the peering.
-	CustomerASN *int `pulumi:"customerASN"`
-	// Gets or Sets RoutingRegistryName of the config.
-	RoutingRegistryName *string `pulumi:"routingRegistryName"`
+	AdvertisedPublicPrefixes      []string `pulumi:"advertisedPublicPrefixes"`
+	AdvertisedPublicPrefixesState *string  `pulumi:"advertisedPublicPrefixesState"`
+	CustomerASN                   *int     `pulumi:"customerASN"`
+	RoutingRegistryName           *string  `pulumi:"routingRegistryName"`
 }
 
 // ExpressRouteCircuitPeeringConfigResponseInput is an input type that accepts ExpressRouteCircuitPeeringConfigResponseArgs and ExpressRouteCircuitPeeringConfigResponseOutput values.
@@ -4595,16 +4024,11 @@ type ExpressRouteCircuitPeeringConfigResponseInput interface {
 	ToExpressRouteCircuitPeeringConfigResponseOutputWithContext(context.Context) ExpressRouteCircuitPeeringConfigResponseOutput
 }
 
-// Specifies the peering config
 type ExpressRouteCircuitPeeringConfigResponseArgs struct {
-	// Gets or sets the reference of AdvertisedPublicPrefixes
-	AdvertisedPublicPrefixes pulumi.StringArrayInput `pulumi:"advertisedPublicPrefixes"`
-	// Gets or sets AdvertisedPublicPrefixState of the Peering resource
-	AdvertisedPublicPrefixesState pulumi.StringPtrInput `pulumi:"advertisedPublicPrefixesState"`
-	// Gets or Sets CustomerAsn of the peering.
-	CustomerASN pulumi.IntPtrInput `pulumi:"customerASN"`
-	// Gets or Sets RoutingRegistryName of the config.
-	RoutingRegistryName pulumi.StringPtrInput `pulumi:"routingRegistryName"`
+	AdvertisedPublicPrefixes      pulumi.StringArrayInput `pulumi:"advertisedPublicPrefixes"`
+	AdvertisedPublicPrefixesState pulumi.StringPtrInput   `pulumi:"advertisedPublicPrefixesState"`
+	CustomerASN                   pulumi.IntPtrInput      `pulumi:"customerASN"`
+	RoutingRegistryName           pulumi.StringPtrInput   `pulumi:"routingRegistryName"`
 }
 
 func (ExpressRouteCircuitPeeringConfigResponseArgs) ElementType() reflect.Type {
@@ -4660,7 +4084,6 @@ func (i *expressRouteCircuitPeeringConfigResponsePtrType) ToExpressRouteCircuitP
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringConfigResponsePtrOutput)
 }
 
-// Specifies the peering config
 type ExpressRouteCircuitPeeringConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitPeeringConfigResponseOutput) ElementType() reflect.Type {
@@ -4680,27 +4103,23 @@ func (o ExpressRouteCircuitPeeringConfigResponseOutput) ToExpressRouteCircuitPee
 }
 
 func (o ExpressRouteCircuitPeeringConfigResponseOutput) ToExpressRouteCircuitPeeringConfigResponsePtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringConfigResponsePtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitPeeringConfigResponse) *ExpressRouteCircuitPeeringConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitPeeringConfigResponse) *ExpressRouteCircuitPeeringConfigResponse {
 		return &v
 	}).(ExpressRouteCircuitPeeringConfigResponsePtrOutput)
 }
 
-// Gets or sets the reference of AdvertisedPublicPrefixes
 func (o ExpressRouteCircuitPeeringConfigResponseOutput) AdvertisedPublicPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringConfigResponse) []string { return v.AdvertisedPublicPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets AdvertisedPublicPrefixState of the Peering resource
 func (o ExpressRouteCircuitPeeringConfigResponseOutput) AdvertisedPublicPrefixesState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringConfigResponse) *string { return v.AdvertisedPublicPrefixesState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or Sets CustomerAsn of the peering.
 func (o ExpressRouteCircuitPeeringConfigResponseOutput) CustomerASN() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringConfigResponse) *int { return v.CustomerASN }).(pulumi.IntPtrOutput)
 }
 
-// Gets or Sets RoutingRegistryName of the config.
 func (o ExpressRouteCircuitPeeringConfigResponseOutput) RoutingRegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringConfigResponse) *string { return v.RoutingRegistryName }).(pulumi.StringPtrOutput)
 }
@@ -4720,10 +4139,15 @@ func (o ExpressRouteCircuitPeeringConfigResponsePtrOutput) ToExpressRouteCircuit
 }
 
 func (o ExpressRouteCircuitPeeringConfigResponsePtrOutput) Elem() ExpressRouteCircuitPeeringConfigResponseOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitPeeringConfigResponse) ExpressRouteCircuitPeeringConfigResponse { return *v }).(ExpressRouteCircuitPeeringConfigResponseOutput)
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringConfigResponse) ExpressRouteCircuitPeeringConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRouteCircuitPeeringConfigResponse
+		return ret
+	}).(ExpressRouteCircuitPeeringConfigResponseOutput)
 }
 
-// Gets or sets the reference of AdvertisedPublicPrefixes
 func (o ExpressRouteCircuitPeeringConfigResponsePtrOutput) AdvertisedPublicPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringConfigResponse) []string {
 		if v == nil {
@@ -4733,7 +4157,6 @@ func (o ExpressRouteCircuitPeeringConfigResponsePtrOutput) AdvertisedPublicPrefi
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets AdvertisedPublicPrefixState of the Peering resource
 func (o ExpressRouteCircuitPeeringConfigResponsePtrOutput) AdvertisedPublicPrefixesState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringConfigResponse) *string {
 		if v == nil {
@@ -4743,7 +4166,6 @@ func (o ExpressRouteCircuitPeeringConfigResponsePtrOutput) AdvertisedPublicPrefi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or Sets CustomerAsn of the peering.
 func (o ExpressRouteCircuitPeeringConfigResponsePtrOutput) CustomerASN() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringConfigResponse) *int {
 		if v == nil {
@@ -4753,7 +4175,6 @@ func (o ExpressRouteCircuitPeeringConfigResponsePtrOutput) CustomerASN() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// Gets or Sets RoutingRegistryName of the config.
 func (o ExpressRouteCircuitPeeringConfigResponsePtrOutput) RoutingRegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringConfigResponse) *string {
 		if v == nil {
@@ -4763,40 +4184,23 @@ func (o ExpressRouteCircuitPeeringConfigResponsePtrOutput) RoutingRegistryName()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Peering in a ExpressRouteCircuit resource
 type ExpressRouteCircuitPeeringResponse struct {
-	// Gets or sets the azure ASN
-	AzureASN *int `pulumi:"azureASN"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets or sets the Microsoft peering config
-	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringConfigResponse `pulumi:"microsoftPeeringConfig"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the peer ASN
-	PeerASN *int `pulumi:"peerASN"`
-	// Gets or sets PeeringType
-	PeeringType *string `pulumi:"peeringType"`
-	// Gets or sets the primary port
-	PrimaryAzurePort *string `pulumi:"primaryAzurePort"`
-	// Gets or sets the primary address prefix
-	PrimaryPeerAddressPrefix *string `pulumi:"primaryPeerAddressPrefix"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the secondary port
-	SecondaryAzurePort *string `pulumi:"secondaryAzurePort"`
-	// Gets or sets the secondary address prefix
-	SecondaryPeerAddressPrefix *string `pulumi:"secondaryPeerAddressPrefix"`
-	// Gets or sets the shared key
-	SharedKey *string `pulumi:"sharedKey"`
-	// Gets or sets state of Peering
-	State *string `pulumi:"state"`
-	// Gets or peering stats
-	Stats *ExpressRouteCircuitStatsResponse `pulumi:"stats"`
-	// Gets or sets the vlan id
-	VlanId *int `pulumi:"vlanId"`
+	AzureASN                   *int                                      `pulumi:"azureASN"`
+	Etag                       *string                                   `pulumi:"etag"`
+	Id                         *string                                   `pulumi:"id"`
+	MicrosoftPeeringConfig     *ExpressRouteCircuitPeeringConfigResponse `pulumi:"microsoftPeeringConfig"`
+	Name                       *string                                   `pulumi:"name"`
+	PeerASN                    *int                                      `pulumi:"peerASN"`
+	PeeringType                *string                                   `pulumi:"peeringType"`
+	PrimaryAzurePort           *string                                   `pulumi:"primaryAzurePort"`
+	PrimaryPeerAddressPrefix   *string                                   `pulumi:"primaryPeerAddressPrefix"`
+	ProvisioningState          *string                                   `pulumi:"provisioningState"`
+	SecondaryAzurePort         *string                                   `pulumi:"secondaryAzurePort"`
+	SecondaryPeerAddressPrefix *string                                   `pulumi:"secondaryPeerAddressPrefix"`
+	SharedKey                  *string                                   `pulumi:"sharedKey"`
+	State                      *string                                   `pulumi:"state"`
+	Stats                      *ExpressRouteCircuitStatsResponse         `pulumi:"stats"`
+	VlanId                     *int                                      `pulumi:"vlanId"`
 }
 
 // ExpressRouteCircuitPeeringResponseInput is an input type that accepts ExpressRouteCircuitPeeringResponseArgs and ExpressRouteCircuitPeeringResponseOutput values.
@@ -4810,40 +4214,23 @@ type ExpressRouteCircuitPeeringResponseInput interface {
 	ToExpressRouteCircuitPeeringResponseOutputWithContext(context.Context) ExpressRouteCircuitPeeringResponseOutput
 }
 
-// Peering in a ExpressRouteCircuit resource
 type ExpressRouteCircuitPeeringResponseArgs struct {
-	// Gets or sets the azure ASN
-	AzureASN pulumi.IntPtrInput `pulumi:"azureASN"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the Microsoft peering config
-	MicrosoftPeeringConfig ExpressRouteCircuitPeeringConfigResponsePtrInput `pulumi:"microsoftPeeringConfig"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the peer ASN
-	PeerASN pulumi.IntPtrInput `pulumi:"peerASN"`
-	// Gets or sets PeeringType
-	PeeringType pulumi.StringPtrInput `pulumi:"peeringType"`
-	// Gets or sets the primary port
-	PrimaryAzurePort pulumi.StringPtrInput `pulumi:"primaryAzurePort"`
-	// Gets or sets the primary address prefix
-	PrimaryPeerAddressPrefix pulumi.StringPtrInput `pulumi:"primaryPeerAddressPrefix"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the secondary port
-	SecondaryAzurePort pulumi.StringPtrInput `pulumi:"secondaryAzurePort"`
-	// Gets or sets the secondary address prefix
-	SecondaryPeerAddressPrefix pulumi.StringPtrInput `pulumi:"secondaryPeerAddressPrefix"`
-	// Gets or sets the shared key
-	SharedKey pulumi.StringPtrInput `pulumi:"sharedKey"`
-	// Gets or sets state of Peering
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// Gets or peering stats
-	Stats ExpressRouteCircuitStatsResponsePtrInput `pulumi:"stats"`
-	// Gets or sets the vlan id
-	VlanId pulumi.IntPtrInput `pulumi:"vlanId"`
+	AzureASN                   pulumi.IntPtrInput                               `pulumi:"azureASN"`
+	Etag                       pulumi.StringPtrInput                            `pulumi:"etag"`
+	Id                         pulumi.StringPtrInput                            `pulumi:"id"`
+	MicrosoftPeeringConfig     ExpressRouteCircuitPeeringConfigResponsePtrInput `pulumi:"microsoftPeeringConfig"`
+	Name                       pulumi.StringPtrInput                            `pulumi:"name"`
+	PeerASN                    pulumi.IntPtrInput                               `pulumi:"peerASN"`
+	PeeringType                pulumi.StringPtrInput                            `pulumi:"peeringType"`
+	PrimaryAzurePort           pulumi.StringPtrInput                            `pulumi:"primaryAzurePort"`
+	PrimaryPeerAddressPrefix   pulumi.StringPtrInput                            `pulumi:"primaryPeerAddressPrefix"`
+	ProvisioningState          pulumi.StringPtrInput                            `pulumi:"provisioningState"`
+	SecondaryAzurePort         pulumi.StringPtrInput                            `pulumi:"secondaryAzurePort"`
+	SecondaryPeerAddressPrefix pulumi.StringPtrInput                            `pulumi:"secondaryPeerAddressPrefix"`
+	SharedKey                  pulumi.StringPtrInput                            `pulumi:"sharedKey"`
+	State                      pulumi.StringPtrInput                            `pulumi:"state"`
+	Stats                      ExpressRouteCircuitStatsResponsePtrInput         `pulumi:"stats"`
+	VlanId                     pulumi.IntPtrInput                               `pulumi:"vlanId"`
 }
 
 func (ExpressRouteCircuitPeeringResponseArgs) ElementType() reflect.Type {
@@ -4883,7 +4270,6 @@ func (i ExpressRouteCircuitPeeringResponseArray) ToExpressRouteCircuitPeeringRes
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringResponseArrayOutput)
 }
 
-// Peering in a ExpressRouteCircuit resource
 type ExpressRouteCircuitPeeringResponseOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitPeeringResponseOutput) ElementType() reflect.Type {
@@ -4898,84 +4284,68 @@ func (o ExpressRouteCircuitPeeringResponseOutput) ToExpressRouteCircuitPeeringRe
 	return o
 }
 
-// Gets or sets the azure ASN
 func (o ExpressRouteCircuitPeeringResponseOutput) AzureASN() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *int { return v.AzureASN }).(pulumi.IntPtrOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ExpressRouteCircuitPeeringResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ExpressRouteCircuitPeeringResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the Microsoft peering config
 func (o ExpressRouteCircuitPeeringResponseOutput) MicrosoftPeeringConfig() ExpressRouteCircuitPeeringConfigResponsePtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *ExpressRouteCircuitPeeringConfigResponse {
 		return v.MicrosoftPeeringConfig
 	}).(ExpressRouteCircuitPeeringConfigResponsePtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ExpressRouteCircuitPeeringResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the peer ASN
 func (o ExpressRouteCircuitPeeringResponseOutput) PeerASN() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *int { return v.PeerASN }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets PeeringType
 func (o ExpressRouteCircuitPeeringResponseOutput) PeeringType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *string { return v.PeeringType }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the primary port
 func (o ExpressRouteCircuitPeeringResponseOutput) PrimaryAzurePort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *string { return v.PrimaryAzurePort }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the primary address prefix
 func (o ExpressRouteCircuitPeeringResponseOutput) PrimaryPeerAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *string { return v.PrimaryPeerAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o ExpressRouteCircuitPeeringResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the secondary port
 func (o ExpressRouteCircuitPeeringResponseOutput) SecondaryAzurePort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *string { return v.SecondaryAzurePort }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the secondary address prefix
 func (o ExpressRouteCircuitPeeringResponseOutput) SecondaryPeerAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *string { return v.SecondaryPeerAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the shared key
 func (o ExpressRouteCircuitPeeringResponseOutput) SharedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *string { return v.SharedKey }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets state of Peering
 func (o ExpressRouteCircuitPeeringResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Gets or peering stats
 func (o ExpressRouteCircuitPeeringResponseOutput) Stats() ExpressRouteCircuitStatsResponsePtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *ExpressRouteCircuitStatsResponse { return v.Stats }).(ExpressRouteCircuitStatsResponsePtrOutput)
 }
 
-// Gets or sets the vlan id
 func (o ExpressRouteCircuitPeeringResponseOutput) VlanId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *int { return v.VlanId }).(pulumi.IntPtrOutput)
 }
@@ -5000,13 +4370,9 @@ func (o ExpressRouteCircuitPeeringResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(ExpressRouteCircuitPeeringResponseOutput)
 }
 
-// Contains ServiceProviderProperties in an ExpressRouteCircuit
 type ExpressRouteCircuitServiceProviderProperties struct {
-	// Gets or sets BandwidthInMbps.
-	BandwidthInMbps *int `pulumi:"bandwidthInMbps"`
-	// Gets or sets peering location.
-	PeeringLocation *string `pulumi:"peeringLocation"`
-	// Gets or sets serviceProviderName.
+	BandwidthInMbps     *int    `pulumi:"bandwidthInMbps"`
+	PeeringLocation     *string `pulumi:"peeringLocation"`
 	ServiceProviderName *string `pulumi:"serviceProviderName"`
 }
 
@@ -5021,13 +4387,9 @@ type ExpressRouteCircuitServiceProviderPropertiesInput interface {
 	ToExpressRouteCircuitServiceProviderPropertiesOutputWithContext(context.Context) ExpressRouteCircuitServiceProviderPropertiesOutput
 }
 
-// Contains ServiceProviderProperties in an ExpressRouteCircuit
 type ExpressRouteCircuitServiceProviderPropertiesArgs struct {
-	// Gets or sets BandwidthInMbps.
-	BandwidthInMbps pulumi.IntPtrInput `pulumi:"bandwidthInMbps"`
-	// Gets or sets peering location.
-	PeeringLocation pulumi.StringPtrInput `pulumi:"peeringLocation"`
-	// Gets or sets serviceProviderName.
+	BandwidthInMbps     pulumi.IntPtrInput    `pulumi:"bandwidthInMbps"`
+	PeeringLocation     pulumi.StringPtrInput `pulumi:"peeringLocation"`
 	ServiceProviderName pulumi.StringPtrInput `pulumi:"serviceProviderName"`
 }
 
@@ -5084,7 +4446,6 @@ func (i *expressRouteCircuitServiceProviderPropertiesPtrType) ToExpressRouteCirc
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitServiceProviderPropertiesPtrOutput)
 }
 
-// Contains ServiceProviderProperties in an ExpressRouteCircuit
 type ExpressRouteCircuitServiceProviderPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitServiceProviderPropertiesOutput) ElementType() reflect.Type {
@@ -5104,22 +4465,19 @@ func (o ExpressRouteCircuitServiceProviderPropertiesOutput) ToExpressRouteCircui
 }
 
 func (o ExpressRouteCircuitServiceProviderPropertiesOutput) ToExpressRouteCircuitServiceProviderPropertiesPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitServiceProviderPropertiesPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitServiceProviderProperties) *ExpressRouteCircuitServiceProviderProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitServiceProviderProperties) *ExpressRouteCircuitServiceProviderProperties {
 		return &v
 	}).(ExpressRouteCircuitServiceProviderPropertiesPtrOutput)
 }
 
-// Gets or sets BandwidthInMbps.
 func (o ExpressRouteCircuitServiceProviderPropertiesOutput) BandwidthInMbps() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitServiceProviderProperties) *int { return v.BandwidthInMbps }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets peering location.
 func (o ExpressRouteCircuitServiceProviderPropertiesOutput) PeeringLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitServiceProviderProperties) *string { return v.PeeringLocation }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets serviceProviderName.
 func (o ExpressRouteCircuitServiceProviderPropertiesOutput) ServiceProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitServiceProviderProperties) *string { return v.ServiceProviderName }).(pulumi.StringPtrOutput)
 }
@@ -5140,11 +4498,14 @@ func (o ExpressRouteCircuitServiceProviderPropertiesPtrOutput) ToExpressRouteCir
 
 func (o ExpressRouteCircuitServiceProviderPropertiesPtrOutput) Elem() ExpressRouteCircuitServiceProviderPropertiesOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitServiceProviderProperties) ExpressRouteCircuitServiceProviderProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRouteCircuitServiceProviderProperties
+		return ret
 	}).(ExpressRouteCircuitServiceProviderPropertiesOutput)
 }
 
-// Gets or sets BandwidthInMbps.
 func (o ExpressRouteCircuitServiceProviderPropertiesPtrOutput) BandwidthInMbps() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitServiceProviderProperties) *int {
 		if v == nil {
@@ -5154,7 +4515,6 @@ func (o ExpressRouteCircuitServiceProviderPropertiesPtrOutput) BandwidthInMbps()
 	}).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets peering location.
 func (o ExpressRouteCircuitServiceProviderPropertiesPtrOutput) PeeringLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitServiceProviderProperties) *string {
 		if v == nil {
@@ -5164,7 +4524,6 @@ func (o ExpressRouteCircuitServiceProviderPropertiesPtrOutput) PeeringLocation()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets serviceProviderName.
 func (o ExpressRouteCircuitServiceProviderPropertiesPtrOutput) ServiceProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitServiceProviderProperties) *string {
 		if v == nil {
@@ -5174,13 +4533,9 @@ func (o ExpressRouteCircuitServiceProviderPropertiesPtrOutput) ServiceProviderNa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains ServiceProviderProperties in an ExpressRouteCircuit
 type ExpressRouteCircuitServiceProviderPropertiesResponse struct {
-	// Gets or sets BandwidthInMbps.
-	BandwidthInMbps *int `pulumi:"bandwidthInMbps"`
-	// Gets or sets peering location.
-	PeeringLocation *string `pulumi:"peeringLocation"`
-	// Gets or sets serviceProviderName.
+	BandwidthInMbps     *int    `pulumi:"bandwidthInMbps"`
+	PeeringLocation     *string `pulumi:"peeringLocation"`
 	ServiceProviderName *string `pulumi:"serviceProviderName"`
 }
 
@@ -5195,13 +4550,9 @@ type ExpressRouteCircuitServiceProviderPropertiesResponseInput interface {
 	ToExpressRouteCircuitServiceProviderPropertiesResponseOutputWithContext(context.Context) ExpressRouteCircuitServiceProviderPropertiesResponseOutput
 }
 
-// Contains ServiceProviderProperties in an ExpressRouteCircuit
 type ExpressRouteCircuitServiceProviderPropertiesResponseArgs struct {
-	// Gets or sets BandwidthInMbps.
-	BandwidthInMbps pulumi.IntPtrInput `pulumi:"bandwidthInMbps"`
-	// Gets or sets peering location.
-	PeeringLocation pulumi.StringPtrInput `pulumi:"peeringLocation"`
-	// Gets or sets serviceProviderName.
+	BandwidthInMbps     pulumi.IntPtrInput    `pulumi:"bandwidthInMbps"`
+	PeeringLocation     pulumi.StringPtrInput `pulumi:"peeringLocation"`
 	ServiceProviderName pulumi.StringPtrInput `pulumi:"serviceProviderName"`
 }
 
@@ -5258,7 +4609,6 @@ func (i *expressRouteCircuitServiceProviderPropertiesResponsePtrType) ToExpressR
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput)
 }
 
-// Contains ServiceProviderProperties in an ExpressRouteCircuit
 type ExpressRouteCircuitServiceProviderPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitServiceProviderPropertiesResponseOutput) ElementType() reflect.Type {
@@ -5278,22 +4628,19 @@ func (o ExpressRouteCircuitServiceProviderPropertiesResponseOutput) ToExpressRou
 }
 
 func (o ExpressRouteCircuitServiceProviderPropertiesResponseOutput) ToExpressRouteCircuitServiceProviderPropertiesResponsePtrOutputWithContext(ctx context.Context) ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitServiceProviderPropertiesResponse) *ExpressRouteCircuitServiceProviderPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitServiceProviderPropertiesResponse) *ExpressRouteCircuitServiceProviderPropertiesResponse {
 		return &v
 	}).(ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput)
 }
 
-// Gets or sets BandwidthInMbps.
 func (o ExpressRouteCircuitServiceProviderPropertiesResponseOutput) BandwidthInMbps() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitServiceProviderPropertiesResponse) *int { return v.BandwidthInMbps }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets peering location.
 func (o ExpressRouteCircuitServiceProviderPropertiesResponseOutput) PeeringLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitServiceProviderPropertiesResponse) *string { return v.PeeringLocation }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets serviceProviderName.
 func (o ExpressRouteCircuitServiceProviderPropertiesResponseOutput) ServiceProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitServiceProviderPropertiesResponse) *string { return v.ServiceProviderName }).(pulumi.StringPtrOutput)
 }
@@ -5314,11 +4661,14 @@ func (o ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput) ToExpress
 
 func (o ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput) Elem() ExpressRouteCircuitServiceProviderPropertiesResponseOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitServiceProviderPropertiesResponse) ExpressRouteCircuitServiceProviderPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRouteCircuitServiceProviderPropertiesResponse
+		return ret
 	}).(ExpressRouteCircuitServiceProviderPropertiesResponseOutput)
 }
 
-// Gets or sets BandwidthInMbps.
 func (o ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput) BandwidthInMbps() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitServiceProviderPropertiesResponse) *int {
 		if v == nil {
@@ -5328,7 +4678,6 @@ func (o ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput) Bandwidth
 	}).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets peering location.
 func (o ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput) PeeringLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitServiceProviderPropertiesResponse) *string {
 		if v == nil {
@@ -5338,7 +4687,6 @@ func (o ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput) PeeringLo
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets serviceProviderName.
 func (o ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput) ServiceProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitServiceProviderPropertiesResponse) *string {
 		if v == nil {
@@ -5348,14 +4696,10 @@ func (o ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput) ServicePr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains sku in an ExpressRouteCircuit
 type ExpressRouteCircuitSku struct {
-	// Gets or sets family of the sku.
 	Family *string `pulumi:"family"`
-	// Gets or sets name of the sku.
-	Name *string `pulumi:"name"`
-	// Gets or sets tier of the sku.
-	Tier *string `pulumi:"tier"`
+	Name   *string `pulumi:"name"`
+	Tier   *string `pulumi:"tier"`
 }
 
 // ExpressRouteCircuitSkuInput is an input type that accepts ExpressRouteCircuitSkuArgs and ExpressRouteCircuitSkuOutput values.
@@ -5369,14 +4713,10 @@ type ExpressRouteCircuitSkuInput interface {
 	ToExpressRouteCircuitSkuOutputWithContext(context.Context) ExpressRouteCircuitSkuOutput
 }
 
-// Contains sku in an ExpressRouteCircuit
 type ExpressRouteCircuitSkuArgs struct {
-	// Gets or sets family of the sku.
 	Family pulumi.StringPtrInput `pulumi:"family"`
-	// Gets or sets name of the sku.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets tier of the sku.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Tier   pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (ExpressRouteCircuitSkuArgs) ElementType() reflect.Type {
@@ -5432,7 +4772,6 @@ func (i *expressRouteCircuitSkuPtrType) ToExpressRouteCircuitSkuPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitSkuPtrOutput)
 }
 
-// Contains sku in an ExpressRouteCircuit
 type ExpressRouteCircuitSkuOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitSkuOutput) ElementType() reflect.Type {
@@ -5452,22 +4791,19 @@ func (o ExpressRouteCircuitSkuOutput) ToExpressRouteCircuitSkuPtrOutput() Expres
 }
 
 func (o ExpressRouteCircuitSkuOutput) ToExpressRouteCircuitSkuPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitSkuPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitSku) *ExpressRouteCircuitSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitSku) *ExpressRouteCircuitSku {
 		return &v
 	}).(ExpressRouteCircuitSkuPtrOutput)
 }
 
-// Gets or sets family of the sku.
 func (o ExpressRouteCircuitSkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets name of the sku.
 func (o ExpressRouteCircuitSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets tier of the sku.
 func (o ExpressRouteCircuitSkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -5487,10 +4823,15 @@ func (o ExpressRouteCircuitSkuPtrOutput) ToExpressRouteCircuitSkuPtrOutputWithCo
 }
 
 func (o ExpressRouteCircuitSkuPtrOutput) Elem() ExpressRouteCircuitSkuOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitSku) ExpressRouteCircuitSku { return *v }).(ExpressRouteCircuitSkuOutput)
+	return o.ApplyT(func(v *ExpressRouteCircuitSku) ExpressRouteCircuitSku {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRouteCircuitSku
+		return ret
+	}).(ExpressRouteCircuitSkuOutput)
 }
 
-// Gets or sets family of the sku.
 func (o ExpressRouteCircuitSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitSku) *string {
 		if v == nil {
@@ -5500,7 +4841,6 @@ func (o ExpressRouteCircuitSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets name of the sku.
 func (o ExpressRouteCircuitSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitSku) *string {
 		if v == nil {
@@ -5510,7 +4850,6 @@ func (o ExpressRouteCircuitSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets tier of the sku.
 func (o ExpressRouteCircuitSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitSku) *string {
 		if v == nil {
@@ -5520,14 +4859,10 @@ func (o ExpressRouteCircuitSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains sku in an ExpressRouteCircuit
 type ExpressRouteCircuitSkuResponse struct {
-	// Gets or sets family of the sku.
 	Family *string `pulumi:"family"`
-	// Gets or sets name of the sku.
-	Name *string `pulumi:"name"`
-	// Gets or sets tier of the sku.
-	Tier *string `pulumi:"tier"`
+	Name   *string `pulumi:"name"`
+	Tier   *string `pulumi:"tier"`
 }
 
 // ExpressRouteCircuitSkuResponseInput is an input type that accepts ExpressRouteCircuitSkuResponseArgs and ExpressRouteCircuitSkuResponseOutput values.
@@ -5541,14 +4876,10 @@ type ExpressRouteCircuitSkuResponseInput interface {
 	ToExpressRouteCircuitSkuResponseOutputWithContext(context.Context) ExpressRouteCircuitSkuResponseOutput
 }
 
-// Contains sku in an ExpressRouteCircuit
 type ExpressRouteCircuitSkuResponseArgs struct {
-	// Gets or sets family of the sku.
 	Family pulumi.StringPtrInput `pulumi:"family"`
-	// Gets or sets name of the sku.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets tier of the sku.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Tier   pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (ExpressRouteCircuitSkuResponseArgs) ElementType() reflect.Type {
@@ -5604,7 +4935,6 @@ func (i *expressRouteCircuitSkuResponsePtrType) ToExpressRouteCircuitSkuResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitSkuResponsePtrOutput)
 }
 
-// Contains sku in an ExpressRouteCircuit
 type ExpressRouteCircuitSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitSkuResponseOutput) ElementType() reflect.Type {
@@ -5624,22 +4954,19 @@ func (o ExpressRouteCircuitSkuResponseOutput) ToExpressRouteCircuitSkuResponsePt
 }
 
 func (o ExpressRouteCircuitSkuResponseOutput) ToExpressRouteCircuitSkuResponsePtrOutputWithContext(ctx context.Context) ExpressRouteCircuitSkuResponsePtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitSkuResponse) *ExpressRouteCircuitSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitSkuResponse) *ExpressRouteCircuitSkuResponse {
 		return &v
 	}).(ExpressRouteCircuitSkuResponsePtrOutput)
 }
 
-// Gets or sets family of the sku.
 func (o ExpressRouteCircuitSkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitSkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets name of the sku.
 func (o ExpressRouteCircuitSkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitSkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets tier of the sku.
 func (o ExpressRouteCircuitSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -5659,10 +4986,15 @@ func (o ExpressRouteCircuitSkuResponsePtrOutput) ToExpressRouteCircuitSkuRespons
 }
 
 func (o ExpressRouteCircuitSkuResponsePtrOutput) Elem() ExpressRouteCircuitSkuResponseOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitSkuResponse) ExpressRouteCircuitSkuResponse { return *v }).(ExpressRouteCircuitSkuResponseOutput)
+	return o.ApplyT(func(v *ExpressRouteCircuitSkuResponse) ExpressRouteCircuitSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRouteCircuitSkuResponse
+		return ret
+	}).(ExpressRouteCircuitSkuResponseOutput)
 }
 
-// Gets or sets family of the sku.
 func (o ExpressRouteCircuitSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitSkuResponse) *string {
 		if v == nil {
@@ -5672,7 +5004,6 @@ func (o ExpressRouteCircuitSkuResponsePtrOutput) Family() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets name of the sku.
 func (o ExpressRouteCircuitSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitSkuResponse) *string {
 		if v == nil {
@@ -5682,7 +5013,6 @@ func (o ExpressRouteCircuitSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets tier of the sku.
 func (o ExpressRouteCircuitSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitSkuResponse) *string {
 		if v == nil {
@@ -5692,11 +5022,8 @@ func (o ExpressRouteCircuitSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains Stats associated with the peering
 type ExpressRouteCircuitStats struct {
-	// Gets BytesIn of the peering.
-	BytesIn *int `pulumi:"bytesIn"`
-	// Gets BytesOut of the peering.
+	BytesIn  *int `pulumi:"bytesIn"`
 	BytesOut *int `pulumi:"bytesOut"`
 }
 
@@ -5711,11 +5038,8 @@ type ExpressRouteCircuitStatsInput interface {
 	ToExpressRouteCircuitStatsOutputWithContext(context.Context) ExpressRouteCircuitStatsOutput
 }
 
-// Contains Stats associated with the peering
 type ExpressRouteCircuitStatsArgs struct {
-	// Gets BytesIn of the peering.
-	BytesIn pulumi.IntPtrInput `pulumi:"bytesIn"`
-	// Gets BytesOut of the peering.
+	BytesIn  pulumi.IntPtrInput `pulumi:"bytesIn"`
 	BytesOut pulumi.IntPtrInput `pulumi:"bytesOut"`
 }
 
@@ -5772,7 +5096,6 @@ func (i *expressRouteCircuitStatsPtrType) ToExpressRouteCircuitStatsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitStatsPtrOutput)
 }
 
-// Contains Stats associated with the peering
 type ExpressRouteCircuitStatsOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitStatsOutput) ElementType() reflect.Type {
@@ -5792,17 +5115,15 @@ func (o ExpressRouteCircuitStatsOutput) ToExpressRouteCircuitStatsPtrOutput() Ex
 }
 
 func (o ExpressRouteCircuitStatsOutput) ToExpressRouteCircuitStatsPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitStatsPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *ExpressRouteCircuitStats {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitStats) *ExpressRouteCircuitStats {
 		return &v
 	}).(ExpressRouteCircuitStatsPtrOutput)
 }
 
-// Gets BytesIn of the peering.
 func (o ExpressRouteCircuitStatsOutput) BytesIn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.BytesIn }).(pulumi.IntPtrOutput)
 }
 
-// Gets BytesOut of the peering.
 func (o ExpressRouteCircuitStatsOutput) BytesOut() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.BytesOut }).(pulumi.IntPtrOutput)
 }
@@ -5822,10 +5143,15 @@ func (o ExpressRouteCircuitStatsPtrOutput) ToExpressRouteCircuitStatsPtrOutputWi
 }
 
 func (o ExpressRouteCircuitStatsPtrOutput) Elem() ExpressRouteCircuitStatsOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) ExpressRouteCircuitStats { return *v }).(ExpressRouteCircuitStatsOutput)
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) ExpressRouteCircuitStats {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRouteCircuitStats
+		return ret
+	}).(ExpressRouteCircuitStatsOutput)
 }
 
-// Gets BytesIn of the peering.
 func (o ExpressRouteCircuitStatsPtrOutput) BytesIn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
 		if v == nil {
@@ -5835,7 +5161,6 @@ func (o ExpressRouteCircuitStatsPtrOutput) BytesIn() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Gets BytesOut of the peering.
 func (o ExpressRouteCircuitStatsPtrOutput) BytesOut() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
 		if v == nil {
@@ -5845,11 +5170,8 @@ func (o ExpressRouteCircuitStatsPtrOutput) BytesOut() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Contains Stats associated with the peering
 type ExpressRouteCircuitStatsResponse struct {
-	// Gets BytesIn of the peering.
-	BytesIn *int `pulumi:"bytesIn"`
-	// Gets BytesOut of the peering.
+	BytesIn  *int `pulumi:"bytesIn"`
 	BytesOut *int `pulumi:"bytesOut"`
 }
 
@@ -5864,11 +5186,8 @@ type ExpressRouteCircuitStatsResponseInput interface {
 	ToExpressRouteCircuitStatsResponseOutputWithContext(context.Context) ExpressRouteCircuitStatsResponseOutput
 }
 
-// Contains Stats associated with the peering
 type ExpressRouteCircuitStatsResponseArgs struct {
-	// Gets BytesIn of the peering.
-	BytesIn pulumi.IntPtrInput `pulumi:"bytesIn"`
-	// Gets BytesOut of the peering.
+	BytesIn  pulumi.IntPtrInput `pulumi:"bytesIn"`
 	BytesOut pulumi.IntPtrInput `pulumi:"bytesOut"`
 }
 
@@ -5925,7 +5244,6 @@ func (i *expressRouteCircuitStatsResponsePtrType) ToExpressRouteCircuitStatsResp
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitStatsResponsePtrOutput)
 }
 
-// Contains Stats associated with the peering
 type ExpressRouteCircuitStatsResponseOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitStatsResponseOutput) ElementType() reflect.Type {
@@ -5945,17 +5263,15 @@ func (o ExpressRouteCircuitStatsResponseOutput) ToExpressRouteCircuitStatsRespon
 }
 
 func (o ExpressRouteCircuitStatsResponseOutput) ToExpressRouteCircuitStatsResponsePtrOutputWithContext(ctx context.Context) ExpressRouteCircuitStatsResponsePtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *ExpressRouteCircuitStatsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitStatsResponse) *ExpressRouteCircuitStatsResponse {
 		return &v
 	}).(ExpressRouteCircuitStatsResponsePtrOutput)
 }
 
-// Gets BytesIn of the peering.
 func (o ExpressRouteCircuitStatsResponseOutput) BytesIn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.BytesIn }).(pulumi.IntPtrOutput)
 }
 
-// Gets BytesOut of the peering.
 func (o ExpressRouteCircuitStatsResponseOutput) BytesOut() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.BytesOut }).(pulumi.IntPtrOutput)
 }
@@ -5975,10 +5291,15 @@ func (o ExpressRouteCircuitStatsResponsePtrOutput) ToExpressRouteCircuitStatsRes
 }
 
 func (o ExpressRouteCircuitStatsResponsePtrOutput) Elem() ExpressRouteCircuitStatsResponseOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) ExpressRouteCircuitStatsResponse { return *v }).(ExpressRouteCircuitStatsResponseOutput)
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) ExpressRouteCircuitStatsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRouteCircuitStatsResponse
+		return ret
+	}).(ExpressRouteCircuitStatsResponseOutput)
 }
 
-// Gets BytesIn of the peering.
 func (o ExpressRouteCircuitStatsResponsePtrOutput) BytesIn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
 		if v == nil {
@@ -5988,7 +5309,6 @@ func (o ExpressRouteCircuitStatsResponsePtrOutput) BytesIn() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Gets BytesOut of the peering.
 func (o ExpressRouteCircuitStatsResponsePtrOutput) BytesOut() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
 		if v == nil {
@@ -5998,32 +5318,19 @@ func (o ExpressRouteCircuitStatsResponsePtrOutput) BytesOut() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Frontend IP address of the load balancer
 type FrontendIpConfiguration struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Read only.Inbound pools URIs that use this frontend IP
-	InboundNatPools []SubResource `pulumi:"inboundNatPools"`
-	// Read only.Inbound rules URIs that use this frontend IP
-	InboundNatRules []SubResource `pulumi:"inboundNatRules"`
-	// Gets Load Balancing rules URIs that use this frontend IP
-	LoadBalancingRules []SubResource `pulumi:"loadBalancingRules"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Read only.Outbound rules URIs that use this frontend IP
-	OutboundNatRules []SubResource `pulumi:"outboundNatRules"`
-	// Gets or sets the IP address of the Load Balancer.This is only specified if a specific private IP address shall be allocated from the subnet specified in subnetRef
-	PrivateIPAddress *string `pulumi:"privateIPAddress"`
-	// Gets or sets PrivateIP allocation method (Static/Dynamic)
-	PrivateIPAllocationMethod *string `pulumi:"privateIPAllocationMethod"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the reference of the PublicIP resource
-	PublicIPAddress *SubResource `pulumi:"publicIPAddress"`
-	// Gets or sets the reference of the subnet resource.A subnet from where the load balancer gets its private frontend address
-	Subnet *SubResource `pulumi:"subnet"`
+	Etag                      *string       `pulumi:"etag"`
+	Id                        *string       `pulumi:"id"`
+	InboundNatPools           []SubResource `pulumi:"inboundNatPools"`
+	InboundNatRules           []SubResource `pulumi:"inboundNatRules"`
+	LoadBalancingRules        []SubResource `pulumi:"loadBalancingRules"`
+	Name                      *string       `pulumi:"name"`
+	OutboundNatRules          []SubResource `pulumi:"outboundNatRules"`
+	PrivateIPAddress          *string       `pulumi:"privateIPAddress"`
+	PrivateIPAllocationMethod *string       `pulumi:"privateIPAllocationMethod"`
+	ProvisioningState         *string       `pulumi:"provisioningState"`
+	PublicIPAddress           *SubResource  `pulumi:"publicIPAddress"`
+	Subnet                    *SubResource  `pulumi:"subnet"`
 }
 
 // FrontendIpConfigurationInput is an input type that accepts FrontendIpConfigurationArgs and FrontendIpConfigurationOutput values.
@@ -6037,32 +5344,19 @@ type FrontendIpConfigurationInput interface {
 	ToFrontendIpConfigurationOutputWithContext(context.Context) FrontendIpConfigurationOutput
 }
 
-// Frontend IP address of the load balancer
 type FrontendIpConfigurationArgs struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Read only.Inbound pools URIs that use this frontend IP
-	InboundNatPools SubResourceArrayInput `pulumi:"inboundNatPools"`
-	// Read only.Inbound rules URIs that use this frontend IP
-	InboundNatRules SubResourceArrayInput `pulumi:"inboundNatRules"`
-	// Gets Load Balancing rules URIs that use this frontend IP
-	LoadBalancingRules SubResourceArrayInput `pulumi:"loadBalancingRules"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Read only.Outbound rules URIs that use this frontend IP
-	OutboundNatRules SubResourceArrayInput `pulumi:"outboundNatRules"`
-	// Gets or sets the IP address of the Load Balancer.This is only specified if a specific private IP address shall be allocated from the subnet specified in subnetRef
-	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
-	// Gets or sets PrivateIP allocation method (Static/Dynamic)
+	Etag                      pulumi.StringPtrInput `pulumi:"etag"`
+	Id                        pulumi.StringPtrInput `pulumi:"id"`
+	InboundNatPools           SubResourceArrayInput `pulumi:"inboundNatPools"`
+	InboundNatRules           SubResourceArrayInput `pulumi:"inboundNatRules"`
+	LoadBalancingRules        SubResourceArrayInput `pulumi:"loadBalancingRules"`
+	Name                      pulumi.StringPtrInput `pulumi:"name"`
+	OutboundNatRules          SubResourceArrayInput `pulumi:"outboundNatRules"`
+	PrivateIPAddress          pulumi.StringPtrInput `pulumi:"privateIPAddress"`
 	PrivateIPAllocationMethod pulumi.StringPtrInput `pulumi:"privateIPAllocationMethod"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the reference of the PublicIP resource
-	PublicIPAddress SubResourcePtrInput `pulumi:"publicIPAddress"`
-	// Gets or sets the reference of the subnet resource.A subnet from where the load balancer gets its private frontend address
-	Subnet SubResourcePtrInput `pulumi:"subnet"`
+	ProvisioningState         pulumi.StringPtrInput `pulumi:"provisioningState"`
+	PublicIPAddress           SubResourcePtrInput   `pulumi:"publicIPAddress"`
+	Subnet                    SubResourcePtrInput   `pulumi:"subnet"`
 }
 
 func (FrontendIpConfigurationArgs) ElementType() reflect.Type {
@@ -6102,7 +5396,6 @@ func (i FrontendIpConfigurationArray) ToFrontendIpConfigurationArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FrontendIpConfigurationArrayOutput)
 }
 
-// Frontend IP address of the load balancer
 type FrontendIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FrontendIpConfigurationOutput) ElementType() reflect.Type {
@@ -6117,62 +5410,50 @@ func (o FrontendIpConfigurationOutput) ToFrontendIpConfigurationOutputWithContex
 	return o
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o FrontendIpConfigurationOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendIpConfiguration) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o FrontendIpConfigurationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendIpConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Read only.Inbound pools URIs that use this frontend IP
 func (o FrontendIpConfigurationOutput) InboundNatPools() SubResourceArrayOutput {
 	return o.ApplyT(func(v FrontendIpConfiguration) []SubResource { return v.InboundNatPools }).(SubResourceArrayOutput)
 }
 
-// Read only.Inbound rules URIs that use this frontend IP
 func (o FrontendIpConfigurationOutput) InboundNatRules() SubResourceArrayOutput {
 	return o.ApplyT(func(v FrontendIpConfiguration) []SubResource { return v.InboundNatRules }).(SubResourceArrayOutput)
 }
 
-// Gets Load Balancing rules URIs that use this frontend IP
 func (o FrontendIpConfigurationOutput) LoadBalancingRules() SubResourceArrayOutput {
 	return o.ApplyT(func(v FrontendIpConfiguration) []SubResource { return v.LoadBalancingRules }).(SubResourceArrayOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o FrontendIpConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendIpConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Read only.Outbound rules URIs that use this frontend IP
 func (o FrontendIpConfigurationOutput) OutboundNatRules() SubResourceArrayOutput {
 	return o.ApplyT(func(v FrontendIpConfiguration) []SubResource { return v.OutboundNatRules }).(SubResourceArrayOutput)
 }
 
-// Gets or sets the IP address of the Load Balancer.This is only specified if a specific private IP address shall be allocated from the subnet specified in subnetRef
 func (o FrontendIpConfigurationOutput) PrivateIPAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendIpConfiguration) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets PrivateIP allocation method (Static/Dynamic)
 func (o FrontendIpConfigurationOutput) PrivateIPAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendIpConfiguration) *string { return v.PrivateIPAllocationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o FrontendIpConfigurationOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendIpConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference of the PublicIP resource
 func (o FrontendIpConfigurationOutput) PublicIPAddress() SubResourcePtrOutput {
 	return o.ApplyT(func(v FrontendIpConfiguration) *SubResource { return v.PublicIPAddress }).(SubResourcePtrOutput)
 }
 
-// Gets or sets the reference of the subnet resource.A subnet from where the load balancer gets its private frontend address
 func (o FrontendIpConfigurationOutput) Subnet() SubResourcePtrOutput {
 	return o.ApplyT(func(v FrontendIpConfiguration) *SubResource { return v.Subnet }).(SubResourcePtrOutput)
 }
@@ -6197,32 +5478,19 @@ func (o FrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput) FrontendIpC
 	}).(FrontendIpConfigurationOutput)
 }
 
-// Frontend IP address of the load balancer
 type FrontendIpConfigurationResponse struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Read only.Inbound pools URIs that use this frontend IP
-	InboundNatPools []SubResourceResponse `pulumi:"inboundNatPools"`
-	// Read only.Inbound rules URIs that use this frontend IP
-	InboundNatRules []SubResourceResponse `pulumi:"inboundNatRules"`
-	// Gets Load Balancing rules URIs that use this frontend IP
-	LoadBalancingRules []SubResourceResponse `pulumi:"loadBalancingRules"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Read only.Outbound rules URIs that use this frontend IP
-	OutboundNatRules []SubResourceResponse `pulumi:"outboundNatRules"`
-	// Gets or sets the IP address of the Load Balancer.This is only specified if a specific private IP address shall be allocated from the subnet specified in subnetRef
-	PrivateIPAddress *string `pulumi:"privateIPAddress"`
-	// Gets or sets PrivateIP allocation method (Static/Dynamic)
-	PrivateIPAllocationMethod *string `pulumi:"privateIPAllocationMethod"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the reference of the PublicIP resource
-	PublicIPAddress *SubResourceResponse `pulumi:"publicIPAddress"`
-	// Gets or sets the reference of the subnet resource.A subnet from where the load balancer gets its private frontend address
-	Subnet *SubResourceResponse `pulumi:"subnet"`
+	Etag                      *string               `pulumi:"etag"`
+	Id                        *string               `pulumi:"id"`
+	InboundNatPools           []SubResourceResponse `pulumi:"inboundNatPools"`
+	InboundNatRules           []SubResourceResponse `pulumi:"inboundNatRules"`
+	LoadBalancingRules        []SubResourceResponse `pulumi:"loadBalancingRules"`
+	Name                      *string               `pulumi:"name"`
+	OutboundNatRules          []SubResourceResponse `pulumi:"outboundNatRules"`
+	PrivateIPAddress          *string               `pulumi:"privateIPAddress"`
+	PrivateIPAllocationMethod *string               `pulumi:"privateIPAllocationMethod"`
+	ProvisioningState         *string               `pulumi:"provisioningState"`
+	PublicIPAddress           *SubResourceResponse  `pulumi:"publicIPAddress"`
+	Subnet                    *SubResourceResponse  `pulumi:"subnet"`
 }
 
 // FrontendIpConfigurationResponseInput is an input type that accepts FrontendIpConfigurationResponseArgs and FrontendIpConfigurationResponseOutput values.
@@ -6236,32 +5504,19 @@ type FrontendIpConfigurationResponseInput interface {
 	ToFrontendIpConfigurationResponseOutputWithContext(context.Context) FrontendIpConfigurationResponseOutput
 }
 
-// Frontend IP address of the load balancer
 type FrontendIpConfigurationResponseArgs struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Read only.Inbound pools URIs that use this frontend IP
-	InboundNatPools SubResourceResponseArrayInput `pulumi:"inboundNatPools"`
-	// Read only.Inbound rules URIs that use this frontend IP
-	InboundNatRules SubResourceResponseArrayInput `pulumi:"inboundNatRules"`
-	// Gets Load Balancing rules URIs that use this frontend IP
-	LoadBalancingRules SubResourceResponseArrayInput `pulumi:"loadBalancingRules"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Read only.Outbound rules URIs that use this frontend IP
-	OutboundNatRules SubResourceResponseArrayInput `pulumi:"outboundNatRules"`
-	// Gets or sets the IP address of the Load Balancer.This is only specified if a specific private IP address shall be allocated from the subnet specified in subnetRef
-	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
-	// Gets or sets PrivateIP allocation method (Static/Dynamic)
-	PrivateIPAllocationMethod pulumi.StringPtrInput `pulumi:"privateIPAllocationMethod"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the reference of the PublicIP resource
-	PublicIPAddress SubResourceResponsePtrInput `pulumi:"publicIPAddress"`
-	// Gets or sets the reference of the subnet resource.A subnet from where the load balancer gets its private frontend address
-	Subnet SubResourceResponsePtrInput `pulumi:"subnet"`
+	Etag                      pulumi.StringPtrInput         `pulumi:"etag"`
+	Id                        pulumi.StringPtrInput         `pulumi:"id"`
+	InboundNatPools           SubResourceResponseArrayInput `pulumi:"inboundNatPools"`
+	InboundNatRules           SubResourceResponseArrayInput `pulumi:"inboundNatRules"`
+	LoadBalancingRules        SubResourceResponseArrayInput `pulumi:"loadBalancingRules"`
+	Name                      pulumi.StringPtrInput         `pulumi:"name"`
+	OutboundNatRules          SubResourceResponseArrayInput `pulumi:"outboundNatRules"`
+	PrivateIPAddress          pulumi.StringPtrInput         `pulumi:"privateIPAddress"`
+	PrivateIPAllocationMethod pulumi.StringPtrInput         `pulumi:"privateIPAllocationMethod"`
+	ProvisioningState         pulumi.StringPtrInput         `pulumi:"provisioningState"`
+	PublicIPAddress           SubResourceResponsePtrInput   `pulumi:"publicIPAddress"`
+	Subnet                    SubResourceResponsePtrInput   `pulumi:"subnet"`
 }
 
 func (FrontendIpConfigurationResponseArgs) ElementType() reflect.Type {
@@ -6301,7 +5556,6 @@ func (i FrontendIpConfigurationResponseArray) ToFrontendIpConfigurationResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(FrontendIpConfigurationResponseArrayOutput)
 }
 
-// Frontend IP address of the load balancer
 type FrontendIpConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (FrontendIpConfigurationResponseOutput) ElementType() reflect.Type {
@@ -6316,62 +5570,50 @@ func (o FrontendIpConfigurationResponseOutput) ToFrontendIpConfigurationResponse
 	return o
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o FrontendIpConfigurationResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendIpConfigurationResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o FrontendIpConfigurationResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendIpConfigurationResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Read only.Inbound pools URIs that use this frontend IP
 func (o FrontendIpConfigurationResponseOutput) InboundNatPools() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v FrontendIpConfigurationResponse) []SubResourceResponse { return v.InboundNatPools }).(SubResourceResponseArrayOutput)
 }
 
-// Read only.Inbound rules URIs that use this frontend IP
 func (o FrontendIpConfigurationResponseOutput) InboundNatRules() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v FrontendIpConfigurationResponse) []SubResourceResponse { return v.InboundNatRules }).(SubResourceResponseArrayOutput)
 }
 
-// Gets Load Balancing rules URIs that use this frontend IP
 func (o FrontendIpConfigurationResponseOutput) LoadBalancingRules() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v FrontendIpConfigurationResponse) []SubResourceResponse { return v.LoadBalancingRules }).(SubResourceResponseArrayOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o FrontendIpConfigurationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendIpConfigurationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Read only.Outbound rules URIs that use this frontend IP
 func (o FrontendIpConfigurationResponseOutput) OutboundNatRules() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v FrontendIpConfigurationResponse) []SubResourceResponse { return v.OutboundNatRules }).(SubResourceResponseArrayOutput)
 }
 
-// Gets or sets the IP address of the Load Balancer.This is only specified if a specific private IP address shall be allocated from the subnet specified in subnetRef
 func (o FrontendIpConfigurationResponseOutput) PrivateIPAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendIpConfigurationResponse) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets PrivateIP allocation method (Static/Dynamic)
 func (o FrontendIpConfigurationResponseOutput) PrivateIPAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendIpConfigurationResponse) *string { return v.PrivateIPAllocationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o FrontendIpConfigurationResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendIpConfigurationResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference of the PublicIP resource
 func (o FrontendIpConfigurationResponseOutput) PublicIPAddress() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v FrontendIpConfigurationResponse) *SubResourceResponse { return v.PublicIPAddress }).(SubResourceResponsePtrOutput)
 }
 
-// Gets or sets the reference of the subnet resource.A subnet from where the load balancer gets its private frontend address
 func (o FrontendIpConfigurationResponseOutput) Subnet() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v FrontendIpConfigurationResponse) *SubResourceResponse { return v.Subnet }).(SubResourceResponsePtrOutput)
 }
@@ -6396,26 +5638,16 @@ func (o FrontendIpConfigurationResponseArrayOutput) Index(i pulumi.IntInput) Fro
 	}).(FrontendIpConfigurationResponseOutput)
 }
 
-// Inbound NAT pool of the loadbalancer
 type InboundNatPool struct {
-	// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
-	BackendPort int `pulumi:"backendPort"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets a reference to frontend IP Addresses
+	BackendPort             int          `pulumi:"backendPort"`
+	Etag                    *string      `pulumi:"etag"`
 	FrontendIPConfiguration *SubResource `pulumi:"frontendIPConfiguration"`
-	// Gets or sets the ending port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-	FrontendPortRangeEnd int `pulumi:"frontendPortRangeEnd"`
-	// Gets or sets the starting port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-	FrontendPortRangeStart int `pulumi:"frontendPortRangeStart"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
-	Protocol string `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
+	FrontendPortRangeEnd    int          `pulumi:"frontendPortRangeEnd"`
+	FrontendPortRangeStart  int          `pulumi:"frontendPortRangeStart"`
+	Id                      *string      `pulumi:"id"`
+	Name                    *string      `pulumi:"name"`
+	Protocol                string       `pulumi:"protocol"`
+	ProvisioningState       *string      `pulumi:"provisioningState"`
 }
 
 // InboundNatPoolInput is an input type that accepts InboundNatPoolArgs and InboundNatPoolOutput values.
@@ -6429,26 +5661,16 @@ type InboundNatPoolInput interface {
 	ToInboundNatPoolOutputWithContext(context.Context) InboundNatPoolOutput
 }
 
-// Inbound NAT pool of the loadbalancer
 type InboundNatPoolArgs struct {
-	// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
-	BackendPort pulumi.IntInput `pulumi:"backendPort"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Gets or sets a reference to frontend IP Addresses
-	FrontendIPConfiguration SubResourcePtrInput `pulumi:"frontendIPConfiguration"`
-	// Gets or sets the ending port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-	FrontendPortRangeEnd pulumi.IntInput `pulumi:"frontendPortRangeEnd"`
-	// Gets or sets the starting port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-	FrontendPortRangeStart pulumi.IntInput `pulumi:"frontendPortRangeStart"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	BackendPort             pulumi.IntInput       `pulumi:"backendPort"`
+	Etag                    pulumi.StringPtrInput `pulumi:"etag"`
+	FrontendIPConfiguration SubResourcePtrInput   `pulumi:"frontendIPConfiguration"`
+	FrontendPortRangeEnd    pulumi.IntInput       `pulumi:"frontendPortRangeEnd"`
+	FrontendPortRangeStart  pulumi.IntInput       `pulumi:"frontendPortRangeStart"`
+	Id                      pulumi.StringPtrInput `pulumi:"id"`
+	Name                    pulumi.StringPtrInput `pulumi:"name"`
+	Protocol                pulumi.StringInput    `pulumi:"protocol"`
+	ProvisioningState       pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
 func (InboundNatPoolArgs) ElementType() reflect.Type {
@@ -6488,7 +5710,6 @@ func (i InboundNatPoolArray) ToInboundNatPoolArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(InboundNatPoolArrayOutput)
 }
 
-// Inbound NAT pool of the loadbalancer
 type InboundNatPoolOutput struct{ *pulumi.OutputState }
 
 func (InboundNatPoolOutput) ElementType() reflect.Type {
@@ -6503,47 +5724,38 @@ func (o InboundNatPoolOutput) ToInboundNatPoolOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
 func (o InboundNatPoolOutput) BackendPort() pulumi.IntOutput {
 	return o.ApplyT(func(v InboundNatPool) int { return v.BackendPort }).(pulumi.IntOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o InboundNatPoolOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatPool) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a reference to frontend IP Addresses
 func (o InboundNatPoolOutput) FrontendIPConfiguration() SubResourcePtrOutput {
 	return o.ApplyT(func(v InboundNatPool) *SubResource { return v.FrontendIPConfiguration }).(SubResourcePtrOutput)
 }
 
-// Gets or sets the ending port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
 func (o InboundNatPoolOutput) FrontendPortRangeEnd() pulumi.IntOutput {
 	return o.ApplyT(func(v InboundNatPool) int { return v.FrontendPortRangeEnd }).(pulumi.IntOutput)
 }
 
-// Gets or sets the starting port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
 func (o InboundNatPoolOutput) FrontendPortRangeStart() pulumi.IntOutput {
 	return o.ApplyT(func(v InboundNatPool) int { return v.FrontendPortRangeStart }).(pulumi.IntOutput)
 }
 
-// Resource Id
 func (o InboundNatPoolOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatPool) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o InboundNatPoolOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatPool) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
 func (o InboundNatPoolOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v InboundNatPool) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o InboundNatPoolOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatPool) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -6568,26 +5780,16 @@ func (o InboundNatPoolArrayOutput) Index(i pulumi.IntInput) InboundNatPoolOutput
 	}).(InboundNatPoolOutput)
 }
 
-// Inbound NAT pool of the loadbalancer
 type InboundNatPoolResponse struct {
-	// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
-	BackendPort int `pulumi:"backendPort"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets a reference to frontend IP Addresses
+	BackendPort             int                  `pulumi:"backendPort"`
+	Etag                    *string              `pulumi:"etag"`
 	FrontendIPConfiguration *SubResourceResponse `pulumi:"frontendIPConfiguration"`
-	// Gets or sets the ending port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-	FrontendPortRangeEnd int `pulumi:"frontendPortRangeEnd"`
-	// Gets or sets the starting port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-	FrontendPortRangeStart int `pulumi:"frontendPortRangeStart"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
-	Protocol string `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
+	FrontendPortRangeEnd    int                  `pulumi:"frontendPortRangeEnd"`
+	FrontendPortRangeStart  int                  `pulumi:"frontendPortRangeStart"`
+	Id                      *string              `pulumi:"id"`
+	Name                    *string              `pulumi:"name"`
+	Protocol                string               `pulumi:"protocol"`
+	ProvisioningState       *string              `pulumi:"provisioningState"`
 }
 
 // InboundNatPoolResponseInput is an input type that accepts InboundNatPoolResponseArgs and InboundNatPoolResponseOutput values.
@@ -6601,26 +5803,16 @@ type InboundNatPoolResponseInput interface {
 	ToInboundNatPoolResponseOutputWithContext(context.Context) InboundNatPoolResponseOutput
 }
 
-// Inbound NAT pool of the loadbalancer
 type InboundNatPoolResponseArgs struct {
-	// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
-	BackendPort pulumi.IntInput `pulumi:"backendPort"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Gets or sets a reference to frontend IP Addresses
+	BackendPort             pulumi.IntInput             `pulumi:"backendPort"`
+	Etag                    pulumi.StringPtrInput       `pulumi:"etag"`
 	FrontendIPConfiguration SubResourceResponsePtrInput `pulumi:"frontendIPConfiguration"`
-	// Gets or sets the ending port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-	FrontendPortRangeEnd pulumi.IntInput `pulumi:"frontendPortRangeEnd"`
-	// Gets or sets the starting port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-	FrontendPortRangeStart pulumi.IntInput `pulumi:"frontendPortRangeStart"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	FrontendPortRangeEnd    pulumi.IntInput             `pulumi:"frontendPortRangeEnd"`
+	FrontendPortRangeStart  pulumi.IntInput             `pulumi:"frontendPortRangeStart"`
+	Id                      pulumi.StringPtrInput       `pulumi:"id"`
+	Name                    pulumi.StringPtrInput       `pulumi:"name"`
+	Protocol                pulumi.StringInput          `pulumi:"protocol"`
+	ProvisioningState       pulumi.StringPtrInput       `pulumi:"provisioningState"`
 }
 
 func (InboundNatPoolResponseArgs) ElementType() reflect.Type {
@@ -6660,7 +5852,6 @@ func (i InboundNatPoolResponseArray) ToInboundNatPoolResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InboundNatPoolResponseArrayOutput)
 }
 
-// Inbound NAT pool of the loadbalancer
 type InboundNatPoolResponseOutput struct{ *pulumi.OutputState }
 
 func (InboundNatPoolResponseOutput) ElementType() reflect.Type {
@@ -6675,47 +5866,38 @@ func (o InboundNatPoolResponseOutput) ToInboundNatPoolResponseOutputWithContext(
 	return o
 }
 
-// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
 func (o InboundNatPoolResponseOutput) BackendPort() pulumi.IntOutput {
 	return o.ApplyT(func(v InboundNatPoolResponse) int { return v.BackendPort }).(pulumi.IntOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o InboundNatPoolResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatPoolResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a reference to frontend IP Addresses
 func (o InboundNatPoolResponseOutput) FrontendIPConfiguration() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v InboundNatPoolResponse) *SubResourceResponse { return v.FrontendIPConfiguration }).(SubResourceResponsePtrOutput)
 }
 
-// Gets or sets the ending port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
 func (o InboundNatPoolResponseOutput) FrontendPortRangeEnd() pulumi.IntOutput {
 	return o.ApplyT(func(v InboundNatPoolResponse) int { return v.FrontendPortRangeEnd }).(pulumi.IntOutput)
 }
 
-// Gets or sets the starting port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
 func (o InboundNatPoolResponseOutput) FrontendPortRangeStart() pulumi.IntOutput {
 	return o.ApplyT(func(v InboundNatPoolResponse) int { return v.FrontendPortRangeStart }).(pulumi.IntOutput)
 }
 
-// Resource Id
 func (o InboundNatPoolResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatPoolResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o InboundNatPoolResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatPoolResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
 func (o InboundNatPoolResponseOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v InboundNatPoolResponse) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o InboundNatPoolResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatPoolResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -6740,30 +5922,18 @@ func (o InboundNatPoolResponseArrayOutput) Index(i pulumi.IntInput) InboundNatPo
 	}).(InboundNatPoolResponseOutput)
 }
 
-// Inbound NAT rule of the loadbalancer
 type InboundNatRule struct {
-	// Gets or sets a reference to a private ip address defined on a NetworkInterface of a VM. Traffic sent to frontendPort of each of the frontendIPConfigurations is forwarded to the backed IP
-	BackendIPConfiguration *SubResource `pulumi:"backendIPConfiguration"`
-	// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
-	BackendPort *int `pulumi:"backendPort"`
-	// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
-	EnableFloatingIP bool `pulumi:"enableFloatingIP"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets a reference to frontend IP Addresses
+	BackendIPConfiguration  *SubResource `pulumi:"backendIPConfiguration"`
+	BackendPort             *int         `pulumi:"backendPort"`
+	EnableFloatingIP        bool         `pulumi:"enableFloatingIP"`
+	Etag                    *string      `pulumi:"etag"`
 	FrontendIPConfiguration *SubResource `pulumi:"frontendIPConfiguration"`
-	// Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-	FrontendPort int `pulumi:"frontendPort"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
-	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
-	Protocol string `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
+	FrontendPort            int          `pulumi:"frontendPort"`
+	Id                      *string      `pulumi:"id"`
+	IdleTimeoutInMinutes    *int         `pulumi:"idleTimeoutInMinutes"`
+	Name                    *string      `pulumi:"name"`
+	Protocol                string       `pulumi:"protocol"`
+	ProvisioningState       *string      `pulumi:"provisioningState"`
 }
 
 // InboundNatRuleInput is an input type that accepts InboundNatRuleArgs and InboundNatRuleOutput values.
@@ -6777,30 +5947,18 @@ type InboundNatRuleInput interface {
 	ToInboundNatRuleOutputWithContext(context.Context) InboundNatRuleOutput
 }
 
-// Inbound NAT rule of the loadbalancer
 type InboundNatRuleArgs struct {
-	// Gets or sets a reference to a private ip address defined on a NetworkInterface of a VM. Traffic sent to frontendPort of each of the frontendIPConfigurations is forwarded to the backed IP
-	BackendIPConfiguration SubResourcePtrInput `pulumi:"backendIPConfiguration"`
-	// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
-	BackendPort pulumi.IntPtrInput `pulumi:"backendPort"`
-	// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
-	EnableFloatingIP pulumi.BoolInput `pulumi:"enableFloatingIP"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Gets or sets a reference to frontend IP Addresses
-	FrontendIPConfiguration SubResourcePtrInput `pulumi:"frontendIPConfiguration"`
-	// Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
-	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	BackendIPConfiguration  SubResourcePtrInput   `pulumi:"backendIPConfiguration"`
+	BackendPort             pulumi.IntPtrInput    `pulumi:"backendPort"`
+	EnableFloatingIP        pulumi.BoolInput      `pulumi:"enableFloatingIP"`
+	Etag                    pulumi.StringPtrInput `pulumi:"etag"`
+	FrontendIPConfiguration SubResourcePtrInput   `pulumi:"frontendIPConfiguration"`
+	FrontendPort            pulumi.IntInput       `pulumi:"frontendPort"`
+	Id                      pulumi.StringPtrInput `pulumi:"id"`
+	IdleTimeoutInMinutes    pulumi.IntPtrInput    `pulumi:"idleTimeoutInMinutes"`
+	Name                    pulumi.StringPtrInput `pulumi:"name"`
+	Protocol                pulumi.StringInput    `pulumi:"protocol"`
+	ProvisioningState       pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
 func (InboundNatRuleArgs) ElementType() reflect.Type {
@@ -6840,7 +5998,6 @@ func (i InboundNatRuleArray) ToInboundNatRuleArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(InboundNatRuleArrayOutput)
 }
 
-// Inbound NAT rule of the loadbalancer
 type InboundNatRuleOutput struct{ *pulumi.OutputState }
 
 func (InboundNatRuleOutput) ElementType() reflect.Type {
@@ -6855,57 +6012,46 @@ func (o InboundNatRuleOutput) ToInboundNatRuleOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Gets or sets a reference to a private ip address defined on a NetworkInterface of a VM. Traffic sent to frontendPort of each of the frontendIPConfigurations is forwarded to the backed IP
 func (o InboundNatRuleOutput) BackendIPConfiguration() SubResourcePtrOutput {
 	return o.ApplyT(func(v InboundNatRule) *SubResource { return v.BackendIPConfiguration }).(SubResourcePtrOutput)
 }
 
-// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
 func (o InboundNatRuleOutput) BackendPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InboundNatRule) *int { return v.BackendPort }).(pulumi.IntPtrOutput)
 }
 
-// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
 func (o InboundNatRuleOutput) EnableFloatingIP() pulumi.BoolOutput {
 	return o.ApplyT(func(v InboundNatRule) bool { return v.EnableFloatingIP }).(pulumi.BoolOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o InboundNatRuleOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatRule) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a reference to frontend IP Addresses
 func (o InboundNatRuleOutput) FrontendIPConfiguration() SubResourcePtrOutput {
 	return o.ApplyT(func(v InboundNatRule) *SubResource { return v.FrontendIPConfiguration }).(SubResourcePtrOutput)
 }
 
-// Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
 func (o InboundNatRuleOutput) FrontendPort() pulumi.IntOutput {
 	return o.ApplyT(func(v InboundNatRule) int { return v.FrontendPort }).(pulumi.IntOutput)
 }
 
-// Resource Id
 func (o InboundNatRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
 func (o InboundNatRuleOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InboundNatRule) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o InboundNatRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
 func (o InboundNatRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v InboundNatRule) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o InboundNatRuleOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatRule) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -6930,30 +6076,18 @@ func (o InboundNatRuleArrayOutput) Index(i pulumi.IntInput) InboundNatRuleOutput
 	}).(InboundNatRuleOutput)
 }
 
-// Inbound NAT rule of the loadbalancer
 type InboundNatRuleResponse struct {
-	// Gets or sets a reference to a private ip address defined on a NetworkInterface of a VM. Traffic sent to frontendPort of each of the frontendIPConfigurations is forwarded to the backed IP
-	BackendIPConfiguration *SubResourceResponse `pulumi:"backendIPConfiguration"`
-	// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
-	BackendPort *int `pulumi:"backendPort"`
-	// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
-	EnableFloatingIP bool `pulumi:"enableFloatingIP"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets a reference to frontend IP Addresses
+	BackendIPConfiguration  *SubResourceResponse `pulumi:"backendIPConfiguration"`
+	BackendPort             *int                 `pulumi:"backendPort"`
+	EnableFloatingIP        bool                 `pulumi:"enableFloatingIP"`
+	Etag                    *string              `pulumi:"etag"`
 	FrontendIPConfiguration *SubResourceResponse `pulumi:"frontendIPConfiguration"`
-	// Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-	FrontendPort int `pulumi:"frontendPort"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
-	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
-	Protocol string `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
+	FrontendPort            int                  `pulumi:"frontendPort"`
+	Id                      *string              `pulumi:"id"`
+	IdleTimeoutInMinutes    *int                 `pulumi:"idleTimeoutInMinutes"`
+	Name                    *string              `pulumi:"name"`
+	Protocol                string               `pulumi:"protocol"`
+	ProvisioningState       *string              `pulumi:"provisioningState"`
 }
 
 // InboundNatRuleResponseInput is an input type that accepts InboundNatRuleResponseArgs and InboundNatRuleResponseOutput values.
@@ -6967,30 +6101,18 @@ type InboundNatRuleResponseInput interface {
 	ToInboundNatRuleResponseOutputWithContext(context.Context) InboundNatRuleResponseOutput
 }
 
-// Inbound NAT rule of the loadbalancer
 type InboundNatRuleResponseArgs struct {
-	// Gets or sets a reference to a private ip address defined on a NetworkInterface of a VM. Traffic sent to frontendPort of each of the frontendIPConfigurations is forwarded to the backed IP
-	BackendIPConfiguration SubResourceResponsePtrInput `pulumi:"backendIPConfiguration"`
-	// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
-	BackendPort pulumi.IntPtrInput `pulumi:"backendPort"`
-	// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
-	EnableFloatingIP pulumi.BoolInput `pulumi:"enableFloatingIP"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Gets or sets a reference to frontend IP Addresses
+	BackendIPConfiguration  SubResourceResponsePtrInput `pulumi:"backendIPConfiguration"`
+	BackendPort             pulumi.IntPtrInput          `pulumi:"backendPort"`
+	EnableFloatingIP        pulumi.BoolInput            `pulumi:"enableFloatingIP"`
+	Etag                    pulumi.StringPtrInput       `pulumi:"etag"`
 	FrontendIPConfiguration SubResourceResponsePtrInput `pulumi:"frontendIPConfiguration"`
-	// Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
-	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	FrontendPort            pulumi.IntInput             `pulumi:"frontendPort"`
+	Id                      pulumi.StringPtrInput       `pulumi:"id"`
+	IdleTimeoutInMinutes    pulumi.IntPtrInput          `pulumi:"idleTimeoutInMinutes"`
+	Name                    pulumi.StringPtrInput       `pulumi:"name"`
+	Protocol                pulumi.StringInput          `pulumi:"protocol"`
+	ProvisioningState       pulumi.StringPtrInput       `pulumi:"provisioningState"`
 }
 
 func (InboundNatRuleResponseArgs) ElementType() reflect.Type {
@@ -7030,7 +6152,6 @@ func (i InboundNatRuleResponseArray) ToInboundNatRuleResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InboundNatRuleResponseArrayOutput)
 }
 
-// Inbound NAT rule of the loadbalancer
 type InboundNatRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (InboundNatRuleResponseOutput) ElementType() reflect.Type {
@@ -7045,57 +6166,46 @@ func (o InboundNatRuleResponseOutput) ToInboundNatRuleResponseOutputWithContext(
 	return o
 }
 
-// Gets or sets a reference to a private ip address defined on a NetworkInterface of a VM. Traffic sent to frontendPort of each of the frontendIPConfigurations is forwarded to the backed IP
 func (o InboundNatRuleResponseOutput) BackendIPConfiguration() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v InboundNatRuleResponse) *SubResourceResponse { return v.BackendIPConfiguration }).(SubResourceResponsePtrOutput)
 }
 
-// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
 func (o InboundNatRuleResponseOutput) BackendPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InboundNatRuleResponse) *int { return v.BackendPort }).(pulumi.IntPtrOutput)
 }
 
-// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
 func (o InboundNatRuleResponseOutput) EnableFloatingIP() pulumi.BoolOutput {
 	return o.ApplyT(func(v InboundNatRuleResponse) bool { return v.EnableFloatingIP }).(pulumi.BoolOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o InboundNatRuleResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatRuleResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a reference to frontend IP Addresses
 func (o InboundNatRuleResponseOutput) FrontendIPConfiguration() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v InboundNatRuleResponse) *SubResourceResponse { return v.FrontendIPConfiguration }).(SubResourceResponsePtrOutput)
 }
 
-// Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
 func (o InboundNatRuleResponseOutput) FrontendPort() pulumi.IntOutput {
 	return o.ApplyT(func(v InboundNatRuleResponse) int { return v.FrontendPort }).(pulumi.IntOutput)
 }
 
-// Resource Id
 func (o InboundNatRuleResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
 func (o InboundNatRuleResponseOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InboundNatRuleResponse) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o InboundNatRuleResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatRuleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
 func (o InboundNatRuleResponseOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v InboundNatRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o InboundNatRuleResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatRuleResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -7120,34 +6230,20 @@ func (o InboundNatRuleResponseArrayOutput) Index(i pulumi.IntInput) InboundNatRu
 	}).(InboundNatRuleResponseOutput)
 }
 
-// Rules of the load balancer
 type LoadBalancingRule struct {
-	// Gets or sets  a reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs
-	BackendAddressPool SubResource `pulumi:"backendAddressPool"`
-	// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
-	BackendPort *int `pulumi:"backendPort"`
-	// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
-	EnableFloatingIP bool `pulumi:"enableFloatingIP"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets a reference to frontend IP Addresses
+	BackendAddressPool      SubResource  `pulumi:"backendAddressPool"`
+	BackendPort             *int         `pulumi:"backendPort"`
+	EnableFloatingIP        bool         `pulumi:"enableFloatingIP"`
+	Etag                    *string      `pulumi:"etag"`
 	FrontendIPConfiguration *SubResource `pulumi:"frontendIPConfiguration"`
-	// Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-	FrontendPort int `pulumi:"frontendPort"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
-	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
-	// Gets or sets the load distribution policy for this rule
-	LoadDistribution *string `pulumi:"loadDistribution"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the reference of the load balancer probe used by the Load Balancing rule.
-	Probe *SubResource `pulumi:"probe"`
-	// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
-	Protocol string `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
+	FrontendPort            int          `pulumi:"frontendPort"`
+	Id                      *string      `pulumi:"id"`
+	IdleTimeoutInMinutes    *int         `pulumi:"idleTimeoutInMinutes"`
+	LoadDistribution        *string      `pulumi:"loadDistribution"`
+	Name                    *string      `pulumi:"name"`
+	Probe                   *SubResource `pulumi:"probe"`
+	Protocol                string       `pulumi:"protocol"`
+	ProvisioningState       *string      `pulumi:"provisioningState"`
 }
 
 // LoadBalancingRuleInput is an input type that accepts LoadBalancingRuleArgs and LoadBalancingRuleOutput values.
@@ -7161,34 +6257,20 @@ type LoadBalancingRuleInput interface {
 	ToLoadBalancingRuleOutputWithContext(context.Context) LoadBalancingRuleOutput
 }
 
-// Rules of the load balancer
 type LoadBalancingRuleArgs struct {
-	// Gets or sets  a reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs
-	BackendAddressPool SubResourceInput `pulumi:"backendAddressPool"`
-	// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
-	BackendPort pulumi.IntPtrInput `pulumi:"backendPort"`
-	// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
-	EnableFloatingIP pulumi.BoolInput `pulumi:"enableFloatingIP"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Gets or sets a reference to frontend IP Addresses
-	FrontendIPConfiguration SubResourcePtrInput `pulumi:"frontendIPConfiguration"`
-	// Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
-	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
-	// Gets or sets the load distribution policy for this rule
-	LoadDistribution pulumi.StringPtrInput `pulumi:"loadDistribution"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the reference of the load balancer probe used by the Load Balancing rule.
-	Probe SubResourcePtrInput `pulumi:"probe"`
-	// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	BackendAddressPool      SubResourceInput      `pulumi:"backendAddressPool"`
+	BackendPort             pulumi.IntPtrInput    `pulumi:"backendPort"`
+	EnableFloatingIP        pulumi.BoolInput      `pulumi:"enableFloatingIP"`
+	Etag                    pulumi.StringPtrInput `pulumi:"etag"`
+	FrontendIPConfiguration SubResourcePtrInput   `pulumi:"frontendIPConfiguration"`
+	FrontendPort            pulumi.IntInput       `pulumi:"frontendPort"`
+	Id                      pulumi.StringPtrInput `pulumi:"id"`
+	IdleTimeoutInMinutes    pulumi.IntPtrInput    `pulumi:"idleTimeoutInMinutes"`
+	LoadDistribution        pulumi.StringPtrInput `pulumi:"loadDistribution"`
+	Name                    pulumi.StringPtrInput `pulumi:"name"`
+	Probe                   SubResourcePtrInput   `pulumi:"probe"`
+	Protocol                pulumi.StringInput    `pulumi:"protocol"`
+	ProvisioningState       pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
 func (LoadBalancingRuleArgs) ElementType() reflect.Type {
@@ -7228,7 +6310,6 @@ func (i LoadBalancingRuleArray) ToLoadBalancingRuleArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingRuleArrayOutput)
 }
 
-// Rules of the load balancer
 type LoadBalancingRuleOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancingRuleOutput) ElementType() reflect.Type {
@@ -7243,67 +6324,54 @@ func (o LoadBalancingRuleOutput) ToLoadBalancingRuleOutputWithContext(ctx contex
 	return o
 }
 
-// Gets or sets  a reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs
 func (o LoadBalancingRuleOutput) BackendAddressPool() SubResourceOutput {
 	return o.ApplyT(func(v LoadBalancingRule) SubResource { return v.BackendAddressPool }).(SubResourceOutput)
 }
 
-// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
 func (o LoadBalancingRuleOutput) BackendPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancingRule) *int { return v.BackendPort }).(pulumi.IntPtrOutput)
 }
 
-// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
 func (o LoadBalancingRuleOutput) EnableFloatingIP() pulumi.BoolOutput {
 	return o.ApplyT(func(v LoadBalancingRule) bool { return v.EnableFloatingIP }).(pulumi.BoolOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o LoadBalancingRuleOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingRule) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a reference to frontend IP Addresses
 func (o LoadBalancingRuleOutput) FrontendIPConfiguration() SubResourcePtrOutput {
 	return o.ApplyT(func(v LoadBalancingRule) *SubResource { return v.FrontendIPConfiguration }).(SubResourcePtrOutput)
 }
 
-// Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
 func (o LoadBalancingRuleOutput) FrontendPort() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancingRule) int { return v.FrontendPort }).(pulumi.IntOutput)
 }
 
-// Resource Id
 func (o LoadBalancingRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
 func (o LoadBalancingRuleOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancingRule) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the load distribution policy for this rule
 func (o LoadBalancingRuleOutput) LoadDistribution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingRule) *string { return v.LoadDistribution }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o LoadBalancingRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference of the load balancer probe used by the Load Balancing rule.
 func (o LoadBalancingRuleOutput) Probe() SubResourcePtrOutput {
 	return o.ApplyT(func(v LoadBalancingRule) *SubResource { return v.Probe }).(SubResourcePtrOutput)
 }
 
-// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
 func (o LoadBalancingRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancingRule) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o LoadBalancingRuleOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingRule) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -7328,34 +6396,20 @@ func (o LoadBalancingRuleArrayOutput) Index(i pulumi.IntInput) LoadBalancingRule
 	}).(LoadBalancingRuleOutput)
 }
 
-// Rules of the load balancer
 type LoadBalancingRuleResponse struct {
-	// Gets or sets  a reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs
-	BackendAddressPool SubResourceResponse `pulumi:"backendAddressPool"`
-	// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
-	BackendPort *int `pulumi:"backendPort"`
-	// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
-	EnableFloatingIP bool `pulumi:"enableFloatingIP"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets a reference to frontend IP Addresses
+	BackendAddressPool      SubResourceResponse  `pulumi:"backendAddressPool"`
+	BackendPort             *int                 `pulumi:"backendPort"`
+	EnableFloatingIP        bool                 `pulumi:"enableFloatingIP"`
+	Etag                    *string              `pulumi:"etag"`
 	FrontendIPConfiguration *SubResourceResponse `pulumi:"frontendIPConfiguration"`
-	// Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-	FrontendPort int `pulumi:"frontendPort"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
-	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
-	// Gets or sets the load distribution policy for this rule
-	LoadDistribution *string `pulumi:"loadDistribution"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the reference of the load balancer probe used by the Load Balancing rule.
-	Probe *SubResourceResponse `pulumi:"probe"`
-	// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
-	Protocol string `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
+	FrontendPort            int                  `pulumi:"frontendPort"`
+	Id                      *string              `pulumi:"id"`
+	IdleTimeoutInMinutes    *int                 `pulumi:"idleTimeoutInMinutes"`
+	LoadDistribution        *string              `pulumi:"loadDistribution"`
+	Name                    *string              `pulumi:"name"`
+	Probe                   *SubResourceResponse `pulumi:"probe"`
+	Protocol                string               `pulumi:"protocol"`
+	ProvisioningState       *string              `pulumi:"provisioningState"`
 }
 
 // LoadBalancingRuleResponseInput is an input type that accepts LoadBalancingRuleResponseArgs and LoadBalancingRuleResponseOutput values.
@@ -7369,34 +6423,20 @@ type LoadBalancingRuleResponseInput interface {
 	ToLoadBalancingRuleResponseOutputWithContext(context.Context) LoadBalancingRuleResponseOutput
 }
 
-// Rules of the load balancer
 type LoadBalancingRuleResponseArgs struct {
-	// Gets or sets  a reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs
-	BackendAddressPool SubResourceResponseInput `pulumi:"backendAddressPool"`
-	// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
-	BackendPort pulumi.IntPtrInput `pulumi:"backendPort"`
-	// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
-	EnableFloatingIP pulumi.BoolInput `pulumi:"enableFloatingIP"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Gets or sets a reference to frontend IP Addresses
+	BackendAddressPool      SubResourceResponseInput    `pulumi:"backendAddressPool"`
+	BackendPort             pulumi.IntPtrInput          `pulumi:"backendPort"`
+	EnableFloatingIP        pulumi.BoolInput            `pulumi:"enableFloatingIP"`
+	Etag                    pulumi.StringPtrInput       `pulumi:"etag"`
 	FrontendIPConfiguration SubResourceResponsePtrInput `pulumi:"frontendIPConfiguration"`
-	// Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
-	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
-	// Gets or sets the load distribution policy for this rule
-	LoadDistribution pulumi.StringPtrInput `pulumi:"loadDistribution"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the reference of the load balancer probe used by the Load Balancing rule.
-	Probe SubResourceResponsePtrInput `pulumi:"probe"`
-	// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	FrontendPort            pulumi.IntInput             `pulumi:"frontendPort"`
+	Id                      pulumi.StringPtrInput       `pulumi:"id"`
+	IdleTimeoutInMinutes    pulumi.IntPtrInput          `pulumi:"idleTimeoutInMinutes"`
+	LoadDistribution        pulumi.StringPtrInput       `pulumi:"loadDistribution"`
+	Name                    pulumi.StringPtrInput       `pulumi:"name"`
+	Probe                   SubResourceResponsePtrInput `pulumi:"probe"`
+	Protocol                pulumi.StringInput          `pulumi:"protocol"`
+	ProvisioningState       pulumi.StringPtrInput       `pulumi:"provisioningState"`
 }
 
 func (LoadBalancingRuleResponseArgs) ElementType() reflect.Type {
@@ -7436,7 +6476,6 @@ func (i LoadBalancingRuleResponseArray) ToLoadBalancingRuleResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingRuleResponseArrayOutput)
 }
 
-// Rules of the load balancer
 type LoadBalancingRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancingRuleResponseOutput) ElementType() reflect.Type {
@@ -7451,67 +6490,54 @@ func (o LoadBalancingRuleResponseOutput) ToLoadBalancingRuleResponseOutputWithCo
 	return o
 }
 
-// Gets or sets  a reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs
 func (o LoadBalancingRuleResponseOutput) BackendAddressPool() SubResourceResponseOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) SubResourceResponse { return v.BackendAddressPool }).(SubResourceResponseOutput)
 }
 
-// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
 func (o LoadBalancingRuleResponseOutput) BackendPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) *int { return v.BackendPort }).(pulumi.IntPtrOutput)
 }
 
-// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
 func (o LoadBalancingRuleResponseOutput) EnableFloatingIP() pulumi.BoolOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) bool { return v.EnableFloatingIP }).(pulumi.BoolOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o LoadBalancingRuleResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a reference to frontend IP Addresses
 func (o LoadBalancingRuleResponseOutput) FrontendIPConfiguration() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) *SubResourceResponse { return v.FrontendIPConfiguration }).(SubResourceResponsePtrOutput)
 }
 
-// Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
 func (o LoadBalancingRuleResponseOutput) FrontendPort() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) int { return v.FrontendPort }).(pulumi.IntOutput)
 }
 
-// Resource Id
 func (o LoadBalancingRuleResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
 func (o LoadBalancingRuleResponseOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the load distribution policy for this rule
 func (o LoadBalancingRuleResponseOutput) LoadDistribution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) *string { return v.LoadDistribution }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o LoadBalancingRuleResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference of the load balancer probe used by the Load Balancing rule.
 func (o LoadBalancingRuleResponseOutput) Probe() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) *SubResourceResponse { return v.Probe }).(SubResourceResponsePtrOutput)
 }
 
-// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
 func (o LoadBalancingRuleResponseOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o LoadBalancingRuleResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -7536,16 +6562,11 @@ func (o LoadBalancingRuleResponseArrayOutput) Index(i pulumi.IntInput) LoadBalan
 	}).(LoadBalancingRuleResponseOutput)
 }
 
-// Dns Settings of a network interface
 type NetworkInterfaceDnsSettings struct {
-	// Gets or sets list of Applied DNS servers IP addresses
-	AppliedDnsServers []string `pulumi:"appliedDnsServers"`
-	// Gets or sets list of DNS servers IP addresses
-	DnsServers []string `pulumi:"dnsServers"`
-	// Gets or sets the Internal DNS name
-	InternalDnsNameLabel *string `pulumi:"internalDnsNameLabel"`
-	// Gets or sets full IDNS name in the form, DnsName.VnetId.ZoneId.TopLevelSuffix. This is set when the NIC is associated to a VM
-	InternalFqdn *string `pulumi:"internalFqdn"`
+	AppliedDnsServers    []string `pulumi:"appliedDnsServers"`
+	DnsServers           []string `pulumi:"dnsServers"`
+	InternalDnsNameLabel *string  `pulumi:"internalDnsNameLabel"`
+	InternalFqdn         *string  `pulumi:"internalFqdn"`
 }
 
 // NetworkInterfaceDnsSettingsInput is an input type that accepts NetworkInterfaceDnsSettingsArgs and NetworkInterfaceDnsSettingsOutput values.
@@ -7559,16 +6580,11 @@ type NetworkInterfaceDnsSettingsInput interface {
 	ToNetworkInterfaceDnsSettingsOutputWithContext(context.Context) NetworkInterfaceDnsSettingsOutput
 }
 
-// Dns Settings of a network interface
 type NetworkInterfaceDnsSettingsArgs struct {
-	// Gets or sets list of Applied DNS servers IP addresses
-	AppliedDnsServers pulumi.StringArrayInput `pulumi:"appliedDnsServers"`
-	// Gets or sets list of DNS servers IP addresses
-	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// Gets or sets the Internal DNS name
-	InternalDnsNameLabel pulumi.StringPtrInput `pulumi:"internalDnsNameLabel"`
-	// Gets or sets full IDNS name in the form, DnsName.VnetId.ZoneId.TopLevelSuffix. This is set when the NIC is associated to a VM
-	InternalFqdn pulumi.StringPtrInput `pulumi:"internalFqdn"`
+	AppliedDnsServers    pulumi.StringArrayInput `pulumi:"appliedDnsServers"`
+	DnsServers           pulumi.StringArrayInput `pulumi:"dnsServers"`
+	InternalDnsNameLabel pulumi.StringPtrInput   `pulumi:"internalDnsNameLabel"`
+	InternalFqdn         pulumi.StringPtrInput   `pulumi:"internalFqdn"`
 }
 
 func (NetworkInterfaceDnsSettingsArgs) ElementType() reflect.Type {
@@ -7624,7 +6640,6 @@ func (i *networkInterfaceDnsSettingsPtrType) ToNetworkInterfaceDnsSettingsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceDnsSettingsPtrOutput)
 }
 
-// Dns Settings of a network interface
 type NetworkInterfaceDnsSettingsOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceDnsSettingsOutput) ElementType() reflect.Type {
@@ -7644,27 +6659,23 @@ func (o NetworkInterfaceDnsSettingsOutput) ToNetworkInterfaceDnsSettingsPtrOutpu
 }
 
 func (o NetworkInterfaceDnsSettingsOutput) ToNetworkInterfaceDnsSettingsPtrOutputWithContext(ctx context.Context) NetworkInterfaceDnsSettingsPtrOutput {
-	return o.ApplyT(func(v NetworkInterfaceDnsSettings) *NetworkInterfaceDnsSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceDnsSettings) *NetworkInterfaceDnsSettings {
 		return &v
 	}).(NetworkInterfaceDnsSettingsPtrOutput)
 }
 
-// Gets or sets list of Applied DNS servers IP addresses
 func (o NetworkInterfaceDnsSettingsOutput) AppliedDnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInterfaceDnsSettings) []string { return v.AppliedDnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets list of DNS servers IP addresses
 func (o NetworkInterfaceDnsSettingsOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInterfaceDnsSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets the Internal DNS name
 func (o NetworkInterfaceDnsSettingsOutput) InternalDnsNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceDnsSettings) *string { return v.InternalDnsNameLabel }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets full IDNS name in the form, DnsName.VnetId.ZoneId.TopLevelSuffix. This is set when the NIC is associated to a VM
 func (o NetworkInterfaceDnsSettingsOutput) InternalFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceDnsSettings) *string { return v.InternalFqdn }).(pulumi.StringPtrOutput)
 }
@@ -7684,10 +6695,15 @@ func (o NetworkInterfaceDnsSettingsPtrOutput) ToNetworkInterfaceDnsSettingsPtrOu
 }
 
 func (o NetworkInterfaceDnsSettingsPtrOutput) Elem() NetworkInterfaceDnsSettingsOutput {
-	return o.ApplyT(func(v *NetworkInterfaceDnsSettings) NetworkInterfaceDnsSettings { return *v }).(NetworkInterfaceDnsSettingsOutput)
+	return o.ApplyT(func(v *NetworkInterfaceDnsSettings) NetworkInterfaceDnsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfaceDnsSettings
+		return ret
+	}).(NetworkInterfaceDnsSettingsOutput)
 }
 
-// Gets or sets list of Applied DNS servers IP addresses
 func (o NetworkInterfaceDnsSettingsPtrOutput) AppliedDnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInterfaceDnsSettings) []string {
 		if v == nil {
@@ -7697,7 +6713,6 @@ func (o NetworkInterfaceDnsSettingsPtrOutput) AppliedDnsServers() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets list of DNS servers IP addresses
 func (o NetworkInterfaceDnsSettingsPtrOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInterfaceDnsSettings) []string {
 		if v == nil {
@@ -7707,7 +6722,6 @@ func (o NetworkInterfaceDnsSettingsPtrOutput) DnsServers() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets the Internal DNS name
 func (o NetworkInterfaceDnsSettingsPtrOutput) InternalDnsNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceDnsSettings) *string {
 		if v == nil {
@@ -7717,7 +6731,6 @@ func (o NetworkInterfaceDnsSettingsPtrOutput) InternalDnsNameLabel() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets full IDNS name in the form, DnsName.VnetId.ZoneId.TopLevelSuffix. This is set when the NIC is associated to a VM
 func (o NetworkInterfaceDnsSettingsPtrOutput) InternalFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceDnsSettings) *string {
 		if v == nil {
@@ -7727,16 +6740,11 @@ func (o NetworkInterfaceDnsSettingsPtrOutput) InternalFqdn() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Dns Settings of a network interface
 type NetworkInterfaceDnsSettingsResponse struct {
-	// Gets or sets list of Applied DNS servers IP addresses
-	AppliedDnsServers []string `pulumi:"appliedDnsServers"`
-	// Gets or sets list of DNS servers IP addresses
-	DnsServers []string `pulumi:"dnsServers"`
-	// Gets or sets the Internal DNS name
-	InternalDnsNameLabel *string `pulumi:"internalDnsNameLabel"`
-	// Gets or sets full IDNS name in the form, DnsName.VnetId.ZoneId.TopLevelSuffix. This is set when the NIC is associated to a VM
-	InternalFqdn *string `pulumi:"internalFqdn"`
+	AppliedDnsServers    []string `pulumi:"appliedDnsServers"`
+	DnsServers           []string `pulumi:"dnsServers"`
+	InternalDnsNameLabel *string  `pulumi:"internalDnsNameLabel"`
+	InternalFqdn         *string  `pulumi:"internalFqdn"`
 }
 
 // NetworkInterfaceDnsSettingsResponseInput is an input type that accepts NetworkInterfaceDnsSettingsResponseArgs and NetworkInterfaceDnsSettingsResponseOutput values.
@@ -7750,16 +6758,11 @@ type NetworkInterfaceDnsSettingsResponseInput interface {
 	ToNetworkInterfaceDnsSettingsResponseOutputWithContext(context.Context) NetworkInterfaceDnsSettingsResponseOutput
 }
 
-// Dns Settings of a network interface
 type NetworkInterfaceDnsSettingsResponseArgs struct {
-	// Gets or sets list of Applied DNS servers IP addresses
-	AppliedDnsServers pulumi.StringArrayInput `pulumi:"appliedDnsServers"`
-	// Gets or sets list of DNS servers IP addresses
-	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// Gets or sets the Internal DNS name
-	InternalDnsNameLabel pulumi.StringPtrInput `pulumi:"internalDnsNameLabel"`
-	// Gets or sets full IDNS name in the form, DnsName.VnetId.ZoneId.TopLevelSuffix. This is set when the NIC is associated to a VM
-	InternalFqdn pulumi.StringPtrInput `pulumi:"internalFqdn"`
+	AppliedDnsServers    pulumi.StringArrayInput `pulumi:"appliedDnsServers"`
+	DnsServers           pulumi.StringArrayInput `pulumi:"dnsServers"`
+	InternalDnsNameLabel pulumi.StringPtrInput   `pulumi:"internalDnsNameLabel"`
+	InternalFqdn         pulumi.StringPtrInput   `pulumi:"internalFqdn"`
 }
 
 func (NetworkInterfaceDnsSettingsResponseArgs) ElementType() reflect.Type {
@@ -7815,7 +6818,6 @@ func (i *networkInterfaceDnsSettingsResponsePtrType) ToNetworkInterfaceDnsSettin
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceDnsSettingsResponsePtrOutput)
 }
 
-// Dns Settings of a network interface
 type NetworkInterfaceDnsSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceDnsSettingsResponseOutput) ElementType() reflect.Type {
@@ -7835,27 +6837,23 @@ func (o NetworkInterfaceDnsSettingsResponseOutput) ToNetworkInterfaceDnsSettings
 }
 
 func (o NetworkInterfaceDnsSettingsResponseOutput) ToNetworkInterfaceDnsSettingsResponsePtrOutputWithContext(ctx context.Context) NetworkInterfaceDnsSettingsResponsePtrOutput {
-	return o.ApplyT(func(v NetworkInterfaceDnsSettingsResponse) *NetworkInterfaceDnsSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceDnsSettingsResponse) *NetworkInterfaceDnsSettingsResponse {
 		return &v
 	}).(NetworkInterfaceDnsSettingsResponsePtrOutput)
 }
 
-// Gets or sets list of Applied DNS servers IP addresses
 func (o NetworkInterfaceDnsSettingsResponseOutput) AppliedDnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInterfaceDnsSettingsResponse) []string { return v.AppliedDnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets list of DNS servers IP addresses
 func (o NetworkInterfaceDnsSettingsResponseOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInterfaceDnsSettingsResponse) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets the Internal DNS name
 func (o NetworkInterfaceDnsSettingsResponseOutput) InternalDnsNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceDnsSettingsResponse) *string { return v.InternalDnsNameLabel }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets full IDNS name in the form, DnsName.VnetId.ZoneId.TopLevelSuffix. This is set when the NIC is associated to a VM
 func (o NetworkInterfaceDnsSettingsResponseOutput) InternalFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceDnsSettingsResponse) *string { return v.InternalFqdn }).(pulumi.StringPtrOutput)
 }
@@ -7875,10 +6873,15 @@ func (o NetworkInterfaceDnsSettingsResponsePtrOutput) ToNetworkInterfaceDnsSetti
 }
 
 func (o NetworkInterfaceDnsSettingsResponsePtrOutput) Elem() NetworkInterfaceDnsSettingsResponseOutput {
-	return o.ApplyT(func(v *NetworkInterfaceDnsSettingsResponse) NetworkInterfaceDnsSettingsResponse { return *v }).(NetworkInterfaceDnsSettingsResponseOutput)
+	return o.ApplyT(func(v *NetworkInterfaceDnsSettingsResponse) NetworkInterfaceDnsSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfaceDnsSettingsResponse
+		return ret
+	}).(NetworkInterfaceDnsSettingsResponseOutput)
 }
 
-// Gets or sets list of Applied DNS servers IP addresses
 func (o NetworkInterfaceDnsSettingsResponsePtrOutput) AppliedDnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInterfaceDnsSettingsResponse) []string {
 		if v == nil {
@@ -7888,7 +6891,6 @@ func (o NetworkInterfaceDnsSettingsResponsePtrOutput) AppliedDnsServers() pulumi
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets list of DNS servers IP addresses
 func (o NetworkInterfaceDnsSettingsResponsePtrOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInterfaceDnsSettingsResponse) []string {
 		if v == nil {
@@ -7898,7 +6900,6 @@ func (o NetworkInterfaceDnsSettingsResponsePtrOutput) DnsServers() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets the Internal DNS name
 func (o NetworkInterfaceDnsSettingsResponsePtrOutput) InternalDnsNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceDnsSettingsResponse) *string {
 		if v == nil {
@@ -7908,7 +6909,6 @@ func (o NetworkInterfaceDnsSettingsResponsePtrOutput) InternalDnsNameLabel() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets full IDNS name in the form, DnsName.VnetId.ZoneId.TopLevelSuffix. This is set when the NIC is associated to a VM
 func (o NetworkInterfaceDnsSettingsResponsePtrOutput) InternalFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceDnsSettingsResponse) *string {
 		if v == nil {
@@ -7918,28 +6918,17 @@ func (o NetworkInterfaceDnsSettingsResponsePtrOutput) InternalFqdn() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// IPConfiguration in a NetworkInterface
 type NetworkInterfaceIpConfiguration struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets or sets the reference of LoadBalancerBackendAddressPool resource
+	Etag                            *string       `pulumi:"etag"`
+	Id                              *string       `pulumi:"id"`
 	LoadBalancerBackendAddressPools []SubResource `pulumi:"loadBalancerBackendAddressPools"`
-	// Gets or sets list of references of LoadBalancerInboundNatRules
-	LoadBalancerInboundNatRules []SubResource `pulumi:"loadBalancerInboundNatRules"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the privateIPAddress of the Network Interface IP Configuration
-	PrivateIPAddress *string `pulumi:"privateIPAddress"`
-	// Gets or sets PrivateIP allocation method (Static/Dynamic)
-	PrivateIPAllocationMethod *string `pulumi:"privateIPAllocationMethod"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the reference of the PublicIP resource
-	PublicIPAddress *SubResource `pulumi:"publicIPAddress"`
-	// Gets or sets the reference of the subnet resource
-	Subnet *SubResource `pulumi:"subnet"`
+	LoadBalancerInboundNatRules     []SubResource `pulumi:"loadBalancerInboundNatRules"`
+	Name                            *string       `pulumi:"name"`
+	PrivateIPAddress                *string       `pulumi:"privateIPAddress"`
+	PrivateIPAllocationMethod       *string       `pulumi:"privateIPAllocationMethod"`
+	ProvisioningState               *string       `pulumi:"provisioningState"`
+	PublicIPAddress                 *SubResource  `pulumi:"publicIPAddress"`
+	Subnet                          *SubResource  `pulumi:"subnet"`
 }
 
 // NetworkInterfaceIpConfigurationInput is an input type that accepts NetworkInterfaceIpConfigurationArgs and NetworkInterfaceIpConfigurationOutput values.
@@ -7953,28 +6942,17 @@ type NetworkInterfaceIpConfigurationInput interface {
 	ToNetworkInterfaceIpConfigurationOutputWithContext(context.Context) NetworkInterfaceIpConfigurationOutput
 }
 
-// IPConfiguration in a NetworkInterface
 type NetworkInterfaceIpConfigurationArgs struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the reference of LoadBalancerBackendAddressPool resource
+	Etag                            pulumi.StringPtrInput `pulumi:"etag"`
+	Id                              pulumi.StringPtrInput `pulumi:"id"`
 	LoadBalancerBackendAddressPools SubResourceArrayInput `pulumi:"loadBalancerBackendAddressPools"`
-	// Gets or sets list of references of LoadBalancerInboundNatRules
-	LoadBalancerInboundNatRules SubResourceArrayInput `pulumi:"loadBalancerInboundNatRules"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the privateIPAddress of the Network Interface IP Configuration
-	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
-	// Gets or sets PrivateIP allocation method (Static/Dynamic)
-	PrivateIPAllocationMethod pulumi.StringPtrInput `pulumi:"privateIPAllocationMethod"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the reference of the PublicIP resource
-	PublicIPAddress SubResourcePtrInput `pulumi:"publicIPAddress"`
-	// Gets or sets the reference of the subnet resource
-	Subnet SubResourcePtrInput `pulumi:"subnet"`
+	LoadBalancerInboundNatRules     SubResourceArrayInput `pulumi:"loadBalancerInboundNatRules"`
+	Name                            pulumi.StringPtrInput `pulumi:"name"`
+	PrivateIPAddress                pulumi.StringPtrInput `pulumi:"privateIPAddress"`
+	PrivateIPAllocationMethod       pulumi.StringPtrInput `pulumi:"privateIPAllocationMethod"`
+	ProvisioningState               pulumi.StringPtrInput `pulumi:"provisioningState"`
+	PublicIPAddress                 SubResourcePtrInput   `pulumi:"publicIPAddress"`
+	Subnet                          SubResourcePtrInput   `pulumi:"subnet"`
 }
 
 func (NetworkInterfaceIpConfigurationArgs) ElementType() reflect.Type {
@@ -8014,7 +6992,6 @@ func (i NetworkInterfaceIpConfigurationArray) ToNetworkInterfaceIpConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceIpConfigurationArrayOutput)
 }
 
-// IPConfiguration in a NetworkInterface
 type NetworkInterfaceIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceIpConfigurationOutput) ElementType() reflect.Type {
@@ -8029,52 +7006,42 @@ func (o NetworkInterfaceIpConfigurationOutput) ToNetworkInterfaceIpConfiguration
 	return o
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o NetworkInterfaceIpConfigurationOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfiguration) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o NetworkInterfaceIpConfigurationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference of LoadBalancerBackendAddressPool resource
 func (o NetworkInterfaceIpConfigurationOutput) LoadBalancerBackendAddressPools() SubResourceArrayOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfiguration) []SubResource { return v.LoadBalancerBackendAddressPools }).(SubResourceArrayOutput)
 }
 
-// Gets or sets list of references of LoadBalancerInboundNatRules
 func (o NetworkInterfaceIpConfigurationOutput) LoadBalancerInboundNatRules() SubResourceArrayOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfiguration) []SubResource { return v.LoadBalancerInboundNatRules }).(SubResourceArrayOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o NetworkInterfaceIpConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the privateIPAddress of the Network Interface IP Configuration
 func (o NetworkInterfaceIpConfigurationOutput) PrivateIPAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfiguration) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets PrivateIP allocation method (Static/Dynamic)
 func (o NetworkInterfaceIpConfigurationOutput) PrivateIPAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfiguration) *string { return v.PrivateIPAllocationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o NetworkInterfaceIpConfigurationOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference of the PublicIP resource
 func (o NetworkInterfaceIpConfigurationOutput) PublicIPAddress() SubResourcePtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfiguration) *SubResource { return v.PublicIPAddress }).(SubResourcePtrOutput)
 }
 
-// Gets or sets the reference of the subnet resource
 func (o NetworkInterfaceIpConfigurationOutput) Subnet() SubResourcePtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfiguration) *SubResource { return v.Subnet }).(SubResourcePtrOutput)
 }
@@ -8099,28 +7066,17 @@ func (o NetworkInterfaceIpConfigurationArrayOutput) Index(i pulumi.IntInput) Net
 	}).(NetworkInterfaceIpConfigurationOutput)
 }
 
-// IPConfiguration in a NetworkInterface
 type NetworkInterfaceIpConfigurationResponse struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets or sets the reference of LoadBalancerBackendAddressPool resource
+	Etag                            *string               `pulumi:"etag"`
+	Id                              *string               `pulumi:"id"`
 	LoadBalancerBackendAddressPools []SubResourceResponse `pulumi:"loadBalancerBackendAddressPools"`
-	// Gets or sets list of references of LoadBalancerInboundNatRules
-	LoadBalancerInboundNatRules []SubResourceResponse `pulumi:"loadBalancerInboundNatRules"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the privateIPAddress of the Network Interface IP Configuration
-	PrivateIPAddress *string `pulumi:"privateIPAddress"`
-	// Gets or sets PrivateIP allocation method (Static/Dynamic)
-	PrivateIPAllocationMethod *string `pulumi:"privateIPAllocationMethod"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the reference of the PublicIP resource
-	PublicIPAddress *SubResourceResponse `pulumi:"publicIPAddress"`
-	// Gets or sets the reference of the subnet resource
-	Subnet *SubResourceResponse `pulumi:"subnet"`
+	LoadBalancerInboundNatRules     []SubResourceResponse `pulumi:"loadBalancerInboundNatRules"`
+	Name                            *string               `pulumi:"name"`
+	PrivateIPAddress                *string               `pulumi:"privateIPAddress"`
+	PrivateIPAllocationMethod       *string               `pulumi:"privateIPAllocationMethod"`
+	ProvisioningState               *string               `pulumi:"provisioningState"`
+	PublicIPAddress                 *SubResourceResponse  `pulumi:"publicIPAddress"`
+	Subnet                          *SubResourceResponse  `pulumi:"subnet"`
 }
 
 // NetworkInterfaceIpConfigurationResponseInput is an input type that accepts NetworkInterfaceIpConfigurationResponseArgs and NetworkInterfaceIpConfigurationResponseOutput values.
@@ -8134,28 +7090,17 @@ type NetworkInterfaceIpConfigurationResponseInput interface {
 	ToNetworkInterfaceIpConfigurationResponseOutputWithContext(context.Context) NetworkInterfaceIpConfigurationResponseOutput
 }
 
-// IPConfiguration in a NetworkInterface
 type NetworkInterfaceIpConfigurationResponseArgs struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the reference of LoadBalancerBackendAddressPool resource
+	Etag                            pulumi.StringPtrInput         `pulumi:"etag"`
+	Id                              pulumi.StringPtrInput         `pulumi:"id"`
 	LoadBalancerBackendAddressPools SubResourceResponseArrayInput `pulumi:"loadBalancerBackendAddressPools"`
-	// Gets or sets list of references of LoadBalancerInboundNatRules
-	LoadBalancerInboundNatRules SubResourceResponseArrayInput `pulumi:"loadBalancerInboundNatRules"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the privateIPAddress of the Network Interface IP Configuration
-	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
-	// Gets or sets PrivateIP allocation method (Static/Dynamic)
-	PrivateIPAllocationMethod pulumi.StringPtrInput `pulumi:"privateIPAllocationMethod"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the reference of the PublicIP resource
-	PublicIPAddress SubResourceResponsePtrInput `pulumi:"publicIPAddress"`
-	// Gets or sets the reference of the subnet resource
-	Subnet SubResourceResponsePtrInput `pulumi:"subnet"`
+	LoadBalancerInboundNatRules     SubResourceResponseArrayInput `pulumi:"loadBalancerInboundNatRules"`
+	Name                            pulumi.StringPtrInput         `pulumi:"name"`
+	PrivateIPAddress                pulumi.StringPtrInput         `pulumi:"privateIPAddress"`
+	PrivateIPAllocationMethod       pulumi.StringPtrInput         `pulumi:"privateIPAllocationMethod"`
+	ProvisioningState               pulumi.StringPtrInput         `pulumi:"provisioningState"`
+	PublicIPAddress                 SubResourceResponsePtrInput   `pulumi:"publicIPAddress"`
+	Subnet                          SubResourceResponsePtrInput   `pulumi:"subnet"`
 }
 
 func (NetworkInterfaceIpConfigurationResponseArgs) ElementType() reflect.Type {
@@ -8195,7 +7140,6 @@ func (i NetworkInterfaceIpConfigurationResponseArray) ToNetworkInterfaceIpConfig
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceIpConfigurationResponseArrayOutput)
 }
 
-// IPConfiguration in a NetworkInterface
 type NetworkInterfaceIpConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceIpConfigurationResponseOutput) ElementType() reflect.Type {
@@ -8210,56 +7154,46 @@ func (o NetworkInterfaceIpConfigurationResponseOutput) ToNetworkInterfaceIpConfi
 	return o
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o NetworkInterfaceIpConfigurationResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfigurationResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o NetworkInterfaceIpConfigurationResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfigurationResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference of LoadBalancerBackendAddressPool resource
 func (o NetworkInterfaceIpConfigurationResponseOutput) LoadBalancerBackendAddressPools() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfigurationResponse) []SubResourceResponse {
 		return v.LoadBalancerBackendAddressPools
 	}).(SubResourceResponseArrayOutput)
 }
 
-// Gets or sets list of references of LoadBalancerInboundNatRules
 func (o NetworkInterfaceIpConfigurationResponseOutput) LoadBalancerInboundNatRules() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfigurationResponse) []SubResourceResponse {
 		return v.LoadBalancerInboundNatRules
 	}).(SubResourceResponseArrayOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o NetworkInterfaceIpConfigurationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfigurationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the privateIPAddress of the Network Interface IP Configuration
 func (o NetworkInterfaceIpConfigurationResponseOutput) PrivateIPAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfigurationResponse) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets PrivateIP allocation method (Static/Dynamic)
 func (o NetworkInterfaceIpConfigurationResponseOutput) PrivateIPAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfigurationResponse) *string { return v.PrivateIPAllocationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o NetworkInterfaceIpConfigurationResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfigurationResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference of the PublicIP resource
 func (o NetworkInterfaceIpConfigurationResponseOutput) PublicIPAddress() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfigurationResponse) *SubResourceResponse { return v.PublicIPAddress }).(SubResourceResponsePtrOutput)
 }
 
-// Gets or sets the reference of the subnet resource
 func (o NetworkInterfaceIpConfigurationResponseOutput) Subnet() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfigurationResponse) *SubResourceResponse { return v.Subnet }).(SubResourceResponsePtrOutput)
 }
@@ -8284,22 +7218,14 @@ func (o NetworkInterfaceIpConfigurationResponseArrayOutput) Index(i pulumi.IntIn
 	}).(NetworkInterfaceIpConfigurationResponseOutput)
 }
 
-// Outbound NAT pool of the loadbalancer
 type OutboundNatRule struct {
-	// Gets or sets the number of outbound ports to be used for SNAT
-	AllocatedOutboundPorts int `pulumi:"allocatedOutboundPorts"`
-	// Gets or sets a reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs
-	BackendAddressPool SubResource `pulumi:"backendAddressPool"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets Frontend IP addresses of the load balancer
+	AllocatedOutboundPorts   int           `pulumi:"allocatedOutboundPorts"`
+	BackendAddressPool       SubResource   `pulumi:"backendAddressPool"`
+	Etag                     *string       `pulumi:"etag"`
 	FrontendIPConfigurations []SubResource `pulumi:"frontendIPConfigurations"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
+	Id                       *string       `pulumi:"id"`
+	Name                     *string       `pulumi:"name"`
+	ProvisioningState        *string       `pulumi:"provisioningState"`
 }
 
 // OutboundNatRuleInput is an input type that accepts OutboundNatRuleArgs and OutboundNatRuleOutput values.
@@ -8313,22 +7239,14 @@ type OutboundNatRuleInput interface {
 	ToOutboundNatRuleOutputWithContext(context.Context) OutboundNatRuleOutput
 }
 
-// Outbound NAT pool of the loadbalancer
 type OutboundNatRuleArgs struct {
-	// Gets or sets the number of outbound ports to be used for SNAT
-	AllocatedOutboundPorts pulumi.IntInput `pulumi:"allocatedOutboundPorts"`
-	// Gets or sets a reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs
-	BackendAddressPool SubResourceInput `pulumi:"backendAddressPool"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Gets or sets Frontend IP addresses of the load balancer
+	AllocatedOutboundPorts   pulumi.IntInput       `pulumi:"allocatedOutboundPorts"`
+	BackendAddressPool       SubResourceInput      `pulumi:"backendAddressPool"`
+	Etag                     pulumi.StringPtrInput `pulumi:"etag"`
 	FrontendIPConfigurations SubResourceArrayInput `pulumi:"frontendIPConfigurations"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	Id                       pulumi.StringPtrInput `pulumi:"id"`
+	Name                     pulumi.StringPtrInput `pulumi:"name"`
+	ProvisioningState        pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
 func (OutboundNatRuleArgs) ElementType() reflect.Type {
@@ -8368,7 +7286,6 @@ func (i OutboundNatRuleArray) ToOutboundNatRuleArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundNatRuleArrayOutput)
 }
 
-// Outbound NAT pool of the loadbalancer
 type OutboundNatRuleOutput struct{ *pulumi.OutputState }
 
 func (OutboundNatRuleOutput) ElementType() reflect.Type {
@@ -8383,37 +7300,30 @@ func (o OutboundNatRuleOutput) ToOutboundNatRuleOutputWithContext(ctx context.Co
 	return o
 }
 
-// Gets or sets the number of outbound ports to be used for SNAT
 func (o OutboundNatRuleOutput) AllocatedOutboundPorts() pulumi.IntOutput {
 	return o.ApplyT(func(v OutboundNatRule) int { return v.AllocatedOutboundPorts }).(pulumi.IntOutput)
 }
 
-// Gets or sets a reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs
 func (o OutboundNatRuleOutput) BackendAddressPool() SubResourceOutput {
 	return o.ApplyT(func(v OutboundNatRule) SubResource { return v.BackendAddressPool }).(SubResourceOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o OutboundNatRuleOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OutboundNatRule) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Frontend IP addresses of the load balancer
 func (o OutboundNatRuleOutput) FrontendIPConfigurations() SubResourceArrayOutput {
 	return o.ApplyT(func(v OutboundNatRule) []SubResource { return v.FrontendIPConfigurations }).(SubResourceArrayOutput)
 }
 
-// Resource Id
 func (o OutboundNatRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OutboundNatRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o OutboundNatRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OutboundNatRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o OutboundNatRuleOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OutboundNatRule) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -8438,22 +7348,14 @@ func (o OutboundNatRuleArrayOutput) Index(i pulumi.IntInput) OutboundNatRuleOutp
 	}).(OutboundNatRuleOutput)
 }
 
-// Outbound NAT pool of the loadbalancer
 type OutboundNatRuleResponse struct {
-	// Gets or sets the number of outbound ports to be used for SNAT
-	AllocatedOutboundPorts int `pulumi:"allocatedOutboundPorts"`
-	// Gets or sets a reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs
-	BackendAddressPool SubResourceResponse `pulumi:"backendAddressPool"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets Frontend IP addresses of the load balancer
+	AllocatedOutboundPorts   int                   `pulumi:"allocatedOutboundPorts"`
+	BackendAddressPool       SubResourceResponse   `pulumi:"backendAddressPool"`
+	Etag                     *string               `pulumi:"etag"`
 	FrontendIPConfigurations []SubResourceResponse `pulumi:"frontendIPConfigurations"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
+	Id                       *string               `pulumi:"id"`
+	Name                     *string               `pulumi:"name"`
+	ProvisioningState        *string               `pulumi:"provisioningState"`
 }
 
 // OutboundNatRuleResponseInput is an input type that accepts OutboundNatRuleResponseArgs and OutboundNatRuleResponseOutput values.
@@ -8467,22 +7369,14 @@ type OutboundNatRuleResponseInput interface {
 	ToOutboundNatRuleResponseOutputWithContext(context.Context) OutboundNatRuleResponseOutput
 }
 
-// Outbound NAT pool of the loadbalancer
 type OutboundNatRuleResponseArgs struct {
-	// Gets or sets the number of outbound ports to be used for SNAT
-	AllocatedOutboundPorts pulumi.IntInput `pulumi:"allocatedOutboundPorts"`
-	// Gets or sets a reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs
-	BackendAddressPool SubResourceResponseInput `pulumi:"backendAddressPool"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Gets or sets Frontend IP addresses of the load balancer
+	AllocatedOutboundPorts   pulumi.IntInput               `pulumi:"allocatedOutboundPorts"`
+	BackendAddressPool       SubResourceResponseInput      `pulumi:"backendAddressPool"`
+	Etag                     pulumi.StringPtrInput         `pulumi:"etag"`
 	FrontendIPConfigurations SubResourceResponseArrayInput `pulumi:"frontendIPConfigurations"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	Id                       pulumi.StringPtrInput         `pulumi:"id"`
+	Name                     pulumi.StringPtrInput         `pulumi:"name"`
+	ProvisioningState        pulumi.StringPtrInput         `pulumi:"provisioningState"`
 }
 
 func (OutboundNatRuleResponseArgs) ElementType() reflect.Type {
@@ -8522,7 +7416,6 @@ func (i OutboundNatRuleResponseArray) ToOutboundNatRuleResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundNatRuleResponseArrayOutput)
 }
 
-// Outbound NAT pool of the loadbalancer
 type OutboundNatRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (OutboundNatRuleResponseOutput) ElementType() reflect.Type {
@@ -8537,37 +7430,30 @@ func (o OutboundNatRuleResponseOutput) ToOutboundNatRuleResponseOutputWithContex
 	return o
 }
 
-// Gets or sets the number of outbound ports to be used for SNAT
 func (o OutboundNatRuleResponseOutput) AllocatedOutboundPorts() pulumi.IntOutput {
 	return o.ApplyT(func(v OutboundNatRuleResponse) int { return v.AllocatedOutboundPorts }).(pulumi.IntOutput)
 }
 
-// Gets or sets a reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs
 func (o OutboundNatRuleResponseOutput) BackendAddressPool() SubResourceResponseOutput {
 	return o.ApplyT(func(v OutboundNatRuleResponse) SubResourceResponse { return v.BackendAddressPool }).(SubResourceResponseOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o OutboundNatRuleResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OutboundNatRuleResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Frontend IP addresses of the load balancer
 func (o OutboundNatRuleResponseOutput) FrontendIPConfigurations() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v OutboundNatRuleResponse) []SubResourceResponse { return v.FrontendIPConfigurations }).(SubResourceResponseArrayOutput)
 }
 
-// Resource Id
 func (o OutboundNatRuleResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OutboundNatRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o OutboundNatRuleResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OutboundNatRuleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o OutboundNatRuleResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OutboundNatRuleResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -8592,28 +7478,17 @@ func (o OutboundNatRuleResponseArrayOutput) Index(i pulumi.IntInput) OutboundNat
 	}).(OutboundNatRuleResponseOutput)
 }
 
-// Load balancer Probe
 type Probe struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets or sets the interval, in seconds, for how frequently to probe the endpoint for health status. Typically, the interval is slightly less than half the allocated timeout period (in seconds) which allows two full probes before taking the instance out of rotation. The default value is 15, the minimum value is 5
-	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// Gets Load balancer rules that use this probe
+	Etag               *string       `pulumi:"etag"`
+	Id                 *string       `pulumi:"id"`
+	IntervalInSeconds  *int          `pulumi:"intervalInSeconds"`
 	LoadBalancingRules []SubResource `pulumi:"loadBalancingRules"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the number of probes where if no response, will result in stopping further traffic from being delivered to the endpoint. This values allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure.
-	NumberOfProbes *int `pulumi:"numberOfProbes"`
-	// Gets or sets Port for communicating the probe. Possible values range from 1 to 65535, inclusive.
-	Port int `pulumi:"port"`
-	// Gets or sets the protocol of the end point. Possible values are http pr Tcp. If Tcp is specified, a received ACK is required for the probe to be successful. If http is specified,a 200 OK response from the specifies URI is required for the probe to be successful
-	Protocol string `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the URI used for requesting health status from the VM. Path is required if a protocol is set to http. Otherwise, it is not allowed. There is no default value
-	RequestPath *string `pulumi:"requestPath"`
+	Name               *string       `pulumi:"name"`
+	NumberOfProbes     *int          `pulumi:"numberOfProbes"`
+	Port               int           `pulumi:"port"`
+	Protocol           string        `pulumi:"protocol"`
+	ProvisioningState  *string       `pulumi:"provisioningState"`
+	RequestPath        *string       `pulumi:"requestPath"`
 }
 
 // ProbeInput is an input type that accepts ProbeArgs and ProbeOutput values.
@@ -8627,28 +7502,17 @@ type ProbeInput interface {
 	ToProbeOutputWithContext(context.Context) ProbeOutput
 }
 
-// Load balancer Probe
 type ProbeArgs struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the interval, in seconds, for how frequently to probe the endpoint for health status. Typically, the interval is slightly less than half the allocated timeout period (in seconds) which allows two full probes before taking the instance out of rotation. The default value is 15, the minimum value is 5
-	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
-	// Gets Load balancer rules that use this probe
+	Etag               pulumi.StringPtrInput `pulumi:"etag"`
+	Id                 pulumi.StringPtrInput `pulumi:"id"`
+	IntervalInSeconds  pulumi.IntPtrInput    `pulumi:"intervalInSeconds"`
 	LoadBalancingRules SubResourceArrayInput `pulumi:"loadBalancingRules"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the number of probes where if no response, will result in stopping further traffic from being delivered to the endpoint. This values allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure.
-	NumberOfProbes pulumi.IntPtrInput `pulumi:"numberOfProbes"`
-	// Gets or sets Port for communicating the probe. Possible values range from 1 to 65535, inclusive.
-	Port pulumi.IntInput `pulumi:"port"`
-	// Gets or sets the protocol of the end point. Possible values are http pr Tcp. If Tcp is specified, a received ACK is required for the probe to be successful. If http is specified,a 200 OK response from the specifies URI is required for the probe to be successful
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the URI used for requesting health status from the VM. Path is required if a protocol is set to http. Otherwise, it is not allowed. There is no default value
-	RequestPath pulumi.StringPtrInput `pulumi:"requestPath"`
+	Name               pulumi.StringPtrInput `pulumi:"name"`
+	NumberOfProbes     pulumi.IntPtrInput    `pulumi:"numberOfProbes"`
+	Port               pulumi.IntInput       `pulumi:"port"`
+	Protocol           pulumi.StringInput    `pulumi:"protocol"`
+	ProvisioningState  pulumi.StringPtrInput `pulumi:"provisioningState"`
+	RequestPath        pulumi.StringPtrInput `pulumi:"requestPath"`
 }
 
 func (ProbeArgs) ElementType() reflect.Type {
@@ -8688,7 +7552,6 @@ func (i ProbeArray) ToProbeArrayOutputWithContext(ctx context.Context) ProbeArra
 	return pulumi.ToOutputWithContext(ctx, i).(ProbeArrayOutput)
 }
 
-// Load balancer Probe
 type ProbeOutput struct{ *pulumi.OutputState }
 
 func (ProbeOutput) ElementType() reflect.Type {
@@ -8703,52 +7566,42 @@ func (o ProbeOutput) ToProbeOutputWithContext(ctx context.Context) ProbeOutput {
 	return o
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ProbeOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Probe) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ProbeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Probe) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the interval, in seconds, for how frequently to probe the endpoint for health status. Typically, the interval is slightly less than half the allocated timeout period (in seconds) which allows two full probes before taking the instance out of rotation. The default value is 15, the minimum value is 5
 func (o ProbeOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Probe) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Gets Load balancer rules that use this probe
 func (o ProbeOutput) LoadBalancingRules() SubResourceArrayOutput {
 	return o.ApplyT(func(v Probe) []SubResource { return v.LoadBalancingRules }).(SubResourceArrayOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ProbeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Probe) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the number of probes where if no response, will result in stopping further traffic from being delivered to the endpoint. This values allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure.
 func (o ProbeOutput) NumberOfProbes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Probe) *int { return v.NumberOfProbes }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets Port for communicating the probe. Possible values range from 1 to 65535, inclusive.
 func (o ProbeOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v Probe) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// Gets or sets the protocol of the end point. Possible values are http pr Tcp. If Tcp is specified, a received ACK is required for the probe to be successful. If http is specified,a 200 OK response from the specifies URI is required for the probe to be successful
 func (o ProbeOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v Probe) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o ProbeOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Probe) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the URI used for requesting health status from the VM. Path is required if a protocol is set to http. Otherwise, it is not allowed. There is no default value
 func (o ProbeOutput) RequestPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Probe) *string { return v.RequestPath }).(pulumi.StringPtrOutput)
 }
@@ -8773,28 +7626,17 @@ func (o ProbeArrayOutput) Index(i pulumi.IntInput) ProbeOutput {
 	}).(ProbeOutput)
 }
 
-// Load balancer Probe
 type ProbeResponse struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets or sets the interval, in seconds, for how frequently to probe the endpoint for health status. Typically, the interval is slightly less than half the allocated timeout period (in seconds) which allows two full probes before taking the instance out of rotation. The default value is 15, the minimum value is 5
-	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// Gets Load balancer rules that use this probe
+	Etag               *string               `pulumi:"etag"`
+	Id                 *string               `pulumi:"id"`
+	IntervalInSeconds  *int                  `pulumi:"intervalInSeconds"`
 	LoadBalancingRules []SubResourceResponse `pulumi:"loadBalancingRules"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the number of probes where if no response, will result in stopping further traffic from being delivered to the endpoint. This values allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure.
-	NumberOfProbes *int `pulumi:"numberOfProbes"`
-	// Gets or sets Port for communicating the probe. Possible values range from 1 to 65535, inclusive.
-	Port int `pulumi:"port"`
-	// Gets or sets the protocol of the end point. Possible values are http pr Tcp. If Tcp is specified, a received ACK is required for the probe to be successful. If http is specified,a 200 OK response from the specifies URI is required for the probe to be successful
-	Protocol string `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the URI used for requesting health status from the VM. Path is required if a protocol is set to http. Otherwise, it is not allowed. There is no default value
-	RequestPath *string `pulumi:"requestPath"`
+	Name               *string               `pulumi:"name"`
+	NumberOfProbes     *int                  `pulumi:"numberOfProbes"`
+	Port               int                   `pulumi:"port"`
+	Protocol           string                `pulumi:"protocol"`
+	ProvisioningState  *string               `pulumi:"provisioningState"`
+	RequestPath        *string               `pulumi:"requestPath"`
 }
 
 // ProbeResponseInput is an input type that accepts ProbeResponseArgs and ProbeResponseOutput values.
@@ -8808,28 +7650,17 @@ type ProbeResponseInput interface {
 	ToProbeResponseOutputWithContext(context.Context) ProbeResponseOutput
 }
 
-// Load balancer Probe
 type ProbeResponseArgs struct {
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the interval, in seconds, for how frequently to probe the endpoint for health status. Typically, the interval is slightly less than half the allocated timeout period (in seconds) which allows two full probes before taking the instance out of rotation. The default value is 15, the minimum value is 5
-	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
-	// Gets Load balancer rules that use this probe
+	Etag               pulumi.StringPtrInput         `pulumi:"etag"`
+	Id                 pulumi.StringPtrInput         `pulumi:"id"`
+	IntervalInSeconds  pulumi.IntPtrInput            `pulumi:"intervalInSeconds"`
 	LoadBalancingRules SubResourceResponseArrayInput `pulumi:"loadBalancingRules"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the number of probes where if no response, will result in stopping further traffic from being delivered to the endpoint. This values allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure.
-	NumberOfProbes pulumi.IntPtrInput `pulumi:"numberOfProbes"`
-	// Gets or sets Port for communicating the probe. Possible values range from 1 to 65535, inclusive.
-	Port pulumi.IntInput `pulumi:"port"`
-	// Gets or sets the protocol of the end point. Possible values are http pr Tcp. If Tcp is specified, a received ACK is required for the probe to be successful. If http is specified,a 200 OK response from the specifies URI is required for the probe to be successful
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the URI used for requesting health status from the VM. Path is required if a protocol is set to http. Otherwise, it is not allowed. There is no default value
-	RequestPath pulumi.StringPtrInput `pulumi:"requestPath"`
+	Name               pulumi.StringPtrInput         `pulumi:"name"`
+	NumberOfProbes     pulumi.IntPtrInput            `pulumi:"numberOfProbes"`
+	Port               pulumi.IntInput               `pulumi:"port"`
+	Protocol           pulumi.StringInput            `pulumi:"protocol"`
+	ProvisioningState  pulumi.StringPtrInput         `pulumi:"provisioningState"`
+	RequestPath        pulumi.StringPtrInput         `pulumi:"requestPath"`
 }
 
 func (ProbeResponseArgs) ElementType() reflect.Type {
@@ -8869,7 +7700,6 @@ func (i ProbeResponseArray) ToProbeResponseArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ProbeResponseArrayOutput)
 }
 
-// Load balancer Probe
 type ProbeResponseOutput struct{ *pulumi.OutputState }
 
 func (ProbeResponseOutput) ElementType() reflect.Type {
@@ -8884,52 +7714,42 @@ func (o ProbeResponseOutput) ToProbeResponseOutputWithContext(ctx context.Contex
 	return o
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o ProbeResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProbeResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ProbeResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProbeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the interval, in seconds, for how frequently to probe the endpoint for health status. Typically, the interval is slightly less than half the allocated timeout period (in seconds) which allows two full probes before taking the instance out of rotation. The default value is 15, the minimum value is 5
 func (o ProbeResponseOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProbeResponse) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Gets Load balancer rules that use this probe
 func (o ProbeResponseOutput) LoadBalancingRules() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v ProbeResponse) []SubResourceResponse { return v.LoadBalancingRules }).(SubResourceResponseArrayOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o ProbeResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProbeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the number of probes where if no response, will result in stopping further traffic from being delivered to the endpoint. This values allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure.
 func (o ProbeResponseOutput) NumberOfProbes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProbeResponse) *int { return v.NumberOfProbes }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets Port for communicating the probe. Possible values range from 1 to 65535, inclusive.
 func (o ProbeResponseOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ProbeResponse) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// Gets or sets the protocol of the end point. Possible values are http pr Tcp. If Tcp is specified, a received ACK is required for the probe to be successful. If http is specified,a 200 OK response from the specifies URI is required for the probe to be successful
 func (o ProbeResponseOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v ProbeResponse) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o ProbeResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProbeResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the URI used for requesting health status from the VM. Path is required if a protocol is set to http. Otherwise, it is not allowed. There is no default value
 func (o ProbeResponseOutput) RequestPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProbeResponse) *string { return v.RequestPath }).(pulumi.StringPtrOutput)
 }
@@ -8954,14 +7774,10 @@ func (o ProbeResponseArrayOutput) Index(i pulumi.IntInput) ProbeResponseOutput {
 	}).(ProbeResponseOutput)
 }
 
-// Contains FQDN of the DNS record associated with the public IP address
 type PublicIpAddressDnsSettings struct {
-	// Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
-	// Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
-	Fqdn *string `pulumi:"fqdn"`
-	// Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-	ReverseFqdn *string `pulumi:"reverseFqdn"`
+	Fqdn            *string `pulumi:"fqdn"`
+	ReverseFqdn     *string `pulumi:"reverseFqdn"`
 }
 
 // PublicIpAddressDnsSettingsInput is an input type that accepts PublicIpAddressDnsSettingsArgs and PublicIpAddressDnsSettingsOutput values.
@@ -8975,14 +7791,10 @@ type PublicIpAddressDnsSettingsInput interface {
 	ToPublicIpAddressDnsSettingsOutputWithContext(context.Context) PublicIpAddressDnsSettingsOutput
 }
 
-// Contains FQDN of the DNS record associated with the public IP address
 type PublicIpAddressDnsSettingsArgs struct {
-	// Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel pulumi.StringPtrInput `pulumi:"domainNameLabel"`
-	// Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-	ReverseFqdn pulumi.StringPtrInput `pulumi:"reverseFqdn"`
+	Fqdn            pulumi.StringPtrInput `pulumi:"fqdn"`
+	ReverseFqdn     pulumi.StringPtrInput `pulumi:"reverseFqdn"`
 }
 
 func (PublicIpAddressDnsSettingsArgs) ElementType() reflect.Type {
@@ -9038,7 +7850,6 @@ func (i *publicIpAddressDnsSettingsPtrType) ToPublicIpAddressDnsSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIpAddressDnsSettingsPtrOutput)
 }
 
-// Contains FQDN of the DNS record associated with the public IP address
 type PublicIpAddressDnsSettingsOutput struct{ *pulumi.OutputState }
 
 func (PublicIpAddressDnsSettingsOutput) ElementType() reflect.Type {
@@ -9058,22 +7869,19 @@ func (o PublicIpAddressDnsSettingsOutput) ToPublicIpAddressDnsSettingsPtrOutput(
 }
 
 func (o PublicIpAddressDnsSettingsOutput) ToPublicIpAddressDnsSettingsPtrOutputWithContext(ctx context.Context) PublicIpAddressDnsSettingsPtrOutput {
-	return o.ApplyT(func(v PublicIpAddressDnsSettings) *PublicIpAddressDnsSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicIpAddressDnsSettings) *PublicIpAddressDnsSettings {
 		return &v
 	}).(PublicIpAddressDnsSettingsPtrOutput)
 }
 
-// Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 func (o PublicIpAddressDnsSettingsOutput) DomainNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIpAddressDnsSettings) *string { return v.DomainNameLabel }).(pulumi.StringPtrOutput)
 }
 
-// Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
 func (o PublicIpAddressDnsSettingsOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIpAddressDnsSettings) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 func (o PublicIpAddressDnsSettingsOutput) ReverseFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIpAddressDnsSettings) *string { return v.ReverseFqdn }).(pulumi.StringPtrOutput)
 }
@@ -9093,10 +7901,15 @@ func (o PublicIpAddressDnsSettingsPtrOutput) ToPublicIpAddressDnsSettingsPtrOutp
 }
 
 func (o PublicIpAddressDnsSettingsPtrOutput) Elem() PublicIpAddressDnsSettingsOutput {
-	return o.ApplyT(func(v *PublicIpAddressDnsSettings) PublicIpAddressDnsSettings { return *v }).(PublicIpAddressDnsSettingsOutput)
+	return o.ApplyT(func(v *PublicIpAddressDnsSettings) PublicIpAddressDnsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret PublicIpAddressDnsSettings
+		return ret
+	}).(PublicIpAddressDnsSettingsOutput)
 }
 
-// Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 func (o PublicIpAddressDnsSettingsPtrOutput) DomainNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIpAddressDnsSettings) *string {
 		if v == nil {
@@ -9106,7 +7919,6 @@ func (o PublicIpAddressDnsSettingsPtrOutput) DomainNameLabel() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
 func (o PublicIpAddressDnsSettingsPtrOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIpAddressDnsSettings) *string {
 		if v == nil {
@@ -9116,7 +7928,6 @@ func (o PublicIpAddressDnsSettingsPtrOutput) Fqdn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 func (o PublicIpAddressDnsSettingsPtrOutput) ReverseFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIpAddressDnsSettings) *string {
 		if v == nil {
@@ -9126,14 +7937,10 @@ func (o PublicIpAddressDnsSettingsPtrOutput) ReverseFqdn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains FQDN of the DNS record associated with the public IP address
 type PublicIpAddressDnsSettingsResponse struct {
-	// Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
-	// Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
-	Fqdn *string `pulumi:"fqdn"`
-	// Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-	ReverseFqdn *string `pulumi:"reverseFqdn"`
+	Fqdn            *string `pulumi:"fqdn"`
+	ReverseFqdn     *string `pulumi:"reverseFqdn"`
 }
 
 // PublicIpAddressDnsSettingsResponseInput is an input type that accepts PublicIpAddressDnsSettingsResponseArgs and PublicIpAddressDnsSettingsResponseOutput values.
@@ -9147,14 +7954,10 @@ type PublicIpAddressDnsSettingsResponseInput interface {
 	ToPublicIpAddressDnsSettingsResponseOutputWithContext(context.Context) PublicIpAddressDnsSettingsResponseOutput
 }
 
-// Contains FQDN of the DNS record associated with the public IP address
 type PublicIpAddressDnsSettingsResponseArgs struct {
-	// Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel pulumi.StringPtrInput `pulumi:"domainNameLabel"`
-	// Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-	ReverseFqdn pulumi.StringPtrInput `pulumi:"reverseFqdn"`
+	Fqdn            pulumi.StringPtrInput `pulumi:"fqdn"`
+	ReverseFqdn     pulumi.StringPtrInput `pulumi:"reverseFqdn"`
 }
 
 func (PublicIpAddressDnsSettingsResponseArgs) ElementType() reflect.Type {
@@ -9210,7 +8013,6 @@ func (i *publicIpAddressDnsSettingsResponsePtrType) ToPublicIpAddressDnsSettings
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIpAddressDnsSettingsResponsePtrOutput)
 }
 
-// Contains FQDN of the DNS record associated with the public IP address
 type PublicIpAddressDnsSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (PublicIpAddressDnsSettingsResponseOutput) ElementType() reflect.Type {
@@ -9230,22 +8032,19 @@ func (o PublicIpAddressDnsSettingsResponseOutput) ToPublicIpAddressDnsSettingsRe
 }
 
 func (o PublicIpAddressDnsSettingsResponseOutput) ToPublicIpAddressDnsSettingsResponsePtrOutputWithContext(ctx context.Context) PublicIpAddressDnsSettingsResponsePtrOutput {
-	return o.ApplyT(func(v PublicIpAddressDnsSettingsResponse) *PublicIpAddressDnsSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicIpAddressDnsSettingsResponse) *PublicIpAddressDnsSettingsResponse {
 		return &v
 	}).(PublicIpAddressDnsSettingsResponsePtrOutput)
 }
 
-// Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 func (o PublicIpAddressDnsSettingsResponseOutput) DomainNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIpAddressDnsSettingsResponse) *string { return v.DomainNameLabel }).(pulumi.StringPtrOutput)
 }
 
-// Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
 func (o PublicIpAddressDnsSettingsResponseOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIpAddressDnsSettingsResponse) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 func (o PublicIpAddressDnsSettingsResponseOutput) ReverseFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIpAddressDnsSettingsResponse) *string { return v.ReverseFqdn }).(pulumi.StringPtrOutput)
 }
@@ -9265,10 +8064,15 @@ func (o PublicIpAddressDnsSettingsResponsePtrOutput) ToPublicIpAddressDnsSetting
 }
 
 func (o PublicIpAddressDnsSettingsResponsePtrOutput) Elem() PublicIpAddressDnsSettingsResponseOutput {
-	return o.ApplyT(func(v *PublicIpAddressDnsSettingsResponse) PublicIpAddressDnsSettingsResponse { return *v }).(PublicIpAddressDnsSettingsResponseOutput)
+	return o.ApplyT(func(v *PublicIpAddressDnsSettingsResponse) PublicIpAddressDnsSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PublicIpAddressDnsSettingsResponse
+		return ret
+	}).(PublicIpAddressDnsSettingsResponseOutput)
 }
 
-// Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 func (o PublicIpAddressDnsSettingsResponsePtrOutput) DomainNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIpAddressDnsSettingsResponse) *string {
 		if v == nil {
@@ -9278,7 +8082,6 @@ func (o PublicIpAddressDnsSettingsResponsePtrOutput) DomainNameLabel() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
 func (o PublicIpAddressDnsSettingsResponsePtrOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIpAddressDnsSettingsResponse) *string {
 		if v == nil {
@@ -9288,7 +8091,6 @@ func (o PublicIpAddressDnsSettingsResponsePtrOutput) Fqdn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 func (o PublicIpAddressDnsSettingsResponsePtrOutput) ReverseFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIpAddressDnsSettingsResponse) *string {
 		if v == nil {
@@ -9298,21 +8100,13 @@ func (o PublicIpAddressDnsSettingsResponsePtrOutput) ReverseFqdn() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Route resource
 type RouteType struct {
-	// Gets or sets the destination CIDR to which the route applies.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-	NextHopIpAddress *string `pulumi:"nextHopIpAddress"`
-	// Gets or sets the type of Azure hop the packet should be sent to.
-	NextHopType string `pulumi:"nextHopType"`
-	// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+	AddressPrefix     *string `pulumi:"addressPrefix"`
+	Etag              *string `pulumi:"etag"`
+	Id                *string `pulumi:"id"`
+	Name              *string `pulumi:"name"`
+	NextHopIpAddress  *string `pulumi:"nextHopIpAddress"`
+	NextHopType       string  `pulumi:"nextHopType"`
 	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
@@ -9327,21 +8121,13 @@ type RouteTypeInput interface {
 	ToRouteTypeOutputWithContext(context.Context) RouteTypeOutput
 }
 
-// Route resource
 type RouteTypeArgs struct {
-	// Gets or sets the destination CIDR to which the route applies.
-	AddressPrefix pulumi.StringPtrInput `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-	NextHopIpAddress pulumi.StringPtrInput `pulumi:"nextHopIpAddress"`
-	// Gets or sets the type of Azure hop the packet should be sent to.
-	NextHopType pulumi.StringInput `pulumi:"nextHopType"`
-	// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+	AddressPrefix     pulumi.StringPtrInput `pulumi:"addressPrefix"`
+	Etag              pulumi.StringPtrInput `pulumi:"etag"`
+	Id                pulumi.StringPtrInput `pulumi:"id"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
+	NextHopIpAddress  pulumi.StringPtrInput `pulumi:"nextHopIpAddress"`
+	NextHopType       pulumi.StringInput    `pulumi:"nextHopType"`
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
@@ -9382,7 +8168,6 @@ func (i RouteTypeArray) ToRouteTypeArrayOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTypeArrayOutput)
 }
 
-// Route resource
 type RouteTypeOutput struct{ *pulumi.OutputState }
 
 func (RouteTypeOutput) ElementType() reflect.Type {
@@ -9397,37 +8182,30 @@ func (o RouteTypeOutput) ToRouteTypeOutputWithContext(ctx context.Context) Route
 	return o
 }
 
-// Gets or sets the destination CIDR to which the route applies.
 func (o RouteTypeOutput) AddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteType) *string { return v.AddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o RouteTypeOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteType) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o RouteTypeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o RouteTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
 func (o RouteTypeOutput) NextHopIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteType) *string { return v.NextHopIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the type of Azure hop the packet should be sent to.
 func (o RouteTypeOutput) NextHopType() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteType) string { return v.NextHopType }).(pulumi.StringOutput)
 }
 
-// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
 func (o RouteTypeOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteType) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -9452,21 +8230,13 @@ func (o RouteTypeArrayOutput) Index(i pulumi.IntInput) RouteTypeOutput {
 	}).(RouteTypeOutput)
 }
 
-// Route resource
 type RouteResponse struct {
-	// Gets or sets the destination CIDR to which the route applies.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-	NextHopIpAddress *string `pulumi:"nextHopIpAddress"`
-	// Gets or sets the type of Azure hop the packet should be sent to.
-	NextHopType string `pulumi:"nextHopType"`
-	// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+	AddressPrefix     *string `pulumi:"addressPrefix"`
+	Etag              *string `pulumi:"etag"`
+	Id                *string `pulumi:"id"`
+	Name              *string `pulumi:"name"`
+	NextHopIpAddress  *string `pulumi:"nextHopIpAddress"`
+	NextHopType       string  `pulumi:"nextHopType"`
 	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
@@ -9481,21 +8251,13 @@ type RouteResponseInput interface {
 	ToRouteResponseOutputWithContext(context.Context) RouteResponseOutput
 }
 
-// Route resource
 type RouteResponseArgs struct {
-	// Gets or sets the destination CIDR to which the route applies.
-	AddressPrefix pulumi.StringPtrInput `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-	NextHopIpAddress pulumi.StringPtrInput `pulumi:"nextHopIpAddress"`
-	// Gets or sets the type of Azure hop the packet should be sent to.
-	NextHopType pulumi.StringInput `pulumi:"nextHopType"`
-	// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+	AddressPrefix     pulumi.StringPtrInput `pulumi:"addressPrefix"`
+	Etag              pulumi.StringPtrInput `pulumi:"etag"`
+	Id                pulumi.StringPtrInput `pulumi:"id"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
+	NextHopIpAddress  pulumi.StringPtrInput `pulumi:"nextHopIpAddress"`
+	NextHopType       pulumi.StringInput    `pulumi:"nextHopType"`
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
@@ -9536,7 +8298,6 @@ func (i RouteResponseArray) ToRouteResponseArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RouteResponseArrayOutput)
 }
 
-// Route resource
 type RouteResponseOutput struct{ *pulumi.OutputState }
 
 func (RouteResponseOutput) ElementType() reflect.Type {
@@ -9551,37 +8312,30 @@ func (o RouteResponseOutput) ToRouteResponseOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Gets or sets the destination CIDR to which the route applies.
 func (o RouteResponseOutput) AddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteResponse) *string { return v.AddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o RouteResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o RouteResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o RouteResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
 func (o RouteResponseOutput) NextHopIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteResponse) *string { return v.NextHopIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the type of Azure hop the packet should be sent to.
 func (o RouteResponseOutput) NextHopType() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteResponse) string { return v.NextHopType }).(pulumi.StringOutput)
 }
 
-// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
 func (o RouteResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -9606,34 +8360,20 @@ func (o RouteResponseArrayOutput) Index(i pulumi.IntInput) RouteResponseOutput {
 	}).(RouteResponseOutput)
 }
 
-// Network security rule
 type SecurityRuleType struct {
-	// Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
-	Access string `pulumi:"access"`
-	// Gets or sets a description for this rule. Restricted to 140 chars.
-	Description *string `pulumi:"description"`
-	// Gets or sets destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-	DestinationAddressPrefix string `pulumi:"destinationAddressPrefix"`
-	// Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-	DestinationPortRange *string `pulumi:"destinationPortRange"`
-	// Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
-	Direction string `pulumi:"direction"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-	Priority *int `pulumi:"priority"`
-	// Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
-	Protocol string `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
-	SourceAddressPrefix string `pulumi:"sourceAddressPrefix"`
-	// Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-	SourcePortRange *string `pulumi:"sourcePortRange"`
+	Access                   string  `pulumi:"access"`
+	Description              *string `pulumi:"description"`
+	DestinationAddressPrefix string  `pulumi:"destinationAddressPrefix"`
+	DestinationPortRange     *string `pulumi:"destinationPortRange"`
+	Direction                string  `pulumi:"direction"`
+	Etag                     *string `pulumi:"etag"`
+	Id                       *string `pulumi:"id"`
+	Name                     *string `pulumi:"name"`
+	Priority                 *int    `pulumi:"priority"`
+	Protocol                 string  `pulumi:"protocol"`
+	ProvisioningState        *string `pulumi:"provisioningState"`
+	SourceAddressPrefix      string  `pulumi:"sourceAddressPrefix"`
+	SourcePortRange          *string `pulumi:"sourcePortRange"`
 }
 
 // SecurityRuleTypeInput is an input type that accepts SecurityRuleTypeArgs and SecurityRuleTypeOutput values.
@@ -9647,34 +8387,20 @@ type SecurityRuleTypeInput interface {
 	ToSecurityRuleTypeOutputWithContext(context.Context) SecurityRuleTypeOutput
 }
 
-// Network security rule
 type SecurityRuleTypeArgs struct {
-	// Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
-	Access pulumi.StringInput `pulumi:"access"`
-	// Gets or sets a description for this rule. Restricted to 140 chars.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Gets or sets destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-	DestinationAddressPrefix pulumi.StringInput `pulumi:"destinationAddressPrefix"`
-	// Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-	DestinationPortRange pulumi.StringPtrInput `pulumi:"destinationPortRange"`
-	// Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
-	Direction pulumi.StringInput `pulumi:"direction"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
-	SourceAddressPrefix pulumi.StringInput `pulumi:"sourceAddressPrefix"`
-	// Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-	SourcePortRange pulumi.StringPtrInput `pulumi:"sourcePortRange"`
+	Access                   pulumi.StringInput    `pulumi:"access"`
+	Description              pulumi.StringPtrInput `pulumi:"description"`
+	DestinationAddressPrefix pulumi.StringInput    `pulumi:"destinationAddressPrefix"`
+	DestinationPortRange     pulumi.StringPtrInput `pulumi:"destinationPortRange"`
+	Direction                pulumi.StringInput    `pulumi:"direction"`
+	Etag                     pulumi.StringPtrInput `pulumi:"etag"`
+	Id                       pulumi.StringPtrInput `pulumi:"id"`
+	Name                     pulumi.StringPtrInput `pulumi:"name"`
+	Priority                 pulumi.IntPtrInput    `pulumi:"priority"`
+	Protocol                 pulumi.StringInput    `pulumi:"protocol"`
+	ProvisioningState        pulumi.StringPtrInput `pulumi:"provisioningState"`
+	SourceAddressPrefix      pulumi.StringInput    `pulumi:"sourceAddressPrefix"`
+	SourcePortRange          pulumi.StringPtrInput `pulumi:"sourcePortRange"`
 }
 
 func (SecurityRuleTypeArgs) ElementType() reflect.Type {
@@ -9714,7 +8440,6 @@ func (i SecurityRuleTypeArray) ToSecurityRuleTypeArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityRuleTypeArrayOutput)
 }
 
-// Network security rule
 type SecurityRuleTypeOutput struct{ *pulumi.OutputState }
 
 func (SecurityRuleTypeOutput) ElementType() reflect.Type {
@@ -9729,67 +8454,54 @@ func (o SecurityRuleTypeOutput) ToSecurityRuleTypeOutputWithContext(ctx context.
 	return o
 }
 
-// Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
 func (o SecurityRuleTypeOutput) Access() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityRuleType) string { return v.Access }).(pulumi.StringOutput)
 }
 
-// Gets or sets a description for this rule. Restricted to 140 chars.
 func (o SecurityRuleTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityRuleType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
 func (o SecurityRuleTypeOutput) DestinationAddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityRuleType) string { return v.DestinationAddressPrefix }).(pulumi.StringOutput)
 }
 
-// Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
 func (o SecurityRuleTypeOutput) DestinationPortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityRuleType) *string { return v.DestinationPortRange }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
 func (o SecurityRuleTypeOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityRuleType) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o SecurityRuleTypeOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityRuleType) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o SecurityRuleTypeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityRuleType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o SecurityRuleTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityRuleType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
 func (o SecurityRuleTypeOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityRuleType) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
 func (o SecurityRuleTypeOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityRuleType) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o SecurityRuleTypeOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityRuleType) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
 func (o SecurityRuleTypeOutput) SourceAddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityRuleType) string { return v.SourceAddressPrefix }).(pulumi.StringOutput)
 }
 
-// Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
 func (o SecurityRuleTypeOutput) SourcePortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityRuleType) *string { return v.SourcePortRange }).(pulumi.StringPtrOutput)
 }
@@ -9814,34 +8526,20 @@ func (o SecurityRuleTypeArrayOutput) Index(i pulumi.IntInput) SecurityRuleTypeOu
 	}).(SecurityRuleTypeOutput)
 }
 
-// Network security rule
 type SecurityRuleResponse struct {
-	// Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
-	Access string `pulumi:"access"`
-	// Gets or sets a description for this rule. Restricted to 140 chars.
-	Description *string `pulumi:"description"`
-	// Gets or sets destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-	DestinationAddressPrefix string `pulumi:"destinationAddressPrefix"`
-	// Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-	DestinationPortRange *string `pulumi:"destinationPortRange"`
-	// Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
-	Direction string `pulumi:"direction"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-	Priority *int `pulumi:"priority"`
-	// Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
-	Protocol string `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
-	SourceAddressPrefix string `pulumi:"sourceAddressPrefix"`
-	// Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-	SourcePortRange *string `pulumi:"sourcePortRange"`
+	Access                   string  `pulumi:"access"`
+	Description              *string `pulumi:"description"`
+	DestinationAddressPrefix string  `pulumi:"destinationAddressPrefix"`
+	DestinationPortRange     *string `pulumi:"destinationPortRange"`
+	Direction                string  `pulumi:"direction"`
+	Etag                     *string `pulumi:"etag"`
+	Id                       *string `pulumi:"id"`
+	Name                     *string `pulumi:"name"`
+	Priority                 *int    `pulumi:"priority"`
+	Protocol                 string  `pulumi:"protocol"`
+	ProvisioningState        *string `pulumi:"provisioningState"`
+	SourceAddressPrefix      string  `pulumi:"sourceAddressPrefix"`
+	SourcePortRange          *string `pulumi:"sourcePortRange"`
 }
 
 // SecurityRuleResponseInput is an input type that accepts SecurityRuleResponseArgs and SecurityRuleResponseOutput values.
@@ -9855,34 +8553,20 @@ type SecurityRuleResponseInput interface {
 	ToSecurityRuleResponseOutputWithContext(context.Context) SecurityRuleResponseOutput
 }
 
-// Network security rule
 type SecurityRuleResponseArgs struct {
-	// Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
-	Access pulumi.StringInput `pulumi:"access"`
-	// Gets or sets a description for this rule. Restricted to 140 chars.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Gets or sets destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-	DestinationAddressPrefix pulumi.StringInput `pulumi:"destinationAddressPrefix"`
-	// Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-	DestinationPortRange pulumi.StringPtrInput `pulumi:"destinationPortRange"`
-	// Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
-	Direction pulumi.StringInput `pulumi:"direction"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
-	SourceAddressPrefix pulumi.StringInput `pulumi:"sourceAddressPrefix"`
-	// Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-	SourcePortRange pulumi.StringPtrInput `pulumi:"sourcePortRange"`
+	Access                   pulumi.StringInput    `pulumi:"access"`
+	Description              pulumi.StringPtrInput `pulumi:"description"`
+	DestinationAddressPrefix pulumi.StringInput    `pulumi:"destinationAddressPrefix"`
+	DestinationPortRange     pulumi.StringPtrInput `pulumi:"destinationPortRange"`
+	Direction                pulumi.StringInput    `pulumi:"direction"`
+	Etag                     pulumi.StringPtrInput `pulumi:"etag"`
+	Id                       pulumi.StringPtrInput `pulumi:"id"`
+	Name                     pulumi.StringPtrInput `pulumi:"name"`
+	Priority                 pulumi.IntPtrInput    `pulumi:"priority"`
+	Protocol                 pulumi.StringInput    `pulumi:"protocol"`
+	ProvisioningState        pulumi.StringPtrInput `pulumi:"provisioningState"`
+	SourceAddressPrefix      pulumi.StringInput    `pulumi:"sourceAddressPrefix"`
+	SourcePortRange          pulumi.StringPtrInput `pulumi:"sourcePortRange"`
 }
 
 func (SecurityRuleResponseArgs) ElementType() reflect.Type {
@@ -9922,7 +8606,6 @@ func (i SecurityRuleResponseArray) ToSecurityRuleResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityRuleResponseArrayOutput)
 }
 
-// Network security rule
 type SecurityRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (SecurityRuleResponseOutput) ElementType() reflect.Type {
@@ -9937,67 +8620,54 @@ func (o SecurityRuleResponseOutput) ToSecurityRuleResponseOutputWithContext(ctx 
 	return o
 }
 
-// Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
 func (o SecurityRuleResponseOutput) Access() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityRuleResponse) string { return v.Access }).(pulumi.StringOutput)
 }
 
-// Gets or sets a description for this rule. Restricted to 140 chars.
 func (o SecurityRuleResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityRuleResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
 func (o SecurityRuleResponseOutput) DestinationAddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityRuleResponse) string { return v.DestinationAddressPrefix }).(pulumi.StringOutput)
 }
 
-// Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
 func (o SecurityRuleResponseOutput) DestinationPortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityRuleResponse) *string { return v.DestinationPortRange }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
 func (o SecurityRuleResponseOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityRuleResponse) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o SecurityRuleResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityRuleResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o SecurityRuleResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o SecurityRuleResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityRuleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
 func (o SecurityRuleResponseOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityRuleResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
 func (o SecurityRuleResponseOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o SecurityRuleResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityRuleResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
 func (o SecurityRuleResponseOutput) SourceAddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityRuleResponse) string { return v.SourceAddressPrefix }).(pulumi.StringOutput)
 }
 
-// Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
 func (o SecurityRuleResponseOutput) SourcePortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityRuleResponse) *string { return v.SourcePortRange }).(pulumi.StringPtrOutput)
 }
@@ -10023,7 +8693,6 @@ func (o SecurityRuleResponseArrayOutput) Index(i pulumi.IntInput) SecurityRuleRe
 }
 
 type SubResource struct {
-	// Resource Id
 	Id *string `pulumi:"id"`
 }
 
@@ -10039,7 +8708,6 @@ type SubResourceInput interface {
 }
 
 type SubResourceArgs struct {
-	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -10140,12 +8808,11 @@ func (o SubResourceOutput) ToSubResourcePtrOutput() SubResourcePtrOutput {
 }
 
 func (o SubResourceOutput) ToSubResourcePtrOutputWithContext(ctx context.Context) SubResourcePtrOutput {
-	return o.ApplyT(func(v SubResource) *SubResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResource) *SubResource {
 		return &v
 	}).(SubResourcePtrOutput)
 }
 
-// Resource Id
 func (o SubResourceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResource) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -10165,10 +8832,15 @@ func (o SubResourcePtrOutput) ToSubResourcePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SubResourcePtrOutput) Elem() SubResourceOutput {
-	return o.ApplyT(func(v *SubResource) SubResource { return *v }).(SubResourceOutput)
+	return o.ApplyT(func(v *SubResource) SubResource {
+		if v != nil {
+			return *v
+		}
+		var ret SubResource
+		return ret
+	}).(SubResourceOutput)
 }
 
-// Resource Id
 func (o SubResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubResource) *string {
 		if v == nil {
@@ -10199,7 +8871,6 @@ func (o SubResourceArrayOutput) Index(i pulumi.IntInput) SubResourceOutput {
 }
 
 type SubResourceResponse struct {
-	// Resource Id
 	Id *string `pulumi:"id"`
 }
 
@@ -10215,7 +8886,6 @@ type SubResourceResponseInput interface {
 }
 
 type SubResourceResponseArgs struct {
-	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -10316,12 +8986,11 @@ func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutput() SubResourceR
 }
 
 func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v SubResourceResponse) *SubResourceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResourceResponse) *SubResourceResponse {
 		return &v
 	}).(SubResourceResponsePtrOutput)
 }
 
-// Resource Id
 func (o SubResourceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -10341,10 +9010,15 @@ func (o SubResourceResponsePtrOutput) ToSubResourceResponsePtrOutputWithContext(
 }
 
 func (o SubResourceResponsePtrOutput) Elem() SubResourceResponseOutput {
-	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse { return *v }).(SubResourceResponseOutput)
+	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SubResourceResponse
+		return ret
+	}).(SubResourceResponseOutput)
 }
 
-// Resource Id
 func (o SubResourceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubResourceResponse) *string {
 		if v == nil {
@@ -10374,24 +9048,15 @@ func (o SubResourceResponseArrayOutput) Index(i pulumi.IntInput) SubResourceResp
 	}).(SubResourceResponseOutput)
 }
 
-// Subnet in a VirtualNetwork resource
 type SubnetType struct {
-	// Gets or sets Address prefix for the subnet.
-	AddressPrefix string `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets array of references to the network interface IP configurations using subnet
-	IpConfigurations []SubResource `pulumi:"ipConfigurations"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the reference of the NetworkSecurityGroup resource
-	NetworkSecurityGroup *SubResource `pulumi:"networkSecurityGroup"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the reference of the RouteTable resource
-	RouteTable *SubResource `pulumi:"routeTable"`
+	AddressPrefix        string        `pulumi:"addressPrefix"`
+	Etag                 *string       `pulumi:"etag"`
+	Id                   *string       `pulumi:"id"`
+	IpConfigurations     []SubResource `pulumi:"ipConfigurations"`
+	Name                 *string       `pulumi:"name"`
+	NetworkSecurityGroup *SubResource  `pulumi:"networkSecurityGroup"`
+	ProvisioningState    *string       `pulumi:"provisioningState"`
+	RouteTable           *SubResource  `pulumi:"routeTable"`
 }
 
 // SubnetTypeInput is an input type that accepts SubnetTypeArgs and SubnetTypeOutput values.
@@ -10405,24 +9070,15 @@ type SubnetTypeInput interface {
 	ToSubnetTypeOutputWithContext(context.Context) SubnetTypeOutput
 }
 
-// Subnet in a VirtualNetwork resource
 type SubnetTypeArgs struct {
-	// Gets or sets Address prefix for the subnet.
-	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets array of references to the network interface IP configurations using subnet
-	IpConfigurations SubResourceArrayInput `pulumi:"ipConfigurations"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the reference of the NetworkSecurityGroup resource
-	NetworkSecurityGroup SubResourcePtrInput `pulumi:"networkSecurityGroup"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the reference of the RouteTable resource
-	RouteTable SubResourcePtrInput `pulumi:"routeTable"`
+	AddressPrefix        pulumi.StringInput    `pulumi:"addressPrefix"`
+	Etag                 pulumi.StringPtrInput `pulumi:"etag"`
+	Id                   pulumi.StringPtrInput `pulumi:"id"`
+	IpConfigurations     SubResourceArrayInput `pulumi:"ipConfigurations"`
+	Name                 pulumi.StringPtrInput `pulumi:"name"`
+	NetworkSecurityGroup SubResourcePtrInput   `pulumi:"networkSecurityGroup"`
+	ProvisioningState    pulumi.StringPtrInput `pulumi:"provisioningState"`
+	RouteTable           SubResourcePtrInput   `pulumi:"routeTable"`
 }
 
 func (SubnetTypeArgs) ElementType() reflect.Type {
@@ -10462,7 +9118,6 @@ func (i SubnetTypeArray) ToSubnetTypeArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetTypeArrayOutput)
 }
 
-// Subnet in a VirtualNetwork resource
 type SubnetTypeOutput struct{ *pulumi.OutputState }
 
 func (SubnetTypeOutput) ElementType() reflect.Type {
@@ -10477,42 +9132,34 @@ func (o SubnetTypeOutput) ToSubnetTypeOutputWithContext(ctx context.Context) Sub
 	return o
 }
 
-// Gets or sets Address prefix for the subnet.
 func (o SubnetTypeOutput) AddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v SubnetType) string { return v.AddressPrefix }).(pulumi.StringOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o SubnetTypeOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetType) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o SubnetTypeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets array of references to the network interface IP configurations using subnet
 func (o SubnetTypeOutput) IpConfigurations() SubResourceArrayOutput {
 	return o.ApplyT(func(v SubnetType) []SubResource { return v.IpConfigurations }).(SubResourceArrayOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o SubnetTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference of the NetworkSecurityGroup resource
 func (o SubnetTypeOutput) NetworkSecurityGroup() SubResourcePtrOutput {
 	return o.ApplyT(func(v SubnetType) *SubResource { return v.NetworkSecurityGroup }).(SubResourcePtrOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o SubnetTypeOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetType) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference of the RouteTable resource
 func (o SubnetTypeOutput) RouteTable() SubResourcePtrOutput {
 	return o.ApplyT(func(v SubnetType) *SubResource { return v.RouteTable }).(SubResourcePtrOutput)
 }
@@ -10537,24 +9184,15 @@ func (o SubnetTypeArrayOutput) Index(i pulumi.IntInput) SubnetTypeOutput {
 	}).(SubnetTypeOutput)
 }
 
-// Subnet in a VirtualNetwork resource
 type SubnetResponse struct {
-	// Gets or sets Address prefix for the subnet.
-	AddressPrefix string `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets array of references to the network interface IP configurations using subnet
-	IpConfigurations []SubResourceResponse `pulumi:"ipConfigurations"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the reference of the NetworkSecurityGroup resource
-	NetworkSecurityGroup *SubResourceResponse `pulumi:"networkSecurityGroup"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the reference of the RouteTable resource
-	RouteTable *SubResourceResponse `pulumi:"routeTable"`
+	AddressPrefix        string                `pulumi:"addressPrefix"`
+	Etag                 *string               `pulumi:"etag"`
+	Id                   *string               `pulumi:"id"`
+	IpConfigurations     []SubResourceResponse `pulumi:"ipConfigurations"`
+	Name                 *string               `pulumi:"name"`
+	NetworkSecurityGroup *SubResourceResponse  `pulumi:"networkSecurityGroup"`
+	ProvisioningState    *string               `pulumi:"provisioningState"`
+	RouteTable           *SubResourceResponse  `pulumi:"routeTable"`
 }
 
 // SubnetResponseInput is an input type that accepts SubnetResponseArgs and SubnetResponseOutput values.
@@ -10568,24 +9206,15 @@ type SubnetResponseInput interface {
 	ToSubnetResponseOutputWithContext(context.Context) SubnetResponseOutput
 }
 
-// Subnet in a VirtualNetwork resource
 type SubnetResponseArgs struct {
-	// Gets or sets Address prefix for the subnet.
-	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets array of references to the network interface IP configurations using subnet
-	IpConfigurations SubResourceResponseArrayInput `pulumi:"ipConfigurations"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the reference of the NetworkSecurityGroup resource
-	NetworkSecurityGroup SubResourceResponsePtrInput `pulumi:"networkSecurityGroup"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the reference of the RouteTable resource
-	RouteTable SubResourceResponsePtrInput `pulumi:"routeTable"`
+	AddressPrefix        pulumi.StringInput            `pulumi:"addressPrefix"`
+	Etag                 pulumi.StringPtrInput         `pulumi:"etag"`
+	Id                   pulumi.StringPtrInput         `pulumi:"id"`
+	IpConfigurations     SubResourceResponseArrayInput `pulumi:"ipConfigurations"`
+	Name                 pulumi.StringPtrInput         `pulumi:"name"`
+	NetworkSecurityGroup SubResourceResponsePtrInput   `pulumi:"networkSecurityGroup"`
+	ProvisioningState    pulumi.StringPtrInput         `pulumi:"provisioningState"`
+	RouteTable           SubResourceResponsePtrInput   `pulumi:"routeTable"`
 }
 
 func (SubnetResponseArgs) ElementType() reflect.Type {
@@ -10625,7 +9254,6 @@ func (i SubnetResponseArray) ToSubnetResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetResponseArrayOutput)
 }
 
-// Subnet in a VirtualNetwork resource
 type SubnetResponseOutput struct{ *pulumi.OutputState }
 
 func (SubnetResponseOutput) ElementType() reflect.Type {
@@ -10640,42 +9268,34 @@ func (o SubnetResponseOutput) ToSubnetResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Gets or sets Address prefix for the subnet.
 func (o SubnetResponseOutput) AddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v SubnetResponse) string { return v.AddressPrefix }).(pulumi.StringOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated
 func (o SubnetResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o SubnetResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets array of references to the network interface IP configurations using subnet
 func (o SubnetResponseOutput) IpConfigurations() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v SubnetResponse) []SubResourceResponse { return v.IpConfigurations }).(SubResourceResponseArrayOutput)
 }
 
-// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 func (o SubnetResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference of the NetworkSecurityGroup resource
 func (o SubnetResponseOutput) NetworkSecurityGroup() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v SubnetResponse) *SubResourceResponse { return v.NetworkSecurityGroup }).(SubResourceResponsePtrOutput)
 }
 
-// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 func (o SubnetResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference of the RouteTable resource
 func (o SubnetResponseOutput) RouteTable() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v SubnetResponse) *SubResourceResponse { return v.RouteTable }).(SubResourceResponsePtrOutput)
 }

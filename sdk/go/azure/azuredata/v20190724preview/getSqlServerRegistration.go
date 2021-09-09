@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SQL server registration.
 func LookupSqlServerRegistration(ctx *pulumi.Context, args *LookupSqlServerRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupSqlServerRegistrationResult, error) {
 	var rv LookupSqlServerRegistrationResult
 	err := ctx.Invoke("azure-native:azuredata/v20190724preview:getSqlServerRegistration", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupSqlServerRegistration(ctx *pulumi.Context, args *LookupSqlServerRegis
 }
 
 type LookupSqlServerRegistrationArgs struct {
-	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the SQL Server registration.
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
 	SqlServerRegistrationName string `pulumi:"sqlServerRegistrationName"`
 }
 
 // A SQL server registration.
 type LookupSqlServerRegistrationResult struct {
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Optional Properties as JSON string
-	PropertyBag *string `pulumi:"propertyBag"`
-	// Resource Group Name
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Subscription Id
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Read only system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
+	Id             string             `pulumi:"id"`
+	Location       string             `pulumi:"location"`
+	Name           string             `pulumi:"name"`
+	PropertyBag    *string            `pulumi:"propertyBag"`
+	ResourceGroup  *string            `pulumi:"resourceGroup"`
+	SubscriptionId *string            `pulumi:"subscriptionId"`
+	SystemData     SystemDataResponse `pulumi:"systemData"`
+	Tags           map[string]string  `pulumi:"tags"`
+	Type           string             `pulumi:"type"`
 }

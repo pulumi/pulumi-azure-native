@@ -158,9 +158,7 @@ func (i *ServerAdministrator) ToServerAdministratorOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAdministratorOutput)
 }
 
-type ServerAdministratorOutput struct {
-	*pulumi.OutputState
-}
+type ServerAdministratorOutput struct{ *pulumi.OutputState }
 
 func (ServerAdministratorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerAdministrator)(nil))

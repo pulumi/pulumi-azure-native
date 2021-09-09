@@ -184,9 +184,7 @@ func (i *ReplicationProtectionContainerMapping) ToReplicationProtectionContainer
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectionContainerMappingOutput)
 }
 
-type ReplicationProtectionContainerMappingOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationProtectionContainerMappingOutput struct{ *pulumi.OutputState }
 
 func (ReplicationProtectionContainerMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationProtectionContainerMapping)(nil))

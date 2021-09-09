@@ -156,9 +156,7 @@ func (i *ComputePolicy) ToComputePolicyOutputWithContext(ctx context.Context) Co
 	return pulumi.ToOutputWithContext(ctx, i).(ComputePolicyOutput)
 }
 
-type ComputePolicyOutput struct {
-	*pulumi.OutputState
-}
+type ComputePolicyOutput struct{ *pulumi.OutputState }
 
 func (ComputePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ComputePolicy)(nil))

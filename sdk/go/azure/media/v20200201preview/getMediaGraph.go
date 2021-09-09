@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Media Graph.
 func LookupMediaGraph(ctx *pulumi.Context, args *LookupMediaGraphArgs, opts ...pulumi.InvokeOption) (*LookupMediaGraphResult, error) {
 	var rv LookupMediaGraphResult
 	err := ctx.Invoke("azure-native:media/v20200201preview:getMediaGraph", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupMediaGraph(ctx *pulumi.Context, args *LookupMediaGraphArgs, opts ...p
 }
 
 type LookupMediaGraphArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// The Media Graph name.
-	MediaGraphName string `pulumi:"mediaGraphName"`
-	// The name of the resource group within the Azure subscription.
+	AccountName       string `pulumi:"accountName"`
+	MediaGraphName    string `pulumi:"mediaGraphName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The Media Graph.
 type LookupMediaGraphResult struct {
-	// Date the Media Graph was created.
-	Created string `pulumi:"created"`
-	// Media Graph description.
-	Description *string `pulumi:"description"`
-	// Fully qualified resource ID for the resource.
-	Id string `pulumi:"id"`
-	// Date the Media Graph was last modified.
-	LastModified string `pulumi:"lastModified"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Media Graph sinks.
-	Sinks []MediaGraphAssetSinkResponse `pulumi:"sinks"`
-	// Media Graph sources.
-	Sources []MediaGraphRtspSourceResponse `pulumi:"sources"`
-	// Media Graph state which indicates the resource allocation status for running the media graph pipeline.
-	State string `pulumi:"state"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Created      string                         `pulumi:"created"`
+	Description  *string                        `pulumi:"description"`
+	Id           string                         `pulumi:"id"`
+	LastModified string                         `pulumi:"lastModified"`
+	Name         string                         `pulumi:"name"`
+	Sinks        []MediaGraphAssetSinkResponse  `pulumi:"sinks"`
+	Sources      []MediaGraphRtspSourceResponse `pulumi:"sources"`
+	State        string                         `pulumi:"state"`
+	Type         string                         `pulumi:"type"`
 }

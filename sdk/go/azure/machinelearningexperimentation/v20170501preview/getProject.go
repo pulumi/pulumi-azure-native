@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a machine learning project.
 func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.InvokeOption) (*LookupProjectResult, error) {
 	var rv LookupProjectResult
 	err := ctx.Invoke("azure-native:machinelearningexperimentation/v20170501preview:getProject", args, &rv, opts...)
@@ -18,42 +17,25 @@ func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.
 }
 
 type LookupProjectArgs struct {
-	// The name of the machine learning team account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the machine learning project under a team account workspace.
-	ProjectName string `pulumi:"projectName"`
-	// The name of the resource group to which the machine learning team account belongs.
+	AccountName       string `pulumi:"accountName"`
+	ProjectName       string `pulumi:"projectName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the machine learning team account workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // An object that represents a machine learning project.
 type LookupProjectResult struct {
-	// The immutable id of the team account which contains this project.
-	AccountId string `pulumi:"accountId"`
-	// The creation date of the project in ISO8601 format.
-	CreationDate string `pulumi:"creationDate"`
-	// The description of this project.
-	Description *string `pulumi:"description"`
-	// The friendly name for this project.
-	FriendlyName string `pulumi:"friendlyName"`
-	// The reference to git repo for this project.
-	Gitrepo *string `pulumi:"gitrepo"`
-	// The resource ID.
-	Id string `pulumi:"id"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The immutable id of this project.
-	ProjectId string `pulumi:"projectId"`
-	// The current deployment state of project resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-	// The immutable id of the workspace which contains this project.
-	WorkspaceId string `pulumi:"workspaceId"`
+	AccountId         string            `pulumi:"accountId"`
+	CreationDate      string            `pulumi:"creationDate"`
+	Description       *string           `pulumi:"description"`
+	FriendlyName      string            `pulumi:"friendlyName"`
+	Gitrepo           *string           `pulumi:"gitrepo"`
+	Id                string            `pulumi:"id"`
+	Location          string            `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	ProjectId         string            `pulumi:"projectId"`
+	ProvisioningState string            `pulumi:"provisioningState"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              string            `pulumi:"type"`
+	WorkspaceId       string            `pulumi:"workspaceId"`
 }

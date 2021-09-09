@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// EnterpriseKnowledgeGraph resource definition
 type EnterpriseKnowledgeGraph struct {
 	pulumi.CustomResourceState
 
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The set of properties specific to EnterpriseKnowledgeGraph resource
+	Location   pulumi.StringPtrOutput                           `pulumi:"location"`
+	Name       pulumi.StringOutput                              `pulumi:"name"`
 	Properties EnterpriseKnowledgeGraphPropertiesResponseOutput `pulumi:"properties"`
-	// Gets or sets the SKU of the resource.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        SkuResponsePtrOutput                             `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput                           `pulumi:"tags"`
+	Type       pulumi.StringOutput                              `pulumi:"type"`
 }
 
 // NewEnterpriseKnowledgeGraph registers a new resource with the given unique name, arguments, and options.
@@ -83,34 +76,22 @@ func (EnterpriseKnowledgeGraphState) ElementType() reflect.Type {
 }
 
 type enterpriseKnowledgeGraphArgs struct {
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// The set of properties specific to EnterpriseKnowledgeGraph resource
-	Properties *EnterpriseKnowledgeGraphProperties `pulumi:"properties"`
-	// The name of the EnterpriseKnowledgeGraph resource group in the user subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the EnterpriseKnowledgeGraph resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// Gets or sets the SKU of the resource.
-	Sku *Sku `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string                             `pulumi:"location"`
+	Properties        *EnterpriseKnowledgeGraphProperties `pulumi:"properties"`
+	ResourceGroupName string                              `pulumi:"resourceGroupName"`
+	ResourceName      *string                             `pulumi:"resourceName"`
+	Sku               *Sku                                `pulumi:"sku"`
+	Tags              map[string]string                   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EnterpriseKnowledgeGraph resource.
 type EnterpriseKnowledgeGraphArgs struct {
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput
-	// The set of properties specific to EnterpriseKnowledgeGraph resource
-	Properties EnterpriseKnowledgeGraphPropertiesPtrInput
-	// The name of the EnterpriseKnowledgeGraph resource group in the user subscription.
+	Location          pulumi.StringPtrInput
+	Properties        EnterpriseKnowledgeGraphPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the EnterpriseKnowledgeGraph resource.
-	ResourceName pulumi.StringPtrInput
-	// Gets or sets the SKU of the resource.
-	Sku SkuPtrInput
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput
+	ResourceName      pulumi.StringPtrInput
+	Sku               SkuPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (EnterpriseKnowledgeGraphArgs) ElementType() reflect.Type {
@@ -136,9 +117,7 @@ func (i *EnterpriseKnowledgeGraph) ToEnterpriseKnowledgeGraphOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseKnowledgeGraphOutput)
 }
 
-type EnterpriseKnowledgeGraphOutput struct {
-	*pulumi.OutputState
-}
+type EnterpriseKnowledgeGraphOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseKnowledgeGraphOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EnterpriseKnowledgeGraph)(nil))

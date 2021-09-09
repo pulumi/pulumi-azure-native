@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Kusto kusto pool.
 func GetkustoPool(ctx *pulumi.Context, args *GetkustoPoolArgs, opts ...pulumi.InvokeOption) (*GetkustoPoolResult, error) {
 	var rv GetkustoPoolResult
 	err := ctx.Invoke("azure-native:synapse/v20210601preview:getkustoPool", args, &rv, opts...)
@@ -18,50 +17,29 @@ func GetkustoPool(ctx *pulumi.Context, args *GetkustoPoolArgs, opts ...pulumi.In
 }
 
 type GetkustoPoolArgs struct {
-	// The name of the Kusto pool.
-	KustoPoolName string `pulumi:"kustoPoolName"`
-	// The name of the resource group. The name is case insensitive.
+	KustoPoolName     string `pulumi:"kustoPoolName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Class representing a Kusto kusto pool.
 type GetkustoPoolResult struct {
-	// The Kusto Pool data ingestion URI.
-	DataIngestionUri string `pulumi:"dataIngestionUri"`
-	// A boolean value that indicates if the purge operations are enabled.
-	EnablePurge *bool `pulumi:"enablePurge"`
-	// A boolean value that indicates if the streaming ingest is enabled.
-	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// List of the Kusto Pool's language extensions.
-	LanguageExtensions LanguageExtensionsListResponse `pulumi:"languageExtensions"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Optimized auto scale definition.
-	OptimizedAutoscale *OptimizedAutoscaleResponse `pulumi:"optimizedAutoscale"`
-	// The provisioned state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The SKU of the kusto pool.
-	Sku AzureSkuResponse `pulumi:"sku"`
-	// The state of the resource.
-	State string `pulumi:"state"`
-	// The reason for the Kusto Pool's current state.
-	StateReason string `pulumi:"stateReason"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
-	// The Kusto Pool URI.
-	Uri string `pulumi:"uri"`
-	// The workspace unique identifier.
-	WorkspaceUID *string `pulumi:"workspaceUID"`
+	DataIngestionUri      string                         `pulumi:"dataIngestionUri"`
+	EnablePurge           *bool                          `pulumi:"enablePurge"`
+	EnableStreamingIngest *bool                          `pulumi:"enableStreamingIngest"`
+	Etag                  string                         `pulumi:"etag"`
+	Id                    string                         `pulumi:"id"`
+	LanguageExtensions    LanguageExtensionsListResponse `pulumi:"languageExtensions"`
+	Location              string                         `pulumi:"location"`
+	Name                  string                         `pulumi:"name"`
+	OptimizedAutoscale    *OptimizedAutoscaleResponse    `pulumi:"optimizedAutoscale"`
+	ProvisioningState     string                         `pulumi:"provisioningState"`
+	Sku                   AzureSkuResponse               `pulumi:"sku"`
+	State                 string                         `pulumi:"state"`
+	StateReason           string                         `pulumi:"stateReason"`
+	SystemData            SystemDataResponse             `pulumi:"systemData"`
+	Tags                  map[string]string              `pulumi:"tags"`
+	Type                  string                         `pulumi:"type"`
+	Uri                   string                         `pulumi:"uri"`
+	WorkspaceUID          *string                        `pulumi:"workspaceUID"`
 }

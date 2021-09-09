@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a database script.
 type Script struct {
 	pulumi.CustomResourceState
 
-	// Flag that indicates whether to continue if one of the command fails.
-	ContinueOnErrors pulumi.BoolPtrOutput `pulumi:"continueOnErrors"`
-	// A unique string. If changed the script will be applied again.
-	ForceUpdateTag pulumi.StringPtrOutput `pulumi:"forceUpdateTag"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The url to the KQL script blob file.
-	ScriptUrl pulumi.StringOutput `pulumi:"scriptUrl"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ContinueOnErrors  pulumi.BoolPtrOutput     `pulumi:"continueOnErrors"`
+	ForceUpdateTag    pulumi.StringPtrOutput   `pulumi:"forceUpdateTag"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	ScriptUrl         pulumi.StringOutput      `pulumi:"scriptUrl"`
+	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewScript registers a new resource with the given unique name, arguments, and options.
@@ -106,41 +98,25 @@ func (ScriptState) ElementType() reflect.Type {
 }
 
 type scriptArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// Flag that indicates whether to continue if one of the command fails.
-	ContinueOnErrors *bool `pulumi:"continueOnErrors"`
-	// The name of the database in the Kusto cluster.
-	DatabaseName string `pulumi:"databaseName"`
-	// A unique string. If changed the script will be applied again.
-	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Kusto database script.
-	ScriptName *string `pulumi:"scriptName"`
-	// The url to the KQL script blob file.
-	ScriptUrl string `pulumi:"scriptUrl"`
-	// The SaS token.
-	ScriptUrlSasToken string `pulumi:"scriptUrlSasToken"`
+	ClusterName       string  `pulumi:"clusterName"`
+	ContinueOnErrors  *bool   `pulumi:"continueOnErrors"`
+	DatabaseName      string  `pulumi:"databaseName"`
+	ForceUpdateTag    *string `pulumi:"forceUpdateTag"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ScriptName        *string `pulumi:"scriptName"`
+	ScriptUrl         string  `pulumi:"scriptUrl"`
+	ScriptUrlSasToken string  `pulumi:"scriptUrlSasToken"`
 }
 
 // The set of arguments for constructing a Script resource.
 type ScriptArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName pulumi.StringInput
-	// Flag that indicates whether to continue if one of the command fails.
-	ContinueOnErrors pulumi.BoolPtrInput
-	// The name of the database in the Kusto cluster.
-	DatabaseName pulumi.StringInput
-	// A unique string. If changed the script will be applied again.
-	ForceUpdateTag pulumi.StringPtrInput
-	// The name of the resource group containing the Kusto cluster.
+	ClusterName       pulumi.StringInput
+	ContinueOnErrors  pulumi.BoolPtrInput
+	DatabaseName      pulumi.StringInput
+	ForceUpdateTag    pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Kusto database script.
-	ScriptName pulumi.StringPtrInput
-	// The url to the KQL script blob file.
-	ScriptUrl pulumi.StringInput
-	// The SaS token.
+	ScriptName        pulumi.StringPtrInput
+	ScriptUrl         pulumi.StringInput
 	ScriptUrlSasToken pulumi.StringInput
 }
 
@@ -167,9 +143,7 @@ func (i *Script) ToScriptOutputWithContext(ctx context.Context) ScriptOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptOutput)
 }
 
-type ScriptOutput struct {
-	*pulumi.OutputState
-}
+type ScriptOutput struct{ *pulumi.OutputState }
 
 func (ScriptOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Script)(nil))

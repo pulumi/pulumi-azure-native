@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Settings with single toggle.
 type Ueba struct {
 	pulumi.CustomResourceState
 
-	// The relevant data sources that enriched by ueba
 	DataSources pulumi.StringArrayOutput `pulumi:"dataSources"`
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Expected value is 'Ueba'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag        pulumi.StringPtrOutput   `pulumi:"etag"`
+	Kind        pulumi.StringOutput      `pulumi:"kind"`
+	Name        pulumi.StringOutput      `pulumi:"name"`
+	Type        pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewUeba registers a new resource with the given unique name, arguments, and options.
@@ -97,38 +91,24 @@ func (UebaState) ElementType() reflect.Type {
 }
 
 type uebaArgs struct {
-	// The relevant data sources that enriched by ueba
-	DataSources []string `pulumi:"dataSources"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Expected value is 'Ueba'.
-	Kind string `pulumi:"kind"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
-	SettingsName *string `pulumi:"settingsName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	DataSources                         []string `pulumi:"dataSources"`
+	Etag                                *string  `pulumi:"etag"`
+	Kind                                string   `pulumi:"kind"`
+	OperationalInsightsResourceProvider string   `pulumi:"operationalInsightsResourceProvider"`
+	ResourceGroupName                   string   `pulumi:"resourceGroupName"`
+	SettingsName                        *string  `pulumi:"settingsName"`
+	WorkspaceName                       string   `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Ueba resource.
 type UebaArgs struct {
-	// The relevant data sources that enriched by ueba
-	DataSources pulumi.StringArrayInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Expected value is 'Ueba'.
-	Kind pulumi.StringInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	DataSources                         pulumi.StringArrayInput
+	Etag                                pulumi.StringPtrInput
+	Kind                                pulumi.StringInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
-	SettingsName pulumi.StringPtrInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	ResourceGroupName                   pulumi.StringInput
+	SettingsName                        pulumi.StringPtrInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (UebaArgs) ElementType() reflect.Type {
@@ -154,9 +134,7 @@ func (i *Ueba) ToUebaOutputWithContext(ctx context.Context) UebaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UebaOutput)
 }
 
-type UebaOutput struct {
-	*pulumi.OutputState
-}
+type UebaOutput struct{ *pulumi.OutputState }
 
 func (UebaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Ueba)(nil))

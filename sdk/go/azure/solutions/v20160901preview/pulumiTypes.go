@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Appliance artifact.
 type ApplianceArtifact struct {
-	// The appliance artifact name.
-	Name *string `pulumi:"name"`
-	// The appliance artifact type.
-	Type *string `pulumi:"type"`
-	// The appliance artifact blob uri.
-	Uri *string `pulumi:"uri"`
+	Name *string                `pulumi:"name"`
+	Type *ApplianceArtifactType `pulumi:"type"`
+	Uri  *string                `pulumi:"uri"`
 }
 
 // ApplianceArtifactInput is an input type that accepts ApplianceArtifactArgs and ApplianceArtifactOutput values.
@@ -31,14 +27,10 @@ type ApplianceArtifactInput interface {
 	ToApplianceArtifactOutputWithContext(context.Context) ApplianceArtifactOutput
 }
 
-// Appliance artifact.
 type ApplianceArtifactArgs struct {
-	// The appliance artifact name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The appliance artifact type.
-	Type *ApplianceArtifactType `pulumi:"type"`
-	// The appliance artifact blob uri.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	Name pulumi.StringPtrInput         `pulumi:"name"`
+	Type ApplianceArtifactTypePtrInput `pulumi:"type"`
+	Uri  pulumi.StringPtrInput         `pulumi:"uri"`
 }
 
 func (ApplianceArtifactArgs) ElementType() reflect.Type {
@@ -78,7 +70,6 @@ func (i ApplianceArtifactArray) ToApplianceArtifactArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ApplianceArtifactArrayOutput)
 }
 
-// Appliance artifact.
 type ApplianceArtifactOutput struct{ *pulumi.OutputState }
 
 func (ApplianceArtifactOutput) ElementType() reflect.Type {
@@ -93,17 +84,14 @@ func (o ApplianceArtifactOutput) ToApplianceArtifactOutputWithContext(ctx contex
 	return o
 }
 
-// The appliance artifact name.
 func (o ApplianceArtifactOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplianceArtifact) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The appliance artifact type.
-func (o ApplianceArtifactOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplianceArtifact) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ApplianceArtifactOutput) Type() ApplianceArtifactTypePtrOutput {
+	return o.ApplyT(func(v ApplianceArtifact) *ApplianceArtifactType { return v.Type }).(ApplianceArtifactTypePtrOutput)
 }
 
-// The appliance artifact blob uri.
 func (o ApplianceArtifactOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplianceArtifact) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -128,14 +116,10 @@ func (o ApplianceArtifactArrayOutput) Index(i pulumi.IntInput) ApplianceArtifact
 	}).(ApplianceArtifactOutput)
 }
 
-// Appliance artifact.
 type ApplianceArtifactResponse struct {
-	// The appliance artifact name.
 	Name *string `pulumi:"name"`
-	// The appliance artifact type.
 	Type *string `pulumi:"type"`
-	// The appliance artifact blob uri.
-	Uri *string `pulumi:"uri"`
+	Uri  *string `pulumi:"uri"`
 }
 
 // ApplianceArtifactResponseInput is an input type that accepts ApplianceArtifactResponseArgs and ApplianceArtifactResponseOutput values.
@@ -149,14 +133,10 @@ type ApplianceArtifactResponseInput interface {
 	ToApplianceArtifactResponseOutputWithContext(context.Context) ApplianceArtifactResponseOutput
 }
 
-// Appliance artifact.
 type ApplianceArtifactResponseArgs struct {
-	// The appliance artifact name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The appliance artifact type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The appliance artifact blob uri.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	Uri  pulumi.StringPtrInput `pulumi:"uri"`
 }
 
 func (ApplianceArtifactResponseArgs) ElementType() reflect.Type {
@@ -196,7 +176,6 @@ func (i ApplianceArtifactResponseArray) ToApplianceArtifactResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ApplianceArtifactResponseArrayOutput)
 }
 
-// Appliance artifact.
 type ApplianceArtifactResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplianceArtifactResponseOutput) ElementType() reflect.Type {
@@ -211,17 +190,14 @@ func (o ApplianceArtifactResponseOutput) ToApplianceArtifactResponseOutputWithCo
 	return o
 }
 
-// The appliance artifact name.
 func (o ApplianceArtifactResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplianceArtifactResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The appliance artifact type.
 func (o ApplianceArtifactResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplianceArtifactResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The appliance artifact blob uri.
 func (o ApplianceArtifactResponseOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplianceArtifactResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -246,11 +222,8 @@ func (o ApplianceArtifactResponseArrayOutput) Index(i pulumi.IntInput) Appliance
 	}).(ApplianceArtifactResponseOutput)
 }
 
-// The appliance provider authorization.
 type ApplianceProviderAuthorization struct {
-	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
-	PrincipalId string `pulumi:"principalId"`
-	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
+	PrincipalId      string `pulumi:"principalId"`
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 }
 
@@ -265,11 +238,8 @@ type ApplianceProviderAuthorizationInput interface {
 	ToApplianceProviderAuthorizationOutputWithContext(context.Context) ApplianceProviderAuthorizationOutput
 }
 
-// The appliance provider authorization.
 type ApplianceProviderAuthorizationArgs struct {
-	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
+	PrincipalId      pulumi.StringInput `pulumi:"principalId"`
 	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
 }
 
@@ -310,7 +280,6 @@ func (i ApplianceProviderAuthorizationArray) ToApplianceProviderAuthorizationArr
 	return pulumi.ToOutputWithContext(ctx, i).(ApplianceProviderAuthorizationArrayOutput)
 }
 
-// The appliance provider authorization.
 type ApplianceProviderAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (ApplianceProviderAuthorizationOutput) ElementType() reflect.Type {
@@ -325,12 +294,10 @@ func (o ApplianceProviderAuthorizationOutput) ToApplianceProviderAuthorizationOu
 	return o
 }
 
-// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
 func (o ApplianceProviderAuthorizationOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplianceProviderAuthorization) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
 func (o ApplianceProviderAuthorizationOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplianceProviderAuthorization) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
@@ -355,11 +322,8 @@ func (o ApplianceProviderAuthorizationArrayOutput) Index(i pulumi.IntInput) Appl
 	}).(ApplianceProviderAuthorizationOutput)
 }
 
-// The appliance provider authorization.
 type ApplianceProviderAuthorizationResponse struct {
-	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
-	PrincipalId string `pulumi:"principalId"`
-	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
+	PrincipalId      string `pulumi:"principalId"`
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 }
 
@@ -374,11 +338,8 @@ type ApplianceProviderAuthorizationResponseInput interface {
 	ToApplianceProviderAuthorizationResponseOutputWithContext(context.Context) ApplianceProviderAuthorizationResponseOutput
 }
 
-// The appliance provider authorization.
 type ApplianceProviderAuthorizationResponseArgs struct {
-	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
+	PrincipalId      pulumi.StringInput `pulumi:"principalId"`
 	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
 }
 
@@ -419,7 +380,6 @@ func (i ApplianceProviderAuthorizationResponseArray) ToApplianceProviderAuthoriz
 	return pulumi.ToOutputWithContext(ctx, i).(ApplianceProviderAuthorizationResponseArrayOutput)
 }
 
-// The appliance provider authorization.
 type ApplianceProviderAuthorizationResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplianceProviderAuthorizationResponseOutput) ElementType() reflect.Type {
@@ -434,12 +394,10 @@ func (o ApplianceProviderAuthorizationResponseOutput) ToApplianceProviderAuthori
 	return o
 }
 
-// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
 func (o ApplianceProviderAuthorizationResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplianceProviderAuthorizationResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
 func (o ApplianceProviderAuthorizationResponseOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplianceProviderAuthorizationResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
@@ -464,10 +422,8 @@ func (o ApplianceProviderAuthorizationResponseArrayOutput) Index(i pulumi.IntInp
 	}).(ApplianceProviderAuthorizationResponseOutput)
 }
 
-// Identity for the resource.
 type Identity struct {
-	// The identity type.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -481,10 +437,8 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Identity for the resource.
 type IdentityArgs struct {
-	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -540,7 +494,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Identity for the resource.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -560,14 +513,13 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
-// The identity type.
-func (o IdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -585,27 +537,28 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
-// The identity type.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponse struct {
-	// The principal ID of resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -619,14 +572,10 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Identity for the resource.
 type IdentityResponseArgs struct {
-	// The principal ID of resource identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -682,7 +631,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -702,22 +650,19 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
 func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -737,10 +682,15 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -750,7 +700,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -760,7 +709,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -770,18 +718,12 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Plan for the appliance.
 type Plan struct {
-	// The plan name.
-	Name string `pulumi:"name"`
-	// The product code.
-	Product string `pulumi:"product"`
-	// The promotion code.
+	Name          string  `pulumi:"name"`
+	Product       string  `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// The publisher ID.
-	Publisher string `pulumi:"publisher"`
-	// The plan's version.
-	Version string `pulumi:"version"`
+	Publisher     string  `pulumi:"publisher"`
+	Version       string  `pulumi:"version"`
 }
 
 // PlanInput is an input type that accepts PlanArgs and PlanOutput values.
@@ -795,18 +737,12 @@ type PlanInput interface {
 	ToPlanOutputWithContext(context.Context) PlanOutput
 }
 
-// Plan for the appliance.
 type PlanArgs struct {
-	// The plan name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The product code.
-	Product pulumi.StringInput `pulumi:"product"`
-	// The promotion code.
+	Name          pulumi.StringInput    `pulumi:"name"`
+	Product       pulumi.StringInput    `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// The publisher ID.
-	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The plan's version.
-	Version pulumi.StringInput `pulumi:"version"`
+	Publisher     pulumi.StringInput    `pulumi:"publisher"`
+	Version       pulumi.StringInput    `pulumi:"version"`
 }
 
 func (PlanArgs) ElementType() reflect.Type {
@@ -862,7 +798,6 @@ func (i *planPtrType) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PlanPtrOutput)
 }
 
-// Plan for the appliance.
 type PlanOutput struct{ *pulumi.OutputState }
 
 func (PlanOutput) ElementType() reflect.Type {
@@ -882,32 +817,27 @@ func (o PlanOutput) ToPlanPtrOutput() PlanPtrOutput {
 }
 
 func (o PlanOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput {
-	return o.ApplyT(func(v Plan) *Plan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Plan) *Plan {
 		return &v
 	}).(PlanPtrOutput)
 }
 
-// The plan name.
 func (o PlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Plan) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The product code.
 func (o PlanOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v Plan) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// The promotion code.
 func (o PlanOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Plan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o PlanOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v Plan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The plan's version.
 func (o PlanOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v Plan) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -927,10 +857,15 @@ func (o PlanPtrOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOu
 }
 
 func (o PlanPtrOutput) Elem() PlanOutput {
-	return o.ApplyT(func(v *Plan) Plan { return *v }).(PlanOutput)
+	return o.ApplyT(func(v *Plan) Plan {
+		if v != nil {
+			return *v
+		}
+		var ret Plan
+		return ret
+	}).(PlanOutput)
 }
 
-// The plan name.
 func (o PlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -940,7 +875,6 @@ func (o PlanPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The product code.
 func (o PlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -950,7 +884,6 @@ func (o PlanPtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The promotion code.
 func (o PlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -960,7 +893,6 @@ func (o PlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o PlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -970,7 +902,6 @@ func (o PlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plan's version.
 func (o PlanPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -980,18 +911,12 @@ func (o PlanPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Plan for the appliance.
 type PlanResponse struct {
-	// The plan name.
-	Name string `pulumi:"name"`
-	// The product code.
-	Product string `pulumi:"product"`
-	// The promotion code.
+	Name          string  `pulumi:"name"`
+	Product       string  `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// The publisher ID.
-	Publisher string `pulumi:"publisher"`
-	// The plan's version.
-	Version string `pulumi:"version"`
+	Publisher     string  `pulumi:"publisher"`
+	Version       string  `pulumi:"version"`
 }
 
 // PlanResponseInput is an input type that accepts PlanResponseArgs and PlanResponseOutput values.
@@ -1005,18 +930,12 @@ type PlanResponseInput interface {
 	ToPlanResponseOutputWithContext(context.Context) PlanResponseOutput
 }
 
-// Plan for the appliance.
 type PlanResponseArgs struct {
-	// The plan name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The product code.
-	Product pulumi.StringInput `pulumi:"product"`
-	// The promotion code.
+	Name          pulumi.StringInput    `pulumi:"name"`
+	Product       pulumi.StringInput    `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// The publisher ID.
-	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The plan's version.
-	Version pulumi.StringInput `pulumi:"version"`
+	Publisher     pulumi.StringInput    `pulumi:"publisher"`
+	Version       pulumi.StringInput    `pulumi:"version"`
 }
 
 func (PlanResponseArgs) ElementType() reflect.Type {
@@ -1072,7 +991,6 @@ func (i *planResponsePtrType) ToPlanResponsePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PlanResponsePtrOutput)
 }
 
-// Plan for the appliance.
 type PlanResponseOutput struct{ *pulumi.OutputState }
 
 func (PlanResponseOutput) ElementType() reflect.Type {
@@ -1092,32 +1010,27 @@ func (o PlanResponseOutput) ToPlanResponsePtrOutput() PlanResponsePtrOutput {
 }
 
 func (o PlanResponseOutput) ToPlanResponsePtrOutputWithContext(ctx context.Context) PlanResponsePtrOutput {
-	return o.ApplyT(func(v PlanResponse) *PlanResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanResponse) *PlanResponse {
 		return &v
 	}).(PlanResponsePtrOutput)
 }
 
-// The plan name.
 func (o PlanResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The product code.
 func (o PlanResponseOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// The promotion code.
 func (o PlanResponseOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o PlanResponseOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The plan's version.
 func (o PlanResponseOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -1137,10 +1050,15 @@ func (o PlanResponsePtrOutput) ToPlanResponsePtrOutputWithContext(ctx context.Co
 }
 
 func (o PlanResponsePtrOutput) Elem() PlanResponseOutput {
-	return o.ApplyT(func(v *PlanResponse) PlanResponse { return *v }).(PlanResponseOutput)
+	return o.ApplyT(func(v *PlanResponse) PlanResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PlanResponse
+		return ret
+	}).(PlanResponseOutput)
 }
 
-// The plan name.
 func (o PlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -1150,7 +1068,6 @@ func (o PlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The product code.
 func (o PlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -1160,7 +1077,6 @@ func (o PlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The promotion code.
 func (o PlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -1170,7 +1086,6 @@ func (o PlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -1180,7 +1095,6 @@ func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plan's version.
 func (o PlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -1190,20 +1104,13 @@ func (o PlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU for the resource.
 type Sku struct {
-	// The SKU capacity.
-	Capacity *int `pulumi:"capacity"`
-	// The SKU family.
-	Family *string `pulumi:"family"`
-	// The SKU model.
-	Model *string `pulumi:"model"`
-	// The SKU name.
-	Name string `pulumi:"name"`
-	// The SKU size.
-	Size *string `pulumi:"size"`
-	// The SKU tier.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Model    *string `pulumi:"model"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -1217,20 +1124,13 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// SKU for the resource.
 type SkuArgs struct {
-	// The SKU capacity.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The SKU family.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The SKU model.
-	Model pulumi.StringPtrInput `pulumi:"model"`
-	// The SKU name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU size.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The SKU tier.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Model    pulumi.StringPtrInput `pulumi:"model"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -1286,7 +1186,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// SKU for the resource.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -1306,37 +1205,31 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The SKU capacity.
 func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// The SKU family.
 func (o SkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The SKU model.
 func (o SkuOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Model }).(pulumi.StringPtrOutput)
 }
 
-// The SKU name.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SKU size.
 func (o SkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The SKU tier.
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1356,10 +1249,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The SKU capacity.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -1369,7 +1267,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The SKU family.
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1379,7 +1276,6 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU model.
 func (o SkuPtrOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1389,7 +1285,6 @@ func (o SkuPtrOutput) Model() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU name.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1399,7 +1294,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU size.
 func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1409,7 +1303,6 @@ func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU tier.
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1419,20 +1312,13 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU for the resource.
 type SkuResponse struct {
-	// The SKU capacity.
-	Capacity *int `pulumi:"capacity"`
-	// The SKU family.
-	Family *string `pulumi:"family"`
-	// The SKU model.
-	Model *string `pulumi:"model"`
-	// The SKU name.
-	Name string `pulumi:"name"`
-	// The SKU size.
-	Size *string `pulumi:"size"`
-	// The SKU tier.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Model    *string `pulumi:"model"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -1446,20 +1332,13 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// SKU for the resource.
 type SkuResponseArgs struct {
-	// The SKU capacity.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The SKU family.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The SKU model.
-	Model pulumi.StringPtrInput `pulumi:"model"`
-	// The SKU name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU size.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The SKU tier.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Model    pulumi.StringPtrInput `pulumi:"model"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -1515,7 +1394,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// SKU for the resource.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -1535,37 +1413,31 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The SKU capacity.
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// The SKU family.
 func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The SKU model.
 func (o SkuResponseOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Model }).(pulumi.StringPtrOutput)
 }
 
-// The SKU name.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SKU size.
 func (o SkuResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The SKU tier.
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1585,10 +1457,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The SKU capacity.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -1598,7 +1475,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The SKU family.
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1608,7 +1484,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU model.
 func (o SkuResponsePtrOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1618,7 +1493,6 @@ func (o SkuResponsePtrOutput) Model() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU name.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1628,7 +1502,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU size.
 func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1638,7 +1511,6 @@ func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU tier.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

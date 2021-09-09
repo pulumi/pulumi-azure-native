@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Client supplied parameters used to create a new attestation provider.
 type AttestationServiceCreationSpecificParams struct {
-	// JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
 	PolicySigningCertificates *JSONWebKeySet `pulumi:"policySigningCertificates"`
 }
 
@@ -27,9 +25,7 @@ type AttestationServiceCreationSpecificParamsInput interface {
 	ToAttestationServiceCreationSpecificParamsOutputWithContext(context.Context) AttestationServiceCreationSpecificParamsOutput
 }
 
-// Client supplied parameters used to create a new attestation provider.
 type AttestationServiceCreationSpecificParamsArgs struct {
-	// JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
 	PolicySigningCertificates JSONWebKeySetPtrInput `pulumi:"policySigningCertificates"`
 }
 
@@ -86,7 +82,6 @@ func (i *attestationServiceCreationSpecificParamsPtrType) ToAttestationServiceCr
 	return pulumi.ToOutputWithContext(ctx, i).(AttestationServiceCreationSpecificParamsPtrOutput)
 }
 
-// Client supplied parameters used to create a new attestation provider.
 type AttestationServiceCreationSpecificParamsOutput struct{ *pulumi.OutputState }
 
 func (AttestationServiceCreationSpecificParamsOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o AttestationServiceCreationSpecificParamsOutput) ToAttestationServiceCrea
 }
 
 func (o AttestationServiceCreationSpecificParamsOutput) ToAttestationServiceCreationSpecificParamsPtrOutputWithContext(ctx context.Context) AttestationServiceCreationSpecificParamsPtrOutput {
-	return o.ApplyT(func(v AttestationServiceCreationSpecificParams) *AttestationServiceCreationSpecificParams {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AttestationServiceCreationSpecificParams) *AttestationServiceCreationSpecificParams {
 		return &v
 	}).(AttestationServiceCreationSpecificParamsPtrOutput)
 }
 
-// JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
 func (o AttestationServiceCreationSpecificParamsOutput) PolicySigningCertificates() JSONWebKeySetPtrOutput {
 	return o.ApplyT(func(v AttestationServiceCreationSpecificParams) *JSONWebKeySet { return v.PolicySigningCertificates }).(JSONWebKeySetPtrOutput)
 }
@@ -131,10 +125,15 @@ func (o AttestationServiceCreationSpecificParamsPtrOutput) ToAttestationServiceC
 }
 
 func (o AttestationServiceCreationSpecificParamsPtrOutput) Elem() AttestationServiceCreationSpecificParamsOutput {
-	return o.ApplyT(func(v *AttestationServiceCreationSpecificParams) AttestationServiceCreationSpecificParams { return *v }).(AttestationServiceCreationSpecificParamsOutput)
+	return o.ApplyT(func(v *AttestationServiceCreationSpecificParams) AttestationServiceCreationSpecificParams {
+		if v != nil {
+			return *v
+		}
+		var ret AttestationServiceCreationSpecificParams
+		return ret
+	}).(AttestationServiceCreationSpecificParamsOutput)
 }
 
-// JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
 func (o AttestationServiceCreationSpecificParamsPtrOutput) PolicySigningCertificates() JSONWebKeySetPtrOutput {
 	return o.ApplyT(func(v *AttestationServiceCreationSpecificParams) *JSONWebKeySet {
 		if v == nil {
@@ -145,65 +144,23 @@ func (o AttestationServiceCreationSpecificParamsPtrOutput) PolicySigningCertific
 }
 
 type JSONWebKey struct {
-	// The "alg" (algorithm) parameter identifies the algorithm intended for
-	// use with the key.  The values used should either be registered in the
-	// IANA "JSON Web Signature and Encryption Algorithms" registry
-	// established by [JWA] or be a value that contains a Collision-
-	// Resistant Name.
-	Alg *string `pulumi:"alg"`
-	// The "crv" (curve) parameter identifies the curve type
-	Crv *string `pulumi:"crv"`
-	// RSA private exponent or ECC private key
-	D *string `pulumi:"d"`
-	// RSA Private Key Parameter
-	Dp *string `pulumi:"dp"`
-	// RSA Private Key Parameter
-	Dq *string `pulumi:"dq"`
-	// RSA public exponent, in Base64
-	E *string `pulumi:"e"`
-	// Symmetric key
-	K *string `pulumi:"k"`
-	// The "kid" (key ID) parameter is used to match a specific key.  This
-	// is used, for instance, to choose among a set of keys within a JWK Set
-	// during key rollover.  The structure of the "kid" value is
-	// unspecified.  When "kid" values are used within a JWK Set, different
-	// keys within the JWK Set SHOULD use distinct "kid" values.  (One
-	// example in which different keys might use the same "kid" value is if
-	// they have different "kty" (key type) values but are considered to be
-	// equivalent alternatives by the application using them.)  The "kid"
-	// value is a case-sensitive string.
-	Kid *string `pulumi:"kid"`
-	// The "kty" (key type) parameter identifies the cryptographic algorithm
-	// family used with the key, such as "RSA" or "EC". "kty" values should
-	// either be registered in the IANA "JSON Web Key Types" registry
-	// established by [JWA] or be a value that contains a Collision-
-	// Resistant Name.  The "kty" value is a case-sensitive string.
-	Kty string `pulumi:"kty"`
-	// RSA modulus, in Base64
-	N *string `pulumi:"n"`
-	// RSA secret prime
-	P *string `pulumi:"p"`
-	// RSA secret prime, with p < q
-	Q *string `pulumi:"q"`
-	// RSA Private Key Parameter
-	Qi *string `pulumi:"qi"`
-	// Use ("public key use") identifies the intended use of
-	// the public key. The "use" parameter is employed to indicate whether
-	// a public key is used for encrypting data or verifying the signature
-	// on data. Values are commonly "sig" (signature) or "enc" (encryption).
-	Use *string `pulumi:"use"`
-	// X coordinate for the Elliptic Curve point
-	X *string `pulumi:"x"`
-	// The "x5c" (X.509 certificate chain) parameter contains a chain of one
-	// or more PKIX certificates [RFC5280].  The certificate chain is
-	// represented as a JSON array of certificate value strings.  Each
-	// string in the array is a base64-encoded (Section 4 of [RFC4648] --
-	// not base64url-encoded) DER [ITU.X690.1994] PKIX certificate value.
-	// The PKIX certificate containing the key value MUST be the first
-	// certificate.
+	Alg *string  `pulumi:"alg"`
+	Crv *string  `pulumi:"crv"`
+	D   *string  `pulumi:"d"`
+	Dp  *string  `pulumi:"dp"`
+	Dq  *string  `pulumi:"dq"`
+	E   *string  `pulumi:"e"`
+	K   *string  `pulumi:"k"`
+	Kid *string  `pulumi:"kid"`
+	Kty string   `pulumi:"kty"`
+	N   *string  `pulumi:"n"`
+	P   *string  `pulumi:"p"`
+	Q   *string  `pulumi:"q"`
+	Qi  *string  `pulumi:"qi"`
+	Use *string  `pulumi:"use"`
+	X   *string  `pulumi:"x"`
 	X5c []string `pulumi:"x5c"`
-	// Y coordinate for the Elliptic Curve point
-	Y *string `pulumi:"y"`
+	Y   *string  `pulumi:"y"`
 }
 
 // JSONWebKeyInput is an input type that accepts JSONWebKeyArgs and JSONWebKeyOutput values.
@@ -218,65 +175,23 @@ type JSONWebKeyInput interface {
 }
 
 type JSONWebKeyArgs struct {
-	// The "alg" (algorithm) parameter identifies the algorithm intended for
-	// use with the key.  The values used should either be registered in the
-	// IANA "JSON Web Signature and Encryption Algorithms" registry
-	// established by [JWA] or be a value that contains a Collision-
-	// Resistant Name.
-	Alg pulumi.StringPtrInput `pulumi:"alg"`
-	// The "crv" (curve) parameter identifies the curve type
-	Crv pulumi.StringPtrInput `pulumi:"crv"`
-	// RSA private exponent or ECC private key
-	D pulumi.StringPtrInput `pulumi:"d"`
-	// RSA Private Key Parameter
-	Dp pulumi.StringPtrInput `pulumi:"dp"`
-	// RSA Private Key Parameter
-	Dq pulumi.StringPtrInput `pulumi:"dq"`
-	// RSA public exponent, in Base64
-	E pulumi.StringPtrInput `pulumi:"e"`
-	// Symmetric key
-	K pulumi.StringPtrInput `pulumi:"k"`
-	// The "kid" (key ID) parameter is used to match a specific key.  This
-	// is used, for instance, to choose among a set of keys within a JWK Set
-	// during key rollover.  The structure of the "kid" value is
-	// unspecified.  When "kid" values are used within a JWK Set, different
-	// keys within the JWK Set SHOULD use distinct "kid" values.  (One
-	// example in which different keys might use the same "kid" value is if
-	// they have different "kty" (key type) values but are considered to be
-	// equivalent alternatives by the application using them.)  The "kid"
-	// value is a case-sensitive string.
-	Kid pulumi.StringPtrInput `pulumi:"kid"`
-	// The "kty" (key type) parameter identifies the cryptographic algorithm
-	// family used with the key, such as "RSA" or "EC". "kty" values should
-	// either be registered in the IANA "JSON Web Key Types" registry
-	// established by [JWA] or be a value that contains a Collision-
-	// Resistant Name.  The "kty" value is a case-sensitive string.
-	Kty pulumi.StringInput `pulumi:"kty"`
-	// RSA modulus, in Base64
-	N pulumi.StringPtrInput `pulumi:"n"`
-	// RSA secret prime
-	P pulumi.StringPtrInput `pulumi:"p"`
-	// RSA secret prime, with p < q
-	Q pulumi.StringPtrInput `pulumi:"q"`
-	// RSA Private Key Parameter
-	Qi pulumi.StringPtrInput `pulumi:"qi"`
-	// Use ("public key use") identifies the intended use of
-	// the public key. The "use" parameter is employed to indicate whether
-	// a public key is used for encrypting data or verifying the signature
-	// on data. Values are commonly "sig" (signature) or "enc" (encryption).
-	Use pulumi.StringPtrInput `pulumi:"use"`
-	// X coordinate for the Elliptic Curve point
-	X pulumi.StringPtrInput `pulumi:"x"`
-	// The "x5c" (X.509 certificate chain) parameter contains a chain of one
-	// or more PKIX certificates [RFC5280].  The certificate chain is
-	// represented as a JSON array of certificate value strings.  Each
-	// string in the array is a base64-encoded (Section 4 of [RFC4648] --
-	// not base64url-encoded) DER [ITU.X690.1994] PKIX certificate value.
-	// The PKIX certificate containing the key value MUST be the first
-	// certificate.
+	Alg pulumi.StringPtrInput   `pulumi:"alg"`
+	Crv pulumi.StringPtrInput   `pulumi:"crv"`
+	D   pulumi.StringPtrInput   `pulumi:"d"`
+	Dp  pulumi.StringPtrInput   `pulumi:"dp"`
+	Dq  pulumi.StringPtrInput   `pulumi:"dq"`
+	E   pulumi.StringPtrInput   `pulumi:"e"`
+	K   pulumi.StringPtrInput   `pulumi:"k"`
+	Kid pulumi.StringPtrInput   `pulumi:"kid"`
+	Kty pulumi.StringInput      `pulumi:"kty"`
+	N   pulumi.StringPtrInput   `pulumi:"n"`
+	P   pulumi.StringPtrInput   `pulumi:"p"`
+	Q   pulumi.StringPtrInput   `pulumi:"q"`
+	Qi  pulumi.StringPtrInput   `pulumi:"qi"`
+	Use pulumi.StringPtrInput   `pulumi:"use"`
+	X   pulumi.StringPtrInput   `pulumi:"x"`
 	X5c pulumi.StringArrayInput `pulumi:"x5c"`
-	// Y coordinate for the Elliptic Curve point
-	Y pulumi.StringPtrInput `pulumi:"y"`
+	Y   pulumi.StringPtrInput   `pulumi:"y"`
 }
 
 func (JSONWebKeyArgs) ElementType() reflect.Type {
@@ -330,112 +245,70 @@ func (o JSONWebKeyOutput) ToJSONWebKeyOutputWithContext(ctx context.Context) JSO
 	return o
 }
 
-// The "alg" (algorithm) parameter identifies the algorithm intended for
-// use with the key.  The values used should either be registered in the
-// IANA "JSON Web Signature and Encryption Algorithms" registry
-// established by [JWA] or be a value that contains a Collision-
-// Resistant Name.
 func (o JSONWebKeyOutput) Alg() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JSONWebKey) *string { return v.Alg }).(pulumi.StringPtrOutput)
 }
 
-// The "crv" (curve) parameter identifies the curve type
 func (o JSONWebKeyOutput) Crv() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JSONWebKey) *string { return v.Crv }).(pulumi.StringPtrOutput)
 }
 
-// RSA private exponent or ECC private key
 func (o JSONWebKeyOutput) D() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JSONWebKey) *string { return v.D }).(pulumi.StringPtrOutput)
 }
 
-// RSA Private Key Parameter
 func (o JSONWebKeyOutput) Dp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JSONWebKey) *string { return v.Dp }).(pulumi.StringPtrOutput)
 }
 
-// RSA Private Key Parameter
 func (o JSONWebKeyOutput) Dq() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JSONWebKey) *string { return v.Dq }).(pulumi.StringPtrOutput)
 }
 
-// RSA public exponent, in Base64
 func (o JSONWebKeyOutput) E() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JSONWebKey) *string { return v.E }).(pulumi.StringPtrOutput)
 }
 
-// Symmetric key
 func (o JSONWebKeyOutput) K() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JSONWebKey) *string { return v.K }).(pulumi.StringPtrOutput)
 }
 
-// The "kid" (key ID) parameter is used to match a specific key.  This
-// is used, for instance, to choose among a set of keys within a JWK Set
-// during key rollover.  The structure of the "kid" value is
-// unspecified.  When "kid" values are used within a JWK Set, different
-// keys within the JWK Set SHOULD use distinct "kid" values.  (One
-// example in which different keys might use the same "kid" value is if
-// they have different "kty" (key type) values but are considered to be
-// equivalent alternatives by the application using them.)  The "kid"
-// value is a case-sensitive string.
 func (o JSONWebKeyOutput) Kid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JSONWebKey) *string { return v.Kid }).(pulumi.StringPtrOutput)
 }
 
-// The "kty" (key type) parameter identifies the cryptographic algorithm
-// family used with the key, such as "RSA" or "EC". "kty" values should
-// either be registered in the IANA "JSON Web Key Types" registry
-// established by [JWA] or be a value that contains a Collision-
-// Resistant Name.  The "kty" value is a case-sensitive string.
 func (o JSONWebKeyOutput) Kty() pulumi.StringOutput {
 	return o.ApplyT(func(v JSONWebKey) string { return v.Kty }).(pulumi.StringOutput)
 }
 
-// RSA modulus, in Base64
 func (o JSONWebKeyOutput) N() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JSONWebKey) *string { return v.N }).(pulumi.StringPtrOutput)
 }
 
-// RSA secret prime
 func (o JSONWebKeyOutput) P() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JSONWebKey) *string { return v.P }).(pulumi.StringPtrOutput)
 }
 
-// RSA secret prime, with p < q
 func (o JSONWebKeyOutput) Q() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JSONWebKey) *string { return v.Q }).(pulumi.StringPtrOutput)
 }
 
-// RSA Private Key Parameter
 func (o JSONWebKeyOutput) Qi() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JSONWebKey) *string { return v.Qi }).(pulumi.StringPtrOutput)
 }
 
-// Use ("public key use") identifies the intended use of
-// the public key. The "use" parameter is employed to indicate whether
-// a public key is used for encrypting data or verifying the signature
-// on data. Values are commonly "sig" (signature) or "enc" (encryption).
 func (o JSONWebKeyOutput) Use() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JSONWebKey) *string { return v.Use }).(pulumi.StringPtrOutput)
 }
 
-// X coordinate for the Elliptic Curve point
 func (o JSONWebKeyOutput) X() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JSONWebKey) *string { return v.X }).(pulumi.StringPtrOutput)
 }
 
-// The "x5c" (X.509 certificate chain) parameter contains a chain of one
-// or more PKIX certificates [RFC5280].  The certificate chain is
-// represented as a JSON array of certificate value strings.  Each
-// string in the array is a base64-encoded (Section 4 of [RFC4648] --
-// not base64url-encoded) DER [ITU.X690.1994] PKIX certificate value.
-// The PKIX certificate containing the key value MUST be the first
-// certificate.
 func (o JSONWebKeyOutput) X5c() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JSONWebKey) []string { return v.X5c }).(pulumi.StringArrayOutput)
 }
 
-// Y coordinate for the Elliptic Curve point
 func (o JSONWebKeyOutput) Y() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JSONWebKey) *string { return v.Y }).(pulumi.StringPtrOutput)
 }
@@ -461,11 +334,6 @@ func (o JSONWebKeyArrayOutput) Index(i pulumi.IntInput) JSONWebKeyOutput {
 }
 
 type JSONWebKeySet struct {
-	// The value of the "keys" parameter is an array of JWK values.  By
-	// default, the order of the JWK values within the array does not imply
-	// an order of preference among them, although applications of JWK Sets
-	// can choose to assign a meaning to the order for their purposes, if
-	// desired.
 	Keys []JSONWebKey `pulumi:"keys"`
 }
 
@@ -481,11 +349,6 @@ type JSONWebKeySetInput interface {
 }
 
 type JSONWebKeySetArgs struct {
-	// The value of the "keys" parameter is an array of JWK values.  By
-	// default, the order of the JWK values within the array does not imply
-	// an order of preference among them, although applications of JWK Sets
-	// can choose to assign a meaning to the order for their purposes, if
-	// desired.
 	Keys JSONWebKeyArrayInput `pulumi:"keys"`
 }
 
@@ -561,16 +424,11 @@ func (o JSONWebKeySetOutput) ToJSONWebKeySetPtrOutput() JSONWebKeySetPtrOutput {
 }
 
 func (o JSONWebKeySetOutput) ToJSONWebKeySetPtrOutputWithContext(ctx context.Context) JSONWebKeySetPtrOutput {
-	return o.ApplyT(func(v JSONWebKeySet) *JSONWebKeySet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JSONWebKeySet) *JSONWebKeySet {
 		return &v
 	}).(JSONWebKeySetPtrOutput)
 }
 
-// The value of the "keys" parameter is an array of JWK values.  By
-// default, the order of the JWK values within the array does not imply
-// an order of preference among them, although applications of JWK Sets
-// can choose to assign a meaning to the order for their purposes, if
-// desired.
 func (o JSONWebKeySetOutput) Keys() JSONWebKeyArrayOutput {
 	return o.ApplyT(func(v JSONWebKeySet) []JSONWebKey { return v.Keys }).(JSONWebKeyArrayOutput)
 }
@@ -590,14 +448,15 @@ func (o JSONWebKeySetPtrOutput) ToJSONWebKeySetPtrOutputWithContext(ctx context.
 }
 
 func (o JSONWebKeySetPtrOutput) Elem() JSONWebKeySetOutput {
-	return o.ApplyT(func(v *JSONWebKeySet) JSONWebKeySet { return *v }).(JSONWebKeySetOutput)
+	return o.ApplyT(func(v *JSONWebKeySet) JSONWebKeySet {
+		if v != nil {
+			return *v
+		}
+		var ret JSONWebKeySet
+		return ret
+	}).(JSONWebKeySetOutput)
 }
 
-// The value of the "keys" parameter is an array of JWK values.  By
-// default, the order of the JWK values within the array does not imply
-// an order of preference among them, although applications of JWK Sets
-// can choose to assign a meaning to the order for their purposes, if
-// desired.
 func (o JSONWebKeySetPtrOutput) Keys() JSONWebKeyArrayOutput {
 	return o.ApplyT(func(v *JSONWebKeySet) []JSONWebKey {
 		if v == nil {
@@ -607,20 +466,13 @@ func (o JSONWebKeySetPtrOutput) Keys() JSONWebKeyArrayOutput {
 	}).(JSONWebKeyArrayOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	Id                                string                                    `pulumi:"id"`
+	Name                              string                                    `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointResponse                  `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	ProvisioningState                 string                                    `pulumi:"provisioningState"`
+	Type                              string                                    `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -634,20 +486,13 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseArgs struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	Id                                pulumi.StringInput                             `pulumi:"id"`
+	Name                              pulumi.StringInput                             `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponsePtrInput                `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringInput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringInput                             `pulumi:"provisioningState"`
+	Type                              pulumi.StringInput                             `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -687,7 +532,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -702,34 +546,28 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the resource
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource of private end point.
 func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// The provisioning state of the private endpoint connection resource.
 func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -754,9 +592,7 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponse struct {
-	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
 }
 
@@ -771,9 +607,7 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseArgs struct {
-	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -830,7 +664,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -850,12 +683,11 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -875,10 +707,15 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -888,14 +725,10 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionState struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -909,14 +742,10 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -972,7 +801,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -992,22 +820,19 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1027,10 +852,15 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1040,7 +870,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1050,7 +879,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1060,14 +888,10 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -1081,14 +905,10 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -1144,7 +964,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -1164,22 +983,19 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1200,11 +1016,14 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1214,7 +1033,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1224,7 +1042,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1234,19 +1051,12 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -1261,19 +1071,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1330,7 +1133,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1350,37 +1152,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1400,10 +1196,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1413,7 +1214,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1423,7 +1223,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1433,7 +1232,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1443,7 +1241,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1453,7 +1250,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

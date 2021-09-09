@@ -181,9 +181,7 @@ func (i *VNetPeering) ToVNetPeeringOutputWithContext(ctx context.Context) VNetPe
 	return pulumi.ToOutputWithContext(ctx, i).(VNetPeeringOutput)
 }
 
-type VNetPeeringOutput struct {
-	*pulumi.OutputState
-}
+type VNetPeeringOutput struct{ *pulumi.OutputState }
 
 func (VNetPeeringOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VNetPeering)(nil))

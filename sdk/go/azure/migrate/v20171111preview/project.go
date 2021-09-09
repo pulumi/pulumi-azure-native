@@ -11,36 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Migrate Project.
 type Project struct {
 	pulumi.CustomResourceState
 
-	// Time when this project was created. Date-Time represented in ISO-8601 format.
-	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
-	// ARM ID of the Service Map workspace created by user.
+	CreatedTimestamp    pulumi.StringOutput    `pulumi:"createdTimestamp"`
 	CustomerWorkspaceId pulumi.StringPtrOutput `pulumi:"customerWorkspaceId"`
-	// Reports whether project is under discovery.
-	DiscoveryStatus pulumi.StringOutput `pulumi:"discoveryStatus"`
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Azure location in which project is created.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Name of the project.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Number of assessments created in the project.
-	NumberOfAssessments pulumi.IntOutput `pulumi:"numberOfAssessments"`
-	// Number of groups created in the project.
-	NumberOfGroups pulumi.IntOutput `pulumi:"numberOfGroups"`
-	// Number of machines in the project.
-	NumberOfMachines pulumi.IntOutput `pulumi:"numberOfMachines"`
-	// Provisioning state of the project.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Tags provided by Azure Tagging service.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
-	// Type of the object = [Microsoft.Migrate/projects].
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
-	UpdatedTimestamp pulumi.StringOutput `pulumi:"updatedTimestamp"`
+	DiscoveryStatus     pulumi.StringOutput    `pulumi:"discoveryStatus"`
+	ETag                pulumi.StringPtrOutput `pulumi:"eTag"`
+	Location            pulumi.StringPtrOutput `pulumi:"location"`
+	Name                pulumi.StringOutput    `pulumi:"name"`
+	NumberOfAssessments pulumi.IntOutput       `pulumi:"numberOfAssessments"`
+	NumberOfGroups      pulumi.IntOutput       `pulumi:"numberOfGroups"`
+	NumberOfMachines    pulumi.IntOutput       `pulumi:"numberOfMachines"`
+	ProvisioningState   pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	Tags                pulumi.AnyOutput       `pulumi:"tags"`
+	Type                pulumi.StringOutput    `pulumi:"type"`
+	UpdatedTimestamp    pulumi.StringOutput    `pulumi:"updatedTimestamp"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -97,38 +83,24 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	// ARM ID of the Service Map workspace created by user.
-	CustomerWorkspaceId *string `pulumi:"customerWorkspaceId"`
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Azure location in which project is created.
-	Location *string `pulumi:"location"`
-	// Name of the Azure Migrate project.
-	ProjectName *string `pulumi:"projectName"`
-	// Provisioning state of the project.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags provided by Azure Tagging service.
-	Tags interface{} `pulumi:"tags"`
+	CustomerWorkspaceId *string     `pulumi:"customerWorkspaceId"`
+	ETag                *string     `pulumi:"eTag"`
+	Location            *string     `pulumi:"location"`
+	ProjectName         *string     `pulumi:"projectName"`
+	ProvisioningState   *string     `pulumi:"provisioningState"`
+	ResourceGroupName   string      `pulumi:"resourceGroupName"`
+	Tags                interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
-	// ARM ID of the Service Map workspace created by user.
 	CustomerWorkspaceId pulumi.StringPtrInput
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrInput
-	// Azure location in which project is created.
-	Location pulumi.StringPtrInput
-	// Name of the Azure Migrate project.
-	ProjectName pulumi.StringPtrInput
-	// Provisioning state of the project.
-	ProvisioningState pulumi.StringPtrInput
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName pulumi.StringInput
-	// Tags provided by Azure Tagging service.
-	Tags pulumi.Input
+	ETag                pulumi.StringPtrInput
+	Location            pulumi.StringPtrInput
+	ProjectName         pulumi.StringPtrInput
+	ProvisioningState   pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	Tags                pulumi.Input
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -154,9 +126,7 @@ func (i *Project) ToProjectOutputWithContext(ctx context.Context) ProjectOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectOutput)
 }
 
-type ProjectOutput struct {
-	*pulumi.OutputState
-}
+type ProjectOutput struct{ *pulumi.OutputState }
 
 func (ProjectOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Project)(nil))

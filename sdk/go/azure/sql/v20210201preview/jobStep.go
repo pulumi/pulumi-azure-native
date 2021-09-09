@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A job step.
 type JobStep struct {
 	pulumi.CustomResourceState
 
-	// The action payload of the job step.
-	Action JobStepActionResponseOutput `pulumi:"action"`
-	// The resource ID of the job credential that will be used to connect to the targets.
-	Credential pulumi.StringOutput `pulumi:"credential"`
-	// Execution options for the job step.
+	Action           JobStepActionResponseOutput              `pulumi:"action"`
+	Credential       pulumi.StringOutput                      `pulumi:"credential"`
 	ExecutionOptions JobStepExecutionOptionsResponsePtrOutput `pulumi:"executionOptions"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Output destination properties of the job step.
-	Output JobStepOutputResponsePtrOutput `pulumi:"output"`
-	// The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
-	StepId pulumi.IntPtrOutput `pulumi:"stepId"`
-	// The resource ID of the target group that the job step will be executed on.
-	TargetGroup pulumi.StringOutput `pulumi:"targetGroup"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name             pulumi.StringOutput                      `pulumi:"name"`
+	Output           JobStepOutputResponsePtrOutput           `pulumi:"output"`
+	StepId           pulumi.IntPtrOutput                      `pulumi:"stepId"`
+	TargetGroup      pulumi.StringOutput                      `pulumi:"targetGroup"`
+	Type             pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewJobStep registers a new resource with the given unique name, arguments, and options.
@@ -129,54 +120,32 @@ func (JobStepState) ElementType() reflect.Type {
 }
 
 type jobStepArgs struct {
-	// The action payload of the job step.
-	Action JobStepAction `pulumi:"action"`
-	// The resource ID of the job credential that will be used to connect to the targets.
-	Credential string `pulumi:"credential"`
-	// Execution options for the job step.
-	ExecutionOptions *JobStepExecutionOptions `pulumi:"executionOptions"`
-	// The name of the job agent.
-	JobAgentName string `pulumi:"jobAgentName"`
-	// The name of the job.
-	JobName string `pulumi:"jobName"`
-	// Output destination properties of the job step.
-	Output *JobStepOutputType `pulumi:"output"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
-	StepId *int `pulumi:"stepId"`
-	// The name of the job step.
-	StepName *string `pulumi:"stepName"`
-	// The resource ID of the target group that the job step will be executed on.
-	TargetGroup string `pulumi:"targetGroup"`
+	Action            JobStepAction            `pulumi:"action"`
+	Credential        string                   `pulumi:"credential"`
+	ExecutionOptions  *JobStepExecutionOptions `pulumi:"executionOptions"`
+	JobAgentName      string                   `pulumi:"jobAgentName"`
+	JobName           string                   `pulumi:"jobName"`
+	Output            *JobStepOutputType       `pulumi:"output"`
+	ResourceGroupName string                   `pulumi:"resourceGroupName"`
+	ServerName        string                   `pulumi:"serverName"`
+	StepId            *int                     `pulumi:"stepId"`
+	StepName          *string                  `pulumi:"stepName"`
+	TargetGroup       string                   `pulumi:"targetGroup"`
 }
 
 // The set of arguments for constructing a JobStep resource.
 type JobStepArgs struct {
-	// The action payload of the job step.
-	Action JobStepActionInput
-	// The resource ID of the job credential that will be used to connect to the targets.
-	Credential pulumi.StringInput
-	// Execution options for the job step.
-	ExecutionOptions JobStepExecutionOptionsPtrInput
-	// The name of the job agent.
-	JobAgentName pulumi.StringInput
-	// The name of the job.
-	JobName pulumi.StringInput
-	// Output destination properties of the job step.
-	Output JobStepOutputTypePtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	Action            JobStepActionInput
+	Credential        pulumi.StringInput
+	ExecutionOptions  JobStepExecutionOptionsPtrInput
+	JobAgentName      pulumi.StringInput
+	JobName           pulumi.StringInput
+	Output            JobStepOutputTypePtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
-	// The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
-	StepId pulumi.IntPtrInput
-	// The name of the job step.
-	StepName pulumi.StringPtrInput
-	// The resource ID of the target group that the job step will be executed on.
-	TargetGroup pulumi.StringInput
+	ServerName        pulumi.StringInput
+	StepId            pulumi.IntPtrInput
+	StepName          pulumi.StringPtrInput
+	TargetGroup       pulumi.StringInput
 }
 
 func (JobStepArgs) ElementType() reflect.Type {
@@ -202,9 +171,7 @@ func (i *JobStep) ToJobStepOutputWithContext(ctx context.Context) JobStepOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutput)
 }
 
-type JobStepOutput struct {
-	*pulumi.OutputState
-}
+type JobStepOutput struct{ *pulumi.OutputState }
 
 func (JobStepOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobStep)(nil))

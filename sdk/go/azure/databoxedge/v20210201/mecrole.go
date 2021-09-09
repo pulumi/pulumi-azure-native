@@ -11,27 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// MEC role.
 type MECRole struct {
 	pulumi.CustomResourceState
 
-	// Activation key of the MEC.
-	ConnectionString AsymmetricEncryptedSecretResponsePtrOutput `pulumi:"connectionString"`
-	// Controller Endpoint.
-	ControllerEndpoint pulumi.StringPtrOutput `pulumi:"controllerEndpoint"`
-	// Role type.
-	// Expected value is 'MEC'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The object name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Unique Id of the Resource.
-	ResourceUniqueId pulumi.StringPtrOutput `pulumi:"resourceUniqueId"`
-	// Role status.
-	RoleStatus pulumi.StringOutput `pulumi:"roleStatus"`
-	// Role configured on ASE resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ConnectionString   AsymmetricEncryptedSecretResponsePtrOutput `pulumi:"connectionString"`
+	ControllerEndpoint pulumi.StringPtrOutput                     `pulumi:"controllerEndpoint"`
+	Kind               pulumi.StringOutput                        `pulumi:"kind"`
+	Name               pulumi.StringOutput                        `pulumi:"name"`
+	ResourceUniqueId   pulumi.StringPtrOutput                     `pulumi:"resourceUniqueId"`
+	RoleStatus         pulumi.StringOutput                        `pulumi:"roleStatus"`
+	SystemData         SystemDataResponseOutput                   `pulumi:"systemData"`
+	Type               pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewMECRole registers a new resource with the given unique name, arguments, and options.
@@ -146,44 +136,26 @@ func (MECRoleState) ElementType() reflect.Type {
 }
 
 type mecroleArgs struct {
-	// Activation key of the MEC.
-	ConnectionString *AsymmetricEncryptedSecret `pulumi:"connectionString"`
-	// Controller Endpoint.
-	ControllerEndpoint *string `pulumi:"controllerEndpoint"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// Role type.
-	// Expected value is 'MEC'.
-	Kind string `pulumi:"kind"`
-	// The role name.
-	Name *string `pulumi:"name"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Unique Id of the Resource.
-	ResourceUniqueId *string `pulumi:"resourceUniqueId"`
-	// Role status.
-	RoleStatus string `pulumi:"roleStatus"`
+	ConnectionString   *AsymmetricEncryptedSecret `pulumi:"connectionString"`
+	ControllerEndpoint *string                    `pulumi:"controllerEndpoint"`
+	DeviceName         string                     `pulumi:"deviceName"`
+	Kind               string                     `pulumi:"kind"`
+	Name               *string                    `pulumi:"name"`
+	ResourceGroupName  string                     `pulumi:"resourceGroupName"`
+	ResourceUniqueId   *string                    `pulumi:"resourceUniqueId"`
+	RoleStatus         string                     `pulumi:"roleStatus"`
 }
 
 // The set of arguments for constructing a MECRole resource.
 type MECRoleArgs struct {
-	// Activation key of the MEC.
-	ConnectionString AsymmetricEncryptedSecretPtrInput
-	// Controller Endpoint.
+	ConnectionString   AsymmetricEncryptedSecretPtrInput
 	ControllerEndpoint pulumi.StringPtrInput
-	// The device name.
-	DeviceName pulumi.StringInput
-	// Role type.
-	// Expected value is 'MEC'.
-	Kind pulumi.StringInput
-	// The role name.
-	Name pulumi.StringPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// Unique Id of the Resource.
-	ResourceUniqueId pulumi.StringPtrInput
-	// Role status.
-	RoleStatus pulumi.StringInput
+	DeviceName         pulumi.StringInput
+	Kind               pulumi.StringInput
+	Name               pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	ResourceUniqueId   pulumi.StringPtrInput
+	RoleStatus         pulumi.StringInput
 }
 
 func (MECRoleArgs) ElementType() reflect.Type {
@@ -209,9 +181,7 @@ func (i *MECRole) ToMECRoleOutputWithContext(ctx context.Context) MECRoleOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(MECRoleOutput)
 }
 
-type MECRoleOutput struct {
-	*pulumi.OutputState
-}
+type MECRoleOutput struct{ *pulumi.OutputState }
 
 func (MECRoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MECRole)(nil))

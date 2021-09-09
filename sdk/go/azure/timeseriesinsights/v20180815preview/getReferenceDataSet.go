@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
 func LookupReferenceDataSet(ctx *pulumi.Context, args *LookupReferenceDataSetArgs, opts ...pulumi.InvokeOption) (*LookupReferenceDataSetResult, error) {
 	var rv LookupReferenceDataSetResult
 	err := ctx.Invoke("azure-native:timeseriesinsights/v20180815preview:getReferenceDataSet", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupReferenceDataSet(ctx *pulumi.Context, args *LookupReferenceDataSetArg
 }
 
 type LookupReferenceDataSetArgs struct {
-	// The name of the Time Series Insights environment associated with the specified resource group.
-	EnvironmentName string `pulumi:"environmentName"`
-	// The name of the Time Series Insights reference data set associated with the specified environment.
+	EnvironmentName      string `pulumi:"environmentName"`
 	ReferenceDataSetName string `pulumi:"referenceDataSetName"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
 }
 
 // A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
 type LookupReferenceDataSetResult struct {
-	// The time the resource was created.
-	CreationTime string `pulumi:"creationTime"`
-	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-	DataStringComparisonBehavior *string `pulumi:"dataStringComparisonBehavior"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// The list of key properties for the reference data set.
-	KeyProperties []ReferenceDataSetKeyPropertyResponse `pulumi:"keyProperties"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	CreationTime                 string                                `pulumi:"creationTime"`
+	DataStringComparisonBehavior *string                               `pulumi:"dataStringComparisonBehavior"`
+	Id                           string                                `pulumi:"id"`
+	KeyProperties                []ReferenceDataSetKeyPropertyResponse `pulumi:"keyProperties"`
+	Location                     string                                `pulumi:"location"`
+	Name                         string                                `pulumi:"name"`
+	ProvisioningState            string                                `pulumi:"provisioningState"`
+	Tags                         map[string]string                     `pulumi:"tags"`
+	Type                         string                                `pulumi:"type"`
 }

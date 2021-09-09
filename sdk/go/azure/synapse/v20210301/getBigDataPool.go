@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Big Data pool
 func LookupBigDataPool(ctx *pulumi.Context, args *LookupBigDataPoolArgs, opts ...pulumi.InvokeOption) (*LookupBigDataPoolResult, error) {
 	var rv LookupBigDataPoolResult
 	err := ctx.Invoke("azure-native:synapse/v20210301:getBigDataPool", args, &rv, opts...)
@@ -18,60 +17,34 @@ func LookupBigDataPool(ctx *pulumi.Context, args *LookupBigDataPoolArgs, opts ..
 }
 
 type LookupBigDataPoolArgs struct {
-	// Big Data pool name
-	BigDataPoolName string `pulumi:"bigDataPoolName"`
-	// The name of the resource group. The name is case insensitive.
+	BigDataPoolName   string `pulumi:"bigDataPoolName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // A Big Data pool
 type LookupBigDataPoolResult struct {
-	// Auto-pausing properties
-	AutoPause *AutoPausePropertiesResponse `pulumi:"autoPause"`
-	// Auto-scaling properties
-	AutoScale *AutoScalePropertiesResponse `pulumi:"autoScale"`
-	// The cache size
-	CacheSize *int `pulumi:"cacheSize"`
-	// The time when the Big Data pool was created.
-	CreationDate *string `pulumi:"creationDate"`
-	// List of custom libraries/packages associated with the spark pool.
-	CustomLibraries []LibraryInfoResponse `pulumi:"customLibraries"`
-	// The default folder where Spark logs will be written.
-	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
-	// Dynamic Executor Allocation
-	DynamicExecutorAllocation *DynamicExecutorAllocationResponse `pulumi:"dynamicExecutorAllocation"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Whether compute isolation is required or not.
-	IsComputeIsolationEnabled *bool `pulumi:"isComputeIsolationEnabled"`
-	// The time when the Big Data pool was updated successfully.
-	LastSucceededTimestamp string `pulumi:"lastSucceededTimestamp"`
-	// Library version requirements
-	LibraryRequirements *LibraryRequirementsResponse `pulumi:"libraryRequirements"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The number of nodes in the Big Data pool.
-	NodeCount *int `pulumi:"nodeCount"`
-	// The level of compute power that each node in the Big Data pool has.
-	NodeSize *string `pulumi:"nodeSize"`
-	// The kind of nodes that the Big Data pool provides.
-	NodeSizeFamily *string `pulumi:"nodeSizeFamily"`
-	// The state of the Big Data pool.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Whether session level packages enabled.
-	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
-	// Spark configuration file to specify additional properties
-	SparkConfigProperties *LibraryRequirementsResponse `pulumi:"sparkConfigProperties"`
-	// The Spark events folder
-	SparkEventsFolder *string `pulumi:"sparkEventsFolder"`
-	// The Apache Spark version.
-	SparkVersion *string `pulumi:"sparkVersion"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	AutoPause                   *AutoPausePropertiesResponse       `pulumi:"autoPause"`
+	AutoScale                   *AutoScalePropertiesResponse       `pulumi:"autoScale"`
+	CacheSize                   *int                               `pulumi:"cacheSize"`
+	CreationDate                *string                            `pulumi:"creationDate"`
+	CustomLibraries             []LibraryInfoResponse              `pulumi:"customLibraries"`
+	DefaultSparkLogFolder       *string                            `pulumi:"defaultSparkLogFolder"`
+	DynamicExecutorAllocation   *DynamicExecutorAllocationResponse `pulumi:"dynamicExecutorAllocation"`
+	Id                          string                             `pulumi:"id"`
+	IsComputeIsolationEnabled   *bool                              `pulumi:"isComputeIsolationEnabled"`
+	LastSucceededTimestamp      string                             `pulumi:"lastSucceededTimestamp"`
+	LibraryRequirements         *LibraryRequirementsResponse       `pulumi:"libraryRequirements"`
+	Location                    string                             `pulumi:"location"`
+	Name                        string                             `pulumi:"name"`
+	NodeCount                   *int                               `pulumi:"nodeCount"`
+	NodeSize                    *string                            `pulumi:"nodeSize"`
+	NodeSizeFamily              *string                            `pulumi:"nodeSizeFamily"`
+	ProvisioningState           *string                            `pulumi:"provisioningState"`
+	SessionLevelPackagesEnabled *bool                              `pulumi:"sessionLevelPackagesEnabled"`
+	SparkConfigProperties       *LibraryRequirementsResponse       `pulumi:"sparkConfigProperties"`
+	SparkEventsFolder           *string                            `pulumi:"sparkEventsFolder"`
+	SparkVersion                *string                            `pulumi:"sparkVersion"`
+	Tags                        map[string]string                  `pulumi:"tags"`
+	Type                        string                             `pulumi:"type"`
 }

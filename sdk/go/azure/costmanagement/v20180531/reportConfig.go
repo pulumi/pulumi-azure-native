@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A report config resource.
 type ReportConfig struct {
 	pulumi.CustomResourceState
 
-	// Has definition for the report config.
-	Definition ReportConfigDefinitionResponseOutput `pulumi:"definition"`
-	// Has delivery information for the report config.
+	Definition   ReportConfigDefinitionResponseOutput   `pulumi:"definition"`
 	DeliveryInfo ReportConfigDeliveryInfoResponseOutput `pulumi:"deliveryInfo"`
-	// The format of the report being delivered.
-	Format pulumi.StringPtrOutput `pulumi:"format"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Has schedule information for the report config.
-	Schedule ReportConfigScheduleResponsePtrOutput `pulumi:"schedule"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Format       pulumi.StringPtrOutput                 `pulumi:"format"`
+	Name         pulumi.StringOutput                    `pulumi:"name"`
+	Schedule     ReportConfigScheduleResponsePtrOutput  `pulumi:"schedule"`
+	Tags         pulumi.StringMapOutput                 `pulumi:"tags"`
+	Type         pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewReportConfig registers a new resource with the given unique name, arguments, and options.
@@ -82,30 +74,20 @@ func (ReportConfigState) ElementType() reflect.Type {
 }
 
 type reportConfigArgs struct {
-	// Has definition for the report config.
-	Definition ReportConfigDefinition `pulumi:"definition"`
-	// Has delivery information for the report config.
-	DeliveryInfo ReportConfigDeliveryInfo `pulumi:"deliveryInfo"`
-	// The format of the report being delivered.
-	Format *string `pulumi:"format"`
-	// Report Config Name.
-	ReportConfigName *string `pulumi:"reportConfigName"`
-	// Has schedule information for the report config.
-	Schedule *ReportConfigSchedule `pulumi:"schedule"`
+	Definition       ReportConfigDefinition   `pulumi:"definition"`
+	DeliveryInfo     ReportConfigDeliveryInfo `pulumi:"deliveryInfo"`
+	Format           *string                  `pulumi:"format"`
+	ReportConfigName *string                  `pulumi:"reportConfigName"`
+	Schedule         *ReportConfigSchedule    `pulumi:"schedule"`
 }
 
 // The set of arguments for constructing a ReportConfig resource.
 type ReportConfigArgs struct {
-	// Has definition for the report config.
-	Definition ReportConfigDefinitionInput
-	// Has delivery information for the report config.
-	DeliveryInfo ReportConfigDeliveryInfoInput
-	// The format of the report being delivered.
-	Format pulumi.StringPtrInput
-	// Report Config Name.
+	Definition       ReportConfigDefinitionInput
+	DeliveryInfo     ReportConfigDeliveryInfoInput
+	Format           pulumi.StringPtrInput
 	ReportConfigName pulumi.StringPtrInput
-	// Has schedule information for the report config.
-	Schedule ReportConfigSchedulePtrInput
+	Schedule         ReportConfigSchedulePtrInput
 }
 
 func (ReportConfigArgs) ElementType() reflect.Type {
@@ -131,9 +113,7 @@ func (i *ReportConfig) ToReportConfigOutputWithContext(ctx context.Context) Repo
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigOutput)
 }
 
-type ReportConfigOutput struct {
-	*pulumi.OutputState
-}
+type ReportConfigOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReportConfig)(nil))

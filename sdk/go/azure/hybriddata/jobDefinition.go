@@ -62,9 +62,11 @@ func NewJobDefinition(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.State == nil {
+		return nil, errors.New("invalid value for required argument 'State'")
+	}
 	if args.UserConfirmation == nil {
-		e := UserConfirmation("NotRequired")
-		args.UserConfirmation = &e
+		args.UserConfirmation = UserConfirmation("NotRequired")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -135,13 +137,13 @@ type jobDefinitionArgs struct {
 	// The Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// This is the preferred geo location for the job to run.
-	RunLocation *string `pulumi:"runLocation"`
+	RunLocation *RunLocation `pulumi:"runLocation"`
 	// Schedule for running the job definition
 	Schedules []Schedule `pulumi:"schedules"`
 	// State of the job definition.
-	State string `pulumi:"state"`
+	State State `pulumi:"state"`
 	// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
-	UserConfirmation *string `pulumi:"userConfirmation"`
+	UserConfirmation *UserConfirmation `pulumi:"userConfirmation"`
 }
 
 // The set of arguments for constructing a JobDefinition resource.
@@ -165,13 +167,13 @@ type JobDefinitionArgs struct {
 	// The Resource Group Name
 	ResourceGroupName pulumi.StringInput
 	// This is the preferred geo location for the job to run.
-	RunLocation *RunLocation
+	RunLocation RunLocationPtrInput
 	// Schedule for running the job definition
 	Schedules ScheduleArrayInput
 	// State of the job definition.
-	State State
+	State StateInput
 	// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
-	UserConfirmation *UserConfirmation
+	UserConfirmation UserConfirmationPtrInput
 }
 
 func (JobDefinitionArgs) ElementType() reflect.Type {
@@ -197,9 +199,7 @@ func (i *JobDefinition) ToJobDefinitionOutputWithContext(ctx context.Context) Jo
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionOutput)
 }
 
-type JobDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type JobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobDefinition)(nil))

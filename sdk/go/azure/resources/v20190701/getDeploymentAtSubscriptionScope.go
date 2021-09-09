@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Deployment information.
 func LookupDeploymentAtSubscriptionScope(ctx *pulumi.Context, args *LookupDeploymentAtSubscriptionScopeArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentAtSubscriptionScopeResult, error) {
 	var rv LookupDeploymentAtSubscriptionScopeResult
 	err := ctx.Invoke("azure-native:resources/v20190701:getDeploymentAtSubscriptionScope", args, &rv, opts...)
@@ -18,20 +17,14 @@ func LookupDeploymentAtSubscriptionScope(ctx *pulumi.Context, args *LookupDeploy
 }
 
 type LookupDeploymentAtSubscriptionScopeArgs struct {
-	// The name of the deployment.
 	DeploymentName string `pulumi:"deploymentName"`
 }
 
 // Deployment information.
 type LookupDeploymentAtSubscriptionScopeResult struct {
-	// The ID of the deployment.
-	Id string `pulumi:"id"`
-	// the location of the deployment.
-	Location *string `pulumi:"location"`
-	// The name of the deployment.
-	Name string `pulumi:"name"`
-	// Deployment properties.
+	Id         string                               `pulumi:"id"`
+	Location   *string                              `pulumi:"location"`
+	Name       string                               `pulumi:"name"`
 	Properties DeploymentPropertiesExtendedResponse `pulumi:"properties"`
-	// The type of the deployment.
-	Type string `pulumi:"type"`
+	Type       string                               `pulumi:"type"`
 }

@@ -10,24 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Active Directory
 type ActiveDirectory struct {
-	// Id of the Active Directory
-	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
-	// Comma separated list of DNS server IP addresses for the Active Directory domain
-	Dns *string `pulumi:"dns"`
-	// Name of the Active Directory domain
-	Domain *string `pulumi:"domain"`
-	// The Organizational Unit (OU) within the Windows Active Directory
+	ActiveDirectoryId  *string `pulumi:"activeDirectoryId"`
+	Dns                *string `pulumi:"dns"`
+	Domain             *string `pulumi:"domain"`
 	OrganizationalUnit *string `pulumi:"organizationalUnit"`
-	// Plain text password of Active Directory domain administrator
-	Password *string `pulumi:"password"`
-	// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-	SmbServerName *string `pulumi:"smbServerName"`
-	// Status of the Active Directory
-	Status *string `pulumi:"status"`
-	// Username of Active Directory domain administrator
-	Username *string `pulumi:"username"`
+	Password           *string `pulumi:"password"`
+	SmbServerName      *string `pulumi:"smbServerName"`
+	Status             *string `pulumi:"status"`
+	Username           *string `pulumi:"username"`
 }
 
 // ActiveDirectoryInput is an input type that accepts ActiveDirectoryArgs and ActiveDirectoryOutput values.
@@ -41,24 +32,15 @@ type ActiveDirectoryInput interface {
 	ToActiveDirectoryOutputWithContext(context.Context) ActiveDirectoryOutput
 }
 
-// Active Directory
 type ActiveDirectoryArgs struct {
-	// Id of the Active Directory
-	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
-	// Comma separated list of DNS server IP addresses for the Active Directory domain
-	Dns pulumi.StringPtrInput `pulumi:"dns"`
-	// Name of the Active Directory domain
-	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	// The Organizational Unit (OU) within the Windows Active Directory
+	ActiveDirectoryId  pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
+	Dns                pulumi.StringPtrInput `pulumi:"dns"`
+	Domain             pulumi.StringPtrInput `pulumi:"domain"`
 	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
-	// Plain text password of Active Directory domain administrator
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-	SmbServerName pulumi.StringPtrInput `pulumi:"smbServerName"`
-	// Status of the Active Directory
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Username of Active Directory domain administrator
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	Password           pulumi.StringPtrInput `pulumi:"password"`
+	SmbServerName      pulumi.StringPtrInput `pulumi:"smbServerName"`
+	Status             pulumi.StringPtrInput `pulumi:"status"`
+	Username           pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (ActiveDirectoryArgs) ElementType() reflect.Type {
@@ -98,7 +80,6 @@ func (i ActiveDirectoryArray) ToActiveDirectoryArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryArrayOutput)
 }
 
-// Active Directory
 type ActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryOutput) ElementType() reflect.Type {
@@ -113,42 +94,34 @@ func (o ActiveDirectoryOutput) ToActiveDirectoryOutputWithContext(ctx context.Co
 	return o
 }
 
-// Id of the Active Directory
 func (o ActiveDirectoryOutput) ActiveDirectoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.ActiveDirectoryId }).(pulumi.StringPtrOutput)
 }
 
-// Comma separated list of DNS server IP addresses for the Active Directory domain
 func (o ActiveDirectoryOutput) Dns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Dns }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Active Directory domain
 func (o ActiveDirectoryOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// The Organizational Unit (OU) within the Windows Active Directory
 func (o ActiveDirectoryOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
 }
 
-// Plain text password of Active Directory domain administrator
 func (o ActiveDirectoryOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
 func (o ActiveDirectoryOutput) SmbServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.SmbServerName }).(pulumi.StringPtrOutput)
 }
 
-// Status of the Active Directory
 func (o ActiveDirectoryOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Username of Active Directory domain administrator
 func (o ActiveDirectoryOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -173,24 +146,15 @@ func (o ActiveDirectoryArrayOutput) Index(i pulumi.IntInput) ActiveDirectoryOutp
 	}).(ActiveDirectoryOutput)
 }
 
-// Active Directory
 type ActiveDirectoryResponse struct {
-	// Id of the Active Directory
-	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
-	// Comma separated list of DNS server IP addresses for the Active Directory domain
-	Dns *string `pulumi:"dns"`
-	// Name of the Active Directory domain
-	Domain *string `pulumi:"domain"`
-	// The Organizational Unit (OU) within the Windows Active Directory
+	ActiveDirectoryId  *string `pulumi:"activeDirectoryId"`
+	Dns                *string `pulumi:"dns"`
+	Domain             *string `pulumi:"domain"`
 	OrganizationalUnit *string `pulumi:"organizationalUnit"`
-	// Plain text password of Active Directory domain administrator
-	Password *string `pulumi:"password"`
-	// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-	SmbServerName *string `pulumi:"smbServerName"`
-	// Status of the Active Directory
-	Status *string `pulumi:"status"`
-	// Username of Active Directory domain administrator
-	Username *string `pulumi:"username"`
+	Password           *string `pulumi:"password"`
+	SmbServerName      *string `pulumi:"smbServerName"`
+	Status             *string `pulumi:"status"`
+	Username           *string `pulumi:"username"`
 }
 
 // ActiveDirectoryResponseInput is an input type that accepts ActiveDirectoryResponseArgs and ActiveDirectoryResponseOutput values.
@@ -204,24 +168,15 @@ type ActiveDirectoryResponseInput interface {
 	ToActiveDirectoryResponseOutputWithContext(context.Context) ActiveDirectoryResponseOutput
 }
 
-// Active Directory
 type ActiveDirectoryResponseArgs struct {
-	// Id of the Active Directory
-	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
-	// Comma separated list of DNS server IP addresses for the Active Directory domain
-	Dns pulumi.StringPtrInput `pulumi:"dns"`
-	// Name of the Active Directory domain
-	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	// The Organizational Unit (OU) within the Windows Active Directory
+	ActiveDirectoryId  pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
+	Dns                pulumi.StringPtrInput `pulumi:"dns"`
+	Domain             pulumi.StringPtrInput `pulumi:"domain"`
 	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
-	// Plain text password of Active Directory domain administrator
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-	SmbServerName pulumi.StringPtrInput `pulumi:"smbServerName"`
-	// Status of the Active Directory
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Username of Active Directory domain administrator
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	Password           pulumi.StringPtrInput `pulumi:"password"`
+	SmbServerName      pulumi.StringPtrInput `pulumi:"smbServerName"`
+	Status             pulumi.StringPtrInput `pulumi:"status"`
+	Username           pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (ActiveDirectoryResponseArgs) ElementType() reflect.Type {
@@ -261,7 +216,6 @@ func (i ActiveDirectoryResponseArray) ToActiveDirectoryResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryResponseArrayOutput)
 }
 
-// Active Directory
 type ActiveDirectoryResponseOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryResponseOutput) ElementType() reflect.Type {
@@ -276,42 +230,34 @@ func (o ActiveDirectoryResponseOutput) ToActiveDirectoryResponseOutputWithContex
 	return o
 }
 
-// Id of the Active Directory
 func (o ActiveDirectoryResponseOutput) ActiveDirectoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.ActiveDirectoryId }).(pulumi.StringPtrOutput)
 }
 
-// Comma separated list of DNS server IP addresses for the Active Directory domain
 func (o ActiveDirectoryResponseOutput) Dns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Dns }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Active Directory domain
 func (o ActiveDirectoryResponseOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// The Organizational Unit (OU) within the Windows Active Directory
 func (o ActiveDirectoryResponseOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
 }
 
-// Plain text password of Active Directory domain administrator
 func (o ActiveDirectoryResponseOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
 func (o ActiveDirectoryResponseOutput) SmbServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.SmbServerName }).(pulumi.StringPtrOutput)
 }
 
-// Status of the Active Directory
 func (o ActiveDirectoryResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Username of Active Directory domain administrator
 func (o ActiveDirectoryResponseOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -336,22 +282,14 @@ func (o ActiveDirectoryResponseArrayOutput) Index(i pulumi.IntInput) ActiveDirec
 	}).(ActiveDirectoryResponseOutput)
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRule struct {
-	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 	AllowedClients *string `pulumi:"allowedClients"`
-	// Allows CIFS protocol
-	Cifs *bool `pulumi:"cifs"`
-	// Allows NFSv3 protocol
-	Nfsv3 *bool `pulumi:"nfsv3"`
-	// Deprecated: Will use the NFSv4.1 protocol, please use swagger version 2019-07-01 or later
-	Nfsv4 *bool `pulumi:"nfsv4"`
-	// Order index
-	RuleIndex *int `pulumi:"ruleIndex"`
-	// Read only access
-	UnixReadOnly *bool `pulumi:"unixReadOnly"`
-	// Read and write access
-	UnixReadWrite *bool `pulumi:"unixReadWrite"`
+	Cifs           *bool   `pulumi:"cifs"`
+	Nfsv3          *bool   `pulumi:"nfsv3"`
+	Nfsv4          *bool   `pulumi:"nfsv4"`
+	RuleIndex      *int    `pulumi:"ruleIndex"`
+	UnixReadOnly   *bool   `pulumi:"unixReadOnly"`
+	UnixReadWrite  *bool   `pulumi:"unixReadWrite"`
 }
 
 // ExportPolicyRuleInput is an input type that accepts ExportPolicyRuleArgs and ExportPolicyRuleOutput values.
@@ -365,22 +303,14 @@ type ExportPolicyRuleInput interface {
 	ToExportPolicyRuleOutputWithContext(context.Context) ExportPolicyRuleOutput
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleArgs struct {
-	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 	AllowedClients pulumi.StringPtrInput `pulumi:"allowedClients"`
-	// Allows CIFS protocol
-	Cifs pulumi.BoolPtrInput `pulumi:"cifs"`
-	// Allows NFSv3 protocol
-	Nfsv3 pulumi.BoolPtrInput `pulumi:"nfsv3"`
-	// Deprecated: Will use the NFSv4.1 protocol, please use swagger version 2019-07-01 or later
-	Nfsv4 pulumi.BoolPtrInput `pulumi:"nfsv4"`
-	// Order index
-	RuleIndex pulumi.IntPtrInput `pulumi:"ruleIndex"`
-	// Read only access
-	UnixReadOnly pulumi.BoolPtrInput `pulumi:"unixReadOnly"`
-	// Read and write access
-	UnixReadWrite pulumi.BoolPtrInput `pulumi:"unixReadWrite"`
+	Cifs           pulumi.BoolPtrInput   `pulumi:"cifs"`
+	Nfsv3          pulumi.BoolPtrInput   `pulumi:"nfsv3"`
+	Nfsv4          pulumi.BoolPtrInput   `pulumi:"nfsv4"`
+	RuleIndex      pulumi.IntPtrInput    `pulumi:"ruleIndex"`
+	UnixReadOnly   pulumi.BoolPtrInput   `pulumi:"unixReadOnly"`
+	UnixReadWrite  pulumi.BoolPtrInput   `pulumi:"unixReadWrite"`
 }
 
 func (ExportPolicyRuleArgs) ElementType() reflect.Type {
@@ -420,7 +350,6 @@ func (i ExportPolicyRuleArray) ToExportPolicyRuleArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ExportPolicyRuleArrayOutput)
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (ExportPolicyRuleOutput) ElementType() reflect.Type {
@@ -435,37 +364,30 @@ func (o ExportPolicyRuleOutput) ToExportPolicyRuleOutputWithContext(ctx context.
 	return o
 }
 
-// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 func (o ExportPolicyRuleOutput) AllowedClients() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *string { return v.AllowedClients }).(pulumi.StringPtrOutput)
 }
 
-// Allows CIFS protocol
 func (o ExportPolicyRuleOutput) Cifs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.Cifs }).(pulumi.BoolPtrOutput)
 }
 
-// Allows NFSv3 protocol
 func (o ExportPolicyRuleOutput) Nfsv3() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.Nfsv3 }).(pulumi.BoolPtrOutput)
 }
 
-// Deprecated: Will use the NFSv4.1 protocol, please use swagger version 2019-07-01 or later
 func (o ExportPolicyRuleOutput) Nfsv4() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.Nfsv4 }).(pulumi.BoolPtrOutput)
 }
 
-// Order index
 func (o ExportPolicyRuleOutput) RuleIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *int { return v.RuleIndex }).(pulumi.IntPtrOutput)
 }
 
-// Read only access
 func (o ExportPolicyRuleOutput) UnixReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.UnixReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Read and write access
 func (o ExportPolicyRuleOutput) UnixReadWrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.UnixReadWrite }).(pulumi.BoolPtrOutput)
 }
@@ -490,22 +412,14 @@ func (o ExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) ExportPolicyRuleOu
 	}).(ExportPolicyRuleOutput)
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleResponse struct {
-	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 	AllowedClients *string `pulumi:"allowedClients"`
-	// Allows CIFS protocol
-	Cifs *bool `pulumi:"cifs"`
-	// Allows NFSv3 protocol
-	Nfsv3 *bool `pulumi:"nfsv3"`
-	// Deprecated: Will use the NFSv4.1 protocol, please use swagger version 2019-07-01 or later
-	Nfsv4 *bool `pulumi:"nfsv4"`
-	// Order index
-	RuleIndex *int `pulumi:"ruleIndex"`
-	// Read only access
-	UnixReadOnly *bool `pulumi:"unixReadOnly"`
-	// Read and write access
-	UnixReadWrite *bool `pulumi:"unixReadWrite"`
+	Cifs           *bool   `pulumi:"cifs"`
+	Nfsv3          *bool   `pulumi:"nfsv3"`
+	Nfsv4          *bool   `pulumi:"nfsv4"`
+	RuleIndex      *int    `pulumi:"ruleIndex"`
+	UnixReadOnly   *bool   `pulumi:"unixReadOnly"`
+	UnixReadWrite  *bool   `pulumi:"unixReadWrite"`
 }
 
 // ExportPolicyRuleResponseInput is an input type that accepts ExportPolicyRuleResponseArgs and ExportPolicyRuleResponseOutput values.
@@ -519,22 +433,14 @@ type ExportPolicyRuleResponseInput interface {
 	ToExportPolicyRuleResponseOutputWithContext(context.Context) ExportPolicyRuleResponseOutput
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleResponseArgs struct {
-	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 	AllowedClients pulumi.StringPtrInput `pulumi:"allowedClients"`
-	// Allows CIFS protocol
-	Cifs pulumi.BoolPtrInput `pulumi:"cifs"`
-	// Allows NFSv3 protocol
-	Nfsv3 pulumi.BoolPtrInput `pulumi:"nfsv3"`
-	// Deprecated: Will use the NFSv4.1 protocol, please use swagger version 2019-07-01 or later
-	Nfsv4 pulumi.BoolPtrInput `pulumi:"nfsv4"`
-	// Order index
-	RuleIndex pulumi.IntPtrInput `pulumi:"ruleIndex"`
-	// Read only access
-	UnixReadOnly pulumi.BoolPtrInput `pulumi:"unixReadOnly"`
-	// Read and write access
-	UnixReadWrite pulumi.BoolPtrInput `pulumi:"unixReadWrite"`
+	Cifs           pulumi.BoolPtrInput   `pulumi:"cifs"`
+	Nfsv3          pulumi.BoolPtrInput   `pulumi:"nfsv3"`
+	Nfsv4          pulumi.BoolPtrInput   `pulumi:"nfsv4"`
+	RuleIndex      pulumi.IntPtrInput    `pulumi:"ruleIndex"`
+	UnixReadOnly   pulumi.BoolPtrInput   `pulumi:"unixReadOnly"`
+	UnixReadWrite  pulumi.BoolPtrInput   `pulumi:"unixReadWrite"`
 }
 
 func (ExportPolicyRuleResponseArgs) ElementType() reflect.Type {
@@ -574,7 +480,6 @@ func (i ExportPolicyRuleResponseArray) ToExportPolicyRuleResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ExportPolicyRuleResponseArrayOutput)
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportPolicyRuleResponseOutput) ElementType() reflect.Type {
@@ -589,37 +494,30 @@ func (o ExportPolicyRuleResponseOutput) ToExportPolicyRuleResponseOutputWithCont
 	return o
 }
 
-// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 func (o ExportPolicyRuleResponseOutput) AllowedClients() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *string { return v.AllowedClients }).(pulumi.StringPtrOutput)
 }
 
-// Allows CIFS protocol
 func (o ExportPolicyRuleResponseOutput) Cifs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.Cifs }).(pulumi.BoolPtrOutput)
 }
 
-// Allows NFSv3 protocol
 func (o ExportPolicyRuleResponseOutput) Nfsv3() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.Nfsv3 }).(pulumi.BoolPtrOutput)
 }
 
-// Deprecated: Will use the NFSv4.1 protocol, please use swagger version 2019-07-01 or later
 func (o ExportPolicyRuleResponseOutput) Nfsv4() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.Nfsv4 }).(pulumi.BoolPtrOutput)
 }
 
-// Order index
 func (o ExportPolicyRuleResponseOutput) RuleIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *int { return v.RuleIndex }).(pulumi.IntPtrOutput)
 }
 
-// Read only access
 func (o ExportPolicyRuleResponseOutput) UnixReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.UnixReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Read and write access
 func (o ExportPolicyRuleResponseOutput) UnixReadWrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.UnixReadWrite }).(pulumi.BoolPtrOutput)
 }
@@ -644,22 +542,14 @@ func (o ExportPolicyRuleResponseArrayOutput) Index(i pulumi.IntInput) ExportPoli
 	}).(ExportPolicyRuleResponseOutput)
 }
 
-// Mount target properties
 type MountTargetProperties struct {
-	// The end of IPv4 address range to use when creating a new mount target
-	EndIp *string `pulumi:"endIp"`
-	// UUID v4 used to identify the MountTarget
-	FileSystemId string `pulumi:"fileSystemId"`
-	// The gateway of the IPv4 address range to use when creating a new mount target
-	Gateway *string `pulumi:"gateway"`
-	// The netmask of the IPv4 address range to use when creating a new mount target
-	Netmask *string `pulumi:"netmask"`
-	// The SMB server's Fully Qualified Domain Name, FQDN
+	EndIp         *string `pulumi:"endIp"`
+	FileSystemId  string  `pulumi:"fileSystemId"`
+	Gateway       *string `pulumi:"gateway"`
+	Netmask       *string `pulumi:"netmask"`
 	SmbServerFqdn *string `pulumi:"smbServerFqdn"`
-	// The start of IPv4 address range to use when creating a new mount target
-	StartIp *string `pulumi:"startIp"`
-	// The subnet
-	Subnet *string `pulumi:"subnet"`
+	StartIp       *string `pulumi:"startIp"`
+	Subnet        *string `pulumi:"subnet"`
 }
 
 // MountTargetPropertiesInput is an input type that accepts MountTargetPropertiesArgs and MountTargetPropertiesOutput values.
@@ -673,22 +563,14 @@ type MountTargetPropertiesInput interface {
 	ToMountTargetPropertiesOutputWithContext(context.Context) MountTargetPropertiesOutput
 }
 
-// Mount target properties
 type MountTargetPropertiesArgs struct {
-	// The end of IPv4 address range to use when creating a new mount target
-	EndIp pulumi.StringPtrInput `pulumi:"endIp"`
-	// UUID v4 used to identify the MountTarget
-	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// The gateway of the IPv4 address range to use when creating a new mount target
-	Gateway pulumi.StringPtrInput `pulumi:"gateway"`
-	// The netmask of the IPv4 address range to use when creating a new mount target
-	Netmask pulumi.StringPtrInput `pulumi:"netmask"`
-	// The SMB server's Fully Qualified Domain Name, FQDN
+	EndIp         pulumi.StringPtrInput `pulumi:"endIp"`
+	FileSystemId  pulumi.StringInput    `pulumi:"fileSystemId"`
+	Gateway       pulumi.StringPtrInput `pulumi:"gateway"`
+	Netmask       pulumi.StringPtrInput `pulumi:"netmask"`
 	SmbServerFqdn pulumi.StringPtrInput `pulumi:"smbServerFqdn"`
-	// The start of IPv4 address range to use when creating a new mount target
-	StartIp pulumi.StringPtrInput `pulumi:"startIp"`
-	// The subnet
-	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
+	StartIp       pulumi.StringPtrInput `pulumi:"startIp"`
+	Subnet        pulumi.StringPtrInput `pulumi:"subnet"`
 }
 
 func (MountTargetPropertiesArgs) ElementType() reflect.Type {
@@ -728,7 +610,6 @@ func (i MountTargetPropertiesArray) ToMountTargetPropertiesArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(MountTargetPropertiesArrayOutput)
 }
 
-// Mount target properties
 type MountTargetPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MountTargetPropertiesOutput) ElementType() reflect.Type {
@@ -743,37 +624,30 @@ func (o MountTargetPropertiesOutput) ToMountTargetPropertiesOutputWithContext(ct
 	return o
 }
 
-// The end of IPv4 address range to use when creating a new mount target
 func (o MountTargetPropertiesOutput) EndIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetProperties) *string { return v.EndIp }).(pulumi.StringPtrOutput)
 }
 
-// UUID v4 used to identify the MountTarget
 func (o MountTargetPropertiesOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v MountTargetProperties) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// The gateway of the IPv4 address range to use when creating a new mount target
 func (o MountTargetPropertiesOutput) Gateway() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetProperties) *string { return v.Gateway }).(pulumi.StringPtrOutput)
 }
 
-// The netmask of the IPv4 address range to use when creating a new mount target
 func (o MountTargetPropertiesOutput) Netmask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetProperties) *string { return v.Netmask }).(pulumi.StringPtrOutput)
 }
 
-// The SMB server's Fully Qualified Domain Name, FQDN
 func (o MountTargetPropertiesOutput) SmbServerFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetProperties) *string { return v.SmbServerFqdn }).(pulumi.StringPtrOutput)
 }
 
-// The start of IPv4 address range to use when creating a new mount target
 func (o MountTargetPropertiesOutput) StartIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetProperties) *string { return v.StartIp }).(pulumi.StringPtrOutput)
 }
 
-// The subnet
 func (o MountTargetPropertiesOutput) Subnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetProperties) *string { return v.Subnet }).(pulumi.StringPtrOutput)
 }
@@ -798,28 +672,17 @@ func (o MountTargetPropertiesArrayOutput) Index(i pulumi.IntInput) MountTargetPr
 	}).(MountTargetPropertiesOutput)
 }
 
-// Mount target properties
 type MountTargetPropertiesResponse struct {
-	// The end of IPv4 address range to use when creating a new mount target
-	EndIp *string `pulumi:"endIp"`
-	// UUID v4 used to identify the MountTarget
-	FileSystemId string `pulumi:"fileSystemId"`
-	// The gateway of the IPv4 address range to use when creating a new mount target
-	Gateway *string `pulumi:"gateway"`
-	// The mount target's IPv4 address
-	IpAddress string `pulumi:"ipAddress"`
-	// UUID v4 used to identify the MountTarget
-	MountTargetId string `pulumi:"mountTargetId"`
-	// The netmask of the IPv4 address range to use when creating a new mount target
-	Netmask *string `pulumi:"netmask"`
-	// Azure lifecycle management
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The SMB server's Fully Qualified Domain Name, FQDN
-	SmbServerFqdn *string `pulumi:"smbServerFqdn"`
-	// The start of IPv4 address range to use when creating a new mount target
-	StartIp *string `pulumi:"startIp"`
-	// The subnet
-	Subnet *string `pulumi:"subnet"`
+	EndIp             *string `pulumi:"endIp"`
+	FileSystemId      string  `pulumi:"fileSystemId"`
+	Gateway           *string `pulumi:"gateway"`
+	IpAddress         string  `pulumi:"ipAddress"`
+	MountTargetId     string  `pulumi:"mountTargetId"`
+	Netmask           *string `pulumi:"netmask"`
+	ProvisioningState string  `pulumi:"provisioningState"`
+	SmbServerFqdn     *string `pulumi:"smbServerFqdn"`
+	StartIp           *string `pulumi:"startIp"`
+	Subnet            *string `pulumi:"subnet"`
 }
 
 // MountTargetPropertiesResponseInput is an input type that accepts MountTargetPropertiesResponseArgs and MountTargetPropertiesResponseOutput values.
@@ -833,28 +696,17 @@ type MountTargetPropertiesResponseInput interface {
 	ToMountTargetPropertiesResponseOutputWithContext(context.Context) MountTargetPropertiesResponseOutput
 }
 
-// Mount target properties
 type MountTargetPropertiesResponseArgs struct {
-	// The end of IPv4 address range to use when creating a new mount target
-	EndIp pulumi.StringPtrInput `pulumi:"endIp"`
-	// UUID v4 used to identify the MountTarget
-	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// The gateway of the IPv4 address range to use when creating a new mount target
-	Gateway pulumi.StringPtrInput `pulumi:"gateway"`
-	// The mount target's IPv4 address
-	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
-	// UUID v4 used to identify the MountTarget
-	MountTargetId pulumi.StringInput `pulumi:"mountTargetId"`
-	// The netmask of the IPv4 address range to use when creating a new mount target
-	Netmask pulumi.StringPtrInput `pulumi:"netmask"`
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The SMB server's Fully Qualified Domain Name, FQDN
-	SmbServerFqdn pulumi.StringPtrInput `pulumi:"smbServerFqdn"`
-	// The start of IPv4 address range to use when creating a new mount target
-	StartIp pulumi.StringPtrInput `pulumi:"startIp"`
-	// The subnet
-	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
+	EndIp             pulumi.StringPtrInput `pulumi:"endIp"`
+	FileSystemId      pulumi.StringInput    `pulumi:"fileSystemId"`
+	Gateway           pulumi.StringPtrInput `pulumi:"gateway"`
+	IpAddress         pulumi.StringInput    `pulumi:"ipAddress"`
+	MountTargetId     pulumi.StringInput    `pulumi:"mountTargetId"`
+	Netmask           pulumi.StringPtrInput `pulumi:"netmask"`
+	ProvisioningState pulumi.StringInput    `pulumi:"provisioningState"`
+	SmbServerFqdn     pulumi.StringPtrInput `pulumi:"smbServerFqdn"`
+	StartIp           pulumi.StringPtrInput `pulumi:"startIp"`
+	Subnet            pulumi.StringPtrInput `pulumi:"subnet"`
 }
 
 func (MountTargetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -894,7 +746,6 @@ func (i MountTargetPropertiesResponseArray) ToMountTargetPropertiesResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(MountTargetPropertiesResponseArrayOutput)
 }
 
-// Mount target properties
 type MountTargetPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MountTargetPropertiesResponseOutput) ElementType() reflect.Type {
@@ -909,52 +760,42 @@ func (o MountTargetPropertiesResponseOutput) ToMountTargetPropertiesResponseOutp
 	return o
 }
 
-// The end of IPv4 address range to use when creating a new mount target
 func (o MountTargetPropertiesResponseOutput) EndIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) *string { return v.EndIp }).(pulumi.StringPtrOutput)
 }
 
-// UUID v4 used to identify the MountTarget
 func (o MountTargetPropertiesResponseOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// The gateway of the IPv4 address range to use when creating a new mount target
 func (o MountTargetPropertiesResponseOutput) Gateway() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) *string { return v.Gateway }).(pulumi.StringPtrOutput)
 }
 
-// The mount target's IPv4 address
 func (o MountTargetPropertiesResponseOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// UUID v4 used to identify the MountTarget
 func (o MountTargetPropertiesResponseOutput) MountTargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) string { return v.MountTargetId }).(pulumi.StringOutput)
 }
 
-// The netmask of the IPv4 address range to use when creating a new mount target
 func (o MountTargetPropertiesResponseOutput) Netmask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) *string { return v.Netmask }).(pulumi.StringPtrOutput)
 }
 
-// Azure lifecycle management
 func (o MountTargetPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The SMB server's Fully Qualified Domain Name, FQDN
 func (o MountTargetPropertiesResponseOutput) SmbServerFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) *string { return v.SmbServerFqdn }).(pulumi.StringPtrOutput)
 }
 
-// The start of IPv4 address range to use when creating a new mount target
 func (o MountTargetPropertiesResponseOutput) StartIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) *string { return v.StartIp }).(pulumi.StringPtrOutput)
 }
 
-// The subnet
 func (o MountTargetPropertiesResponseOutput) Subnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) *string { return v.Subnet }).(pulumi.StringPtrOutput)
 }
@@ -979,9 +820,7 @@ func (o MountTargetPropertiesResponseArrayOutput) Index(i pulumi.IntInput) Mount
 	}).(MountTargetPropertiesResponseOutput)
 }
 
-// Set of export policy rules
 type VolumePropertiesExportPolicy struct {
-	// Export policy rule
 	Rules []ExportPolicyRule `pulumi:"rules"`
 }
 
@@ -996,9 +835,7 @@ type VolumePropertiesExportPolicyInput interface {
 	ToVolumePropertiesExportPolicyOutputWithContext(context.Context) VolumePropertiesExportPolicyOutput
 }
 
-// Set of export policy rules
 type VolumePropertiesExportPolicyArgs struct {
-	// Export policy rule
 	Rules ExportPolicyRuleArrayInput `pulumi:"rules"`
 }
 
@@ -1055,7 +892,6 @@ func (i *volumePropertiesExportPolicyPtrType) ToVolumePropertiesExportPolicyPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesExportPolicyPtrOutput)
 }
 
-// Set of export policy rules
 type VolumePropertiesExportPolicyOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesExportPolicyOutput) ElementType() reflect.Type {
@@ -1075,12 +911,11 @@ func (o VolumePropertiesExportPolicyOutput) ToVolumePropertiesExportPolicyPtrOut
 }
 
 func (o VolumePropertiesExportPolicyOutput) ToVolumePropertiesExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesExportPolicyPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesExportPolicy) *VolumePropertiesExportPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesExportPolicy) *VolumePropertiesExportPolicy {
 		return &v
 	}).(VolumePropertiesExportPolicyPtrOutput)
 }
 
-// Export policy rule
 func (o VolumePropertiesExportPolicyOutput) Rules() ExportPolicyRuleArrayOutput {
 	return o.ApplyT(func(v VolumePropertiesExportPolicy) []ExportPolicyRule { return v.Rules }).(ExportPolicyRuleArrayOutput)
 }
@@ -1100,10 +935,15 @@ func (o VolumePropertiesExportPolicyPtrOutput) ToVolumePropertiesExportPolicyPtr
 }
 
 func (o VolumePropertiesExportPolicyPtrOutput) Elem() VolumePropertiesExportPolicyOutput {
-	return o.ApplyT(func(v *VolumePropertiesExportPolicy) VolumePropertiesExportPolicy { return *v }).(VolumePropertiesExportPolicyOutput)
+	return o.ApplyT(func(v *VolumePropertiesExportPolicy) VolumePropertiesExportPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VolumePropertiesExportPolicy
+		return ret
+	}).(VolumePropertiesExportPolicyOutput)
 }
 
-// Export policy rule
 func (o VolumePropertiesExportPolicyPtrOutput) Rules() ExportPolicyRuleArrayOutput {
 	return o.ApplyT(func(v *VolumePropertiesExportPolicy) []ExportPolicyRule {
 		if v == nil {
@@ -1113,9 +953,7 @@ func (o VolumePropertiesExportPolicyPtrOutput) Rules() ExportPolicyRuleArrayOutp
 	}).(ExportPolicyRuleArrayOutput)
 }
 
-// Set of export policy rules
 type VolumePropertiesResponseExportPolicy struct {
-	// Export policy rule
 	Rules []ExportPolicyRuleResponse `pulumi:"rules"`
 }
 
@@ -1130,9 +968,7 @@ type VolumePropertiesResponseExportPolicyInput interface {
 	ToVolumePropertiesResponseExportPolicyOutputWithContext(context.Context) VolumePropertiesResponseExportPolicyOutput
 }
 
-// Set of export policy rules
 type VolumePropertiesResponseExportPolicyArgs struct {
-	// Export policy rule
 	Rules ExportPolicyRuleResponseArrayInput `pulumi:"rules"`
 }
 
@@ -1189,7 +1025,6 @@ func (i *volumePropertiesResponseExportPolicyPtrType) ToVolumePropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseExportPolicyPtrOutput)
 }
 
-// Set of export policy rules
 type VolumePropertiesResponseExportPolicyOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesResponseExportPolicyOutput) ElementType() reflect.Type {
@@ -1209,12 +1044,11 @@ func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseEx
 }
 
 func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesResponseExportPolicy) *VolumePropertiesResponseExportPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesResponseExportPolicy) *VolumePropertiesResponseExportPolicy {
 		return &v
 	}).(VolumePropertiesResponseExportPolicyPtrOutput)
 }
 
-// Export policy rule
 func (o VolumePropertiesResponseExportPolicyOutput) Rules() ExportPolicyRuleResponseArrayOutput {
 	return o.ApplyT(func(v VolumePropertiesResponseExportPolicy) []ExportPolicyRuleResponse { return v.Rules }).(ExportPolicyRuleResponseArrayOutput)
 }
@@ -1234,10 +1068,15 @@ func (o VolumePropertiesResponseExportPolicyPtrOutput) ToVolumePropertiesRespons
 }
 
 func (o VolumePropertiesResponseExportPolicyPtrOutput) Elem() VolumePropertiesResponseExportPolicyOutput {
-	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) VolumePropertiesResponseExportPolicy { return *v }).(VolumePropertiesResponseExportPolicyOutput)
+	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) VolumePropertiesResponseExportPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VolumePropertiesResponseExportPolicy
+		return ret
+	}).(VolumePropertiesResponseExportPolicyOutput)
 }
 
-// Export policy rule
 func (o VolumePropertiesResponseExportPolicyPtrOutput) Rules() ExportPolicyRuleResponseArrayOutput {
 	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) []ExportPolicyRuleResponse {
 		if v == nil {

@@ -206,9 +206,7 @@ func (i *BandwidthSchedule) ToBandwidthScheduleOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(BandwidthScheduleOutput)
 }
 
-type BandwidthScheduleOutput struct {
-	*pulumi.OutputState
-}
+type BandwidthScheduleOutput struct{ *pulumi.OutputState }
 
 func (BandwidthScheduleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BandwidthSchedule)(nil))

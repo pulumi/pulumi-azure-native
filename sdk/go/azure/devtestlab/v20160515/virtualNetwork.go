@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A virtual network.
 type VirtualNetwork struct {
 	pulumi.CustomResourceState
 
-	// The allowed subnets of the virtual network.
-	AllowedSubnets SubnetResponseArrayOutput `pulumi:"allowedSubnets"`
-	// The creation date of the virtual network.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// The description of the virtual network.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Microsoft.Network resource identifier of the virtual network.
-	ExternalProviderResourceId pulumi.StringPtrOutput `pulumi:"externalProviderResourceId"`
-	// The external subnet properties.
-	ExternalSubnets ExternalSubnetResponseArrayOutput `pulumi:"externalSubnets"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The subnet overrides of the virtual network.
-	SubnetOverrides SubnetOverrideResponseArrayOutput `pulumi:"subnetOverrides"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrOutput `pulumi:"uniqueIdentifier"`
+	AllowedSubnets             SubnetResponseArrayOutput         `pulumi:"allowedSubnets"`
+	CreatedDate                pulumi.StringOutput               `pulumi:"createdDate"`
+	Description                pulumi.StringPtrOutput            `pulumi:"description"`
+	ExternalProviderResourceId pulumi.StringPtrOutput            `pulumi:"externalProviderResourceId"`
+	ExternalSubnets            ExternalSubnetResponseArrayOutput `pulumi:"externalSubnets"`
+	Location                   pulumi.StringPtrOutput            `pulumi:"location"`
+	Name                       pulumi.StringOutput               `pulumi:"name"`
+	ProvisioningState          pulumi.StringPtrOutput            `pulumi:"provisioningState"`
+	SubnetOverrides            SubnetOverrideResponseArrayOutput `pulumi:"subnetOverrides"`
+	Tags                       pulumi.StringMapOutput            `pulumi:"tags"`
+	Type                       pulumi.StringOutput               `pulumi:"type"`
+	UniqueIdentifier           pulumi.StringPtrOutput            `pulumi:"uniqueIdentifier"`
 }
 
 // NewVirtualNetwork registers a new resource with the given unique name, arguments, and options.
@@ -110,58 +97,34 @@ func (VirtualNetworkState) ElementType() reflect.Type {
 }
 
 type virtualNetworkArgs struct {
-	// The allowed subnets of the virtual network.
-	AllowedSubnets []Subnet `pulumi:"allowedSubnets"`
-	// The description of the virtual network.
-	Description *string `pulumi:"description"`
-	// The Microsoft.Network resource identifier of the virtual network.
-	ExternalProviderResourceId *string `pulumi:"externalProviderResourceId"`
-	// The external subnet properties.
-	ExternalSubnets []ExternalSubnet `pulumi:"externalSubnets"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the virtual network.
-	Name *string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The subnet overrides of the virtual network.
-	SubnetOverrides []SubnetOverride `pulumi:"subnetOverrides"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	AllowedSubnets             []Subnet          `pulumi:"allowedSubnets"`
+	Description                *string           `pulumi:"description"`
+	ExternalProviderResourceId *string           `pulumi:"externalProviderResourceId"`
+	ExternalSubnets            []ExternalSubnet  `pulumi:"externalSubnets"`
+	LabName                    string            `pulumi:"labName"`
+	Location                   *string           `pulumi:"location"`
+	Name                       *string           `pulumi:"name"`
+	ProvisioningState          *string           `pulumi:"provisioningState"`
+	ResourceGroupName          string            `pulumi:"resourceGroupName"`
+	SubnetOverrides            []SubnetOverride  `pulumi:"subnetOverrides"`
+	Tags                       map[string]string `pulumi:"tags"`
+	UniqueIdentifier           *string           `pulumi:"uniqueIdentifier"`
 }
 
 // The set of arguments for constructing a VirtualNetwork resource.
 type VirtualNetworkArgs struct {
-	// The allowed subnets of the virtual network.
-	AllowedSubnets SubnetArrayInput
-	// The description of the virtual network.
-	Description pulumi.StringPtrInput
-	// The Microsoft.Network resource identifier of the virtual network.
+	AllowedSubnets             SubnetArrayInput
+	Description                pulumi.StringPtrInput
 	ExternalProviderResourceId pulumi.StringPtrInput
-	// The external subnet properties.
-	ExternalSubnets ExternalSubnetArrayInput
-	// The name of the lab.
-	LabName pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the virtual network.
-	Name pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The subnet overrides of the virtual network.
-	SubnetOverrides SubnetOverrideArrayInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
+	ExternalSubnets            ExternalSubnetArrayInput
+	LabName                    pulumi.StringInput
+	Location                   pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	ProvisioningState          pulumi.StringPtrInput
+	ResourceGroupName          pulumi.StringInput
+	SubnetOverrides            SubnetOverrideArrayInput
+	Tags                       pulumi.StringMapInput
+	UniqueIdentifier           pulumi.StringPtrInput
 }
 
 func (VirtualNetworkArgs) ElementType() reflect.Type {
@@ -187,9 +150,7 @@ func (i *VirtualNetwork) ToVirtualNetworkOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkOutput)
 }
 
-type VirtualNetworkOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetwork)(nil))

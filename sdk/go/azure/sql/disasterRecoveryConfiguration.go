@@ -136,9 +136,7 @@ func (i *DisasterRecoveryConfiguration) ToDisasterRecoveryConfigurationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DisasterRecoveryConfigurationOutput)
 }
 
-type DisasterRecoveryConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type DisasterRecoveryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DisasterRecoveryConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DisasterRecoveryConfiguration)(nil))

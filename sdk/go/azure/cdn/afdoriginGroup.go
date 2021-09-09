@@ -155,9 +155,7 @@ func (i *AFDOriginGroup) ToAFDOriginGroupOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AFDOriginGroupOutput)
 }
 
-type AFDOriginGroupOutput struct {
-	*pulumi.OutputState
-}
+type AFDOriginGroupOutput struct{ *pulumi.OutputState }
 
 func (AFDOriginGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AFDOriginGroup)(nil))

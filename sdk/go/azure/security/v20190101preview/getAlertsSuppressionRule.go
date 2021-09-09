@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes the suppression rule
 func LookupAlertsSuppressionRule(ctx *pulumi.Context, args *LookupAlertsSuppressionRuleArgs, opts ...pulumi.InvokeOption) (*LookupAlertsSuppressionRuleResult, error) {
 	var rv LookupAlertsSuppressionRuleResult
 	err := ctx.Invoke("azure-native:security/v20190101preview:getAlertsSuppressionRule", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupAlertsSuppressionRule(ctx *pulumi.Context, args *LookupAlertsSuppress
 }
 
 type LookupAlertsSuppressionRuleArgs struct {
-	// The unique name of the suppression alert rule
 	AlertsSuppressionRuleName string `pulumi:"alertsSuppressionRuleName"`
 }
 
 // Describes the suppression rule
 type LookupAlertsSuppressionRuleResult struct {
-	// Type of the alert to automatically suppress. For all alert types, use '*'
-	AlertType string `pulumi:"alertType"`
-	// Any comment regarding the rule
-	Comment *string `pulumi:"comment"`
-	// Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
-	ExpirationDateUtc *string `pulumi:"expirationDateUtc"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// The last time this rule was modified
-	LastModifiedUtc string `pulumi:"lastModifiedUtc"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The reason for dismissing the alert
-	Reason string `pulumi:"reason"`
-	// Possible states of the rule
-	State string `pulumi:"state"`
-	// The suppression conditions
+	AlertType              string                          `pulumi:"alertType"`
+	Comment                *string                         `pulumi:"comment"`
+	ExpirationDateUtc      *string                         `pulumi:"expirationDateUtc"`
+	Id                     string                          `pulumi:"id"`
+	LastModifiedUtc        string                          `pulumi:"lastModifiedUtc"`
+	Name                   string                          `pulumi:"name"`
+	Reason                 string                          `pulumi:"reason"`
+	State                  string                          `pulumi:"state"`
 	SuppressionAlertsScope *SuppressionAlertsScopeResponse `pulumi:"suppressionAlertsScope"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Type                   string                          `pulumi:"type"`
 }

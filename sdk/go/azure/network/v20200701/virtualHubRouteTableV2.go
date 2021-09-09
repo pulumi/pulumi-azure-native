@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VirtualHubRouteTableV2 Resource.
 type VirtualHubRouteTableV2 struct {
 	pulumi.CustomResourceState
 
-	// List of all connections attached to this route table v2.
-	AttachedConnections pulumi.StringArrayOutput `pulumi:"attachedConnections"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The provisioning state of the virtual hub route table v2 resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// List of all routes.
-	Routes VirtualHubRouteV2ResponseArrayOutput `pulumi:"routes"`
+	AttachedConnections pulumi.StringArrayOutput             `pulumi:"attachedConnections"`
+	Etag                pulumi.StringOutput                  `pulumi:"etag"`
+	Name                pulumi.StringPtrOutput               `pulumi:"name"`
+	ProvisioningState   pulumi.StringOutput                  `pulumi:"provisioningState"`
+	Routes              VirtualHubRouteV2ResponseArrayOutput `pulumi:"routes"`
 }
 
 // NewVirtualHubRouteTableV2 registers a new resource with the given unique name, arguments, and options.
@@ -150,38 +144,24 @@ func (VirtualHubRouteTableV2State) ElementType() reflect.Type {
 }
 
 type virtualHubRouteTableV2Args struct {
-	// List of all connections attached to this route table v2.
-	AttachedConnections []string `pulumi:"attachedConnections"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The resource group name of the VirtualHub.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the VirtualHubRouteTableV2.
-	RouteTableName *string `pulumi:"routeTableName"`
-	// List of all routes.
-	Routes []VirtualHubRouteV2 `pulumi:"routes"`
-	// The name of the VirtualHub.
-	VirtualHubName string `pulumi:"virtualHubName"`
+	AttachedConnections []string            `pulumi:"attachedConnections"`
+	Id                  *string             `pulumi:"id"`
+	Name                *string             `pulumi:"name"`
+	ResourceGroupName   string              `pulumi:"resourceGroupName"`
+	RouteTableName      *string             `pulumi:"routeTableName"`
+	Routes              []VirtualHubRouteV2 `pulumi:"routes"`
+	VirtualHubName      string              `pulumi:"virtualHubName"`
 }
 
 // The set of arguments for constructing a VirtualHubRouteTableV2 resource.
 type VirtualHubRouteTableV2Args struct {
-	// List of all connections attached to this route table v2.
 	AttachedConnections pulumi.StringArrayInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// The resource group name of the VirtualHub.
-	ResourceGroupName pulumi.StringInput
-	// The name of the VirtualHubRouteTableV2.
-	RouteTableName pulumi.StringPtrInput
-	// List of all routes.
-	Routes VirtualHubRouteV2ArrayInput
-	// The name of the VirtualHub.
-	VirtualHubName pulumi.StringInput
+	Id                  pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	RouteTableName      pulumi.StringPtrInput
+	Routes              VirtualHubRouteV2ArrayInput
+	VirtualHubName      pulumi.StringInput
 }
 
 func (VirtualHubRouteTableV2Args) ElementType() reflect.Type {
@@ -207,9 +187,7 @@ func (i *VirtualHubRouteTableV2) ToVirtualHubRouteTableV2OutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubRouteTableV2Output)
 }
 
-type VirtualHubRouteTableV2Output struct {
-	*pulumi.OutputState
-}
+type VirtualHubRouteTableV2Output struct{ *pulumi.OutputState }
 
 func (VirtualHubRouteTableV2Output) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualHubRouteTableV2)(nil))

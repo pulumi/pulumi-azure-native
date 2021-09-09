@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AzureADMetrics resource.
 func GetazureADMetric(ctx *pulumi.Context, args *GetazureADMetricArgs, opts ...pulumi.InvokeOption) (*GetazureADMetricResult, error) {
 	var rv GetazureADMetricResult
 	err := ctx.Invoke("azure-native:aadiam/v20200701preview:getazureADMetric", args, &rv, opts...)
@@ -18,23 +17,16 @@ func GetazureADMetric(ctx *pulumi.Context, args *GetazureADMetricArgs, opts ...p
 }
 
 type GetazureADMetricArgs struct {
-	// Name of the azureADMetrics instance.
 	AzureADMetricsName string `pulumi:"azureADMetricsName"`
-	// Name of an Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
 
 // AzureADMetrics resource.
 type GetazureADMetricResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
+	Id         string                                 `pulumi:"id"`
+	Location   string                                 `pulumi:"location"`
 	Name       string                                 `pulumi:"name"`
 	Properties AzureADMetricsPropertiesFormatResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Tags       map[string]string                      `pulumi:"tags"`
+	Type       string                                 `pulumi:"type"`
 }

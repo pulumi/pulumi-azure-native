@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Linked workspace.
 func LookupLinkedWorkspace(ctx *pulumi.Context, args *LookupLinkedWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupLinkedWorkspaceResult, error) {
 	var rv LookupLinkedWorkspaceResult
 	err := ctx.Invoke("azure-native:machinelearningservices/v20200301:getLinkedWorkspace", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupLinkedWorkspace(ctx *pulumi.Context, args *LookupLinkedWorkspaceArgs,
 }
 
 type LookupLinkedWorkspaceArgs struct {
-	// Friendly name of the linked workspace
-	LinkName string `pulumi:"linkName"`
-	// Name of the resource group in which workspace is located.
+	LinkName          string `pulumi:"linkName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Linked workspace.
 type LookupLinkedWorkspaceResult struct {
-	// ResourceId of the link of the linked workspace.
-	Id string `pulumi:"id"`
-	// Friendly name of the linked workspace.
-	Name string `pulumi:"name"`
-	// LinkedWorkspace specific properties.
+	Id         string                       `pulumi:"id"`
+	Name       string                       `pulumi:"name"`
 	Properties LinkedWorkspacePropsResponse `pulumi:"properties"`
-	// Resource type of linked workspace.
-	Type string `pulumi:"type"`
+	Type       string                       `pulumi:"type"`
 }

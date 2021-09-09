@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Backup Vault Resource
 type BackupVault struct {
 	pulumi.CustomResourceState
 
-	// Optional ETag.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Input Managed Identity Details
-	Identity DppIdentityDetailsResponsePtrOutput `pulumi:"identity"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// BackupVaultResource properties
-	Properties BackupVaultResponseOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringOutput `pulumi:"type"`
+	ETag       pulumi.StringPtrOutput              `pulumi:"eTag"`
+	Identity   DppIdentityDetailsResponsePtrOutput `pulumi:"identity"`
+	Location   pulumi.StringOutput                 `pulumi:"location"`
+	Name       pulumi.StringOutput                 `pulumi:"name"`
+	Properties BackupVaultResponseOutput           `pulumi:"properties"`
+	SystemData SystemDataResponseOutput            `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput              `pulumi:"tags"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewBackupVault registers a new resource with the given unique name, arguments, and options.
@@ -108,38 +99,24 @@ func (BackupVaultState) ElementType() reflect.Type {
 }
 
 type backupVaultArgs struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Input Managed Identity Details
-	Identity *DppIdentityDetails `pulumi:"identity"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// BackupVaultResource properties
-	Properties BackupVaultType `pulumi:"properties"`
-	// The name of the resource group where the backup vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the backup vault.
-	VaultName *string `pulumi:"vaultName"`
+	ETag              *string             `pulumi:"eTag"`
+	Identity          *DppIdentityDetails `pulumi:"identity"`
+	Location          *string             `pulumi:"location"`
+	Properties        BackupVaultType     `pulumi:"properties"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	Tags              map[string]string   `pulumi:"tags"`
+	VaultName         *string             `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a BackupVault resource.
 type BackupVaultArgs struct {
-	// Optional ETag.
-	ETag pulumi.StringPtrInput
-	// Input Managed Identity Details
-	Identity DppIdentityDetailsPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// BackupVaultResource properties
-	Properties BackupVaultTypeInput
-	// The name of the resource group where the backup vault is present.
+	ETag              pulumi.StringPtrInput
+	Identity          DppIdentityDetailsPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        BackupVaultTypeInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the backup vault.
-	VaultName pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	VaultName         pulumi.StringPtrInput
 }
 
 func (BackupVaultArgs) ElementType() reflect.Type {
@@ -165,9 +142,7 @@ func (i *BackupVault) ToBackupVaultOutputWithContext(ctx context.Context) Backup
 	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultOutput)
 }
 
-type BackupVaultOutput struct {
-	*pulumi.OutputState
-}
+type BackupVaultOutput struct{ *pulumi.OutputState }
 
 func (BackupVaultOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupVault)(nil))

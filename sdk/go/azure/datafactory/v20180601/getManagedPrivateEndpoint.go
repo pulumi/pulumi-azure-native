@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Managed private endpoint resource type.
 func LookupManagedPrivateEndpoint(ctx *pulumi.Context, args *LookupManagedPrivateEndpointArgs, opts ...pulumi.InvokeOption) (*LookupManagedPrivateEndpointResult, error) {
 	var rv LookupManagedPrivateEndpointResult
 	err := ctx.Invoke("azure-native:datafactory/v20180601:getManagedPrivateEndpoint", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupManagedPrivateEndpoint(ctx *pulumi.Context, args *LookupManagedPrivat
 }
 
 type LookupManagedPrivateEndpointArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// Managed private endpoint name
+	FactoryName                string `pulumi:"factoryName"`
 	ManagedPrivateEndpointName string `pulumi:"managedPrivateEndpointName"`
-	// Managed virtual network name
-	ManagedVirtualNetworkName string `pulumi:"managedVirtualNetworkName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ManagedVirtualNetworkName  string `pulumi:"managedVirtualNetworkName"`
+	ResourceGroupName          string `pulumi:"resourceGroupName"`
 }
 
 // Managed private endpoint resource type.
 type LookupManagedPrivateEndpointResult struct {
-	// Etag identifies change in the resource.
-	Etag string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Managed private endpoint properties.
+	Etag       string                         `pulumi:"etag"`
+	Id         string                         `pulumi:"id"`
+	Name       string                         `pulumi:"name"`
 	Properties ManagedPrivateEndpointResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type       string                         `pulumi:"type"`
 }

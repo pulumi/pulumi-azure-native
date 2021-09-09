@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The iSCSI server.
 func LookupIscsiServer(ctx *pulumi.Context, args *LookupIscsiServerArgs, opts ...pulumi.InvokeOption) (*LookupIscsiServerResult, error) {
 	var rv LookupIscsiServerResult
 	err := ctx.Invoke("azure-native:storsimple/v20161001:getIscsiServer", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupIscsiServer(ctx *pulumi.Context, args *LookupIscsiServerArgs, opts ..
 }
 
 type LookupIscsiServerArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The iSCSI server name.
-	IscsiServerName string `pulumi:"iscsiServerName"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
+	DeviceName        string `pulumi:"deviceName"`
+	IscsiServerName   string `pulumi:"iscsiServerName"`
+	ManagerName       string `pulumi:"managerName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The iSCSI server.
 type LookupIscsiServerResult struct {
-	// The backup policy id.
-	BackupScheduleGroupId string `pulumi:"backupScheduleGroupId"`
-	// The chap id.
-	ChapId *string `pulumi:"chapId"`
-	// The description.
-	Description *string `pulumi:"description"`
-	// The identifier.
-	Id string `pulumi:"id"`
-	// The name.
-	Name string `pulumi:"name"`
-	// The reverse chap id.
-	ReverseChapId *string `pulumi:"reverseChapId"`
-	// The storage domain id.
-	StorageDomainId string `pulumi:"storageDomainId"`
-	// The type.
-	Type string `pulumi:"type"`
+	BackupScheduleGroupId string  `pulumi:"backupScheduleGroupId"`
+	ChapId                *string `pulumi:"chapId"`
+	Description           *string `pulumi:"description"`
+	Id                    string  `pulumi:"id"`
+	Name                  string  `pulumi:"name"`
+	ReverseChapId         *string `pulumi:"reverseChapId"`
+	StorageDomainId       string  `pulumi:"storageDomainId"`
+	Type                  string  `pulumi:"type"`
 }

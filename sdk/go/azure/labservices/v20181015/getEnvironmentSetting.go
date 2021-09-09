@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents settings of an environment, from which environment instances would be created
 func LookupEnvironmentSetting(ctx *pulumi.Context, args *LookupEnvironmentSettingArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentSettingResult, error) {
 	var rv LookupEnvironmentSettingResult
 	err := ctx.Invoke("azure-native:labservices/v20181015:getEnvironmentSetting", args, &rv, opts...)
@@ -18,48 +17,28 @@ func LookupEnvironmentSetting(ctx *pulumi.Context, args *LookupEnvironmentSettin
 }
 
 type LookupEnvironmentSettingArgs struct {
-	// The name of the environment Setting.
-	EnvironmentSettingName string `pulumi:"environmentSettingName"`
-	// Specify the $expand query. Example: 'properties($select=publishingState)'
-	Expand *string `pulumi:"expand"`
-	// The name of the lab Account.
-	LabAccountName string `pulumi:"labAccountName"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	EnvironmentSettingName string  `pulumi:"environmentSettingName"`
+	Expand                 *string `pulumi:"expand"`
+	LabAccountName         string  `pulumi:"labAccountName"`
+	LabName                string  `pulumi:"labName"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
 }
 
 // Represents settings of an environment, from which environment instances would be created
 type LookupEnvironmentSettingResult struct {
-	// Describes the user's progress in configuring their environment setting
-	ConfigurationState *string `pulumi:"configurationState"`
-	// Describes the environment and its resource settings
-	Description *string `pulumi:"description"`
-	// The identifier of the resource.
-	Id string `pulumi:"id"`
-	// Time when the template VM was last changed.
-	LastChanged string `pulumi:"lastChanged"`
-	// Time when the template VM was last sent for publishing.
-	LastPublished string `pulumi:"lastPublished"`
-	// The details of the latest operation. ex: status, error
+	ConfigurationState    *string                       `pulumi:"configurationState"`
+	Description           *string                       `pulumi:"description"`
+	Id                    string                        `pulumi:"id"`
+	LastChanged           string                        `pulumi:"lastChanged"`
+	LastPublished         string                        `pulumi:"lastPublished"`
 	LatestOperationResult LatestOperationResultResponse `pulumi:"latestOperationResult"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Describes the readiness of this environment setting
-	PublishingState string `pulumi:"publishingState"`
-	// The resource specific settings
-	ResourceSettings ResourceSettingsResponse `pulumi:"resourceSettings"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Brief title describing the environment and its resource settings
-	Title *string `pulumi:"title"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	Location              *string                       `pulumi:"location"`
+	Name                  string                        `pulumi:"name"`
+	ProvisioningState     *string                       `pulumi:"provisioningState"`
+	PublishingState       string                        `pulumi:"publishingState"`
+	ResourceSettings      ResourceSettingsResponse      `pulumi:"resourceSettings"`
+	Tags                  map[string]string             `pulumi:"tags"`
+	Title                 *string                       `pulumi:"title"`
+	Type                  string                        `pulumi:"type"`
+	UniqueIdentifier      *string                       `pulumi:"uniqueIdentifier"`
 }

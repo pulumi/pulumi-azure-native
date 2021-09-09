@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NetApp account resource
 type Account struct {
 	pulumi.CustomResourceState
 
-	// Active Directories
 	ActiveDirectories ActiveDirectoryResponseArrayOutput `pulumi:"activeDirectories"`
-	// Encryption settings
-	Encryption AccountEncryptionResponsePtrOutput `pulumi:"encryption"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Encryption        AccountEncryptionResponsePtrOutput `pulumi:"encryption"`
+	Etag              pulumi.StringOutput                `pulumi:"etag"`
+	Location          pulumi.StringOutput                `pulumi:"location"`
+	Name              pulumi.StringOutput                `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                `pulumi:"provisioningState"`
+	SystemData        SystemDataResponseOutput           `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput             `pulumi:"tags"`
+	Type              pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -203,34 +193,22 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// The name of the NetApp account
-	AccountName *string `pulumi:"accountName"`
-	// Active Directories
-	ActiveDirectories []ActiveDirectory `pulumi:"activeDirectories"`
-	// Encryption settings
-	Encryption *AccountEncryption `pulumi:"encryption"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       *string            `pulumi:"accountName"`
+	ActiveDirectories []ActiveDirectory  `pulumi:"activeDirectories"`
+	Encryption        *AccountEncryption `pulumi:"encryption"`
+	Location          *string            `pulumi:"location"`
+	ResourceGroupName string             `pulumi:"resourceGroupName"`
+	Tags              map[string]string  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// The name of the NetApp account
-	AccountName pulumi.StringPtrInput
-	// Active Directories
+	AccountName       pulumi.StringPtrInput
 	ActiveDirectories ActiveDirectoryArrayInput
-	// Encryption settings
-	Encryption AccountEncryptionPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
+	Encryption        AccountEncryptionPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {
@@ -256,9 +234,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
 }
 
-type AccountOutput struct {
-	*pulumi.OutputState
-}
+type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Account)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Public certificate object
 func LookupWebAppPublicCertificateSlot(ctx *pulumi.Context, args *LookupWebAppPublicCertificateSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPublicCertificateSlotResult, error) {
 	var rv LookupWebAppPublicCertificateSlotResult
 	err := ctx.Invoke("azure-native:web/v20181101:getWebAppPublicCertificateSlot", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupWebAppPublicCertificateSlot(ctx *pulumi.Context, args *LookupWebAppPu
 }
 
 type LookupWebAppPublicCertificateSlotArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Public certificate name.
+	Name                  string `pulumi:"name"`
 	PublicCertificateName string `pulumi:"publicCertificateName"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API the named binding for the production slot.
-	Slot string `pulumi:"slot"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
+	Slot                  string `pulumi:"slot"`
 }
 
 // Public certificate object
 type LookupWebAppPublicCertificateSlotResult struct {
-	// Public Certificate byte array
-	Blob *string `pulumi:"blob"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Public Certificate Location
+	Blob                      *string `pulumi:"blob"`
+	Id                        string  `pulumi:"id"`
+	Kind                      *string `pulumi:"kind"`
+	Name                      string  `pulumi:"name"`
 	PublicCertificateLocation *string `pulumi:"publicCertificateLocation"`
-	// Certificate Thumbprint
-	Thumbprint string `pulumi:"thumbprint"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Thumbprint                string  `pulumi:"thumbprint"`
+	Type                      string  `pulumi:"type"`
 }

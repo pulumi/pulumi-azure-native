@@ -116,7 +116,7 @@ type ruleArgs struct {
 	// Properties of correlationFilter
 	CorrelationFilter *CorrelationFilter `pulumi:"correlationFilter"`
 	// Filter type that is evaluated against a BrokeredMessage.
-	FilterType *string `pulumi:"filterType"`
+	FilterType *FilterType `pulumi:"filterType"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the Resource group within the Azure subscription.
@@ -138,7 +138,7 @@ type RuleArgs struct {
 	// Properties of correlationFilter
 	CorrelationFilter CorrelationFilterPtrInput
 	// Filter type that is evaluated against a BrokeredMessage.
-	FilterType *FilterType
+	FilterType FilterTypePtrInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
@@ -176,9 +176,7 @@ func (i *Rule) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleOutput)
 }
 
-type RuleOutput struct {
-	*pulumi.OutputState
-}
+type RuleOutput struct{ *pulumi.OutputState }
 
 func (RuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Rule)(nil))

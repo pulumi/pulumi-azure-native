@@ -209,9 +209,7 @@ func (i *PrivateRecordSet) ToPrivateRecordSetOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateRecordSetOutput)
 }
 
-type PrivateRecordSetOutput struct {
-	*pulumi.OutputState
-}
+type PrivateRecordSetOutput struct{ *pulumi.OutputState }
 
 func (PrivateRecordSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateRecordSet)(nil))

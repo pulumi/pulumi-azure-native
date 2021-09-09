@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response on GET of a hybrid use benefit
 type HybridUseBenefit struct {
 	pulumi.CustomResourceState
 
-	// Created date
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// Indicates the revision of the hybrid use benefit
-	Etag pulumi.IntOutput `pulumi:"etag"`
-	// Last updated date
-	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state
+	CreatedDate       pulumi.StringOutput `pulumi:"createdDate"`
+	Etag              pulumi.IntOutput    `pulumi:"etag"`
+	LastUpdatedDate   pulumi.StringOutput `pulumi:"lastUpdatedDate"`
+	Name              pulumi.StringOutput `pulumi:"name"`
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Hybrid use benefit SKU
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku               SkuResponseOutput   `pulumi:"sku"`
+	Type              pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewHybridUseBenefit registers a new resource with the given unique name, arguments, and options.
@@ -94,22 +86,16 @@ func (HybridUseBenefitState) ElementType() reflect.Type {
 }
 
 type hybridUseBenefitArgs struct {
-	// This is a unique identifier for a plan. Should be a guid.
 	PlanId *string `pulumi:"planId"`
-	// The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
-	Scope string `pulumi:"scope"`
-	// Hybrid use benefit SKU
-	Sku Sku `pulumi:"sku"`
+	Scope  string  `pulumi:"scope"`
+	Sku    Sku     `pulumi:"sku"`
 }
 
 // The set of arguments for constructing a HybridUseBenefit resource.
 type HybridUseBenefitArgs struct {
-	// This is a unique identifier for a plan. Should be a guid.
 	PlanId pulumi.StringPtrInput
-	// The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
-	Scope pulumi.StringInput
-	// Hybrid use benefit SKU
-	Sku SkuInput
+	Scope  pulumi.StringInput
+	Sku    SkuInput
 }
 
 func (HybridUseBenefitArgs) ElementType() reflect.Type {
@@ -135,9 +121,7 @@ func (i *HybridUseBenefit) ToHybridUseBenefitOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HybridUseBenefitOutput)
 }
 
-type HybridUseBenefitOutput struct {
-	*pulumi.OutputState
-}
+type HybridUseBenefitOutput struct{ *pulumi.OutputState }
 
 func (HybridUseBenefitOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HybridUseBenefit)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response for iSCSI Target requests.
 func LookupIscsiTarget(ctx *pulumi.Context, args *LookupIscsiTargetArgs, opts ...pulumi.InvokeOption) (*LookupIscsiTargetResult, error) {
 	var rv LookupIscsiTargetResult
 	err := ctx.Invoke("azure-native:storagepool/v20210801:getIscsiTarget", args, &rv, opts...)
@@ -18,44 +17,26 @@ func LookupIscsiTarget(ctx *pulumi.Context, args *LookupIscsiTargetArgs, opts ..
 }
 
 type LookupIscsiTargetArgs struct {
-	// The name of the Disk Pool.
-	DiskPoolName string `pulumi:"diskPoolName"`
-	// The name of the iSCSI Target.
-	IscsiTargetName string `pulumi:"iscsiTargetName"`
-	// The name of the resource group. The name is case insensitive.
+	DiskPoolName      string `pulumi:"diskPoolName"`
+	IscsiTargetName   string `pulumi:"iscsiTargetName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Response for iSCSI Target requests.
 type LookupIscsiTargetResult struct {
-	// Mode for Target connectivity.
-	AclMode string `pulumi:"aclMode"`
-	// List of private IPv4 addresses to connect to the iSCSI Target.
-	Endpoints []string `pulumi:"endpoints"`
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// List of LUNs to be exposed through iSCSI Target.
-	Luns []IscsiLunResponse `pulumi:"luns"`
-	// Azure resource id. Indicates if this resource is managed by another Azure resource.
-	ManagedBy string `pulumi:"managedBy"`
-	// List of Azure resource ids that manage this resource.
-	ManagedByExtended []string `pulumi:"managedByExtended"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The port used by iSCSI Target portal group.
-	Port *int `pulumi:"port"`
-	// State of the operation on the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// List of identifiers for active sessions on the iSCSI target
-	Sessions []string `pulumi:"sessions"`
-	// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-	StaticAcls []AclResponse `pulumi:"staticAcls"`
-	// Operational status of the iSCSI Target.
-	Status string `pulumi:"status"`
-	// Resource metadata required by ARM RPC
-	SystemData SystemMetadataResponse `pulumi:"systemData"`
-	// iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-	TargetIqn string `pulumi:"targetIqn"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
+	AclMode           string                 `pulumi:"aclMode"`
+	Endpoints         []string               `pulumi:"endpoints"`
+	Id                string                 `pulumi:"id"`
+	Luns              []IscsiLunResponse     `pulumi:"luns"`
+	ManagedBy         string                 `pulumi:"managedBy"`
+	ManagedByExtended []string               `pulumi:"managedByExtended"`
+	Name              string                 `pulumi:"name"`
+	Port              *int                   `pulumi:"port"`
+	ProvisioningState string                 `pulumi:"provisioningState"`
+	Sessions          []string               `pulumi:"sessions"`
+	StaticAcls        []AclResponse          `pulumi:"staticAcls"`
+	Status            string                 `pulumi:"status"`
+	SystemData        SystemMetadataResponse `pulumi:"systemData"`
+	TargetIqn         string                 `pulumi:"targetIqn"`
+	Type              string                 `pulumi:"type"`
 }

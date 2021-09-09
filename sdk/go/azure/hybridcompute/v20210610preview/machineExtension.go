@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a Machine Extension.
 type MachineExtension struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes Machine Extension Properties.
+	Location   pulumi.StringOutput                      `pulumi:"location"`
+	Name       pulumi.StringOutput                      `pulumi:"name"`
 	Properties MachineExtensionPropertiesResponseOutput `pulumi:"properties"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput                 `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput                   `pulumi:"tags"`
+	Type       pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewMachineExtension registers a new resource with the given unique name, arguments, and options.
@@ -146,34 +139,22 @@ func (MachineExtensionState) ElementType() reflect.Type {
 }
 
 type machineExtensionArgs struct {
-	// The name of the machine extension.
-	ExtensionName *string `pulumi:"extensionName"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the machine where the extension should be created or updated.
-	MachineName string `pulumi:"machineName"`
-	// Describes Machine Extension Properties.
-	Properties *MachineExtensionProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ExtensionName     *string                     `pulumi:"extensionName"`
+	Location          *string                     `pulumi:"location"`
+	MachineName       string                      `pulumi:"machineName"`
+	Properties        *MachineExtensionProperties `pulumi:"properties"`
+	ResourceGroupName string                      `pulumi:"resourceGroupName"`
+	Tags              map[string]string           `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MachineExtension resource.
 type MachineExtensionArgs struct {
-	// The name of the machine extension.
-	ExtensionName pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the machine where the extension should be created or updated.
-	MachineName pulumi.StringInput
-	// Describes Machine Extension Properties.
-	Properties MachineExtensionPropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
+	ExtensionName     pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	MachineName       pulumi.StringInput
+	Properties        MachineExtensionPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (MachineExtensionArgs) ElementType() reflect.Type {
@@ -199,9 +180,7 @@ func (i *MachineExtension) ToMachineExtensionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionOutput)
 }
 
-type MachineExtensionOutput struct {
-	*pulumi.OutputState
-}
+type MachineExtensionOutput struct{ *pulumi.OutputState }
 
 func (MachineExtensionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MachineExtension)(nil))

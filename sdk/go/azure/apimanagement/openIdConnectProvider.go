@@ -219,9 +219,7 @@ func (i *OpenIdConnectProvider) ToOpenIdConnectProviderOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectProviderOutput)
 }
 
-type OpenIdConnectProviderOutput struct {
-	*pulumi.OutputState
-}
+type OpenIdConnectProviderOutput struct{ *pulumi.OutputState }
 
 func (OpenIdConnectProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OpenIdConnectProvider)(nil))

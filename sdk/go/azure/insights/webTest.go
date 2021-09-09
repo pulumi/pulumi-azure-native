@@ -70,13 +70,12 @@ func NewWebTest(ctx *pulumi.Context,
 		args.Frequency = pulumi.IntPtr(300)
 	}
 	if args.Kind == nil {
-		e := WebTestKind("ping")
-		args.Kind = &e
+		args.Kind = WebTestKind("ping")
 	}
 	if args.Timeout == nil {
 		args.Timeout = pulumi.IntPtr(30)
 	}
-	if args.WebTestKind == "" {
+	if args.WebTestKind == nil {
 		args.WebTestKind = WebTestKind("ping")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -144,7 +143,7 @@ type webTestArgs struct {
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
 	Frequency *int `pulumi:"frequency"`
 	// The kind of web test that this web test watches. Choices are ping and multistep.
-	Kind *string `pulumi:"kind"`
+	Kind *WebTestKind `pulumi:"kind"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
@@ -160,7 +159,7 @@ type webTestArgs struct {
 	// Seconds until this WebTest will timeout and fail. Default value is 30.
 	Timeout *int `pulumi:"timeout"`
 	// The kind of web test this is, valid choices are ping and multistep.
-	WebTestKind string `pulumi:"webTestKind"`
+	WebTestKind WebTestKind `pulumi:"webTestKind"`
 	// User defined name if this WebTest.
 	WebTestName *string `pulumi:"webTestName"`
 }
@@ -176,7 +175,7 @@ type WebTestArgs struct {
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
 	Frequency pulumi.IntPtrInput
 	// The kind of web test that this web test watches. Choices are ping and multistep.
-	Kind *WebTestKind
+	Kind WebTestKindPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
@@ -192,7 +191,7 @@ type WebTestArgs struct {
 	// Seconds until this WebTest will timeout and fail. Default value is 30.
 	Timeout pulumi.IntPtrInput
 	// The kind of web test this is, valid choices are ping and multistep.
-	WebTestKind WebTestKind
+	WebTestKind WebTestKindInput
 	// User defined name if this WebTest.
 	WebTestName pulumi.StringPtrInput
 }
@@ -220,9 +219,7 @@ func (i *WebTest) ToWebTestOutputWithContext(ctx context.Context) WebTestOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestOutput)
 }
 
-type WebTestOutput struct {
-	*pulumi.OutputState
-}
+type WebTestOutput struct{ *pulumi.OutputState }
 
 func (WebTestOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebTest)(nil))

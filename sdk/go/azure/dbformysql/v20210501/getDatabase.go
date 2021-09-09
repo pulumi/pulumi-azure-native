@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Database.
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
 	err := ctx.Invoke("azure-native:dbformysql/v20210501:getDatabase", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulum
 }
 
 type LookupDatabaseArgs struct {
-	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the resource group. The name is case insensitive.
+	DatabaseName      string `pulumi:"databaseName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ServerName        string `pulumi:"serverName"`
 }
 
 // Represents a Database.
 type LookupDatabaseResult struct {
-	// The charset of the database.
-	Charset *string `pulumi:"charset"`
-	// The collation of the database.
-	Collation *string `pulumi:"collation"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
+	Charset    *string            `pulumi:"charset"`
+	Collation  *string            `pulumi:"collation"`
+	Id         string             `pulumi:"id"`
+	Name       string             `pulumi:"name"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

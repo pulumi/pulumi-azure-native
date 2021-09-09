@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Connection
 func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...pulumi.InvokeOption) (*LookupConnectionResult, error) {
 	var rv LookupConnectionResult
 	err := ctx.Invoke("azure-native:web/v20150801preview:getConnection", args, &rv, opts...)
@@ -18,46 +17,28 @@ func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...p
 }
 
 type LookupConnectionArgs struct {
-	// The connection name.
-	ConnectionName string `pulumi:"connectionName"`
-	// The resource group name.
+	ConnectionName    string `pulumi:"connectionName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // API Connection
 type LookupConnectionResult struct {
-	// expanded connection provider name
-	Api *ExpandedParentApiEntityResponse `pulumi:"api"`
-	// Timestamp of last connection change.
-	ChangedTime *string `pulumi:"changedTime"`
-	// Timestamp of the connection creation
-	CreatedTime *string `pulumi:"createdTime"`
-	// Custom login setting values.
-	CustomParameterValues map[string]ParameterCustomLoginSettingValuesResponse `pulumi:"customParameterValues"`
-	// display name
-	DisplayName *string `pulumi:"displayName"`
-	// Time in UTC when the first expiration of OAuth tokens
-	FirstExpirationTime *string `pulumi:"firstExpirationTime"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// List of Keywords that tag the acl
-	Keywords []string `pulumi:"keywords"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string      `pulumi:"location"`
-	Metadata interface{} `pulumi:"metadata"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Tokens/Claim
-	NonSecretParameterValues map[string]interface{} `pulumi:"nonSecretParameterValues"`
-	// Tokens/Claim
-	ParameterValues map[string]interface{} `pulumi:"parameterValues"`
-	// Status of the connection
-	Statuses []ConnectionStatusResponse `pulumi:"statuses"`
-	// Resource tags
-	Tags     map[string]string `pulumi:"tags"`
-	TenantId *string           `pulumi:"tenantId"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Api                      *ExpandedParentApiEntityResponse                     `pulumi:"api"`
+	ChangedTime              *string                                              `pulumi:"changedTime"`
+	CreatedTime              *string                                              `pulumi:"createdTime"`
+	CustomParameterValues    map[string]ParameterCustomLoginSettingValuesResponse `pulumi:"customParameterValues"`
+	DisplayName              *string                                              `pulumi:"displayName"`
+	FirstExpirationTime      *string                                              `pulumi:"firstExpirationTime"`
+	Id                       *string                                              `pulumi:"id"`
+	Keywords                 []string                                             `pulumi:"keywords"`
+	Kind                     *string                                              `pulumi:"kind"`
+	Location                 string                                               `pulumi:"location"`
+	Metadata                 interface{}                                          `pulumi:"metadata"`
+	Name                     *string                                              `pulumi:"name"`
+	NonSecretParameterValues map[string]interface{}                               `pulumi:"nonSecretParameterValues"`
+	ParameterValues          map[string]interface{}                               `pulumi:"parameterValues"`
+	Statuses                 []ConnectionStatusResponse                           `pulumi:"statuses"`
+	Tags                     map[string]string                                    `pulumi:"tags"`
+	TenantId                 *string                                              `pulumi:"tenantId"`
+	Type                     *string                                              `pulumi:"type"`
 }

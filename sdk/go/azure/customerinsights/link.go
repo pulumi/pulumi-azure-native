@@ -64,8 +64,14 @@ func NewLink(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.SourceEntityType == nil {
+		return nil, errors.New("invalid value for required argument 'SourceEntityType'")
+	}
 	if args.SourceEntityTypeName == nil {
 		return nil, errors.New("invalid value for required argument 'SourceEntityTypeName'")
+	}
+	if args.TargetEntityType == nil {
+		return nil, errors.New("invalid value for required argument 'TargetEntityType'")
 	}
 	if args.TargetEntityTypeName == nil {
 		return nil, errors.New("invalid value for required argument 'TargetEntityTypeName'")
@@ -131,7 +137,7 @@ type linkArgs struct {
 	// The set of properties mappings between the source and target Types.
 	Mappings []TypePropertiesMapping `pulumi:"mappings"`
 	// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
-	OperationType *string `pulumi:"operationType"`
+	OperationType *InstanceOperationType `pulumi:"operationType"`
 	// The properties that represent the participating profile.
 	ParticipantPropertyReferences []ParticipantPropertyReference `pulumi:"participantPropertyReferences"`
 	// Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
@@ -139,11 +145,11 @@ type linkArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Type of source entity.
-	SourceEntityType string `pulumi:"sourceEntityType"`
+	SourceEntityType EntityType `pulumi:"sourceEntityType"`
 	// Name of the source Entity Type.
 	SourceEntityTypeName string `pulumi:"sourceEntityTypeName"`
 	// Type of target entity.
-	TargetEntityType string `pulumi:"targetEntityType"`
+	TargetEntityType EntityType `pulumi:"targetEntityType"`
 	// Name of the target Entity Type.
 	TargetEntityTypeName string `pulumi:"targetEntityTypeName"`
 }
@@ -161,7 +167,7 @@ type LinkArgs struct {
 	// The set of properties mappings between the source and target Types.
 	Mappings TypePropertiesMappingArrayInput
 	// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
-	OperationType *InstanceOperationType
+	OperationType InstanceOperationTypePtrInput
 	// The properties that represent the participating profile.
 	ParticipantPropertyReferences ParticipantPropertyReferenceArrayInput
 	// Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
@@ -169,11 +175,11 @@ type LinkArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Type of source entity.
-	SourceEntityType EntityType
+	SourceEntityType EntityTypeInput
 	// Name of the source Entity Type.
 	SourceEntityTypeName pulumi.StringInput
 	// Type of target entity.
-	TargetEntityType EntityType
+	TargetEntityType EntityTypeInput
 	// Name of the target Entity Type.
 	TargetEntityTypeName pulumi.StringInput
 }
@@ -201,9 +207,7 @@ func (i *Link) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkOutput)
 }
 
-type LinkOutput struct {
-	*pulumi.OutputState
-}
+type LinkOutput struct{ *pulumi.OutputState }
 
 func (LinkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Link)(nil))

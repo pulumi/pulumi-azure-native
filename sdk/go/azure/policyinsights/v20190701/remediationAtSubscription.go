@@ -10,30 +10,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The remediation definition.
 type RemediationAtSubscription struct {
 	pulumi.CustomResourceState
 
-	// The time at which the remediation was created.
-	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
-	// The deployment status summary for all deployments created by the remediation.
-	DeploymentStatus RemediationDeploymentSummaryResponseOutput `pulumi:"deploymentStatus"`
-	// The filters that will be applied to determine which resources to remediate.
-	Filters RemediationFiltersResponsePtrOutput `pulumi:"filters"`
-	// The time at which the remediation was last updated.
-	LastUpdatedOn pulumi.StringOutput `pulumi:"lastUpdatedOn"`
-	// The name of the remediation.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource ID of the policy assignment that should be remediated.
-	PolicyAssignmentId pulumi.StringPtrOutput `pulumi:"policyAssignmentId"`
-	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-	PolicyDefinitionReferenceId pulumi.StringPtrOutput `pulumi:"policyDefinitionReferenceId"`
-	// The status of the remediation.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
-	ResourceDiscoveryMode pulumi.StringPtrOutput `pulumi:"resourceDiscoveryMode"`
-	// The type of the remediation.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CreatedOn                   pulumi.StringOutput                        `pulumi:"createdOn"`
+	DeploymentStatus            RemediationDeploymentSummaryResponseOutput `pulumi:"deploymentStatus"`
+	Filters                     RemediationFiltersResponsePtrOutput        `pulumi:"filters"`
+	LastUpdatedOn               pulumi.StringOutput                        `pulumi:"lastUpdatedOn"`
+	Name                        pulumi.StringOutput                        `pulumi:"name"`
+	PolicyAssignmentId          pulumi.StringPtrOutput                     `pulumi:"policyAssignmentId"`
+	PolicyDefinitionReferenceId pulumi.StringPtrOutput                     `pulumi:"policyDefinitionReferenceId"`
+	ProvisioningState           pulumi.StringOutput                        `pulumi:"provisioningState"`
+	ResourceDiscoveryMode       pulumi.StringPtrOutput                     `pulumi:"resourceDiscoveryMode"`
+	Type                        pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewRemediationAtSubscription registers a new resource with the given unique name, arguments, and options.
@@ -93,30 +82,20 @@ func (RemediationAtSubscriptionState) ElementType() reflect.Type {
 }
 
 type remediationAtSubscriptionArgs struct {
-	// The filters that will be applied to determine which resources to remediate.
-	Filters *RemediationFilters `pulumi:"filters"`
-	// The resource ID of the policy assignment that should be remediated.
-	PolicyAssignmentId *string `pulumi:"policyAssignmentId"`
-	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
-	// The name of the remediation.
-	RemediationName *string `pulumi:"remediationName"`
-	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
-	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
+	Filters                     *RemediationFilters `pulumi:"filters"`
+	PolicyAssignmentId          *string             `pulumi:"policyAssignmentId"`
+	PolicyDefinitionReferenceId *string             `pulumi:"policyDefinitionReferenceId"`
+	RemediationName             *string             `pulumi:"remediationName"`
+	ResourceDiscoveryMode       *string             `pulumi:"resourceDiscoveryMode"`
 }
 
 // The set of arguments for constructing a RemediationAtSubscription resource.
 type RemediationAtSubscriptionArgs struct {
-	// The filters that will be applied to determine which resources to remediate.
-	Filters RemediationFiltersPtrInput
-	// The resource ID of the policy assignment that should be remediated.
-	PolicyAssignmentId pulumi.StringPtrInput
-	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+	Filters                     RemediationFiltersPtrInput
+	PolicyAssignmentId          pulumi.StringPtrInput
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
-	// The name of the remediation.
-	RemediationName pulumi.StringPtrInput
-	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
-	ResourceDiscoveryMode pulumi.StringPtrInput
+	RemediationName             pulumi.StringPtrInput
+	ResourceDiscoveryMode       pulumi.StringPtrInput
 }
 
 func (RemediationAtSubscriptionArgs) ElementType() reflect.Type {
@@ -142,9 +121,7 @@ func (i *RemediationAtSubscription) ToRemediationAtSubscriptionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationAtSubscriptionOutput)
 }
 
-type RemediationAtSubscriptionOutput struct {
-	*pulumi.OutputState
-}
+type RemediationAtSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (RemediationAtSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RemediationAtSubscription)(nil))

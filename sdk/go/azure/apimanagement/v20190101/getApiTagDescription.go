@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contract details.
 func LookupApiTagDescription(ctx *pulumi.Context, args *LookupApiTagDescriptionArgs, opts ...pulumi.InvokeOption) (*LookupApiTagDescriptionResult, error) {
 	var rv LookupApiTagDescriptionResult
 	err := ctx.Invoke("azure-native:apimanagement/v20190101:getApiTagDescription", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupApiTagDescription(ctx *pulumi.Context, args *LookupApiTagDescriptionA
 }
 
 type LookupApiTagDescriptionArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId string `pulumi:"apiId"`
-	// The name of the resource group.
+	ApiId             string `pulumi:"apiId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Tag identifier. Must be unique in the current API Management service instance.
-	TagId string `pulumi:"tagId"`
+	ServiceName       string `pulumi:"serviceName"`
+	TagId             string `pulumi:"tagId"`
 }
 
 // Contract details.
 type LookupApiTagDescriptionResult struct {
-	// Description of the Tag.
-	Description *string `pulumi:"description"`
-	// Tag name.
-	DisplayName *string `pulumi:"displayName"`
-	// Description of the external resources describing the tag.
+	Description             *string `pulumi:"description"`
+	DisplayName             *string `pulumi:"displayName"`
 	ExternalDocsDescription *string `pulumi:"externalDocsDescription"`
-	// Absolute URL of external resources describing the tag.
-	ExternalDocsUrl *string `pulumi:"externalDocsUrl"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
+	ExternalDocsUrl         *string `pulumi:"externalDocsUrl"`
+	Id                      string  `pulumi:"id"`
+	Name                    string  `pulumi:"name"`
+	Type                    string  `pulumi:"type"`
 }

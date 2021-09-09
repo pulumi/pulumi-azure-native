@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SAP monitor info on Azure (ARM properties and SAP monitor properties)
 type SapMonitor struct {
 	pulumi.CustomResourceState
 
-	// The value indicating whether to send analytics to Microsoft
-	EnableCustomerAnalytics pulumi.BoolPtrOutput `pulumi:"enableCustomerAnalytics"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The ARM ID of the Log Analytics Workspace that is used for monitoring
-	LogAnalyticsWorkspaceArmId pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceArmId"`
-	// The workspace ID of the log analytics workspace to be used for monitoring
-	LogAnalyticsWorkspaceId pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceId"`
-	// The shared key of the log analytics workspace that is used for monitoring
+	EnableCustomerAnalytics        pulumi.BoolPtrOutput   `pulumi:"enableCustomerAnalytics"`
+	Location                       pulumi.StringOutput    `pulumi:"location"`
+	LogAnalyticsWorkspaceArmId     pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceArmId"`
+	LogAnalyticsWorkspaceId        pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceId"`
 	LogAnalyticsWorkspaceSharedKey pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceSharedKey"`
-	// The name of the resource group the SAP Monitor resources get deployed into.
-	ManagedResourceGroupName pulumi.StringOutput `pulumi:"managedResourceGroupName"`
-	// The subnet which the SAP monitor will be deployed in
-	MonitorSubnet pulumi.StringPtrOutput `pulumi:"monitorSubnet"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// State of provisioning of the HanaInstance
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The version of the payload running in the Collector VM
-	SapMonitorCollectorVersion pulumi.StringOutput `pulumi:"sapMonitorCollectorVersion"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ManagedResourceGroupName       pulumi.StringOutput    `pulumi:"managedResourceGroupName"`
+	MonitorSubnet                  pulumi.StringPtrOutput `pulumi:"monitorSubnet"`
+	Name                           pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState              pulumi.StringOutput    `pulumi:"provisioningState"`
+	SapMonitorCollectorVersion     pulumi.StringOutput    `pulumi:"sapMonitorCollectorVersion"`
+	Tags                           pulumi.StringMapOutput `pulumi:"tags"`
+	Type                           pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewSapMonitor registers a new resource with the given unique name, arguments, and options.
@@ -95,46 +82,28 @@ func (SapMonitorState) ElementType() reflect.Type {
 }
 
 type sapMonitorArgs struct {
-	// The value indicating whether to send analytics to Microsoft
-	EnableCustomerAnalytics *bool `pulumi:"enableCustomerAnalytics"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The ARM ID of the Log Analytics Workspace that is used for monitoring
-	LogAnalyticsWorkspaceArmId *string `pulumi:"logAnalyticsWorkspaceArmId"`
-	// The workspace ID of the log analytics workspace to be used for monitoring
-	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
-	// The shared key of the log analytics workspace that is used for monitoring
-	LogAnalyticsWorkspaceSharedKey *string `pulumi:"logAnalyticsWorkspaceSharedKey"`
-	// The subnet which the SAP monitor will be deployed in
-	MonitorSubnet *string `pulumi:"monitorSubnet"`
-	// Name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the SAP monitor resource.
-	SapMonitorName *string `pulumi:"sapMonitorName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	EnableCustomerAnalytics        *bool             `pulumi:"enableCustomerAnalytics"`
+	Location                       *string           `pulumi:"location"`
+	LogAnalyticsWorkspaceArmId     *string           `pulumi:"logAnalyticsWorkspaceArmId"`
+	LogAnalyticsWorkspaceId        *string           `pulumi:"logAnalyticsWorkspaceId"`
+	LogAnalyticsWorkspaceSharedKey *string           `pulumi:"logAnalyticsWorkspaceSharedKey"`
+	MonitorSubnet                  *string           `pulumi:"monitorSubnet"`
+	ResourceGroupName              string            `pulumi:"resourceGroupName"`
+	SapMonitorName                 *string           `pulumi:"sapMonitorName"`
+	Tags                           map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SapMonitor resource.
 type SapMonitorArgs struct {
-	// The value indicating whether to send analytics to Microsoft
-	EnableCustomerAnalytics pulumi.BoolPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The ARM ID of the Log Analytics Workspace that is used for monitoring
-	LogAnalyticsWorkspaceArmId pulumi.StringPtrInput
-	// The workspace ID of the log analytics workspace to be used for monitoring
-	LogAnalyticsWorkspaceId pulumi.StringPtrInput
-	// The shared key of the log analytics workspace that is used for monitoring
+	EnableCustomerAnalytics        pulumi.BoolPtrInput
+	Location                       pulumi.StringPtrInput
+	LogAnalyticsWorkspaceArmId     pulumi.StringPtrInput
+	LogAnalyticsWorkspaceId        pulumi.StringPtrInput
 	LogAnalyticsWorkspaceSharedKey pulumi.StringPtrInput
-	// The subnet which the SAP monitor will be deployed in
-	MonitorSubnet pulumi.StringPtrInput
-	// Name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Name of the SAP monitor resource.
-	SapMonitorName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	MonitorSubnet                  pulumi.StringPtrInput
+	ResourceGroupName              pulumi.StringInput
+	SapMonitorName                 pulumi.StringPtrInput
+	Tags                           pulumi.StringMapInput
 }
 
 func (SapMonitorArgs) ElementType() reflect.Type {
@@ -160,9 +129,7 @@ func (i *SapMonitor) ToSapMonitorOutputWithContext(ctx context.Context) SapMonit
 	return pulumi.ToOutputWithContext(ctx, i).(SapMonitorOutput)
 }
 
-type SapMonitorOutput struct {
-	*pulumi.OutputState
-}
+type SapMonitorOutput struct{ *pulumi.OutputState }
 
 func (SapMonitorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SapMonitor)(nil))

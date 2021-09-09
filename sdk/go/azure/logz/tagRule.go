@@ -132,9 +132,7 @@ func (i *TagRule) ToTagRuleOutputWithContext(ctx context.Context) TagRuleOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TagRuleOutput)
 }
 
-type TagRuleOutput struct {
-	*pulumi.OutputState
-}
+type TagRuleOutput struct{ *pulumi.OutputState }
 
 func (TagRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TagRule)(nil))

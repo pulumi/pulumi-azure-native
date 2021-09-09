@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Snapshot resource.
 type Snapshot struct {
 	pulumi.CustomResourceState
 
-	// the storage account type of the disk.
-	AccountType pulumi.StringPtrOutput `pulumi:"accountType"`
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataResponseOutput `pulumi:"creationData"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB pulumi.IntPtrOutput `pulumi:"diskSizeGB"`
-	// Encryption settings for disk or snapshot
+	AccountType        pulumi.StringPtrOutput              `pulumi:"accountType"`
+	CreationData       CreationDataResponseOutput          `pulumi:"creationData"`
+	DiskSizeGB         pulumi.IntPtrOutput                 `pulumi:"diskSizeGB"`
 	EncryptionSettings EncryptionSettingsResponsePtrOutput `pulumi:"encryptionSettings"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Operating System type.
-	OsType pulumi.StringPtrOutput `pulumi:"osType"`
-	// A relative URI containing the VM id that has the disk attached.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// The disk provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The time when the disk was created.
-	TimeCreated pulumi.StringOutput `pulumi:"timeCreated"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location           pulumi.StringOutput                 `pulumi:"location"`
+	Name               pulumi.StringOutput                 `pulumi:"name"`
+	OsType             pulumi.StringPtrOutput              `pulumi:"osType"`
+	OwnerId            pulumi.StringOutput                 `pulumi:"ownerId"`
+	ProvisioningState  pulumi.StringOutput                 `pulumi:"provisioningState"`
+	Tags               pulumi.StringMapOutput              `pulumi:"tags"`
+	TimeCreated        pulumi.StringOutput                 `pulumi:"timeCreated"`
+	Type               pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -170,46 +157,28 @@ func (SnapshotState) ElementType() reflect.Type {
 }
 
 type snapshotArgs struct {
-	// the storage account type of the disk.
-	AccountType *string `pulumi:"accountType"`
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationData `pulumi:"creationData"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// Encryption settings for disk or snapshot
-	EncryptionSettings *EncryptionSettings `pulumi:"encryptionSettings"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The Operating System type.
-	OsType *string `pulumi:"osType"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the snapshot within the given subscription and resource group.
-	SnapshotName *string `pulumi:"snapshotName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	AccountType        *StorageAccountTypes  `pulumi:"accountType"`
+	CreationData       CreationData          `pulumi:"creationData"`
+	DiskSizeGB         *int                  `pulumi:"diskSizeGB"`
+	EncryptionSettings *EncryptionSettings   `pulumi:"encryptionSettings"`
+	Location           *string               `pulumi:"location"`
+	OsType             *OperatingSystemTypes `pulumi:"osType"`
+	ResourceGroupName  string                `pulumi:"resourceGroupName"`
+	SnapshotName       *string               `pulumi:"snapshotName"`
+	Tags               map[string]string     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
-	// the storage account type of the disk.
-	AccountType *StorageAccountTypes
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataInput
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB pulumi.IntPtrInput
-	// Encryption settings for disk or snapshot
+	AccountType        StorageAccountTypesPtrInput
+	CreationData       CreationDataInput
+	DiskSizeGB         pulumi.IntPtrInput
 	EncryptionSettings EncryptionSettingsPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The Operating System type.
-	OsType *OperatingSystemTypes
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the snapshot within the given subscription and resource group.
-	SnapshotName pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Location           pulumi.StringPtrInput
+	OsType             OperatingSystemTypesPtrInput
+	ResourceGroupName  pulumi.StringInput
+	SnapshotName       pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
 }
 
 func (SnapshotArgs) ElementType() reflect.Type {
@@ -235,9 +204,7 @@ func (i *Snapshot) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotOutput)
 }
 
-type SnapshotOutput struct {
-	*pulumi.OutputState
-}
+type SnapshotOutput struct{ *pulumi.OutputState }
 
 func (SnapshotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Snapshot)(nil))

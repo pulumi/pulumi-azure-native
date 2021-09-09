@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VpnSite Resource.
 type VpnSite struct {
 	pulumi.CustomResourceState
 
-	// The AddressSpace that contains an array of IP address ranges.
-	AddressSpace AddressSpaceResponsePtrOutput `pulumi:"addressSpace"`
-	// The set of bgp properties.
-	BgpProperties BgpSettingsResponsePtrOutput `pulumi:"bgpProperties"`
-	// The device properties
-	DeviceProperties DevicePropertiesResponsePtrOutput `pulumi:"deviceProperties"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The ip-address for the vpn-site.
-	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The key for vpn-site that can be used for connections.
-	SiteKey pulumi.StringPtrOutput `pulumi:"siteKey"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The VirtualWAN to which the vpnSite belongs
-	VirtualWAN SubResourceResponsePtrOutput `pulumi:"virtualWAN"`
+	AddressSpace      AddressSpaceResponsePtrOutput     `pulumi:"addressSpace"`
+	BgpProperties     BgpSettingsResponsePtrOutput      `pulumi:"bgpProperties"`
+	DeviceProperties  DevicePropertiesResponsePtrOutput `pulumi:"deviceProperties"`
+	Etag              pulumi.StringOutput               `pulumi:"etag"`
+	IpAddress         pulumi.StringPtrOutput            `pulumi:"ipAddress"`
+	Location          pulumi.StringOutput               `pulumi:"location"`
+	Name              pulumi.StringOutput               `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput               `pulumi:"provisioningState"`
+	SiteKey           pulumi.StringPtrOutput            `pulumi:"siteKey"`
+	Tags              pulumi.StringMapOutput            `pulumi:"tags"`
+	Type              pulumi.StringOutput               `pulumi:"type"`
+	VirtualWAN        SubResourceResponsePtrOutput      `pulumi:"virtualWAN"`
 }
 
 // NewVpnSite registers a new resource with the given unique name, arguments, and options.
@@ -233,54 +220,32 @@ func (VpnSiteState) ElementType() reflect.Type {
 }
 
 type vpnSiteArgs struct {
-	// The AddressSpace that contains an array of IP address ranges.
-	AddressSpace *AddressSpace `pulumi:"addressSpace"`
-	// The set of bgp properties.
-	BgpProperties *BgpSettings `pulumi:"bgpProperties"`
-	// The device properties
-	DeviceProperties *DeviceProperties `pulumi:"deviceProperties"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The ip-address for the vpn-site.
-	IpAddress *string `pulumi:"ipAddress"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The resource group name of the VpnSite.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The key for vpn-site that can be used for connections.
-	SiteKey *string `pulumi:"siteKey"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The VirtualWAN to which the vpnSite belongs
-	VirtualWAN *SubResource `pulumi:"virtualWAN"`
-	// The name of the VpnSite being created or updated.
-	VpnSiteName *string `pulumi:"vpnSiteName"`
+	AddressSpace      *AddressSpace     `pulumi:"addressSpace"`
+	BgpProperties     *BgpSettings      `pulumi:"bgpProperties"`
+	DeviceProperties  *DeviceProperties `pulumi:"deviceProperties"`
+	Id                *string           `pulumi:"id"`
+	IpAddress         *string           `pulumi:"ipAddress"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	SiteKey           *string           `pulumi:"siteKey"`
+	Tags              map[string]string `pulumi:"tags"`
+	VirtualWAN        *SubResource      `pulumi:"virtualWAN"`
+	VpnSiteName       *string           `pulumi:"vpnSiteName"`
 }
 
 // The set of arguments for constructing a VpnSite resource.
 type VpnSiteArgs struct {
-	// The AddressSpace that contains an array of IP address ranges.
-	AddressSpace AddressSpacePtrInput
-	// The set of bgp properties.
-	BgpProperties BgpSettingsPtrInput
-	// The device properties
-	DeviceProperties DevicePropertiesPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The ip-address for the vpn-site.
-	IpAddress pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The resource group name of the VpnSite.
+	AddressSpace      AddressSpacePtrInput
+	BgpProperties     BgpSettingsPtrInput
+	DeviceProperties  DevicePropertiesPtrInput
+	Id                pulumi.StringPtrInput
+	IpAddress         pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The key for vpn-site that can be used for connections.
-	SiteKey pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The VirtualWAN to which the vpnSite belongs
-	VirtualWAN SubResourcePtrInput
-	// The name of the VpnSite being created or updated.
-	VpnSiteName pulumi.StringPtrInput
+	SiteKey           pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	VirtualWAN        SubResourcePtrInput
+	VpnSiteName       pulumi.StringPtrInput
 }
 
 func (VpnSiteArgs) ElementType() reflect.Type {
@@ -306,9 +271,7 @@ func (i *VpnSite) ToVpnSiteOutputWithContext(ctx context.Context) VpnSiteOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteOutput)
 }
 
-type VpnSiteOutput struct {
-	*pulumi.OutputState
-}
+type VpnSiteOutput struct{ *pulumi.OutputState }
 
 func (VpnSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VpnSite)(nil))

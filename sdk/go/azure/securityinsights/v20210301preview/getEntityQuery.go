@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specific entity query.
-//
 // Deprecated: Please use one of the variants: ActivityCustomEntityQuery.
 func LookupEntityQuery(ctx *pulumi.Context, args *LookupEntityQueryArgs, opts ...pulumi.InvokeOption) (*LookupEntityQueryResult, error) {
 	var rv LookupEntityQueryResult
@@ -20,28 +18,18 @@ func LookupEntityQuery(ctx *pulumi.Context, args *LookupEntityQueryArgs, opts ..
 }
 
 type LookupEntityQueryArgs struct {
-	// entity query ID
-	EntityQueryId string `pulumi:"entityQueryId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	EntityQueryId                       string `pulumi:"entityQueryId"`
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Specific entity query.
 type LookupEntityQueryResult struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// the entity query kind
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	Etag       *string            `pulumi:"etag"`
+	Id         string             `pulumi:"id"`
+	Kind       string             `pulumi:"kind"`
+	Name       string             `pulumi:"name"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

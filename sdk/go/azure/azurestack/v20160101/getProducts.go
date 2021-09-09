@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Pageable list of products.
 func GetProducts(ctx *pulumi.Context, args *GetProductsArgs, opts ...pulumi.InvokeOption) (*GetProductsResult, error) {
 	var rv GetProductsResult
 	err := ctx.Invoke("azure-native:azurestack/v20160101:getProducts", args, &rv, opts...)
@@ -18,18 +17,13 @@ func GetProducts(ctx *pulumi.Context, args *GetProductsArgs, opts ...pulumi.Invo
 }
 
 type GetProductsArgs struct {
-	// Name of the product.
-	ProductName string `pulumi:"productName"`
-	// Name of the Azure Stack registration.
+	ProductName      string `pulumi:"productName"`
 	RegistrationName string `pulumi:"registrationName"`
-	// Name of the resource group.
-	ResourceGroup string `pulumi:"resourceGroup"`
+	ResourceGroup    string `pulumi:"resourceGroup"`
 }
 
 // Pageable list of products.
 type GetProductsResult struct {
-	// URI to the next page.
-	NextLink *string `pulumi:"nextLink"`
-	// List of products.
-	Value []ProductResponse `pulumi:"value"`
+	NextLink *string           `pulumi:"nextLink"`
+	Value    []ProductResponse `pulumi:"value"`
 }

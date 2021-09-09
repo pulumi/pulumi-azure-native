@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NSX Segment
 type WorkloadNetworkSegment struct {
 	pulumi.CustomResourceState
 
-	// Gateway which to connect segment to.
-	ConnectedGateway pulumi.StringPtrOutput `pulumi:"connectedGateway"`
-	// Display name of the segment.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Port Vif which segment is associated with.
-	PortVif WorkloadNetworkSegmentPortVifResponseArrayOutput `pulumi:"portVif"`
-	// The provisioning state
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision pulumi.Float64PtrOutput `pulumi:"revision"`
-	// Segment status.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Subnet which to connect segment to.
-	Subnet WorkloadNetworkSegmentSubnetResponsePtrOutput `pulumi:"subnet"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ConnectedGateway  pulumi.StringPtrOutput                           `pulumi:"connectedGateway"`
+	DisplayName       pulumi.StringPtrOutput                           `pulumi:"displayName"`
+	Name              pulumi.StringOutput                              `pulumi:"name"`
+	PortVif           WorkloadNetworkSegmentPortVifResponseArrayOutput `pulumi:"portVif"`
+	ProvisioningState pulumi.StringOutput                              `pulumi:"provisioningState"`
+	Revision          pulumi.Float64PtrOutput                          `pulumi:"revision"`
+	Status            pulumi.StringOutput                              `pulumi:"status"`
+	Subnet            WorkloadNetworkSegmentSubnetResponsePtrOutput    `pulumi:"subnet"`
+	Type              pulumi.StringOutput                              `pulumi:"type"`
 }
 
 // NewWorkloadNetworkSegment registers a new resource with the given unique name, arguments, and options.
@@ -104,38 +94,24 @@ func (WorkloadNetworkSegmentState) ElementType() reflect.Type {
 }
 
 type workloadNetworkSegmentArgs struct {
-	// Gateway which to connect segment to.
-	ConnectedGateway *string `pulumi:"connectedGateway"`
-	// Display name of the segment.
-	DisplayName *string `pulumi:"displayName"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// NSX Segment identifier. Generally the same as the Segment's display name
-	SegmentId *string `pulumi:"segmentId"`
-	// Subnet which to connect segment to.
-	Subnet *WorkloadNetworkSegmentSubnet `pulumi:"subnet"`
+	ConnectedGateway  *string                       `pulumi:"connectedGateway"`
+	DisplayName       *string                       `pulumi:"displayName"`
+	PrivateCloudName  string                        `pulumi:"privateCloudName"`
+	ResourceGroupName string                        `pulumi:"resourceGroupName"`
+	Revision          *float64                      `pulumi:"revision"`
+	SegmentId         *string                       `pulumi:"segmentId"`
+	Subnet            *WorkloadNetworkSegmentSubnet `pulumi:"subnet"`
 }
 
 // The set of arguments for constructing a WorkloadNetworkSegment resource.
 type WorkloadNetworkSegmentArgs struct {
-	// Gateway which to connect segment to.
-	ConnectedGateway pulumi.StringPtrInput
-	// Display name of the segment.
-	DisplayName pulumi.StringPtrInput
-	// Name of the private cloud
-	PrivateCloudName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
+	ConnectedGateway  pulumi.StringPtrInput
+	DisplayName       pulumi.StringPtrInput
+	PrivateCloudName  pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// NSX revision number.
-	Revision pulumi.Float64PtrInput
-	// NSX Segment identifier. Generally the same as the Segment's display name
-	SegmentId pulumi.StringPtrInput
-	// Subnet which to connect segment to.
-	Subnet WorkloadNetworkSegmentSubnetPtrInput
+	Revision          pulumi.Float64PtrInput
+	SegmentId         pulumi.StringPtrInput
+	Subnet            WorkloadNetworkSegmentSubnetPtrInput
 }
 
 func (WorkloadNetworkSegmentArgs) ElementType() reflect.Type {
@@ -161,9 +137,7 @@ func (i *WorkloadNetworkSegment) ToWorkloadNetworkSegmentOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkSegmentOutput)
 }
 
-type WorkloadNetworkSegmentOutput struct {
-	*pulumi.OutputState
-}
+type WorkloadNetworkSegmentOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkSegmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkSegment)(nil))

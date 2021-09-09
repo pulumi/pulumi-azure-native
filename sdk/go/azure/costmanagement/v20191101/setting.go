@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// State of the myscope setting.
 type Setting struct {
 	pulumi.CustomResourceState
 
-	// Array of scopes with additional details used by Cost Management in the Azure portal.
-	Cache SettingsPropertiesResponseCacheArrayOutput `pulumi:"cache"`
-	// Resource kind.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
-	Scope pulumi.StringOutput `pulumi:"scope"`
-	// Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
-	StartOn pulumi.StringPtrOutput `pulumi:"startOn"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Cache   SettingsPropertiesResponseCacheArrayOutput `pulumi:"cache"`
+	Kind    pulumi.StringOutput                        `pulumi:"kind"`
+	Name    pulumi.StringOutput                        `pulumi:"name"`
+	Scope   pulumi.StringOutput                        `pulumi:"scope"`
+	StartOn pulumi.StringPtrOutput                     `pulumi:"startOn"`
+	Type    pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewSetting registers a new resource with the given unique name, arguments, and options.
@@ -83,26 +76,18 @@ func (SettingState) ElementType() reflect.Type {
 }
 
 type settingArgs struct {
-	// Array of scopes with additional details used by Cost Management in the Azure portal.
-	Cache []SettingsPropertiesCache `pulumi:"cache"`
-	// Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
-	Scope string `pulumi:"scope"`
-	// Name of the setting. Allowed values: myscope
-	SettingName *string `pulumi:"settingName"`
-	// Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
-	StartOn *string `pulumi:"startOn"`
+	Cache       []SettingsPropertiesCache `pulumi:"cache"`
+	Scope       string                    `pulumi:"scope"`
+	SettingName *string                   `pulumi:"settingName"`
+	StartOn     *string                   `pulumi:"startOn"`
 }
 
 // The set of arguments for constructing a Setting resource.
 type SettingArgs struct {
-	// Array of scopes with additional details used by Cost Management in the Azure portal.
-	Cache SettingsPropertiesCacheArrayInput
-	// Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
-	Scope pulumi.StringInput
-	// Name of the setting. Allowed values: myscope
+	Cache       SettingsPropertiesCacheArrayInput
+	Scope       pulumi.StringInput
 	SettingName pulumi.StringPtrInput
-	// Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
-	StartOn pulumi.StringPtrInput
+	StartOn     pulumi.StringPtrInput
 }
 
 func (SettingArgs) ElementType() reflect.Type {
@@ -128,9 +113,7 @@ func (i *Setting) ToSettingOutputWithContext(ctx context.Context) SettingOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(SettingOutput)
 }
 
-type SettingOutput struct {
-	*pulumi.OutputState
-}
+type SettingOutput struct{ *pulumi.OutputState }
 
 func (SettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Setting)(nil))

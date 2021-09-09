@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource information with extended details.
 type Vault struct {
 	pulumi.CustomResourceState
 
-	// Azure location of the key vault resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Name of the key vault resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the vault
+	Location   pulumi.StringPtrOutput        `pulumi:"location"`
+	Name       pulumi.StringOutput           `pulumi:"name"`
 	Properties VaultPropertiesResponseOutput `pulumi:"properties"`
-	// System metadata for the key vault.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Tags assigned to the key vault resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type of the key vault resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput      `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput        `pulumi:"tags"`
+	Type       pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewVault registers a new resource with the given unique name, arguments, and options.
@@ -128,30 +121,20 @@ func (VaultState) ElementType() reflect.Type {
 }
 
 type vaultArgs struct {
-	// The supported Azure location where the key vault should be created.
-	Location *string `pulumi:"location"`
-	// Properties of the vault
-	Properties VaultProperties `pulumi:"properties"`
-	// The name of the Resource Group to which the server belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags that will be assigned to the key vault.
-	Tags map[string]string `pulumi:"tags"`
-	// Name of the vault
-	VaultName *string `pulumi:"vaultName"`
+	Location          *string           `pulumi:"location"`
+	Properties        VaultProperties   `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	VaultName         *string           `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a Vault resource.
 type VaultArgs struct {
-	// The supported Azure location where the key vault should be created.
-	Location pulumi.StringPtrInput
-	// Properties of the vault
-	Properties VaultPropertiesInput
-	// The name of the Resource Group to which the server belongs.
+	Location          pulumi.StringPtrInput
+	Properties        VaultPropertiesInput
 	ResourceGroupName pulumi.StringInput
-	// The tags that will be assigned to the key vault.
-	Tags pulumi.StringMapInput
-	// Name of the vault
-	VaultName pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	VaultName         pulumi.StringPtrInput
 }
 
 func (VaultArgs) ElementType() reflect.Type {
@@ -177,9 +160,7 @@ func (i *Vault) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultOutput)
 }
 
-type VaultOutput struct {
-	*pulumi.OutputState
-}
+type VaultOutput struct{ *pulumi.OutputState }
 
 func (VaultOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Vault)(nil))

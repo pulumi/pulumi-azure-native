@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The metric setting details for the role
 func LookupMonitoringConfig(ctx *pulumi.Context, args *LookupMonitoringConfigArgs, opts ...pulumi.InvokeOption) (*LookupMonitoringConfigResult, error) {
 	var rv LookupMonitoringConfigResult
 	err := ctx.Invoke("azure-native:databoxedge/v20201201:getMonitoringConfig", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupMonitoringConfig(ctx *pulumi.Context, args *LookupMonitoringConfigArg
 }
 
 type LookupMonitoringConfigArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The resource group name.
+	DeviceName        string `pulumi:"deviceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The role name.
-	RoleName string `pulumi:"roleName"`
+	RoleName          string `pulumi:"roleName"`
 }
 
 // The metric setting details for the role
 type LookupMonitoringConfigResult struct {
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// The metrics configuration details
+	Id                   string                        `pulumi:"id"`
 	MetricConfigurations []MetricConfigurationResponse `pulumi:"metricConfigurations"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
+	Name                 string                        `pulumi:"name"`
+	Type                 string                        `pulumi:"type"`
 }

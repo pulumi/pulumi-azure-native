@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Snapshot of a Volume
 type Snapshot struct {
 	pulumi.CustomResourceState
 
-	// The creation date of the snapshot
-	Created pulumi.StringOutput `pulumi:"created"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure lifecycle management
+	Created           pulumi.StringOutput `pulumi:"created"`
+	Location          pulumi.StringOutput `pulumi:"location"`
+	Name              pulumi.StringOutput `pulumi:"name"`
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// UUID v4 used to identify the Snapshot
-	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	SnapshotId        pulumi.StringOutput `pulumi:"snapshotId"`
+	Type              pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -206,34 +199,22 @@ func (SnapshotState) ElementType() reflect.Type {
 }
 
 type snapshotArgs struct {
-	// The name of the NetApp account
-	AccountName string `pulumi:"accountName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the capacity pool
-	PoolName string `pulumi:"poolName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the mount target
-	SnapshotName *string `pulumi:"snapshotName"`
-	// The name of the volume
-	VolumeName string `pulumi:"volumeName"`
+	AccountName       string  `pulumi:"accountName"`
+	Location          *string `pulumi:"location"`
+	PoolName          string  `pulumi:"poolName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	SnapshotName      *string `pulumi:"snapshotName"`
+	VolumeName        string  `pulumi:"volumeName"`
 }
 
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
-	// The name of the NetApp account
-	AccountName pulumi.StringInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the capacity pool
-	PoolName pulumi.StringInput
-	// The name of the resource group.
+	AccountName       pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	PoolName          pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the mount target
-	SnapshotName pulumi.StringPtrInput
-	// The name of the volume
-	VolumeName pulumi.StringInput
+	SnapshotName      pulumi.StringPtrInput
+	VolumeName        pulumi.StringInput
 }
 
 func (SnapshotArgs) ElementType() reflect.Type {
@@ -259,9 +240,7 @@ func (i *Snapshot) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotOutput)
 }
 
-type SnapshotOutput struct {
-	*pulumi.OutputState
-}
+type SnapshotOutput struct{ *pulumi.OutputState }
 
 func (SnapshotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Snapshot)(nil))

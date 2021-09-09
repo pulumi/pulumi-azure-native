@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Backup Schedule Group
 type BackupScheduleGroup struct {
 	pulumi.CustomResourceState
 
-	// The name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
-	StartTime TimeResponseOutput `pulumi:"startTime"`
-	// The type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name      pulumi.StringOutput `pulumi:"name"`
+	StartTime TimeResponseOutput  `pulumi:"startTime"`
+	Type      pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewBackupScheduleGroup registers a new resource with the given unique name, arguments, and options.
@@ -80,30 +76,20 @@ func (BackupScheduleGroupState) ElementType() reflect.Type {
 }
 
 type backupScheduleGroupArgs struct {
-	// The name of the device.
-	DeviceName string `pulumi:"deviceName"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the schedule group.
+	DeviceName        string  `pulumi:"deviceName"`
+	ManagerName       string  `pulumi:"managerName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 	ScheduleGroupName *string `pulumi:"scheduleGroupName"`
-	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
-	StartTime Time `pulumi:"startTime"`
+	StartTime         Time    `pulumi:"startTime"`
 }
 
 // The set of arguments for constructing a BackupScheduleGroup resource.
 type BackupScheduleGroupArgs struct {
-	// The name of the device.
-	DeviceName pulumi.StringInput
-	// The manager name
-	ManagerName pulumi.StringInput
-	// The resource group name
+	DeviceName        pulumi.StringInput
+	ManagerName       pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the schedule group.
 	ScheduleGroupName pulumi.StringPtrInput
-	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
-	StartTime TimeInput
+	StartTime         TimeInput
 }
 
 func (BackupScheduleGroupArgs) ElementType() reflect.Type {
@@ -129,9 +115,7 @@ func (i *BackupScheduleGroup) ToBackupScheduleGroupOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleGroupOutput)
 }
 
-type BackupScheduleGroupOutput struct {
-	*pulumi.OutputState
-}
+type BackupScheduleGroupOutput struct{ *pulumi.OutputState }
 
 func (BackupScheduleGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupScheduleGroup)(nil))

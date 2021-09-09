@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of a Media Service resource.
 func LookupMediaService(ctx *pulumi.Context, args *LookupMediaServiceArgs, opts ...pulumi.InvokeOption) (*LookupMediaServiceResult, error) {
 	var rv LookupMediaServiceResult
 	err := ctx.Invoke("azure-native:media/v20151001:getMediaService", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupMediaService(ctx *pulumi.Context, args *LookupMediaServiceArgs, opts 
 }
 
 type LookupMediaServiceArgs struct {
-	// Name of the Media Service.
-	MediaServiceName string `pulumi:"mediaServiceName"`
-	// Name of the resource group within the Azure subscription.
+	MediaServiceName  string `pulumi:"mediaServiceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The properties of a Media Service resource.
 type LookupMediaServiceResult struct {
-	// Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
-	ApiEndpoints []ApiEndpointResponse `pulumi:"apiEndpoints"`
-	// The id of the resource.
-	Id string `pulumi:"id"`
-	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The storage accounts for this resource.
+	ApiEndpoints    []ApiEndpointResponse    `pulumi:"apiEndpoints"`
+	Id              string                   `pulumi:"id"`
+	Location        *string                  `pulumi:"location"`
+	Name            string                   `pulumi:"name"`
 	StorageAccounts []StorageAccountResponse `pulumi:"storageAccounts"`
-	// Tags to help categorize the resource in the Azure portal.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource
-	Type string `pulumi:"type"`
+	Tags            map[string]string        `pulumi:"tags"`
+	Type            string                   `pulumi:"type"`
 }

@@ -14,13 +14,10 @@ import (
 type ResourceManagementPrivateLink struct {
 	pulumi.CustomResourceState
 
-	// the region of the rmpl
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The rmpl Name.
+	Location   pulumi.StringPtrOutput                                         `pulumi:"location"`
 	Name       pulumi.StringOutput                                            `pulumi:"name"`
 	Properties ResourceManagementPrivateLinkEndpointConnectionsResponseOutput `pulumi:"properties"`
-	// The operation type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                                            `pulumi:"type"`
 }
 
 // NewResourceManagementPrivateLink registers a new resource with the given unique name, arguments, and options.
@@ -77,22 +74,16 @@ func (ResourceManagementPrivateLinkState) ElementType() reflect.Type {
 }
 
 type resourceManagementPrivateLinkArgs struct {
-	// the region to create private link association.
-	Location *string `pulumi:"location"`
-	// The name of the resource group the template will be deployed to. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource management private link.
-	RmplName *string `pulumi:"rmplName"`
+	Location          *string `pulumi:"location"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	RmplName          *string `pulumi:"rmplName"`
 }
 
 // The set of arguments for constructing a ResourceManagementPrivateLink resource.
 type ResourceManagementPrivateLinkArgs struct {
-	// the region to create private link association.
-	Location pulumi.StringPtrInput
-	// The name of the resource group the template will be deployed to. The name is case insensitive.
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the resource management private link.
-	RmplName pulumi.StringPtrInput
+	RmplName          pulumi.StringPtrInput
 }
 
 func (ResourceManagementPrivateLinkArgs) ElementType() reflect.Type {
@@ -118,9 +109,7 @@ func (i *ResourceManagementPrivateLink) ToResourceManagementPrivateLinkOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceManagementPrivateLinkOutput)
 }
 
-type ResourceManagementPrivateLinkOutput struct {
-	*pulumi.OutputState
-}
+type ResourceManagementPrivateLinkOutput struct{ *pulumi.OutputState }
 
 func (ResourceManagementPrivateLinkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceManagementPrivateLink)(nil))

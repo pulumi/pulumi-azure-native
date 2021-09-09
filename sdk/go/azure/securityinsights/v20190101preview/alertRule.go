@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Alert rule.
-//
 // Deprecated: Please use one of the variants: FusionAlertRule, MLBehaviorAnalyticsAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule, ThreatIntelligenceAlertRule.
 type AlertRule struct {
 	pulumi.CustomResourceState
 
-	// Etag of the azure resource
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The kind of the alert rule
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Kind pulumi.StringOutput    `pulumi:"kind"`
+	Name pulumi.StringOutput    `pulumi:"name"`
+	Type pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewAlertRule registers a new resource with the given unique name, arguments, and options.
@@ -102,34 +96,22 @@ func (AlertRuleState) ElementType() reflect.Type {
 }
 
 type alertRuleArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The kind of the alert rule
-	Kind string `pulumi:"kind"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Alert rule ID
-	RuleId *string `pulumi:"ruleId"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Etag                                *string `pulumi:"etag"`
+	Kind                                string  `pulumi:"kind"`
+	OperationalInsightsResourceProvider string  `pulumi:"operationalInsightsResourceProvider"`
+	ResourceGroupName                   string  `pulumi:"resourceGroupName"`
+	RuleId                              *string `pulumi:"ruleId"`
+	WorkspaceName                       string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a AlertRule resource.
 type AlertRuleArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The kind of the alert rule
-	Kind pulumi.StringInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	Etag                                pulumi.StringPtrInput
+	Kind                                pulumi.StringInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Alert rule ID
-	RuleId pulumi.StringPtrInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	ResourceGroupName                   pulumi.StringInput
+	RuleId                              pulumi.StringPtrInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (AlertRuleArgs) ElementType() reflect.Type {
@@ -155,9 +137,7 @@ func (i *AlertRule) ToAlertRuleOutputWithContext(ctx context.Context) AlertRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleOutput)
 }
 
-type AlertRuleOutput struct {
-	*pulumi.OutputState
-}
+type AlertRuleOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AlertRule)(nil))

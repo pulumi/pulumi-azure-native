@@ -11,31 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Media Services account.
 type MediaService struct {
 	pulumi.CustomResourceState
 
-	// The account encryption properties.
-	Encryption AccountEncryptionResponsePtrOutput `pulumi:"encryption"`
-	// The Managed Identity for the Media Services account.
-	Identity MediaServiceIdentityResponsePtrOutput `pulumi:"identity"`
-	// The Key Delivery properties for Media Services account.
-	KeyDelivery KeyDeliveryResponsePtrOutput `pulumi:"keyDelivery"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The Media Services account ID.
-	MediaServiceId pulumi.StringOutput `pulumi:"mediaServiceId"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The storage accounts for this resource.
-	StorageAccounts       StorageAccountResponseArrayOutput `pulumi:"storageAccounts"`
-	StorageAuthentication pulumi.StringPtrOutput            `pulumi:"storageAuthentication"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Encryption            AccountEncryptionResponsePtrOutput    `pulumi:"encryption"`
+	Identity              MediaServiceIdentityResponsePtrOutput `pulumi:"identity"`
+	KeyDelivery           KeyDeliveryResponsePtrOutput          `pulumi:"keyDelivery"`
+	Location              pulumi.StringOutput                   `pulumi:"location"`
+	MediaServiceId        pulumi.StringOutput                   `pulumi:"mediaServiceId"`
+	Name                  pulumi.StringOutput                   `pulumi:"name"`
+	StorageAccounts       StorageAccountResponseArrayOutput     `pulumi:"storageAccounts"`
+	StorageAuthentication pulumi.StringPtrOutput                `pulumi:"storageAuthentication"`
+	SystemData            SystemDataResponseOutput              `pulumi:"systemData"`
+	Tags                  pulumi.StringMapOutput                `pulumi:"tags"`
+	Type                  pulumi.StringOutput                   `pulumi:"type"`
 }
 
 // NewMediaService registers a new resource with the given unique name, arguments, and options.
@@ -128,44 +117,28 @@ func (MediaServiceState) ElementType() reflect.Type {
 }
 
 type mediaServiceArgs struct {
-	// The Media Services account name.
-	AccountName *string `pulumi:"accountName"`
-	// The account encryption properties.
-	Encryption *AccountEncryption `pulumi:"encryption"`
-	// The Managed Identity for the Media Services account.
-	Identity *MediaServiceIdentity `pulumi:"identity"`
-	// The Key Delivery properties for Media Services account.
-	KeyDelivery *KeyDelivery `pulumi:"keyDelivery"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The storage accounts for this resource.
-	StorageAccounts       []StorageAccount `pulumi:"storageAccounts"`
-	StorageAuthentication *string          `pulumi:"storageAuthentication"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName           *string               `pulumi:"accountName"`
+	Encryption            *AccountEncryption    `pulumi:"encryption"`
+	Identity              *MediaServiceIdentity `pulumi:"identity"`
+	KeyDelivery           *KeyDelivery          `pulumi:"keyDelivery"`
+	Location              *string               `pulumi:"location"`
+	ResourceGroupName     string                `pulumi:"resourceGroupName"`
+	StorageAccounts       []StorageAccount      `pulumi:"storageAccounts"`
+	StorageAuthentication *string               `pulumi:"storageAuthentication"`
+	Tags                  map[string]string     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MediaService resource.
 type MediaServiceArgs struct {
-	// The Media Services account name.
-	AccountName pulumi.StringPtrInput
-	// The account encryption properties.
-	Encryption AccountEncryptionPtrInput
-	// The Managed Identity for the Media Services account.
-	Identity MediaServiceIdentityPtrInput
-	// The Key Delivery properties for Media Services account.
-	KeyDelivery KeyDeliveryPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The storage accounts for this resource.
+	AccountName           pulumi.StringPtrInput
+	Encryption            AccountEncryptionPtrInput
+	Identity              MediaServiceIdentityPtrInput
+	KeyDelivery           KeyDeliveryPtrInput
+	Location              pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
 	StorageAccounts       StorageAccountArrayInput
 	StorageAuthentication pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (MediaServiceArgs) ElementType() reflect.Type {
@@ -191,9 +164,7 @@ func (i *MediaService) ToMediaServiceOutputWithContext(ctx context.Context) Medi
 	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceOutput)
 }
 
-type MediaServiceOutput struct {
-	*pulumi.OutputState
-}
+type MediaServiceOutput struct{ *pulumi.OutputState }
 
 func (MediaServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MediaService)(nil))

@@ -140,9 +140,7 @@ func (i *DedicatedCloudService) ToDedicatedCloudServiceOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedCloudServiceOutput)
 }
 
-type DedicatedCloudServiceOutput struct {
-	*pulumi.OutputState
-}
+type DedicatedCloudServiceOutput struct{ *pulumi.OutputState }
 
 func (DedicatedCloudServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DedicatedCloudService)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the schedule.
 func LookupSchedule(ctx *pulumi.Context, args *LookupScheduleArgs, opts ...pulumi.InvokeOption) (*LookupScheduleResult, error) {
 	var rv LookupScheduleResult
 	err := ctx.Invoke("azure-native:automation/v20200113preview:getSchedule", args, &rv, opts...)
@@ -18,48 +17,28 @@ func LookupSchedule(ctx *pulumi.Context, args *LookupScheduleArgs, opts ...pulum
 }
 
 type LookupScheduleArgs struct {
-	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The schedule name.
-	ScheduleName string `pulumi:"scheduleName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
+	ScheduleName          string `pulumi:"scheduleName"`
 }
 
 // Definition of the schedule.
 type LookupScheduleResult struct {
-	// Gets or sets the advanced schedule.
-	AdvancedSchedule *AdvancedScheduleResponse `pulumi:"advancedSchedule"`
-	// Gets or sets the creation time.
-	CreationTime *string `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description *string `pulumi:"description"`
-	// Gets or sets the end time of the schedule.
-	ExpiryTime *string `pulumi:"expiryTime"`
-	// Gets or sets the expiry time's offset in minutes.
-	ExpiryTimeOffsetMinutes *float64 `pulumi:"expiryTimeOffsetMinutes"`
-	// Gets or sets the frequency of the schedule.
-	Frequency *string `pulumi:"frequency"`
-	// Fully qualified resource Id for the resource
-	Id string `pulumi:"id"`
-	// Gets or sets the interval of the schedule.
-	Interval interface{} `pulumi:"interval"`
-	// Gets or sets a value indicating whether this schedule is enabled.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Gets or sets the last modified time.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets the next run time of the schedule.
-	NextRun *string `pulumi:"nextRun"`
-	// Gets or sets the next run time's offset in minutes.
-	NextRunOffsetMinutes *float64 `pulumi:"nextRunOffsetMinutes"`
-	// Gets or sets the start time of the schedule.
-	StartTime *string `pulumi:"startTime"`
-	// Gets the start time's offset in minutes.
-	StartTimeOffsetMinutes float64 `pulumi:"startTimeOffsetMinutes"`
-	// Gets or sets the time zone of the schedule.
-	TimeZone *string `pulumi:"timeZone"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	AdvancedSchedule        *AdvancedScheduleResponse `pulumi:"advancedSchedule"`
+	CreationTime            *string                   `pulumi:"creationTime"`
+	Description             *string                   `pulumi:"description"`
+	ExpiryTime              *string                   `pulumi:"expiryTime"`
+	ExpiryTimeOffsetMinutes *float64                  `pulumi:"expiryTimeOffsetMinutes"`
+	Frequency               *string                   `pulumi:"frequency"`
+	Id                      string                    `pulumi:"id"`
+	Interval                interface{}               `pulumi:"interval"`
+	IsEnabled               *bool                     `pulumi:"isEnabled"`
+	LastModifiedTime        *string                   `pulumi:"lastModifiedTime"`
+	Name                    string                    `pulumi:"name"`
+	NextRun                 *string                   `pulumi:"nextRun"`
+	NextRunOffsetMinutes    *float64                  `pulumi:"nextRunOffsetMinutes"`
+	StartTime               *string                   `pulumi:"startTime"`
+	StartTimeOffsetMinutes  float64                   `pulumi:"startTimeOffsetMinutes"`
+	TimeZone                *string                   `pulumi:"timeZone"`
+	Type                    string                    `pulumi:"type"`
 }

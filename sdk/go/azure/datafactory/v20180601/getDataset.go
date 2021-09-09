@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Dataset resource type.
 func LookupDataset(ctx *pulumi.Context, args *LookupDatasetArgs, opts ...pulumi.InvokeOption) (*LookupDatasetResult, error) {
 	var rv LookupDatasetResult
 	err := ctx.Invoke("azure-native:datafactory/v20180601:getDataset", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupDataset(ctx *pulumi.Context, args *LookupDatasetArgs, opts ...pulumi.
 }
 
 type LookupDatasetArgs struct {
-	// The dataset name.
-	DatasetName string `pulumi:"datasetName"`
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The resource group name.
+	DatasetName       string `pulumi:"datasetName"`
+	FactoryName       string `pulumi:"factoryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Dataset resource type.
 type LookupDatasetResult struct {
-	// Etag identifies change in the resource.
-	Etag string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Dataset properties.
+	Etag       string      `pulumi:"etag"`
+	Id         string      `pulumi:"id"`
+	Name       string      `pulumi:"name"`
 	Properties interface{} `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type       string      `pulumi:"type"`
 }

@@ -98,7 +98,7 @@ type serialPortArgs struct {
 	// The name of the serial port to create.
 	SerialPort *string `pulumi:"serialPort"`
 	// Specifies whether the port is enabled for a serial console connection.
-	State *string `pulumi:"state"`
+	State *SerialPortStateEnum `pulumi:"state"`
 }
 
 // The set of arguments for constructing a SerialPort resource.
@@ -114,7 +114,7 @@ type SerialPortArgs struct {
 	// The name of the serial port to create.
 	SerialPort pulumi.StringPtrInput
 	// Specifies whether the port is enabled for a serial console connection.
-	State *SerialPortStateEnum
+	State SerialPortStateEnumPtrInput
 }
 
 func (SerialPortArgs) ElementType() reflect.Type {
@@ -140,9 +140,7 @@ func (i *SerialPort) ToSerialPortOutputWithContext(ctx context.Context) SerialPo
 	return pulumi.ToOutputWithContext(ctx, i).(SerialPortOutput)
 }
 
-type SerialPortOutput struct {
-	*pulumi.OutputState
-}
+type SerialPortOutput struct{ *pulumi.OutputState }
 
 func (SerialPortOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SerialPort)(nil))

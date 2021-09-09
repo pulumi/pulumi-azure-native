@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Kusto cluster data set mapping
 func LookupKustoClusterDataSetMapping(ctx *pulumi.Context, args *LookupKustoClusterDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupKustoClusterDataSetMappingResult, error) {
 	var rv LookupKustoClusterDataSetMappingResult
 	err := ctx.Invoke("azure-native:datashare/v20191101:getKustoClusterDataSetMapping", args, &rv, opts...)
@@ -18,35 +17,21 @@ func LookupKustoClusterDataSetMapping(ctx *pulumi.Context, args *LookupKustoClus
 }
 
 type LookupKustoClusterDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSetMapping.
-	DataSetMappingName string `pulumi:"dataSetMappingName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the shareSubscription.
+	AccountName           string `pulumi:"accountName"`
+	DataSetMappingName    string `pulumi:"dataSetMappingName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
 }
 
 // A Kusto cluster data set mapping
 type LookupKustoClusterDataSetMappingResult struct {
-	// The id of the source data set.
-	DataSetId string `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus string `pulumi:"dataSetMappingStatus"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set mapping.
-	// Expected value is 'KustoCluster'.
-	Kind string `pulumi:"kind"`
-	// Resource id of the sink kusto cluster.
+	DataSetId              string `pulumi:"dataSetId"`
+	DataSetMappingStatus   string `pulumi:"dataSetMappingStatus"`
+	Id                     string `pulumi:"id"`
+	Kind                   string `pulumi:"kind"`
 	KustoClusterResourceId string `pulumi:"kustoClusterResourceId"`
-	// Location of the sink kusto cluster.
-	Location string `pulumi:"location"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	Location               string `pulumi:"location"`
+	Name                   string `pulumi:"name"`
+	ProvisioningState      string `pulumi:"provisioningState"`
+	Type                   string `pulumi:"type"`
 }

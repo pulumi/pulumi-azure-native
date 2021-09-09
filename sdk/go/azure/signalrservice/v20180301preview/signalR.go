@@ -11,35 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A class represent a SignalR service resource.
 type SignalR struct {
 	pulumi.CustomResourceState
 
-	// The publicly accessible IP of the SignalR service.
-	ExternalIP pulumi.StringOutput `pulumi:"externalIP"`
-	// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
-	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// Prefix for the hostName of the SignalR service. Retained for future use.
-	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-	HostNamePrefix pulumi.StringPtrOutput `pulumi:"hostNamePrefix"`
-	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The publicly accessibly port of the SignalR service which is designed for browser/client side usage.
-	PublicPort pulumi.IntOutput `pulumi:"publicPort"`
-	// The publicly accessibly port of the SignalR service which is designed for customer server side usage.
-	ServerPort pulumi.IntOutput `pulumi:"serverPort"`
-	// SKU of the service.
-	Sku ResourceSkuResponsePtrOutput `pulumi:"sku"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the service - e.g. "Microsoft.SignalRService/SignalR"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
-	Version pulumi.StringPtrOutput `pulumi:"version"`
+	ExternalIP        pulumi.StringOutput          `pulumi:"externalIP"`
+	HostName          pulumi.StringOutput          `pulumi:"hostName"`
+	HostNamePrefix    pulumi.StringPtrOutput       `pulumi:"hostNamePrefix"`
+	Location          pulumi.StringPtrOutput       `pulumi:"location"`
+	Name              pulumi.StringOutput          `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput          `pulumi:"provisioningState"`
+	PublicPort        pulumi.IntOutput             `pulumi:"publicPort"`
+	ServerPort        pulumi.IntOutput             `pulumi:"serverPort"`
+	Sku               ResourceSkuResponsePtrOutput `pulumi:"sku"`
+	Tags              pulumi.StringMapOutput       `pulumi:"tags"`
+	Type              pulumi.StringOutput          `pulumi:"type"`
+	Version           pulumi.StringPtrOutput       `pulumi:"version"`
 }
 
 // NewSignalR registers a new resource with the given unique name, arguments, and options.
@@ -126,36 +112,22 @@ func (SignalRState) ElementType() reflect.Type {
 }
 
 type signalRArgs struct {
-	// Azure GEO region: e.g. West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | etc.
-	// The geo region of a resource never changes after it is created.
-	Location *string `pulumi:"location"`
-	// Settings used to provision or configure the resource
-	Properties *SignalRCreateOrUpdateProperties `pulumi:"properties"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the SignalR resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// The billing information of the resource.(e.g. basic vs. standard)
-	Sku *ResourceSku `pulumi:"sku"`
-	// A list of key value pairs that describe the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string                          `pulumi:"location"`
+	Properties        *SignalRCreateOrUpdateProperties `pulumi:"properties"`
+	ResourceGroupName string                           `pulumi:"resourceGroupName"`
+	ResourceName      *string                          `pulumi:"resourceName"`
+	Sku               *ResourceSku                     `pulumi:"sku"`
+	Tags              map[string]string                `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SignalR resource.
 type SignalRArgs struct {
-	// Azure GEO region: e.g. West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | etc.
-	// The geo region of a resource never changes after it is created.
-	Location pulumi.StringPtrInput
-	// Settings used to provision or configure the resource
-	Properties SignalRCreateOrUpdatePropertiesPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	Location          pulumi.StringPtrInput
+	Properties        SignalRCreateOrUpdatePropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the SignalR resource.
-	ResourceName pulumi.StringPtrInput
-	// The billing information of the resource.(e.g. basic vs. standard)
-	Sku ResourceSkuPtrInput
-	// A list of key value pairs that describe the resource.
-	Tags pulumi.StringMapInput
+	ResourceName      pulumi.StringPtrInput
+	Sku               ResourceSkuPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (SignalRArgs) ElementType() reflect.Type {
@@ -181,9 +153,7 @@ func (i *SignalR) ToSignalROutputWithContext(ctx context.Context) SignalROutput 
 	return pulumi.ToOutputWithContext(ctx, i).(SignalROutput)
 }
 
-type SignalROutput struct {
-	*pulumi.OutputState
-}
+type SignalROutput struct{ *pulumi.OutputState }
 
 func (SignalROutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SignalR)(nil))

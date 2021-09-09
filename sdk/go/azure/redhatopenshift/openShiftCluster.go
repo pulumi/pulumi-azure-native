@@ -185,9 +185,7 @@ func (i *OpenShiftCluster) ToOpenShiftClusterOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftClusterOutput)
 }
 
-type OpenShiftClusterOutput struct {
-	*pulumi.OutputState
-}
+type OpenShiftClusterOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OpenShiftCluster)(nil))

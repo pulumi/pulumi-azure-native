@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An application package which represents a particular version of an application.
 func LookupApplicationPackage(ctx *pulumi.Context, args *LookupApplicationPackageArgs, opts ...pulumi.InvokeOption) (*LookupApplicationPackageResult, error) {
 	var rv LookupApplicationPackageResult
 	err := ctx.Invoke("azure-native:batch/v20151201:getApplicationPackage", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupApplicationPackage(ctx *pulumi.Context, args *LookupApplicationPackag
 }
 
 type LookupApplicationPackageArgs struct {
-	// The name of the Batch account.
-	AccountName string `pulumi:"accountName"`
-	// The ID of the application.
-	ApplicationId string `pulumi:"applicationId"`
-	// The name of the resource group that contains the Batch account.
+	AccountName       string `pulumi:"accountName"`
+	ApplicationId     string `pulumi:"applicationId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The version of the application.
-	Version string `pulumi:"version"`
+	Version           string `pulumi:"version"`
 }
 
 // An application package which represents a particular version of an application.
 type LookupApplicationPackageResult struct {
-	// The format of the application package, if the package is active.
-	Format *string `pulumi:"format"`
-	// The ID of the application.
-	Id *string `pulumi:"id"`
-	// The time at which the package was last activated, if the package is active.
+	Format             *string `pulumi:"format"`
+	Id                 *string `pulumi:"id"`
 	LastActivationTime *string `pulumi:"lastActivationTime"`
-	// The current state of the application package.
-	State *string `pulumi:"state"`
-	// The storage URL at which the application package is stored.
-	StorageUrl *string `pulumi:"storageUrl"`
-	// The UTC time at which the storage URL will expire.
-	StorageUrlExpiry *string `pulumi:"storageUrlExpiry"`
-	// The version of the application package.
-	Version *string `pulumi:"version"`
+	State              *string `pulumi:"state"`
+	StorageUrl         *string `pulumi:"storageUrl"`
+	StorageUrlExpiry   *string `pulumi:"storageUrlExpiry"`
+	Version            *string `pulumi:"version"`
 }

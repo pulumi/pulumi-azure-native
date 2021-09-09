@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Video Analyzer account.
 func LookupVideoAnalyzer(ctx *pulumi.Context, args *LookupVideoAnalyzerArgs, opts ...pulumi.InvokeOption) (*LookupVideoAnalyzerResult, error) {
 	var rv LookupVideoAnalyzerResult
 	err := ctx.Invoke("azure-native:videoanalyzer/v20210501preview:getVideoAnalyzer", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupVideoAnalyzer(ctx *pulumi.Context, args *LookupVideoAnalyzerArgs, opt
 }
 
 type LookupVideoAnalyzerArgs struct {
-	// The Video Analyzer account name.
-	AccountName string `pulumi:"accountName"`
-	// The name of the resource group. The name is case insensitive.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A Video Analyzer account.
 type LookupVideoAnalyzerResult struct {
-	// The account encryption properties.
-	Encryption AccountEncryptionResponse `pulumi:"encryption"`
-	// The list of endpoints associated with this resource.
-	Endpoints []EndpointResponse `pulumi:"endpoints"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The set of managed identities associated with the Video Analyzer resource.
-	Identity *VideoAnalyzerIdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The storage accounts for this resource.
-	StorageAccounts []StorageAccountResponse `pulumi:"storageAccounts"`
-	// The system data of the Video Analyzer account.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Encryption      AccountEncryptionResponse      `pulumi:"encryption"`
+	Endpoints       []EndpointResponse             `pulumi:"endpoints"`
+	Id              string                         `pulumi:"id"`
+	Identity        *VideoAnalyzerIdentityResponse `pulumi:"identity"`
+	Location        string                         `pulumi:"location"`
+	Name            string                         `pulumi:"name"`
+	StorageAccounts []StorageAccountResponse       `pulumi:"storageAccounts"`
+	SystemData      SystemDataResponse             `pulumi:"systemData"`
+	Tags            map[string]string              `pulumi:"tags"`
+	Type            string                         `pulumi:"type"`
 }

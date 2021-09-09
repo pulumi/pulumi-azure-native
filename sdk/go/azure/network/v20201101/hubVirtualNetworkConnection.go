@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// HubVirtualNetworkConnection Resource.
 type HubVirtualNetworkConnection struct {
 	pulumi.CustomResourceState
 
-	// Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
-	AllowHubToRemoteVnetTransit pulumi.BoolPtrOutput `pulumi:"allowHubToRemoteVnetTransit"`
-	// Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
-	AllowRemoteVnetToUseHubVnetGateways pulumi.BoolPtrOutput `pulumi:"allowRemoteVnetToUseHubVnetGateways"`
-	// Enable internet security.
-	EnableInternetSecurity pulumi.BoolPtrOutput `pulumi:"enableInternetSecurity"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The provisioning state of the hub virtual network connection resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Reference to the remote virtual network.
-	RemoteVirtualNetwork SubResourceResponsePtrOutput `pulumi:"remoteVirtualNetwork"`
-	// The Routing Configuration indicating the associated and propagated route tables on this connection.
-	RoutingConfiguration RoutingConfigurationResponsePtrOutput `pulumi:"routingConfiguration"`
+	AllowHubToRemoteVnetTransit         pulumi.BoolPtrOutput                  `pulumi:"allowHubToRemoteVnetTransit"`
+	AllowRemoteVnetToUseHubVnetGateways pulumi.BoolPtrOutput                  `pulumi:"allowRemoteVnetToUseHubVnetGateways"`
+	EnableInternetSecurity              pulumi.BoolPtrOutput                  `pulumi:"enableInternetSecurity"`
+	Etag                                pulumi.StringOutput                   `pulumi:"etag"`
+	Name                                pulumi.StringPtrOutput                `pulumi:"name"`
+	ProvisioningState                   pulumi.StringOutput                   `pulumi:"provisioningState"`
+	RemoteVirtualNetwork                SubResourceResponsePtrOutput          `pulumi:"remoteVirtualNetwork"`
+	RoutingConfiguration                RoutingConfigurationResponsePtrOutput `pulumi:"routingConfiguration"`
 }
 
 // NewHubVirtualNetworkConnection registers a new resource with the given unique name, arguments, and options.
@@ -126,50 +117,30 @@ func (HubVirtualNetworkConnectionState) ElementType() reflect.Type {
 }
 
 type hubVirtualNetworkConnectionArgs struct {
-	// Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
-	AllowHubToRemoteVnetTransit *bool `pulumi:"allowHubToRemoteVnetTransit"`
-	// Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
-	AllowRemoteVnetToUseHubVnetGateways *bool `pulumi:"allowRemoteVnetToUseHubVnetGateways"`
-	// The name of the HubVirtualNetworkConnection.
-	ConnectionName *string `pulumi:"connectionName"`
-	// Enable internet security.
-	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// Reference to the remote virtual network.
-	RemoteVirtualNetwork *SubResource `pulumi:"remoteVirtualNetwork"`
-	// The resource group name of the HubVirtualNetworkConnection.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Routing Configuration indicating the associated and propagated route tables on this connection.
-	RoutingConfiguration *RoutingConfiguration `pulumi:"routingConfiguration"`
-	// The name of the VirtualHub.
-	VirtualHubName string `pulumi:"virtualHubName"`
+	AllowHubToRemoteVnetTransit         *bool                 `pulumi:"allowHubToRemoteVnetTransit"`
+	AllowRemoteVnetToUseHubVnetGateways *bool                 `pulumi:"allowRemoteVnetToUseHubVnetGateways"`
+	ConnectionName                      *string               `pulumi:"connectionName"`
+	EnableInternetSecurity              *bool                 `pulumi:"enableInternetSecurity"`
+	Id                                  *string               `pulumi:"id"`
+	Name                                *string               `pulumi:"name"`
+	RemoteVirtualNetwork                *SubResource          `pulumi:"remoteVirtualNetwork"`
+	ResourceGroupName                   string                `pulumi:"resourceGroupName"`
+	RoutingConfiguration                *RoutingConfiguration `pulumi:"routingConfiguration"`
+	VirtualHubName                      string                `pulumi:"virtualHubName"`
 }
 
 // The set of arguments for constructing a HubVirtualNetworkConnection resource.
 type HubVirtualNetworkConnectionArgs struct {
-	// Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
-	AllowHubToRemoteVnetTransit pulumi.BoolPtrInput
-	// Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
+	AllowHubToRemoteVnetTransit         pulumi.BoolPtrInput
 	AllowRemoteVnetToUseHubVnetGateways pulumi.BoolPtrInput
-	// The name of the HubVirtualNetworkConnection.
-	ConnectionName pulumi.StringPtrInput
-	// Enable internet security.
-	EnableInternetSecurity pulumi.BoolPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// Reference to the remote virtual network.
-	RemoteVirtualNetwork SubResourcePtrInput
-	// The resource group name of the HubVirtualNetworkConnection.
-	ResourceGroupName pulumi.StringInput
-	// The Routing Configuration indicating the associated and propagated route tables on this connection.
-	RoutingConfiguration RoutingConfigurationPtrInput
-	// The name of the VirtualHub.
-	VirtualHubName pulumi.StringInput
+	ConnectionName                      pulumi.StringPtrInput
+	EnableInternetSecurity              pulumi.BoolPtrInput
+	Id                                  pulumi.StringPtrInput
+	Name                                pulumi.StringPtrInput
+	RemoteVirtualNetwork                SubResourcePtrInput
+	ResourceGroupName                   pulumi.StringInput
+	RoutingConfiguration                RoutingConfigurationPtrInput
+	VirtualHubName                      pulumi.StringInput
 }
 
 func (HubVirtualNetworkConnectionArgs) ElementType() reflect.Type {
@@ -195,9 +166,7 @@ func (i *HubVirtualNetworkConnection) ToHubVirtualNetworkConnectionOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(HubVirtualNetworkConnectionOutput)
 }
 
-type HubVirtualNetworkConnectionOutput struct {
-	*pulumi.OutputState
-}
+type HubVirtualNetworkConnectionOutput struct{ *pulumi.OutputState }
 
 func (HubVirtualNetworkConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HubVirtualNetworkConnection)(nil))

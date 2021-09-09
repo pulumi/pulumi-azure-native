@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Collection data structure.
 func LookupPrivateStoreCollection(ctx *pulumi.Context, args *LookupPrivateStoreCollectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateStoreCollectionResult, error) {
 	var rv LookupPrivateStoreCollectionResult
 	err := ctx.Invoke("azure-native:marketplace/v20210601:getPrivateStoreCollection", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupPrivateStoreCollection(ctx *pulumi.Context, args *LookupPrivateStoreC
 }
 
 type LookupPrivateStoreCollectionArgs struct {
-	// The collection ID
-	CollectionId string `pulumi:"collectionId"`
-	// The store ID - must use the tenant ID
+	CollectionId   string `pulumi:"collectionId"`
 	PrivateStoreId string `pulumi:"privateStoreId"`
 }
 
 // The Collection data structure.
 type LookupPrivateStoreCollectionResult struct {
-	// Indicating whether all subscriptions are selected (=true) or not (=false).
-	AllSubscriptions *bool `pulumi:"allSubscriptions"`
-	// Gets or sets the association with Commercial's Billing Account.
-	Claim *string `pulumi:"claim"`
-	// Gets collection Id.
-	CollectionId string `pulumi:"collectionId"`
-	// Gets or sets collection name.
-	CollectionName *string `pulumi:"collectionName"`
-	// Indicating whether the collection is enabled or disabled.
-	Enabled *bool `pulumi:"enabled"`
-	// The resource ID.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Gets the number of offers associated with the collection.
-	NumberOfOffers float64 `pulumi:"numberOfOffers"`
-	// Gets or sets subscription ids list. Empty list indicates all subscriptions are selected, null indicates no update is done, explicit list indicates the explicit selected subscriptions. On insert, null is considered as bad request
-	SubscriptionsList []string `pulumi:"subscriptionsList"`
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	AllSubscriptions  *bool              `pulumi:"allSubscriptions"`
+	Claim             *string            `pulumi:"claim"`
+	CollectionId      string             `pulumi:"collectionId"`
+	CollectionName    *string            `pulumi:"collectionName"`
+	Enabled           *bool              `pulumi:"enabled"`
+	Id                string             `pulumi:"id"`
+	Name              string             `pulumi:"name"`
+	NumberOfOffers    float64            `pulumi:"numberOfOffers"`
+	SubscriptionsList []string           `pulumi:"subscriptionsList"`
+	SystemData        SystemDataResponse `pulumi:"systemData"`
+	Type              string             `pulumi:"type"`
 }

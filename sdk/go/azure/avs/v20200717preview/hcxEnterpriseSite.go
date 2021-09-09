@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An HCX Enterprise Site resource
 type HcxEnterpriseSite struct {
 	pulumi.CustomResourceState
 
-	// The activation key
 	ActivationKey pulumi.StringOutput `pulumi:"activationKey"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The status of the HCX Enterprise Site
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name          pulumi.StringOutput `pulumi:"name"`
+	Status        pulumi.StringOutput `pulumi:"status"`
+	Type          pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewHcxEnterpriseSite registers a new resource with the given unique name, arguments, and options.
@@ -100,22 +95,16 @@ func (HcxEnterpriseSiteState) ElementType() reflect.Type {
 }
 
 type hcxEnterpriseSiteArgs struct {
-	// Name of the HCX Enterprise Site in the private cloud
 	HcxEnterpriseSiteName *string `pulumi:"hcxEnterpriseSiteName"`
-	// The name of the private cloud.
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PrivateCloudName      string  `pulumi:"privateCloudName"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a HcxEnterpriseSite resource.
 type HcxEnterpriseSiteArgs struct {
-	// Name of the HCX Enterprise Site in the private cloud
 	HcxEnterpriseSiteName pulumi.StringPtrInput
-	// The name of the private cloud.
-	PrivateCloudName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
+	PrivateCloudName      pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 }
 
 func (HcxEnterpriseSiteArgs) ElementType() reflect.Type {
@@ -141,9 +130,7 @@ func (i *HcxEnterpriseSite) ToHcxEnterpriseSiteOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(HcxEnterpriseSiteOutput)
 }
 
-type HcxEnterpriseSiteOutput struct {
-	*pulumi.OutputState
-}
+type HcxEnterpriseSiteOutput struct{ *pulumi.OutputState }
 
 func (HcxEnterpriseSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HcxEnterpriseSite)(nil))

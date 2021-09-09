@@ -184,9 +184,7 @@ func (i *ScheduledSynchronizationSetting) ToScheduledSynchronizationSettingOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledSynchronizationSettingOutput)
 }
 
-type ScheduledSynchronizationSettingOutput struct {
-	*pulumi.OutputState
-}
+type ScheduledSynchronizationSettingOutput struct{ *pulumi.OutputState }
 
 func (ScheduledSynchronizationSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScheduledSynchronizationSetting)(nil))

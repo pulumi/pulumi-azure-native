@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Template Spec Version object.
 type TemplateSpecVersion struct {
 	pulumi.CustomResourceState
 
-	// An array of Template Spec artifacts.
-	Artifacts TemplateSpecTemplateArtifactResponseArrayOutput `pulumi:"artifacts"`
-	// Template Spec version description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of this resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The Azure Resource Manager template content.
-	Template pulumi.AnyOutput `pulumi:"template"`
-	// Type of this resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Artifacts   TemplateSpecTemplateArtifactResponseArrayOutput `pulumi:"artifacts"`
+	Description pulumi.StringPtrOutput                          `pulumi:"description"`
+	Location    pulumi.StringOutput                             `pulumi:"location"`
+	Name        pulumi.StringOutput                             `pulumi:"name"`
+	SystemData  SystemDataResponseOutput                        `pulumi:"systemData"`
+	Tags        pulumi.StringMapOutput                          `pulumi:"tags"`
+	Template    pulumi.AnyOutput                                `pulumi:"template"`
+	Type        pulumi.StringOutput                             `pulumi:"type"`
 }
 
 // NewTemplateSpecVersion registers a new resource with the given unique name, arguments, and options.
@@ -102,41 +93,25 @@ func (TemplateSpecVersionState) ElementType() reflect.Type {
 }
 
 type templateSpecVersionArgs struct {
-	// An array of Template Spec artifacts.
-	Artifacts []TemplateSpecTemplateArtifact `pulumi:"artifacts"`
-	// Template Spec version description.
-	Description *string `pulumi:"description"`
-	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The Azure Resource Manager template content.
-	Template interface{} `pulumi:"template"`
-	// Name of the Template Spec.
-	TemplateSpecName string `pulumi:"templateSpecName"`
-	// The version of the Template Spec.
-	TemplateSpecVersion *string `pulumi:"templateSpecVersion"`
+	Artifacts           []TemplateSpecTemplateArtifact `pulumi:"artifacts"`
+	Description         *string                        `pulumi:"description"`
+	Location            *string                        `pulumi:"location"`
+	ResourceGroupName   string                         `pulumi:"resourceGroupName"`
+	Tags                map[string]string              `pulumi:"tags"`
+	Template            interface{}                    `pulumi:"template"`
+	TemplateSpecName    string                         `pulumi:"templateSpecName"`
+	TemplateSpecVersion *string                        `pulumi:"templateSpecVersion"`
 }
 
 // The set of arguments for constructing a TemplateSpecVersion resource.
 type TemplateSpecVersionArgs struct {
-	// An array of Template Spec artifacts.
-	Artifacts TemplateSpecTemplateArtifactArrayInput
-	// Template Spec version description.
-	Description pulumi.StringPtrInput
-	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The Azure Resource Manager template content.
-	Template pulumi.Input
-	// Name of the Template Spec.
-	TemplateSpecName pulumi.StringInput
-	// The version of the Template Spec.
+	Artifacts           TemplateSpecTemplateArtifactArrayInput
+	Description         pulumi.StringPtrInput
+	Location            pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	Tags                pulumi.StringMapInput
+	Template            pulumi.Input
+	TemplateSpecName    pulumi.StringInput
 	TemplateSpecVersion pulumi.StringPtrInput
 }
 
@@ -163,9 +138,7 @@ func (i *TemplateSpecVersion) ToTemplateSpecVersionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecVersionOutput)
 }
 
-type TemplateSpecVersionOutput struct {
-	*pulumi.OutputState
-}
+type TemplateSpecVersionOutput struct{ *pulumi.OutputState }
 
 func (TemplateSpecVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TemplateSpecVersion)(nil))

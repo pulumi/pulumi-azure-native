@@ -11,23 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Workspace connection.
 type WorkspaceConnection struct {
 	pulumi.CustomResourceState
 
-	// Authorization type of the workspace connection.
-	AuthType pulumi.StringPtrOutput `pulumi:"authType"`
-	// Category of the workspace connection.
-	Category pulumi.StringPtrOutput `pulumi:"category"`
-	// Friendly name of the workspace connection.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Target of the workspace connection.
-	Target pulumi.StringPtrOutput `pulumi:"target"`
-	// Resource type of workspace connection.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Value details of the workspace connection.
-	Value pulumi.StringPtrOutput `pulumi:"value"`
-	// format for the workspace connection value
+	AuthType    pulumi.StringPtrOutput `pulumi:"authType"`
+	Category    pulumi.StringPtrOutput `pulumi:"category"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Target      pulumi.StringPtrOutput `pulumi:"target"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
+	Value       pulumi.StringPtrOutput `pulumi:"value"`
 	ValueFormat pulumi.StringPtrOutput `pulumi:"valueFormat"`
 }
 
@@ -124,42 +116,26 @@ func (WorkspaceConnectionState) ElementType() reflect.Type {
 }
 
 type workspaceConnectionArgs struct {
-	// Authorization type of the workspace connection.
-	AuthType *string `pulumi:"authType"`
-	// Category of the workspace connection.
-	Category *string `pulumi:"category"`
-	// Friendly name of the workspace connection
-	ConnectionName *string `pulumi:"connectionName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Target of the workspace connection.
-	Target *string `pulumi:"target"`
-	// Value details of the workspace connection.
-	Value *string `pulumi:"value"`
-	// format for the workspace connection value
-	ValueFormat *string `pulumi:"valueFormat"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	AuthType          *string `pulumi:"authType"`
+	Category          *string `pulumi:"category"`
+	ConnectionName    *string `pulumi:"connectionName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	Target            *string `pulumi:"target"`
+	Value             *string `pulumi:"value"`
+	ValueFormat       *string `pulumi:"valueFormat"`
+	WorkspaceName     string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a WorkspaceConnection resource.
 type WorkspaceConnectionArgs struct {
-	// Authorization type of the workspace connection.
-	AuthType pulumi.StringPtrInput
-	// Category of the workspace connection.
-	Category pulumi.StringPtrInput
-	// Friendly name of the workspace connection
-	ConnectionName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	AuthType          pulumi.StringPtrInput
+	Category          pulumi.StringPtrInput
+	ConnectionName    pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Target of the workspace connection.
-	Target pulumi.StringPtrInput
-	// Value details of the workspace connection.
-	Value pulumi.StringPtrInput
-	// format for the workspace connection value
-	ValueFormat pulumi.StringPtrInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	Target            pulumi.StringPtrInput
+	Value             pulumi.StringPtrInput
+	ValueFormat       pulumi.StringPtrInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (WorkspaceConnectionArgs) ElementType() reflect.Type {
@@ -185,9 +161,7 @@ func (i *WorkspaceConnection) ToWorkspaceConnectionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConnectionOutput)
 }
 
-type WorkspaceConnectionOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceConnectionOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkspaceConnection)(nil))

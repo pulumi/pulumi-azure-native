@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The access control record
 func LookupAccessControlRecord(ctx *pulumi.Context, args *LookupAccessControlRecordArgs, opts ...pulumi.InvokeOption) (*LookupAccessControlRecordResult, error) {
 	var rv LookupAccessControlRecordResult
 	err := ctx.Invoke("azure-native:storsimple/v20161001:getAccessControlRecord", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupAccessControlRecord(ctx *pulumi.Context, args *LookupAccessControlRec
 }
 
 type LookupAccessControlRecordArgs struct {
-	// Name of access control record to be fetched.
 	AccessControlRecordName string `pulumi:"accessControlRecordName"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ManagerName             string `pulumi:"managerName"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
 }
 
 // The access control record
 type LookupAccessControlRecordResult struct {
-	// The identifier.
-	Id string `pulumi:"id"`
-	// The Iscsi initiator name (IQN)
+	Id            string `pulumi:"id"`
 	InitiatorName string `pulumi:"initiatorName"`
-	// The name.
-	Name string `pulumi:"name"`
-	// The type.
-	Type string `pulumi:"type"`
+	Name          string `pulumi:"name"`
+	Type          string `pulumi:"type"`
 }

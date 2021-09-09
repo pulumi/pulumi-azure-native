@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Settings with single toggle.
 type IPSyncer struct {
 	pulumi.CustomResourceState
 
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Determines whether the setting is enable or disabled.
-	IsEnabled pulumi.BoolOutput `pulumi:"isEnabled"`
-	// Expected value is 'IPSyncer'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag      pulumi.StringPtrOutput `pulumi:"etag"`
+	IsEnabled pulumi.BoolOutput      `pulumi:"isEnabled"`
+	Kind      pulumi.StringOutput    `pulumi:"kind"`
+	Name      pulumi.StringOutput    `pulumi:"name"`
+	Type      pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewIPSyncer registers a new resource with the given unique name, arguments, and options.
@@ -97,34 +91,22 @@ func (IPSyncerState) ElementType() reflect.Type {
 }
 
 type ipsyncerArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Expected value is 'IPSyncer'.
-	Kind string `pulumi:"kind"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
-	SettingsName *string `pulumi:"settingsName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Etag                                *string `pulumi:"etag"`
+	Kind                                string  `pulumi:"kind"`
+	OperationalInsightsResourceProvider string  `pulumi:"operationalInsightsResourceProvider"`
+	ResourceGroupName                   string  `pulumi:"resourceGroupName"`
+	SettingsName                        *string `pulumi:"settingsName"`
+	WorkspaceName                       string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a IPSyncer resource.
 type IPSyncerArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Expected value is 'IPSyncer'.
-	Kind pulumi.StringInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	Etag                                pulumi.StringPtrInput
+	Kind                                pulumi.StringInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
-	SettingsName pulumi.StringPtrInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	ResourceGroupName                   pulumi.StringInput
+	SettingsName                        pulumi.StringPtrInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (IPSyncerArgs) ElementType() reflect.Type {
@@ -150,9 +132,7 @@ func (i *IPSyncer) ToIPSyncerOutputWithContext(ctx context.Context) IPSyncerOutp
 	return pulumi.ToOutputWithContext(ctx, i).(IPSyncerOutput)
 }
 
-type IPSyncerOutput struct {
-	*pulumi.OutputState
-}
+type IPSyncerOutput struct{ *pulumi.OutputState }
 
 func (IPSyncerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IPSyncer)(nil))

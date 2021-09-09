@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of a Azure Health Bot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
 type HealthBotPropertiesResponse struct {
-	// The link.
 	BotManagementPortalLink string `pulumi:"botManagementPortalLink"`
-	// The provisioning state of the Azure Health Bot resource.
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState       string `pulumi:"provisioningState"`
 }
 
 // HealthBotPropertiesResponseInput is an input type that accepts HealthBotPropertiesResponseArgs and HealthBotPropertiesResponseOutput values.
@@ -29,12 +26,9 @@ type HealthBotPropertiesResponseInput interface {
 	ToHealthBotPropertiesResponseOutputWithContext(context.Context) HealthBotPropertiesResponseOutput
 }
 
-// The properties of a Azure Health Bot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
 type HealthBotPropertiesResponseArgs struct {
-	// The link.
 	BotManagementPortalLink pulumi.StringInput `pulumi:"botManagementPortalLink"`
-	// The provisioning state of the Azure Health Bot resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	ProvisioningState       pulumi.StringInput `pulumi:"provisioningState"`
 }
 
 func (HealthBotPropertiesResponseArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *healthBotPropertiesResponsePtrType) ToHealthBotPropertiesResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(HealthBotPropertiesResponsePtrOutput)
 }
 
-// The properties of a Azure Health Bot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
 type HealthBotPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthBotPropertiesResponseOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o HealthBotPropertiesResponseOutput) ToHealthBotPropertiesResponsePtrOutpu
 }
 
 func (o HealthBotPropertiesResponseOutput) ToHealthBotPropertiesResponsePtrOutputWithContext(ctx context.Context) HealthBotPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v HealthBotPropertiesResponse) *HealthBotPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthBotPropertiesResponse) *HealthBotPropertiesResponse {
 		return &v
 	}).(HealthBotPropertiesResponsePtrOutput)
 }
 
-// The link.
 func (o HealthBotPropertiesResponseOutput) BotManagementPortalLink() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthBotPropertiesResponse) string { return v.BotManagementPortalLink }).(pulumi.StringOutput)
 }
 
-// The provisioning state of the Azure Health Bot resource.
 func (o HealthBotPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthBotPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -140,10 +131,15 @@ func (o HealthBotPropertiesResponsePtrOutput) ToHealthBotPropertiesResponsePtrOu
 }
 
 func (o HealthBotPropertiesResponsePtrOutput) Elem() HealthBotPropertiesResponseOutput {
-	return o.ApplyT(func(v *HealthBotPropertiesResponse) HealthBotPropertiesResponse { return *v }).(HealthBotPropertiesResponseOutput)
+	return o.ApplyT(func(v *HealthBotPropertiesResponse) HealthBotPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HealthBotPropertiesResponse
+		return ret
+	}).(HealthBotPropertiesResponseOutput)
 }
 
-// The link.
 func (o HealthBotPropertiesResponsePtrOutput) BotManagementPortalLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HealthBotPropertiesResponse) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o HealthBotPropertiesResponsePtrOutput) BotManagementPortalLink() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The provisioning state of the Azure Health Bot resource.
 func (o HealthBotPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HealthBotPropertiesResponse) *string {
 		if v == nil {
@@ -163,12 +158,8 @@ func (o HealthBotPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity for the resource.
 type Identity struct {
-	// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
-	Type *string `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	Type                   *ResourceIdentityType  `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -183,13 +174,9 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Identity for the resource.
 type IdentityArgs struct {
-	// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
-	Type *ResourceIdentityType `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	Type                   ResourceIdentityTypePtrInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput              `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -245,7 +232,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Identity for the resource.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -265,18 +251,15 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
-// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
-func (o IdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -296,21 +279,24 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
-// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *Identity) map[string]interface{} {
 		if v == nil {
@@ -320,16 +306,10 @@ func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Identity for the resource.
 type IdentityResponse struct {
-	// The principal ID of resource identity. This property will only be provided for a system assigned identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource. This property will only be provided for a system assigned identity.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
-	Type *string `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            string                                  `pulumi:"principalId"`
+	TenantId               string                                  `pulumi:"tenantId"`
+	Type                   *string                                 `pulumi:"type"`
 	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -344,16 +324,10 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Identity for the resource.
 type IdentityResponseArgs struct {
-	// The principal ID of resource identity. This property will only be provided for a system assigned identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource. This property will only be provided for a system assigned identity.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            pulumi.StringInput                   `pulumi:"principalId"`
+	TenantId               pulumi.StringInput                   `pulumi:"tenantId"`
+	Type                   pulumi.StringPtrInput                `pulumi:"type"`
 	UserAssignedIdentities UserAssignedIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -410,7 +384,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -430,28 +403,23 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
 
-// The principal ID of resource identity. This property will only be provided for a system assigned identity.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource. This property will only be provided for a system assigned identity.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
 func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
 	return o.ApplyT(func(v IdentityResponse) map[string]UserAssignedIdentityResponse { return v.UserAssignedIdentities }).(UserAssignedIdentityResponseMapOutput)
 }
@@ -471,10 +439,15 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
-// The principal ID of resource identity. This property will only be provided for a system assigned identity.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -484,7 +457,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource. This property will only be provided for a system assigned identity.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -494,7 +466,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -504,8 +475,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
 	return o.ApplyT(func(v *IdentityResponse) map[string]UserAssignedIdentityResponse {
 		if v == nil {
@@ -515,10 +484,8 @@ func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentity
 	}).(UserAssignedIdentityResponseMapOutput)
 }
 
-// The resource model definition representing SKU
 type Sku struct {
-	// The name of the Azure Health Bot SKU
-	Name string `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -532,10 +499,8 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The resource model definition representing SKU
 type SkuArgs struct {
-	// The name of the Azure Health Bot SKU
-	Name SkuName `pulumi:"name"`
+	Name SkuNameInput `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -591,7 +556,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The resource model definition representing SKU
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -611,14 +575,13 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The name of the Azure Health Bot SKU
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+func (o SkuOutput) Name() SkuNameOutput {
+	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -636,22 +599,25 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The name of the Azure Health Bot SKU
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
-// The resource model definition representing SKU
 type SkuResponse struct {
-	// The name of the Azure Health Bot SKU
 	Name string `pulumi:"name"`
 }
 
@@ -666,9 +632,7 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The resource model definition representing SKU
 type SkuResponseArgs struct {
-	// The name of the Azure Health Bot SKU
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -725,7 +689,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The resource model definition representing SKU
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -745,12 +708,11 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The name of the Azure Health Bot SKU
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -770,10 +732,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The name of the Azure Health Bot SKU
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -783,19 +750,12 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Read only system data
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC)
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -810,19 +770,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Read only system data
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC)
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -879,7 +832,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Read only system data
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -899,37 +851,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC)
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -949,10 +895,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC)
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -962,7 +913,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -972,7 +922,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -982,7 +931,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -992,7 +940,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1002,7 +949,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1012,11 +958,8 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The details of the user assigned managed identity used by the Video Analyzer resource.
 type UserAssignedIdentityResponse struct {
-	// The client ID of user assigned identity.
-	ClientId string `pulumi:"clientId"`
-	// The principal ID of user assigned identity.
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
 }
 
@@ -1031,11 +974,8 @@ type UserAssignedIdentityResponseInput interface {
 	ToUserAssignedIdentityResponseOutputWithContext(context.Context) UserAssignedIdentityResponseOutput
 }
 
-// The details of the user assigned managed identity used by the Video Analyzer resource.
 type UserAssignedIdentityResponseArgs struct {
-	// The client ID of user assigned identity.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The principal ID of user assigned identity.
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
@@ -1076,7 +1016,6 @@ func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseMapOutput)
 }
 
-// The details of the user assigned managed identity used by the Video Analyzer resource.
 type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
@@ -1091,12 +1030,10 @@ func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput
 	return o
 }
 
-// The client ID of user assigned identity.
 func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The principal ID of user assigned identity.
 func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }

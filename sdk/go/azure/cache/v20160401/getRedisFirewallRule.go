@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
 func LookupRedisFirewallRule(ctx *pulumi.Context, args *LookupRedisFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupRedisFirewallRuleResult, error) {
 	var rv LookupRedisFirewallRuleResult
 	err := ctx.Invoke("azure-native:cache/v20160401:getRedisFirewallRule", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupRedisFirewallRule(ctx *pulumi.Context, args *LookupRedisFirewallRuleA
 }
 
 type LookupRedisFirewallRuleArgs struct {
-	// The name of the Redis cache.
-	CacheName string `pulumi:"cacheName"`
-	// The name of the resource group.
+	CacheName         string `pulumi:"cacheName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the firewall rule.
-	RuleName string `pulumi:"ruleName"`
+	RuleName          string `pulumi:"ruleName"`
 }
 
 // A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
 type LookupRedisFirewallRuleResult struct {
-	// highest IP address included in the range
-	EndIP string `pulumi:"endIP"`
-	// resource ID (of the firewall rule)
-	Id string `pulumi:"id"`
-	// name of the firewall rule
-	Name string `pulumi:"name"`
-	// lowest IP address included in the range
+	EndIP   string `pulumi:"endIP"`
+	Id      string `pulumi:"id"`
+	Name    string `pulumi:"name"`
 	StartIP string `pulumi:"startIP"`
-	// type (of the firewall rule resource = 'Microsoft.Cache/redis/firewallRule')
-	Type string `pulumi:"type"`
+	Type    string `pulumi:"type"`
 }

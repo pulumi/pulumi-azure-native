@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A workspace key
 type Key struct {
 	pulumi.CustomResourceState
 
-	// Used to activate the workspace after a customer managed key is provided.
-	IsActiveCMK pulumi.BoolPtrOutput `pulumi:"isActiveCMK"`
-	// The Key Vault Url of the workspace key.
+	IsActiveCMK pulumi.BoolPtrOutput   `pulumi:"isActiveCMK"`
 	KeyVaultUrl pulumi.StringPtrOutput `pulumi:"keyVaultUrl"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewKey registers a new resource with the given unique name, arguments, and options.
@@ -118,30 +113,20 @@ func (KeyState) ElementType() reflect.Type {
 }
 
 type keyArgs struct {
-	// Used to activate the workspace after a customer managed key is provided.
-	IsActiveCMK *bool `pulumi:"isActiveCMK"`
-	// The name of the workspace key
-	KeyName *string `pulumi:"keyName"`
-	// The Key Vault Url of the workspace key.
-	KeyVaultUrl *string `pulumi:"keyVaultUrl"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	IsActiveCMK       *bool   `pulumi:"isActiveCMK"`
+	KeyName           *string `pulumi:"keyName"`
+	KeyVaultUrl       *string `pulumi:"keyVaultUrl"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	WorkspaceName     string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Key resource.
 type KeyArgs struct {
-	// Used to activate the workspace after a customer managed key is provided.
-	IsActiveCMK pulumi.BoolPtrInput
-	// The name of the workspace key
-	KeyName pulumi.StringPtrInput
-	// The Key Vault Url of the workspace key.
-	KeyVaultUrl pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	IsActiveCMK       pulumi.BoolPtrInput
+	KeyName           pulumi.StringPtrInput
+	KeyVaultUrl       pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the workspace
-	WorkspaceName pulumi.StringInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (KeyArgs) ElementType() reflect.Type {
@@ -167,9 +152,7 @@ func (i *Key) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyOutput)
 }
 
-type KeyOutput struct {
-	*pulumi.OutputState
-}
+type KeyOutput struct{ *pulumi.OutputState }
 
 func (KeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Key)(nil))

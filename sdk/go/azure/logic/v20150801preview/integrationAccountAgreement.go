@@ -14,32 +14,19 @@ import (
 type IntegrationAccountAgreement struct {
 	pulumi.CustomResourceState
 
-	// The agreement type.
-	AgreementType pulumi.StringPtrOutput `pulumi:"agreementType"`
-	// The changed time.
-	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
-	// The agreement content.
-	Content AgreementContentResponsePtrOutput `pulumi:"content"`
-	// The created time.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The guest identity.
+	AgreementType pulumi.StringPtrOutput            `pulumi:"agreementType"`
+	ChangedTime   pulumi.StringOutput               `pulumi:"changedTime"`
+	Content       AgreementContentResponsePtrOutput `pulumi:"content"`
+	CreatedTime   pulumi.StringOutput               `pulumi:"createdTime"`
 	GuestIdentity BusinessIdentityResponsePtrOutput `pulumi:"guestIdentity"`
-	// The guest partner.
-	GuestPartner pulumi.StringPtrOutput `pulumi:"guestPartner"`
-	// The host identity.
-	HostIdentity BusinessIdentityResponsePtrOutput `pulumi:"hostIdentity"`
-	// The host partner.
-	HostPartner pulumi.StringPtrOutput `pulumi:"hostPartner"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The metadata.
-	Metadata pulumi.AnyOutput `pulumi:"metadata"`
-	// The resource name.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	GuestPartner  pulumi.StringPtrOutput            `pulumi:"guestPartner"`
+	HostIdentity  BusinessIdentityResponsePtrOutput `pulumi:"hostIdentity"`
+	HostPartner   pulumi.StringPtrOutput            `pulumi:"hostPartner"`
+	Location      pulumi.StringPtrOutput            `pulumi:"location"`
+	Metadata      pulumi.AnyOutput                  `pulumi:"metadata"`
+	Name          pulumi.StringPtrOutput            `pulumi:"name"`
+	Tags          pulumi.StringMapOutput            `pulumi:"tags"`
+	Type          pulumi.StringPtrOutput            `pulumi:"type"`
 }
 
 // NewIntegrationAccountAgreement registers a new resource with the given unique name, arguments, and options.
@@ -117,70 +104,40 @@ func (IntegrationAccountAgreementState) ElementType() reflect.Type {
 }
 
 type integrationAccountAgreementArgs struct {
-	// The integration account agreement name.
-	AgreementName *string `pulumi:"agreementName"`
-	// The agreement type.
-	AgreementType *string `pulumi:"agreementType"`
-	// The agreement content.
-	Content *AgreementContent `pulumi:"content"`
-	// The guest identity.
-	GuestIdentity *BusinessIdentity `pulumi:"guestIdentity"`
-	// The guest partner.
-	GuestPartner *string `pulumi:"guestPartner"`
-	// The host identity.
-	HostIdentity *BusinessIdentity `pulumi:"hostIdentity"`
-	// The host partner.
-	HostPartner *string `pulumi:"hostPartner"`
-	// The resource id.
-	Id *string `pulumi:"id"`
-	// The integration account name.
-	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
+	AgreementName          *string           `pulumi:"agreementName"`
+	AgreementType          *AgreementType    `pulumi:"agreementType"`
+	Content                *AgreementContent `pulumi:"content"`
+	GuestIdentity          *BusinessIdentity `pulumi:"guestIdentity"`
+	GuestPartner           *string           `pulumi:"guestPartner"`
+	HostIdentity           *BusinessIdentity `pulumi:"hostIdentity"`
+	HostPartner            *string           `pulumi:"hostPartner"`
+	Id                     *string           `pulumi:"id"`
+	IntegrationAccountName string            `pulumi:"integrationAccountName"`
+	Location               *string           `pulumi:"location"`
+	Metadata               interface{}       `pulumi:"metadata"`
+	Name                   *string           `pulumi:"name"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	Tags                   map[string]string `pulumi:"tags"`
+	Type                   *string           `pulumi:"type"`
 }
 
 // The set of arguments for constructing a IntegrationAccountAgreement resource.
 type IntegrationAccountAgreementArgs struct {
-	// The integration account agreement name.
-	AgreementName pulumi.StringPtrInput
-	// The agreement type.
-	AgreementType *AgreementType
-	// The agreement content.
-	Content AgreementContentPtrInput
-	// The guest identity.
-	GuestIdentity BusinessIdentityPtrInput
-	// The guest partner.
-	GuestPartner pulumi.StringPtrInput
-	// The host identity.
-	HostIdentity BusinessIdentityPtrInput
-	// The host partner.
-	HostPartner pulumi.StringPtrInput
-	// The resource id.
-	Id pulumi.StringPtrInput
-	// The integration account name.
+	AgreementName          pulumi.StringPtrInput
+	AgreementType          AgreementTypePtrInput
+	Content                AgreementContentPtrInput
+	GuestIdentity          BusinessIdentityPtrInput
+	GuestPartner           pulumi.StringPtrInput
+	HostIdentity           BusinessIdentityPtrInput
+	HostPartner            pulumi.StringPtrInput
+	Id                     pulumi.StringPtrInput
 	IntegrationAccountName pulumi.StringInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The metadata.
-	Metadata pulumi.Input
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
+	Location               pulumi.StringPtrInput
+	Metadata               pulumi.Input
+	Name                   pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
+	Type                   pulumi.StringPtrInput
 }
 
 func (IntegrationAccountAgreementArgs) ElementType() reflect.Type {
@@ -206,9 +163,7 @@ func (i *IntegrationAccountAgreement) ToIntegrationAccountAgreementOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementOutput)
 }
 
-type IntegrationAccountAgreementOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountAgreementOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAgreementOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountAgreement)(nil))

@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a hybrid machine.
 type Machine struct {
 	pulumi.CustomResourceState
 
-	// Identity for the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Hybrid Compute Machine properties
+	Identity   IdentityResponsePtrOutput       `pulumi:"identity"`
+	Location   pulumi.StringOutput             `pulumi:"location"`
+	Name       pulumi.StringOutput             `pulumi:"name"`
 	Properties MachinePropertiesResponseOutput `pulumi:"properties"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput        `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput          `pulumi:"tags"`
+	Type       pulumi.StringOutput             `pulumi:"type"`
 }
 
 // NewMachine registers a new resource with the given unique name, arguments, and options.
@@ -151,34 +143,22 @@ func (MachineState) ElementType() reflect.Type {
 }
 
 type machineArgs struct {
-	// Identity for the resource.
-	Identity *Identity `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the hybrid machine.
-	MachineName *string `pulumi:"machineName"`
-	// Hybrid Compute Machine properties
-	Properties *MachineProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Identity          *Identity          `pulumi:"identity"`
+	Location          *string            `pulumi:"location"`
+	MachineName       *string            `pulumi:"machineName"`
+	Properties        *MachineProperties `pulumi:"properties"`
+	ResourceGroupName string             `pulumi:"resourceGroupName"`
+	Tags              map[string]string  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Machine resource.
 type MachineArgs struct {
-	// Identity for the resource.
-	Identity IdentityPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the hybrid machine.
-	MachineName pulumi.StringPtrInput
-	// Hybrid Compute Machine properties
-	Properties MachinePropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
+	Identity          IdentityPtrInput
+	Location          pulumi.StringPtrInput
+	MachineName       pulumi.StringPtrInput
+	Properties        MachinePropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (MachineArgs) ElementType() reflect.Type {
@@ -204,9 +184,7 @@ func (i *Machine) ToMachineOutputWithContext(ctx context.Context) MachineOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(MachineOutput)
 }
 
-type MachineOutput struct {
-	*pulumi.OutputState
-}
+type MachineOutput struct{ *pulumi.OutputState }
 
 func (MachineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Machine)(nil))

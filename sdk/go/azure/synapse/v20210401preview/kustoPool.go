@@ -11,38 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Kusto kusto pool.
 type KustoPool struct {
 	pulumi.CustomResourceState
 
-	// The Kusto Pool data ingestion URI.
-	DataIngestionUri pulumi.StringOutput `pulumi:"dataIngestionUri"`
-	// The engine type
-	EngineType pulumi.StringPtrOutput `pulumi:"engineType"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The SKU of the kusto pool.
-	Sku AzureSkuResponseOutput `pulumi:"sku"`
-	// The state of the resource.
-	State pulumi.StringOutput `pulumi:"state"`
-	// The reason for the Kusto Pool's current state.
-	StateReason pulumi.StringOutput `pulumi:"stateReason"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The Kusto Pool URI.
-	Uri pulumi.StringOutput `pulumi:"uri"`
-	// The workspace unique identifier.
-	WorkspaceUid pulumi.StringPtrOutput `pulumi:"workspaceUid"`
+	DataIngestionUri  pulumi.StringOutput      `pulumi:"dataIngestionUri"`
+	EngineType        pulumi.StringPtrOutput   `pulumi:"engineType"`
+	Etag              pulumi.StringOutput      `pulumi:"etag"`
+	Location          pulumi.StringOutput      `pulumi:"location"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	Sku               AzureSkuResponseOutput   `pulumi:"sku"`
+	State             pulumi.StringOutput      `pulumi:"state"`
+	StateReason       pulumi.StringOutput      `pulumi:"stateReason"`
+	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput   `pulumi:"tags"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
+	Uri               pulumi.StringOutput      `pulumi:"uri"`
+	WorkspaceUid      pulumi.StringPtrOutput   `pulumi:"workspaceUid"`
 }
 
 // NewKustoPool registers a new resource with the given unique name, arguments, and options.
@@ -111,42 +96,26 @@ func (KustoPoolState) ElementType() reflect.Type {
 }
 
 type kustoPoolArgs struct {
-	// The engine type
-	EngineType *string `pulumi:"engineType"`
-	// The name of the Kusto pool.
-	KustoPoolName *string `pulumi:"kustoPoolName"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of the kusto pool.
-	Sku AzureSku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
-	// The workspace unique identifier.
-	WorkspaceUid *string `pulumi:"workspaceUid"`
+	EngineType        *string           `pulumi:"engineType"`
+	KustoPoolName     *string           `pulumi:"kustoPoolName"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               AzureSku          `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
+	WorkspaceName     string            `pulumi:"workspaceName"`
+	WorkspaceUid      *string           `pulumi:"workspaceUid"`
 }
 
 // The set of arguments for constructing a KustoPool resource.
 type KustoPoolArgs struct {
-	// The engine type
-	EngineType pulumi.StringPtrInput
-	// The name of the Kusto pool.
-	KustoPoolName pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	EngineType        pulumi.StringPtrInput
+	KustoPoolName     pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The SKU of the kusto pool.
-	Sku AzureSkuInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the workspace
-	WorkspaceName pulumi.StringInput
-	// The workspace unique identifier.
-	WorkspaceUid pulumi.StringPtrInput
+	Sku               AzureSkuInput
+	Tags              pulumi.StringMapInput
+	WorkspaceName     pulumi.StringInput
+	WorkspaceUid      pulumi.StringPtrInput
 }
 
 func (KustoPoolArgs) ElementType() reflect.Type {
@@ -172,9 +141,7 @@ func (i *KustoPool) ToKustoPoolOutputWithContext(ctx context.Context) KustoPoolO
 	return pulumi.ToOutputWithContext(ctx, i).(KustoPoolOutput)
 }
 
-type KustoPoolOutput struct {
-	*pulumi.OutputState
-}
+type KustoPoolOutput struct{ *pulumi.OutputState }
 
 func (KustoPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KustoPool)(nil))

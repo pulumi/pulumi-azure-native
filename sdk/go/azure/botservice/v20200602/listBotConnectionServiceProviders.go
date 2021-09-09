@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The list of bot service providers response.
 func ListBotConnectionServiceProviders(ctx *pulumi.Context, args *ListBotConnectionServiceProvidersArgs, opts ...pulumi.InvokeOption) (*ListBotConnectionServiceProvidersResult, error) {
 	var rv ListBotConnectionServiceProvidersResult
 	err := ctx.Invoke("azure-native:botservice/v20200602:listBotConnectionServiceProviders", args, &rv, opts...)
@@ -22,8 +21,6 @@ type ListBotConnectionServiceProvidersArgs struct {
 
 // The list of bot service providers response.
 type ListBotConnectionServiceProvidersResult struct {
-	// The link used to get the next page of bot service providers.
-	NextLink *string `pulumi:"nextLink"`
-	// Gets the list of bot service providers and their properties.
-	Value []ServiceProviderResponse `pulumi:"value"`
+	NextLink *string                   `pulumi:"nextLink"`
+	Value    []ServiceProviderResponse `pulumi:"value"`
 }

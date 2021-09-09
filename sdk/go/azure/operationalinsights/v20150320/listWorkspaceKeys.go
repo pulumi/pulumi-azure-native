@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The shared keys for a workspace.
 func ListWorkspaceKeys(ctx *pulumi.Context, args *ListWorkspaceKeysArgs, opts ...pulumi.InvokeOption) (*ListWorkspaceKeysResult, error) {
 	var rv ListWorkspaceKeysResult
 	err := ctx.Invoke("azure-native:operationalinsights/v20150320:listWorkspaceKeys", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListWorkspaceKeys(ctx *pulumi.Context, args *ListWorkspaceKeysArgs, opts ..
 }
 
 type ListWorkspaceKeysArgs struct {
-	// The Resource Group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Log Analytics Workspace name.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // The shared keys for a workspace.
 type ListWorkspaceKeysResult struct {
-	// The primary shared key of a workspace.
-	PrimarySharedKey *string `pulumi:"primarySharedKey"`
-	// The secondary shared key of a workspace.
+	PrimarySharedKey   *string `pulumi:"primarySharedKey"`
 	SecondarySharedKey *string `pulumi:"secondarySharedKey"`
 }

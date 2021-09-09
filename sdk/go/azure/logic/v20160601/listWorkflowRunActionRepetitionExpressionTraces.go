@@ -17,16 +17,11 @@ func ListWorkflowRunActionRepetitionExpressionTraces(ctx *pulumi.Context, args *
 }
 
 type ListWorkflowRunActionRepetitionExpressionTracesArgs struct {
-	// The workflow action name.
-	ActionName string `pulumi:"actionName"`
-	// The workflow repetition.
-	RepetitionName string `pulumi:"repetitionName"`
-	// The resource group name.
+	ActionName        string `pulumi:"actionName"`
+	RepetitionName    string `pulumi:"repetitionName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The workflow run name.
-	RunName string `pulumi:"runName"`
-	// The workflow name.
-	WorkflowName string `pulumi:"workflowName"`
+	RunName           string `pulumi:"runName"`
+	WorkflowName      string `pulumi:"workflowName"`
 }
 
 type ListWorkflowRunActionRepetitionExpressionTracesResult struct {

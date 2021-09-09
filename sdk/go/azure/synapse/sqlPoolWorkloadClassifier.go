@@ -209,9 +209,7 @@ func (i *SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadClassifierOutput)
 }
 
-type SqlPoolWorkloadClassifierOutput struct {
-	*pulumi.OutputState
-}
+type SqlPoolWorkloadClassifierOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolWorkloadClassifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPoolWorkloadClassifier)(nil))

@@ -10,20 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Confluent Offer detail
 type OfferDetail struct {
-	// Offer Id
-	Id string `pulumi:"id"`
-	// Offer Plan Id
-	PlanId string `pulumi:"planId"`
-	// Offer Plan Name
-	PlanName string `pulumi:"planName"`
-	// Publisher Id
-	PublisherId string `pulumi:"publisherId"`
-	// SaaS Offer Status
-	Status *string `pulumi:"status"`
-	// Offer Plan Term unit
-	TermUnit string `pulumi:"termUnit"`
+	Id          string  `pulumi:"id"`
+	PlanId      string  `pulumi:"planId"`
+	PlanName    string  `pulumi:"planName"`
+	PublisherId string  `pulumi:"publisherId"`
+	Status      *string `pulumi:"status"`
+	TermUnit    string  `pulumi:"termUnit"`
 }
 
 // OfferDetailInput is an input type that accepts OfferDetailArgs and OfferDetailOutput values.
@@ -37,20 +30,13 @@ type OfferDetailInput interface {
 	ToOfferDetailOutputWithContext(context.Context) OfferDetailOutput
 }
 
-// Confluent Offer detail
 type OfferDetailArgs struct {
-	// Offer Id
-	Id pulumi.StringInput `pulumi:"id"`
-	// Offer Plan Id
-	PlanId pulumi.StringInput `pulumi:"planId"`
-	// Offer Plan Name
-	PlanName pulumi.StringInput `pulumi:"planName"`
-	// Publisher Id
-	PublisherId pulumi.StringInput `pulumi:"publisherId"`
-	// SaaS Offer Status
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Offer Plan Term unit
-	TermUnit pulumi.StringInput `pulumi:"termUnit"`
+	Id          pulumi.StringInput    `pulumi:"id"`
+	PlanId      pulumi.StringInput    `pulumi:"planId"`
+	PlanName    pulumi.StringInput    `pulumi:"planName"`
+	PublisherId pulumi.StringInput    `pulumi:"publisherId"`
+	Status      pulumi.StringPtrInput `pulumi:"status"`
+	TermUnit    pulumi.StringInput    `pulumi:"termUnit"`
 }
 
 func (OfferDetailArgs) ElementType() reflect.Type {
@@ -106,7 +92,6 @@ func (i *offerDetailPtrType) ToOfferDetailPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(OfferDetailPtrOutput)
 }
 
-// Confluent Offer detail
 type OfferDetailOutput struct{ *pulumi.OutputState }
 
 func (OfferDetailOutput) ElementType() reflect.Type {
@@ -126,37 +111,31 @@ func (o OfferDetailOutput) ToOfferDetailPtrOutput() OfferDetailPtrOutput {
 }
 
 func (o OfferDetailOutput) ToOfferDetailPtrOutputWithContext(ctx context.Context) OfferDetailPtrOutput {
-	return o.ApplyT(func(v OfferDetail) *OfferDetail {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfferDetail) *OfferDetail {
 		return &v
 	}).(OfferDetailPtrOutput)
 }
 
-// Offer Id
 func (o OfferDetailOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v OfferDetail) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Offer Plan Id
 func (o OfferDetailOutput) PlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v OfferDetail) string { return v.PlanId }).(pulumi.StringOutput)
 }
 
-// Offer Plan Name
 func (o OfferDetailOutput) PlanName() pulumi.StringOutput {
 	return o.ApplyT(func(v OfferDetail) string { return v.PlanName }).(pulumi.StringOutput)
 }
 
-// Publisher Id
 func (o OfferDetailOutput) PublisherId() pulumi.StringOutput {
 	return o.ApplyT(func(v OfferDetail) string { return v.PublisherId }).(pulumi.StringOutput)
 }
 
-// SaaS Offer Status
 func (o OfferDetailOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OfferDetail) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Term unit
 func (o OfferDetailOutput) TermUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v OfferDetail) string { return v.TermUnit }).(pulumi.StringOutput)
 }
@@ -176,10 +155,15 @@ func (o OfferDetailPtrOutput) ToOfferDetailPtrOutputWithContext(ctx context.Cont
 }
 
 func (o OfferDetailPtrOutput) Elem() OfferDetailOutput {
-	return o.ApplyT(func(v *OfferDetail) OfferDetail { return *v }).(OfferDetailOutput)
+	return o.ApplyT(func(v *OfferDetail) OfferDetail {
+		if v != nil {
+			return *v
+		}
+		var ret OfferDetail
+		return ret
+	}).(OfferDetailOutput)
 }
 
-// Offer Id
 func (o OfferDetailPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfferDetail) *string {
 		if v == nil {
@@ -189,7 +173,6 @@ func (o OfferDetailPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Id
 func (o OfferDetailPtrOutput) PlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfferDetail) *string {
 		if v == nil {
@@ -199,7 +182,6 @@ func (o OfferDetailPtrOutput) PlanId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Name
 func (o OfferDetailPtrOutput) PlanName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfferDetail) *string {
 		if v == nil {
@@ -209,7 +191,6 @@ func (o OfferDetailPtrOutput) PlanName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Publisher Id
 func (o OfferDetailPtrOutput) PublisherId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfferDetail) *string {
 		if v == nil {
@@ -219,7 +200,6 @@ func (o OfferDetailPtrOutput) PublisherId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SaaS Offer Status
 func (o OfferDetailPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfferDetail) *string {
 		if v == nil {
@@ -229,7 +209,6 @@ func (o OfferDetailPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Term unit
 func (o OfferDetailPtrOutput) TermUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfferDetail) *string {
 		if v == nil {
@@ -239,20 +218,13 @@ func (o OfferDetailPtrOutput) TermUnit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Confluent Offer detail
 type OfferDetailResponse struct {
-	// Offer Id
-	Id string `pulumi:"id"`
-	// Offer Plan Id
-	PlanId string `pulumi:"planId"`
-	// Offer Plan Name
-	PlanName string `pulumi:"planName"`
-	// Publisher Id
-	PublisherId string `pulumi:"publisherId"`
-	// SaaS Offer Status
-	Status *string `pulumi:"status"`
-	// Offer Plan Term unit
-	TermUnit string `pulumi:"termUnit"`
+	Id          string  `pulumi:"id"`
+	PlanId      string  `pulumi:"planId"`
+	PlanName    string  `pulumi:"planName"`
+	PublisherId string  `pulumi:"publisherId"`
+	Status      *string `pulumi:"status"`
+	TermUnit    string  `pulumi:"termUnit"`
 }
 
 // OfferDetailResponseInput is an input type that accepts OfferDetailResponseArgs and OfferDetailResponseOutput values.
@@ -266,20 +238,13 @@ type OfferDetailResponseInput interface {
 	ToOfferDetailResponseOutputWithContext(context.Context) OfferDetailResponseOutput
 }
 
-// Confluent Offer detail
 type OfferDetailResponseArgs struct {
-	// Offer Id
-	Id pulumi.StringInput `pulumi:"id"`
-	// Offer Plan Id
-	PlanId pulumi.StringInput `pulumi:"planId"`
-	// Offer Plan Name
-	PlanName pulumi.StringInput `pulumi:"planName"`
-	// Publisher Id
-	PublisherId pulumi.StringInput `pulumi:"publisherId"`
-	// SaaS Offer Status
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Offer Plan Term unit
-	TermUnit pulumi.StringInput `pulumi:"termUnit"`
+	Id          pulumi.StringInput    `pulumi:"id"`
+	PlanId      pulumi.StringInput    `pulumi:"planId"`
+	PlanName    pulumi.StringInput    `pulumi:"planName"`
+	PublisherId pulumi.StringInput    `pulumi:"publisherId"`
+	Status      pulumi.StringPtrInput `pulumi:"status"`
+	TermUnit    pulumi.StringInput    `pulumi:"termUnit"`
 }
 
 func (OfferDetailResponseArgs) ElementType() reflect.Type {
@@ -335,7 +300,6 @@ func (i *offerDetailResponsePtrType) ToOfferDetailResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(OfferDetailResponsePtrOutput)
 }
 
-// Confluent Offer detail
 type OfferDetailResponseOutput struct{ *pulumi.OutputState }
 
 func (OfferDetailResponseOutput) ElementType() reflect.Type {
@@ -355,37 +319,31 @@ func (o OfferDetailResponseOutput) ToOfferDetailResponsePtrOutput() OfferDetailR
 }
 
 func (o OfferDetailResponseOutput) ToOfferDetailResponsePtrOutputWithContext(ctx context.Context) OfferDetailResponsePtrOutput {
-	return o.ApplyT(func(v OfferDetailResponse) *OfferDetailResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfferDetailResponse) *OfferDetailResponse {
 		return &v
 	}).(OfferDetailResponsePtrOutput)
 }
 
-// Offer Id
 func (o OfferDetailResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v OfferDetailResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Offer Plan Id
 func (o OfferDetailResponseOutput) PlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v OfferDetailResponse) string { return v.PlanId }).(pulumi.StringOutput)
 }
 
-// Offer Plan Name
 func (o OfferDetailResponseOutput) PlanName() pulumi.StringOutput {
 	return o.ApplyT(func(v OfferDetailResponse) string { return v.PlanName }).(pulumi.StringOutput)
 }
 
-// Publisher Id
 func (o OfferDetailResponseOutput) PublisherId() pulumi.StringOutput {
 	return o.ApplyT(func(v OfferDetailResponse) string { return v.PublisherId }).(pulumi.StringOutput)
 }
 
-// SaaS Offer Status
 func (o OfferDetailResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OfferDetailResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Term unit
 func (o OfferDetailResponseOutput) TermUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v OfferDetailResponse) string { return v.TermUnit }).(pulumi.StringOutput)
 }
@@ -405,10 +363,15 @@ func (o OfferDetailResponsePtrOutput) ToOfferDetailResponsePtrOutputWithContext(
 }
 
 func (o OfferDetailResponsePtrOutput) Elem() OfferDetailResponseOutput {
-	return o.ApplyT(func(v *OfferDetailResponse) OfferDetailResponse { return *v }).(OfferDetailResponseOutput)
+	return o.ApplyT(func(v *OfferDetailResponse) OfferDetailResponse {
+		if v != nil {
+			return *v
+		}
+		var ret OfferDetailResponse
+		return ret
+	}).(OfferDetailResponseOutput)
 }
 
-// Offer Id
 func (o OfferDetailResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfferDetailResponse) *string {
 		if v == nil {
@@ -418,7 +381,6 @@ func (o OfferDetailResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Id
 func (o OfferDetailResponsePtrOutput) PlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfferDetailResponse) *string {
 		if v == nil {
@@ -428,7 +390,6 @@ func (o OfferDetailResponsePtrOutput) PlanId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Name
 func (o OfferDetailResponsePtrOutput) PlanName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfferDetailResponse) *string {
 		if v == nil {
@@ -438,7 +399,6 @@ func (o OfferDetailResponsePtrOutput) PlanName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Publisher Id
 func (o OfferDetailResponsePtrOutput) PublisherId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfferDetailResponse) *string {
 		if v == nil {
@@ -448,7 +408,6 @@ func (o OfferDetailResponsePtrOutput) PublisherId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SaaS Offer Status
 func (o OfferDetailResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfferDetailResponse) *string {
 		if v == nil {
@@ -458,7 +417,6 @@ func (o OfferDetailResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Term unit
 func (o OfferDetailResponsePtrOutput) TermUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfferDetailResponse) *string {
 		if v == nil {
@@ -468,19 +426,12 @@ func (o OfferDetailResponsePtrOutput) TermUnit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -495,19 +446,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -564,7 +508,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -584,37 +527,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -634,10 +571,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -647,7 +589,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -657,7 +598,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -667,7 +607,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -677,7 +616,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -687,7 +625,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -697,14 +634,10 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subscriber detail
 type UserDetail struct {
-	// Email address
-	EmailAddress string `pulumi:"emailAddress"`
-	// First name
-	FirstName *string `pulumi:"firstName"`
-	// Last name
-	LastName *string `pulumi:"lastName"`
+	EmailAddress string  `pulumi:"emailAddress"`
+	FirstName    *string `pulumi:"firstName"`
+	LastName     *string `pulumi:"lastName"`
 }
 
 // UserDetailInput is an input type that accepts UserDetailArgs and UserDetailOutput values.
@@ -718,14 +651,10 @@ type UserDetailInput interface {
 	ToUserDetailOutputWithContext(context.Context) UserDetailOutput
 }
 
-// Subscriber detail
 type UserDetailArgs struct {
-	// Email address
-	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// First name
-	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
-	// Last name
-	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	EmailAddress pulumi.StringInput    `pulumi:"emailAddress"`
+	FirstName    pulumi.StringPtrInput `pulumi:"firstName"`
+	LastName     pulumi.StringPtrInput `pulumi:"lastName"`
 }
 
 func (UserDetailArgs) ElementType() reflect.Type {
@@ -781,7 +710,6 @@ func (i *userDetailPtrType) ToUserDetailPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(UserDetailPtrOutput)
 }
 
-// Subscriber detail
 type UserDetailOutput struct{ *pulumi.OutputState }
 
 func (UserDetailOutput) ElementType() reflect.Type {
@@ -801,22 +729,19 @@ func (o UserDetailOutput) ToUserDetailPtrOutput() UserDetailPtrOutput {
 }
 
 func (o UserDetailOutput) ToUserDetailPtrOutputWithContext(ctx context.Context) UserDetailPtrOutput {
-	return o.ApplyT(func(v UserDetail) *UserDetail {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserDetail) *UserDetail {
 		return &v
 	}).(UserDetailPtrOutput)
 }
 
-// Email address
 func (o UserDetailOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v UserDetail) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// First name
 func (o UserDetailOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserDetail) *string { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
-// Last name
 func (o UserDetailOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserDetail) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
@@ -836,10 +761,15 @@ func (o UserDetailPtrOutput) ToUserDetailPtrOutputWithContext(ctx context.Contex
 }
 
 func (o UserDetailPtrOutput) Elem() UserDetailOutput {
-	return o.ApplyT(func(v *UserDetail) UserDetail { return *v }).(UserDetailOutput)
+	return o.ApplyT(func(v *UserDetail) UserDetail {
+		if v != nil {
+			return *v
+		}
+		var ret UserDetail
+		return ret
+	}).(UserDetailOutput)
 }
 
-// Email address
 func (o UserDetailPtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserDetail) *string {
 		if v == nil {
@@ -849,7 +779,6 @@ func (o UserDetailPtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// First name
 func (o UserDetailPtrOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserDetail) *string {
 		if v == nil {
@@ -859,7 +788,6 @@ func (o UserDetailPtrOutput) FirstName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last name
 func (o UserDetailPtrOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserDetail) *string {
 		if v == nil {
@@ -869,14 +797,10 @@ func (o UserDetailPtrOutput) LastName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subscriber detail
 type UserDetailResponse struct {
-	// Email address
-	EmailAddress string `pulumi:"emailAddress"`
-	// First name
-	FirstName *string `pulumi:"firstName"`
-	// Last name
-	LastName *string `pulumi:"lastName"`
+	EmailAddress string  `pulumi:"emailAddress"`
+	FirstName    *string `pulumi:"firstName"`
+	LastName     *string `pulumi:"lastName"`
 }
 
 // UserDetailResponseInput is an input type that accepts UserDetailResponseArgs and UserDetailResponseOutput values.
@@ -890,14 +814,10 @@ type UserDetailResponseInput interface {
 	ToUserDetailResponseOutputWithContext(context.Context) UserDetailResponseOutput
 }
 
-// Subscriber detail
 type UserDetailResponseArgs struct {
-	// Email address
-	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// First name
-	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
-	// Last name
-	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	EmailAddress pulumi.StringInput    `pulumi:"emailAddress"`
+	FirstName    pulumi.StringPtrInput `pulumi:"firstName"`
+	LastName     pulumi.StringPtrInput `pulumi:"lastName"`
 }
 
 func (UserDetailResponseArgs) ElementType() reflect.Type {
@@ -953,7 +873,6 @@ func (i *userDetailResponsePtrType) ToUserDetailResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(UserDetailResponsePtrOutput)
 }
 
-// Subscriber detail
 type UserDetailResponseOutput struct{ *pulumi.OutputState }
 
 func (UserDetailResponseOutput) ElementType() reflect.Type {
@@ -973,22 +892,19 @@ func (o UserDetailResponseOutput) ToUserDetailResponsePtrOutput() UserDetailResp
 }
 
 func (o UserDetailResponseOutput) ToUserDetailResponsePtrOutputWithContext(ctx context.Context) UserDetailResponsePtrOutput {
-	return o.ApplyT(func(v UserDetailResponse) *UserDetailResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserDetailResponse) *UserDetailResponse {
 		return &v
 	}).(UserDetailResponsePtrOutput)
 }
 
-// Email address
 func (o UserDetailResponseOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v UserDetailResponse) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// First name
 func (o UserDetailResponseOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserDetailResponse) *string { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
-// Last name
 func (o UserDetailResponseOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserDetailResponse) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
@@ -1008,10 +924,15 @@ func (o UserDetailResponsePtrOutput) ToUserDetailResponsePtrOutputWithContext(ct
 }
 
 func (o UserDetailResponsePtrOutput) Elem() UserDetailResponseOutput {
-	return o.ApplyT(func(v *UserDetailResponse) UserDetailResponse { return *v }).(UserDetailResponseOutput)
+	return o.ApplyT(func(v *UserDetailResponse) UserDetailResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserDetailResponse
+		return ret
+	}).(UserDetailResponseOutput)
 }
 
-// Email address
 func (o UserDetailResponsePtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserDetailResponse) *string {
 		if v == nil {
@@ -1021,7 +942,6 @@ func (o UserDetailResponsePtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// First name
 func (o UserDetailResponsePtrOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserDetailResponse) *string {
 		if v == nil {
@@ -1031,7 +951,6 @@ func (o UserDetailResponsePtrOutput) FirstName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last name
 func (o UserDetailResponsePtrOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserDetailResponse) *string {
 		if v == nil {

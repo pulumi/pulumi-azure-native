@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cloud Endpoint object.
 func LookupCloudEndpoint(ctx *pulumi.Context, args *LookupCloudEndpointArgs, opts ...pulumi.InvokeOption) (*LookupCloudEndpointResult, error) {
 	var rv LookupCloudEndpointResult
 	err := ctx.Invoke("azure-native:storagesync/v20170605preview:getCloudEndpoint", args, &rv, opts...)
@@ -18,42 +17,25 @@ func LookupCloudEndpoint(ctx *pulumi.Context, args *LookupCloudEndpointArgs, opt
 }
 
 type LookupCloudEndpointArgs struct {
-	// Name of Cloud Endpoint object.
-	CloudEndpointName string `pulumi:"cloudEndpointName"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Storage Sync Service resource.
+	CloudEndpointName      string `pulumi:"cloudEndpointName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
-	// Name of Sync Group resource.
-	SyncGroupName string `pulumi:"syncGroupName"`
+	SyncGroupName          string `pulumi:"syncGroupName"`
 }
 
 // Cloud Endpoint object.
 type LookupCloudEndpointResult struct {
-	// Backup Enabled
-	BackupEnabled bool `pulumi:"backupEnabled"`
-	// Friendly Name
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The id of the resource.
-	Id string `pulumi:"id"`
-	// CloudEndpoint lastWorkflowId
-	LastWorkflowId *string `pulumi:"lastWorkflowId"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Partnership Id
-	PartnershipId *string `pulumi:"partnershipId"`
-	// CloudEndpoint Provisioning State
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Storage Account name.
-	StorageAccount *string `pulumi:"storageAccount"`
-	// Storage Account access key.
-	StorageAccountKey *string `pulumi:"storageAccountKey"`
-	// Storage Account Resource Id
+	BackupEnabled            bool    `pulumi:"backupEnabled"`
+	FriendlyName             *string `pulumi:"friendlyName"`
+	Id                       string  `pulumi:"id"`
+	LastWorkflowId           *string `pulumi:"lastWorkflowId"`
+	Name                     string  `pulumi:"name"`
+	PartnershipId            *string `pulumi:"partnershipId"`
+	ProvisioningState        *string `pulumi:"provisioningState"`
+	StorageAccount           *string `pulumi:"storageAccount"`
+	StorageAccountKey        *string `pulumi:"storageAccountKey"`
 	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
-	// Storage Account Share name
-	StorageAccountShareName *string `pulumi:"storageAccountShareName"`
-	// Storage Account Tenant Id
-	StorageAccountTenantId *string `pulumi:"storageAccountTenantId"`
-	// The type of the resource
-	Type string `pulumi:"type"`
+	StorageAccountShareName  *string `pulumi:"storageAccountShareName"`
+	StorageAccountTenantId   *string `pulumi:"storageAccountTenantId"`
+	Type                     string  `pulumi:"type"`
 }

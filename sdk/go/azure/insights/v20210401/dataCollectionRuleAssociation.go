@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of generic ARM proxy resource.
 type DataCollectionRuleAssociation struct {
 	pulumi.CustomResourceState
 
-	// The resource ID of the data collection endpoint that is to be associated.
-	DataCollectionEndpointId pulumi.StringPtrOutput `pulumi:"dataCollectionEndpointId"`
-	// The resource ID of the data collection rule that is to be associated.
-	DataCollectionRuleId pulumi.StringPtrOutput `pulumi:"dataCollectionRuleId"`
-	// Description of the association.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Resource entity tag (ETag).
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput `pulumi:"systemData"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataCollectionEndpointId pulumi.StringPtrOutput                                                 `pulumi:"dataCollectionEndpointId"`
+	DataCollectionRuleId     pulumi.StringPtrOutput                                                 `pulumi:"dataCollectionRuleId"`
+	Description              pulumi.StringPtrOutput                                                 `pulumi:"description"`
+	Etag                     pulumi.StringOutput                                                    `pulumi:"etag"`
+	Name                     pulumi.StringOutput                                                    `pulumi:"name"`
+	ProvisioningState        pulumi.StringOutput                                                    `pulumi:"provisioningState"`
+	SystemData               DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput `pulumi:"systemData"`
+	Type                     pulumi.StringOutput                                                    `pulumi:"type"`
 }
 
 // NewDataCollectionRuleAssociation registers a new resource with the given unique name, arguments, and options.
@@ -93,30 +84,20 @@ func (DataCollectionRuleAssociationState) ElementType() reflect.Type {
 }
 
 type dataCollectionRuleAssociationArgs struct {
-	// The name of the association. The name is case insensitive.
-	AssociationName *string `pulumi:"associationName"`
-	// The resource ID of the data collection endpoint that is to be associated.
+	AssociationName          *string `pulumi:"associationName"`
 	DataCollectionEndpointId *string `pulumi:"dataCollectionEndpointId"`
-	// The resource ID of the data collection rule that is to be associated.
-	DataCollectionRuleId *string `pulumi:"dataCollectionRuleId"`
-	// Description of the association.
-	Description *string `pulumi:"description"`
-	// The identifier of the resource.
-	ResourceUri string `pulumi:"resourceUri"`
+	DataCollectionRuleId     *string `pulumi:"dataCollectionRuleId"`
+	Description              *string `pulumi:"description"`
+	ResourceUri              string  `pulumi:"resourceUri"`
 }
 
 // The set of arguments for constructing a DataCollectionRuleAssociation resource.
 type DataCollectionRuleAssociationArgs struct {
-	// The name of the association. The name is case insensitive.
-	AssociationName pulumi.StringPtrInput
-	// The resource ID of the data collection endpoint that is to be associated.
+	AssociationName          pulumi.StringPtrInput
 	DataCollectionEndpointId pulumi.StringPtrInput
-	// The resource ID of the data collection rule that is to be associated.
-	DataCollectionRuleId pulumi.StringPtrInput
-	// Description of the association.
-	Description pulumi.StringPtrInput
-	// The identifier of the resource.
-	ResourceUri pulumi.StringInput
+	DataCollectionRuleId     pulumi.StringPtrInput
+	Description              pulumi.StringPtrInput
+	ResourceUri              pulumi.StringInput
 }
 
 func (DataCollectionRuleAssociationArgs) ElementType() reflect.Type {
@@ -142,9 +123,7 @@ func (i *DataCollectionRuleAssociation) ToDataCollectionRuleAssociationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleAssociationOutput)
 }
 
-type DataCollectionRuleAssociationOutput struct {
-	*pulumi.OutputState
-}
+type DataCollectionRuleAssociationOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataCollectionRuleAssociation)(nil))

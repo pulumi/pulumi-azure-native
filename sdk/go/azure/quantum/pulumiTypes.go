@@ -396,7 +396,7 @@ func (o QuantumWorkspaceIdentityOutput) ToQuantumWorkspaceIdentityPtrOutput() Qu
 }
 
 func (o QuantumWorkspaceIdentityOutput) ToQuantumWorkspaceIdentityPtrOutputWithContext(ctx context.Context) QuantumWorkspaceIdentityPtrOutput {
-	return o.ApplyT(func(v QuantumWorkspaceIdentity) *QuantumWorkspaceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuantumWorkspaceIdentity) *QuantumWorkspaceIdentity {
 		return &v
 	}).(QuantumWorkspaceIdentityPtrOutput)
 }
@@ -421,7 +421,13 @@ func (o QuantumWorkspaceIdentityPtrOutput) ToQuantumWorkspaceIdentityPtrOutputWi
 }
 
 func (o QuantumWorkspaceIdentityPtrOutput) Elem() QuantumWorkspaceIdentityOutput {
-	return o.ApplyT(func(v *QuantumWorkspaceIdentity) QuantumWorkspaceIdentity { return *v }).(QuantumWorkspaceIdentityOutput)
+	return o.ApplyT(func(v *QuantumWorkspaceIdentity) QuantumWorkspaceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret QuantumWorkspaceIdentity
+		return ret
+	}).(QuantumWorkspaceIdentityOutput)
 }
 
 // The identity type.
@@ -538,7 +544,7 @@ func (o QuantumWorkspaceResponseIdentityOutput) ToQuantumWorkspaceResponseIdenti
 }
 
 func (o QuantumWorkspaceResponseIdentityOutput) ToQuantumWorkspaceResponseIdentityPtrOutputWithContext(ctx context.Context) QuantumWorkspaceResponseIdentityPtrOutput {
-	return o.ApplyT(func(v QuantumWorkspaceResponseIdentity) *QuantumWorkspaceResponseIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuantumWorkspaceResponseIdentity) *QuantumWorkspaceResponseIdentity {
 		return &v
 	}).(QuantumWorkspaceResponseIdentityPtrOutput)
 }
@@ -573,7 +579,13 @@ func (o QuantumWorkspaceResponseIdentityPtrOutput) ToQuantumWorkspaceResponseIde
 }
 
 func (o QuantumWorkspaceResponseIdentityPtrOutput) Elem() QuantumWorkspaceResponseIdentityOutput {
-	return o.ApplyT(func(v *QuantumWorkspaceResponseIdentity) QuantumWorkspaceResponseIdentity { return *v }).(QuantumWorkspaceResponseIdentityOutput)
+	return o.ApplyT(func(v *QuantumWorkspaceResponseIdentity) QuantumWorkspaceResponseIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret QuantumWorkspaceResponseIdentity
+		return ret
+	}).(QuantumWorkspaceResponseIdentityOutput)
 }
 
 // The principal ID of resource identity.
@@ -722,7 +734,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -772,7 +784,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

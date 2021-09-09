@@ -11,29 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Blueprint artifact applies Policy assignments.
 type PolicyAssignmentArtifact struct {
 	pulumi.CustomResourceState
 
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn pulumi.StringArrayOutput `pulumi:"dependsOn"`
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Specifies the kind of Blueprint artifact.
-	// Expected value is 'policyAssignment'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of this resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Parameter values for the policy definition.
-	Parameters ParameterValueBaseResponseMapOutput `pulumi:"parameters"`
-	// Azure resource ID of the policy definition.
-	PolicyDefinitionId pulumi.StringOutput `pulumi:"policyDefinitionId"`
-	// Name of the resource group placeholder to which the policy will be assigned.
-	ResourceGroup pulumi.StringPtrOutput `pulumi:"resourceGroup"`
-	// Type of this resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DependsOn          pulumi.StringArrayOutput            `pulumi:"dependsOn"`
+	Description        pulumi.StringPtrOutput              `pulumi:"description"`
+	DisplayName        pulumi.StringPtrOutput              `pulumi:"displayName"`
+	Kind               pulumi.StringOutput                 `pulumi:"kind"`
+	Name               pulumi.StringOutput                 `pulumi:"name"`
+	Parameters         ParameterValueBaseResponseMapOutput `pulumi:"parameters"`
+	PolicyDefinitionId pulumi.StringOutput                 `pulumi:"policyDefinitionId"`
+	ResourceGroup      pulumi.StringPtrOutput              `pulumi:"resourceGroup"`
+	Type               pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewPolicyAssignmentArtifact registers a new resource with the given unique name, arguments, and options.
@@ -97,52 +86,30 @@ func (PolicyAssignmentArtifactState) ElementType() reflect.Type {
 }
 
 type policyAssignmentArtifactArgs struct {
-	// name of the artifact.
-	ArtifactName *string `pulumi:"artifactName"`
-	// name of the blueprint.
-	BlueprintName string `pulumi:"blueprintName"`
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn []string `pulumi:"dependsOn"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// Specifies the kind of Blueprint artifact.
-	// Expected value is 'policyAssignment'.
-	Kind string `pulumi:"kind"`
-	// ManagementGroup where blueprint stores.
-	ManagementGroupName string `pulumi:"managementGroupName"`
-	// Parameter values for the policy definition.
-	Parameters map[string]ParameterValueBase `pulumi:"parameters"`
-	// Azure resource ID of the policy definition.
-	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
-	// Name of the resource group placeholder to which the policy will be assigned.
-	ResourceGroup *string `pulumi:"resourceGroup"`
+	ArtifactName        *string                       `pulumi:"artifactName"`
+	BlueprintName       string                        `pulumi:"blueprintName"`
+	DependsOn           []string                      `pulumi:"dependsOn"`
+	Description         *string                       `pulumi:"description"`
+	DisplayName         *string                       `pulumi:"displayName"`
+	Kind                string                        `pulumi:"kind"`
+	ManagementGroupName string                        `pulumi:"managementGroupName"`
+	Parameters          map[string]ParameterValueBase `pulumi:"parameters"`
+	PolicyDefinitionId  string                        `pulumi:"policyDefinitionId"`
+	ResourceGroup       *string                       `pulumi:"resourceGroup"`
 }
 
 // The set of arguments for constructing a PolicyAssignmentArtifact resource.
 type PolicyAssignmentArtifactArgs struct {
-	// name of the artifact.
-	ArtifactName pulumi.StringPtrInput
-	// name of the blueprint.
-	BlueprintName pulumi.StringInput
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn pulumi.StringArrayInput
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrInput
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrInput
-	// Specifies the kind of Blueprint artifact.
-	// Expected value is 'policyAssignment'.
-	Kind pulumi.StringInput
-	// ManagementGroup where blueprint stores.
+	ArtifactName        pulumi.StringPtrInput
+	BlueprintName       pulumi.StringInput
+	DependsOn           pulumi.StringArrayInput
+	Description         pulumi.StringPtrInput
+	DisplayName         pulumi.StringPtrInput
+	Kind                pulumi.StringInput
 	ManagementGroupName pulumi.StringInput
-	// Parameter values for the policy definition.
-	Parameters ParameterValueBaseMapInput
-	// Azure resource ID of the policy definition.
-	PolicyDefinitionId pulumi.StringInput
-	// Name of the resource group placeholder to which the policy will be assigned.
-	ResourceGroup pulumi.StringPtrInput
+	Parameters          ParameterValueBaseMapInput
+	PolicyDefinitionId  pulumi.StringInput
+	ResourceGroup       pulumi.StringPtrInput
 }
 
 func (PolicyAssignmentArtifactArgs) ElementType() reflect.Type {
@@ -168,9 +135,7 @@ func (i *PolicyAssignmentArtifact) ToPolicyAssignmentArtifactOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentArtifactOutput)
 }
 
-type PolicyAssignmentArtifactOutput struct {
-	*pulumi.OutputState
-}
+type PolicyAssignmentArtifactOutput struct{ *pulumi.OutputState }
 
 func (PolicyAssignmentArtifactOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyAssignmentArtifact)(nil))

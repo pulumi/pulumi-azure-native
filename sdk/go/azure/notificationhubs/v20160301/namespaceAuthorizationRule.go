@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a Namespace AuthorizationRules.
 type NamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState
 
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayOutput `pulumi:"rights"`
-	// The sku of the created namespace
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location pulumi.StringOutput      `pulumi:"location"`
+	Name     pulumi.StringOutput      `pulumi:"name"`
+	Rights   pulumi.StringArrayOutput `pulumi:"rights"`
+	Sku      SkuResponsePtrOutput     `pulumi:"sku"`
+	Tags     pulumi.StringMapOutput   `pulumi:"tags"`
+	Type     pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewNamespaceAuthorizationRule registers a new resource with the given unique name, arguments, and options.
@@ -95,38 +88,24 @@ func (NamespaceAuthorizationRuleState) ElementType() reflect.Type {
 }
 
 type namespaceAuthorizationRuleArgs struct {
-	// Authorization Rule Name.
-	AuthorizationRuleName *string `pulumi:"authorizationRuleName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The namespace name.
-	NamespaceName string `pulumi:"namespaceName"`
-	// Properties of the Namespace AuthorizationRules.
-	Properties SharedAccessAuthorizationRuleProperties `pulumi:"properties"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku of the created namespace
-	Sku *Sku `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	AuthorizationRuleName *string                                 `pulumi:"authorizationRuleName"`
+	Location              *string                                 `pulumi:"location"`
+	NamespaceName         string                                  `pulumi:"namespaceName"`
+	Properties            SharedAccessAuthorizationRuleProperties `pulumi:"properties"`
+	ResourceGroupName     string                                  `pulumi:"resourceGroupName"`
+	Sku                   *Sku                                    `pulumi:"sku"`
+	Tags                  map[string]string                       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NamespaceAuthorizationRule resource.
 type NamespaceAuthorizationRuleArgs struct {
-	// Authorization Rule Name.
 	AuthorizationRuleName pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The namespace name.
-	NamespaceName pulumi.StringInput
-	// Properties of the Namespace AuthorizationRules.
-	Properties SharedAccessAuthorizationRulePropertiesInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The sku of the created namespace
-	Sku SkuPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Location              pulumi.StringPtrInput
+	NamespaceName         pulumi.StringInput
+	Properties            SharedAccessAuthorizationRulePropertiesInput
+	ResourceGroupName     pulumi.StringInput
+	Sku                   SkuPtrInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (NamespaceAuthorizationRuleArgs) ElementType() reflect.Type {
@@ -152,9 +131,7 @@ func (i *NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceAuthorizationRuleOutput)
 }
 
-type NamespaceAuthorizationRuleOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (NamespaceAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NamespaceAuthorizationRule)(nil))

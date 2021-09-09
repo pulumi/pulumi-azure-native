@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Machine Learning dataset object wrapped into ARM resource envelope.
 type MachineLearningDataset struct {
 	pulumi.CustomResourceState
 
-	// The identity of the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Dataset properties
-	Properties DatasetResponseOutput `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity   IdentityResponsePtrOutput `pulumi:"identity"`
+	Location   pulumi.StringPtrOutput    `pulumi:"location"`
+	Name       pulumi.StringOutput       `pulumi:"name"`
+	Properties DatasetResponseOutput     `pulumi:"properties"`
+	Sku        SkuResponsePtrOutput      `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput    `pulumi:"tags"`
+	Type       pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewMachineLearningDataset registers a new resource with the given unique name, arguments, and options.
@@ -100,36 +92,26 @@ func (MachineLearningDatasetState) ElementType() reflect.Type {
 }
 
 type machineLearningDatasetArgs struct {
-	// The Dataset name.
-	DatasetName *string `pulumi:"datasetName"`
-	// Specifies dataset type.
-	DatasetType  string                           `pulumi:"datasetType"`
-	Parameters   DatasetCreateRequestParameters   `pulumi:"parameters"`
-	Registration DatasetCreateRequestRegistration `pulumi:"registration"`
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Skip validation that ensures data can be loaded from the dataset before registration.
-	SkipValidation *bool                           `pulumi:"skipValidation"`
-	TimeSeries     *DatasetCreateRequestTimeSeries `pulumi:"timeSeries"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	DatasetName       *string                          `pulumi:"datasetName"`
+	DatasetType       string                           `pulumi:"datasetType"`
+	Parameters        DatasetCreateRequestParameters   `pulumi:"parameters"`
+	Registration      DatasetCreateRequestRegistration `pulumi:"registration"`
+	ResourceGroupName string                           `pulumi:"resourceGroupName"`
+	SkipValidation    *bool                            `pulumi:"skipValidation"`
+	TimeSeries        *DatasetCreateRequestTimeSeries  `pulumi:"timeSeries"`
+	WorkspaceName     string                           `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a MachineLearningDataset resource.
 type MachineLearningDatasetArgs struct {
-	// The Dataset name.
-	DatasetName pulumi.StringPtrInput
-	// Specifies dataset type.
-	DatasetType  pulumi.StringInput
-	Parameters   DatasetCreateRequestParametersInput
-	Registration DatasetCreateRequestRegistrationInput
-	// Name of the resource group in which workspace is located.
+	DatasetName       pulumi.StringPtrInput
+	DatasetType       pulumi.StringInput
+	Parameters        DatasetCreateRequestParametersInput
+	Registration      DatasetCreateRequestRegistrationInput
 	ResourceGroupName pulumi.StringInput
-	// Skip validation that ensures data can be loaded from the dataset before registration.
-	SkipValidation pulumi.BoolPtrInput
-	TimeSeries     DatasetCreateRequestTimeSeriesPtrInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	SkipValidation    pulumi.BoolPtrInput
+	TimeSeries        DatasetCreateRequestTimeSeriesPtrInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (MachineLearningDatasetArgs) ElementType() reflect.Type {
@@ -155,9 +137,7 @@ func (i *MachineLearningDataset) ToMachineLearningDatasetOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningDatasetOutput)
 }
 
-type MachineLearningDatasetOutput struct {
-	*pulumi.OutputState
-}
+type MachineLearningDatasetOutput struct{ *pulumi.OutputState }
 
 func (MachineLearningDatasetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MachineLearningDataset)(nil))

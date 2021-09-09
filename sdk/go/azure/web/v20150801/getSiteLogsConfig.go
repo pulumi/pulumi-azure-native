@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Configuration of Azure web site
 func LookupSiteLogsConfig(ctx *pulumi.Context, args *LookupSiteLogsConfigArgs, opts ...pulumi.InvokeOption) (*LookupSiteLogsConfigResult, error) {
 	var rv LookupSiteLogsConfigResult
 	err := ctx.Invoke("azure-native:web/v20150801:getSiteLogsConfig", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupSiteLogsConfig(ctx *pulumi.Context, args *LookupSiteLogsConfigArgs, o
 }
 
 type LookupSiteLogsConfigArgs struct {
-	// Name of web app
-	Name string `pulumi:"name"`
-	// Name of resource group
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Configuration of Azure web site
 type LookupSiteLogsConfigResult struct {
-	// Application logs configuration
-	ApplicationLogs *ApplicationLogsConfigResponse `pulumi:"applicationLogs"`
-	// Detailed error messages configuration
-	DetailedErrorMessages *EnabledConfigResponse `pulumi:"detailedErrorMessages"`
-	// Failed requests tracing configuration
-	FailedRequestsTracing *EnabledConfigResponse `pulumi:"failedRequestsTracing"`
-	// Http logs configuration
-	HttpLogs *HttpLogsConfigResponse `pulumi:"httpLogs"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	ApplicationLogs       *ApplicationLogsConfigResponse `pulumi:"applicationLogs"`
+	DetailedErrorMessages *EnabledConfigResponse         `pulumi:"detailedErrorMessages"`
+	FailedRequestsTracing *EnabledConfigResponse         `pulumi:"failedRequestsTracing"`
+	HttpLogs              *HttpLogsConfigResponse        `pulumi:"httpLogs"`
+	Id                    *string                        `pulumi:"id"`
+	Kind                  *string                        `pulumi:"kind"`
+	Location              string                         `pulumi:"location"`
+	Name                  *string                        `pulumi:"name"`
+	Tags                  map[string]string              `pulumi:"tags"`
+	Type                  *string                        `pulumi:"type"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Result of the Get delivery attributes operation.
 func GetEventSubscriptionDeliveryAttributes(ctx *pulumi.Context, args *GetEventSubscriptionDeliveryAttributesArgs, opts ...pulumi.InvokeOption) (*GetEventSubscriptionDeliveryAttributesResult, error) {
 	var rv GetEventSubscriptionDeliveryAttributesResult
 	err := ctx.Invoke("azure-native:eventgrid/v20210601preview:getEventSubscriptionDeliveryAttributes", args, &rv, opts...)
@@ -18,14 +17,11 @@ func GetEventSubscriptionDeliveryAttributes(ctx *pulumi.Context, args *GetEventS
 }
 
 type GetEventSubscriptionDeliveryAttributesArgs struct {
-	// Name of the event subscription.
 	EventSubscriptionName string `pulumi:"eventSubscriptionName"`
-	// The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
-	Scope string `pulumi:"scope"`
+	Scope                 string `pulumi:"scope"`
 }
 
 // Result of the Get delivery attributes operation.
 type GetEventSubscriptionDeliveryAttributesResult struct {
-	// A collection of DeliveryAttributeMapping
 	Value []interface{} `pulumi:"value"`
 }

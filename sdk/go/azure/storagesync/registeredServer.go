@@ -246,9 +246,7 @@ func (i *RegisteredServer) ToRegisteredServerOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredServerOutput)
 }
 
-type RegisteredServerOutput struct {
-	*pulumi.OutputState
-}
+type RegisteredServerOutput struct{ *pulumi.OutputState }
 
 func (RegisteredServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegisteredServer)(nil))

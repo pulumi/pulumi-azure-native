@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of WcfRelays Resource.
 type WCFRelay struct {
 	pulumi.CustomResourceState
 
-	// The time the WCFRelay was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// true if the relay is dynamic; otherwise, false.
-	IsDynamic pulumi.BoolOutput `pulumi:"isDynamic"`
-	// The number of listeners for this relay. min : 1 and max:25 supported
-	ListenerCount pulumi.IntOutput `pulumi:"listenerCount"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// WCFRelay Type.
-	RelayType pulumi.StringPtrOutput `pulumi:"relayType"`
-	// true if client authorization is needed for this relay; otherwise, false.
-	RequiresClientAuthorization pulumi.BoolPtrOutput `pulumi:"requiresClientAuthorization"`
-	// true if transport security is needed for this relay; otherwise, false.
-	RequiresTransportSecurity pulumi.BoolPtrOutput `pulumi:"requiresTransportSecurity"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The time the namespace was updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
-	UserMetadata pulumi.StringPtrOutput `pulumi:"userMetadata"`
+	CreatedAt                   pulumi.StringOutput    `pulumi:"createdAt"`
+	IsDynamic                   pulumi.BoolOutput      `pulumi:"isDynamic"`
+	ListenerCount               pulumi.IntOutput       `pulumi:"listenerCount"`
+	Name                        pulumi.StringOutput    `pulumi:"name"`
+	RelayType                   pulumi.StringPtrOutput `pulumi:"relayType"`
+	RequiresClientAuthorization pulumi.BoolPtrOutput   `pulumi:"requiresClientAuthorization"`
+	RequiresTransportSecurity   pulumi.BoolPtrOutput   `pulumi:"requiresTransportSecurity"`
+	Type                        pulumi.StringOutput    `pulumi:"type"`
+	UpdatedAt                   pulumi.StringOutput    `pulumi:"updatedAt"`
+	UserMetadata                pulumi.StringPtrOutput `pulumi:"userMetadata"`
 }
 
 // NewWCFRelay registers a new resource with the given unique name, arguments, and options.
@@ -100,38 +89,24 @@ func (WCFRelayState) ElementType() reflect.Type {
 }
 
 type wcfrelayArgs struct {
-	// The Namespace Name
-	NamespaceName string `pulumi:"namespaceName"`
-	// The relay name
-	RelayName *string `pulumi:"relayName"`
-	// WCFRelay Type.
-	RelayType *string `pulumi:"relayType"`
-	// true if client authorization is needed for this relay; otherwise, false.
-	RequiresClientAuthorization *bool `pulumi:"requiresClientAuthorization"`
-	// true if transport security is needed for this relay; otherwise, false.
-	RequiresTransportSecurity *bool `pulumi:"requiresTransportSecurity"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
-	UserMetadata *string `pulumi:"userMetadata"`
+	NamespaceName               string  `pulumi:"namespaceName"`
+	RelayName                   *string `pulumi:"relayName"`
+	RelayType                   *string `pulumi:"relayType"`
+	RequiresClientAuthorization *bool   `pulumi:"requiresClientAuthorization"`
+	RequiresTransportSecurity   *bool   `pulumi:"requiresTransportSecurity"`
+	ResourceGroupName           string  `pulumi:"resourceGroupName"`
+	UserMetadata                *string `pulumi:"userMetadata"`
 }
 
 // The set of arguments for constructing a WCFRelay resource.
 type WCFRelayArgs struct {
-	// The Namespace Name
-	NamespaceName pulumi.StringInput
-	// The relay name
-	RelayName pulumi.StringPtrInput
-	// WCFRelay Type.
-	RelayType pulumi.StringPtrInput
-	// true if client authorization is needed for this relay; otherwise, false.
+	NamespaceName               pulumi.StringInput
+	RelayName                   pulumi.StringPtrInput
+	RelayType                   pulumi.StringPtrInput
 	RequiresClientAuthorization pulumi.BoolPtrInput
-	// true if transport security is needed for this relay; otherwise, false.
-	RequiresTransportSecurity pulumi.BoolPtrInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
-	UserMetadata pulumi.StringPtrInput
+	RequiresTransportSecurity   pulumi.BoolPtrInput
+	ResourceGroupName           pulumi.StringInput
+	UserMetadata                pulumi.StringPtrInput
 }
 
 func (WCFRelayArgs) ElementType() reflect.Type {
@@ -157,9 +132,7 @@ func (i *WCFRelay) ToWCFRelayOutputWithContext(ctx context.Context) WCFRelayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WCFRelayOutput)
 }
 
-type WCFRelayOutput struct {
-	*pulumi.OutputState
-}
+type WCFRelayOutput struct{ *pulumi.OutputState }
 
 func (WCFRelayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WCFRelay)(nil))

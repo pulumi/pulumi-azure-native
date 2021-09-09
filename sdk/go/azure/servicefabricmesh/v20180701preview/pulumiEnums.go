@@ -10,8 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The kind of DiagnosticsSink.
-type DiagnosticsSinkKind pulumi.String
+type DiagnosticsSinkKind string
 
 const (
 	// Indicates an invalid sink kind. All Service Fabric enumerations have the invalid type.
@@ -21,7 +20,23 @@ const (
 )
 
 func (DiagnosticsSinkKind) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*DiagnosticsSinkKind)(nil)).Elem()
+}
+
+func (e DiagnosticsSinkKind) ToDiagnosticsSinkKindOutput() DiagnosticsSinkKindOutput {
+	return pulumi.ToOutput(e).(DiagnosticsSinkKindOutput)
+}
+
+func (e DiagnosticsSinkKind) ToDiagnosticsSinkKindOutputWithContext(ctx context.Context) DiagnosticsSinkKindOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DiagnosticsSinkKindOutput)
+}
+
+func (e DiagnosticsSinkKind) ToDiagnosticsSinkKindPtrOutput() DiagnosticsSinkKindPtrOutput {
+	return e.ToDiagnosticsSinkKindPtrOutputWithContext(context.Background())
+}
+
+func (e DiagnosticsSinkKind) ToDiagnosticsSinkKindPtrOutputWithContext(ctx context.Context) DiagnosticsSinkKindPtrOutput {
+	return DiagnosticsSinkKind(e).ToDiagnosticsSinkKindOutputWithContext(ctx).ToDiagnosticsSinkKindPtrOutputWithContext(ctx)
 }
 
 func (e DiagnosticsSinkKind) ToStringOutput() pulumi.StringOutput {
@@ -40,8 +55,128 @@ func (e DiagnosticsSinkKind) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The health state of a resource such as Application, Service, or Network.
-type HealthState pulumi.String
+type DiagnosticsSinkKindOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticsSinkKindOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticsSinkKind)(nil)).Elem()
+}
+
+func (o DiagnosticsSinkKindOutput) ToDiagnosticsSinkKindOutput() DiagnosticsSinkKindOutput {
+	return o
+}
+
+func (o DiagnosticsSinkKindOutput) ToDiagnosticsSinkKindOutputWithContext(ctx context.Context) DiagnosticsSinkKindOutput {
+	return o
+}
+
+func (o DiagnosticsSinkKindOutput) ToDiagnosticsSinkKindPtrOutput() DiagnosticsSinkKindPtrOutput {
+	return o.ToDiagnosticsSinkKindPtrOutputWithContext(context.Background())
+}
+
+func (o DiagnosticsSinkKindOutput) ToDiagnosticsSinkKindPtrOutputWithContext(ctx context.Context) DiagnosticsSinkKindPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsSinkKind) *DiagnosticsSinkKind {
+		return &v
+	}).(DiagnosticsSinkKindPtrOutput)
+}
+
+func (o DiagnosticsSinkKindOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DiagnosticsSinkKindOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DiagnosticsSinkKind) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DiagnosticsSinkKindOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DiagnosticsSinkKindOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DiagnosticsSinkKind) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DiagnosticsSinkKindPtrOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticsSinkKindPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticsSinkKind)(nil)).Elem()
+}
+
+func (o DiagnosticsSinkKindPtrOutput) ToDiagnosticsSinkKindPtrOutput() DiagnosticsSinkKindPtrOutput {
+	return o
+}
+
+func (o DiagnosticsSinkKindPtrOutput) ToDiagnosticsSinkKindPtrOutputWithContext(ctx context.Context) DiagnosticsSinkKindPtrOutput {
+	return o
+}
+
+func (o DiagnosticsSinkKindPtrOutput) Elem() DiagnosticsSinkKindOutput {
+	return o.ApplyT(func(v *DiagnosticsSinkKind) DiagnosticsSinkKind {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticsSinkKind
+		return ret
+	}).(DiagnosticsSinkKindOutput)
+}
+
+func (o DiagnosticsSinkKindPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DiagnosticsSinkKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DiagnosticsSinkKind) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DiagnosticsSinkKindInput is an input type that accepts DiagnosticsSinkKindArgs and DiagnosticsSinkKindOutput values.
+// You can construct a concrete instance of `DiagnosticsSinkKindInput` via:
+//
+//          DiagnosticsSinkKindArgs{...}
+type DiagnosticsSinkKindInput interface {
+	pulumi.Input
+
+	ToDiagnosticsSinkKindOutput() DiagnosticsSinkKindOutput
+	ToDiagnosticsSinkKindOutputWithContext(context.Context) DiagnosticsSinkKindOutput
+}
+
+var diagnosticsSinkKindPtrType = reflect.TypeOf((**DiagnosticsSinkKind)(nil)).Elem()
+
+type DiagnosticsSinkKindPtrInput interface {
+	pulumi.Input
+
+	ToDiagnosticsSinkKindPtrOutput() DiagnosticsSinkKindPtrOutput
+	ToDiagnosticsSinkKindPtrOutputWithContext(context.Context) DiagnosticsSinkKindPtrOutput
+}
+
+type diagnosticsSinkKindPtr string
+
+func DiagnosticsSinkKindPtr(v string) DiagnosticsSinkKindPtrInput {
+	return (*diagnosticsSinkKindPtr)(&v)
+}
+
+func (*diagnosticsSinkKindPtr) ElementType() reflect.Type {
+	return diagnosticsSinkKindPtrType
+}
+
+func (in *diagnosticsSinkKindPtr) ToDiagnosticsSinkKindPtrOutput() DiagnosticsSinkKindPtrOutput {
+	return pulumi.ToOutput(in).(DiagnosticsSinkKindPtrOutput)
+}
+
+func (in *diagnosticsSinkKindPtr) ToDiagnosticsSinkKindPtrOutputWithContext(ctx context.Context) DiagnosticsSinkKindPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DiagnosticsSinkKindPtrOutput)
+}
+
+type HealthState string
 
 const (
 	// Indicates an invalid health state. All Service Fabric enumerations have the invalid type. The value is zero.
@@ -57,7 +192,23 @@ const (
 )
 
 func (HealthState) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*HealthState)(nil)).Elem()
+}
+
+func (e HealthState) ToHealthStateOutput() HealthStateOutput {
+	return pulumi.ToOutput(e).(HealthStateOutput)
+}
+
+func (e HealthState) ToHealthStateOutputWithContext(ctx context.Context) HealthStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HealthStateOutput)
+}
+
+func (e HealthState) ToHealthStatePtrOutput() HealthStatePtrOutput {
+	return e.ToHealthStatePtrOutputWithContext(context.Background())
+}
+
+func (e HealthState) ToHealthStatePtrOutputWithContext(ctx context.Context) HealthStatePtrOutput {
+	return HealthState(e).ToHealthStateOutputWithContext(ctx).ToHealthStatePtrOutputWithContext(ctx)
 }
 
 func (e HealthState) ToStringOutput() pulumi.StringOutput {
@@ -76,15 +227,151 @@ func (e HealthState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.St
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The QoS tier for ingress.
-type IngressQoSLevel pulumi.String
+type HealthStateOutput struct{ *pulumi.OutputState }
+
+func (HealthStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthState)(nil)).Elem()
+}
+
+func (o HealthStateOutput) ToHealthStateOutput() HealthStateOutput {
+	return o
+}
+
+func (o HealthStateOutput) ToHealthStateOutputWithContext(ctx context.Context) HealthStateOutput {
+	return o
+}
+
+func (o HealthStateOutput) ToHealthStatePtrOutput() HealthStatePtrOutput {
+	return o.ToHealthStatePtrOutputWithContext(context.Background())
+}
+
+func (o HealthStateOutput) ToHealthStatePtrOutputWithContext(ctx context.Context) HealthStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthState) *HealthState {
+		return &v
+	}).(HealthStatePtrOutput)
+}
+
+func (o HealthStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HealthStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HealthStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HealthStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HealthStatePtrOutput struct{ *pulumi.OutputState }
+
+func (HealthStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthState)(nil)).Elem()
+}
+
+func (o HealthStatePtrOutput) ToHealthStatePtrOutput() HealthStatePtrOutput {
+	return o
+}
+
+func (o HealthStatePtrOutput) ToHealthStatePtrOutputWithContext(ctx context.Context) HealthStatePtrOutput {
+	return o
+}
+
+func (o HealthStatePtrOutput) Elem() HealthStateOutput {
+	return o.ApplyT(func(v *HealthState) HealthState {
+		if v != nil {
+			return *v
+		}
+		var ret HealthState
+		return ret
+	}).(HealthStateOutput)
+}
+
+func (o HealthStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HealthStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HealthState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HealthStateInput is an input type that accepts HealthStateArgs and HealthStateOutput values.
+// You can construct a concrete instance of `HealthStateInput` via:
+//
+//          HealthStateArgs{...}
+type HealthStateInput interface {
+	pulumi.Input
+
+	ToHealthStateOutput() HealthStateOutput
+	ToHealthStateOutputWithContext(context.Context) HealthStateOutput
+}
+
+var healthStatePtrType = reflect.TypeOf((**HealthState)(nil)).Elem()
+
+type HealthStatePtrInput interface {
+	pulumi.Input
+
+	ToHealthStatePtrOutput() HealthStatePtrOutput
+	ToHealthStatePtrOutputWithContext(context.Context) HealthStatePtrOutput
+}
+
+type healthStatePtr string
+
+func HealthStatePtr(v string) HealthStatePtrInput {
+	return (*healthStatePtr)(&v)
+}
+
+func (*healthStatePtr) ElementType() reflect.Type {
+	return healthStatePtrType
+}
+
+func (in *healthStatePtr) ToHealthStatePtrOutput() HealthStatePtrOutput {
+	return pulumi.ToOutput(in).(HealthStatePtrOutput)
+}
+
+func (in *healthStatePtr) ToHealthStatePtrOutputWithContext(ctx context.Context) HealthStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HealthStatePtrOutput)
+}
+
+type IngressQoSLevel string
 
 const (
 	IngressQoSLevelBronze = IngressQoSLevel("Bronze")
 )
 
 func (IngressQoSLevel) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*IngressQoSLevel)(nil)).Elem()
+}
+
+func (e IngressQoSLevel) ToIngressQoSLevelOutput() IngressQoSLevelOutput {
+	return pulumi.ToOutput(e).(IngressQoSLevelOutput)
+}
+
+func (e IngressQoSLevel) ToIngressQoSLevelOutputWithContext(ctx context.Context) IngressQoSLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IngressQoSLevelOutput)
+}
+
+func (e IngressQoSLevel) ToIngressQoSLevelPtrOutput() IngressQoSLevelPtrOutput {
+	return e.ToIngressQoSLevelPtrOutputWithContext(context.Background())
+}
+
+func (e IngressQoSLevel) ToIngressQoSLevelPtrOutputWithContext(ctx context.Context) IngressQoSLevelPtrOutput {
+	return IngressQoSLevel(e).ToIngressQoSLevelOutputWithContext(ctx).ToIngressQoSLevelPtrOutputWithContext(ctx)
 }
 
 func (e IngressQoSLevel) ToStringOutput() pulumi.StringOutput {
@@ -103,8 +390,128 @@ func (e IngressQoSLevel) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The Operating system type required by the code in service.
-type OperatingSystemTypes pulumi.String
+type IngressQoSLevelOutput struct{ *pulumi.OutputState }
+
+func (IngressQoSLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressQoSLevel)(nil)).Elem()
+}
+
+func (o IngressQoSLevelOutput) ToIngressQoSLevelOutput() IngressQoSLevelOutput {
+	return o
+}
+
+func (o IngressQoSLevelOutput) ToIngressQoSLevelOutputWithContext(ctx context.Context) IngressQoSLevelOutput {
+	return o
+}
+
+func (o IngressQoSLevelOutput) ToIngressQoSLevelPtrOutput() IngressQoSLevelPtrOutput {
+	return o.ToIngressQoSLevelPtrOutputWithContext(context.Background())
+}
+
+func (o IngressQoSLevelOutput) ToIngressQoSLevelPtrOutputWithContext(ctx context.Context) IngressQoSLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IngressQoSLevel) *IngressQoSLevel {
+		return &v
+	}).(IngressQoSLevelPtrOutput)
+}
+
+func (o IngressQoSLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IngressQoSLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IngressQoSLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IngressQoSLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IngressQoSLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IngressQoSLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IngressQoSLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (IngressQoSLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressQoSLevel)(nil)).Elem()
+}
+
+func (o IngressQoSLevelPtrOutput) ToIngressQoSLevelPtrOutput() IngressQoSLevelPtrOutput {
+	return o
+}
+
+func (o IngressQoSLevelPtrOutput) ToIngressQoSLevelPtrOutputWithContext(ctx context.Context) IngressQoSLevelPtrOutput {
+	return o
+}
+
+func (o IngressQoSLevelPtrOutput) Elem() IngressQoSLevelOutput {
+	return o.ApplyT(func(v *IngressQoSLevel) IngressQoSLevel {
+		if v != nil {
+			return *v
+		}
+		var ret IngressQoSLevel
+		return ret
+	}).(IngressQoSLevelOutput)
+}
+
+func (o IngressQoSLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IngressQoSLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IngressQoSLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IngressQoSLevelInput is an input type that accepts IngressQoSLevelArgs and IngressQoSLevelOutput values.
+// You can construct a concrete instance of `IngressQoSLevelInput` via:
+//
+//          IngressQoSLevelArgs{...}
+type IngressQoSLevelInput interface {
+	pulumi.Input
+
+	ToIngressQoSLevelOutput() IngressQoSLevelOutput
+	ToIngressQoSLevelOutputWithContext(context.Context) IngressQoSLevelOutput
+}
+
+var ingressQoSLevelPtrType = reflect.TypeOf((**IngressQoSLevel)(nil)).Elem()
+
+type IngressQoSLevelPtrInput interface {
+	pulumi.Input
+
+	ToIngressQoSLevelPtrOutput() IngressQoSLevelPtrOutput
+	ToIngressQoSLevelPtrOutputWithContext(context.Context) IngressQoSLevelPtrOutput
+}
+
+type ingressQoSLevelPtr string
+
+func IngressQoSLevelPtr(v string) IngressQoSLevelPtrInput {
+	return (*ingressQoSLevelPtr)(&v)
+}
+
+func (*ingressQoSLevelPtr) ElementType() reflect.Type {
+	return ingressQoSLevelPtrType
+}
+
+func (in *ingressQoSLevelPtr) ToIngressQoSLevelPtrOutput() IngressQoSLevelPtrOutput {
+	return pulumi.ToOutput(in).(IngressQoSLevelPtrOutput)
+}
+
+func (in *ingressQoSLevelPtr) ToIngressQoSLevelPtrOutputWithContext(ctx context.Context) IngressQoSLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IngressQoSLevelPtrOutput)
+}
+
+type OperatingSystemTypes string
 
 const (
 	OperatingSystemTypesLinux   = OperatingSystemTypes("Linux")
@@ -112,7 +519,23 @@ const (
 )
 
 func (OperatingSystemTypes) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*OperatingSystemTypes)(nil)).Elem()
+}
+
+func (e OperatingSystemTypes) ToOperatingSystemTypesOutput() OperatingSystemTypesOutput {
+	return pulumi.ToOutput(e).(OperatingSystemTypesOutput)
+}
+
+func (e OperatingSystemTypes) ToOperatingSystemTypesOutputWithContext(ctx context.Context) OperatingSystemTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OperatingSystemTypesOutput)
+}
+
+func (e OperatingSystemTypes) ToOperatingSystemTypesPtrOutput() OperatingSystemTypesPtrOutput {
+	return e.ToOperatingSystemTypesPtrOutputWithContext(context.Background())
+}
+
+func (e OperatingSystemTypes) ToOperatingSystemTypesPtrOutputWithContext(ctx context.Context) OperatingSystemTypesPtrOutput {
+	return OperatingSystemTypes(e).ToOperatingSystemTypesOutputWithContext(ctx).ToOperatingSystemTypesPtrOutputWithContext(ctx)
 }
 
 func (e OperatingSystemTypes) ToStringOutput() pulumi.StringOutput {
@@ -131,15 +554,151 @@ func (e OperatingSystemTypes) ToStringPtrOutputWithContext(ctx context.Context) 
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Provider of the volume.
-type VolumeProvider pulumi.String
+type OperatingSystemTypesOutput struct{ *pulumi.OutputState }
+
+func (OperatingSystemTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OperatingSystemTypes)(nil)).Elem()
+}
+
+func (o OperatingSystemTypesOutput) ToOperatingSystemTypesOutput() OperatingSystemTypesOutput {
+	return o
+}
+
+func (o OperatingSystemTypesOutput) ToOperatingSystemTypesOutputWithContext(ctx context.Context) OperatingSystemTypesOutput {
+	return o
+}
+
+func (o OperatingSystemTypesOutput) ToOperatingSystemTypesPtrOutput() OperatingSystemTypesPtrOutput {
+	return o.ToOperatingSystemTypesPtrOutputWithContext(context.Background())
+}
+
+func (o OperatingSystemTypesOutput) ToOperatingSystemTypesPtrOutputWithContext(ctx context.Context) OperatingSystemTypesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OperatingSystemTypes) *OperatingSystemTypes {
+		return &v
+	}).(OperatingSystemTypesPtrOutput)
+}
+
+func (o OperatingSystemTypesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OperatingSystemTypesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OperatingSystemTypes) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OperatingSystemTypesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OperatingSystemTypesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OperatingSystemTypes) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OperatingSystemTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (OperatingSystemTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OperatingSystemTypes)(nil)).Elem()
+}
+
+func (o OperatingSystemTypesPtrOutput) ToOperatingSystemTypesPtrOutput() OperatingSystemTypesPtrOutput {
+	return o
+}
+
+func (o OperatingSystemTypesPtrOutput) ToOperatingSystemTypesPtrOutputWithContext(ctx context.Context) OperatingSystemTypesPtrOutput {
+	return o
+}
+
+func (o OperatingSystemTypesPtrOutput) Elem() OperatingSystemTypesOutput {
+	return o.ApplyT(func(v *OperatingSystemTypes) OperatingSystemTypes {
+		if v != nil {
+			return *v
+		}
+		var ret OperatingSystemTypes
+		return ret
+	}).(OperatingSystemTypesOutput)
+}
+
+func (o OperatingSystemTypesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OperatingSystemTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OperatingSystemTypes) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OperatingSystemTypesInput is an input type that accepts OperatingSystemTypesArgs and OperatingSystemTypesOutput values.
+// You can construct a concrete instance of `OperatingSystemTypesInput` via:
+//
+//          OperatingSystemTypesArgs{...}
+type OperatingSystemTypesInput interface {
+	pulumi.Input
+
+	ToOperatingSystemTypesOutput() OperatingSystemTypesOutput
+	ToOperatingSystemTypesOutputWithContext(context.Context) OperatingSystemTypesOutput
+}
+
+var operatingSystemTypesPtrType = reflect.TypeOf((**OperatingSystemTypes)(nil)).Elem()
+
+type OperatingSystemTypesPtrInput interface {
+	pulumi.Input
+
+	ToOperatingSystemTypesPtrOutput() OperatingSystemTypesPtrOutput
+	ToOperatingSystemTypesPtrOutputWithContext(context.Context) OperatingSystemTypesPtrOutput
+}
+
+type operatingSystemTypesPtr string
+
+func OperatingSystemTypesPtr(v string) OperatingSystemTypesPtrInput {
+	return (*operatingSystemTypesPtr)(&v)
+}
+
+func (*operatingSystemTypesPtr) ElementType() reflect.Type {
+	return operatingSystemTypesPtrType
+}
+
+func (in *operatingSystemTypesPtr) ToOperatingSystemTypesPtrOutput() OperatingSystemTypesPtrOutput {
+	return pulumi.ToOutput(in).(OperatingSystemTypesPtrOutput)
+}
+
+func (in *operatingSystemTypesPtr) ToOperatingSystemTypesPtrOutputWithContext(ctx context.Context) OperatingSystemTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OperatingSystemTypesPtrOutput)
+}
+
+type VolumeProvider string
 
 const (
 	VolumeProviderSFAzureFile = VolumeProvider("SFAzureFile")
 )
 
 func (VolumeProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*VolumeProvider)(nil)).Elem()
+}
+
+func (e VolumeProvider) ToVolumeProviderOutput() VolumeProviderOutput {
+	return pulumi.ToOutput(e).(VolumeProviderOutput)
+}
+
+func (e VolumeProvider) ToVolumeProviderOutputWithContext(ctx context.Context) VolumeProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VolumeProviderOutput)
+}
+
+func (e VolumeProvider) ToVolumeProviderPtrOutput() VolumeProviderPtrOutput {
+	return e.ToVolumeProviderPtrOutputWithContext(context.Background())
+}
+
+func (e VolumeProvider) ToVolumeProviderPtrOutputWithContext(ctx context.Context) VolumeProviderPtrOutput {
+	return VolumeProvider(e).ToVolumeProviderOutputWithContext(ctx).ToVolumeProviderPtrOutputWithContext(ctx)
 }
 
 func (e VolumeProvider) ToStringOutput() pulumi.StringOutput {
@@ -156,4 +715,138 @@ func (e VolumeProvider) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e VolumeProvider) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VolumeProviderOutput struct{ *pulumi.OutputState }
+
+func (VolumeProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeProvider)(nil)).Elem()
+}
+
+func (o VolumeProviderOutput) ToVolumeProviderOutput() VolumeProviderOutput {
+	return o
+}
+
+func (o VolumeProviderOutput) ToVolumeProviderOutputWithContext(ctx context.Context) VolumeProviderOutput {
+	return o
+}
+
+func (o VolumeProviderOutput) ToVolumeProviderPtrOutput() VolumeProviderPtrOutput {
+	return o.ToVolumeProviderPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeProviderOutput) ToVolumeProviderPtrOutputWithContext(ctx context.Context) VolumeProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeProvider) *VolumeProvider {
+		return &v
+	}).(VolumeProviderPtrOutput)
+}
+
+func (o VolumeProviderOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VolumeProviderOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VolumeProvider) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VolumeProviderOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeProviderOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VolumeProvider) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeProvider)(nil)).Elem()
+}
+
+func (o VolumeProviderPtrOutput) ToVolumeProviderPtrOutput() VolumeProviderPtrOutput {
+	return o
+}
+
+func (o VolumeProviderPtrOutput) ToVolumeProviderPtrOutputWithContext(ctx context.Context) VolumeProviderPtrOutput {
+	return o
+}
+
+func (o VolumeProviderPtrOutput) Elem() VolumeProviderOutput {
+	return o.ApplyT(func(v *VolumeProvider) VolumeProvider {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeProvider
+		return ret
+	}).(VolumeProviderOutput)
+}
+
+func (o VolumeProviderPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeProviderPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VolumeProvider) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VolumeProviderInput is an input type that accepts VolumeProviderArgs and VolumeProviderOutput values.
+// You can construct a concrete instance of `VolumeProviderInput` via:
+//
+//          VolumeProviderArgs{...}
+type VolumeProviderInput interface {
+	pulumi.Input
+
+	ToVolumeProviderOutput() VolumeProviderOutput
+	ToVolumeProviderOutputWithContext(context.Context) VolumeProviderOutput
+}
+
+var volumeProviderPtrType = reflect.TypeOf((**VolumeProvider)(nil)).Elem()
+
+type VolumeProviderPtrInput interface {
+	pulumi.Input
+
+	ToVolumeProviderPtrOutput() VolumeProviderPtrOutput
+	ToVolumeProviderPtrOutputWithContext(context.Context) VolumeProviderPtrOutput
+}
+
+type volumeProviderPtr string
+
+func VolumeProviderPtr(v string) VolumeProviderPtrInput {
+	return (*volumeProviderPtr)(&v)
+}
+
+func (*volumeProviderPtr) ElementType() reflect.Type {
+	return volumeProviderPtrType
+}
+
+func (in *volumeProviderPtr) ToVolumeProviderPtrOutput() VolumeProviderPtrOutput {
+	return pulumi.ToOutput(in).(VolumeProviderPtrOutput)
+}
+
+func (in *volumeProviderPtr) ToVolumeProviderPtrOutputWithContext(ctx context.Context) VolumeProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VolumeProviderPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(DiagnosticsSinkKindOutput{})
+	pulumi.RegisterOutputType(DiagnosticsSinkKindPtrOutput{})
+	pulumi.RegisterOutputType(HealthStateOutput{})
+	pulumi.RegisterOutputType(HealthStatePtrOutput{})
+	pulumi.RegisterOutputType(IngressQoSLevelOutput{})
+	pulumi.RegisterOutputType(IngressQoSLevelPtrOutput{})
+	pulumi.RegisterOutputType(OperatingSystemTypesOutput{})
+	pulumi.RegisterOutputType(OperatingSystemTypesPtrOutput{})
+	pulumi.RegisterOutputType(VolumeProviderOutput{})
+	pulumi.RegisterOutputType(VolumeProviderPtrOutput{})
 }

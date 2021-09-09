@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Machine Learning compute object wrapped into ARM resource envelope.
 func LookupMachineLearningCompute(ctx *pulumi.Context, args *LookupMachineLearningComputeArgs, opts ...pulumi.InvokeOption) (*LookupMachineLearningComputeResult, error) {
 	var rv LookupMachineLearningComputeResult
 	err := ctx.Invoke("azure-native:machinelearningservices/v20190601:getMachineLearningCompute", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupMachineLearningCompute(ctx *pulumi.Context, args *LookupMachineLearni
 }
 
 type LookupMachineLearningComputeArgs struct {
-	// Name of the Azure Machine Learning compute.
-	ComputeName string `pulumi:"computeName"`
-	// Name of the resource group in which workspace is located.
+	ComputeName       string `pulumi:"computeName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Machine Learning compute object wrapped into ARM resource envelope.
 type LookupMachineLearningComputeResult struct {
-	// Specifies the resource ID.
-	Id string `pulumi:"id"`
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// Compute properties
-	Properties interface{} `pulumi:"properties"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
+	Id         string            `pulumi:"id"`
+	Identity   *IdentityResponse `pulumi:"identity"`
+	Location   *string           `pulumi:"location"`
+	Name       string            `pulumi:"name"`
+	Properties interface{}       `pulumi:"properties"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

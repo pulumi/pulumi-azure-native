@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An account data transfer object.
 type Account struct {
 	pulumi.CustomResourceState
 
-	// Time at which the account was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Identity Info on the Account
-	Identity IdentityResponseOutput `pulumi:"identity"`
-	// Location of the azure resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the Account
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Tags on the azure resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Email of the user who created the resource
-	UserEmail pulumi.StringOutput `pulumi:"userEmail"`
-	// Name of the user who created the resource
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	CreatedAt         pulumi.StringOutput    `pulumi:"createdAt"`
+	Identity          IdentityResponseOutput `pulumi:"identity"`
+	Location          pulumi.StringPtrOutput `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
+	UserEmail         pulumi.StringOutput    `pulumi:"userEmail"`
+	UserName          pulumi.StringOutput    `pulumi:"userName"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -110,30 +100,20 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// The name of the share account.
-	AccountName *string `pulumi:"accountName"`
-	// Identity Info on the Account
-	Identity Identity `pulumi:"identity"`
-	// Location of the azure resource.
-	Location *string `pulumi:"location"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags on the azure resource.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       *string           `pulumi:"accountName"`
+	Identity          Identity          `pulumi:"identity"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringPtrInput
-	// Identity Info on the Account
-	Identity IdentityInput
-	// Location of the azure resource.
-	Location pulumi.StringPtrInput
-	// The resource group name.
+	AccountName       pulumi.StringPtrInput
+	Identity          IdentityInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Tags on the azure resource.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {
@@ -159,9 +139,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
 }
 
-type AccountOutput struct {
-	*pulumi.OutputState
-}
+type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Account)(nil))

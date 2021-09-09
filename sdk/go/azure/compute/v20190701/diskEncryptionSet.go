@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// disk encryption set resource.
 type DiskEncryptionSet struct {
 	pulumi.CustomResourceState
 
-	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey KeyVaultAndKeyReferenceResponsePtrOutput `pulumi:"activeKey"`
-	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-	Identity EncryptionSetIdentityResponsePtrOutput `pulumi:"identity"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
-	PreviousKeys KeyVaultAndKeyReferenceResponseArrayOutput `pulumi:"previousKeys"`
-	// The disk encryption set provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ActiveKey         KeyVaultAndKeyReferenceResponsePtrOutput   `pulumi:"activeKey"`
+	Identity          EncryptionSetIdentityResponsePtrOutput     `pulumi:"identity"`
+	Location          pulumi.StringOutput                        `pulumi:"location"`
+	Name              pulumi.StringOutput                        `pulumi:"name"`
+	PreviousKeys      KeyVaultAndKeyReferenceResponseArrayOutput `pulumi:"previousKeys"`
+	ProvisioningState pulumi.StringOutput                        `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type              pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewDiskEncryptionSet registers a new resource with the given unique name, arguments, and options.
@@ -123,34 +114,22 @@ func (DiskEncryptionSetState) ElementType() reflect.Type {
 }
 
 type diskEncryptionSetArgs struct {
-	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey *KeyVaultAndKeyReference `pulumi:"activeKey"`
-	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	DiskEncryptionSetName *string `pulumi:"diskEncryptionSetName"`
-	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-	Identity *EncryptionSetIdentity `pulumi:"identity"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	ActiveKey             *KeyVaultAndKeyReference `pulumi:"activeKey"`
+	DiskEncryptionSetName *string                  `pulumi:"diskEncryptionSetName"`
+	Identity              *EncryptionSetIdentity   `pulumi:"identity"`
+	Location              *string                  `pulumi:"location"`
+	ResourceGroupName     string                   `pulumi:"resourceGroupName"`
+	Tags                  map[string]string        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DiskEncryptionSet resource.
 type DiskEncryptionSetArgs struct {
-	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey KeyVaultAndKeyReferencePtrInput
-	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	ActiveKey             KeyVaultAndKeyReferencePtrInput
 	DiskEncryptionSetName pulumi.StringPtrInput
-	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-	Identity EncryptionSetIdentityPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Identity              EncryptionSetIdentityPtrInput
+	Location              pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (DiskEncryptionSetArgs) ElementType() reflect.Type {
@@ -176,9 +155,7 @@ func (i *DiskEncryptionSet) ToDiskEncryptionSetOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetOutput)
 }
 
-type DiskEncryptionSetOutput struct {
-	*pulumi.OutputState
-}
+type DiskEncryptionSetOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiskEncryptionSet)(nil))

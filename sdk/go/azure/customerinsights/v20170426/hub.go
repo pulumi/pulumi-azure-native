@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Hub resource.
 type Hub struct {
 	pulumi.CustomResourceState
 
-	// API endpoint URL of the hub.
-	ApiEndpoint pulumi.StringOutput `pulumi:"apiEndpoint"`
-	// Billing settings of the hub.
-	HubBillingInfo HubBillingInfoFormatResponsePtrOutput `pulumi:"hubBillingInfo"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the hub.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
-	TenantFeatures pulumi.IntPtrOutput `pulumi:"tenantFeatures"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Web endpoint URL of the hub.
-	WebEndpoint pulumi.StringOutput `pulumi:"webEndpoint"`
+	ApiEndpoint       pulumi.StringOutput                   `pulumi:"apiEndpoint"`
+	HubBillingInfo    HubBillingInfoFormatResponsePtrOutput `pulumi:"hubBillingInfo"`
+	Location          pulumi.StringPtrOutput                `pulumi:"location"`
+	Name              pulumi.StringOutput                   `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                   `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput                `pulumi:"tags"`
+	TenantFeatures    pulumi.IntPtrOutput                   `pulumi:"tenantFeatures"`
+	Type              pulumi.StringOutput                   `pulumi:"type"`
+	WebEndpoint       pulumi.StringOutput                   `pulumi:"webEndpoint"`
 }
 
 // NewHub registers a new resource with the given unique name, arguments, and options.
@@ -95,34 +85,22 @@ func (HubState) ElementType() reflect.Type {
 }
 
 type hubArgs struct {
-	// Billing settings of the hub.
-	HubBillingInfo *HubBillingInfoFormat `pulumi:"hubBillingInfo"`
-	// The name of the Hub.
-	HubName *string `pulumi:"hubName"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
-	TenantFeatures *int `pulumi:"tenantFeatures"`
+	HubBillingInfo    *HubBillingInfoFormat `pulumi:"hubBillingInfo"`
+	HubName           *string               `pulumi:"hubName"`
+	Location          *string               `pulumi:"location"`
+	ResourceGroupName string                `pulumi:"resourceGroupName"`
+	Tags              map[string]string     `pulumi:"tags"`
+	TenantFeatures    *int                  `pulumi:"tenantFeatures"`
 }
 
 // The set of arguments for constructing a Hub resource.
 type HubArgs struct {
-	// Billing settings of the hub.
-	HubBillingInfo HubBillingInfoFormatPtrInput
-	// The name of the Hub.
-	HubName pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
+	HubBillingInfo    HubBillingInfoFormatPtrInput
+	HubName           pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
-	TenantFeatures pulumi.IntPtrInput
+	Tags              pulumi.StringMapInput
+	TenantFeatures    pulumi.IntPtrInput
 }
 
 func (HubArgs) ElementType() reflect.Type {
@@ -148,9 +126,7 @@ func (i *Hub) ToHubOutputWithContext(ctx context.Context) HubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HubOutput)
 }
 
-type HubOutput struct {
-	*pulumi.OutputState
-}
+type HubOutput struct{ *pulumi.OutputState }
 
 func (HubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Hub)(nil))

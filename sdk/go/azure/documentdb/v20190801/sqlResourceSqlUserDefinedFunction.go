@@ -11,19 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB userDefinedFunction.
 type SqlResourceSqlUserDefinedFunction struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the ARM resource.
+	Location pulumi.StringPtrOutput                                       `pulumi:"location"`
 	Name     pulumi.StringOutput                                          `pulumi:"name"`
 	Resource SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput `pulumi:"resource"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags     pulumi.StringMapOutput                                       `pulumi:"tags"`
+	Type     pulumi.StringOutput                                          `pulumi:"type"`
 }
 
 // NewSqlResourceSqlUserDefinedFunction registers a new resource with the given unique name, arguments, and options.
@@ -173,45 +168,27 @@ func (SqlResourceSqlUserDefinedFunctionState) ElementType() reflect.Type {
 }
 
 type sqlResourceSqlUserDefinedFunctionArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Cosmos DB container name.
-	ContainerName string `pulumi:"containerName"`
-	// Cosmos DB database name.
-	DatabaseName string `pulumi:"databaseName"`
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options map[string]string `pulumi:"options"`
-	// The standard JSON format of a userDefinedFunction
-	Resource SqlUserDefinedFunctionResource `pulumi:"resource"`
-	// Name of an Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags map[string]string `pulumi:"tags"`
-	// Cosmos DB userDefinedFunction name.
-	UserDefinedFunctionName *string `pulumi:"userDefinedFunctionName"`
+	AccountName             string                         `pulumi:"accountName"`
+	ContainerName           string                         `pulumi:"containerName"`
+	DatabaseName            string                         `pulumi:"databaseName"`
+	Location                *string                        `pulumi:"location"`
+	Options                 map[string]string              `pulumi:"options"`
+	Resource                SqlUserDefinedFunctionResource `pulumi:"resource"`
+	ResourceGroupName       string                         `pulumi:"resourceGroupName"`
+	Tags                    map[string]string              `pulumi:"tags"`
+	UserDefinedFunctionName *string                        `pulumi:"userDefinedFunctionName"`
 }
 
 // The set of arguments for constructing a SqlResourceSqlUserDefinedFunction resource.
 type SqlResourceSqlUserDefinedFunctionArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Cosmos DB container name.
-	ContainerName pulumi.StringInput
-	// Cosmos DB database name.
-	DatabaseName pulumi.StringInput
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options pulumi.StringMapInput
-	// The standard JSON format of a userDefinedFunction
-	Resource SqlUserDefinedFunctionResourceInput
-	// Name of an Azure resource group.
-	ResourceGroupName pulumi.StringInput
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapInput
-	// Cosmos DB userDefinedFunction name.
+	AccountName             pulumi.StringInput
+	ContainerName           pulumi.StringInput
+	DatabaseName            pulumi.StringInput
+	Location                pulumi.StringPtrInput
+	Options                 pulumi.StringMapInput
+	Resource                SqlUserDefinedFunctionResourceInput
+	ResourceGroupName       pulumi.StringInput
+	Tags                    pulumi.StringMapInput
 	UserDefinedFunctionName pulumi.StringPtrInput
 }
 
@@ -238,9 +215,7 @@ func (i *SqlResourceSqlUserDefinedFunction) ToSqlResourceSqlUserDefinedFunctionO
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlUserDefinedFunctionOutput)
 }
 
-type SqlResourceSqlUserDefinedFunctionOutput struct {
-	*pulumi.OutputState
-}
+type SqlResourceSqlUserDefinedFunctionOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlUserDefinedFunctionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlResourceSqlUserDefinedFunction)(nil))

@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The file server.
 type FileServer struct {
 	pulumi.CustomResourceState
 
-	// The backup policy id.
-	BackupScheduleGroupId pulumi.StringOutput `pulumi:"backupScheduleGroupId"`
-	// The description of the file server
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Domain of the file server
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The storage domain id.
-	StorageDomainId pulumi.StringOutput `pulumi:"storageDomainId"`
-	// The type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	BackupScheduleGroupId pulumi.StringOutput    `pulumi:"backupScheduleGroupId"`
+	Description           pulumi.StringPtrOutput `pulumi:"description"`
+	DomainName            pulumi.StringOutput    `pulumi:"domainName"`
+	Name                  pulumi.StringOutput    `pulumi:"name"`
+	StorageDomainId       pulumi.StringOutput    `pulumi:"storageDomainId"`
+	Type                  pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewFileServer registers a new resource with the given unique name, arguments, and options.
@@ -92,42 +85,26 @@ func (FileServerState) ElementType() reflect.Type {
 }
 
 type fileServerArgs struct {
-	// The backup policy id.
-	BackupScheduleGroupId string `pulumi:"backupScheduleGroupId"`
-	// The description of the file server
-	Description *string `pulumi:"description"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// Domain of the file server
-	DomainName string `pulumi:"domainName"`
-	// The file server name.
-	FileServerName *string `pulumi:"fileServerName"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The storage domain id.
-	StorageDomainId string `pulumi:"storageDomainId"`
+	BackupScheduleGroupId string  `pulumi:"backupScheduleGroupId"`
+	Description           *string `pulumi:"description"`
+	DeviceName            string  `pulumi:"deviceName"`
+	DomainName            string  `pulumi:"domainName"`
+	FileServerName        *string `pulumi:"fileServerName"`
+	ManagerName           string  `pulumi:"managerName"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	StorageDomainId       string  `pulumi:"storageDomainId"`
 }
 
 // The set of arguments for constructing a FileServer resource.
 type FileServerArgs struct {
-	// The backup policy id.
 	BackupScheduleGroupId pulumi.StringInput
-	// The description of the file server
-	Description pulumi.StringPtrInput
-	// The device name.
-	DeviceName pulumi.StringInput
-	// Domain of the file server
-	DomainName pulumi.StringInput
-	// The file server name.
-	FileServerName pulumi.StringPtrInput
-	// The manager name
-	ManagerName pulumi.StringInput
-	// The resource group name
-	ResourceGroupName pulumi.StringInput
-	// The storage domain id.
-	StorageDomainId pulumi.StringInput
+	Description           pulumi.StringPtrInput
+	DeviceName            pulumi.StringInput
+	DomainName            pulumi.StringInput
+	FileServerName        pulumi.StringPtrInput
+	ManagerName           pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	StorageDomainId       pulumi.StringInput
 }
 
 func (FileServerArgs) ElementType() reflect.Type {
@@ -153,9 +130,7 @@ func (i *FileServer) ToFileServerOutputWithContext(ctx context.Context) FileServ
 	return pulumi.ToOutputWithContext(ctx, i).(FileServerOutput)
 }
 
-type FileServerOutput struct {
-	*pulumi.OutputState
-}
+type FileServerOutput struct{ *pulumi.OutputState }
 
 func (FileServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FileServer)(nil))

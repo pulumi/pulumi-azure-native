@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The access control record.
 type AccessControlRecord struct {
 	pulumi.CustomResourceState
 
-	// The iSCSI initiator name (IQN).
-	InitiatorName pulumi.StringOutput `pulumi:"initiatorName"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The name of the object.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The number of volumes using the access control record.
-	VolumeCount pulumi.IntOutput `pulumi:"volumeCount"`
+	InitiatorName pulumi.StringOutput    `pulumi:"initiatorName"`
+	Kind          pulumi.StringPtrOutput `pulumi:"kind"`
+	Name          pulumi.StringOutput    `pulumi:"name"`
+	Type          pulumi.StringOutput    `pulumi:"type"`
+	VolumeCount   pulumi.IntOutput       `pulumi:"volumeCount"`
 }
 
 // NewAccessControlRecord registers a new resource with the given unique name, arguments, and options.
@@ -93,30 +87,20 @@ func (AccessControlRecordState) ElementType() reflect.Type {
 }
 
 type accessControlRecordArgs struct {
-	// The name of the access control record.
 	AccessControlRecordName *string `pulumi:"accessControlRecordName"`
-	// The iSCSI initiator name (IQN).
-	InitiatorName string `pulumi:"initiatorName"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	InitiatorName           string  `pulumi:"initiatorName"`
+	Kind                    *Kind   `pulumi:"kind"`
+	ManagerName             string  `pulumi:"managerName"`
+	ResourceGroupName       string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a AccessControlRecord resource.
 type AccessControlRecordArgs struct {
-	// The name of the access control record.
 	AccessControlRecordName pulumi.StringPtrInput
-	// The iSCSI initiator name (IQN).
-	InitiatorName pulumi.StringInput
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *Kind
-	// The manager name
-	ManagerName pulumi.StringInput
-	// The resource group name
-	ResourceGroupName pulumi.StringInput
+	InitiatorName           pulumi.StringInput
+	Kind                    KindPtrInput
+	ManagerName             pulumi.StringInput
+	ResourceGroupName       pulumi.StringInput
 }
 
 func (AccessControlRecordArgs) ElementType() reflect.Type {
@@ -142,9 +126,7 @@ func (i *AccessControlRecord) ToAccessControlRecordOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AccessControlRecordOutput)
 }
 
-type AccessControlRecordOutput struct {
-	*pulumi.OutputState
-}
+type AccessControlRecordOutput struct{ *pulumi.OutputState }
 
 func (AccessControlRecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccessControlRecord)(nil))

@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines web application firewall policy.
 type WebApplicationFirewallPolicy struct {
 	pulumi.CustomResourceState
 
-	// A collection of references to application gateways.
-	ApplicationGateways ApplicationGatewayResponseArrayOutput `pulumi:"applicationGateways"`
-	// Describes custom rules inside the policy
-	CustomRules WebApplicationFirewallCustomRuleResponseArrayOutput `pulumi:"customRules"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes  policySettings for policy
-	PolicySettings PolicySettingsResponsePtrOutput `pulumi:"policySettings"`
-	// Provisioning state of the WebApplicationFirewallPolicy.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource status of the policy.
-	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ApplicationGateways ApplicationGatewayResponseArrayOutput               `pulumi:"applicationGateways"`
+	CustomRules         WebApplicationFirewallCustomRuleResponseArrayOutput `pulumi:"customRules"`
+	Etag                pulumi.StringPtrOutput                              `pulumi:"etag"`
+	Location            pulumi.StringPtrOutput                              `pulumi:"location"`
+	Name                pulumi.StringOutput                                 `pulumi:"name"`
+	PolicySettings      PolicySettingsResponsePtrOutput                     `pulumi:"policySettings"`
+	ProvisioningState   pulumi.StringOutput                                 `pulumi:"provisioningState"`
+	ResourceState       pulumi.StringOutput                                 `pulumi:"resourceState"`
+	Tags                pulumi.StringMapOutput                              `pulumi:"tags"`
+	Type                pulumi.StringOutput                                 `pulumi:"type"`
 }
 
 // NewWebApplicationFirewallPolicy registers a new resource with the given unique name, arguments, and options.
@@ -193,42 +182,26 @@ func (WebApplicationFirewallPolicyState) ElementType() reflect.Type {
 }
 
 type webApplicationFirewallPolicyArgs struct {
-	// Describes custom rules inside the policy
-	CustomRules []WebApplicationFirewallCustomRule `pulumi:"customRules"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the policy.
-	PolicyName *string `pulumi:"policyName"`
-	// Describes  policySettings for policy
-	PolicySettings *PolicySettings `pulumi:"policySettings"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	CustomRules       []WebApplicationFirewallCustomRule `pulumi:"customRules"`
+	Etag              *string                            `pulumi:"etag"`
+	Id                *string                            `pulumi:"id"`
+	Location          *string                            `pulumi:"location"`
+	PolicyName        *string                            `pulumi:"policyName"`
+	PolicySettings    *PolicySettings                    `pulumi:"policySettings"`
+	ResourceGroupName string                             `pulumi:"resourceGroupName"`
+	Tags              map[string]string                  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a WebApplicationFirewallPolicy resource.
 type WebApplicationFirewallPolicyArgs struct {
-	// Describes custom rules inside the policy
-	CustomRules WebApplicationFirewallCustomRuleArrayInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the policy.
-	PolicyName pulumi.StringPtrInput
-	// Describes  policySettings for policy
-	PolicySettings PolicySettingsPtrInput
-	// The name of the resource group.
+	CustomRules       WebApplicationFirewallCustomRuleArrayInput
+	Etag              pulumi.StringPtrInput
+	Id                pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	PolicyName        pulumi.StringPtrInput
+	PolicySettings    PolicySettingsPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (WebApplicationFirewallPolicyArgs) ElementType() reflect.Type {
@@ -254,9 +227,7 @@ func (i *WebApplicationFirewallPolicy) ToWebApplicationFirewallPolicyOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(WebApplicationFirewallPolicyOutput)
 }
 
-type WebApplicationFirewallPolicyOutput struct {
-	*pulumi.OutputState
-}
+type WebApplicationFirewallPolicyOutput struct{ *pulumi.OutputState }
 
 func (WebApplicationFirewallPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebApplicationFirewallPolicy)(nil))

@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Account Filter.
 type AccountFilter struct {
 	pulumi.CustomResourceState
 
-	// The first quality.
-	FirstQuality FirstQualityResponsePtrOutput `pulumi:"firstQuality"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The presentation time range.
-	PresentationTimeRange PresentationTimeRangeResponsePtrOutput `pulumi:"presentationTimeRange"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The tracks selection conditions.
-	Tracks FilterTrackSelectionResponseArrayOutput `pulumi:"tracks"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	FirstQuality          FirstQualityResponsePtrOutput           `pulumi:"firstQuality"`
+	Name                  pulumi.StringOutput                     `pulumi:"name"`
+	PresentationTimeRange PresentationTimeRangeResponsePtrOutput  `pulumi:"presentationTimeRange"`
+	SystemData            SystemDataResponseOutput                `pulumi:"systemData"`
+	Tracks                FilterTrackSelectionResponseArrayOutput `pulumi:"tracks"`
+	Type                  pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewAccountFilter registers a new resource with the given unique name, arguments, and options.
@@ -98,34 +91,22 @@ func (AccountFilterState) ElementType() reflect.Type {
 }
 
 type accountFilterArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// The Account Filter name
-	FilterName *string `pulumi:"filterName"`
-	// The first quality.
-	FirstQuality *FirstQuality `pulumi:"firstQuality"`
-	// The presentation time range.
+	AccountName           string                 `pulumi:"accountName"`
+	FilterName            *string                `pulumi:"filterName"`
+	FirstQuality          *FirstQuality          `pulumi:"firstQuality"`
 	PresentationTimeRange *PresentationTimeRange `pulumi:"presentationTimeRange"`
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tracks selection conditions.
-	Tracks []FilterTrackSelection `pulumi:"tracks"`
+	ResourceGroupName     string                 `pulumi:"resourceGroupName"`
+	Tracks                []FilterTrackSelection `pulumi:"tracks"`
 }
 
 // The set of arguments for constructing a AccountFilter resource.
 type AccountFilterArgs struct {
-	// The Media Services account name.
-	AccountName pulumi.StringInput
-	// The Account Filter name
-	FilterName pulumi.StringPtrInput
-	// The first quality.
-	FirstQuality FirstQualityPtrInput
-	// The presentation time range.
+	AccountName           pulumi.StringInput
+	FilterName            pulumi.StringPtrInput
+	FirstQuality          FirstQualityPtrInput
 	PresentationTimeRange PresentationTimeRangePtrInput
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The tracks selection conditions.
-	Tracks FilterTrackSelectionArrayInput
+	ResourceGroupName     pulumi.StringInput
+	Tracks                FilterTrackSelectionArrayInput
 }
 
 func (AccountFilterArgs) ElementType() reflect.Type {
@@ -151,9 +132,7 @@ func (i *AccountFilter) ToAccountFilterOutputWithContext(ctx context.Context) Ac
 	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterOutput)
 }
 
-type AccountFilterOutput struct {
-	*pulumi.OutputState
-}
+type AccountFilterOutput struct{ *pulumi.OutputState }
 
 func (AccountFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountFilter)(nil))

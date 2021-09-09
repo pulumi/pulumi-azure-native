@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SQL DB table data set.
 func LookupSqlDBTableDataSet(ctx *pulumi.Context, args *LookupSqlDBTableDataSetArgs, opts ...pulumi.InvokeOption) (*LookupSqlDBTableDataSetResult, error) {
 	var rv LookupSqlDBTableDataSetResult
 	err := ctx.Invoke("azure-native:datashare/v20191101:getSqlDBTableDataSet", args, &rv, opts...)
@@ -18,35 +17,21 @@ func LookupSqlDBTableDataSet(ctx *pulumi.Context, args *LookupSqlDBTableDataSetA
 }
 
 type LookupSqlDBTableDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName string `pulumi:"dataSetName"`
-	// The resource group name.
+	AccountName       string `pulumi:"accountName"`
+	DataSetName       string `pulumi:"dataSetName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share.
-	ShareName string `pulumi:"shareName"`
+	ShareName         string `pulumi:"shareName"`
 }
 
 // A SQL DB table data set.
 type LookupSqlDBTableDataSetResult struct {
-	// Unique id for identifying a data set resource
-	DataSetId string `pulumi:"dataSetId"`
-	// Database name of the source data set
-	DatabaseName string `pulumi:"databaseName"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set.
-	// Expected value is 'SqlDBTable'.
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Schema of the table. Default value is dbo.
-	SchemaName string `pulumi:"schemaName"`
-	// Resource id of SQL server
+	DataSetId           string `pulumi:"dataSetId"`
+	DatabaseName        string `pulumi:"databaseName"`
+	Id                  string `pulumi:"id"`
+	Kind                string `pulumi:"kind"`
+	Name                string `pulumi:"name"`
+	SchemaName          string `pulumi:"schemaName"`
 	SqlServerResourceId string `pulumi:"sqlServerResourceId"`
-	// SQL DB table name.
-	TableName string `pulumi:"tableName"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	TableName           string `pulumi:"tableName"`
+	Type                string `pulumi:"type"`
 }

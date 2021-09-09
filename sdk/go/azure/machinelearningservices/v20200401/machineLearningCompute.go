@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Machine Learning compute object wrapped into ARM resource envelope.
 type MachineLearningCompute struct {
 	pulumi.CustomResourceState
 
-	// The identity of the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Compute properties
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity   IdentityResponsePtrOutput `pulumi:"identity"`
+	Location   pulumi.StringPtrOutput    `pulumi:"location"`
+	Name       pulumi.StringOutput       `pulumi:"name"`
+	Properties pulumi.AnyOutput          `pulumi:"properties"`
+	Sku        SkuResponsePtrOutput      `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput    `pulumi:"tags"`
+	Type       pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewMachineLearningCompute registers a new resource with the given unique name, arguments, and options.
@@ -190,42 +182,26 @@ func (MachineLearningComputeState) ElementType() reflect.Type {
 }
 
 type machineLearningComputeArgs struct {
-	// Name of the Azure Machine Learning compute.
-	ComputeName *string `pulumi:"computeName"`
-	// The identity of the resource.
-	Identity *Identity `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Compute properties
-	Properties interface{} `pulumi:"properties"`
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku of the workspace.
-	Sku *Sku `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ComputeName       *string           `pulumi:"computeName"`
+	Identity          *Identity         `pulumi:"identity"`
+	Location          *string           `pulumi:"location"`
+	Properties        interface{}       `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               *Sku              `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
+	WorkspaceName     string            `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a MachineLearningCompute resource.
 type MachineLearningComputeArgs struct {
-	// Name of the Azure Machine Learning compute.
-	ComputeName pulumi.StringPtrInput
-	// The identity of the resource.
-	Identity IdentityPtrInput
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput
-	// Compute properties
-	Properties pulumi.Input
-	// Name of the resource group in which workspace is located.
+	ComputeName       pulumi.StringPtrInput
+	Identity          IdentityPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
-	// The sku of the workspace.
-	Sku SkuPtrInput
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	Sku               SkuPtrInput
+	Tags              pulumi.StringMapInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (MachineLearningComputeArgs) ElementType() reflect.Type {
@@ -251,9 +227,7 @@ func (i *MachineLearningCompute) ToMachineLearningComputeOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningComputeOutput)
 }
 
-type MachineLearningComputeOutput struct {
-	*pulumi.OutputState
-}
+type MachineLearningComputeOutput struct{ *pulumi.OutputState }
 
 func (MachineLearningComputeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MachineLearningCompute)(nil))

@@ -11,38 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about managed application.
 type Application struct {
 	pulumi.CustomResourceState
 
-	// The fully qualified path of managed application definition Id.
-	ApplicationDefinitionId pulumi.StringPtrOutput `pulumi:"applicationDefinitionId"`
-	// The identity of the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// ID of the resource that manages this resource.
-	ManagedBy pulumi.StringPtrOutput `pulumi:"managedBy"`
-	// The managed resource group Id.
-	ManagedResourceGroupId pulumi.StringOutput `pulumi:"managedResourceGroupId"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Name and value pairs that define the managed application outputs.
-	Outputs pulumi.AnyOutput `pulumi:"outputs"`
-	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters pulumi.AnyOutput `pulumi:"parameters"`
-	// The plan information.
-	Plan PlanResponsePtrOutput `pulumi:"plan"`
-	// The managed application provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The SKU of the resource.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ApplicationDefinitionId pulumi.StringPtrOutput    `pulumi:"applicationDefinitionId"`
+	Identity                IdentityResponsePtrOutput `pulumi:"identity"`
+	Kind                    pulumi.StringOutput       `pulumi:"kind"`
+	Location                pulumi.StringPtrOutput    `pulumi:"location"`
+	ManagedBy               pulumi.StringPtrOutput    `pulumi:"managedBy"`
+	ManagedResourceGroupId  pulumi.StringOutput       `pulumi:"managedResourceGroupId"`
+	Name                    pulumi.StringOutput       `pulumi:"name"`
+	Outputs                 pulumi.AnyOutput          `pulumi:"outputs"`
+	Parameters              pulumi.AnyOutput          `pulumi:"parameters"`
+	Plan                    PlanResponsePtrOutput     `pulumi:"plan"`
+	ProvisioningState       pulumi.StringOutput       `pulumi:"provisioningState"`
+	Sku                     SkuResponsePtrOutput      `pulumi:"sku"`
+	Tags                    pulumi.StringMapOutput    `pulumi:"tags"`
+	Type                    pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -129,58 +114,34 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// The fully qualified path of managed application definition Id.
-	ApplicationDefinitionId *string `pulumi:"applicationDefinitionId"`
-	// The name of the managed application.
-	ApplicationName *string `pulumi:"applicationName"`
-	// The identity of the resource.
-	Identity *Identity `pulumi:"identity"`
-	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
-	Kind string `pulumi:"kind"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// ID of the resource that manages this resource.
-	ManagedBy *string `pulumi:"managedBy"`
-	// The managed resource group Id.
-	ManagedResourceGroupId string `pulumi:"managedResourceGroupId"`
-	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters interface{} `pulumi:"parameters"`
-	// The plan information.
-	Plan *Plan `pulumi:"plan"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of the resource.
-	Sku *Sku `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	ApplicationDefinitionId *string           `pulumi:"applicationDefinitionId"`
+	ApplicationName         *string           `pulumi:"applicationName"`
+	Identity                *Identity         `pulumi:"identity"`
+	Kind                    string            `pulumi:"kind"`
+	Location                *string           `pulumi:"location"`
+	ManagedBy               *string           `pulumi:"managedBy"`
+	ManagedResourceGroupId  string            `pulumi:"managedResourceGroupId"`
+	Parameters              interface{}       `pulumi:"parameters"`
+	Plan                    *Plan             `pulumi:"plan"`
+	ResourceGroupName       string            `pulumi:"resourceGroupName"`
+	Sku                     *Sku              `pulumi:"sku"`
+	Tags                    map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// The fully qualified path of managed application definition Id.
 	ApplicationDefinitionId pulumi.StringPtrInput
-	// The name of the managed application.
-	ApplicationName pulumi.StringPtrInput
-	// The identity of the resource.
-	Identity IdentityPtrInput
-	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
-	Kind pulumi.StringInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// ID of the resource that manages this resource.
-	ManagedBy pulumi.StringPtrInput
-	// The managed resource group Id.
-	ManagedResourceGroupId pulumi.StringInput
-	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters pulumi.Input
-	// The plan information.
-	Plan PlanPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The SKU of the resource.
-	Sku SkuPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	ApplicationName         pulumi.StringPtrInput
+	Identity                IdentityPtrInput
+	Kind                    pulumi.StringInput
+	Location                pulumi.StringPtrInput
+	ManagedBy               pulumi.StringPtrInput
+	ManagedResourceGroupId  pulumi.StringInput
+	Parameters              pulumi.Input
+	Plan                    PlanPtrInput
+	ResourceGroupName       pulumi.StringInput
+	Sku                     SkuPtrInput
+	Tags                    pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -206,9 +167,7 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutput)
 }
 
-type ApplicationOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Application)(nil))

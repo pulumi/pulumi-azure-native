@@ -10,19 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specify action need to be taken when rule type is Alert
 type AlertingAction struct {
-	// Azure action group reference.
-	AznsAction *AzNsActionGroup `pulumi:"aznsAction"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
-	OdataType string `pulumi:"odataType"`
-	// Severity of the alert
-	Severity string `pulumi:"severity"`
-	// time (in minutes) for which Alerts should be throttled or suppressed.
-	ThrottlingInMin *int `pulumi:"throttlingInMin"`
-	// The trigger condition that results in the alert rule being.
-	Trigger TriggerCondition `pulumi:"trigger"`
+	AznsAction      *AzNsActionGroup `pulumi:"aznsAction"`
+	OdataType       string           `pulumi:"odataType"`
+	Severity        string           `pulumi:"severity"`
+	ThrottlingInMin *int             `pulumi:"throttlingInMin"`
+	Trigger         TriggerCondition `pulumi:"trigger"`
 }
 
 // AlertingActionInput is an input type that accepts AlertingActionArgs and AlertingActionOutput values.
@@ -36,19 +29,12 @@ type AlertingActionInput interface {
 	ToAlertingActionOutputWithContext(context.Context) AlertingActionOutput
 }
 
-// Specify action need to be taken when rule type is Alert
 type AlertingActionArgs struct {
-	// Azure action group reference.
-	AznsAction AzNsActionGroupPtrInput `pulumi:"aznsAction"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Severity of the alert
-	Severity pulumi.StringInput `pulumi:"severity"`
-	// time (in minutes) for which Alerts should be throttled or suppressed.
-	ThrottlingInMin pulumi.IntPtrInput `pulumi:"throttlingInMin"`
-	// The trigger condition that results in the alert rule being.
-	Trigger TriggerConditionInput `pulumi:"trigger"`
+	AznsAction      AzNsActionGroupPtrInput `pulumi:"aznsAction"`
+	OdataType       pulumi.StringInput      `pulumi:"odataType"`
+	Severity        pulumi.StringInput      `pulumi:"severity"`
+	ThrottlingInMin pulumi.IntPtrInput      `pulumi:"throttlingInMin"`
+	Trigger         TriggerConditionInput   `pulumi:"trigger"`
 }
 
 func (AlertingActionArgs) ElementType() reflect.Type {
@@ -63,7 +49,6 @@ func (i AlertingActionArgs) ToAlertingActionOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AlertingActionOutput)
 }
 
-// Specify action need to be taken when rule type is Alert
 type AlertingActionOutput struct{ *pulumi.OutputState }
 
 func (AlertingActionOutput) ElementType() reflect.Type {
@@ -78,45 +63,32 @@ func (o AlertingActionOutput) ToAlertingActionOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Azure action group reference.
 func (o AlertingActionOutput) AznsAction() AzNsActionGroupPtrOutput {
 	return o.ApplyT(func(v AlertingAction) *AzNsActionGroup { return v.AznsAction }).(AzNsActionGroupPtrOutput)
 }
 
-// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
 func (o AlertingActionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertingAction) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Severity of the alert
 func (o AlertingActionOutput) Severity() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertingAction) string { return v.Severity }).(pulumi.StringOutput)
 }
 
-// time (in minutes) for which Alerts should be throttled or suppressed.
 func (o AlertingActionOutput) ThrottlingInMin() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AlertingAction) *int { return v.ThrottlingInMin }).(pulumi.IntPtrOutput)
 }
 
-// The trigger condition that results in the alert rule being.
 func (o AlertingActionOutput) Trigger() TriggerConditionOutput {
 	return o.ApplyT(func(v AlertingAction) TriggerCondition { return v.Trigger }).(TriggerConditionOutput)
 }
 
-// Specify action need to be taken when rule type is Alert
 type AlertingActionResponse struct {
-	// Azure action group reference.
-	AznsAction *AzNsActionGroupResponse `pulumi:"aznsAction"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
-	OdataType string `pulumi:"odataType"`
-	// Severity of the alert
-	Severity string `pulumi:"severity"`
-	// time (in minutes) for which Alerts should be throttled or suppressed.
-	ThrottlingInMin *int `pulumi:"throttlingInMin"`
-	// The trigger condition that results in the alert rule being.
-	Trigger TriggerConditionResponse `pulumi:"trigger"`
+	AznsAction      *AzNsActionGroupResponse `pulumi:"aznsAction"`
+	OdataType       string                   `pulumi:"odataType"`
+	Severity        string                   `pulumi:"severity"`
+	ThrottlingInMin *int                     `pulumi:"throttlingInMin"`
+	Trigger         TriggerConditionResponse `pulumi:"trigger"`
 }
 
 // AlertingActionResponseInput is an input type that accepts AlertingActionResponseArgs and AlertingActionResponseOutput values.
@@ -130,19 +102,12 @@ type AlertingActionResponseInput interface {
 	ToAlertingActionResponseOutputWithContext(context.Context) AlertingActionResponseOutput
 }
 
-// Specify action need to be taken when rule type is Alert
 type AlertingActionResponseArgs struct {
-	// Azure action group reference.
-	AznsAction AzNsActionGroupResponsePtrInput `pulumi:"aznsAction"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Severity of the alert
-	Severity pulumi.StringInput `pulumi:"severity"`
-	// time (in minutes) for which Alerts should be throttled or suppressed.
-	ThrottlingInMin pulumi.IntPtrInput `pulumi:"throttlingInMin"`
-	// The trigger condition that results in the alert rule being.
-	Trigger TriggerConditionResponseInput `pulumi:"trigger"`
+	AznsAction      AzNsActionGroupResponsePtrInput `pulumi:"aznsAction"`
+	OdataType       pulumi.StringInput              `pulumi:"odataType"`
+	Severity        pulumi.StringInput              `pulumi:"severity"`
+	ThrottlingInMin pulumi.IntPtrInput              `pulumi:"throttlingInMin"`
+	Trigger         TriggerConditionResponseInput   `pulumi:"trigger"`
 }
 
 func (AlertingActionResponseArgs) ElementType() reflect.Type {
@@ -157,7 +122,6 @@ func (i AlertingActionResponseArgs) ToAlertingActionResponseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AlertingActionResponseOutput)
 }
 
-// Specify action need to be taken when rule type is Alert
 type AlertingActionResponseOutput struct{ *pulumi.OutputState }
 
 func (AlertingActionResponseOutput) ElementType() reflect.Type {
@@ -172,40 +136,30 @@ func (o AlertingActionResponseOutput) ToAlertingActionResponseOutputWithContext(
 	return o
 }
 
-// Azure action group reference.
 func (o AlertingActionResponseOutput) AznsAction() AzNsActionGroupResponsePtrOutput {
 	return o.ApplyT(func(v AlertingActionResponse) *AzNsActionGroupResponse { return v.AznsAction }).(AzNsActionGroupResponsePtrOutput)
 }
 
-// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
 func (o AlertingActionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertingActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Severity of the alert
 func (o AlertingActionResponseOutput) Severity() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertingActionResponse) string { return v.Severity }).(pulumi.StringOutput)
 }
 
-// time (in minutes) for which Alerts should be throttled or suppressed.
 func (o AlertingActionResponseOutput) ThrottlingInMin() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AlertingActionResponse) *int { return v.ThrottlingInMin }).(pulumi.IntPtrOutput)
 }
 
-// The trigger condition that results in the alert rule being.
 func (o AlertingActionResponseOutput) Trigger() TriggerConditionResponseOutput {
 	return o.ApplyT(func(v AlertingActionResponse) TriggerConditionResponse { return v.Trigger }).(TriggerConditionResponseOutput)
 }
 
-// Azure action group
 type AzNsActionGroup struct {
-	// Azure Action Group reference.
-	ActionGroup []string `pulumi:"actionGroup"`
-	// Custom payload to be sent for all webhook URI in Azure action group
-	CustomWebhookPayload *string `pulumi:"customWebhookPayload"`
-	// Custom subject override for all email ids in Azure action group
-	EmailSubject *string `pulumi:"emailSubject"`
+	ActionGroup          []string `pulumi:"actionGroup"`
+	CustomWebhookPayload *string  `pulumi:"customWebhookPayload"`
+	EmailSubject         *string  `pulumi:"emailSubject"`
 }
 
 // AzNsActionGroupInput is an input type that accepts AzNsActionGroupArgs and AzNsActionGroupOutput values.
@@ -219,14 +173,10 @@ type AzNsActionGroupInput interface {
 	ToAzNsActionGroupOutputWithContext(context.Context) AzNsActionGroupOutput
 }
 
-// Azure action group
 type AzNsActionGroupArgs struct {
-	// Azure Action Group reference.
-	ActionGroup pulumi.StringArrayInput `pulumi:"actionGroup"`
-	// Custom payload to be sent for all webhook URI in Azure action group
-	CustomWebhookPayload pulumi.StringPtrInput `pulumi:"customWebhookPayload"`
-	// Custom subject override for all email ids in Azure action group
-	EmailSubject pulumi.StringPtrInput `pulumi:"emailSubject"`
+	ActionGroup          pulumi.StringArrayInput `pulumi:"actionGroup"`
+	CustomWebhookPayload pulumi.StringPtrInput   `pulumi:"customWebhookPayload"`
+	EmailSubject         pulumi.StringPtrInput   `pulumi:"emailSubject"`
 }
 
 func (AzNsActionGroupArgs) ElementType() reflect.Type {
@@ -282,7 +232,6 @@ func (i *azNsActionGroupPtrType) ToAzNsActionGroupPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AzNsActionGroupPtrOutput)
 }
 
-// Azure action group
 type AzNsActionGroupOutput struct{ *pulumi.OutputState }
 
 func (AzNsActionGroupOutput) ElementType() reflect.Type {
@@ -302,22 +251,19 @@ func (o AzNsActionGroupOutput) ToAzNsActionGroupPtrOutput() AzNsActionGroupPtrOu
 }
 
 func (o AzNsActionGroupOutput) ToAzNsActionGroupPtrOutputWithContext(ctx context.Context) AzNsActionGroupPtrOutput {
-	return o.ApplyT(func(v AzNsActionGroup) *AzNsActionGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzNsActionGroup) *AzNsActionGroup {
 		return &v
 	}).(AzNsActionGroupPtrOutput)
 }
 
-// Azure Action Group reference.
 func (o AzNsActionGroupOutput) ActionGroup() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzNsActionGroup) []string { return v.ActionGroup }).(pulumi.StringArrayOutput)
 }
 
-// Custom payload to be sent for all webhook URI in Azure action group
 func (o AzNsActionGroupOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzNsActionGroup) *string { return v.CustomWebhookPayload }).(pulumi.StringPtrOutput)
 }
 
-// Custom subject override for all email ids in Azure action group
 func (o AzNsActionGroupOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzNsActionGroup) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
 }
@@ -337,10 +283,15 @@ func (o AzNsActionGroupPtrOutput) ToAzNsActionGroupPtrOutputWithContext(ctx cont
 }
 
 func (o AzNsActionGroupPtrOutput) Elem() AzNsActionGroupOutput {
-	return o.ApplyT(func(v *AzNsActionGroup) AzNsActionGroup { return *v }).(AzNsActionGroupOutput)
+	return o.ApplyT(func(v *AzNsActionGroup) AzNsActionGroup {
+		if v != nil {
+			return *v
+		}
+		var ret AzNsActionGroup
+		return ret
+	}).(AzNsActionGroupOutput)
 }
 
-// Azure Action Group reference.
 func (o AzNsActionGroupPtrOutput) ActionGroup() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AzNsActionGroup) []string {
 		if v == nil {
@@ -350,7 +301,6 @@ func (o AzNsActionGroupPtrOutput) ActionGroup() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Custom payload to be sent for all webhook URI in Azure action group
 func (o AzNsActionGroupPtrOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzNsActionGroup) *string {
 		if v == nil {
@@ -360,7 +310,6 @@ func (o AzNsActionGroupPtrOutput) CustomWebhookPayload() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom subject override for all email ids in Azure action group
 func (o AzNsActionGroupPtrOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzNsActionGroup) *string {
 		if v == nil {
@@ -370,14 +319,10 @@ func (o AzNsActionGroupPtrOutput) EmailSubject() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure action group
 type AzNsActionGroupResponse struct {
-	// Azure Action Group reference.
-	ActionGroup []string `pulumi:"actionGroup"`
-	// Custom payload to be sent for all webhook URI in Azure action group
-	CustomWebhookPayload *string `pulumi:"customWebhookPayload"`
-	// Custom subject override for all email ids in Azure action group
-	EmailSubject *string `pulumi:"emailSubject"`
+	ActionGroup          []string `pulumi:"actionGroup"`
+	CustomWebhookPayload *string  `pulumi:"customWebhookPayload"`
+	EmailSubject         *string  `pulumi:"emailSubject"`
 }
 
 // AzNsActionGroupResponseInput is an input type that accepts AzNsActionGroupResponseArgs and AzNsActionGroupResponseOutput values.
@@ -391,14 +336,10 @@ type AzNsActionGroupResponseInput interface {
 	ToAzNsActionGroupResponseOutputWithContext(context.Context) AzNsActionGroupResponseOutput
 }
 
-// Azure action group
 type AzNsActionGroupResponseArgs struct {
-	// Azure Action Group reference.
-	ActionGroup pulumi.StringArrayInput `pulumi:"actionGroup"`
-	// Custom payload to be sent for all webhook URI in Azure action group
-	CustomWebhookPayload pulumi.StringPtrInput `pulumi:"customWebhookPayload"`
-	// Custom subject override for all email ids in Azure action group
-	EmailSubject pulumi.StringPtrInput `pulumi:"emailSubject"`
+	ActionGroup          pulumi.StringArrayInput `pulumi:"actionGroup"`
+	CustomWebhookPayload pulumi.StringPtrInput   `pulumi:"customWebhookPayload"`
+	EmailSubject         pulumi.StringPtrInput   `pulumi:"emailSubject"`
 }
 
 func (AzNsActionGroupResponseArgs) ElementType() reflect.Type {
@@ -454,7 +395,6 @@ func (i *azNsActionGroupResponsePtrType) ToAzNsActionGroupResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AzNsActionGroupResponsePtrOutput)
 }
 
-// Azure action group
 type AzNsActionGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (AzNsActionGroupResponseOutput) ElementType() reflect.Type {
@@ -474,22 +414,19 @@ func (o AzNsActionGroupResponseOutput) ToAzNsActionGroupResponsePtrOutput() AzNs
 }
 
 func (o AzNsActionGroupResponseOutput) ToAzNsActionGroupResponsePtrOutputWithContext(ctx context.Context) AzNsActionGroupResponsePtrOutput {
-	return o.ApplyT(func(v AzNsActionGroupResponse) *AzNsActionGroupResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzNsActionGroupResponse) *AzNsActionGroupResponse {
 		return &v
 	}).(AzNsActionGroupResponsePtrOutput)
 }
 
-// Azure Action Group reference.
 func (o AzNsActionGroupResponseOutput) ActionGroup() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzNsActionGroupResponse) []string { return v.ActionGroup }).(pulumi.StringArrayOutput)
 }
 
-// Custom payload to be sent for all webhook URI in Azure action group
 func (o AzNsActionGroupResponseOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzNsActionGroupResponse) *string { return v.CustomWebhookPayload }).(pulumi.StringPtrOutput)
 }
 
-// Custom subject override for all email ids in Azure action group
 func (o AzNsActionGroupResponseOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzNsActionGroupResponse) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
 }
@@ -509,10 +446,15 @@ func (o AzNsActionGroupResponsePtrOutput) ToAzNsActionGroupResponsePtrOutputWith
 }
 
 func (o AzNsActionGroupResponsePtrOutput) Elem() AzNsActionGroupResponseOutput {
-	return o.ApplyT(func(v *AzNsActionGroupResponse) AzNsActionGroupResponse { return *v }).(AzNsActionGroupResponseOutput)
+	return o.ApplyT(func(v *AzNsActionGroupResponse) AzNsActionGroupResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzNsActionGroupResponse
+		return ret
+	}).(AzNsActionGroupResponseOutput)
 }
 
-// Azure Action Group reference.
 func (o AzNsActionGroupResponsePtrOutput) ActionGroup() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AzNsActionGroupResponse) []string {
 		if v == nil {
@@ -522,7 +464,6 @@ func (o AzNsActionGroupResponsePtrOutput) ActionGroup() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// Custom payload to be sent for all webhook URI in Azure action group
 func (o AzNsActionGroupResponsePtrOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzNsActionGroupResponse) *string {
 		if v == nil {
@@ -532,7 +473,6 @@ func (o AzNsActionGroupResponsePtrOutput) CustomWebhookPayload() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom subject override for all email ids in Azure action group
 func (o AzNsActionGroupResponsePtrOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzNsActionGroupResponse) *string {
 		if v == nil {
@@ -542,12 +482,9 @@ func (o AzNsActionGroupResponsePtrOutput) EmailSubject() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the criteria for converting log to metric.
 type Criteria struct {
-	// List of Dimensions for creating metric
 	Dimensions []Dimension `pulumi:"dimensions"`
-	// Name of the metric
-	MetricName string `pulumi:"metricName"`
+	MetricName string      `pulumi:"metricName"`
 }
 
 // CriteriaInput is an input type that accepts CriteriaArgs and CriteriaOutput values.
@@ -561,12 +498,9 @@ type CriteriaInput interface {
 	ToCriteriaOutputWithContext(context.Context) CriteriaOutput
 }
 
-// Specifies the criteria for converting log to metric.
 type CriteriaArgs struct {
-	// List of Dimensions for creating metric
 	Dimensions DimensionArrayInput `pulumi:"dimensions"`
-	// Name of the metric
-	MetricName pulumi.StringInput `pulumi:"metricName"`
+	MetricName pulumi.StringInput  `pulumi:"metricName"`
 }
 
 func (CriteriaArgs) ElementType() reflect.Type {
@@ -606,7 +540,6 @@ func (i CriteriaArray) ToCriteriaArrayOutputWithContext(ctx context.Context) Cri
 	return pulumi.ToOutputWithContext(ctx, i).(CriteriaArrayOutput)
 }
 
-// Specifies the criteria for converting log to metric.
 type CriteriaOutput struct{ *pulumi.OutputState }
 
 func (CriteriaOutput) ElementType() reflect.Type {
@@ -621,12 +554,10 @@ func (o CriteriaOutput) ToCriteriaOutputWithContext(ctx context.Context) Criteri
 	return o
 }
 
-// List of Dimensions for creating metric
 func (o CriteriaOutput) Dimensions() DimensionArrayOutput {
 	return o.ApplyT(func(v Criteria) []Dimension { return v.Dimensions }).(DimensionArrayOutput)
 }
 
-// Name of the metric
 func (o CriteriaOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v Criteria) string { return v.MetricName }).(pulumi.StringOutput)
 }
@@ -651,12 +582,9 @@ func (o CriteriaArrayOutput) Index(i pulumi.IntInput) CriteriaOutput {
 	}).(CriteriaOutput)
 }
 
-// Specifies the criteria for converting log to metric.
 type CriteriaResponse struct {
-	// List of Dimensions for creating metric
 	Dimensions []DimensionResponse `pulumi:"dimensions"`
-	// Name of the metric
-	MetricName string `pulumi:"metricName"`
+	MetricName string              `pulumi:"metricName"`
 }
 
 // CriteriaResponseInput is an input type that accepts CriteriaResponseArgs and CriteriaResponseOutput values.
@@ -670,12 +598,9 @@ type CriteriaResponseInput interface {
 	ToCriteriaResponseOutputWithContext(context.Context) CriteriaResponseOutput
 }
 
-// Specifies the criteria for converting log to metric.
 type CriteriaResponseArgs struct {
-	// List of Dimensions for creating metric
 	Dimensions DimensionResponseArrayInput `pulumi:"dimensions"`
-	// Name of the metric
-	MetricName pulumi.StringInput `pulumi:"metricName"`
+	MetricName pulumi.StringInput          `pulumi:"metricName"`
 }
 
 func (CriteriaResponseArgs) ElementType() reflect.Type {
@@ -715,7 +640,6 @@ func (i CriteriaResponseArray) ToCriteriaResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CriteriaResponseArrayOutput)
 }
 
-// Specifies the criteria for converting log to metric.
 type CriteriaResponseOutput struct{ *pulumi.OutputState }
 
 func (CriteriaResponseOutput) ElementType() reflect.Type {
@@ -730,12 +654,10 @@ func (o CriteriaResponseOutput) ToCriteriaResponseOutputWithContext(ctx context.
 	return o
 }
 
-// List of Dimensions for creating metric
 func (o CriteriaResponseOutput) Dimensions() DimensionResponseArrayOutput {
 	return o.ApplyT(func(v CriteriaResponse) []DimensionResponse { return v.Dimensions }).(DimensionResponseArrayOutput)
 }
 
-// Name of the metric
 func (o CriteriaResponseOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v CriteriaResponse) string { return v.MetricName }).(pulumi.StringOutput)
 }
@@ -760,14 +682,10 @@ func (o CriteriaResponseArrayOutput) Index(i pulumi.IntInput) CriteriaResponseOu
 	}).(CriteriaResponseOutput)
 }
 
-// Specifies the criteria for converting log to metric.
 type Dimension struct {
-	// Name of the dimension
-	Name string `pulumi:"name"`
-	// Operator for dimension values
-	Operator string `pulumi:"operator"`
-	// List of dimension values
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // DimensionInput is an input type that accepts DimensionArgs and DimensionOutput values.
@@ -781,14 +699,10 @@ type DimensionInput interface {
 	ToDimensionOutputWithContext(context.Context) DimensionOutput
 }
 
-// Specifies the criteria for converting log to metric.
 type DimensionArgs struct {
-	// Name of the dimension
-	Name pulumi.StringInput `pulumi:"name"`
-	// Operator for dimension values
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// List of dimension values
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (DimensionArgs) ElementType() reflect.Type {
@@ -828,7 +742,6 @@ func (i DimensionArray) ToDimensionArrayOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DimensionArrayOutput)
 }
 
-// Specifies the criteria for converting log to metric.
 type DimensionOutput struct{ *pulumi.OutputState }
 
 func (DimensionOutput) ElementType() reflect.Type {
@@ -843,17 +756,14 @@ func (o DimensionOutput) ToDimensionOutputWithContext(ctx context.Context) Dimen
 	return o
 }
 
-// Name of the dimension
 func (o DimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Dimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Operator for dimension values
 func (o DimensionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v Dimension) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// List of dimension values
 func (o DimensionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Dimension) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -878,14 +788,10 @@ func (o DimensionArrayOutput) Index(i pulumi.IntInput) DimensionOutput {
 	}).(DimensionOutput)
 }
 
-// Specifies the criteria for converting log to metric.
 type DimensionResponse struct {
-	// Name of the dimension
-	Name string `pulumi:"name"`
-	// Operator for dimension values
-	Operator string `pulumi:"operator"`
-	// List of dimension values
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // DimensionResponseInput is an input type that accepts DimensionResponseArgs and DimensionResponseOutput values.
@@ -899,14 +805,10 @@ type DimensionResponseInput interface {
 	ToDimensionResponseOutputWithContext(context.Context) DimensionResponseOutput
 }
 
-// Specifies the criteria for converting log to metric.
 type DimensionResponseArgs struct {
-	// Name of the dimension
-	Name pulumi.StringInput `pulumi:"name"`
-	// Operator for dimension values
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// List of dimension values
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (DimensionResponseArgs) ElementType() reflect.Type {
@@ -946,7 +848,6 @@ func (i DimensionResponseArray) ToDimensionResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DimensionResponseArrayOutput)
 }
 
-// Specifies the criteria for converting log to metric.
 type DimensionResponseOutput struct{ *pulumi.OutputState }
 
 func (DimensionResponseOutput) ElementType() reflect.Type {
@@ -961,17 +862,14 @@ func (o DimensionResponseOutput) ToDimensionResponseOutputWithContext(ctx contex
 	return o
 }
 
-// Name of the dimension
 func (o DimensionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DimensionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Operator for dimension values
 func (o DimensionResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v DimensionResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// List of dimension values
 func (o DimensionResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DimensionResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -996,16 +894,11 @@ func (o DimensionResponseArrayOutput) Index(i pulumi.IntInput) DimensionResponse
 	}).(DimensionResponseOutput)
 }
 
-// A log metrics trigger descriptor.
 type LogMetricTrigger struct {
-	// Evaluation of metric on a particular column
-	MetricColumn *string `pulumi:"metricColumn"`
-	// Metric Trigger Type - 'Consecutive' or 'Total'
-	MetricTriggerType *string `pulumi:"metricTriggerType"`
-	// The threshold of the metric trigger.
-	Threshold *float64 `pulumi:"threshold"`
-	// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
-	ThresholdOperator *string `pulumi:"thresholdOperator"`
+	MetricColumn      *string  `pulumi:"metricColumn"`
+	MetricTriggerType *string  `pulumi:"metricTriggerType"`
+	Threshold         *float64 `pulumi:"threshold"`
+	ThresholdOperator *string  `pulumi:"thresholdOperator"`
 }
 
 // LogMetricTriggerInput is an input type that accepts LogMetricTriggerArgs and LogMetricTriggerOutput values.
@@ -1019,16 +912,11 @@ type LogMetricTriggerInput interface {
 	ToLogMetricTriggerOutputWithContext(context.Context) LogMetricTriggerOutput
 }
 
-// A log metrics trigger descriptor.
 type LogMetricTriggerArgs struct {
-	// Evaluation of metric on a particular column
-	MetricColumn pulumi.StringPtrInput `pulumi:"metricColumn"`
-	// Metric Trigger Type - 'Consecutive' or 'Total'
-	MetricTriggerType pulumi.StringPtrInput `pulumi:"metricTriggerType"`
-	// The threshold of the metric trigger.
-	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
-	// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
-	ThresholdOperator pulumi.StringPtrInput `pulumi:"thresholdOperator"`
+	MetricColumn      pulumi.StringPtrInput  `pulumi:"metricColumn"`
+	MetricTriggerType pulumi.StringPtrInput  `pulumi:"metricTriggerType"`
+	Threshold         pulumi.Float64PtrInput `pulumi:"threshold"`
+	ThresholdOperator pulumi.StringPtrInput  `pulumi:"thresholdOperator"`
 }
 
 func (LogMetricTriggerArgs) ElementType() reflect.Type {
@@ -1084,7 +972,6 @@ func (i *logMetricTriggerPtrType) ToLogMetricTriggerPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(LogMetricTriggerPtrOutput)
 }
 
-// A log metrics trigger descriptor.
 type LogMetricTriggerOutput struct{ *pulumi.OutputState }
 
 func (LogMetricTriggerOutput) ElementType() reflect.Type {
@@ -1104,27 +991,23 @@ func (o LogMetricTriggerOutput) ToLogMetricTriggerPtrOutput() LogMetricTriggerPt
 }
 
 func (o LogMetricTriggerOutput) ToLogMetricTriggerPtrOutputWithContext(ctx context.Context) LogMetricTriggerPtrOutput {
-	return o.ApplyT(func(v LogMetricTrigger) *LogMetricTrigger {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogMetricTrigger) *LogMetricTrigger {
 		return &v
 	}).(LogMetricTriggerPtrOutput)
 }
 
-// Evaluation of metric on a particular column
 func (o LogMetricTriggerOutput) MetricColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricTrigger) *string { return v.MetricColumn }).(pulumi.StringPtrOutput)
 }
 
-// Metric Trigger Type - 'Consecutive' or 'Total'
 func (o LogMetricTriggerOutput) MetricTriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricTrigger) *string { return v.MetricTriggerType }).(pulumi.StringPtrOutput)
 }
 
-// The threshold of the metric trigger.
 func (o LogMetricTriggerOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LogMetricTrigger) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
 
-// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
 func (o LogMetricTriggerOutput) ThresholdOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricTrigger) *string { return v.ThresholdOperator }).(pulumi.StringPtrOutput)
 }
@@ -1144,10 +1027,15 @@ func (o LogMetricTriggerPtrOutput) ToLogMetricTriggerPtrOutputWithContext(ctx co
 }
 
 func (o LogMetricTriggerPtrOutput) Elem() LogMetricTriggerOutput {
-	return o.ApplyT(func(v *LogMetricTrigger) LogMetricTrigger { return *v }).(LogMetricTriggerOutput)
+	return o.ApplyT(func(v *LogMetricTrigger) LogMetricTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret LogMetricTrigger
+		return ret
+	}).(LogMetricTriggerOutput)
 }
 
-// Evaluation of metric on a particular column
 func (o LogMetricTriggerPtrOutput) MetricColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricTrigger) *string {
 		if v == nil {
@@ -1157,7 +1045,6 @@ func (o LogMetricTriggerPtrOutput) MetricColumn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metric Trigger Type - 'Consecutive' or 'Total'
 func (o LogMetricTriggerPtrOutput) MetricTriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricTrigger) *string {
 		if v == nil {
@@ -1167,7 +1054,6 @@ func (o LogMetricTriggerPtrOutput) MetricTriggerType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The threshold of the metric trigger.
 func (o LogMetricTriggerPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LogMetricTrigger) *float64 {
 		if v == nil {
@@ -1177,7 +1063,6 @@ func (o LogMetricTriggerPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
 func (o LogMetricTriggerPtrOutput) ThresholdOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricTrigger) *string {
 		if v == nil {
@@ -1187,16 +1072,11 @@ func (o LogMetricTriggerPtrOutput) ThresholdOperator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A log metrics trigger descriptor.
 type LogMetricTriggerResponse struct {
-	// Evaluation of metric on a particular column
-	MetricColumn *string `pulumi:"metricColumn"`
-	// Metric Trigger Type - 'Consecutive' or 'Total'
-	MetricTriggerType *string `pulumi:"metricTriggerType"`
-	// The threshold of the metric trigger.
-	Threshold *float64 `pulumi:"threshold"`
-	// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
-	ThresholdOperator *string `pulumi:"thresholdOperator"`
+	MetricColumn      *string  `pulumi:"metricColumn"`
+	MetricTriggerType *string  `pulumi:"metricTriggerType"`
+	Threshold         *float64 `pulumi:"threshold"`
+	ThresholdOperator *string  `pulumi:"thresholdOperator"`
 }
 
 // LogMetricTriggerResponseInput is an input type that accepts LogMetricTriggerResponseArgs and LogMetricTriggerResponseOutput values.
@@ -1210,16 +1090,11 @@ type LogMetricTriggerResponseInput interface {
 	ToLogMetricTriggerResponseOutputWithContext(context.Context) LogMetricTriggerResponseOutput
 }
 
-// A log metrics trigger descriptor.
 type LogMetricTriggerResponseArgs struct {
-	// Evaluation of metric on a particular column
-	MetricColumn pulumi.StringPtrInput `pulumi:"metricColumn"`
-	// Metric Trigger Type - 'Consecutive' or 'Total'
-	MetricTriggerType pulumi.StringPtrInput `pulumi:"metricTriggerType"`
-	// The threshold of the metric trigger.
-	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
-	// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
-	ThresholdOperator pulumi.StringPtrInput `pulumi:"thresholdOperator"`
+	MetricColumn      pulumi.StringPtrInput  `pulumi:"metricColumn"`
+	MetricTriggerType pulumi.StringPtrInput  `pulumi:"metricTriggerType"`
+	Threshold         pulumi.Float64PtrInput `pulumi:"threshold"`
+	ThresholdOperator pulumi.StringPtrInput  `pulumi:"thresholdOperator"`
 }
 
 func (LogMetricTriggerResponseArgs) ElementType() reflect.Type {
@@ -1275,7 +1150,6 @@ func (i *logMetricTriggerResponsePtrType) ToLogMetricTriggerResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(LogMetricTriggerResponsePtrOutput)
 }
 
-// A log metrics trigger descriptor.
 type LogMetricTriggerResponseOutput struct{ *pulumi.OutputState }
 
 func (LogMetricTriggerResponseOutput) ElementType() reflect.Type {
@@ -1295,27 +1169,23 @@ func (o LogMetricTriggerResponseOutput) ToLogMetricTriggerResponsePtrOutput() Lo
 }
 
 func (o LogMetricTriggerResponseOutput) ToLogMetricTriggerResponsePtrOutputWithContext(ctx context.Context) LogMetricTriggerResponsePtrOutput {
-	return o.ApplyT(func(v LogMetricTriggerResponse) *LogMetricTriggerResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogMetricTriggerResponse) *LogMetricTriggerResponse {
 		return &v
 	}).(LogMetricTriggerResponsePtrOutput)
 }
 
-// Evaluation of metric on a particular column
 func (o LogMetricTriggerResponseOutput) MetricColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricTriggerResponse) *string { return v.MetricColumn }).(pulumi.StringPtrOutput)
 }
 
-// Metric Trigger Type - 'Consecutive' or 'Total'
 func (o LogMetricTriggerResponseOutput) MetricTriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricTriggerResponse) *string { return v.MetricTriggerType }).(pulumi.StringPtrOutput)
 }
 
-// The threshold of the metric trigger.
 func (o LogMetricTriggerResponseOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LogMetricTriggerResponse) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
 
-// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
 func (o LogMetricTriggerResponseOutput) ThresholdOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricTriggerResponse) *string { return v.ThresholdOperator }).(pulumi.StringPtrOutput)
 }
@@ -1335,10 +1205,15 @@ func (o LogMetricTriggerResponsePtrOutput) ToLogMetricTriggerResponsePtrOutputWi
 }
 
 func (o LogMetricTriggerResponsePtrOutput) Elem() LogMetricTriggerResponseOutput {
-	return o.ApplyT(func(v *LogMetricTriggerResponse) LogMetricTriggerResponse { return *v }).(LogMetricTriggerResponseOutput)
+	return o.ApplyT(func(v *LogMetricTriggerResponse) LogMetricTriggerResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LogMetricTriggerResponse
+		return ret
+	}).(LogMetricTriggerResponseOutput)
 }
 
-// Evaluation of metric on a particular column
 func (o LogMetricTriggerResponsePtrOutput) MetricColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricTriggerResponse) *string {
 		if v == nil {
@@ -1348,7 +1223,6 @@ func (o LogMetricTriggerResponsePtrOutput) MetricColumn() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metric Trigger Type - 'Consecutive' or 'Total'
 func (o LogMetricTriggerResponsePtrOutput) MetricTriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricTriggerResponse) *string {
 		if v == nil {
@@ -1358,7 +1232,6 @@ func (o LogMetricTriggerResponsePtrOutput) MetricTriggerType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The threshold of the metric trigger.
 func (o LogMetricTriggerResponsePtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LogMetricTriggerResponse) *float64 {
 		if v == nil {
@@ -1368,7 +1241,6 @@ func (o LogMetricTriggerResponsePtrOutput) Threshold() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
 func (o LogMetricTriggerResponsePtrOutput) ThresholdOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricTriggerResponse) *string {
 		if v == nil {
@@ -1378,13 +1250,9 @@ func (o LogMetricTriggerResponsePtrOutput) ThresholdOperator() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify action need to be taken when rule type is converting log to metric
 type LogToMetricAction struct {
-	// Criteria of Metric
-	Criteria []Criteria `pulumi:"criteria"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
-	OdataType string `pulumi:"odataType"`
+	Criteria  []Criteria `pulumi:"criteria"`
+	OdataType string     `pulumi:"odataType"`
 }
 
 // LogToMetricActionInput is an input type that accepts LogToMetricActionArgs and LogToMetricActionOutput values.
@@ -1398,12 +1266,8 @@ type LogToMetricActionInput interface {
 	ToLogToMetricActionOutputWithContext(context.Context) LogToMetricActionOutput
 }
 
-// Specify action need to be taken when rule type is converting log to metric
 type LogToMetricActionArgs struct {
-	// Criteria of Metric
-	Criteria CriteriaArrayInput `pulumi:"criteria"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
+	Criteria  CriteriaArrayInput `pulumi:"criteria"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -1419,7 +1283,6 @@ func (i LogToMetricActionArgs) ToLogToMetricActionOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LogToMetricActionOutput)
 }
 
-// Specify action need to be taken when rule type is converting log to metric
 type LogToMetricActionOutput struct{ *pulumi.OutputState }
 
 func (LogToMetricActionOutput) ElementType() reflect.Type {
@@ -1434,24 +1297,17 @@ func (o LogToMetricActionOutput) ToLogToMetricActionOutputWithContext(ctx contex
 	return o
 }
 
-// Criteria of Metric
 func (o LogToMetricActionOutput) Criteria() CriteriaArrayOutput {
 	return o.ApplyT(func(v LogToMetricAction) []Criteria { return v.Criteria }).(CriteriaArrayOutput)
 }
 
-// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
 func (o LogToMetricActionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v LogToMetricAction) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Specify action need to be taken when rule type is converting log to metric
 type LogToMetricActionResponse struct {
-	// Criteria of Metric
-	Criteria []CriteriaResponse `pulumi:"criteria"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
-	OdataType string `pulumi:"odataType"`
+	Criteria  []CriteriaResponse `pulumi:"criteria"`
+	OdataType string             `pulumi:"odataType"`
 }
 
 // LogToMetricActionResponseInput is an input type that accepts LogToMetricActionResponseArgs and LogToMetricActionResponseOutput values.
@@ -1465,13 +1321,9 @@ type LogToMetricActionResponseInput interface {
 	ToLogToMetricActionResponseOutputWithContext(context.Context) LogToMetricActionResponseOutput
 }
 
-// Specify action need to be taken when rule type is converting log to metric
 type LogToMetricActionResponseArgs struct {
-	// Criteria of Metric
-	Criteria CriteriaResponseArrayInput `pulumi:"criteria"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	Criteria  CriteriaResponseArrayInput `pulumi:"criteria"`
+	OdataType pulumi.StringInput         `pulumi:"odataType"`
 }
 
 func (LogToMetricActionResponseArgs) ElementType() reflect.Type {
@@ -1486,7 +1338,6 @@ func (i LogToMetricActionResponseArgs) ToLogToMetricActionResponseOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LogToMetricActionResponseOutput)
 }
 
-// Specify action need to be taken when rule type is converting log to metric
 type LogToMetricActionResponseOutput struct{ *pulumi.OutputState }
 
 func (LogToMetricActionResponseOutput) ElementType() reflect.Type {
@@ -1501,22 +1352,16 @@ func (o LogToMetricActionResponseOutput) ToLogToMetricActionResponseOutputWithCo
 	return o
 }
 
-// Criteria of Metric
 func (o LogToMetricActionResponseOutput) Criteria() CriteriaResponseArrayOutput {
 	return o.ApplyT(func(v LogToMetricActionResponse) []CriteriaResponse { return v.Criteria }).(CriteriaResponseArrayOutput)
 }
 
-// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
 func (o LogToMetricActionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v LogToMetricActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Defines how often to run the search and the time interval.
 type Schedule struct {
-	// frequency (in minutes) at which rule condition should be evaluated.
-	FrequencyInMinutes int `pulumi:"frequencyInMinutes"`
-	// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+	FrequencyInMinutes  int `pulumi:"frequencyInMinutes"`
 	TimeWindowInMinutes int `pulumi:"timeWindowInMinutes"`
 }
 
@@ -1531,11 +1376,8 @@ type ScheduleInput interface {
 	ToScheduleOutputWithContext(context.Context) ScheduleOutput
 }
 
-// Defines how often to run the search and the time interval.
 type ScheduleArgs struct {
-	// frequency (in minutes) at which rule condition should be evaluated.
-	FrequencyInMinutes pulumi.IntInput `pulumi:"frequencyInMinutes"`
-	// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+	FrequencyInMinutes  pulumi.IntInput `pulumi:"frequencyInMinutes"`
 	TimeWindowInMinutes pulumi.IntInput `pulumi:"timeWindowInMinutes"`
 }
 
@@ -1592,7 +1434,6 @@ func (i *schedulePtrType) ToSchedulePtrOutputWithContext(ctx context.Context) Sc
 	return pulumi.ToOutputWithContext(ctx, i).(SchedulePtrOutput)
 }
 
-// Defines how often to run the search and the time interval.
 type ScheduleOutput struct{ *pulumi.OutputState }
 
 func (ScheduleOutput) ElementType() reflect.Type {
@@ -1612,17 +1453,15 @@ func (o ScheduleOutput) ToSchedulePtrOutput() SchedulePtrOutput {
 }
 
 func (o ScheduleOutput) ToSchedulePtrOutputWithContext(ctx context.Context) SchedulePtrOutput {
-	return o.ApplyT(func(v Schedule) *Schedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Schedule) *Schedule {
 		return &v
 	}).(SchedulePtrOutput)
 }
 
-// frequency (in minutes) at which rule condition should be evaluated.
 func (o ScheduleOutput) FrequencyInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v Schedule) int { return v.FrequencyInMinutes }).(pulumi.IntOutput)
 }
 
-// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
 func (o ScheduleOutput) TimeWindowInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v Schedule) int { return v.TimeWindowInMinutes }).(pulumi.IntOutput)
 }
@@ -1642,10 +1481,15 @@ func (o SchedulePtrOutput) ToSchedulePtrOutputWithContext(ctx context.Context) S
 }
 
 func (o SchedulePtrOutput) Elem() ScheduleOutput {
-	return o.ApplyT(func(v *Schedule) Schedule { return *v }).(ScheduleOutput)
+	return o.ApplyT(func(v *Schedule) Schedule {
+		if v != nil {
+			return *v
+		}
+		var ret Schedule
+		return ret
+	}).(ScheduleOutput)
 }
 
-// frequency (in minutes) at which rule condition should be evaluated.
 func (o SchedulePtrOutput) FrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Schedule) *int {
 		if v == nil {
@@ -1655,7 +1499,6 @@ func (o SchedulePtrOutput) FrequencyInMinutes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
 func (o SchedulePtrOutput) TimeWindowInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Schedule) *int {
 		if v == nil {
@@ -1665,11 +1508,8 @@ func (o SchedulePtrOutput) TimeWindowInMinutes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Defines how often to run the search and the time interval.
 type ScheduleResponse struct {
-	// frequency (in minutes) at which rule condition should be evaluated.
-	FrequencyInMinutes int `pulumi:"frequencyInMinutes"`
-	// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+	FrequencyInMinutes  int `pulumi:"frequencyInMinutes"`
 	TimeWindowInMinutes int `pulumi:"timeWindowInMinutes"`
 }
 
@@ -1684,11 +1524,8 @@ type ScheduleResponseInput interface {
 	ToScheduleResponseOutputWithContext(context.Context) ScheduleResponseOutput
 }
 
-// Defines how often to run the search and the time interval.
 type ScheduleResponseArgs struct {
-	// frequency (in minutes) at which rule condition should be evaluated.
-	FrequencyInMinutes pulumi.IntInput `pulumi:"frequencyInMinutes"`
-	// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+	FrequencyInMinutes  pulumi.IntInput `pulumi:"frequencyInMinutes"`
 	TimeWindowInMinutes pulumi.IntInput `pulumi:"timeWindowInMinutes"`
 }
 
@@ -1745,7 +1582,6 @@ func (i *scheduleResponsePtrType) ToScheduleResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResponsePtrOutput)
 }
 
-// Defines how often to run the search and the time interval.
 type ScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (ScheduleResponseOutput) ElementType() reflect.Type {
@@ -1765,17 +1601,15 @@ func (o ScheduleResponseOutput) ToScheduleResponsePtrOutput() ScheduleResponsePt
 }
 
 func (o ScheduleResponseOutput) ToScheduleResponsePtrOutputWithContext(ctx context.Context) ScheduleResponsePtrOutput {
-	return o.ApplyT(func(v ScheduleResponse) *ScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleResponse) *ScheduleResponse {
 		return &v
 	}).(ScheduleResponsePtrOutput)
 }
 
-// frequency (in minutes) at which rule condition should be evaluated.
 func (o ScheduleResponseOutput) FrequencyInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleResponse) int { return v.FrequencyInMinutes }).(pulumi.IntOutput)
 }
 
-// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
 func (o ScheduleResponseOutput) TimeWindowInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleResponse) int { return v.TimeWindowInMinutes }).(pulumi.IntOutput)
 }
@@ -1795,10 +1629,15 @@ func (o ScheduleResponsePtrOutput) ToScheduleResponsePtrOutputWithContext(ctx co
 }
 
 func (o ScheduleResponsePtrOutput) Elem() ScheduleResponseOutput {
-	return o.ApplyT(func(v *ScheduleResponse) ScheduleResponse { return *v }).(ScheduleResponseOutput)
+	return o.ApplyT(func(v *ScheduleResponse) ScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduleResponse
+		return ret
+	}).(ScheduleResponseOutput)
 }
 
-// frequency (in minutes) at which rule condition should be evaluated.
 func (o ScheduleResponsePtrOutput) FrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *int {
 		if v == nil {
@@ -1808,7 +1647,6 @@ func (o ScheduleResponsePtrOutput) FrequencyInMinutes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
 func (o ScheduleResponsePtrOutput) TimeWindowInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *int {
 		if v == nil {
@@ -1818,16 +1656,11 @@ func (o ScheduleResponsePtrOutput) TimeWindowInMinutes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the log search query.
 type Source struct {
-	// List of  Resource referred into query
 	AuthorizedResources []string `pulumi:"authorizedResources"`
-	// The resource uri over which log search query is to be run.
-	DataSourceId string `pulumi:"dataSourceId"`
-	// Log search query. Required for action type - AlertingAction
-	Query *string `pulumi:"query"`
-	// Set value to 'ResultCount' .
-	QueryType *string `pulumi:"queryType"`
+	DataSourceId        string   `pulumi:"dataSourceId"`
+	Query               *string  `pulumi:"query"`
+	QueryType           *string  `pulumi:"queryType"`
 }
 
 // SourceInput is an input type that accepts SourceArgs and SourceOutput values.
@@ -1841,16 +1674,11 @@ type SourceInput interface {
 	ToSourceOutputWithContext(context.Context) SourceOutput
 }
 
-// Specifies the log search query.
 type SourceArgs struct {
-	// List of  Resource referred into query
 	AuthorizedResources pulumi.StringArrayInput `pulumi:"authorizedResources"`
-	// The resource uri over which log search query is to be run.
-	DataSourceId pulumi.StringInput `pulumi:"dataSourceId"`
-	// Log search query. Required for action type - AlertingAction
-	Query pulumi.StringPtrInput `pulumi:"query"`
-	// Set value to 'ResultCount' .
-	QueryType pulumi.StringPtrInput `pulumi:"queryType"`
+	DataSourceId        pulumi.StringInput      `pulumi:"dataSourceId"`
+	Query               pulumi.StringPtrInput   `pulumi:"query"`
+	QueryType           pulumi.StringPtrInput   `pulumi:"queryType"`
 }
 
 func (SourceArgs) ElementType() reflect.Type {
@@ -1906,7 +1734,6 @@ func (i *sourcePtrType) ToSourcePtrOutputWithContext(ctx context.Context) Source
 	return pulumi.ToOutputWithContext(ctx, i).(SourcePtrOutput)
 }
 
-// Specifies the log search query.
 type SourceOutput struct{ *pulumi.OutputState }
 
 func (SourceOutput) ElementType() reflect.Type {
@@ -1926,27 +1753,23 @@ func (o SourceOutput) ToSourcePtrOutput() SourcePtrOutput {
 }
 
 func (o SourceOutput) ToSourcePtrOutputWithContext(ctx context.Context) SourcePtrOutput {
-	return o.ApplyT(func(v Source) *Source {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Source) *Source {
 		return &v
 	}).(SourcePtrOutput)
 }
 
-// List of  Resource referred into query
 func (o SourceOutput) AuthorizedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Source) []string { return v.AuthorizedResources }).(pulumi.StringArrayOutput)
 }
 
-// The resource uri over which log search query is to be run.
 func (o SourceOutput) DataSourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v Source) string { return v.DataSourceId }).(pulumi.StringOutput)
 }
 
-// Log search query. Required for action type - AlertingAction
 func (o SourceOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Source) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
 
-// Set value to 'ResultCount' .
 func (o SourceOutput) QueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Source) *string { return v.QueryType }).(pulumi.StringPtrOutput)
 }
@@ -1966,10 +1789,15 @@ func (o SourcePtrOutput) ToSourcePtrOutputWithContext(ctx context.Context) Sourc
 }
 
 func (o SourcePtrOutput) Elem() SourceOutput {
-	return o.ApplyT(func(v *Source) Source { return *v }).(SourceOutput)
+	return o.ApplyT(func(v *Source) Source {
+		if v != nil {
+			return *v
+		}
+		var ret Source
+		return ret
+	}).(SourceOutput)
 }
 
-// List of  Resource referred into query
 func (o SourcePtrOutput) AuthorizedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Source) []string {
 		if v == nil {
@@ -1979,7 +1807,6 @@ func (o SourcePtrOutput) AuthorizedResources() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The resource uri over which log search query is to be run.
 func (o SourcePtrOutput) DataSourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Source) *string {
 		if v == nil {
@@ -1989,7 +1816,6 @@ func (o SourcePtrOutput) DataSourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Log search query. Required for action type - AlertingAction
 func (o SourcePtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Source) *string {
 		if v == nil {
@@ -1999,7 +1825,6 @@ func (o SourcePtrOutput) Query() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set value to 'ResultCount' .
 func (o SourcePtrOutput) QueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Source) *string {
 		if v == nil {
@@ -2009,16 +1834,11 @@ func (o SourcePtrOutput) QueryType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the log search query.
 type SourceResponse struct {
-	// List of  Resource referred into query
 	AuthorizedResources []string `pulumi:"authorizedResources"`
-	// The resource uri over which log search query is to be run.
-	DataSourceId string `pulumi:"dataSourceId"`
-	// Log search query. Required for action type - AlertingAction
-	Query *string `pulumi:"query"`
-	// Set value to 'ResultCount' .
-	QueryType *string `pulumi:"queryType"`
+	DataSourceId        string   `pulumi:"dataSourceId"`
+	Query               *string  `pulumi:"query"`
+	QueryType           *string  `pulumi:"queryType"`
 }
 
 // SourceResponseInput is an input type that accepts SourceResponseArgs and SourceResponseOutput values.
@@ -2032,16 +1852,11 @@ type SourceResponseInput interface {
 	ToSourceResponseOutputWithContext(context.Context) SourceResponseOutput
 }
 
-// Specifies the log search query.
 type SourceResponseArgs struct {
-	// List of  Resource referred into query
 	AuthorizedResources pulumi.StringArrayInput `pulumi:"authorizedResources"`
-	// The resource uri over which log search query is to be run.
-	DataSourceId pulumi.StringInput `pulumi:"dataSourceId"`
-	// Log search query. Required for action type - AlertingAction
-	Query pulumi.StringPtrInput `pulumi:"query"`
-	// Set value to 'ResultCount' .
-	QueryType pulumi.StringPtrInput `pulumi:"queryType"`
+	DataSourceId        pulumi.StringInput      `pulumi:"dataSourceId"`
+	Query               pulumi.StringPtrInput   `pulumi:"query"`
+	QueryType           pulumi.StringPtrInput   `pulumi:"queryType"`
 }
 
 func (SourceResponseArgs) ElementType() reflect.Type {
@@ -2097,7 +1912,6 @@ func (i *sourceResponsePtrType) ToSourceResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SourceResponsePtrOutput)
 }
 
-// Specifies the log search query.
 type SourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceResponseOutput) ElementType() reflect.Type {
@@ -2117,27 +1931,23 @@ func (o SourceResponseOutput) ToSourceResponsePtrOutput() SourceResponsePtrOutpu
 }
 
 func (o SourceResponseOutput) ToSourceResponsePtrOutputWithContext(ctx context.Context) SourceResponsePtrOutput {
-	return o.ApplyT(func(v SourceResponse) *SourceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceResponse) *SourceResponse {
 		return &v
 	}).(SourceResponsePtrOutput)
 }
 
-// List of  Resource referred into query
 func (o SourceResponseOutput) AuthorizedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SourceResponse) []string { return v.AuthorizedResources }).(pulumi.StringArrayOutput)
 }
 
-// The resource uri over which log search query is to be run.
 func (o SourceResponseOutput) DataSourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceResponse) string { return v.DataSourceId }).(pulumi.StringOutput)
 }
 
-// Log search query. Required for action type - AlertingAction
 func (o SourceResponseOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceResponse) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
 
-// Set value to 'ResultCount' .
 func (o SourceResponseOutput) QueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceResponse) *string { return v.QueryType }).(pulumi.StringPtrOutput)
 }
@@ -2157,10 +1967,15 @@ func (o SourceResponsePtrOutput) ToSourceResponsePtrOutputWithContext(ctx contex
 }
 
 func (o SourceResponsePtrOutput) Elem() SourceResponseOutput {
-	return o.ApplyT(func(v *SourceResponse) SourceResponse { return *v }).(SourceResponseOutput)
+	return o.ApplyT(func(v *SourceResponse) SourceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SourceResponse
+		return ret
+	}).(SourceResponseOutput)
 }
 
-// List of  Resource referred into query
 func (o SourceResponsePtrOutput) AuthorizedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SourceResponse) []string {
 		if v == nil {
@@ -2170,7 +1985,6 @@ func (o SourceResponsePtrOutput) AuthorizedResources() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// The resource uri over which log search query is to be run.
 func (o SourceResponsePtrOutput) DataSourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceResponse) *string {
 		if v == nil {
@@ -2180,7 +1994,6 @@ func (o SourceResponsePtrOutput) DataSourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Log search query. Required for action type - AlertingAction
 func (o SourceResponsePtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceResponse) *string {
 		if v == nil {
@@ -2190,7 +2003,6 @@ func (o SourceResponsePtrOutput) Query() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set value to 'ResultCount' .
 func (o SourceResponsePtrOutput) QueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceResponse) *string {
 		if v == nil {
@@ -2200,14 +2012,10 @@ func (o SourceResponsePtrOutput) QueryType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The condition that results in the Log Search rule.
 type TriggerCondition struct {
-	// Trigger condition for metric query rule
-	MetricTrigger *LogMetricTrigger `pulumi:"metricTrigger"`
-	// Result or count threshold based on which rule should be triggered.
-	Threshold float64 `pulumi:"threshold"`
-	// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-	ThresholdOperator string `pulumi:"thresholdOperator"`
+	MetricTrigger     *LogMetricTrigger `pulumi:"metricTrigger"`
+	Threshold         float64           `pulumi:"threshold"`
+	ThresholdOperator string            `pulumi:"thresholdOperator"`
 }
 
 // TriggerConditionInput is an input type that accepts TriggerConditionArgs and TriggerConditionOutput values.
@@ -2221,14 +2029,10 @@ type TriggerConditionInput interface {
 	ToTriggerConditionOutputWithContext(context.Context) TriggerConditionOutput
 }
 
-// The condition that results in the Log Search rule.
 type TriggerConditionArgs struct {
-	// Trigger condition for metric query rule
-	MetricTrigger LogMetricTriggerPtrInput `pulumi:"metricTrigger"`
-	// Result or count threshold based on which rule should be triggered.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-	ThresholdOperator pulumi.StringInput `pulumi:"thresholdOperator"`
+	MetricTrigger     LogMetricTriggerPtrInput `pulumi:"metricTrigger"`
+	Threshold         pulumi.Float64Input      `pulumi:"threshold"`
+	ThresholdOperator pulumi.StringInput       `pulumi:"thresholdOperator"`
 }
 
 func (TriggerConditionArgs) ElementType() reflect.Type {
@@ -2243,7 +2047,6 @@ func (i TriggerConditionArgs) ToTriggerConditionOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerConditionOutput)
 }
 
-// The condition that results in the Log Search rule.
 type TriggerConditionOutput struct{ *pulumi.OutputState }
 
 func (TriggerConditionOutput) ElementType() reflect.Type {
@@ -2258,29 +2061,22 @@ func (o TriggerConditionOutput) ToTriggerConditionOutputWithContext(ctx context.
 	return o
 }
 
-// Trigger condition for metric query rule
 func (o TriggerConditionOutput) MetricTrigger() LogMetricTriggerPtrOutput {
 	return o.ApplyT(func(v TriggerCondition) *LogMetricTrigger { return v.MetricTrigger }).(LogMetricTriggerPtrOutput)
 }
 
-// Result or count threshold based on which rule should be triggered.
 func (o TriggerConditionOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v TriggerCondition) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
 func (o TriggerConditionOutput) ThresholdOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v TriggerCondition) string { return v.ThresholdOperator }).(pulumi.StringOutput)
 }
 
-// The condition that results in the Log Search rule.
 type TriggerConditionResponse struct {
-	// Trigger condition for metric query rule
-	MetricTrigger *LogMetricTriggerResponse `pulumi:"metricTrigger"`
-	// Result or count threshold based on which rule should be triggered.
-	Threshold float64 `pulumi:"threshold"`
-	// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-	ThresholdOperator string `pulumi:"thresholdOperator"`
+	MetricTrigger     *LogMetricTriggerResponse `pulumi:"metricTrigger"`
+	Threshold         float64                   `pulumi:"threshold"`
+	ThresholdOperator string                    `pulumi:"thresholdOperator"`
 }
 
 // TriggerConditionResponseInput is an input type that accepts TriggerConditionResponseArgs and TriggerConditionResponseOutput values.
@@ -2294,14 +2090,10 @@ type TriggerConditionResponseInput interface {
 	ToTriggerConditionResponseOutputWithContext(context.Context) TriggerConditionResponseOutput
 }
 
-// The condition that results in the Log Search rule.
 type TriggerConditionResponseArgs struct {
-	// Trigger condition for metric query rule
-	MetricTrigger LogMetricTriggerResponsePtrInput `pulumi:"metricTrigger"`
-	// Result or count threshold based on which rule should be triggered.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-	ThresholdOperator pulumi.StringInput `pulumi:"thresholdOperator"`
+	MetricTrigger     LogMetricTriggerResponsePtrInput `pulumi:"metricTrigger"`
+	Threshold         pulumi.Float64Input              `pulumi:"threshold"`
+	ThresholdOperator pulumi.StringInput               `pulumi:"thresholdOperator"`
 }
 
 func (TriggerConditionResponseArgs) ElementType() reflect.Type {
@@ -2316,7 +2108,6 @@ func (i TriggerConditionResponseArgs) ToTriggerConditionResponseOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerConditionResponseOutput)
 }
 
-// The condition that results in the Log Search rule.
 type TriggerConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (TriggerConditionResponseOutput) ElementType() reflect.Type {
@@ -2331,17 +2122,14 @@ func (o TriggerConditionResponseOutput) ToTriggerConditionResponseOutputWithCont
 	return o
 }
 
-// Trigger condition for metric query rule
 func (o TriggerConditionResponseOutput) MetricTrigger() LogMetricTriggerResponsePtrOutput {
 	return o.ApplyT(func(v TriggerConditionResponse) *LogMetricTriggerResponse { return v.MetricTrigger }).(LogMetricTriggerResponsePtrOutput)
 }
 
-// Result or count threshold based on which rule should be triggered.
 func (o TriggerConditionResponseOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v TriggerConditionResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
 func (o TriggerConditionResponseOutput) ThresholdOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v TriggerConditionResponse) string { return v.ThresholdOperator }).(pulumi.StringOutput)
 }

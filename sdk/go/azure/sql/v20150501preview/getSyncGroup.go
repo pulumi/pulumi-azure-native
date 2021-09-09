@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure SQL Database sync group.
 func LookupSyncGroup(ctx *pulumi.Context, args *LookupSyncGroupArgs, opts ...pulumi.InvokeOption) (*LookupSyncGroupResult, error) {
 	var rv LookupSyncGroupResult
 	err := ctx.Invoke("azure-native:sql/v20150501preview:getSyncGroup", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupSyncGroup(ctx *pulumi.Context, args *LookupSyncGroupArgs, opts ...pul
 }
 
 type LookupSyncGroupArgs struct {
-	// The name of the database on which the sync group is hosted.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	DatabaseName      string `pulumi:"databaseName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The name of the sync group.
-	SyncGroupName string `pulumi:"syncGroupName"`
+	ServerName        string `pulumi:"serverName"`
+	SyncGroupName     string `pulumi:"syncGroupName"`
 }
 
 // An Azure SQL Database sync group.
 type LookupSyncGroupResult struct {
-	// Conflict resolution policy of the sync group.
-	ConflictResolutionPolicy *string `pulumi:"conflictResolutionPolicy"`
-	// User name for the sync group hub database credential.
-	HubDatabaseUserName *string `pulumi:"hubDatabaseUserName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Sync interval of the sync group.
-	Interval *int `pulumi:"interval"`
-	// Last sync time of the sync group.
-	LastSyncTime string `pulumi:"lastSyncTime"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Sync schema of the sync group.
-	Schema *SyncGroupSchemaResponse `pulumi:"schema"`
-	// ARM resource id of the sync database in the sync group.
-	SyncDatabaseId *string `pulumi:"syncDatabaseId"`
-	// Sync state of the sync group.
-	SyncState string `pulumi:"syncState"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	ConflictResolutionPolicy *string                  `pulumi:"conflictResolutionPolicy"`
+	HubDatabaseUserName      *string                  `pulumi:"hubDatabaseUserName"`
+	Id                       string                   `pulumi:"id"`
+	Interval                 *int                     `pulumi:"interval"`
+	LastSyncTime             string                   `pulumi:"lastSyncTime"`
+	Name                     string                   `pulumi:"name"`
+	Schema                   *SyncGroupSchemaResponse `pulumi:"schema"`
+	SyncDatabaseId           *string                  `pulumi:"syncDatabaseId"`
+	SyncState                string                   `pulumi:"syncState"`
+	Type                     string                   `pulumi:"type"`
 }

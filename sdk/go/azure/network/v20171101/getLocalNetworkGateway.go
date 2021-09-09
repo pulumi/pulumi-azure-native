@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A common class for general resource information
 func LookupLocalNetworkGateway(ctx *pulumi.Context, args *LookupLocalNetworkGatewayArgs, opts ...pulumi.InvokeOption) (*LookupLocalNetworkGatewayResult, error) {
 	var rv LookupLocalNetworkGatewayResult
 	err := ctx.Invoke("azure-native:network/v20171101:getLocalNetworkGateway", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupLocalNetworkGateway(ctx *pulumi.Context, args *LookupLocalNetworkGate
 }
 
 type LookupLocalNetworkGatewayArgs struct {
-	// The name of the local network gateway.
 	LocalNetworkGatewayName string `pulumi:"localNetworkGatewayName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
 }
 
 // A common class for general resource information
 type LookupLocalNetworkGatewayResult struct {
-	// Local network gateway's BGP speaker settings.
-	BgpSettings *BgpSettingsResponse `pulumi:"bgpSettings"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// IP address of local network gateway.
-	GatewayIpAddress *string `pulumi:"gatewayIpAddress"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Local network site address space.
+	BgpSettings              *BgpSettingsResponse  `pulumi:"bgpSettings"`
+	Etag                     *string               `pulumi:"etag"`
+	GatewayIpAddress         *string               `pulumi:"gatewayIpAddress"`
+	Id                       *string               `pulumi:"id"`
 	LocalNetworkAddressSpace *AddressSpaceResponse `pulumi:"localNetworkAddressSpace"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the LocalNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The resource GUID property of the LocalNetworkGateway resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Location                 *string               `pulumi:"location"`
+	Name                     string                `pulumi:"name"`
+	ProvisioningState        string                `pulumi:"provisioningState"`
+	ResourceGuid             *string               `pulumi:"resourceGuid"`
+	Tags                     map[string]string     `pulumi:"tags"`
+	Type                     string                `pulumi:"type"`
 }

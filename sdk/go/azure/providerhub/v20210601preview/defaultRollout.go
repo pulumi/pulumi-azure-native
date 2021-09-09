@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Default rollout definition.
 type DefaultRollout struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the rollout.
+	Name       pulumi.StringOutput                    `pulumi:"name"`
 	Properties DefaultRolloutResponsePropertiesOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput               `pulumi:"systemData"`
+	Type       pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewDefaultRollout registers a new resource with the given unique name, arguments, and options.
@@ -91,22 +86,16 @@ func (DefaultRolloutState) ElementType() reflect.Type {
 }
 
 type defaultRolloutArgs struct {
-	// Properties of the rollout.
-	Properties *DefaultRolloutProperties `pulumi:"properties"`
-	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace string `pulumi:"providerNamespace"`
-	// The rollout name.
-	RolloutName *string `pulumi:"rolloutName"`
+	Properties        *DefaultRolloutProperties `pulumi:"properties"`
+	ProviderNamespace string                    `pulumi:"providerNamespace"`
+	RolloutName       *string                   `pulumi:"rolloutName"`
 }
 
 // The set of arguments for constructing a DefaultRollout resource.
 type DefaultRolloutArgs struct {
-	// Properties of the rollout.
-	Properties DefaultRolloutPropertiesPtrInput
-	// The name of the resource provider hosted within ProviderHub.
+	Properties        DefaultRolloutPropertiesPtrInput
 	ProviderNamespace pulumi.StringInput
-	// The rollout name.
-	RolloutName pulumi.StringPtrInput
+	RolloutName       pulumi.StringPtrInput
 }
 
 func (DefaultRolloutArgs) ElementType() reflect.Type {
@@ -132,9 +121,7 @@ func (i *DefaultRollout) ToDefaultRolloutOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutOutput)
 }
 
-type DefaultRolloutOutput struct {
-	*pulumi.OutputState
-}
+type DefaultRolloutOutput struct{ *pulumi.OutputState }
 
 func (DefaultRolloutOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DefaultRollout)(nil))

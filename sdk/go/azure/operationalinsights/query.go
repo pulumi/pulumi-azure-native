@@ -170,9 +170,7 @@ func (i *Query) ToQueryOutputWithContext(ctx context.Context) QueryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueryOutput)
 }
 
-type QueryOutput struct {
-	*pulumi.OutputState
-}
+type QueryOutput struct{ *pulumi.OutputState }
 
 func (QueryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Query)(nil))

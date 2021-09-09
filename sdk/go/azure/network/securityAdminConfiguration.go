@@ -150,9 +150,7 @@ func (i *SecurityAdminConfiguration) ToSecurityAdminConfigurationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityAdminConfigurationOutput)
 }
 
-type SecurityAdminConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type SecurityAdminConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SecurityAdminConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityAdminConfiguration)(nil))

@@ -10,24 +10,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The management group details.
 type ManagementGroup struct {
 	pulumi.CustomResourceState
 
-	// The list of children.
-	Children ManagementGroupChildInfoResponseArrayOutput `pulumi:"children"`
-	// The details of a management group.
-	Details ManagementGroupDetailsResponsePtrOutput `pulumi:"details"`
-	// The friendly name of the management group.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The role definitions associated with the management group.
-	Roles pulumi.StringArrayOutput `pulumi:"roles"`
-	// The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
-	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// The type of the resource.  For example, /providers/Microsoft.Management/managementGroups
-	Type pulumi.StringOutput `pulumi:"type"`
+	Children    ManagementGroupChildInfoResponseArrayOutput `pulumi:"children"`
+	Details     ManagementGroupDetailsResponsePtrOutput     `pulumi:"details"`
+	DisplayName pulumi.StringPtrOutput                      `pulumi:"displayName"`
+	Name        pulumi.StringOutput                         `pulumi:"name"`
+	Roles       pulumi.StringArrayOutput                    `pulumi:"roles"`
+	TenantId    pulumi.StringPtrOutput                      `pulumi:"tenantId"`
+	Type        pulumi.StringOutput                         `pulumi:"type"`
 }
 
 // NewManagementGroup registers a new resource with the given unique name, arguments, and options.
@@ -123,26 +115,18 @@ func (ManagementGroupState) ElementType() reflect.Type {
 }
 
 type managementGroupArgs struct {
-	// The details of a management group used during creation.
-	Details *CreateManagementGroupDetails `pulumi:"details"`
-	// The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
-	DisplayName *string `pulumi:"displayName"`
-	// Management Group ID.
-	GroupId *string `pulumi:"groupId"`
-	// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
-	Name *string `pulumi:"name"`
+	Details     *CreateManagementGroupDetails `pulumi:"details"`
+	DisplayName *string                       `pulumi:"displayName"`
+	GroupId     *string                       `pulumi:"groupId"`
+	Name        *string                       `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ManagementGroup resource.
 type ManagementGroupArgs struct {
-	// The details of a management group used during creation.
-	Details CreateManagementGroupDetailsPtrInput
-	// The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
+	Details     CreateManagementGroupDetailsPtrInput
 	DisplayName pulumi.StringPtrInput
-	// Management Group ID.
-	GroupId pulumi.StringPtrInput
-	// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
-	Name pulumi.StringPtrInput
+	GroupId     pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
 }
 
 func (ManagementGroupArgs) ElementType() reflect.Type {
@@ -168,9 +152,7 @@ func (i *ManagementGroup) ToManagementGroupOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupOutput)
 }
 
-type ManagementGroupOutput struct {
-	*pulumi.OutputState
-}
+type ManagementGroupOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementGroup)(nil))

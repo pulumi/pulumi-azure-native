@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The registration assignment.
 type RegistrationAssignment struct {
 	pulumi.CustomResourceState
 
-	// The name of the registration assignment.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of a registration assignment.
+	Name       pulumi.StringOutput                            `pulumi:"name"`
 	Properties RegistrationAssignmentPropertiesResponseOutput `pulumi:"properties"`
-	// The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                            `pulumi:"type"`
 }
 
 // NewRegistrationAssignment registers a new resource with the given unique name, arguments, and options.
@@ -101,22 +97,16 @@ func (RegistrationAssignmentState) ElementType() reflect.Type {
 }
 
 type registrationAssignmentArgs struct {
-	// The properties of a registration assignment.
-	Properties *RegistrationAssignmentProperties `pulumi:"properties"`
-	// The GUID of the registration assignment.
-	RegistrationAssignmentId *string `pulumi:"registrationAssignmentId"`
-	// The scope of the resource.
-	Scope string `pulumi:"scope"`
+	Properties               *RegistrationAssignmentProperties `pulumi:"properties"`
+	RegistrationAssignmentId *string                           `pulumi:"registrationAssignmentId"`
+	Scope                    string                            `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a RegistrationAssignment resource.
 type RegistrationAssignmentArgs struct {
-	// The properties of a registration assignment.
-	Properties RegistrationAssignmentPropertiesPtrInput
-	// The GUID of the registration assignment.
+	Properties               RegistrationAssignmentPropertiesPtrInput
 	RegistrationAssignmentId pulumi.StringPtrInput
-	// The scope of the resource.
-	Scope pulumi.StringInput
+	Scope                    pulumi.StringInput
 }
 
 func (RegistrationAssignmentArgs) ElementType() reflect.Type {
@@ -142,9 +132,7 @@ func (i *RegistrationAssignment) ToRegistrationAssignmentOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentOutput)
 }
 
-type RegistrationAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type RegistrationAssignmentOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegistrationAssignment)(nil))

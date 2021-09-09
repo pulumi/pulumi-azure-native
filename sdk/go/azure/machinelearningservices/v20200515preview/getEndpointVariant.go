@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Machine Learning service object wrapped into ARM resource envelope.
 func LookupEndpointVariant(ctx *pulumi.Context, args *LookupEndpointVariantArgs, opts ...pulumi.InvokeOption) (*LookupEndpointVariantResult, error) {
 	var rv LookupEndpointVariantResult
 	err := ctx.Invoke("azure-native:machinelearningservices/v20200515preview:getEndpointVariant", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupEndpointVariant(ctx *pulumi.Context, args *LookupEndpointVariantArgs,
 }
 
 type LookupEndpointVariantArgs struct {
-	// Set to True to include Model details.
-	Expand *bool `pulumi:"expand"`
-	// Name of the resource group in which workspace is located.
+	Expand            *bool  `pulumi:"expand"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Azure Machine Learning service.
-	ServiceName string `pulumi:"serviceName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ServiceName       string `pulumi:"serviceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Machine Learning service object wrapped into ARM resource envelope.
 type LookupEndpointVariantResult struct {
-	// Specifies the resource ID.
-	Id string `pulumi:"id"`
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// Service properties
-	Properties interface{} `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
+	Id         string            `pulumi:"id"`
+	Identity   *IdentityResponse `pulumi:"identity"`
+	Location   *string           `pulumi:"location"`
+	Name       string            `pulumi:"name"`
+	Properties interface{}       `pulumi:"properties"`
+	Sku        *SkuResponse      `pulumi:"sku"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

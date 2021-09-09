@@ -184,9 +184,7 @@ func (i *TagByOperation) ToTagByOperationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(TagByOperationOutput)
 }
 
-type TagByOperationOutput struct {
-	*pulumi.OutputState
-}
+type TagByOperationOutput struct{ *pulumi.OutputState }
 
 func (TagByOperationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TagByOperation)(nil))

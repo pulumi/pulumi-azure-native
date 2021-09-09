@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Log Analytics QueryPack definition.
 func LookupQueryPack(ctx *pulumi.Context, args *LookupQueryPackArgs, opts ...pulumi.InvokeOption) (*LookupQueryPackResult, error) {
 	var rv LookupQueryPackResult
 	err := ctx.Invoke("azure-native:operationalinsights/v20190901preview:getQueryPack", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupQueryPack(ctx *pulumi.Context, args *LookupQueryPackArgs, opts ...pul
 }
 
 type LookupQueryPackArgs struct {
-	// The name of the Log Analytics QueryPack resource.
-	QueryPackName string `pulumi:"queryPackName"`
-	// The name of the resource group. The name is case insensitive.
+	QueryPackName     string `pulumi:"queryPackName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // An Log Analytics QueryPack definition.
 type LookupQueryPackResult struct {
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Current state of this QueryPack: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The unique ID of your application. This field cannot be changed.
-	QueryPackId string `pulumi:"queryPackId"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Creation Date for the Log Analytics QueryPack, in ISO 8601 format.
-	TimeCreated string `pulumi:"timeCreated"`
-	// Last modified date of the Log Analytics QueryPack, in ISO 8601 format.
-	TimeModified string `pulumi:"timeModified"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Id                string            `pulumi:"id"`
+	Location          string            `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	ProvisioningState string            `pulumi:"provisioningState"`
+	QueryPackId       string            `pulumi:"queryPackId"`
+	Tags              map[string]string `pulumi:"tags"`
+	TimeCreated       string            `pulumi:"timeCreated"`
+	TimeModified      string            `pulumi:"timeModified"`
+	Type              string            `pulumi:"type"`
 }

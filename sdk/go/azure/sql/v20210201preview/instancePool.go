@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure SQL instance pool.
 type InstancePool struct {
 	pulumi.CustomResourceState
 
-	// The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
-	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The name and tier of the SKU.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Resource ID of the subnet to place this instance pool in.
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Count of vCores belonging to this instance pool.
-	VCores pulumi.IntOutput `pulumi:"vCores"`
+	LicenseType pulumi.StringOutput    `pulumi:"licenseType"`
+	Location    pulumi.StringOutput    `pulumi:"location"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Sku         SkuResponsePtrOutput   `pulumi:"sku"`
+	SubnetId    pulumi.StringOutput    `pulumi:"subnetId"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
+	VCores      pulumi.IntOutput       `pulumi:"vCores"`
 }
 
 // NewInstancePool registers a new resource with the given unique name, arguments, and options.
@@ -120,42 +111,26 @@ func (InstancePoolState) ElementType() reflect.Type {
 }
 
 type instancePoolArgs struct {
-	// The name of the instance pool to be created or updated.
-	InstancePoolName *string `pulumi:"instancePoolName"`
-	// The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
-	LicenseType string `pulumi:"licenseType"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name and tier of the SKU.
-	Sku *Sku `pulumi:"sku"`
-	// Resource ID of the subnet to place this instance pool in.
-	SubnetId string `pulumi:"subnetId"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Count of vCores belonging to this instance pool.
-	VCores int `pulumi:"vCores"`
+	InstancePoolName  *string           `pulumi:"instancePoolName"`
+	LicenseType       string            `pulumi:"licenseType"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               *Sku              `pulumi:"sku"`
+	SubnetId          string            `pulumi:"subnetId"`
+	Tags              map[string]string `pulumi:"tags"`
+	VCores            int               `pulumi:"vCores"`
 }
 
 // The set of arguments for constructing a InstancePool resource.
 type InstancePoolArgs struct {
-	// The name of the instance pool to be created or updated.
-	InstancePoolName pulumi.StringPtrInput
-	// The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
-	LicenseType pulumi.StringInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	InstancePoolName  pulumi.StringPtrInput
+	LicenseType       pulumi.StringInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name and tier of the SKU.
-	Sku SkuPtrInput
-	// Resource ID of the subnet to place this instance pool in.
-	SubnetId pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Count of vCores belonging to this instance pool.
-	VCores pulumi.IntInput
+	Sku               SkuPtrInput
+	SubnetId          pulumi.StringInput
+	Tags              pulumi.StringMapInput
+	VCores            pulumi.IntInput
 }
 
 func (InstancePoolArgs) ElementType() reflect.Type {
@@ -181,9 +156,7 @@ func (i *InstancePool) ToInstancePoolOutputWithContext(ctx context.Context) Inst
 	return pulumi.ToOutputWithContext(ctx, i).(InstancePoolOutput)
 }
 
-type InstancePoolOutput struct {
-	*pulumi.OutputState
-}
+type InstancePoolOutput struct{ *pulumi.OutputState }
 
 func (InstancePoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InstancePool)(nil))

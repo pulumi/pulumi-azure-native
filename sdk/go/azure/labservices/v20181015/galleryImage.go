@@ -11,42 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an image from the Azure Marketplace
 type GalleryImage struct {
 	pulumi.CustomResourceState
 
-	// The author of the gallery image.
-	Author pulumi.StringOutput `pulumi:"author"`
-	// The creation date of the gallery image.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// The description of the gallery image.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// The icon of the gallery image.
-	Icon pulumi.StringOutput `pulumi:"icon"`
-	// The image reference of the gallery image.
-	ImageReference GalleryImageReferenceResponseOutput `pulumi:"imageReference"`
-	// Indicates whether this gallery image is enabled.
-	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
-	// Indicates whether this gallery has been overridden for this lab account
-	IsOverride pulumi.BoolPtrOutput `pulumi:"isOverride"`
-	// Indicates if the plan has been authorized for programmatic deployment.
-	IsPlanAuthorized pulumi.BoolPtrOutput `pulumi:"isPlanAuthorized"`
-	// The details of the latest operation. ex: status, error
+	Author                pulumi.StringOutput                 `pulumi:"author"`
+	CreatedDate           pulumi.StringOutput                 `pulumi:"createdDate"`
+	Description           pulumi.StringOutput                 `pulumi:"description"`
+	Icon                  pulumi.StringOutput                 `pulumi:"icon"`
+	ImageReference        GalleryImageReferenceResponseOutput `pulumi:"imageReference"`
+	IsEnabled             pulumi.BoolPtrOutput                `pulumi:"isEnabled"`
+	IsOverride            pulumi.BoolPtrOutput                `pulumi:"isOverride"`
+	IsPlanAuthorized      pulumi.BoolPtrOutput                `pulumi:"isPlanAuthorized"`
 	LatestOperationResult LatestOperationResultResponseOutput `pulumi:"latestOperationResult"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The third party plan that applies to this image
-	PlanId pulumi.StringOutput `pulumi:"planId"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrOutput `pulumi:"uniqueIdentifier"`
+	Location              pulumi.StringPtrOutput              `pulumi:"location"`
+	Name                  pulumi.StringOutput                 `pulumi:"name"`
+	PlanId                pulumi.StringOutput                 `pulumi:"planId"`
+	ProvisioningState     pulumi.StringPtrOutput              `pulumi:"provisioningState"`
+	Tags                  pulumi.StringMapOutput              `pulumi:"tags"`
+	Type                  pulumi.StringOutput                 `pulumi:"type"`
+	UniqueIdentifier      pulumi.StringPtrOutput              `pulumi:"uniqueIdentifier"`
 }
 
 // NewGalleryImage registers a new resource with the given unique name, arguments, and options.
@@ -106,50 +89,30 @@ func (GalleryImageState) ElementType() reflect.Type {
 }
 
 type galleryImageArgs struct {
-	// The name of the gallery Image.
-	GalleryImageName *string `pulumi:"galleryImageName"`
-	// Indicates whether this gallery image is enabled.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Indicates whether this gallery has been overridden for this lab account
-	IsOverride *bool `pulumi:"isOverride"`
-	// Indicates if the plan has been authorized for programmatic deployment.
-	IsPlanAuthorized *bool `pulumi:"isPlanAuthorized"`
-	// The name of the lab Account.
-	LabAccountName string `pulumi:"labAccountName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	GalleryImageName  *string           `pulumi:"galleryImageName"`
+	IsEnabled         *bool             `pulumi:"isEnabled"`
+	IsOverride        *bool             `pulumi:"isOverride"`
+	IsPlanAuthorized  *bool             `pulumi:"isPlanAuthorized"`
+	LabAccountName    string            `pulumi:"labAccountName"`
+	Location          *string           `pulumi:"location"`
+	ProvisioningState *string           `pulumi:"provisioningState"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	UniqueIdentifier  *string           `pulumi:"uniqueIdentifier"`
 }
 
 // The set of arguments for constructing a GalleryImage resource.
 type GalleryImageArgs struct {
-	// The name of the gallery Image.
-	GalleryImageName pulumi.StringPtrInput
-	// Indicates whether this gallery image is enabled.
-	IsEnabled pulumi.BoolPtrInput
-	// Indicates whether this gallery has been overridden for this lab account
-	IsOverride pulumi.BoolPtrInput
-	// Indicates if the plan has been authorized for programmatic deployment.
-	IsPlanAuthorized pulumi.BoolPtrInput
-	// The name of the lab Account.
-	LabAccountName pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The provisioning status of the resource.
+	GalleryImageName  pulumi.StringPtrInput
+	IsEnabled         pulumi.BoolPtrInput
+	IsOverride        pulumi.BoolPtrInput
+	IsPlanAuthorized  pulumi.BoolPtrInput
+	LabAccountName    pulumi.StringInput
+	Location          pulumi.StringPtrInput
 	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	UniqueIdentifier  pulumi.StringPtrInput
 }
 
 func (GalleryImageArgs) ElementType() reflect.Type {
@@ -175,9 +138,7 @@ func (i *GalleryImage) ToGalleryImageOutputWithContext(ctx context.Context) Gall
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageOutput)
 }
 
-type GalleryImageOutput struct {
-	*pulumi.OutputState
-}
+type GalleryImageOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GalleryImage)(nil))

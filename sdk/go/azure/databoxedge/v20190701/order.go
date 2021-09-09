@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The order details.
 type Order struct {
 	pulumi.CustomResourceState
 
-	// The contact details.
-	ContactInformation ContactDetailsResponseOutput `pulumi:"contactInformation"`
-	// Current status of the order.
-	CurrentStatus OrderStatusResponsePtrOutput `pulumi:"currentStatus"`
-	// Tracking information for the package delivered to the customer whether it has an original or a replacement device.
+	ContactInformation   ContactDetailsResponseOutput    `pulumi:"contactInformation"`
+	CurrentStatus        OrderStatusResponsePtrOutput    `pulumi:"currentStatus"`
 	DeliveryTrackingInfo TrackingInfoResponseArrayOutput `pulumi:"deliveryTrackingInfo"`
-	// The object name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of status changes in the order.
-	OrderHistory OrderStatusResponseArrayOutput `pulumi:"orderHistory"`
-	// Tracking information for the package returned from the customer whether it has an original or a replacement device.
-	ReturnTrackingInfo TrackingInfoResponseArrayOutput `pulumi:"returnTrackingInfo"`
-	// Serial number of the device.
-	SerialNumber pulumi.StringOutput `pulumi:"serialNumber"`
-	// The shipping address.
-	ShippingAddress AddressResponseOutput `pulumi:"shippingAddress"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name                 pulumi.StringOutput             `pulumi:"name"`
+	OrderHistory         OrderStatusResponseArrayOutput  `pulumi:"orderHistory"`
+	ReturnTrackingInfo   TrackingInfoResponseArrayOutput `pulumi:"returnTrackingInfo"`
+	SerialNumber         pulumi.StringOutput             `pulumi:"serialNumber"`
+	ShippingAddress      AddressResponseOutput           `pulumi:"shippingAddress"`
+	Type                 pulumi.StringOutput             `pulumi:"type"`
 }
 
 // NewOrder registers a new resource with the given unique name, arguments, and options.
@@ -146,30 +136,20 @@ func (OrderState) ElementType() reflect.Type {
 }
 
 type orderArgs struct {
-	// The contact details.
 	ContactInformation ContactDetails `pulumi:"contactInformation"`
-	// Current status of the order.
-	CurrentStatus *OrderStatus `pulumi:"currentStatus"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The shipping address.
-	ShippingAddress Address `pulumi:"shippingAddress"`
+	CurrentStatus      *OrderStatus   `pulumi:"currentStatus"`
+	DeviceName         string         `pulumi:"deviceName"`
+	ResourceGroupName  string         `pulumi:"resourceGroupName"`
+	ShippingAddress    Address        `pulumi:"shippingAddress"`
 }
 
 // The set of arguments for constructing a Order resource.
 type OrderArgs struct {
-	// The contact details.
 	ContactInformation ContactDetailsInput
-	// Current status of the order.
-	CurrentStatus OrderStatusPtrInput
-	// The device name.
-	DeviceName pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The shipping address.
-	ShippingAddress AddressInput
+	CurrentStatus      OrderStatusPtrInput
+	DeviceName         pulumi.StringInput
+	ResourceGroupName  pulumi.StringInput
+	ShippingAddress    AddressInput
 }
 
 func (OrderArgs) ElementType() reflect.Type {
@@ -195,9 +175,7 @@ func (i *Order) ToOrderOutputWithContext(ctx context.Context) OrderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrderOutput)
 }
 
-type OrderOutput struct {
-	*pulumi.OutputState
-}
+type OrderOutput struct{ *pulumi.OutputState }
 
 func (OrderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Order)(nil))

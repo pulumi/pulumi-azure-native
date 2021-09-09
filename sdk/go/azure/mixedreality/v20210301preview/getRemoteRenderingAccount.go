@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// RemoteRenderingAccount Response.
 func LookupRemoteRenderingAccount(ctx *pulumi.Context, args *LookupRemoteRenderingAccountArgs, opts ...pulumi.InvokeOption) (*LookupRemoteRenderingAccountResult, error) {
 	var rv LookupRemoteRenderingAccountResult
 	err := ctx.Invoke("azure-native:mixedreality/v20210301preview:getRemoteRenderingAccount", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupRemoteRenderingAccount(ctx *pulumi.Context, args *LookupRemoteRenderi
 }
 
 type LookupRemoteRenderingAccountArgs struct {
-	// Name of an Mixed Reality Account.
-	AccountName string `pulumi:"accountName"`
-	// Name of an Azure resource group.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // RemoteRenderingAccount Response.
 type LookupRemoteRenderingAccountResult struct {
-	// Correspond domain name of certain Spatial Anchors Account
-	AccountDomain string `pulumi:"accountDomain"`
-	// unique id of certain account.
-	AccountId string `pulumi:"accountId"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The identity associated with this account
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The kind of account, if supported
-	Kind *SkuResponse `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The plan associated with this account
-	Plan *IdentityResponse `pulumi:"plan"`
-	// The sku associated with this account
-	Sku *SkuResponse `pulumi:"sku"`
-	// The name of the storage account associated with this accountId
-	StorageAccountName *string `pulumi:"storageAccountName"`
-	// System metadata for this account
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	AccountDomain      string             `pulumi:"accountDomain"`
+	AccountId          string             `pulumi:"accountId"`
+	Id                 string             `pulumi:"id"`
+	Identity           *IdentityResponse  `pulumi:"identity"`
+	Kind               *SkuResponse       `pulumi:"kind"`
+	Location           string             `pulumi:"location"`
+	Name               string             `pulumi:"name"`
+	Plan               *IdentityResponse  `pulumi:"plan"`
+	Sku                *SkuResponse       `pulumi:"sku"`
+	StorageAccountName *string            `pulumi:"storageAccountName"`
+	SystemData         SystemDataResponse `pulumi:"systemData"`
+	Tags               map[string]string  `pulumi:"tags"`
+	Type               string             `pulumi:"type"`
 }

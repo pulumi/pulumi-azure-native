@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Protection container mapping object.
 func LookupReplicationProtectionContainerMapping(ctx *pulumi.Context, args *LookupReplicationProtectionContainerMappingArgs, opts ...pulumi.InvokeOption) (*LookupReplicationProtectionContainerMappingResult, error) {
 	var rv LookupReplicationProtectionContainerMappingResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20210701:getReplicationProtectionContainerMapping", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupReplicationProtectionContainerMapping(ctx *pulumi.Context, args *Look
 }
 
 type LookupReplicationProtectionContainerMappingArgs struct {
-	// Fabric name.
-	FabricName string `pulumi:"fabricName"`
-	// Protection Container mapping name.
-	MappingName string `pulumi:"mappingName"`
-	// Protection container name.
+	FabricName              string `pulumi:"fabricName"`
+	MappingName             string `pulumi:"mappingName"`
 	ProtectionContainerName string `pulumi:"protectionContainerName"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
+	ResourceName            string `pulumi:"resourceName"`
 }
 
 // Protection container mapping object.
 type LookupReplicationProtectionContainerMappingResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// The custom data.
+	Id         string                                       `pulumi:"id"`
+	Location   *string                                      `pulumi:"location"`
+	Name       string                                       `pulumi:"name"`
 	Properties ProtectionContainerMappingPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
+	Type       string                                       `pulumi:"type"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Workload classifier operations for a data warehouse
 func LookupSqlPoolWorkloadClassifier(ctx *pulumi.Context, args *LookupSqlPoolWorkloadClassifierArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolWorkloadClassifierResult, error) {
 	var rv LookupSqlPoolWorkloadClassifierResult
 	err := ctx.Invoke("azure-native:synapse/v20201201:getSqlPoolWorkloadClassifier", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupSqlPoolWorkloadClassifier(ctx *pulumi.Context, args *LookupSqlPoolWor
 }
 
 type LookupSqlPoolWorkloadClassifierArgs struct {
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SQL pool name
-	SqlPoolName string `pulumi:"sqlPoolName"`
-	// The name of the workload classifier.
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
+	SqlPoolName            string `pulumi:"sqlPoolName"`
 	WorkloadClassifierName string `pulumi:"workloadClassifierName"`
-	// The name of the workload group.
-	WorkloadGroupName string `pulumi:"workloadGroupName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkloadGroupName      string `pulumi:"workloadGroupName"`
+	WorkspaceName          string `pulumi:"workspaceName"`
 }
 
 // Workload classifier operations for a data warehouse
 type LookupSqlPoolWorkloadClassifierResult struct {
-	// The workload classifier context.
-	Context *string `pulumi:"context"`
-	// The workload classifier end time for classification.
-	EndTime *string `pulumi:"endTime"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The workload classifier importance.
+	Context    *string `pulumi:"context"`
+	EndTime    *string `pulumi:"endTime"`
+	Id         string  `pulumi:"id"`
 	Importance *string `pulumi:"importance"`
-	// The workload classifier label.
-	Label *string `pulumi:"label"`
-	// The workload classifier member name.
-	MemberName string `pulumi:"memberName"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The workload classifier start time for classification.
-	StartTime *string `pulumi:"startTime"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Label      *string `pulumi:"label"`
+	MemberName string  `pulumi:"memberName"`
+	Name       string  `pulumi:"name"`
+	StartTime  *string `pulumi:"startTime"`
+	Type       string  `pulumi:"type"`
 }

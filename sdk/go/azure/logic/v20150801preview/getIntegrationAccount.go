@@ -17,23 +17,15 @@ func LookupIntegrationAccount(ctx *pulumi.Context, args *LookupIntegrationAccoun
 }
 
 type LookupIntegrationAccountArgs struct {
-	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 type LookupIntegrationAccountResult struct {
-	// The resource id.
-	Id *string `pulumi:"id"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The sku.
-	Sku *IntegrationAccountSkuResponse `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
+	Id       *string                        `pulumi:"id"`
+	Location *string                        `pulumi:"location"`
+	Name     *string                        `pulumi:"name"`
+	Sku      *IntegrationAccountSkuResponse `pulumi:"sku"`
+	Tags     map[string]string              `pulumi:"tags"`
+	Type     *string                        `pulumi:"type"`
 }

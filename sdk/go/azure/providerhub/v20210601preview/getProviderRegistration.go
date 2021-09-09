@@ -17,18 +17,13 @@ func LookupProviderRegistration(ctx *pulumi.Context, args *LookupProviderRegistr
 }
 
 type LookupProviderRegistrationArgs struct {
-	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace string `pulumi:"providerNamespace"`
 }
 
 type LookupProviderRegistrationResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
+	Id         string                                 `pulumi:"id"`
 	Name       string                                 `pulumi:"name"`
 	Properties ProviderRegistrationResponseProperties `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	SystemData SystemDataResponse                     `pulumi:"systemData"`
+	Type       string                                 `pulumi:"type"`
 }

@@ -17,23 +17,15 @@ func LookupWorkflowAccessKey(ctx *pulumi.Context, args *LookupWorkflowAccessKeyA
 }
 
 type LookupWorkflowAccessKeyArgs struct {
-	// The workflow access key name.
-	AccessKeyName string `pulumi:"accessKeyName"`
-	// The resource group name.
+	AccessKeyName     string `pulumi:"accessKeyName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The workflow name.
-	WorkflowName string `pulumi:"workflowName"`
+	WorkflowName      string `pulumi:"workflowName"`
 }
 
 type LookupWorkflowAccessKeyResult struct {
-	// Gets or sets the resource id.
-	Id *string `pulumi:"id"`
-	// Gets the workflow access key name.
-	Name string `pulumi:"name"`
-	// Gets or sets the not-after time.
-	NotAfter *string `pulumi:"notAfter"`
-	// Gets or sets the not-before time.
+	Id        *string `pulumi:"id"`
+	Name      string  `pulumi:"name"`
+	NotAfter  *string `pulumi:"notAfter"`
 	NotBefore *string `pulumi:"notBefore"`
-	// Gets the workflow access key type.
-	Type string `pulumi:"type"`
+	Type      string  `pulumi:"type"`
 }

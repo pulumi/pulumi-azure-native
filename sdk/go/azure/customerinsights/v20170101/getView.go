@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The view resource format.
 func LookupView(ctx *pulumi.Context, args *LookupViewArgs, opts ...pulumi.InvokeOption) (*LookupViewResult, error) {
 	var rv LookupViewResult
 	err := ctx.Invoke("azure-native:customerinsights/v20170101:getView", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupView(ctx *pulumi.Context, args *LookupViewArgs, opts ...pulumi.Invoke
 }
 
 type LookupViewArgs struct {
-	// The name of the hub.
-	HubName string `pulumi:"hubName"`
-	// The name of the resource group.
+	HubName           string `pulumi:"hubName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The user ID. Use * to retrieve hub level view.
-	UserId string `pulumi:"userId"`
-	// The name of the view.
-	ViewName string `pulumi:"viewName"`
+	UserId            string `pulumi:"userId"`
+	ViewName          string `pulumi:"viewName"`
 }
 
 // The view resource format.
 type LookupViewResult struct {
-	// Date time when view was last modified.
-	Changed string `pulumi:"changed"`
-	// Date time when view was created.
-	Created string `pulumi:"created"`
-	// View definition.
-	Definition string `pulumi:"definition"`
-	// Localized display name for the view.
+	Changed     string            `pulumi:"changed"`
+	Created     string            `pulumi:"created"`
+	Definition  string            `pulumi:"definition"`
 	DisplayName map[string]string `pulumi:"displayName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// the hub name.
-	TenantId string `pulumi:"tenantId"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// the user ID.
-	UserId *string `pulumi:"userId"`
-	// Name of the view.
-	ViewName string `pulumi:"viewName"`
+	Id          string            `pulumi:"id"`
+	Name        string            `pulumi:"name"`
+	TenantId    string            `pulumi:"tenantId"`
+	Type        string            `pulumi:"type"`
+	UserId      *string           `pulumi:"userId"`
+	ViewName    string            `pulumi:"viewName"`
 }

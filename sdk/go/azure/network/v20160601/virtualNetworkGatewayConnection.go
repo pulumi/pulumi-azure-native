@@ -11,48 +11,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A common class for general resource information
 type VirtualNetworkGatewayConnection struct {
 	pulumi.CustomResourceState
 
-	// The authorizationKey.
-	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
-	// Virtual network Gateway connection status
-	ConnectionStatus pulumi.StringPtrOutput `pulumi:"connectionStatus"`
-	// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
-	ConnectionType pulumi.StringPtrOutput `pulumi:"connectionType"`
-	// The Egress Bytes Transferred in this connection
-	EgressBytesTransferred pulumi.Float64PtrOutput `pulumi:"egressBytesTransferred"`
-	// EnableBgp Flag
-	EnableBgp pulumi.BoolPtrOutput `pulumi:"enableBgp"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The Ingress Bytes Transferred in this connection
-	IngressBytesTransferred pulumi.Float64PtrOutput `pulumi:"ingressBytesTransferred"`
-	// A common class for general resource information
-	LocalNetworkGateway2 LocalNetworkGatewayResponsePtrOutput `pulumi:"localNetworkGateway2"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The reference to peerings resource.
-	Peer SubResourceResponsePtrOutput `pulumi:"peer"`
-	// Gets provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Gets or sets resource guid property of the VirtualNetworkGatewayConnection resource
-	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
-	// The Routing weight.
-	RoutingWeight pulumi.IntPtrOutput `pulumi:"routingWeight"`
-	// The IPsec share key.
-	SharedKey pulumi.StringPtrOutput `pulumi:"sharedKey"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// A common class for general resource information
-	VirtualNetworkGateway1 VirtualNetworkGatewayResponsePtrOutput `pulumi:"virtualNetworkGateway1"`
-	// A common class for general resource information
-	VirtualNetworkGateway2 VirtualNetworkGatewayResponsePtrOutput `pulumi:"virtualNetworkGateway2"`
+	AuthorizationKey        pulumi.StringPtrOutput                 `pulumi:"authorizationKey"`
+	ConnectionStatus        pulumi.StringPtrOutput                 `pulumi:"connectionStatus"`
+	ConnectionType          pulumi.StringPtrOutput                 `pulumi:"connectionType"`
+	EgressBytesTransferred  pulumi.Float64PtrOutput                `pulumi:"egressBytesTransferred"`
+	EnableBgp               pulumi.BoolPtrOutput                   `pulumi:"enableBgp"`
+	Etag                    pulumi.StringPtrOutput                 `pulumi:"etag"`
+	IngressBytesTransferred pulumi.Float64PtrOutput                `pulumi:"ingressBytesTransferred"`
+	LocalNetworkGateway2    LocalNetworkGatewayResponsePtrOutput   `pulumi:"localNetworkGateway2"`
+	Location                pulumi.StringPtrOutput                 `pulumi:"location"`
+	Name                    pulumi.StringOutput                    `pulumi:"name"`
+	Peer                    SubResourceResponsePtrOutput           `pulumi:"peer"`
+	ProvisioningState       pulumi.StringPtrOutput                 `pulumi:"provisioningState"`
+	ResourceGuid            pulumi.StringPtrOutput                 `pulumi:"resourceGuid"`
+	RoutingWeight           pulumi.IntPtrOutput                    `pulumi:"routingWeight"`
+	SharedKey               pulumi.StringPtrOutput                 `pulumi:"sharedKey"`
+	Tags                    pulumi.StringMapOutput                 `pulumi:"tags"`
+	Type                    pulumi.StringOutput                    `pulumi:"type"`
+	VirtualNetworkGateway1  VirtualNetworkGatewayResponsePtrOutput `pulumi:"virtualNetworkGateway1"`
+	VirtualNetworkGateway2  VirtualNetworkGatewayResponsePtrOutput `pulumi:"virtualNetworkGateway2"`
 }
 
 // NewVirtualNetworkGatewayConnection registers a new resource with the given unique name, arguments, and options.
@@ -325,89 +305,49 @@ func (VirtualNetworkGatewayConnectionState) ElementType() reflect.Type {
 }
 
 type virtualNetworkGatewayConnectionArgs struct {
-	// The authorizationKey.
-	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// Virtual network Gateway connection status
-	ConnectionStatus *string `pulumi:"connectionStatus"`
-	// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
-	ConnectionType *string `pulumi:"connectionType"`
-	// The Egress Bytes Transferred in this connection
-	EgressBytesTransferred *float64 `pulumi:"egressBytesTransferred"`
-	// EnableBgp Flag
-	EnableBgp *bool `pulumi:"enableBgp"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// The Ingress Bytes Transferred in this connection
-	IngressBytesTransferred *float64 `pulumi:"ingressBytesTransferred"`
-	// A common class for general resource information
-	LocalNetworkGateway2 *LocalNetworkGatewayType `pulumi:"localNetworkGateway2"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The reference to peerings resource.
-	Peer *SubResource `pulumi:"peer"`
-	// Gets provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets resource guid property of the VirtualNetworkGatewayConnection resource
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// The Routing weight.
-	RoutingWeight *int `pulumi:"routingWeight"`
-	// The IPsec share key.
-	SharedKey *string `pulumi:"sharedKey"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// A common class for general resource information
-	VirtualNetworkGateway1 *VirtualNetworkGatewayType `pulumi:"virtualNetworkGateway1"`
-	// A common class for general resource information
-	VirtualNetworkGateway2 *VirtualNetworkGatewayType `pulumi:"virtualNetworkGateway2"`
-	// The name of the virtual network gateway connection.
-	VirtualNetworkGatewayConnectionName *string `pulumi:"virtualNetworkGatewayConnectionName"`
+	AuthorizationKey                    *string                    `pulumi:"authorizationKey"`
+	ConnectionStatus                    *string                    `pulumi:"connectionStatus"`
+	ConnectionType                      *string                    `pulumi:"connectionType"`
+	EgressBytesTransferred              *float64                   `pulumi:"egressBytesTransferred"`
+	EnableBgp                           *bool                      `pulumi:"enableBgp"`
+	Etag                                *string                    `pulumi:"etag"`
+	Id                                  *string                    `pulumi:"id"`
+	IngressBytesTransferred             *float64                   `pulumi:"ingressBytesTransferred"`
+	LocalNetworkGateway2                *LocalNetworkGatewayType   `pulumi:"localNetworkGateway2"`
+	Location                            *string                    `pulumi:"location"`
+	Peer                                *SubResource               `pulumi:"peer"`
+	ProvisioningState                   *string                    `pulumi:"provisioningState"`
+	ResourceGroupName                   string                     `pulumi:"resourceGroupName"`
+	ResourceGuid                        *string                    `pulumi:"resourceGuid"`
+	RoutingWeight                       *int                       `pulumi:"routingWeight"`
+	SharedKey                           *string                    `pulumi:"sharedKey"`
+	Tags                                map[string]string          `pulumi:"tags"`
+	VirtualNetworkGateway1              *VirtualNetworkGatewayType `pulumi:"virtualNetworkGateway1"`
+	VirtualNetworkGateway2              *VirtualNetworkGatewayType `pulumi:"virtualNetworkGateway2"`
+	VirtualNetworkGatewayConnectionName *string                    `pulumi:"virtualNetworkGatewayConnectionName"`
 }
 
 // The set of arguments for constructing a VirtualNetworkGatewayConnection resource.
 type VirtualNetworkGatewayConnectionArgs struct {
-	// The authorizationKey.
-	AuthorizationKey pulumi.StringPtrInput
-	// Virtual network Gateway connection status
-	ConnectionStatus pulumi.StringPtrInput
-	// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
-	ConnectionType pulumi.StringPtrInput
-	// The Egress Bytes Transferred in this connection
-	EgressBytesTransferred pulumi.Float64PtrInput
-	// EnableBgp Flag
-	EnableBgp pulumi.BoolPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// The Ingress Bytes Transferred in this connection
-	IngressBytesTransferred pulumi.Float64PtrInput
-	// A common class for general resource information
-	LocalNetworkGateway2 LocalNetworkGatewayTypePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The reference to peerings resource.
-	Peer SubResourcePtrInput
-	// Gets provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets resource guid property of the VirtualNetworkGatewayConnection resource
-	ResourceGuid pulumi.StringPtrInput
-	// The Routing weight.
-	RoutingWeight pulumi.IntPtrInput
-	// The IPsec share key.
-	SharedKey pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// A common class for general resource information
-	VirtualNetworkGateway1 VirtualNetworkGatewayTypePtrInput
-	// A common class for general resource information
-	VirtualNetworkGateway2 VirtualNetworkGatewayTypePtrInput
-	// The name of the virtual network gateway connection.
+	AuthorizationKey                    pulumi.StringPtrInput
+	ConnectionStatus                    pulumi.StringPtrInput
+	ConnectionType                      pulumi.StringPtrInput
+	EgressBytesTransferred              pulumi.Float64PtrInput
+	EnableBgp                           pulumi.BoolPtrInput
+	Etag                                pulumi.StringPtrInput
+	Id                                  pulumi.StringPtrInput
+	IngressBytesTransferred             pulumi.Float64PtrInput
+	LocalNetworkGateway2                LocalNetworkGatewayTypePtrInput
+	Location                            pulumi.StringPtrInput
+	Peer                                SubResourcePtrInput
+	ProvisioningState                   pulumi.StringPtrInput
+	ResourceGroupName                   pulumi.StringInput
+	ResourceGuid                        pulumi.StringPtrInput
+	RoutingWeight                       pulumi.IntPtrInput
+	SharedKey                           pulumi.StringPtrInput
+	Tags                                pulumi.StringMapInput
+	VirtualNetworkGateway1              VirtualNetworkGatewayTypePtrInput
+	VirtualNetworkGateway2              VirtualNetworkGatewayTypePtrInput
 	VirtualNetworkGatewayConnectionName pulumi.StringPtrInput
 }
 
@@ -434,9 +374,7 @@ func (i *VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionOutput)
 }
 
-type VirtualNetworkGatewayConnectionOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkGatewayConnectionOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkGatewayConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkGatewayConnection)(nil))

@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Private endpoint object properties.
 type PrivateEndpoint struct {
-	// Full identifier of the private endpoint resource.
 	Id *string `pulumi:"id"`
 }
 
@@ -27,9 +25,7 @@ type PrivateEndpointInput interface {
 	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
 }
 
-// Private endpoint object properties.
 type PrivateEndpointArgs struct {
-	// Full identifier of the private endpoint resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -86,7 +82,6 @@ func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
 }
 
-// Private endpoint object properties.
 type PrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOu
 }
 
 func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpoint) *PrivateEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpoint) *PrivateEndpoint {
 		return &v
 	}).(PrivateEndpointPtrOutput)
 }
 
-// Full identifier of the private endpoint resource.
 func (o PrivateEndpointOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -131,10 +125,15 @@ func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutputWithContext(ctx cont
 }
 
 func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
-	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
+	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpoint
+		return ret
+	}).(PrivateEndpointOutput)
 }
 
-// Full identifier of the private endpoint resource.
 func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpoint) *string {
 		if v == nil {
@@ -144,9 +143,7 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private endpoint object properties.
 type PrivateEndpointResponse struct {
-	// Full identifier of the private endpoint resource.
 	Id *string `pulumi:"id"`
 }
 
@@ -161,9 +158,7 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// Private endpoint object properties.
 type PrivateEndpointResponseArgs struct {
-	// Full identifier of the private endpoint resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -220,7 +215,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// Private endpoint object properties.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -240,12 +234,11 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// Full identifier of the private endpoint resource.
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -265,10 +258,15 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
-// Full identifier of the private endpoint resource.
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -278,14 +276,10 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionState struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval or rejection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -299,14 +293,10 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval or rejection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -362,7 +352,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -382,22 +371,19 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval or rejection.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -417,10 +403,15 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -430,7 +421,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval or rejection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -440,7 +430,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -450,14 +439,10 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateResponse struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval or rejection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -471,14 +456,10 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval or rejection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -534,7 +515,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -554,22 +534,19 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval or rejection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -590,11 +567,14 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -604,7 +584,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval or rejection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -614,7 +593,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the given policy owner.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -624,9 +602,7 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.
 type TagsResource struct {
-	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -641,9 +617,7 @@ type TagsResourceInput interface {
 	ToTagsResourceOutputWithContext(context.Context) TagsResourceOutput
 }
 
-// A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.
 type TagsResourceArgs struct {
-	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -700,7 +674,6 @@ func (i *tagsResourcePtrType) ToTagsResourcePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(TagsResourcePtrOutput)
 }
 
-// A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.
 type TagsResourceOutput struct{ *pulumi.OutputState }
 
 func (TagsResourceOutput) ElementType() reflect.Type {
@@ -720,12 +693,11 @@ func (o TagsResourceOutput) ToTagsResourcePtrOutput() TagsResourcePtrOutput {
 }
 
 func (o TagsResourceOutput) ToTagsResourcePtrOutputWithContext(ctx context.Context) TagsResourcePtrOutput {
-	return o.ApplyT(func(v TagsResource) *TagsResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagsResource) *TagsResource {
 		return &v
 	}).(TagsResourcePtrOutput)
 }
 
-// Resource tags
 func (o TagsResourceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TagsResource) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -745,10 +717,15 @@ func (o TagsResourcePtrOutput) ToTagsResourcePtrOutputWithContext(ctx context.Co
 }
 
 func (o TagsResourcePtrOutput) Elem() TagsResourceOutput {
-	return o.ApplyT(func(v *TagsResource) TagsResource { return *v }).(TagsResourceOutput)
+	return o.ApplyT(func(v *TagsResource) TagsResource {
+		if v != nil {
+			return *v
+		}
+		var ret TagsResource
+		return ret
+	}).(TagsResourceOutput)
 }
 
-// Resource tags
 func (o TagsResourcePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TagsResource) map[string]string {
 		if v == nil {
@@ -758,9 +735,7 @@ func (o TagsResourcePtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.
 type TagsResourceResponse struct {
-	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -775,9 +750,7 @@ type TagsResourceResponseInput interface {
 	ToTagsResourceResponseOutputWithContext(context.Context) TagsResourceResponseOutput
 }
 
-// A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.
 type TagsResourceResponseArgs struct {
-	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -793,7 +766,6 @@ func (i TagsResourceResponseArgs) ToTagsResourceResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TagsResourceResponseOutput)
 }
 
-// A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.
 type TagsResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (TagsResourceResponseOutput) ElementType() reflect.Type {
@@ -808,7 +780,6 @@ func (o TagsResourceResponseOutput) ToTagsResourceResponseOutputWithContext(ctx 
 	return o
 }
 
-// Resource tags
 func (o TagsResourceResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TagsResourceResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

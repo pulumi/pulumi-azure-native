@@ -182,9 +182,7 @@ func (i *SynapseWorkspaceSqlPoolTableDataSetMapping) ToSynapseWorkspaceSqlPoolTa
 	return pulumi.ToOutputWithContext(ctx, i).(SynapseWorkspaceSqlPoolTableDataSetMappingOutput)
 }
 
-type SynapseWorkspaceSqlPoolTableDataSetMappingOutput struct {
-	*pulumi.OutputState
-}
+type SynapseWorkspaceSqlPoolTableDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (SynapseWorkspaceSqlPoolTableDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SynapseWorkspaceSqlPoolTableDataSetMapping)(nil))

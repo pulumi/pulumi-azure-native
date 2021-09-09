@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Device Update instance details.
 type Instance struct {
 	pulumi.CustomResourceState
 
-	// Parent Device Update Account name which Instance belongs to.
-	AccountName pulumi.StringOutput `pulumi:"accountName"`
-	// Enables or Disables the diagnostic logs collection
-	EnableDiagnostics pulumi.BoolPtrOutput `pulumi:"enableDiagnostics"`
-	// List of IoT Hubs associated with the account.
-	IotHubs IotHubSettingsResponseArrayOutput `pulumi:"iotHubs"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AccountName       pulumi.StringOutput               `pulumi:"accountName"`
+	EnableDiagnostics pulumi.BoolPtrOutput              `pulumi:"enableDiagnostics"`
+	IotHubs           IotHubSettingsResponseArrayOutput `pulumi:"iotHubs"`
+	Location          pulumi.StringOutput               `pulumi:"location"`
+	Name              pulumi.StringOutput               `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput               `pulumi:"provisioningState"`
+	SystemData        SystemDataResponseOutput          `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput            `pulumi:"tags"`
+	Type              pulumi.StringOutput               `pulumi:"type"`
 }
 
 // NewInstance registers a new resource with the given unique name, arguments, and options.
@@ -92,38 +82,24 @@ func (InstanceState) ElementType() reflect.Type {
 }
 
 type instanceArgs struct {
-	// Account name.
-	AccountName string `pulumi:"accountName"`
-	// Enables or Disables the diagnostic logs collection
-	EnableDiagnostics *bool `pulumi:"enableDiagnostics"`
-	// Instance name.
-	InstanceName *string `pulumi:"instanceName"`
-	// List of IoT Hubs associated with the account.
-	IotHubs []IotHubSettings `pulumi:"iotHubs"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       string            `pulumi:"accountName"`
+	EnableDiagnostics *bool             `pulumi:"enableDiagnostics"`
+	InstanceName      *string           `pulumi:"instanceName"`
+	IotHubs           []IotHubSettings  `pulumi:"iotHubs"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
-	// Account name.
-	AccountName pulumi.StringInput
-	// Enables or Disables the diagnostic logs collection
+	AccountName       pulumi.StringInput
 	EnableDiagnostics pulumi.BoolPtrInput
-	// Instance name.
-	InstanceName pulumi.StringPtrInput
-	// List of IoT Hubs associated with the account.
-	IotHubs IotHubSettingsArrayInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The resource group name.
+	InstanceName      pulumi.StringPtrInput
+	IotHubs           IotHubSettingsArrayInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (InstanceArgs) ElementType() reflect.Type {
@@ -149,9 +125,7 @@ func (i *Instance) ToInstanceOutputWithContext(ctx context.Context) InstanceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceOutput)
 }
 
-type InstanceOutput struct {
-	*pulumi.OutputState
-}
+type InstanceOutput struct{ *pulumi.OutputState }
 
 func (InstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Instance)(nil))

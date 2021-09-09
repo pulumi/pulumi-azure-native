@@ -11,23 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents AATP (Azure Advanced Threat Protection) data connector.
 type AATPDataConnector struct {
 	pulumi.CustomResourceState
 
-	// The available data types for the connector.
 	DataTypes AlertsDataTypeOfDataConnectorResponsePtrOutput `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The kind of the data connector
-	// Expected value is 'AzureAdvancedThreatProtection'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The tenant id to connect to, and get the data from.
-	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag      pulumi.StringPtrOutput                         `pulumi:"etag"`
+	Kind      pulumi.StringOutput                            `pulumi:"kind"`
+	Name      pulumi.StringOutput                            `pulumi:"name"`
+	TenantId  pulumi.StringPtrOutput                         `pulumi:"tenantId"`
+	Type      pulumi.StringOutput                            `pulumi:"type"`
 }
 
 // NewAATPDataConnector registers a new resource with the given unique name, arguments, and options.
@@ -103,40 +95,24 @@ func (AATPDataConnectorState) ElementType() reflect.Type {
 }
 
 type aatpdataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId *string `pulumi:"dataConnectorId"`
-	// The available data types for the connector.
-	DataTypes *AlertsDataTypeOfDataConnector `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The kind of the data connector
-	// Expected value is 'AzureAdvancedThreatProtection'.
-	Kind string `pulumi:"kind"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tenant id to connect to, and get the data from.
-	TenantId *string `pulumi:"tenantId"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	DataConnectorId   *string                        `pulumi:"dataConnectorId"`
+	DataTypes         *AlertsDataTypeOfDataConnector `pulumi:"dataTypes"`
+	Etag              *string                        `pulumi:"etag"`
+	Kind              string                         `pulumi:"kind"`
+	ResourceGroupName string                         `pulumi:"resourceGroupName"`
+	TenantId          *string                        `pulumi:"tenantId"`
+	WorkspaceName     string                         `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a AATPDataConnector resource.
 type AATPDataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId pulumi.StringPtrInput
-	// The available data types for the connector.
-	DataTypes AlertsDataTypeOfDataConnectorPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The kind of the data connector
-	// Expected value is 'AzureAdvancedThreatProtection'.
-	Kind pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	DataConnectorId   pulumi.StringPtrInput
+	DataTypes         AlertsDataTypeOfDataConnectorPtrInput
+	Etag              pulumi.StringPtrInput
+	Kind              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The tenant id to connect to, and get the data from.
-	TenantId pulumi.StringPtrInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	TenantId          pulumi.StringPtrInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (AATPDataConnectorArgs) ElementType() reflect.Type {
@@ -162,9 +138,7 @@ func (i *AATPDataConnector) ToAATPDataConnectorOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AATPDataConnectorOutput)
 }
 
-type AATPDataConnectorOutput struct {
-	*pulumi.OutputState
-}
+type AATPDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (AATPDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AATPDataConnector)(nil))

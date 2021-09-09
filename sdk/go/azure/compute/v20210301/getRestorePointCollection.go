@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Create or update Restore Point collection parameters.
 func LookupRestorePointCollection(ctx *pulumi.Context, args *LookupRestorePointCollectionArgs, opts ...pulumi.InvokeOption) (*LookupRestorePointCollectionResult, error) {
 	var rv LookupRestorePointCollectionResult
 	err := ctx.Invoke("azure-native:compute/v20210301:getRestorePointCollection", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupRestorePointCollection(ctx *pulumi.Context, args *LookupRestorePointC
 }
 
 type LookupRestorePointCollectionArgs struct {
-	// The expand expression to apply on the operation. If expand=restorePoints, server will return all contained restore points in the restorePointCollection.
-	Expand *string `pulumi:"expand"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the restore point collection.
-	RestorePointCollectionName string `pulumi:"restorePointCollectionName"`
+	Expand                     *string `pulumi:"expand"`
+	ResourceGroupName          string  `pulumi:"resourceGroupName"`
+	RestorePointCollectionName string  `pulumi:"restorePointCollectionName"`
 }
 
 // Create or update Restore Point collection parameters.
 type LookupRestorePointCollectionResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The provisioning state of the restore point collection.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The unique id of the restore point collection.
-	RestorePointCollectionId string `pulumi:"restorePointCollectionId"`
-	// A list containing all restore points created under this restore point collection.
-	RestorePoints []RestorePointResponse `pulumi:"restorePoints"`
-	// The properties of the source resource that this restore point collection is created from.
-	Source *RestorePointCollectionSourcePropertiesResponse `pulumi:"source"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id                       string                                          `pulumi:"id"`
+	Location                 string                                          `pulumi:"location"`
+	Name                     string                                          `pulumi:"name"`
+	ProvisioningState        string                                          `pulumi:"provisioningState"`
+	RestorePointCollectionId string                                          `pulumi:"restorePointCollectionId"`
+	RestorePoints            []RestorePointResponse                          `pulumi:"restorePoints"`
+	Source                   *RestorePointCollectionSourcePropertiesResponse `pulumi:"source"`
+	Tags                     map[string]string                               `pulumi:"tags"`
+	Type                     string                                          `pulumi:"type"`
 }

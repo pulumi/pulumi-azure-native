@@ -11,46 +11,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// States and configurations of Cost Analysis.
 type ViewByScope struct {
 	pulumi.CustomResourceState
 
-	// Show costs accumulated over time.
-	Accumulated pulumi.StringPtrOutput `pulumi:"accumulated"`
-	// Chart type of the main view in Cost Analysis. Required.
-	Chart pulumi.StringPtrOutput `pulumi:"chart"`
-	// Date the user created this view.
-	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
-	// Selected currency.
-	Currency pulumi.StringOutput `pulumi:"currency"`
-	// Has definition for data in this report config.
-	DataSet ReportConfigDatasetResponsePtrOutput `pulumi:"dataSet"`
-	// Selected date range for viewing cost in.
-	DateRange pulumi.StringOutput `pulumi:"dateRange"`
-	// User input name of the view. Required.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Include monetary commitment
-	IncludeMonetaryCommitment pulumi.BoolOutput `pulumi:"includeMonetaryCommitment"`
-	// List of KPIs to show in Cost Analysis UI.
-	Kpis KpiPropertiesResponseArrayOutput `pulumi:"kpis"`
-	// Metric to use when displaying costs.
-	Metric pulumi.StringPtrOutput `pulumi:"metric"`
-	// Date when the user last modified this view.
-	ModifiedOn pulumi.StringOutput `pulumi:"modifiedOn"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration of 3 sub-views in the Cost Analysis UI.
-	Pivots PivotPropertiesResponseArrayOutput `pulumi:"pivots"`
-	// Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
-	Scope pulumi.StringPtrOutput `pulumi:"scope"`
-	// Has time period for pulling data for the report.
-	TimePeriod ReportConfigTimePeriodResponsePtrOutput `pulumi:"timePeriod"`
-	// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-	Timeframe pulumi.StringOutput `pulumi:"timeframe"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Accumulated               pulumi.StringPtrOutput                  `pulumi:"accumulated"`
+	Chart                     pulumi.StringPtrOutput                  `pulumi:"chart"`
+	CreatedOn                 pulumi.StringOutput                     `pulumi:"createdOn"`
+	Currency                  pulumi.StringOutput                     `pulumi:"currency"`
+	DataSet                   ReportConfigDatasetResponsePtrOutput    `pulumi:"dataSet"`
+	DateRange                 pulumi.StringOutput                     `pulumi:"dateRange"`
+	DisplayName               pulumi.StringPtrOutput                  `pulumi:"displayName"`
+	ETag                      pulumi.StringPtrOutput                  `pulumi:"eTag"`
+	IncludeMonetaryCommitment pulumi.BoolOutput                       `pulumi:"includeMonetaryCommitment"`
+	Kpis                      KpiPropertiesResponseArrayOutput        `pulumi:"kpis"`
+	Metric                    pulumi.StringPtrOutput                  `pulumi:"metric"`
+	ModifiedOn                pulumi.StringOutput                     `pulumi:"modifiedOn"`
+	Name                      pulumi.StringOutput                     `pulumi:"name"`
+	Pivots                    PivotPropertiesResponseArrayOutput      `pulumi:"pivots"`
+	Scope                     pulumi.StringPtrOutput                  `pulumi:"scope"`
+	TimePeriod                ReportConfigTimePeriodResponsePtrOutput `pulumi:"timePeriod"`
+	Timeframe                 pulumi.StringOutput                     `pulumi:"timeframe"`
+	Type                      pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewViewByScope registers a new resource with the given unique name, arguments, and options.
@@ -125,62 +106,36 @@ func (ViewByScopeState) ElementType() reflect.Type {
 }
 
 type viewByScopeArgs struct {
-	// Show costs accumulated over time.
-	Accumulated *string `pulumi:"accumulated"`
-	// Chart type of the main view in Cost Analysis. Required.
-	Chart *string `pulumi:"chart"`
-	// Has definition for data in this report config.
-	DataSet *ReportConfigDataset `pulumi:"dataSet"`
-	// User input name of the view. Required.
-	DisplayName *string `pulumi:"displayName"`
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag *string `pulumi:"eTag"`
-	// List of KPIs to show in Cost Analysis UI.
-	Kpis []KpiProperties `pulumi:"kpis"`
-	// Metric to use when displaying costs.
-	Metric *string `pulumi:"metric"`
-	// Configuration of 3 sub-views in the Cost Analysis UI.
-	Pivots []PivotProperties `pulumi:"pivots"`
-	// Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
-	Scope string `pulumi:"scope"`
-	// Has time period for pulling data for the report.
-	TimePeriod *ReportConfigTimePeriod `pulumi:"timePeriod"`
-	// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-	Timeframe string `pulumi:"timeframe"`
-	// The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
-	Type string `pulumi:"type"`
-	// View name
-	ViewName *string `pulumi:"viewName"`
+	Accumulated *string                 `pulumi:"accumulated"`
+	Chart       *string                 `pulumi:"chart"`
+	DataSet     *ReportConfigDataset    `pulumi:"dataSet"`
+	DisplayName *string                 `pulumi:"displayName"`
+	ETag        *string                 `pulumi:"eTag"`
+	Kpis        []KpiProperties         `pulumi:"kpis"`
+	Metric      *string                 `pulumi:"metric"`
+	Pivots      []PivotProperties       `pulumi:"pivots"`
+	Scope       string                  `pulumi:"scope"`
+	TimePeriod  *ReportConfigTimePeriod `pulumi:"timePeriod"`
+	Timeframe   string                  `pulumi:"timeframe"`
+	Type        string                  `pulumi:"type"`
+	ViewName    *string                 `pulumi:"viewName"`
 }
 
 // The set of arguments for constructing a ViewByScope resource.
 type ViewByScopeArgs struct {
-	// Show costs accumulated over time.
 	Accumulated pulumi.StringPtrInput
-	// Chart type of the main view in Cost Analysis. Required.
-	Chart pulumi.StringPtrInput
-	// Has definition for data in this report config.
-	DataSet ReportConfigDatasetPtrInput
-	// User input name of the view. Required.
+	Chart       pulumi.StringPtrInput
+	DataSet     ReportConfigDatasetPtrInput
 	DisplayName pulumi.StringPtrInput
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag pulumi.StringPtrInput
-	// List of KPIs to show in Cost Analysis UI.
-	Kpis KpiPropertiesArrayInput
-	// Metric to use when displaying costs.
-	Metric pulumi.StringPtrInput
-	// Configuration of 3 sub-views in the Cost Analysis UI.
-	Pivots PivotPropertiesArrayInput
-	// Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
-	Scope pulumi.StringInput
-	// Has time period for pulling data for the report.
-	TimePeriod ReportConfigTimePeriodPtrInput
-	// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-	Timeframe pulumi.StringInput
-	// The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
-	Type pulumi.StringInput
-	// View name
-	ViewName pulumi.StringPtrInput
+	ETag        pulumi.StringPtrInput
+	Kpis        KpiPropertiesArrayInput
+	Metric      pulumi.StringPtrInput
+	Pivots      PivotPropertiesArrayInput
+	Scope       pulumi.StringInput
+	TimePeriod  ReportConfigTimePeriodPtrInput
+	Timeframe   pulumi.StringInput
+	Type        pulumi.StringInput
+	ViewName    pulumi.StringPtrInput
 }
 
 func (ViewByScopeArgs) ElementType() reflect.Type {
@@ -206,9 +161,7 @@ func (i *ViewByScope) ToViewByScopeOutputWithContext(ctx context.Context) ViewBy
 	return pulumi.ToOutputWithContext(ctx, i).(ViewByScopeOutput)
 }
 
-type ViewByScopeOutput struct {
-	*pulumi.OutputState
-}
+type ViewByScopeOutput struct{ *pulumi.OutputState }
 
 func (ViewByScopeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ViewByScope)(nil))

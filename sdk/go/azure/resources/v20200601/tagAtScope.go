@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Wrapper resource for tags API requests and responses.
 type TagAtScope struct {
 	pulumi.CustomResourceState
 
-	// The name of the tags wrapper resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The set of tags.
-	Properties TagsResponseOutput `pulumi:"properties"`
-	// The type of the tags wrapper resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	Properties TagsResponseOutput  `pulumi:"properties"`
+	Type       pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewTagAtScope registers a new resource with the given unique name, arguments, and options.
@@ -110,18 +106,14 @@ func (TagAtScopeState) ElementType() reflect.Type {
 }
 
 type tagAtScopeArgs struct {
-	// The set of tags.
-	Properties Tags `pulumi:"properties"`
-	// The resource scope.
-	Scope string `pulumi:"scope"`
+	Properties Tags   `pulumi:"properties"`
+	Scope      string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a TagAtScope resource.
 type TagAtScopeArgs struct {
-	// The set of tags.
 	Properties TagsInput
-	// The resource scope.
-	Scope pulumi.StringInput
+	Scope      pulumi.StringInput
 }
 
 func (TagAtScopeArgs) ElementType() reflect.Type {
@@ -147,9 +139,7 @@ func (i *TagAtScope) ToTagAtScopeOutputWithContext(ctx context.Context) TagAtSco
 	return pulumi.ToOutputWithContext(ctx, i).(TagAtScopeOutput)
 }
 
-type TagAtScopeOutput struct {
-	*pulumi.OutputState
-}
+type TagAtScopeOutput struct{ *pulumi.OutputState }
 
 func (TagAtScopeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TagAtScope)(nil))

@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The service resource.
 type Service struct {
 	pulumi.CustomResourceState
 
-	// Resource location depends on the parent resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The service resource properties.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
+	Location   pulumi.StringPtrOutput   `pulumi:"location"`
+	Name       pulumi.StringOutput      `pulumi:"name"`
+	Properties pulumi.AnyOutput         `pulumi:"properties"`
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Azure resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput   `pulumi:"tags"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -95,38 +88,24 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// The name of the application resource.
-	ApplicationName string `pulumi:"applicationName"`
-	// The name of the cluster resource.
-	ClusterName string `pulumi:"clusterName"`
-	// Resource location depends on the parent resource.
-	Location *string `pulumi:"location"`
-	// The service resource properties.
-	Properties interface{} `pulumi:"properties"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the service resource in the format of {applicationName}~{serviceName}.
-	ServiceName *string `pulumi:"serviceName"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ApplicationName   string            `pulumi:"applicationName"`
+	ClusterName       string            `pulumi:"clusterName"`
+	Location          *string           `pulumi:"location"`
+	Properties        interface{}       `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ServiceName       *string           `pulumi:"serviceName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// The name of the application resource.
-	ApplicationName pulumi.StringInput
-	// The name of the cluster resource.
-	ClusterName pulumi.StringInput
-	// Resource location depends on the parent resource.
-	Location pulumi.StringPtrInput
-	// The service resource properties.
-	Properties pulumi.Input
-	// The name of the resource group.
+	ApplicationName   pulumi.StringInput
+	ClusterName       pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
-	// The name of the service resource in the format of {applicationName}~{serviceName}.
-	ServiceName pulumi.StringPtrInput
-	// Azure resource tags.
-	Tags pulumi.StringMapInput
+	ServiceName       pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -152,9 +131,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
-type ServiceOutput struct {
-	*pulumi.OutputState
-}
+type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Service)(nil))

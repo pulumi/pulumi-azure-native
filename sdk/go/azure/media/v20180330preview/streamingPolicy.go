@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Streaming Policy resource
 type StreamingPolicy struct {
 	pulumi.CustomResourceState
 
-	// Configuration of CommonEncryptionCbcs
-	CommonEncryptionCbcs CommonEncryptionCbcsResponsePtrOutput `pulumi:"commonEncryptionCbcs"`
-	// Configuration of CommonEncryptionCenc
-	CommonEncryptionCenc CommonEncryptionCencResponsePtrOutput `pulumi:"commonEncryptionCenc"`
-	// Creation time of Streaming Policy
-	Created pulumi.StringOutput `pulumi:"created"`
-	// Default ContentKey used by current Streaming Policy
-	DefaultContentKeyPolicyName pulumi.StringPtrOutput `pulumi:"defaultContentKeyPolicyName"`
-	// Configuration of EnvelopeEncryption
-	EnvelopeEncryption EnvelopeEncryptionResponsePtrOutput `pulumi:"envelopeEncryption"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration of NoEncryption
-	NoEncryption NoEncryptionResponsePtrOutput `pulumi:"noEncryption"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CommonEncryptionCbcs        CommonEncryptionCbcsResponsePtrOutput `pulumi:"commonEncryptionCbcs"`
+	CommonEncryptionCenc        CommonEncryptionCencResponsePtrOutput `pulumi:"commonEncryptionCenc"`
+	Created                     pulumi.StringOutput                   `pulumi:"created"`
+	DefaultContentKeyPolicyName pulumi.StringPtrOutput                `pulumi:"defaultContentKeyPolicyName"`
+	EnvelopeEncryption          EnvelopeEncryptionResponsePtrOutput   `pulumi:"envelopeEncryption"`
+	Name                        pulumi.StringOutput                   `pulumi:"name"`
+	NoEncryption                NoEncryptionResponsePtrOutput         `pulumi:"noEncryption"`
+	Type                        pulumi.StringOutput                   `pulumi:"type"`
 }
 
 // NewStreamingPolicy registers a new resource with the given unique name, arguments, and options.
@@ -114,42 +105,26 @@ func (StreamingPolicyState) ElementType() reflect.Type {
 }
 
 type streamingPolicyArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// Configuration of CommonEncryptionCbcs
-	CommonEncryptionCbcs *CommonEncryptionCbcs `pulumi:"commonEncryptionCbcs"`
-	// Configuration of CommonEncryptionCenc
-	CommonEncryptionCenc *CommonEncryptionCenc `pulumi:"commonEncryptionCenc"`
-	// Default ContentKey used by current Streaming Policy
-	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
-	// Configuration of EnvelopeEncryption
-	EnvelopeEncryption *EnvelopeEncryption `pulumi:"envelopeEncryption"`
-	// Configuration of NoEncryption
-	NoEncryption *NoEncryption `pulumi:"noEncryption"`
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Streaming Policy name.
-	StreamingPolicyName *string `pulumi:"streamingPolicyName"`
+	AccountName                 string                `pulumi:"accountName"`
+	CommonEncryptionCbcs        *CommonEncryptionCbcs `pulumi:"commonEncryptionCbcs"`
+	CommonEncryptionCenc        *CommonEncryptionCenc `pulumi:"commonEncryptionCenc"`
+	DefaultContentKeyPolicyName *string               `pulumi:"defaultContentKeyPolicyName"`
+	EnvelopeEncryption          *EnvelopeEncryption   `pulumi:"envelopeEncryption"`
+	NoEncryption                *NoEncryption         `pulumi:"noEncryption"`
+	ResourceGroupName           string                `pulumi:"resourceGroupName"`
+	StreamingPolicyName         *string               `pulumi:"streamingPolicyName"`
 }
 
 // The set of arguments for constructing a StreamingPolicy resource.
 type StreamingPolicyArgs struct {
-	// The Media Services account name.
-	AccountName pulumi.StringInput
-	// Configuration of CommonEncryptionCbcs
-	CommonEncryptionCbcs CommonEncryptionCbcsPtrInput
-	// Configuration of CommonEncryptionCenc
-	CommonEncryptionCenc CommonEncryptionCencPtrInput
-	// Default ContentKey used by current Streaming Policy
+	AccountName                 pulumi.StringInput
+	CommonEncryptionCbcs        CommonEncryptionCbcsPtrInput
+	CommonEncryptionCenc        CommonEncryptionCencPtrInput
 	DefaultContentKeyPolicyName pulumi.StringPtrInput
-	// Configuration of EnvelopeEncryption
-	EnvelopeEncryption EnvelopeEncryptionPtrInput
-	// Configuration of NoEncryption
-	NoEncryption NoEncryptionPtrInput
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The Streaming Policy name.
-	StreamingPolicyName pulumi.StringPtrInput
+	EnvelopeEncryption          EnvelopeEncryptionPtrInput
+	NoEncryption                NoEncryptionPtrInput
+	ResourceGroupName           pulumi.StringInput
+	StreamingPolicyName         pulumi.StringPtrInput
 }
 
 func (StreamingPolicyArgs) ElementType() reflect.Type {
@@ -175,9 +150,7 @@ func (i *StreamingPolicy) ToStreamingPolicyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyOutput)
 }
 
-type StreamingPolicyOutput struct {
-	*pulumi.OutputState
-}
+type StreamingPolicyOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamingPolicy)(nil))

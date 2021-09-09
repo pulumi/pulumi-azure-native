@@ -10,44 +10,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Connector model definition
 type CloudConnector struct {
 	pulumi.CustomResourceState
 
-	// Connector billing model
-	BillingModel pulumi.StringPtrOutput `pulumi:"billingModel"`
-	// Collection information
-	CollectionInfo ConnectorCollectionInfoResponseOutput `pulumi:"collectionInfo"`
-	// Connector definition creation datetime
-	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
-	// Credentials authentication key (eg AWS ARN)
-	CredentialsKey pulumi.StringPtrOutput `pulumi:"credentialsKey"`
-	// Number of days remaining of trial
-	DaysTrialRemaining pulumi.IntOutput `pulumi:"daysTrialRemaining"`
-	// Default ManagementGroupId
-	DefaultManagementGroupId pulumi.StringPtrOutput `pulumi:"defaultManagementGroupId"`
-	// Connector DisplayName
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Associated ExternalBillingAccountId
-	ExternalBillingAccountId pulumi.StringOutput `pulumi:"externalBillingAccountId"`
-	// Connector kind (eg aws)
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Connector last modified datetime
-	ModifiedOn pulumi.StringOutput `pulumi:"modifiedOn"`
-	// Connector name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The display name of the providerBillingAccountId as defined on the external provider
-	ProviderBillingAccountDisplayName pulumi.StringOutput `pulumi:"providerBillingAccountDisplayName"`
-	// Connector providerBillingAccountId, determined from credentials (eg AWS Consolidated account number)
-	ProviderBillingAccountId pulumi.StringOutput `pulumi:"providerBillingAccountId"`
-	// Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
-	ReportId pulumi.StringPtrOutput `pulumi:"reportId"`
-	// Connector status
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Billing SubscriptionId
-	SubscriptionId pulumi.StringPtrOutput `pulumi:"subscriptionId"`
-	// Connector type
-	Type pulumi.StringOutput `pulumi:"type"`
+	BillingModel                      pulumi.StringPtrOutput                `pulumi:"billingModel"`
+	CollectionInfo                    ConnectorCollectionInfoResponseOutput `pulumi:"collectionInfo"`
+	CreatedOn                         pulumi.StringOutput                   `pulumi:"createdOn"`
+	CredentialsKey                    pulumi.StringPtrOutput                `pulumi:"credentialsKey"`
+	DaysTrialRemaining                pulumi.IntOutput                      `pulumi:"daysTrialRemaining"`
+	DefaultManagementGroupId          pulumi.StringPtrOutput                `pulumi:"defaultManagementGroupId"`
+	DisplayName                       pulumi.StringPtrOutput                `pulumi:"displayName"`
+	ExternalBillingAccountId          pulumi.StringOutput                   `pulumi:"externalBillingAccountId"`
+	Kind                              pulumi.StringPtrOutput                `pulumi:"kind"`
+	ModifiedOn                        pulumi.StringOutput                   `pulumi:"modifiedOn"`
+	Name                              pulumi.StringOutput                   `pulumi:"name"`
+	ProviderBillingAccountDisplayName pulumi.StringOutput                   `pulumi:"providerBillingAccountDisplayName"`
+	ProviderBillingAccountId          pulumi.StringOutput                   `pulumi:"providerBillingAccountId"`
+	ReportId                          pulumi.StringPtrOutput                `pulumi:"reportId"`
+	Status                            pulumi.StringOutput                   `pulumi:"status"`
+	SubscriptionId                    pulumi.StringPtrOutput                `pulumi:"subscriptionId"`
+	Type                              pulumi.StringOutput                   `pulumi:"type"`
 }
 
 // NewCloudConnector registers a new resource with the given unique name, arguments, and options.
@@ -107,46 +89,28 @@ func (CloudConnectorState) ElementType() reflect.Type {
 }
 
 type cloudConnectorArgs struct {
-	// Connector billing model
-	BillingModel *string `pulumi:"billingModel"`
-	// Connector Name.
-	ConnectorName *string `pulumi:"connectorName"`
-	// Credentials authentication key (eg AWS ARN)
-	CredentialsKey *string `pulumi:"credentialsKey"`
-	// Credentials secret (eg AWS ExternalId)
-	CredentialsSecret *string `pulumi:"credentialsSecret"`
-	// Default ManagementGroupId
+	BillingModel             *string `pulumi:"billingModel"`
+	ConnectorName            *string `pulumi:"connectorName"`
+	CredentialsKey           *string `pulumi:"credentialsKey"`
+	CredentialsSecret        *string `pulumi:"credentialsSecret"`
 	DefaultManagementGroupId *string `pulumi:"defaultManagementGroupId"`
-	// Connector DisplayName
-	DisplayName *string `pulumi:"displayName"`
-	// Connector kind (eg aws)
-	Kind *string `pulumi:"kind"`
-	// Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
-	ReportId *string `pulumi:"reportId"`
-	// Billing SubscriptionId
-	SubscriptionId *string `pulumi:"subscriptionId"`
+	DisplayName              *string `pulumi:"displayName"`
+	Kind                     *string `pulumi:"kind"`
+	ReportId                 *string `pulumi:"reportId"`
+	SubscriptionId           *string `pulumi:"subscriptionId"`
 }
 
 // The set of arguments for constructing a CloudConnector resource.
 type CloudConnectorArgs struct {
-	// Connector billing model
-	BillingModel pulumi.StringPtrInput
-	// Connector Name.
-	ConnectorName pulumi.StringPtrInput
-	// Credentials authentication key (eg AWS ARN)
-	CredentialsKey pulumi.StringPtrInput
-	// Credentials secret (eg AWS ExternalId)
-	CredentialsSecret pulumi.StringPtrInput
-	// Default ManagementGroupId
+	BillingModel             pulumi.StringPtrInput
+	ConnectorName            pulumi.StringPtrInput
+	CredentialsKey           pulumi.StringPtrInput
+	CredentialsSecret        pulumi.StringPtrInput
 	DefaultManagementGroupId pulumi.StringPtrInput
-	// Connector DisplayName
-	DisplayName pulumi.StringPtrInput
-	// Connector kind (eg aws)
-	Kind pulumi.StringPtrInput
-	// Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
-	ReportId pulumi.StringPtrInput
-	// Billing SubscriptionId
-	SubscriptionId pulumi.StringPtrInput
+	DisplayName              pulumi.StringPtrInput
+	Kind                     pulumi.StringPtrInput
+	ReportId                 pulumi.StringPtrInput
+	SubscriptionId           pulumi.StringPtrInput
 }
 
 func (CloudConnectorArgs) ElementType() reflect.Type {
@@ -172,9 +136,7 @@ func (i *CloudConnector) ToCloudConnectorOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorOutput)
 }
 
-type CloudConnectorOutput struct {
-	*pulumi.OutputState
-}
+type CloudConnectorOutput struct{ *pulumi.OutputState }
 
 func (CloudConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CloudConnector)(nil))

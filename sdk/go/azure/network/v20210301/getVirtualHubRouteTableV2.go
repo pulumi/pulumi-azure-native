@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VirtualHubRouteTableV2 Resource.
 func LookupVirtualHubRouteTableV2(ctx *pulumi.Context, args *LookupVirtualHubRouteTableV2Args, opts ...pulumi.InvokeOption) (*LookupVirtualHubRouteTableV2Result, error) {
 	var rv LookupVirtualHubRouteTableV2Result
 	err := ctx.Invoke("azure-native:network/v20210301:getVirtualHubRouteTableV2", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupVirtualHubRouteTableV2(ctx *pulumi.Context, args *LookupVirtualHubRou
 }
 
 type LookupVirtualHubRouteTableV2Args struct {
-	// The resource group name of the VirtualHubRouteTableV2.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the VirtualHubRouteTableV2.
-	RouteTableName string `pulumi:"routeTableName"`
-	// The name of the VirtualHub.
-	VirtualHubName string `pulumi:"virtualHubName"`
+	RouteTableName    string `pulumi:"routeTableName"`
+	VirtualHubName    string `pulumi:"virtualHubName"`
 }
 
 // VirtualHubRouteTableV2 Resource.
 type LookupVirtualHubRouteTableV2Result struct {
-	// List of all connections attached to this route table v2.
-	AttachedConnections []string `pulumi:"attachedConnections"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the virtual hub route table v2 resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// List of all routes.
-	Routes []VirtualHubRouteV2Response `pulumi:"routes"`
+	AttachedConnections []string                    `pulumi:"attachedConnections"`
+	Etag                string                      `pulumi:"etag"`
+	Id                  *string                     `pulumi:"id"`
+	Name                *string                     `pulumi:"name"`
+	ProvisioningState   string                      `pulumi:"provisioningState"`
+	Routes              []VirtualHubRouteV2Response `pulumi:"routes"`
 }

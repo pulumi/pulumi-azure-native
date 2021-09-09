@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 type Origin struct {
 	pulumi.CustomResourceState
 
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535.
-	HttpPort pulumi.IntPtrOutput `pulumi:"httpPort"`
-	// The value of the https port. Must be between 1 and 65535.
-	HttpsPort pulumi.IntPtrOutput `pulumi:"httpsPort"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning status of the origin.
+	HostName          pulumi.StringOutput `pulumi:"hostName"`
+	HttpPort          pulumi.IntPtrOutput `pulumi:"httpPort"`
+	HttpsPort         pulumi.IntPtrOutput `pulumi:"httpsPort"`
+	Name              pulumi.StringOutput `pulumi:"name"`
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource status of the origin.
-	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ResourceState     pulumi.StringOutput `pulumi:"resourceState"`
+	Type              pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewOrigin registers a new resource with the given unique name, arguments, and options.
@@ -124,37 +116,23 @@ func (OriginState) ElementType() reflect.Type {
 }
 
 type originArgs struct {
-	// Name of the endpoint within the CDN profile.
-	EndpointName string `pulumi:"endpointName"`
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-	HostName string `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535.
-	HttpPort *int `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535.
-	HttpsPort *int `pulumi:"httpsPort"`
-	// Name of the origin, an arbitrary value but it needs to be unique under endpoint
-	OriginName *string `pulumi:"originName"`
-	// Name of the CDN profile within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	EndpointName      string  `pulumi:"endpointName"`
+	HostName          string  `pulumi:"hostName"`
+	HttpPort          *int    `pulumi:"httpPort"`
+	HttpsPort         *int    `pulumi:"httpsPort"`
+	OriginName        *string `pulumi:"originName"`
+	ProfileName       string  `pulumi:"profileName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Origin resource.
 type OriginArgs struct {
-	// Name of the endpoint within the CDN profile.
-	EndpointName pulumi.StringInput
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-	HostName pulumi.StringInput
-	// The value of the HTTP port. Must be between 1 and 65535.
-	HttpPort pulumi.IntPtrInput
-	// The value of the HTTPS port. Must be between 1 and 65535.
-	HttpsPort pulumi.IntPtrInput
-	// Name of the origin, an arbitrary value but it needs to be unique under endpoint
-	OriginName pulumi.StringPtrInput
-	// Name of the CDN profile within the resource group.
-	ProfileName pulumi.StringInput
-	// Name of the resource group within the Azure subscription.
+	EndpointName      pulumi.StringInput
+	HostName          pulumi.StringInput
+	HttpPort          pulumi.IntPtrInput
+	HttpsPort         pulumi.IntPtrInput
+	OriginName        pulumi.StringPtrInput
+	ProfileName       pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -181,9 +159,7 @@ func (i *Origin) ToOriginOutputWithContext(ctx context.Context) OriginOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OriginOutput)
 }
 
-type OriginOutput struct {
-	*pulumi.OutputState
-}
+type OriginOutput struct{ *pulumi.OutputState }
 
 func (OriginOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Origin)(nil))

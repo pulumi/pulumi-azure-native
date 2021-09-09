@@ -11,38 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a connected registry for a container registry.
 type ConnectedRegistry struct {
 	pulumi.CustomResourceState
 
-	// The activation properties of the connected registry.
-	Activation ActivationPropertiesResponseOutput `pulumi:"activation"`
-	// The list of the ACR token resource IDs used to authenticate clients to the connected registry.
-	ClientTokenIds pulumi.StringArrayOutput `pulumi:"clientTokenIds"`
-	// The current connection state of the connected registry.
-	ConnectionState pulumi.StringOutput `pulumi:"connectionState"`
-	// The last activity time of the connected registry.
-	LastActivityTime pulumi.StringOutput `pulumi:"lastActivityTime"`
-	// The logging properties of the connected registry.
-	Logging LoggingPropertiesResponsePtrOutput `pulumi:"logging"`
-	// The login server properties of the connected registry.
-	LoginServer LoginServerPropertiesResponsePtrOutput `pulumi:"loginServer"`
-	// The mode of the connected registry resource that indicates the permissions of the registry.
-	Mode pulumi.StringOutput `pulumi:"mode"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The parent of the connected registry.
-	Parent ParentPropertiesResponseOutput `pulumi:"parent"`
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The list of current statuses of the connected registry.
-	StatusDetails StatusDetailPropertiesResponseArrayOutput `pulumi:"statusDetails"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The current version of ACR runtime on the connected registry.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Activation        ActivationPropertiesResponseOutput        `pulumi:"activation"`
+	ClientTokenIds    pulumi.StringArrayOutput                  `pulumi:"clientTokenIds"`
+	ConnectionState   pulumi.StringOutput                       `pulumi:"connectionState"`
+	LastActivityTime  pulumi.StringOutput                       `pulumi:"lastActivityTime"`
+	Logging           LoggingPropertiesResponsePtrOutput        `pulumi:"logging"`
+	LoginServer       LoginServerPropertiesResponsePtrOutput    `pulumi:"loginServer"`
+	Mode              pulumi.StringOutput                       `pulumi:"mode"`
+	Name              pulumi.StringOutput                       `pulumi:"name"`
+	Parent            ParentPropertiesResponseOutput            `pulumi:"parent"`
+	ProvisioningState pulumi.StringOutput                       `pulumi:"provisioningState"`
+	StatusDetails     StatusDetailPropertiesResponseArrayOutput `pulumi:"statusDetails"`
+	SystemData        SystemDataResponseOutput                  `pulumi:"systemData"`
+	Type              pulumi.StringOutput                       `pulumi:"type"`
+	Version           pulumi.StringOutput                       `pulumi:"version"`
 }
 
 // NewConnectedRegistry registers a new resource with the given unique name, arguments, and options.
@@ -114,38 +99,24 @@ func (ConnectedRegistryState) ElementType() reflect.Type {
 }
 
 type connectedRegistryArgs struct {
-	// The list of the ACR token resource IDs used to authenticate clients to the connected registry.
-	ClientTokenIds []string `pulumi:"clientTokenIds"`
-	// The name of the connected registry.
-	ConnectedRegistryName *string `pulumi:"connectedRegistryName"`
-	// The logging properties of the connected registry.
-	Logging *LoggingProperties `pulumi:"logging"`
-	// The mode of the connected registry resource that indicates the permissions of the registry.
-	Mode string `pulumi:"mode"`
-	// The parent of the connected registry.
-	Parent ParentProperties `pulumi:"parent"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ClientTokenIds        []string           `pulumi:"clientTokenIds"`
+	ConnectedRegistryName *string            `pulumi:"connectedRegistryName"`
+	Logging               *LoggingProperties `pulumi:"logging"`
+	Mode                  string             `pulumi:"mode"`
+	Parent                ParentProperties   `pulumi:"parent"`
+	RegistryName          string             `pulumi:"registryName"`
+	ResourceGroupName     string             `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ConnectedRegistry resource.
 type ConnectedRegistryArgs struct {
-	// The list of the ACR token resource IDs used to authenticate clients to the connected registry.
-	ClientTokenIds pulumi.StringArrayInput
-	// The name of the connected registry.
+	ClientTokenIds        pulumi.StringArrayInput
 	ConnectedRegistryName pulumi.StringPtrInput
-	// The logging properties of the connected registry.
-	Logging LoggingPropertiesPtrInput
-	// The mode of the connected registry resource that indicates the permissions of the registry.
-	Mode pulumi.StringInput
-	// The parent of the connected registry.
-	Parent ParentPropertiesInput
-	// The name of the container registry.
-	RegistryName pulumi.StringInput
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName pulumi.StringInput
+	Logging               LoggingPropertiesPtrInput
+	Mode                  pulumi.StringInput
+	Parent                ParentPropertiesInput
+	RegistryName          pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 }
 
 func (ConnectedRegistryArgs) ElementType() reflect.Type {
@@ -171,9 +142,7 @@ func (i *ConnectedRegistry) ToConnectedRegistryOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedRegistryOutput)
 }
 
-type ConnectedRegistryOutput struct {
-	*pulumi.OutputState
-}
+type ConnectedRegistryOutput struct{ *pulumi.OutputState }
 
 func (ConnectedRegistryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConnectedRegistry)(nil))

@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Issue Contract details.
 type ApiIssue struct {
 	pulumi.CustomResourceState
 
-	// A resource identifier for the API the issue was created for.
-	ApiId pulumi.StringPtrOutput `pulumi:"apiId"`
-	// Date and time when the issue was created.
+	ApiId       pulumi.StringPtrOutput `pulumi:"apiId"`
 	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
-	// Text describing the issue.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Status of the issue.
-	State pulumi.StringPtrOutput `pulumi:"state"`
-	// The issue title.
-	Title pulumi.StringOutput `pulumi:"title"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// A resource identifier for the user created the issue.
-	UserId pulumi.StringOutput `pulumi:"userId"`
+	Description pulumi.StringOutput    `pulumi:"description"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	State       pulumi.StringPtrOutput `pulumi:"state"`
+	Title       pulumi.StringOutput    `pulumi:"title"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
+	UserId      pulumi.StringOutput    `pulumi:"userId"`
 }
 
 // NewApiIssue registers a new resource with the given unique name, arguments, and options.
@@ -150,46 +141,28 @@ func (ApiIssueState) ElementType() reflect.Type {
 }
 
 type apiIssueArgs struct {
-	// A resource identifier for the API the issue was created for.
-	ApiId string `pulumi:"apiId"`
-	// Date and time when the issue was created.
-	CreatedDate *string `pulumi:"createdDate"`
-	// Text describing the issue.
-	Description string `pulumi:"description"`
-	// Issue identifier. Must be unique in the current API Management service instance.
-	IssueId *string `pulumi:"issueId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Status of the issue.
-	State *string `pulumi:"state"`
-	// The issue title.
-	Title string `pulumi:"title"`
-	// A resource identifier for the user created the issue.
-	UserId string `pulumi:"userId"`
+	ApiId             string  `pulumi:"apiId"`
+	CreatedDate       *string `pulumi:"createdDate"`
+	Description       string  `pulumi:"description"`
+	IssueId           *string `pulumi:"issueId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
+	State             *string `pulumi:"state"`
+	Title             string  `pulumi:"title"`
+	UserId            string  `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a ApiIssue resource.
 type ApiIssueArgs struct {
-	// A resource identifier for the API the issue was created for.
-	ApiId pulumi.StringInput
-	// Date and time when the issue was created.
-	CreatedDate pulumi.StringPtrInput
-	// Text describing the issue.
-	Description pulumi.StringInput
-	// Issue identifier. Must be unique in the current API Management service instance.
-	IssueId pulumi.StringPtrInput
-	// The name of the resource group.
+	ApiId             pulumi.StringInput
+	CreatedDate       pulumi.StringPtrInput
+	Description       pulumi.StringInput
+	IssueId           pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Status of the issue.
-	State pulumi.StringPtrInput
-	// The issue title.
-	Title pulumi.StringInput
-	// A resource identifier for the user created the issue.
-	UserId pulumi.StringInput
+	ServiceName       pulumi.StringInput
+	State             pulumi.StringPtrInput
+	Title             pulumi.StringInput
+	UserId            pulumi.StringInput
 }
 
 func (ApiIssueArgs) ElementType() reflect.Type {
@@ -215,9 +188,7 @@ func (i *ApiIssue) ToApiIssueOutputWithContext(ctx context.Context) ApiIssueOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIssueOutput)
 }
 
-type ApiIssueOutput struct {
-	*pulumi.OutputState
-}
+type ApiIssueOutput struct{ *pulumi.OutputState }
 
 func (ApiIssueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiIssue)(nil))

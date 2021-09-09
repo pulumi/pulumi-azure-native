@@ -11,60 +11,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A single Redis item in List or Get Operation.
 type Redis struct {
 	pulumi.CustomResourceState
 
-	// The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
-	AccessKeys RedisAccessKeysResponseOutput `pulumi:"accessKeys"`
-	// Specifies whether the non-ssl Redis server port (6379) is enabled.
-	EnableNonSslPort pulumi.BoolPtrOutput `pulumi:"enableNonSslPort"`
-	// Redis host name.
-	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// List of the Redis instances associated with the cache
-	Instances RedisInstanceDetailsResponseArrayOutput `pulumi:"instances"`
-	// List of the linked servers associated with the cache
-	LinkedServers RedisLinkedServerResponseArrayOutput `pulumi:"linkedServers"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
-	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Redis non-SSL port.
-	Port pulumi.IntOutput `pulumi:"port"`
-	// List of private endpoint connection associated with the specified redis cache
+	AccessKeys                 RedisAccessKeysResponseOutput                `pulumi:"accessKeys"`
+	EnableNonSslPort           pulumi.BoolPtrOutput                         `pulumi:"enableNonSslPort"`
+	HostName                   pulumi.StringOutput                          `pulumi:"hostName"`
+	Instances                  RedisInstanceDetailsResponseArrayOutput      `pulumi:"instances"`
+	LinkedServers              RedisLinkedServerResponseArrayOutput         `pulumi:"linkedServers"`
+	Location                   pulumi.StringOutput                          `pulumi:"location"`
+	MinimumTlsVersion          pulumi.StringPtrOutput                       `pulumi:"minimumTlsVersion"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
+	Port                       pulumi.IntOutput                             `pulumi:"port"`
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// Redis instance provisioning status.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
-	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
-	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-	RedisConfiguration pulumi.StringMapOutput `pulumi:"redisConfiguration"`
-	// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
-	RedisVersion pulumi.StringPtrOutput `pulumi:"redisVersion"`
-	// The number of replicas to be created per primary.
-	ReplicasPerMaster pulumi.IntPtrOutput `pulumi:"replicasPerMaster"`
-	// The number of replicas to be created per primary.
-	ReplicasPerPrimary pulumi.IntPtrOutput `pulumi:"replicasPerPrimary"`
-	// The number of shards to be created on a Premium Cluster Cache.
-	ShardCount pulumi.IntPtrOutput `pulumi:"shardCount"`
-	// The SKU of the Redis cache to deploy.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// Redis SSL port.
-	SslPort pulumi.IntOutput `pulumi:"sslPort"`
-	// Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
-	StaticIP pulumi.StringPtrOutput `pulumi:"staticIP"`
-	// The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
-	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A dictionary of tenant settings
-	TenantSettings pulumi.StringMapOutput `pulumi:"tenantSettings"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// A list of availability zones denoting where the resource needs to come from.
-	Zones pulumi.StringArrayOutput `pulumi:"zones"`
+	ProvisioningState          pulumi.StringOutput                          `pulumi:"provisioningState"`
+	PublicNetworkAccess        pulumi.StringPtrOutput                       `pulumi:"publicNetworkAccess"`
+	RedisConfiguration         pulumi.StringMapOutput                       `pulumi:"redisConfiguration"`
+	RedisVersion               pulumi.StringPtrOutput                       `pulumi:"redisVersion"`
+	ReplicasPerMaster          pulumi.IntPtrOutput                          `pulumi:"replicasPerMaster"`
+	ReplicasPerPrimary         pulumi.IntPtrOutput                          `pulumi:"replicasPerPrimary"`
+	ShardCount                 pulumi.IntPtrOutput                          `pulumi:"shardCount"`
+	Sku                        SkuResponseOutput                            `pulumi:"sku"`
+	SslPort                    pulumi.IntOutput                             `pulumi:"sslPort"`
+	StaticIP                   pulumi.StringPtrOutput                       `pulumi:"staticIP"`
+	SubnetId                   pulumi.StringPtrOutput                       `pulumi:"subnetId"`
+	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
+	TenantSettings             pulumi.StringMapOutput                       `pulumi:"tenantSettings"`
+	Type                       pulumi.StringOutput                          `pulumi:"type"`
+	Zones                      pulumi.StringArrayOutput                     `pulumi:"zones"`
 }
 
 // NewRedis registers a new resource with the given unique name, arguments, and options.
@@ -166,78 +140,44 @@ func (RedisState) ElementType() reflect.Type {
 }
 
 type redisArgs struct {
-	// Specifies whether the non-ssl Redis server port (6379) is enabled.
-	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
-	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// The name of the Redis cache.
-	Name *string `pulumi:"name"`
-	// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-	RedisConfiguration map[string]string `pulumi:"redisConfiguration"`
-	// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
-	RedisVersion *string `pulumi:"redisVersion"`
-	// The number of replicas to be created per primary.
-	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
-	// The number of replicas to be created per primary.
-	ReplicasPerPrimary *int `pulumi:"replicasPerPrimary"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The number of shards to be created on a Premium Cluster Cache.
-	ShardCount *int `pulumi:"shardCount"`
-	// The SKU of the Redis cache to deploy.
-	Sku Sku `pulumi:"sku"`
-	// Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
-	StaticIP *string `pulumi:"staticIP"`
-	// The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
-	SubnetId *string `pulumi:"subnetId"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// A dictionary of tenant settings
-	TenantSettings map[string]string `pulumi:"tenantSettings"`
-	// A list of availability zones denoting where the resource needs to come from.
-	Zones []string `pulumi:"zones"`
+	EnableNonSslPort    *bool             `pulumi:"enableNonSslPort"`
+	Location            *string           `pulumi:"location"`
+	MinimumTlsVersion   *string           `pulumi:"minimumTlsVersion"`
+	Name                *string           `pulumi:"name"`
+	PublicNetworkAccess *string           `pulumi:"publicNetworkAccess"`
+	RedisConfiguration  map[string]string `pulumi:"redisConfiguration"`
+	RedisVersion        *string           `pulumi:"redisVersion"`
+	ReplicasPerMaster   *int              `pulumi:"replicasPerMaster"`
+	ReplicasPerPrimary  *int              `pulumi:"replicasPerPrimary"`
+	ResourceGroupName   string            `pulumi:"resourceGroupName"`
+	ShardCount          *int              `pulumi:"shardCount"`
+	Sku                 Sku               `pulumi:"sku"`
+	StaticIP            *string           `pulumi:"staticIP"`
+	SubnetId            *string           `pulumi:"subnetId"`
+	Tags                map[string]string `pulumi:"tags"`
+	TenantSettings      map[string]string `pulumi:"tenantSettings"`
+	Zones               []string          `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a Redis resource.
 type RedisArgs struct {
-	// Specifies whether the non-ssl Redis server port (6379) is enabled.
-	EnableNonSslPort pulumi.BoolPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
-	MinimumTlsVersion pulumi.StringPtrInput
-	// The name of the Redis cache.
-	Name pulumi.StringPtrInput
-	// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+	EnableNonSslPort    pulumi.BoolPtrInput
+	Location            pulumi.StringPtrInput
+	MinimumTlsVersion   pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
 	PublicNetworkAccess pulumi.StringPtrInput
-	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-	RedisConfiguration pulumi.StringMapInput
-	// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
-	RedisVersion pulumi.StringPtrInput
-	// The number of replicas to be created per primary.
-	ReplicasPerMaster pulumi.IntPtrInput
-	// The number of replicas to be created per primary.
-	ReplicasPerPrimary pulumi.IntPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The number of shards to be created on a Premium Cluster Cache.
-	ShardCount pulumi.IntPtrInput
-	// The SKU of the Redis cache to deploy.
-	Sku SkuInput
-	// Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
-	StaticIP pulumi.StringPtrInput
-	// The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
-	SubnetId pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// A dictionary of tenant settings
-	TenantSettings pulumi.StringMapInput
-	// A list of availability zones denoting where the resource needs to come from.
-	Zones pulumi.StringArrayInput
+	RedisConfiguration  pulumi.StringMapInput
+	RedisVersion        pulumi.StringPtrInput
+	ReplicasPerMaster   pulumi.IntPtrInput
+	ReplicasPerPrimary  pulumi.IntPtrInput
+	ResourceGroupName   pulumi.StringInput
+	ShardCount          pulumi.IntPtrInput
+	Sku                 SkuInput
+	StaticIP            pulumi.StringPtrInput
+	SubnetId            pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TenantSettings      pulumi.StringMapInput
+	Zones               pulumi.StringArrayInput
 }
 
 func (RedisArgs) ElementType() reflect.Type {
@@ -263,9 +203,7 @@ func (i *Redis) ToRedisOutputWithContext(ctx context.Context) RedisOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RedisOutput)
 }
 
-type RedisOutput struct {
-	*pulumi.OutputState
-}
+type RedisOutput struct{ *pulumi.OutputState }
 
 func (RedisOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Redis)(nil))

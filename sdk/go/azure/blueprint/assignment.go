@@ -180,9 +180,7 @@ func (i *Assignment) ToAssignmentOutputWithContext(ctx context.Context) Assignme
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentOutput)
 }
 
-type AssignmentOutput struct {
-	*pulumi.OutputState
-}
+type AssignmentOutput struct{ *pulumi.OutputState }
 
 func (AssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Assignment)(nil))

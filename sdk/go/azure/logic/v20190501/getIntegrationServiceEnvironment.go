@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration service environment.
 func LookupIntegrationServiceEnvironment(ctx *pulumi.Context, args *LookupIntegrationServiceEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationServiceEnvironmentResult, error) {
 	var rv LookupIntegrationServiceEnvironmentResult
 	err := ctx.Invoke("azure-native:logic/v20190501:getIntegrationServiceEnvironment", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupIntegrationServiceEnvironment(ctx *pulumi.Context, args *LookupIntegr
 }
 
 type LookupIntegrationServiceEnvironmentArgs struct {
-	// The integration service environment name.
 	IntegrationServiceEnvironmentName string `pulumi:"integrationServiceEnvironmentName"`
-	// The resource group.
-	ResourceGroup string `pulumi:"resourceGroup"`
+	ResourceGroup                     string `pulumi:"resourceGroup"`
 }
 
 // The integration service environment.
 type LookupIntegrationServiceEnvironmentResult struct {
-	// The resource id.
-	Id string `pulumi:"id"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The integration service environment properties.
+	Id         string                                          `pulumi:"id"`
+	Location   *string                                         `pulumi:"location"`
+	Name       string                                          `pulumi:"name"`
 	Properties IntegrationServiceEnvironmentPropertiesResponse `pulumi:"properties"`
-	// The sku.
-	Sku *IntegrationServiceEnvironmentSkuResponse `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
+	Sku        *IntegrationServiceEnvironmentSkuResponse       `pulumi:"sku"`
+	Tags       map[string]string                               `pulumi:"tags"`
+	Type       string                                          `pulumi:"type"`
 }

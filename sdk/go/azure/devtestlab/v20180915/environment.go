@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An environment, which is essentially an ARM template deployment.
 type Environment struct {
 	pulumi.CustomResourceState
 
-	// The display name of the Azure Resource Manager template that produced the environment.
-	ArmTemplateDisplayName pulumi.StringPtrOutput `pulumi:"armTemplateDisplayName"`
-	// The creator of the environment.
-	CreatedByUser pulumi.StringOutput `pulumi:"createdByUser"`
-	// The deployment properties of the environment.
-	DeploymentProperties EnvironmentDeploymentPropertiesResponsePtrOutput `pulumi:"deploymentProperties"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The identifier of the resource group containing the environment's resources.
-	ResourceGroupId pulumi.StringOutput `pulumi:"resourceGroupId"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringOutput `pulumi:"uniqueIdentifier"`
+	ArmTemplateDisplayName pulumi.StringPtrOutput                           `pulumi:"armTemplateDisplayName"`
+	CreatedByUser          pulumi.StringOutput                              `pulumi:"createdByUser"`
+	DeploymentProperties   EnvironmentDeploymentPropertiesResponsePtrOutput `pulumi:"deploymentProperties"`
+	Location               pulumi.StringPtrOutput                           `pulumi:"location"`
+	Name                   pulumi.StringOutput                              `pulumi:"name"`
+	ProvisioningState      pulumi.StringOutput                              `pulumi:"provisioningState"`
+	ResourceGroupId        pulumi.StringOutput                              `pulumi:"resourceGroupId"`
+	Tags                   pulumi.StringMapOutput                           `pulumi:"tags"`
+	Type                   pulumi.StringOutput                              `pulumi:"type"`
+	UniqueIdentifier       pulumi.StringOutput                              `pulumi:"uniqueIdentifier"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -103,42 +92,26 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
-	// The display name of the Azure Resource Manager template that produced the environment.
-	ArmTemplateDisplayName *string `pulumi:"armTemplateDisplayName"`
-	// The deployment properties of the environment.
-	DeploymentProperties *EnvironmentDeploymentProperties `pulumi:"deploymentProperties"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the environment.
-	Name *string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the user profile.
-	UserName string `pulumi:"userName"`
+	ArmTemplateDisplayName *string                          `pulumi:"armTemplateDisplayName"`
+	DeploymentProperties   *EnvironmentDeploymentProperties `pulumi:"deploymentProperties"`
+	LabName                string                           `pulumi:"labName"`
+	Location               *string                          `pulumi:"location"`
+	Name                   *string                          `pulumi:"name"`
+	ResourceGroupName      string                           `pulumi:"resourceGroupName"`
+	Tags                   map[string]string                `pulumi:"tags"`
+	UserName               string                           `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
-	// The display name of the Azure Resource Manager template that produced the environment.
 	ArmTemplateDisplayName pulumi.StringPtrInput
-	// The deployment properties of the environment.
-	DeploymentProperties EnvironmentDeploymentPropertiesPtrInput
-	// The name of the lab.
-	LabName pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the environment.
-	Name pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The name of the user profile.
-	UserName pulumi.StringInput
+	DeploymentProperties   EnvironmentDeploymentPropertiesPtrInput
+	LabName                pulumi.StringInput
+	Location               pulumi.StringPtrInput
+	Name                   pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
+	UserName               pulumi.StringInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -164,9 +137,7 @@ func (i *Environment) ToEnvironmentOutputWithContext(ctx context.Context) Enviro
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentOutput)
 }
 
-type EnvironmentOutput struct {
-	*pulumi.OutputState
-}
+type EnvironmentOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Environment)(nil))

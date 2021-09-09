@@ -11,42 +11,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Connection
 type Connection struct {
 	pulumi.CustomResourceState
 
-	// expanded connection provider name
-	Api ExpandedParentApiEntityResponsePtrOutput `pulumi:"api"`
-	// Timestamp of last connection change.
-	ChangedTime pulumi.StringPtrOutput `pulumi:"changedTime"`
-	// Timestamp of the connection creation
-	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
-	// Custom login setting values.
-	CustomParameterValues ParameterCustomLoginSettingValuesResponseMapOutput `pulumi:"customParameterValues"`
-	// display name
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Time in UTC when the first expiration of OAuth tokens
-	FirstExpirationTime pulumi.StringPtrOutput `pulumi:"firstExpirationTime"`
-	// List of Keywords that tag the acl
-	Keywords pulumi.StringArrayOutput `pulumi:"keywords"`
-	// Kind of resource
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringOutput `pulumi:"location"`
-	Metadata pulumi.AnyOutput    `pulumi:"metadata"`
-	// Resource Name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Tokens/Claim
-	NonSecretParameterValues pulumi.MapOutput `pulumi:"nonSecretParameterValues"`
-	// Tokens/Claim
-	ParameterValues pulumi.MapOutput `pulumi:"parameterValues"`
-	// Status of the connection
-	Statuses ConnectionStatusResponseArrayOutput `pulumi:"statuses"`
-	// Resource tags
-	Tags     pulumi.StringMapOutput `pulumi:"tags"`
-	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// Resource type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Api                      ExpandedParentApiEntityResponsePtrOutput           `pulumi:"api"`
+	ChangedTime              pulumi.StringPtrOutput                             `pulumi:"changedTime"`
+	CreatedTime              pulumi.StringPtrOutput                             `pulumi:"createdTime"`
+	CustomParameterValues    ParameterCustomLoginSettingValuesResponseMapOutput `pulumi:"customParameterValues"`
+	DisplayName              pulumi.StringPtrOutput                             `pulumi:"displayName"`
+	FirstExpirationTime      pulumi.StringPtrOutput                             `pulumi:"firstExpirationTime"`
+	Keywords                 pulumi.StringArrayOutput                           `pulumi:"keywords"`
+	Kind                     pulumi.StringPtrOutput                             `pulumi:"kind"`
+	Location                 pulumi.StringOutput                                `pulumi:"location"`
+	Metadata                 pulumi.AnyOutput                                   `pulumi:"metadata"`
+	Name                     pulumi.StringPtrOutput                             `pulumi:"name"`
+	NonSecretParameterValues pulumi.MapOutput                                   `pulumi:"nonSecretParameterValues"`
+	ParameterValues          pulumi.MapOutput                                   `pulumi:"parameterValues"`
+	Statuses                 ConnectionStatusResponseArrayOutput                `pulumi:"statuses"`
+	Tags                     pulumi.StringMapOutput                             `pulumi:"tags"`
+	TenantId                 pulumi.StringPtrOutput                             `pulumi:"tenantId"`
+	Type                     pulumi.StringPtrOutput                             `pulumi:"type"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -109,86 +93,50 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	// expanded connection provider name
-	Api *ExpandedParentApiEntity `pulumi:"api"`
-	// Timestamp of last connection change.
-	ChangedTime *string `pulumi:"changedTime"`
-	// The connection name.
-	ConnectionName *string `pulumi:"connectionName"`
-	// Timestamp of the connection creation
-	CreatedTime *string `pulumi:"createdTime"`
-	// Custom login setting values.
-	CustomParameterValues map[string]ParameterCustomLoginSettingValues `pulumi:"customParameterValues"`
-	// display name
-	DisplayName *string `pulumi:"displayName"`
-	// Time in UTC when the first expiration of OAuth tokens
-	FirstExpirationTime *string `pulumi:"firstExpirationTime"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// List of Keywords that tag the acl
-	Keywords []string `pulumi:"keywords"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string     `pulumi:"location"`
-	Metadata interface{} `pulumi:"metadata"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Tokens/Claim
-	NonSecretParameterValues map[string]interface{} `pulumi:"nonSecretParameterValues"`
-	// Tokens/Claim
-	ParameterValues map[string]interface{} `pulumi:"parameterValues"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Status of the connection
-	Statuses []ConnectionStatus `pulumi:"statuses"`
-	// Resource tags
-	Tags     map[string]string `pulumi:"tags"`
-	TenantId *string           `pulumi:"tenantId"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Api                      *ExpandedParentApiEntity                     `pulumi:"api"`
+	ChangedTime              *string                                      `pulumi:"changedTime"`
+	ConnectionName           *string                                      `pulumi:"connectionName"`
+	CreatedTime              *string                                      `pulumi:"createdTime"`
+	CustomParameterValues    map[string]ParameterCustomLoginSettingValues `pulumi:"customParameterValues"`
+	DisplayName              *string                                      `pulumi:"displayName"`
+	FirstExpirationTime      *string                                      `pulumi:"firstExpirationTime"`
+	Id                       *string                                      `pulumi:"id"`
+	Keywords                 []string                                     `pulumi:"keywords"`
+	Kind                     *string                                      `pulumi:"kind"`
+	Location                 *string                                      `pulumi:"location"`
+	Metadata                 interface{}                                  `pulumi:"metadata"`
+	Name                     *string                                      `pulumi:"name"`
+	NonSecretParameterValues map[string]interface{}                       `pulumi:"nonSecretParameterValues"`
+	ParameterValues          map[string]interface{}                       `pulumi:"parameterValues"`
+	ResourceGroupName        string                                       `pulumi:"resourceGroupName"`
+	Statuses                 []ConnectionStatus                           `pulumi:"statuses"`
+	Tags                     map[string]string                            `pulumi:"tags"`
+	TenantId                 *string                                      `pulumi:"tenantId"`
+	Type                     *string                                      `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
-	// expanded connection provider name
-	Api ExpandedParentApiEntityPtrInput
-	// Timestamp of last connection change.
-	ChangedTime pulumi.StringPtrInput
-	// The connection name.
-	ConnectionName pulumi.StringPtrInput
-	// Timestamp of the connection creation
-	CreatedTime pulumi.StringPtrInput
-	// Custom login setting values.
-	CustomParameterValues ParameterCustomLoginSettingValuesMapInput
-	// display name
-	DisplayName pulumi.StringPtrInput
-	// Time in UTC when the first expiration of OAuth tokens
-	FirstExpirationTime pulumi.StringPtrInput
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// List of Keywords that tag the acl
-	Keywords pulumi.StringArrayInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	Metadata pulumi.Input
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// Tokens/Claim
+	Api                      ExpandedParentApiEntityPtrInput
+	ChangedTime              pulumi.StringPtrInput
+	ConnectionName           pulumi.StringPtrInput
+	CreatedTime              pulumi.StringPtrInput
+	CustomParameterValues    ParameterCustomLoginSettingValuesMapInput
+	DisplayName              pulumi.StringPtrInput
+	FirstExpirationTime      pulumi.StringPtrInput
+	Id                       pulumi.StringPtrInput
+	Keywords                 pulumi.StringArrayInput
+	Kind                     pulumi.StringPtrInput
+	Location                 pulumi.StringPtrInput
+	Metadata                 pulumi.Input
+	Name                     pulumi.StringPtrInput
 	NonSecretParameterValues pulumi.MapInput
-	// Tokens/Claim
-	ParameterValues pulumi.MapInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// Status of the connection
-	Statuses ConnectionStatusArrayInput
-	// Resource tags
-	Tags     pulumi.StringMapInput
-	TenantId pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
+	ParameterValues          pulumi.MapInput
+	ResourceGroupName        pulumi.StringInput
+	Statuses                 ConnectionStatusArrayInput
+	Tags                     pulumi.StringMapInput
+	TenantId                 pulumi.StringPtrInput
+	Type                     pulumi.StringPtrInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {
@@ -214,9 +162,7 @@ func (i *Connection) ToConnectionOutputWithContext(ctx context.Context) Connecti
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOutput)
 }
 
-type ConnectionOutput struct {
-	*pulumi.OutputState
-}
+type ConnectionOutput struct{ *pulumi.OutputState }
 
 func (ConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Connection)(nil))

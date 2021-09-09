@@ -11,25 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Logger details.
 type ApiDiagnosticLogger struct {
 	pulumi.CustomResourceState
 
-	// The name and SendRule connection string of the event hub for azureEventHub logger.
-	// Instrumentation key for applicationInsights logger.
-	Credentials pulumi.StringMapOutput `pulumi:"credentials"`
-	// Logger description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
-	IsBuffered pulumi.BoolPtrOutput `pulumi:"isBuffered"`
-	// Logger type.
-	LoggerType pulumi.StringOutput `pulumi:"loggerType"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Sampling settings for an ApplicationInsights logger.
-	Sampling LoggerSamplingContractResponsePtrOutput `pulumi:"sampling"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Credentials pulumi.StringMapOutput                  `pulumi:"credentials"`
+	Description pulumi.StringPtrOutput                  `pulumi:"description"`
+	IsBuffered  pulumi.BoolPtrOutput                    `pulumi:"isBuffered"`
+	LoggerType  pulumi.StringOutput                     `pulumi:"loggerType"`
+	Name        pulumi.StringOutput                     `pulumi:"name"`
+	Sampling    LoggerSamplingContractResponsePtrOutput `pulumi:"sampling"`
+	Type        pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewApiDiagnosticLogger registers a new resource with the given unique name, arguments, and options.
@@ -101,30 +92,20 @@ func (ApiDiagnosticLoggerState) ElementType() reflect.Type {
 }
 
 type apiDiagnosticLoggerArgs struct {
-	// API identifier. Must be unique in the current API Management service instance.
-	ApiId string `pulumi:"apiId"`
-	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	DiagnosticId string `pulumi:"diagnosticId"`
-	// Logger identifier. Must be unique in the API Management service instance.
-	Loggerid *string `pulumi:"loggerid"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ApiId             string  `pulumi:"apiId"`
+	DiagnosticId      string  `pulumi:"diagnosticId"`
+	Loggerid          *string `pulumi:"loggerid"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a ApiDiagnosticLogger resource.
 type ApiDiagnosticLoggerArgs struct {
-	// API identifier. Must be unique in the current API Management service instance.
-	ApiId pulumi.StringInput
-	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	DiagnosticId pulumi.StringInput
-	// Logger identifier. Must be unique in the API Management service instance.
-	Loggerid pulumi.StringPtrInput
-	// The name of the resource group.
+	ApiId             pulumi.StringInput
+	DiagnosticId      pulumi.StringInput
+	Loggerid          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (ApiDiagnosticLoggerArgs) ElementType() reflect.Type {
@@ -150,9 +131,7 @@ func (i *ApiDiagnosticLogger) ToApiDiagnosticLoggerOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticLoggerOutput)
 }
 
-type ApiDiagnosticLoggerOutput struct {
-	*pulumi.OutputState
-}
+type ApiDiagnosticLoggerOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticLoggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiDiagnosticLogger)(nil))

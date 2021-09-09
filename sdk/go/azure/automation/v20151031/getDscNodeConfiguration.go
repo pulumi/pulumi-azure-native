@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the dsc node configuration.
 func LookupDscNodeConfiguration(ctx *pulumi.Context, args *LookupDscNodeConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDscNodeConfigurationResult, error) {
 	var rv LookupDscNodeConfigurationResult
 	err := ctx.Invoke("azure-native:automation/v20151031:getDscNodeConfiguration", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupDscNodeConfiguration(ctx *pulumi.Context, args *LookupDscNodeConfigur
 }
 
 type LookupDscNodeConfigurationArgs struct {
-	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The Dsc node configuration name.
 	NodeConfigurationName string `pulumi:"nodeConfigurationName"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Definition of the dsc node configuration.
 type LookupDscNodeConfigurationResult struct {
-	// Gets or sets the configuration of the node.
-	Configuration *DscConfigurationAssociationPropertyResponse `pulumi:"configuration"`
-	// Gets or sets creation time.
-	CreationTime *string `pulumi:"creationTime"`
-	// Fully qualified resource Id for the resource
-	Id string `pulumi:"id"`
-	// Gets or sets the last modified time.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Configuration    *DscConfigurationAssociationPropertyResponse `pulumi:"configuration"`
+	CreationTime     *string                                      `pulumi:"creationTime"`
+	Id               string                                       `pulumi:"id"`
+	LastModifiedTime *string                                      `pulumi:"lastModifiedTime"`
+	Name             string                                       `pulumi:"name"`
+	Type             string                                       `pulumi:"type"`
 }

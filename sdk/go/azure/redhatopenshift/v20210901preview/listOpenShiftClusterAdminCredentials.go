@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// OpenShiftClusterAdminKubeconfig represents an OpenShift cluster's admin kubeconfig.
 func ListOpenShiftClusterAdminCredentials(ctx *pulumi.Context, args *ListOpenShiftClusterAdminCredentialsArgs, opts ...pulumi.InvokeOption) (*ListOpenShiftClusterAdminCredentialsResult, error) {
 	var rv ListOpenShiftClusterAdminCredentialsResult
 	err := ctx.Invoke("azure-native:redhatopenshift/v20210901preview:listOpenShiftClusterAdminCredentials", args, &rv, opts...)
@@ -18,14 +17,11 @@ func ListOpenShiftClusterAdminCredentials(ctx *pulumi.Context, args *ListOpenShi
 }
 
 type ListOpenShiftClusterAdminCredentialsArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the OpenShift cluster resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // OpenShiftClusterAdminKubeconfig represents an OpenShift cluster's admin kubeconfig.
 type ListOpenShiftClusterAdminCredentialsResult struct {
-	// The base64-encoded kubeconfig file.
 	Kubeconfig *string `pulumi:"kubeconfig"`
 }

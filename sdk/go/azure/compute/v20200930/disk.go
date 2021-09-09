@@ -11,72 +11,40 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Disk resource.
 type Disk struct {
 	pulumi.CustomResourceState
 
-	// Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
-	BurstingEnabled pulumi.BoolPtrOutput `pulumi:"burstingEnabled"`
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataResponseOutput `pulumi:"creationData"`
-	// ARM id of the DiskAccess resource for using private endpoints on disks.
-	DiskAccessId pulumi.StringPtrOutput `pulumi:"diskAccessId"`
-	// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadOnly pulumi.Float64PtrOutput `pulumi:"diskIOPSReadOnly"`
-	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadWrite pulumi.Float64PtrOutput `pulumi:"diskIOPSReadWrite"`
-	// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadOnly pulumi.Float64PtrOutput `pulumi:"diskMBpsReadOnly"`
-	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadWrite pulumi.Float64PtrOutput `pulumi:"diskMBpsReadWrite"`
-	// The size of the disk in bytes. This field is read only.
-	DiskSizeBytes pulumi.Float64Output `pulumi:"diskSizeBytes"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB pulumi.IntPtrOutput `pulumi:"diskSizeGB"`
-	// The state of the disk.
-	DiskState pulumi.StringOutput `pulumi:"diskState"`
-	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-	Encryption EncryptionResponsePtrOutput `pulumi:"encryption"`
-	// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+	BurstingEnabled              pulumi.BoolPtrOutput                          `pulumi:"burstingEnabled"`
+	CreationData                 CreationDataResponseOutput                    `pulumi:"creationData"`
+	DiskAccessId                 pulumi.StringPtrOutput                        `pulumi:"diskAccessId"`
+	DiskIOPSReadOnly             pulumi.Float64PtrOutput                       `pulumi:"diskIOPSReadOnly"`
+	DiskIOPSReadWrite            pulumi.Float64PtrOutput                       `pulumi:"diskIOPSReadWrite"`
+	DiskMBpsReadOnly             pulumi.Float64PtrOutput                       `pulumi:"diskMBpsReadOnly"`
+	DiskMBpsReadWrite            pulumi.Float64PtrOutput                       `pulumi:"diskMBpsReadWrite"`
+	DiskSizeBytes                pulumi.Float64Output                          `pulumi:"diskSizeBytes"`
+	DiskSizeGB                   pulumi.IntPtrOutput                           `pulumi:"diskSizeGB"`
+	DiskState                    pulumi.StringOutput                           `pulumi:"diskState"`
+	Encryption                   EncryptionResponsePtrOutput                   `pulumi:"encryption"`
 	EncryptionSettingsCollection EncryptionSettingsCollectionResponsePtrOutput `pulumi:"encryptionSettingsCollection"`
-	// The extended location where the disk will be created. Extended location cannot be changed.
-	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
-	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-	HyperVGeneration pulumi.StringPtrOutput `pulumi:"hyperVGeneration"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// A relative URI containing the ID of the VM that has the disk attached.
-	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
-	// List of relative URIs containing the IDs of the VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
-	ManagedByExtended pulumi.StringArrayOutput `pulumi:"managedByExtended"`
-	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
-	MaxShares pulumi.IntPtrOutput `pulumi:"maxShares"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Policy for accessing the disk via network.
-	NetworkAccessPolicy pulumi.StringPtrOutput `pulumi:"networkAccessPolicy"`
-	// The Operating System type.
-	OsType pulumi.StringPtrOutput `pulumi:"osType"`
-	// The disk provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
-	PurchasePlan PurchasePlanResponsePtrOutput `pulumi:"purchasePlan"`
-	// Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
-	ShareInfo ShareInfoElementResponseArrayOutput `pulumi:"shareInfo"`
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
-	Sku DiskSkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
-	Tier pulumi.StringPtrOutput `pulumi:"tier"`
-	// The time when the disk was created.
-	TimeCreated pulumi.StringOutput `pulumi:"timeCreated"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Unique Guid identifying the resource.
-	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
-	// The Logical zone list for Disk.
-	Zones pulumi.StringArrayOutput `pulumi:"zones"`
+	ExtendedLocation             ExtendedLocationResponsePtrOutput             `pulumi:"extendedLocation"`
+	HyperVGeneration             pulumi.StringPtrOutput                        `pulumi:"hyperVGeneration"`
+	Location                     pulumi.StringOutput                           `pulumi:"location"`
+	ManagedBy                    pulumi.StringOutput                           `pulumi:"managedBy"`
+	ManagedByExtended            pulumi.StringArrayOutput                      `pulumi:"managedByExtended"`
+	MaxShares                    pulumi.IntPtrOutput                           `pulumi:"maxShares"`
+	Name                         pulumi.StringOutput                           `pulumi:"name"`
+	NetworkAccessPolicy          pulumi.StringPtrOutput                        `pulumi:"networkAccessPolicy"`
+	OsType                       pulumi.StringPtrOutput                        `pulumi:"osType"`
+	ProvisioningState            pulumi.StringOutput                           `pulumi:"provisioningState"`
+	PurchasePlan                 PurchasePlanResponsePtrOutput                 `pulumi:"purchasePlan"`
+	ShareInfo                    ShareInfoElementResponseArrayOutput           `pulumi:"shareInfo"`
+	Sku                          DiskSkuResponsePtrOutput                      `pulumi:"sku"`
+	Tags                         pulumi.StringMapOutput                        `pulumi:"tags"`
+	Tier                         pulumi.StringPtrOutput                        `pulumi:"tier"`
+	TimeCreated                  pulumi.StringOutput                           `pulumi:"timeCreated"`
+	Type                         pulumi.StringOutput                           `pulumi:"type"`
+	UniqueId                     pulumi.StringOutput                           `pulumi:"uniqueId"`
+	Zones                        pulumi.StringArrayOutput                      `pulumi:"zones"`
 }
 
 // NewDisk registers a new resource with the given unique name, arguments, and options.
@@ -208,102 +176,56 @@ func (DiskState) ElementType() reflect.Type {
 }
 
 type diskArgs struct {
-	// Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
-	BurstingEnabled *bool `pulumi:"burstingEnabled"`
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationData `pulumi:"creationData"`
-	// ARM id of the DiskAccess resource for using private endpoints on disks.
-	DiskAccessId *string `pulumi:"diskAccessId"`
-	// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadOnly *float64 `pulumi:"diskIOPSReadOnly"`
-	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadWrite *float64 `pulumi:"diskIOPSReadWrite"`
-	// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadOnly *float64 `pulumi:"diskMBpsReadOnly"`
-	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadWrite *float64 `pulumi:"diskMBpsReadWrite"`
-	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	DiskName *string `pulumi:"diskName"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-	Encryption *Encryption `pulumi:"encryption"`
-	// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+	BurstingEnabled              *bool                         `pulumi:"burstingEnabled"`
+	CreationData                 CreationData                  `pulumi:"creationData"`
+	DiskAccessId                 *string                       `pulumi:"diskAccessId"`
+	DiskIOPSReadOnly             *float64                      `pulumi:"diskIOPSReadOnly"`
+	DiskIOPSReadWrite            *float64                      `pulumi:"diskIOPSReadWrite"`
+	DiskMBpsReadOnly             *float64                      `pulumi:"diskMBpsReadOnly"`
+	DiskMBpsReadWrite            *float64                      `pulumi:"diskMBpsReadWrite"`
+	DiskName                     *string                       `pulumi:"diskName"`
+	DiskSizeGB                   *int                          `pulumi:"diskSizeGB"`
+	Encryption                   *Encryption                   `pulumi:"encryption"`
 	EncryptionSettingsCollection *EncryptionSettingsCollection `pulumi:"encryptionSettingsCollection"`
-	// The extended location where the disk will be created. Extended location cannot be changed.
-	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
-	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
-	MaxShares *int `pulumi:"maxShares"`
-	// Policy for accessing the disk via network.
-	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
-	// The Operating System type.
-	OsType *string `pulumi:"osType"`
-	// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
-	PurchasePlan *PurchasePlan `pulumi:"purchasePlan"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
-	Sku *DiskSku `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
-	Tier *string `pulumi:"tier"`
-	// The Logical zone list for Disk.
-	Zones []string `pulumi:"zones"`
+	ExtendedLocation             *ExtendedLocation             `pulumi:"extendedLocation"`
+	HyperVGeneration             *string                       `pulumi:"hyperVGeneration"`
+	Location                     *string                       `pulumi:"location"`
+	MaxShares                    *int                          `pulumi:"maxShares"`
+	NetworkAccessPolicy          *string                       `pulumi:"networkAccessPolicy"`
+	OsType                       *OperatingSystemTypes         `pulumi:"osType"`
+	PurchasePlan                 *PurchasePlan                 `pulumi:"purchasePlan"`
+	ResourceGroupName            string                        `pulumi:"resourceGroupName"`
+	Sku                          *DiskSku                      `pulumi:"sku"`
+	Tags                         map[string]string             `pulumi:"tags"`
+	Tier                         *string                       `pulumi:"tier"`
+	Zones                        []string                      `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a Disk resource.
 type DiskArgs struct {
-	// Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
-	BurstingEnabled pulumi.BoolPtrInput
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataInput
-	// ARM id of the DiskAccess resource for using private endpoints on disks.
-	DiskAccessId pulumi.StringPtrInput
-	// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadOnly pulumi.Float64PtrInput
-	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadWrite pulumi.Float64PtrInput
-	// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadOnly pulumi.Float64PtrInput
-	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadWrite pulumi.Float64PtrInput
-	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	DiskName pulumi.StringPtrInput
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB pulumi.IntPtrInput
-	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-	Encryption EncryptionPtrInput
-	// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+	BurstingEnabled              pulumi.BoolPtrInput
+	CreationData                 CreationDataInput
+	DiskAccessId                 pulumi.StringPtrInput
+	DiskIOPSReadOnly             pulumi.Float64PtrInput
+	DiskIOPSReadWrite            pulumi.Float64PtrInput
+	DiskMBpsReadOnly             pulumi.Float64PtrInput
+	DiskMBpsReadWrite            pulumi.Float64PtrInput
+	DiskName                     pulumi.StringPtrInput
+	DiskSizeGB                   pulumi.IntPtrInput
+	Encryption                   EncryptionPtrInput
 	EncryptionSettingsCollection EncryptionSettingsCollectionPtrInput
-	// The extended location where the disk will be created. Extended location cannot be changed.
-	ExtendedLocation ExtendedLocationPtrInput
-	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-	HyperVGeneration pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
-	MaxShares pulumi.IntPtrInput
-	// Policy for accessing the disk via network.
-	NetworkAccessPolicy pulumi.StringPtrInput
-	// The Operating System type.
-	OsType *OperatingSystemTypes
-	// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
-	PurchasePlan PurchasePlanPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
-	Sku DiskSkuPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
-	Tier pulumi.StringPtrInput
-	// The Logical zone list for Disk.
-	Zones pulumi.StringArrayInput
+	ExtendedLocation             ExtendedLocationPtrInput
+	HyperVGeneration             pulumi.StringPtrInput
+	Location                     pulumi.StringPtrInput
+	MaxShares                    pulumi.IntPtrInput
+	NetworkAccessPolicy          pulumi.StringPtrInput
+	OsType                       OperatingSystemTypesPtrInput
+	PurchasePlan                 PurchasePlanPtrInput
+	ResourceGroupName            pulumi.StringInput
+	Sku                          DiskSkuPtrInput
+	Tags                         pulumi.StringMapInput
+	Tier                         pulumi.StringPtrInput
+	Zones                        pulumi.StringArrayInput
 }
 
 func (DiskArgs) ElementType() reflect.Type {
@@ -329,9 +251,7 @@ func (i *Disk) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskOutput)
 }
 
-type DiskOutput struct {
-	*pulumi.OutputState
-}
+type DiskOutput struct{ *pulumi.OutputState }
 
 func (DiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Disk)(nil))

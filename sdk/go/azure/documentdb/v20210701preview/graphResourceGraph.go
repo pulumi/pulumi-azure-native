@@ -11,22 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB Graph resource.
 type GraphResourceGraph struct {
 	pulumi.CustomResourceState
 
-	// Identity for the resource.
-	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the ARM resource.
+	Identity ManagedServiceIdentityResponsePtrOutput             `pulumi:"identity"`
+	Location pulumi.StringPtrOutput                              `pulumi:"location"`
 	Name     pulumi.StringOutput                                 `pulumi:"name"`
 	Options  GraphResourceGetPropertiesResponseOptionsPtrOutput  `pulumi:"options"`
 	Resource GraphResourceGetPropertiesResponseResourcePtrOutput `pulumi:"resource"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags     pulumi.StringMapOutput                              `pulumi:"tags"`
+	Type     pulumi.StringOutput                                 `pulumi:"type"`
 }
 
 // NewGraphResourceGraph registers a new resource with the given unique name, arguments, and options.
@@ -89,42 +83,26 @@ func (GraphResourceGraphState) ElementType() reflect.Type {
 }
 
 type graphResourceGraphArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Cosmos DB graph resource name.
-	GraphName *string `pulumi:"graphName"`
-	// Identity for the resource.
-	Identity *ManagedServiceIdentity `pulumi:"identity"`
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options *CreateUpdateOptions `pulumi:"options"`
-	// The standard JSON format of a Graph resource
-	Resource GraphResource `pulumi:"resource"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       string                  `pulumi:"accountName"`
+	GraphName         *string                 `pulumi:"graphName"`
+	Identity          *ManagedServiceIdentity `pulumi:"identity"`
+	Location          *string                 `pulumi:"location"`
+	Options           *CreateUpdateOptions    `pulumi:"options"`
+	Resource          GraphResource           `pulumi:"resource"`
+	ResourceGroupName string                  `pulumi:"resourceGroupName"`
+	Tags              map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GraphResourceGraph resource.
 type GraphResourceGraphArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Cosmos DB graph resource name.
-	GraphName pulumi.StringPtrInput
-	// Identity for the resource.
-	Identity ManagedServiceIdentityPtrInput
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options CreateUpdateOptionsPtrInput
-	// The standard JSON format of a Graph resource
-	Resource GraphResourceInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	GraphName         pulumi.StringPtrInput
+	Identity          ManagedServiceIdentityPtrInput
+	Location          pulumi.StringPtrInput
+	Options           CreateUpdateOptionsPtrInput
+	Resource          GraphResourceInput
 	ResourceGroupName pulumi.StringInput
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (GraphResourceGraphArgs) ElementType() reflect.Type {
@@ -150,9 +128,7 @@ func (i *GraphResourceGraph) ToGraphResourceGraphOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(GraphResourceGraphOutput)
 }
 
-type GraphResourceGraphOutput struct {
-	*pulumi.OutputState
-}
+type GraphResourceGraphOutput struct{ *pulumi.OutputState }
 
 func (GraphResourceGraphOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GraphResourceGraph)(nil))

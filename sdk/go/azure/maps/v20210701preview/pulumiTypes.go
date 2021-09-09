@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creator resource properties
 type CreatorProperties struct {
-	// The storage units to be allocated. Integer values from 1 to 100, inclusive.
 	StorageUnits int `pulumi:"storageUnits"`
 }
 
@@ -27,9 +25,7 @@ type CreatorPropertiesInput interface {
 	ToCreatorPropertiesOutputWithContext(context.Context) CreatorPropertiesOutput
 }
 
-// Creator resource properties
 type CreatorPropertiesArgs struct {
-	// The storage units to be allocated. Integer values from 1 to 100, inclusive.
 	StorageUnits pulumi.IntInput `pulumi:"storageUnits"`
 }
 
@@ -86,7 +82,6 @@ func (i *creatorPropertiesPtrType) ToCreatorPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(CreatorPropertiesPtrOutput)
 }
 
-// Creator resource properties
 type CreatorPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CreatorPropertiesOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o CreatorPropertiesOutput) ToCreatorPropertiesPtrOutput() CreatorPropertie
 }
 
 func (o CreatorPropertiesOutput) ToCreatorPropertiesPtrOutputWithContext(ctx context.Context) CreatorPropertiesPtrOutput {
-	return o.ApplyT(func(v CreatorProperties) *CreatorProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreatorProperties) *CreatorProperties {
 		return &v
 	}).(CreatorPropertiesPtrOutput)
 }
 
-// The storage units to be allocated. Integer values from 1 to 100, inclusive.
 func (o CreatorPropertiesOutput) StorageUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v CreatorProperties) int { return v.StorageUnits }).(pulumi.IntOutput)
 }
@@ -131,10 +125,15 @@ func (o CreatorPropertiesPtrOutput) ToCreatorPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o CreatorPropertiesPtrOutput) Elem() CreatorPropertiesOutput {
-	return o.ApplyT(func(v *CreatorProperties) CreatorProperties { return *v }).(CreatorPropertiesOutput)
+	return o.ApplyT(func(v *CreatorProperties) CreatorProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CreatorProperties
+		return ret
+	}).(CreatorPropertiesOutput)
 }
 
-// The storage units to be allocated. Integer values from 1 to 100, inclusive.
 func (o CreatorPropertiesPtrOutput) StorageUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CreatorProperties) *int {
 		if v == nil {
@@ -144,12 +143,9 @@ func (o CreatorPropertiesPtrOutput) StorageUnits() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Creator resource properties
 type CreatorPropertiesResponse struct {
-	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The storage units to be allocated. Integer values from 1 to 100, inclusive.
-	StorageUnits int `pulumi:"storageUnits"`
+	StorageUnits      int    `pulumi:"storageUnits"`
 }
 
 // CreatorPropertiesResponseInput is an input type that accepts CreatorPropertiesResponseArgs and CreatorPropertiesResponseOutput values.
@@ -163,12 +159,9 @@ type CreatorPropertiesResponseInput interface {
 	ToCreatorPropertiesResponseOutputWithContext(context.Context) CreatorPropertiesResponseOutput
 }
 
-// Creator resource properties
 type CreatorPropertiesResponseArgs struct {
-	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The storage units to be allocated. Integer values from 1 to 100, inclusive.
-	StorageUnits pulumi.IntInput `pulumi:"storageUnits"`
+	StorageUnits      pulumi.IntInput    `pulumi:"storageUnits"`
 }
 
 func (CreatorPropertiesResponseArgs) ElementType() reflect.Type {
@@ -224,7 +217,6 @@ func (i *creatorPropertiesResponsePtrType) ToCreatorPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CreatorPropertiesResponsePtrOutput)
 }
 
-// Creator resource properties
 type CreatorPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CreatorPropertiesResponseOutput) ElementType() reflect.Type {
@@ -244,17 +236,15 @@ func (o CreatorPropertiesResponseOutput) ToCreatorPropertiesResponsePtrOutput() 
 }
 
 func (o CreatorPropertiesResponseOutput) ToCreatorPropertiesResponsePtrOutputWithContext(ctx context.Context) CreatorPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CreatorPropertiesResponse) *CreatorPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreatorPropertiesResponse) *CreatorPropertiesResponse {
 		return &v
 	}).(CreatorPropertiesResponsePtrOutput)
 }
 
-// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 func (o CreatorPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v CreatorPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The storage units to be allocated. Integer values from 1 to 100, inclusive.
 func (o CreatorPropertiesResponseOutput) StorageUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v CreatorPropertiesResponse) int { return v.StorageUnits }).(pulumi.IntOutput)
 }
@@ -274,10 +264,15 @@ func (o CreatorPropertiesResponsePtrOutput) ToCreatorPropertiesResponsePtrOutput
 }
 
 func (o CreatorPropertiesResponsePtrOutput) Elem() CreatorPropertiesResponseOutput {
-	return o.ApplyT(func(v *CreatorPropertiesResponse) CreatorPropertiesResponse { return *v }).(CreatorPropertiesResponseOutput)
+	return o.ApplyT(func(v *CreatorPropertiesResponse) CreatorPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CreatorPropertiesResponse
+		return ret
+	}).(CreatorPropertiesResponseOutput)
 }
 
-// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 func (o CreatorPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreatorPropertiesResponse) *string {
 		if v == nil {
@@ -287,7 +282,6 @@ func (o CreatorPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage units to be allocated. Integer values from 1 to 100, inclusive.
 func (o CreatorPropertiesResponsePtrOutput) StorageUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CreatorPropertiesResponse) *int {
 		if v == nil {
@@ -297,11 +291,8 @@ func (o CreatorPropertiesResponsePtrOutput) StorageUnits() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.
 type LinkedResource struct {
-	// ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.
-	Id string `pulumi:"id"`
-	// A provided name which uniquely identifies the linked resource.
+	Id         string `pulumi:"id"`
 	UniqueName string `pulumi:"uniqueName"`
 }
 
@@ -316,11 +307,8 @@ type LinkedResourceInput interface {
 	ToLinkedResourceOutputWithContext(context.Context) LinkedResourceOutput
 }
 
-// Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.
 type LinkedResourceArgs struct {
-	// ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.
-	Id pulumi.StringInput `pulumi:"id"`
-	// A provided name which uniquely identifies the linked resource.
+	Id         pulumi.StringInput `pulumi:"id"`
 	UniqueName pulumi.StringInput `pulumi:"uniqueName"`
 }
 
@@ -361,7 +349,6 @@ func (i LinkedResourceArray) ToLinkedResourceArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedResourceArrayOutput)
 }
 
-// Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.
 type LinkedResourceOutput struct{ *pulumi.OutputState }
 
 func (LinkedResourceOutput) ElementType() reflect.Type {
@@ -376,12 +363,10 @@ func (o LinkedResourceOutput) ToLinkedResourceOutputWithContext(ctx context.Cont
 	return o
 }
 
-// ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.
 func (o LinkedResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkedResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A provided name which uniquely identifies the linked resource.
 func (o LinkedResourceOutput) UniqueName() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkedResource) string { return v.UniqueName }).(pulumi.StringOutput)
 }
@@ -406,11 +391,8 @@ func (o LinkedResourceArrayOutput) Index(i pulumi.IntInput) LinkedResourceOutput
 	}).(LinkedResourceOutput)
 }
 
-// Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.
 type LinkedResourceResponse struct {
-	// ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.
-	Id string `pulumi:"id"`
-	// A provided name which uniquely identifies the linked resource.
+	Id         string `pulumi:"id"`
 	UniqueName string `pulumi:"uniqueName"`
 }
 
@@ -425,11 +407,8 @@ type LinkedResourceResponseInput interface {
 	ToLinkedResourceResponseOutputWithContext(context.Context) LinkedResourceResponseOutput
 }
 
-// Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.
 type LinkedResourceResponseArgs struct {
-	// ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.
-	Id pulumi.StringInput `pulumi:"id"`
-	// A provided name which uniquely identifies the linked resource.
+	Id         pulumi.StringInput `pulumi:"id"`
 	UniqueName pulumi.StringInput `pulumi:"uniqueName"`
 }
 
@@ -470,7 +449,6 @@ func (i LinkedResourceResponseArray) ToLinkedResourceResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedResourceResponseArrayOutput)
 }
 
-// Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.
 type LinkedResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (LinkedResourceResponseOutput) ElementType() reflect.Type {
@@ -485,12 +463,10 @@ func (o LinkedResourceResponseOutput) ToLinkedResourceResponseOutputWithContext(
 	return o
 }
 
-// ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.
 func (o LinkedResourceResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkedResourceResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A provided name which uniquely identifies the linked resource.
 func (o LinkedResourceResponseOutput) UniqueName() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkedResourceResponse) string { return v.UniqueName }).(pulumi.StringOutput)
 }
@@ -515,11 +491,8 @@ func (o LinkedResourceResponseArrayOutput) Index(i pulumi.IntInput) LinkedResour
 	}).(LinkedResourceResponseOutput)
 }
 
-// Identity for the resource.
 type ManagedServiceIdentity struct {
-	// The identity type.
-	Type *string `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	Type                   *ResourceIdentityType  `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -534,12 +507,9 @@ type ManagedServiceIdentityInput interface {
 	ToManagedServiceIdentityOutputWithContext(context.Context) ManagedServiceIdentityOutput
 }
 
-// Identity for the resource.
 type ManagedServiceIdentityArgs struct {
-	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	Type                   ResourceIdentityTypePtrInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput              `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedServiceIdentityArgs) ElementType() reflect.Type {
@@ -595,7 +565,6 @@ func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityPtrOutput)
 }
 
-// Identity for the resource.
 type ManagedServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ManagedServiceIdentityOutput) ElementType() reflect.Type {
@@ -615,17 +584,15 @@ func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() Manage
 }
 
 func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) *ManagedServiceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentity) *ManagedServiceIdentity {
 		return &v
 	}).(ManagedServiceIdentityPtrOutput)
 }
 
-// The identity type.
-func (o ManagedServiceIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ManagedServiceIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v ManagedServiceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -645,20 +612,24 @@ func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithCo
 }
 
 func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity { return *v }).(ManagedServiceIdentityOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentity
+		return ret
+	}).(ManagedServiceIdentityOutput)
 }
 
-// The identity type.
-func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
+func (o ManagedServiceIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentity) map[string]interface{} {
 		if v == nil {
@@ -668,15 +639,10 @@ func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutp
 	}).(pulumi.MapOutput)
 }
 
-// Identity for the resource.
 type ManagedServiceIdentityResponse struct {
-	// The principal ID of resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type *string `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            string                                                          `pulumi:"principalId"`
+	TenantId               string                                                          `pulumi:"tenantId"`
+	Type                   *string                                                         `pulumi:"type"`
 	UserAssignedIdentities map[string]ManagedServiceIdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
@@ -691,15 +657,10 @@ type ManagedServiceIdentityResponseInput interface {
 	ToManagedServiceIdentityResponseOutputWithContext(context.Context) ManagedServiceIdentityResponseOutput
 }
 
-// Identity for the resource.
 type ManagedServiceIdentityResponseArgs struct {
-	// The principal ID of resource identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            pulumi.StringInput                                           `pulumi:"principalId"`
+	TenantId               pulumi.StringInput                                           `pulumi:"tenantId"`
+	Type                   pulumi.StringPtrInput                                        `pulumi:"type"`
 	UserAssignedIdentities ManagedServiceIdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -756,7 +717,6 @@ func (i *managedServiceIdentityResponsePtrType) ToManagedServiceIdentityResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponsePtrOutput)
 }
 
-// Identity for the resource.
 type ManagedServiceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedServiceIdentityResponseOutput) ElementType() reflect.Type {
@@ -776,27 +736,23 @@ func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePt
 }
 
 func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
 		return &v
 	}).(ManagedServiceIdentityResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o ManagedServiceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o ManagedServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
 func (o ManagedServiceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ManagedServiceIdentityResponseOutput) UserAssignedIdentities() ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) map[string]ManagedServiceIdentityResponseUserAssignedIdentities {
 		return v.UserAssignedIdentities
@@ -818,10 +774,15 @@ func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityRespons
 }
 
 func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse { return *v }).(ManagedServiceIdentityResponseOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentityResponse
+		return ret
+	}).(ManagedServiceIdentityResponseOutput)
 }
 
-// The principal ID of resource identity.
 func (o ManagedServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
@@ -831,7 +792,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
@@ -841,7 +801,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
@@ -851,7 +810,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) map[string]ManagedServiceIdentityResponseUserAssignedIdentities {
 		if v == nil {
@@ -862,9 +820,7 @@ func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() Manage
 }
 
 type ManagedServiceIdentityResponseUserAssignedIdentities struct {
-	// The client id of user assigned identity.
-	ClientId string `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
 }
 
@@ -880,9 +836,7 @@ type ManagedServiceIdentityResponseUserAssignedIdentitiesInput interface {
 }
 
 type ManagedServiceIdentityResponseUserAssignedIdentitiesArgs struct {
-	// The client id of user assigned identity.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
@@ -937,12 +891,10 @@ func (o ManagedServiceIdentityResponseUserAssignedIdentitiesOutput) ToManagedSer
 	return o
 }
 
-// The client id of user assigned identity.
 func (o ManagedServiceIdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The principal id of user assigned identity.
 func (o ManagedServiceIdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -967,12 +919,9 @@ func (o ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(
 	}).(ManagedServiceIdentityResponseUserAssignedIdentitiesOutput)
 }
 
-// Additional Map account properties
 type MapsAccountProperties struct {
-	// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// Sets the resources to be used for Managed Identities based operations for the Map account resource.
-	LinkedResources []LinkedResource `pulumi:"linkedResources"`
+	DisableLocalAuth *bool            `pulumi:"disableLocalAuth"`
+	LinkedResources  []LinkedResource `pulumi:"linkedResources"`
 }
 
 // MapsAccountPropertiesInput is an input type that accepts MapsAccountPropertiesArgs and MapsAccountPropertiesOutput values.
@@ -986,12 +935,9 @@ type MapsAccountPropertiesInput interface {
 	ToMapsAccountPropertiesOutputWithContext(context.Context) MapsAccountPropertiesOutput
 }
 
-// Additional Map account properties
 type MapsAccountPropertiesArgs struct {
-	// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
-	DisableLocalAuth pulumi.BoolPtrInput `pulumi:"disableLocalAuth"`
-	// Sets the resources to be used for Managed Identities based operations for the Map account resource.
-	LinkedResources LinkedResourceArrayInput `pulumi:"linkedResources"`
+	DisableLocalAuth pulumi.BoolPtrInput      `pulumi:"disableLocalAuth"`
+	LinkedResources  LinkedResourceArrayInput `pulumi:"linkedResources"`
 }
 
 func (MapsAccountPropertiesArgs) ElementType() reflect.Type {
@@ -1047,7 +993,6 @@ func (i *mapsAccountPropertiesPtrType) ToMapsAccountPropertiesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(MapsAccountPropertiesPtrOutput)
 }
 
-// Additional Map account properties
 type MapsAccountPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MapsAccountPropertiesOutput) ElementType() reflect.Type {
@@ -1067,17 +1012,15 @@ func (o MapsAccountPropertiesOutput) ToMapsAccountPropertiesPtrOutput() MapsAcco
 }
 
 func (o MapsAccountPropertiesOutput) ToMapsAccountPropertiesPtrOutputWithContext(ctx context.Context) MapsAccountPropertiesPtrOutput {
-	return o.ApplyT(func(v MapsAccountProperties) *MapsAccountProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MapsAccountProperties) *MapsAccountProperties {
 		return &v
 	}).(MapsAccountPropertiesPtrOutput)
 }
 
-// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
 func (o MapsAccountPropertiesOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MapsAccountProperties) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
 }
 
-// Sets the resources to be used for Managed Identities based operations for the Map account resource.
 func (o MapsAccountPropertiesOutput) LinkedResources() LinkedResourceArrayOutput {
 	return o.ApplyT(func(v MapsAccountProperties) []LinkedResource { return v.LinkedResources }).(LinkedResourceArrayOutput)
 }
@@ -1097,10 +1040,15 @@ func (o MapsAccountPropertiesPtrOutput) ToMapsAccountPropertiesPtrOutputWithCont
 }
 
 func (o MapsAccountPropertiesPtrOutput) Elem() MapsAccountPropertiesOutput {
-	return o.ApplyT(func(v *MapsAccountProperties) MapsAccountProperties { return *v }).(MapsAccountPropertiesOutput)
+	return o.ApplyT(func(v *MapsAccountProperties) MapsAccountProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MapsAccountProperties
+		return ret
+	}).(MapsAccountPropertiesOutput)
 }
 
-// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
 func (o MapsAccountPropertiesPtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MapsAccountProperties) *bool {
 		if v == nil {
@@ -1110,7 +1058,6 @@ func (o MapsAccountPropertiesPtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Sets the resources to be used for Managed Identities based operations for the Map account resource.
 func (o MapsAccountPropertiesPtrOutput) LinkedResources() LinkedResourceArrayOutput {
 	return o.ApplyT(func(v *MapsAccountProperties) []LinkedResource {
 		if v == nil {
@@ -1120,16 +1067,11 @@ func (o MapsAccountPropertiesPtrOutput) LinkedResources() LinkedResourceArrayOut
 	}).(LinkedResourceArrayOutput)
 }
 
-// Additional Map account properties
 type MapsAccountPropertiesResponse struct {
-	// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// Sets the resources to be used for Managed Identities based operations for the Map account resource.
-	LinkedResources []LinkedResourceResponse `pulumi:"linkedResources"`
-	// The provisioning state of the Map account resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// A unique identifier for the maps account
-	UniqueId string `pulumi:"uniqueId"`
+	DisableLocalAuth  *bool                    `pulumi:"disableLocalAuth"`
+	LinkedResources   []LinkedResourceResponse `pulumi:"linkedResources"`
+	ProvisioningState string                   `pulumi:"provisioningState"`
+	UniqueId          string                   `pulumi:"uniqueId"`
 }
 
 // MapsAccountPropertiesResponseInput is an input type that accepts MapsAccountPropertiesResponseArgs and MapsAccountPropertiesResponseOutput values.
@@ -1143,16 +1085,11 @@ type MapsAccountPropertiesResponseInput interface {
 	ToMapsAccountPropertiesResponseOutputWithContext(context.Context) MapsAccountPropertiesResponseOutput
 }
 
-// Additional Map account properties
 type MapsAccountPropertiesResponseArgs struct {
-	// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
-	DisableLocalAuth pulumi.BoolPtrInput `pulumi:"disableLocalAuth"`
-	// Sets the resources to be used for Managed Identities based operations for the Map account resource.
-	LinkedResources LinkedResourceResponseArrayInput `pulumi:"linkedResources"`
-	// The provisioning state of the Map account resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// A unique identifier for the maps account
-	UniqueId pulumi.StringInput `pulumi:"uniqueId"`
+	DisableLocalAuth  pulumi.BoolPtrInput              `pulumi:"disableLocalAuth"`
+	LinkedResources   LinkedResourceResponseArrayInput `pulumi:"linkedResources"`
+	ProvisioningState pulumi.StringInput               `pulumi:"provisioningState"`
+	UniqueId          pulumi.StringInput               `pulumi:"uniqueId"`
 }
 
 func (MapsAccountPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1208,7 +1145,6 @@ func (i *mapsAccountPropertiesResponsePtrType) ToMapsAccountPropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(MapsAccountPropertiesResponsePtrOutput)
 }
 
-// Additional Map account properties
 type MapsAccountPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MapsAccountPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1228,27 +1164,23 @@ func (o MapsAccountPropertiesResponseOutput) ToMapsAccountPropertiesResponsePtrO
 }
 
 func (o MapsAccountPropertiesResponseOutput) ToMapsAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) MapsAccountPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MapsAccountPropertiesResponse) *MapsAccountPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MapsAccountPropertiesResponse) *MapsAccountPropertiesResponse {
 		return &v
 	}).(MapsAccountPropertiesResponsePtrOutput)
 }
 
-// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
 func (o MapsAccountPropertiesResponseOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MapsAccountPropertiesResponse) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
 }
 
-// Sets the resources to be used for Managed Identities based operations for the Map account resource.
 func (o MapsAccountPropertiesResponseOutput) LinkedResources() LinkedResourceResponseArrayOutput {
 	return o.ApplyT(func(v MapsAccountPropertiesResponse) []LinkedResourceResponse { return v.LinkedResources }).(LinkedResourceResponseArrayOutput)
 }
 
-// The provisioning state of the Map account resource.
 func (o MapsAccountPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v MapsAccountPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// A unique identifier for the maps account
 func (o MapsAccountPropertiesResponseOutput) UniqueId() pulumi.StringOutput {
 	return o.ApplyT(func(v MapsAccountPropertiesResponse) string { return v.UniqueId }).(pulumi.StringOutput)
 }
@@ -1268,10 +1200,15 @@ func (o MapsAccountPropertiesResponsePtrOutput) ToMapsAccountPropertiesResponseP
 }
 
 func (o MapsAccountPropertiesResponsePtrOutput) Elem() MapsAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v *MapsAccountPropertiesResponse) MapsAccountPropertiesResponse { return *v }).(MapsAccountPropertiesResponseOutput)
+	return o.ApplyT(func(v *MapsAccountPropertiesResponse) MapsAccountPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MapsAccountPropertiesResponse
+		return ret
+	}).(MapsAccountPropertiesResponseOutput)
 }
 
-// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
 func (o MapsAccountPropertiesResponsePtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MapsAccountPropertiesResponse) *bool {
 		if v == nil {
@@ -1281,7 +1218,6 @@ func (o MapsAccountPropertiesResponsePtrOutput) DisableLocalAuth() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Sets the resources to be used for Managed Identities based operations for the Map account resource.
 func (o MapsAccountPropertiesResponsePtrOutput) LinkedResources() LinkedResourceResponseArrayOutput {
 	return o.ApplyT(func(v *MapsAccountPropertiesResponse) []LinkedResourceResponse {
 		if v == nil {
@@ -1291,7 +1227,6 @@ func (o MapsAccountPropertiesResponsePtrOutput) LinkedResources() LinkedResource
 	}).(LinkedResourceResponseArrayOutput)
 }
 
-// The provisioning state of the Map account resource.
 func (o MapsAccountPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MapsAccountPropertiesResponse) *string {
 		if v == nil {
@@ -1301,7 +1236,6 @@ func (o MapsAccountPropertiesResponsePtrOutput) ProvisioningState() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// A unique identifier for the maps account
 func (o MapsAccountPropertiesResponsePtrOutput) UniqueId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MapsAccountPropertiesResponse) *string {
 		if v == nil {
@@ -1311,9 +1245,7 @@ func (o MapsAccountPropertiesResponsePtrOutput) UniqueId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the Maps Account.
 type Sku struct {
-	// The name of the SKU, in standard format (such as S0).
 	Name string `pulumi:"name"`
 }
 
@@ -1328,9 +1260,7 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU of the Maps Account.
 type SkuArgs struct {
-	// The name of the SKU, in standard format (such as S0).
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1387,7 +1317,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU of the Maps Account.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -1407,12 +1336,11 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The name of the SKU, in standard format (such as S0).
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1432,10 +1360,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The name of the SKU, in standard format (such as S0).
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1445,11 +1378,8 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the Maps Account.
 type SkuResponse struct {
-	// The name of the SKU, in standard format (such as S0).
 	Name string `pulumi:"name"`
-	// Gets the sku tier. This is based on the SKU name.
 	Tier string `pulumi:"tier"`
 }
 
@@ -1464,11 +1394,8 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU of the Maps Account.
 type SkuResponseArgs struct {
-	// The name of the SKU, in standard format (such as S0).
 	Name pulumi.StringInput `pulumi:"name"`
-	// Gets the sku tier. This is based on the SKU name.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -1525,7 +1452,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU of the Maps Account.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -1545,17 +1471,15 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The name of the SKU, in standard format (such as S0).
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Gets the sku tier. This is based on the SKU name.
 func (o SkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -1575,10 +1499,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The name of the SKU, in standard format (such as S0).
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1588,7 +1517,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the sku tier. This is based on the SKU name.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1598,19 +1526,12 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -1625,19 +1546,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1694,7 +1608,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1714,37 +1627,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1764,10 +1671,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1777,7 +1689,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1787,7 +1698,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1797,7 +1707,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1807,7 +1716,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1817,7 +1725,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of a HealthBot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
 type HealthBotPropertiesResponse struct {
-	// The link.
 	BotManagementPortalLink string `pulumi:"botManagementPortalLink"`
-	// The provisioning state of the Healthbot resource.
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState       string `pulumi:"provisioningState"`
 }
 
 // HealthBotPropertiesResponseInput is an input type that accepts HealthBotPropertiesResponseArgs and HealthBotPropertiesResponseOutput values.
@@ -29,12 +26,9 @@ type HealthBotPropertiesResponseInput interface {
 	ToHealthBotPropertiesResponseOutputWithContext(context.Context) HealthBotPropertiesResponseOutput
 }
 
-// The properties of a HealthBot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
 type HealthBotPropertiesResponseArgs struct {
-	// The link.
 	BotManagementPortalLink pulumi.StringInput `pulumi:"botManagementPortalLink"`
-	// The provisioning state of the Healthbot resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	ProvisioningState       pulumi.StringInput `pulumi:"provisioningState"`
 }
 
 func (HealthBotPropertiesResponseArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *healthBotPropertiesResponsePtrType) ToHealthBotPropertiesResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(HealthBotPropertiesResponsePtrOutput)
 }
 
-// The properties of a HealthBot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
 type HealthBotPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthBotPropertiesResponseOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o HealthBotPropertiesResponseOutput) ToHealthBotPropertiesResponsePtrOutpu
 }
 
 func (o HealthBotPropertiesResponseOutput) ToHealthBotPropertiesResponsePtrOutputWithContext(ctx context.Context) HealthBotPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v HealthBotPropertiesResponse) *HealthBotPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthBotPropertiesResponse) *HealthBotPropertiesResponse {
 		return &v
 	}).(HealthBotPropertiesResponsePtrOutput)
 }
 
-// The link.
 func (o HealthBotPropertiesResponseOutput) BotManagementPortalLink() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthBotPropertiesResponse) string { return v.BotManagementPortalLink }).(pulumi.StringOutput)
 }
 
-// The provisioning state of the Healthbot resource.
 func (o HealthBotPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthBotPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -140,10 +131,15 @@ func (o HealthBotPropertiesResponsePtrOutput) ToHealthBotPropertiesResponsePtrOu
 }
 
 func (o HealthBotPropertiesResponsePtrOutput) Elem() HealthBotPropertiesResponseOutput {
-	return o.ApplyT(func(v *HealthBotPropertiesResponse) HealthBotPropertiesResponse { return *v }).(HealthBotPropertiesResponseOutput)
+	return o.ApplyT(func(v *HealthBotPropertiesResponse) HealthBotPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HealthBotPropertiesResponse
+		return ret
+	}).(HealthBotPropertiesResponseOutput)
 }
 
-// The link.
 func (o HealthBotPropertiesResponsePtrOutput) BotManagementPortalLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HealthBotPropertiesResponse) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o HealthBotPropertiesResponsePtrOutput) BotManagementPortalLink() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The provisioning state of the Healthbot resource.
 func (o HealthBotPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HealthBotPropertiesResponse) *string {
 		if v == nil {
@@ -163,10 +158,8 @@ func (o HealthBotPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource model definition representing SKU
 type Sku struct {
-	// The name of the HealthBot SKU
-	Name string `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -180,10 +173,8 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The resource model definition representing SKU
 type SkuArgs struct {
-	// The name of the HealthBot SKU
-	Name SkuName `pulumi:"name"`
+	Name SkuNameInput `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -239,7 +230,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The resource model definition representing SKU
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -259,14 +249,13 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The name of the HealthBot SKU
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+func (o SkuOutput) Name() SkuNameOutput {
+	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -284,22 +273,25 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The name of the HealthBot SKU
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
-// The resource model definition representing SKU
 type SkuResponse struct {
-	// The name of the HealthBot SKU
 	Name string `pulumi:"name"`
 }
 
@@ -314,9 +306,7 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The resource model definition representing SKU
 type SkuResponseArgs struct {
-	// The name of the HealthBot SKU
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -373,7 +363,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The resource model definition representing SKU
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -393,12 +382,11 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The name of the HealthBot SKU
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -418,10 +406,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The name of the HealthBot SKU
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -431,19 +424,12 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Read only system data
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC)
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -458,19 +444,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Read only system data
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC)
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -527,7 +506,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Read only system data
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -547,37 +525,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC)
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -597,10 +569,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC)
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -610,7 +587,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -620,7 +596,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -630,7 +605,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -640,7 +614,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -650,7 +623,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

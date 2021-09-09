@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Route resource
 func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.InvokeOption) (*LookupRouteResult, error) {
 	var rv LookupRouteResult
 	err := ctx.Invoke("azure-native:network/v20150615:getRoute", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.Invo
 }
 
 type LookupRouteArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the route.
-	RouteName string `pulumi:"routeName"`
-	// The name of the route table.
-	RouteTableName string `pulumi:"routeTableName"`
+	RouteName         string `pulumi:"routeName"`
+	RouteTableName    string `pulumi:"routeTableName"`
 }
 
 // Route resource
 type LookupRouteResult struct {
-	// The destination CIDR to which the route applies.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource Identifier.
-	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-	NextHopIpAddress *string `pulumi:"nextHopIpAddress"`
-	// The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
-	NextHopType string `pulumi:"nextHopType"`
-	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	AddressPrefix     *string `pulumi:"addressPrefix"`
+	Etag              *string `pulumi:"etag"`
+	Id                *string `pulumi:"id"`
+	Name              *string `pulumi:"name"`
+	NextHopIpAddress  *string `pulumi:"nextHopIpAddress"`
+	NextHopType       string  `pulumi:"nextHopType"`
 	ProvisioningState *string `pulumi:"provisioningState"`
 }

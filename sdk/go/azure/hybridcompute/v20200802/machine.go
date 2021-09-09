@@ -11,57 +11,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a hybrid machine.
 type Machine struct {
 	pulumi.CustomResourceState
 
-	// Specifies the AD fully qualified display name.
-	AdFqdn pulumi.StringOutput `pulumi:"adFqdn"`
-	// The hybrid machine agent full version.
-	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
-	// Public Key that the client provides to be used during initial resource onboarding
-	ClientPublicKey pulumi.StringPtrOutput `pulumi:"clientPublicKey"`
-	// Specifies the hybrid machine display name.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Specifies the DNS fully qualified display name.
-	DnsFqdn pulumi.StringOutput `pulumi:"dnsFqdn"`
-	// Specifies the Windows domain name.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Details about the error state.
-	ErrorDetails ErrorDetailResponseArrayOutput `pulumi:"errorDetails"`
-	// Machine Extensions information
-	Extensions MachineExtensionInstanceViewResponseArrayOutput `pulumi:"extensions"`
-	Identity   MachineResponseIdentityPtrOutput                `pulumi:"identity"`
-	// The time of the last status change.
-	LastStatusChange pulumi.StringOutput `pulumi:"lastStatusChange"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Metadata pertaining to the geographic location of the resource.
-	LocationData LocationDataResponsePtrOutput `pulumi:"locationData"`
-	// Specifies the hybrid machine FQDN.
-	MachineFqdn pulumi.StringOutput `pulumi:"machineFqdn"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Operating System running on the hybrid machine.
-	OsName pulumi.StringOutput `pulumi:"osName"`
-	// Specifies the operating system settings for the hybrid machine.
-	OsProfile MachinePropertiesResponseOsProfilePtrOutput `pulumi:"osProfile"`
-	// Specifies the Operating System product SKU.
-	OsSku pulumi.StringOutput `pulumi:"osSku"`
-	// The version of Operating System running on the hybrid machine.
-	OsVersion pulumi.StringOutput `pulumi:"osVersion"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The status of the hybrid machine agent.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Specifies the hybrid machine unique ID.
-	VmId pulumi.StringPtrOutput `pulumi:"vmId"`
-	// Specifies the Arc Machine's unique SMBIOS ID
-	VmUuid pulumi.StringOutput `pulumi:"vmUuid"`
+	AdFqdn            pulumi.StringOutput                             `pulumi:"adFqdn"`
+	AgentVersion      pulumi.StringOutput                             `pulumi:"agentVersion"`
+	ClientPublicKey   pulumi.StringPtrOutput                          `pulumi:"clientPublicKey"`
+	DisplayName       pulumi.StringOutput                             `pulumi:"displayName"`
+	DnsFqdn           pulumi.StringOutput                             `pulumi:"dnsFqdn"`
+	DomainName        pulumi.StringOutput                             `pulumi:"domainName"`
+	ErrorDetails      ErrorDetailResponseArrayOutput                  `pulumi:"errorDetails"`
+	Extensions        MachineExtensionInstanceViewResponseArrayOutput `pulumi:"extensions"`
+	Identity          MachineResponseIdentityPtrOutput                `pulumi:"identity"`
+	LastStatusChange  pulumi.StringOutput                             `pulumi:"lastStatusChange"`
+	Location          pulumi.StringOutput                             `pulumi:"location"`
+	LocationData      LocationDataResponsePtrOutput                   `pulumi:"locationData"`
+	MachineFqdn       pulumi.StringOutput                             `pulumi:"machineFqdn"`
+	Name              pulumi.StringOutput                             `pulumi:"name"`
+	OsName            pulumi.StringOutput                             `pulumi:"osName"`
+	OsProfile         MachinePropertiesResponseOsProfilePtrOutput     `pulumi:"osProfile"`
+	OsSku             pulumi.StringOutput                             `pulumi:"osSku"`
+	OsVersion         pulumi.StringOutput                             `pulumi:"osVersion"`
+	ProvisioningState pulumi.StringOutput                             `pulumi:"provisioningState"`
+	Status            pulumi.StringOutput                             `pulumi:"status"`
+	Tags              pulumi.StringMapOutput                          `pulumi:"tags"`
+	Type              pulumi.StringOutput                             `pulumi:"type"`
+	VmId              pulumi.StringPtrOutput                          `pulumi:"vmId"`
+	VmUuid            pulumi.StringOutput                             `pulumi:"vmUuid"`
 }
 
 // NewMachine registers a new resource with the given unique name, arguments, and options.
@@ -184,40 +160,26 @@ func (MachineState) ElementType() reflect.Type {
 }
 
 type machineArgs struct {
-	// Public Key that the client provides to be used during initial resource onboarding
-	ClientPublicKey *string          `pulumi:"clientPublicKey"`
-	Identity        *MachineIdentity `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Metadata pertaining to the geographic location of the resource.
-	LocationData *LocationData `pulumi:"locationData"`
-	// The name of the hybrid machine.
-	Name *string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the hybrid machine unique ID.
-	VmId *string `pulumi:"vmId"`
+	ClientPublicKey   *string           `pulumi:"clientPublicKey"`
+	Identity          *MachineIdentity  `pulumi:"identity"`
+	Location          *string           `pulumi:"location"`
+	LocationData      *LocationData     `pulumi:"locationData"`
+	Name              *string           `pulumi:"name"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	VmId              *string           `pulumi:"vmId"`
 }
 
 // The set of arguments for constructing a Machine resource.
 type MachineArgs struct {
-	// Public Key that the client provides to be used during initial resource onboarding
-	ClientPublicKey pulumi.StringPtrInput
-	Identity        MachineIdentityPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Metadata pertaining to the geographic location of the resource.
-	LocationData LocationDataPtrInput
-	// The name of the hybrid machine.
-	Name pulumi.StringPtrInput
-	// The name of the resource group.
+	ClientPublicKey   pulumi.StringPtrInput
+	Identity          MachineIdentityPtrInput
+	Location          pulumi.StringPtrInput
+	LocationData      LocationDataPtrInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Specifies the hybrid machine unique ID.
-	VmId pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	VmId              pulumi.StringPtrInput
 }
 
 func (MachineArgs) ElementType() reflect.Type {
@@ -243,9 +205,7 @@ func (i *Machine) ToMachineOutputWithContext(ctx context.Context) MachineOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(MachineOutput)
 }
 
-type MachineOutput struct {
-	*pulumi.OutputState
-}
+type MachineOutput struct{ *pulumi.OutputState }
 
 func (MachineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Machine)(nil))

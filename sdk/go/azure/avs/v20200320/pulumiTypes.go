@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An ExpressRoute Circuit
 type CircuitResponse struct {
-	// Identifier of the ExpressRoute Circuit (Microsoft Colo only)
-	ExpressRouteID string `pulumi:"expressRouteID"`
-	// ExpressRoute Circuit private peering identifier
+	ExpressRouteID               string `pulumi:"expressRouteID"`
 	ExpressRoutePrivatePeeringID string `pulumi:"expressRoutePrivatePeeringID"`
-	// CIDR of primary subnet
-	PrimarySubnet string `pulumi:"primarySubnet"`
-	// CIDR of secondary subnet
-	SecondarySubnet string `pulumi:"secondarySubnet"`
+	PrimarySubnet                string `pulumi:"primarySubnet"`
+	SecondarySubnet              string `pulumi:"secondarySubnet"`
 }
 
 // CircuitResponseInput is an input type that accepts CircuitResponseArgs and CircuitResponseOutput values.
@@ -33,16 +28,11 @@ type CircuitResponseInput interface {
 	ToCircuitResponseOutputWithContext(context.Context) CircuitResponseOutput
 }
 
-// An ExpressRoute Circuit
 type CircuitResponseArgs struct {
-	// Identifier of the ExpressRoute Circuit (Microsoft Colo only)
-	ExpressRouteID pulumi.StringInput `pulumi:"expressRouteID"`
-	// ExpressRoute Circuit private peering identifier
+	ExpressRouteID               pulumi.StringInput `pulumi:"expressRouteID"`
 	ExpressRoutePrivatePeeringID pulumi.StringInput `pulumi:"expressRoutePrivatePeeringID"`
-	// CIDR of primary subnet
-	PrimarySubnet pulumi.StringInput `pulumi:"primarySubnet"`
-	// CIDR of secondary subnet
-	SecondarySubnet pulumi.StringInput `pulumi:"secondarySubnet"`
+	PrimarySubnet                pulumi.StringInput `pulumi:"primarySubnet"`
+	SecondarySubnet              pulumi.StringInput `pulumi:"secondarySubnet"`
 }
 
 func (CircuitResponseArgs) ElementType() reflect.Type {
@@ -98,7 +88,6 @@ func (i *circuitResponsePtrType) ToCircuitResponsePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CircuitResponsePtrOutput)
 }
 
-// An ExpressRoute Circuit
 type CircuitResponseOutput struct{ *pulumi.OutputState }
 
 func (CircuitResponseOutput) ElementType() reflect.Type {
@@ -118,27 +107,23 @@ func (o CircuitResponseOutput) ToCircuitResponsePtrOutput() CircuitResponsePtrOu
 }
 
 func (o CircuitResponseOutput) ToCircuitResponsePtrOutputWithContext(ctx context.Context) CircuitResponsePtrOutput {
-	return o.ApplyT(func(v CircuitResponse) *CircuitResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CircuitResponse) *CircuitResponse {
 		return &v
 	}).(CircuitResponsePtrOutput)
 }
 
-// Identifier of the ExpressRoute Circuit (Microsoft Colo only)
 func (o CircuitResponseOutput) ExpressRouteID() pulumi.StringOutput {
 	return o.ApplyT(func(v CircuitResponse) string { return v.ExpressRouteID }).(pulumi.StringOutput)
 }
 
-// ExpressRoute Circuit private peering identifier
 func (o CircuitResponseOutput) ExpressRoutePrivatePeeringID() pulumi.StringOutput {
 	return o.ApplyT(func(v CircuitResponse) string { return v.ExpressRoutePrivatePeeringID }).(pulumi.StringOutput)
 }
 
-// CIDR of primary subnet
 func (o CircuitResponseOutput) PrimarySubnet() pulumi.StringOutput {
 	return o.ApplyT(func(v CircuitResponse) string { return v.PrimarySubnet }).(pulumi.StringOutput)
 }
 
-// CIDR of secondary subnet
 func (o CircuitResponseOutput) SecondarySubnet() pulumi.StringOutput {
 	return o.ApplyT(func(v CircuitResponse) string { return v.SecondarySubnet }).(pulumi.StringOutput)
 }
@@ -158,10 +143,15 @@ func (o CircuitResponsePtrOutput) ToCircuitResponsePtrOutputWithContext(ctx cont
 }
 
 func (o CircuitResponsePtrOutput) Elem() CircuitResponseOutput {
-	return o.ApplyT(func(v *CircuitResponse) CircuitResponse { return *v }).(CircuitResponseOutput)
+	return o.ApplyT(func(v *CircuitResponse) CircuitResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CircuitResponse
+		return ret
+	}).(CircuitResponseOutput)
 }
 
-// Identifier of the ExpressRoute Circuit (Microsoft Colo only)
 func (o CircuitResponsePtrOutput) ExpressRouteID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CircuitResponse) *string {
 		if v == nil {
@@ -171,7 +161,6 @@ func (o CircuitResponsePtrOutput) ExpressRouteID() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ExpressRoute Circuit private peering identifier
 func (o CircuitResponsePtrOutput) ExpressRoutePrivatePeeringID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CircuitResponse) *string {
 		if v == nil {
@@ -181,7 +170,6 @@ func (o CircuitResponsePtrOutput) ExpressRoutePrivatePeeringID() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// CIDR of primary subnet
 func (o CircuitResponsePtrOutput) PrimarySubnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CircuitResponse) *string {
 		if v == nil {
@@ -191,7 +179,6 @@ func (o CircuitResponsePtrOutput) PrimarySubnet() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// CIDR of secondary subnet
 func (o CircuitResponsePtrOutput) SecondarySubnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CircuitResponse) *string {
 		if v == nil {
@@ -201,14 +188,10 @@ func (o CircuitResponsePtrOutput) SecondarySubnet() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Endpoint addresses
 type EndpointsResponse struct {
-	// Endpoint for the HCX Cloud Manager
 	HcxCloudManager string `pulumi:"hcxCloudManager"`
-	// Endpoint for the NSX-T Data Center manager
-	NsxtManager string `pulumi:"nsxtManager"`
-	// Endpoint for Virtual Center Server Appliance
-	Vcsa string `pulumi:"vcsa"`
+	NsxtManager     string `pulumi:"nsxtManager"`
+	Vcsa            string `pulumi:"vcsa"`
 }
 
 // EndpointsResponseInput is an input type that accepts EndpointsResponseArgs and EndpointsResponseOutput values.
@@ -222,14 +205,10 @@ type EndpointsResponseInput interface {
 	ToEndpointsResponseOutputWithContext(context.Context) EndpointsResponseOutput
 }
 
-// Endpoint addresses
 type EndpointsResponseArgs struct {
-	// Endpoint for the HCX Cloud Manager
 	HcxCloudManager pulumi.StringInput `pulumi:"hcxCloudManager"`
-	// Endpoint for the NSX-T Data Center manager
-	NsxtManager pulumi.StringInput `pulumi:"nsxtManager"`
-	// Endpoint for Virtual Center Server Appliance
-	Vcsa pulumi.StringInput `pulumi:"vcsa"`
+	NsxtManager     pulumi.StringInput `pulumi:"nsxtManager"`
+	Vcsa            pulumi.StringInput `pulumi:"vcsa"`
 }
 
 func (EndpointsResponseArgs) ElementType() reflect.Type {
@@ -285,7 +264,6 @@ func (i *endpointsResponsePtrType) ToEndpointsResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointsResponsePtrOutput)
 }
 
-// Endpoint addresses
 type EndpointsResponseOutput struct{ *pulumi.OutputState }
 
 func (EndpointsResponseOutput) ElementType() reflect.Type {
@@ -305,22 +283,19 @@ func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutput() EndpointsRespons
 }
 
 func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutputWithContext(ctx context.Context) EndpointsResponsePtrOutput {
-	return o.ApplyT(func(v EndpointsResponse) *EndpointsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointsResponse) *EndpointsResponse {
 		return &v
 	}).(EndpointsResponsePtrOutput)
 }
 
-// Endpoint for the HCX Cloud Manager
 func (o EndpointsResponseOutput) HcxCloudManager() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.HcxCloudManager }).(pulumi.StringOutput)
 }
 
-// Endpoint for the NSX-T Data Center manager
 func (o EndpointsResponseOutput) NsxtManager() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.NsxtManager }).(pulumi.StringOutput)
 }
 
-// Endpoint for Virtual Center Server Appliance
 func (o EndpointsResponseOutput) Vcsa() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.Vcsa }).(pulumi.StringOutput)
 }
@@ -340,10 +315,15 @@ func (o EndpointsResponsePtrOutput) ToEndpointsResponsePtrOutputWithContext(ctx 
 }
 
 func (o EndpointsResponsePtrOutput) Elem() EndpointsResponseOutput {
-	return o.ApplyT(func(v *EndpointsResponse) EndpointsResponse { return *v }).(EndpointsResponseOutput)
+	return o.ApplyT(func(v *EndpointsResponse) EndpointsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointsResponse
+		return ret
+	}).(EndpointsResponseOutput)
 }
 
-// Endpoint for the HCX Cloud Manager
 func (o EndpointsResponsePtrOutput) HcxCloudManager() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -353,7 +333,6 @@ func (o EndpointsResponsePtrOutput) HcxCloudManager() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Endpoint for the NSX-T Data Center manager
 func (o EndpointsResponsePtrOutput) NsxtManager() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -363,7 +342,6 @@ func (o EndpointsResponsePtrOutput) NsxtManager() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Endpoint for Virtual Center Server Appliance
 func (o EndpointsResponsePtrOutput) Vcsa() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -373,28 +351,17 @@ func (o EndpointsResponsePtrOutput) Vcsa() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// vCenter Single Sign On Identity Source
 type IdentitySource struct {
-	// The domain's NetBIOS name
-	Alias *string `pulumi:"alias"`
-	// The base distinguished name for groups
-	BaseGroupDN *string `pulumi:"baseGroupDN"`
-	// The base distinguished name for users
-	BaseUserDN *string `pulumi:"baseUserDN"`
-	// The domain's dns name
-	Domain *string `pulumi:"domain"`
-	// The name of the identity source
-	Name *string `pulumi:"name"`
-	// The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
-	Password *string `pulumi:"password"`
-	// Primary server URL
-	PrimaryServer *string `pulumi:"primaryServer"`
-	// Secondary server URL
+	Alias           *string `pulumi:"alias"`
+	BaseGroupDN     *string `pulumi:"baseGroupDN"`
+	BaseUserDN      *string `pulumi:"baseUserDN"`
+	Domain          *string `pulumi:"domain"`
+	Name            *string `pulumi:"name"`
+	Password        *string `pulumi:"password"`
+	PrimaryServer   *string `pulumi:"primaryServer"`
 	SecondaryServer *string `pulumi:"secondaryServer"`
-	// Protect LDAP communication using SSL certificate (LDAPS)
-	Ssl *string `pulumi:"ssl"`
-	// The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
-	Username *string `pulumi:"username"`
+	Ssl             *string `pulumi:"ssl"`
+	Username        *string `pulumi:"username"`
 }
 
 // IdentitySourceInput is an input type that accepts IdentitySourceArgs and IdentitySourceOutput values.
@@ -408,28 +375,17 @@ type IdentitySourceInput interface {
 	ToIdentitySourceOutputWithContext(context.Context) IdentitySourceOutput
 }
 
-// vCenter Single Sign On Identity Source
 type IdentitySourceArgs struct {
-	// The domain's NetBIOS name
-	Alias pulumi.StringPtrInput `pulumi:"alias"`
-	// The base distinguished name for groups
-	BaseGroupDN pulumi.StringPtrInput `pulumi:"baseGroupDN"`
-	// The base distinguished name for users
-	BaseUserDN pulumi.StringPtrInput `pulumi:"baseUserDN"`
-	// The domain's dns name
-	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	// The name of the identity source
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Primary server URL
-	PrimaryServer pulumi.StringPtrInput `pulumi:"primaryServer"`
-	// Secondary server URL
+	Alias           pulumi.StringPtrInput `pulumi:"alias"`
+	BaseGroupDN     pulumi.StringPtrInput `pulumi:"baseGroupDN"`
+	BaseUserDN      pulumi.StringPtrInput `pulumi:"baseUserDN"`
+	Domain          pulumi.StringPtrInput `pulumi:"domain"`
+	Name            pulumi.StringPtrInput `pulumi:"name"`
+	Password        pulumi.StringPtrInput `pulumi:"password"`
+	PrimaryServer   pulumi.StringPtrInput `pulumi:"primaryServer"`
 	SecondaryServer pulumi.StringPtrInput `pulumi:"secondaryServer"`
-	// Protect LDAP communication using SSL certificate (LDAPS)
-	Ssl pulumi.StringPtrInput `pulumi:"ssl"`
-	// The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	Ssl             pulumi.StringPtrInput `pulumi:"ssl"`
+	Username        pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (IdentitySourceArgs) ElementType() reflect.Type {
@@ -469,7 +425,6 @@ func (i IdentitySourceArray) ToIdentitySourceArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceArrayOutput)
 }
 
-// vCenter Single Sign On Identity Source
 type IdentitySourceOutput struct{ *pulumi.OutputState }
 
 func (IdentitySourceOutput) ElementType() reflect.Type {
@@ -484,52 +439,42 @@ func (o IdentitySourceOutput) ToIdentitySourceOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The domain's NetBIOS name
 func (o IdentitySourceOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySource) *string { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
-// The base distinguished name for groups
 func (o IdentitySourceOutput) BaseGroupDN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySource) *string { return v.BaseGroupDN }).(pulumi.StringPtrOutput)
 }
 
-// The base distinguished name for users
 func (o IdentitySourceOutput) BaseUserDN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySource) *string { return v.BaseUserDN }).(pulumi.StringPtrOutput)
 }
 
-// The domain's dns name
 func (o IdentitySourceOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySource) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// The name of the identity source
 func (o IdentitySourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
 func (o IdentitySourceOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySource) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Primary server URL
 func (o IdentitySourceOutput) PrimaryServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySource) *string { return v.PrimaryServer }).(pulumi.StringPtrOutput)
 }
 
-// Secondary server URL
 func (o IdentitySourceOutput) SecondaryServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySource) *string { return v.SecondaryServer }).(pulumi.StringPtrOutput)
 }
 
-// Protect LDAP communication using SSL certificate (LDAPS)
 func (o IdentitySourceOutput) Ssl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySource) *string { return v.Ssl }).(pulumi.StringPtrOutput)
 }
 
-// The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
 func (o IdentitySourceOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySource) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -554,28 +499,17 @@ func (o IdentitySourceArrayOutput) Index(i pulumi.IntInput) IdentitySourceOutput
 	}).(IdentitySourceOutput)
 }
 
-// vCenter Single Sign On Identity Source
 type IdentitySourceResponse struct {
-	// The domain's NetBIOS name
-	Alias *string `pulumi:"alias"`
-	// The base distinguished name for groups
-	BaseGroupDN *string `pulumi:"baseGroupDN"`
-	// The base distinguished name for users
-	BaseUserDN *string `pulumi:"baseUserDN"`
-	// The domain's dns name
-	Domain *string `pulumi:"domain"`
-	// The name of the identity source
-	Name *string `pulumi:"name"`
-	// The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
-	Password *string `pulumi:"password"`
-	// Primary server URL
-	PrimaryServer *string `pulumi:"primaryServer"`
-	// Secondary server URL
+	Alias           *string `pulumi:"alias"`
+	BaseGroupDN     *string `pulumi:"baseGroupDN"`
+	BaseUserDN      *string `pulumi:"baseUserDN"`
+	Domain          *string `pulumi:"domain"`
+	Name            *string `pulumi:"name"`
+	Password        *string `pulumi:"password"`
+	PrimaryServer   *string `pulumi:"primaryServer"`
 	SecondaryServer *string `pulumi:"secondaryServer"`
-	// Protect LDAP communication using SSL certificate (LDAPS)
-	Ssl *string `pulumi:"ssl"`
-	// The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
-	Username *string `pulumi:"username"`
+	Ssl             *string `pulumi:"ssl"`
+	Username        *string `pulumi:"username"`
 }
 
 // IdentitySourceResponseInput is an input type that accepts IdentitySourceResponseArgs and IdentitySourceResponseOutput values.
@@ -589,28 +523,17 @@ type IdentitySourceResponseInput interface {
 	ToIdentitySourceResponseOutputWithContext(context.Context) IdentitySourceResponseOutput
 }
 
-// vCenter Single Sign On Identity Source
 type IdentitySourceResponseArgs struct {
-	// The domain's NetBIOS name
-	Alias pulumi.StringPtrInput `pulumi:"alias"`
-	// The base distinguished name for groups
-	BaseGroupDN pulumi.StringPtrInput `pulumi:"baseGroupDN"`
-	// The base distinguished name for users
-	BaseUserDN pulumi.StringPtrInput `pulumi:"baseUserDN"`
-	// The domain's dns name
-	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	// The name of the identity source
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Primary server URL
-	PrimaryServer pulumi.StringPtrInput `pulumi:"primaryServer"`
-	// Secondary server URL
+	Alias           pulumi.StringPtrInput `pulumi:"alias"`
+	BaseGroupDN     pulumi.StringPtrInput `pulumi:"baseGroupDN"`
+	BaseUserDN      pulumi.StringPtrInput `pulumi:"baseUserDN"`
+	Domain          pulumi.StringPtrInput `pulumi:"domain"`
+	Name            pulumi.StringPtrInput `pulumi:"name"`
+	Password        pulumi.StringPtrInput `pulumi:"password"`
+	PrimaryServer   pulumi.StringPtrInput `pulumi:"primaryServer"`
 	SecondaryServer pulumi.StringPtrInput `pulumi:"secondaryServer"`
-	// Protect LDAP communication using SSL certificate (LDAPS)
-	Ssl pulumi.StringPtrInput `pulumi:"ssl"`
-	// The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	Ssl             pulumi.StringPtrInput `pulumi:"ssl"`
+	Username        pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (IdentitySourceResponseArgs) ElementType() reflect.Type {
@@ -650,7 +573,6 @@ func (i IdentitySourceResponseArray) ToIdentitySourceResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceResponseArrayOutput)
 }
 
-// vCenter Single Sign On Identity Source
 type IdentitySourceResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentitySourceResponseOutput) ElementType() reflect.Type {
@@ -665,52 +587,42 @@ func (o IdentitySourceResponseOutput) ToIdentitySourceResponseOutputWithContext(
 	return o
 }
 
-// The domain's NetBIOS name
 func (o IdentitySourceResponseOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySourceResponse) *string { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
-// The base distinguished name for groups
 func (o IdentitySourceResponseOutput) BaseGroupDN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySourceResponse) *string { return v.BaseGroupDN }).(pulumi.StringPtrOutput)
 }
 
-// The base distinguished name for users
 func (o IdentitySourceResponseOutput) BaseUserDN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySourceResponse) *string { return v.BaseUserDN }).(pulumi.StringPtrOutput)
 }
 
-// The domain's dns name
 func (o IdentitySourceResponseOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySourceResponse) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// The name of the identity source
 func (o IdentitySourceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
 func (o IdentitySourceResponseOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySourceResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Primary server URL
 func (o IdentitySourceResponseOutput) PrimaryServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySourceResponse) *string { return v.PrimaryServer }).(pulumi.StringPtrOutput)
 }
 
-// Secondary server URL
 func (o IdentitySourceResponseOutput) SecondaryServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySourceResponse) *string { return v.SecondaryServer }).(pulumi.StringPtrOutput)
 }
 
-// Protect LDAP communication using SSL certificate (LDAPS)
 func (o IdentitySourceResponseOutput) Ssl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySourceResponse) *string { return v.Ssl }).(pulumi.StringPtrOutput)
 }
 
-// The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
 func (o IdentitySourceResponseOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySourceResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -735,9 +647,7 @@ func (o IdentitySourceResponseArrayOutput) Index(i pulumi.IntInput) IdentitySour
 	}).(IdentitySourceResponseOutput)
 }
 
-// The properties of a default cluster
 type ManagementCluster struct {
-	// The cluster size
 	ClusterSize int `pulumi:"clusterSize"`
 }
 
@@ -752,9 +662,7 @@ type ManagementClusterInput interface {
 	ToManagementClusterOutputWithContext(context.Context) ManagementClusterOutput
 }
 
-// The properties of a default cluster
 type ManagementClusterArgs struct {
-	// The cluster size
 	ClusterSize pulumi.IntInput `pulumi:"clusterSize"`
 }
 
@@ -811,7 +719,6 @@ func (i *managementClusterPtrType) ToManagementClusterPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementClusterPtrOutput)
 }
 
-// The properties of a default cluster
 type ManagementClusterOutput struct{ *pulumi.OutputState }
 
 func (ManagementClusterOutput) ElementType() reflect.Type {
@@ -831,12 +738,11 @@ func (o ManagementClusterOutput) ToManagementClusterPtrOutput() ManagementCluste
 }
 
 func (o ManagementClusterOutput) ToManagementClusterPtrOutputWithContext(ctx context.Context) ManagementClusterPtrOutput {
-	return o.ApplyT(func(v ManagementCluster) *ManagementCluster {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementCluster) *ManagementCluster {
 		return &v
 	}).(ManagementClusterPtrOutput)
 }
 
-// The cluster size
 func (o ManagementClusterOutput) ClusterSize() pulumi.IntOutput {
 	return o.ApplyT(func(v ManagementCluster) int { return v.ClusterSize }).(pulumi.IntOutput)
 }
@@ -856,10 +762,15 @@ func (o ManagementClusterPtrOutput) ToManagementClusterPtrOutputWithContext(ctx 
 }
 
 func (o ManagementClusterPtrOutput) Elem() ManagementClusterOutput {
-	return o.ApplyT(func(v *ManagementCluster) ManagementCluster { return *v }).(ManagementClusterOutput)
+	return o.ApplyT(func(v *ManagementCluster) ManagementCluster {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementCluster
+		return ret
+	}).(ManagementClusterOutput)
 }
 
-// The cluster size
 func (o ManagementClusterPtrOutput) ClusterSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementCluster) *int {
 		if v == nil {
@@ -869,16 +780,11 @@ func (o ManagementClusterPtrOutput) ClusterSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The properties of a default cluster
 type ManagementClusterResponse struct {
-	// The identity
-	ClusterId int `pulumi:"clusterId"`
-	// The cluster size
-	ClusterSize int `pulumi:"clusterSize"`
-	// The hosts
-	Hosts []string `pulumi:"hosts"`
-	// The state of the cluster provisioning
-	ProvisioningState string `pulumi:"provisioningState"`
+	ClusterId         int      `pulumi:"clusterId"`
+	ClusterSize       int      `pulumi:"clusterSize"`
+	Hosts             []string `pulumi:"hosts"`
+	ProvisioningState string   `pulumi:"provisioningState"`
 }
 
 // ManagementClusterResponseInput is an input type that accepts ManagementClusterResponseArgs and ManagementClusterResponseOutput values.
@@ -892,16 +798,11 @@ type ManagementClusterResponseInput interface {
 	ToManagementClusterResponseOutputWithContext(context.Context) ManagementClusterResponseOutput
 }
 
-// The properties of a default cluster
 type ManagementClusterResponseArgs struct {
-	// The identity
-	ClusterId pulumi.IntInput `pulumi:"clusterId"`
-	// The cluster size
-	ClusterSize pulumi.IntInput `pulumi:"clusterSize"`
-	// The hosts
-	Hosts pulumi.StringArrayInput `pulumi:"hosts"`
-	// The state of the cluster provisioning
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	ClusterId         pulumi.IntInput         `pulumi:"clusterId"`
+	ClusterSize       pulumi.IntInput         `pulumi:"clusterSize"`
+	Hosts             pulumi.StringArrayInput `pulumi:"hosts"`
+	ProvisioningState pulumi.StringInput      `pulumi:"provisioningState"`
 }
 
 func (ManagementClusterResponseArgs) ElementType() reflect.Type {
@@ -957,7 +858,6 @@ func (i *managementClusterResponsePtrType) ToManagementClusterResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementClusterResponsePtrOutput)
 }
 
-// The properties of a default cluster
 type ManagementClusterResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementClusterResponseOutput) ElementType() reflect.Type {
@@ -977,27 +877,23 @@ func (o ManagementClusterResponseOutput) ToManagementClusterResponsePtrOutput() 
 }
 
 func (o ManagementClusterResponseOutput) ToManagementClusterResponsePtrOutputWithContext(ctx context.Context) ManagementClusterResponsePtrOutput {
-	return o.ApplyT(func(v ManagementClusterResponse) *ManagementClusterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementClusterResponse) *ManagementClusterResponse {
 		return &v
 	}).(ManagementClusterResponsePtrOutput)
 }
 
-// The identity
 func (o ManagementClusterResponseOutput) ClusterId() pulumi.IntOutput {
 	return o.ApplyT(func(v ManagementClusterResponse) int { return v.ClusterId }).(pulumi.IntOutput)
 }
 
-// The cluster size
 func (o ManagementClusterResponseOutput) ClusterSize() pulumi.IntOutput {
 	return o.ApplyT(func(v ManagementClusterResponse) int { return v.ClusterSize }).(pulumi.IntOutput)
 }
 
-// The hosts
 func (o ManagementClusterResponseOutput) Hosts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagementClusterResponse) []string { return v.Hosts }).(pulumi.StringArrayOutput)
 }
 
-// The state of the cluster provisioning
 func (o ManagementClusterResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementClusterResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -1017,10 +913,15 @@ func (o ManagementClusterResponsePtrOutput) ToManagementClusterResponsePtrOutput
 }
 
 func (o ManagementClusterResponsePtrOutput) Elem() ManagementClusterResponseOutput {
-	return o.ApplyT(func(v *ManagementClusterResponse) ManagementClusterResponse { return *v }).(ManagementClusterResponseOutput)
+	return o.ApplyT(func(v *ManagementClusterResponse) ManagementClusterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementClusterResponse
+		return ret
+	}).(ManagementClusterResponseOutput)
 }
 
-// The identity
 func (o ManagementClusterResponsePtrOutput) ClusterId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementClusterResponse) *int {
 		if v == nil {
@@ -1030,7 +931,6 @@ func (o ManagementClusterResponsePtrOutput) ClusterId() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The cluster size
 func (o ManagementClusterResponsePtrOutput) ClusterSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementClusterResponse) *int {
 		if v == nil {
@@ -1040,7 +940,6 @@ func (o ManagementClusterResponsePtrOutput) ClusterSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The hosts
 func (o ManagementClusterResponsePtrOutput) Hosts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagementClusterResponse) []string {
 		if v == nil {
@@ -1050,7 +949,6 @@ func (o ManagementClusterResponsePtrOutput) Hosts() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The state of the cluster provisioning
 func (o ManagementClusterResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagementClusterResponse) *string {
 		if v == nil {
@@ -1060,9 +958,7 @@ func (o ManagementClusterResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource model definition representing SKU
 type Sku struct {
-	// The name of the SKU.
 	Name string `pulumi:"name"`
 }
 
@@ -1077,9 +973,7 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The resource model definition representing SKU
 type SkuArgs struct {
-	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1136,7 +1030,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The resource model definition representing SKU
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -1156,12 +1049,11 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The name of the SKU.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1181,10 +1073,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The name of the SKU.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1194,9 +1091,7 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource model definition representing SKU
 type SkuResponse struct {
-	// The name of the SKU.
 	Name string `pulumi:"name"`
 }
 
@@ -1211,9 +1106,7 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The resource model definition representing SKU
 type SkuResponseArgs struct {
-	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1270,7 +1163,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The resource model definition representing SKU
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -1290,12 +1182,11 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The name of the SKU.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1315,10 +1206,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The name of the SKU.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

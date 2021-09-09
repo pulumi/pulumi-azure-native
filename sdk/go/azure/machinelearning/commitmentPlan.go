@@ -139,9 +139,7 @@ func (i *CommitmentPlan) ToCommitmentPlanOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanOutput)
 }
 
-type CommitmentPlanOutput struct {
-	*pulumi.OutputState
-}
+type CommitmentPlanOutput struct{ *pulumi.OutputState }
 
 func (CommitmentPlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CommitmentPlan)(nil))

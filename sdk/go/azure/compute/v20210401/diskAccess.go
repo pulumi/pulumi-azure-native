@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// disk access resource.
 type DiskAccess struct {
 	pulumi.CustomResourceState
 
-	// The extended location where the disk access will be created. Extended location cannot be changed.
-	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
+	ExtendedLocation           ExtendedLocationResponsePtrOutput            `pulumi:"extendedLocation"`
+	Location                   pulumi.StringOutput                          `pulumi:"location"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// The disk access resource provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The time when the disk access was created.
-	TimeCreated pulumi.StringOutput `pulumi:"timeCreated"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState          pulumi.StringOutput                          `pulumi:"provisioningState"`
+	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
+	TimeCreated                pulumi.StringOutput                          `pulumi:"timeCreated"`
+	Type                       pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewDiskAccess registers a new resource with the given unique name, arguments, and options.
@@ -111,30 +102,20 @@ func (DiskAccessState) ElementType() reflect.Type {
 }
 
 type diskAccessArgs struct {
-	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
-	DiskAccessName *string `pulumi:"diskAccessName"`
-	// The extended location where the disk access will be created. Extended location cannot be changed.
-	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	DiskAccessName    *string           `pulumi:"diskAccessName"`
+	ExtendedLocation  *ExtendedLocation `pulumi:"extendedLocation"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DiskAccess resource.
 type DiskAccessArgs struct {
-	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
-	DiskAccessName pulumi.StringPtrInput
-	// The extended location where the disk access will be created. Extended location cannot be changed.
-	ExtendedLocation ExtendedLocationPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
+	DiskAccessName    pulumi.StringPtrInput
+	ExtendedLocation  ExtendedLocationPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (DiskAccessArgs) ElementType() reflect.Type {
@@ -160,9 +141,7 @@ func (i *DiskAccess) ToDiskAccessOutputWithContext(ctx context.Context) DiskAcce
 	return pulumi.ToOutputWithContext(ctx, i).(DiskAccessOutput)
 }
 
-type DiskAccessOutput struct {
-	*pulumi.OutputState
-}
+type DiskAccessOutput struct{ *pulumi.OutputState }
 
 func (DiskAccessOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiskAccess)(nil))

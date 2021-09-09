@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in List or Get Migration Config operation
 type MigrationConfig struct {
 	pulumi.CustomResourceState
 
-	// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
-	MigrationState pulumi.StringOutput `pulumi:"migrationState"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Number of entities pending to be replicated.
+	MigrationState                    pulumi.StringOutput  `pulumi:"migrationState"`
+	Name                              pulumi.StringOutput  `pulumi:"name"`
 	PendingReplicationOperationsCount pulumi.Float64Output `pulumi:"pendingReplicationOperationsCount"`
-	// Name to access Standard Namespace after migration
-	PostMigrationName pulumi.StringOutput `pulumi:"postMigrationName"`
-	// Provisioning state of Migration Configuration
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Existing premium Namespace ARM Id name which has no entities, will be used for migration
-	TargetNamespace pulumi.StringOutput `pulumi:"targetNamespace"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	PostMigrationName                 pulumi.StringOutput  `pulumi:"postMigrationName"`
+	ProvisioningState                 pulumi.StringOutput  `pulumi:"provisioningState"`
+	TargetNamespace                   pulumi.StringOutput  `pulumi:"targetNamespace"`
+	Type                              pulumi.StringOutput  `pulumi:"type"`
 }
 
 // NewMigrationConfig registers a new resource with the given unique name, arguments, and options.
@@ -112,30 +104,20 @@ func (MigrationConfigState) ElementType() reflect.Type {
 }
 
 type migrationConfigArgs struct {
-	// The configuration name. Should always be "$default".
-	ConfigName *string `pulumi:"configName"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name to access Standard Namespace after migration
-	PostMigrationName string `pulumi:"postMigrationName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Existing premium Namespace ARM Id name which has no entities, will be used for migration
-	TargetNamespace string `pulumi:"targetNamespace"`
+	ConfigName        *string `pulumi:"configName"`
+	NamespaceName     string  `pulumi:"namespaceName"`
+	PostMigrationName string  `pulumi:"postMigrationName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	TargetNamespace   string  `pulumi:"targetNamespace"`
 }
 
 // The set of arguments for constructing a MigrationConfig resource.
 type MigrationConfigArgs struct {
-	// The configuration name. Should always be "$default".
-	ConfigName pulumi.StringPtrInput
-	// The namespace name
-	NamespaceName pulumi.StringInput
-	// Name to access Standard Namespace after migration
+	ConfigName        pulumi.StringPtrInput
+	NamespaceName     pulumi.StringInput
 	PostMigrationName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
-	// Existing premium Namespace ARM Id name which has no entities, will be used for migration
-	TargetNamespace pulumi.StringInput
+	TargetNamespace   pulumi.StringInput
 }
 
 func (MigrationConfigArgs) ElementType() reflect.Type {
@@ -161,9 +143,7 @@ func (i *MigrationConfig) ToMigrationConfigOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationConfigOutput)
 }
 
-type MigrationConfigOutput struct {
-	*pulumi.OutputState
-}
+type MigrationConfigOutput struct{ *pulumi.OutputState }
 
 func (MigrationConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MigrationConfig)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The lock information.
 func LookupManagementLockByScope(ctx *pulumi.Context, args *LookupManagementLockByScopeArgs, opts ...pulumi.InvokeOption) (*LookupManagementLockByScopeResult, error) {
 	var rv LookupManagementLockByScopeResult
 	err := ctx.Invoke("azure-native:authorization/v20170401:getManagementLockByScope", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupManagementLockByScope(ctx *pulumi.Context, args *LookupManagementLock
 }
 
 type LookupManagementLockByScopeArgs struct {
-	// The name of lock.
 	LockName string `pulumi:"lockName"`
-	// The scope for the lock.
-	Scope string `pulumi:"scope"`
+	Scope    string `pulumi:"scope"`
 }
 
 // The lock information.
 type LookupManagementLockByScopeResult struct {
-	// The resource ID of the lock.
-	Id string `pulumi:"id"`
-	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-	Level string `pulumi:"level"`
-	// The name of the lock.
-	Name string `pulumi:"name"`
-	// Notes about the lock. Maximum of 512 characters.
-	Notes *string `pulumi:"notes"`
-	// The owners of the lock.
+	Id     string                        `pulumi:"id"`
+	Level  string                        `pulumi:"level"`
+	Name   string                        `pulumi:"name"`
+	Notes  *string                       `pulumi:"notes"`
 	Owners []ManagementLockOwnerResponse `pulumi:"owners"`
-	// The resource type of the lock - Microsoft.Authorization/locks.
-	Type string `pulumi:"type"`
+	Type   string                        `pulumi:"type"`
 }

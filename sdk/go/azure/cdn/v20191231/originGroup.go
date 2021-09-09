@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
 type OriginGroup struct {
 	pulumi.CustomResourceState
 
-	// Health probe settings to the origin that is used to determine the health of the origin.
-	HealthProbeSettings HealthProbeParametersResponsePtrOutput `pulumi:"healthProbeSettings"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The source of the content being delivered via CDN within given origin group.
-	Origins ResourceReferenceResponseArrayOutput `pulumi:"origins"`
-	// Provisioning status of the origin group.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource status of the origin group.
-	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-	ResponseBasedOriginErrorDetectionSettings ResponseBasedOriginErrorDetectionParametersResponsePtrOutput `pulumi:"responseBasedOriginErrorDetectionSettings"`
-	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
-	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes pulumi.IntPtrOutput `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	HealthProbeSettings                                   HealthProbeParametersResponsePtrOutput                       `pulumi:"healthProbeSettings"`
+	Name                                                  pulumi.StringOutput                                          `pulumi:"name"`
+	Origins                                               ResourceReferenceResponseArrayOutput                         `pulumi:"origins"`
+	ProvisioningState                                     pulumi.StringOutput                                          `pulumi:"provisioningState"`
+	ResourceState                                         pulumi.StringOutput                                          `pulumi:"resourceState"`
+	ResponseBasedOriginErrorDetectionSettings             ResponseBasedOriginErrorDetectionParametersResponsePtrOutput `pulumi:"responseBasedOriginErrorDetectionSettings"`
+	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes pulumi.IntPtrOutput                                          `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
+	Type                                                  pulumi.StringOutput                                          `pulumi:"type"`
 }
 
 // NewOriginGroup registers a new resource with the given unique name, arguments, and options.
@@ -114,41 +105,25 @@ func (OriginGroupState) ElementType() reflect.Type {
 }
 
 type originGroupArgs struct {
-	// Name of the endpoint under the profile which is unique globally.
-	EndpointName string `pulumi:"endpointName"`
-	// Health probe settings to the origin that is used to determine the health of the origin.
-	HealthProbeSettings *HealthProbeParameters `pulumi:"healthProbeSettings"`
-	// Name of the origin group which is unique within the endpoint.
-	OriginGroupName *string `pulumi:"originGroupName"`
-	// The source of the content being delivered via CDN within given origin group.
-	Origins []ResourceReference `pulumi:"origins"`
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-	ResponseBasedOriginErrorDetectionSettings *ResponseBasedOriginErrorDetectionParameters `pulumi:"responseBasedOriginErrorDetectionSettings"`
-	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
-	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes *int `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
+	EndpointName                                          string                                       `pulumi:"endpointName"`
+	HealthProbeSettings                                   *HealthProbeParameters                       `pulumi:"healthProbeSettings"`
+	OriginGroupName                                       *string                                      `pulumi:"originGroupName"`
+	Origins                                               []ResourceReference                          `pulumi:"origins"`
+	ProfileName                                           string                                       `pulumi:"profileName"`
+	ResourceGroupName                                     string                                       `pulumi:"resourceGroupName"`
+	ResponseBasedOriginErrorDetectionSettings             *ResponseBasedOriginErrorDetectionParameters `pulumi:"responseBasedOriginErrorDetectionSettings"`
+	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes *int                                         `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
 }
 
 // The set of arguments for constructing a OriginGroup resource.
 type OriginGroupArgs struct {
-	// Name of the endpoint under the profile which is unique globally.
-	EndpointName pulumi.StringInput
-	// Health probe settings to the origin that is used to determine the health of the origin.
-	HealthProbeSettings HealthProbeParametersPtrInput
-	// Name of the origin group which is unique within the endpoint.
-	OriginGroupName pulumi.StringPtrInput
-	// The source of the content being delivered via CDN within given origin group.
-	Origins ResourceReferenceArrayInput
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-	ResponseBasedOriginErrorDetectionSettings ResponseBasedOriginErrorDetectionParametersPtrInput
-	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+	EndpointName                                          pulumi.StringInput
+	HealthProbeSettings                                   HealthProbeParametersPtrInput
+	OriginGroupName                                       pulumi.StringPtrInput
+	Origins                                               ResourceReferenceArrayInput
+	ProfileName                                           pulumi.StringInput
+	ResourceGroupName                                     pulumi.StringInput
+	ResponseBasedOriginErrorDetectionSettings             ResponseBasedOriginErrorDetectionParametersPtrInput
 	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes pulumi.IntPtrInput
 }
 
@@ -175,9 +150,7 @@ func (i *OriginGroup) ToOriginGroupOutputWithContext(ctx context.Context) Origin
 	return pulumi.ToOutputWithContext(ctx, i).(OriginGroupOutput)
 }
 
-type OriginGroupOutput struct {
-	*pulumi.OutputState
-}
+type OriginGroupOutput struct{ *pulumi.OutputState }
 
 func (OriginGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OriginGroup)(nil))

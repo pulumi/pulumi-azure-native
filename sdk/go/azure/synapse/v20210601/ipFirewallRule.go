@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IP firewall rule
 type IpFirewallRule struct {
 	pulumi.CustomResourceState
 
-	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress
-	EndIpAddress pulumi.StringPtrOutput `pulumi:"endIpAddress"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource provisioning state
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The start IP address of the firewall rule. Must be IPv4 format
-	StartIpAddress pulumi.StringPtrOutput `pulumi:"startIpAddress"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	EndIpAddress      pulumi.StringPtrOutput `pulumi:"endIpAddress"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	StartIpAddress    pulumi.StringPtrOutput `pulumi:"startIpAddress"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewIpFirewallRule registers a new resource with the given unique name, arguments, and options.
@@ -120,30 +114,20 @@ func (IpFirewallRuleState) ElementType() reflect.Type {
 }
 
 type ipFirewallRuleArgs struct {
-	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress
-	EndIpAddress *string `pulumi:"endIpAddress"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The IP firewall rule name
-	RuleName *string `pulumi:"ruleName"`
-	// The start IP address of the firewall rule. Must be IPv4 format
-	StartIpAddress *string `pulumi:"startIpAddress"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	EndIpAddress      *string `pulumi:"endIpAddress"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	RuleName          *string `pulumi:"ruleName"`
+	StartIpAddress    *string `pulumi:"startIpAddress"`
+	WorkspaceName     string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a IpFirewallRule resource.
 type IpFirewallRuleArgs struct {
-	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress
-	EndIpAddress pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	EndIpAddress      pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The IP firewall rule name
-	RuleName pulumi.StringPtrInput
-	// The start IP address of the firewall rule. Must be IPv4 format
-	StartIpAddress pulumi.StringPtrInput
-	// The name of the workspace
-	WorkspaceName pulumi.StringInput
+	RuleName          pulumi.StringPtrInput
+	StartIpAddress    pulumi.StringPtrInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (IpFirewallRuleArgs) ElementType() reflect.Type {
@@ -169,9 +153,7 @@ func (i *IpFirewallRule) ToIpFirewallRuleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(IpFirewallRuleOutput)
 }
 
-type IpFirewallRuleOutput struct {
-	*pulumi.OutputState
-}
+type IpFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (IpFirewallRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IpFirewallRule)(nil))

@@ -11,25 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents MTP (Microsoft Threat Protection) data connector.
 type MTPDataConnector struct {
 	pulumi.CustomResourceState
 
-	// The available data types for the connector.
-	DataTypes MTPDataConnectorDataTypesResponseOutput `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The kind of the data connector
-	// Expected value is 'MicrosoftThreatProtection'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The tenant id to connect to, and get the data from.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataTypes  MTPDataConnectorDataTypesResponseOutput `pulumi:"dataTypes"`
+	Etag       pulumi.StringPtrOutput                  `pulumi:"etag"`
+	Kind       pulumi.StringOutput                     `pulumi:"kind"`
+	Name       pulumi.StringOutput                     `pulumi:"name"`
+	SystemData SystemDataResponseOutput                `pulumi:"systemData"`
+	TenantId   pulumi.StringOutput                     `pulumi:"tenantId"`
+	Type       pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewMTPDataConnector registers a new resource with the given unique name, arguments, and options.
@@ -114,44 +105,26 @@ func (MTPDataConnectorState) ElementType() reflect.Type {
 }
 
 type mtpdataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId *string `pulumi:"dataConnectorId"`
-	// The available data types for the connector.
-	DataTypes MTPDataConnectorDataTypes `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The kind of the data connector
-	// Expected value is 'MicrosoftThreatProtection'.
-	Kind string `pulumi:"kind"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tenant id to connect to, and get the data from.
-	TenantId string `pulumi:"tenantId"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	DataConnectorId                     *string                   `pulumi:"dataConnectorId"`
+	DataTypes                           MTPDataConnectorDataTypes `pulumi:"dataTypes"`
+	Etag                                *string                   `pulumi:"etag"`
+	Kind                                string                    `pulumi:"kind"`
+	OperationalInsightsResourceProvider string                    `pulumi:"operationalInsightsResourceProvider"`
+	ResourceGroupName                   string                    `pulumi:"resourceGroupName"`
+	TenantId                            string                    `pulumi:"tenantId"`
+	WorkspaceName                       string                    `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a MTPDataConnector resource.
 type MTPDataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId pulumi.StringPtrInput
-	// The available data types for the connector.
-	DataTypes MTPDataConnectorDataTypesInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The kind of the data connector
-	// Expected value is 'MicrosoftThreatProtection'.
-	Kind pulumi.StringInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	DataConnectorId                     pulumi.StringPtrInput
+	DataTypes                           MTPDataConnectorDataTypesInput
+	Etag                                pulumi.StringPtrInput
+	Kind                                pulumi.StringInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The tenant id to connect to, and get the data from.
-	TenantId pulumi.StringInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	ResourceGroupName                   pulumi.StringInput
+	TenantId                            pulumi.StringInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (MTPDataConnectorArgs) ElementType() reflect.Type {
@@ -177,9 +150,7 @@ func (i *MTPDataConnector) ToMTPDataConnectorOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MTPDataConnectorOutput)
 }
 
-type MTPDataConnectorOutput struct {
-	*pulumi.OutputState
-}
+type MTPDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (MTPDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MTPDataConnector)(nil))

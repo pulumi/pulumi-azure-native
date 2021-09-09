@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Trigger resource type.
 func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.InvokeOption) (*LookupTriggerResult, error) {
 	var rv LookupTriggerResult
 	err := ctx.Invoke("azure-native:datafactory/v20170901preview:getTrigger", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.
 }
 
 type LookupTriggerArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The resource group name.
+	FactoryName       string `pulumi:"factoryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The trigger name.
-	TriggerName string `pulumi:"triggerName"`
+	TriggerName       string `pulumi:"triggerName"`
 }
 
 // Trigger resource type.
 type LookupTriggerResult struct {
-	// Etag identifies change in the resource.
-	Etag string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Properties of the trigger.
+	Etag       string      `pulumi:"etag"`
+	Id         string      `pulumi:"id"`
+	Name       string      `pulumi:"name"`
 	Properties interface{} `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type       string      `pulumi:"type"`
 }

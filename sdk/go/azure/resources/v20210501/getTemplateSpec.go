@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Template Spec object.
 func LookupTemplateSpec(ctx *pulumi.Context, args *LookupTemplateSpecArgs, opts ...pulumi.InvokeOption) (*LookupTemplateSpecResult, error) {
 	var rv LookupTemplateSpecResult
 	err := ctx.Invoke("azure-native:resources/v20210501:getTemplateSpec", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupTemplateSpec(ctx *pulumi.Context, args *LookupTemplateSpecArgs, opts 
 }
 
 type LookupTemplateSpecArgs struct {
-	// Allows for expansion of additional Template Spec details in the response. Optional.
-	Expand *string `pulumi:"expand"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Template Spec.
-	TemplateSpecName string `pulumi:"templateSpecName"`
+	Expand            *string `pulumi:"expand"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	TemplateSpecName  string  `pulumi:"templateSpecName"`
 }
 
 // Template Spec object.
 type LookupTemplateSpecResult struct {
-	// Template Spec description.
-	Description *string `pulumi:"description"`
-	// Template Spec display name.
-	DisplayName *string `pulumi:"displayName"`
-	// String Id used to locate any resource on Azure.
-	Id string `pulumi:"id"`
-	// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
-	Location string `pulumi:"location"`
-	// The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
-	Metadata interface{} `pulumi:"metadata"`
-	// Name of this resource.
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of this resource.
-	Type string `pulumi:"type"`
-	// High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
-	Versions map[string]TemplateSpecVersionInfoResponse `pulumi:"versions"`
+	Description *string                                    `pulumi:"description"`
+	DisplayName *string                                    `pulumi:"displayName"`
+	Id          string                                     `pulumi:"id"`
+	Location    string                                     `pulumi:"location"`
+	Metadata    interface{}                                `pulumi:"metadata"`
+	Name        string                                     `pulumi:"name"`
+	SystemData  SystemDataResponse                         `pulumi:"systemData"`
+	Tags        map[string]string                          `pulumi:"tags"`
+	Type        string                                     `pulumi:"type"`
+	Versions    map[string]TemplateSpecVersionInfoResponse `pulumi:"versions"`
 }

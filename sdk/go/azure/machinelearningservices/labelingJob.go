@@ -134,9 +134,7 @@ func (i *LabelingJob) ToLabelingJobOutputWithContext(ctx context.Context) Labeli
 	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobOutput)
 }
 
-type LabelingJobOutput struct {
-	*pulumi.OutputState
-}
+type LabelingJobOutput struct{ *pulumi.OutputState }
 
 func (LabelingJobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LabelingJob)(nil))

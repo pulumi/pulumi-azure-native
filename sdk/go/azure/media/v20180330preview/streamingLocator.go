@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Streaming Locator resource
 type StreamingLocator struct {
 	pulumi.CustomResourceState
 
-	// Asset Name
-	AssetName pulumi.StringOutput `pulumi:"assetName"`
-	// ContentKeys used by this Streaming Locator
-	ContentKeys StreamingLocatorUserDefinedContentKeyResponseArrayOutput `pulumi:"contentKeys"`
-	// Creation time of Streaming Locator
-	Created pulumi.StringOutput `pulumi:"created"`
-	// Default ContentKeyPolicy used by this Streaming Locator
-	DefaultContentKeyPolicyName pulumi.StringPtrOutput `pulumi:"defaultContentKeyPolicyName"`
-	// EndTime of Streaming Locator
-	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// StartTime of Streaming Locator
-	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
-	// StreamingLocatorId of Streaming Locator
-	StreamingLocatorId pulumi.StringPtrOutput `pulumi:"streamingLocatorId"`
-	// Streaming policy name used by this streaming locator. Either specify the name of streaming policy you created or use one of the predefined streaming polices. The predefined streaming policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_SecureStreaming' and 'Predefined_SecureStreamingWithFairPlay'
-	StreamingPolicyName pulumi.StringOutput `pulumi:"streamingPolicyName"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AssetName                   pulumi.StringOutput                                      `pulumi:"assetName"`
+	ContentKeys                 StreamingLocatorUserDefinedContentKeyResponseArrayOutput `pulumi:"contentKeys"`
+	Created                     pulumi.StringOutput                                      `pulumi:"created"`
+	DefaultContentKeyPolicyName pulumi.StringPtrOutput                                   `pulumi:"defaultContentKeyPolicyName"`
+	EndTime                     pulumi.StringPtrOutput                                   `pulumi:"endTime"`
+	Name                        pulumi.StringOutput                                      `pulumi:"name"`
+	StartTime                   pulumi.StringPtrOutput                                   `pulumi:"startTime"`
+	StreamingLocatorId          pulumi.StringPtrOutput                                   `pulumi:"streamingLocatorId"`
+	StreamingPolicyName         pulumi.StringOutput                                      `pulumi:"streamingPolicyName"`
+	Type                        pulumi.StringOutput                                      `pulumi:"type"`
 }
 
 // NewStreamingLocator registers a new resource with the given unique name, arguments, and options.
@@ -124,50 +113,30 @@ func (StreamingLocatorState) ElementType() reflect.Type {
 }
 
 type streamingLocatorArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// Asset Name
-	AssetName string `pulumi:"assetName"`
-	// ContentKeys used by this Streaming Locator
-	ContentKeys []StreamingLocatorUserDefinedContentKey `pulumi:"contentKeys"`
-	// Default ContentKeyPolicy used by this Streaming Locator
-	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
-	// EndTime of Streaming Locator
-	EndTime *string `pulumi:"endTime"`
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// StartTime of Streaming Locator
-	StartTime *string `pulumi:"startTime"`
-	// StreamingLocatorId of Streaming Locator
-	StreamingLocatorId *string `pulumi:"streamingLocatorId"`
-	// The Streaming Locator name.
-	StreamingLocatorName *string `pulumi:"streamingLocatorName"`
-	// Streaming policy name used by this streaming locator. Either specify the name of streaming policy you created or use one of the predefined streaming polices. The predefined streaming policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_SecureStreaming' and 'Predefined_SecureStreamingWithFairPlay'
-	StreamingPolicyName string `pulumi:"streamingPolicyName"`
+	AccountName                 string                                  `pulumi:"accountName"`
+	AssetName                   string                                  `pulumi:"assetName"`
+	ContentKeys                 []StreamingLocatorUserDefinedContentKey `pulumi:"contentKeys"`
+	DefaultContentKeyPolicyName *string                                 `pulumi:"defaultContentKeyPolicyName"`
+	EndTime                     *string                                 `pulumi:"endTime"`
+	ResourceGroupName           string                                  `pulumi:"resourceGroupName"`
+	StartTime                   *string                                 `pulumi:"startTime"`
+	StreamingLocatorId          *string                                 `pulumi:"streamingLocatorId"`
+	StreamingLocatorName        *string                                 `pulumi:"streamingLocatorName"`
+	StreamingPolicyName         string                                  `pulumi:"streamingPolicyName"`
 }
 
 // The set of arguments for constructing a StreamingLocator resource.
 type StreamingLocatorArgs struct {
-	// The Media Services account name.
-	AccountName pulumi.StringInput
-	// Asset Name
-	AssetName pulumi.StringInput
-	// ContentKeys used by this Streaming Locator
-	ContentKeys StreamingLocatorUserDefinedContentKeyArrayInput
-	// Default ContentKeyPolicy used by this Streaming Locator
+	AccountName                 pulumi.StringInput
+	AssetName                   pulumi.StringInput
+	ContentKeys                 StreamingLocatorUserDefinedContentKeyArrayInput
 	DefaultContentKeyPolicyName pulumi.StringPtrInput
-	// EndTime of Streaming Locator
-	EndTime pulumi.StringPtrInput
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// StartTime of Streaming Locator
-	StartTime pulumi.StringPtrInput
-	// StreamingLocatorId of Streaming Locator
-	StreamingLocatorId pulumi.StringPtrInput
-	// The Streaming Locator name.
-	StreamingLocatorName pulumi.StringPtrInput
-	// Streaming policy name used by this streaming locator. Either specify the name of streaming policy you created or use one of the predefined streaming polices. The predefined streaming policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_SecureStreaming' and 'Predefined_SecureStreamingWithFairPlay'
-	StreamingPolicyName pulumi.StringInput
+	EndTime                     pulumi.StringPtrInput
+	ResourceGroupName           pulumi.StringInput
+	StartTime                   pulumi.StringPtrInput
+	StreamingLocatorId          pulumi.StringPtrInput
+	StreamingLocatorName        pulumi.StringPtrInput
+	StreamingPolicyName         pulumi.StringInput
 }
 
 func (StreamingLocatorArgs) ElementType() reflect.Type {
@@ -193,9 +162,7 @@ func (i *StreamingLocator) ToStreamingLocatorOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorOutput)
 }
 
-type StreamingLocatorOutput struct {
-	*pulumi.OutputState
-}
+type StreamingLocatorOutput struct{ *pulumi.OutputState }
 
 func (StreamingLocatorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamingLocator)(nil))

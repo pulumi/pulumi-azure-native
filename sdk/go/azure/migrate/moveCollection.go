@@ -145,9 +145,7 @@ func (i *MoveCollection) ToMoveCollectionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(MoveCollectionOutput)
 }
 
-type MoveCollectionOutput struct {
-	*pulumi.OutputState
-}
+type MoveCollectionOutput struct{ *pulumi.OutputState }
 
 func (MoveCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MoveCollection)(nil))

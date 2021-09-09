@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing an data connection.
-//
 // Deprecated: Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.
 func LookupDataConnection(ctx *pulumi.Context, args *LookupDataConnectionArgs, opts ...pulumi.InvokeOption) (*LookupDataConnectionResult, error) {
 	var rv LookupDataConnectionResult
@@ -20,26 +18,17 @@ func LookupDataConnection(ctx *pulumi.Context, args *LookupDataConnectionArgs, o
 }
 
 type LookupDataConnectionArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the data connection.
+	ClusterName        string `pulumi:"clusterName"`
 	DataConnectionName string `pulumi:"dataConnectionName"`
-	// The name of the database in the Kusto cluster.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	DatabaseName       string `pulumi:"databaseName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
 
 // Class representing an data connection.
 type LookupDataConnectionResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Kind of the endpoint for the data connection
-	Kind string `pulumi:"kind"`
-	// Resource location.
+	Id       string  `pulumi:"id"`
+	Kind     string  `pulumi:"kind"`
 	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Name     string  `pulumi:"name"`
+	Type     string  `pulumi:"type"`
 }

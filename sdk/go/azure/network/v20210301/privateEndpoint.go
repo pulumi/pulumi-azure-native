@@ -11,40 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Private endpoint resource.
 type PrivateEndpoint struct {
 	pulumi.CustomResourceState
 
-	// Application security groups in which the private endpoint IP configuration is included.
-	ApplicationSecurityGroups ApplicationSecurityGroupResponseArrayOutput `pulumi:"applicationSecurityGroups"`
-	// An array of custom dns configurations.
-	CustomDnsConfigs CustomDnsConfigPropertiesFormatResponseArrayOutput `pulumi:"customDnsConfigs"`
-	// The custom name of the network interface attached to the private endpoint.
-	CustomNetworkInterfaceName pulumi.StringPtrOutput `pulumi:"customNetworkInterfaceName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The extended location of the load balancer.
-	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
-	// A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
-	IpConfigurations PrivateEndpointIPConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
-	ManualPrivateLinkServiceConnections PrivateLinkServiceConnectionResponseArrayOutput `pulumi:"manualPrivateLinkServiceConnections"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// An array of references to the network interfaces created for this private endpoint.
-	NetworkInterfaces NetworkInterfaceResponseArrayOutput `pulumi:"networkInterfaces"`
-	// A grouping of information about the connection to the remote resource.
-	PrivateLinkServiceConnections PrivateLinkServiceConnectionResponseArrayOutput `pulumi:"privateLinkServiceConnections"`
-	// The provisioning state of the private endpoint resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The ID of the subnet from which the private IP will be allocated.
-	Subnet SubnetResponsePtrOutput `pulumi:"subnet"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ApplicationSecurityGroups           ApplicationSecurityGroupResponseArrayOutput        `pulumi:"applicationSecurityGroups"`
+	CustomDnsConfigs                    CustomDnsConfigPropertiesFormatResponseArrayOutput `pulumi:"customDnsConfigs"`
+	CustomNetworkInterfaceName          pulumi.StringPtrOutput                             `pulumi:"customNetworkInterfaceName"`
+	Etag                                pulumi.StringOutput                                `pulumi:"etag"`
+	ExtendedLocation                    ExtendedLocationResponsePtrOutput                  `pulumi:"extendedLocation"`
+	IpConfigurations                    PrivateEndpointIPConfigurationResponseArrayOutput  `pulumi:"ipConfigurations"`
+	Location                            pulumi.StringPtrOutput                             `pulumi:"location"`
+	ManualPrivateLinkServiceConnections PrivateLinkServiceConnectionResponseArrayOutput    `pulumi:"manualPrivateLinkServiceConnections"`
+	Name                                pulumi.StringOutput                                `pulumi:"name"`
+	NetworkInterfaces                   NetworkInterfaceResponseArrayOutput                `pulumi:"networkInterfaces"`
+	PrivateLinkServiceConnections       PrivateLinkServiceConnectionResponseArrayOutput    `pulumi:"privateLinkServiceConnections"`
+	ProvisioningState                   pulumi.StringOutput                                `pulumi:"provisioningState"`
+	Subnet                              SubnetResponsePtrOutput                            `pulumi:"subnet"`
+	Tags                                pulumi.StringMapOutput                             `pulumi:"tags"`
+	Type                                pulumi.StringOutput                                `pulumi:"type"`
 }
 
 // NewPrivateEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -221,62 +205,36 @@ func (PrivateEndpointState) ElementType() reflect.Type {
 }
 
 type privateEndpointArgs struct {
-	// Application security groups in which the private endpoint IP configuration is included.
-	ApplicationSecurityGroups []ApplicationSecurityGroupType `pulumi:"applicationSecurityGroups"`
-	// An array of custom dns configurations.
-	CustomDnsConfigs []CustomDnsConfigPropertiesFormat `pulumi:"customDnsConfigs"`
-	// The custom name of the network interface attached to the private endpoint.
-	CustomNetworkInterfaceName *string `pulumi:"customNetworkInterfaceName"`
-	// The extended location of the load balancer.
-	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
-	IpConfigurations []PrivateEndpointIPConfiguration `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
-	ManualPrivateLinkServiceConnections []PrivateLinkServiceConnection `pulumi:"manualPrivateLinkServiceConnections"`
-	// The name of the private endpoint.
-	PrivateEndpointName *string `pulumi:"privateEndpointName"`
-	// A grouping of information about the connection to the remote resource.
-	PrivateLinkServiceConnections []PrivateLinkServiceConnection `pulumi:"privateLinkServiceConnections"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The ID of the subnet from which the private IP will be allocated.
-	Subnet *SubnetType `pulumi:"subnet"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ApplicationSecurityGroups           []ApplicationSecurityGroupType    `pulumi:"applicationSecurityGroups"`
+	CustomDnsConfigs                    []CustomDnsConfigPropertiesFormat `pulumi:"customDnsConfigs"`
+	CustomNetworkInterfaceName          *string                           `pulumi:"customNetworkInterfaceName"`
+	ExtendedLocation                    *ExtendedLocation                 `pulumi:"extendedLocation"`
+	Id                                  *string                           `pulumi:"id"`
+	IpConfigurations                    []PrivateEndpointIPConfiguration  `pulumi:"ipConfigurations"`
+	Location                            *string                           `pulumi:"location"`
+	ManualPrivateLinkServiceConnections []PrivateLinkServiceConnection    `pulumi:"manualPrivateLinkServiceConnections"`
+	PrivateEndpointName                 *string                           `pulumi:"privateEndpointName"`
+	PrivateLinkServiceConnections       []PrivateLinkServiceConnection    `pulumi:"privateLinkServiceConnections"`
+	ResourceGroupName                   string                            `pulumi:"resourceGroupName"`
+	Subnet                              *SubnetType                       `pulumi:"subnet"`
+	Tags                                map[string]string                 `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PrivateEndpoint resource.
 type PrivateEndpointArgs struct {
-	// Application security groups in which the private endpoint IP configuration is included.
-	ApplicationSecurityGroups ApplicationSecurityGroupTypeArrayInput
-	// An array of custom dns configurations.
-	CustomDnsConfigs CustomDnsConfigPropertiesFormatArrayInput
-	// The custom name of the network interface attached to the private endpoint.
-	CustomNetworkInterfaceName pulumi.StringPtrInput
-	// The extended location of the load balancer.
-	ExtendedLocation ExtendedLocationPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
-	IpConfigurations PrivateEndpointIPConfigurationArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+	ApplicationSecurityGroups           ApplicationSecurityGroupTypeArrayInput
+	CustomDnsConfigs                    CustomDnsConfigPropertiesFormatArrayInput
+	CustomNetworkInterfaceName          pulumi.StringPtrInput
+	ExtendedLocation                    ExtendedLocationPtrInput
+	Id                                  pulumi.StringPtrInput
+	IpConfigurations                    PrivateEndpointIPConfigurationArrayInput
+	Location                            pulumi.StringPtrInput
 	ManualPrivateLinkServiceConnections PrivateLinkServiceConnectionArrayInput
-	// The name of the private endpoint.
-	PrivateEndpointName pulumi.StringPtrInput
-	// A grouping of information about the connection to the remote resource.
-	PrivateLinkServiceConnections PrivateLinkServiceConnectionArrayInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The ID of the subnet from which the private IP will be allocated.
-	Subnet SubnetTypePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	PrivateEndpointName                 pulumi.StringPtrInput
+	PrivateLinkServiceConnections       PrivateLinkServiceConnectionArrayInput
+	ResourceGroupName                   pulumi.StringInput
+	Subnet                              SubnetTypePtrInput
+	Tags                                pulumi.StringMapInput
 }
 
 func (PrivateEndpointArgs) ElementType() reflect.Type {
@@ -302,9 +260,7 @@ func (i *PrivateEndpoint) ToPrivateEndpointOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointOutput)
 }
 
-type PrivateEndpointOutput struct {
-	*pulumi.OutputState
-}
+type PrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpoint)(nil))

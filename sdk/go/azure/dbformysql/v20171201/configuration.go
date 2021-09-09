@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Configuration.
 type Configuration struct {
 	pulumi.CustomResourceState
 
-	// Allowed values of the configuration.
-	AllowedValues pulumi.StringOutput `pulumi:"allowedValues"`
-	// Data type of the configuration.
-	DataType pulumi.StringOutput `pulumi:"dataType"`
-	// Default value of the configuration.
-	DefaultValue pulumi.StringOutput `pulumi:"defaultValue"`
-	// Description of the configuration.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Source of the configuration.
-	Source pulumi.StringPtrOutput `pulumi:"source"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Value of the configuration.
-	Value pulumi.StringPtrOutput `pulumi:"value"`
+	AllowedValues pulumi.StringOutput    `pulumi:"allowedValues"`
+	DataType      pulumi.StringOutput    `pulumi:"dataType"`
+	DefaultValue  pulumi.StringOutput    `pulumi:"defaultValue"`
+	Description   pulumi.StringOutput    `pulumi:"description"`
+	Name          pulumi.StringOutput    `pulumi:"name"`
+	Source        pulumi.StringPtrOutput `pulumi:"source"`
+	Type          pulumi.StringOutput    `pulumi:"type"`
+	Value         pulumi.StringPtrOutput `pulumi:"value"`
 }
 
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -96,30 +87,20 @@ func (ConfigurationState) ElementType() reflect.Type {
 }
 
 type configurationArgs struct {
-	// The name of the server configuration.
 	ConfigurationName *string `pulumi:"configurationName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// Source of the configuration.
-	Source *string `pulumi:"source"`
-	// Value of the configuration.
-	Value *string `pulumi:"value"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServerName        string  `pulumi:"serverName"`
+	Source            *string `pulumi:"source"`
+	Value             *string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Configuration resource.
 type ConfigurationArgs struct {
-	// The name of the server configuration.
 	ConfigurationName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
-	// Source of the configuration.
-	Source pulumi.StringPtrInput
-	// Value of the configuration.
-	Value pulumi.StringPtrInput
+	ServerName        pulumi.StringInput
+	Source            pulumi.StringPtrInput
+	Value             pulumi.StringPtrInput
 }
 
 func (ConfigurationArgs) ElementType() reflect.Type {
@@ -145,9 +126,7 @@ func (i *Configuration) ToConfigurationOutputWithContext(ctx context.Context) Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationOutput)
 }
 
-type ConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Configuration)(nil))

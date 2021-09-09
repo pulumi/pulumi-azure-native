@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Asset Filter.
 type AssetFilter struct {
 	pulumi.CustomResourceState
 
-	// The first quality.
-	FirstQuality FirstQualityResponsePtrOutput `pulumi:"firstQuality"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The presentation time range.
-	PresentationTimeRange PresentationTimeRangeResponsePtrOutput `pulumi:"presentationTimeRange"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The tracks selection conditions.
-	Tracks FilterTrackSelectionResponseArrayOutput `pulumi:"tracks"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	FirstQuality          FirstQualityResponsePtrOutput           `pulumi:"firstQuality"`
+	Name                  pulumi.StringOutput                     `pulumi:"name"`
+	PresentationTimeRange PresentationTimeRangeResponsePtrOutput  `pulumi:"presentationTimeRange"`
+	SystemData            SystemDataResponseOutput                `pulumi:"systemData"`
+	Tracks                FilterTrackSelectionResponseArrayOutput `pulumi:"tracks"`
+	Type                  pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewAssetFilter registers a new resource with the given unique name, arguments, and options.
@@ -101,38 +94,24 @@ func (AssetFilterState) ElementType() reflect.Type {
 }
 
 type assetFilterArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// The Asset name.
-	AssetName string `pulumi:"assetName"`
-	// The Asset Filter name
-	FilterName *string `pulumi:"filterName"`
-	// The first quality.
-	FirstQuality *FirstQuality `pulumi:"firstQuality"`
-	// The presentation time range.
+	AccountName           string                 `pulumi:"accountName"`
+	AssetName             string                 `pulumi:"assetName"`
+	FilterName            *string                `pulumi:"filterName"`
+	FirstQuality          *FirstQuality          `pulumi:"firstQuality"`
 	PresentationTimeRange *PresentationTimeRange `pulumi:"presentationTimeRange"`
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tracks selection conditions.
-	Tracks []FilterTrackSelection `pulumi:"tracks"`
+	ResourceGroupName     string                 `pulumi:"resourceGroupName"`
+	Tracks                []FilterTrackSelection `pulumi:"tracks"`
 }
 
 // The set of arguments for constructing a AssetFilter resource.
 type AssetFilterArgs struct {
-	// The Media Services account name.
-	AccountName pulumi.StringInput
-	// The Asset name.
-	AssetName pulumi.StringInput
-	// The Asset Filter name
-	FilterName pulumi.StringPtrInput
-	// The first quality.
-	FirstQuality FirstQualityPtrInput
-	// The presentation time range.
+	AccountName           pulumi.StringInput
+	AssetName             pulumi.StringInput
+	FilterName            pulumi.StringPtrInput
+	FirstQuality          FirstQualityPtrInput
 	PresentationTimeRange PresentationTimeRangePtrInput
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The tracks selection conditions.
-	Tracks FilterTrackSelectionArrayInput
+	ResourceGroupName     pulumi.StringInput
+	Tracks                FilterTrackSelectionArrayInput
 }
 
 func (AssetFilterArgs) ElementType() reflect.Type {
@@ -158,9 +137,7 @@ func (i *AssetFilter) ToAssetFilterOutputWithContext(ctx context.Context) AssetF
 	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterOutput)
 }
 
-type AssetFilterOutput struct {
-	*pulumi.OutputState
-}
+type AssetFilterOutput struct{ *pulumi.OutputState }
 
 func (AssetFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AssetFilter)(nil))

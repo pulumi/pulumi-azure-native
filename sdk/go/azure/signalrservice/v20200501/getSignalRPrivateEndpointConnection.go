@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A private endpoint connection to SignalR resource
 func LookupSignalRPrivateEndpointConnection(ctx *pulumi.Context, args *LookupSignalRPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupSignalRPrivateEndpointConnectionResult, error) {
 	var rv LookupSignalRPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:signalrservice/v20200501:getSignalRPrivateEndpointConnection", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupSignalRPrivateEndpointConnection(ctx *pulumi.Context, args *LookupSig
 }
 
 type LookupSignalRPrivateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection associated with the SignalR resource.
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the SignalR resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
+	ResourceName                  string `pulumi:"resourceName"`
 }
 
 // A private endpoint connection to SignalR resource
 type LookupSignalRPrivateEndpointConnectionResult struct {
-	// Fully qualified resource Id for the resource.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Private endpoint associated with the private endpoint connection
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Connection state
+	Id                                string                                     `pulumi:"id"`
+	Name                              string                                     `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointResponse                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type string `pulumi:"type"`
+	ProvisioningState                 string                                     `pulumi:"provisioningState"`
+	Type                              string                                     `pulumi:"type"`
 }

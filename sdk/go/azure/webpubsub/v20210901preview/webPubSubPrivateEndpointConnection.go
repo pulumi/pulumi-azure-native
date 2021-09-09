@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A private endpoint connection to an azure resource
 type WebPubSubPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Private endpoint associated with the private endpoint connection
-	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
-	// Connection state
+	Name                              pulumi.StringOutput                                `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponsePtrOutput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringOutput                                `pulumi:"provisioningState"`
+	SystemData                        SystemDataResponseOutput                           `pulumi:"systemData"`
+	Type                              pulumi.StringOutput                                `pulumi:"type"`
 }
 
 // NewWebPubSubPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -98,30 +91,20 @@ func (WebPubSubPrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type webPubSubPrivateEndpointConnectionArgs struct {
-	// Private endpoint associated with the private endpoint connection
-	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
-	// The name of the private endpoint connection
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// Connection state
+	PrivateEndpoint                   *PrivateEndpoint                   `pulumi:"privateEndpoint"`
+	PrivateEndpointConnectionName     *string                            `pulumi:"privateEndpointConnectionName"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceGroupName                 string                             `pulumi:"resourceGroupName"`
+	ResourceName                      string                             `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a WebPubSubPrivateEndpointConnection resource.
 type WebPubSubPrivateEndpointConnectionArgs struct {
-	// Private endpoint associated with the private endpoint connection
-	PrivateEndpoint PrivateEndpointPtrInput
-	// The name of the private endpoint connection
-	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// Connection state
+	PrivateEndpoint                   PrivateEndpointPtrInput
+	PrivateEndpointConnectionName     pulumi.StringPtrInput
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// The name of the resource.
-	ResourceName pulumi.StringInput
+	ResourceGroupName                 pulumi.StringInput
+	ResourceName                      pulumi.StringInput
 }
 
 func (WebPubSubPrivateEndpointConnectionArgs) ElementType() reflect.Type {
@@ -147,9 +130,7 @@ func (i *WebPubSubPrivateEndpointConnection) ToWebPubSubPrivateEndpointConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubPrivateEndpointConnectionOutput)
 }
 
-type WebPubSubPrivateEndpointConnectionOutput struct {
-	*pulumi.OutputState
-}
+type WebPubSubPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (WebPubSubPrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebPubSubPrivateEndpointConnection)(nil))

@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Replication protected item.
 type ReplicationProtectedItem struct {
 	pulumi.CustomResourceState
 
-	// Resource Location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The custom data.
+	Location   pulumi.StringPtrOutput                           `pulumi:"location"`
+	Name       pulumi.StringOutput                              `pulumi:"name"`
 	Properties ReplicationProtectedItemPropertiesResponseOutput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                              `pulumi:"type"`
 }
 
 // NewReplicationProtectedItem registers a new resource with the given unique name, arguments, and options.
@@ -130,34 +125,22 @@ func (ReplicationProtectedItemState) ElementType() reflect.Type {
 }
 
 type replicationProtectedItemArgs struct {
-	// Name of the fabric.
-	FabricName string `pulumi:"fabricName"`
-	// Enable protection input properties.
-	Properties *EnableProtectionInputProperties `pulumi:"properties"`
-	// Protection container name.
-	ProtectionContainerName string `pulumi:"protectionContainerName"`
-	// A name for the replication protected item.
-	ReplicatedProtectedItemName *string `pulumi:"replicatedProtectedItemName"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
+	FabricName                  string                           `pulumi:"fabricName"`
+	Properties                  *EnableProtectionInputProperties `pulumi:"properties"`
+	ProtectionContainerName     string                           `pulumi:"protectionContainerName"`
+	ReplicatedProtectedItemName *string                          `pulumi:"replicatedProtectedItemName"`
+	ResourceGroupName           string                           `pulumi:"resourceGroupName"`
+	ResourceName                string                           `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a ReplicationProtectedItem resource.
 type ReplicationProtectedItemArgs struct {
-	// Name of the fabric.
-	FabricName pulumi.StringInput
-	// Enable protection input properties.
-	Properties EnableProtectionInputPropertiesPtrInput
-	// Protection container name.
-	ProtectionContainerName pulumi.StringInput
-	// A name for the replication protected item.
+	FabricName                  pulumi.StringInput
+	Properties                  EnableProtectionInputPropertiesPtrInput
+	ProtectionContainerName     pulumi.StringInput
 	ReplicatedProtectedItemName pulumi.StringPtrInput
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName pulumi.StringInput
-	// The name of the recovery services vault.
-	ResourceName pulumi.StringInput
+	ResourceGroupName           pulumi.StringInput
+	ResourceName                pulumi.StringInput
 }
 
 func (ReplicationProtectedItemArgs) ElementType() reflect.Type {
@@ -183,9 +166,7 @@ func (i *ReplicationProtectedItem) ToReplicationProtectedItemOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectedItemOutput)
 }
 
-type ReplicationProtectedItemOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (ReplicationProtectedItemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationProtectedItem)(nil))

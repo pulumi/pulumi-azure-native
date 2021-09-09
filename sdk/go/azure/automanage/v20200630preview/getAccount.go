@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the Automanage account.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure-native:automanage/v20200630preview:getAccount", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 }
 
 type LookupAccountArgs struct {
-	// The Automanage account name.
-	AccountName string `pulumi:"accountName"`
-	// The name of the resource group. The name is case insensitive.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Definition of the Automanage account.
 type LookupAccountResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The identity of the Automanage account.
+	Id       string                   `pulumi:"id"`
 	Identity *AccountIdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Location string                   `pulumi:"location"`
+	Name     string                   `pulumi:"name"`
+	Tags     map[string]string        `pulumi:"tags"`
+	Type     string                   `pulumi:"type"`
 }

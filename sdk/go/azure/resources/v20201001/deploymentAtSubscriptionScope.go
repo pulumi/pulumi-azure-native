@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Deployment information.
 type DeploymentAtSubscriptionScope struct {
 	pulumi.CustomResourceState
 
-	// the location of the deployment.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the deployment.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Deployment properties.
+	Location   pulumi.StringPtrOutput                     `pulumi:"location"`
+	Name       pulumi.StringOutput                        `pulumi:"name"`
 	Properties DeploymentPropertiesExtendedResponseOutput `pulumi:"properties"`
-	// Deployment tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the deployment.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type       pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewDeploymentAtSubscriptionScope registers a new resource with the given unique name, arguments, and options.
@@ -147,26 +141,18 @@ func (DeploymentAtSubscriptionScopeState) ElementType() reflect.Type {
 }
 
 type deploymentAtSubscriptionScopeArgs struct {
-	// The name of the deployment.
-	DeploymentName *string `pulumi:"deploymentName"`
-	// The location to store the deployment data.
-	Location *string `pulumi:"location"`
-	// The deployment properties.
-	Properties DeploymentProperties `pulumi:"properties"`
-	// Deployment tags
-	Tags map[string]string `pulumi:"tags"`
+	DeploymentName *string              `pulumi:"deploymentName"`
+	Location       *string              `pulumi:"location"`
+	Properties     DeploymentProperties `pulumi:"properties"`
+	Tags           map[string]string    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeploymentAtSubscriptionScope resource.
 type DeploymentAtSubscriptionScopeArgs struct {
-	// The name of the deployment.
 	DeploymentName pulumi.StringPtrInput
-	// The location to store the deployment data.
-	Location pulumi.StringPtrInput
-	// The deployment properties.
-	Properties DeploymentPropertiesInput
-	// Deployment tags
-	Tags pulumi.StringMapInput
+	Location       pulumi.StringPtrInput
+	Properties     DeploymentPropertiesInput
+	Tags           pulumi.StringMapInput
 }
 
 func (DeploymentAtSubscriptionScopeArgs) ElementType() reflect.Type {
@@ -192,9 +178,7 @@ func (i *DeploymentAtSubscriptionScope) ToDeploymentAtSubscriptionScopeOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtSubscriptionScopeOutput)
 }
 
-type DeploymentAtSubscriptionScopeOutput struct {
-	*pulumi.OutputState
-}
+type DeploymentAtSubscriptionScopeOutput struct{ *pulumi.OutputState }
 
 func (DeploymentAtSubscriptionScopeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentAtSubscriptionScope)(nil))

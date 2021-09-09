@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NSX DNS Service
 type WorkloadNetworkDnsService struct {
 	pulumi.CustomResourceState
 
-	// Default DNS zone of the DNS Service.
-	DefaultDnsZone pulumi.StringPtrOutput `pulumi:"defaultDnsZone"`
-	// Display name of the DNS Service.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// DNS service IP of the DNS Service.
-	DnsServiceIp pulumi.StringPtrOutput `pulumi:"dnsServiceIp"`
-	// FQDN zones of the DNS Service.
-	FqdnZones pulumi.StringArrayOutput `pulumi:"fqdnZones"`
-	// DNS Service log level.
-	LogLevel pulumi.StringPtrOutput `pulumi:"logLevel"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision pulumi.Float64PtrOutput `pulumi:"revision"`
-	// DNS Service status.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DefaultDnsZone    pulumi.StringPtrOutput   `pulumi:"defaultDnsZone"`
+	DisplayName       pulumi.StringPtrOutput   `pulumi:"displayName"`
+	DnsServiceIp      pulumi.StringPtrOutput   `pulumi:"dnsServiceIp"`
+	FqdnZones         pulumi.StringArrayOutput `pulumi:"fqdnZones"`
+	LogLevel          pulumi.StringPtrOutput   `pulumi:"logLevel"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	Revision          pulumi.Float64PtrOutput  `pulumi:"revision"`
+	Status            pulumi.StringOutput      `pulumi:"status"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewWorkloadNetworkDnsService registers a new resource with the given unique name, arguments, and options.
@@ -106,46 +95,28 @@ func (WorkloadNetworkDnsServiceState) ElementType() reflect.Type {
 }
 
 type workloadNetworkDnsServiceArgs struct {
-	// Default DNS zone of the DNS Service.
-	DefaultDnsZone *string `pulumi:"defaultDnsZone"`
-	// Display name of the DNS Service.
-	DisplayName *string `pulumi:"displayName"`
-	// NSX DNS Service identifier. Generally the same as the DNS Service's display name
-	DnsServiceId *string `pulumi:"dnsServiceId"`
-	// DNS service IP of the DNS Service.
-	DnsServiceIp *string `pulumi:"dnsServiceIp"`
-	// FQDN zones of the DNS Service.
-	FqdnZones []string `pulumi:"fqdnZones"`
-	// DNS Service log level.
-	LogLevel *string `pulumi:"logLevel"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
+	DefaultDnsZone    *string  `pulumi:"defaultDnsZone"`
+	DisplayName       *string  `pulumi:"displayName"`
+	DnsServiceId      *string  `pulumi:"dnsServiceId"`
+	DnsServiceIp      *string  `pulumi:"dnsServiceIp"`
+	FqdnZones         []string `pulumi:"fqdnZones"`
+	LogLevel          *string  `pulumi:"logLevel"`
+	PrivateCloudName  string   `pulumi:"privateCloudName"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
+	Revision          *float64 `pulumi:"revision"`
 }
 
 // The set of arguments for constructing a WorkloadNetworkDnsService resource.
 type WorkloadNetworkDnsServiceArgs struct {
-	// Default DNS zone of the DNS Service.
-	DefaultDnsZone pulumi.StringPtrInput
-	// Display name of the DNS Service.
-	DisplayName pulumi.StringPtrInput
-	// NSX DNS Service identifier. Generally the same as the DNS Service's display name
-	DnsServiceId pulumi.StringPtrInput
-	// DNS service IP of the DNS Service.
-	DnsServiceIp pulumi.StringPtrInput
-	// FQDN zones of the DNS Service.
-	FqdnZones pulumi.StringArrayInput
-	// DNS Service log level.
-	LogLevel pulumi.StringPtrInput
-	// Name of the private cloud
-	PrivateCloudName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
+	DefaultDnsZone    pulumi.StringPtrInput
+	DisplayName       pulumi.StringPtrInput
+	DnsServiceId      pulumi.StringPtrInput
+	DnsServiceIp      pulumi.StringPtrInput
+	FqdnZones         pulumi.StringArrayInput
+	LogLevel          pulumi.StringPtrInput
+	PrivateCloudName  pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// NSX revision number.
-	Revision pulumi.Float64PtrInput
+	Revision          pulumi.Float64PtrInput
 }
 
 func (WorkloadNetworkDnsServiceArgs) ElementType() reflect.Type {
@@ -171,9 +142,7 @@ func (i *WorkloadNetworkDnsService) ToWorkloadNetworkDnsServiceOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkDnsServiceOutput)
 }
 
-type WorkloadNetworkDnsServiceOutput struct {
-	*pulumi.OutputState
-}
+type WorkloadNetworkDnsServiceOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkDnsServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkDnsService)(nil))

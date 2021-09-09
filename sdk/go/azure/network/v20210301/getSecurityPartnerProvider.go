@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Security Partner Provider resource.
 func LookupSecurityPartnerProvider(ctx *pulumi.Context, args *LookupSecurityPartnerProviderArgs, opts ...pulumi.InvokeOption) (*LookupSecurityPartnerProviderResult, error) {
 	var rv LookupSecurityPartnerProviderResult
 	err := ctx.Invoke("azure-native:network/v20210301:getSecurityPartnerProvider", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupSecurityPartnerProvider(ctx *pulumi.Context, args *LookupSecurityPart
 }
 
 type LookupSecurityPartnerProviderArgs struct {
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Security Partner Provider.
+	ResourceGroupName           string `pulumi:"resourceGroupName"`
 	SecurityPartnerProviderName string `pulumi:"securityPartnerProviderName"`
 }
 
 // Security Partner Provider resource.
 type LookupSecurityPartnerProviderResult struct {
-	// The connection status with the Security Partner Provider.
-	ConnectionStatus string `pulumi:"connectionStatus"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the Security Partner Provider resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The security provider name.
-	SecurityProviderName *string `pulumi:"securityProviderName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The virtualHub to which the Security Partner Provider belongs.
-	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
+	ConnectionStatus     string               `pulumi:"connectionStatus"`
+	Etag                 string               `pulumi:"etag"`
+	Id                   *string              `pulumi:"id"`
+	Location             *string              `pulumi:"location"`
+	Name                 string               `pulumi:"name"`
+	ProvisioningState    string               `pulumi:"provisioningState"`
+	SecurityProviderName *string              `pulumi:"securityProviderName"`
+	Tags                 map[string]string    `pulumi:"tags"`
+	Type                 string               `pulumi:"type"`
+	VirtualHub           *SubResourceResponse `pulumi:"virtualHub"`
 }

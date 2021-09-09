@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Active Directory Object that will be used for authenticating the token of a container registry.
 type ActiveDirectoryObject struct {
-	// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
 	ObjectId *string `pulumi:"objectId"`
-	// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -29,11 +26,8 @@ type ActiveDirectoryObjectInput interface {
 	ToActiveDirectoryObjectOutputWithContext(context.Context) ActiveDirectoryObjectOutput
 }
 
-// The Active Directory Object that will be used for authenticating the token of a container registry.
 type ActiveDirectoryObjectArgs struct {
-	// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
@@ -90,7 +84,6 @@ func (i *activeDirectoryObjectPtrType) ToActiveDirectoryObjectPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryObjectPtrOutput)
 }
 
-// The Active Directory Object that will be used for authenticating the token of a container registry.
 type ActiveDirectoryObjectOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryObjectOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o ActiveDirectoryObjectOutput) ToActiveDirectoryObjectPtrOutput() ActiveDi
 }
 
 func (o ActiveDirectoryObjectOutput) ToActiveDirectoryObjectPtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryObject) *ActiveDirectoryObject {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActiveDirectoryObject) *ActiveDirectoryObject {
 		return &v
 	}).(ActiveDirectoryObjectPtrOutput)
 }
 
-// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
 func (o ActiveDirectoryObjectOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryObject) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
 func (o ActiveDirectoryObjectOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryObject) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -140,10 +131,15 @@ func (o ActiveDirectoryObjectPtrOutput) ToActiveDirectoryObjectPtrOutputWithCont
 }
 
 func (o ActiveDirectoryObjectPtrOutput) Elem() ActiveDirectoryObjectOutput {
-	return o.ApplyT(func(v *ActiveDirectoryObject) ActiveDirectoryObject { return *v }).(ActiveDirectoryObjectOutput)
+	return o.ApplyT(func(v *ActiveDirectoryObject) ActiveDirectoryObject {
+		if v != nil {
+			return *v
+		}
+		var ret ActiveDirectoryObject
+		return ret
+	}).(ActiveDirectoryObjectOutput)
 }
 
-// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
 func (o ActiveDirectoryObjectPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveDirectoryObject) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o ActiveDirectoryObjectPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
 func (o ActiveDirectoryObjectPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveDirectoryObject) *string {
 		if v == nil {
@@ -163,11 +158,8 @@ func (o ActiveDirectoryObjectPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Active Directory Object that will be used for authenticating the token of a container registry.
 type ActiveDirectoryObjectResponse struct {
-	// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
 	ObjectId *string `pulumi:"objectId"`
-	// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -182,11 +174,8 @@ type ActiveDirectoryObjectResponseInput interface {
 	ToActiveDirectoryObjectResponseOutputWithContext(context.Context) ActiveDirectoryObjectResponseOutput
 }
 
-// The Active Directory Object that will be used for authenticating the token of a container registry.
 type ActiveDirectoryObjectResponseArgs struct {
-	// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
@@ -243,7 +232,6 @@ func (i *activeDirectoryObjectResponsePtrType) ToActiveDirectoryObjectResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryObjectResponsePtrOutput)
 }
 
-// The Active Directory Object that will be used for authenticating the token of a container registry.
 type ActiveDirectoryObjectResponseOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryObjectResponseOutput) ElementType() reflect.Type {
@@ -263,17 +251,15 @@ func (o ActiveDirectoryObjectResponseOutput) ToActiveDirectoryObjectResponsePtrO
 }
 
 func (o ActiveDirectoryObjectResponseOutput) ToActiveDirectoryObjectResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectResponsePtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryObjectResponse) *ActiveDirectoryObjectResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActiveDirectoryObjectResponse) *ActiveDirectoryObjectResponse {
 		return &v
 	}).(ActiveDirectoryObjectResponsePtrOutput)
 }
 
-// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
 func (o ActiveDirectoryObjectResponseOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryObjectResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
 func (o ActiveDirectoryObjectResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryObjectResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -293,10 +279,15 @@ func (o ActiveDirectoryObjectResponsePtrOutput) ToActiveDirectoryObjectResponseP
 }
 
 func (o ActiveDirectoryObjectResponsePtrOutput) Elem() ActiveDirectoryObjectResponseOutput {
-	return o.ApplyT(func(v *ActiveDirectoryObjectResponse) ActiveDirectoryObjectResponse { return *v }).(ActiveDirectoryObjectResponseOutput)
+	return o.ApplyT(func(v *ActiveDirectoryObjectResponse) ActiveDirectoryObjectResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ActiveDirectoryObjectResponse
+		return ret
+	}).(ActiveDirectoryObjectResponseOutput)
 }
 
-// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
 func (o ActiveDirectoryObjectResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveDirectoryObjectResponse) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o ActiveDirectoryObjectResponsePtrOutput) ObjectId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
 func (o ActiveDirectoryObjectResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveDirectoryObjectResponse) *string {
 		if v == nil {
@@ -316,19 +306,12 @@ func (o ActiveDirectoryObjectResponsePtrOutput) TenantId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource modification (UTC).
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -343,19 +326,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource modification (UTC).
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -412,7 +388,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -432,37 +407,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource modification (UTC).
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -482,10 +451,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -495,7 +469,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -505,7 +478,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -515,7 +487,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource modification (UTC).
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -525,7 +496,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -535,7 +505,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -545,15 +514,11 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a certificate used for authenticating a token.
 type TokenCertificate struct {
-	// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
 	EncodedPemCertificate *string `pulumi:"encodedPemCertificate"`
-	// The expiry datetime of the certificate.
-	Expiry *string `pulumi:"expiry"`
-	Name   *string `pulumi:"name"`
-	// The thumbprint of the certificate.
-	Thumbprint *string `pulumi:"thumbprint"`
+	Expiry                *string `pulumi:"expiry"`
+	Name                  *string `pulumi:"name"`
+	Thumbprint            *string `pulumi:"thumbprint"`
 }
 
 // TokenCertificateInput is an input type that accepts TokenCertificateArgs and TokenCertificateOutput values.
@@ -567,15 +532,11 @@ type TokenCertificateInput interface {
 	ToTokenCertificateOutputWithContext(context.Context) TokenCertificateOutput
 }
 
-// The properties of a certificate used for authenticating a token.
 type TokenCertificateArgs struct {
-	// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
 	EncodedPemCertificate pulumi.StringPtrInput `pulumi:"encodedPemCertificate"`
-	// The expiry datetime of the certificate.
-	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
-	Name   pulumi.StringPtrInput `pulumi:"name"`
-	// The thumbprint of the certificate.
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+	Expiry                pulumi.StringPtrInput `pulumi:"expiry"`
+	Name                  pulumi.StringPtrInput `pulumi:"name"`
+	Thumbprint            pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (TokenCertificateArgs) ElementType() reflect.Type {
@@ -615,7 +576,6 @@ func (i TokenCertificateArray) ToTokenCertificateArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TokenCertificateArrayOutput)
 }
 
-// The properties of a certificate used for authenticating a token.
 type TokenCertificateOutput struct{ *pulumi.OutputState }
 
 func (TokenCertificateOutput) ElementType() reflect.Type {
@@ -630,12 +590,10 @@ func (o TokenCertificateOutput) ToTokenCertificateOutputWithContext(ctx context.
 	return o
 }
 
-// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
 func (o TokenCertificateOutput) EncodedPemCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenCertificate) *string { return v.EncodedPemCertificate }).(pulumi.StringPtrOutput)
 }
 
-// The expiry datetime of the certificate.
 func (o TokenCertificateOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenCertificate) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
@@ -644,7 +602,6 @@ func (o TokenCertificateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenCertificate) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The thumbprint of the certificate.
 func (o TokenCertificateOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenCertificate) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
@@ -669,15 +626,11 @@ func (o TokenCertificateArrayOutput) Index(i pulumi.IntInput) TokenCertificateOu
 	}).(TokenCertificateOutput)
 }
 
-// The properties of a certificate used for authenticating a token.
 type TokenCertificateResponse struct {
-	// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
 	EncodedPemCertificate *string `pulumi:"encodedPemCertificate"`
-	// The expiry datetime of the certificate.
-	Expiry *string `pulumi:"expiry"`
-	Name   *string `pulumi:"name"`
-	// The thumbprint of the certificate.
-	Thumbprint *string `pulumi:"thumbprint"`
+	Expiry                *string `pulumi:"expiry"`
+	Name                  *string `pulumi:"name"`
+	Thumbprint            *string `pulumi:"thumbprint"`
 }
 
 // TokenCertificateResponseInput is an input type that accepts TokenCertificateResponseArgs and TokenCertificateResponseOutput values.
@@ -691,15 +644,11 @@ type TokenCertificateResponseInput interface {
 	ToTokenCertificateResponseOutputWithContext(context.Context) TokenCertificateResponseOutput
 }
 
-// The properties of a certificate used for authenticating a token.
 type TokenCertificateResponseArgs struct {
-	// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
 	EncodedPemCertificate pulumi.StringPtrInput `pulumi:"encodedPemCertificate"`
-	// The expiry datetime of the certificate.
-	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
-	Name   pulumi.StringPtrInput `pulumi:"name"`
-	// The thumbprint of the certificate.
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+	Expiry                pulumi.StringPtrInput `pulumi:"expiry"`
+	Name                  pulumi.StringPtrInput `pulumi:"name"`
+	Thumbprint            pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (TokenCertificateResponseArgs) ElementType() reflect.Type {
@@ -739,7 +688,6 @@ func (i TokenCertificateResponseArray) ToTokenCertificateResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TokenCertificateResponseArrayOutput)
 }
 
-// The properties of a certificate used for authenticating a token.
 type TokenCertificateResponseOutput struct{ *pulumi.OutputState }
 
 func (TokenCertificateResponseOutput) ElementType() reflect.Type {
@@ -754,12 +702,10 @@ func (o TokenCertificateResponseOutput) ToTokenCertificateResponseOutputWithCont
 	return o
 }
 
-// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
 func (o TokenCertificateResponseOutput) EncodedPemCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenCertificateResponse) *string { return v.EncodedPemCertificate }).(pulumi.StringPtrOutput)
 }
 
-// The expiry datetime of the certificate.
 func (o TokenCertificateResponseOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenCertificateResponse) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
@@ -768,7 +714,6 @@ func (o TokenCertificateResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenCertificateResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The thumbprint of the certificate.
 func (o TokenCertificateResponseOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenCertificateResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
@@ -793,9 +738,7 @@ func (o TokenCertificateResponseArrayOutput) Index(i pulumi.IntInput) TokenCerti
 	}).(TokenCertificateResponseOutput)
 }
 
-// The properties of the credentials that can be used for authenticating the token.
 type TokenCredentialsProperties struct {
-	// The Active Directory Object that will be used for authenticating the token of a container registry.
 	ActiveDirectoryObject *ActiveDirectoryObject `pulumi:"activeDirectoryObject"`
 	Certificates          []TokenCertificate     `pulumi:"certificates"`
 	Passwords             []TokenPassword        `pulumi:"passwords"`
@@ -812,9 +755,7 @@ type TokenCredentialsPropertiesInput interface {
 	ToTokenCredentialsPropertiesOutputWithContext(context.Context) TokenCredentialsPropertiesOutput
 }
 
-// The properties of the credentials that can be used for authenticating the token.
 type TokenCredentialsPropertiesArgs struct {
-	// The Active Directory Object that will be used for authenticating the token of a container registry.
 	ActiveDirectoryObject ActiveDirectoryObjectPtrInput `pulumi:"activeDirectoryObject"`
 	Certificates          TokenCertificateArrayInput    `pulumi:"certificates"`
 	Passwords             TokenPasswordArrayInput       `pulumi:"passwords"`
@@ -873,7 +814,6 @@ func (i *tokenCredentialsPropertiesPtrType) ToTokenCredentialsPropertiesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TokenCredentialsPropertiesPtrOutput)
 }
 
-// The properties of the credentials that can be used for authenticating the token.
 type TokenCredentialsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (TokenCredentialsPropertiesOutput) ElementType() reflect.Type {
@@ -893,12 +833,11 @@ func (o TokenCredentialsPropertiesOutput) ToTokenCredentialsPropertiesPtrOutput(
 }
 
 func (o TokenCredentialsPropertiesOutput) ToTokenCredentialsPropertiesPtrOutputWithContext(ctx context.Context) TokenCredentialsPropertiesPtrOutput {
-	return o.ApplyT(func(v TokenCredentialsProperties) *TokenCredentialsProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TokenCredentialsProperties) *TokenCredentialsProperties {
 		return &v
 	}).(TokenCredentialsPropertiesPtrOutput)
 }
 
-// The Active Directory Object that will be used for authenticating the token of a container registry.
 func (o TokenCredentialsPropertiesOutput) ActiveDirectoryObject() ActiveDirectoryObjectPtrOutput {
 	return o.ApplyT(func(v TokenCredentialsProperties) *ActiveDirectoryObject { return v.ActiveDirectoryObject }).(ActiveDirectoryObjectPtrOutput)
 }
@@ -926,10 +865,15 @@ func (o TokenCredentialsPropertiesPtrOutput) ToTokenCredentialsPropertiesPtrOutp
 }
 
 func (o TokenCredentialsPropertiesPtrOutput) Elem() TokenCredentialsPropertiesOutput {
-	return o.ApplyT(func(v *TokenCredentialsProperties) TokenCredentialsProperties { return *v }).(TokenCredentialsPropertiesOutput)
+	return o.ApplyT(func(v *TokenCredentialsProperties) TokenCredentialsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TokenCredentialsProperties
+		return ret
+	}).(TokenCredentialsPropertiesOutput)
 }
 
-// The Active Directory Object that will be used for authenticating the token of a container registry.
 func (o TokenCredentialsPropertiesPtrOutput) ActiveDirectoryObject() ActiveDirectoryObjectPtrOutput {
 	return o.ApplyT(func(v *TokenCredentialsProperties) *ActiveDirectoryObject {
 		if v == nil {
@@ -957,9 +901,7 @@ func (o TokenCredentialsPropertiesPtrOutput) Passwords() TokenPasswordArrayOutpu
 	}).(TokenPasswordArrayOutput)
 }
 
-// The properties of the credentials that can be used for authenticating the token.
 type TokenCredentialsPropertiesResponse struct {
-	// The Active Directory Object that will be used for authenticating the token of a container registry.
 	ActiveDirectoryObject *ActiveDirectoryObjectResponse `pulumi:"activeDirectoryObject"`
 	Certificates          []TokenCertificateResponse     `pulumi:"certificates"`
 	Passwords             []TokenPasswordResponse        `pulumi:"passwords"`
@@ -976,9 +918,7 @@ type TokenCredentialsPropertiesResponseInput interface {
 	ToTokenCredentialsPropertiesResponseOutputWithContext(context.Context) TokenCredentialsPropertiesResponseOutput
 }
 
-// The properties of the credentials that can be used for authenticating the token.
 type TokenCredentialsPropertiesResponseArgs struct {
-	// The Active Directory Object that will be used for authenticating the token of a container registry.
 	ActiveDirectoryObject ActiveDirectoryObjectResponsePtrInput `pulumi:"activeDirectoryObject"`
 	Certificates          TokenCertificateResponseArrayInput    `pulumi:"certificates"`
 	Passwords             TokenPasswordResponseArrayInput       `pulumi:"passwords"`
@@ -1037,7 +977,6 @@ func (i *tokenCredentialsPropertiesResponsePtrType) ToTokenCredentialsProperties
 	return pulumi.ToOutputWithContext(ctx, i).(TokenCredentialsPropertiesResponsePtrOutput)
 }
 
-// The properties of the credentials that can be used for authenticating the token.
 type TokenCredentialsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (TokenCredentialsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1057,12 +996,11 @@ func (o TokenCredentialsPropertiesResponseOutput) ToTokenCredentialsPropertiesRe
 }
 
 func (o TokenCredentialsPropertiesResponseOutput) ToTokenCredentialsPropertiesResponsePtrOutputWithContext(ctx context.Context) TokenCredentialsPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v TokenCredentialsPropertiesResponse) *TokenCredentialsPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TokenCredentialsPropertiesResponse) *TokenCredentialsPropertiesResponse {
 		return &v
 	}).(TokenCredentialsPropertiesResponsePtrOutput)
 }
 
-// The Active Directory Object that will be used for authenticating the token of a container registry.
 func (o TokenCredentialsPropertiesResponseOutput) ActiveDirectoryObject() ActiveDirectoryObjectResponsePtrOutput {
 	return o.ApplyT(func(v TokenCredentialsPropertiesResponse) *ActiveDirectoryObjectResponse {
 		return v.ActiveDirectoryObject
@@ -1092,10 +1030,15 @@ func (o TokenCredentialsPropertiesResponsePtrOutput) ToTokenCredentialsPropertie
 }
 
 func (o TokenCredentialsPropertiesResponsePtrOutput) Elem() TokenCredentialsPropertiesResponseOutput {
-	return o.ApplyT(func(v *TokenCredentialsPropertiesResponse) TokenCredentialsPropertiesResponse { return *v }).(TokenCredentialsPropertiesResponseOutput)
+	return o.ApplyT(func(v *TokenCredentialsPropertiesResponse) TokenCredentialsPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TokenCredentialsPropertiesResponse
+		return ret
+	}).(TokenCredentialsPropertiesResponseOutput)
 }
 
-// The Active Directory Object that will be used for authenticating the token of a container registry.
 func (o TokenCredentialsPropertiesResponsePtrOutput) ActiveDirectoryObject() ActiveDirectoryObjectResponsePtrOutput {
 	return o.ApplyT(func(v *TokenCredentialsPropertiesResponse) *ActiveDirectoryObjectResponse {
 		if v == nil {
@@ -1123,14 +1066,10 @@ func (o TokenCredentialsPropertiesResponsePtrOutput) Passwords() TokenPasswordRe
 	}).(TokenPasswordResponseArrayOutput)
 }
 
-// The password that will be used for authenticating the token of a container registry.
 type TokenPassword struct {
-	// The creation datetime of the password.
 	CreationTime *string `pulumi:"creationTime"`
-	// The expiry datetime of the password.
-	Expiry *string `pulumi:"expiry"`
-	// The password name "password1" or "password2"
-	Name *string `pulumi:"name"`
+	Expiry       *string `pulumi:"expiry"`
+	Name         *string `pulumi:"name"`
 }
 
 // TokenPasswordInput is an input type that accepts TokenPasswordArgs and TokenPasswordOutput values.
@@ -1144,14 +1083,10 @@ type TokenPasswordInput interface {
 	ToTokenPasswordOutputWithContext(context.Context) TokenPasswordOutput
 }
 
-// The password that will be used for authenticating the token of a container registry.
 type TokenPasswordArgs struct {
-	// The creation datetime of the password.
 	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
-	// The expiry datetime of the password.
-	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
-	// The password name "password1" or "password2"
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Expiry       pulumi.StringPtrInput `pulumi:"expiry"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (TokenPasswordArgs) ElementType() reflect.Type {
@@ -1191,7 +1126,6 @@ func (i TokenPasswordArray) ToTokenPasswordArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordArrayOutput)
 }
 
-// The password that will be used for authenticating the token of a container registry.
 type TokenPasswordOutput struct{ *pulumi.OutputState }
 
 func (TokenPasswordOutput) ElementType() reflect.Type {
@@ -1206,17 +1140,14 @@ func (o TokenPasswordOutput) ToTokenPasswordOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The creation datetime of the password.
 func (o TokenPasswordOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenPassword) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
-// The expiry datetime of the password.
 func (o TokenPasswordOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenPassword) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
 
-// The password name "password1" or "password2"
 func (o TokenPasswordOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenPassword) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1241,16 +1172,11 @@ func (o TokenPasswordArrayOutput) Index(i pulumi.IntInput) TokenPasswordOutput {
 	}).(TokenPasswordOutput)
 }
 
-// The password that will be used for authenticating the token of a container registry.
 type TokenPasswordResponse struct {
-	// The creation datetime of the password.
 	CreationTime *string `pulumi:"creationTime"`
-	// The expiry datetime of the password.
-	Expiry *string `pulumi:"expiry"`
-	// The password name "password1" or "password2"
-	Name *string `pulumi:"name"`
-	// The password value.
-	Value string `pulumi:"value"`
+	Expiry       *string `pulumi:"expiry"`
+	Name         *string `pulumi:"name"`
+	Value        string  `pulumi:"value"`
 }
 
 // TokenPasswordResponseInput is an input type that accepts TokenPasswordResponseArgs and TokenPasswordResponseOutput values.
@@ -1264,16 +1190,11 @@ type TokenPasswordResponseInput interface {
 	ToTokenPasswordResponseOutputWithContext(context.Context) TokenPasswordResponseOutput
 }
 
-// The password that will be used for authenticating the token of a container registry.
 type TokenPasswordResponseArgs struct {
-	// The creation datetime of the password.
 	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
-	// The expiry datetime of the password.
-	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
-	// The password name "password1" or "password2"
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The password value.
-	Value pulumi.StringInput `pulumi:"value"`
+	Expiry       pulumi.StringPtrInput `pulumi:"expiry"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
+	Value        pulumi.StringInput    `pulumi:"value"`
 }
 
 func (TokenPasswordResponseArgs) ElementType() reflect.Type {
@@ -1313,7 +1234,6 @@ func (i TokenPasswordResponseArray) ToTokenPasswordResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordResponseArrayOutput)
 }
 
-// The password that will be used for authenticating the token of a container registry.
 type TokenPasswordResponseOutput struct{ *pulumi.OutputState }
 
 func (TokenPasswordResponseOutput) ElementType() reflect.Type {
@@ -1328,22 +1248,18 @@ func (o TokenPasswordResponseOutput) ToTokenPasswordResponseOutputWithContext(ct
 	return o
 }
 
-// The creation datetime of the password.
 func (o TokenPasswordResponseOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenPasswordResponse) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
-// The expiry datetime of the password.
 func (o TokenPasswordResponseOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenPasswordResponse) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
 
-// The password name "password1" or "password2"
 func (o TokenPasswordResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenPasswordResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The password value.
 func (o TokenPasswordResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenPasswordResponse) string { return v.Value }).(pulumi.StringOutput)
 }

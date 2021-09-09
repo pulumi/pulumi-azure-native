@@ -11,35 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ADLSGen2 storage account data set mapping.
 type ADLSGen2StorageAccountDataSetMapping struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets the container name.
-	ContainerName pulumi.StringOutput `pulumi:"containerName"`
-	// The id of the source data set.
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus pulumi.StringOutput `pulumi:"dataSetMappingStatus"`
-	// Gets or sets the path to folder within the container.
-	Folder pulumi.StringOutput `pulumi:"folder"`
-	// Kind of data set mapping.
-	// Expected value is 'AdlsGen2StorageAccount'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Location of the sink storage account.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Gets or sets the mount path
-	MountPath pulumi.StringPtrOutput `pulumi:"mountPath"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource id of the sink storage account
-	StorageAccountResourceId pulumi.StringOutput `pulumi:"storageAccountResourceId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	ContainerName            pulumi.StringOutput      `pulumi:"containerName"`
+	DataSetId                pulumi.StringOutput      `pulumi:"dataSetId"`
+	DataSetMappingStatus     pulumi.StringOutput      `pulumi:"dataSetMappingStatus"`
+	Folder                   pulumi.StringOutput      `pulumi:"folder"`
+	Kind                     pulumi.StringOutput      `pulumi:"kind"`
+	Location                 pulumi.StringOutput      `pulumi:"location"`
+	MountPath                pulumi.StringPtrOutput   `pulumi:"mountPath"`
+	Name                     pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState        pulumi.StringOutput      `pulumi:"provisioningState"`
+	StorageAccountResourceId pulumi.StringOutput      `pulumi:"storageAccountResourceId"`
+	SystemData               SystemDataResponseOutput `pulumi:"systemData"`
+	Type                     pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewADLSGen2StorageAccountDataSetMapping registers a new resource with the given unique name, arguments, and options.
@@ -136,51 +122,29 @@ func (ADLSGen2StorageAccountDataSetMappingState) ElementType() reflect.Type {
 }
 
 type adlsgen2StorageAccountDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// Gets or sets the container name.
-	ContainerName string `pulumi:"containerName"`
-	// The id of the source data set.
-	DataSetId string `pulumi:"dataSetId"`
-	// The name of the data set mapping to be created.
-	DataSetMappingName *string `pulumi:"dataSetMappingName"`
-	// Gets or sets the path to folder within the container.
-	Folder string `pulumi:"folder"`
-	// Kind of data set mapping.
-	// Expected value is 'AdlsGen2StorageAccount'.
-	Kind string `pulumi:"kind"`
-	// Gets or sets the mount path
-	MountPath *string `pulumi:"mountPath"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share subscription which will hold the data set sink.
-	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
-	// Resource id of the sink storage account
-	StorageAccountResourceId string `pulumi:"storageAccountResourceId"`
+	AccountName              string  `pulumi:"accountName"`
+	ContainerName            string  `pulumi:"containerName"`
+	DataSetId                string  `pulumi:"dataSetId"`
+	DataSetMappingName       *string `pulumi:"dataSetMappingName"`
+	Folder                   string  `pulumi:"folder"`
+	Kind                     string  `pulumi:"kind"`
+	MountPath                *string `pulumi:"mountPath"`
+	ResourceGroupName        string  `pulumi:"resourceGroupName"`
+	ShareSubscriptionName    string  `pulumi:"shareSubscriptionName"`
+	StorageAccountResourceId string  `pulumi:"storageAccountResourceId"`
 }
 
 // The set of arguments for constructing a ADLSGen2StorageAccountDataSetMapping resource.
 type ADLSGen2StorageAccountDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// Gets or sets the container name.
-	ContainerName pulumi.StringInput
-	// The id of the source data set.
-	DataSetId pulumi.StringInput
-	// The name of the data set mapping to be created.
-	DataSetMappingName pulumi.StringPtrInput
-	// Gets or sets the path to folder within the container.
-	Folder pulumi.StringInput
-	// Kind of data set mapping.
-	// Expected value is 'AdlsGen2StorageAccount'.
-	Kind pulumi.StringInput
-	// Gets or sets the mount path
-	MountPath pulumi.StringPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share subscription which will hold the data set sink.
-	ShareSubscriptionName pulumi.StringInput
-	// Resource id of the sink storage account
+	AccountName              pulumi.StringInput
+	ContainerName            pulumi.StringInput
+	DataSetId                pulumi.StringInput
+	DataSetMappingName       pulumi.StringPtrInput
+	Folder                   pulumi.StringInput
+	Kind                     pulumi.StringInput
+	MountPath                pulumi.StringPtrInput
+	ResourceGroupName        pulumi.StringInput
+	ShareSubscriptionName    pulumi.StringInput
 	StorageAccountResourceId pulumi.StringInput
 }
 
@@ -207,9 +171,7 @@ func (i *ADLSGen2StorageAccountDataSetMapping) ToADLSGen2StorageAccountDataSetMa
 	return pulumi.ToOutputWithContext(ctx, i).(ADLSGen2StorageAccountDataSetMappingOutput)
 }
 
-type ADLSGen2StorageAccountDataSetMappingOutput struct {
-	*pulumi.OutputState
-}
+type ADLSGen2StorageAccountDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (ADLSGen2StorageAccountDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ADLSGen2StorageAccountDataSetMapping)(nil))

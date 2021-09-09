@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Connector model definition
 func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pulumi.InvokeOption) (*LookupConnectorResult, error) {
 	var rv LookupConnectorResult
 	err := ctx.Invoke("azure-native:costmanagement/v20180801preview:getConnector", args, &rv, opts...)
@@ -18,40 +17,24 @@ func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pul
 }
 
 type LookupConnectorArgs struct {
-	// Connector Name.
-	ConnectorName string `pulumi:"connectorName"`
-	// Azure Resource Group Name.
+	ConnectorName     string `pulumi:"connectorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The Connector model definition
 type LookupConnectorResult struct {
-	// Collection information
-	Collection ConnectorCollectionInfoResponse `pulumi:"collection"`
-	// Connector definition creation datetime
-	CreatedOn string `pulumi:"createdOn"`
-	// Credentials authentication key (eg AWS ARN)
-	CredentialsKey *string `pulumi:"credentialsKey"`
-	// Connector DisplayName (defaults to Name)
-	DisplayName *string `pulumi:"displayName"`
-	// Connector id
-	Id string `pulumi:"id"`
-	// Connector kind (eg aws)
-	Kind *string `pulumi:"kind"`
-	// Connector location
-	Location *string `pulumi:"location"`
-	// Connector last modified datetime
-	ModifiedOn string `pulumi:"modifiedOn"`
-	// Connector name
-	Name string `pulumi:"name"`
-	// Connector providerAccountId (determined from credentials)
-	ProviderAccountId string `pulumi:"providerAccountId"`
-	// Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
-	ReportId *string `pulumi:"reportId"`
-	// Connector status
-	Status *string `pulumi:"status"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Connector type
-	Type string `pulumi:"type"`
+	Collection        ConnectorCollectionInfoResponse `pulumi:"collection"`
+	CreatedOn         string                          `pulumi:"createdOn"`
+	CredentialsKey    *string                         `pulumi:"credentialsKey"`
+	DisplayName       *string                         `pulumi:"displayName"`
+	Id                string                          `pulumi:"id"`
+	Kind              *string                         `pulumi:"kind"`
+	Location          *string                         `pulumi:"location"`
+	ModifiedOn        string                          `pulumi:"modifiedOn"`
+	Name              string                          `pulumi:"name"`
+	ProviderAccountId string                          `pulumi:"providerAccountId"`
+	ReportId          *string                         `pulumi:"reportId"`
+	Status            *string                         `pulumi:"status"`
+	Tags              map[string]string               `pulumi:"tags"`
+	Type              string                          `pulumi:"type"`
 }

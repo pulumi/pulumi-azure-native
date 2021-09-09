@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Akamai access control
 type AkamaiAccessControl struct {
-	// authentication key list
 	AkamaiSignatureHeaderAuthenticationKeyList []AkamaiSignatureHeaderAuthenticationKey `pulumi:"akamaiSignatureHeaderAuthenticationKeyList"`
 }
 
@@ -27,9 +25,7 @@ type AkamaiAccessControlInput interface {
 	ToAkamaiAccessControlOutputWithContext(context.Context) AkamaiAccessControlOutput
 }
 
-// Akamai access control
 type AkamaiAccessControlArgs struct {
-	// authentication key list
 	AkamaiSignatureHeaderAuthenticationKeyList AkamaiSignatureHeaderAuthenticationKeyArrayInput `pulumi:"akamaiSignatureHeaderAuthenticationKeyList"`
 }
 
@@ -86,7 +82,6 @@ func (i *akamaiAccessControlPtrType) ToAkamaiAccessControlPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AkamaiAccessControlPtrOutput)
 }
 
-// Akamai access control
 type AkamaiAccessControlOutput struct{ *pulumi.OutputState }
 
 func (AkamaiAccessControlOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o AkamaiAccessControlOutput) ToAkamaiAccessControlPtrOutput() AkamaiAccess
 }
 
 func (o AkamaiAccessControlOutput) ToAkamaiAccessControlPtrOutputWithContext(ctx context.Context) AkamaiAccessControlPtrOutput {
-	return o.ApplyT(func(v AkamaiAccessControl) *AkamaiAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AkamaiAccessControl) *AkamaiAccessControl {
 		return &v
 	}).(AkamaiAccessControlPtrOutput)
 }
 
-// authentication key list
 func (o AkamaiAccessControlOutput) AkamaiSignatureHeaderAuthenticationKeyList() AkamaiSignatureHeaderAuthenticationKeyArrayOutput {
 	return o.ApplyT(func(v AkamaiAccessControl) []AkamaiSignatureHeaderAuthenticationKey {
 		return v.AkamaiSignatureHeaderAuthenticationKeyList
@@ -133,10 +127,15 @@ func (o AkamaiAccessControlPtrOutput) ToAkamaiAccessControlPtrOutputWithContext(
 }
 
 func (o AkamaiAccessControlPtrOutput) Elem() AkamaiAccessControlOutput {
-	return o.ApplyT(func(v *AkamaiAccessControl) AkamaiAccessControl { return *v }).(AkamaiAccessControlOutput)
+	return o.ApplyT(func(v *AkamaiAccessControl) AkamaiAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret AkamaiAccessControl
+		return ret
+	}).(AkamaiAccessControlOutput)
 }
 
-// authentication key list
 func (o AkamaiAccessControlPtrOutput) AkamaiSignatureHeaderAuthenticationKeyList() AkamaiSignatureHeaderAuthenticationKeyArrayOutput {
 	return o.ApplyT(func(v *AkamaiAccessControl) []AkamaiSignatureHeaderAuthenticationKey {
 		if v == nil {
@@ -146,9 +145,7 @@ func (o AkamaiAccessControlPtrOutput) AkamaiSignatureHeaderAuthenticationKeyList
 	}).(AkamaiSignatureHeaderAuthenticationKeyArrayOutput)
 }
 
-// Akamai access control
 type AkamaiAccessControlResponse struct {
-	// authentication key list
 	AkamaiSignatureHeaderAuthenticationKeyList []AkamaiSignatureHeaderAuthenticationKeyResponse `pulumi:"akamaiSignatureHeaderAuthenticationKeyList"`
 }
 
@@ -163,9 +160,7 @@ type AkamaiAccessControlResponseInput interface {
 	ToAkamaiAccessControlResponseOutputWithContext(context.Context) AkamaiAccessControlResponseOutput
 }
 
-// Akamai access control
 type AkamaiAccessControlResponseArgs struct {
-	// authentication key list
 	AkamaiSignatureHeaderAuthenticationKeyList AkamaiSignatureHeaderAuthenticationKeyResponseArrayInput `pulumi:"akamaiSignatureHeaderAuthenticationKeyList"`
 }
 
@@ -222,7 +217,6 @@ func (i *akamaiAccessControlResponsePtrType) ToAkamaiAccessControlResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AkamaiAccessControlResponsePtrOutput)
 }
 
-// Akamai access control
 type AkamaiAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (AkamaiAccessControlResponseOutput) ElementType() reflect.Type {
@@ -242,12 +236,11 @@ func (o AkamaiAccessControlResponseOutput) ToAkamaiAccessControlResponsePtrOutpu
 }
 
 func (o AkamaiAccessControlResponseOutput) ToAkamaiAccessControlResponsePtrOutputWithContext(ctx context.Context) AkamaiAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v AkamaiAccessControlResponse) *AkamaiAccessControlResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AkamaiAccessControlResponse) *AkamaiAccessControlResponse {
 		return &v
 	}).(AkamaiAccessControlResponsePtrOutput)
 }
 
-// authentication key list
 func (o AkamaiAccessControlResponseOutput) AkamaiSignatureHeaderAuthenticationKeyList() AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput {
 	return o.ApplyT(func(v AkamaiAccessControlResponse) []AkamaiSignatureHeaderAuthenticationKeyResponse {
 		return v.AkamaiSignatureHeaderAuthenticationKeyList
@@ -269,10 +262,15 @@ func (o AkamaiAccessControlResponsePtrOutput) ToAkamaiAccessControlResponsePtrOu
 }
 
 func (o AkamaiAccessControlResponsePtrOutput) Elem() AkamaiAccessControlResponseOutput {
-	return o.ApplyT(func(v *AkamaiAccessControlResponse) AkamaiAccessControlResponse { return *v }).(AkamaiAccessControlResponseOutput)
+	return o.ApplyT(func(v *AkamaiAccessControlResponse) AkamaiAccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AkamaiAccessControlResponse
+		return ret
+	}).(AkamaiAccessControlResponseOutput)
 }
 
-// authentication key list
 func (o AkamaiAccessControlResponsePtrOutput) AkamaiSignatureHeaderAuthenticationKeyList() AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput {
 	return o.ApplyT(func(v *AkamaiAccessControlResponse) []AkamaiSignatureHeaderAuthenticationKeyResponse {
 		if v == nil {
@@ -282,13 +280,9 @@ func (o AkamaiAccessControlResponsePtrOutput) AkamaiSignatureHeaderAuthenticatio
 	}).(AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput)
 }
 
-// Akamai Signature Header authentication key.
 type AkamaiSignatureHeaderAuthenticationKey struct {
-	// authentication key
-	Base64Key *string `pulumi:"base64Key"`
-	// The expiration time of the authentication key.
+	Base64Key  *string `pulumi:"base64Key"`
 	Expiration *string `pulumi:"expiration"`
-	// identifier of the key
 	Identifier *string `pulumi:"identifier"`
 }
 
@@ -303,13 +297,9 @@ type AkamaiSignatureHeaderAuthenticationKeyInput interface {
 	ToAkamaiSignatureHeaderAuthenticationKeyOutputWithContext(context.Context) AkamaiSignatureHeaderAuthenticationKeyOutput
 }
 
-// Akamai Signature Header authentication key.
 type AkamaiSignatureHeaderAuthenticationKeyArgs struct {
-	// authentication key
-	Base64Key pulumi.StringPtrInput `pulumi:"base64Key"`
-	// The expiration time of the authentication key.
+	Base64Key  pulumi.StringPtrInput `pulumi:"base64Key"`
 	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
-	// identifier of the key
 	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
 }
 
@@ -350,7 +340,6 @@ func (i AkamaiSignatureHeaderAuthenticationKeyArray) ToAkamaiSignatureHeaderAuth
 	return pulumi.ToOutputWithContext(ctx, i).(AkamaiSignatureHeaderAuthenticationKeyArrayOutput)
 }
 
-// Akamai Signature Header authentication key.
 type AkamaiSignatureHeaderAuthenticationKeyOutput struct{ *pulumi.OutputState }
 
 func (AkamaiSignatureHeaderAuthenticationKeyOutput) ElementType() reflect.Type {
@@ -365,17 +354,14 @@ func (o AkamaiSignatureHeaderAuthenticationKeyOutput) ToAkamaiSignatureHeaderAut
 	return o
 }
 
-// authentication key
 func (o AkamaiSignatureHeaderAuthenticationKeyOutput) Base64Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKey) *string { return v.Base64Key }).(pulumi.StringPtrOutput)
 }
 
-// The expiration time of the authentication key.
 func (o AkamaiSignatureHeaderAuthenticationKeyOutput) Expiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKey) *string { return v.Expiration }).(pulumi.StringPtrOutput)
 }
 
-// identifier of the key
 func (o AkamaiSignatureHeaderAuthenticationKeyOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKey) *string { return v.Identifier }).(pulumi.StringPtrOutput)
 }
@@ -400,13 +386,9 @@ func (o AkamaiSignatureHeaderAuthenticationKeyArrayOutput) Index(i pulumi.IntInp
 	}).(AkamaiSignatureHeaderAuthenticationKeyOutput)
 }
 
-// Akamai Signature Header authentication key.
 type AkamaiSignatureHeaderAuthenticationKeyResponse struct {
-	// authentication key
-	Base64Key *string `pulumi:"base64Key"`
-	// The expiration time of the authentication key.
+	Base64Key  *string `pulumi:"base64Key"`
 	Expiration *string `pulumi:"expiration"`
-	// identifier of the key
 	Identifier *string `pulumi:"identifier"`
 }
 
@@ -421,13 +403,9 @@ type AkamaiSignatureHeaderAuthenticationKeyResponseInput interface {
 	ToAkamaiSignatureHeaderAuthenticationKeyResponseOutputWithContext(context.Context) AkamaiSignatureHeaderAuthenticationKeyResponseOutput
 }
 
-// Akamai Signature Header authentication key.
 type AkamaiSignatureHeaderAuthenticationKeyResponseArgs struct {
-	// authentication key
-	Base64Key pulumi.StringPtrInput `pulumi:"base64Key"`
-	// The expiration time of the authentication key.
+	Base64Key  pulumi.StringPtrInput `pulumi:"base64Key"`
 	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
-	// identifier of the key
 	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
 }
 
@@ -468,7 +446,6 @@ func (i AkamaiSignatureHeaderAuthenticationKeyResponseArray) ToAkamaiSignatureHe
 	return pulumi.ToOutputWithContext(ctx, i).(AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput)
 }
 
-// Akamai Signature Header authentication key.
 type AkamaiSignatureHeaderAuthenticationKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (AkamaiSignatureHeaderAuthenticationKeyResponseOutput) ElementType() reflect.Type {
@@ -483,17 +460,14 @@ func (o AkamaiSignatureHeaderAuthenticationKeyResponseOutput) ToAkamaiSignatureH
 	return o
 }
 
-// authentication key
 func (o AkamaiSignatureHeaderAuthenticationKeyResponseOutput) Base64Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKeyResponse) *string { return v.Base64Key }).(pulumi.StringPtrOutput)
 }
 
-// The expiration time of the authentication key.
 func (o AkamaiSignatureHeaderAuthenticationKeyResponseOutput) Expiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKeyResponse) *string { return v.Expiration }).(pulumi.StringPtrOutput)
 }
 
-// identifier of the key
 func (o AkamaiSignatureHeaderAuthenticationKeyResponseOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKeyResponse) *string { return v.Identifier }).(pulumi.StringPtrOutput)
 }
@@ -518,12 +492,9 @@ func (o AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput) Index(i pulum
 	}).(AkamaiSignatureHeaderAuthenticationKeyResponseOutput)
 }
 
-// The client access policy.
 type CrossSiteAccessPolicies struct {
-	// The content of clientaccesspolicy.xml used by Silverlight.
 	ClientAccessPolicy *string `pulumi:"clientAccessPolicy"`
-	// The content of crossdomain.xml used by Silverlight.
-	CrossDomainPolicy *string `pulumi:"crossDomainPolicy"`
+	CrossDomainPolicy  *string `pulumi:"crossDomainPolicy"`
 }
 
 // CrossSiteAccessPoliciesInput is an input type that accepts CrossSiteAccessPoliciesArgs and CrossSiteAccessPoliciesOutput values.
@@ -537,12 +508,9 @@ type CrossSiteAccessPoliciesInput interface {
 	ToCrossSiteAccessPoliciesOutputWithContext(context.Context) CrossSiteAccessPoliciesOutput
 }
 
-// The client access policy.
 type CrossSiteAccessPoliciesArgs struct {
-	// The content of clientaccesspolicy.xml used by Silverlight.
 	ClientAccessPolicy pulumi.StringPtrInput `pulumi:"clientAccessPolicy"`
-	// The content of crossdomain.xml used by Silverlight.
-	CrossDomainPolicy pulumi.StringPtrInput `pulumi:"crossDomainPolicy"`
+	CrossDomainPolicy  pulumi.StringPtrInput `pulumi:"crossDomainPolicy"`
 }
 
 func (CrossSiteAccessPoliciesArgs) ElementType() reflect.Type {
@@ -598,7 +566,6 @@ func (i *crossSiteAccessPoliciesPtrType) ToCrossSiteAccessPoliciesPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(CrossSiteAccessPoliciesPtrOutput)
 }
 
-// The client access policy.
 type CrossSiteAccessPoliciesOutput struct{ *pulumi.OutputState }
 
 func (CrossSiteAccessPoliciesOutput) ElementType() reflect.Type {
@@ -618,17 +585,15 @@ func (o CrossSiteAccessPoliciesOutput) ToCrossSiteAccessPoliciesPtrOutput() Cros
 }
 
 func (o CrossSiteAccessPoliciesOutput) ToCrossSiteAccessPoliciesPtrOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesPtrOutput {
-	return o.ApplyT(func(v CrossSiteAccessPolicies) *CrossSiteAccessPolicies {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrossSiteAccessPolicies) *CrossSiteAccessPolicies {
 		return &v
 	}).(CrossSiteAccessPoliciesPtrOutput)
 }
 
-// The content of clientaccesspolicy.xml used by Silverlight.
 func (o CrossSiteAccessPoliciesOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrossSiteAccessPolicies) *string { return v.ClientAccessPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The content of crossdomain.xml used by Silverlight.
 func (o CrossSiteAccessPoliciesOutput) CrossDomainPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrossSiteAccessPolicies) *string { return v.CrossDomainPolicy }).(pulumi.StringPtrOutput)
 }
@@ -648,10 +613,15 @@ func (o CrossSiteAccessPoliciesPtrOutput) ToCrossSiteAccessPoliciesPtrOutputWith
 }
 
 func (o CrossSiteAccessPoliciesPtrOutput) Elem() CrossSiteAccessPoliciesOutput {
-	return o.ApplyT(func(v *CrossSiteAccessPolicies) CrossSiteAccessPolicies { return *v }).(CrossSiteAccessPoliciesOutput)
+	return o.ApplyT(func(v *CrossSiteAccessPolicies) CrossSiteAccessPolicies {
+		if v != nil {
+			return *v
+		}
+		var ret CrossSiteAccessPolicies
+		return ret
+	}).(CrossSiteAccessPoliciesOutput)
 }
 
-// The content of clientaccesspolicy.xml used by Silverlight.
 func (o CrossSiteAccessPoliciesPtrOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrossSiteAccessPolicies) *string {
 		if v == nil {
@@ -661,7 +631,6 @@ func (o CrossSiteAccessPoliciesPtrOutput) ClientAccessPolicy() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content of crossdomain.xml used by Silverlight.
 func (o CrossSiteAccessPoliciesPtrOutput) CrossDomainPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrossSiteAccessPolicies) *string {
 		if v == nil {
@@ -671,12 +640,9 @@ func (o CrossSiteAccessPoliciesPtrOutput) CrossDomainPolicy() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The client access policy.
 type CrossSiteAccessPoliciesResponse struct {
-	// The content of clientaccesspolicy.xml used by Silverlight.
 	ClientAccessPolicy *string `pulumi:"clientAccessPolicy"`
-	// The content of crossdomain.xml used by Silverlight.
-	CrossDomainPolicy *string `pulumi:"crossDomainPolicy"`
+	CrossDomainPolicy  *string `pulumi:"crossDomainPolicy"`
 }
 
 // CrossSiteAccessPoliciesResponseInput is an input type that accepts CrossSiteAccessPoliciesResponseArgs and CrossSiteAccessPoliciesResponseOutput values.
@@ -690,12 +656,9 @@ type CrossSiteAccessPoliciesResponseInput interface {
 	ToCrossSiteAccessPoliciesResponseOutputWithContext(context.Context) CrossSiteAccessPoliciesResponseOutput
 }
 
-// The client access policy.
 type CrossSiteAccessPoliciesResponseArgs struct {
-	// The content of clientaccesspolicy.xml used by Silverlight.
 	ClientAccessPolicy pulumi.StringPtrInput `pulumi:"clientAccessPolicy"`
-	// The content of crossdomain.xml used by Silverlight.
-	CrossDomainPolicy pulumi.StringPtrInput `pulumi:"crossDomainPolicy"`
+	CrossDomainPolicy  pulumi.StringPtrInput `pulumi:"crossDomainPolicy"`
 }
 
 func (CrossSiteAccessPoliciesResponseArgs) ElementType() reflect.Type {
@@ -751,7 +714,6 @@ func (i *crossSiteAccessPoliciesResponsePtrType) ToCrossSiteAccessPoliciesRespon
 	return pulumi.ToOutputWithContext(ctx, i).(CrossSiteAccessPoliciesResponsePtrOutput)
 }
 
-// The client access policy.
 type CrossSiteAccessPoliciesResponseOutput struct{ *pulumi.OutputState }
 
 func (CrossSiteAccessPoliciesResponseOutput) ElementType() reflect.Type {
@@ -771,17 +733,15 @@ func (o CrossSiteAccessPoliciesResponseOutput) ToCrossSiteAccessPoliciesResponse
 }
 
 func (o CrossSiteAccessPoliciesResponseOutput) ToCrossSiteAccessPoliciesResponsePtrOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesResponsePtrOutput {
-	return o.ApplyT(func(v CrossSiteAccessPoliciesResponse) *CrossSiteAccessPoliciesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrossSiteAccessPoliciesResponse) *CrossSiteAccessPoliciesResponse {
 		return &v
 	}).(CrossSiteAccessPoliciesResponsePtrOutput)
 }
 
-// The content of clientaccesspolicy.xml used by Silverlight.
 func (o CrossSiteAccessPoliciesResponseOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrossSiteAccessPoliciesResponse) *string { return v.ClientAccessPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The content of crossdomain.xml used by Silverlight.
 func (o CrossSiteAccessPoliciesResponseOutput) CrossDomainPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrossSiteAccessPoliciesResponse) *string { return v.CrossDomainPolicy }).(pulumi.StringPtrOutput)
 }
@@ -801,10 +761,15 @@ func (o CrossSiteAccessPoliciesResponsePtrOutput) ToCrossSiteAccessPoliciesRespo
 }
 
 func (o CrossSiteAccessPoliciesResponsePtrOutput) Elem() CrossSiteAccessPoliciesResponseOutput {
-	return o.ApplyT(func(v *CrossSiteAccessPoliciesResponse) CrossSiteAccessPoliciesResponse { return *v }).(CrossSiteAccessPoliciesResponseOutput)
+	return o.ApplyT(func(v *CrossSiteAccessPoliciesResponse) CrossSiteAccessPoliciesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CrossSiteAccessPoliciesResponse
+		return ret
+	}).(CrossSiteAccessPoliciesResponseOutput)
 }
 
-// The content of clientaccesspolicy.xml used by Silverlight.
 func (o CrossSiteAccessPoliciesResponsePtrOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrossSiteAccessPoliciesResponse) *string {
 		if v == nil {
@@ -814,7 +779,6 @@ func (o CrossSiteAccessPoliciesResponsePtrOutput) ClientAccessPolicy() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content of crossdomain.xml used by Silverlight.
 func (o CrossSiteAccessPoliciesResponsePtrOutput) CrossDomainPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrossSiteAccessPoliciesResponse) *string {
 		if v == nil {
@@ -824,9 +788,7 @@ func (o CrossSiteAccessPoliciesResponsePtrOutput) CrossDomainPolicy() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HLS configuration.
 type Hls struct {
-	// The amount of fragments per HTTP Live Streaming (HLS) segment.
 	FragmentsPerTsSegment *int `pulumi:"fragmentsPerTsSegment"`
 }
 
@@ -841,9 +803,7 @@ type HlsInput interface {
 	ToHlsOutputWithContext(context.Context) HlsOutput
 }
 
-// The HLS configuration.
 type HlsArgs struct {
-	// The amount of fragments per HTTP Live Streaming (HLS) segment.
 	FragmentsPerTsSegment pulumi.IntPtrInput `pulumi:"fragmentsPerTsSegment"`
 }
 
@@ -900,7 +860,6 @@ func (i *hlsPtrType) ToHlsPtrOutputWithContext(ctx context.Context) HlsPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(HlsPtrOutput)
 }
 
-// The HLS configuration.
 type HlsOutput struct{ *pulumi.OutputState }
 
 func (HlsOutput) ElementType() reflect.Type {
@@ -920,12 +879,11 @@ func (o HlsOutput) ToHlsPtrOutput() HlsPtrOutput {
 }
 
 func (o HlsOutput) ToHlsPtrOutputWithContext(ctx context.Context) HlsPtrOutput {
-	return o.ApplyT(func(v Hls) *Hls {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Hls) *Hls {
 		return &v
 	}).(HlsPtrOutput)
 }
 
-// The amount of fragments per HTTP Live Streaming (HLS) segment.
 func (o HlsOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Hls) *int { return v.FragmentsPerTsSegment }).(pulumi.IntPtrOutput)
 }
@@ -945,10 +903,15 @@ func (o HlsPtrOutput) ToHlsPtrOutputWithContext(ctx context.Context) HlsPtrOutpu
 }
 
 func (o HlsPtrOutput) Elem() HlsOutput {
-	return o.ApplyT(func(v *Hls) Hls { return *v }).(HlsOutput)
+	return o.ApplyT(func(v *Hls) Hls {
+		if v != nil {
+			return *v
+		}
+		var ret Hls
+		return ret
+	}).(HlsOutput)
 }
 
-// The amount of fragments per HTTP Live Streaming (HLS) segment.
 func (o HlsPtrOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Hls) *int {
 		if v == nil {
@@ -958,9 +921,7 @@ func (o HlsPtrOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The HLS configuration.
 type HlsResponse struct {
-	// The amount of fragments per HTTP Live Streaming (HLS) segment.
 	FragmentsPerTsSegment *int `pulumi:"fragmentsPerTsSegment"`
 }
 
@@ -975,9 +936,7 @@ type HlsResponseInput interface {
 	ToHlsResponseOutputWithContext(context.Context) HlsResponseOutput
 }
 
-// The HLS configuration.
 type HlsResponseArgs struct {
-	// The amount of fragments per HTTP Live Streaming (HLS) segment.
 	FragmentsPerTsSegment pulumi.IntPtrInput `pulumi:"fragmentsPerTsSegment"`
 }
 
@@ -1034,7 +993,6 @@ func (i *hlsResponsePtrType) ToHlsResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HlsResponsePtrOutput)
 }
 
-// The HLS configuration.
 type HlsResponseOutput struct{ *pulumi.OutputState }
 
 func (HlsResponseOutput) ElementType() reflect.Type {
@@ -1054,12 +1012,11 @@ func (o HlsResponseOutput) ToHlsResponsePtrOutput() HlsResponsePtrOutput {
 }
 
 func (o HlsResponseOutput) ToHlsResponsePtrOutputWithContext(ctx context.Context) HlsResponsePtrOutput {
-	return o.ApplyT(func(v HlsResponse) *HlsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HlsResponse) *HlsResponse {
 		return &v
 	}).(HlsResponsePtrOutput)
 }
 
-// The amount of fragments per HTTP Live Streaming (HLS) segment.
 func (o HlsResponseOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HlsResponse) *int { return v.FragmentsPerTsSegment }).(pulumi.IntPtrOutput)
 }
@@ -1079,10 +1036,15 @@ func (o HlsResponsePtrOutput) ToHlsResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o HlsResponsePtrOutput) Elem() HlsResponseOutput {
-	return o.ApplyT(func(v *HlsResponse) HlsResponse { return *v }).(HlsResponseOutput)
+	return o.ApplyT(func(v *HlsResponse) HlsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HlsResponse
+		return ret
+	}).(HlsResponseOutput)
 }
 
-// The amount of fragments per HTTP Live Streaming (HLS) segment.
 func (o HlsResponsePtrOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HlsResponse) *int {
 		if v == nil {
@@ -1092,9 +1054,7 @@ func (o HlsResponsePtrOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The IP access control.
 type IPAccessControl struct {
-	// The IP allow list.
 	Allow []IPRange `pulumi:"allow"`
 }
 
@@ -1109,9 +1069,7 @@ type IPAccessControlInput interface {
 	ToIPAccessControlOutputWithContext(context.Context) IPAccessControlOutput
 }
 
-// The IP access control.
 type IPAccessControlArgs struct {
-	// The IP allow list.
 	Allow IPRangeArrayInput `pulumi:"allow"`
 }
 
@@ -1168,7 +1126,6 @@ func (i *ipaccessControlPtrType) ToIPAccessControlPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(IPAccessControlPtrOutput)
 }
 
-// The IP access control.
 type IPAccessControlOutput struct{ *pulumi.OutputState }
 
 func (IPAccessControlOutput) ElementType() reflect.Type {
@@ -1188,12 +1145,11 @@ func (o IPAccessControlOutput) ToIPAccessControlPtrOutput() IPAccessControlPtrOu
 }
 
 func (o IPAccessControlOutput) ToIPAccessControlPtrOutputWithContext(ctx context.Context) IPAccessControlPtrOutput {
-	return o.ApplyT(func(v IPAccessControl) *IPAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPAccessControl) *IPAccessControl {
 		return &v
 	}).(IPAccessControlPtrOutput)
 }
 
-// The IP allow list.
 func (o IPAccessControlOutput) Allow() IPRangeArrayOutput {
 	return o.ApplyT(func(v IPAccessControl) []IPRange { return v.Allow }).(IPRangeArrayOutput)
 }
@@ -1213,10 +1169,15 @@ func (o IPAccessControlPtrOutput) ToIPAccessControlPtrOutputWithContext(ctx cont
 }
 
 func (o IPAccessControlPtrOutput) Elem() IPAccessControlOutput {
-	return o.ApplyT(func(v *IPAccessControl) IPAccessControl { return *v }).(IPAccessControlOutput)
+	return o.ApplyT(func(v *IPAccessControl) IPAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret IPAccessControl
+		return ret
+	}).(IPAccessControlOutput)
 }
 
-// The IP allow list.
 func (o IPAccessControlPtrOutput) Allow() IPRangeArrayOutput {
 	return o.ApplyT(func(v *IPAccessControl) []IPRange {
 		if v == nil {
@@ -1226,9 +1187,7 @@ func (o IPAccessControlPtrOutput) Allow() IPRangeArrayOutput {
 	}).(IPRangeArrayOutput)
 }
 
-// The IP access control.
 type IPAccessControlResponse struct {
-	// The IP allow list.
 	Allow []IPRangeResponse `pulumi:"allow"`
 }
 
@@ -1243,9 +1202,7 @@ type IPAccessControlResponseInput interface {
 	ToIPAccessControlResponseOutputWithContext(context.Context) IPAccessControlResponseOutput
 }
 
-// The IP access control.
 type IPAccessControlResponseArgs struct {
-	// The IP allow list.
 	Allow IPRangeResponseArrayInput `pulumi:"allow"`
 }
 
@@ -1302,7 +1259,6 @@ func (i *ipaccessControlResponsePtrType) ToIPAccessControlResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(IPAccessControlResponsePtrOutput)
 }
 
-// The IP access control.
 type IPAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (IPAccessControlResponseOutput) ElementType() reflect.Type {
@@ -1322,12 +1278,11 @@ func (o IPAccessControlResponseOutput) ToIPAccessControlResponsePtrOutput() IPAc
 }
 
 func (o IPAccessControlResponseOutput) ToIPAccessControlResponsePtrOutputWithContext(ctx context.Context) IPAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v IPAccessControlResponse) *IPAccessControlResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPAccessControlResponse) *IPAccessControlResponse {
 		return &v
 	}).(IPAccessControlResponsePtrOutput)
 }
 
-// The IP allow list.
 func (o IPAccessControlResponseOutput) Allow() IPRangeResponseArrayOutput {
 	return o.ApplyT(func(v IPAccessControlResponse) []IPRangeResponse { return v.Allow }).(IPRangeResponseArrayOutput)
 }
@@ -1347,10 +1302,15 @@ func (o IPAccessControlResponsePtrOutput) ToIPAccessControlResponsePtrOutputWith
 }
 
 func (o IPAccessControlResponsePtrOutput) Elem() IPAccessControlResponseOutput {
-	return o.ApplyT(func(v *IPAccessControlResponse) IPAccessControlResponse { return *v }).(IPAccessControlResponseOutput)
+	return o.ApplyT(func(v *IPAccessControlResponse) IPAccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IPAccessControlResponse
+		return ret
+	}).(IPAccessControlResponseOutput)
 }
 
-// The IP allow list.
 func (o IPAccessControlResponsePtrOutput) Allow() IPRangeResponseArrayOutput {
 	return o.ApplyT(func(v *IPAccessControlResponse) []IPRangeResponse {
 		if v == nil {
@@ -1360,14 +1320,10 @@ func (o IPAccessControlResponsePtrOutput) Allow() IPRangeResponseArrayOutput {
 	}).(IPRangeResponseArrayOutput)
 }
 
-// The IP address range in the CIDR scheme.
 type IPRange struct {
-	// The IP address.
-	Address *string `pulumi:"address"`
-	// The friendly name for the IP address range.
-	Name *string `pulumi:"name"`
-	// The subnet mask prefix length (see CIDR notation).
-	SubnetPrefixLength *int `pulumi:"subnetPrefixLength"`
+	Address            *string `pulumi:"address"`
+	Name               *string `pulumi:"name"`
+	SubnetPrefixLength *int    `pulumi:"subnetPrefixLength"`
 }
 
 // IPRangeInput is an input type that accepts IPRangeArgs and IPRangeOutput values.
@@ -1381,14 +1337,10 @@ type IPRangeInput interface {
 	ToIPRangeOutputWithContext(context.Context) IPRangeOutput
 }
 
-// The IP address range in the CIDR scheme.
 type IPRangeArgs struct {
-	// The IP address.
-	Address pulumi.StringPtrInput `pulumi:"address"`
-	// The friendly name for the IP address range.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The subnet mask prefix length (see CIDR notation).
-	SubnetPrefixLength pulumi.IntPtrInput `pulumi:"subnetPrefixLength"`
+	Address            pulumi.StringPtrInput `pulumi:"address"`
+	Name               pulumi.StringPtrInput `pulumi:"name"`
+	SubnetPrefixLength pulumi.IntPtrInput    `pulumi:"subnetPrefixLength"`
 }
 
 func (IPRangeArgs) ElementType() reflect.Type {
@@ -1428,7 +1380,6 @@ func (i IPRangeArray) ToIPRangeArrayOutputWithContext(ctx context.Context) IPRan
 	return pulumi.ToOutputWithContext(ctx, i).(IPRangeArrayOutput)
 }
 
-// The IP address range in the CIDR scheme.
 type IPRangeOutput struct{ *pulumi.OutputState }
 
 func (IPRangeOutput) ElementType() reflect.Type {
@@ -1443,17 +1394,14 @@ func (o IPRangeOutput) ToIPRangeOutputWithContext(ctx context.Context) IPRangeOu
 	return o
 }
 
-// The IP address.
 func (o IPRangeOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IPRange) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// The friendly name for the IP address range.
 func (o IPRangeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IPRange) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The subnet mask prefix length (see CIDR notation).
 func (o IPRangeOutput) SubnetPrefixLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IPRange) *int { return v.SubnetPrefixLength }).(pulumi.IntPtrOutput)
 }
@@ -1478,14 +1426,10 @@ func (o IPRangeArrayOutput) Index(i pulumi.IntInput) IPRangeOutput {
 	}).(IPRangeOutput)
 }
 
-// The IP address range in the CIDR scheme.
 type IPRangeResponse struct {
-	// The IP address.
-	Address *string `pulumi:"address"`
-	// The friendly name for the IP address range.
-	Name *string `pulumi:"name"`
-	// The subnet mask prefix length (see CIDR notation).
-	SubnetPrefixLength *int `pulumi:"subnetPrefixLength"`
+	Address            *string `pulumi:"address"`
+	Name               *string `pulumi:"name"`
+	SubnetPrefixLength *int    `pulumi:"subnetPrefixLength"`
 }
 
 // IPRangeResponseInput is an input type that accepts IPRangeResponseArgs and IPRangeResponseOutput values.
@@ -1499,14 +1443,10 @@ type IPRangeResponseInput interface {
 	ToIPRangeResponseOutputWithContext(context.Context) IPRangeResponseOutput
 }
 
-// The IP address range in the CIDR scheme.
 type IPRangeResponseArgs struct {
-	// The IP address.
-	Address pulumi.StringPtrInput `pulumi:"address"`
-	// The friendly name for the IP address range.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The subnet mask prefix length (see CIDR notation).
-	SubnetPrefixLength pulumi.IntPtrInput `pulumi:"subnetPrefixLength"`
+	Address            pulumi.StringPtrInput `pulumi:"address"`
+	Name               pulumi.StringPtrInput `pulumi:"name"`
+	SubnetPrefixLength pulumi.IntPtrInput    `pulumi:"subnetPrefixLength"`
 }
 
 func (IPRangeResponseArgs) ElementType() reflect.Type {
@@ -1546,7 +1486,6 @@ func (i IPRangeResponseArray) ToIPRangeResponseArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(IPRangeResponseArrayOutput)
 }
 
-// The IP address range in the CIDR scheme.
 type IPRangeResponseOutput struct{ *pulumi.OutputState }
 
 func (IPRangeResponseOutput) ElementType() reflect.Type {
@@ -1561,17 +1500,14 @@ func (o IPRangeResponseOutput) ToIPRangeResponseOutputWithContext(ctx context.Co
 	return o
 }
 
-// The IP address.
 func (o IPRangeResponseOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IPRangeResponse) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// The friendly name for the IP address range.
 func (o IPRangeResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IPRangeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The subnet mask prefix length (see CIDR notation).
 func (o IPRangeResponseOutput) SubnetPrefixLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IPRangeResponse) *int { return v.SubnetPrefixLength }).(pulumi.IntPtrOutput)
 }
@@ -1596,12 +1532,9 @@ func (o IPRangeResponseArrayOutput) Index(i pulumi.IntInput) IPRangeResponseOutp
 	}).(IPRangeResponseOutput)
 }
 
-// The Live Event encoding.
 type LiveEventEncoding struct {
-	// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
 	EncodingType *string `pulumi:"encodingType"`
-	// The encoding preset name.  This value is specified at creation time and cannot be updated.
-	PresetName *string `pulumi:"presetName"`
+	PresetName   *string `pulumi:"presetName"`
 }
 
 // LiveEventEncodingInput is an input type that accepts LiveEventEncodingArgs and LiveEventEncodingOutput values.
@@ -1615,12 +1548,9 @@ type LiveEventEncodingInput interface {
 	ToLiveEventEncodingOutputWithContext(context.Context) LiveEventEncodingOutput
 }
 
-// The Live Event encoding.
 type LiveEventEncodingArgs struct {
-	// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
 	EncodingType pulumi.StringPtrInput `pulumi:"encodingType"`
-	// The encoding preset name.  This value is specified at creation time and cannot be updated.
-	PresetName pulumi.StringPtrInput `pulumi:"presetName"`
+	PresetName   pulumi.StringPtrInput `pulumi:"presetName"`
 }
 
 func (LiveEventEncodingArgs) ElementType() reflect.Type {
@@ -1676,7 +1606,6 @@ func (i *liveEventEncodingPtrType) ToLiveEventEncodingPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEncodingPtrOutput)
 }
 
-// The Live Event encoding.
 type LiveEventEncodingOutput struct{ *pulumi.OutputState }
 
 func (LiveEventEncodingOutput) ElementType() reflect.Type {
@@ -1696,17 +1625,15 @@ func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutput() LiveEventEncodin
 }
 
 func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutputWithContext(ctx context.Context) LiveEventEncodingPtrOutput {
-	return o.ApplyT(func(v LiveEventEncoding) *LiveEventEncoding {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventEncoding) *LiveEventEncoding {
 		return &v
 	}).(LiveEventEncodingPtrOutput)
 }
 
-// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
 func (o LiveEventEncodingOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncoding) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
 }
 
-// The encoding preset name.  This value is specified at creation time and cannot be updated.
 func (o LiveEventEncodingOutput) PresetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncoding) *string { return v.PresetName }).(pulumi.StringPtrOutput)
 }
@@ -1726,10 +1653,15 @@ func (o LiveEventEncodingPtrOutput) ToLiveEventEncodingPtrOutputWithContext(ctx 
 }
 
 func (o LiveEventEncodingPtrOutput) Elem() LiveEventEncodingOutput {
-	return o.ApplyT(func(v *LiveEventEncoding) LiveEventEncoding { return *v }).(LiveEventEncodingOutput)
+	return o.ApplyT(func(v *LiveEventEncoding) LiveEventEncoding {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventEncoding
+		return ret
+	}).(LiveEventEncodingOutput)
 }
 
-// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
 func (o LiveEventEncodingPtrOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventEncoding) *string {
 		if v == nil {
@@ -1739,7 +1671,6 @@ func (o LiveEventEncodingPtrOutput) EncodingType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encoding preset name.  This value is specified at creation time and cannot be updated.
 func (o LiveEventEncodingPtrOutput) PresetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventEncoding) *string {
 		if v == nil {
@@ -1749,12 +1680,9 @@ func (o LiveEventEncodingPtrOutput) PresetName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Live Event encoding.
 type LiveEventEncodingResponse struct {
-	// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
 	EncodingType *string `pulumi:"encodingType"`
-	// The encoding preset name.  This value is specified at creation time and cannot be updated.
-	PresetName *string `pulumi:"presetName"`
+	PresetName   *string `pulumi:"presetName"`
 }
 
 // LiveEventEncodingResponseInput is an input type that accepts LiveEventEncodingResponseArgs and LiveEventEncodingResponseOutput values.
@@ -1768,12 +1696,9 @@ type LiveEventEncodingResponseInput interface {
 	ToLiveEventEncodingResponseOutputWithContext(context.Context) LiveEventEncodingResponseOutput
 }
 
-// The Live Event encoding.
 type LiveEventEncodingResponseArgs struct {
-	// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
 	EncodingType pulumi.StringPtrInput `pulumi:"encodingType"`
-	// The encoding preset name.  This value is specified at creation time and cannot be updated.
-	PresetName pulumi.StringPtrInput `pulumi:"presetName"`
+	PresetName   pulumi.StringPtrInput `pulumi:"presetName"`
 }
 
 func (LiveEventEncodingResponseArgs) ElementType() reflect.Type {
@@ -1829,7 +1754,6 @@ func (i *liveEventEncodingResponsePtrType) ToLiveEventEncodingResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEncodingResponsePtrOutput)
 }
 
-// The Live Event encoding.
 type LiveEventEncodingResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventEncodingResponseOutput) ElementType() reflect.Type {
@@ -1849,17 +1773,15 @@ func (o LiveEventEncodingResponseOutput) ToLiveEventEncodingResponsePtrOutput() 
 }
 
 func (o LiveEventEncodingResponseOutput) ToLiveEventEncodingResponsePtrOutputWithContext(ctx context.Context) LiveEventEncodingResponsePtrOutput {
-	return o.ApplyT(func(v LiveEventEncodingResponse) *LiveEventEncodingResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventEncodingResponse) *LiveEventEncodingResponse {
 		return &v
 	}).(LiveEventEncodingResponsePtrOutput)
 }
 
-// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
 func (o LiveEventEncodingResponseOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncodingResponse) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
 }
 
-// The encoding preset name.  This value is specified at creation time and cannot be updated.
 func (o LiveEventEncodingResponseOutput) PresetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncodingResponse) *string { return v.PresetName }).(pulumi.StringPtrOutput)
 }
@@ -1879,10 +1801,15 @@ func (o LiveEventEncodingResponsePtrOutput) ToLiveEventEncodingResponsePtrOutput
 }
 
 func (o LiveEventEncodingResponsePtrOutput) Elem() LiveEventEncodingResponseOutput {
-	return o.ApplyT(func(v *LiveEventEncodingResponse) LiveEventEncodingResponse { return *v }).(LiveEventEncodingResponseOutput)
+	return o.ApplyT(func(v *LiveEventEncodingResponse) LiveEventEncodingResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventEncodingResponse
+		return ret
+	}).(LiveEventEncodingResponseOutput)
 }
 
-// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
 func (o LiveEventEncodingResponsePtrOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventEncodingResponse) *string {
 		if v == nil {
@@ -1892,7 +1819,6 @@ func (o LiveEventEncodingResponsePtrOutput) EncodingType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encoding preset name.  This value is specified at creation time and cannot be updated.
 func (o LiveEventEncodingResponsePtrOutput) PresetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventEncodingResponse) *string {
 		if v == nil {
@@ -1902,12 +1828,9 @@ func (o LiveEventEncodingResponsePtrOutput) PresetName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Live Event endpoint.
 type LiveEventEndpoint struct {
-	// The endpoint protocol.
 	Protocol *string `pulumi:"protocol"`
-	// The endpoint URL.
-	Url *string `pulumi:"url"`
+	Url      *string `pulumi:"url"`
 }
 
 // LiveEventEndpointInput is an input type that accepts LiveEventEndpointArgs and LiveEventEndpointOutput values.
@@ -1921,12 +1844,9 @@ type LiveEventEndpointInput interface {
 	ToLiveEventEndpointOutputWithContext(context.Context) LiveEventEndpointOutput
 }
 
-// The Live Event endpoint.
 type LiveEventEndpointArgs struct {
-	// The endpoint protocol.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// The endpoint URL.
-	Url pulumi.StringPtrInput `pulumi:"url"`
+	Url      pulumi.StringPtrInput `pulumi:"url"`
 }
 
 func (LiveEventEndpointArgs) ElementType() reflect.Type {
@@ -1966,7 +1886,6 @@ func (i LiveEventEndpointArray) ToLiveEventEndpointArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEndpointArrayOutput)
 }
 
-// The Live Event endpoint.
 type LiveEventEndpointOutput struct{ *pulumi.OutputState }
 
 func (LiveEventEndpointOutput) ElementType() reflect.Type {
@@ -1981,12 +1900,10 @@ func (o LiveEventEndpointOutput) ToLiveEventEndpointOutputWithContext(ctx contex
 	return o
 }
 
-// The endpoint protocol.
 func (o LiveEventEndpointOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEndpoint) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// The endpoint URL.
 func (o LiveEventEndpointOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEndpoint) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -2011,12 +1928,9 @@ func (o LiveEventEndpointArrayOutput) Index(i pulumi.IntInput) LiveEventEndpoint
 	}).(LiveEventEndpointOutput)
 }
 
-// The Live Event endpoint.
 type LiveEventEndpointResponse struct {
-	// The endpoint protocol.
 	Protocol *string `pulumi:"protocol"`
-	// The endpoint URL.
-	Url *string `pulumi:"url"`
+	Url      *string `pulumi:"url"`
 }
 
 // LiveEventEndpointResponseInput is an input type that accepts LiveEventEndpointResponseArgs and LiveEventEndpointResponseOutput values.
@@ -2030,12 +1944,9 @@ type LiveEventEndpointResponseInput interface {
 	ToLiveEventEndpointResponseOutputWithContext(context.Context) LiveEventEndpointResponseOutput
 }
 
-// The Live Event endpoint.
 type LiveEventEndpointResponseArgs struct {
-	// The endpoint protocol.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// The endpoint URL.
-	Url pulumi.StringPtrInput `pulumi:"url"`
+	Url      pulumi.StringPtrInput `pulumi:"url"`
 }
 
 func (LiveEventEndpointResponseArgs) ElementType() reflect.Type {
@@ -2075,7 +1986,6 @@ func (i LiveEventEndpointResponseArray) ToLiveEventEndpointResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEndpointResponseArrayOutput)
 }
 
-// The Live Event endpoint.
 type LiveEventEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventEndpointResponseOutput) ElementType() reflect.Type {
@@ -2090,12 +2000,10 @@ func (o LiveEventEndpointResponseOutput) ToLiveEventEndpointResponseOutputWithCo
 	return o
 }
 
-// The endpoint protocol.
 func (o LiveEventEndpointResponseOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEndpointResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// The endpoint URL.
 func (o LiveEventEndpointResponseOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEndpointResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -2120,18 +2028,12 @@ func (o LiveEventEndpointResponseArrayOutput) Index(i pulumi.IntInput) LiveEvent
 	}).(LiveEventEndpointResponseOutput)
 }
 
-// The Live Event input.
 type LiveEventInputType struct {
-	// The access control for LiveEvent Input.
-	AccessControl *LiveEventInputAccessControl `pulumi:"accessControl"`
-	// A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
-	AccessToken *string `pulumi:"accessToken"`
-	// The input endpoints for the Live Event.
-	Endpoints []LiveEventEndpoint `pulumi:"endpoints"`
-	// ISO 8601 timespan duration of the key frame interval duration.
-	KeyFrameIntervalDuration *string `pulumi:"keyFrameIntervalDuration"`
-	// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
-	StreamingProtocol string `pulumi:"streamingProtocol"`
+	AccessControl            *LiveEventInputAccessControl `pulumi:"accessControl"`
+	AccessToken              *string                      `pulumi:"accessToken"`
+	Endpoints                []LiveEventEndpoint          `pulumi:"endpoints"`
+	KeyFrameIntervalDuration *string                      `pulumi:"keyFrameIntervalDuration"`
+	StreamingProtocol        string                       `pulumi:"streamingProtocol"`
 }
 
 // LiveEventInputTypeInput is an input type that accepts LiveEventInputTypeArgs and LiveEventInputTypeOutput values.
@@ -2145,18 +2047,12 @@ type LiveEventInputTypeInput interface {
 	ToLiveEventInputTypeOutputWithContext(context.Context) LiveEventInputTypeOutput
 }
 
-// The Live Event input.
 type LiveEventInputTypeArgs struct {
-	// The access control for LiveEvent Input.
-	AccessControl LiveEventInputAccessControlPtrInput `pulumi:"accessControl"`
-	// A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
-	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
-	// The input endpoints for the Live Event.
-	Endpoints LiveEventEndpointArrayInput `pulumi:"endpoints"`
-	// ISO 8601 timespan duration of the key frame interval duration.
-	KeyFrameIntervalDuration pulumi.StringPtrInput `pulumi:"keyFrameIntervalDuration"`
-	// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
-	StreamingProtocol pulumi.StringInput `pulumi:"streamingProtocol"`
+	AccessControl            LiveEventInputAccessControlPtrInput `pulumi:"accessControl"`
+	AccessToken              pulumi.StringPtrInput               `pulumi:"accessToken"`
+	Endpoints                LiveEventEndpointArrayInput         `pulumi:"endpoints"`
+	KeyFrameIntervalDuration pulumi.StringPtrInput               `pulumi:"keyFrameIntervalDuration"`
+	StreamingProtocol        pulumi.StringInput                  `pulumi:"streamingProtocol"`
 }
 
 func (LiveEventInputTypeArgs) ElementType() reflect.Type {
@@ -2212,7 +2108,6 @@ func (i *liveEventInputTypePtrType) ToLiveEventInputTypePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTypePtrOutput)
 }
 
-// The Live Event input.
 type LiveEventInputTypeOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputTypeOutput) ElementType() reflect.Type {
@@ -2232,32 +2127,27 @@ func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutput() LiveEventInput
 }
 
 func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
-	return o.ApplyT(func(v LiveEventInputType) *LiveEventInputType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputType) *LiveEventInputType {
 		return &v
 	}).(LiveEventInputTypePtrOutput)
 }
 
-// The access control for LiveEvent Input.
 func (o LiveEventInputTypeOutput) AccessControl() LiveEventInputAccessControlPtrOutput {
 	return o.ApplyT(func(v LiveEventInputType) *LiveEventInputAccessControl { return v.AccessControl }).(LiveEventInputAccessControlPtrOutput)
 }
 
-// A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
 func (o LiveEventInputTypeOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputType) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
-// The input endpoints for the Live Event.
 func (o LiveEventInputTypeOutput) Endpoints() LiveEventEndpointArrayOutput {
 	return o.ApplyT(func(v LiveEventInputType) []LiveEventEndpoint { return v.Endpoints }).(LiveEventEndpointArrayOutput)
 }
 
-// ISO 8601 timespan duration of the key frame interval duration.
 func (o LiveEventInputTypeOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputType) *string { return v.KeyFrameIntervalDuration }).(pulumi.StringPtrOutput)
 }
 
-// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
 func (o LiveEventInputTypeOutput) StreamingProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LiveEventInputType) string { return v.StreamingProtocol }).(pulumi.StringOutput)
 }
@@ -2277,10 +2167,15 @@ func (o LiveEventInputTypePtrOutput) ToLiveEventInputTypePtrOutputWithContext(ct
 }
 
 func (o LiveEventInputTypePtrOutput) Elem() LiveEventInputTypeOutput {
-	return o.ApplyT(func(v *LiveEventInputType) LiveEventInputType { return *v }).(LiveEventInputTypeOutput)
+	return o.ApplyT(func(v *LiveEventInputType) LiveEventInputType {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventInputType
+		return ret
+	}).(LiveEventInputTypeOutput)
 }
 
-// The access control for LiveEvent Input.
 func (o LiveEventInputTypePtrOutput) AccessControl() LiveEventInputAccessControlPtrOutput {
 	return o.ApplyT(func(v *LiveEventInputType) *LiveEventInputAccessControl {
 		if v == nil {
@@ -2290,7 +2185,6 @@ func (o LiveEventInputTypePtrOutput) AccessControl() LiveEventInputAccessControl
 	}).(LiveEventInputAccessControlPtrOutput)
 }
 
-// A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
 func (o LiveEventInputTypePtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInputType) *string {
 		if v == nil {
@@ -2300,7 +2194,6 @@ func (o LiveEventInputTypePtrOutput) AccessToken() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The input endpoints for the Live Event.
 func (o LiveEventInputTypePtrOutput) Endpoints() LiveEventEndpointArrayOutput {
 	return o.ApplyT(func(v *LiveEventInputType) []LiveEventEndpoint {
 		if v == nil {
@@ -2310,7 +2203,6 @@ func (o LiveEventInputTypePtrOutput) Endpoints() LiveEventEndpointArrayOutput {
 	}).(LiveEventEndpointArrayOutput)
 }
 
-// ISO 8601 timespan duration of the key frame interval duration.
 func (o LiveEventInputTypePtrOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInputType) *string {
 		if v == nil {
@@ -2320,7 +2212,6 @@ func (o LiveEventInputTypePtrOutput) KeyFrameIntervalDuration() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
 func (o LiveEventInputTypePtrOutput) StreamingProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInputType) *string {
 		if v == nil {
@@ -2330,9 +2221,7 @@ func (o LiveEventInputTypePtrOutput) StreamingProtocol() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP access control for Live Event Input.
 type LiveEventInputAccessControl struct {
-	// The IP access control properties.
 	Ip *IPAccessControl `pulumi:"ip"`
 }
 
@@ -2347,9 +2236,7 @@ type LiveEventInputAccessControlInput interface {
 	ToLiveEventInputAccessControlOutputWithContext(context.Context) LiveEventInputAccessControlOutput
 }
 
-// The IP access control for Live Event Input.
 type LiveEventInputAccessControlArgs struct {
-	// The IP access control properties.
 	Ip IPAccessControlPtrInput `pulumi:"ip"`
 }
 
@@ -2406,7 +2293,6 @@ func (i *liveEventInputAccessControlPtrType) ToLiveEventInputAccessControlPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputAccessControlPtrOutput)
 }
 
-// The IP access control for Live Event Input.
 type LiveEventInputAccessControlOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputAccessControlOutput) ElementType() reflect.Type {
@@ -2426,12 +2312,11 @@ func (o LiveEventInputAccessControlOutput) ToLiveEventInputAccessControlPtrOutpu
 }
 
 func (o LiveEventInputAccessControlOutput) ToLiveEventInputAccessControlPtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlPtrOutput {
-	return o.ApplyT(func(v LiveEventInputAccessControl) *LiveEventInputAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputAccessControl) *LiveEventInputAccessControl {
 		return &v
 	}).(LiveEventInputAccessControlPtrOutput)
 }
 
-// The IP access control properties.
 func (o LiveEventInputAccessControlOutput) Ip() IPAccessControlPtrOutput {
 	return o.ApplyT(func(v LiveEventInputAccessControl) *IPAccessControl { return v.Ip }).(IPAccessControlPtrOutput)
 }
@@ -2451,10 +2336,15 @@ func (o LiveEventInputAccessControlPtrOutput) ToLiveEventInputAccessControlPtrOu
 }
 
 func (o LiveEventInputAccessControlPtrOutput) Elem() LiveEventInputAccessControlOutput {
-	return o.ApplyT(func(v *LiveEventInputAccessControl) LiveEventInputAccessControl { return *v }).(LiveEventInputAccessControlOutput)
+	return o.ApplyT(func(v *LiveEventInputAccessControl) LiveEventInputAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventInputAccessControl
+		return ret
+	}).(LiveEventInputAccessControlOutput)
 }
 
-// The IP access control properties.
 func (o LiveEventInputAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 	return o.ApplyT(func(v *LiveEventInputAccessControl) *IPAccessControl {
 		if v == nil {
@@ -2464,9 +2354,7 @@ func (o LiveEventInputAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 	}).(IPAccessControlPtrOutput)
 }
 
-// The IP access control for Live Event Input.
 type LiveEventInputAccessControlResponse struct {
-	// The IP access control properties.
 	Ip *IPAccessControlResponse `pulumi:"ip"`
 }
 
@@ -2481,9 +2369,7 @@ type LiveEventInputAccessControlResponseInput interface {
 	ToLiveEventInputAccessControlResponseOutputWithContext(context.Context) LiveEventInputAccessControlResponseOutput
 }
 
-// The IP access control for Live Event Input.
 type LiveEventInputAccessControlResponseArgs struct {
-	// The IP access control properties.
 	Ip IPAccessControlResponsePtrInput `pulumi:"ip"`
 }
 
@@ -2540,7 +2426,6 @@ func (i *liveEventInputAccessControlResponsePtrType) ToLiveEventInputAccessContr
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputAccessControlResponsePtrOutput)
 }
 
-// The IP access control for Live Event Input.
 type LiveEventInputAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputAccessControlResponseOutput) ElementType() reflect.Type {
@@ -2560,12 +2445,11 @@ func (o LiveEventInputAccessControlResponseOutput) ToLiveEventInputAccessControl
 }
 
 func (o LiveEventInputAccessControlResponseOutput) ToLiveEventInputAccessControlResponsePtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v LiveEventInputAccessControlResponse) *LiveEventInputAccessControlResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputAccessControlResponse) *LiveEventInputAccessControlResponse {
 		return &v
 	}).(LiveEventInputAccessControlResponsePtrOutput)
 }
 
-// The IP access control properties.
 func (o LiveEventInputAccessControlResponseOutput) Ip() IPAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v LiveEventInputAccessControlResponse) *IPAccessControlResponse { return v.Ip }).(IPAccessControlResponsePtrOutput)
 }
@@ -2585,10 +2469,15 @@ func (o LiveEventInputAccessControlResponsePtrOutput) ToLiveEventInputAccessCont
 }
 
 func (o LiveEventInputAccessControlResponsePtrOutput) Elem() LiveEventInputAccessControlResponseOutput {
-	return o.ApplyT(func(v *LiveEventInputAccessControlResponse) LiveEventInputAccessControlResponse { return *v }).(LiveEventInputAccessControlResponseOutput)
+	return o.ApplyT(func(v *LiveEventInputAccessControlResponse) LiveEventInputAccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventInputAccessControlResponse
+		return ret
+	}).(LiveEventInputAccessControlResponseOutput)
 }
 
-// The IP access control properties.
 func (o LiveEventInputAccessControlResponsePtrOutput) Ip() IPAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v *LiveEventInputAccessControlResponse) *IPAccessControlResponse {
 		if v == nil {
@@ -2598,18 +2487,12 @@ func (o LiveEventInputAccessControlResponsePtrOutput) Ip() IPAccessControlRespon
 	}).(IPAccessControlResponsePtrOutput)
 }
 
-// The Live Event input.
 type LiveEventInputResponse struct {
-	// The access control for LiveEvent Input.
-	AccessControl *LiveEventInputAccessControlResponse `pulumi:"accessControl"`
-	// A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
-	AccessToken *string `pulumi:"accessToken"`
-	// The input endpoints for the Live Event.
-	Endpoints []LiveEventEndpointResponse `pulumi:"endpoints"`
-	// ISO 8601 timespan duration of the key frame interval duration.
-	KeyFrameIntervalDuration *string `pulumi:"keyFrameIntervalDuration"`
-	// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
-	StreamingProtocol string `pulumi:"streamingProtocol"`
+	AccessControl            *LiveEventInputAccessControlResponse `pulumi:"accessControl"`
+	AccessToken              *string                              `pulumi:"accessToken"`
+	Endpoints                []LiveEventEndpointResponse          `pulumi:"endpoints"`
+	KeyFrameIntervalDuration *string                              `pulumi:"keyFrameIntervalDuration"`
+	StreamingProtocol        string                               `pulumi:"streamingProtocol"`
 }
 
 // LiveEventInputResponseInput is an input type that accepts LiveEventInputResponseArgs and LiveEventInputResponseOutput values.
@@ -2623,18 +2506,12 @@ type LiveEventInputResponseInput interface {
 	ToLiveEventInputResponseOutputWithContext(context.Context) LiveEventInputResponseOutput
 }
 
-// The Live Event input.
 type LiveEventInputResponseArgs struct {
-	// The access control for LiveEvent Input.
-	AccessControl LiveEventInputAccessControlResponsePtrInput `pulumi:"accessControl"`
-	// A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
-	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
-	// The input endpoints for the Live Event.
-	Endpoints LiveEventEndpointResponseArrayInput `pulumi:"endpoints"`
-	// ISO 8601 timespan duration of the key frame interval duration.
-	KeyFrameIntervalDuration pulumi.StringPtrInput `pulumi:"keyFrameIntervalDuration"`
-	// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
-	StreamingProtocol pulumi.StringInput `pulumi:"streamingProtocol"`
+	AccessControl            LiveEventInputAccessControlResponsePtrInput `pulumi:"accessControl"`
+	AccessToken              pulumi.StringPtrInput                       `pulumi:"accessToken"`
+	Endpoints                LiveEventEndpointResponseArrayInput         `pulumi:"endpoints"`
+	KeyFrameIntervalDuration pulumi.StringPtrInput                       `pulumi:"keyFrameIntervalDuration"`
+	StreamingProtocol        pulumi.StringInput                          `pulumi:"streamingProtocol"`
 }
 
 func (LiveEventInputResponseArgs) ElementType() reflect.Type {
@@ -2690,7 +2567,6 @@ func (i *liveEventInputResponsePtrType) ToLiveEventInputResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputResponsePtrOutput)
 }
 
-// The Live Event input.
 type LiveEventInputResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputResponseOutput) ElementType() reflect.Type {
@@ -2710,32 +2586,27 @@ func (o LiveEventInputResponseOutput) ToLiveEventInputResponsePtrOutput() LiveEv
 }
 
 func (o LiveEventInputResponseOutput) ToLiveEventInputResponsePtrOutputWithContext(ctx context.Context) LiveEventInputResponsePtrOutput {
-	return o.ApplyT(func(v LiveEventInputResponse) *LiveEventInputResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputResponse) *LiveEventInputResponse {
 		return &v
 	}).(LiveEventInputResponsePtrOutput)
 }
 
-// The access control for LiveEvent Input.
 func (o LiveEventInputResponseOutput) AccessControl() LiveEventInputAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v LiveEventInputResponse) *LiveEventInputAccessControlResponse { return v.AccessControl }).(LiveEventInputAccessControlResponsePtrOutput)
 }
 
-// A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
 func (o LiveEventInputResponseOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputResponse) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
-// The input endpoints for the Live Event.
 func (o LiveEventInputResponseOutput) Endpoints() LiveEventEndpointResponseArrayOutput {
 	return o.ApplyT(func(v LiveEventInputResponse) []LiveEventEndpointResponse { return v.Endpoints }).(LiveEventEndpointResponseArrayOutput)
 }
 
-// ISO 8601 timespan duration of the key frame interval duration.
 func (o LiveEventInputResponseOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputResponse) *string { return v.KeyFrameIntervalDuration }).(pulumi.StringPtrOutput)
 }
 
-// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
 func (o LiveEventInputResponseOutput) StreamingProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LiveEventInputResponse) string { return v.StreamingProtocol }).(pulumi.StringOutput)
 }
@@ -2755,10 +2626,15 @@ func (o LiveEventInputResponsePtrOutput) ToLiveEventInputResponsePtrOutputWithCo
 }
 
 func (o LiveEventInputResponsePtrOutput) Elem() LiveEventInputResponseOutput {
-	return o.ApplyT(func(v *LiveEventInputResponse) LiveEventInputResponse { return *v }).(LiveEventInputResponseOutput)
+	return o.ApplyT(func(v *LiveEventInputResponse) LiveEventInputResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventInputResponse
+		return ret
+	}).(LiveEventInputResponseOutput)
 }
 
-// The access control for LiveEvent Input.
 func (o LiveEventInputResponsePtrOutput) AccessControl() LiveEventInputAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v *LiveEventInputResponse) *LiveEventInputAccessControlResponse {
 		if v == nil {
@@ -2768,7 +2644,6 @@ func (o LiveEventInputResponsePtrOutput) AccessControl() LiveEventInputAccessCon
 	}).(LiveEventInputAccessControlResponsePtrOutput)
 }
 
-// A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
 func (o LiveEventInputResponsePtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInputResponse) *string {
 		if v == nil {
@@ -2778,7 +2653,6 @@ func (o LiveEventInputResponsePtrOutput) AccessToken() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The input endpoints for the Live Event.
 func (o LiveEventInputResponsePtrOutput) Endpoints() LiveEventEndpointResponseArrayOutput {
 	return o.ApplyT(func(v *LiveEventInputResponse) []LiveEventEndpointResponse {
 		if v == nil {
@@ -2788,7 +2662,6 @@ func (o LiveEventInputResponsePtrOutput) Endpoints() LiveEventEndpointResponseAr
 	}).(LiveEventEndpointResponseArrayOutput)
 }
 
-// ISO 8601 timespan duration of the key frame interval duration.
 func (o LiveEventInputResponsePtrOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInputResponse) *string {
 		if v == nil {
@@ -2798,7 +2671,6 @@ func (o LiveEventInputResponsePtrOutput) KeyFrameIntervalDuration() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
 func (o LiveEventInputResponsePtrOutput) StreamingProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInputResponse) *string {
 		if v == nil {
@@ -2808,14 +2680,10 @@ func (o LiveEventInputResponsePtrOutput) StreamingProtocol() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A track selection condition.
 type LiveEventInputTrackSelection struct {
-	// Comparing operation.
 	Operation *string `pulumi:"operation"`
-	// Property name to select.
-	Property *string `pulumi:"property"`
-	// Property value to select.
-	Value *string `pulumi:"value"`
+	Property  *string `pulumi:"property"`
+	Value     *string `pulumi:"value"`
 }
 
 // LiveEventInputTrackSelectionInput is an input type that accepts LiveEventInputTrackSelectionArgs and LiveEventInputTrackSelectionOutput values.
@@ -2829,14 +2697,10 @@ type LiveEventInputTrackSelectionInput interface {
 	ToLiveEventInputTrackSelectionOutputWithContext(context.Context) LiveEventInputTrackSelectionOutput
 }
 
-// A track selection condition.
 type LiveEventInputTrackSelectionArgs struct {
-	// Comparing operation.
 	Operation pulumi.StringPtrInput `pulumi:"operation"`
-	// Property name to select.
-	Property pulumi.StringPtrInput `pulumi:"property"`
-	// Property value to select.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Property  pulumi.StringPtrInput `pulumi:"property"`
+	Value     pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (LiveEventInputTrackSelectionArgs) ElementType() reflect.Type {
@@ -2876,7 +2740,6 @@ func (i LiveEventInputTrackSelectionArray) ToLiveEventInputTrackSelectionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTrackSelectionArrayOutput)
 }
 
-// A track selection condition.
 type LiveEventInputTrackSelectionOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputTrackSelectionOutput) ElementType() reflect.Type {
@@ -2891,17 +2754,14 @@ func (o LiveEventInputTrackSelectionOutput) ToLiveEventInputTrackSelectionOutput
 	return o
 }
 
-// Comparing operation.
 func (o LiveEventInputTrackSelectionOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputTrackSelection) *string { return v.Operation }).(pulumi.StringPtrOutput)
 }
 
-// Property name to select.
 func (o LiveEventInputTrackSelectionOutput) Property() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputTrackSelection) *string { return v.Property }).(pulumi.StringPtrOutput)
 }
 
-// Property value to select.
 func (o LiveEventInputTrackSelectionOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputTrackSelection) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -2926,14 +2786,10 @@ func (o LiveEventInputTrackSelectionArrayOutput) Index(i pulumi.IntInput) LiveEv
 	}).(LiveEventInputTrackSelectionOutput)
 }
 
-// A track selection condition.
 type LiveEventInputTrackSelectionResponse struct {
-	// Comparing operation.
 	Operation *string `pulumi:"operation"`
-	// Property name to select.
-	Property *string `pulumi:"property"`
-	// Property value to select.
-	Value *string `pulumi:"value"`
+	Property  *string `pulumi:"property"`
+	Value     *string `pulumi:"value"`
 }
 
 // LiveEventInputTrackSelectionResponseInput is an input type that accepts LiveEventInputTrackSelectionResponseArgs and LiveEventInputTrackSelectionResponseOutput values.
@@ -2947,14 +2803,10 @@ type LiveEventInputTrackSelectionResponseInput interface {
 	ToLiveEventInputTrackSelectionResponseOutputWithContext(context.Context) LiveEventInputTrackSelectionResponseOutput
 }
 
-// A track selection condition.
 type LiveEventInputTrackSelectionResponseArgs struct {
-	// Comparing operation.
 	Operation pulumi.StringPtrInput `pulumi:"operation"`
-	// Property name to select.
-	Property pulumi.StringPtrInput `pulumi:"property"`
-	// Property value to select.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Property  pulumi.StringPtrInput `pulumi:"property"`
+	Value     pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (LiveEventInputTrackSelectionResponseArgs) ElementType() reflect.Type {
@@ -2994,7 +2846,6 @@ func (i LiveEventInputTrackSelectionResponseArray) ToLiveEventInputTrackSelectio
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTrackSelectionResponseArrayOutput)
 }
 
-// A track selection condition.
 type LiveEventInputTrackSelectionResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputTrackSelectionResponseOutput) ElementType() reflect.Type {
@@ -3009,17 +2860,14 @@ func (o LiveEventInputTrackSelectionResponseOutput) ToLiveEventInputTrackSelecti
 	return o
 }
 
-// Comparing operation.
 func (o LiveEventInputTrackSelectionResponseOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputTrackSelectionResponse) *string { return v.Operation }).(pulumi.StringPtrOutput)
 }
 
-// Property name to select.
 func (o LiveEventInputTrackSelectionResponseOutput) Property() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputTrackSelectionResponse) *string { return v.Property }).(pulumi.StringPtrOutput)
 }
 
-// Property value to select.
 func (o LiveEventInputTrackSelectionResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputTrackSelectionResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -3044,9 +2892,7 @@ func (o LiveEventInputTrackSelectionResponseArrayOutput) Index(i pulumi.IntInput
 	}).(LiveEventInputTrackSelectionResponseOutput)
 }
 
-// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
 type LiveEventOutputTranscriptionTrack struct {
-	// The output track name.
 	TrackName string `pulumi:"trackName"`
 }
 
@@ -3061,9 +2907,7 @@ type LiveEventOutputTranscriptionTrackInput interface {
 	ToLiveEventOutputTranscriptionTrackOutputWithContext(context.Context) LiveEventOutputTranscriptionTrackOutput
 }
 
-// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
 type LiveEventOutputTranscriptionTrackArgs struct {
-	// The output track name.
 	TrackName pulumi.StringInput `pulumi:"trackName"`
 }
 
@@ -3120,7 +2964,6 @@ func (i *liveEventOutputTranscriptionTrackPtrType) ToLiveEventOutputTranscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputTranscriptionTrackPtrOutput)
 }
 
-// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
 type LiveEventOutputTranscriptionTrackOutput struct{ *pulumi.OutputState }
 
 func (LiveEventOutputTranscriptionTrackOutput) ElementType() reflect.Type {
@@ -3140,12 +2983,11 @@ func (o LiveEventOutputTranscriptionTrackOutput) ToLiveEventOutputTranscriptionT
 }
 
 func (o LiveEventOutputTranscriptionTrackOutput) ToLiveEventOutputTranscriptionTrackPtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackPtrOutput {
-	return o.ApplyT(func(v LiveEventOutputTranscriptionTrack) *LiveEventOutputTranscriptionTrack {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventOutputTranscriptionTrack) *LiveEventOutputTranscriptionTrack {
 		return &v
 	}).(LiveEventOutputTranscriptionTrackPtrOutput)
 }
 
-// The output track name.
 func (o LiveEventOutputTranscriptionTrackOutput) TrackName() pulumi.StringOutput {
 	return o.ApplyT(func(v LiveEventOutputTranscriptionTrack) string { return v.TrackName }).(pulumi.StringOutput)
 }
@@ -3165,10 +3007,15 @@ func (o LiveEventOutputTranscriptionTrackPtrOutput) ToLiveEventOutputTranscripti
 }
 
 func (o LiveEventOutputTranscriptionTrackPtrOutput) Elem() LiveEventOutputTranscriptionTrackOutput {
-	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrack) LiveEventOutputTranscriptionTrack { return *v }).(LiveEventOutputTranscriptionTrackOutput)
+	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrack) LiveEventOutputTranscriptionTrack {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventOutputTranscriptionTrack
+		return ret
+	}).(LiveEventOutputTranscriptionTrackOutput)
 }
 
-// The output track name.
 func (o LiveEventOutputTranscriptionTrackPtrOutput) TrackName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrack) *string {
 		if v == nil {
@@ -3178,9 +3025,7 @@ func (o LiveEventOutputTranscriptionTrackPtrOutput) TrackName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
 type LiveEventOutputTranscriptionTrackResponse struct {
-	// The output track name.
 	TrackName string `pulumi:"trackName"`
 }
 
@@ -3195,9 +3040,7 @@ type LiveEventOutputTranscriptionTrackResponseInput interface {
 	ToLiveEventOutputTranscriptionTrackResponseOutputWithContext(context.Context) LiveEventOutputTranscriptionTrackResponseOutput
 }
 
-// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
 type LiveEventOutputTranscriptionTrackResponseArgs struct {
-	// The output track name.
 	TrackName pulumi.StringInput `pulumi:"trackName"`
 }
 
@@ -3254,7 +3097,6 @@ func (i *liveEventOutputTranscriptionTrackResponsePtrType) ToLiveEventOutputTran
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputTranscriptionTrackResponsePtrOutput)
 }
 
-// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
 type LiveEventOutputTranscriptionTrackResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventOutputTranscriptionTrackResponseOutput) ElementType() reflect.Type {
@@ -3274,12 +3116,11 @@ func (o LiveEventOutputTranscriptionTrackResponseOutput) ToLiveEventOutputTransc
 }
 
 func (o LiveEventOutputTranscriptionTrackResponseOutput) ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackResponsePtrOutput {
-	return o.ApplyT(func(v LiveEventOutputTranscriptionTrackResponse) *LiveEventOutputTranscriptionTrackResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventOutputTranscriptionTrackResponse) *LiveEventOutputTranscriptionTrackResponse {
 		return &v
 	}).(LiveEventOutputTranscriptionTrackResponsePtrOutput)
 }
 
-// The output track name.
 func (o LiveEventOutputTranscriptionTrackResponseOutput) TrackName() pulumi.StringOutput {
 	return o.ApplyT(func(v LiveEventOutputTranscriptionTrackResponse) string { return v.TrackName }).(pulumi.StringOutput)
 }
@@ -3300,11 +3141,14 @@ func (o LiveEventOutputTranscriptionTrackResponsePtrOutput) ToLiveEventOutputTra
 
 func (o LiveEventOutputTranscriptionTrackResponsePtrOutput) Elem() LiveEventOutputTranscriptionTrackResponseOutput {
 	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrackResponse) LiveEventOutputTranscriptionTrackResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventOutputTranscriptionTrackResponse
+		return ret
 	}).(LiveEventOutputTranscriptionTrackResponseOutput)
 }
 
-// The output track name.
 func (o LiveEventOutputTranscriptionTrackResponsePtrOutput) TrackName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrackResponse) *string {
 		if v == nil {
@@ -3314,18 +3158,12 @@ func (o LiveEventOutputTranscriptionTrackResponsePtrOutput) TrackName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Live Event preview.
 type LiveEventPreview struct {
-	// The access control for LiveEvent preview.
-	AccessControl *LiveEventPreviewAccessControl `pulumi:"accessControl"`
-	// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-	AlternativeMediaId *string `pulumi:"alternativeMediaId"`
-	// The endpoints for preview.
-	Endpoints []LiveEventEndpoint `pulumi:"endpoints"`
-	// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
-	PreviewLocator *string `pulumi:"previewLocator"`
-	// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
-	StreamingPolicyName *string `pulumi:"streamingPolicyName"`
+	AccessControl       *LiveEventPreviewAccessControl `pulumi:"accessControl"`
+	AlternativeMediaId  *string                        `pulumi:"alternativeMediaId"`
+	Endpoints           []LiveEventEndpoint            `pulumi:"endpoints"`
+	PreviewLocator      *string                        `pulumi:"previewLocator"`
+	StreamingPolicyName *string                        `pulumi:"streamingPolicyName"`
 }
 
 // LiveEventPreviewInput is an input type that accepts LiveEventPreviewArgs and LiveEventPreviewOutput values.
@@ -3339,18 +3177,12 @@ type LiveEventPreviewInput interface {
 	ToLiveEventPreviewOutputWithContext(context.Context) LiveEventPreviewOutput
 }
 
-// The Live Event preview.
 type LiveEventPreviewArgs struct {
-	// The access control for LiveEvent preview.
-	AccessControl LiveEventPreviewAccessControlPtrInput `pulumi:"accessControl"`
-	// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-	AlternativeMediaId pulumi.StringPtrInput `pulumi:"alternativeMediaId"`
-	// The endpoints for preview.
-	Endpoints LiveEventEndpointArrayInput `pulumi:"endpoints"`
-	// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
-	PreviewLocator pulumi.StringPtrInput `pulumi:"previewLocator"`
-	// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
-	StreamingPolicyName pulumi.StringPtrInput `pulumi:"streamingPolicyName"`
+	AccessControl       LiveEventPreviewAccessControlPtrInput `pulumi:"accessControl"`
+	AlternativeMediaId  pulumi.StringPtrInput                 `pulumi:"alternativeMediaId"`
+	Endpoints           LiveEventEndpointArrayInput           `pulumi:"endpoints"`
+	PreviewLocator      pulumi.StringPtrInput                 `pulumi:"previewLocator"`
+	StreamingPolicyName pulumi.StringPtrInput                 `pulumi:"streamingPolicyName"`
 }
 
 func (LiveEventPreviewArgs) ElementType() reflect.Type {
@@ -3406,7 +3238,6 @@ func (i *liveEventPreviewPtrType) ToLiveEventPreviewPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewPtrOutput)
 }
 
-// The Live Event preview.
 type LiveEventPreviewOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewOutput) ElementType() reflect.Type {
@@ -3426,32 +3257,27 @@ func (o LiveEventPreviewOutput) ToLiveEventPreviewPtrOutput() LiveEventPreviewPt
 }
 
 func (o LiveEventPreviewOutput) ToLiveEventPreviewPtrOutputWithContext(ctx context.Context) LiveEventPreviewPtrOutput {
-	return o.ApplyT(func(v LiveEventPreview) *LiveEventPreview {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreview) *LiveEventPreview {
 		return &v
 	}).(LiveEventPreviewPtrOutput)
 }
 
-// The access control for LiveEvent preview.
 func (o LiveEventPreviewOutput) AccessControl() LiveEventPreviewAccessControlPtrOutput {
 	return o.ApplyT(func(v LiveEventPreview) *LiveEventPreviewAccessControl { return v.AccessControl }).(LiveEventPreviewAccessControlPtrOutput)
 }
 
-// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
 func (o LiveEventPreviewOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreview) *string { return v.AlternativeMediaId }).(pulumi.StringPtrOutput)
 }
 
-// The endpoints for preview.
 func (o LiveEventPreviewOutput) Endpoints() LiveEventEndpointArrayOutput {
 	return o.ApplyT(func(v LiveEventPreview) []LiveEventEndpoint { return v.Endpoints }).(LiveEventEndpointArrayOutput)
 }
 
-// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
 func (o LiveEventPreviewOutput) PreviewLocator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreview) *string { return v.PreviewLocator }).(pulumi.StringPtrOutput)
 }
 
-// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
 func (o LiveEventPreviewOutput) StreamingPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreview) *string { return v.StreamingPolicyName }).(pulumi.StringPtrOutput)
 }
@@ -3471,10 +3297,15 @@ func (o LiveEventPreviewPtrOutput) ToLiveEventPreviewPtrOutputWithContext(ctx co
 }
 
 func (o LiveEventPreviewPtrOutput) Elem() LiveEventPreviewOutput {
-	return o.ApplyT(func(v *LiveEventPreview) LiveEventPreview { return *v }).(LiveEventPreviewOutput)
+	return o.ApplyT(func(v *LiveEventPreview) LiveEventPreview {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventPreview
+		return ret
+	}).(LiveEventPreviewOutput)
 }
 
-// The access control for LiveEvent preview.
 func (o LiveEventPreviewPtrOutput) AccessControl() LiveEventPreviewAccessControlPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreview) *LiveEventPreviewAccessControl {
 		if v == nil {
@@ -3484,7 +3315,6 @@ func (o LiveEventPreviewPtrOutput) AccessControl() LiveEventPreviewAccessControl
 	}).(LiveEventPreviewAccessControlPtrOutput)
 }
 
-// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
 func (o LiveEventPreviewPtrOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreview) *string {
 		if v == nil {
@@ -3494,7 +3324,6 @@ func (o LiveEventPreviewPtrOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The endpoints for preview.
 func (o LiveEventPreviewPtrOutput) Endpoints() LiveEventEndpointArrayOutput {
 	return o.ApplyT(func(v *LiveEventPreview) []LiveEventEndpoint {
 		if v == nil {
@@ -3504,7 +3333,6 @@ func (o LiveEventPreviewPtrOutput) Endpoints() LiveEventEndpointArrayOutput {
 	}).(LiveEventEndpointArrayOutput)
 }
 
-// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
 func (o LiveEventPreviewPtrOutput) PreviewLocator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreview) *string {
 		if v == nil {
@@ -3514,7 +3342,6 @@ func (o LiveEventPreviewPtrOutput) PreviewLocator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
 func (o LiveEventPreviewPtrOutput) StreamingPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreview) *string {
 		if v == nil {
@@ -3524,9 +3351,7 @@ func (o LiveEventPreviewPtrOutput) StreamingPolicyName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP access control for Live Event preview.
 type LiveEventPreviewAccessControl struct {
-	// The IP access control properties.
 	Ip *IPAccessControl `pulumi:"ip"`
 }
 
@@ -3541,9 +3366,7 @@ type LiveEventPreviewAccessControlInput interface {
 	ToLiveEventPreviewAccessControlOutputWithContext(context.Context) LiveEventPreviewAccessControlOutput
 }
 
-// The IP access control for Live Event preview.
 type LiveEventPreviewAccessControlArgs struct {
-	// The IP access control properties.
 	Ip IPAccessControlPtrInput `pulumi:"ip"`
 }
 
@@ -3600,7 +3423,6 @@ func (i *liveEventPreviewAccessControlPtrType) ToLiveEventPreviewAccessControlPt
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewAccessControlPtrOutput)
 }
 
-// The IP access control for Live Event preview.
 type LiveEventPreviewAccessControlOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewAccessControlOutput) ElementType() reflect.Type {
@@ -3620,12 +3442,11 @@ func (o LiveEventPreviewAccessControlOutput) ToLiveEventPreviewAccessControlPtrO
 }
 
 func (o LiveEventPreviewAccessControlOutput) ToLiveEventPreviewAccessControlPtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlPtrOutput {
-	return o.ApplyT(func(v LiveEventPreviewAccessControl) *LiveEventPreviewAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreviewAccessControl) *LiveEventPreviewAccessControl {
 		return &v
 	}).(LiveEventPreviewAccessControlPtrOutput)
 }
 
-// The IP access control properties.
 func (o LiveEventPreviewAccessControlOutput) Ip() IPAccessControlPtrOutput {
 	return o.ApplyT(func(v LiveEventPreviewAccessControl) *IPAccessControl { return v.Ip }).(IPAccessControlPtrOutput)
 }
@@ -3645,10 +3466,15 @@ func (o LiveEventPreviewAccessControlPtrOutput) ToLiveEventPreviewAccessControlP
 }
 
 func (o LiveEventPreviewAccessControlPtrOutput) Elem() LiveEventPreviewAccessControlOutput {
-	return o.ApplyT(func(v *LiveEventPreviewAccessControl) LiveEventPreviewAccessControl { return *v }).(LiveEventPreviewAccessControlOutput)
+	return o.ApplyT(func(v *LiveEventPreviewAccessControl) LiveEventPreviewAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventPreviewAccessControl
+		return ret
+	}).(LiveEventPreviewAccessControlOutput)
 }
 
-// The IP access control properties.
 func (o LiveEventPreviewAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreviewAccessControl) *IPAccessControl {
 		if v == nil {
@@ -3658,9 +3484,7 @@ func (o LiveEventPreviewAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 	}).(IPAccessControlPtrOutput)
 }
 
-// The IP access control for Live Event preview.
 type LiveEventPreviewAccessControlResponse struct {
-	// The IP access control properties.
 	Ip *IPAccessControlResponse `pulumi:"ip"`
 }
 
@@ -3675,9 +3499,7 @@ type LiveEventPreviewAccessControlResponseInput interface {
 	ToLiveEventPreviewAccessControlResponseOutputWithContext(context.Context) LiveEventPreviewAccessControlResponseOutput
 }
 
-// The IP access control for Live Event preview.
 type LiveEventPreviewAccessControlResponseArgs struct {
-	// The IP access control properties.
 	Ip IPAccessControlResponsePtrInput `pulumi:"ip"`
 }
 
@@ -3734,7 +3556,6 @@ func (i *liveEventPreviewAccessControlResponsePtrType) ToLiveEventPreviewAccessC
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewAccessControlResponsePtrOutput)
 }
 
-// The IP access control for Live Event preview.
 type LiveEventPreviewAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewAccessControlResponseOutput) ElementType() reflect.Type {
@@ -3754,12 +3575,11 @@ func (o LiveEventPreviewAccessControlResponseOutput) ToLiveEventPreviewAccessCon
 }
 
 func (o LiveEventPreviewAccessControlResponseOutput) ToLiveEventPreviewAccessControlResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v LiveEventPreviewAccessControlResponse) *LiveEventPreviewAccessControlResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreviewAccessControlResponse) *LiveEventPreviewAccessControlResponse {
 		return &v
 	}).(LiveEventPreviewAccessControlResponsePtrOutput)
 }
 
-// The IP access control properties.
 func (o LiveEventPreviewAccessControlResponseOutput) Ip() IPAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v LiveEventPreviewAccessControlResponse) *IPAccessControlResponse { return v.Ip }).(IPAccessControlResponsePtrOutput)
 }
@@ -3779,10 +3599,15 @@ func (o LiveEventPreviewAccessControlResponsePtrOutput) ToLiveEventPreviewAccess
 }
 
 func (o LiveEventPreviewAccessControlResponsePtrOutput) Elem() LiveEventPreviewAccessControlResponseOutput {
-	return o.ApplyT(func(v *LiveEventPreviewAccessControlResponse) LiveEventPreviewAccessControlResponse { return *v }).(LiveEventPreviewAccessControlResponseOutput)
+	return o.ApplyT(func(v *LiveEventPreviewAccessControlResponse) LiveEventPreviewAccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventPreviewAccessControlResponse
+		return ret
+	}).(LiveEventPreviewAccessControlResponseOutput)
 }
 
-// The IP access control properties.
 func (o LiveEventPreviewAccessControlResponsePtrOutput) Ip() IPAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v *LiveEventPreviewAccessControlResponse) *IPAccessControlResponse {
 		if v == nil {
@@ -3792,18 +3617,12 @@ func (o LiveEventPreviewAccessControlResponsePtrOutput) Ip() IPAccessControlResp
 	}).(IPAccessControlResponsePtrOutput)
 }
 
-// The Live Event preview.
 type LiveEventPreviewResponse struct {
-	// The access control for LiveEvent preview.
-	AccessControl *LiveEventPreviewAccessControlResponse `pulumi:"accessControl"`
-	// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-	AlternativeMediaId *string `pulumi:"alternativeMediaId"`
-	// The endpoints for preview.
-	Endpoints []LiveEventEndpointResponse `pulumi:"endpoints"`
-	// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
-	PreviewLocator *string `pulumi:"previewLocator"`
-	// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
-	StreamingPolicyName *string `pulumi:"streamingPolicyName"`
+	AccessControl       *LiveEventPreviewAccessControlResponse `pulumi:"accessControl"`
+	AlternativeMediaId  *string                                `pulumi:"alternativeMediaId"`
+	Endpoints           []LiveEventEndpointResponse            `pulumi:"endpoints"`
+	PreviewLocator      *string                                `pulumi:"previewLocator"`
+	StreamingPolicyName *string                                `pulumi:"streamingPolicyName"`
 }
 
 // LiveEventPreviewResponseInput is an input type that accepts LiveEventPreviewResponseArgs and LiveEventPreviewResponseOutput values.
@@ -3817,18 +3636,12 @@ type LiveEventPreviewResponseInput interface {
 	ToLiveEventPreviewResponseOutputWithContext(context.Context) LiveEventPreviewResponseOutput
 }
 
-// The Live Event preview.
 type LiveEventPreviewResponseArgs struct {
-	// The access control for LiveEvent preview.
-	AccessControl LiveEventPreviewAccessControlResponsePtrInput `pulumi:"accessControl"`
-	// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-	AlternativeMediaId pulumi.StringPtrInput `pulumi:"alternativeMediaId"`
-	// The endpoints for preview.
-	Endpoints LiveEventEndpointResponseArrayInput `pulumi:"endpoints"`
-	// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
-	PreviewLocator pulumi.StringPtrInput `pulumi:"previewLocator"`
-	// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
-	StreamingPolicyName pulumi.StringPtrInput `pulumi:"streamingPolicyName"`
+	AccessControl       LiveEventPreviewAccessControlResponsePtrInput `pulumi:"accessControl"`
+	AlternativeMediaId  pulumi.StringPtrInput                         `pulumi:"alternativeMediaId"`
+	Endpoints           LiveEventEndpointResponseArrayInput           `pulumi:"endpoints"`
+	PreviewLocator      pulumi.StringPtrInput                         `pulumi:"previewLocator"`
+	StreamingPolicyName pulumi.StringPtrInput                         `pulumi:"streamingPolicyName"`
 }
 
 func (LiveEventPreviewResponseArgs) ElementType() reflect.Type {
@@ -3884,7 +3697,6 @@ func (i *liveEventPreviewResponsePtrType) ToLiveEventPreviewResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewResponsePtrOutput)
 }
 
-// The Live Event preview.
 type LiveEventPreviewResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewResponseOutput) ElementType() reflect.Type {
@@ -3904,32 +3716,27 @@ func (o LiveEventPreviewResponseOutput) ToLiveEventPreviewResponsePtrOutput() Li
 }
 
 func (o LiveEventPreviewResponseOutput) ToLiveEventPreviewResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewResponsePtrOutput {
-	return o.ApplyT(func(v LiveEventPreviewResponse) *LiveEventPreviewResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreviewResponse) *LiveEventPreviewResponse {
 		return &v
 	}).(LiveEventPreviewResponsePtrOutput)
 }
 
-// The access control for LiveEvent preview.
 func (o LiveEventPreviewResponseOutput) AccessControl() LiveEventPreviewAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v LiveEventPreviewResponse) *LiveEventPreviewAccessControlResponse { return v.AccessControl }).(LiveEventPreviewAccessControlResponsePtrOutput)
 }
 
-// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
 func (o LiveEventPreviewResponseOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreviewResponse) *string { return v.AlternativeMediaId }).(pulumi.StringPtrOutput)
 }
 
-// The endpoints for preview.
 func (o LiveEventPreviewResponseOutput) Endpoints() LiveEventEndpointResponseArrayOutput {
 	return o.ApplyT(func(v LiveEventPreviewResponse) []LiveEventEndpointResponse { return v.Endpoints }).(LiveEventEndpointResponseArrayOutput)
 }
 
-// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
 func (o LiveEventPreviewResponseOutput) PreviewLocator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreviewResponse) *string { return v.PreviewLocator }).(pulumi.StringPtrOutput)
 }
 
-// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
 func (o LiveEventPreviewResponseOutput) StreamingPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreviewResponse) *string { return v.StreamingPolicyName }).(pulumi.StringPtrOutput)
 }
@@ -3949,10 +3756,15 @@ func (o LiveEventPreviewResponsePtrOutput) ToLiveEventPreviewResponsePtrOutputWi
 }
 
 func (o LiveEventPreviewResponsePtrOutput) Elem() LiveEventPreviewResponseOutput {
-	return o.ApplyT(func(v *LiveEventPreviewResponse) LiveEventPreviewResponse { return *v }).(LiveEventPreviewResponseOutput)
+	return o.ApplyT(func(v *LiveEventPreviewResponse) LiveEventPreviewResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventPreviewResponse
+		return ret
+	}).(LiveEventPreviewResponseOutput)
 }
 
-// The access control for LiveEvent preview.
 func (o LiveEventPreviewResponsePtrOutput) AccessControl() LiveEventPreviewAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v *LiveEventPreviewResponse) *LiveEventPreviewAccessControlResponse {
 		if v == nil {
@@ -3962,7 +3774,6 @@ func (o LiveEventPreviewResponsePtrOutput) AccessControl() LiveEventPreviewAcces
 	}).(LiveEventPreviewAccessControlResponsePtrOutput)
 }
 
-// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
 func (o LiveEventPreviewResponsePtrOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreviewResponse) *string {
 		if v == nil {
@@ -3972,7 +3783,6 @@ func (o LiveEventPreviewResponsePtrOutput) AlternativeMediaId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The endpoints for preview.
 func (o LiveEventPreviewResponsePtrOutput) Endpoints() LiveEventEndpointResponseArrayOutput {
 	return o.ApplyT(func(v *LiveEventPreviewResponse) []LiveEventEndpointResponse {
 		if v == nil {
@@ -3982,7 +3792,6 @@ func (o LiveEventPreviewResponsePtrOutput) Endpoints() LiveEventEndpointResponse
 	}).(LiveEventEndpointResponseArrayOutput)
 }
 
-// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
 func (o LiveEventPreviewResponsePtrOutput) PreviewLocator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreviewResponse) *string {
 		if v == nil {
@@ -3992,7 +3801,6 @@ func (o LiveEventPreviewResponsePtrOutput) PreviewLocator() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
 func (o LiveEventPreviewResponsePtrOutput) StreamingPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreviewResponse) *string {
 		if v == nil {
@@ -4002,13 +3810,9 @@ func (o LiveEventPreviewResponsePtrOutput) StreamingPolicyName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
 type LiveEventTranscription struct {
-	// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
-	InputTrackSelection []LiveEventInputTrackSelection `pulumi:"inputTrackSelection"`
-	// Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
-	Language *string `pulumi:"language"`
-	// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
+	InputTrackSelection      []LiveEventInputTrackSelection     `pulumi:"inputTrackSelection"`
+	Language                 *string                            `pulumi:"language"`
 	OutputTranscriptionTrack *LiveEventOutputTranscriptionTrack `pulumi:"outputTranscriptionTrack"`
 }
 
@@ -4023,13 +3827,9 @@ type LiveEventTranscriptionInput interface {
 	ToLiveEventTranscriptionOutputWithContext(context.Context) LiveEventTranscriptionOutput
 }
 
-// Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
 type LiveEventTranscriptionArgs struct {
-	// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
-	InputTrackSelection LiveEventInputTrackSelectionArrayInput `pulumi:"inputTrackSelection"`
-	// Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
-	Language pulumi.StringPtrInput `pulumi:"language"`
-	// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
+	InputTrackSelection      LiveEventInputTrackSelectionArrayInput    `pulumi:"inputTrackSelection"`
+	Language                 pulumi.StringPtrInput                     `pulumi:"language"`
 	OutputTranscriptionTrack LiveEventOutputTranscriptionTrackPtrInput `pulumi:"outputTranscriptionTrack"`
 }
 
@@ -4070,7 +3870,6 @@ func (i LiveEventTranscriptionArray) ToLiveEventTranscriptionArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventTranscriptionArrayOutput)
 }
 
-// Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
 type LiveEventTranscriptionOutput struct{ *pulumi.OutputState }
 
 func (LiveEventTranscriptionOutput) ElementType() reflect.Type {
@@ -4085,17 +3884,14 @@ func (o LiveEventTranscriptionOutput) ToLiveEventTranscriptionOutputWithContext(
 	return o
 }
 
-// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
 func (o LiveEventTranscriptionOutput) InputTrackSelection() LiveEventInputTrackSelectionArrayOutput {
 	return o.ApplyT(func(v LiveEventTranscription) []LiveEventInputTrackSelection { return v.InputTrackSelection }).(LiveEventInputTrackSelectionArrayOutput)
 }
 
-// Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
 func (o LiveEventTranscriptionOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventTranscription) *string { return v.Language }).(pulumi.StringPtrOutput)
 }
 
-// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
 func (o LiveEventTranscriptionOutput) OutputTranscriptionTrack() LiveEventOutputTranscriptionTrackPtrOutput {
 	return o.ApplyT(func(v LiveEventTranscription) *LiveEventOutputTranscriptionTrack { return v.OutputTranscriptionTrack }).(LiveEventOutputTranscriptionTrackPtrOutput)
 }
@@ -4120,13 +3916,9 @@ func (o LiveEventTranscriptionArrayOutput) Index(i pulumi.IntInput) LiveEventTra
 	}).(LiveEventTranscriptionOutput)
 }
 
-// Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
 type LiveEventTranscriptionResponse struct {
-	// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
-	InputTrackSelection []LiveEventInputTrackSelectionResponse `pulumi:"inputTrackSelection"`
-	// Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
-	Language *string `pulumi:"language"`
-	// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
+	InputTrackSelection      []LiveEventInputTrackSelectionResponse     `pulumi:"inputTrackSelection"`
+	Language                 *string                                    `pulumi:"language"`
 	OutputTranscriptionTrack *LiveEventOutputTranscriptionTrackResponse `pulumi:"outputTranscriptionTrack"`
 }
 
@@ -4141,13 +3933,9 @@ type LiveEventTranscriptionResponseInput interface {
 	ToLiveEventTranscriptionResponseOutputWithContext(context.Context) LiveEventTranscriptionResponseOutput
 }
 
-// Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
 type LiveEventTranscriptionResponseArgs struct {
-	// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
-	InputTrackSelection LiveEventInputTrackSelectionResponseArrayInput `pulumi:"inputTrackSelection"`
-	// Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
-	Language pulumi.StringPtrInput `pulumi:"language"`
-	// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
+	InputTrackSelection      LiveEventInputTrackSelectionResponseArrayInput    `pulumi:"inputTrackSelection"`
+	Language                 pulumi.StringPtrInput                             `pulumi:"language"`
 	OutputTranscriptionTrack LiveEventOutputTranscriptionTrackResponsePtrInput `pulumi:"outputTranscriptionTrack"`
 }
 
@@ -4188,7 +3976,6 @@ func (i LiveEventTranscriptionResponseArray) ToLiveEventTranscriptionResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventTranscriptionResponseArrayOutput)
 }
 
-// Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
 type LiveEventTranscriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventTranscriptionResponseOutput) ElementType() reflect.Type {
@@ -4203,19 +3990,16 @@ func (o LiveEventTranscriptionResponseOutput) ToLiveEventTranscriptionResponseOu
 	return o
 }
 
-// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
 func (o LiveEventTranscriptionResponseOutput) InputTrackSelection() LiveEventInputTrackSelectionResponseArrayOutput {
 	return o.ApplyT(func(v LiveEventTranscriptionResponse) []LiveEventInputTrackSelectionResponse {
 		return v.InputTrackSelection
 	}).(LiveEventInputTrackSelectionResponseArrayOutput)
 }
 
-// Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
 func (o LiveEventTranscriptionResponseOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventTranscriptionResponse) *string { return v.Language }).(pulumi.StringPtrOutput)
 }
 
-// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
 func (o LiveEventTranscriptionResponseOutput) OutputTranscriptionTrack() LiveEventOutputTranscriptionTrackResponsePtrOutput {
 	return o.ApplyT(func(v LiveEventTranscriptionResponse) *LiveEventOutputTranscriptionTrackResponse {
 		return v.OutputTranscriptionTrack
@@ -4242,12 +4026,9 @@ func (o LiveEventTranscriptionResponseArrayOutput) Index(i pulumi.IntInput) Live
 	}).(LiveEventTranscriptionResponseOutput)
 }
 
-// StreamingEndpoint access control definition.
 type StreamingEndpointAccessControl struct {
-	// The access control of Akamai
 	Akamai *AkamaiAccessControl `pulumi:"akamai"`
-	// The IP access control of the StreamingEndpoint.
-	Ip *IPAccessControl `pulumi:"ip"`
+	Ip     *IPAccessControl     `pulumi:"ip"`
 }
 
 // StreamingEndpointAccessControlInput is an input type that accepts StreamingEndpointAccessControlArgs and StreamingEndpointAccessControlOutput values.
@@ -4261,12 +4042,9 @@ type StreamingEndpointAccessControlInput interface {
 	ToStreamingEndpointAccessControlOutputWithContext(context.Context) StreamingEndpointAccessControlOutput
 }
 
-// StreamingEndpoint access control definition.
 type StreamingEndpointAccessControlArgs struct {
-	// The access control of Akamai
 	Akamai AkamaiAccessControlPtrInput `pulumi:"akamai"`
-	// The IP access control of the StreamingEndpoint.
-	Ip IPAccessControlPtrInput `pulumi:"ip"`
+	Ip     IPAccessControlPtrInput     `pulumi:"ip"`
 }
 
 func (StreamingEndpointAccessControlArgs) ElementType() reflect.Type {
@@ -4322,7 +4100,6 @@ func (i *streamingEndpointAccessControlPtrType) ToStreamingEndpointAccessControl
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlPtrOutput)
 }
 
-// StreamingEndpoint access control definition.
 type StreamingEndpointAccessControlOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointAccessControlOutput) ElementType() reflect.Type {
@@ -4342,17 +4119,15 @@ func (o StreamingEndpointAccessControlOutput) ToStreamingEndpointAccessControlPt
 }
 
 func (o StreamingEndpointAccessControlOutput) ToStreamingEndpointAccessControlPtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlPtrOutput {
-	return o.ApplyT(func(v StreamingEndpointAccessControl) *StreamingEndpointAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingEndpointAccessControl) *StreamingEndpointAccessControl {
 		return &v
 	}).(StreamingEndpointAccessControlPtrOutput)
 }
 
-// The access control of Akamai
 func (o StreamingEndpointAccessControlOutput) Akamai() AkamaiAccessControlPtrOutput {
 	return o.ApplyT(func(v StreamingEndpointAccessControl) *AkamaiAccessControl { return v.Akamai }).(AkamaiAccessControlPtrOutput)
 }
 
-// The IP access control of the StreamingEndpoint.
 func (o StreamingEndpointAccessControlOutput) Ip() IPAccessControlPtrOutput {
 	return o.ApplyT(func(v StreamingEndpointAccessControl) *IPAccessControl { return v.Ip }).(IPAccessControlPtrOutput)
 }
@@ -4372,10 +4147,15 @@ func (o StreamingEndpointAccessControlPtrOutput) ToStreamingEndpointAccessContro
 }
 
 func (o StreamingEndpointAccessControlPtrOutput) Elem() StreamingEndpointAccessControlOutput {
-	return o.ApplyT(func(v *StreamingEndpointAccessControl) StreamingEndpointAccessControl { return *v }).(StreamingEndpointAccessControlOutput)
+	return o.ApplyT(func(v *StreamingEndpointAccessControl) StreamingEndpointAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingEndpointAccessControl
+		return ret
+	}).(StreamingEndpointAccessControlOutput)
 }
 
-// The access control of Akamai
 func (o StreamingEndpointAccessControlPtrOutput) Akamai() AkamaiAccessControlPtrOutput {
 	return o.ApplyT(func(v *StreamingEndpointAccessControl) *AkamaiAccessControl {
 		if v == nil {
@@ -4385,7 +4165,6 @@ func (o StreamingEndpointAccessControlPtrOutput) Akamai() AkamaiAccessControlPtr
 	}).(AkamaiAccessControlPtrOutput)
 }
 
-// The IP access control of the StreamingEndpoint.
 func (o StreamingEndpointAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 	return o.ApplyT(func(v *StreamingEndpointAccessControl) *IPAccessControl {
 		if v == nil {
@@ -4395,12 +4174,9 @@ func (o StreamingEndpointAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 	}).(IPAccessControlPtrOutput)
 }
 
-// StreamingEndpoint access control definition.
 type StreamingEndpointAccessControlResponse struct {
-	// The access control of Akamai
 	Akamai *AkamaiAccessControlResponse `pulumi:"akamai"`
-	// The IP access control of the StreamingEndpoint.
-	Ip *IPAccessControlResponse `pulumi:"ip"`
+	Ip     *IPAccessControlResponse     `pulumi:"ip"`
 }
 
 // StreamingEndpointAccessControlResponseInput is an input type that accepts StreamingEndpointAccessControlResponseArgs and StreamingEndpointAccessControlResponseOutput values.
@@ -4414,12 +4190,9 @@ type StreamingEndpointAccessControlResponseInput interface {
 	ToStreamingEndpointAccessControlResponseOutputWithContext(context.Context) StreamingEndpointAccessControlResponseOutput
 }
 
-// StreamingEndpoint access control definition.
 type StreamingEndpointAccessControlResponseArgs struct {
-	// The access control of Akamai
 	Akamai AkamaiAccessControlResponsePtrInput `pulumi:"akamai"`
-	// The IP access control of the StreamingEndpoint.
-	Ip IPAccessControlResponsePtrInput `pulumi:"ip"`
+	Ip     IPAccessControlResponsePtrInput     `pulumi:"ip"`
 }
 
 func (StreamingEndpointAccessControlResponseArgs) ElementType() reflect.Type {
@@ -4475,7 +4248,6 @@ func (i *streamingEndpointAccessControlResponsePtrType) ToStreamingEndpointAcces
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlResponsePtrOutput)
 }
 
-// StreamingEndpoint access control definition.
 type StreamingEndpointAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointAccessControlResponseOutput) ElementType() reflect.Type {
@@ -4495,17 +4267,15 @@ func (o StreamingEndpointAccessControlResponseOutput) ToStreamingEndpointAccessC
 }
 
 func (o StreamingEndpointAccessControlResponseOutput) ToStreamingEndpointAccessControlResponsePtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v StreamingEndpointAccessControlResponse) *StreamingEndpointAccessControlResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingEndpointAccessControlResponse) *StreamingEndpointAccessControlResponse {
 		return &v
 	}).(StreamingEndpointAccessControlResponsePtrOutput)
 }
 
-// The access control of Akamai
 func (o StreamingEndpointAccessControlResponseOutput) Akamai() AkamaiAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v StreamingEndpointAccessControlResponse) *AkamaiAccessControlResponse { return v.Akamai }).(AkamaiAccessControlResponsePtrOutput)
 }
 
-// The IP access control of the StreamingEndpoint.
 func (o StreamingEndpointAccessControlResponseOutput) Ip() IPAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v StreamingEndpointAccessControlResponse) *IPAccessControlResponse { return v.Ip }).(IPAccessControlResponsePtrOutput)
 }
@@ -4525,10 +4295,15 @@ func (o StreamingEndpointAccessControlResponsePtrOutput) ToStreamingEndpointAcce
 }
 
 func (o StreamingEndpointAccessControlResponsePtrOutput) Elem() StreamingEndpointAccessControlResponseOutput {
-	return o.ApplyT(func(v *StreamingEndpointAccessControlResponse) StreamingEndpointAccessControlResponse { return *v }).(StreamingEndpointAccessControlResponseOutput)
+	return o.ApplyT(func(v *StreamingEndpointAccessControlResponse) StreamingEndpointAccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingEndpointAccessControlResponse
+		return ret
+	}).(StreamingEndpointAccessControlResponseOutput)
 }
 
-// The access control of Akamai
 func (o StreamingEndpointAccessControlResponsePtrOutput) Akamai() AkamaiAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v *StreamingEndpointAccessControlResponse) *AkamaiAccessControlResponse {
 		if v == nil {
@@ -4538,7 +4313,6 @@ func (o StreamingEndpointAccessControlResponsePtrOutput) Akamai() AkamaiAccessCo
 	}).(AkamaiAccessControlResponsePtrOutput)
 }
 
-// The IP access control of the StreamingEndpoint.
 func (o StreamingEndpointAccessControlResponsePtrOutput) Ip() IPAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v *StreamingEndpointAccessControlResponse) *IPAccessControlResponse {
 		if v == nil {

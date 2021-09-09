@@ -10,22 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An application package which represents a particular version of an application.
 type ApplicationPackageResponse struct {
-	// The format of the application package, if the package is active.
-	Format *string `pulumi:"format"`
-	// The ID of the application.
-	Id *string `pulumi:"id"`
-	// The time at which the package was last activated, if the package is active.
+	Format             *string `pulumi:"format"`
+	Id                 *string `pulumi:"id"`
 	LastActivationTime *string `pulumi:"lastActivationTime"`
-	// The current state of the application package.
-	State *string `pulumi:"state"`
-	// The storage URL at which the application package is stored.
-	StorageUrl *string `pulumi:"storageUrl"`
-	// The UTC time at which the storage URL will expire.
-	StorageUrlExpiry *string `pulumi:"storageUrlExpiry"`
-	// The version of the application package.
-	Version *string `pulumi:"version"`
+	State              *string `pulumi:"state"`
+	StorageUrl         *string `pulumi:"storageUrl"`
+	StorageUrlExpiry   *string `pulumi:"storageUrlExpiry"`
+	Version            *string `pulumi:"version"`
 }
 
 // ApplicationPackageResponseInput is an input type that accepts ApplicationPackageResponseArgs and ApplicationPackageResponseOutput values.
@@ -39,22 +31,14 @@ type ApplicationPackageResponseInput interface {
 	ToApplicationPackageResponseOutputWithContext(context.Context) ApplicationPackageResponseOutput
 }
 
-// An application package which represents a particular version of an application.
 type ApplicationPackageResponseArgs struct {
-	// The format of the application package, if the package is active.
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	// The ID of the application.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The time at which the package was last activated, if the package is active.
+	Format             pulumi.StringPtrInput `pulumi:"format"`
+	Id                 pulumi.StringPtrInput `pulumi:"id"`
 	LastActivationTime pulumi.StringPtrInput `pulumi:"lastActivationTime"`
-	// The current state of the application package.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// The storage URL at which the application package is stored.
-	StorageUrl pulumi.StringPtrInput `pulumi:"storageUrl"`
-	// The UTC time at which the storage URL will expire.
-	StorageUrlExpiry pulumi.StringPtrInput `pulumi:"storageUrlExpiry"`
-	// The version of the application package.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	State              pulumi.StringPtrInput `pulumi:"state"`
+	StorageUrl         pulumi.StringPtrInput `pulumi:"storageUrl"`
+	StorageUrlExpiry   pulumi.StringPtrInput `pulumi:"storageUrlExpiry"`
+	Version            pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (ApplicationPackageResponseArgs) ElementType() reflect.Type {
@@ -94,7 +78,6 @@ func (i ApplicationPackageResponseArray) ToApplicationPackageResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageResponseArrayOutput)
 }
 
-// An application package which represents a particular version of an application.
 type ApplicationPackageResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPackageResponseOutput) ElementType() reflect.Type {
@@ -109,37 +92,30 @@ func (o ApplicationPackageResponseOutput) ToApplicationPackageResponseOutputWith
 	return o
 }
 
-// The format of the application package, if the package is active.
 func (o ApplicationPackageResponseOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPackageResponse) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the application.
 func (o ApplicationPackageResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPackageResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The time at which the package was last activated, if the package is active.
 func (o ApplicationPackageResponseOutput) LastActivationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPackageResponse) *string { return v.LastActivationTime }).(pulumi.StringPtrOutput)
 }
 
-// The current state of the application package.
 func (o ApplicationPackageResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPackageResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// The storage URL at which the application package is stored.
 func (o ApplicationPackageResponseOutput) StorageUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPackageResponse) *string { return v.StorageUrl }).(pulumi.StringPtrOutput)
 }
 
-// The UTC time at which the storage URL will expire.
 func (o ApplicationPackageResponseOutput) StorageUrlExpiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPackageResponse) *string { return v.StorageUrlExpiry }).(pulumi.StringPtrOutput)
 }
 
-// The version of the application package.
 func (o ApplicationPackageResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPackageResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -164,9 +140,7 @@ func (o ApplicationPackageResponseArrayOutput) Index(i pulumi.IntInput) Applicat
 	}).(ApplicationPackageResponseOutput)
 }
 
-// The properties related to auto storage account.
 type AutoStorageBaseProperties struct {
-	// The resource ID of the storage account to be used for auto storage account.
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -181,9 +155,7 @@ type AutoStorageBasePropertiesInput interface {
 	ToAutoStorageBasePropertiesOutputWithContext(context.Context) AutoStorageBasePropertiesOutput
 }
 
-// The properties related to auto storage account.
 type AutoStorageBasePropertiesArgs struct {
-	// The resource ID of the storage account to be used for auto storage account.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
@@ -240,7 +212,6 @@ func (i *autoStorageBasePropertiesPtrType) ToAutoStorageBasePropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AutoStorageBasePropertiesPtrOutput)
 }
 
-// The properties related to auto storage account.
 type AutoStorageBasePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AutoStorageBasePropertiesOutput) ElementType() reflect.Type {
@@ -260,12 +231,11 @@ func (o AutoStorageBasePropertiesOutput) ToAutoStorageBasePropertiesPtrOutput() 
 }
 
 func (o AutoStorageBasePropertiesOutput) ToAutoStorageBasePropertiesPtrOutputWithContext(ctx context.Context) AutoStorageBasePropertiesPtrOutput {
-	return o.ApplyT(func(v AutoStorageBaseProperties) *AutoStorageBaseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoStorageBaseProperties) *AutoStorageBaseProperties {
 		return &v
 	}).(AutoStorageBasePropertiesPtrOutput)
 }
 
-// The resource ID of the storage account to be used for auto storage account.
 func (o AutoStorageBasePropertiesOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoStorageBaseProperties) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
@@ -285,10 +255,15 @@ func (o AutoStorageBasePropertiesPtrOutput) ToAutoStorageBasePropertiesPtrOutput
 }
 
 func (o AutoStorageBasePropertiesPtrOutput) Elem() AutoStorageBasePropertiesOutput {
-	return o.ApplyT(func(v *AutoStorageBaseProperties) AutoStorageBaseProperties { return *v }).(AutoStorageBasePropertiesOutput)
+	return o.ApplyT(func(v *AutoStorageBaseProperties) AutoStorageBaseProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AutoStorageBaseProperties
+		return ret
+	}).(AutoStorageBasePropertiesOutput)
 }
 
-// The resource ID of the storage account to be used for auto storage account.
 func (o AutoStorageBasePropertiesPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoStorageBaseProperties) *string {
 		if v == nil {
@@ -298,11 +273,8 @@ func (o AutoStorageBasePropertiesPtrOutput) StorageAccountId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the auto storage account associated with a Batch account.
 type AutoStoragePropertiesResponse struct {
-	// The UTC time at which storage keys were last synchronized with the Batch account.
-	LastKeySync string `pulumi:"lastKeySync"`
-	// The resource ID of the storage account to be used for auto storage account.
+	LastKeySync      string `pulumi:"lastKeySync"`
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -317,11 +289,8 @@ type AutoStoragePropertiesResponseInput interface {
 	ToAutoStoragePropertiesResponseOutputWithContext(context.Context) AutoStoragePropertiesResponseOutput
 }
 
-// Contains information about the auto storage account associated with a Batch account.
 type AutoStoragePropertiesResponseArgs struct {
-	// The UTC time at which storage keys were last synchronized with the Batch account.
-	LastKeySync pulumi.StringInput `pulumi:"lastKeySync"`
-	// The resource ID of the storage account to be used for auto storage account.
+	LastKeySync      pulumi.StringInput `pulumi:"lastKeySync"`
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
@@ -378,7 +347,6 @@ func (i *autoStoragePropertiesResponsePtrType) ToAutoStoragePropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(AutoStoragePropertiesResponsePtrOutput)
 }
 
-// Contains information about the auto storage account associated with a Batch account.
 type AutoStoragePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoStoragePropertiesResponseOutput) ElementType() reflect.Type {
@@ -398,17 +366,15 @@ func (o AutoStoragePropertiesResponseOutput) ToAutoStoragePropertiesResponsePtrO
 }
 
 func (o AutoStoragePropertiesResponseOutput) ToAutoStoragePropertiesResponsePtrOutputWithContext(ctx context.Context) AutoStoragePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AutoStoragePropertiesResponse) *AutoStoragePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoStoragePropertiesResponse) *AutoStoragePropertiesResponse {
 		return &v
 	}).(AutoStoragePropertiesResponsePtrOutput)
 }
 
-// The UTC time at which storage keys were last synchronized with the Batch account.
 func (o AutoStoragePropertiesResponseOutput) LastKeySync() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoStoragePropertiesResponse) string { return v.LastKeySync }).(pulumi.StringOutput)
 }
 
-// The resource ID of the storage account to be used for auto storage account.
 func (o AutoStoragePropertiesResponseOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoStoragePropertiesResponse) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
@@ -428,10 +394,15 @@ func (o AutoStoragePropertiesResponsePtrOutput) ToAutoStoragePropertiesResponseP
 }
 
 func (o AutoStoragePropertiesResponsePtrOutput) Elem() AutoStoragePropertiesResponseOutput {
-	return o.ApplyT(func(v *AutoStoragePropertiesResponse) AutoStoragePropertiesResponse { return *v }).(AutoStoragePropertiesResponseOutput)
+	return o.ApplyT(func(v *AutoStoragePropertiesResponse) AutoStoragePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoStoragePropertiesResponse
+		return ret
+	}).(AutoStoragePropertiesResponseOutput)
 }
 
-// The UTC time at which storage keys were last synchronized with the Batch account.
 func (o AutoStoragePropertiesResponsePtrOutput) LastKeySync() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoStoragePropertiesResponse) *string {
 		if v == nil {
@@ -441,7 +412,6 @@ func (o AutoStoragePropertiesResponsePtrOutput) LastKeySync() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the storage account to be used for auto storage account.
 func (o AutoStoragePropertiesResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoStoragePropertiesResponse) *string {
 		if v == nil {

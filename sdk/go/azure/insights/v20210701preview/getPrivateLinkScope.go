@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Monitor PrivateLinkScope definition.
 func LookupPrivateLinkScope(ctx *pulumi.Context, args *LookupPrivateLinkScopeArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkScopeResult, error) {
 	var rv LookupPrivateLinkScopeResult
 	err := ctx.Invoke("azure-native:insights/v20210701preview:getPrivateLinkScope", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupPrivateLinkScope(ctx *pulumi.Context, args *LookupPrivateLinkScopeArg
 }
 
 type LookupPrivateLinkScopeArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Azure Monitor PrivateLinkScope resource.
-	ScopeName string `pulumi:"scopeName"`
+	ScopeName         string `pulumi:"scopeName"`
 }
 
 // An Azure Monitor PrivateLinkScope definition.
 type LookupPrivateLinkScopeResult struct {
-	// Access mode settings
-	AccessModeSettings AccessModeSettingsResponse `pulumi:"accessModeSettings"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// List of private endpoint connections.
+	AccessModeSettings         AccessModeSettingsResponse          `pulumi:"accessModeSettings"`
+	Id                         string                              `pulumi:"id"`
+	Location                   string                              `pulumi:"location"`
+	Name                       string                              `pulumi:"name"`
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// System data
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	ProvisioningState          string                              `pulumi:"provisioningState"`
+	SystemData                 SystemDataResponse                  `pulumi:"systemData"`
+	Tags                       map[string]string                   `pulumi:"tags"`
+	Type                       string                              `pulumi:"type"`
 }

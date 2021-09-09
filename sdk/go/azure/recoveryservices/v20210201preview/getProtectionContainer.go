@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Base class for container with backup items. Containers with specific workloads are derived from this class.
 func LookupProtectionContainer(ctx *pulumi.Context, args *LookupProtectionContainerArgs, opts ...pulumi.InvokeOption) (*LookupProtectionContainerResult, error) {
 	var rv LookupProtectionContainerResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20210201preview:getProtectionContainer", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupProtectionContainer(ctx *pulumi.Context, args *LookupProtectionContai
 }
 
 type LookupProtectionContainerArgs struct {
-	// Name of the container whose details need to be fetched.
-	ContainerName string `pulumi:"containerName"`
-	// Name of the fabric where the container belongs.
-	FabricName string `pulumi:"fabricName"`
-	// The name of the resource group where the recovery services vault is present.
+	ContainerName     string `pulumi:"containerName"`
+	FabricName        string `pulumi:"fabricName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	VaultName string `pulumi:"vaultName"`
+	VaultName         string `pulumi:"vaultName"`
 }
 
 // Base class for container with backup items. Containers with specific workloads are derived from this class.
 type LookupProtectionContainerResult struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Resource Id represents the complete path to the resource.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name string `pulumi:"name"`
-	// ProtectionContainerResource properties
-	Properties interface{} `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type string `pulumi:"type"`
+	ETag       *string           `pulumi:"eTag"`
+	Id         string            `pulumi:"id"`
+	Location   *string           `pulumi:"location"`
+	Name       string            `pulumi:"name"`
+	Properties interface{}       `pulumi:"properties"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

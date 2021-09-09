@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Blob data set mapping.
 func LookupBlobDataSetMapping(ctx *pulumi.Context, args *LookupBlobDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupBlobDataSetMappingResult, error) {
 	var rv LookupBlobDataSetMappingResult
 	err := ctx.Invoke("azure-native:datashare/v20191101:getBlobDataSetMapping", args, &rv, opts...)
@@ -18,43 +17,25 @@ func LookupBlobDataSetMapping(ctx *pulumi.Context, args *LookupBlobDataSetMappin
 }
 
 type LookupBlobDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSetMapping.
-	DataSetMappingName string `pulumi:"dataSetMappingName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the shareSubscription.
+	AccountName           string `pulumi:"accountName"`
+	DataSetMappingName    string `pulumi:"dataSetMappingName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
 }
 
 // A Blob data set mapping.
 type LookupBlobDataSetMappingResult struct {
-	// Container that has the file path.
-	ContainerName string `pulumi:"containerName"`
-	// The id of the source data set.
-	DataSetId string `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus string `pulumi:"dataSetMappingStatus"`
-	// File path within the source data set
-	FilePath string `pulumi:"filePath"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set mapping.
-	// Expected value is 'Blob'.
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// File output type
-	OutputType *string `pulumi:"outputType"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource group of storage account.
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// Storage account name of the source data set.
-	StorageAccountName string `pulumi:"storageAccountName"`
-	// Subscription id of storage account.
-	SubscriptionId string `pulumi:"subscriptionId"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	ContainerName        string  `pulumi:"containerName"`
+	DataSetId            string  `pulumi:"dataSetId"`
+	DataSetMappingStatus string  `pulumi:"dataSetMappingStatus"`
+	FilePath             string  `pulumi:"filePath"`
+	Id                   string  `pulumi:"id"`
+	Kind                 string  `pulumi:"kind"`
+	Name                 string  `pulumi:"name"`
+	OutputType           *string `pulumi:"outputType"`
+	ProvisioningState    string  `pulumi:"provisioningState"`
+	ResourceGroup        string  `pulumi:"resourceGroup"`
+	StorageAccountName   string  `pulumi:"storageAccountName"`
+	SubscriptionId       string  `pulumi:"subscriptionId"`
+	Type                 string  `pulumi:"type"`
 }

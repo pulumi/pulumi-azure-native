@@ -10,18 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Company information of the user to be passed to partners.
 type CompanyInfo struct {
-	// Business of the company
-	Business *string `pulumi:"business"`
-	// Country of the company location.
-	Country *string `pulumi:"country"`
-	// Domain of the company
-	Domain *string `pulumi:"domain"`
-	// Number of employees in the company
+	Business        *string `pulumi:"business"`
+	Country         *string `pulumi:"country"`
+	Domain          *string `pulumi:"domain"`
 	EmployeesNumber *string `pulumi:"employeesNumber"`
-	// State of the company location.
-	State *string `pulumi:"state"`
+	State           *string `pulumi:"state"`
 }
 
 // CompanyInfoInput is an input type that accepts CompanyInfoArgs and CompanyInfoOutput values.
@@ -35,18 +29,12 @@ type CompanyInfoInput interface {
 	ToCompanyInfoOutputWithContext(context.Context) CompanyInfoOutput
 }
 
-// Company information of the user to be passed to partners.
 type CompanyInfoArgs struct {
-	// Business of the company
-	Business pulumi.StringPtrInput `pulumi:"business"`
-	// Country of the company location.
-	Country pulumi.StringPtrInput `pulumi:"country"`
-	// Domain of the company
-	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	// Number of employees in the company
+	Business        pulumi.StringPtrInput `pulumi:"business"`
+	Country         pulumi.StringPtrInput `pulumi:"country"`
+	Domain          pulumi.StringPtrInput `pulumi:"domain"`
 	EmployeesNumber pulumi.StringPtrInput `pulumi:"employeesNumber"`
-	// State of the company location.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	State           pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (CompanyInfoArgs) ElementType() reflect.Type {
@@ -102,7 +90,6 @@ func (i *companyInfoPtrType) ToCompanyInfoPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CompanyInfoPtrOutput)
 }
 
-// Company information of the user to be passed to partners.
 type CompanyInfoOutput struct{ *pulumi.OutputState }
 
 func (CompanyInfoOutput) ElementType() reflect.Type {
@@ -122,32 +109,27 @@ func (o CompanyInfoOutput) ToCompanyInfoPtrOutput() CompanyInfoPtrOutput {
 }
 
 func (o CompanyInfoOutput) ToCompanyInfoPtrOutputWithContext(ctx context.Context) CompanyInfoPtrOutput {
-	return o.ApplyT(func(v CompanyInfo) *CompanyInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CompanyInfo) *CompanyInfo {
 		return &v
 	}).(CompanyInfoPtrOutput)
 }
 
-// Business of the company
 func (o CompanyInfoOutput) Business() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CompanyInfo) *string { return v.Business }).(pulumi.StringPtrOutput)
 }
 
-// Country of the company location.
 func (o CompanyInfoOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CompanyInfo) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
-// Domain of the company
 func (o CompanyInfoOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CompanyInfo) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// Number of employees in the company
 func (o CompanyInfoOutput) EmployeesNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CompanyInfo) *string { return v.EmployeesNumber }).(pulumi.StringPtrOutput)
 }
 
-// State of the company location.
 func (o CompanyInfoOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CompanyInfo) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -167,10 +149,15 @@ func (o CompanyInfoPtrOutput) ToCompanyInfoPtrOutputWithContext(ctx context.Cont
 }
 
 func (o CompanyInfoPtrOutput) Elem() CompanyInfoOutput {
-	return o.ApplyT(func(v *CompanyInfo) CompanyInfo { return *v }).(CompanyInfoOutput)
+	return o.ApplyT(func(v *CompanyInfo) CompanyInfo {
+		if v != nil {
+			return *v
+		}
+		var ret CompanyInfo
+		return ret
+	}).(CompanyInfoOutput)
 }
 
-// Business of the company
 func (o CompanyInfoPtrOutput) Business() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CompanyInfo) *string {
 		if v == nil {
@@ -180,7 +167,6 @@ func (o CompanyInfoPtrOutput) Business() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Country of the company location.
 func (o CompanyInfoPtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CompanyInfo) *string {
 		if v == nil {
@@ -190,7 +176,6 @@ func (o CompanyInfoPtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Domain of the company
 func (o CompanyInfoPtrOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CompanyInfo) *string {
 		if v == nil {
@@ -200,7 +185,6 @@ func (o CompanyInfoPtrOutput) Domain() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of employees in the company
 func (o CompanyInfoPtrOutput) EmployeesNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CompanyInfo) *string {
 		if v == nil {
@@ -210,7 +194,6 @@ func (o CompanyInfoPtrOutput) EmployeesNumber() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// State of the company location.
 func (o CompanyInfoPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CompanyInfo) *string {
 		if v == nil {
@@ -220,18 +203,12 @@ func (o CompanyInfoPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Company information of the user to be passed to partners.
 type CompanyInfoResponse struct {
-	// Business of the company
-	Business *string `pulumi:"business"`
-	// Country of the company location.
-	Country *string `pulumi:"country"`
-	// Domain of the company
-	Domain *string `pulumi:"domain"`
-	// Number of employees in the company
+	Business        *string `pulumi:"business"`
+	Country         *string `pulumi:"country"`
+	Domain          *string `pulumi:"domain"`
 	EmployeesNumber *string `pulumi:"employeesNumber"`
-	// State of the company location.
-	State *string `pulumi:"state"`
+	State           *string `pulumi:"state"`
 }
 
 // CompanyInfoResponseInput is an input type that accepts CompanyInfoResponseArgs and CompanyInfoResponseOutput values.
@@ -245,18 +222,12 @@ type CompanyInfoResponseInput interface {
 	ToCompanyInfoResponseOutputWithContext(context.Context) CompanyInfoResponseOutput
 }
 
-// Company information of the user to be passed to partners.
 type CompanyInfoResponseArgs struct {
-	// Business of the company
-	Business pulumi.StringPtrInput `pulumi:"business"`
-	// Country of the company location.
-	Country pulumi.StringPtrInput `pulumi:"country"`
-	// Domain of the company
-	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	// Number of employees in the company
+	Business        pulumi.StringPtrInput `pulumi:"business"`
+	Country         pulumi.StringPtrInput `pulumi:"country"`
+	Domain          pulumi.StringPtrInput `pulumi:"domain"`
 	EmployeesNumber pulumi.StringPtrInput `pulumi:"employeesNumber"`
-	// State of the company location.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	State           pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (CompanyInfoResponseArgs) ElementType() reflect.Type {
@@ -312,7 +283,6 @@ func (i *companyInfoResponsePtrType) ToCompanyInfoResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CompanyInfoResponsePtrOutput)
 }
 
-// Company information of the user to be passed to partners.
 type CompanyInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (CompanyInfoResponseOutput) ElementType() reflect.Type {
@@ -332,32 +302,27 @@ func (o CompanyInfoResponseOutput) ToCompanyInfoResponsePtrOutput() CompanyInfoR
 }
 
 func (o CompanyInfoResponseOutput) ToCompanyInfoResponsePtrOutputWithContext(ctx context.Context) CompanyInfoResponsePtrOutput {
-	return o.ApplyT(func(v CompanyInfoResponse) *CompanyInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CompanyInfoResponse) *CompanyInfoResponse {
 		return &v
 	}).(CompanyInfoResponsePtrOutput)
 }
 
-// Business of the company
 func (o CompanyInfoResponseOutput) Business() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CompanyInfoResponse) *string { return v.Business }).(pulumi.StringPtrOutput)
 }
 
-// Country of the company location.
 func (o CompanyInfoResponseOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CompanyInfoResponse) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
-// Domain of the company
 func (o CompanyInfoResponseOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CompanyInfoResponse) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// Number of employees in the company
 func (o CompanyInfoResponseOutput) EmployeesNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CompanyInfoResponse) *string { return v.EmployeesNumber }).(pulumi.StringPtrOutput)
 }
 
-// State of the company location.
 func (o CompanyInfoResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CompanyInfoResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -377,10 +342,15 @@ func (o CompanyInfoResponsePtrOutput) ToCompanyInfoResponsePtrOutputWithContext(
 }
 
 func (o CompanyInfoResponsePtrOutput) Elem() CompanyInfoResponseOutput {
-	return o.ApplyT(func(v *CompanyInfoResponse) CompanyInfoResponse { return *v }).(CompanyInfoResponseOutput)
+	return o.ApplyT(func(v *CompanyInfoResponse) CompanyInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CompanyInfoResponse
+		return ret
+	}).(CompanyInfoResponseOutput)
 }
 
-// Business of the company
 func (o CompanyInfoResponsePtrOutput) Business() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CompanyInfoResponse) *string {
 		if v == nil {
@@ -390,7 +360,6 @@ func (o CompanyInfoResponsePtrOutput) Business() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Country of the company location.
 func (o CompanyInfoResponsePtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CompanyInfoResponse) *string {
 		if v == nil {
@@ -400,7 +369,6 @@ func (o CompanyInfoResponsePtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Domain of the company
 func (o CompanyInfoResponsePtrOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CompanyInfoResponse) *string {
 		if v == nil {
@@ -410,7 +378,6 @@ func (o CompanyInfoResponsePtrOutput) Domain() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of employees in the company
 func (o CompanyInfoResponsePtrOutput) EmployeesNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CompanyInfoResponse) *string {
 		if v == nil {
@@ -420,7 +387,6 @@ func (o CompanyInfoResponsePtrOutput) EmployeesNumber() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// State of the company location.
 func (o CompanyInfoResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CompanyInfoResponse) *string {
 		if v == nil {
@@ -430,22 +396,14 @@ func (o CompanyInfoResponsePtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of the user's elastic deployment associated with the monitor resource.
 type ElasticCloudDeploymentResponse struct {
-	// Associated Azure subscription Id for the elastic deployment.
-	AzureSubscriptionId string `pulumi:"azureSubscriptionId"`
-	// Elastic deployment Id
-	DeploymentId string `pulumi:"deploymentId"`
-	// Region where Deployment at Elastic side took place.
-	ElasticsearchRegion string `pulumi:"elasticsearchRegion"`
-	// Elasticsearch ingestion endpoint of the Elastic deployment.
+	AzureSubscriptionId     string `pulumi:"azureSubscriptionId"`
+	DeploymentId            string `pulumi:"deploymentId"`
+	ElasticsearchRegion     string `pulumi:"elasticsearchRegion"`
 	ElasticsearchServiceUrl string `pulumi:"elasticsearchServiceUrl"`
-	// Kibana endpoint of the Elastic deployment.
-	KibanaServiceUrl string `pulumi:"kibanaServiceUrl"`
-	// Kibana dashboard sso URL of the Elastic deployment.
-	KibanaSsoUrl string `pulumi:"kibanaSsoUrl"`
-	// Elastic deployment name
-	Name string `pulumi:"name"`
+	KibanaServiceUrl        string `pulumi:"kibanaServiceUrl"`
+	KibanaSsoUrl            string `pulumi:"kibanaSsoUrl"`
+	Name                    string `pulumi:"name"`
 }
 
 // ElasticCloudDeploymentResponseInput is an input type that accepts ElasticCloudDeploymentResponseArgs and ElasticCloudDeploymentResponseOutput values.
@@ -459,22 +417,14 @@ type ElasticCloudDeploymentResponseInput interface {
 	ToElasticCloudDeploymentResponseOutputWithContext(context.Context) ElasticCloudDeploymentResponseOutput
 }
 
-// Details of the user's elastic deployment associated with the monitor resource.
 type ElasticCloudDeploymentResponseArgs struct {
-	// Associated Azure subscription Id for the elastic deployment.
-	AzureSubscriptionId pulumi.StringInput `pulumi:"azureSubscriptionId"`
-	// Elastic deployment Id
-	DeploymentId pulumi.StringInput `pulumi:"deploymentId"`
-	// Region where Deployment at Elastic side took place.
-	ElasticsearchRegion pulumi.StringInput `pulumi:"elasticsearchRegion"`
-	// Elasticsearch ingestion endpoint of the Elastic deployment.
+	AzureSubscriptionId     pulumi.StringInput `pulumi:"azureSubscriptionId"`
+	DeploymentId            pulumi.StringInput `pulumi:"deploymentId"`
+	ElasticsearchRegion     pulumi.StringInput `pulumi:"elasticsearchRegion"`
 	ElasticsearchServiceUrl pulumi.StringInput `pulumi:"elasticsearchServiceUrl"`
-	// Kibana endpoint of the Elastic deployment.
-	KibanaServiceUrl pulumi.StringInput `pulumi:"kibanaServiceUrl"`
-	// Kibana dashboard sso URL of the Elastic deployment.
-	KibanaSsoUrl pulumi.StringInput `pulumi:"kibanaSsoUrl"`
-	// Elastic deployment name
-	Name pulumi.StringInput `pulumi:"name"`
+	KibanaServiceUrl        pulumi.StringInput `pulumi:"kibanaServiceUrl"`
+	KibanaSsoUrl            pulumi.StringInput `pulumi:"kibanaSsoUrl"`
+	Name                    pulumi.StringInput `pulumi:"name"`
 }
 
 func (ElasticCloudDeploymentResponseArgs) ElementType() reflect.Type {
@@ -530,7 +480,6 @@ func (i *elasticCloudDeploymentResponsePtrType) ToElasticCloudDeploymentResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticCloudDeploymentResponsePtrOutput)
 }
 
-// Details of the user's elastic deployment associated with the monitor resource.
 type ElasticCloudDeploymentResponseOutput struct{ *pulumi.OutputState }
 
 func (ElasticCloudDeploymentResponseOutput) ElementType() reflect.Type {
@@ -550,42 +499,35 @@ func (o ElasticCloudDeploymentResponseOutput) ToElasticCloudDeploymentResponsePt
 }
 
 func (o ElasticCloudDeploymentResponseOutput) ToElasticCloudDeploymentResponsePtrOutputWithContext(ctx context.Context) ElasticCloudDeploymentResponsePtrOutput {
-	return o.ApplyT(func(v ElasticCloudDeploymentResponse) *ElasticCloudDeploymentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticCloudDeploymentResponse) *ElasticCloudDeploymentResponse {
 		return &v
 	}).(ElasticCloudDeploymentResponsePtrOutput)
 }
 
-// Associated Azure subscription Id for the elastic deployment.
 func (o ElasticCloudDeploymentResponseOutput) AzureSubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticCloudDeploymentResponse) string { return v.AzureSubscriptionId }).(pulumi.StringOutput)
 }
 
-// Elastic deployment Id
 func (o ElasticCloudDeploymentResponseOutput) DeploymentId() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticCloudDeploymentResponse) string { return v.DeploymentId }).(pulumi.StringOutput)
 }
 
-// Region where Deployment at Elastic side took place.
 func (o ElasticCloudDeploymentResponseOutput) ElasticsearchRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticCloudDeploymentResponse) string { return v.ElasticsearchRegion }).(pulumi.StringOutput)
 }
 
-// Elasticsearch ingestion endpoint of the Elastic deployment.
 func (o ElasticCloudDeploymentResponseOutput) ElasticsearchServiceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticCloudDeploymentResponse) string { return v.ElasticsearchServiceUrl }).(pulumi.StringOutput)
 }
 
-// Kibana endpoint of the Elastic deployment.
 func (o ElasticCloudDeploymentResponseOutput) KibanaServiceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticCloudDeploymentResponse) string { return v.KibanaServiceUrl }).(pulumi.StringOutput)
 }
 
-// Kibana dashboard sso URL of the Elastic deployment.
 func (o ElasticCloudDeploymentResponseOutput) KibanaSsoUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticCloudDeploymentResponse) string { return v.KibanaSsoUrl }).(pulumi.StringOutput)
 }
 
-// Elastic deployment name
 func (o ElasticCloudDeploymentResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticCloudDeploymentResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -605,10 +547,15 @@ func (o ElasticCloudDeploymentResponsePtrOutput) ToElasticCloudDeploymentRespons
 }
 
 func (o ElasticCloudDeploymentResponsePtrOutput) Elem() ElasticCloudDeploymentResponseOutput {
-	return o.ApplyT(func(v *ElasticCloudDeploymentResponse) ElasticCloudDeploymentResponse { return *v }).(ElasticCloudDeploymentResponseOutput)
+	return o.ApplyT(func(v *ElasticCloudDeploymentResponse) ElasticCloudDeploymentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ElasticCloudDeploymentResponse
+		return ret
+	}).(ElasticCloudDeploymentResponseOutput)
 }
 
-// Associated Azure subscription Id for the elastic deployment.
 func (o ElasticCloudDeploymentResponsePtrOutput) AzureSubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticCloudDeploymentResponse) *string {
 		if v == nil {
@@ -618,7 +565,6 @@ func (o ElasticCloudDeploymentResponsePtrOutput) AzureSubscriptionId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Elastic deployment Id
 func (o ElasticCloudDeploymentResponsePtrOutput) DeploymentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticCloudDeploymentResponse) *string {
 		if v == nil {
@@ -628,7 +574,6 @@ func (o ElasticCloudDeploymentResponsePtrOutput) DeploymentId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Region where Deployment at Elastic side took place.
 func (o ElasticCloudDeploymentResponsePtrOutput) ElasticsearchRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticCloudDeploymentResponse) *string {
 		if v == nil {
@@ -638,7 +583,6 @@ func (o ElasticCloudDeploymentResponsePtrOutput) ElasticsearchRegion() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Elasticsearch ingestion endpoint of the Elastic deployment.
 func (o ElasticCloudDeploymentResponsePtrOutput) ElasticsearchServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticCloudDeploymentResponse) *string {
 		if v == nil {
@@ -648,7 +592,6 @@ func (o ElasticCloudDeploymentResponsePtrOutput) ElasticsearchServiceUrl() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kibana endpoint of the Elastic deployment.
 func (o ElasticCloudDeploymentResponsePtrOutput) KibanaServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticCloudDeploymentResponse) *string {
 		if v == nil {
@@ -658,7 +601,6 @@ func (o ElasticCloudDeploymentResponsePtrOutput) KibanaServiceUrl() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kibana dashboard sso URL of the Elastic deployment.
 func (o ElasticCloudDeploymentResponsePtrOutput) KibanaSsoUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticCloudDeploymentResponse) *string {
 		if v == nil {
@@ -668,7 +610,6 @@ func (o ElasticCloudDeploymentResponsePtrOutput) KibanaSsoUrl() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Elastic deployment name
 func (o ElasticCloudDeploymentResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticCloudDeploymentResponse) *string {
 		if v == nil {
@@ -678,14 +619,10 @@ func (o ElasticCloudDeploymentResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of the user's elastic account.
 type ElasticCloudUserResponse struct {
-	// Elastic cloud default dashboard sso URL of the Elastic user account.
 	ElasticCloudSsoDefaultUrl string `pulumi:"elasticCloudSsoDefaultUrl"`
-	// Email of the Elastic User Account.
-	EmailAddress string `pulumi:"emailAddress"`
-	// User Id of the elastic account of the User.
-	Id string `pulumi:"id"`
+	EmailAddress              string `pulumi:"emailAddress"`
+	Id                        string `pulumi:"id"`
 }
 
 // ElasticCloudUserResponseInput is an input type that accepts ElasticCloudUserResponseArgs and ElasticCloudUserResponseOutput values.
@@ -699,14 +636,10 @@ type ElasticCloudUserResponseInput interface {
 	ToElasticCloudUserResponseOutputWithContext(context.Context) ElasticCloudUserResponseOutput
 }
 
-// Details of the user's elastic account.
 type ElasticCloudUserResponseArgs struct {
-	// Elastic cloud default dashboard sso URL of the Elastic user account.
 	ElasticCloudSsoDefaultUrl pulumi.StringInput `pulumi:"elasticCloudSsoDefaultUrl"`
-	// Email of the Elastic User Account.
-	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// User Id of the elastic account of the User.
-	Id pulumi.StringInput `pulumi:"id"`
+	EmailAddress              pulumi.StringInput `pulumi:"emailAddress"`
+	Id                        pulumi.StringInput `pulumi:"id"`
 }
 
 func (ElasticCloudUserResponseArgs) ElementType() reflect.Type {
@@ -762,7 +695,6 @@ func (i *elasticCloudUserResponsePtrType) ToElasticCloudUserResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticCloudUserResponsePtrOutput)
 }
 
-// Details of the user's elastic account.
 type ElasticCloudUserResponseOutput struct{ *pulumi.OutputState }
 
 func (ElasticCloudUserResponseOutput) ElementType() reflect.Type {
@@ -782,22 +714,19 @@ func (o ElasticCloudUserResponseOutput) ToElasticCloudUserResponsePtrOutput() El
 }
 
 func (o ElasticCloudUserResponseOutput) ToElasticCloudUserResponsePtrOutputWithContext(ctx context.Context) ElasticCloudUserResponsePtrOutput {
-	return o.ApplyT(func(v ElasticCloudUserResponse) *ElasticCloudUserResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticCloudUserResponse) *ElasticCloudUserResponse {
 		return &v
 	}).(ElasticCloudUserResponsePtrOutput)
 }
 
-// Elastic cloud default dashboard sso URL of the Elastic user account.
 func (o ElasticCloudUserResponseOutput) ElasticCloudSsoDefaultUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticCloudUserResponse) string { return v.ElasticCloudSsoDefaultUrl }).(pulumi.StringOutput)
 }
 
-// Email of the Elastic User Account.
 func (o ElasticCloudUserResponseOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticCloudUserResponse) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// User Id of the elastic account of the User.
 func (o ElasticCloudUserResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticCloudUserResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -817,10 +746,15 @@ func (o ElasticCloudUserResponsePtrOutput) ToElasticCloudUserResponsePtrOutputWi
 }
 
 func (o ElasticCloudUserResponsePtrOutput) Elem() ElasticCloudUserResponseOutput {
-	return o.ApplyT(func(v *ElasticCloudUserResponse) ElasticCloudUserResponse { return *v }).(ElasticCloudUserResponseOutput)
+	return o.ApplyT(func(v *ElasticCloudUserResponse) ElasticCloudUserResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ElasticCloudUserResponse
+		return ret
+	}).(ElasticCloudUserResponseOutput)
 }
 
-// Elastic cloud default dashboard sso URL of the Elastic user account.
 func (o ElasticCloudUserResponsePtrOutput) ElasticCloudSsoDefaultUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticCloudUserResponse) *string {
 		if v == nil {
@@ -830,7 +764,6 @@ func (o ElasticCloudUserResponsePtrOutput) ElasticCloudSsoDefaultUrl() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Email of the Elastic User Account.
 func (o ElasticCloudUserResponsePtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticCloudUserResponse) *string {
 		if v == nil {
@@ -840,7 +773,6 @@ func (o ElasticCloudUserResponsePtrOutput) EmailAddress() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// User Id of the elastic account of the User.
 func (o ElasticCloudUserResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticCloudUserResponse) *string {
 		if v == nil {
@@ -850,12 +782,9 @@ func (o ElasticCloudUserResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Elastic Resource Properties.
 type ElasticPropertiesResponse struct {
-	// Details of the elastic cloud deployment.
 	ElasticCloudDeployment *ElasticCloudDeploymentResponse `pulumi:"elasticCloudDeployment"`
-	// Details of the user's elastic account.
-	ElasticCloudUser *ElasticCloudUserResponse `pulumi:"elasticCloudUser"`
+	ElasticCloudUser       *ElasticCloudUserResponse       `pulumi:"elasticCloudUser"`
 }
 
 // ElasticPropertiesResponseInput is an input type that accepts ElasticPropertiesResponseArgs and ElasticPropertiesResponseOutput values.
@@ -869,12 +798,9 @@ type ElasticPropertiesResponseInput interface {
 	ToElasticPropertiesResponseOutputWithContext(context.Context) ElasticPropertiesResponseOutput
 }
 
-// Elastic Resource Properties.
 type ElasticPropertiesResponseArgs struct {
-	// Details of the elastic cloud deployment.
 	ElasticCloudDeployment ElasticCloudDeploymentResponsePtrInput `pulumi:"elasticCloudDeployment"`
-	// Details of the user's elastic account.
-	ElasticCloudUser ElasticCloudUserResponsePtrInput `pulumi:"elasticCloudUser"`
+	ElasticCloudUser       ElasticCloudUserResponsePtrInput       `pulumi:"elasticCloudUser"`
 }
 
 func (ElasticPropertiesResponseArgs) ElementType() reflect.Type {
@@ -930,7 +856,6 @@ func (i *elasticPropertiesResponsePtrType) ToElasticPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPropertiesResponsePtrOutput)
 }
 
-// Elastic Resource Properties.
 type ElasticPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ElasticPropertiesResponseOutput) ElementType() reflect.Type {
@@ -950,17 +875,15 @@ func (o ElasticPropertiesResponseOutput) ToElasticPropertiesResponsePtrOutput() 
 }
 
 func (o ElasticPropertiesResponseOutput) ToElasticPropertiesResponsePtrOutputWithContext(ctx context.Context) ElasticPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ElasticPropertiesResponse) *ElasticPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticPropertiesResponse) *ElasticPropertiesResponse {
 		return &v
 	}).(ElasticPropertiesResponsePtrOutput)
 }
 
-// Details of the elastic cloud deployment.
 func (o ElasticPropertiesResponseOutput) ElasticCloudDeployment() ElasticCloudDeploymentResponsePtrOutput {
 	return o.ApplyT(func(v ElasticPropertiesResponse) *ElasticCloudDeploymentResponse { return v.ElasticCloudDeployment }).(ElasticCloudDeploymentResponsePtrOutput)
 }
 
-// Details of the user's elastic account.
 func (o ElasticPropertiesResponseOutput) ElasticCloudUser() ElasticCloudUserResponsePtrOutput {
 	return o.ApplyT(func(v ElasticPropertiesResponse) *ElasticCloudUserResponse { return v.ElasticCloudUser }).(ElasticCloudUserResponsePtrOutput)
 }
@@ -980,10 +903,15 @@ func (o ElasticPropertiesResponsePtrOutput) ToElasticPropertiesResponsePtrOutput
 }
 
 func (o ElasticPropertiesResponsePtrOutput) Elem() ElasticPropertiesResponseOutput {
-	return o.ApplyT(func(v *ElasticPropertiesResponse) ElasticPropertiesResponse { return *v }).(ElasticPropertiesResponseOutput)
+	return o.ApplyT(func(v *ElasticPropertiesResponse) ElasticPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ElasticPropertiesResponse
+		return ret
+	}).(ElasticPropertiesResponseOutput)
 }
 
-// Details of the elastic cloud deployment.
 func (o ElasticPropertiesResponsePtrOutput) ElasticCloudDeployment() ElasticCloudDeploymentResponsePtrOutput {
 	return o.ApplyT(func(v *ElasticPropertiesResponse) *ElasticCloudDeploymentResponse {
 		if v == nil {
@@ -993,7 +921,6 @@ func (o ElasticPropertiesResponsePtrOutput) ElasticCloudDeployment() ElasticClou
 	}).(ElasticCloudDeploymentResponsePtrOutput)
 }
 
-// Details of the user's elastic account.
 func (o ElasticPropertiesResponsePtrOutput) ElasticCloudUser() ElasticCloudUserResponsePtrOutput {
 	return o.ApplyT(func(v *ElasticPropertiesResponse) *ElasticCloudUserResponse {
 		if v == nil {
@@ -1003,14 +930,10 @@ func (o ElasticPropertiesResponsePtrOutput) ElasticCloudUser() ElasticCloudUserR
 	}).(ElasticCloudUserResponsePtrOutput)
 }
 
-// The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
 type FilteringTag struct {
-	// Valid actions for a filtering tag.
 	Action *string `pulumi:"action"`
-	// The name (also known as the key) of the tag.
-	Name *string `pulumi:"name"`
-	// The value of the tag.
-	Value *string `pulumi:"value"`
+	Name   *string `pulumi:"name"`
+	Value  *string `pulumi:"value"`
 }
 
 // FilteringTagInput is an input type that accepts FilteringTagArgs and FilteringTagOutput values.
@@ -1024,14 +947,10 @@ type FilteringTagInput interface {
 	ToFilteringTagOutputWithContext(context.Context) FilteringTagOutput
 }
 
-// The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
 type FilteringTagArgs struct {
-	// Valid actions for a filtering tag.
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// The name (also known as the key) of the tag.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the tag.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Value  pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (FilteringTagArgs) ElementType() reflect.Type {
@@ -1071,7 +990,6 @@ func (i FilteringTagArray) ToFilteringTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FilteringTagArrayOutput)
 }
 
-// The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
 type FilteringTagOutput struct{ *pulumi.OutputState }
 
 func (FilteringTagOutput) ElementType() reflect.Type {
@@ -1086,17 +1004,14 @@ func (o FilteringTagOutput) ToFilteringTagOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Valid actions for a filtering tag.
 func (o FilteringTagOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilteringTag) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// The name (also known as the key) of the tag.
 func (o FilteringTagOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilteringTag) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value of the tag.
 func (o FilteringTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilteringTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1121,14 +1036,10 @@ func (o FilteringTagArrayOutput) Index(i pulumi.IntInput) FilteringTagOutput {
 	}).(FilteringTagOutput)
 }
 
-// The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
 type FilteringTagResponse struct {
-	// Valid actions for a filtering tag.
 	Action *string `pulumi:"action"`
-	// The name (also known as the key) of the tag.
-	Name *string `pulumi:"name"`
-	// The value of the tag.
-	Value *string `pulumi:"value"`
+	Name   *string `pulumi:"name"`
+	Value  *string `pulumi:"value"`
 }
 
 // FilteringTagResponseInput is an input type that accepts FilteringTagResponseArgs and FilteringTagResponseOutput values.
@@ -1142,14 +1053,10 @@ type FilteringTagResponseInput interface {
 	ToFilteringTagResponseOutputWithContext(context.Context) FilteringTagResponseOutput
 }
 
-// The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
 type FilteringTagResponseArgs struct {
-	// Valid actions for a filtering tag.
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// The name (also known as the key) of the tag.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the tag.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Value  pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (FilteringTagResponseArgs) ElementType() reflect.Type {
@@ -1189,7 +1096,6 @@ func (i FilteringTagResponseArray) ToFilteringTagResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FilteringTagResponseArrayOutput)
 }
 
-// The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
 type FilteringTagResponseOutput struct{ *pulumi.OutputState }
 
 func (FilteringTagResponseOutput) ElementType() reflect.Type {
@@ -1204,17 +1110,14 @@ func (o FilteringTagResponseOutput) ToFilteringTagResponseOutputWithContext(ctx 
 	return o
 }
 
-// Valid actions for a filtering tag.
 func (o FilteringTagResponseOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilteringTagResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// The name (also known as the key) of the tag.
 func (o FilteringTagResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilteringTagResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value of the tag.
 func (o FilteringTagResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilteringTagResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1239,9 +1142,7 @@ func (o FilteringTagResponseArrayOutput) Index(i pulumi.IntInput) FilteringTagRe
 	}).(FilteringTagResponseOutput)
 }
 
-// Identity properties.
 type IdentityProperties struct {
-	// Managed identity type.
 	Type *string `pulumi:"type"`
 }
 
@@ -1256,9 +1157,7 @@ type IdentityPropertiesInput interface {
 	ToIdentityPropertiesOutputWithContext(context.Context) IdentityPropertiesOutput
 }
 
-// Identity properties.
 type IdentityPropertiesArgs struct {
-	// Managed identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1315,7 +1214,6 @@ func (i *identityPropertiesPtrType) ToIdentityPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesPtrOutput)
 }
 
-// Identity properties.
 type IdentityPropertiesOutput struct{ *pulumi.OutputState }
 
 func (IdentityPropertiesOutput) ElementType() reflect.Type {
@@ -1335,12 +1233,11 @@ func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutput() IdentityProper
 }
 
 func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutputWithContext(ctx context.Context) IdentityPropertiesPtrOutput {
-	return o.ApplyT(func(v IdentityProperties) *IdentityProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProperties) *IdentityProperties {
 		return &v
 	}).(IdentityPropertiesPtrOutput)
 }
 
-// Managed identity type.
 func (o IdentityPropertiesOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1360,10 +1257,15 @@ func (o IdentityPropertiesPtrOutput) ToIdentityPropertiesPtrOutputWithContext(ct
 }
 
 func (o IdentityPropertiesPtrOutput) Elem() IdentityPropertiesOutput {
-	return o.ApplyT(func(v *IdentityProperties) IdentityProperties { return *v }).(IdentityPropertiesOutput)
+	return o.ApplyT(func(v *IdentityProperties) IdentityProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityProperties
+		return ret
+	}).(IdentityPropertiesOutput)
 }
 
-// Managed identity type.
 func (o IdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProperties) *string {
 		if v == nil {
@@ -1373,14 +1275,10 @@ func (o IdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity properties.
 type IdentityPropertiesResponse struct {
-	// The identity ID.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// Managed identity type.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // IdentityPropertiesResponseInput is an input type that accepts IdentityPropertiesResponseArgs and IdentityPropertiesResponseOutput values.
@@ -1394,14 +1292,10 @@ type IdentityPropertiesResponseInput interface {
 	ToIdentityPropertiesResponseOutputWithContext(context.Context) IdentityPropertiesResponseOutput
 }
 
-// Identity properties.
 type IdentityPropertiesResponseArgs struct {
-	// The identity ID.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// Managed identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IdentityPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1457,7 +1351,6 @@ func (i *identityPropertiesResponsePtrType) ToIdentityPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesResponsePtrOutput)
 }
 
-// Identity properties.
 type IdentityPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1477,22 +1370,19 @@ func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutput(
 }
 
 func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) IdentityPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v IdentityPropertiesResponse) *IdentityPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPropertiesResponse) *IdentityPropertiesResponse {
 		return &v
 	}).(IdentityPropertiesResponsePtrOutput)
 }
 
-// The identity ID.
 func (o IdentityPropertiesResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityPropertiesResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Managed identity type.
 func (o IdentityPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1512,10 +1402,15 @@ func (o IdentityPropertiesResponsePtrOutput) ToIdentityPropertiesResponsePtrOutp
 }
 
 func (o IdentityPropertiesResponsePtrOutput) Elem() IdentityPropertiesResponseOutput {
-	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse { return *v }).(IdentityPropertiesResponseOutput)
+	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityPropertiesResponse
+		return ret
+	}).(IdentityPropertiesResponseOutput)
 }
 
-// The identity ID.
 func (o IdentityPropertiesResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) *string {
 		if v == nil {
@@ -1525,7 +1420,6 @@ func (o IdentityPropertiesResponsePtrOutput) PrincipalId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) *string {
 		if v == nil {
@@ -1535,7 +1429,6 @@ func (o IdentityPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed identity type.
 func (o IdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) *string {
 		if v == nil {
@@ -1545,16 +1438,11 @@ func (o IdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set of rules for sending logs for the Monitor resource.
 type LogRules struct {
-	// List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
-	FilteringTags []FilteringTag `pulumi:"filteringTags"`
-	// Flag specifying if AAD logs should be sent for the Monitor resource.
-	SendAadLogs *bool `pulumi:"sendAadLogs"`
-	// Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
-	SendActivityLogs *bool `pulumi:"sendActivityLogs"`
-	// Flag specifying if subscription logs should be sent for the Monitor resource.
-	SendSubscriptionLogs *bool `pulumi:"sendSubscriptionLogs"`
+	FilteringTags        []FilteringTag `pulumi:"filteringTags"`
+	SendAadLogs          *bool          `pulumi:"sendAadLogs"`
+	SendActivityLogs     *bool          `pulumi:"sendActivityLogs"`
+	SendSubscriptionLogs *bool          `pulumi:"sendSubscriptionLogs"`
 }
 
 // LogRulesInput is an input type that accepts LogRulesArgs and LogRulesOutput values.
@@ -1568,16 +1456,11 @@ type LogRulesInput interface {
 	ToLogRulesOutputWithContext(context.Context) LogRulesOutput
 }
 
-// Set of rules for sending logs for the Monitor resource.
 type LogRulesArgs struct {
-	// List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
-	FilteringTags FilteringTagArrayInput `pulumi:"filteringTags"`
-	// Flag specifying if AAD logs should be sent for the Monitor resource.
-	SendAadLogs pulumi.BoolPtrInput `pulumi:"sendAadLogs"`
-	// Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
-	SendActivityLogs pulumi.BoolPtrInput `pulumi:"sendActivityLogs"`
-	// Flag specifying if subscription logs should be sent for the Monitor resource.
-	SendSubscriptionLogs pulumi.BoolPtrInput `pulumi:"sendSubscriptionLogs"`
+	FilteringTags        FilteringTagArrayInput `pulumi:"filteringTags"`
+	SendAadLogs          pulumi.BoolPtrInput    `pulumi:"sendAadLogs"`
+	SendActivityLogs     pulumi.BoolPtrInput    `pulumi:"sendActivityLogs"`
+	SendSubscriptionLogs pulumi.BoolPtrInput    `pulumi:"sendSubscriptionLogs"`
 }
 
 func (LogRulesArgs) ElementType() reflect.Type {
@@ -1633,7 +1516,6 @@ func (i *logRulesPtrType) ToLogRulesPtrOutputWithContext(ctx context.Context) Lo
 	return pulumi.ToOutputWithContext(ctx, i).(LogRulesPtrOutput)
 }
 
-// Set of rules for sending logs for the Monitor resource.
 type LogRulesOutput struct{ *pulumi.OutputState }
 
 func (LogRulesOutput) ElementType() reflect.Type {
@@ -1653,27 +1535,23 @@ func (o LogRulesOutput) ToLogRulesPtrOutput() LogRulesPtrOutput {
 }
 
 func (o LogRulesOutput) ToLogRulesPtrOutputWithContext(ctx context.Context) LogRulesPtrOutput {
-	return o.ApplyT(func(v LogRules) *LogRules {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogRules) *LogRules {
 		return &v
 	}).(LogRulesPtrOutput)
 }
 
-// List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 func (o LogRulesOutput) FilteringTags() FilteringTagArrayOutput {
 	return o.ApplyT(func(v LogRules) []FilteringTag { return v.FilteringTags }).(FilteringTagArrayOutput)
 }
 
-// Flag specifying if AAD logs should be sent for the Monitor resource.
 func (o LogRulesOutput) SendAadLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogRules) *bool { return v.SendAadLogs }).(pulumi.BoolPtrOutput)
 }
 
-// Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
 func (o LogRulesOutput) SendActivityLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogRules) *bool { return v.SendActivityLogs }).(pulumi.BoolPtrOutput)
 }
 
-// Flag specifying if subscription logs should be sent for the Monitor resource.
 func (o LogRulesOutput) SendSubscriptionLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogRules) *bool { return v.SendSubscriptionLogs }).(pulumi.BoolPtrOutput)
 }
@@ -1693,10 +1571,15 @@ func (o LogRulesPtrOutput) ToLogRulesPtrOutputWithContext(ctx context.Context) L
 }
 
 func (o LogRulesPtrOutput) Elem() LogRulesOutput {
-	return o.ApplyT(func(v *LogRules) LogRules { return *v }).(LogRulesOutput)
+	return o.ApplyT(func(v *LogRules) LogRules {
+		if v != nil {
+			return *v
+		}
+		var ret LogRules
+		return ret
+	}).(LogRulesOutput)
 }
 
-// List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 func (o LogRulesPtrOutput) FilteringTags() FilteringTagArrayOutput {
 	return o.ApplyT(func(v *LogRules) []FilteringTag {
 		if v == nil {
@@ -1706,7 +1589,6 @@ func (o LogRulesPtrOutput) FilteringTags() FilteringTagArrayOutput {
 	}).(FilteringTagArrayOutput)
 }
 
-// Flag specifying if AAD logs should be sent for the Monitor resource.
 func (o LogRulesPtrOutput) SendAadLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogRules) *bool {
 		if v == nil {
@@ -1716,7 +1598,6 @@ func (o LogRulesPtrOutput) SendAadLogs() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
 func (o LogRulesPtrOutput) SendActivityLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogRules) *bool {
 		if v == nil {
@@ -1726,7 +1607,6 @@ func (o LogRulesPtrOutput) SendActivityLogs() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Flag specifying if subscription logs should be sent for the Monitor resource.
 func (o LogRulesPtrOutput) SendSubscriptionLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogRules) *bool {
 		if v == nil {
@@ -1736,16 +1616,11 @@ func (o LogRulesPtrOutput) SendSubscriptionLogs() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Set of rules for sending logs for the Monitor resource.
 type LogRulesResponse struct {
-	// List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
-	FilteringTags []FilteringTagResponse `pulumi:"filteringTags"`
-	// Flag specifying if AAD logs should be sent for the Monitor resource.
-	SendAadLogs *bool `pulumi:"sendAadLogs"`
-	// Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
-	SendActivityLogs *bool `pulumi:"sendActivityLogs"`
-	// Flag specifying if subscription logs should be sent for the Monitor resource.
-	SendSubscriptionLogs *bool `pulumi:"sendSubscriptionLogs"`
+	FilteringTags        []FilteringTagResponse `pulumi:"filteringTags"`
+	SendAadLogs          *bool                  `pulumi:"sendAadLogs"`
+	SendActivityLogs     *bool                  `pulumi:"sendActivityLogs"`
+	SendSubscriptionLogs *bool                  `pulumi:"sendSubscriptionLogs"`
 }
 
 // LogRulesResponseInput is an input type that accepts LogRulesResponseArgs and LogRulesResponseOutput values.
@@ -1759,16 +1634,11 @@ type LogRulesResponseInput interface {
 	ToLogRulesResponseOutputWithContext(context.Context) LogRulesResponseOutput
 }
 
-// Set of rules for sending logs for the Monitor resource.
 type LogRulesResponseArgs struct {
-	// List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
-	FilteringTags FilteringTagResponseArrayInput `pulumi:"filteringTags"`
-	// Flag specifying if AAD logs should be sent for the Monitor resource.
-	SendAadLogs pulumi.BoolPtrInput `pulumi:"sendAadLogs"`
-	// Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
-	SendActivityLogs pulumi.BoolPtrInput `pulumi:"sendActivityLogs"`
-	// Flag specifying if subscription logs should be sent for the Monitor resource.
-	SendSubscriptionLogs pulumi.BoolPtrInput `pulumi:"sendSubscriptionLogs"`
+	FilteringTags        FilteringTagResponseArrayInput `pulumi:"filteringTags"`
+	SendAadLogs          pulumi.BoolPtrInput            `pulumi:"sendAadLogs"`
+	SendActivityLogs     pulumi.BoolPtrInput            `pulumi:"sendActivityLogs"`
+	SendSubscriptionLogs pulumi.BoolPtrInput            `pulumi:"sendSubscriptionLogs"`
 }
 
 func (LogRulesResponseArgs) ElementType() reflect.Type {
@@ -1824,7 +1694,6 @@ func (i *logRulesResponsePtrType) ToLogRulesResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(LogRulesResponsePtrOutput)
 }
 
-// Set of rules for sending logs for the Monitor resource.
 type LogRulesResponseOutput struct{ *pulumi.OutputState }
 
 func (LogRulesResponseOutput) ElementType() reflect.Type {
@@ -1844,27 +1713,23 @@ func (o LogRulesResponseOutput) ToLogRulesResponsePtrOutput() LogRulesResponsePt
 }
 
 func (o LogRulesResponseOutput) ToLogRulesResponsePtrOutputWithContext(ctx context.Context) LogRulesResponsePtrOutput {
-	return o.ApplyT(func(v LogRulesResponse) *LogRulesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogRulesResponse) *LogRulesResponse {
 		return &v
 	}).(LogRulesResponsePtrOutput)
 }
 
-// List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 func (o LogRulesResponseOutput) FilteringTags() FilteringTagResponseArrayOutput {
 	return o.ApplyT(func(v LogRulesResponse) []FilteringTagResponse { return v.FilteringTags }).(FilteringTagResponseArrayOutput)
 }
 
-// Flag specifying if AAD logs should be sent for the Monitor resource.
 func (o LogRulesResponseOutput) SendAadLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogRulesResponse) *bool { return v.SendAadLogs }).(pulumi.BoolPtrOutput)
 }
 
-// Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
 func (o LogRulesResponseOutput) SendActivityLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogRulesResponse) *bool { return v.SendActivityLogs }).(pulumi.BoolPtrOutput)
 }
 
-// Flag specifying if subscription logs should be sent for the Monitor resource.
 func (o LogRulesResponseOutput) SendSubscriptionLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogRulesResponse) *bool { return v.SendSubscriptionLogs }).(pulumi.BoolPtrOutput)
 }
@@ -1884,10 +1749,15 @@ func (o LogRulesResponsePtrOutput) ToLogRulesResponsePtrOutputWithContext(ctx co
 }
 
 func (o LogRulesResponsePtrOutput) Elem() LogRulesResponseOutput {
-	return o.ApplyT(func(v *LogRulesResponse) LogRulesResponse { return *v }).(LogRulesResponseOutput)
+	return o.ApplyT(func(v *LogRulesResponse) LogRulesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LogRulesResponse
+		return ret
+	}).(LogRulesResponseOutput)
 }
 
-// List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 func (o LogRulesResponsePtrOutput) FilteringTags() FilteringTagResponseArrayOutput {
 	return o.ApplyT(func(v *LogRulesResponse) []FilteringTagResponse {
 		if v == nil {
@@ -1897,7 +1767,6 @@ func (o LogRulesResponsePtrOutput) FilteringTags() FilteringTagResponseArrayOutp
 	}).(FilteringTagResponseArrayOutput)
 }
 
-// Flag specifying if AAD logs should be sent for the Monitor resource.
 func (o LogRulesResponsePtrOutput) SendAadLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogRulesResponse) *bool {
 		if v == nil {
@@ -1907,7 +1776,6 @@ func (o LogRulesResponsePtrOutput) SendAadLogs() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
 func (o LogRulesResponsePtrOutput) SendActivityLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogRulesResponse) *bool {
 		if v == nil {
@@ -1917,7 +1785,6 @@ func (o LogRulesResponsePtrOutput) SendActivityLogs() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Flag specifying if subscription logs should be sent for the Monitor resource.
 func (o LogRulesResponsePtrOutput) SendSubscriptionLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogRulesResponse) *bool {
 		if v == nil {
@@ -1927,14 +1794,10 @@ func (o LogRulesResponsePtrOutput) SendSubscriptionLogs() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Properties specific to the monitor resource.
 type MonitorProperties struct {
-	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus *string `pulumi:"monitoringStatus"`
-	// Provisioning state of the monitor resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// User information.
-	UserInfo *UserInfo `pulumi:"userInfo"`
+	MonitoringStatus  *string   `pulumi:"monitoringStatus"`
+	ProvisioningState *string   `pulumi:"provisioningState"`
+	UserInfo          *UserInfo `pulumi:"userInfo"`
 }
 
 // MonitorPropertiesInput is an input type that accepts MonitorPropertiesArgs and MonitorPropertiesOutput values.
@@ -1948,14 +1811,10 @@ type MonitorPropertiesInput interface {
 	ToMonitorPropertiesOutputWithContext(context.Context) MonitorPropertiesOutput
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesArgs struct {
-	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus pulumi.StringPtrInput `pulumi:"monitoringStatus"`
-	// Provisioning state of the monitor resource.
+	MonitoringStatus  pulumi.StringPtrInput `pulumi:"monitoringStatus"`
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// User information.
-	UserInfo UserInfoPtrInput `pulumi:"userInfo"`
+	UserInfo          UserInfoPtrInput      `pulumi:"userInfo"`
 }
 
 func (MonitorPropertiesArgs) ElementType() reflect.Type {
@@ -2011,7 +1870,6 @@ func (i *monitorPropertiesPtrType) ToMonitorPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorPropertiesPtrOutput)
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MonitorPropertiesOutput) ElementType() reflect.Type {
@@ -2031,22 +1889,19 @@ func (o MonitorPropertiesOutput) ToMonitorPropertiesPtrOutput() MonitorPropertie
 }
 
 func (o MonitorPropertiesOutput) ToMonitorPropertiesPtrOutputWithContext(ctx context.Context) MonitorPropertiesPtrOutput {
-	return o.ApplyT(func(v MonitorProperties) *MonitorProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorProperties) *MonitorProperties {
 		return &v
 	}).(MonitorPropertiesPtrOutput)
 }
 
-// Flag specifying if the resource monitoring is enabled or disabled.
 func (o MonitorPropertiesOutput) MonitoringStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorProperties) *string { return v.MonitoringStatus }).(pulumi.StringPtrOutput)
 }
 
-// Provisioning state of the monitor resource.
 func (o MonitorPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// User information.
 func (o MonitorPropertiesOutput) UserInfo() UserInfoPtrOutput {
 	return o.ApplyT(func(v MonitorProperties) *UserInfo { return v.UserInfo }).(UserInfoPtrOutput)
 }
@@ -2066,10 +1921,15 @@ func (o MonitorPropertiesPtrOutput) ToMonitorPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o MonitorPropertiesPtrOutput) Elem() MonitorPropertiesOutput {
-	return o.ApplyT(func(v *MonitorProperties) MonitorProperties { return *v }).(MonitorPropertiesOutput)
+	return o.ApplyT(func(v *MonitorProperties) MonitorProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorProperties
+		return ret
+	}).(MonitorPropertiesOutput)
 }
 
-// Flag specifying if the resource monitoring is enabled or disabled.
 func (o MonitorPropertiesPtrOutput) MonitoringStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorProperties) *string {
 		if v == nil {
@@ -2079,7 +1939,6 @@ func (o MonitorPropertiesPtrOutput) MonitoringStatus() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provisioning state of the monitor resource.
 func (o MonitorPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorProperties) *string {
 		if v == nil {
@@ -2089,7 +1948,6 @@ func (o MonitorPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// User information.
 func (o MonitorPropertiesPtrOutput) UserInfo() UserInfoPtrOutput {
 	return o.ApplyT(func(v *MonitorProperties) *UserInfo {
 		if v == nil {
@@ -2099,17 +1957,12 @@ func (o MonitorPropertiesPtrOutput) UserInfo() UserInfoPtrOutput {
 	}).(UserInfoPtrOutput)
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesResponse struct {
-	// Elastic cloud properties.
-	ElasticProperties     *ElasticPropertiesResponse `pulumi:"elasticProperties"`
-	LiftrResourceCategory string                     `pulumi:"liftrResourceCategory"`
-	// The priority of the resource.
-	LiftrResourcePreference int `pulumi:"liftrResourcePreference"`
-	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus *string `pulumi:"monitoringStatus"`
-	// Provisioning state of the monitor resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ElasticProperties       *ElasticPropertiesResponse `pulumi:"elasticProperties"`
+	LiftrResourceCategory   string                     `pulumi:"liftrResourceCategory"`
+	LiftrResourcePreference int                        `pulumi:"liftrResourcePreference"`
+	MonitoringStatus        *string                    `pulumi:"monitoringStatus"`
+	ProvisioningState       *string                    `pulumi:"provisioningState"`
 }
 
 // MonitorPropertiesResponseInput is an input type that accepts MonitorPropertiesResponseArgs and MonitorPropertiesResponseOutput values.
@@ -2123,17 +1976,12 @@ type MonitorPropertiesResponseInput interface {
 	ToMonitorPropertiesResponseOutputWithContext(context.Context) MonitorPropertiesResponseOutput
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesResponseArgs struct {
-	// Elastic cloud properties.
-	ElasticProperties     ElasticPropertiesResponsePtrInput `pulumi:"elasticProperties"`
-	LiftrResourceCategory pulumi.StringInput                `pulumi:"liftrResourceCategory"`
-	// The priority of the resource.
-	LiftrResourcePreference pulumi.IntInput `pulumi:"liftrResourcePreference"`
-	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus pulumi.StringPtrInput `pulumi:"monitoringStatus"`
-	// Provisioning state of the monitor resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ElasticProperties       ElasticPropertiesResponsePtrInput `pulumi:"elasticProperties"`
+	LiftrResourceCategory   pulumi.StringInput                `pulumi:"liftrResourceCategory"`
+	LiftrResourcePreference pulumi.IntInput                   `pulumi:"liftrResourcePreference"`
+	MonitoringStatus        pulumi.StringPtrInput             `pulumi:"monitoringStatus"`
+	ProvisioningState       pulumi.StringPtrInput             `pulumi:"provisioningState"`
 }
 
 func (MonitorPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2189,7 +2037,6 @@ func (i *monitorPropertiesResponsePtrType) ToMonitorPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorPropertiesResponsePtrOutput)
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MonitorPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2209,12 +2056,11 @@ func (o MonitorPropertiesResponseOutput) ToMonitorPropertiesResponsePtrOutput() 
 }
 
 func (o MonitorPropertiesResponseOutput) ToMonitorPropertiesResponsePtrOutputWithContext(ctx context.Context) MonitorPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MonitorPropertiesResponse) *MonitorPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorPropertiesResponse) *MonitorPropertiesResponse {
 		return &v
 	}).(MonitorPropertiesResponsePtrOutput)
 }
 
-// Elastic cloud properties.
 func (o MonitorPropertiesResponseOutput) ElasticProperties() ElasticPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v MonitorPropertiesResponse) *ElasticPropertiesResponse { return v.ElasticProperties }).(ElasticPropertiesResponsePtrOutput)
 }
@@ -2223,17 +2069,14 @@ func (o MonitorPropertiesResponseOutput) LiftrResourceCategory() pulumi.StringOu
 	return o.ApplyT(func(v MonitorPropertiesResponse) string { return v.LiftrResourceCategory }).(pulumi.StringOutput)
 }
 
-// The priority of the resource.
 func (o MonitorPropertiesResponseOutput) LiftrResourcePreference() pulumi.IntOutput {
 	return o.ApplyT(func(v MonitorPropertiesResponse) int { return v.LiftrResourcePreference }).(pulumi.IntOutput)
 }
 
-// Flag specifying if the resource monitoring is enabled or disabled.
 func (o MonitorPropertiesResponseOutput) MonitoringStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorPropertiesResponse) *string { return v.MonitoringStatus }).(pulumi.StringPtrOutput)
 }
 
-// Provisioning state of the monitor resource.
 func (o MonitorPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -2253,10 +2096,15 @@ func (o MonitorPropertiesResponsePtrOutput) ToMonitorPropertiesResponsePtrOutput
 }
 
 func (o MonitorPropertiesResponsePtrOutput) Elem() MonitorPropertiesResponseOutput {
-	return o.ApplyT(func(v *MonitorPropertiesResponse) MonitorPropertiesResponse { return *v }).(MonitorPropertiesResponseOutput)
+	return o.ApplyT(func(v *MonitorPropertiesResponse) MonitorPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorPropertiesResponse
+		return ret
+	}).(MonitorPropertiesResponseOutput)
 }
 
-// Elastic cloud properties.
 func (o MonitorPropertiesResponsePtrOutput) ElasticProperties() ElasticPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *MonitorPropertiesResponse) *ElasticPropertiesResponse {
 		if v == nil {
@@ -2275,7 +2123,6 @@ func (o MonitorPropertiesResponsePtrOutput) LiftrResourceCategory() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The priority of the resource.
 func (o MonitorPropertiesResponsePtrOutput) LiftrResourcePreference() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MonitorPropertiesResponse) *int {
 		if v == nil {
@@ -2285,7 +2132,6 @@ func (o MonitorPropertiesResponsePtrOutput) LiftrResourcePreference() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// Flag specifying if the resource monitoring is enabled or disabled.
 func (o MonitorPropertiesResponsePtrOutput) MonitoringStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorPropertiesResponse) *string {
 		if v == nil {
@@ -2295,7 +2141,6 @@ func (o MonitorPropertiesResponsePtrOutput) MonitoringStatus() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provisioning state of the monitor resource.
 func (o MonitorPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorPropertiesResponse) *string {
 		if v == nil {
@@ -2305,14 +2150,10 @@ func (o MonitorPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a resource currently being monitored by the Elastic monitor resource.
 type MonitoredResourceResponse struct {
-	// The ARM id of the resource.
-	Id *string `pulumi:"id"`
-	// Reason for why the resource is sending logs (or why it is not sending).
+	Id                  *string `pulumi:"id"`
 	ReasonForLogsStatus *string `pulumi:"reasonForLogsStatus"`
-	// Flag indicating the status of the resource for sending logs operation to Elastic.
-	SendingLogs *string `pulumi:"sendingLogs"`
+	SendingLogs         *string `pulumi:"sendingLogs"`
 }
 
 // MonitoredResourceResponseInput is an input type that accepts MonitoredResourceResponseArgs and MonitoredResourceResponseOutput values.
@@ -2326,14 +2167,10 @@ type MonitoredResourceResponseInput interface {
 	ToMonitoredResourceResponseOutputWithContext(context.Context) MonitoredResourceResponseOutput
 }
 
-// The properties of a resource currently being monitored by the Elastic monitor resource.
 type MonitoredResourceResponseArgs struct {
-	// The ARM id of the resource.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Reason for why the resource is sending logs (or why it is not sending).
+	Id                  pulumi.StringPtrInput `pulumi:"id"`
 	ReasonForLogsStatus pulumi.StringPtrInput `pulumi:"reasonForLogsStatus"`
-	// Flag indicating the status of the resource for sending logs operation to Elastic.
-	SendingLogs pulumi.StringPtrInput `pulumi:"sendingLogs"`
+	SendingLogs         pulumi.StringPtrInput `pulumi:"sendingLogs"`
 }
 
 func (MonitoredResourceResponseArgs) ElementType() reflect.Type {
@@ -2373,7 +2210,6 @@ func (i MonitoredResourceResponseArray) ToMonitoredResourceResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoredResourceResponseArrayOutput)
 }
 
-// The properties of a resource currently being monitored by the Elastic monitor resource.
 type MonitoredResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (MonitoredResourceResponseOutput) ElementType() reflect.Type {
@@ -2388,17 +2224,14 @@ func (o MonitoredResourceResponseOutput) ToMonitoredResourceResponseOutputWithCo
 	return o
 }
 
-// The ARM id of the resource.
 func (o MonitoredResourceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Reason for why the resource is sending logs (or why it is not sending).
 func (o MonitoredResourceResponseOutput) ReasonForLogsStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.ReasonForLogsStatus }).(pulumi.StringPtrOutput)
 }
 
-// Flag indicating the status of the resource for sending logs operation to Elastic.
 func (o MonitoredResourceResponseOutput) SendingLogs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.SendingLogs }).(pulumi.StringPtrOutput)
 }
@@ -2423,12 +2256,9 @@ func (o MonitoredResourceResponseArrayOutput) Index(i pulumi.IntInput) Monitored
 	}).(MonitoredResourceResponseOutput)
 }
 
-// Definition of the properties for a TagRules resource.
 type MonitoringTagRulesProperties struct {
-	// Rules for sending logs.
-	LogRules *LogRules `pulumi:"logRules"`
-	// Provisioning state of the monitoring tag rules.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	LogRules          *LogRules `pulumi:"logRules"`
+	ProvisioningState *string   `pulumi:"provisioningState"`
 }
 
 // MonitoringTagRulesPropertiesInput is an input type that accepts MonitoringTagRulesPropertiesArgs and MonitoringTagRulesPropertiesOutput values.
@@ -2442,11 +2272,8 @@ type MonitoringTagRulesPropertiesInput interface {
 	ToMonitoringTagRulesPropertiesOutputWithContext(context.Context) MonitoringTagRulesPropertiesOutput
 }
 
-// Definition of the properties for a TagRules resource.
 type MonitoringTagRulesPropertiesArgs struct {
-	// Rules for sending logs.
-	LogRules LogRulesPtrInput `pulumi:"logRules"`
-	// Provisioning state of the monitoring tag rules.
+	LogRules          LogRulesPtrInput      `pulumi:"logRules"`
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
@@ -2503,7 +2330,6 @@ func (i *monitoringTagRulesPropertiesPtrType) ToMonitoringTagRulesPropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringTagRulesPropertiesPtrOutput)
 }
 
-// Definition of the properties for a TagRules resource.
 type MonitoringTagRulesPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MonitoringTagRulesPropertiesOutput) ElementType() reflect.Type {
@@ -2523,17 +2349,15 @@ func (o MonitoringTagRulesPropertiesOutput) ToMonitoringTagRulesPropertiesPtrOut
 }
 
 func (o MonitoringTagRulesPropertiesOutput) ToMonitoringTagRulesPropertiesPtrOutputWithContext(ctx context.Context) MonitoringTagRulesPropertiesPtrOutput {
-	return o.ApplyT(func(v MonitoringTagRulesProperties) *MonitoringTagRulesProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringTagRulesProperties) *MonitoringTagRulesProperties {
 		return &v
 	}).(MonitoringTagRulesPropertiesPtrOutput)
 }
 
-// Rules for sending logs.
 func (o MonitoringTagRulesPropertiesOutput) LogRules() LogRulesPtrOutput {
 	return o.ApplyT(func(v MonitoringTagRulesProperties) *LogRules { return v.LogRules }).(LogRulesPtrOutput)
 }
 
-// Provisioning state of the monitoring tag rules.
 func (o MonitoringTagRulesPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoringTagRulesProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -2553,10 +2377,15 @@ func (o MonitoringTagRulesPropertiesPtrOutput) ToMonitoringTagRulesPropertiesPtr
 }
 
 func (o MonitoringTagRulesPropertiesPtrOutput) Elem() MonitoringTagRulesPropertiesOutput {
-	return o.ApplyT(func(v *MonitoringTagRulesProperties) MonitoringTagRulesProperties { return *v }).(MonitoringTagRulesPropertiesOutput)
+	return o.ApplyT(func(v *MonitoringTagRulesProperties) MonitoringTagRulesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringTagRulesProperties
+		return ret
+	}).(MonitoringTagRulesPropertiesOutput)
 }
 
-// Rules for sending logs.
 func (o MonitoringTagRulesPropertiesPtrOutput) LogRules() LogRulesPtrOutput {
 	return o.ApplyT(func(v *MonitoringTagRulesProperties) *LogRules {
 		if v == nil {
@@ -2566,7 +2395,6 @@ func (o MonitoringTagRulesPropertiesPtrOutput) LogRules() LogRulesPtrOutput {
 	}).(LogRulesPtrOutput)
 }
 
-// Provisioning state of the monitoring tag rules.
 func (o MonitoringTagRulesPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringTagRulesProperties) *string {
 		if v == nil {
@@ -2576,12 +2404,9 @@ func (o MonitoringTagRulesPropertiesPtrOutput) ProvisioningState() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Definition of the properties for a TagRules resource.
 type MonitoringTagRulesPropertiesResponse struct {
-	// Rules for sending logs.
-	LogRules *LogRulesResponse `pulumi:"logRules"`
-	// Provisioning state of the monitoring tag rules.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	LogRules          *LogRulesResponse `pulumi:"logRules"`
+	ProvisioningState *string           `pulumi:"provisioningState"`
 }
 
 // MonitoringTagRulesPropertiesResponseInput is an input type that accepts MonitoringTagRulesPropertiesResponseArgs and MonitoringTagRulesPropertiesResponseOutput values.
@@ -2595,12 +2420,9 @@ type MonitoringTagRulesPropertiesResponseInput interface {
 	ToMonitoringTagRulesPropertiesResponseOutputWithContext(context.Context) MonitoringTagRulesPropertiesResponseOutput
 }
 
-// Definition of the properties for a TagRules resource.
 type MonitoringTagRulesPropertiesResponseArgs struct {
-	// Rules for sending logs.
-	LogRules LogRulesResponsePtrInput `pulumi:"logRules"`
-	// Provisioning state of the monitoring tag rules.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	LogRules          LogRulesResponsePtrInput `pulumi:"logRules"`
+	ProvisioningState pulumi.StringPtrInput    `pulumi:"provisioningState"`
 }
 
 func (MonitoringTagRulesPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2656,7 +2478,6 @@ func (i *monitoringTagRulesPropertiesResponsePtrType) ToMonitoringTagRulesProper
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringTagRulesPropertiesResponsePtrOutput)
 }
 
-// Definition of the properties for a TagRules resource.
 type MonitoringTagRulesPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MonitoringTagRulesPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2676,17 +2497,15 @@ func (o MonitoringTagRulesPropertiesResponseOutput) ToMonitoringTagRulesProperti
 }
 
 func (o MonitoringTagRulesPropertiesResponseOutput) ToMonitoringTagRulesPropertiesResponsePtrOutputWithContext(ctx context.Context) MonitoringTagRulesPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MonitoringTagRulesPropertiesResponse) *MonitoringTagRulesPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringTagRulesPropertiesResponse) *MonitoringTagRulesPropertiesResponse {
 		return &v
 	}).(MonitoringTagRulesPropertiesResponsePtrOutput)
 }
 
-// Rules for sending logs.
 func (o MonitoringTagRulesPropertiesResponseOutput) LogRules() LogRulesResponsePtrOutput {
 	return o.ApplyT(func(v MonitoringTagRulesPropertiesResponse) *LogRulesResponse { return v.LogRules }).(LogRulesResponsePtrOutput)
 }
 
-// Provisioning state of the monitoring tag rules.
 func (o MonitoringTagRulesPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoringTagRulesPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -2706,10 +2525,15 @@ func (o MonitoringTagRulesPropertiesResponsePtrOutput) ToMonitoringTagRulesPrope
 }
 
 func (o MonitoringTagRulesPropertiesResponsePtrOutput) Elem() MonitoringTagRulesPropertiesResponseOutput {
-	return o.ApplyT(func(v *MonitoringTagRulesPropertiesResponse) MonitoringTagRulesPropertiesResponse { return *v }).(MonitoringTagRulesPropertiesResponseOutput)
+	return o.ApplyT(func(v *MonitoringTagRulesPropertiesResponse) MonitoringTagRulesPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringTagRulesPropertiesResponse
+		return ret
+	}).(MonitoringTagRulesPropertiesResponseOutput)
 }
 
-// Rules for sending logs.
 func (o MonitoringTagRulesPropertiesResponsePtrOutput) LogRules() LogRulesResponsePtrOutput {
 	return o.ApplyT(func(v *MonitoringTagRulesPropertiesResponse) *LogRulesResponse {
 		if v == nil {
@@ -2719,7 +2543,6 @@ func (o MonitoringTagRulesPropertiesResponsePtrOutput) LogRules() LogRulesRespon
 	}).(LogRulesResponsePtrOutput)
 }
 
-// Provisioning state of the monitoring tag rules.
 func (o MonitoringTagRulesPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringTagRulesPropertiesResponse) *string {
 		if v == nil {
@@ -2729,9 +2552,7 @@ func (o MonitoringTagRulesPropertiesResponsePtrOutput) ProvisioningState() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Microsoft.Elastic SKU.
 type ResourceSku struct {
-	// Name of the SKU.
 	Name string `pulumi:"name"`
 }
 
@@ -2746,9 +2567,7 @@ type ResourceSkuInput interface {
 	ToResourceSkuOutputWithContext(context.Context) ResourceSkuOutput
 }
 
-// Microsoft.Elastic SKU.
 type ResourceSkuArgs struct {
-	// Name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2805,7 +2624,6 @@ func (i *resourceSkuPtrType) ToResourceSkuPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuPtrOutput)
 }
 
-// Microsoft.Elastic SKU.
 type ResourceSkuOutput struct{ *pulumi.OutputState }
 
 func (ResourceSkuOutput) ElementType() reflect.Type {
@@ -2825,12 +2643,11 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
 }
 
 func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return o.ApplyT(func(v ResourceSku) *ResourceSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSku) *ResourceSku {
 		return &v
 	}).(ResourceSkuPtrOutput)
 }
 
-// Name of the SKU.
 func (o ResourceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2850,10 +2667,15 @@ func (o ResourceSkuPtrOutput) ToResourceSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
-	return o.ApplyT(func(v *ResourceSku) ResourceSku { return *v }).(ResourceSkuOutput)
+	return o.ApplyT(func(v *ResourceSku) ResourceSku {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSku
+		return ret
+	}).(ResourceSkuOutput)
 }
 
-// Name of the SKU.
 func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *string {
 		if v == nil {
@@ -2863,9 +2685,7 @@ func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Microsoft.Elastic SKU.
 type ResourceSkuResponse struct {
-	// Name of the SKU.
 	Name string `pulumi:"name"`
 }
 
@@ -2880,9 +2700,7 @@ type ResourceSkuResponseInput interface {
 	ToResourceSkuResponseOutputWithContext(context.Context) ResourceSkuResponseOutput
 }
 
-// Microsoft.Elastic SKU.
 type ResourceSkuResponseArgs struct {
-	// Name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2939,7 +2757,6 @@ func (i *resourceSkuResponsePtrType) ToResourceSkuResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuResponsePtrOutput)
 }
 
-// Microsoft.Elastic SKU.
 type ResourceSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceSkuResponseOutput) ElementType() reflect.Type {
@@ -2959,12 +2776,11 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutput() ResourceSkuR
 }
 
 func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return o.ApplyT(func(v ResourceSkuResponse) *ResourceSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSkuResponse) *ResourceSkuResponse {
 		return &v
 	}).(ResourceSkuResponsePtrOutput)
 }
 
-// Name of the SKU.
 func (o ResourceSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2984,10 +2800,15 @@ func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutputWithContext(
 }
 
 func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse { return *v }).(ResourceSkuResponseOutput)
+	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSkuResponse
+		return ret
+	}).(ResourceSkuResponseOutput)
 }
 
-// Name of the SKU.
 func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
@@ -2997,19 +2818,12 @@ func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -3024,19 +2838,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -3093,7 +2900,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -3113,37 +2919,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -3163,10 +2963,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3176,7 +2981,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3186,7 +2990,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3196,7 +2999,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3206,7 +3008,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3216,7 +3017,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3226,18 +3026,12 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// User Information to be passed to partners.
 type UserInfo struct {
-	// Company information of the user to be passed to partners.
-	CompanyInfo *CompanyInfo `pulumi:"companyInfo"`
-	// Company name of the user
-	CompanyName *string `pulumi:"companyName"`
-	// Email of the user used by Elastic for contacting them if needed
-	EmailAddress *string `pulumi:"emailAddress"`
-	// First name of the user
-	FirstName *string `pulumi:"firstName"`
-	// Last name of the user
-	LastName *string `pulumi:"lastName"`
+	CompanyInfo  *CompanyInfo `pulumi:"companyInfo"`
+	CompanyName  *string      `pulumi:"companyName"`
+	EmailAddress *string      `pulumi:"emailAddress"`
+	FirstName    *string      `pulumi:"firstName"`
+	LastName     *string      `pulumi:"lastName"`
 }
 
 // UserInfoInput is an input type that accepts UserInfoArgs and UserInfoOutput values.
@@ -3251,18 +3045,12 @@ type UserInfoInput interface {
 	ToUserInfoOutputWithContext(context.Context) UserInfoOutput
 }
 
-// User Information to be passed to partners.
 type UserInfoArgs struct {
-	// Company information of the user to be passed to partners.
-	CompanyInfo CompanyInfoPtrInput `pulumi:"companyInfo"`
-	// Company name of the user
-	CompanyName pulumi.StringPtrInput `pulumi:"companyName"`
-	// Email of the user used by Elastic for contacting them if needed
+	CompanyInfo  CompanyInfoPtrInput   `pulumi:"companyInfo"`
+	CompanyName  pulumi.StringPtrInput `pulumi:"companyName"`
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
-	// First name of the user
-	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
-	// Last name of the user
-	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	FirstName    pulumi.StringPtrInput `pulumi:"firstName"`
+	LastName     pulumi.StringPtrInput `pulumi:"lastName"`
 }
 
 func (UserInfoArgs) ElementType() reflect.Type {
@@ -3318,7 +3106,6 @@ func (i *userInfoPtrType) ToUserInfoPtrOutputWithContext(ctx context.Context) Us
 	return pulumi.ToOutputWithContext(ctx, i).(UserInfoPtrOutput)
 }
 
-// User Information to be passed to partners.
 type UserInfoOutput struct{ *pulumi.OutputState }
 
 func (UserInfoOutput) ElementType() reflect.Type {
@@ -3338,32 +3125,27 @@ func (o UserInfoOutput) ToUserInfoPtrOutput() UserInfoPtrOutput {
 }
 
 func (o UserInfoOutput) ToUserInfoPtrOutputWithContext(ctx context.Context) UserInfoPtrOutput {
-	return o.ApplyT(func(v UserInfo) *UserInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserInfo) *UserInfo {
 		return &v
 	}).(UserInfoPtrOutput)
 }
 
-// Company information of the user to be passed to partners.
 func (o UserInfoOutput) CompanyInfo() CompanyInfoPtrOutput {
 	return o.ApplyT(func(v UserInfo) *CompanyInfo { return v.CompanyInfo }).(CompanyInfoPtrOutput)
 }
 
-// Company name of the user
 func (o UserInfoOutput) CompanyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserInfo) *string { return v.CompanyName }).(pulumi.StringPtrOutput)
 }
 
-// Email of the user used by Elastic for contacting them if needed
 func (o UserInfoOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserInfo) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// First name of the user
 func (o UserInfoOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserInfo) *string { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
-// Last name of the user
 func (o UserInfoOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserInfo) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
@@ -3383,10 +3165,15 @@ func (o UserInfoPtrOutput) ToUserInfoPtrOutputWithContext(ctx context.Context) U
 }
 
 func (o UserInfoPtrOutput) Elem() UserInfoOutput {
-	return o.ApplyT(func(v *UserInfo) UserInfo { return *v }).(UserInfoOutput)
+	return o.ApplyT(func(v *UserInfo) UserInfo {
+		if v != nil {
+			return *v
+		}
+		var ret UserInfo
+		return ret
+	}).(UserInfoOutput)
 }
 
-// Company information of the user to be passed to partners.
 func (o UserInfoPtrOutput) CompanyInfo() CompanyInfoPtrOutput {
 	return o.ApplyT(func(v *UserInfo) *CompanyInfo {
 		if v == nil {
@@ -3396,7 +3183,6 @@ func (o UserInfoPtrOutput) CompanyInfo() CompanyInfoPtrOutput {
 	}).(CompanyInfoPtrOutput)
 }
 
-// Company name of the user
 func (o UserInfoPtrOutput) CompanyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserInfo) *string {
 		if v == nil {
@@ -3406,7 +3192,6 @@ func (o UserInfoPtrOutput) CompanyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Email of the user used by Elastic for contacting them if needed
 func (o UserInfoPtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserInfo) *string {
 		if v == nil {
@@ -3416,7 +3201,6 @@ func (o UserInfoPtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// First name of the user
 func (o UserInfoPtrOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserInfo) *string {
 		if v == nil {
@@ -3426,7 +3210,6 @@ func (o UserInfoPtrOutput) FirstName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last name of the user
 func (o UserInfoPtrOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserInfo) *string {
 		if v == nil {
@@ -3436,18 +3219,12 @@ func (o UserInfoPtrOutput) LastName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// User Information to be passed to partners.
 type UserInfoResponse struct {
-	// Company information of the user to be passed to partners.
-	CompanyInfo *CompanyInfoResponse `pulumi:"companyInfo"`
-	// Company name of the user
-	CompanyName *string `pulumi:"companyName"`
-	// Email of the user used by Elastic for contacting them if needed
-	EmailAddress *string `pulumi:"emailAddress"`
-	// First name of the user
-	FirstName *string `pulumi:"firstName"`
-	// Last name of the user
-	LastName *string `pulumi:"lastName"`
+	CompanyInfo  *CompanyInfoResponse `pulumi:"companyInfo"`
+	CompanyName  *string              `pulumi:"companyName"`
+	EmailAddress *string              `pulumi:"emailAddress"`
+	FirstName    *string              `pulumi:"firstName"`
+	LastName     *string              `pulumi:"lastName"`
 }
 
 // UserInfoResponseInput is an input type that accepts UserInfoResponseArgs and UserInfoResponseOutput values.
@@ -3461,18 +3238,12 @@ type UserInfoResponseInput interface {
 	ToUserInfoResponseOutputWithContext(context.Context) UserInfoResponseOutput
 }
 
-// User Information to be passed to partners.
 type UserInfoResponseArgs struct {
-	// Company information of the user to be passed to partners.
-	CompanyInfo CompanyInfoResponsePtrInput `pulumi:"companyInfo"`
-	// Company name of the user
-	CompanyName pulumi.StringPtrInput `pulumi:"companyName"`
-	// Email of the user used by Elastic for contacting them if needed
-	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
-	// First name of the user
-	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
-	// Last name of the user
-	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	CompanyInfo  CompanyInfoResponsePtrInput `pulumi:"companyInfo"`
+	CompanyName  pulumi.StringPtrInput       `pulumi:"companyName"`
+	EmailAddress pulumi.StringPtrInput       `pulumi:"emailAddress"`
+	FirstName    pulumi.StringPtrInput       `pulumi:"firstName"`
+	LastName     pulumi.StringPtrInput       `pulumi:"lastName"`
 }
 
 func (UserInfoResponseArgs) ElementType() reflect.Type {
@@ -3487,7 +3258,6 @@ func (i UserInfoResponseArgs) ToUserInfoResponseOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(UserInfoResponseOutput)
 }
 
-// User Information to be passed to partners.
 type UserInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (UserInfoResponseOutput) ElementType() reflect.Type {
@@ -3502,34 +3272,27 @@ func (o UserInfoResponseOutput) ToUserInfoResponseOutputWithContext(ctx context.
 	return o
 }
 
-// Company information of the user to be passed to partners.
 func (o UserInfoResponseOutput) CompanyInfo() CompanyInfoResponsePtrOutput {
 	return o.ApplyT(func(v UserInfoResponse) *CompanyInfoResponse { return v.CompanyInfo }).(CompanyInfoResponsePtrOutput)
 }
 
-// Company name of the user
 func (o UserInfoResponseOutput) CompanyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserInfoResponse) *string { return v.CompanyName }).(pulumi.StringPtrOutput)
 }
 
-// Email of the user used by Elastic for contacting them if needed
 func (o UserInfoResponseOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserInfoResponse) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// First name of the user
 func (o UserInfoResponseOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserInfoResponse) *string { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
-// Last name of the user
 func (o UserInfoResponseOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserInfoResponse) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
 
-// The vm resource properties that is currently being monitored by the Elastic monitor resource.
 type VMResourcesResponse struct {
-	// The ARM id of the VM resource.
 	VmResourceId *string `pulumi:"vmResourceId"`
 }
 
@@ -3544,9 +3307,7 @@ type VMResourcesResponseInput interface {
 	ToVMResourcesResponseOutputWithContext(context.Context) VMResourcesResponseOutput
 }
 
-// The vm resource properties that is currently being monitored by the Elastic monitor resource.
 type VMResourcesResponseArgs struct {
-	// The ARM id of the VM resource.
 	VmResourceId pulumi.StringPtrInput `pulumi:"vmResourceId"`
 }
 
@@ -3587,7 +3348,6 @@ func (i VMResourcesResponseArray) ToVMResourcesResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VMResourcesResponseArrayOutput)
 }
 
-// The vm resource properties that is currently being monitored by the Elastic monitor resource.
 type VMResourcesResponseOutput struct{ *pulumi.OutputState }
 
 func (VMResourcesResponseOutput) ElementType() reflect.Type {
@@ -3602,7 +3362,6 @@ func (o VMResourcesResponseOutput) ToVMResourcesResponseOutputWithContext(ctx co
 	return o
 }
 
-// The ARM id of the VM resource.
 func (o VMResourcesResponseOutput) VmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMResourcesResponse) *string { return v.VmResourceId }).(pulumi.StringPtrOutput)
 }

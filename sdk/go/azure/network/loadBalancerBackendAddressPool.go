@@ -194,9 +194,7 @@ func (i *LoadBalancerBackendAddressPool) ToLoadBalancerBackendAddressPoolOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerBackendAddressPoolOutput)
 }
 
-type LoadBalancerBackendAddressPoolOutput struct {
-	*pulumi.OutputState
-}
+type LoadBalancerBackendAddressPoolOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerBackendAddressPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LoadBalancerBackendAddressPool)(nil))

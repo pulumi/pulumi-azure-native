@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VpnServerConfiguration Resource.
 func LookupVpnServerConfiguration(ctx *pulumi.Context, args *LookupVpnServerConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupVpnServerConfigurationResult, error) {
 	var rv LookupVpnServerConfigurationResult
 	err := ctx.Invoke("azure-native:network/v20190801:getVpnServerConfiguration", args, &rv, opts...)
@@ -18,48 +17,28 @@ func LookupVpnServerConfiguration(ctx *pulumi.Context, args *LookupVpnServerConf
 }
 
 type LookupVpnServerConfigurationArgs struct {
-	// The resource group name of the VpnServerConfiguration.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the VpnServerConfiguration being retrieved.
+	ResourceGroupName          string `pulumi:"resourceGroupName"`
 	VpnServerConfigurationName string `pulumi:"vpnServerConfigurationName"`
 }
 
 // VpnServerConfiguration Resource.
 type LookupVpnServerConfigurationResult struct {
-	// The set of aad vpn authentication parameters.
-	AadAuthenticationParameters *AadAuthenticationParametersResponse `pulumi:"aadAuthenticationParameters"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// List of references to P2SVpnGateways.
-	P2SVpnGateways []P2SVpnGatewayResponse `pulumi:"p2SVpnGateways"`
-	// The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Radius client root certificate of VpnServerConfiguration.
+	AadAuthenticationParameters  *AadAuthenticationParametersResponse                 `pulumi:"aadAuthenticationParameters"`
+	Etag                         string                                               `pulumi:"etag"`
+	Id                           *string                                              `pulumi:"id"`
+	Location                     *string                                              `pulumi:"location"`
+	Name                         string                                               `pulumi:"name"`
+	P2SVpnGateways               []P2SVpnGatewayResponse                              `pulumi:"p2SVpnGateways"`
+	ProvisioningState            string                                               `pulumi:"provisioningState"`
 	RadiusClientRootCertificates []VpnServerConfigRadiusClientRootCertificateResponse `pulumi:"radiusClientRootCertificates"`
-	// The radius server address property of the VpnServerConfiguration resource for point to site client connection.
-	RadiusServerAddress *string `pulumi:"radiusServerAddress"`
-	// Radius Server root certificate of VpnServerConfiguration.
+	RadiusServerAddress          *string                                              `pulumi:"radiusServerAddress"`
 	RadiusServerRootCertificates []VpnServerConfigRadiusServerRootCertificateResponse `pulumi:"radiusServerRootCertificates"`
-	// The radius secret property of the VpnServerConfiguration resource for point to site client connection.
-	RadiusServerSecret *string `pulumi:"radiusServerSecret"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// VPN authentication types for the VpnServerConfiguration.
-	VpnAuthenticationTypes []string `pulumi:"vpnAuthenticationTypes"`
-	// VpnClientIpsecPolicies for VpnServerConfiguration.
-	VpnClientIpsecPolicies []IpsecPolicyResponse `pulumi:"vpnClientIpsecPolicies"`
-	// VPN client revoked certificate of VpnServerConfiguration.
+	RadiusServerSecret           *string                                              `pulumi:"radiusServerSecret"`
+	Tags                         map[string]string                                    `pulumi:"tags"`
+	Type                         string                                               `pulumi:"type"`
+	VpnAuthenticationTypes       []string                                             `pulumi:"vpnAuthenticationTypes"`
+	VpnClientIpsecPolicies       []IpsecPolicyResponse                                `pulumi:"vpnClientIpsecPolicies"`
 	VpnClientRevokedCertificates []VpnServerConfigVpnClientRevokedCertificateResponse `pulumi:"vpnClientRevokedCertificates"`
-	// VPN client root certificate of VpnServerConfiguration.
-	VpnClientRootCertificates []VpnServerConfigVpnClientRootCertificateResponse `pulumi:"vpnClientRootCertificates"`
-	// VPN protocols for the VpnServerConfiguration.
-	VpnProtocols []string `pulumi:"vpnProtocols"`
+	VpnClientRootCertificates    []VpnServerConfigVpnClientRootCertificateResponse    `pulumi:"vpnClientRootCertificates"`
+	VpnProtocols                 []string                                             `pulumi:"vpnProtocols"`
 }

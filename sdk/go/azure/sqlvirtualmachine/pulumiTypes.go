@@ -106,7 +106,7 @@ func (o AdditionalFeaturesServerConfigurationsOutput) ToAdditionalFeaturesServer
 }
 
 func (o AdditionalFeaturesServerConfigurationsOutput) ToAdditionalFeaturesServerConfigurationsPtrOutputWithContext(ctx context.Context) AdditionalFeaturesServerConfigurationsPtrOutput {
-	return o.ApplyT(func(v AdditionalFeaturesServerConfigurations) *AdditionalFeaturesServerConfigurations {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdditionalFeaturesServerConfigurations) *AdditionalFeaturesServerConfigurations {
 		return &v
 	}).(AdditionalFeaturesServerConfigurationsPtrOutput)
 }
@@ -131,7 +131,13 @@ func (o AdditionalFeaturesServerConfigurationsPtrOutput) ToAdditionalFeaturesSer
 }
 
 func (o AdditionalFeaturesServerConfigurationsPtrOutput) Elem() AdditionalFeaturesServerConfigurationsOutput {
-	return o.ApplyT(func(v *AdditionalFeaturesServerConfigurations) AdditionalFeaturesServerConfigurations { return *v }).(AdditionalFeaturesServerConfigurationsOutput)
+	return o.ApplyT(func(v *AdditionalFeaturesServerConfigurations) AdditionalFeaturesServerConfigurations {
+		if v != nil {
+			return *v
+		}
+		var ret AdditionalFeaturesServerConfigurations
+		return ret
+	}).(AdditionalFeaturesServerConfigurationsOutput)
 }
 
 // Enable or disable R services (SQL 2016 onwards).
@@ -240,7 +246,7 @@ func (o AdditionalFeaturesServerConfigurationsResponseOutput) ToAdditionalFeatur
 }
 
 func (o AdditionalFeaturesServerConfigurationsResponseOutput) ToAdditionalFeaturesServerConfigurationsResponsePtrOutputWithContext(ctx context.Context) AdditionalFeaturesServerConfigurationsResponsePtrOutput {
-	return o.ApplyT(func(v AdditionalFeaturesServerConfigurationsResponse) *AdditionalFeaturesServerConfigurationsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdditionalFeaturesServerConfigurationsResponse) *AdditionalFeaturesServerConfigurationsResponse {
 		return &v
 	}).(AdditionalFeaturesServerConfigurationsResponsePtrOutput)
 }
@@ -266,7 +272,11 @@ func (o AdditionalFeaturesServerConfigurationsResponsePtrOutput) ToAdditionalFea
 
 func (o AdditionalFeaturesServerConfigurationsResponsePtrOutput) Elem() AdditionalFeaturesServerConfigurationsResponseOutput {
 	return o.ApplyT(func(v *AdditionalFeaturesServerConfigurationsResponse) AdditionalFeaturesServerConfigurationsResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AdditionalFeaturesServerConfigurationsResponse
+		return ret
 	}).(AdditionalFeaturesServerConfigurationsResponseOutput)
 }
 
@@ -420,7 +430,7 @@ func (o AutoBackupSettingsOutput) ToAutoBackupSettingsPtrOutput() AutoBackupSett
 }
 
 func (o AutoBackupSettingsOutput) ToAutoBackupSettingsPtrOutputWithContext(ctx context.Context) AutoBackupSettingsPtrOutput {
-	return o.ApplyT(func(v AutoBackupSettings) *AutoBackupSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoBackupSettings) *AutoBackupSettings {
 		return &v
 	}).(AutoBackupSettingsPtrOutput)
 }
@@ -500,7 +510,13 @@ func (o AutoBackupSettingsPtrOutput) ToAutoBackupSettingsPtrOutputWithContext(ct
 }
 
 func (o AutoBackupSettingsPtrOutput) Elem() AutoBackupSettingsOutput {
-	return o.ApplyT(func(v *AutoBackupSettings) AutoBackupSettings { return *v }).(AutoBackupSettingsOutput)
+	return o.ApplyT(func(v *AutoBackupSettings) AutoBackupSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AutoBackupSettings
+		return ret
+	}).(AutoBackupSettingsOutput)
 }
 
 // Backup schedule type.
@@ -755,7 +771,7 @@ func (o AutoBackupSettingsResponseOutput) ToAutoBackupSettingsResponsePtrOutput(
 }
 
 func (o AutoBackupSettingsResponseOutput) ToAutoBackupSettingsResponsePtrOutputWithContext(ctx context.Context) AutoBackupSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AutoBackupSettingsResponse) *AutoBackupSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoBackupSettingsResponse) *AutoBackupSettingsResponse {
 		return &v
 	}).(AutoBackupSettingsResponsePtrOutput)
 }
@@ -825,7 +841,13 @@ func (o AutoBackupSettingsResponsePtrOutput) ToAutoBackupSettingsResponsePtrOutp
 }
 
 func (o AutoBackupSettingsResponsePtrOutput) Elem() AutoBackupSettingsResponseOutput {
-	return o.ApplyT(func(v *AutoBackupSettingsResponse) AutoBackupSettingsResponse { return *v }).(AutoBackupSettingsResponseOutput)
+	return o.ApplyT(func(v *AutoBackupSettingsResponse) AutoBackupSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoBackupSettingsResponse
+		return ret
+	}).(AutoBackupSettingsResponseOutput)
 }
 
 // Backup schedule type.
@@ -931,7 +953,7 @@ func (o AutoBackupSettingsResponsePtrOutput) StorageAccountUrl() pulumi.StringPt
 // Set a patching window during which Windows and SQL patches will be applied.
 type AutoPatchingSettings struct {
 	// Day of week to apply the patch on.
-	DayOfWeek *string `pulumi:"dayOfWeek"`
+	DayOfWeek *DayOfWeek `pulumi:"dayOfWeek"`
 	// Enable or disable autopatching on SQL virtual machine.
 	Enable *bool `pulumi:"enable"`
 	// Duration of patching.
@@ -954,7 +976,7 @@ type AutoPatchingSettingsInput interface {
 // Set a patching window during which Windows and SQL patches will be applied.
 type AutoPatchingSettingsArgs struct {
 	// Day of week to apply the patch on.
-	DayOfWeek *DayOfWeek `pulumi:"dayOfWeek"`
+	DayOfWeek DayOfWeekPtrInput `pulumi:"dayOfWeek"`
 	// Enable or disable autopatching on SQL virtual machine.
 	Enable pulumi.BoolPtrInput `pulumi:"enable"`
 	// Duration of patching.
@@ -1036,14 +1058,14 @@ func (o AutoPatchingSettingsOutput) ToAutoPatchingSettingsPtrOutput() AutoPatchi
 }
 
 func (o AutoPatchingSettingsOutput) ToAutoPatchingSettingsPtrOutputWithContext(ctx context.Context) AutoPatchingSettingsPtrOutput {
-	return o.ApplyT(func(v AutoPatchingSettings) *AutoPatchingSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoPatchingSettings) *AutoPatchingSettings {
 		return &v
 	}).(AutoPatchingSettingsPtrOutput)
 }
 
 // Day of week to apply the patch on.
-func (o AutoPatchingSettingsOutput) DayOfWeek() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutoPatchingSettings) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
+func (o AutoPatchingSettingsOutput) DayOfWeek() DayOfWeekPtrOutput {
+	return o.ApplyT(func(v AutoPatchingSettings) *DayOfWeek { return v.DayOfWeek }).(DayOfWeekPtrOutput)
 }
 
 // Enable or disable autopatching on SQL virtual machine.
@@ -1076,17 +1098,23 @@ func (o AutoPatchingSettingsPtrOutput) ToAutoPatchingSettingsPtrOutputWithContex
 }
 
 func (o AutoPatchingSettingsPtrOutput) Elem() AutoPatchingSettingsOutput {
-	return o.ApplyT(func(v *AutoPatchingSettings) AutoPatchingSettings { return *v }).(AutoPatchingSettingsOutput)
+	return o.ApplyT(func(v *AutoPatchingSettings) AutoPatchingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AutoPatchingSettings
+		return ret
+	}).(AutoPatchingSettingsOutput)
 }
 
 // Day of week to apply the patch on.
-func (o AutoPatchingSettingsPtrOutput) DayOfWeek() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutoPatchingSettings) *string {
+func (o AutoPatchingSettingsPtrOutput) DayOfWeek() DayOfWeekPtrOutput {
+	return o.ApplyT(func(v *AutoPatchingSettings) *DayOfWeek {
 		if v == nil {
 			return nil
 		}
 		return v.DayOfWeek
-	}).(pulumi.StringPtrOutput)
+	}).(DayOfWeekPtrOutput)
 }
 
 // Enable or disable autopatching on SQL virtual machine.
@@ -1227,7 +1255,7 @@ func (o AutoPatchingSettingsResponseOutput) ToAutoPatchingSettingsResponsePtrOut
 }
 
 func (o AutoPatchingSettingsResponseOutput) ToAutoPatchingSettingsResponsePtrOutputWithContext(ctx context.Context) AutoPatchingSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AutoPatchingSettingsResponse) *AutoPatchingSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoPatchingSettingsResponse) *AutoPatchingSettingsResponse {
 		return &v
 	}).(AutoPatchingSettingsResponsePtrOutput)
 }
@@ -1267,7 +1295,13 @@ func (o AutoPatchingSettingsResponsePtrOutput) ToAutoPatchingSettingsResponsePtr
 }
 
 func (o AutoPatchingSettingsResponsePtrOutput) Elem() AutoPatchingSettingsResponseOutput {
-	return o.ApplyT(func(v *AutoPatchingSettingsResponse) AutoPatchingSettingsResponse { return *v }).(AutoPatchingSettingsResponseOutput)
+	return o.ApplyT(func(v *AutoPatchingSettingsResponse) AutoPatchingSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoPatchingSettingsResponse
+		return ret
+	}).(AutoPatchingSettingsResponseOutput)
 }
 
 // Day of week to apply the patch on.
@@ -1422,7 +1456,7 @@ func (o KeyVaultCredentialSettingsOutput) ToKeyVaultCredentialSettingsPtrOutput(
 }
 
 func (o KeyVaultCredentialSettingsOutput) ToKeyVaultCredentialSettingsPtrOutputWithContext(ctx context.Context) KeyVaultCredentialSettingsPtrOutput {
-	return o.ApplyT(func(v KeyVaultCredentialSettings) *KeyVaultCredentialSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultCredentialSettings) *KeyVaultCredentialSettings {
 		return &v
 	}).(KeyVaultCredentialSettingsPtrOutput)
 }
@@ -1467,7 +1501,13 @@ func (o KeyVaultCredentialSettingsPtrOutput) ToKeyVaultCredentialSettingsPtrOutp
 }
 
 func (o KeyVaultCredentialSettingsPtrOutput) Elem() KeyVaultCredentialSettingsOutput {
-	return o.ApplyT(func(v *KeyVaultCredentialSettings) KeyVaultCredentialSettings { return *v }).(KeyVaultCredentialSettingsOutput)
+	return o.ApplyT(func(v *KeyVaultCredentialSettings) KeyVaultCredentialSettings {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultCredentialSettings
+		return ret
+	}).(KeyVaultCredentialSettingsOutput)
 }
 
 // Azure Key Vault url.
@@ -1628,7 +1668,7 @@ func (o KeyVaultCredentialSettingsResponseOutput) ToKeyVaultCredentialSettingsRe
 }
 
 func (o KeyVaultCredentialSettingsResponseOutput) ToKeyVaultCredentialSettingsResponsePtrOutputWithContext(ctx context.Context) KeyVaultCredentialSettingsResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultCredentialSettingsResponse) *KeyVaultCredentialSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultCredentialSettingsResponse) *KeyVaultCredentialSettingsResponse {
 		return &v
 	}).(KeyVaultCredentialSettingsResponsePtrOutput)
 }
@@ -1668,7 +1708,13 @@ func (o KeyVaultCredentialSettingsResponsePtrOutput) ToKeyVaultCredentialSetting
 }
 
 func (o KeyVaultCredentialSettingsResponsePtrOutput) Elem() KeyVaultCredentialSettingsResponseOutput {
-	return o.ApplyT(func(v *KeyVaultCredentialSettingsResponse) KeyVaultCredentialSettingsResponse { return *v }).(KeyVaultCredentialSettingsResponseOutput)
+	return o.ApplyT(func(v *KeyVaultCredentialSettingsResponse) KeyVaultCredentialSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultCredentialSettingsResponse
+		return ret
+	}).(KeyVaultCredentialSettingsResponseOutput)
 }
 
 // Azure Key Vault url.
@@ -2083,7 +2129,7 @@ func (o PrivateIPAddressOutput) ToPrivateIPAddressPtrOutput() PrivateIPAddressPt
 }
 
 func (o PrivateIPAddressOutput) ToPrivateIPAddressPtrOutputWithContext(ctx context.Context) PrivateIPAddressPtrOutput {
-	return o.ApplyT(func(v PrivateIPAddress) *PrivateIPAddress {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateIPAddress) *PrivateIPAddress {
 		return &v
 	}).(PrivateIPAddressPtrOutput)
 }
@@ -2113,7 +2159,13 @@ func (o PrivateIPAddressPtrOutput) ToPrivateIPAddressPtrOutputWithContext(ctx co
 }
 
 func (o PrivateIPAddressPtrOutput) Elem() PrivateIPAddressOutput {
-	return o.ApplyT(func(v *PrivateIPAddress) PrivateIPAddress { return *v }).(PrivateIPAddressOutput)
+	return o.ApplyT(func(v *PrivateIPAddress) PrivateIPAddress {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateIPAddress
+		return ret
+	}).(PrivateIPAddressOutput)
 }
 
 // Private IP address bound to the availability group listener.
@@ -2236,7 +2288,7 @@ func (o PrivateIPAddressResponseOutput) ToPrivateIPAddressResponsePtrOutput() Pr
 }
 
 func (o PrivateIPAddressResponseOutput) ToPrivateIPAddressResponsePtrOutputWithContext(ctx context.Context) PrivateIPAddressResponsePtrOutput {
-	return o.ApplyT(func(v PrivateIPAddressResponse) *PrivateIPAddressResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateIPAddressResponse) *PrivateIPAddressResponse {
 		return &v
 	}).(PrivateIPAddressResponsePtrOutput)
 }
@@ -2266,7 +2318,13 @@ func (o PrivateIPAddressResponsePtrOutput) ToPrivateIPAddressResponsePtrOutputWi
 }
 
 func (o PrivateIPAddressResponsePtrOutput) Elem() PrivateIPAddressResponseOutput {
-	return o.ApplyT(func(v *PrivateIPAddressResponse) PrivateIPAddressResponse { return *v }).(PrivateIPAddressResponseOutput)
+	return o.ApplyT(func(v *PrivateIPAddressResponse) PrivateIPAddressResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateIPAddressResponse
+		return ret
+	}).(PrivateIPAddressResponseOutput)
 }
 
 // Private IP address bound to the availability group listener.
@@ -2385,7 +2443,7 @@ func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPt
 }
 
 func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return o.ApplyT(func(v ResourceIdentity) *ResourceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentity) *ResourceIdentity {
 		return &v
 	}).(ResourceIdentityPtrOutput)
 }
@@ -2410,7 +2468,13 @@ func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx co
 }
 
 func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
-	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity { return *v }).(ResourceIdentityOutput)
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentity
+		return ret
+	}).(ResourceIdentityOutput)
 }
 
 // The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
@@ -2527,7 +2591,7 @@ func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutput() Re
 }
 
 func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ResourceIdentityResponse) *ResourceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityResponse) *ResourceIdentityResponse {
 		return &v
 	}).(ResourceIdentityResponsePtrOutput)
 }
@@ -2562,7 +2626,13 @@ func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWi
 }
 
 func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse { return *v }).(ResourceIdentityResponseOutput)
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentityResponse
+		return ret
+	}).(ResourceIdentityResponseOutput)
 }
 
 // The Azure Active Directory principal id.
@@ -2695,7 +2765,7 @@ func (o SQLStorageSettingsOutput) ToSQLStorageSettingsPtrOutput() SQLStorageSett
 }
 
 func (o SQLStorageSettingsOutput) ToSQLStorageSettingsPtrOutputWithContext(ctx context.Context) SQLStorageSettingsPtrOutput {
-	return o.ApplyT(func(v SQLStorageSettings) *SQLStorageSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SQLStorageSettings) *SQLStorageSettings {
 		return &v
 	}).(SQLStorageSettingsPtrOutput)
 }
@@ -2725,7 +2795,13 @@ func (o SQLStorageSettingsPtrOutput) ToSQLStorageSettingsPtrOutputWithContext(ct
 }
 
 func (o SQLStorageSettingsPtrOutput) Elem() SQLStorageSettingsOutput {
-	return o.ApplyT(func(v *SQLStorageSettings) SQLStorageSettings { return *v }).(SQLStorageSettingsOutput)
+	return o.ApplyT(func(v *SQLStorageSettings) SQLStorageSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SQLStorageSettings
+		return ret
+	}).(SQLStorageSettingsOutput)
 }
 
 // SQL Server default file path
@@ -2848,7 +2924,7 @@ func (o SQLStorageSettingsResponseOutput) ToSQLStorageSettingsResponsePtrOutput(
 }
 
 func (o SQLStorageSettingsResponseOutput) ToSQLStorageSettingsResponsePtrOutputWithContext(ctx context.Context) SQLStorageSettingsResponsePtrOutput {
-	return o.ApplyT(func(v SQLStorageSettingsResponse) *SQLStorageSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SQLStorageSettingsResponse) *SQLStorageSettingsResponse {
 		return &v
 	}).(SQLStorageSettingsResponsePtrOutput)
 }
@@ -2878,7 +2954,13 @@ func (o SQLStorageSettingsResponsePtrOutput) ToSQLStorageSettingsResponsePtrOutp
 }
 
 func (o SQLStorageSettingsResponsePtrOutput) Elem() SQLStorageSettingsResponseOutput {
-	return o.ApplyT(func(v *SQLStorageSettingsResponse) SQLStorageSettingsResponse { return *v }).(SQLStorageSettingsResponseOutput)
+	return o.ApplyT(func(v *SQLStorageSettingsResponse) SQLStorageSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SQLStorageSettingsResponse
+		return ret
+	}).(SQLStorageSettingsResponseOutput)
 }
 
 // SQL Server default file path
@@ -3009,7 +3091,7 @@ func (o ServerConfigurationsManagementSettingsOutput) ToServerConfigurationsMana
 }
 
 func (o ServerConfigurationsManagementSettingsOutput) ToServerConfigurationsManagementSettingsPtrOutputWithContext(ctx context.Context) ServerConfigurationsManagementSettingsPtrOutput {
-	return o.ApplyT(func(v ServerConfigurationsManagementSettings) *ServerConfigurationsManagementSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerConfigurationsManagementSettings) *ServerConfigurationsManagementSettings {
 		return &v
 	}).(ServerConfigurationsManagementSettingsPtrOutput)
 }
@@ -3057,7 +3139,13 @@ func (o ServerConfigurationsManagementSettingsPtrOutput) ToServerConfigurationsM
 }
 
 func (o ServerConfigurationsManagementSettingsPtrOutput) Elem() ServerConfigurationsManagementSettingsOutput {
-	return o.ApplyT(func(v *ServerConfigurationsManagementSettings) ServerConfigurationsManagementSettings { return *v }).(ServerConfigurationsManagementSettingsOutput)
+	return o.ApplyT(func(v *ServerConfigurationsManagementSettings) ServerConfigurationsManagementSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ServerConfigurationsManagementSettings
+		return ret
+	}).(ServerConfigurationsManagementSettingsOutput)
 }
 
 // Additional SQL feature settings.
@@ -3208,7 +3296,7 @@ func (o ServerConfigurationsManagementSettingsResponseOutput) ToServerConfigurat
 }
 
 func (o ServerConfigurationsManagementSettingsResponseOutput) ToServerConfigurationsManagementSettingsResponsePtrOutputWithContext(ctx context.Context) ServerConfigurationsManagementSettingsResponsePtrOutput {
-	return o.ApplyT(func(v ServerConfigurationsManagementSettingsResponse) *ServerConfigurationsManagementSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerConfigurationsManagementSettingsResponse) *ServerConfigurationsManagementSettingsResponse {
 		return &v
 	}).(ServerConfigurationsManagementSettingsResponsePtrOutput)
 }
@@ -3257,7 +3345,11 @@ func (o ServerConfigurationsManagementSettingsResponsePtrOutput) ToServerConfigu
 
 func (o ServerConfigurationsManagementSettingsResponsePtrOutput) Elem() ServerConfigurationsManagementSettingsResponseOutput {
 	return o.ApplyT(func(v *ServerConfigurationsManagementSettingsResponse) ServerConfigurationsManagementSettingsResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServerConfigurationsManagementSettingsResponse
+		return ret
 	}).(ServerConfigurationsManagementSettingsResponseOutput)
 }
 
@@ -3409,7 +3501,7 @@ func (o SqlConnectivityUpdateSettingsOutput) ToSqlConnectivityUpdateSettingsPtrO
 }
 
 func (o SqlConnectivityUpdateSettingsOutput) ToSqlConnectivityUpdateSettingsPtrOutputWithContext(ctx context.Context) SqlConnectivityUpdateSettingsPtrOutput {
-	return o.ApplyT(func(v SqlConnectivityUpdateSettings) *SqlConnectivityUpdateSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlConnectivityUpdateSettings) *SqlConnectivityUpdateSettings {
 		return &v
 	}).(SqlConnectivityUpdateSettingsPtrOutput)
 }
@@ -3449,7 +3541,13 @@ func (o SqlConnectivityUpdateSettingsPtrOutput) ToSqlConnectivityUpdateSettingsP
 }
 
 func (o SqlConnectivityUpdateSettingsPtrOutput) Elem() SqlConnectivityUpdateSettingsOutput {
-	return o.ApplyT(func(v *SqlConnectivityUpdateSettings) SqlConnectivityUpdateSettings { return *v }).(SqlConnectivityUpdateSettingsOutput)
+	return o.ApplyT(func(v *SqlConnectivityUpdateSettings) SqlConnectivityUpdateSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SqlConnectivityUpdateSettings
+		return ret
+	}).(SqlConnectivityUpdateSettingsOutput)
 }
 
 // SQL Server connectivity option.
@@ -3592,7 +3690,7 @@ func (o SqlConnectivityUpdateSettingsResponseOutput) ToSqlConnectivityUpdateSett
 }
 
 func (o SqlConnectivityUpdateSettingsResponseOutput) ToSqlConnectivityUpdateSettingsResponsePtrOutputWithContext(ctx context.Context) SqlConnectivityUpdateSettingsResponsePtrOutput {
-	return o.ApplyT(func(v SqlConnectivityUpdateSettingsResponse) *SqlConnectivityUpdateSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlConnectivityUpdateSettingsResponse) *SqlConnectivityUpdateSettingsResponse {
 		return &v
 	}).(SqlConnectivityUpdateSettingsResponsePtrOutput)
 }
@@ -3622,7 +3720,13 @@ func (o SqlConnectivityUpdateSettingsResponsePtrOutput) ToSqlConnectivityUpdateS
 }
 
 func (o SqlConnectivityUpdateSettingsResponsePtrOutput) Elem() SqlConnectivityUpdateSettingsResponseOutput {
-	return o.ApplyT(func(v *SqlConnectivityUpdateSettingsResponse) SqlConnectivityUpdateSettingsResponse { return *v }).(SqlConnectivityUpdateSettingsResponseOutput)
+	return o.ApplyT(func(v *SqlConnectivityUpdateSettingsResponse) SqlConnectivityUpdateSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SqlConnectivityUpdateSettingsResponse
+		return ret
+	}).(SqlConnectivityUpdateSettingsResponseOutput)
 }
 
 // SQL Server connectivity option.
@@ -3749,7 +3853,7 @@ func (o SqlStorageUpdateSettingsOutput) ToSqlStorageUpdateSettingsPtrOutput() Sq
 }
 
 func (o SqlStorageUpdateSettingsOutput) ToSqlStorageUpdateSettingsPtrOutputWithContext(ctx context.Context) SqlStorageUpdateSettingsPtrOutput {
-	return o.ApplyT(func(v SqlStorageUpdateSettings) *SqlStorageUpdateSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlStorageUpdateSettings) *SqlStorageUpdateSettings {
 		return &v
 	}).(SqlStorageUpdateSettingsPtrOutput)
 }
@@ -3784,7 +3888,13 @@ func (o SqlStorageUpdateSettingsPtrOutput) ToSqlStorageUpdateSettingsPtrOutputWi
 }
 
 func (o SqlStorageUpdateSettingsPtrOutput) Elem() SqlStorageUpdateSettingsOutput {
-	return o.ApplyT(func(v *SqlStorageUpdateSettings) SqlStorageUpdateSettings { return *v }).(SqlStorageUpdateSettingsOutput)
+	return o.ApplyT(func(v *SqlStorageUpdateSettings) SqlStorageUpdateSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SqlStorageUpdateSettings
+		return ret
+	}).(SqlStorageUpdateSettingsOutput)
 }
 
 // Disk configuration to apply to SQL Server.
@@ -3921,7 +4031,7 @@ func (o SqlStorageUpdateSettingsResponseOutput) ToSqlStorageUpdateSettingsRespon
 }
 
 func (o SqlStorageUpdateSettingsResponseOutput) ToSqlStorageUpdateSettingsResponsePtrOutputWithContext(ctx context.Context) SqlStorageUpdateSettingsResponsePtrOutput {
-	return o.ApplyT(func(v SqlStorageUpdateSettingsResponse) *SqlStorageUpdateSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlStorageUpdateSettingsResponse) *SqlStorageUpdateSettingsResponse {
 		return &v
 	}).(SqlStorageUpdateSettingsResponsePtrOutput)
 }
@@ -3956,7 +4066,13 @@ func (o SqlStorageUpdateSettingsResponsePtrOutput) ToSqlStorageUpdateSettingsRes
 }
 
 func (o SqlStorageUpdateSettingsResponsePtrOutput) Elem() SqlStorageUpdateSettingsResponseOutput {
-	return o.ApplyT(func(v *SqlStorageUpdateSettingsResponse) SqlStorageUpdateSettingsResponse { return *v }).(SqlStorageUpdateSettingsResponseOutput)
+	return o.ApplyT(func(v *SqlStorageUpdateSettingsResponse) SqlStorageUpdateSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SqlStorageUpdateSettingsResponse
+		return ret
+	}).(SqlStorageUpdateSettingsResponseOutput)
 }
 
 // Disk configuration to apply to SQL Server.
@@ -4085,7 +4201,7 @@ func (o SqlWorkloadTypeUpdateSettingsOutput) ToSqlWorkloadTypeUpdateSettingsPtrO
 }
 
 func (o SqlWorkloadTypeUpdateSettingsOutput) ToSqlWorkloadTypeUpdateSettingsPtrOutputWithContext(ctx context.Context) SqlWorkloadTypeUpdateSettingsPtrOutput {
-	return o.ApplyT(func(v SqlWorkloadTypeUpdateSettings) *SqlWorkloadTypeUpdateSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlWorkloadTypeUpdateSettings) *SqlWorkloadTypeUpdateSettings {
 		return &v
 	}).(SqlWorkloadTypeUpdateSettingsPtrOutput)
 }
@@ -4110,7 +4226,13 @@ func (o SqlWorkloadTypeUpdateSettingsPtrOutput) ToSqlWorkloadTypeUpdateSettingsP
 }
 
 func (o SqlWorkloadTypeUpdateSettingsPtrOutput) Elem() SqlWorkloadTypeUpdateSettingsOutput {
-	return o.ApplyT(func(v *SqlWorkloadTypeUpdateSettings) SqlWorkloadTypeUpdateSettings { return *v }).(SqlWorkloadTypeUpdateSettingsOutput)
+	return o.ApplyT(func(v *SqlWorkloadTypeUpdateSettings) SqlWorkloadTypeUpdateSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SqlWorkloadTypeUpdateSettings
+		return ret
+	}).(SqlWorkloadTypeUpdateSettingsOutput)
 }
 
 // SQL Server workload type.
@@ -4219,7 +4341,7 @@ func (o SqlWorkloadTypeUpdateSettingsResponseOutput) ToSqlWorkloadTypeUpdateSett
 }
 
 func (o SqlWorkloadTypeUpdateSettingsResponseOutput) ToSqlWorkloadTypeUpdateSettingsResponsePtrOutputWithContext(ctx context.Context) SqlWorkloadTypeUpdateSettingsResponsePtrOutput {
-	return o.ApplyT(func(v SqlWorkloadTypeUpdateSettingsResponse) *SqlWorkloadTypeUpdateSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlWorkloadTypeUpdateSettingsResponse) *SqlWorkloadTypeUpdateSettingsResponse {
 		return &v
 	}).(SqlWorkloadTypeUpdateSettingsResponsePtrOutput)
 }
@@ -4244,7 +4366,13 @@ func (o SqlWorkloadTypeUpdateSettingsResponsePtrOutput) ToSqlWorkloadTypeUpdateS
 }
 
 func (o SqlWorkloadTypeUpdateSettingsResponsePtrOutput) Elem() SqlWorkloadTypeUpdateSettingsResponseOutput {
-	return o.ApplyT(func(v *SqlWorkloadTypeUpdateSettingsResponse) SqlWorkloadTypeUpdateSettingsResponse { return *v }).(SqlWorkloadTypeUpdateSettingsResponseOutput)
+	return o.ApplyT(func(v *SqlWorkloadTypeUpdateSettingsResponse) SqlWorkloadTypeUpdateSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SqlWorkloadTypeUpdateSettingsResponse
+		return ret
+	}).(SqlWorkloadTypeUpdateSettingsResponseOutput)
 }
 
 // SQL Server workload type.
@@ -4369,7 +4497,7 @@ func (o StorageConfigurationSettingsOutput) ToStorageConfigurationSettingsPtrOut
 }
 
 func (o StorageConfigurationSettingsOutput) ToStorageConfigurationSettingsPtrOutputWithContext(ctx context.Context) StorageConfigurationSettingsPtrOutput {
-	return o.ApplyT(func(v StorageConfigurationSettings) *StorageConfigurationSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageConfigurationSettings) *StorageConfigurationSettings {
 		return &v
 	}).(StorageConfigurationSettingsPtrOutput)
 }
@@ -4414,7 +4542,13 @@ func (o StorageConfigurationSettingsPtrOutput) ToStorageConfigurationSettingsPtr
 }
 
 func (o StorageConfigurationSettingsPtrOutput) Elem() StorageConfigurationSettingsOutput {
-	return o.ApplyT(func(v *StorageConfigurationSettings) StorageConfigurationSettings { return *v }).(StorageConfigurationSettingsOutput)
+	return o.ApplyT(func(v *StorageConfigurationSettings) StorageConfigurationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret StorageConfigurationSettings
+		return ret
+	}).(StorageConfigurationSettingsOutput)
 }
 
 // Disk configuration to apply to SQL Server.
@@ -4579,7 +4713,7 @@ func (o StorageConfigurationSettingsResponseOutput) ToStorageConfigurationSettin
 }
 
 func (o StorageConfigurationSettingsResponseOutput) ToStorageConfigurationSettingsResponsePtrOutputWithContext(ctx context.Context) StorageConfigurationSettingsResponsePtrOutput {
-	return o.ApplyT(func(v StorageConfigurationSettingsResponse) *StorageConfigurationSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageConfigurationSettingsResponse) *StorageConfigurationSettingsResponse {
 		return &v
 	}).(StorageConfigurationSettingsResponsePtrOutput)
 }
@@ -4624,7 +4758,13 @@ func (o StorageConfigurationSettingsResponsePtrOutput) ToStorageConfigurationSet
 }
 
 func (o StorageConfigurationSettingsResponsePtrOutput) Elem() StorageConfigurationSettingsResponseOutput {
-	return o.ApplyT(func(v *StorageConfigurationSettingsResponse) StorageConfigurationSettingsResponse { return *v }).(StorageConfigurationSettingsResponseOutput)
+	return o.ApplyT(func(v *StorageConfigurationSettingsResponse) StorageConfigurationSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageConfigurationSettingsResponse
+		return ret
+	}).(StorageConfigurationSettingsResponseOutput)
 }
 
 // Disk configuration to apply to SQL Server.
@@ -4781,7 +4921,7 @@ func (o WsfcDomainCredentialsOutput) ToWsfcDomainCredentialsPtrOutput() WsfcDoma
 }
 
 func (o WsfcDomainCredentialsOutput) ToWsfcDomainCredentialsPtrOutputWithContext(ctx context.Context) WsfcDomainCredentialsPtrOutput {
-	return o.ApplyT(func(v WsfcDomainCredentials) *WsfcDomainCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsfcDomainCredentials) *WsfcDomainCredentials {
 		return &v
 	}).(WsfcDomainCredentialsPtrOutput)
 }
@@ -4816,7 +4956,13 @@ func (o WsfcDomainCredentialsPtrOutput) ToWsfcDomainCredentialsPtrOutputWithCont
 }
 
 func (o WsfcDomainCredentialsPtrOutput) Elem() WsfcDomainCredentialsOutput {
-	return o.ApplyT(func(v *WsfcDomainCredentials) WsfcDomainCredentials { return *v }).(WsfcDomainCredentialsOutput)
+	return o.ApplyT(func(v *WsfcDomainCredentials) WsfcDomainCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret WsfcDomainCredentials
+		return ret
+	}).(WsfcDomainCredentialsOutput)
 }
 
 // Cluster bootstrap account password.
@@ -4953,7 +5099,7 @@ func (o WsfcDomainCredentialsResponseOutput) ToWsfcDomainCredentialsResponsePtrO
 }
 
 func (o WsfcDomainCredentialsResponseOutput) ToWsfcDomainCredentialsResponsePtrOutputWithContext(ctx context.Context) WsfcDomainCredentialsResponsePtrOutput {
-	return o.ApplyT(func(v WsfcDomainCredentialsResponse) *WsfcDomainCredentialsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsfcDomainCredentialsResponse) *WsfcDomainCredentialsResponse {
 		return &v
 	}).(WsfcDomainCredentialsResponsePtrOutput)
 }
@@ -4988,7 +5134,13 @@ func (o WsfcDomainCredentialsResponsePtrOutput) ToWsfcDomainCredentialsResponseP
 }
 
 func (o WsfcDomainCredentialsResponsePtrOutput) Elem() WsfcDomainCredentialsResponseOutput {
-	return o.ApplyT(func(v *WsfcDomainCredentialsResponse) WsfcDomainCredentialsResponse { return *v }).(WsfcDomainCredentialsResponseOutput)
+	return o.ApplyT(func(v *WsfcDomainCredentialsResponse) WsfcDomainCredentialsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WsfcDomainCredentialsResponse
+		return ret
+	}).(WsfcDomainCredentialsResponseOutput)
 }
 
 // Cluster bootstrap account password.
@@ -5145,7 +5297,7 @@ func (o WsfcDomainProfileOutput) ToWsfcDomainProfilePtrOutput() WsfcDomainProfil
 }
 
 func (o WsfcDomainProfileOutput) ToWsfcDomainProfilePtrOutputWithContext(ctx context.Context) WsfcDomainProfilePtrOutput {
-	return o.ApplyT(func(v WsfcDomainProfile) *WsfcDomainProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsfcDomainProfile) *WsfcDomainProfile {
 		return &v
 	}).(WsfcDomainProfilePtrOutput)
 }
@@ -5205,7 +5357,13 @@ func (o WsfcDomainProfilePtrOutput) ToWsfcDomainProfilePtrOutputWithContext(ctx 
 }
 
 func (o WsfcDomainProfilePtrOutput) Elem() WsfcDomainProfileOutput {
-	return o.ApplyT(func(v *WsfcDomainProfile) WsfcDomainProfile { return *v }).(WsfcDomainProfileOutput)
+	return o.ApplyT(func(v *WsfcDomainProfile) WsfcDomainProfile {
+		if v != nil {
+			return *v
+		}
+		var ret WsfcDomainProfile
+		return ret
+	}).(WsfcDomainProfileOutput)
 }
 
 // Account name used for creating cluster (at minimum needs permissions to 'Create Computer Objects' in domain).
@@ -5408,7 +5566,7 @@ func (o WsfcDomainProfileResponseOutput) ToWsfcDomainProfileResponsePtrOutput() 
 }
 
 func (o WsfcDomainProfileResponseOutput) ToWsfcDomainProfileResponsePtrOutputWithContext(ctx context.Context) WsfcDomainProfileResponsePtrOutput {
-	return o.ApplyT(func(v WsfcDomainProfileResponse) *WsfcDomainProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsfcDomainProfileResponse) *WsfcDomainProfileResponse {
 		return &v
 	}).(WsfcDomainProfileResponsePtrOutput)
 }
@@ -5463,7 +5621,13 @@ func (o WsfcDomainProfileResponsePtrOutput) ToWsfcDomainProfileResponsePtrOutput
 }
 
 func (o WsfcDomainProfileResponsePtrOutput) Elem() WsfcDomainProfileResponseOutput {
-	return o.ApplyT(func(v *WsfcDomainProfileResponse) WsfcDomainProfileResponse { return *v }).(WsfcDomainProfileResponseOutput)
+	return o.ApplyT(func(v *WsfcDomainProfileResponse) WsfcDomainProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WsfcDomainProfileResponse
+		return ret
+	}).(WsfcDomainProfileResponseOutput)
 }
 
 // Account name used for creating cluster (at minimum needs permissions to 'Create Computer Objects' in domain).

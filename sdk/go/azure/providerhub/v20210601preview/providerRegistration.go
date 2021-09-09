@@ -13,13 +13,10 @@ import (
 type ProviderRegistration struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
 	Name       pulumi.StringOutput                          `pulumi:"name"`
 	Properties ProviderRegistrationResponsePropertiesOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput                     `pulumi:"systemData"`
+	Type       pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewProviderRegistration registers a new resource with the given unique name, arguments, and options.
@@ -85,15 +82,13 @@ func (ProviderRegistrationState) ElementType() reflect.Type {
 }
 
 type providerRegistrationArgs struct {
-	Properties *ProviderRegistrationProperties `pulumi:"properties"`
-	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace *string `pulumi:"providerNamespace"`
+	Properties        *ProviderRegistrationProperties `pulumi:"properties"`
+	ProviderNamespace *string                         `pulumi:"providerNamespace"`
 }
 
 // The set of arguments for constructing a ProviderRegistration resource.
 type ProviderRegistrationArgs struct {
-	Properties ProviderRegistrationPropertiesPtrInput
-	// The name of the resource provider hosted within ProviderHub.
+	Properties        ProviderRegistrationPropertiesPtrInput
 	ProviderNamespace pulumi.StringPtrInput
 }
 
@@ -120,9 +115,7 @@ func (i *ProviderRegistration) ToProviderRegistrationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderRegistrationOutput)
 }
 
-type ProviderRegistrationOutput struct {
-	*pulumi.OutputState
-}
+type ProviderRegistrationOutput struct{ *pulumi.OutputState }
 
 func (ProviderRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProviderRegistration)(nil))

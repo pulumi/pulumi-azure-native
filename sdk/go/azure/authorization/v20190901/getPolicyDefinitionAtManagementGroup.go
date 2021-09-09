@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The policy definition.
 func LookupPolicyDefinitionAtManagementGroup(ctx *pulumi.Context, args *LookupPolicyDefinitionAtManagementGroupArgs, opts ...pulumi.InvokeOption) (*LookupPolicyDefinitionAtManagementGroupResult, error) {
 	var rv LookupPolicyDefinitionAtManagementGroupResult
 	err := ctx.Invoke("azure-native:authorization/v20190901:getPolicyDefinitionAtManagementGroup", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupPolicyDefinitionAtManagementGroup(ctx *pulumi.Context, args *LookupPo
 }
 
 type LookupPolicyDefinitionAtManagementGroupArgs struct {
-	// The ID of the management group.
-	ManagementGroupId string `pulumi:"managementGroupId"`
-	// The name of the policy definition to get.
+	ManagementGroupId    string `pulumi:"managementGroupId"`
 	PolicyDefinitionName string `pulumi:"policyDefinitionName"`
 }
 
 // The policy definition.
 type LookupPolicyDefinitionAtManagementGroupResult struct {
-	// The policy definition description.
-	Description *string `pulumi:"description"`
-	// The display name of the policy definition.
-	DisplayName *string `pulumi:"displayName"`
-	// The ID of the policy definition.
-	Id string `pulumi:"id"`
-	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata interface{} `pulumi:"metadata"`
-	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
-	Mode *string `pulumi:"mode"`
-	// The name of the policy definition.
-	Name string `pulumi:"name"`
-	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
-	Parameters map[string]ParameterDefinitionsValueResponse `pulumi:"parameters"`
-	// The policy rule.
-	PolicyRule interface{} `pulumi:"policyRule"`
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
-	PolicyType *string `pulumi:"policyType"`
-	// The type of the resource (Microsoft.Authorization/policyDefinitions).
-	Type string `pulumi:"type"`
+	Description *string                                      `pulumi:"description"`
+	DisplayName *string                                      `pulumi:"displayName"`
+	Id          string                                       `pulumi:"id"`
+	Metadata    interface{}                                  `pulumi:"metadata"`
+	Mode        *string                                      `pulumi:"mode"`
+	Name        string                                       `pulumi:"name"`
+	Parameters  map[string]ParameterDefinitionsValueResponse `pulumi:"parameters"`
+	PolicyRule  interface{}                                  `pulumi:"policyRule"`
+	PolicyType  *string                                      `pulumi:"policyType"`
+	Type        string                                       `pulumi:"type"`
 }

@@ -153,9 +153,7 @@ func (i *BillingRoleAssignmentByBillingAccount) ToBillingRoleAssignmentByBilling
 	return pulumi.ToOutputWithContext(ctx, i).(BillingRoleAssignmentByBillingAccountOutput)
 }
 
-type BillingRoleAssignmentByBillingAccountOutput struct {
-	*pulumi.OutputState
-}
+type BillingRoleAssignmentByBillingAccountOutput struct{ *pulumi.OutputState }
 
 func (BillingRoleAssignmentByBillingAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BillingRoleAssignmentByBillingAccount)(nil))

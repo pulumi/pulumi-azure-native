@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a Virtual Machine Extension.
 func LookupVirtualMachineScaleSetVMExtension(ctx *pulumi.Context, args *LookupVirtualMachineScaleSetVMExtensionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScaleSetVMExtensionResult, error) {
 	var rv LookupVirtualMachineScaleSetVMExtensionResult
 	err := ctx.Invoke("azure-native:compute/v20191201:getVirtualMachineScaleSetVMExtension", args, &rv, opts...)
@@ -18,44 +17,26 @@ func LookupVirtualMachineScaleSetVMExtension(ctx *pulumi.Context, args *LookupVi
 }
 
 type LookupVirtualMachineScaleSetVMExtensionArgs struct {
-	// The expand expression to apply on the operation.
-	Expand *string `pulumi:"expand"`
-	// The instance ID of the virtual machine.
-	InstanceId string `pulumi:"instanceId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the virtual machine extension.
-	VmExtensionName string `pulumi:"vmExtensionName"`
-	// The name of the VM scale set.
-	VmScaleSetName string `pulumi:"vmScaleSetName"`
+	Expand            *string `pulumi:"expand"`
+	InstanceId        string  `pulumi:"instanceId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	VmExtensionName   string  `pulumi:"vmExtensionName"`
+	VmScaleSetName    string  `pulumi:"vmScaleSetName"`
 }
 
 // Describes a Virtual Machine Extension.
 type LookupVirtualMachineScaleSetVMExtensionResult struct {
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// How the extension handler should be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// The virtual machine extension instance view.
-	InstanceView *VirtualMachineExtensionInstanceViewResponse `pulumi:"instanceView"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings interface{} `pulumi:"protectedSettings"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The name of the extension handler publisher.
-	Publisher *string `pulumi:"publisher"`
-	// Json formatted public settings for the extension.
-	Settings interface{} `pulumi:"settings"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+	AutoUpgradeMinorVersion *bool                                        `pulumi:"autoUpgradeMinorVersion"`
+	ForceUpdateTag          *string                                      `pulumi:"forceUpdateTag"`
+	Id                      string                                       `pulumi:"id"`
+	InstanceView            *VirtualMachineExtensionInstanceViewResponse `pulumi:"instanceView"`
+	Location                string                                       `pulumi:"location"`
+	Name                    string                                       `pulumi:"name"`
+	ProtectedSettings       interface{}                                  `pulumi:"protectedSettings"`
+	ProvisioningState       string                                       `pulumi:"provisioningState"`
+	Publisher               *string                                      `pulumi:"publisher"`
+	Settings                interface{}                                  `pulumi:"settings"`
+	Tags                    map[string]string                            `pulumi:"tags"`
+	Type                    string                                       `pulumi:"type"`
+	TypeHandlerVersion      *string                                      `pulumi:"typeHandlerVersion"`
 }

@@ -174,9 +174,7 @@ func (i *EventChannel) ToEventChannelOutputWithContext(ctx context.Context) Even
 	return pulumi.ToOutputWithContext(ctx, i).(EventChannelOutput)
 }
 
-type EventChannelOutput struct {
-	*pulumi.OutputState
-}
+type EventChannelOutput struct{ *pulumi.OutputState }
 
 func (EventChannelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventChannel)(nil))

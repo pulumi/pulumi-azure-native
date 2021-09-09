@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A custom API
 func LookupCustomApi(ctx *pulumi.Context, args *LookupCustomApiArgs, opts ...pulumi.InvokeOption) (*LookupCustomApiResult, error) {
 	var rv LookupCustomApiResult
 	err := ctx.Invoke("azure-native:web/v20160601:getCustomApi", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupCustomApi(ctx *pulumi.Context, args *LookupCustomApiArgs, opts ...pul
 }
 
 type LookupCustomApiArgs struct {
-	// API name
-	ApiName string `pulumi:"apiName"`
-	// The resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Subscription Id
-	SubscriptionId *string `pulumi:"subscriptionId"`
+	ApiName           string  `pulumi:"apiName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	SubscriptionId    *string `pulumi:"subscriptionId"`
 }
 
 // A custom API
 type LookupCustomApiResult struct {
-	// Resource ETag
-	Etag *string `pulumi:"etag"`
-	// Resource id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Custom API properties
+	Etag       *string                               `pulumi:"etag"`
+	Id         string                                `pulumi:"id"`
+	Location   *string                               `pulumi:"location"`
+	Name       string                                `pulumi:"name"`
 	Properties CustomApiPropertiesDefinitionResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Tags       map[string]string                     `pulumi:"tags"`
+	Type       string                                `pulumi:"type"`
 }

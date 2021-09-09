@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Hub resource.
 func LookupHub(ctx *pulumi.Context, args *LookupHubArgs, opts ...pulumi.InvokeOption) (*LookupHubResult, error) {
 	var rv LookupHubResult
 	err := ctx.Invoke("azure-native:customerinsights/v20170426:getHub", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupHub(ctx *pulumi.Context, args *LookupHubArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupHubArgs struct {
-	// The name of the hub.
-	HubName string `pulumi:"hubName"`
-	// The name of the resource group.
+	HubName           string `pulumi:"hubName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Hub resource.
 type LookupHubResult struct {
-	// API endpoint URL of the hub.
-	ApiEndpoint string `pulumi:"apiEndpoint"`
-	// Billing settings of the hub.
-	HubBillingInfo *HubBillingInfoFormatResponse `pulumi:"hubBillingInfo"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Provisioning state of the hub.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
-	TenantFeatures *int `pulumi:"tenantFeatures"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// Web endpoint URL of the hub.
-	WebEndpoint string `pulumi:"webEndpoint"`
+	ApiEndpoint       string                        `pulumi:"apiEndpoint"`
+	HubBillingInfo    *HubBillingInfoFormatResponse `pulumi:"hubBillingInfo"`
+	Id                string                        `pulumi:"id"`
+	Location          *string                       `pulumi:"location"`
+	Name              string                        `pulumi:"name"`
+	ProvisioningState string                        `pulumi:"provisioningState"`
+	Tags              map[string]string             `pulumi:"tags"`
+	TenantFeatures    *int                          `pulumi:"tenantFeatures"`
+	Type              string                        `pulumi:"type"`
+	WebEndpoint       string                        `pulumi:"webEndpoint"`
 }

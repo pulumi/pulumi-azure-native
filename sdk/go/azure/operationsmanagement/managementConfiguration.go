@@ -125,9 +125,7 @@ func (i *ManagementConfiguration) ToManagementConfigurationOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementConfigurationOutput)
 }
 
-type ManagementConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type ManagementConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ManagementConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementConfiguration)(nil))

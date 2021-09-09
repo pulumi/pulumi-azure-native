@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a disaster recovery configuration.
 func LookupDisasterRecoveryConfiguration(ctx *pulumi.Context, args *LookupDisasterRecoveryConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDisasterRecoveryConfigurationResult, error) {
 	var rv LookupDisasterRecoveryConfigurationResult
 	err := ctx.Invoke("azure-native:sql/v20140401:getDisasterRecoveryConfiguration", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupDisasterRecoveryConfiguration(ctx *pulumi.Context, args *LookupDisast
 }
 
 type LookupDisasterRecoveryConfigurationArgs struct {
-	// The name of the disaster recovery configuration.
 	DisasterRecoveryConfigurationName string `pulumi:"disasterRecoveryConfigurationName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ResourceGroupName                 string `pulumi:"resourceGroupName"`
+	ServerName                        string `pulumi:"serverName"`
 }
 
 // Represents a disaster recovery configuration.
 type LookupDisasterRecoveryConfigurationResult struct {
-	// Whether or not failover can be done automatically.
-	AutoFailover string `pulumi:"autoFailover"`
-	// How aggressive the automatic failover should be.
-	FailoverPolicy string `pulumi:"failoverPolicy"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Location of the server that contains this disaster recovery configuration.
-	Location string `pulumi:"location"`
-	// Logical name of the server.
-	LogicalServerName string `pulumi:"logicalServerName"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Logical name of the partner server.
+	AutoFailover             string `pulumi:"autoFailover"`
+	FailoverPolicy           string `pulumi:"failoverPolicy"`
+	Id                       string `pulumi:"id"`
+	Location                 string `pulumi:"location"`
+	LogicalServerName        string `pulumi:"logicalServerName"`
+	Name                     string `pulumi:"name"`
 	PartnerLogicalServerName string `pulumi:"partnerLogicalServerName"`
-	// Id of the partner server.
-	PartnerServerId string `pulumi:"partnerServerId"`
-	// The role of the current server in the disaster recovery configuration.
-	Role string `pulumi:"role"`
-	// The status of the disaster recovery configuration.
-	Status string `pulumi:"status"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	PartnerServerId          string `pulumi:"partnerServerId"`
+	Role                     string `pulumi:"role"`
+	Status                   string `pulumi:"status"`
+	Type                     string `pulumi:"type"`
 }

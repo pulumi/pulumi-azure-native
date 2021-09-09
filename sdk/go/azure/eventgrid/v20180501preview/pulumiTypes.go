@@ -10,13 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestination struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'EventHub'.
-	EndpointType string `pulumi:"endpointType"`
-	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType string  `pulumi:"endpointType"`
+	ResourceId   *string `pulumi:"resourceId"`
 }
 
 // EventHubEventSubscriptionDestinationInput is an input type that accepts EventHubEventSubscriptionDestinationArgs and EventHubEventSubscriptionDestinationOutput values.
@@ -30,13 +26,9 @@ type EventHubEventSubscriptionDestinationInput interface {
 	ToEventHubEventSubscriptionDestinationOutputWithContext(context.Context) EventHubEventSubscriptionDestinationOutput
 }
 
-// Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestinationArgs struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'EventHub'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (EventHubEventSubscriptionDestinationArgs) ElementType() reflect.Type {
@@ -51,7 +43,6 @@ func (i EventHubEventSubscriptionDestinationArgs) ToEventHubEventSubscriptionDes
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubEventSubscriptionDestinationOutput)
 }
 
-// Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventHubEventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -66,24 +57,17 @@ func (o EventHubEventSubscriptionDestinationOutput) ToEventHubEventSubscriptionD
 	return o
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'EventHub'.
 func (o EventHubEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
 func (o EventHubEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestinationResponse struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'EventHub'.
-	EndpointType string `pulumi:"endpointType"`
-	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType string  `pulumi:"endpointType"`
+	ResourceId   *string `pulumi:"resourceId"`
 }
 
 // EventHubEventSubscriptionDestinationResponseInput is an input type that accepts EventHubEventSubscriptionDestinationResponseArgs and EventHubEventSubscriptionDestinationResponseOutput values.
@@ -97,13 +81,9 @@ type EventHubEventSubscriptionDestinationResponseInput interface {
 	ToEventHubEventSubscriptionDestinationResponseOutputWithContext(context.Context) EventHubEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestinationResponseArgs struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'EventHub'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (EventHubEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
@@ -118,7 +98,6 @@ func (i EventHubEventSubscriptionDestinationResponseArgs) ToEventHubEventSubscri
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubEventSubscriptionDestinationResponseOutput)
 }
 
-// Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (EventHubEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -133,32 +112,19 @@ func (o EventHubEventSubscriptionDestinationResponseOutput) ToEventHubEventSubsc
 	return o
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'EventHub'.
 func (o EventHubEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
 func (o EventHubEventSubscriptionDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Filter for the Event Subscription
 type EventSubscriptionFilter struct {
-	// A list of applicable event types that need to be part of the event subscription.
-	// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
-	IncludedEventTypes []string `pulumi:"includedEventTypes"`
-	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-	// should be compared in a case sensitive manner.
-	IsSubjectCaseSensitive *bool `pulumi:"isSubjectCaseSensitive"`
-	// An optional string to filter events for an event subscription based on a resource path prefix.
-	// The format of this depends on the publisher of the events.
-	// Wildcard characters are not supported in this path.
-	SubjectBeginsWith *string `pulumi:"subjectBeginsWith"`
-	// An optional string to filter events for an event subscription based on a resource path suffix.
-	// Wildcard characters are not supported in this path.
-	SubjectEndsWith *string `pulumi:"subjectEndsWith"`
+	IncludedEventTypes     []string `pulumi:"includedEventTypes"`
+	IsSubjectCaseSensitive *bool    `pulumi:"isSubjectCaseSensitive"`
+	SubjectBeginsWith      *string  `pulumi:"subjectBeginsWith"`
+	SubjectEndsWith        *string  `pulumi:"subjectEndsWith"`
 }
 
 // EventSubscriptionFilterInput is an input type that accepts EventSubscriptionFilterArgs and EventSubscriptionFilterOutput values.
@@ -172,21 +138,11 @@ type EventSubscriptionFilterInput interface {
 	ToEventSubscriptionFilterOutputWithContext(context.Context) EventSubscriptionFilterOutput
 }
 
-// Filter for the Event Subscription
 type EventSubscriptionFilterArgs struct {
-	// A list of applicable event types that need to be part of the event subscription.
-	// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
-	IncludedEventTypes pulumi.StringArrayInput `pulumi:"includedEventTypes"`
-	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-	// should be compared in a case sensitive manner.
-	IsSubjectCaseSensitive pulumi.BoolPtrInput `pulumi:"isSubjectCaseSensitive"`
-	// An optional string to filter events for an event subscription based on a resource path prefix.
-	// The format of this depends on the publisher of the events.
-	// Wildcard characters are not supported in this path.
-	SubjectBeginsWith pulumi.StringPtrInput `pulumi:"subjectBeginsWith"`
-	// An optional string to filter events for an event subscription based on a resource path suffix.
-	// Wildcard characters are not supported in this path.
-	SubjectEndsWith pulumi.StringPtrInput `pulumi:"subjectEndsWith"`
+	IncludedEventTypes     pulumi.StringArrayInput `pulumi:"includedEventTypes"`
+	IsSubjectCaseSensitive pulumi.BoolPtrInput     `pulumi:"isSubjectCaseSensitive"`
+	SubjectBeginsWith      pulumi.StringPtrInput   `pulumi:"subjectBeginsWith"`
+	SubjectEndsWith        pulumi.StringPtrInput   `pulumi:"subjectEndsWith"`
 }
 
 func (EventSubscriptionFilterArgs) ElementType() reflect.Type {
@@ -242,7 +198,6 @@ func (i *eventSubscriptionFilterPtrType) ToEventSubscriptionFilterPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionFilterPtrOutput)
 }
 
-// Filter for the Event Subscription
 type EventSubscriptionFilterOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionFilterOutput) ElementType() reflect.Type {
@@ -262,32 +217,23 @@ func (o EventSubscriptionFilterOutput) ToEventSubscriptionFilterPtrOutput() Even
 }
 
 func (o EventSubscriptionFilterOutput) ToEventSubscriptionFilterPtrOutputWithContext(ctx context.Context) EventSubscriptionFilterPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionFilter) *EventSubscriptionFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionFilter) *EventSubscriptionFilter {
 		return &v
 	}).(EventSubscriptionFilterPtrOutput)
 }
 
-// A list of applicable event types that need to be part of the event subscription.
-// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
 func (o EventSubscriptionFilterOutput) IncludedEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionFilter) []string { return v.IncludedEventTypes }).(pulumi.StringArrayOutput)
 }
 
-// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-// should be compared in a case sensitive manner.
 func (o EventSubscriptionFilterOutput) IsSubjectCaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilter) *bool { return v.IsSubjectCaseSensitive }).(pulumi.BoolPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path prefix.
-// The format of this depends on the publisher of the events.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilter) *string { return v.SubjectBeginsWith }).(pulumi.StringPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path suffix.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterOutput) SubjectEndsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilter) *string { return v.SubjectEndsWith }).(pulumi.StringPtrOutput)
 }
@@ -307,11 +253,15 @@ func (o EventSubscriptionFilterPtrOutput) ToEventSubscriptionFilterPtrOutputWith
 }
 
 func (o EventSubscriptionFilterPtrOutput) Elem() EventSubscriptionFilterOutput {
-	return o.ApplyT(func(v *EventSubscriptionFilter) EventSubscriptionFilter { return *v }).(EventSubscriptionFilterOutput)
+	return o.ApplyT(func(v *EventSubscriptionFilter) EventSubscriptionFilter {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionFilter
+		return ret
+	}).(EventSubscriptionFilterOutput)
 }
 
-// A list of applicable event types that need to be part of the event subscription.
-// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
 func (o EventSubscriptionFilterPtrOutput) IncludedEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilter) []string {
 		if v == nil {
@@ -321,8 +271,6 @@ func (o EventSubscriptionFilterPtrOutput) IncludedEventTypes() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-// should be compared in a case sensitive manner.
 func (o EventSubscriptionFilterPtrOutput) IsSubjectCaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilter) *bool {
 		if v == nil {
@@ -332,9 +280,6 @@ func (o EventSubscriptionFilterPtrOutput) IsSubjectCaseSensitive() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path prefix.
-// The format of this depends on the publisher of the events.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterPtrOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilter) *string {
 		if v == nil {
@@ -344,8 +289,6 @@ func (o EventSubscriptionFilterPtrOutput) SubjectBeginsWith() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path suffix.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterPtrOutput) SubjectEndsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilter) *string {
 		if v == nil {
@@ -355,21 +298,11 @@ func (o EventSubscriptionFilterPtrOutput) SubjectEndsWith() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Filter for the Event Subscription
 type EventSubscriptionFilterResponse struct {
-	// A list of applicable event types that need to be part of the event subscription.
-	// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
-	IncludedEventTypes []string `pulumi:"includedEventTypes"`
-	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-	// should be compared in a case sensitive manner.
-	IsSubjectCaseSensitive *bool `pulumi:"isSubjectCaseSensitive"`
-	// An optional string to filter events for an event subscription based on a resource path prefix.
-	// The format of this depends on the publisher of the events.
-	// Wildcard characters are not supported in this path.
-	SubjectBeginsWith *string `pulumi:"subjectBeginsWith"`
-	// An optional string to filter events for an event subscription based on a resource path suffix.
-	// Wildcard characters are not supported in this path.
-	SubjectEndsWith *string `pulumi:"subjectEndsWith"`
+	IncludedEventTypes     []string `pulumi:"includedEventTypes"`
+	IsSubjectCaseSensitive *bool    `pulumi:"isSubjectCaseSensitive"`
+	SubjectBeginsWith      *string  `pulumi:"subjectBeginsWith"`
+	SubjectEndsWith        *string  `pulumi:"subjectEndsWith"`
 }
 
 // EventSubscriptionFilterResponseInput is an input type that accepts EventSubscriptionFilterResponseArgs and EventSubscriptionFilterResponseOutput values.
@@ -383,21 +316,11 @@ type EventSubscriptionFilterResponseInput interface {
 	ToEventSubscriptionFilterResponseOutputWithContext(context.Context) EventSubscriptionFilterResponseOutput
 }
 
-// Filter for the Event Subscription
 type EventSubscriptionFilterResponseArgs struct {
-	// A list of applicable event types that need to be part of the event subscription.
-	// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
-	IncludedEventTypes pulumi.StringArrayInput `pulumi:"includedEventTypes"`
-	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-	// should be compared in a case sensitive manner.
-	IsSubjectCaseSensitive pulumi.BoolPtrInput `pulumi:"isSubjectCaseSensitive"`
-	// An optional string to filter events for an event subscription based on a resource path prefix.
-	// The format of this depends on the publisher of the events.
-	// Wildcard characters are not supported in this path.
-	SubjectBeginsWith pulumi.StringPtrInput `pulumi:"subjectBeginsWith"`
-	// An optional string to filter events for an event subscription based on a resource path suffix.
-	// Wildcard characters are not supported in this path.
-	SubjectEndsWith pulumi.StringPtrInput `pulumi:"subjectEndsWith"`
+	IncludedEventTypes     pulumi.StringArrayInput `pulumi:"includedEventTypes"`
+	IsSubjectCaseSensitive pulumi.BoolPtrInput     `pulumi:"isSubjectCaseSensitive"`
+	SubjectBeginsWith      pulumi.StringPtrInput   `pulumi:"subjectBeginsWith"`
+	SubjectEndsWith        pulumi.StringPtrInput   `pulumi:"subjectEndsWith"`
 }
 
 func (EventSubscriptionFilterResponseArgs) ElementType() reflect.Type {
@@ -453,7 +376,6 @@ func (i *eventSubscriptionFilterResponsePtrType) ToEventSubscriptionFilterRespon
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionFilterResponsePtrOutput)
 }
 
-// Filter for the Event Subscription
 type EventSubscriptionFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionFilterResponseOutput) ElementType() reflect.Type {
@@ -473,32 +395,23 @@ func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponse
 }
 
 func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionFilterResponsePtrOutput {
-	return o.ApplyT(func(v EventSubscriptionFilterResponse) *EventSubscriptionFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionFilterResponse) *EventSubscriptionFilterResponse {
 		return &v
 	}).(EventSubscriptionFilterResponsePtrOutput)
 }
 
-// A list of applicable event types that need to be part of the event subscription.
-// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
 func (o EventSubscriptionFilterResponseOutput) IncludedEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionFilterResponse) []string { return v.IncludedEventTypes }).(pulumi.StringArrayOutput)
 }
 
-// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-// should be compared in a case sensitive manner.
 func (o EventSubscriptionFilterResponseOutput) IsSubjectCaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilterResponse) *bool { return v.IsSubjectCaseSensitive }).(pulumi.BoolPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path prefix.
-// The format of this depends on the publisher of the events.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterResponseOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilterResponse) *string { return v.SubjectBeginsWith }).(pulumi.StringPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path suffix.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterResponseOutput) SubjectEndsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilterResponse) *string { return v.SubjectEndsWith }).(pulumi.StringPtrOutput)
 }
@@ -518,11 +431,15 @@ func (o EventSubscriptionFilterResponsePtrOutput) ToEventSubscriptionFilterRespo
 }
 
 func (o EventSubscriptionFilterResponsePtrOutput) Elem() EventSubscriptionFilterResponseOutput {
-	return o.ApplyT(func(v *EventSubscriptionFilterResponse) EventSubscriptionFilterResponse { return *v }).(EventSubscriptionFilterResponseOutput)
+	return o.ApplyT(func(v *EventSubscriptionFilterResponse) EventSubscriptionFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionFilterResponse
+		return ret
+	}).(EventSubscriptionFilterResponseOutput)
 }
 
-// A list of applicable event types that need to be part of the event subscription.
-// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
 func (o EventSubscriptionFilterResponsePtrOutput) IncludedEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilterResponse) []string {
 		if v == nil {
@@ -532,8 +449,6 @@ func (o EventSubscriptionFilterResponsePtrOutput) IncludedEventTypes() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-// should be compared in a case sensitive manner.
 func (o EventSubscriptionFilterResponsePtrOutput) IsSubjectCaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilterResponse) *bool {
 		if v == nil {
@@ -543,9 +458,6 @@ func (o EventSubscriptionFilterResponsePtrOutput) IsSubjectCaseSensitive() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path prefix.
-// The format of this depends on the publisher of the events.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterResponsePtrOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilterResponse) *string {
 		if v == nil {
@@ -555,8 +467,6 @@ func (o EventSubscriptionFilterResponsePtrOutput) SubjectBeginsWith() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path suffix.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterResponsePtrOutput) SubjectEndsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilterResponse) *string {
 		if v == nil {
@@ -566,13 +476,9 @@ func (o EventSubscriptionFilterResponsePtrOutput) SubjectEndsWith() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestination struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'HybridConnection'.
-	EndpointType string `pulumi:"endpointType"`
-	// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType string  `pulumi:"endpointType"`
+	ResourceId   *string `pulumi:"resourceId"`
 }
 
 // HybridConnectionEventSubscriptionDestinationInput is an input type that accepts HybridConnectionEventSubscriptionDestinationArgs and HybridConnectionEventSubscriptionDestinationOutput values.
@@ -586,13 +492,9 @@ type HybridConnectionEventSubscriptionDestinationInput interface {
 	ToHybridConnectionEventSubscriptionDestinationOutputWithContext(context.Context) HybridConnectionEventSubscriptionDestinationOutput
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestinationArgs struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'HybridConnection'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (HybridConnectionEventSubscriptionDestinationArgs) ElementType() reflect.Type {
@@ -607,7 +509,6 @@ func (i HybridConnectionEventSubscriptionDestinationArgs) ToHybridConnectionEven
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionEventSubscriptionDestinationOutput)
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (HybridConnectionEventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -622,24 +523,17 @@ func (o HybridConnectionEventSubscriptionDestinationOutput) ToHybridConnectionEv
 	return o
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'HybridConnection'.
 func (o HybridConnectionEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
 func (o HybridConnectionEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestinationResponse struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'HybridConnection'.
-	EndpointType string `pulumi:"endpointType"`
-	// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType string  `pulumi:"endpointType"`
+	ResourceId   *string `pulumi:"resourceId"`
 }
 
 // HybridConnectionEventSubscriptionDestinationResponseInput is an input type that accepts HybridConnectionEventSubscriptionDestinationResponseArgs and HybridConnectionEventSubscriptionDestinationResponseOutput values.
@@ -653,13 +547,9 @@ type HybridConnectionEventSubscriptionDestinationResponseInput interface {
 	ToHybridConnectionEventSubscriptionDestinationResponseOutputWithContext(context.Context) HybridConnectionEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestinationResponseArgs struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'HybridConnection'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (HybridConnectionEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
@@ -674,7 +564,6 @@ func (i HybridConnectionEventSubscriptionDestinationResponseArgs) ToHybridConnec
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionEventSubscriptionDestinationResponseOutput)
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (HybridConnectionEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -689,20 +578,15 @@ func (o HybridConnectionEventSubscriptionDestinationResponseOutput) ToHybridConn
 	return o
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'HybridConnection'.
 func (o HybridConnectionEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
 func (o HybridConnectionEventSubscriptionDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id','topic' and 'eventTime' properties. This represents a field in the input event schema.
 type JsonField struct {
-	// Name of a field in the input event schema that's to be used as the source of a mapping.
 	SourceField *string `pulumi:"sourceField"`
 }
 
@@ -717,9 +601,7 @@ type JsonFieldInput interface {
 	ToJsonFieldOutputWithContext(context.Context) JsonFieldOutput
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id','topic' and 'eventTime' properties. This represents a field in the input event schema.
 type JsonFieldArgs struct {
-	// Name of a field in the input event schema that's to be used as the source of a mapping.
 	SourceField pulumi.StringPtrInput `pulumi:"sourceField"`
 }
 
@@ -776,7 +658,6 @@ func (i *jsonFieldPtrType) ToJsonFieldPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(JsonFieldPtrOutput)
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id','topic' and 'eventTime' properties. This represents a field in the input event schema.
 type JsonFieldOutput struct{ *pulumi.OutputState }
 
 func (JsonFieldOutput) ElementType() reflect.Type {
@@ -796,12 +677,11 @@ func (o JsonFieldOutput) ToJsonFieldPtrOutput() JsonFieldPtrOutput {
 }
 
 func (o JsonFieldOutput) ToJsonFieldPtrOutputWithContext(ctx context.Context) JsonFieldPtrOutput {
-	return o.ApplyT(func(v JsonField) *JsonField {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JsonField) *JsonField {
 		return &v
 	}).(JsonFieldPtrOutput)
 }
 
-// Name of a field in the input event schema that's to be used as the source of a mapping.
 func (o JsonFieldOutput) SourceField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JsonField) *string { return v.SourceField }).(pulumi.StringPtrOutput)
 }
@@ -821,10 +701,15 @@ func (o JsonFieldPtrOutput) ToJsonFieldPtrOutputWithContext(ctx context.Context)
 }
 
 func (o JsonFieldPtrOutput) Elem() JsonFieldOutput {
-	return o.ApplyT(func(v *JsonField) JsonField { return *v }).(JsonFieldOutput)
+	return o.ApplyT(func(v *JsonField) JsonField {
+		if v != nil {
+			return *v
+		}
+		var ret JsonField
+		return ret
+	}).(JsonFieldOutput)
 }
 
-// Name of a field in the input event schema that's to be used as the source of a mapping.
 func (o JsonFieldPtrOutput) SourceField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JsonField) *string {
 		if v == nil {
@@ -834,9 +719,7 @@ func (o JsonFieldPtrOutput) SourceField() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id','topic' and 'eventTime' properties. This represents a field in the input event schema.
 type JsonFieldResponse struct {
-	// Name of a field in the input event schema that's to be used as the source of a mapping.
 	SourceField *string `pulumi:"sourceField"`
 }
 
@@ -851,9 +734,7 @@ type JsonFieldResponseInput interface {
 	ToJsonFieldResponseOutputWithContext(context.Context) JsonFieldResponseOutput
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id','topic' and 'eventTime' properties. This represents a field in the input event schema.
 type JsonFieldResponseArgs struct {
-	// Name of a field in the input event schema that's to be used as the source of a mapping.
 	SourceField pulumi.StringPtrInput `pulumi:"sourceField"`
 }
 
@@ -910,7 +791,6 @@ func (i *jsonFieldResponsePtrType) ToJsonFieldResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(JsonFieldResponsePtrOutput)
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id','topic' and 'eventTime' properties. This represents a field in the input event schema.
 type JsonFieldResponseOutput struct{ *pulumi.OutputState }
 
 func (JsonFieldResponseOutput) ElementType() reflect.Type {
@@ -930,12 +810,11 @@ func (o JsonFieldResponseOutput) ToJsonFieldResponsePtrOutput() JsonFieldRespons
 }
 
 func (o JsonFieldResponseOutput) ToJsonFieldResponsePtrOutputWithContext(ctx context.Context) JsonFieldResponsePtrOutput {
-	return o.ApplyT(func(v JsonFieldResponse) *JsonFieldResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JsonFieldResponse) *JsonFieldResponse {
 		return &v
 	}).(JsonFieldResponsePtrOutput)
 }
 
-// Name of a field in the input event schema that's to be used as the source of a mapping.
 func (o JsonFieldResponseOutput) SourceField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JsonFieldResponse) *string { return v.SourceField }).(pulumi.StringPtrOutput)
 }
@@ -955,10 +834,15 @@ func (o JsonFieldResponsePtrOutput) ToJsonFieldResponsePtrOutputWithContext(ctx 
 }
 
 func (o JsonFieldResponsePtrOutput) Elem() JsonFieldResponseOutput {
-	return o.ApplyT(func(v *JsonFieldResponse) JsonFieldResponse { return *v }).(JsonFieldResponseOutput)
+	return o.ApplyT(func(v *JsonFieldResponse) JsonFieldResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JsonFieldResponse
+		return ret
+	}).(JsonFieldResponseOutput)
 }
 
-// Name of a field in the input event schema that's to be used as the source of a mapping.
 func (o JsonFieldResponsePtrOutput) SourceField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JsonFieldResponse) *string {
 		if v == nil {
@@ -968,12 +852,9 @@ func (o JsonFieldResponsePtrOutput) SourceField() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'subject','eventType' and 'dataVersion' properties. This represents a field in the input event schema along with a default value to be used, and at least one of these two properties should be provided.
 type JsonFieldWithDefault struct {
-	// The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// Name of a field in the input event schema that's to be used as the source of a mapping.
-	SourceField *string `pulumi:"sourceField"`
+	SourceField  *string `pulumi:"sourceField"`
 }
 
 // JsonFieldWithDefaultInput is an input type that accepts JsonFieldWithDefaultArgs and JsonFieldWithDefaultOutput values.
@@ -987,12 +868,9 @@ type JsonFieldWithDefaultInput interface {
 	ToJsonFieldWithDefaultOutputWithContext(context.Context) JsonFieldWithDefaultOutput
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'subject','eventType' and 'dataVersion' properties. This represents a field in the input event schema along with a default value to be used, and at least one of these two properties should be provided.
 type JsonFieldWithDefaultArgs struct {
-	// The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// Name of a field in the input event schema that's to be used as the source of a mapping.
-	SourceField pulumi.StringPtrInput `pulumi:"sourceField"`
+	SourceField  pulumi.StringPtrInput `pulumi:"sourceField"`
 }
 
 func (JsonFieldWithDefaultArgs) ElementType() reflect.Type {
@@ -1048,7 +926,6 @@ func (i *jsonFieldWithDefaultPtrType) ToJsonFieldWithDefaultPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(JsonFieldWithDefaultPtrOutput)
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'subject','eventType' and 'dataVersion' properties. This represents a field in the input event schema along with a default value to be used, and at least one of these two properties should be provided.
 type JsonFieldWithDefaultOutput struct{ *pulumi.OutputState }
 
 func (JsonFieldWithDefaultOutput) ElementType() reflect.Type {
@@ -1068,17 +945,15 @@ func (o JsonFieldWithDefaultOutput) ToJsonFieldWithDefaultPtrOutput() JsonFieldW
 }
 
 func (o JsonFieldWithDefaultOutput) ToJsonFieldWithDefaultPtrOutputWithContext(ctx context.Context) JsonFieldWithDefaultPtrOutput {
-	return o.ApplyT(func(v JsonFieldWithDefault) *JsonFieldWithDefault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JsonFieldWithDefault) *JsonFieldWithDefault {
 		return &v
 	}).(JsonFieldWithDefaultPtrOutput)
 }
 
-// The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
 func (o JsonFieldWithDefaultOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JsonFieldWithDefault) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// Name of a field in the input event schema that's to be used as the source of a mapping.
 func (o JsonFieldWithDefaultOutput) SourceField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JsonFieldWithDefault) *string { return v.SourceField }).(pulumi.StringPtrOutput)
 }
@@ -1098,10 +973,15 @@ func (o JsonFieldWithDefaultPtrOutput) ToJsonFieldWithDefaultPtrOutputWithContex
 }
 
 func (o JsonFieldWithDefaultPtrOutput) Elem() JsonFieldWithDefaultOutput {
-	return o.ApplyT(func(v *JsonFieldWithDefault) JsonFieldWithDefault { return *v }).(JsonFieldWithDefaultOutput)
+	return o.ApplyT(func(v *JsonFieldWithDefault) JsonFieldWithDefault {
+		if v != nil {
+			return *v
+		}
+		var ret JsonFieldWithDefault
+		return ret
+	}).(JsonFieldWithDefaultOutput)
 }
 
-// The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
 func (o JsonFieldWithDefaultPtrOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JsonFieldWithDefault) *string {
 		if v == nil {
@@ -1111,7 +991,6 @@ func (o JsonFieldWithDefaultPtrOutput) DefaultValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of a field in the input event schema that's to be used as the source of a mapping.
 func (o JsonFieldWithDefaultPtrOutput) SourceField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JsonFieldWithDefault) *string {
 		if v == nil {
@@ -1121,12 +1000,9 @@ func (o JsonFieldWithDefaultPtrOutput) SourceField() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'subject','eventType' and 'dataVersion' properties. This represents a field in the input event schema along with a default value to be used, and at least one of these two properties should be provided.
 type JsonFieldWithDefaultResponse struct {
-	// The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// Name of a field in the input event schema that's to be used as the source of a mapping.
-	SourceField *string `pulumi:"sourceField"`
+	SourceField  *string `pulumi:"sourceField"`
 }
 
 // JsonFieldWithDefaultResponseInput is an input type that accepts JsonFieldWithDefaultResponseArgs and JsonFieldWithDefaultResponseOutput values.
@@ -1140,12 +1016,9 @@ type JsonFieldWithDefaultResponseInput interface {
 	ToJsonFieldWithDefaultResponseOutputWithContext(context.Context) JsonFieldWithDefaultResponseOutput
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'subject','eventType' and 'dataVersion' properties. This represents a field in the input event schema along with a default value to be used, and at least one of these two properties should be provided.
 type JsonFieldWithDefaultResponseArgs struct {
-	// The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// Name of a field in the input event schema that's to be used as the source of a mapping.
-	SourceField pulumi.StringPtrInput `pulumi:"sourceField"`
+	SourceField  pulumi.StringPtrInput `pulumi:"sourceField"`
 }
 
 func (JsonFieldWithDefaultResponseArgs) ElementType() reflect.Type {
@@ -1201,7 +1074,6 @@ func (i *jsonFieldWithDefaultResponsePtrType) ToJsonFieldWithDefaultResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(JsonFieldWithDefaultResponsePtrOutput)
 }
 
-// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'subject','eventType' and 'dataVersion' properties. This represents a field in the input event schema along with a default value to be used, and at least one of these two properties should be provided.
 type JsonFieldWithDefaultResponseOutput struct{ *pulumi.OutputState }
 
 func (JsonFieldWithDefaultResponseOutput) ElementType() reflect.Type {
@@ -1221,17 +1093,15 @@ func (o JsonFieldWithDefaultResponseOutput) ToJsonFieldWithDefaultResponsePtrOut
 }
 
 func (o JsonFieldWithDefaultResponseOutput) ToJsonFieldWithDefaultResponsePtrOutputWithContext(ctx context.Context) JsonFieldWithDefaultResponsePtrOutput {
-	return o.ApplyT(func(v JsonFieldWithDefaultResponse) *JsonFieldWithDefaultResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JsonFieldWithDefaultResponse) *JsonFieldWithDefaultResponse {
 		return &v
 	}).(JsonFieldWithDefaultResponsePtrOutput)
 }
 
-// The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
 func (o JsonFieldWithDefaultResponseOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JsonFieldWithDefaultResponse) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// Name of a field in the input event schema that's to be used as the source of a mapping.
 func (o JsonFieldWithDefaultResponseOutput) SourceField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JsonFieldWithDefaultResponse) *string { return v.SourceField }).(pulumi.StringPtrOutput)
 }
@@ -1251,10 +1121,15 @@ func (o JsonFieldWithDefaultResponsePtrOutput) ToJsonFieldWithDefaultResponsePtr
 }
 
 func (o JsonFieldWithDefaultResponsePtrOutput) Elem() JsonFieldWithDefaultResponseOutput {
-	return o.ApplyT(func(v *JsonFieldWithDefaultResponse) JsonFieldWithDefaultResponse { return *v }).(JsonFieldWithDefaultResponseOutput)
+	return o.ApplyT(func(v *JsonFieldWithDefaultResponse) JsonFieldWithDefaultResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JsonFieldWithDefaultResponse
+		return ret
+	}).(JsonFieldWithDefaultResponseOutput)
 }
 
-// The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
 func (o JsonFieldWithDefaultResponsePtrOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JsonFieldWithDefaultResponse) *string {
 		if v == nil {
@@ -1264,7 +1139,6 @@ func (o JsonFieldWithDefaultResponsePtrOutput) DefaultValue() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of a field in the input event schema that's to be used as the source of a mapping.
 func (o JsonFieldWithDefaultResponsePtrOutput) SourceField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JsonFieldWithDefaultResponse) *string {
 		if v == nil {
@@ -1274,23 +1148,14 @@ func (o JsonFieldWithDefaultResponsePtrOutput) SourceField() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
 type JsonInputSchemaMapping struct {
-	// The mapping information for the DataVersion property of the Event Grid Event.
-	DataVersion *JsonFieldWithDefault `pulumi:"dataVersion"`
-	// The mapping information for the EventTime property of the Event Grid Event.
-	EventTime *JsonField `pulumi:"eventTime"`
-	// The mapping information for the EventType property of the Event Grid Event.
-	EventType *JsonFieldWithDefault `pulumi:"eventType"`
-	// The mapping information for the Id property of the Event Grid Event.
-	Id *JsonField `pulumi:"id"`
-	// Type of the custom mapping
-	// Expected value is 'Json'.
-	InputSchemaMappingType *string `pulumi:"inputSchemaMappingType"`
-	// The mapping information for the Subject property of the Event Grid Event.
-	Subject *JsonFieldWithDefault `pulumi:"subject"`
-	// The mapping information for the Topic property of the Event Grid Event.
-	Topic *JsonField `pulumi:"topic"`
+	DataVersion            *JsonFieldWithDefault `pulumi:"dataVersion"`
+	EventTime              *JsonField            `pulumi:"eventTime"`
+	EventType              *JsonFieldWithDefault `pulumi:"eventType"`
+	Id                     *JsonField            `pulumi:"id"`
+	InputSchemaMappingType *string               `pulumi:"inputSchemaMappingType"`
+	Subject                *JsonFieldWithDefault `pulumi:"subject"`
+	Topic                  *JsonField            `pulumi:"topic"`
 }
 
 // JsonInputSchemaMappingInput is an input type that accepts JsonInputSchemaMappingArgs and JsonInputSchemaMappingOutput values.
@@ -1304,23 +1169,14 @@ type JsonInputSchemaMappingInput interface {
 	ToJsonInputSchemaMappingOutputWithContext(context.Context) JsonInputSchemaMappingOutput
 }
 
-// This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
 type JsonInputSchemaMappingArgs struct {
-	// The mapping information for the DataVersion property of the Event Grid Event.
-	DataVersion JsonFieldWithDefaultPtrInput `pulumi:"dataVersion"`
-	// The mapping information for the EventTime property of the Event Grid Event.
-	EventTime JsonFieldPtrInput `pulumi:"eventTime"`
-	// The mapping information for the EventType property of the Event Grid Event.
-	EventType JsonFieldWithDefaultPtrInput `pulumi:"eventType"`
-	// The mapping information for the Id property of the Event Grid Event.
-	Id JsonFieldPtrInput `pulumi:"id"`
-	// Type of the custom mapping
-	// Expected value is 'Json'.
-	InputSchemaMappingType pulumi.StringPtrInput `pulumi:"inputSchemaMappingType"`
-	// The mapping information for the Subject property of the Event Grid Event.
-	Subject JsonFieldWithDefaultPtrInput `pulumi:"subject"`
-	// The mapping information for the Topic property of the Event Grid Event.
-	Topic JsonFieldPtrInput `pulumi:"topic"`
+	DataVersion            JsonFieldWithDefaultPtrInput `pulumi:"dataVersion"`
+	EventTime              JsonFieldPtrInput            `pulumi:"eventTime"`
+	EventType              JsonFieldWithDefaultPtrInput `pulumi:"eventType"`
+	Id                     JsonFieldPtrInput            `pulumi:"id"`
+	InputSchemaMappingType pulumi.StringPtrInput        `pulumi:"inputSchemaMappingType"`
+	Subject                JsonFieldWithDefaultPtrInput `pulumi:"subject"`
+	Topic                  JsonFieldPtrInput            `pulumi:"topic"`
 }
 
 func (JsonInputSchemaMappingArgs) ElementType() reflect.Type {
@@ -1376,7 +1232,6 @@ func (i *jsonInputSchemaMappingPtrType) ToJsonInputSchemaMappingPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(JsonInputSchemaMappingPtrOutput)
 }
 
-// This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
 type JsonInputSchemaMappingOutput struct{ *pulumi.OutputState }
 
 func (JsonInputSchemaMappingOutput) ElementType() reflect.Type {
@@ -1396,43 +1251,35 @@ func (o JsonInputSchemaMappingOutput) ToJsonInputSchemaMappingPtrOutput() JsonIn
 }
 
 func (o JsonInputSchemaMappingOutput) ToJsonInputSchemaMappingPtrOutputWithContext(ctx context.Context) JsonInputSchemaMappingPtrOutput {
-	return o.ApplyT(func(v JsonInputSchemaMapping) *JsonInputSchemaMapping {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JsonInputSchemaMapping) *JsonInputSchemaMapping {
 		return &v
 	}).(JsonInputSchemaMappingPtrOutput)
 }
 
-// The mapping information for the DataVersion property of the Event Grid Event.
 func (o JsonInputSchemaMappingOutput) DataVersion() JsonFieldWithDefaultPtrOutput {
 	return o.ApplyT(func(v JsonInputSchemaMapping) *JsonFieldWithDefault { return v.DataVersion }).(JsonFieldWithDefaultPtrOutput)
 }
 
-// The mapping information for the EventTime property of the Event Grid Event.
 func (o JsonInputSchemaMappingOutput) EventTime() JsonFieldPtrOutput {
 	return o.ApplyT(func(v JsonInputSchemaMapping) *JsonField { return v.EventTime }).(JsonFieldPtrOutput)
 }
 
-// The mapping information for the EventType property of the Event Grid Event.
 func (o JsonInputSchemaMappingOutput) EventType() JsonFieldWithDefaultPtrOutput {
 	return o.ApplyT(func(v JsonInputSchemaMapping) *JsonFieldWithDefault { return v.EventType }).(JsonFieldWithDefaultPtrOutput)
 }
 
-// The mapping information for the Id property of the Event Grid Event.
 func (o JsonInputSchemaMappingOutput) Id() JsonFieldPtrOutput {
 	return o.ApplyT(func(v JsonInputSchemaMapping) *JsonField { return v.Id }).(JsonFieldPtrOutput)
 }
 
-// Type of the custom mapping
-// Expected value is 'Json'.
 func (o JsonInputSchemaMappingOutput) InputSchemaMappingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JsonInputSchemaMapping) *string { return v.InputSchemaMappingType }).(pulumi.StringPtrOutput)
 }
 
-// The mapping information for the Subject property of the Event Grid Event.
 func (o JsonInputSchemaMappingOutput) Subject() JsonFieldWithDefaultPtrOutput {
 	return o.ApplyT(func(v JsonInputSchemaMapping) *JsonFieldWithDefault { return v.Subject }).(JsonFieldWithDefaultPtrOutput)
 }
 
-// The mapping information for the Topic property of the Event Grid Event.
 func (o JsonInputSchemaMappingOutput) Topic() JsonFieldPtrOutput {
 	return o.ApplyT(func(v JsonInputSchemaMapping) *JsonField { return v.Topic }).(JsonFieldPtrOutput)
 }
@@ -1452,10 +1299,15 @@ func (o JsonInputSchemaMappingPtrOutput) ToJsonInputSchemaMappingPtrOutputWithCo
 }
 
 func (o JsonInputSchemaMappingPtrOutput) Elem() JsonInputSchemaMappingOutput {
-	return o.ApplyT(func(v *JsonInputSchemaMapping) JsonInputSchemaMapping { return *v }).(JsonInputSchemaMappingOutput)
+	return o.ApplyT(func(v *JsonInputSchemaMapping) JsonInputSchemaMapping {
+		if v != nil {
+			return *v
+		}
+		var ret JsonInputSchemaMapping
+		return ret
+	}).(JsonInputSchemaMappingOutput)
 }
 
-// The mapping information for the DataVersion property of the Event Grid Event.
 func (o JsonInputSchemaMappingPtrOutput) DataVersion() JsonFieldWithDefaultPtrOutput {
 	return o.ApplyT(func(v *JsonInputSchemaMapping) *JsonFieldWithDefault {
 		if v == nil {
@@ -1465,7 +1317,6 @@ func (o JsonInputSchemaMappingPtrOutput) DataVersion() JsonFieldWithDefaultPtrOu
 	}).(JsonFieldWithDefaultPtrOutput)
 }
 
-// The mapping information for the EventTime property of the Event Grid Event.
 func (o JsonInputSchemaMappingPtrOutput) EventTime() JsonFieldPtrOutput {
 	return o.ApplyT(func(v *JsonInputSchemaMapping) *JsonField {
 		if v == nil {
@@ -1475,7 +1326,6 @@ func (o JsonInputSchemaMappingPtrOutput) EventTime() JsonFieldPtrOutput {
 	}).(JsonFieldPtrOutput)
 }
 
-// The mapping information for the EventType property of the Event Grid Event.
 func (o JsonInputSchemaMappingPtrOutput) EventType() JsonFieldWithDefaultPtrOutput {
 	return o.ApplyT(func(v *JsonInputSchemaMapping) *JsonFieldWithDefault {
 		if v == nil {
@@ -1485,7 +1335,6 @@ func (o JsonInputSchemaMappingPtrOutput) EventType() JsonFieldWithDefaultPtrOutp
 	}).(JsonFieldWithDefaultPtrOutput)
 }
 
-// The mapping information for the Id property of the Event Grid Event.
 func (o JsonInputSchemaMappingPtrOutput) Id() JsonFieldPtrOutput {
 	return o.ApplyT(func(v *JsonInputSchemaMapping) *JsonField {
 		if v == nil {
@@ -1495,8 +1344,6 @@ func (o JsonInputSchemaMappingPtrOutput) Id() JsonFieldPtrOutput {
 	}).(JsonFieldPtrOutput)
 }
 
-// Type of the custom mapping
-// Expected value is 'Json'.
 func (o JsonInputSchemaMappingPtrOutput) InputSchemaMappingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JsonInputSchemaMapping) *string {
 		if v == nil {
@@ -1506,7 +1353,6 @@ func (o JsonInputSchemaMappingPtrOutput) InputSchemaMappingType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The mapping information for the Subject property of the Event Grid Event.
 func (o JsonInputSchemaMappingPtrOutput) Subject() JsonFieldWithDefaultPtrOutput {
 	return o.ApplyT(func(v *JsonInputSchemaMapping) *JsonFieldWithDefault {
 		if v == nil {
@@ -1516,7 +1362,6 @@ func (o JsonInputSchemaMappingPtrOutput) Subject() JsonFieldWithDefaultPtrOutput
 	}).(JsonFieldWithDefaultPtrOutput)
 }
 
-// The mapping information for the Topic property of the Event Grid Event.
 func (o JsonInputSchemaMappingPtrOutput) Topic() JsonFieldPtrOutput {
 	return o.ApplyT(func(v *JsonInputSchemaMapping) *JsonField {
 		if v == nil {
@@ -1526,23 +1371,14 @@ func (o JsonInputSchemaMappingPtrOutput) Topic() JsonFieldPtrOutput {
 	}).(JsonFieldPtrOutput)
 }
 
-// This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
 type JsonInputSchemaMappingResponse struct {
-	// The mapping information for the DataVersion property of the Event Grid Event.
-	DataVersion *JsonFieldWithDefaultResponse `pulumi:"dataVersion"`
-	// The mapping information for the EventTime property of the Event Grid Event.
-	EventTime *JsonFieldResponse `pulumi:"eventTime"`
-	// The mapping information for the EventType property of the Event Grid Event.
-	EventType *JsonFieldWithDefaultResponse `pulumi:"eventType"`
-	// The mapping information for the Id property of the Event Grid Event.
-	Id *JsonFieldResponse `pulumi:"id"`
-	// Type of the custom mapping
-	// Expected value is 'Json'.
-	InputSchemaMappingType *string `pulumi:"inputSchemaMappingType"`
-	// The mapping information for the Subject property of the Event Grid Event.
-	Subject *JsonFieldWithDefaultResponse `pulumi:"subject"`
-	// The mapping information for the Topic property of the Event Grid Event.
-	Topic *JsonFieldResponse `pulumi:"topic"`
+	DataVersion            *JsonFieldWithDefaultResponse `pulumi:"dataVersion"`
+	EventTime              *JsonFieldResponse            `pulumi:"eventTime"`
+	EventType              *JsonFieldWithDefaultResponse `pulumi:"eventType"`
+	Id                     *JsonFieldResponse            `pulumi:"id"`
+	InputSchemaMappingType *string                       `pulumi:"inputSchemaMappingType"`
+	Subject                *JsonFieldWithDefaultResponse `pulumi:"subject"`
+	Topic                  *JsonFieldResponse            `pulumi:"topic"`
 }
 
 // JsonInputSchemaMappingResponseInput is an input type that accepts JsonInputSchemaMappingResponseArgs and JsonInputSchemaMappingResponseOutput values.
@@ -1556,23 +1392,14 @@ type JsonInputSchemaMappingResponseInput interface {
 	ToJsonInputSchemaMappingResponseOutputWithContext(context.Context) JsonInputSchemaMappingResponseOutput
 }
 
-// This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
 type JsonInputSchemaMappingResponseArgs struct {
-	// The mapping information for the DataVersion property of the Event Grid Event.
-	DataVersion JsonFieldWithDefaultResponsePtrInput `pulumi:"dataVersion"`
-	// The mapping information for the EventTime property of the Event Grid Event.
-	EventTime JsonFieldResponsePtrInput `pulumi:"eventTime"`
-	// The mapping information for the EventType property of the Event Grid Event.
-	EventType JsonFieldWithDefaultResponsePtrInput `pulumi:"eventType"`
-	// The mapping information for the Id property of the Event Grid Event.
-	Id JsonFieldResponsePtrInput `pulumi:"id"`
-	// Type of the custom mapping
-	// Expected value is 'Json'.
-	InputSchemaMappingType pulumi.StringPtrInput `pulumi:"inputSchemaMappingType"`
-	// The mapping information for the Subject property of the Event Grid Event.
-	Subject JsonFieldWithDefaultResponsePtrInput `pulumi:"subject"`
-	// The mapping information for the Topic property of the Event Grid Event.
-	Topic JsonFieldResponsePtrInput `pulumi:"topic"`
+	DataVersion            JsonFieldWithDefaultResponsePtrInput `pulumi:"dataVersion"`
+	EventTime              JsonFieldResponsePtrInput            `pulumi:"eventTime"`
+	EventType              JsonFieldWithDefaultResponsePtrInput `pulumi:"eventType"`
+	Id                     JsonFieldResponsePtrInput            `pulumi:"id"`
+	InputSchemaMappingType pulumi.StringPtrInput                `pulumi:"inputSchemaMappingType"`
+	Subject                JsonFieldWithDefaultResponsePtrInput `pulumi:"subject"`
+	Topic                  JsonFieldResponsePtrInput            `pulumi:"topic"`
 }
 
 func (JsonInputSchemaMappingResponseArgs) ElementType() reflect.Type {
@@ -1628,7 +1455,6 @@ func (i *jsonInputSchemaMappingResponsePtrType) ToJsonInputSchemaMappingResponse
 	return pulumi.ToOutputWithContext(ctx, i).(JsonInputSchemaMappingResponsePtrOutput)
 }
 
-// This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
 type JsonInputSchemaMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (JsonInputSchemaMappingResponseOutput) ElementType() reflect.Type {
@@ -1648,43 +1474,35 @@ func (o JsonInputSchemaMappingResponseOutput) ToJsonInputSchemaMappingResponsePt
 }
 
 func (o JsonInputSchemaMappingResponseOutput) ToJsonInputSchemaMappingResponsePtrOutputWithContext(ctx context.Context) JsonInputSchemaMappingResponsePtrOutput {
-	return o.ApplyT(func(v JsonInputSchemaMappingResponse) *JsonInputSchemaMappingResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JsonInputSchemaMappingResponse) *JsonInputSchemaMappingResponse {
 		return &v
 	}).(JsonInputSchemaMappingResponsePtrOutput)
 }
 
-// The mapping information for the DataVersion property of the Event Grid Event.
 func (o JsonInputSchemaMappingResponseOutput) DataVersion() JsonFieldWithDefaultResponsePtrOutput {
 	return o.ApplyT(func(v JsonInputSchemaMappingResponse) *JsonFieldWithDefaultResponse { return v.DataVersion }).(JsonFieldWithDefaultResponsePtrOutput)
 }
 
-// The mapping information for the EventTime property of the Event Grid Event.
 func (o JsonInputSchemaMappingResponseOutput) EventTime() JsonFieldResponsePtrOutput {
 	return o.ApplyT(func(v JsonInputSchemaMappingResponse) *JsonFieldResponse { return v.EventTime }).(JsonFieldResponsePtrOutput)
 }
 
-// The mapping information for the EventType property of the Event Grid Event.
 func (o JsonInputSchemaMappingResponseOutput) EventType() JsonFieldWithDefaultResponsePtrOutput {
 	return o.ApplyT(func(v JsonInputSchemaMappingResponse) *JsonFieldWithDefaultResponse { return v.EventType }).(JsonFieldWithDefaultResponsePtrOutput)
 }
 
-// The mapping information for the Id property of the Event Grid Event.
 func (o JsonInputSchemaMappingResponseOutput) Id() JsonFieldResponsePtrOutput {
 	return o.ApplyT(func(v JsonInputSchemaMappingResponse) *JsonFieldResponse { return v.Id }).(JsonFieldResponsePtrOutput)
 }
 
-// Type of the custom mapping
-// Expected value is 'Json'.
 func (o JsonInputSchemaMappingResponseOutput) InputSchemaMappingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JsonInputSchemaMappingResponse) *string { return v.InputSchemaMappingType }).(pulumi.StringPtrOutput)
 }
 
-// The mapping information for the Subject property of the Event Grid Event.
 func (o JsonInputSchemaMappingResponseOutput) Subject() JsonFieldWithDefaultResponsePtrOutput {
 	return o.ApplyT(func(v JsonInputSchemaMappingResponse) *JsonFieldWithDefaultResponse { return v.Subject }).(JsonFieldWithDefaultResponsePtrOutput)
 }
 
-// The mapping information for the Topic property of the Event Grid Event.
 func (o JsonInputSchemaMappingResponseOutput) Topic() JsonFieldResponsePtrOutput {
 	return o.ApplyT(func(v JsonInputSchemaMappingResponse) *JsonFieldResponse { return v.Topic }).(JsonFieldResponsePtrOutput)
 }
@@ -1704,10 +1522,15 @@ func (o JsonInputSchemaMappingResponsePtrOutput) ToJsonInputSchemaMappingRespons
 }
 
 func (o JsonInputSchemaMappingResponsePtrOutput) Elem() JsonInputSchemaMappingResponseOutput {
-	return o.ApplyT(func(v *JsonInputSchemaMappingResponse) JsonInputSchemaMappingResponse { return *v }).(JsonInputSchemaMappingResponseOutput)
+	return o.ApplyT(func(v *JsonInputSchemaMappingResponse) JsonInputSchemaMappingResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JsonInputSchemaMappingResponse
+		return ret
+	}).(JsonInputSchemaMappingResponseOutput)
 }
 
-// The mapping information for the DataVersion property of the Event Grid Event.
 func (o JsonInputSchemaMappingResponsePtrOutput) DataVersion() JsonFieldWithDefaultResponsePtrOutput {
 	return o.ApplyT(func(v *JsonInputSchemaMappingResponse) *JsonFieldWithDefaultResponse {
 		if v == nil {
@@ -1717,7 +1540,6 @@ func (o JsonInputSchemaMappingResponsePtrOutput) DataVersion() JsonFieldWithDefa
 	}).(JsonFieldWithDefaultResponsePtrOutput)
 }
 
-// The mapping information for the EventTime property of the Event Grid Event.
 func (o JsonInputSchemaMappingResponsePtrOutput) EventTime() JsonFieldResponsePtrOutput {
 	return o.ApplyT(func(v *JsonInputSchemaMappingResponse) *JsonFieldResponse {
 		if v == nil {
@@ -1727,7 +1549,6 @@ func (o JsonInputSchemaMappingResponsePtrOutput) EventTime() JsonFieldResponsePt
 	}).(JsonFieldResponsePtrOutput)
 }
 
-// The mapping information for the EventType property of the Event Grid Event.
 func (o JsonInputSchemaMappingResponsePtrOutput) EventType() JsonFieldWithDefaultResponsePtrOutput {
 	return o.ApplyT(func(v *JsonInputSchemaMappingResponse) *JsonFieldWithDefaultResponse {
 		if v == nil {
@@ -1737,7 +1558,6 @@ func (o JsonInputSchemaMappingResponsePtrOutput) EventType() JsonFieldWithDefaul
 	}).(JsonFieldWithDefaultResponsePtrOutput)
 }
 
-// The mapping information for the Id property of the Event Grid Event.
 func (o JsonInputSchemaMappingResponsePtrOutput) Id() JsonFieldResponsePtrOutput {
 	return o.ApplyT(func(v *JsonInputSchemaMappingResponse) *JsonFieldResponse {
 		if v == nil {
@@ -1747,8 +1567,6 @@ func (o JsonInputSchemaMappingResponsePtrOutput) Id() JsonFieldResponsePtrOutput
 	}).(JsonFieldResponsePtrOutput)
 }
 
-// Type of the custom mapping
-// Expected value is 'Json'.
 func (o JsonInputSchemaMappingResponsePtrOutput) InputSchemaMappingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JsonInputSchemaMappingResponse) *string {
 		if v == nil {
@@ -1758,7 +1576,6 @@ func (o JsonInputSchemaMappingResponsePtrOutput) InputSchemaMappingType() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The mapping information for the Subject property of the Event Grid Event.
 func (o JsonInputSchemaMappingResponsePtrOutput) Subject() JsonFieldWithDefaultResponsePtrOutput {
 	return o.ApplyT(func(v *JsonInputSchemaMappingResponse) *JsonFieldWithDefaultResponse {
 		if v == nil {
@@ -1768,7 +1585,6 @@ func (o JsonInputSchemaMappingResponsePtrOutput) Subject() JsonFieldWithDefaultR
 	}).(JsonFieldWithDefaultResponsePtrOutput)
 }
 
-// The mapping information for the Topic property of the Event Grid Event.
 func (o JsonInputSchemaMappingResponsePtrOutput) Topic() JsonFieldResponsePtrOutput {
 	return o.ApplyT(func(v *JsonInputSchemaMappingResponse) *JsonFieldResponse {
 		if v == nil {
@@ -1778,12 +1594,9 @@ func (o JsonInputSchemaMappingResponsePtrOutput) Topic() JsonFieldResponsePtrOut
 	}).(JsonFieldResponsePtrOutput)
 }
 
-// Information about the retry policy for an event subscription
 type RetryPolicy struct {
-	// Time To Live (in minutes) for events.
 	EventTimeToLiveInMinutes *int `pulumi:"eventTimeToLiveInMinutes"`
-	// Maximum number of delivery retry attempts for events.
-	MaxDeliveryAttempts *int `pulumi:"maxDeliveryAttempts"`
+	MaxDeliveryAttempts      *int `pulumi:"maxDeliveryAttempts"`
 }
 
 // RetryPolicyInput is an input type that accepts RetryPolicyArgs and RetryPolicyOutput values.
@@ -1797,12 +1610,9 @@ type RetryPolicyInput interface {
 	ToRetryPolicyOutputWithContext(context.Context) RetryPolicyOutput
 }
 
-// Information about the retry policy for an event subscription
 type RetryPolicyArgs struct {
-	// Time To Live (in minutes) for events.
 	EventTimeToLiveInMinutes pulumi.IntPtrInput `pulumi:"eventTimeToLiveInMinutes"`
-	// Maximum number of delivery retry attempts for events.
-	MaxDeliveryAttempts pulumi.IntPtrInput `pulumi:"maxDeliveryAttempts"`
+	MaxDeliveryAttempts      pulumi.IntPtrInput `pulumi:"maxDeliveryAttempts"`
 }
 
 func (RetryPolicyArgs) ElementType() reflect.Type {
@@ -1858,7 +1668,6 @@ func (i *retryPolicyPtrType) ToRetryPolicyPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RetryPolicyPtrOutput)
 }
 
-// Information about the retry policy for an event subscription
 type RetryPolicyOutput struct{ *pulumi.OutputState }
 
 func (RetryPolicyOutput) ElementType() reflect.Type {
@@ -1878,17 +1687,15 @@ func (o RetryPolicyOutput) ToRetryPolicyPtrOutput() RetryPolicyPtrOutput {
 }
 
 func (o RetryPolicyOutput) ToRetryPolicyPtrOutputWithContext(ctx context.Context) RetryPolicyPtrOutput {
-	return o.ApplyT(func(v RetryPolicy) *RetryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetryPolicy) *RetryPolicy {
 		return &v
 	}).(RetryPolicyPtrOutput)
 }
 
-// Time To Live (in minutes) for events.
 func (o RetryPolicyOutput) EventTimeToLiveInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RetryPolicy) *int { return v.EventTimeToLiveInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of delivery retry attempts for events.
 func (o RetryPolicyOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RetryPolicy) *int { return v.MaxDeliveryAttempts }).(pulumi.IntPtrOutput)
 }
@@ -1908,10 +1715,15 @@ func (o RetryPolicyPtrOutput) ToRetryPolicyPtrOutputWithContext(ctx context.Cont
 }
 
 func (o RetryPolicyPtrOutput) Elem() RetryPolicyOutput {
-	return o.ApplyT(func(v *RetryPolicy) RetryPolicy { return *v }).(RetryPolicyOutput)
+	return o.ApplyT(func(v *RetryPolicy) RetryPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RetryPolicy
+		return ret
+	}).(RetryPolicyOutput)
 }
 
-// Time To Live (in minutes) for events.
 func (o RetryPolicyPtrOutput) EventTimeToLiveInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RetryPolicy) *int {
 		if v == nil {
@@ -1921,7 +1733,6 @@ func (o RetryPolicyPtrOutput) EventTimeToLiveInMinutes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of delivery retry attempts for events.
 func (o RetryPolicyPtrOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RetryPolicy) *int {
 		if v == nil {
@@ -1931,12 +1742,9 @@ func (o RetryPolicyPtrOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Information about the retry policy for an event subscription
 type RetryPolicyResponse struct {
-	// Time To Live (in minutes) for events.
 	EventTimeToLiveInMinutes *int `pulumi:"eventTimeToLiveInMinutes"`
-	// Maximum number of delivery retry attempts for events.
-	MaxDeliveryAttempts *int `pulumi:"maxDeliveryAttempts"`
+	MaxDeliveryAttempts      *int `pulumi:"maxDeliveryAttempts"`
 }
 
 // RetryPolicyResponseInput is an input type that accepts RetryPolicyResponseArgs and RetryPolicyResponseOutput values.
@@ -1950,12 +1758,9 @@ type RetryPolicyResponseInput interface {
 	ToRetryPolicyResponseOutputWithContext(context.Context) RetryPolicyResponseOutput
 }
 
-// Information about the retry policy for an event subscription
 type RetryPolicyResponseArgs struct {
-	// Time To Live (in minutes) for events.
 	EventTimeToLiveInMinutes pulumi.IntPtrInput `pulumi:"eventTimeToLiveInMinutes"`
-	// Maximum number of delivery retry attempts for events.
-	MaxDeliveryAttempts pulumi.IntPtrInput `pulumi:"maxDeliveryAttempts"`
+	MaxDeliveryAttempts      pulumi.IntPtrInput `pulumi:"maxDeliveryAttempts"`
 }
 
 func (RetryPolicyResponseArgs) ElementType() reflect.Type {
@@ -2011,7 +1816,6 @@ func (i *retryPolicyResponsePtrType) ToRetryPolicyResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(RetryPolicyResponsePtrOutput)
 }
 
-// Information about the retry policy for an event subscription
 type RetryPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (RetryPolicyResponseOutput) ElementType() reflect.Type {
@@ -2031,17 +1835,15 @@ func (o RetryPolicyResponseOutput) ToRetryPolicyResponsePtrOutput() RetryPolicyR
 }
 
 func (o RetryPolicyResponseOutput) ToRetryPolicyResponsePtrOutputWithContext(ctx context.Context) RetryPolicyResponsePtrOutput {
-	return o.ApplyT(func(v RetryPolicyResponse) *RetryPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetryPolicyResponse) *RetryPolicyResponse {
 		return &v
 	}).(RetryPolicyResponsePtrOutput)
 }
 
-// Time To Live (in minutes) for events.
 func (o RetryPolicyResponseOutput) EventTimeToLiveInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RetryPolicyResponse) *int { return v.EventTimeToLiveInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of delivery retry attempts for events.
 func (o RetryPolicyResponseOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RetryPolicyResponse) *int { return v.MaxDeliveryAttempts }).(pulumi.IntPtrOutput)
 }
@@ -2061,10 +1863,15 @@ func (o RetryPolicyResponsePtrOutput) ToRetryPolicyResponsePtrOutputWithContext(
 }
 
 func (o RetryPolicyResponsePtrOutput) Elem() RetryPolicyResponseOutput {
-	return o.ApplyT(func(v *RetryPolicyResponse) RetryPolicyResponse { return *v }).(RetryPolicyResponseOutput)
+	return o.ApplyT(func(v *RetryPolicyResponse) RetryPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RetryPolicyResponse
+		return ret
+	}).(RetryPolicyResponseOutput)
 }
 
-// Time To Live (in minutes) for events.
 func (o RetryPolicyResponsePtrOutput) EventTimeToLiveInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RetryPolicyResponse) *int {
 		if v == nil {
@@ -2074,7 +1881,6 @@ func (o RetryPolicyResponsePtrOutput) EventTimeToLiveInMinutes() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of delivery retry attempts for events.
 func (o RetryPolicyResponsePtrOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RetryPolicyResponse) *int {
 		if v == nil {
@@ -2084,15 +1890,10 @@ func (o RetryPolicyResponsePtrOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestination struct {
-	// The name of the Storage blob container that is the destination of the deadletter events
 	BlobContainerName *string `pulumi:"blobContainerName"`
-	// Type of the endpoint for the dead letter destination
-	// Expected value is 'StorageBlob'.
-	EndpointType string `pulumi:"endpointType"`
-	// The Azure Resource ID of the storage account that is the destination of the deadletter events
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType      string  `pulumi:"endpointType"`
+	ResourceId        *string `pulumi:"resourceId"`
 }
 
 // StorageBlobDeadLetterDestinationInput is an input type that accepts StorageBlobDeadLetterDestinationArgs and StorageBlobDeadLetterDestinationOutput values.
@@ -2106,15 +1907,10 @@ type StorageBlobDeadLetterDestinationInput interface {
 	ToStorageBlobDeadLetterDestinationOutputWithContext(context.Context) StorageBlobDeadLetterDestinationOutput
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestinationArgs struct {
-	// The name of the Storage blob container that is the destination of the deadletter events
 	BlobContainerName pulumi.StringPtrInput `pulumi:"blobContainerName"`
-	// Type of the endpoint for the dead letter destination
-	// Expected value is 'StorageBlob'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The Azure Resource ID of the storage account that is the destination of the deadletter events
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType      pulumi.StringInput    `pulumi:"endpointType"`
+	ResourceId        pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (StorageBlobDeadLetterDestinationArgs) ElementType() reflect.Type {
@@ -2170,7 +1966,6 @@ func (i *storageBlobDeadLetterDestinationPtrType) ToStorageBlobDeadLetterDestina
 	return pulumi.ToOutputWithContext(ctx, i).(StorageBlobDeadLetterDestinationPtrOutput)
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestinationOutput struct{ *pulumi.OutputState }
 
 func (StorageBlobDeadLetterDestinationOutput) ElementType() reflect.Type {
@@ -2190,23 +1985,19 @@ func (o StorageBlobDeadLetterDestinationOutput) ToStorageBlobDeadLetterDestinati
 }
 
 func (o StorageBlobDeadLetterDestinationOutput) ToStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationPtrOutput {
-	return o.ApplyT(func(v StorageBlobDeadLetterDestination) *StorageBlobDeadLetterDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageBlobDeadLetterDestination) *StorageBlobDeadLetterDestination {
 		return &v
 	}).(StorageBlobDeadLetterDestinationPtrOutput)
 }
 
-// The name of the Storage blob container that is the destination of the deadletter events
 func (o StorageBlobDeadLetterDestinationOutput) BlobContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageBlobDeadLetterDestination) *string { return v.BlobContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Type of the endpoint for the dead letter destination
-// Expected value is 'StorageBlob'.
 func (o StorageBlobDeadLetterDestinationOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageBlobDeadLetterDestination) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The Azure Resource ID of the storage account that is the destination of the deadletter events
 func (o StorageBlobDeadLetterDestinationOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageBlobDeadLetterDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -2226,10 +2017,15 @@ func (o StorageBlobDeadLetterDestinationPtrOutput) ToStorageBlobDeadLetterDestin
 }
 
 func (o StorageBlobDeadLetterDestinationPtrOutput) Elem() StorageBlobDeadLetterDestinationOutput {
-	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) StorageBlobDeadLetterDestination { return *v }).(StorageBlobDeadLetterDestinationOutput)
+	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) StorageBlobDeadLetterDestination {
+		if v != nil {
+			return *v
+		}
+		var ret StorageBlobDeadLetterDestination
+		return ret
+	}).(StorageBlobDeadLetterDestinationOutput)
 }
 
-// The name of the Storage blob container that is the destination of the deadletter events
 func (o StorageBlobDeadLetterDestinationPtrOutput) BlobContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) *string {
 		if v == nil {
@@ -2239,8 +2035,6 @@ func (o StorageBlobDeadLetterDestinationPtrOutput) BlobContainerName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the endpoint for the dead letter destination
-// Expected value is 'StorageBlob'.
 func (o StorageBlobDeadLetterDestinationPtrOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) *string {
 		if v == nil {
@@ -2250,7 +2044,6 @@ func (o StorageBlobDeadLetterDestinationPtrOutput) EndpointType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Azure Resource ID of the storage account that is the destination of the deadletter events
 func (o StorageBlobDeadLetterDestinationPtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) *string {
 		if v == nil {
@@ -2260,15 +2053,10 @@ func (o StorageBlobDeadLetterDestinationPtrOutput) ResourceId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestinationResponse struct {
-	// The name of the Storage blob container that is the destination of the deadletter events
 	BlobContainerName *string `pulumi:"blobContainerName"`
-	// Type of the endpoint for the dead letter destination
-	// Expected value is 'StorageBlob'.
-	EndpointType string `pulumi:"endpointType"`
-	// The Azure Resource ID of the storage account that is the destination of the deadletter events
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType      string  `pulumi:"endpointType"`
+	ResourceId        *string `pulumi:"resourceId"`
 }
 
 // StorageBlobDeadLetterDestinationResponseInput is an input type that accepts StorageBlobDeadLetterDestinationResponseArgs and StorageBlobDeadLetterDestinationResponseOutput values.
@@ -2282,15 +2070,10 @@ type StorageBlobDeadLetterDestinationResponseInput interface {
 	ToStorageBlobDeadLetterDestinationResponseOutputWithContext(context.Context) StorageBlobDeadLetterDestinationResponseOutput
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestinationResponseArgs struct {
-	// The name of the Storage blob container that is the destination of the deadletter events
 	BlobContainerName pulumi.StringPtrInput `pulumi:"blobContainerName"`
-	// Type of the endpoint for the dead letter destination
-	// Expected value is 'StorageBlob'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The Azure Resource ID of the storage account that is the destination of the deadletter events
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType      pulumi.StringInput    `pulumi:"endpointType"`
+	ResourceId        pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (StorageBlobDeadLetterDestinationResponseArgs) ElementType() reflect.Type {
@@ -2346,7 +2129,6 @@ func (i *storageBlobDeadLetterDestinationResponsePtrType) ToStorageBlobDeadLette
 	return pulumi.ToOutputWithContext(ctx, i).(StorageBlobDeadLetterDestinationResponsePtrOutput)
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageBlobDeadLetterDestinationResponseOutput) ElementType() reflect.Type {
@@ -2366,23 +2148,19 @@ func (o StorageBlobDeadLetterDestinationResponseOutput) ToStorageBlobDeadLetterD
 }
 
 func (o StorageBlobDeadLetterDestinationResponseOutput) ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationResponsePtrOutput {
-	return o.ApplyT(func(v StorageBlobDeadLetterDestinationResponse) *StorageBlobDeadLetterDestinationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageBlobDeadLetterDestinationResponse) *StorageBlobDeadLetterDestinationResponse {
 		return &v
 	}).(StorageBlobDeadLetterDestinationResponsePtrOutput)
 }
 
-// The name of the Storage blob container that is the destination of the deadletter events
 func (o StorageBlobDeadLetterDestinationResponseOutput) BlobContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageBlobDeadLetterDestinationResponse) *string { return v.BlobContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Type of the endpoint for the dead letter destination
-// Expected value is 'StorageBlob'.
 func (o StorageBlobDeadLetterDestinationResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageBlobDeadLetterDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The Azure Resource ID of the storage account that is the destination of the deadletter events
 func (o StorageBlobDeadLetterDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageBlobDeadLetterDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -2402,10 +2180,15 @@ func (o StorageBlobDeadLetterDestinationResponsePtrOutput) ToStorageBlobDeadLett
 }
 
 func (o StorageBlobDeadLetterDestinationResponsePtrOutput) Elem() StorageBlobDeadLetterDestinationResponseOutput {
-	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) StorageBlobDeadLetterDestinationResponse { return *v }).(StorageBlobDeadLetterDestinationResponseOutput)
+	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) StorageBlobDeadLetterDestinationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageBlobDeadLetterDestinationResponse
+		return ret
+	}).(StorageBlobDeadLetterDestinationResponseOutput)
 }
 
-// The name of the Storage blob container that is the destination of the deadletter events
 func (o StorageBlobDeadLetterDestinationResponsePtrOutput) BlobContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) *string {
 		if v == nil {
@@ -2415,8 +2198,6 @@ func (o StorageBlobDeadLetterDestinationResponsePtrOutput) BlobContainerName() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the endpoint for the dead letter destination
-// Expected value is 'StorageBlob'.
 func (o StorageBlobDeadLetterDestinationResponsePtrOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) *string {
 		if v == nil {
@@ -2426,7 +2207,6 @@ func (o StorageBlobDeadLetterDestinationResponsePtrOutput) EndpointType() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Azure Resource ID of the storage account that is the destination of the deadletter events
 func (o StorageBlobDeadLetterDestinationResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) *string {
 		if v == nil {
@@ -2436,15 +2216,10 @@ func (o StorageBlobDeadLetterDestinationResponsePtrOutput) ResourceId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestination struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'StorageQueue'.
-	EndpointType string `pulumi:"endpointType"`
-	// The name of the Storage queue under a storage account that is the destination of an event subscription.
-	QueueName *string `pulumi:"queueName"`
-	// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType string  `pulumi:"endpointType"`
+	QueueName    *string `pulumi:"queueName"`
+	ResourceId   *string `pulumi:"resourceId"`
 }
 
 // StorageQueueEventSubscriptionDestinationInput is an input type that accepts StorageQueueEventSubscriptionDestinationArgs and StorageQueueEventSubscriptionDestinationOutput values.
@@ -2458,15 +2233,10 @@ type StorageQueueEventSubscriptionDestinationInput interface {
 	ToStorageQueueEventSubscriptionDestinationOutputWithContext(context.Context) StorageQueueEventSubscriptionDestinationOutput
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestinationArgs struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'StorageQueue'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The name of the Storage queue under a storage account that is the destination of an event subscription.
-	QueueName pulumi.StringPtrInput `pulumi:"queueName"`
-	// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	QueueName    pulumi.StringPtrInput `pulumi:"queueName"`
+	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (StorageQueueEventSubscriptionDestinationArgs) ElementType() reflect.Type {
@@ -2481,7 +2251,6 @@ func (i StorageQueueEventSubscriptionDestinationArgs) ToStorageQueueEventSubscri
 	return pulumi.ToOutputWithContext(ctx, i).(StorageQueueEventSubscriptionDestinationOutput)
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (StorageQueueEventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -2496,31 +2265,22 @@ func (o StorageQueueEventSubscriptionDestinationOutput) ToStorageQueueEventSubsc
 	return o
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'StorageQueue'.
 func (o StorageQueueEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageQueueEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The name of the Storage queue under a storage account that is the destination of an event subscription.
 func (o StorageQueueEventSubscriptionDestinationOutput) QueueName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageQueueEventSubscriptionDestination) *string { return v.QueueName }).(pulumi.StringPtrOutput)
 }
 
-// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
 func (o StorageQueueEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageQueueEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestinationResponse struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'StorageQueue'.
-	EndpointType string `pulumi:"endpointType"`
-	// The name of the Storage queue under a storage account that is the destination of an event subscription.
-	QueueName *string `pulumi:"queueName"`
-	// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType string  `pulumi:"endpointType"`
+	QueueName    *string `pulumi:"queueName"`
+	ResourceId   *string `pulumi:"resourceId"`
 }
 
 // StorageQueueEventSubscriptionDestinationResponseInput is an input type that accepts StorageQueueEventSubscriptionDestinationResponseArgs and StorageQueueEventSubscriptionDestinationResponseOutput values.
@@ -2534,15 +2294,10 @@ type StorageQueueEventSubscriptionDestinationResponseInput interface {
 	ToStorageQueueEventSubscriptionDestinationResponseOutputWithContext(context.Context) StorageQueueEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestinationResponseArgs struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'StorageQueue'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The name of the Storage queue under a storage account that is the destination of an event subscription.
-	QueueName pulumi.StringPtrInput `pulumi:"queueName"`
-	// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	QueueName    pulumi.StringPtrInput `pulumi:"queueName"`
+	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (StorageQueueEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
@@ -2557,7 +2312,6 @@ func (i StorageQueueEventSubscriptionDestinationResponseArgs) ToStorageQueueEven
 	return pulumi.ToOutputWithContext(ctx, i).(StorageQueueEventSubscriptionDestinationResponseOutput)
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageQueueEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -2572,29 +2326,21 @@ func (o StorageQueueEventSubscriptionDestinationResponseOutput) ToStorageQueueEv
 	return o
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'StorageQueue'.
 func (o StorageQueueEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageQueueEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The name of the Storage queue under a storage account that is the destination of an event subscription.
 func (o StorageQueueEventSubscriptionDestinationResponseOutput) QueueName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageQueueEventSubscriptionDestinationResponse) *string { return v.QueueName }).(pulumi.StringPtrOutput)
 }
 
-// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
 func (o StorageQueueEventSubscriptionDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageQueueEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Information about the webhook destination for an event subscription
 type WebHookEventSubscriptionDestination struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'WebHook'.
-	EndpointType string `pulumi:"endpointType"`
-	// The URL that represents the endpoint of the destination of an event subscription.
-	EndpointUrl *string `pulumi:"endpointUrl"`
+	EndpointType string  `pulumi:"endpointType"`
+	EndpointUrl  *string `pulumi:"endpointUrl"`
 }
 
 // WebHookEventSubscriptionDestinationInput is an input type that accepts WebHookEventSubscriptionDestinationArgs and WebHookEventSubscriptionDestinationOutput values.
@@ -2608,13 +2354,9 @@ type WebHookEventSubscriptionDestinationInput interface {
 	ToWebHookEventSubscriptionDestinationOutputWithContext(context.Context) WebHookEventSubscriptionDestinationOutput
 }
 
-// Information about the webhook destination for an event subscription
 type WebHookEventSubscriptionDestinationArgs struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'WebHook'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The URL that represents the endpoint of the destination of an event subscription.
-	EndpointUrl pulumi.StringPtrInput `pulumi:"endpointUrl"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	EndpointUrl  pulumi.StringPtrInput `pulumi:"endpointUrl"`
 }
 
 func (WebHookEventSubscriptionDestinationArgs) ElementType() reflect.Type {
@@ -2629,7 +2371,6 @@ func (i WebHookEventSubscriptionDestinationArgs) ToWebHookEventSubscriptionDesti
 	return pulumi.ToOutputWithContext(ctx, i).(WebHookEventSubscriptionDestinationOutput)
 }
 
-// Information about the webhook destination for an event subscription
 type WebHookEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (WebHookEventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -2644,26 +2385,18 @@ func (o WebHookEventSubscriptionDestinationOutput) ToWebHookEventSubscriptionDes
 	return o
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'WebHook'.
 func (o WebHookEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebHookEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The URL that represents the endpoint of the destination of an event subscription.
 func (o WebHookEventSubscriptionDestinationOutput) EndpointUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebHookEventSubscriptionDestination) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
 }
 
-// Information about the webhook destination for an event subscription
 type WebHookEventSubscriptionDestinationResponse struct {
-	// The base URL that represents the endpoint of the destination of an event subscription.
-	EndpointBaseUrl string `pulumi:"endpointBaseUrl"`
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'WebHook'.
-	EndpointType string `pulumi:"endpointType"`
-	// The URL that represents the endpoint of the destination of an event subscription.
-	EndpointUrl *string `pulumi:"endpointUrl"`
+	EndpointBaseUrl string  `pulumi:"endpointBaseUrl"`
+	EndpointType    string  `pulumi:"endpointType"`
+	EndpointUrl     *string `pulumi:"endpointUrl"`
 }
 
 // WebHookEventSubscriptionDestinationResponseInput is an input type that accepts WebHookEventSubscriptionDestinationResponseArgs and WebHookEventSubscriptionDestinationResponseOutput values.
@@ -2677,15 +2410,10 @@ type WebHookEventSubscriptionDestinationResponseInput interface {
 	ToWebHookEventSubscriptionDestinationResponseOutputWithContext(context.Context) WebHookEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the webhook destination for an event subscription
 type WebHookEventSubscriptionDestinationResponseArgs struct {
-	// The base URL that represents the endpoint of the destination of an event subscription.
-	EndpointBaseUrl pulumi.StringInput `pulumi:"endpointBaseUrl"`
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'WebHook'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The URL that represents the endpoint of the destination of an event subscription.
-	EndpointUrl pulumi.StringPtrInput `pulumi:"endpointUrl"`
+	EndpointBaseUrl pulumi.StringInput    `pulumi:"endpointBaseUrl"`
+	EndpointType    pulumi.StringInput    `pulumi:"endpointType"`
+	EndpointUrl     pulumi.StringPtrInput `pulumi:"endpointUrl"`
 }
 
 func (WebHookEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
@@ -2700,7 +2428,6 @@ func (i WebHookEventSubscriptionDestinationResponseArgs) ToWebHookEventSubscript
 	return pulumi.ToOutputWithContext(ctx, i).(WebHookEventSubscriptionDestinationResponseOutput)
 }
 
-// Information about the webhook destination for an event subscription
 type WebHookEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (WebHookEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -2715,18 +2442,14 @@ func (o WebHookEventSubscriptionDestinationResponseOutput) ToWebHookEventSubscri
 	return o
 }
 
-// The base URL that represents the endpoint of the destination of an event subscription.
 func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointBaseUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v WebHookEventSubscriptionDestinationResponse) string { return v.EndpointBaseUrl }).(pulumi.StringOutput)
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'WebHook'.
 func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebHookEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The URL that represents the endpoint of the destination of an event subscription.
 func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebHookEventSubscriptionDestinationResponse) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
 }

@@ -14,19 +14,13 @@ import (
 type JitNetworkAccessPolicy struct {
 	pulumi.CustomResourceState
 
-	// Kind of the resource
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Location where the resource is stored
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets the provisioning state of the Just-in-Time policy.
-	ProvisioningState pulumi.StringOutput                        `pulumi:"provisioningState"`
-	Requests          JitNetworkAccessRequestResponseArrayOutput `pulumi:"requests"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Configurations for Microsoft.Compute/virtualMachines resource type.
-	VirtualMachines JitNetworkAccessPolicyVirtualMachineResponseArrayOutput `pulumi:"virtualMachines"`
+	Kind              pulumi.StringPtrOutput                                  `pulumi:"kind"`
+	Location          pulumi.StringOutput                                     `pulumi:"location"`
+	Name              pulumi.StringOutput                                     `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                                     `pulumi:"provisioningState"`
+	Requests          JitNetworkAccessRequestResponseArrayOutput              `pulumi:"requests"`
+	Type              pulumi.StringOutput                                     `pulumi:"type"`
+	VirtualMachines   JitNetworkAccessPolicyVirtualMachineResponseArrayOutput `pulumi:"virtualMachines"`
 }
 
 // NewJitNetworkAccessPolicy registers a new resource with the given unique name, arguments, and options.
@@ -95,32 +89,22 @@ func (JitNetworkAccessPolicyState) ElementType() reflect.Type {
 }
 
 type jitNetworkAccessPolicyArgs struct {
-	// The location where ASC stores the data of the subscription. can be retrieved from Get locations
-	AscLocation string `pulumi:"ascLocation"`
-	// Name of a Just-in-Time access configuration policy.
-	JitNetworkAccessPolicyName *string `pulumi:"jitNetworkAccessPolicyName"`
-	// Kind of the resource
-	Kind     *string                   `pulumi:"kind"`
-	Requests []JitNetworkAccessRequest `pulumi:"requests"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Configurations for Microsoft.Compute/virtualMachines resource type.
-	VirtualMachines []JitNetworkAccessPolicyVirtualMachine `pulumi:"virtualMachines"`
+	AscLocation                string                                 `pulumi:"ascLocation"`
+	JitNetworkAccessPolicyName *string                                `pulumi:"jitNetworkAccessPolicyName"`
+	Kind                       *string                                `pulumi:"kind"`
+	Requests                   []JitNetworkAccessRequest              `pulumi:"requests"`
+	ResourceGroupName          string                                 `pulumi:"resourceGroupName"`
+	VirtualMachines            []JitNetworkAccessPolicyVirtualMachine `pulumi:"virtualMachines"`
 }
 
 // The set of arguments for constructing a JitNetworkAccessPolicy resource.
 type JitNetworkAccessPolicyArgs struct {
-	// The location where ASC stores the data of the subscription. can be retrieved from Get locations
-	AscLocation pulumi.StringInput
-	// Name of a Just-in-Time access configuration policy.
+	AscLocation                pulumi.StringInput
 	JitNetworkAccessPolicyName pulumi.StringPtrInput
-	// Kind of the resource
-	Kind     pulumi.StringPtrInput
-	Requests JitNetworkAccessRequestArrayInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Configurations for Microsoft.Compute/virtualMachines resource type.
-	VirtualMachines JitNetworkAccessPolicyVirtualMachineArrayInput
+	Kind                       pulumi.StringPtrInput
+	Requests                   JitNetworkAccessRequestArrayInput
+	ResourceGroupName          pulumi.StringInput
+	VirtualMachines            JitNetworkAccessPolicyVirtualMachineArrayInput
 }
 
 func (JitNetworkAccessPolicyArgs) ElementType() reflect.Type {
@@ -146,9 +130,7 @@ func (i *JitNetworkAccessPolicy) ToJitNetworkAccessPolicyOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessPolicyOutput)
 }
 
-type JitNetworkAccessPolicyOutput struct {
-	*pulumi.OutputState
-}
+type JitNetworkAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (JitNetworkAccessPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JitNetworkAccessPolicy)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Workspace authorization keys for a workspace.
 func ListWorkspaceKeys(ctx *pulumi.Context, args *ListWorkspaceKeysArgs, opts ...pulumi.InvokeOption) (*ListWorkspaceKeysResult, error) {
 	var rv ListWorkspaceKeysResult
 	err := ctx.Invoke("azure-native:machinelearning/v20191001:listWorkspaceKeys", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListWorkspaceKeys(ctx *pulumi.Context, args *ListWorkspaceKeysArgs, opts ..
 }
 
 type ListWorkspaceKeysArgs struct {
-	// The name of the resource group to which the machine learning workspace belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the machine learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Workspace authorization keys for a workspace.
 type ListWorkspaceKeysResult struct {
-	// Primary authorization key for this workspace.
-	PrimaryToken *string `pulumi:"primaryToken"`
-	// Secondary authorization key for this workspace.
+	PrimaryToken   *string `pulumi:"primaryToken"`
 	SecondaryToken *string `pulumi:"secondaryToken"`
 }

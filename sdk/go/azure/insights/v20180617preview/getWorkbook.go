@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Application Insights workbook definition.
 func LookupWorkbook(ctx *pulumi.Context, args *LookupWorkbookArgs, opts ...pulumi.InvokeOption) (*LookupWorkbookResult, error) {
 	var rv LookupWorkbookResult
 	err := ctx.Invoke("azure-native:insights/v20180617preview:getWorkbook", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupWorkbook(ctx *pulumi.Context, args *LookupWorkbookArgs, opts ...pulum
 }
 
 type LookupWorkbookArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Application Insights component resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // An Application Insights workbook definition.
 type LookupWorkbookResult struct {
-	// Workbook category, as defined by the user at creation time.
-	Category string `pulumi:"category"`
-	// The user-defined name (display name) of the workbook.
-	DisplayName string `pulumi:"displayName"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The kind of workbook. Choices are user and shared.
-	Kind *string `pulumi:"kind"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name. This is GUID value. The display name should be assigned within properties field.
-	Name string `pulumi:"name"`
-	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
-	SerializedData string `pulumi:"serializedData"`
-	// ResourceId for a source resource.
-	SourceId *string `pulumi:"sourceId"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Date and time in UTC of the last modification that was made to this workbook definition.
-	TimeModified string `pulumi:"timeModified"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-	// Unique user id of the specific user that owns this workbook.
-	UserId string `pulumi:"userId"`
-	// Workbook version
-	Version *string `pulumi:"version"`
+	Category       string            `pulumi:"category"`
+	DisplayName    string            `pulumi:"displayName"`
+	Id             string            `pulumi:"id"`
+	Kind           *string           `pulumi:"kind"`
+	Location       string            `pulumi:"location"`
+	Name           string            `pulumi:"name"`
+	SerializedData string            `pulumi:"serializedData"`
+	SourceId       *string           `pulumi:"sourceId"`
+	Tags           map[string]string `pulumi:"tags"`
+	TimeModified   string            `pulumi:"timeModified"`
+	Type           string            `pulumi:"type"`
+	UserId         string            `pulumi:"userId"`
+	Version        *string           `pulumi:"version"`
 }

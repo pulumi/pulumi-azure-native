@@ -10,18 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The common properties of the export.
 type CommonExportPropertiesResponse struct {
-	// Has the definition for the export.
-	Definition ExportDefinitionResponse `pulumi:"definition"`
-	// Has delivery information for the export.
-	DeliveryInfo ExportDeliveryInfoResponse `pulumi:"deliveryInfo"`
-	// The format of the export being delivered. Currently only 'Csv' is supported.
-	Format *string `pulumi:"format"`
-	// If the export has an active schedule, provides an estimate of the next execution time.
-	NextRunTimeEstimate string `pulumi:"nextRunTimeEstimate"`
-	// If requested, has the most recent execution history for the export.
-	RunHistory *ExportExecutionListResultResponse `pulumi:"runHistory"`
+	Definition          ExportDefinitionResponse           `pulumi:"definition"`
+	DeliveryInfo        ExportDeliveryInfoResponse         `pulumi:"deliveryInfo"`
+	Format              *string                            `pulumi:"format"`
+	NextRunTimeEstimate string                             `pulumi:"nextRunTimeEstimate"`
+	RunHistory          *ExportExecutionListResultResponse `pulumi:"runHistory"`
 }
 
 // CommonExportPropertiesResponseInput is an input type that accepts CommonExportPropertiesResponseArgs and CommonExportPropertiesResponseOutput values.
@@ -35,18 +29,12 @@ type CommonExportPropertiesResponseInput interface {
 	ToCommonExportPropertiesResponseOutputWithContext(context.Context) CommonExportPropertiesResponseOutput
 }
 
-// The common properties of the export.
 type CommonExportPropertiesResponseArgs struct {
-	// Has the definition for the export.
-	Definition ExportDefinitionResponseInput `pulumi:"definition"`
-	// Has delivery information for the export.
-	DeliveryInfo ExportDeliveryInfoResponseInput `pulumi:"deliveryInfo"`
-	// The format of the export being delivered. Currently only 'Csv' is supported.
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	// If the export has an active schedule, provides an estimate of the next execution time.
-	NextRunTimeEstimate pulumi.StringInput `pulumi:"nextRunTimeEstimate"`
-	// If requested, has the most recent execution history for the export.
-	RunHistory ExportExecutionListResultResponsePtrInput `pulumi:"runHistory"`
+	Definition          ExportDefinitionResponseInput             `pulumi:"definition"`
+	DeliveryInfo        ExportDeliveryInfoResponseInput           `pulumi:"deliveryInfo"`
+	Format              pulumi.StringPtrInput                     `pulumi:"format"`
+	NextRunTimeEstimate pulumi.StringInput                        `pulumi:"nextRunTimeEstimate"`
+	RunHistory          ExportExecutionListResultResponsePtrInput `pulumi:"runHistory"`
 }
 
 func (CommonExportPropertiesResponseArgs) ElementType() reflect.Type {
@@ -102,7 +90,6 @@ func (i *commonExportPropertiesResponsePtrType) ToCommonExportPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(CommonExportPropertiesResponsePtrOutput)
 }
 
-// The common properties of the export.
 type CommonExportPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CommonExportPropertiesResponseOutput) ElementType() reflect.Type {
@@ -122,32 +109,27 @@ func (o CommonExportPropertiesResponseOutput) ToCommonExportPropertiesResponsePt
 }
 
 func (o CommonExportPropertiesResponseOutput) ToCommonExportPropertiesResponsePtrOutputWithContext(ctx context.Context) CommonExportPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CommonExportPropertiesResponse) *CommonExportPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommonExportPropertiesResponse) *CommonExportPropertiesResponse {
 		return &v
 	}).(CommonExportPropertiesResponsePtrOutput)
 }
 
-// Has the definition for the export.
 func (o CommonExportPropertiesResponseOutput) Definition() ExportDefinitionResponseOutput {
 	return o.ApplyT(func(v CommonExportPropertiesResponse) ExportDefinitionResponse { return v.Definition }).(ExportDefinitionResponseOutput)
 }
 
-// Has delivery information for the export.
 func (o CommonExportPropertiesResponseOutput) DeliveryInfo() ExportDeliveryInfoResponseOutput {
 	return o.ApplyT(func(v CommonExportPropertiesResponse) ExportDeliveryInfoResponse { return v.DeliveryInfo }).(ExportDeliveryInfoResponseOutput)
 }
 
-// The format of the export being delivered. Currently only 'Csv' is supported.
 func (o CommonExportPropertiesResponseOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CommonExportPropertiesResponse) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// If the export has an active schedule, provides an estimate of the next execution time.
 func (o CommonExportPropertiesResponseOutput) NextRunTimeEstimate() pulumi.StringOutput {
 	return o.ApplyT(func(v CommonExportPropertiesResponse) string { return v.NextRunTimeEstimate }).(pulumi.StringOutput)
 }
 
-// If requested, has the most recent execution history for the export.
 func (o CommonExportPropertiesResponseOutput) RunHistory() ExportExecutionListResultResponsePtrOutput {
 	return o.ApplyT(func(v CommonExportPropertiesResponse) *ExportExecutionListResultResponse { return v.RunHistory }).(ExportExecutionListResultResponsePtrOutput)
 }
@@ -167,10 +149,15 @@ func (o CommonExportPropertiesResponsePtrOutput) ToCommonExportPropertiesRespons
 }
 
 func (o CommonExportPropertiesResponsePtrOutput) Elem() CommonExportPropertiesResponseOutput {
-	return o.ApplyT(func(v *CommonExportPropertiesResponse) CommonExportPropertiesResponse { return *v }).(CommonExportPropertiesResponseOutput)
+	return o.ApplyT(func(v *CommonExportPropertiesResponse) CommonExportPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CommonExportPropertiesResponse
+		return ret
+	}).(CommonExportPropertiesResponseOutput)
 }
 
-// Has the definition for the export.
 func (o CommonExportPropertiesResponsePtrOutput) Definition() ExportDefinitionResponsePtrOutput {
 	return o.ApplyT(func(v *CommonExportPropertiesResponse) *ExportDefinitionResponse {
 		if v == nil {
@@ -180,7 +167,6 @@ func (o CommonExportPropertiesResponsePtrOutput) Definition() ExportDefinitionRe
 	}).(ExportDefinitionResponsePtrOutput)
 }
 
-// Has delivery information for the export.
 func (o CommonExportPropertiesResponsePtrOutput) DeliveryInfo() ExportDeliveryInfoResponsePtrOutput {
 	return o.ApplyT(func(v *CommonExportPropertiesResponse) *ExportDeliveryInfoResponse {
 		if v == nil {
@@ -190,7 +176,6 @@ func (o CommonExportPropertiesResponsePtrOutput) DeliveryInfo() ExportDeliveryIn
 	}).(ExportDeliveryInfoResponsePtrOutput)
 }
 
-// The format of the export being delivered. Currently only 'Csv' is supported.
 func (o CommonExportPropertiesResponsePtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CommonExportPropertiesResponse) *string {
 		if v == nil {
@@ -200,7 +185,6 @@ func (o CommonExportPropertiesResponsePtrOutput) Format() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// If the export has an active schedule, provides an estimate of the next execution time.
 func (o CommonExportPropertiesResponsePtrOutput) NextRunTimeEstimate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CommonExportPropertiesResponse) *string {
 		if v == nil {
@@ -210,7 +194,6 @@ func (o CommonExportPropertiesResponsePtrOutput) NextRunTimeEstimate() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// If requested, has the most recent execution history for the export.
 func (o CommonExportPropertiesResponsePtrOutput) RunHistory() ExportExecutionListResultResponsePtrOutput {
 	return o.ApplyT(func(v *CommonExportPropertiesResponse) *ExportExecutionListResultResponse {
 		if v == nil {
@@ -220,11 +203,8 @@ func (o CommonExportPropertiesResponsePtrOutput) RunHistory() ExportExecutionLis
 	}).(ExportExecutionListResultResponsePtrOutput)
 }
 
-// The details of the error.
 type ErrorDetailsResponse struct {
-	// Error code.
-	Code string `pulumi:"code"`
-	// Error message indicating why the operation failed.
+	Code    string `pulumi:"code"`
 	Message string `pulumi:"message"`
 }
 
@@ -239,11 +219,8 @@ type ErrorDetailsResponseInput interface {
 	ToErrorDetailsResponseOutputWithContext(context.Context) ErrorDetailsResponseOutput
 }
 
-// The details of the error.
 type ErrorDetailsResponseArgs struct {
-	// Error code.
-	Code pulumi.StringInput `pulumi:"code"`
-	// Error message indicating why the operation failed.
+	Code    pulumi.StringInput `pulumi:"code"`
 	Message pulumi.StringInput `pulumi:"message"`
 }
 
@@ -300,7 +277,6 @@ func (i *errorDetailsResponsePtrType) ToErrorDetailsResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailsResponsePtrOutput)
 }
 
-// The details of the error.
 type ErrorDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorDetailsResponseOutput) ElementType() reflect.Type {
@@ -320,17 +296,15 @@ func (o ErrorDetailsResponseOutput) ToErrorDetailsResponsePtrOutput() ErrorDetai
 }
 
 func (o ErrorDetailsResponseOutput) ToErrorDetailsResponsePtrOutputWithContext(ctx context.Context) ErrorDetailsResponsePtrOutput {
-	return o.ApplyT(func(v ErrorDetailsResponse) *ErrorDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorDetailsResponse) *ErrorDetailsResponse {
 		return &v
 	}).(ErrorDetailsResponsePtrOutput)
 }
 
-// Error code.
 func (o ErrorDetailsResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDetailsResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// Error message indicating why the operation failed.
 func (o ErrorDetailsResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDetailsResponse) string { return v.Message }).(pulumi.StringOutput)
 }
@@ -350,10 +324,15 @@ func (o ErrorDetailsResponsePtrOutput) ToErrorDetailsResponsePtrOutputWithContex
 }
 
 func (o ErrorDetailsResponsePtrOutput) Elem() ErrorDetailsResponseOutput {
-	return o.ApplyT(func(v *ErrorDetailsResponse) ErrorDetailsResponse { return *v }).(ErrorDetailsResponseOutput)
+	return o.ApplyT(func(v *ErrorDetailsResponse) ErrorDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ErrorDetailsResponse
+		return ret
+	}).(ErrorDetailsResponseOutput)
 }
 
-// Error code.
 func (o ErrorDetailsResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorDetailsResponse) *string {
 		if v == nil {
@@ -363,7 +342,6 @@ func (o ErrorDetailsResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Error message indicating why the operation failed.
 func (o ErrorDetailsResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorDetailsResponse) *string {
 		if v == nil {
@@ -373,12 +351,9 @@ func (o ErrorDetailsResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The definition for data in the export.
 type ExportDataset struct {
-	// The export dataset configuration.
 	Configuration *ExportDatasetConfiguration `pulumi:"configuration"`
-	// The granularity of rows in the export. Currently only 'Daily' is supported.
-	Granularity *string `pulumi:"granularity"`
+	Granularity   *string                     `pulumi:"granularity"`
 }
 
 // ExportDatasetInput is an input type that accepts ExportDatasetArgs and ExportDatasetOutput values.
@@ -392,12 +367,9 @@ type ExportDatasetInput interface {
 	ToExportDatasetOutputWithContext(context.Context) ExportDatasetOutput
 }
 
-// The definition for data in the export.
 type ExportDatasetArgs struct {
-	// The export dataset configuration.
 	Configuration ExportDatasetConfigurationPtrInput `pulumi:"configuration"`
-	// The granularity of rows in the export. Currently only 'Daily' is supported.
-	Granularity pulumi.StringPtrInput `pulumi:"granularity"`
+	Granularity   pulumi.StringPtrInput              `pulumi:"granularity"`
 }
 
 func (ExportDatasetArgs) ElementType() reflect.Type {
@@ -453,7 +425,6 @@ func (i *exportDatasetPtrType) ToExportDatasetPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDatasetPtrOutput)
 }
 
-// The definition for data in the export.
 type ExportDatasetOutput struct{ *pulumi.OutputState }
 
 func (ExportDatasetOutput) ElementType() reflect.Type {
@@ -473,17 +444,15 @@ func (o ExportDatasetOutput) ToExportDatasetPtrOutput() ExportDatasetPtrOutput {
 }
 
 func (o ExportDatasetOutput) ToExportDatasetPtrOutputWithContext(ctx context.Context) ExportDatasetPtrOutput {
-	return o.ApplyT(func(v ExportDataset) *ExportDataset {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDataset) *ExportDataset {
 		return &v
 	}).(ExportDatasetPtrOutput)
 }
 
-// The export dataset configuration.
 func (o ExportDatasetOutput) Configuration() ExportDatasetConfigurationPtrOutput {
 	return o.ApplyT(func(v ExportDataset) *ExportDatasetConfiguration { return v.Configuration }).(ExportDatasetConfigurationPtrOutput)
 }
 
-// The granularity of rows in the export. Currently only 'Daily' is supported.
 func (o ExportDatasetOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDataset) *string { return v.Granularity }).(pulumi.StringPtrOutput)
 }
@@ -503,10 +472,15 @@ func (o ExportDatasetPtrOutput) ToExportDatasetPtrOutputWithContext(ctx context.
 }
 
 func (o ExportDatasetPtrOutput) Elem() ExportDatasetOutput {
-	return o.ApplyT(func(v *ExportDataset) ExportDataset { return *v }).(ExportDatasetOutput)
+	return o.ApplyT(func(v *ExportDataset) ExportDataset {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDataset
+		return ret
+	}).(ExportDatasetOutput)
 }
 
-// The export dataset configuration.
 func (o ExportDatasetPtrOutput) Configuration() ExportDatasetConfigurationPtrOutput {
 	return o.ApplyT(func(v *ExportDataset) *ExportDatasetConfiguration {
 		if v == nil {
@@ -516,7 +490,6 @@ func (o ExportDatasetPtrOutput) Configuration() ExportDatasetConfigurationPtrOut
 	}).(ExportDatasetConfigurationPtrOutput)
 }
 
-// The granularity of rows in the export. Currently only 'Daily' is supported.
 func (o ExportDatasetPtrOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDataset) *string {
 		if v == nil {
@@ -526,9 +499,7 @@ func (o ExportDatasetPtrOutput) Granularity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
 type ExportDatasetConfiguration struct {
-	// Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 	Columns []string `pulumi:"columns"`
 }
 
@@ -543,9 +514,7 @@ type ExportDatasetConfigurationInput interface {
 	ToExportDatasetConfigurationOutputWithContext(context.Context) ExportDatasetConfigurationOutput
 }
 
-// The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
 type ExportDatasetConfigurationArgs struct {
-	// Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 	Columns pulumi.StringArrayInput `pulumi:"columns"`
 }
 
@@ -602,7 +571,6 @@ func (i *exportDatasetConfigurationPtrType) ToExportDatasetConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDatasetConfigurationPtrOutput)
 }
 
-// The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
 type ExportDatasetConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ExportDatasetConfigurationOutput) ElementType() reflect.Type {
@@ -622,12 +590,11 @@ func (o ExportDatasetConfigurationOutput) ToExportDatasetConfigurationPtrOutput(
 }
 
 func (o ExportDatasetConfigurationOutput) ToExportDatasetConfigurationPtrOutputWithContext(ctx context.Context) ExportDatasetConfigurationPtrOutput {
-	return o.ApplyT(func(v ExportDatasetConfiguration) *ExportDatasetConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDatasetConfiguration) *ExportDatasetConfiguration {
 		return &v
 	}).(ExportDatasetConfigurationPtrOutput)
 }
 
-// Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 func (o ExportDatasetConfigurationOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExportDatasetConfiguration) []string { return v.Columns }).(pulumi.StringArrayOutput)
 }
@@ -647,10 +614,15 @@ func (o ExportDatasetConfigurationPtrOutput) ToExportDatasetConfigurationPtrOutp
 }
 
 func (o ExportDatasetConfigurationPtrOutput) Elem() ExportDatasetConfigurationOutput {
-	return o.ApplyT(func(v *ExportDatasetConfiguration) ExportDatasetConfiguration { return *v }).(ExportDatasetConfigurationOutput)
+	return o.ApplyT(func(v *ExportDatasetConfiguration) ExportDatasetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDatasetConfiguration
+		return ret
+	}).(ExportDatasetConfigurationOutput)
 }
 
-// Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 func (o ExportDatasetConfigurationPtrOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExportDatasetConfiguration) []string {
 		if v == nil {
@@ -660,9 +632,7 @@ func (o ExportDatasetConfigurationPtrOutput) Columns() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
 type ExportDatasetConfigurationResponse struct {
-	// Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 	Columns []string `pulumi:"columns"`
 }
 
@@ -677,9 +647,7 @@ type ExportDatasetConfigurationResponseInput interface {
 	ToExportDatasetConfigurationResponseOutputWithContext(context.Context) ExportDatasetConfigurationResponseOutput
 }
 
-// The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
 type ExportDatasetConfigurationResponseArgs struct {
-	// Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 	Columns pulumi.StringArrayInput `pulumi:"columns"`
 }
 
@@ -736,7 +704,6 @@ func (i *exportDatasetConfigurationResponsePtrType) ToExportDatasetConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDatasetConfigurationResponsePtrOutput)
 }
 
-// The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
 type ExportDatasetConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportDatasetConfigurationResponseOutput) ElementType() reflect.Type {
@@ -756,12 +723,11 @@ func (o ExportDatasetConfigurationResponseOutput) ToExportDatasetConfigurationRe
 }
 
 func (o ExportDatasetConfigurationResponseOutput) ToExportDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) ExportDatasetConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ExportDatasetConfigurationResponse) *ExportDatasetConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDatasetConfigurationResponse) *ExportDatasetConfigurationResponse {
 		return &v
 	}).(ExportDatasetConfigurationResponsePtrOutput)
 }
 
-// Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 func (o ExportDatasetConfigurationResponseOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExportDatasetConfigurationResponse) []string { return v.Columns }).(pulumi.StringArrayOutput)
 }
@@ -781,10 +747,15 @@ func (o ExportDatasetConfigurationResponsePtrOutput) ToExportDatasetConfiguratio
 }
 
 func (o ExportDatasetConfigurationResponsePtrOutput) Elem() ExportDatasetConfigurationResponseOutput {
-	return o.ApplyT(func(v *ExportDatasetConfigurationResponse) ExportDatasetConfigurationResponse { return *v }).(ExportDatasetConfigurationResponseOutput)
+	return o.ApplyT(func(v *ExportDatasetConfigurationResponse) ExportDatasetConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDatasetConfigurationResponse
+		return ret
+	}).(ExportDatasetConfigurationResponseOutput)
 }
 
-// Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 func (o ExportDatasetConfigurationResponsePtrOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExportDatasetConfigurationResponse) []string {
 		if v == nil {
@@ -794,12 +765,9 @@ func (o ExportDatasetConfigurationResponsePtrOutput) Columns() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// The definition for data in the export.
 type ExportDatasetResponse struct {
-	// The export dataset configuration.
 	Configuration *ExportDatasetConfigurationResponse `pulumi:"configuration"`
-	// The granularity of rows in the export. Currently only 'Daily' is supported.
-	Granularity *string `pulumi:"granularity"`
+	Granularity   *string                             `pulumi:"granularity"`
 }
 
 // ExportDatasetResponseInput is an input type that accepts ExportDatasetResponseArgs and ExportDatasetResponseOutput values.
@@ -813,12 +781,9 @@ type ExportDatasetResponseInput interface {
 	ToExportDatasetResponseOutputWithContext(context.Context) ExportDatasetResponseOutput
 }
 
-// The definition for data in the export.
 type ExportDatasetResponseArgs struct {
-	// The export dataset configuration.
 	Configuration ExportDatasetConfigurationResponsePtrInput `pulumi:"configuration"`
-	// The granularity of rows in the export. Currently only 'Daily' is supported.
-	Granularity pulumi.StringPtrInput `pulumi:"granularity"`
+	Granularity   pulumi.StringPtrInput                      `pulumi:"granularity"`
 }
 
 func (ExportDatasetResponseArgs) ElementType() reflect.Type {
@@ -874,7 +839,6 @@ func (i *exportDatasetResponsePtrType) ToExportDatasetResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDatasetResponsePtrOutput)
 }
 
-// The definition for data in the export.
 type ExportDatasetResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportDatasetResponseOutput) ElementType() reflect.Type {
@@ -894,17 +858,15 @@ func (o ExportDatasetResponseOutput) ToExportDatasetResponsePtrOutput() ExportDa
 }
 
 func (o ExportDatasetResponseOutput) ToExportDatasetResponsePtrOutputWithContext(ctx context.Context) ExportDatasetResponsePtrOutput {
-	return o.ApplyT(func(v ExportDatasetResponse) *ExportDatasetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDatasetResponse) *ExportDatasetResponse {
 		return &v
 	}).(ExportDatasetResponsePtrOutput)
 }
 
-// The export dataset configuration.
 func (o ExportDatasetResponseOutput) Configuration() ExportDatasetConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v ExportDatasetResponse) *ExportDatasetConfigurationResponse { return v.Configuration }).(ExportDatasetConfigurationResponsePtrOutput)
 }
 
-// The granularity of rows in the export. Currently only 'Daily' is supported.
 func (o ExportDatasetResponseOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDatasetResponse) *string { return v.Granularity }).(pulumi.StringPtrOutput)
 }
@@ -924,10 +886,15 @@ func (o ExportDatasetResponsePtrOutput) ToExportDatasetResponsePtrOutputWithCont
 }
 
 func (o ExportDatasetResponsePtrOutput) Elem() ExportDatasetResponseOutput {
-	return o.ApplyT(func(v *ExportDatasetResponse) ExportDatasetResponse { return *v }).(ExportDatasetResponseOutput)
+	return o.ApplyT(func(v *ExportDatasetResponse) ExportDatasetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDatasetResponse
+		return ret
+	}).(ExportDatasetResponseOutput)
 }
 
-// The export dataset configuration.
 func (o ExportDatasetResponsePtrOutput) Configuration() ExportDatasetConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *ExportDatasetResponse) *ExportDatasetConfigurationResponse {
 		if v == nil {
@@ -937,7 +904,6 @@ func (o ExportDatasetResponsePtrOutput) Configuration() ExportDatasetConfigurati
 	}).(ExportDatasetConfigurationResponsePtrOutput)
 }
 
-// The granularity of rows in the export. Currently only 'Daily' is supported.
 func (o ExportDatasetResponsePtrOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDatasetResponse) *string {
 		if v == nil {
@@ -947,16 +913,11 @@ func (o ExportDatasetResponsePtrOutput) Granularity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The definition of an export.
 type ExportDefinition struct {
-	// The definition for data in the export.
-	DataSet *ExportDataset `pulumi:"dataSet"`
-	// Has time period for pulling data for the export.
+	DataSet    *ExportDataset    `pulumi:"dataSet"`
 	TimePeriod *ExportTimePeriod `pulumi:"timePeriod"`
-	// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
-	Timeframe string `pulumi:"timeframe"`
-	// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
-	Type string `pulumi:"type"`
+	Timeframe  string            `pulumi:"timeframe"`
+	Type       string            `pulumi:"type"`
 }
 
 // ExportDefinitionInput is an input type that accepts ExportDefinitionArgs and ExportDefinitionOutput values.
@@ -970,16 +931,11 @@ type ExportDefinitionInput interface {
 	ToExportDefinitionOutputWithContext(context.Context) ExportDefinitionOutput
 }
 
-// The definition of an export.
 type ExportDefinitionArgs struct {
-	// The definition for data in the export.
-	DataSet ExportDatasetPtrInput `pulumi:"dataSet"`
-	// Has time period for pulling data for the export.
+	DataSet    ExportDatasetPtrInput    `pulumi:"dataSet"`
 	TimePeriod ExportTimePeriodPtrInput `pulumi:"timePeriod"`
-	// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
-	Timeframe pulumi.StringInput `pulumi:"timeframe"`
-	// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
-	Type pulumi.StringInput `pulumi:"type"`
+	Timeframe  pulumi.StringInput       `pulumi:"timeframe"`
+	Type       pulumi.StringInput       `pulumi:"type"`
 }
 
 func (ExportDefinitionArgs) ElementType() reflect.Type {
@@ -1035,7 +991,6 @@ func (i *exportDefinitionPtrType) ToExportDefinitionPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDefinitionPtrOutput)
 }
 
-// The definition of an export.
 type ExportDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ExportDefinitionOutput) ElementType() reflect.Type {
@@ -1055,27 +1010,23 @@ func (o ExportDefinitionOutput) ToExportDefinitionPtrOutput() ExportDefinitionPt
 }
 
 func (o ExportDefinitionOutput) ToExportDefinitionPtrOutputWithContext(ctx context.Context) ExportDefinitionPtrOutput {
-	return o.ApplyT(func(v ExportDefinition) *ExportDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDefinition) *ExportDefinition {
 		return &v
 	}).(ExportDefinitionPtrOutput)
 }
 
-// The definition for data in the export.
 func (o ExportDefinitionOutput) DataSet() ExportDatasetPtrOutput {
 	return o.ApplyT(func(v ExportDefinition) *ExportDataset { return v.DataSet }).(ExportDatasetPtrOutput)
 }
 
-// Has time period for pulling data for the export.
 func (o ExportDefinitionOutput) TimePeriod() ExportTimePeriodPtrOutput {
 	return o.ApplyT(func(v ExportDefinition) *ExportTimePeriod { return v.TimePeriod }).(ExportTimePeriodPtrOutput)
 }
 
-// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
 func (o ExportDefinitionOutput) Timeframe() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDefinition) string { return v.Timeframe }).(pulumi.StringOutput)
 }
 
-// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
 func (o ExportDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDefinition) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1095,10 +1046,15 @@ func (o ExportDefinitionPtrOutput) ToExportDefinitionPtrOutputWithContext(ctx co
 }
 
 func (o ExportDefinitionPtrOutput) Elem() ExportDefinitionOutput {
-	return o.ApplyT(func(v *ExportDefinition) ExportDefinition { return *v }).(ExportDefinitionOutput)
+	return o.ApplyT(func(v *ExportDefinition) ExportDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDefinition
+		return ret
+	}).(ExportDefinitionOutput)
 }
 
-// The definition for data in the export.
 func (o ExportDefinitionPtrOutput) DataSet() ExportDatasetPtrOutput {
 	return o.ApplyT(func(v *ExportDefinition) *ExportDataset {
 		if v == nil {
@@ -1108,7 +1064,6 @@ func (o ExportDefinitionPtrOutput) DataSet() ExportDatasetPtrOutput {
 	}).(ExportDatasetPtrOutput)
 }
 
-// Has time period for pulling data for the export.
 func (o ExportDefinitionPtrOutput) TimePeriod() ExportTimePeriodPtrOutput {
 	return o.ApplyT(func(v *ExportDefinition) *ExportTimePeriod {
 		if v == nil {
@@ -1118,7 +1073,6 @@ func (o ExportDefinitionPtrOutput) TimePeriod() ExportTimePeriodPtrOutput {
 	}).(ExportTimePeriodPtrOutput)
 }
 
-// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
 func (o ExportDefinitionPtrOutput) Timeframe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDefinition) *string {
 		if v == nil {
@@ -1128,7 +1082,6 @@ func (o ExportDefinitionPtrOutput) Timeframe() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
 func (o ExportDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDefinition) *string {
 		if v == nil {
@@ -1138,16 +1091,11 @@ func (o ExportDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The definition of an export.
 type ExportDefinitionResponse struct {
-	// The definition for data in the export.
-	DataSet *ExportDatasetResponse `pulumi:"dataSet"`
-	// Has time period for pulling data for the export.
+	DataSet    *ExportDatasetResponse    `pulumi:"dataSet"`
 	TimePeriod *ExportTimePeriodResponse `pulumi:"timePeriod"`
-	// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
-	Timeframe string `pulumi:"timeframe"`
-	// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
-	Type string `pulumi:"type"`
+	Timeframe  string                    `pulumi:"timeframe"`
+	Type       string                    `pulumi:"type"`
 }
 
 // ExportDefinitionResponseInput is an input type that accepts ExportDefinitionResponseArgs and ExportDefinitionResponseOutput values.
@@ -1161,16 +1109,11 @@ type ExportDefinitionResponseInput interface {
 	ToExportDefinitionResponseOutputWithContext(context.Context) ExportDefinitionResponseOutput
 }
 
-// The definition of an export.
 type ExportDefinitionResponseArgs struct {
-	// The definition for data in the export.
-	DataSet ExportDatasetResponsePtrInput `pulumi:"dataSet"`
-	// Has time period for pulling data for the export.
+	DataSet    ExportDatasetResponsePtrInput    `pulumi:"dataSet"`
 	TimePeriod ExportTimePeriodResponsePtrInput `pulumi:"timePeriod"`
-	// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
-	Timeframe pulumi.StringInput `pulumi:"timeframe"`
-	// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
-	Type pulumi.StringInput `pulumi:"type"`
+	Timeframe  pulumi.StringInput               `pulumi:"timeframe"`
+	Type       pulumi.StringInput               `pulumi:"type"`
 }
 
 func (ExportDefinitionResponseArgs) ElementType() reflect.Type {
@@ -1226,7 +1169,6 @@ func (i *exportDefinitionResponsePtrType) ToExportDefinitionResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDefinitionResponsePtrOutput)
 }
 
-// The definition of an export.
 type ExportDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportDefinitionResponseOutput) ElementType() reflect.Type {
@@ -1246,27 +1188,23 @@ func (o ExportDefinitionResponseOutput) ToExportDefinitionResponsePtrOutput() Ex
 }
 
 func (o ExportDefinitionResponseOutput) ToExportDefinitionResponsePtrOutputWithContext(ctx context.Context) ExportDefinitionResponsePtrOutput {
-	return o.ApplyT(func(v ExportDefinitionResponse) *ExportDefinitionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDefinitionResponse) *ExportDefinitionResponse {
 		return &v
 	}).(ExportDefinitionResponsePtrOutput)
 }
 
-// The definition for data in the export.
 func (o ExportDefinitionResponseOutput) DataSet() ExportDatasetResponsePtrOutput {
 	return o.ApplyT(func(v ExportDefinitionResponse) *ExportDatasetResponse { return v.DataSet }).(ExportDatasetResponsePtrOutput)
 }
 
-// Has time period for pulling data for the export.
 func (o ExportDefinitionResponseOutput) TimePeriod() ExportTimePeriodResponsePtrOutput {
 	return o.ApplyT(func(v ExportDefinitionResponse) *ExportTimePeriodResponse { return v.TimePeriod }).(ExportTimePeriodResponsePtrOutput)
 }
 
-// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
 func (o ExportDefinitionResponseOutput) Timeframe() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDefinitionResponse) string { return v.Timeframe }).(pulumi.StringOutput)
 }
 
-// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
 func (o ExportDefinitionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDefinitionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1286,10 +1224,15 @@ func (o ExportDefinitionResponsePtrOutput) ToExportDefinitionResponsePtrOutputWi
 }
 
 func (o ExportDefinitionResponsePtrOutput) Elem() ExportDefinitionResponseOutput {
-	return o.ApplyT(func(v *ExportDefinitionResponse) ExportDefinitionResponse { return *v }).(ExportDefinitionResponseOutput)
+	return o.ApplyT(func(v *ExportDefinitionResponse) ExportDefinitionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDefinitionResponse
+		return ret
+	}).(ExportDefinitionResponseOutput)
 }
 
-// The definition for data in the export.
 func (o ExportDefinitionResponsePtrOutput) DataSet() ExportDatasetResponsePtrOutput {
 	return o.ApplyT(func(v *ExportDefinitionResponse) *ExportDatasetResponse {
 		if v == nil {
@@ -1299,7 +1242,6 @@ func (o ExportDefinitionResponsePtrOutput) DataSet() ExportDatasetResponsePtrOut
 	}).(ExportDatasetResponsePtrOutput)
 }
 
-// Has time period for pulling data for the export.
 func (o ExportDefinitionResponsePtrOutput) TimePeriod() ExportTimePeriodResponsePtrOutput {
 	return o.ApplyT(func(v *ExportDefinitionResponse) *ExportTimePeriodResponse {
 		if v == nil {
@@ -1309,7 +1251,6 @@ func (o ExportDefinitionResponsePtrOutput) TimePeriod() ExportTimePeriodResponse
 	}).(ExportTimePeriodResponsePtrOutput)
 }
 
-// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
 func (o ExportDefinitionResponsePtrOutput) Timeframe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDefinitionResponse) *string {
 		if v == nil {
@@ -1319,7 +1260,6 @@ func (o ExportDefinitionResponsePtrOutput) Timeframe() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
 func (o ExportDefinitionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDefinitionResponse) *string {
 		if v == nil {
@@ -1329,17 +1269,11 @@ func (o ExportDefinitionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Azure Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
 type ExportDeliveryDestination struct {
-	// The name of the container where exports will be uploaded. If the container does not exist it will be created.
-	Container string `pulumi:"container"`
-	// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
-	ResourceId *string `pulumi:"resourceId"`
-	// The name of the directory where exports will be uploaded.
+	Container      string  `pulumi:"container"`
+	ResourceId     *string `pulumi:"resourceId"`
 	RootFolderPath *string `pulumi:"rootFolderPath"`
-	// A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
-	SasToken *string `pulumi:"sasToken"`
-	// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
+	SasToken       *string `pulumi:"sasToken"`
 	StorageAccount *string `pulumi:"storageAccount"`
 }
 
@@ -1354,17 +1288,11 @@ type ExportDeliveryDestinationInput interface {
 	ToExportDeliveryDestinationOutputWithContext(context.Context) ExportDeliveryDestinationOutput
 }
 
-// This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Azure Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
 type ExportDeliveryDestinationArgs struct {
-	// The name of the container where exports will be uploaded. If the container does not exist it will be created.
-	Container pulumi.StringInput `pulumi:"container"`
-	// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-	// The name of the directory where exports will be uploaded.
+	Container      pulumi.StringInput    `pulumi:"container"`
+	ResourceId     pulumi.StringPtrInput `pulumi:"resourceId"`
 	RootFolderPath pulumi.StringPtrInput `pulumi:"rootFolderPath"`
-	// A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
-	SasToken pulumi.StringPtrInput `pulumi:"sasToken"`
-	// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
+	SasToken       pulumi.StringPtrInput `pulumi:"sasToken"`
 	StorageAccount pulumi.StringPtrInput `pulumi:"storageAccount"`
 }
 
@@ -1421,7 +1349,6 @@ func (i *exportDeliveryDestinationPtrType) ToExportDeliveryDestinationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryDestinationPtrOutput)
 }
 
-// This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Azure Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
 type ExportDeliveryDestinationOutput struct{ *pulumi.OutputState }
 
 func (ExportDeliveryDestinationOutput) ElementType() reflect.Type {
@@ -1441,32 +1368,27 @@ func (o ExportDeliveryDestinationOutput) ToExportDeliveryDestinationPtrOutput() 
 }
 
 func (o ExportDeliveryDestinationOutput) ToExportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ExportDeliveryDestinationPtrOutput {
-	return o.ApplyT(func(v ExportDeliveryDestination) *ExportDeliveryDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryDestination) *ExportDeliveryDestination {
 		return &v
 	}).(ExportDeliveryDestinationPtrOutput)
 }
 
-// The name of the container where exports will be uploaded. If the container does not exist it will be created.
 func (o ExportDeliveryDestinationOutput) Container() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDeliveryDestination) string { return v.Container }).(pulumi.StringOutput)
 }
 
-// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
 func (o ExportDeliveryDestinationOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDeliveryDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the directory where exports will be uploaded.
 func (o ExportDeliveryDestinationOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDeliveryDestination) *string { return v.RootFolderPath }).(pulumi.StringPtrOutput)
 }
 
-// A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
 func (o ExportDeliveryDestinationOutput) SasToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDeliveryDestination) *string { return v.SasToken }).(pulumi.StringPtrOutput)
 }
 
-// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
 func (o ExportDeliveryDestinationOutput) StorageAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDeliveryDestination) *string { return v.StorageAccount }).(pulumi.StringPtrOutput)
 }
@@ -1486,10 +1408,15 @@ func (o ExportDeliveryDestinationPtrOutput) ToExportDeliveryDestinationPtrOutput
 }
 
 func (o ExportDeliveryDestinationPtrOutput) Elem() ExportDeliveryDestinationOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestination) ExportDeliveryDestination { return *v }).(ExportDeliveryDestinationOutput)
+	return o.ApplyT(func(v *ExportDeliveryDestination) ExportDeliveryDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDeliveryDestination
+		return ret
+	}).(ExportDeliveryDestinationOutput)
 }
 
-// The name of the container where exports will be uploaded. If the container does not exist it will be created.
 func (o ExportDeliveryDestinationPtrOutput) Container() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
 		if v == nil {
@@ -1499,7 +1426,6 @@ func (o ExportDeliveryDestinationPtrOutput) Container() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
 func (o ExportDeliveryDestinationPtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
 		if v == nil {
@@ -1509,7 +1435,6 @@ func (o ExportDeliveryDestinationPtrOutput) ResourceId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the directory where exports will be uploaded.
 func (o ExportDeliveryDestinationPtrOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
 		if v == nil {
@@ -1519,7 +1444,6 @@ func (o ExportDeliveryDestinationPtrOutput) RootFolderPath() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
 func (o ExportDeliveryDestinationPtrOutput) SasToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
 		if v == nil {
@@ -1529,7 +1453,6 @@ func (o ExportDeliveryDestinationPtrOutput) SasToken() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
 func (o ExportDeliveryDestinationPtrOutput) StorageAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
 		if v == nil {
@@ -1539,15 +1462,10 @@ func (o ExportDeliveryDestinationPtrOutput) StorageAccount() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Azure Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
 type ExportDeliveryDestinationResponse struct {
-	// The name of the container where exports will be uploaded. If the container does not exist it will be created.
-	Container string `pulumi:"container"`
-	// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
-	ResourceId *string `pulumi:"resourceId"`
-	// The name of the directory where exports will be uploaded.
+	Container      string  `pulumi:"container"`
+	ResourceId     *string `pulumi:"resourceId"`
 	RootFolderPath *string `pulumi:"rootFolderPath"`
-	// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
 	StorageAccount *string `pulumi:"storageAccount"`
 }
 
@@ -1562,15 +1480,10 @@ type ExportDeliveryDestinationResponseInput interface {
 	ToExportDeliveryDestinationResponseOutputWithContext(context.Context) ExportDeliveryDestinationResponseOutput
 }
 
-// This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Azure Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
 type ExportDeliveryDestinationResponseArgs struct {
-	// The name of the container where exports will be uploaded. If the container does not exist it will be created.
-	Container pulumi.StringInput `pulumi:"container"`
-	// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-	// The name of the directory where exports will be uploaded.
+	Container      pulumi.StringInput    `pulumi:"container"`
+	ResourceId     pulumi.StringPtrInput `pulumi:"resourceId"`
 	RootFolderPath pulumi.StringPtrInput `pulumi:"rootFolderPath"`
-	// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
 	StorageAccount pulumi.StringPtrInput `pulumi:"storageAccount"`
 }
 
@@ -1627,7 +1540,6 @@ func (i *exportDeliveryDestinationResponsePtrType) ToExportDeliveryDestinationRe
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryDestinationResponsePtrOutput)
 }
 
-// This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Azure Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
 type ExportDeliveryDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportDeliveryDestinationResponseOutput) ElementType() reflect.Type {
@@ -1647,27 +1559,23 @@ func (o ExportDeliveryDestinationResponseOutput) ToExportDeliveryDestinationResp
 }
 
 func (o ExportDeliveryDestinationResponseOutput) ToExportDeliveryDestinationResponsePtrOutputWithContext(ctx context.Context) ExportDeliveryDestinationResponsePtrOutput {
-	return o.ApplyT(func(v ExportDeliveryDestinationResponse) *ExportDeliveryDestinationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryDestinationResponse) *ExportDeliveryDestinationResponse {
 		return &v
 	}).(ExportDeliveryDestinationResponsePtrOutput)
 }
 
-// The name of the container where exports will be uploaded. If the container does not exist it will be created.
 func (o ExportDeliveryDestinationResponseOutput) Container() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDeliveryDestinationResponse) string { return v.Container }).(pulumi.StringOutput)
 }
 
-// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
 func (o ExportDeliveryDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDeliveryDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the directory where exports will be uploaded.
 func (o ExportDeliveryDestinationResponseOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDeliveryDestinationResponse) *string { return v.RootFolderPath }).(pulumi.StringPtrOutput)
 }
 
-// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
 func (o ExportDeliveryDestinationResponseOutput) StorageAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDeliveryDestinationResponse) *string { return v.StorageAccount }).(pulumi.StringPtrOutput)
 }
@@ -1687,10 +1595,15 @@ func (o ExportDeliveryDestinationResponsePtrOutput) ToExportDeliveryDestinationR
 }
 
 func (o ExportDeliveryDestinationResponsePtrOutput) Elem() ExportDeliveryDestinationResponseOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) ExportDeliveryDestinationResponse { return *v }).(ExportDeliveryDestinationResponseOutput)
+	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) ExportDeliveryDestinationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDeliveryDestinationResponse
+		return ret
+	}).(ExportDeliveryDestinationResponseOutput)
 }
 
-// The name of the container where exports will be uploaded. If the container does not exist it will be created.
 func (o ExportDeliveryDestinationResponsePtrOutput) Container() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) *string {
 		if v == nil {
@@ -1700,7 +1613,6 @@ func (o ExportDeliveryDestinationResponsePtrOutput) Container() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
 func (o ExportDeliveryDestinationResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) *string {
 		if v == nil {
@@ -1710,7 +1622,6 @@ func (o ExportDeliveryDestinationResponsePtrOutput) ResourceId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the directory where exports will be uploaded.
 func (o ExportDeliveryDestinationResponsePtrOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) *string {
 		if v == nil {
@@ -1720,7 +1631,6 @@ func (o ExportDeliveryDestinationResponsePtrOutput) RootFolderPath() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
 func (o ExportDeliveryDestinationResponsePtrOutput) StorageAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) *string {
 		if v == nil {
@@ -1730,9 +1640,7 @@ func (o ExportDeliveryDestinationResponsePtrOutput) StorageAccount() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfo struct {
-	// Has destination for the export being delivered.
 	Destination ExportDeliveryDestination `pulumi:"destination"`
 }
 
@@ -1747,9 +1655,7 @@ type ExportDeliveryInfoInput interface {
 	ToExportDeliveryInfoOutputWithContext(context.Context) ExportDeliveryInfoOutput
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfoArgs struct {
-	// Has destination for the export being delivered.
 	Destination ExportDeliveryDestinationInput `pulumi:"destination"`
 }
 
@@ -1806,7 +1712,6 @@ func (i *exportDeliveryInfoPtrType) ToExportDeliveryInfoPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryInfoPtrOutput)
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfoOutput struct{ *pulumi.OutputState }
 
 func (ExportDeliveryInfoOutput) ElementType() reflect.Type {
@@ -1826,12 +1731,11 @@ func (o ExportDeliveryInfoOutput) ToExportDeliveryInfoPtrOutput() ExportDelivery
 }
 
 func (o ExportDeliveryInfoOutput) ToExportDeliveryInfoPtrOutputWithContext(ctx context.Context) ExportDeliveryInfoPtrOutput {
-	return o.ApplyT(func(v ExportDeliveryInfo) *ExportDeliveryInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryInfo) *ExportDeliveryInfo {
 		return &v
 	}).(ExportDeliveryInfoPtrOutput)
 }
 
-// Has destination for the export being delivered.
 func (o ExportDeliveryInfoOutput) Destination() ExportDeliveryDestinationOutput {
 	return o.ApplyT(func(v ExportDeliveryInfo) ExportDeliveryDestination { return v.Destination }).(ExportDeliveryDestinationOutput)
 }
@@ -1851,10 +1755,15 @@ func (o ExportDeliveryInfoPtrOutput) ToExportDeliveryInfoPtrOutputWithContext(ct
 }
 
 func (o ExportDeliveryInfoPtrOutput) Elem() ExportDeliveryInfoOutput {
-	return o.ApplyT(func(v *ExportDeliveryInfo) ExportDeliveryInfo { return *v }).(ExportDeliveryInfoOutput)
+	return o.ApplyT(func(v *ExportDeliveryInfo) ExportDeliveryInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDeliveryInfo
+		return ret
+	}).(ExportDeliveryInfoOutput)
 }
 
-// Has destination for the export being delivered.
 func (o ExportDeliveryInfoPtrOutput) Destination() ExportDeliveryDestinationPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryInfo) *ExportDeliveryDestination {
 		if v == nil {
@@ -1864,9 +1773,7 @@ func (o ExportDeliveryInfoPtrOutput) Destination() ExportDeliveryDestinationPtrO
 	}).(ExportDeliveryDestinationPtrOutput)
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfoResponse struct {
-	// Has destination for the export being delivered.
 	Destination ExportDeliveryDestinationResponse `pulumi:"destination"`
 }
 
@@ -1881,9 +1788,7 @@ type ExportDeliveryInfoResponseInput interface {
 	ToExportDeliveryInfoResponseOutputWithContext(context.Context) ExportDeliveryInfoResponseOutput
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfoResponseArgs struct {
-	// Has destination for the export being delivered.
 	Destination ExportDeliveryDestinationResponseInput `pulumi:"destination"`
 }
 
@@ -1940,7 +1845,6 @@ func (i *exportDeliveryInfoResponsePtrType) ToExportDeliveryInfoResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryInfoResponsePtrOutput)
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportDeliveryInfoResponseOutput) ElementType() reflect.Type {
@@ -1960,12 +1864,11 @@ func (o ExportDeliveryInfoResponseOutput) ToExportDeliveryInfoResponsePtrOutput(
 }
 
 func (o ExportDeliveryInfoResponseOutput) ToExportDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) ExportDeliveryInfoResponsePtrOutput {
-	return o.ApplyT(func(v ExportDeliveryInfoResponse) *ExportDeliveryInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryInfoResponse) *ExportDeliveryInfoResponse {
 		return &v
 	}).(ExportDeliveryInfoResponsePtrOutput)
 }
 
-// Has destination for the export being delivered.
 func (o ExportDeliveryInfoResponseOutput) Destination() ExportDeliveryDestinationResponseOutput {
 	return o.ApplyT(func(v ExportDeliveryInfoResponse) ExportDeliveryDestinationResponse { return v.Destination }).(ExportDeliveryDestinationResponseOutput)
 }
@@ -1985,10 +1888,15 @@ func (o ExportDeliveryInfoResponsePtrOutput) ToExportDeliveryInfoResponsePtrOutp
 }
 
 func (o ExportDeliveryInfoResponsePtrOutput) Elem() ExportDeliveryInfoResponseOutput {
-	return o.ApplyT(func(v *ExportDeliveryInfoResponse) ExportDeliveryInfoResponse { return *v }).(ExportDeliveryInfoResponseOutput)
+	return o.ApplyT(func(v *ExportDeliveryInfoResponse) ExportDeliveryInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDeliveryInfoResponse
+		return ret
+	}).(ExportDeliveryInfoResponseOutput)
 }
 
-// Has destination for the export being delivered.
 func (o ExportDeliveryInfoResponsePtrOutput) Destination() ExportDeliveryDestinationResponsePtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryInfoResponse) *ExportDeliveryDestinationResponse {
 		if v == nil {
@@ -1998,9 +1906,7 @@ func (o ExportDeliveryInfoResponsePtrOutput) Destination() ExportDeliveryDestina
 	}).(ExportDeliveryDestinationResponsePtrOutput)
 }
 
-// Result of listing the execution history of an export.
 type ExportExecutionListResultResponse struct {
-	// A list of export executions.
 	Value []ExportExecutionResponse `pulumi:"value"`
 }
 
@@ -2015,9 +1921,7 @@ type ExportExecutionListResultResponseInput interface {
 	ToExportExecutionListResultResponseOutputWithContext(context.Context) ExportExecutionListResultResponseOutput
 }
 
-// Result of listing the execution history of an export.
 type ExportExecutionListResultResponseArgs struct {
-	// A list of export executions.
 	Value ExportExecutionResponseArrayInput `pulumi:"value"`
 }
 
@@ -2074,7 +1978,6 @@ func (i *exportExecutionListResultResponsePtrType) ToExportExecutionListResultRe
 	return pulumi.ToOutputWithContext(ctx, i).(ExportExecutionListResultResponsePtrOutput)
 }
 
-// Result of listing the execution history of an export.
 type ExportExecutionListResultResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportExecutionListResultResponseOutput) ElementType() reflect.Type {
@@ -2094,12 +1997,11 @@ func (o ExportExecutionListResultResponseOutput) ToExportExecutionListResultResp
 }
 
 func (o ExportExecutionListResultResponseOutput) ToExportExecutionListResultResponsePtrOutputWithContext(ctx context.Context) ExportExecutionListResultResponsePtrOutput {
-	return o.ApplyT(func(v ExportExecutionListResultResponse) *ExportExecutionListResultResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportExecutionListResultResponse) *ExportExecutionListResultResponse {
 		return &v
 	}).(ExportExecutionListResultResponsePtrOutput)
 }
 
-// A list of export executions.
 func (o ExportExecutionListResultResponseOutput) Value() ExportExecutionResponseArrayOutput {
 	return o.ApplyT(func(v ExportExecutionListResultResponse) []ExportExecutionResponse { return v.Value }).(ExportExecutionResponseArrayOutput)
 }
@@ -2119,10 +2021,15 @@ func (o ExportExecutionListResultResponsePtrOutput) ToExportExecutionListResultR
 }
 
 func (o ExportExecutionListResultResponsePtrOutput) Elem() ExportExecutionListResultResponseOutput {
-	return o.ApplyT(func(v *ExportExecutionListResultResponse) ExportExecutionListResultResponse { return *v }).(ExportExecutionListResultResponseOutput)
+	return o.ApplyT(func(v *ExportExecutionListResultResponse) ExportExecutionListResultResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportExecutionListResultResponse
+		return ret
+	}).(ExportExecutionListResultResponseOutput)
 }
 
-// A list of export executions.
 func (o ExportExecutionListResultResponsePtrOutput) Value() ExportExecutionResponseArrayOutput {
 	return o.ApplyT(func(v *ExportExecutionListResultResponse) []ExportExecutionResponse {
 		if v == nil {
@@ -2132,34 +2039,20 @@ func (o ExportExecutionListResultResponsePtrOutput) Value() ExportExecutionRespo
 	}).(ExportExecutionResponseArrayOutput)
 }
 
-// An export execution.
 type ExportExecutionResponse struct {
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag *string `pulumi:"eTag"`
-	// The details of any error.
-	Error *ErrorDetailsResponse `pulumi:"error"`
-	// The type of the export execution.
-	ExecutionType *string `pulumi:"executionType"`
-	// The name of the exported file.
-	FileName *string `pulumi:"fileName"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The time when the export execution finished.
-	ProcessingEndTime *string `pulumi:"processingEndTime"`
-	// The time when export was picked up to be executed.
-	ProcessingStartTime *string `pulumi:"processingStartTime"`
-	// The export settings that were in effect for this execution.
-	RunSettings *CommonExportPropertiesResponse `pulumi:"runSettings"`
-	// The last known status of the export execution.
-	Status *string `pulumi:"status"`
-	// The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
-	SubmittedBy *string `pulumi:"submittedBy"`
-	// The time when export was queued to be executed.
-	SubmittedTime *string `pulumi:"submittedTime"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	ETag                *string                         `pulumi:"eTag"`
+	Error               *ErrorDetailsResponse           `pulumi:"error"`
+	ExecutionType       *string                         `pulumi:"executionType"`
+	FileName            *string                         `pulumi:"fileName"`
+	Id                  string                          `pulumi:"id"`
+	Name                string                          `pulumi:"name"`
+	ProcessingEndTime   *string                         `pulumi:"processingEndTime"`
+	ProcessingStartTime *string                         `pulumi:"processingStartTime"`
+	RunSettings         *CommonExportPropertiesResponse `pulumi:"runSettings"`
+	Status              *string                         `pulumi:"status"`
+	SubmittedBy         *string                         `pulumi:"submittedBy"`
+	SubmittedTime       *string                         `pulumi:"submittedTime"`
+	Type                string                          `pulumi:"type"`
 }
 
 // ExportExecutionResponseInput is an input type that accepts ExportExecutionResponseArgs and ExportExecutionResponseOutput values.
@@ -2173,34 +2066,20 @@ type ExportExecutionResponseInput interface {
 	ToExportExecutionResponseOutputWithContext(context.Context) ExportExecutionResponseOutput
 }
 
-// An export execution.
 type ExportExecutionResponseArgs struct {
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// The details of any error.
-	Error ErrorDetailsResponsePtrInput `pulumi:"error"`
-	// The type of the export execution.
-	ExecutionType pulumi.StringPtrInput `pulumi:"executionType"`
-	// The name of the exported file.
-	FileName pulumi.StringPtrInput `pulumi:"fileName"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The time when the export execution finished.
-	ProcessingEndTime pulumi.StringPtrInput `pulumi:"processingEndTime"`
-	// The time when export was picked up to be executed.
-	ProcessingStartTime pulumi.StringPtrInput `pulumi:"processingStartTime"`
-	// The export settings that were in effect for this execution.
-	RunSettings CommonExportPropertiesResponsePtrInput `pulumi:"runSettings"`
-	// The last known status of the export execution.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
-	SubmittedBy pulumi.StringPtrInput `pulumi:"submittedBy"`
-	// The time when export was queued to be executed.
-	SubmittedTime pulumi.StringPtrInput `pulumi:"submittedTime"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	ETag                pulumi.StringPtrInput                  `pulumi:"eTag"`
+	Error               ErrorDetailsResponsePtrInput           `pulumi:"error"`
+	ExecutionType       pulumi.StringPtrInput                  `pulumi:"executionType"`
+	FileName            pulumi.StringPtrInput                  `pulumi:"fileName"`
+	Id                  pulumi.StringInput                     `pulumi:"id"`
+	Name                pulumi.StringInput                     `pulumi:"name"`
+	ProcessingEndTime   pulumi.StringPtrInput                  `pulumi:"processingEndTime"`
+	ProcessingStartTime pulumi.StringPtrInput                  `pulumi:"processingStartTime"`
+	RunSettings         CommonExportPropertiesResponsePtrInput `pulumi:"runSettings"`
+	Status              pulumi.StringPtrInput                  `pulumi:"status"`
+	SubmittedBy         pulumi.StringPtrInput                  `pulumi:"submittedBy"`
+	SubmittedTime       pulumi.StringPtrInput                  `pulumi:"submittedTime"`
+	Type                pulumi.StringInput                     `pulumi:"type"`
 }
 
 func (ExportExecutionResponseArgs) ElementType() reflect.Type {
@@ -2240,7 +2119,6 @@ func (i ExportExecutionResponseArray) ToExportExecutionResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ExportExecutionResponseArrayOutput)
 }
 
-// An export execution.
 type ExportExecutionResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportExecutionResponseOutput) ElementType() reflect.Type {
@@ -2255,67 +2133,54 @@ func (o ExportExecutionResponseOutput) ToExportExecutionResponseOutputWithContex
 	return o
 }
 
-// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 func (o ExportExecutionResponseOutput) ETag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.ETag }).(pulumi.StringPtrOutput)
 }
 
-// The details of any error.
 func (o ExportExecutionResponseOutput) Error() ErrorDetailsResponsePtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *ErrorDetailsResponse { return v.Error }).(ErrorDetailsResponsePtrOutput)
 }
 
-// The type of the export execution.
 func (o ExportExecutionResponseOutput) ExecutionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.ExecutionType }).(pulumi.StringPtrOutput)
 }
 
-// The name of the exported file.
 func (o ExportExecutionResponseOutput) FileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.FileName }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id.
 func (o ExportExecutionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
 func (o ExportExecutionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The time when the export execution finished.
 func (o ExportExecutionResponseOutput) ProcessingEndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.ProcessingEndTime }).(pulumi.StringPtrOutput)
 }
 
-// The time when export was picked up to be executed.
 func (o ExportExecutionResponseOutput) ProcessingStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.ProcessingStartTime }).(pulumi.StringPtrOutput)
 }
 
-// The export settings that were in effect for this execution.
 func (o ExportExecutionResponseOutput) RunSettings() CommonExportPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *CommonExportPropertiesResponse { return v.RunSettings }).(CommonExportPropertiesResponsePtrOutput)
 }
 
-// The last known status of the export execution.
 func (o ExportExecutionResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
 func (o ExportExecutionResponseOutput) SubmittedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.SubmittedBy }).(pulumi.StringPtrOutput)
 }
 
-// The time when export was queued to be executed.
 func (o ExportExecutionResponseOutput) SubmittedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.SubmittedTime }).(pulumi.StringPtrOutput)
 }
 
-// Resource type.
 func (o ExportExecutionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2340,12 +2205,9 @@ func (o ExportExecutionResponseArrayOutput) Index(i pulumi.IntInput) ExportExecu
 	}).(ExportExecutionResponseOutput)
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriod struct {
-	// The start date of recurrence.
-	From string `pulumi:"from"`
-	// The end date of recurrence.
-	To *string `pulumi:"to"`
+	From string  `pulumi:"from"`
+	To   *string `pulumi:"to"`
 }
 
 // ExportRecurrencePeriodInput is an input type that accepts ExportRecurrencePeriodArgs and ExportRecurrencePeriodOutput values.
@@ -2359,12 +2221,9 @@ type ExportRecurrencePeriodInput interface {
 	ToExportRecurrencePeriodOutputWithContext(context.Context) ExportRecurrencePeriodOutput
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriodArgs struct {
-	// The start date of recurrence.
-	From pulumi.StringInput `pulumi:"from"`
-	// The end date of recurrence.
-	To pulumi.StringPtrInput `pulumi:"to"`
+	From pulumi.StringInput    `pulumi:"from"`
+	To   pulumi.StringPtrInput `pulumi:"to"`
 }
 
 func (ExportRecurrencePeriodArgs) ElementType() reflect.Type {
@@ -2420,7 +2279,6 @@ func (i *exportRecurrencePeriodPtrType) ToExportRecurrencePeriodPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ExportRecurrencePeriodPtrOutput)
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriodOutput struct{ *pulumi.OutputState }
 
 func (ExportRecurrencePeriodOutput) ElementType() reflect.Type {
@@ -2440,17 +2298,15 @@ func (o ExportRecurrencePeriodOutput) ToExportRecurrencePeriodPtrOutput() Export
 }
 
 func (o ExportRecurrencePeriodOutput) ToExportRecurrencePeriodPtrOutputWithContext(ctx context.Context) ExportRecurrencePeriodPtrOutput {
-	return o.ApplyT(func(v ExportRecurrencePeriod) *ExportRecurrencePeriod {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportRecurrencePeriod) *ExportRecurrencePeriod {
 		return &v
 	}).(ExportRecurrencePeriodPtrOutput)
 }
 
-// The start date of recurrence.
 func (o ExportRecurrencePeriodOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportRecurrencePeriod) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date of recurrence.
 func (o ExportRecurrencePeriodOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportRecurrencePeriod) *string { return v.To }).(pulumi.StringPtrOutput)
 }
@@ -2470,10 +2326,15 @@ func (o ExportRecurrencePeriodPtrOutput) ToExportRecurrencePeriodPtrOutputWithCo
 }
 
 func (o ExportRecurrencePeriodPtrOutput) Elem() ExportRecurrencePeriodOutput {
-	return o.ApplyT(func(v *ExportRecurrencePeriod) ExportRecurrencePeriod { return *v }).(ExportRecurrencePeriodOutput)
+	return o.ApplyT(func(v *ExportRecurrencePeriod) ExportRecurrencePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret ExportRecurrencePeriod
+		return ret
+	}).(ExportRecurrencePeriodOutput)
 }
 
-// The start date of recurrence.
 func (o ExportRecurrencePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportRecurrencePeriod) *string {
 		if v == nil {
@@ -2483,7 +2344,6 @@ func (o ExportRecurrencePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date of recurrence.
 func (o ExportRecurrencePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportRecurrencePeriod) *string {
 		if v == nil {
@@ -2493,12 +2353,9 @@ func (o ExportRecurrencePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriodResponse struct {
-	// The start date of recurrence.
-	From string `pulumi:"from"`
-	// The end date of recurrence.
-	To *string `pulumi:"to"`
+	From string  `pulumi:"from"`
+	To   *string `pulumi:"to"`
 }
 
 // ExportRecurrencePeriodResponseInput is an input type that accepts ExportRecurrencePeriodResponseArgs and ExportRecurrencePeriodResponseOutput values.
@@ -2512,12 +2369,9 @@ type ExportRecurrencePeriodResponseInput interface {
 	ToExportRecurrencePeriodResponseOutputWithContext(context.Context) ExportRecurrencePeriodResponseOutput
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriodResponseArgs struct {
-	// The start date of recurrence.
-	From pulumi.StringInput `pulumi:"from"`
-	// The end date of recurrence.
-	To pulumi.StringPtrInput `pulumi:"to"`
+	From pulumi.StringInput    `pulumi:"from"`
+	To   pulumi.StringPtrInput `pulumi:"to"`
 }
 
 func (ExportRecurrencePeriodResponseArgs) ElementType() reflect.Type {
@@ -2573,7 +2427,6 @@ func (i *exportRecurrencePeriodResponsePtrType) ToExportRecurrencePeriodResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ExportRecurrencePeriodResponsePtrOutput)
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriodResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportRecurrencePeriodResponseOutput) ElementType() reflect.Type {
@@ -2593,17 +2446,15 @@ func (o ExportRecurrencePeriodResponseOutput) ToExportRecurrencePeriodResponsePt
 }
 
 func (o ExportRecurrencePeriodResponseOutput) ToExportRecurrencePeriodResponsePtrOutputWithContext(ctx context.Context) ExportRecurrencePeriodResponsePtrOutput {
-	return o.ApplyT(func(v ExportRecurrencePeriodResponse) *ExportRecurrencePeriodResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportRecurrencePeriodResponse) *ExportRecurrencePeriodResponse {
 		return &v
 	}).(ExportRecurrencePeriodResponsePtrOutput)
 }
 
-// The start date of recurrence.
 func (o ExportRecurrencePeriodResponseOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportRecurrencePeriodResponse) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date of recurrence.
 func (o ExportRecurrencePeriodResponseOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportRecurrencePeriodResponse) *string { return v.To }).(pulumi.StringPtrOutput)
 }
@@ -2623,10 +2474,15 @@ func (o ExportRecurrencePeriodResponsePtrOutput) ToExportRecurrencePeriodRespons
 }
 
 func (o ExportRecurrencePeriodResponsePtrOutput) Elem() ExportRecurrencePeriodResponseOutput {
-	return o.ApplyT(func(v *ExportRecurrencePeriodResponse) ExportRecurrencePeriodResponse { return *v }).(ExportRecurrencePeriodResponseOutput)
+	return o.ApplyT(func(v *ExportRecurrencePeriodResponse) ExportRecurrencePeriodResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportRecurrencePeriodResponse
+		return ret
+	}).(ExportRecurrencePeriodResponseOutput)
 }
 
-// The start date of recurrence.
 func (o ExportRecurrencePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportRecurrencePeriodResponse) *string {
 		if v == nil {
@@ -2636,7 +2492,6 @@ func (o ExportRecurrencePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date of recurrence.
 func (o ExportRecurrencePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportRecurrencePeriodResponse) *string {
 		if v == nil {
@@ -2646,14 +2501,10 @@ func (o ExportRecurrencePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The schedule associated with the export.
 type ExportSchedule struct {
-	// The schedule recurrence.
-	Recurrence *string `pulumi:"recurrence"`
-	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	Recurrence       *string                 `pulumi:"recurrence"`
 	RecurrencePeriod *ExportRecurrencePeriod `pulumi:"recurrencePeriod"`
-	// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
-	Status *string `pulumi:"status"`
+	Status           *string                 `pulumi:"status"`
 }
 
 // ExportScheduleInput is an input type that accepts ExportScheduleArgs and ExportScheduleOutput values.
@@ -2667,14 +2518,10 @@ type ExportScheduleInput interface {
 	ToExportScheduleOutputWithContext(context.Context) ExportScheduleOutput
 }
 
-// The schedule associated with the export.
 type ExportScheduleArgs struct {
-	// The schedule recurrence.
-	Recurrence pulumi.StringPtrInput `pulumi:"recurrence"`
-	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	Recurrence       pulumi.StringPtrInput          `pulumi:"recurrence"`
 	RecurrencePeriod ExportRecurrencePeriodPtrInput `pulumi:"recurrencePeriod"`
-	// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status           pulumi.StringPtrInput          `pulumi:"status"`
 }
 
 func (ExportScheduleArgs) ElementType() reflect.Type {
@@ -2730,7 +2577,6 @@ func (i *exportSchedulePtrType) ToExportSchedulePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ExportSchedulePtrOutput)
 }
 
-// The schedule associated with the export.
 type ExportScheduleOutput struct{ *pulumi.OutputState }
 
 func (ExportScheduleOutput) ElementType() reflect.Type {
@@ -2750,22 +2596,19 @@ func (o ExportScheduleOutput) ToExportSchedulePtrOutput() ExportSchedulePtrOutpu
 }
 
 func (o ExportScheduleOutput) ToExportSchedulePtrOutputWithContext(ctx context.Context) ExportSchedulePtrOutput {
-	return o.ApplyT(func(v ExportSchedule) *ExportSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportSchedule) *ExportSchedule {
 		return &v
 	}).(ExportSchedulePtrOutput)
 }
 
-// The schedule recurrence.
 func (o ExportScheduleOutput) Recurrence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportSchedule) *string { return v.Recurrence }).(pulumi.StringPtrOutput)
 }
 
-// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 func (o ExportScheduleOutput) RecurrencePeriod() ExportRecurrencePeriodPtrOutput {
 	return o.ApplyT(func(v ExportSchedule) *ExportRecurrencePeriod { return v.RecurrencePeriod }).(ExportRecurrencePeriodPtrOutput)
 }
 
-// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
 func (o ExportScheduleOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportSchedule) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -2785,10 +2628,15 @@ func (o ExportSchedulePtrOutput) ToExportSchedulePtrOutputWithContext(ctx contex
 }
 
 func (o ExportSchedulePtrOutput) Elem() ExportScheduleOutput {
-	return o.ApplyT(func(v *ExportSchedule) ExportSchedule { return *v }).(ExportScheduleOutput)
+	return o.ApplyT(func(v *ExportSchedule) ExportSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret ExportSchedule
+		return ret
+	}).(ExportScheduleOutput)
 }
 
-// The schedule recurrence.
 func (o ExportSchedulePtrOutput) Recurrence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportSchedule) *string {
 		if v == nil {
@@ -2798,7 +2646,6 @@ func (o ExportSchedulePtrOutput) Recurrence() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 func (o ExportSchedulePtrOutput) RecurrencePeriod() ExportRecurrencePeriodPtrOutput {
 	return o.ApplyT(func(v *ExportSchedule) *ExportRecurrencePeriod {
 		if v == nil {
@@ -2808,7 +2655,6 @@ func (o ExportSchedulePtrOutput) RecurrencePeriod() ExportRecurrencePeriodPtrOut
 	}).(ExportRecurrencePeriodPtrOutput)
 }
 
-// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
 func (o ExportSchedulePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportSchedule) *string {
 		if v == nil {
@@ -2818,14 +2664,10 @@ func (o ExportSchedulePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The schedule associated with the export.
 type ExportScheduleResponse struct {
-	// The schedule recurrence.
-	Recurrence *string `pulumi:"recurrence"`
-	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	Recurrence       *string                         `pulumi:"recurrence"`
 	RecurrencePeriod *ExportRecurrencePeriodResponse `pulumi:"recurrencePeriod"`
-	// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
-	Status *string `pulumi:"status"`
+	Status           *string                         `pulumi:"status"`
 }
 
 // ExportScheduleResponseInput is an input type that accepts ExportScheduleResponseArgs and ExportScheduleResponseOutput values.
@@ -2839,14 +2681,10 @@ type ExportScheduleResponseInput interface {
 	ToExportScheduleResponseOutputWithContext(context.Context) ExportScheduleResponseOutput
 }
 
-// The schedule associated with the export.
 type ExportScheduleResponseArgs struct {
-	// The schedule recurrence.
-	Recurrence pulumi.StringPtrInput `pulumi:"recurrence"`
-	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	Recurrence       pulumi.StringPtrInput                  `pulumi:"recurrence"`
 	RecurrencePeriod ExportRecurrencePeriodResponsePtrInput `pulumi:"recurrencePeriod"`
-	// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status           pulumi.StringPtrInput                  `pulumi:"status"`
 }
 
 func (ExportScheduleResponseArgs) ElementType() reflect.Type {
@@ -2902,7 +2740,6 @@ func (i *exportScheduleResponsePtrType) ToExportScheduleResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ExportScheduleResponsePtrOutput)
 }
 
-// The schedule associated with the export.
 type ExportScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportScheduleResponseOutput) ElementType() reflect.Type {
@@ -2922,22 +2759,19 @@ func (o ExportScheduleResponseOutput) ToExportScheduleResponsePtrOutput() Export
 }
 
 func (o ExportScheduleResponseOutput) ToExportScheduleResponsePtrOutputWithContext(ctx context.Context) ExportScheduleResponsePtrOutput {
-	return o.ApplyT(func(v ExportScheduleResponse) *ExportScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportScheduleResponse) *ExportScheduleResponse {
 		return &v
 	}).(ExportScheduleResponsePtrOutput)
 }
 
-// The schedule recurrence.
 func (o ExportScheduleResponseOutput) Recurrence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportScheduleResponse) *string { return v.Recurrence }).(pulumi.StringPtrOutput)
 }
 
-// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 func (o ExportScheduleResponseOutput) RecurrencePeriod() ExportRecurrencePeriodResponsePtrOutput {
 	return o.ApplyT(func(v ExportScheduleResponse) *ExportRecurrencePeriodResponse { return v.RecurrencePeriod }).(ExportRecurrencePeriodResponsePtrOutput)
 }
 
-// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
 func (o ExportScheduleResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportScheduleResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -2957,10 +2791,15 @@ func (o ExportScheduleResponsePtrOutput) ToExportScheduleResponsePtrOutputWithCo
 }
 
 func (o ExportScheduleResponsePtrOutput) Elem() ExportScheduleResponseOutput {
-	return o.ApplyT(func(v *ExportScheduleResponse) ExportScheduleResponse { return *v }).(ExportScheduleResponseOutput)
+	return o.ApplyT(func(v *ExportScheduleResponse) ExportScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportScheduleResponse
+		return ret
+	}).(ExportScheduleResponseOutput)
 }
 
-// The schedule recurrence.
 func (o ExportScheduleResponsePtrOutput) Recurrence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportScheduleResponse) *string {
 		if v == nil {
@@ -2970,7 +2809,6 @@ func (o ExportScheduleResponsePtrOutput) Recurrence() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 func (o ExportScheduleResponsePtrOutput) RecurrencePeriod() ExportRecurrencePeriodResponsePtrOutput {
 	return o.ApplyT(func(v *ExportScheduleResponse) *ExportRecurrencePeriodResponse {
 		if v == nil {
@@ -2980,7 +2818,6 @@ func (o ExportScheduleResponsePtrOutput) RecurrencePeriod() ExportRecurrencePeri
 	}).(ExportRecurrencePeriodResponsePtrOutput)
 }
 
-// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
 func (o ExportScheduleResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportScheduleResponse) *string {
 		if v == nil {
@@ -2990,12 +2827,9 @@ func (o ExportScheduleResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
 type ExportTimePeriod struct {
-	// The start date for export data.
 	From string `pulumi:"from"`
-	// The end date for export data.
-	To string `pulumi:"to"`
+	To   string `pulumi:"to"`
 }
 
 // ExportTimePeriodInput is an input type that accepts ExportTimePeriodArgs and ExportTimePeriodOutput values.
@@ -3009,12 +2843,9 @@ type ExportTimePeriodInput interface {
 	ToExportTimePeriodOutputWithContext(context.Context) ExportTimePeriodOutput
 }
 
-// The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
 type ExportTimePeriodArgs struct {
-	// The start date for export data.
 	From pulumi.StringInput `pulumi:"from"`
-	// The end date for export data.
-	To pulumi.StringInput `pulumi:"to"`
+	To   pulumi.StringInput `pulumi:"to"`
 }
 
 func (ExportTimePeriodArgs) ElementType() reflect.Type {
@@ -3070,7 +2901,6 @@ func (i *exportTimePeriodPtrType) ToExportTimePeriodPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ExportTimePeriodPtrOutput)
 }
 
-// The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
 type ExportTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (ExportTimePeriodOutput) ElementType() reflect.Type {
@@ -3090,17 +2920,15 @@ func (o ExportTimePeriodOutput) ToExportTimePeriodPtrOutput() ExportTimePeriodPt
 }
 
 func (o ExportTimePeriodOutput) ToExportTimePeriodPtrOutputWithContext(ctx context.Context) ExportTimePeriodPtrOutput {
-	return o.ApplyT(func(v ExportTimePeriod) *ExportTimePeriod {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportTimePeriod) *ExportTimePeriod {
 		return &v
 	}).(ExportTimePeriodPtrOutput)
 }
 
-// The start date for export data.
 func (o ExportTimePeriodOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportTimePeriod) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date for export data.
 func (o ExportTimePeriodOutput) To() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportTimePeriod) string { return v.To }).(pulumi.StringOutput)
 }
@@ -3120,10 +2948,15 @@ func (o ExportTimePeriodPtrOutput) ToExportTimePeriodPtrOutputWithContext(ctx co
 }
 
 func (o ExportTimePeriodPtrOutput) Elem() ExportTimePeriodOutput {
-	return o.ApplyT(func(v *ExportTimePeriod) ExportTimePeriod { return *v }).(ExportTimePeriodOutput)
+	return o.ApplyT(func(v *ExportTimePeriod) ExportTimePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret ExportTimePeriod
+		return ret
+	}).(ExportTimePeriodOutput)
 }
 
-// The start date for export data.
 func (o ExportTimePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportTimePeriod) *string {
 		if v == nil {
@@ -3133,7 +2966,6 @@ func (o ExportTimePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date for export data.
 func (o ExportTimePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportTimePeriod) *string {
 		if v == nil {
@@ -3143,12 +2975,9 @@ func (o ExportTimePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
 type ExportTimePeriodResponse struct {
-	// The start date for export data.
 	From string `pulumi:"from"`
-	// The end date for export data.
-	To string `pulumi:"to"`
+	To   string `pulumi:"to"`
 }
 
 // ExportTimePeriodResponseInput is an input type that accepts ExportTimePeriodResponseArgs and ExportTimePeriodResponseOutput values.
@@ -3162,12 +2991,9 @@ type ExportTimePeriodResponseInput interface {
 	ToExportTimePeriodResponseOutputWithContext(context.Context) ExportTimePeriodResponseOutput
 }
 
-// The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
 type ExportTimePeriodResponseArgs struct {
-	// The start date for export data.
 	From pulumi.StringInput `pulumi:"from"`
-	// The end date for export data.
-	To pulumi.StringInput `pulumi:"to"`
+	To   pulumi.StringInput `pulumi:"to"`
 }
 
 func (ExportTimePeriodResponseArgs) ElementType() reflect.Type {
@@ -3223,7 +3049,6 @@ func (i *exportTimePeriodResponsePtrType) ToExportTimePeriodResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ExportTimePeriodResponsePtrOutput)
 }
 
-// The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
 type ExportTimePeriodResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportTimePeriodResponseOutput) ElementType() reflect.Type {
@@ -3243,17 +3068,15 @@ func (o ExportTimePeriodResponseOutput) ToExportTimePeriodResponsePtrOutput() Ex
 }
 
 func (o ExportTimePeriodResponseOutput) ToExportTimePeriodResponsePtrOutputWithContext(ctx context.Context) ExportTimePeriodResponsePtrOutput {
-	return o.ApplyT(func(v ExportTimePeriodResponse) *ExportTimePeriodResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportTimePeriodResponse) *ExportTimePeriodResponse {
 		return &v
 	}).(ExportTimePeriodResponsePtrOutput)
 }
 
-// The start date for export data.
 func (o ExportTimePeriodResponseOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportTimePeriodResponse) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date for export data.
 func (o ExportTimePeriodResponseOutput) To() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportTimePeriodResponse) string { return v.To }).(pulumi.StringOutput)
 }
@@ -3273,10 +3096,15 @@ func (o ExportTimePeriodResponsePtrOutput) ToExportTimePeriodResponsePtrOutputWi
 }
 
 func (o ExportTimePeriodResponsePtrOutput) Elem() ExportTimePeriodResponseOutput {
-	return o.ApplyT(func(v *ExportTimePeriodResponse) ExportTimePeriodResponse { return *v }).(ExportTimePeriodResponseOutput)
+	return o.ApplyT(func(v *ExportTimePeriodResponse) ExportTimePeriodResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportTimePeriodResponse
+		return ret
+	}).(ExportTimePeriodResponseOutput)
 }
 
-// The start date for export data.
 func (o ExportTimePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportTimePeriodResponse) *string {
 		if v == nil {
@@ -3286,7 +3114,6 @@ func (o ExportTimePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date for export data.
 func (o ExportTimePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportTimePeriodResponse) *string {
 		if v == nil {

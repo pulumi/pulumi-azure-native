@@ -270,9 +270,7 @@ func (i *ExpressRouteGateway) ToExpressRouteGatewayOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteGatewayOutput)
 }
 
-type ExpressRouteGatewayOutput struct {
-	*pulumi.OutputState
-}
+type ExpressRouteGatewayOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRouteGateway)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the source control.
 func LookupSourceControl(ctx *pulumi.Context, args *LookupSourceControlArgs, opts ...pulumi.InvokeOption) (*LookupSourceControlResult, error) {
 	var rv LookupSourceControlResult
 	err := ctx.Invoke("azure-native:automation/v20170515preview:getSourceControl", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupSourceControl(ctx *pulumi.Context, args *LookupSourceControlArgs, opt
 }
 
 type LookupSourceControlArgs struct {
-	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of source control.
-	SourceControlName string `pulumi:"sourceControlName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
+	SourceControlName     string `pulumi:"sourceControlName"`
 }
 
 // Definition of the source control.
 type LookupSourceControlResult struct {
-	// The auto sync of the source control. Default is false.
-	AutoSync *bool `pulumi:"autoSync"`
-	// The repo branch of the source control. Include branch as empty string for VsoTfvc.
-	Branch *string `pulumi:"branch"`
-	// The creation time.
-	CreationTime *string `pulumi:"creationTime"`
-	// The description.
-	Description *string `pulumi:"description"`
-	// The folder path of the source control.
-	FolderPath *string `pulumi:"folderPath"`
-	// Fully qualified resource Id for the resource
-	Id string `pulumi:"id"`
-	// The last modified time.
+	AutoSync         *bool   `pulumi:"autoSync"`
+	Branch           *string `pulumi:"branch"`
+	CreationTime     *string `pulumi:"creationTime"`
+	Description      *string `pulumi:"description"`
+	FolderPath       *string `pulumi:"folderPath"`
+	Id               string  `pulumi:"id"`
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The auto publish of the source control. Default is true.
-	PublishRunbook *bool `pulumi:"publishRunbook"`
-	// The repo url of the source control.
-	RepoUrl *string `pulumi:"repoUrl"`
-	// The source type. Must be one of VsoGit, VsoTfvc, GitHub.
-	SourceType *string `pulumi:"sourceType"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Name             string  `pulumi:"name"`
+	PublishRunbook   *bool   `pulumi:"publishRunbook"`
+	RepoUrl          *string `pulumi:"repoUrl"`
+	SourceType       *string `pulumi:"sourceType"`
+	Type             string  `pulumi:"type"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A hostname binding object.
 func LookupWebAppHostNameBinding(ctx *pulumi.Context, args *LookupWebAppHostNameBindingArgs, opts ...pulumi.InvokeOption) (*LookupWebAppHostNameBindingResult, error) {
 	var rv LookupWebAppHostNameBindingResult
 	err := ctx.Invoke("azure-native:web/v20181101:getWebAppHostNameBinding", args, &rv, opts...)
@@ -18,40 +17,24 @@ func LookupWebAppHostNameBinding(ctx *pulumi.Context, args *LookupWebAppHostName
 }
 
 type LookupWebAppHostNameBindingArgs struct {
-	// Hostname in the hostname binding.
-	HostName string `pulumi:"hostName"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	HostName          string `pulumi:"hostName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A hostname binding object.
 type LookupWebAppHostNameBindingResult struct {
-	// Azure resource name.
-	AzureResourceName *string `pulumi:"azureResourceName"`
-	// Azure resource type.
-	AzureResourceType *string `pulumi:"azureResourceType"`
-	// Custom DNS record type.
+	AzureResourceName           *string `pulumi:"azureResourceName"`
+	AzureResourceType           *string `pulumi:"azureResourceType"`
 	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
-	// Fully qualified ARM domain resource URI.
-	DomainId *string `pulumi:"domainId"`
-	// Hostname type.
-	HostNameType *string `pulumi:"hostNameType"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// App Service app name.
-	SiteName *string `pulumi:"siteName"`
-	// SSL type
-	SslState *string `pulumi:"sslState"`
-	// SSL certificate thumbprint
-	Thumbprint *string `pulumi:"thumbprint"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// Virtual IP address assigned to the hostname if IP based SSL is enabled.
-	VirtualIP string `pulumi:"virtualIP"`
+	DomainId                    *string `pulumi:"domainId"`
+	HostNameType                *string `pulumi:"hostNameType"`
+	Id                          string  `pulumi:"id"`
+	Kind                        *string `pulumi:"kind"`
+	Name                        string  `pulumi:"name"`
+	SiteName                    *string `pulumi:"siteName"`
+	SslState                    *string `pulumi:"sslState"`
+	Thumbprint                  *string `pulumi:"thumbprint"`
+	Type                        string  `pulumi:"type"`
+	VirtualIP                   string  `pulumi:"virtualIP"`
 }

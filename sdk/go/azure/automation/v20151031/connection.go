@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the connection.
 type Connection struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets the connectionType of the connection.
-	ConnectionType ConnectionTypeAssociationPropertyResponsePtrOutput `pulumi:"connectionType"`
-	// Gets the creation time.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Gets the field definition values of the connection.
-	FieldDefinitionValues pulumi.StringMapOutput `pulumi:"fieldDefinitionValues"`
-	// Gets the last modified time.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ConnectionType        ConnectionTypeAssociationPropertyResponsePtrOutput `pulumi:"connectionType"`
+	CreationTime          pulumi.StringOutput                                `pulumi:"creationTime"`
+	Description           pulumi.StringPtrOutput                             `pulumi:"description"`
+	FieldDefinitionValues pulumi.StringMapOutput                             `pulumi:"fieldDefinitionValues"`
+	LastModifiedTime      pulumi.StringOutput                                `pulumi:"lastModifiedTime"`
+	Name                  pulumi.StringOutput                                `pulumi:"name"`
+	Type                  pulumi.StringOutput                                `pulumi:"type"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -106,38 +98,24 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The parameters supplied to the create or update connection operation.
-	ConnectionName *string `pulumi:"connectionName"`
-	// Gets or sets the connectionType of the connection.
-	ConnectionType ConnectionTypeAssociationProperty `pulumi:"connectionType"`
-	// Gets or sets the description of the connection.
-	Description *string `pulumi:"description"`
-	// Gets or sets the field definition properties of the connection.
-	FieldDefinitionValues map[string]string `pulumi:"fieldDefinitionValues"`
-	// Gets or sets the name of the connection.
-	Name string `pulumi:"name"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AutomationAccountName string                            `pulumi:"automationAccountName"`
+	ConnectionName        *string                           `pulumi:"connectionName"`
+	ConnectionType        ConnectionTypeAssociationProperty `pulumi:"connectionType"`
+	Description           *string                           `pulumi:"description"`
+	FieldDefinitionValues map[string]string                 `pulumi:"fieldDefinitionValues"`
+	Name                  string                            `pulumi:"name"`
+	ResourceGroupName     string                            `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
-	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
-	// The parameters supplied to the create or update connection operation.
-	ConnectionName pulumi.StringPtrInput
-	// Gets or sets the connectionType of the connection.
-	ConnectionType ConnectionTypeAssociationPropertyInput
-	// Gets or sets the description of the connection.
-	Description pulumi.StringPtrInput
-	// Gets or sets the field definition properties of the connection.
+	ConnectionName        pulumi.StringPtrInput
+	ConnectionType        ConnectionTypeAssociationPropertyInput
+	Description           pulumi.StringPtrInput
 	FieldDefinitionValues pulumi.StringMapInput
-	// Gets or sets the name of the connection.
-	Name pulumi.StringInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
+	Name                  pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {
@@ -163,9 +141,7 @@ func (i *Connection) ToConnectionOutputWithContext(ctx context.Context) Connecti
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOutput)
 }
 
-type ConnectionOutput struct {
-	*pulumi.OutputState
-}
+type ConnectionOutput struct{ *pulumi.OutputState }
 
 func (ConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Connection)(nil))

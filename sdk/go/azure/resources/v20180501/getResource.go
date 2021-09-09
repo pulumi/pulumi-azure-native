@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource information.
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
 	var rv LookupResourceResult
 	err := ctx.Invoke("azure-native:resources/v20180501:getResource", args, &rv, opts...)
@@ -18,40 +17,24 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 }
 
 type LookupResourceArgs struct {
-	// The parent resource identity.
-	ParentResourcePath string `pulumi:"parentResourcePath"`
-	// The name of the resource group containing the resource to get. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource to get.
-	ResourceName string `pulumi:"resourceName"`
-	// The namespace of the resource provider.
+	ParentResourcePath        string `pulumi:"parentResourcePath"`
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
+	ResourceName              string `pulumi:"resourceName"`
 	ResourceProviderNamespace string `pulumi:"resourceProviderNamespace"`
-	// The resource type of the resource.
-	ResourceType string `pulumi:"resourceType"`
+	ResourceType              string `pulumi:"resourceType"`
 }
 
 // Resource information.
 type LookupResourceResult struct {
-	// Resource ID
-	Id string `pulumi:"id"`
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// ID of the resource that manages this resource.
-	ManagedBy *string `pulumi:"managedBy"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The plan of the resource.
-	Plan *PlanResponse `pulumi:"plan"`
-	// The resource properties.
-	Properties interface{} `pulumi:"properties"`
-	// The SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id         string            `pulumi:"id"`
+	Identity   *IdentityResponse `pulumi:"identity"`
+	Kind       *string           `pulumi:"kind"`
+	Location   *string           `pulumi:"location"`
+	ManagedBy  *string           `pulumi:"managedBy"`
+	Name       string            `pulumi:"name"`
+	Plan       *PlanResponse     `pulumi:"plan"`
+	Properties interface{}       `pulumi:"properties"`
+	Sku        *SkuResponse      `pulumi:"sku"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

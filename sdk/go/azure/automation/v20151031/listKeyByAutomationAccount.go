@@ -17,13 +17,10 @@ func ListKeyByAutomationAccount(ctx *pulumi.Context, args *ListKeyByAutomationAc
 }
 
 type ListKeyByAutomationAccountArgs struct {
-	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 type ListKeyByAutomationAccountResult struct {
-	// Lists the automation keys.
 	Keys []KeyResponse `pulumi:"keys"`
 }

@@ -10,17 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
 type AddRemoveReplicaScalingMechanism struct {
-	// Enumerates the mechanisms for auto scaling.
-	// Expected value is 'AddRemoveReplica'.
-	Kind string `pulumi:"kind"`
-	// Maximum number of containers (scale up won't be performed above this number).
-	MaxCount int `pulumi:"maxCount"`
-	// Minimum number of containers (scale down won't be performed below this number).
-	MinCount int `pulumi:"minCount"`
-	// Each time auto scaling is performed, this number of containers will be added or removed.
-	ScaleIncrement int `pulumi:"scaleIncrement"`
+	Kind           string `pulumi:"kind"`
+	MaxCount       int    `pulumi:"maxCount"`
+	MinCount       int    `pulumi:"minCount"`
+	ScaleIncrement int    `pulumi:"scaleIncrement"`
 }
 
 // AddRemoveReplicaScalingMechanismInput is an input type that accepts AddRemoveReplicaScalingMechanismArgs and AddRemoveReplicaScalingMechanismOutput values.
@@ -34,17 +28,11 @@ type AddRemoveReplicaScalingMechanismInput interface {
 	ToAddRemoveReplicaScalingMechanismOutputWithContext(context.Context) AddRemoveReplicaScalingMechanismOutput
 }
 
-// Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
 type AddRemoveReplicaScalingMechanismArgs struct {
-	// Enumerates the mechanisms for auto scaling.
-	// Expected value is 'AddRemoveReplica'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Maximum number of containers (scale up won't be performed above this number).
-	MaxCount pulumi.IntInput `pulumi:"maxCount"`
-	// Minimum number of containers (scale down won't be performed below this number).
-	MinCount pulumi.IntInput `pulumi:"minCount"`
-	// Each time auto scaling is performed, this number of containers will be added or removed.
-	ScaleIncrement pulumi.IntInput `pulumi:"scaleIncrement"`
+	Kind           pulumi.StringInput `pulumi:"kind"`
+	MaxCount       pulumi.IntInput    `pulumi:"maxCount"`
+	MinCount       pulumi.IntInput    `pulumi:"minCount"`
+	ScaleIncrement pulumi.IntInput    `pulumi:"scaleIncrement"`
 }
 
 func (AddRemoveReplicaScalingMechanismArgs) ElementType() reflect.Type {
@@ -59,7 +47,6 @@ func (i AddRemoveReplicaScalingMechanismArgs) ToAddRemoveReplicaScalingMechanism
 	return pulumi.ToOutputWithContext(ctx, i).(AddRemoveReplicaScalingMechanismOutput)
 }
 
-// Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
 type AddRemoveReplicaScalingMechanismOutput struct{ *pulumi.OutputState }
 
 func (AddRemoveReplicaScalingMechanismOutput) ElementType() reflect.Type {
@@ -74,38 +61,27 @@ func (o AddRemoveReplicaScalingMechanismOutput) ToAddRemoveReplicaScalingMechani
 	return o
 }
 
-// Enumerates the mechanisms for auto scaling.
-// Expected value is 'AddRemoveReplica'.
 func (o AddRemoveReplicaScalingMechanismOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AddRemoveReplicaScalingMechanism) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Maximum number of containers (scale up won't be performed above this number).
 func (o AddRemoveReplicaScalingMechanismOutput) MaxCount() pulumi.IntOutput {
 	return o.ApplyT(func(v AddRemoveReplicaScalingMechanism) int { return v.MaxCount }).(pulumi.IntOutput)
 }
 
-// Minimum number of containers (scale down won't be performed below this number).
 func (o AddRemoveReplicaScalingMechanismOutput) MinCount() pulumi.IntOutput {
 	return o.ApplyT(func(v AddRemoveReplicaScalingMechanism) int { return v.MinCount }).(pulumi.IntOutput)
 }
 
-// Each time auto scaling is performed, this number of containers will be added or removed.
 func (o AddRemoveReplicaScalingMechanismOutput) ScaleIncrement() pulumi.IntOutput {
 	return o.ApplyT(func(v AddRemoveReplicaScalingMechanism) int { return v.ScaleIncrement }).(pulumi.IntOutput)
 }
 
-// Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
 type AddRemoveReplicaScalingMechanismResponse struct {
-	// Enumerates the mechanisms for auto scaling.
-	// Expected value is 'AddRemoveReplica'.
-	Kind string `pulumi:"kind"`
-	// Maximum number of containers (scale up won't be performed above this number).
-	MaxCount int `pulumi:"maxCount"`
-	// Minimum number of containers (scale down won't be performed below this number).
-	MinCount int `pulumi:"minCount"`
-	// Each time auto scaling is performed, this number of containers will be added or removed.
-	ScaleIncrement int `pulumi:"scaleIncrement"`
+	Kind           string `pulumi:"kind"`
+	MaxCount       int    `pulumi:"maxCount"`
+	MinCount       int    `pulumi:"minCount"`
+	ScaleIncrement int    `pulumi:"scaleIncrement"`
 }
 
 // AddRemoveReplicaScalingMechanismResponseInput is an input type that accepts AddRemoveReplicaScalingMechanismResponseArgs and AddRemoveReplicaScalingMechanismResponseOutput values.
@@ -119,17 +95,11 @@ type AddRemoveReplicaScalingMechanismResponseInput interface {
 	ToAddRemoveReplicaScalingMechanismResponseOutputWithContext(context.Context) AddRemoveReplicaScalingMechanismResponseOutput
 }
 
-// Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
 type AddRemoveReplicaScalingMechanismResponseArgs struct {
-	// Enumerates the mechanisms for auto scaling.
-	// Expected value is 'AddRemoveReplica'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Maximum number of containers (scale up won't be performed above this number).
-	MaxCount pulumi.IntInput `pulumi:"maxCount"`
-	// Minimum number of containers (scale down won't be performed below this number).
-	MinCount pulumi.IntInput `pulumi:"minCount"`
-	// Each time auto scaling is performed, this number of containers will be added or removed.
-	ScaleIncrement pulumi.IntInput `pulumi:"scaleIncrement"`
+	Kind           pulumi.StringInput `pulumi:"kind"`
+	MaxCount       pulumi.IntInput    `pulumi:"maxCount"`
+	MinCount       pulumi.IntInput    `pulumi:"minCount"`
+	ScaleIncrement pulumi.IntInput    `pulumi:"scaleIncrement"`
 }
 
 func (AddRemoveReplicaScalingMechanismResponseArgs) ElementType() reflect.Type {
@@ -144,7 +114,6 @@ func (i AddRemoveReplicaScalingMechanismResponseArgs) ToAddRemoveReplicaScalingM
 	return pulumi.ToOutputWithContext(ctx, i).(AddRemoveReplicaScalingMechanismResponseOutput)
 }
 
-// Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
 type AddRemoveReplicaScalingMechanismResponseOutput struct{ *pulumi.OutputState }
 
 func (AddRemoveReplicaScalingMechanismResponseOutput) ElementType() reflect.Type {
@@ -159,37 +128,27 @@ func (o AddRemoveReplicaScalingMechanismResponseOutput) ToAddRemoveReplicaScalin
 	return o
 }
 
-// Enumerates the mechanisms for auto scaling.
-// Expected value is 'AddRemoveReplica'.
 func (o AddRemoveReplicaScalingMechanismResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AddRemoveReplicaScalingMechanismResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Maximum number of containers (scale up won't be performed above this number).
 func (o AddRemoveReplicaScalingMechanismResponseOutput) MaxCount() pulumi.IntOutput {
 	return o.ApplyT(func(v AddRemoveReplicaScalingMechanismResponse) int { return v.MaxCount }).(pulumi.IntOutput)
 }
 
-// Minimum number of containers (scale down won't be performed below this number).
 func (o AddRemoveReplicaScalingMechanismResponseOutput) MinCount() pulumi.IntOutput {
 	return o.ApplyT(func(v AddRemoveReplicaScalingMechanismResponse) int { return v.MinCount }).(pulumi.IntOutput)
 }
 
-// Each time auto scaling is performed, this number of containers will be added or removed.
 func (o AddRemoveReplicaScalingMechanismResponseOutput) ScaleIncrement() pulumi.IntOutput {
 	return o.ApplyT(func(v AddRemoveReplicaScalingMechanismResponse) int { return v.ScaleIncrement }).(pulumi.IntOutput)
 }
 
-// Describes a volume whose lifetime is scoped to the application's lifetime.
 type ApplicationScopedVolume struct {
-	// Describes parameters for creating application-scoped volumes.
 	CreationParameters ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk `pulumi:"creationParameters"`
-	// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
-	DestinationPath string `pulumi:"destinationPath"`
-	// Name of the volume being referenced.
-	Name string `pulumi:"name"`
-	// The flag indicating whether the volume is read only. Default is 'false'.
-	ReadOnly *bool `pulumi:"readOnly"`
+	DestinationPath    string                                                           `pulumi:"destinationPath"`
+	Name               string                                                           `pulumi:"name"`
+	ReadOnly           *bool                                                            `pulumi:"readOnly"`
 }
 
 // ApplicationScopedVolumeInput is an input type that accepts ApplicationScopedVolumeArgs and ApplicationScopedVolumeOutput values.
@@ -203,16 +162,11 @@ type ApplicationScopedVolumeInput interface {
 	ToApplicationScopedVolumeOutputWithContext(context.Context) ApplicationScopedVolumeOutput
 }
 
-// Describes a volume whose lifetime is scoped to the application's lifetime.
 type ApplicationScopedVolumeArgs struct {
-	// Describes parameters for creating application-scoped volumes.
 	CreationParameters ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskInput `pulumi:"creationParameters"`
-	// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
-	DestinationPath pulumi.StringInput `pulumi:"destinationPath"`
-	// Name of the volume being referenced.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The flag indicating whether the volume is read only. Default is 'false'.
-	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+	DestinationPath    pulumi.StringInput                                                    `pulumi:"destinationPath"`
+	Name               pulumi.StringInput                                                    `pulumi:"name"`
+	ReadOnly           pulumi.BoolPtrInput                                                   `pulumi:"readOnly"`
 }
 
 func (ApplicationScopedVolumeArgs) ElementType() reflect.Type {
@@ -252,7 +206,6 @@ func (i ApplicationScopedVolumeArray) ToApplicationScopedVolumeArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationScopedVolumeArrayOutput)
 }
 
-// Describes a volume whose lifetime is scoped to the application's lifetime.
 type ApplicationScopedVolumeOutput struct{ *pulumi.OutputState }
 
 func (ApplicationScopedVolumeOutput) ElementType() reflect.Type {
@@ -267,24 +220,20 @@ func (o ApplicationScopedVolumeOutput) ToApplicationScopedVolumeOutputWithContex
 	return o
 }
 
-// Describes parameters for creating application-scoped volumes.
 func (o ApplicationScopedVolumeOutput) CreationParameters() ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput {
 	return o.ApplyT(func(v ApplicationScopedVolume) ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk {
 		return v.CreationParameters
 	}).(ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput)
 }
 
-// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
 func (o ApplicationScopedVolumeOutput) DestinationPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationScopedVolume) string { return v.DestinationPath }).(pulumi.StringOutput)
 }
 
-// Name of the volume being referenced.
 func (o ApplicationScopedVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationScopedVolume) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The flag indicating whether the volume is read only. Default is 'false'.
 func (o ApplicationScopedVolumeOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationScopedVolume) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
@@ -309,15 +258,10 @@ func (o ApplicationScopedVolumeArrayOutput) Index(i pulumi.IntInput) Application
 	}).(ApplicationScopedVolumeOutput)
 }
 
-// Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
 type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk struct {
-	// User readable description of the volume.
 	Description *string `pulumi:"description"`
-	// Specifies the application-scoped volume kind.
-	// Expected value is 'ServiceFabricVolumeDisk'.
-	Kind string `pulumi:"kind"`
-	// Volume size
-	SizeDisk string `pulumi:"sizeDisk"`
+	Kind        string  `pulumi:"kind"`
+	SizeDisk    string  `pulumi:"sizeDisk"`
 }
 
 // ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskInput is an input type that accepts ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs and ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput values.
@@ -331,15 +275,10 @@ type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskInput inter
 	ToApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutputWithContext(context.Context) ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput
 }
 
-// Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
 type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs struct {
-	// User readable description of the volume.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specifies the application-scoped volume kind.
-	// Expected value is 'ServiceFabricVolumeDisk'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Volume size
-	SizeDisk pulumi.StringInput `pulumi:"sizeDisk"`
+	Kind        pulumi.StringInput    `pulumi:"kind"`
+	SizeDisk    pulumi.StringInput    `pulumi:"sizeDisk"`
 }
 
 func (ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs) ElementType() reflect.Type {
@@ -354,7 +293,6 @@ func (i ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput)
 }
 
-// Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
 type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput struct{ *pulumi.OutputState }
 
 func (ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput) ElementType() reflect.Type {
@@ -369,31 +307,22 @@ func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput) 
 	return o
 }
 
-// User readable description of the volume.
 func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the application-scoped volume kind.
-// Expected value is 'ServiceFabricVolumeDisk'.
 func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Volume size
 func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput) SizeDisk() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk) string { return v.SizeDisk }).(pulumi.StringOutput)
 }
 
-// Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
 type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse struct {
-	// User readable description of the volume.
 	Description *string `pulumi:"description"`
-	// Specifies the application-scoped volume kind.
-	// Expected value is 'ServiceFabricVolumeDisk'.
-	Kind string `pulumi:"kind"`
-	// Volume size
-	SizeDisk string `pulumi:"sizeDisk"`
+	Kind        string  `pulumi:"kind"`
+	SizeDisk    string  `pulumi:"sizeDisk"`
 }
 
 // ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseInput is an input type that accepts ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseArgs and ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput values.
@@ -407,15 +336,10 @@ type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseInp
 	ToApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutputWithContext(context.Context) ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput
 }
 
-// Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
 type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseArgs struct {
-	// User readable description of the volume.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specifies the application-scoped volume kind.
-	// Expected value is 'ServiceFabricVolumeDisk'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Volume size
-	SizeDisk pulumi.StringInput `pulumi:"sizeDisk"`
+	Kind        pulumi.StringInput    `pulumi:"kind"`
+	SizeDisk    pulumi.StringInput    `pulumi:"sizeDisk"`
 }
 
 func (ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseArgs) ElementType() reflect.Type {
@@ -430,7 +354,6 @@ func (i ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput)
 }
 
-// Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
 type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput) ElementType() reflect.Type {
@@ -445,36 +368,27 @@ func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse
 	return o
 }
 
-// User readable description of the volume.
 func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse) *string {
 		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the application-scoped volume kind.
-// Expected value is 'ServiceFabricVolumeDisk'.
 func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Volume size
 func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput) SizeDisk() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse) string {
 		return v.SizeDisk
 	}).(pulumi.StringOutput)
 }
 
-// Describes a volume whose lifetime is scoped to the application's lifetime.
 type ApplicationScopedVolumeResponse struct {
-	// Describes parameters for creating application-scoped volumes.
 	CreationParameters ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse `pulumi:"creationParameters"`
-	// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
-	DestinationPath string `pulumi:"destinationPath"`
-	// Name of the volume being referenced.
-	Name string `pulumi:"name"`
-	// The flag indicating whether the volume is read only. Default is 'false'.
-	ReadOnly *bool `pulumi:"readOnly"`
+	DestinationPath    string                                                                   `pulumi:"destinationPath"`
+	Name               string                                                                   `pulumi:"name"`
+	ReadOnly           *bool                                                                    `pulumi:"readOnly"`
 }
 
 // ApplicationScopedVolumeResponseInput is an input type that accepts ApplicationScopedVolumeResponseArgs and ApplicationScopedVolumeResponseOutput values.
@@ -488,16 +402,11 @@ type ApplicationScopedVolumeResponseInput interface {
 	ToApplicationScopedVolumeResponseOutputWithContext(context.Context) ApplicationScopedVolumeResponseOutput
 }
 
-// Describes a volume whose lifetime is scoped to the application's lifetime.
 type ApplicationScopedVolumeResponseArgs struct {
-	// Describes parameters for creating application-scoped volumes.
 	CreationParameters ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseInput `pulumi:"creationParameters"`
-	// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
-	DestinationPath pulumi.StringInput `pulumi:"destinationPath"`
-	// Name of the volume being referenced.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The flag indicating whether the volume is read only. Default is 'false'.
-	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+	DestinationPath    pulumi.StringInput                                                            `pulumi:"destinationPath"`
+	Name               pulumi.StringInput                                                            `pulumi:"name"`
+	ReadOnly           pulumi.BoolPtrInput                                                           `pulumi:"readOnly"`
 }
 
 func (ApplicationScopedVolumeResponseArgs) ElementType() reflect.Type {
@@ -537,7 +446,6 @@ func (i ApplicationScopedVolumeResponseArray) ToApplicationScopedVolumeResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationScopedVolumeResponseArrayOutput)
 }
 
-// Describes a volume whose lifetime is scoped to the application's lifetime.
 type ApplicationScopedVolumeResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationScopedVolumeResponseOutput) ElementType() reflect.Type {
@@ -552,24 +460,20 @@ func (o ApplicationScopedVolumeResponseOutput) ToApplicationScopedVolumeResponse
 	return o
 }
 
-// Describes parameters for creating application-scoped volumes.
 func (o ApplicationScopedVolumeResponseOutput) CreationParameters() ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput {
 	return o.ApplyT(func(v ApplicationScopedVolumeResponse) ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse {
 		return v.CreationParameters
 	}).(ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput)
 }
 
-// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
 func (o ApplicationScopedVolumeResponseOutput) DestinationPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationScopedVolumeResponse) string { return v.DestinationPath }).(pulumi.StringOutput)
 }
 
-// Name of the volume being referenced.
 func (o ApplicationScopedVolumeResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationScopedVolumeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The flag indicating whether the volume is read only. Default is 'false'.
 func (o ApplicationScopedVolumeResponseOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationScopedVolumeResponse) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
@@ -594,14 +498,10 @@ func (o ApplicationScopedVolumeResponseArrayOutput) Index(i pulumi.IntInput) App
 	}).(ApplicationScopedVolumeResponseOutput)
 }
 
-// Describes the auto scaling policy
 type AutoScalingPolicy struct {
-	// The mechanism that is used to scale when auto scaling operation is invoked.
 	Mechanism AddRemoveReplicaScalingMechanism `pulumi:"mechanism"`
-	// The name of the auto scaling policy.
-	Name string `pulumi:"name"`
-	// Determines when auto scaling operation will be invoked.
-	Trigger AverageLoadScalingTrigger `pulumi:"trigger"`
+	Name      string                           `pulumi:"name"`
+	Trigger   AverageLoadScalingTrigger        `pulumi:"trigger"`
 }
 
 // AutoScalingPolicyInput is an input type that accepts AutoScalingPolicyArgs and AutoScalingPolicyOutput values.
@@ -615,14 +515,10 @@ type AutoScalingPolicyInput interface {
 	ToAutoScalingPolicyOutputWithContext(context.Context) AutoScalingPolicyOutput
 }
 
-// Describes the auto scaling policy
 type AutoScalingPolicyArgs struct {
-	// The mechanism that is used to scale when auto scaling operation is invoked.
 	Mechanism AddRemoveReplicaScalingMechanismInput `pulumi:"mechanism"`
-	// The name of the auto scaling policy.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Determines when auto scaling operation will be invoked.
-	Trigger AverageLoadScalingTriggerInput `pulumi:"trigger"`
+	Name      pulumi.StringInput                    `pulumi:"name"`
+	Trigger   AverageLoadScalingTriggerInput        `pulumi:"trigger"`
 }
 
 func (AutoScalingPolicyArgs) ElementType() reflect.Type {
@@ -662,7 +558,6 @@ func (i AutoScalingPolicyArray) ToAutoScalingPolicyArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingPolicyArrayOutput)
 }
 
-// Describes the auto scaling policy
 type AutoScalingPolicyOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingPolicyOutput) ElementType() reflect.Type {
@@ -677,17 +572,14 @@ func (o AutoScalingPolicyOutput) ToAutoScalingPolicyOutputWithContext(ctx contex
 	return o
 }
 
-// The mechanism that is used to scale when auto scaling operation is invoked.
 func (o AutoScalingPolicyOutput) Mechanism() AddRemoveReplicaScalingMechanismOutput {
 	return o.ApplyT(func(v AutoScalingPolicy) AddRemoveReplicaScalingMechanism { return v.Mechanism }).(AddRemoveReplicaScalingMechanismOutput)
 }
 
-// The name of the auto scaling policy.
 func (o AutoScalingPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoScalingPolicy) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Determines when auto scaling operation will be invoked.
 func (o AutoScalingPolicyOutput) Trigger() AverageLoadScalingTriggerOutput {
 	return o.ApplyT(func(v AutoScalingPolicy) AverageLoadScalingTrigger { return v.Trigger }).(AverageLoadScalingTriggerOutput)
 }
@@ -712,14 +604,10 @@ func (o AutoScalingPolicyArrayOutput) Index(i pulumi.IntInput) AutoScalingPolicy
 	}).(AutoScalingPolicyOutput)
 }
 
-// Describes the auto scaling policy
 type AutoScalingPolicyResponse struct {
-	// The mechanism that is used to scale when auto scaling operation is invoked.
 	Mechanism AddRemoveReplicaScalingMechanismResponse `pulumi:"mechanism"`
-	// The name of the auto scaling policy.
-	Name string `pulumi:"name"`
-	// Determines when auto scaling operation will be invoked.
-	Trigger AverageLoadScalingTriggerResponse `pulumi:"trigger"`
+	Name      string                                   `pulumi:"name"`
+	Trigger   AverageLoadScalingTriggerResponse        `pulumi:"trigger"`
 }
 
 // AutoScalingPolicyResponseInput is an input type that accepts AutoScalingPolicyResponseArgs and AutoScalingPolicyResponseOutput values.
@@ -733,14 +621,10 @@ type AutoScalingPolicyResponseInput interface {
 	ToAutoScalingPolicyResponseOutputWithContext(context.Context) AutoScalingPolicyResponseOutput
 }
 
-// Describes the auto scaling policy
 type AutoScalingPolicyResponseArgs struct {
-	// The mechanism that is used to scale when auto scaling operation is invoked.
 	Mechanism AddRemoveReplicaScalingMechanismResponseInput `pulumi:"mechanism"`
-	// The name of the auto scaling policy.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Determines when auto scaling operation will be invoked.
-	Trigger AverageLoadScalingTriggerResponseInput `pulumi:"trigger"`
+	Name      pulumi.StringInput                            `pulumi:"name"`
+	Trigger   AverageLoadScalingTriggerResponseInput        `pulumi:"trigger"`
 }
 
 func (AutoScalingPolicyResponseArgs) ElementType() reflect.Type {
@@ -780,7 +664,6 @@ func (i AutoScalingPolicyResponseArray) ToAutoScalingPolicyResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingPolicyResponseArrayOutput)
 }
 
-// Describes the auto scaling policy
 type AutoScalingPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingPolicyResponseOutput) ElementType() reflect.Type {
@@ -795,17 +678,14 @@ func (o AutoScalingPolicyResponseOutput) ToAutoScalingPolicyResponseOutputWithCo
 	return o
 }
 
-// The mechanism that is used to scale when auto scaling operation is invoked.
 func (o AutoScalingPolicyResponseOutput) Mechanism() AddRemoveReplicaScalingMechanismResponseOutput {
 	return o.ApplyT(func(v AutoScalingPolicyResponse) AddRemoveReplicaScalingMechanismResponse { return v.Mechanism }).(AddRemoveReplicaScalingMechanismResponseOutput)
 }
 
-// The name of the auto scaling policy.
 func (o AutoScalingPolicyResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoScalingPolicyResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Determines when auto scaling operation will be invoked.
 func (o AutoScalingPolicyResponseOutput) Trigger() AverageLoadScalingTriggerResponseOutput {
 	return o.ApplyT(func(v AutoScalingPolicyResponse) AverageLoadScalingTriggerResponse { return v.Trigger }).(AverageLoadScalingTriggerResponseOutput)
 }
@@ -830,12 +710,8 @@ func (o AutoScalingPolicyResponseArrayOutput) Index(i pulumi.IntInput) AutoScali
 	}).(AutoScalingPolicyResponseOutput)
 }
 
-// Describes the resource that is used for triggering auto scaling.
 type AutoScalingResourceMetric struct {
-	// Enumerates the metrics that are used for triggering auto scaling.
-	// Expected value is 'Resource'.
 	Kind string `pulumi:"kind"`
-	// Name of the resource.
 	Name string `pulumi:"name"`
 }
 
@@ -850,12 +726,8 @@ type AutoScalingResourceMetricInput interface {
 	ToAutoScalingResourceMetricOutputWithContext(context.Context) AutoScalingResourceMetricOutput
 }
 
-// Describes the resource that is used for triggering auto scaling.
 type AutoScalingResourceMetricArgs struct {
-	// Enumerates the metrics that are used for triggering auto scaling.
-	// Expected value is 'Resource'.
 	Kind pulumi.StringInput `pulumi:"kind"`
-	// Name of the resource.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -871,7 +743,6 @@ func (i AutoScalingResourceMetricArgs) ToAutoScalingResourceMetricOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingResourceMetricOutput)
 }
 
-// Describes the resource that is used for triggering auto scaling.
 type AutoScalingResourceMetricOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingResourceMetricOutput) ElementType() reflect.Type {
@@ -886,23 +757,16 @@ func (o AutoScalingResourceMetricOutput) ToAutoScalingResourceMetricOutputWithCo
 	return o
 }
 
-// Enumerates the metrics that are used for triggering auto scaling.
-// Expected value is 'Resource'.
 func (o AutoScalingResourceMetricOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoScalingResourceMetric) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Name of the resource.
 func (o AutoScalingResourceMetricOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoScalingResourceMetric) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Describes the resource that is used for triggering auto scaling.
 type AutoScalingResourceMetricResponse struct {
-	// Enumerates the metrics that are used for triggering auto scaling.
-	// Expected value is 'Resource'.
 	Kind string `pulumi:"kind"`
-	// Name of the resource.
 	Name string `pulumi:"name"`
 }
 
@@ -917,12 +781,8 @@ type AutoScalingResourceMetricResponseInput interface {
 	ToAutoScalingResourceMetricResponseOutputWithContext(context.Context) AutoScalingResourceMetricResponseOutput
 }
 
-// Describes the resource that is used for triggering auto scaling.
 type AutoScalingResourceMetricResponseArgs struct {
-	// Enumerates the metrics that are used for triggering auto scaling.
-	// Expected value is 'Resource'.
 	Kind pulumi.StringInput `pulumi:"kind"`
-	// Name of the resource.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -938,7 +798,6 @@ func (i AutoScalingResourceMetricResponseArgs) ToAutoScalingResourceMetricRespon
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingResourceMetricResponseOutput)
 }
 
-// Describes the resource that is used for triggering auto scaling.
 type AutoScalingResourceMetricResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingResourceMetricResponseOutput) ElementType() reflect.Type {
@@ -953,30 +812,20 @@ func (o AutoScalingResourceMetricResponseOutput) ToAutoScalingResourceMetricResp
 	return o
 }
 
-// Enumerates the metrics that are used for triggering auto scaling.
-// Expected value is 'Resource'.
 func (o AutoScalingResourceMetricResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoScalingResourceMetricResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Name of the resource.
 func (o AutoScalingResourceMetricResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoScalingResourceMetricResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Describes the average load trigger used for auto scaling.
 type AverageLoadScalingTrigger struct {
-	// Enumerates the triggers for auto scaling.
-	// Expected value is 'AverageLoad'.
-	Kind string `pulumi:"kind"`
-	// Lower load threshold (if average load is below this threshold, service will scale down).
-	LowerLoadThreshold float64 `pulumi:"lowerLoadThreshold"`
-	// Description of the metric that is used for scaling.
-	Metric AutoScalingResourceMetric `pulumi:"metric"`
-	// Scale interval that indicates how often will this trigger be checked.
-	ScaleIntervalInSeconds int `pulumi:"scaleIntervalInSeconds"`
-	// Upper load threshold (if average load is above this threshold, service will scale up).
-	UpperLoadThreshold float64 `pulumi:"upperLoadThreshold"`
+	Kind                   string                    `pulumi:"kind"`
+	LowerLoadThreshold     float64                   `pulumi:"lowerLoadThreshold"`
+	Metric                 AutoScalingResourceMetric `pulumi:"metric"`
+	ScaleIntervalInSeconds int                       `pulumi:"scaleIntervalInSeconds"`
+	UpperLoadThreshold     float64                   `pulumi:"upperLoadThreshold"`
 }
 
 // AverageLoadScalingTriggerInput is an input type that accepts AverageLoadScalingTriggerArgs and AverageLoadScalingTriggerOutput values.
@@ -990,19 +839,12 @@ type AverageLoadScalingTriggerInput interface {
 	ToAverageLoadScalingTriggerOutputWithContext(context.Context) AverageLoadScalingTriggerOutput
 }
 
-// Describes the average load trigger used for auto scaling.
 type AverageLoadScalingTriggerArgs struct {
-	// Enumerates the triggers for auto scaling.
-	// Expected value is 'AverageLoad'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Lower load threshold (if average load is below this threshold, service will scale down).
-	LowerLoadThreshold pulumi.Float64Input `pulumi:"lowerLoadThreshold"`
-	// Description of the metric that is used for scaling.
-	Metric AutoScalingResourceMetricInput `pulumi:"metric"`
-	// Scale interval that indicates how often will this trigger be checked.
-	ScaleIntervalInSeconds pulumi.IntInput `pulumi:"scaleIntervalInSeconds"`
-	// Upper load threshold (if average load is above this threshold, service will scale up).
-	UpperLoadThreshold pulumi.Float64Input `pulumi:"upperLoadThreshold"`
+	Kind                   pulumi.StringInput             `pulumi:"kind"`
+	LowerLoadThreshold     pulumi.Float64Input            `pulumi:"lowerLoadThreshold"`
+	Metric                 AutoScalingResourceMetricInput `pulumi:"metric"`
+	ScaleIntervalInSeconds pulumi.IntInput                `pulumi:"scaleIntervalInSeconds"`
+	UpperLoadThreshold     pulumi.Float64Input            `pulumi:"upperLoadThreshold"`
 }
 
 func (AverageLoadScalingTriggerArgs) ElementType() reflect.Type {
@@ -1017,7 +859,6 @@ func (i AverageLoadScalingTriggerArgs) ToAverageLoadScalingTriggerOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AverageLoadScalingTriggerOutput)
 }
 
-// Describes the average load trigger used for auto scaling.
 type AverageLoadScalingTriggerOutput struct{ *pulumi.OutputState }
 
 func (AverageLoadScalingTriggerOutput) ElementType() reflect.Type {
@@ -1032,45 +873,32 @@ func (o AverageLoadScalingTriggerOutput) ToAverageLoadScalingTriggerOutputWithCo
 	return o
 }
 
-// Enumerates the triggers for auto scaling.
-// Expected value is 'AverageLoad'.
 func (o AverageLoadScalingTriggerOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AverageLoadScalingTrigger) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Lower load threshold (if average load is below this threshold, service will scale down).
 func (o AverageLoadScalingTriggerOutput) LowerLoadThreshold() pulumi.Float64Output {
 	return o.ApplyT(func(v AverageLoadScalingTrigger) float64 { return v.LowerLoadThreshold }).(pulumi.Float64Output)
 }
 
-// Description of the metric that is used for scaling.
 func (o AverageLoadScalingTriggerOutput) Metric() AutoScalingResourceMetricOutput {
 	return o.ApplyT(func(v AverageLoadScalingTrigger) AutoScalingResourceMetric { return v.Metric }).(AutoScalingResourceMetricOutput)
 }
 
-// Scale interval that indicates how often will this trigger be checked.
 func (o AverageLoadScalingTriggerOutput) ScaleIntervalInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v AverageLoadScalingTrigger) int { return v.ScaleIntervalInSeconds }).(pulumi.IntOutput)
 }
 
-// Upper load threshold (if average load is above this threshold, service will scale up).
 func (o AverageLoadScalingTriggerOutput) UpperLoadThreshold() pulumi.Float64Output {
 	return o.ApplyT(func(v AverageLoadScalingTrigger) float64 { return v.UpperLoadThreshold }).(pulumi.Float64Output)
 }
 
-// Describes the average load trigger used for auto scaling.
 type AverageLoadScalingTriggerResponse struct {
-	// Enumerates the triggers for auto scaling.
-	// Expected value is 'AverageLoad'.
-	Kind string `pulumi:"kind"`
-	// Lower load threshold (if average load is below this threshold, service will scale down).
-	LowerLoadThreshold float64 `pulumi:"lowerLoadThreshold"`
-	// Description of the metric that is used for scaling.
-	Metric AutoScalingResourceMetricResponse `pulumi:"metric"`
-	// Scale interval that indicates how often will this trigger be checked.
-	ScaleIntervalInSeconds int `pulumi:"scaleIntervalInSeconds"`
-	// Upper load threshold (if average load is above this threshold, service will scale up).
-	UpperLoadThreshold float64 `pulumi:"upperLoadThreshold"`
+	Kind                   string                            `pulumi:"kind"`
+	LowerLoadThreshold     float64                           `pulumi:"lowerLoadThreshold"`
+	Metric                 AutoScalingResourceMetricResponse `pulumi:"metric"`
+	ScaleIntervalInSeconds int                               `pulumi:"scaleIntervalInSeconds"`
+	UpperLoadThreshold     float64                           `pulumi:"upperLoadThreshold"`
 }
 
 // AverageLoadScalingTriggerResponseInput is an input type that accepts AverageLoadScalingTriggerResponseArgs and AverageLoadScalingTriggerResponseOutput values.
@@ -1084,19 +912,12 @@ type AverageLoadScalingTriggerResponseInput interface {
 	ToAverageLoadScalingTriggerResponseOutputWithContext(context.Context) AverageLoadScalingTriggerResponseOutput
 }
 
-// Describes the average load trigger used for auto scaling.
 type AverageLoadScalingTriggerResponseArgs struct {
-	// Enumerates the triggers for auto scaling.
-	// Expected value is 'AverageLoad'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Lower load threshold (if average load is below this threshold, service will scale down).
-	LowerLoadThreshold pulumi.Float64Input `pulumi:"lowerLoadThreshold"`
-	// Description of the metric that is used for scaling.
-	Metric AutoScalingResourceMetricResponseInput `pulumi:"metric"`
-	// Scale interval that indicates how often will this trigger be checked.
-	ScaleIntervalInSeconds pulumi.IntInput `pulumi:"scaleIntervalInSeconds"`
-	// Upper load threshold (if average load is above this threshold, service will scale up).
-	UpperLoadThreshold pulumi.Float64Input `pulumi:"upperLoadThreshold"`
+	Kind                   pulumi.StringInput                     `pulumi:"kind"`
+	LowerLoadThreshold     pulumi.Float64Input                    `pulumi:"lowerLoadThreshold"`
+	Metric                 AutoScalingResourceMetricResponseInput `pulumi:"metric"`
+	ScaleIntervalInSeconds pulumi.IntInput                        `pulumi:"scaleIntervalInSeconds"`
+	UpperLoadThreshold     pulumi.Float64Input                    `pulumi:"upperLoadThreshold"`
 }
 
 func (AverageLoadScalingTriggerResponseArgs) ElementType() reflect.Type {
@@ -1111,7 +932,6 @@ func (i AverageLoadScalingTriggerResponseArgs) ToAverageLoadScalingTriggerRespon
 	return pulumi.ToOutputWithContext(ctx, i).(AverageLoadScalingTriggerResponseOutput)
 }
 
-// Describes the average load trigger used for auto scaling.
 type AverageLoadScalingTriggerResponseOutput struct{ *pulumi.OutputState }
 
 func (AverageLoadScalingTriggerResponseOutput) ElementType() reflect.Type {
@@ -1126,51 +946,35 @@ func (o AverageLoadScalingTriggerResponseOutput) ToAverageLoadScalingTriggerResp
 	return o
 }
 
-// Enumerates the triggers for auto scaling.
-// Expected value is 'AverageLoad'.
 func (o AverageLoadScalingTriggerResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AverageLoadScalingTriggerResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Lower load threshold (if average load is below this threshold, service will scale down).
 func (o AverageLoadScalingTriggerResponseOutput) LowerLoadThreshold() pulumi.Float64Output {
 	return o.ApplyT(func(v AverageLoadScalingTriggerResponse) float64 { return v.LowerLoadThreshold }).(pulumi.Float64Output)
 }
 
-// Description of the metric that is used for scaling.
 func (o AverageLoadScalingTriggerResponseOutput) Metric() AutoScalingResourceMetricResponseOutput {
 	return o.ApplyT(func(v AverageLoadScalingTriggerResponse) AutoScalingResourceMetricResponse { return v.Metric }).(AutoScalingResourceMetricResponseOutput)
 }
 
-// Scale interval that indicates how often will this trigger be checked.
 func (o AverageLoadScalingTriggerResponseOutput) ScaleIntervalInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v AverageLoadScalingTriggerResponse) int { return v.ScaleIntervalInSeconds }).(pulumi.IntOutput)
 }
 
-// Upper load threshold (if average load is above this threshold, service will scale up).
 func (o AverageLoadScalingTriggerResponseOutput) UpperLoadThreshold() pulumi.Float64Output {
 	return o.ApplyT(func(v AverageLoadScalingTriggerResponse) float64 { return v.UpperLoadThreshold }).(pulumi.Float64Output)
 }
 
-// Diagnostics settings for Geneva.
 type AzureInternalMonitoringPipelineSinkDescription struct {
-	// Azure Internal monitoring pipeline account.
-	AccountName *string `pulumi:"accountName"`
-	// Azure Internal monitoring pipeline autokey associated with the certificate.
-	AutoKeyConfigUrl *string `pulumi:"autoKeyConfigUrl"`
-	// A description of the sink.
-	Description *string `pulumi:"description"`
-	// Azure Internal monitoring agent fluentd configuration.
+	AccountName      *string     `pulumi:"accountName"`
+	AutoKeyConfigUrl *string     `pulumi:"autoKeyConfigUrl"`
+	Description      *string     `pulumi:"description"`
 	FluentdConfigUrl interface{} `pulumi:"fluentdConfigUrl"`
-	// The kind of DiagnosticsSink.
-	// Expected value is 'AzureInternalMonitoringPipeline'.
-	Kind string `pulumi:"kind"`
-	// Azure Internal monitoring agent configuration.
-	MaConfigUrl *string `pulumi:"maConfigUrl"`
-	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-	Name *string `pulumi:"name"`
-	// Azure Internal monitoring pipeline account namespace.
-	Namespace *string `pulumi:"namespace"`
+	Kind             string      `pulumi:"kind"`
+	MaConfigUrl      *string     `pulumi:"maConfigUrl"`
+	Name             *string     `pulumi:"name"`
+	Namespace        *string     `pulumi:"namespace"`
 }
 
 // AzureInternalMonitoringPipelineSinkDescriptionInput is an input type that accepts AzureInternalMonitoringPipelineSinkDescriptionArgs and AzureInternalMonitoringPipelineSinkDescriptionOutput values.
@@ -1184,25 +988,15 @@ type AzureInternalMonitoringPipelineSinkDescriptionInput interface {
 	ToAzureInternalMonitoringPipelineSinkDescriptionOutputWithContext(context.Context) AzureInternalMonitoringPipelineSinkDescriptionOutput
 }
 
-// Diagnostics settings for Geneva.
 type AzureInternalMonitoringPipelineSinkDescriptionArgs struct {
-	// Azure Internal monitoring pipeline account.
-	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
-	// Azure Internal monitoring pipeline autokey associated with the certificate.
+	AccountName      pulumi.StringPtrInput `pulumi:"accountName"`
 	AutoKeyConfigUrl pulumi.StringPtrInput `pulumi:"autoKeyConfigUrl"`
-	// A description of the sink.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Azure Internal monitoring agent fluentd configuration.
-	FluentdConfigUrl pulumi.Input `pulumi:"fluentdConfigUrl"`
-	// The kind of DiagnosticsSink.
-	// Expected value is 'AzureInternalMonitoringPipeline'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Azure Internal monitoring agent configuration.
-	MaConfigUrl pulumi.StringPtrInput `pulumi:"maConfigUrl"`
-	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Azure Internal monitoring pipeline account namespace.
-	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	Description      pulumi.StringPtrInput `pulumi:"description"`
+	FluentdConfigUrl pulumi.Input          `pulumi:"fluentdConfigUrl"`
+	Kind             pulumi.StringInput    `pulumi:"kind"`
+	MaConfigUrl      pulumi.StringPtrInput `pulumi:"maConfigUrl"`
+	Name             pulumi.StringPtrInput `pulumi:"name"`
+	Namespace        pulumi.StringPtrInput `pulumi:"namespace"`
 }
 
 func (AzureInternalMonitoringPipelineSinkDescriptionArgs) ElementType() reflect.Type {
@@ -1242,7 +1036,6 @@ func (i AzureInternalMonitoringPipelineSinkDescriptionArray) ToAzureInternalMoni
 	return pulumi.ToOutputWithContext(ctx, i).(AzureInternalMonitoringPipelineSinkDescriptionArrayOutput)
 }
 
-// Diagnostics settings for Geneva.
 type AzureInternalMonitoringPipelineSinkDescriptionOutput struct{ *pulumi.OutputState }
 
 func (AzureInternalMonitoringPipelineSinkDescriptionOutput) ElementType() reflect.Type {
@@ -1257,43 +1050,34 @@ func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) ToAzureInternalMon
 	return o
 }
 
-// Azure Internal monitoring pipeline account.
 func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.AccountName }).(pulumi.StringPtrOutput)
 }
 
-// Azure Internal monitoring pipeline autokey associated with the certificate.
 func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) AutoKeyConfigUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.AutoKeyConfigUrl }).(pulumi.StringPtrOutput)
 }
 
-// A description of the sink.
 func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Azure Internal monitoring agent fluentd configuration.
 func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) FluentdConfigUrl() pulumi.AnyOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) interface{} { return v.FluentdConfigUrl }).(pulumi.AnyOutput)
 }
 
-// The kind of DiagnosticsSink.
-// Expected value is 'AzureInternalMonitoringPipeline'.
 func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Azure Internal monitoring agent configuration.
 func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) MaConfigUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.MaConfigUrl }).(pulumi.StringPtrOutput)
 }
 
-// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
 func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Azure Internal monitoring pipeline account namespace.
 func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
@@ -1318,25 +1102,15 @@ func (o AzureInternalMonitoringPipelineSinkDescriptionArrayOutput) Index(i pulum
 	}).(AzureInternalMonitoringPipelineSinkDescriptionOutput)
 }
 
-// Diagnostics settings for Geneva.
 type AzureInternalMonitoringPipelineSinkDescriptionResponse struct {
-	// Azure Internal monitoring pipeline account.
-	AccountName *string `pulumi:"accountName"`
-	// Azure Internal monitoring pipeline autokey associated with the certificate.
-	AutoKeyConfigUrl *string `pulumi:"autoKeyConfigUrl"`
-	// A description of the sink.
-	Description *string `pulumi:"description"`
-	// Azure Internal monitoring agent fluentd configuration.
+	AccountName      *string     `pulumi:"accountName"`
+	AutoKeyConfigUrl *string     `pulumi:"autoKeyConfigUrl"`
+	Description      *string     `pulumi:"description"`
 	FluentdConfigUrl interface{} `pulumi:"fluentdConfigUrl"`
-	// The kind of DiagnosticsSink.
-	// Expected value is 'AzureInternalMonitoringPipeline'.
-	Kind string `pulumi:"kind"`
-	// Azure Internal monitoring agent configuration.
-	MaConfigUrl *string `pulumi:"maConfigUrl"`
-	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-	Name *string `pulumi:"name"`
-	// Azure Internal monitoring pipeline account namespace.
-	Namespace *string `pulumi:"namespace"`
+	Kind             string      `pulumi:"kind"`
+	MaConfigUrl      *string     `pulumi:"maConfigUrl"`
+	Name             *string     `pulumi:"name"`
+	Namespace        *string     `pulumi:"namespace"`
 }
 
 // AzureInternalMonitoringPipelineSinkDescriptionResponseInput is an input type that accepts AzureInternalMonitoringPipelineSinkDescriptionResponseArgs and AzureInternalMonitoringPipelineSinkDescriptionResponseOutput values.
@@ -1350,25 +1124,15 @@ type AzureInternalMonitoringPipelineSinkDescriptionResponseInput interface {
 	ToAzureInternalMonitoringPipelineSinkDescriptionResponseOutputWithContext(context.Context) AzureInternalMonitoringPipelineSinkDescriptionResponseOutput
 }
 
-// Diagnostics settings for Geneva.
 type AzureInternalMonitoringPipelineSinkDescriptionResponseArgs struct {
-	// Azure Internal monitoring pipeline account.
-	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
-	// Azure Internal monitoring pipeline autokey associated with the certificate.
+	AccountName      pulumi.StringPtrInput `pulumi:"accountName"`
 	AutoKeyConfigUrl pulumi.StringPtrInput `pulumi:"autoKeyConfigUrl"`
-	// A description of the sink.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Azure Internal monitoring agent fluentd configuration.
-	FluentdConfigUrl pulumi.Input `pulumi:"fluentdConfigUrl"`
-	// The kind of DiagnosticsSink.
-	// Expected value is 'AzureInternalMonitoringPipeline'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Azure Internal monitoring agent configuration.
-	MaConfigUrl pulumi.StringPtrInput `pulumi:"maConfigUrl"`
-	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Azure Internal monitoring pipeline account namespace.
-	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	Description      pulumi.StringPtrInput `pulumi:"description"`
+	FluentdConfigUrl pulumi.Input          `pulumi:"fluentdConfigUrl"`
+	Kind             pulumi.StringInput    `pulumi:"kind"`
+	MaConfigUrl      pulumi.StringPtrInput `pulumi:"maConfigUrl"`
+	Name             pulumi.StringPtrInput `pulumi:"name"`
+	Namespace        pulumi.StringPtrInput `pulumi:"namespace"`
 }
 
 func (AzureInternalMonitoringPipelineSinkDescriptionResponseArgs) ElementType() reflect.Type {
@@ -1408,7 +1172,6 @@ func (i AzureInternalMonitoringPipelineSinkDescriptionResponseArray) ToAzureInte
 	return pulumi.ToOutputWithContext(ctx, i).(AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput)
 }
 
-// Diagnostics settings for Geneva.
 type AzureInternalMonitoringPipelineSinkDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) ElementType() reflect.Type {
@@ -1423,43 +1186,34 @@ func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) ToAzureInt
 	return o
 }
 
-// Azure Internal monitoring pipeline account.
 func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
 }
 
-// Azure Internal monitoring pipeline autokey associated with the certificate.
 func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) AutoKeyConfigUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.AutoKeyConfigUrl }).(pulumi.StringPtrOutput)
 }
 
-// A description of the sink.
 func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Azure Internal monitoring agent fluentd configuration.
 func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) FluentdConfigUrl() pulumi.AnyOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) interface{} { return v.FluentdConfigUrl }).(pulumi.AnyOutput)
 }
 
-// The kind of DiagnosticsSink.
-// Expected value is 'AzureInternalMonitoringPipeline'.
 func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Azure Internal monitoring agent configuration.
 func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) MaConfigUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.MaConfigUrl }).(pulumi.StringPtrOutput)
 }
 
-// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
 func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Azure Internal monitoring pipeline account namespace.
 func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
@@ -1484,36 +1238,21 @@ func (o AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput) Index
 	}).(AzureInternalMonitoringPipelineSinkDescriptionResponseOutput)
 }
 
-// Describes a container and its runtime properties.
 type ContainerCodePackageProperties struct {
-	// Command array to execute within the container in exec form.
-	Commands []string `pulumi:"commands"`
-	// Reference to sinks in DiagnosticsDescription.
-	Diagnostics *DiagnosticsRef `pulumi:"diagnostics"`
-	// The endpoints exposed by this container.
-	Endpoints []EndpointProperties `pulumi:"endpoints"`
-	// Override for the default entry point in the container.
-	Entrypoint *string `pulumi:"entrypoint"`
-	// The environment variables to set in this container
-	EnvironmentVariables []EnvironmentVariable `pulumi:"environmentVariables"`
-	// The Container image to use.
-	Image string `pulumi:"image"`
-	// Image registry credential.
-	ImageRegistryCredential *ImageRegistryCredential `pulumi:"imageRegistryCredential"`
-	// The labels to set in this container.
-	Labels []ContainerLabel `pulumi:"labels"`
-	// The name of the code package.
-	Name string `pulumi:"name"`
-	// A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
-	ReliableCollectionsRefs []ReliableCollectionsRef `pulumi:"reliableCollectionsRefs"`
-	// The resources required by this container.
-	Resources ResourceRequirements `pulumi:"resources"`
-	// The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
-	Settings []Setting `pulumi:"settings"`
-	// Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
-	VolumeRefs []VolumeReference `pulumi:"volumeRefs"`
-	// Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
-	Volumes []ApplicationScopedVolume `pulumi:"volumes"`
+	Commands                []string                  `pulumi:"commands"`
+	Diagnostics             *DiagnosticsRef           `pulumi:"diagnostics"`
+	Endpoints               []EndpointProperties      `pulumi:"endpoints"`
+	Entrypoint              *string                   `pulumi:"entrypoint"`
+	EnvironmentVariables    []EnvironmentVariable     `pulumi:"environmentVariables"`
+	Image                   string                    `pulumi:"image"`
+	ImageRegistryCredential *ImageRegistryCredential  `pulumi:"imageRegistryCredential"`
+	Labels                  []ContainerLabel          `pulumi:"labels"`
+	Name                    string                    `pulumi:"name"`
+	ReliableCollectionsRefs []ReliableCollectionsRef  `pulumi:"reliableCollectionsRefs"`
+	Resources               ResourceRequirements      `pulumi:"resources"`
+	Settings                []Setting                 `pulumi:"settings"`
+	VolumeRefs              []VolumeReference         `pulumi:"volumeRefs"`
+	Volumes                 []ApplicationScopedVolume `pulumi:"volumes"`
 }
 
 // ContainerCodePackagePropertiesInput is an input type that accepts ContainerCodePackagePropertiesArgs and ContainerCodePackagePropertiesOutput values.
@@ -1527,36 +1266,21 @@ type ContainerCodePackagePropertiesInput interface {
 	ToContainerCodePackagePropertiesOutputWithContext(context.Context) ContainerCodePackagePropertiesOutput
 }
 
-// Describes a container and its runtime properties.
 type ContainerCodePackagePropertiesArgs struct {
-	// Command array to execute within the container in exec form.
-	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// Reference to sinks in DiagnosticsDescription.
-	Diagnostics DiagnosticsRefPtrInput `pulumi:"diagnostics"`
-	// The endpoints exposed by this container.
-	Endpoints EndpointPropertiesArrayInput `pulumi:"endpoints"`
-	// Override for the default entry point in the container.
-	Entrypoint pulumi.StringPtrInput `pulumi:"entrypoint"`
-	// The environment variables to set in this container
-	EnvironmentVariables EnvironmentVariableArrayInput `pulumi:"environmentVariables"`
-	// The Container image to use.
-	Image pulumi.StringInput `pulumi:"image"`
-	// Image registry credential.
-	ImageRegistryCredential ImageRegistryCredentialPtrInput `pulumi:"imageRegistryCredential"`
-	// The labels to set in this container.
-	Labels ContainerLabelArrayInput `pulumi:"labels"`
-	// The name of the code package.
-	Name pulumi.StringInput `pulumi:"name"`
-	// A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
-	ReliableCollectionsRefs ReliableCollectionsRefArrayInput `pulumi:"reliableCollectionsRefs"`
-	// The resources required by this container.
-	Resources ResourceRequirementsInput `pulumi:"resources"`
-	// The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
-	Settings SettingArrayInput `pulumi:"settings"`
-	// Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
-	VolumeRefs VolumeReferenceArrayInput `pulumi:"volumeRefs"`
-	// Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
-	Volumes ApplicationScopedVolumeArrayInput `pulumi:"volumes"`
+	Commands                pulumi.StringArrayInput           `pulumi:"commands"`
+	Diagnostics             DiagnosticsRefPtrInput            `pulumi:"diagnostics"`
+	Endpoints               EndpointPropertiesArrayInput      `pulumi:"endpoints"`
+	Entrypoint              pulumi.StringPtrInput             `pulumi:"entrypoint"`
+	EnvironmentVariables    EnvironmentVariableArrayInput     `pulumi:"environmentVariables"`
+	Image                   pulumi.StringInput                `pulumi:"image"`
+	ImageRegistryCredential ImageRegistryCredentialPtrInput   `pulumi:"imageRegistryCredential"`
+	Labels                  ContainerLabelArrayInput          `pulumi:"labels"`
+	Name                    pulumi.StringInput                `pulumi:"name"`
+	ReliableCollectionsRefs ReliableCollectionsRefArrayInput  `pulumi:"reliableCollectionsRefs"`
+	Resources               ResourceRequirementsInput         `pulumi:"resources"`
+	Settings                SettingArrayInput                 `pulumi:"settings"`
+	VolumeRefs              VolumeReferenceArrayInput         `pulumi:"volumeRefs"`
+	Volumes                 ApplicationScopedVolumeArrayInput `pulumi:"volumes"`
 }
 
 func (ContainerCodePackagePropertiesArgs) ElementType() reflect.Type {
@@ -1596,7 +1320,6 @@ func (i ContainerCodePackagePropertiesArray) ToContainerCodePackagePropertiesArr
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerCodePackagePropertiesArrayOutput)
 }
 
-// Describes a container and its runtime properties.
 type ContainerCodePackagePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ContainerCodePackagePropertiesOutput) ElementType() reflect.Type {
@@ -1611,72 +1334,58 @@ func (o ContainerCodePackagePropertiesOutput) ToContainerCodePackagePropertiesOu
 	return o
 }
 
-// Command array to execute within the container in exec form.
 func (o ContainerCodePackagePropertiesOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ContainerCodePackageProperties) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// Reference to sinks in DiagnosticsDescription.
 func (o ContainerCodePackagePropertiesOutput) Diagnostics() DiagnosticsRefPtrOutput {
 	return o.ApplyT(func(v ContainerCodePackageProperties) *DiagnosticsRef { return v.Diagnostics }).(DiagnosticsRefPtrOutput)
 }
 
-// The endpoints exposed by this container.
 func (o ContainerCodePackagePropertiesOutput) Endpoints() EndpointPropertiesArrayOutput {
 	return o.ApplyT(func(v ContainerCodePackageProperties) []EndpointProperties { return v.Endpoints }).(EndpointPropertiesArrayOutput)
 }
 
-// Override for the default entry point in the container.
 func (o ContainerCodePackagePropertiesOutput) Entrypoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerCodePackageProperties) *string { return v.Entrypoint }).(pulumi.StringPtrOutput)
 }
 
-// The environment variables to set in this container
 func (o ContainerCodePackagePropertiesOutput) EnvironmentVariables() EnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v ContainerCodePackageProperties) []EnvironmentVariable { return v.EnvironmentVariables }).(EnvironmentVariableArrayOutput)
 }
 
-// The Container image to use.
 func (o ContainerCodePackagePropertiesOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerCodePackageProperties) string { return v.Image }).(pulumi.StringOutput)
 }
 
-// Image registry credential.
 func (o ContainerCodePackagePropertiesOutput) ImageRegistryCredential() ImageRegistryCredentialPtrOutput {
 	return o.ApplyT(func(v ContainerCodePackageProperties) *ImageRegistryCredential { return v.ImageRegistryCredential }).(ImageRegistryCredentialPtrOutput)
 }
 
-// The labels to set in this container.
 func (o ContainerCodePackagePropertiesOutput) Labels() ContainerLabelArrayOutput {
 	return o.ApplyT(func(v ContainerCodePackageProperties) []ContainerLabel { return v.Labels }).(ContainerLabelArrayOutput)
 }
 
-// The name of the code package.
 func (o ContainerCodePackagePropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerCodePackageProperties) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
 func (o ContainerCodePackagePropertiesOutput) ReliableCollectionsRefs() ReliableCollectionsRefArrayOutput {
 	return o.ApplyT(func(v ContainerCodePackageProperties) []ReliableCollectionsRef { return v.ReliableCollectionsRefs }).(ReliableCollectionsRefArrayOutput)
 }
 
-// The resources required by this container.
 func (o ContainerCodePackagePropertiesOutput) Resources() ResourceRequirementsOutput {
 	return o.ApplyT(func(v ContainerCodePackageProperties) ResourceRequirements { return v.Resources }).(ResourceRequirementsOutput)
 }
 
-// The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
 func (o ContainerCodePackagePropertiesOutput) Settings() SettingArrayOutput {
 	return o.ApplyT(func(v ContainerCodePackageProperties) []Setting { return v.Settings }).(SettingArrayOutput)
 }
 
-// Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
 func (o ContainerCodePackagePropertiesOutput) VolumeRefs() VolumeReferenceArrayOutput {
 	return o.ApplyT(func(v ContainerCodePackageProperties) []VolumeReference { return v.VolumeRefs }).(VolumeReferenceArrayOutput)
 }
 
-// Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
 func (o ContainerCodePackagePropertiesOutput) Volumes() ApplicationScopedVolumeArrayOutput {
 	return o.ApplyT(func(v ContainerCodePackageProperties) []ApplicationScopedVolume { return v.Volumes }).(ApplicationScopedVolumeArrayOutput)
 }
@@ -1701,38 +1410,22 @@ func (o ContainerCodePackagePropertiesArrayOutput) Index(i pulumi.IntInput) Cont
 	}).(ContainerCodePackagePropertiesOutput)
 }
 
-// Describes a container and its runtime properties.
 type ContainerCodePackagePropertiesResponse struct {
-	// Command array to execute within the container in exec form.
-	Commands []string `pulumi:"commands"`
-	// Reference to sinks in DiagnosticsDescription.
-	Diagnostics *DiagnosticsRefResponse `pulumi:"diagnostics"`
-	// The endpoints exposed by this container.
-	Endpoints []EndpointPropertiesResponse `pulumi:"endpoints"`
-	// Override for the default entry point in the container.
-	Entrypoint *string `pulumi:"entrypoint"`
-	// The environment variables to set in this container
-	EnvironmentVariables []EnvironmentVariableResponse `pulumi:"environmentVariables"`
-	// The Container image to use.
-	Image string `pulumi:"image"`
-	// Image registry credential.
-	ImageRegistryCredential *ImageRegistryCredentialResponse `pulumi:"imageRegistryCredential"`
-	// Runtime information of a container instance.
-	InstanceView ContainerInstanceViewResponse `pulumi:"instanceView"`
-	// The labels to set in this container.
-	Labels []ContainerLabelResponse `pulumi:"labels"`
-	// The name of the code package.
-	Name string `pulumi:"name"`
-	// A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
-	ReliableCollectionsRefs []ReliableCollectionsRefResponse `pulumi:"reliableCollectionsRefs"`
-	// The resources required by this container.
-	Resources ResourceRequirementsResponse `pulumi:"resources"`
-	// The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
-	Settings []SettingResponse `pulumi:"settings"`
-	// Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
-	VolumeRefs []VolumeReferenceResponse `pulumi:"volumeRefs"`
-	// Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
-	Volumes []ApplicationScopedVolumeResponse `pulumi:"volumes"`
+	Commands                []string                          `pulumi:"commands"`
+	Diagnostics             *DiagnosticsRefResponse           `pulumi:"diagnostics"`
+	Endpoints               []EndpointPropertiesResponse      `pulumi:"endpoints"`
+	Entrypoint              *string                           `pulumi:"entrypoint"`
+	EnvironmentVariables    []EnvironmentVariableResponse     `pulumi:"environmentVariables"`
+	Image                   string                            `pulumi:"image"`
+	ImageRegistryCredential *ImageRegistryCredentialResponse  `pulumi:"imageRegistryCredential"`
+	InstanceView            ContainerInstanceViewResponse     `pulumi:"instanceView"`
+	Labels                  []ContainerLabelResponse          `pulumi:"labels"`
+	Name                    string                            `pulumi:"name"`
+	ReliableCollectionsRefs []ReliableCollectionsRefResponse  `pulumi:"reliableCollectionsRefs"`
+	Resources               ResourceRequirementsResponse      `pulumi:"resources"`
+	Settings                []SettingResponse                 `pulumi:"settings"`
+	VolumeRefs              []VolumeReferenceResponse         `pulumi:"volumeRefs"`
+	Volumes                 []ApplicationScopedVolumeResponse `pulumi:"volumes"`
 }
 
 // ContainerCodePackagePropertiesResponseInput is an input type that accepts ContainerCodePackagePropertiesResponseArgs and ContainerCodePackagePropertiesResponseOutput values.
@@ -1746,38 +1439,22 @@ type ContainerCodePackagePropertiesResponseInput interface {
 	ToContainerCodePackagePropertiesResponseOutputWithContext(context.Context) ContainerCodePackagePropertiesResponseOutput
 }
 
-// Describes a container and its runtime properties.
 type ContainerCodePackagePropertiesResponseArgs struct {
-	// Command array to execute within the container in exec form.
-	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// Reference to sinks in DiagnosticsDescription.
-	Diagnostics DiagnosticsRefResponsePtrInput `pulumi:"diagnostics"`
-	// The endpoints exposed by this container.
-	Endpoints EndpointPropertiesResponseArrayInput `pulumi:"endpoints"`
-	// Override for the default entry point in the container.
-	Entrypoint pulumi.StringPtrInput `pulumi:"entrypoint"`
-	// The environment variables to set in this container
-	EnvironmentVariables EnvironmentVariableResponseArrayInput `pulumi:"environmentVariables"`
-	// The Container image to use.
-	Image pulumi.StringInput `pulumi:"image"`
-	// Image registry credential.
-	ImageRegistryCredential ImageRegistryCredentialResponsePtrInput `pulumi:"imageRegistryCredential"`
-	// Runtime information of a container instance.
-	InstanceView ContainerInstanceViewResponseInput `pulumi:"instanceView"`
-	// The labels to set in this container.
-	Labels ContainerLabelResponseArrayInput `pulumi:"labels"`
-	// The name of the code package.
-	Name pulumi.StringInput `pulumi:"name"`
-	// A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
-	ReliableCollectionsRefs ReliableCollectionsRefResponseArrayInput `pulumi:"reliableCollectionsRefs"`
-	// The resources required by this container.
-	Resources ResourceRequirementsResponseInput `pulumi:"resources"`
-	// The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
-	Settings SettingResponseArrayInput `pulumi:"settings"`
-	// Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
-	VolumeRefs VolumeReferenceResponseArrayInput `pulumi:"volumeRefs"`
-	// Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
-	Volumes ApplicationScopedVolumeResponseArrayInput `pulumi:"volumes"`
+	Commands                pulumi.StringArrayInput                   `pulumi:"commands"`
+	Diagnostics             DiagnosticsRefResponsePtrInput            `pulumi:"diagnostics"`
+	Endpoints               EndpointPropertiesResponseArrayInput      `pulumi:"endpoints"`
+	Entrypoint              pulumi.StringPtrInput                     `pulumi:"entrypoint"`
+	EnvironmentVariables    EnvironmentVariableResponseArrayInput     `pulumi:"environmentVariables"`
+	Image                   pulumi.StringInput                        `pulumi:"image"`
+	ImageRegistryCredential ImageRegistryCredentialResponsePtrInput   `pulumi:"imageRegistryCredential"`
+	InstanceView            ContainerInstanceViewResponseInput        `pulumi:"instanceView"`
+	Labels                  ContainerLabelResponseArrayInput          `pulumi:"labels"`
+	Name                    pulumi.StringInput                        `pulumi:"name"`
+	ReliableCollectionsRefs ReliableCollectionsRefResponseArrayInput  `pulumi:"reliableCollectionsRefs"`
+	Resources               ResourceRequirementsResponseInput         `pulumi:"resources"`
+	Settings                SettingResponseArrayInput                 `pulumi:"settings"`
+	VolumeRefs              VolumeReferenceResponseArrayInput         `pulumi:"volumeRefs"`
+	Volumes                 ApplicationScopedVolumeResponseArrayInput `pulumi:"volumes"`
 }
 
 func (ContainerCodePackagePropertiesResponseArgs) ElementType() reflect.Type {
@@ -1817,7 +1494,6 @@ func (i ContainerCodePackagePropertiesResponseArray) ToContainerCodePackagePrope
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerCodePackagePropertiesResponseArrayOutput)
 }
 
-// Describes a container and its runtime properties.
 type ContainerCodePackagePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerCodePackagePropertiesResponseOutput) ElementType() reflect.Type {
@@ -1832,83 +1508,68 @@ func (o ContainerCodePackagePropertiesResponseOutput) ToContainerCodePackageProp
 	return o
 }
 
-// Command array to execute within the container in exec form.
 func (o ContainerCodePackagePropertiesResponseOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ContainerCodePackagePropertiesResponse) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// Reference to sinks in DiagnosticsDescription.
 func (o ContainerCodePackagePropertiesResponseOutput) Diagnostics() DiagnosticsRefResponsePtrOutput {
 	return o.ApplyT(func(v ContainerCodePackagePropertiesResponse) *DiagnosticsRefResponse { return v.Diagnostics }).(DiagnosticsRefResponsePtrOutput)
 }
 
-// The endpoints exposed by this container.
 func (o ContainerCodePackagePropertiesResponseOutput) Endpoints() EndpointPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v ContainerCodePackagePropertiesResponse) []EndpointPropertiesResponse { return v.Endpoints }).(EndpointPropertiesResponseArrayOutput)
 }
 
-// Override for the default entry point in the container.
 func (o ContainerCodePackagePropertiesResponseOutput) Entrypoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerCodePackagePropertiesResponse) *string { return v.Entrypoint }).(pulumi.StringPtrOutput)
 }
 
-// The environment variables to set in this container
 func (o ContainerCodePackagePropertiesResponseOutput) EnvironmentVariables() EnvironmentVariableResponseArrayOutput {
 	return o.ApplyT(func(v ContainerCodePackagePropertiesResponse) []EnvironmentVariableResponse {
 		return v.EnvironmentVariables
 	}).(EnvironmentVariableResponseArrayOutput)
 }
 
-// The Container image to use.
 func (o ContainerCodePackagePropertiesResponseOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerCodePackagePropertiesResponse) string { return v.Image }).(pulumi.StringOutput)
 }
 
-// Image registry credential.
 func (o ContainerCodePackagePropertiesResponseOutput) ImageRegistryCredential() ImageRegistryCredentialResponsePtrOutput {
 	return o.ApplyT(func(v ContainerCodePackagePropertiesResponse) *ImageRegistryCredentialResponse {
 		return v.ImageRegistryCredential
 	}).(ImageRegistryCredentialResponsePtrOutput)
 }
 
-// Runtime information of a container instance.
 func (o ContainerCodePackagePropertiesResponseOutput) InstanceView() ContainerInstanceViewResponseOutput {
 	return o.ApplyT(func(v ContainerCodePackagePropertiesResponse) ContainerInstanceViewResponse { return v.InstanceView }).(ContainerInstanceViewResponseOutput)
 }
 
-// The labels to set in this container.
 func (o ContainerCodePackagePropertiesResponseOutput) Labels() ContainerLabelResponseArrayOutput {
 	return o.ApplyT(func(v ContainerCodePackagePropertiesResponse) []ContainerLabelResponse { return v.Labels }).(ContainerLabelResponseArrayOutput)
 }
 
-// The name of the code package.
 func (o ContainerCodePackagePropertiesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerCodePackagePropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
 func (o ContainerCodePackagePropertiesResponseOutput) ReliableCollectionsRefs() ReliableCollectionsRefResponseArrayOutput {
 	return o.ApplyT(func(v ContainerCodePackagePropertiesResponse) []ReliableCollectionsRefResponse {
 		return v.ReliableCollectionsRefs
 	}).(ReliableCollectionsRefResponseArrayOutput)
 }
 
-// The resources required by this container.
 func (o ContainerCodePackagePropertiesResponseOutput) Resources() ResourceRequirementsResponseOutput {
 	return o.ApplyT(func(v ContainerCodePackagePropertiesResponse) ResourceRequirementsResponse { return v.Resources }).(ResourceRequirementsResponseOutput)
 }
 
-// The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
 func (o ContainerCodePackagePropertiesResponseOutput) Settings() SettingResponseArrayOutput {
 	return o.ApplyT(func(v ContainerCodePackagePropertiesResponse) []SettingResponse { return v.Settings }).(SettingResponseArrayOutput)
 }
 
-// Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
 func (o ContainerCodePackagePropertiesResponseOutput) VolumeRefs() VolumeReferenceResponseArrayOutput {
 	return o.ApplyT(func(v ContainerCodePackagePropertiesResponse) []VolumeReferenceResponse { return v.VolumeRefs }).(VolumeReferenceResponseArrayOutput)
 }
 
-// Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
 func (o ContainerCodePackagePropertiesResponseOutput) Volumes() ApplicationScopedVolumeResponseArrayOutput {
 	return o.ApplyT(func(v ContainerCodePackagePropertiesResponse) []ApplicationScopedVolumeResponse { return v.Volumes }).(ApplicationScopedVolumeResponseArrayOutput)
 }
@@ -1933,20 +1594,13 @@ func (o ContainerCodePackagePropertiesResponseArrayOutput) Index(i pulumi.IntInp
 	}).(ContainerCodePackagePropertiesResponseOutput)
 }
 
-// A container event.
 type ContainerEventResponse struct {
-	// The count of the event.
-	Count *int `pulumi:"count"`
-	// Date/time of the first event.
+	Count          *int    `pulumi:"count"`
 	FirstTimestamp *string `pulumi:"firstTimestamp"`
-	// Date/time of the last event.
-	LastTimestamp *string `pulumi:"lastTimestamp"`
-	// The event message
-	Message *string `pulumi:"message"`
-	// The name of the container event.
-	Name *string `pulumi:"name"`
-	// The event type.
-	Type *string `pulumi:"type"`
+	LastTimestamp  *string `pulumi:"lastTimestamp"`
+	Message        *string `pulumi:"message"`
+	Name           *string `pulumi:"name"`
+	Type           *string `pulumi:"type"`
 }
 
 // ContainerEventResponseInput is an input type that accepts ContainerEventResponseArgs and ContainerEventResponseOutput values.
@@ -1960,20 +1614,13 @@ type ContainerEventResponseInput interface {
 	ToContainerEventResponseOutputWithContext(context.Context) ContainerEventResponseOutput
 }
 
-// A container event.
 type ContainerEventResponseArgs struct {
-	// The count of the event.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// Date/time of the first event.
+	Count          pulumi.IntPtrInput    `pulumi:"count"`
 	FirstTimestamp pulumi.StringPtrInput `pulumi:"firstTimestamp"`
-	// Date/time of the last event.
-	LastTimestamp pulumi.StringPtrInput `pulumi:"lastTimestamp"`
-	// The event message
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// The name of the container event.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The event type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	LastTimestamp  pulumi.StringPtrInput `pulumi:"lastTimestamp"`
+	Message        pulumi.StringPtrInput `pulumi:"message"`
+	Name           pulumi.StringPtrInput `pulumi:"name"`
+	Type           pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ContainerEventResponseArgs) ElementType() reflect.Type {
@@ -2013,7 +1660,6 @@ func (i ContainerEventResponseArray) ToContainerEventResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerEventResponseArrayOutput)
 }
 
-// A container event.
 type ContainerEventResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerEventResponseOutput) ElementType() reflect.Type {
@@ -2028,32 +1674,26 @@ func (o ContainerEventResponseOutput) ToContainerEventResponseOutputWithContext(
 	return o
 }
 
-// The count of the event.
 func (o ContainerEventResponseOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerEventResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// Date/time of the first event.
 func (o ContainerEventResponseOutput) FirstTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerEventResponse) *string { return v.FirstTimestamp }).(pulumi.StringPtrOutput)
 }
 
-// Date/time of the last event.
 func (o ContainerEventResponseOutput) LastTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerEventResponse) *string { return v.LastTimestamp }).(pulumi.StringPtrOutput)
 }
 
-// The event message
 func (o ContainerEventResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerEventResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// The name of the container event.
 func (o ContainerEventResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerEventResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The event type.
 func (o ContainerEventResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerEventResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2078,16 +1718,11 @@ func (o ContainerEventResponseArrayOutput) Index(i pulumi.IntInput) ContainerEve
 	}).(ContainerEventResponseOutput)
 }
 
-// Runtime information of a container instance.
 type ContainerInstanceViewResponse struct {
-	// Current container instance state.
-	CurrentState *ContainerStateResponse `pulumi:"currentState"`
-	// The events of this container instance.
-	Events []ContainerEventResponse `pulumi:"events"`
-	// Previous container instance state.
-	PreviousState *ContainerStateResponse `pulumi:"previousState"`
-	// The number of times the container has been restarted.
-	RestartCount *int `pulumi:"restartCount"`
+	CurrentState  *ContainerStateResponse  `pulumi:"currentState"`
+	Events        []ContainerEventResponse `pulumi:"events"`
+	PreviousState *ContainerStateResponse  `pulumi:"previousState"`
+	RestartCount  *int                     `pulumi:"restartCount"`
 }
 
 // ContainerInstanceViewResponseInput is an input type that accepts ContainerInstanceViewResponseArgs and ContainerInstanceViewResponseOutput values.
@@ -2101,16 +1736,11 @@ type ContainerInstanceViewResponseInput interface {
 	ToContainerInstanceViewResponseOutputWithContext(context.Context) ContainerInstanceViewResponseOutput
 }
 
-// Runtime information of a container instance.
 type ContainerInstanceViewResponseArgs struct {
-	// Current container instance state.
-	CurrentState ContainerStateResponsePtrInput `pulumi:"currentState"`
-	// The events of this container instance.
-	Events ContainerEventResponseArrayInput `pulumi:"events"`
-	// Previous container instance state.
-	PreviousState ContainerStateResponsePtrInput `pulumi:"previousState"`
-	// The number of times the container has been restarted.
-	RestartCount pulumi.IntPtrInput `pulumi:"restartCount"`
+	CurrentState  ContainerStateResponsePtrInput   `pulumi:"currentState"`
+	Events        ContainerEventResponseArrayInput `pulumi:"events"`
+	PreviousState ContainerStateResponsePtrInput   `pulumi:"previousState"`
+	RestartCount  pulumi.IntPtrInput               `pulumi:"restartCount"`
 }
 
 func (ContainerInstanceViewResponseArgs) ElementType() reflect.Type {
@@ -2125,7 +1755,6 @@ func (i ContainerInstanceViewResponseArgs) ToContainerInstanceViewResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerInstanceViewResponseOutput)
 }
 
-// Runtime information of a container instance.
 type ContainerInstanceViewResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerInstanceViewResponseOutput) ElementType() reflect.Type {
@@ -2140,31 +1769,24 @@ func (o ContainerInstanceViewResponseOutput) ToContainerInstanceViewResponseOutp
 	return o
 }
 
-// Current container instance state.
 func (o ContainerInstanceViewResponseOutput) CurrentState() ContainerStateResponsePtrOutput {
 	return o.ApplyT(func(v ContainerInstanceViewResponse) *ContainerStateResponse { return v.CurrentState }).(ContainerStateResponsePtrOutput)
 }
 
-// The events of this container instance.
 func (o ContainerInstanceViewResponseOutput) Events() ContainerEventResponseArrayOutput {
 	return o.ApplyT(func(v ContainerInstanceViewResponse) []ContainerEventResponse { return v.Events }).(ContainerEventResponseArrayOutput)
 }
 
-// Previous container instance state.
 func (o ContainerInstanceViewResponseOutput) PreviousState() ContainerStateResponsePtrOutput {
 	return o.ApplyT(func(v ContainerInstanceViewResponse) *ContainerStateResponse { return v.PreviousState }).(ContainerStateResponsePtrOutput)
 }
 
-// The number of times the container has been restarted.
 func (o ContainerInstanceViewResponseOutput) RestartCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerInstanceViewResponse) *int { return v.RestartCount }).(pulumi.IntPtrOutput)
 }
 
-// Describes a container label.
 type ContainerLabel struct {
-	// The name of the container label.
-	Name string `pulumi:"name"`
-	// The value of the container label.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -2179,11 +1801,8 @@ type ContainerLabelInput interface {
 	ToContainerLabelOutputWithContext(context.Context) ContainerLabelOutput
 }
 
-// Describes a container label.
 type ContainerLabelArgs struct {
-	// The name of the container label.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the container label.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2224,7 +1843,6 @@ func (i ContainerLabelArray) ToContainerLabelArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerLabelArrayOutput)
 }
 
-// Describes a container label.
 type ContainerLabelOutput struct{ *pulumi.OutputState }
 
 func (ContainerLabelOutput) ElementType() reflect.Type {
@@ -2239,12 +1857,10 @@ func (o ContainerLabelOutput) ToContainerLabelOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The name of the container label.
 func (o ContainerLabelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerLabel) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the container label.
 func (o ContainerLabelOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerLabel) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2269,11 +1885,8 @@ func (o ContainerLabelArrayOutput) Index(i pulumi.IntInput) ContainerLabelOutput
 	}).(ContainerLabelOutput)
 }
 
-// Describes a container label.
 type ContainerLabelResponse struct {
-	// The name of the container label.
-	Name string `pulumi:"name"`
-	// The value of the container label.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -2288,11 +1901,8 @@ type ContainerLabelResponseInput interface {
 	ToContainerLabelResponseOutputWithContext(context.Context) ContainerLabelResponseOutput
 }
 
-// Describes a container label.
 type ContainerLabelResponseArgs struct {
-	// The name of the container label.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the container label.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2333,7 +1943,6 @@ func (i ContainerLabelResponseArray) ToContainerLabelResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerLabelResponseArrayOutput)
 }
 
-// Describes a container label.
 type ContainerLabelResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerLabelResponseOutput) ElementType() reflect.Type {
@@ -2348,12 +1957,10 @@ func (o ContainerLabelResponseOutput) ToContainerLabelResponseOutputWithContext(
 	return o
 }
 
-// The name of the container label.
 func (o ContainerLabelResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerLabelResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the container label.
 func (o ContainerLabelResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerLabelResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2378,18 +1985,12 @@ func (o ContainerLabelResponseArrayOutput) Index(i pulumi.IntInput) ContainerLab
 	}).(ContainerLabelResponseOutput)
 }
 
-// The container state.
 type ContainerStateResponse struct {
-	// Human-readable status of this state.
 	DetailStatus *string `pulumi:"detailStatus"`
-	// The container exit code.
-	ExitCode *string `pulumi:"exitCode"`
-	// Date/time when the container state finished.
-	FinishTime *string `pulumi:"finishTime"`
-	// Date/time when the container state started.
-	StartTime *string `pulumi:"startTime"`
-	// The state of this container
-	State *string `pulumi:"state"`
+	ExitCode     *string `pulumi:"exitCode"`
+	FinishTime   *string `pulumi:"finishTime"`
+	StartTime    *string `pulumi:"startTime"`
+	State        *string `pulumi:"state"`
 }
 
 // ContainerStateResponseInput is an input type that accepts ContainerStateResponseArgs and ContainerStateResponseOutput values.
@@ -2403,18 +2004,12 @@ type ContainerStateResponseInput interface {
 	ToContainerStateResponseOutputWithContext(context.Context) ContainerStateResponseOutput
 }
 
-// The container state.
 type ContainerStateResponseArgs struct {
-	// Human-readable status of this state.
 	DetailStatus pulumi.StringPtrInput `pulumi:"detailStatus"`
-	// The container exit code.
-	ExitCode pulumi.StringPtrInput `pulumi:"exitCode"`
-	// Date/time when the container state finished.
-	FinishTime pulumi.StringPtrInput `pulumi:"finishTime"`
-	// Date/time when the container state started.
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-	// The state of this container
-	State pulumi.StringPtrInput `pulumi:"state"`
+	ExitCode     pulumi.StringPtrInput `pulumi:"exitCode"`
+	FinishTime   pulumi.StringPtrInput `pulumi:"finishTime"`
+	StartTime    pulumi.StringPtrInput `pulumi:"startTime"`
+	State        pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (ContainerStateResponseArgs) ElementType() reflect.Type {
@@ -2470,7 +2065,6 @@ func (i *containerStateResponsePtrType) ToContainerStateResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerStateResponsePtrOutput)
 }
 
-// The container state.
 type ContainerStateResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerStateResponseOutput) ElementType() reflect.Type {
@@ -2490,32 +2084,27 @@ func (o ContainerStateResponseOutput) ToContainerStateResponsePtrOutput() Contai
 }
 
 func (o ContainerStateResponseOutput) ToContainerStateResponsePtrOutputWithContext(ctx context.Context) ContainerStateResponsePtrOutput {
-	return o.ApplyT(func(v ContainerStateResponse) *ContainerStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerStateResponse) *ContainerStateResponse {
 		return &v
 	}).(ContainerStateResponsePtrOutput)
 }
 
-// Human-readable status of this state.
 func (o ContainerStateResponseOutput) DetailStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerStateResponse) *string { return v.DetailStatus }).(pulumi.StringPtrOutput)
 }
 
-// The container exit code.
 func (o ContainerStateResponseOutput) ExitCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerStateResponse) *string { return v.ExitCode }).(pulumi.StringPtrOutput)
 }
 
-// Date/time when the container state finished.
 func (o ContainerStateResponseOutput) FinishTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerStateResponse) *string { return v.FinishTime }).(pulumi.StringPtrOutput)
 }
 
-// Date/time when the container state started.
 func (o ContainerStateResponseOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerStateResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// The state of this container
 func (o ContainerStateResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerStateResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -2535,10 +2124,15 @@ func (o ContainerStateResponsePtrOutput) ToContainerStateResponsePtrOutputWithCo
 }
 
 func (o ContainerStateResponsePtrOutput) Elem() ContainerStateResponseOutput {
-	return o.ApplyT(func(v *ContainerStateResponse) ContainerStateResponse { return *v }).(ContainerStateResponseOutput)
+	return o.ApplyT(func(v *ContainerStateResponse) ContainerStateResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerStateResponse
+		return ret
+	}).(ContainerStateResponseOutput)
 }
 
-// Human-readable status of this state.
 func (o ContainerStateResponsePtrOutput) DetailStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerStateResponse) *string {
 		if v == nil {
@@ -2548,7 +2142,6 @@ func (o ContainerStateResponsePtrOutput) DetailStatus() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The container exit code.
 func (o ContainerStateResponsePtrOutput) ExitCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerStateResponse) *string {
 		if v == nil {
@@ -2558,7 +2151,6 @@ func (o ContainerStateResponsePtrOutput) ExitCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Date/time when the container state finished.
 func (o ContainerStateResponsePtrOutput) FinishTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerStateResponse) *string {
 		if v == nil {
@@ -2568,7 +2160,6 @@ func (o ContainerStateResponsePtrOutput) FinishTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Date/time when the container state started.
 func (o ContainerStateResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerStateResponse) *string {
 		if v == nil {
@@ -2578,7 +2169,6 @@ func (o ContainerStateResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state of this container
 func (o ContainerStateResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerStateResponse) *string {
 		if v == nil {
@@ -2588,14 +2178,10 @@ func (o ContainerStateResponsePtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the diagnostics options available
 type DiagnosticsDescription struct {
-	// The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
-	DefaultSinkRefs []string `pulumi:"defaultSinkRefs"`
-	// Status of whether or not sinks are enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// List of supported sinks that can be referenced.
-	Sinks []AzureInternalMonitoringPipelineSinkDescription `pulumi:"sinks"`
+	DefaultSinkRefs []string                                         `pulumi:"defaultSinkRefs"`
+	Enabled         *bool                                            `pulumi:"enabled"`
+	Sinks           []AzureInternalMonitoringPipelineSinkDescription `pulumi:"sinks"`
 }
 
 // DiagnosticsDescriptionInput is an input type that accepts DiagnosticsDescriptionArgs and DiagnosticsDescriptionOutput values.
@@ -2609,14 +2195,10 @@ type DiagnosticsDescriptionInput interface {
 	ToDiagnosticsDescriptionOutputWithContext(context.Context) DiagnosticsDescriptionOutput
 }
 
-// Describes the diagnostics options available
 type DiagnosticsDescriptionArgs struct {
-	// The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
-	DefaultSinkRefs pulumi.StringArrayInput `pulumi:"defaultSinkRefs"`
-	// Status of whether or not sinks are enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// List of supported sinks that can be referenced.
-	Sinks AzureInternalMonitoringPipelineSinkDescriptionArrayInput `pulumi:"sinks"`
+	DefaultSinkRefs pulumi.StringArrayInput                                  `pulumi:"defaultSinkRefs"`
+	Enabled         pulumi.BoolPtrInput                                      `pulumi:"enabled"`
+	Sinks           AzureInternalMonitoringPipelineSinkDescriptionArrayInput `pulumi:"sinks"`
 }
 
 func (DiagnosticsDescriptionArgs) ElementType() reflect.Type {
@@ -2672,7 +2254,6 @@ func (i *diagnosticsDescriptionPtrType) ToDiagnosticsDescriptionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsDescriptionPtrOutput)
 }
 
-// Describes the diagnostics options available
 type DiagnosticsDescriptionOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticsDescriptionOutput) ElementType() reflect.Type {
@@ -2692,22 +2273,19 @@ func (o DiagnosticsDescriptionOutput) ToDiagnosticsDescriptionPtrOutput() Diagno
 }
 
 func (o DiagnosticsDescriptionOutput) ToDiagnosticsDescriptionPtrOutputWithContext(ctx context.Context) DiagnosticsDescriptionPtrOutput {
-	return o.ApplyT(func(v DiagnosticsDescription) *DiagnosticsDescription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsDescription) *DiagnosticsDescription {
 		return &v
 	}).(DiagnosticsDescriptionPtrOutput)
 }
 
-// The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
 func (o DiagnosticsDescriptionOutput) DefaultSinkRefs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DiagnosticsDescription) []string { return v.DefaultSinkRefs }).(pulumi.StringArrayOutput)
 }
 
-// Status of whether or not sinks are enabled.
 func (o DiagnosticsDescriptionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DiagnosticsDescription) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// List of supported sinks that can be referenced.
 func (o DiagnosticsDescriptionOutput) Sinks() AzureInternalMonitoringPipelineSinkDescriptionArrayOutput {
 	return o.ApplyT(func(v DiagnosticsDescription) []AzureInternalMonitoringPipelineSinkDescription { return v.Sinks }).(AzureInternalMonitoringPipelineSinkDescriptionArrayOutput)
 }
@@ -2727,10 +2305,15 @@ func (o DiagnosticsDescriptionPtrOutput) ToDiagnosticsDescriptionPtrOutputWithCo
 }
 
 func (o DiagnosticsDescriptionPtrOutput) Elem() DiagnosticsDescriptionOutput {
-	return o.ApplyT(func(v *DiagnosticsDescription) DiagnosticsDescription { return *v }).(DiagnosticsDescriptionOutput)
+	return o.ApplyT(func(v *DiagnosticsDescription) DiagnosticsDescription {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticsDescription
+		return ret
+	}).(DiagnosticsDescriptionOutput)
 }
 
-// The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
 func (o DiagnosticsDescriptionPtrOutput) DefaultSinkRefs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DiagnosticsDescription) []string {
 		if v == nil {
@@ -2740,7 +2323,6 @@ func (o DiagnosticsDescriptionPtrOutput) DefaultSinkRefs() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Status of whether or not sinks are enabled.
 func (o DiagnosticsDescriptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DiagnosticsDescription) *bool {
 		if v == nil {
@@ -2750,7 +2332,6 @@ func (o DiagnosticsDescriptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// List of supported sinks that can be referenced.
 func (o DiagnosticsDescriptionPtrOutput) Sinks() AzureInternalMonitoringPipelineSinkDescriptionArrayOutput {
 	return o.ApplyT(func(v *DiagnosticsDescription) []AzureInternalMonitoringPipelineSinkDescription {
 		if v == nil {
@@ -2760,14 +2341,10 @@ func (o DiagnosticsDescriptionPtrOutput) Sinks() AzureInternalMonitoringPipeline
 	}).(AzureInternalMonitoringPipelineSinkDescriptionArrayOutput)
 }
 
-// Describes the diagnostics options available
 type DiagnosticsDescriptionResponse struct {
-	// The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
-	DefaultSinkRefs []string `pulumi:"defaultSinkRefs"`
-	// Status of whether or not sinks are enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// List of supported sinks that can be referenced.
-	Sinks []AzureInternalMonitoringPipelineSinkDescriptionResponse `pulumi:"sinks"`
+	DefaultSinkRefs []string                                                 `pulumi:"defaultSinkRefs"`
+	Enabled         *bool                                                    `pulumi:"enabled"`
+	Sinks           []AzureInternalMonitoringPipelineSinkDescriptionResponse `pulumi:"sinks"`
 }
 
 // DiagnosticsDescriptionResponseInput is an input type that accepts DiagnosticsDescriptionResponseArgs and DiagnosticsDescriptionResponseOutput values.
@@ -2781,14 +2358,10 @@ type DiagnosticsDescriptionResponseInput interface {
 	ToDiagnosticsDescriptionResponseOutputWithContext(context.Context) DiagnosticsDescriptionResponseOutput
 }
 
-// Describes the diagnostics options available
 type DiagnosticsDescriptionResponseArgs struct {
-	// The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
-	DefaultSinkRefs pulumi.StringArrayInput `pulumi:"defaultSinkRefs"`
-	// Status of whether or not sinks are enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// List of supported sinks that can be referenced.
-	Sinks AzureInternalMonitoringPipelineSinkDescriptionResponseArrayInput `pulumi:"sinks"`
+	DefaultSinkRefs pulumi.StringArrayInput                                          `pulumi:"defaultSinkRefs"`
+	Enabled         pulumi.BoolPtrInput                                              `pulumi:"enabled"`
+	Sinks           AzureInternalMonitoringPipelineSinkDescriptionResponseArrayInput `pulumi:"sinks"`
 }
 
 func (DiagnosticsDescriptionResponseArgs) ElementType() reflect.Type {
@@ -2844,7 +2417,6 @@ func (i *diagnosticsDescriptionResponsePtrType) ToDiagnosticsDescriptionResponse
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsDescriptionResponsePtrOutput)
 }
 
-// Describes the diagnostics options available
 type DiagnosticsDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticsDescriptionResponseOutput) ElementType() reflect.Type {
@@ -2864,22 +2436,19 @@ func (o DiagnosticsDescriptionResponseOutput) ToDiagnosticsDescriptionResponsePt
 }
 
 func (o DiagnosticsDescriptionResponseOutput) ToDiagnosticsDescriptionResponsePtrOutputWithContext(ctx context.Context) DiagnosticsDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v DiagnosticsDescriptionResponse) *DiagnosticsDescriptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsDescriptionResponse) *DiagnosticsDescriptionResponse {
 		return &v
 	}).(DiagnosticsDescriptionResponsePtrOutput)
 }
 
-// The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
 func (o DiagnosticsDescriptionResponseOutput) DefaultSinkRefs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DiagnosticsDescriptionResponse) []string { return v.DefaultSinkRefs }).(pulumi.StringArrayOutput)
 }
 
-// Status of whether or not sinks are enabled.
 func (o DiagnosticsDescriptionResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DiagnosticsDescriptionResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// List of supported sinks that can be referenced.
 func (o DiagnosticsDescriptionResponseOutput) Sinks() AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput {
 	return o.ApplyT(func(v DiagnosticsDescriptionResponse) []AzureInternalMonitoringPipelineSinkDescriptionResponse {
 		return v.Sinks
@@ -2901,10 +2470,15 @@ func (o DiagnosticsDescriptionResponsePtrOutput) ToDiagnosticsDescriptionRespons
 }
 
 func (o DiagnosticsDescriptionResponsePtrOutput) Elem() DiagnosticsDescriptionResponseOutput {
-	return o.ApplyT(func(v *DiagnosticsDescriptionResponse) DiagnosticsDescriptionResponse { return *v }).(DiagnosticsDescriptionResponseOutput)
+	return o.ApplyT(func(v *DiagnosticsDescriptionResponse) DiagnosticsDescriptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticsDescriptionResponse
+		return ret
+	}).(DiagnosticsDescriptionResponseOutput)
 }
 
-// The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
 func (o DiagnosticsDescriptionResponsePtrOutput) DefaultSinkRefs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DiagnosticsDescriptionResponse) []string {
 		if v == nil {
@@ -2914,7 +2488,6 @@ func (o DiagnosticsDescriptionResponsePtrOutput) DefaultSinkRefs() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// Status of whether or not sinks are enabled.
 func (o DiagnosticsDescriptionResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DiagnosticsDescriptionResponse) *bool {
 		if v == nil {
@@ -2924,7 +2497,6 @@ func (o DiagnosticsDescriptionResponsePtrOutput) Enabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// List of supported sinks that can be referenced.
 func (o DiagnosticsDescriptionResponsePtrOutput) Sinks() AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput {
 	return o.ApplyT(func(v *DiagnosticsDescriptionResponse) []AzureInternalMonitoringPipelineSinkDescriptionResponse {
 		if v == nil {
@@ -2934,11 +2506,8 @@ func (o DiagnosticsDescriptionResponsePtrOutput) Sinks() AzureInternalMonitoring
 	}).(AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput)
 }
 
-// Reference to sinks in DiagnosticsDescription.
 type DiagnosticsRef struct {
-	// Status of whether or not sinks are enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
+	Enabled  *bool    `pulumi:"enabled"`
 	SinkRefs []string `pulumi:"sinkRefs"`
 }
 
@@ -2953,11 +2522,8 @@ type DiagnosticsRefInput interface {
 	ToDiagnosticsRefOutputWithContext(context.Context) DiagnosticsRefOutput
 }
 
-// Reference to sinks in DiagnosticsDescription.
 type DiagnosticsRefArgs struct {
-	// Status of whether or not sinks are enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
+	Enabled  pulumi.BoolPtrInput     `pulumi:"enabled"`
 	SinkRefs pulumi.StringArrayInput `pulumi:"sinkRefs"`
 }
 
@@ -3014,7 +2580,6 @@ func (i *diagnosticsRefPtrType) ToDiagnosticsRefPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsRefPtrOutput)
 }
 
-// Reference to sinks in DiagnosticsDescription.
 type DiagnosticsRefOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticsRefOutput) ElementType() reflect.Type {
@@ -3034,17 +2599,15 @@ func (o DiagnosticsRefOutput) ToDiagnosticsRefPtrOutput() DiagnosticsRefPtrOutpu
 }
 
 func (o DiagnosticsRefOutput) ToDiagnosticsRefPtrOutputWithContext(ctx context.Context) DiagnosticsRefPtrOutput {
-	return o.ApplyT(func(v DiagnosticsRef) *DiagnosticsRef {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsRef) *DiagnosticsRef {
 		return &v
 	}).(DiagnosticsRefPtrOutput)
 }
 
-// Status of whether or not sinks are enabled.
 func (o DiagnosticsRefOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DiagnosticsRef) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
 func (o DiagnosticsRefOutput) SinkRefs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DiagnosticsRef) []string { return v.SinkRefs }).(pulumi.StringArrayOutput)
 }
@@ -3064,10 +2627,15 @@ func (o DiagnosticsRefPtrOutput) ToDiagnosticsRefPtrOutputWithContext(ctx contex
 }
 
 func (o DiagnosticsRefPtrOutput) Elem() DiagnosticsRefOutput {
-	return o.ApplyT(func(v *DiagnosticsRef) DiagnosticsRef { return *v }).(DiagnosticsRefOutput)
+	return o.ApplyT(func(v *DiagnosticsRef) DiagnosticsRef {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticsRef
+		return ret
+	}).(DiagnosticsRefOutput)
 }
 
-// Status of whether or not sinks are enabled.
 func (o DiagnosticsRefPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DiagnosticsRef) *bool {
 		if v == nil {
@@ -3077,7 +2645,6 @@ func (o DiagnosticsRefPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
 func (o DiagnosticsRefPtrOutput) SinkRefs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DiagnosticsRef) []string {
 		if v == nil {
@@ -3087,11 +2654,8 @@ func (o DiagnosticsRefPtrOutput) SinkRefs() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Reference to sinks in DiagnosticsDescription.
 type DiagnosticsRefResponse struct {
-	// Status of whether or not sinks are enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
+	Enabled  *bool    `pulumi:"enabled"`
 	SinkRefs []string `pulumi:"sinkRefs"`
 }
 
@@ -3106,11 +2670,8 @@ type DiagnosticsRefResponseInput interface {
 	ToDiagnosticsRefResponseOutputWithContext(context.Context) DiagnosticsRefResponseOutput
 }
 
-// Reference to sinks in DiagnosticsDescription.
 type DiagnosticsRefResponseArgs struct {
-	// Status of whether or not sinks are enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
+	Enabled  pulumi.BoolPtrInput     `pulumi:"enabled"`
 	SinkRefs pulumi.StringArrayInput `pulumi:"sinkRefs"`
 }
 
@@ -3167,7 +2728,6 @@ func (i *diagnosticsRefResponsePtrType) ToDiagnosticsRefResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsRefResponsePtrOutput)
 }
 
-// Reference to sinks in DiagnosticsDescription.
 type DiagnosticsRefResponseOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticsRefResponseOutput) ElementType() reflect.Type {
@@ -3187,17 +2747,15 @@ func (o DiagnosticsRefResponseOutput) ToDiagnosticsRefResponsePtrOutput() Diagno
 }
 
 func (o DiagnosticsRefResponseOutput) ToDiagnosticsRefResponsePtrOutputWithContext(ctx context.Context) DiagnosticsRefResponsePtrOutput {
-	return o.ApplyT(func(v DiagnosticsRefResponse) *DiagnosticsRefResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsRefResponse) *DiagnosticsRefResponse {
 		return &v
 	}).(DiagnosticsRefResponsePtrOutput)
 }
 
-// Status of whether or not sinks are enabled.
 func (o DiagnosticsRefResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DiagnosticsRefResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
 func (o DiagnosticsRefResponseOutput) SinkRefs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DiagnosticsRefResponse) []string { return v.SinkRefs }).(pulumi.StringArrayOutput)
 }
@@ -3217,10 +2775,15 @@ func (o DiagnosticsRefResponsePtrOutput) ToDiagnosticsRefResponsePtrOutputWithCo
 }
 
 func (o DiagnosticsRefResponsePtrOutput) Elem() DiagnosticsRefResponseOutput {
-	return o.ApplyT(func(v *DiagnosticsRefResponse) DiagnosticsRefResponse { return *v }).(DiagnosticsRefResponseOutput)
+	return o.ApplyT(func(v *DiagnosticsRefResponse) DiagnosticsRefResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticsRefResponse
+		return ret
+	}).(DiagnosticsRefResponseOutput)
 }
 
-// Status of whether or not sinks are enabled.
 func (o DiagnosticsRefResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DiagnosticsRefResponse) *bool {
 		if v == nil {
@@ -3230,7 +2793,6 @@ func (o DiagnosticsRefResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
 func (o DiagnosticsRefResponsePtrOutput) SinkRefs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DiagnosticsRefResponse) []string {
 		if v == nil {
@@ -3240,12 +2802,9 @@ func (o DiagnosticsRefResponsePtrOutput) SinkRefs() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Describes a container endpoint.
 type EndpointProperties struct {
-	// The name of the endpoint.
 	Name string `pulumi:"name"`
-	// Port used by the container.
-	Port *int `pulumi:"port"`
+	Port *int   `pulumi:"port"`
 }
 
 // EndpointPropertiesInput is an input type that accepts EndpointPropertiesArgs and EndpointPropertiesOutput values.
@@ -3259,11 +2818,8 @@ type EndpointPropertiesInput interface {
 	ToEndpointPropertiesOutputWithContext(context.Context) EndpointPropertiesOutput
 }
 
-// Describes a container endpoint.
 type EndpointPropertiesArgs struct {
-	// The name of the endpoint.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Port used by the container.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 }
 
@@ -3304,7 +2860,6 @@ func (i EndpointPropertiesArray) ToEndpointPropertiesArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesArrayOutput)
 }
 
-// Describes a container endpoint.
 type EndpointPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EndpointPropertiesOutput) ElementType() reflect.Type {
@@ -3319,12 +2874,10 @@ func (o EndpointPropertiesOutput) ToEndpointPropertiesOutputWithContext(ctx cont
 	return o
 }
 
-// The name of the endpoint.
 func (o EndpointPropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointProperties) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Port used by the container.
 func (o EndpointPropertiesOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointProperties) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -3349,12 +2902,9 @@ func (o EndpointPropertiesArrayOutput) Index(i pulumi.IntInput) EndpointProperti
 	}).(EndpointPropertiesOutput)
 }
 
-// Describes a container endpoint.
 type EndpointPropertiesResponse struct {
-	// The name of the endpoint.
 	Name string `pulumi:"name"`
-	// Port used by the container.
-	Port *int `pulumi:"port"`
+	Port *int   `pulumi:"port"`
 }
 
 // EndpointPropertiesResponseInput is an input type that accepts EndpointPropertiesResponseArgs and EndpointPropertiesResponseOutput values.
@@ -3368,11 +2918,8 @@ type EndpointPropertiesResponseInput interface {
 	ToEndpointPropertiesResponseOutputWithContext(context.Context) EndpointPropertiesResponseOutput
 }
 
-// Describes a container endpoint.
 type EndpointPropertiesResponseArgs struct {
-	// The name of the endpoint.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Port used by the container.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 }
 
@@ -3413,7 +2960,6 @@ func (i EndpointPropertiesResponseArray) ToEndpointPropertiesResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesResponseArrayOutput)
 }
 
-// Describes a container endpoint.
 type EndpointPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (EndpointPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3428,12 +2974,10 @@ func (o EndpointPropertiesResponseOutput) ToEndpointPropertiesResponseOutputWith
 	return o
 }
 
-// The name of the endpoint.
 func (o EndpointPropertiesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointPropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Port used by the container.
 func (o EndpointPropertiesResponseOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointPropertiesResponse) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -3458,9 +3002,7 @@ func (o EndpointPropertiesResponseArrayOutput) Index(i pulumi.IntInput) Endpoint
 	}).(EndpointPropertiesResponseOutput)
 }
 
-// Describes a reference to a service endpoint.
 type EndpointRef struct {
-	// Name of the endpoint.
 	Name *string `pulumi:"name"`
 }
 
@@ -3475,9 +3017,7 @@ type EndpointRefInput interface {
 	ToEndpointRefOutputWithContext(context.Context) EndpointRefOutput
 }
 
-// Describes a reference to a service endpoint.
 type EndpointRefArgs struct {
-	// Name of the endpoint.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -3518,7 +3058,6 @@ func (i EndpointRefArray) ToEndpointRefArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRefArrayOutput)
 }
 
-// Describes a reference to a service endpoint.
 type EndpointRefOutput struct{ *pulumi.OutputState }
 
 func (EndpointRefOutput) ElementType() reflect.Type {
@@ -3533,7 +3072,6 @@ func (o EndpointRefOutput) ToEndpointRefOutputWithContext(ctx context.Context) E
 	return o
 }
 
-// Name of the endpoint.
 func (o EndpointRefOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRef) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -3558,9 +3096,7 @@ func (o EndpointRefArrayOutput) Index(i pulumi.IntInput) EndpointRefOutput {
 	}).(EndpointRefOutput)
 }
 
-// Describes a reference to a service endpoint.
 type EndpointRefResponse struct {
-	// Name of the endpoint.
 	Name *string `pulumi:"name"`
 }
 
@@ -3575,9 +3111,7 @@ type EndpointRefResponseInput interface {
 	ToEndpointRefResponseOutputWithContext(context.Context) EndpointRefResponseOutput
 }
 
-// Describes a reference to a service endpoint.
 type EndpointRefResponseArgs struct {
-	// Name of the endpoint.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -3618,7 +3152,6 @@ func (i EndpointRefResponseArray) ToEndpointRefResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRefResponseArrayOutput)
 }
 
-// Describes a reference to a service endpoint.
 type EndpointRefResponseOutput struct{ *pulumi.OutputState }
 
 func (EndpointRefResponseOutput) ElementType() reflect.Type {
@@ -3633,7 +3166,6 @@ func (o EndpointRefResponseOutput) ToEndpointRefResponseOutputWithContext(ctx co
 	return o
 }
 
-// Name of the endpoint.
 func (o EndpointRefResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRefResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -3658,11 +3190,8 @@ func (o EndpointRefResponseArrayOutput) Index(i pulumi.IntInput) EndpointRefResp
 	}).(EndpointRefResponseOutput)
 }
 
-// Describes an environment variable for the container.
 type EnvironmentVariable struct {
-	// The name of the environment variable.
-	Name *string `pulumi:"name"`
-	// The value of the environment variable.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -3677,11 +3206,8 @@ type EnvironmentVariableInput interface {
 	ToEnvironmentVariableOutputWithContext(context.Context) EnvironmentVariableOutput
 }
 
-// Describes an environment variable for the container.
 type EnvironmentVariableArgs struct {
-	// The name of the environment variable.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the environment variable.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -3722,7 +3248,6 @@ func (i EnvironmentVariableArray) ToEnvironmentVariableArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentVariableArrayOutput)
 }
 
-// Describes an environment variable for the container.
 type EnvironmentVariableOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentVariableOutput) ElementType() reflect.Type {
@@ -3737,12 +3262,10 @@ func (o EnvironmentVariableOutput) ToEnvironmentVariableOutputWithContext(ctx co
 	return o
 }
 
-// The name of the environment variable.
 func (o EnvironmentVariableOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentVariable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value of the environment variable.
 func (o EnvironmentVariableOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -3767,11 +3290,8 @@ func (o EnvironmentVariableArrayOutput) Index(i pulumi.IntInput) EnvironmentVari
 	}).(EnvironmentVariableOutput)
 }
 
-// Describes an environment variable for the container.
 type EnvironmentVariableResponse struct {
-	// The name of the environment variable.
-	Name *string `pulumi:"name"`
-	// The value of the environment variable.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -3786,11 +3306,8 @@ type EnvironmentVariableResponseInput interface {
 	ToEnvironmentVariableResponseOutputWithContext(context.Context) EnvironmentVariableResponseOutput
 }
 
-// Describes an environment variable for the container.
 type EnvironmentVariableResponseArgs struct {
-	// The name of the environment variable.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the environment variable.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -3831,7 +3348,6 @@ func (i EnvironmentVariableResponseArray) ToEnvironmentVariableResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentVariableResponseArrayOutput)
 }
 
-// Describes an environment variable for the container.
 type EnvironmentVariableResponseOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentVariableResponseOutput) ElementType() reflect.Type {
@@ -3846,12 +3362,10 @@ func (o EnvironmentVariableResponseOutput) ToEnvironmentVariableResponseOutputWi
 	return o
 }
 
-// The name of the environment variable.
 func (o EnvironmentVariableResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentVariableResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value of the environment variable.
 func (o EnvironmentVariableResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentVariableResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -3876,14 +3390,10 @@ func (o EnvironmentVariableResponseArrayOutput) Index(i pulumi.IntInput) Environ
 	}).(EnvironmentVariableResponseOutput)
 }
 
-// Describes destination endpoint for routing traffic.
 type GatewayDestination struct {
-	// Name of the service fabric Mesh application.
 	ApplicationName string `pulumi:"applicationName"`
-	// name of the endpoint in the service.
-	EndpointName string `pulumi:"endpointName"`
-	// service that contains the endpoint.
-	ServiceName string `pulumi:"serviceName"`
+	EndpointName    string `pulumi:"endpointName"`
+	ServiceName     string `pulumi:"serviceName"`
 }
 
 // GatewayDestinationInput is an input type that accepts GatewayDestinationArgs and GatewayDestinationOutput values.
@@ -3897,14 +3407,10 @@ type GatewayDestinationInput interface {
 	ToGatewayDestinationOutputWithContext(context.Context) GatewayDestinationOutput
 }
 
-// Describes destination endpoint for routing traffic.
 type GatewayDestinationArgs struct {
-	// Name of the service fabric Mesh application.
 	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
-	// name of the endpoint in the service.
-	EndpointName pulumi.StringInput `pulumi:"endpointName"`
-	// service that contains the endpoint.
-	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	EndpointName    pulumi.StringInput `pulumi:"endpointName"`
+	ServiceName     pulumi.StringInput `pulumi:"serviceName"`
 }
 
 func (GatewayDestinationArgs) ElementType() reflect.Type {
@@ -3919,7 +3425,6 @@ func (i GatewayDestinationArgs) ToGatewayDestinationOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayDestinationOutput)
 }
 
-// Describes destination endpoint for routing traffic.
 type GatewayDestinationOutput struct{ *pulumi.OutputState }
 
 func (GatewayDestinationOutput) ElementType() reflect.Type {
@@ -3934,29 +3439,22 @@ func (o GatewayDestinationOutput) ToGatewayDestinationOutputWithContext(ctx cont
 	return o
 }
 
-// Name of the service fabric Mesh application.
 func (o GatewayDestinationOutput) ApplicationName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayDestination) string { return v.ApplicationName }).(pulumi.StringOutput)
 }
 
-// name of the endpoint in the service.
 func (o GatewayDestinationOutput) EndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayDestination) string { return v.EndpointName }).(pulumi.StringOutput)
 }
 
-// service that contains the endpoint.
 func (o GatewayDestinationOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayDestination) string { return v.ServiceName }).(pulumi.StringOutput)
 }
 
-// Describes destination endpoint for routing traffic.
 type GatewayDestinationResponse struct {
-	// Name of the service fabric Mesh application.
 	ApplicationName string `pulumi:"applicationName"`
-	// name of the endpoint in the service.
-	EndpointName string `pulumi:"endpointName"`
-	// service that contains the endpoint.
-	ServiceName string `pulumi:"serviceName"`
+	EndpointName    string `pulumi:"endpointName"`
+	ServiceName     string `pulumi:"serviceName"`
 }
 
 // GatewayDestinationResponseInput is an input type that accepts GatewayDestinationResponseArgs and GatewayDestinationResponseOutput values.
@@ -3970,14 +3468,10 @@ type GatewayDestinationResponseInput interface {
 	ToGatewayDestinationResponseOutputWithContext(context.Context) GatewayDestinationResponseOutput
 }
 
-// Describes destination endpoint for routing traffic.
 type GatewayDestinationResponseArgs struct {
-	// Name of the service fabric Mesh application.
 	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
-	// name of the endpoint in the service.
-	EndpointName pulumi.StringInput `pulumi:"endpointName"`
-	// service that contains the endpoint.
-	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	EndpointName    pulumi.StringInput `pulumi:"endpointName"`
+	ServiceName     pulumi.StringInput `pulumi:"serviceName"`
 }
 
 func (GatewayDestinationResponseArgs) ElementType() reflect.Type {
@@ -3992,7 +3486,6 @@ func (i GatewayDestinationResponseArgs) ToGatewayDestinationResponseOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayDestinationResponseOutput)
 }
 
-// Describes destination endpoint for routing traffic.
 type GatewayDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (GatewayDestinationResponseOutput) ElementType() reflect.Type {
@@ -4007,29 +3500,22 @@ func (o GatewayDestinationResponseOutput) ToGatewayDestinationResponseOutputWith
 	return o
 }
 
-// Name of the service fabric Mesh application.
 func (o GatewayDestinationResponseOutput) ApplicationName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayDestinationResponse) string { return v.ApplicationName }).(pulumi.StringOutput)
 }
 
-// name of the endpoint in the service.
 func (o GatewayDestinationResponseOutput) EndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayDestinationResponse) string { return v.EndpointName }).(pulumi.StringOutput)
 }
 
-// service that contains the endpoint.
 func (o GatewayDestinationResponseOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayDestinationResponse) string { return v.ServiceName }).(pulumi.StringOutput)
 }
 
-// Describes the http configuration for external connectivity for this network.
 type HttpConfig struct {
-	// description for routing.
 	Hosts []HttpHostConfig `pulumi:"hosts"`
-	// http gateway config name.
-	Name string `pulumi:"name"`
-	// Specifies the port at which the service endpoint below needs to be exposed.
-	Port int `pulumi:"port"`
+	Name  string           `pulumi:"name"`
+	Port  int              `pulumi:"port"`
 }
 
 // HttpConfigInput is an input type that accepts HttpConfigArgs and HttpConfigOutput values.
@@ -4043,14 +3529,10 @@ type HttpConfigInput interface {
 	ToHttpConfigOutputWithContext(context.Context) HttpConfigOutput
 }
 
-// Describes the http configuration for external connectivity for this network.
 type HttpConfigArgs struct {
-	// description for routing.
 	Hosts HttpHostConfigArrayInput `pulumi:"hosts"`
-	// http gateway config name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies the port at which the service endpoint below needs to be exposed.
-	Port pulumi.IntInput `pulumi:"port"`
+	Name  pulumi.StringInput       `pulumi:"name"`
+	Port  pulumi.IntInput          `pulumi:"port"`
 }
 
 func (HttpConfigArgs) ElementType() reflect.Type {
@@ -4090,7 +3572,6 @@ func (i HttpConfigArray) ToHttpConfigArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(HttpConfigArrayOutput)
 }
 
-// Describes the http configuration for external connectivity for this network.
 type HttpConfigOutput struct{ *pulumi.OutputState }
 
 func (HttpConfigOutput) ElementType() reflect.Type {
@@ -4105,17 +3586,14 @@ func (o HttpConfigOutput) ToHttpConfigOutputWithContext(ctx context.Context) Htt
 	return o
 }
 
-// description for routing.
 func (o HttpConfigOutput) Hosts() HttpHostConfigArrayOutput {
 	return o.ApplyT(func(v HttpConfig) []HttpHostConfig { return v.Hosts }).(HttpHostConfigArrayOutput)
 }
 
-// http gateway config name.
 func (o HttpConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the port at which the service endpoint below needs to be exposed.
 func (o HttpConfigOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v HttpConfig) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -4140,14 +3618,10 @@ func (o HttpConfigArrayOutput) Index(i pulumi.IntInput) HttpConfigOutput {
 	}).(HttpConfigOutput)
 }
 
-// Describes the http configuration for external connectivity for this network.
 type HttpConfigResponse struct {
-	// description for routing.
 	Hosts []HttpHostConfigResponse `pulumi:"hosts"`
-	// http gateway config name.
-	Name string `pulumi:"name"`
-	// Specifies the port at which the service endpoint below needs to be exposed.
-	Port int `pulumi:"port"`
+	Name  string                   `pulumi:"name"`
+	Port  int                      `pulumi:"port"`
 }
 
 // HttpConfigResponseInput is an input type that accepts HttpConfigResponseArgs and HttpConfigResponseOutput values.
@@ -4161,14 +3635,10 @@ type HttpConfigResponseInput interface {
 	ToHttpConfigResponseOutputWithContext(context.Context) HttpConfigResponseOutput
 }
 
-// Describes the http configuration for external connectivity for this network.
 type HttpConfigResponseArgs struct {
-	// description for routing.
 	Hosts HttpHostConfigResponseArrayInput `pulumi:"hosts"`
-	// http gateway config name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies the port at which the service endpoint below needs to be exposed.
-	Port pulumi.IntInput `pulumi:"port"`
+	Name  pulumi.StringInput               `pulumi:"name"`
+	Port  pulumi.IntInput                  `pulumi:"port"`
 }
 
 func (HttpConfigResponseArgs) ElementType() reflect.Type {
@@ -4208,7 +3678,6 @@ func (i HttpConfigResponseArray) ToHttpConfigResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(HttpConfigResponseArrayOutput)
 }
 
-// Describes the http configuration for external connectivity for this network.
 type HttpConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (HttpConfigResponseOutput) ElementType() reflect.Type {
@@ -4223,17 +3692,14 @@ func (o HttpConfigResponseOutput) ToHttpConfigResponseOutputWithContext(ctx cont
 	return o
 }
 
-// description for routing.
 func (o HttpConfigResponseOutput) Hosts() HttpHostConfigResponseArrayOutput {
 	return o.ApplyT(func(v HttpConfigResponse) []HttpHostConfigResponse { return v.Hosts }).(HttpHostConfigResponseArrayOutput)
 }
 
-// http gateway config name.
 func (o HttpConfigResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpConfigResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the port at which the service endpoint below needs to be exposed.
 func (o HttpConfigResponseOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v HttpConfigResponse) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -4258,11 +3724,8 @@ func (o HttpConfigResponseArrayOutput) Index(i pulumi.IntInput) HttpConfigRespon
 	}).(HttpConfigResponseOutput)
 }
 
-// Describes the hostname properties for http routing.
 type HttpHostConfig struct {
-	// http hostname config name.
-	Name string `pulumi:"name"`
-	// Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
+	Name   string            `pulumi:"name"`
 	Routes []HttpRouteConfig `pulumi:"routes"`
 }
 
@@ -4277,11 +3740,8 @@ type HttpHostConfigInput interface {
 	ToHttpHostConfigOutputWithContext(context.Context) HttpHostConfigOutput
 }
 
-// Describes the hostname properties for http routing.
 type HttpHostConfigArgs struct {
-	// http hostname config name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
+	Name   pulumi.StringInput        `pulumi:"name"`
 	Routes HttpRouteConfigArrayInput `pulumi:"routes"`
 }
 
@@ -4322,7 +3782,6 @@ func (i HttpHostConfigArray) ToHttpHostConfigArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(HttpHostConfigArrayOutput)
 }
 
-// Describes the hostname properties for http routing.
 type HttpHostConfigOutput struct{ *pulumi.OutputState }
 
 func (HttpHostConfigOutput) ElementType() reflect.Type {
@@ -4337,12 +3796,10 @@ func (o HttpHostConfigOutput) ToHttpHostConfigOutputWithContext(ctx context.Cont
 	return o
 }
 
-// http hostname config name.
 func (o HttpHostConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpHostConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
 func (o HttpHostConfigOutput) Routes() HttpRouteConfigArrayOutput {
 	return o.ApplyT(func(v HttpHostConfig) []HttpRouteConfig { return v.Routes }).(HttpRouteConfigArrayOutput)
 }
@@ -4367,11 +3824,8 @@ func (o HttpHostConfigArrayOutput) Index(i pulumi.IntInput) HttpHostConfigOutput
 	}).(HttpHostConfigOutput)
 }
 
-// Describes the hostname properties for http routing.
 type HttpHostConfigResponse struct {
-	// http hostname config name.
-	Name string `pulumi:"name"`
-	// Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
+	Name   string                    `pulumi:"name"`
 	Routes []HttpRouteConfigResponse `pulumi:"routes"`
 }
 
@@ -4386,11 +3840,8 @@ type HttpHostConfigResponseInput interface {
 	ToHttpHostConfigResponseOutputWithContext(context.Context) HttpHostConfigResponseOutput
 }
 
-// Describes the hostname properties for http routing.
 type HttpHostConfigResponseArgs struct {
-	// http hostname config name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
+	Name   pulumi.StringInput                `pulumi:"name"`
 	Routes HttpRouteConfigResponseArrayInput `pulumi:"routes"`
 }
 
@@ -4431,7 +3882,6 @@ func (i HttpHostConfigResponseArray) ToHttpHostConfigResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(HttpHostConfigResponseArrayOutput)
 }
 
-// Describes the hostname properties for http routing.
 type HttpHostConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (HttpHostConfigResponseOutput) ElementType() reflect.Type {
@@ -4446,12 +3896,10 @@ func (o HttpHostConfigResponseOutput) ToHttpHostConfigResponseOutputWithContext(
 	return o
 }
 
-// http hostname config name.
 func (o HttpHostConfigResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpHostConfigResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
 func (o HttpHostConfigResponseOutput) Routes() HttpRouteConfigResponseArrayOutput {
 	return o.ApplyT(func(v HttpHostConfigResponse) []HttpRouteConfigResponse { return v.Routes }).(HttpRouteConfigResponseArrayOutput)
 }
@@ -4476,14 +3924,10 @@ func (o HttpHostConfigResponseArrayOutput) Index(i pulumi.IntInput) HttpHostConf
 	}).(HttpHostConfigResponseOutput)
 }
 
-// Describes the hostname properties for http routing.
 type HttpRouteConfig struct {
-	// Describes destination endpoint for routing traffic.
 	Destination GatewayDestination `pulumi:"destination"`
-	// Describes a rule for http route matching.
-	Match HttpRouteMatchRule `pulumi:"match"`
-	// http route name.
-	Name string `pulumi:"name"`
+	Match       HttpRouteMatchRule `pulumi:"match"`
+	Name        string             `pulumi:"name"`
 }
 
 // HttpRouteConfigInput is an input type that accepts HttpRouteConfigArgs and HttpRouteConfigOutput values.
@@ -4497,14 +3941,10 @@ type HttpRouteConfigInput interface {
 	ToHttpRouteConfigOutputWithContext(context.Context) HttpRouteConfigOutput
 }
 
-// Describes the hostname properties for http routing.
 type HttpRouteConfigArgs struct {
-	// Describes destination endpoint for routing traffic.
 	Destination GatewayDestinationInput `pulumi:"destination"`
-	// Describes a rule for http route matching.
-	Match HttpRouteMatchRuleInput `pulumi:"match"`
-	// http route name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Match       HttpRouteMatchRuleInput `pulumi:"match"`
+	Name        pulumi.StringInput      `pulumi:"name"`
 }
 
 func (HttpRouteConfigArgs) ElementType() reflect.Type {
@@ -4544,7 +3984,6 @@ func (i HttpRouteConfigArray) ToHttpRouteConfigArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(HttpRouteConfigArrayOutput)
 }
 
-// Describes the hostname properties for http routing.
 type HttpRouteConfigOutput struct{ *pulumi.OutputState }
 
 func (HttpRouteConfigOutput) ElementType() reflect.Type {
@@ -4559,17 +3998,14 @@ func (o HttpRouteConfigOutput) ToHttpRouteConfigOutputWithContext(ctx context.Co
 	return o
 }
 
-// Describes destination endpoint for routing traffic.
 func (o HttpRouteConfigOutput) Destination() GatewayDestinationOutput {
 	return o.ApplyT(func(v HttpRouteConfig) GatewayDestination { return v.Destination }).(GatewayDestinationOutput)
 }
 
-// Describes a rule for http route matching.
 func (o HttpRouteConfigOutput) Match() HttpRouteMatchRuleOutput {
 	return o.ApplyT(func(v HttpRouteConfig) HttpRouteMatchRule { return v.Match }).(HttpRouteMatchRuleOutput)
 }
 
-// http route name.
 func (o HttpRouteConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpRouteConfig) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4594,14 +4030,10 @@ func (o HttpRouteConfigArrayOutput) Index(i pulumi.IntInput) HttpRouteConfigOutp
 	}).(HttpRouteConfigOutput)
 }
 
-// Describes the hostname properties for http routing.
 type HttpRouteConfigResponse struct {
-	// Describes destination endpoint for routing traffic.
 	Destination GatewayDestinationResponse `pulumi:"destination"`
-	// Describes a rule for http route matching.
-	Match HttpRouteMatchRuleResponse `pulumi:"match"`
-	// http route name.
-	Name string `pulumi:"name"`
+	Match       HttpRouteMatchRuleResponse `pulumi:"match"`
+	Name        string                     `pulumi:"name"`
 }
 
 // HttpRouteConfigResponseInput is an input type that accepts HttpRouteConfigResponseArgs and HttpRouteConfigResponseOutput values.
@@ -4615,14 +4047,10 @@ type HttpRouteConfigResponseInput interface {
 	ToHttpRouteConfigResponseOutputWithContext(context.Context) HttpRouteConfigResponseOutput
 }
 
-// Describes the hostname properties for http routing.
 type HttpRouteConfigResponseArgs struct {
-	// Describes destination endpoint for routing traffic.
 	Destination GatewayDestinationResponseInput `pulumi:"destination"`
-	// Describes a rule for http route matching.
-	Match HttpRouteMatchRuleResponseInput `pulumi:"match"`
-	// http route name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Match       HttpRouteMatchRuleResponseInput `pulumi:"match"`
+	Name        pulumi.StringInput              `pulumi:"name"`
 }
 
 func (HttpRouteConfigResponseArgs) ElementType() reflect.Type {
@@ -4662,7 +4090,6 @@ func (i HttpRouteConfigResponseArray) ToHttpRouteConfigResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(HttpRouteConfigResponseArrayOutput)
 }
 
-// Describes the hostname properties for http routing.
 type HttpRouteConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (HttpRouteConfigResponseOutput) ElementType() reflect.Type {
@@ -4677,17 +4104,14 @@ func (o HttpRouteConfigResponseOutput) ToHttpRouteConfigResponseOutputWithContex
 	return o
 }
 
-// Describes destination endpoint for routing traffic.
 func (o HttpRouteConfigResponseOutput) Destination() GatewayDestinationResponseOutput {
 	return o.ApplyT(func(v HttpRouteConfigResponse) GatewayDestinationResponse { return v.Destination }).(GatewayDestinationResponseOutput)
 }
 
-// Describes a rule for http route matching.
 func (o HttpRouteConfigResponseOutput) Match() HttpRouteMatchRuleResponseOutput {
 	return o.ApplyT(func(v HttpRouteConfigResponse) HttpRouteMatchRuleResponse { return v.Match }).(HttpRouteMatchRuleResponseOutput)
 }
 
-// http route name.
 func (o HttpRouteConfigResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpRouteConfigResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4712,13 +4136,9 @@ func (o HttpRouteConfigResponseArrayOutput) Index(i pulumi.IntInput) HttpRouteCo
 	}).(HttpRouteConfigResponseOutput)
 }
 
-// Describes header information for http route matching.
 type HttpRouteMatchHeader struct {
-	// Name of header to match in request.
-	Name string `pulumi:"name"`
-	// how to match header value
-	Type *string `pulumi:"type"`
-	// Value of header to match in request.
+	Name  string  `pulumi:"name"`
+	Type  *string `pulumi:"type"`
 	Value *string `pulumi:"value"`
 }
 
@@ -4733,13 +4153,9 @@ type HttpRouteMatchHeaderInput interface {
 	ToHttpRouteMatchHeaderOutputWithContext(context.Context) HttpRouteMatchHeaderOutput
 }
 
-// Describes header information for http route matching.
 type HttpRouteMatchHeaderArgs struct {
-	// Name of header to match in request.
-	Name pulumi.StringInput `pulumi:"name"`
-	// how to match header value
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Value of header to match in request.
+	Name  pulumi.StringInput    `pulumi:"name"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -4780,7 +4196,6 @@ func (i HttpRouteMatchHeaderArray) ToHttpRouteMatchHeaderArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(HttpRouteMatchHeaderArrayOutput)
 }
 
-// Describes header information for http route matching.
 type HttpRouteMatchHeaderOutput struct{ *pulumi.OutputState }
 
 func (HttpRouteMatchHeaderOutput) ElementType() reflect.Type {
@@ -4795,17 +4210,14 @@ func (o HttpRouteMatchHeaderOutput) ToHttpRouteMatchHeaderOutputWithContext(ctx 
 	return o
 }
 
-// Name of header to match in request.
 func (o HttpRouteMatchHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpRouteMatchHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// how to match header value
 func (o HttpRouteMatchHeaderOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HttpRouteMatchHeader) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Value of header to match in request.
 func (o HttpRouteMatchHeaderOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HttpRouteMatchHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -4830,13 +4242,9 @@ func (o HttpRouteMatchHeaderArrayOutput) Index(i pulumi.IntInput) HttpRouteMatch
 	}).(HttpRouteMatchHeaderOutput)
 }
 
-// Describes header information for http route matching.
 type HttpRouteMatchHeaderResponse struct {
-	// Name of header to match in request.
-	Name string `pulumi:"name"`
-	// how to match header value
-	Type *string `pulumi:"type"`
-	// Value of header to match in request.
+	Name  string  `pulumi:"name"`
+	Type  *string `pulumi:"type"`
 	Value *string `pulumi:"value"`
 }
 
@@ -4851,13 +4259,9 @@ type HttpRouteMatchHeaderResponseInput interface {
 	ToHttpRouteMatchHeaderResponseOutputWithContext(context.Context) HttpRouteMatchHeaderResponseOutput
 }
 
-// Describes header information for http route matching.
 type HttpRouteMatchHeaderResponseArgs struct {
-	// Name of header to match in request.
-	Name pulumi.StringInput `pulumi:"name"`
-	// how to match header value
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Value of header to match in request.
+	Name  pulumi.StringInput    `pulumi:"name"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -4898,7 +4302,6 @@ func (i HttpRouteMatchHeaderResponseArray) ToHttpRouteMatchHeaderResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(HttpRouteMatchHeaderResponseArrayOutput)
 }
 
-// Describes header information for http route matching.
 type HttpRouteMatchHeaderResponseOutput struct{ *pulumi.OutputState }
 
 func (HttpRouteMatchHeaderResponseOutput) ElementType() reflect.Type {
@@ -4913,17 +4316,14 @@ func (o HttpRouteMatchHeaderResponseOutput) ToHttpRouteMatchHeaderResponseOutput
 	return o
 }
 
-// Name of header to match in request.
 func (o HttpRouteMatchHeaderResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpRouteMatchHeaderResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// how to match header value
 func (o HttpRouteMatchHeaderResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HttpRouteMatchHeaderResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Value of header to match in request.
 func (o HttpRouteMatchHeaderResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HttpRouteMatchHeaderResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -4948,14 +4348,10 @@ func (o HttpRouteMatchHeaderResponseArrayOutput) Index(i pulumi.IntInput) HttpRo
 	}).(HttpRouteMatchHeaderResponseOutput)
 }
 
-// Path to match for routing.
 type HttpRouteMatchPath struct {
-	// replacement string for matched part of the Uri.
 	Rewrite *string `pulumi:"rewrite"`
-	// how to match value in the Uri
-	Type string `pulumi:"type"`
-	// Uri path to match for request.
-	Value string `pulumi:"value"`
+	Type    string  `pulumi:"type"`
+	Value   string  `pulumi:"value"`
 }
 
 // HttpRouteMatchPathInput is an input type that accepts HttpRouteMatchPathArgs and HttpRouteMatchPathOutput values.
@@ -4969,14 +4365,10 @@ type HttpRouteMatchPathInput interface {
 	ToHttpRouteMatchPathOutputWithContext(context.Context) HttpRouteMatchPathOutput
 }
 
-// Path to match for routing.
 type HttpRouteMatchPathArgs struct {
-	// replacement string for matched part of the Uri.
 	Rewrite pulumi.StringPtrInput `pulumi:"rewrite"`
-	// how to match value in the Uri
-	Type pulumi.StringInput `pulumi:"type"`
-	// Uri path to match for request.
-	Value pulumi.StringInput `pulumi:"value"`
+	Type    pulumi.StringInput    `pulumi:"type"`
+	Value   pulumi.StringInput    `pulumi:"value"`
 }
 
 func (HttpRouteMatchPathArgs) ElementType() reflect.Type {
@@ -4991,7 +4383,6 @@ func (i HttpRouteMatchPathArgs) ToHttpRouteMatchPathOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(HttpRouteMatchPathOutput)
 }
 
-// Path to match for routing.
 type HttpRouteMatchPathOutput struct{ *pulumi.OutputState }
 
 func (HttpRouteMatchPathOutput) ElementType() reflect.Type {
@@ -5006,29 +4397,22 @@ func (o HttpRouteMatchPathOutput) ToHttpRouteMatchPathOutputWithContext(ctx cont
 	return o
 }
 
-// replacement string for matched part of the Uri.
 func (o HttpRouteMatchPathOutput) Rewrite() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HttpRouteMatchPath) *string { return v.Rewrite }).(pulumi.StringPtrOutput)
 }
 
-// how to match value in the Uri
 func (o HttpRouteMatchPathOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpRouteMatchPath) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Uri path to match for request.
 func (o HttpRouteMatchPathOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpRouteMatchPath) string { return v.Value }).(pulumi.StringOutput)
 }
 
-// Path to match for routing.
 type HttpRouteMatchPathResponse struct {
-	// replacement string for matched part of the Uri.
 	Rewrite *string `pulumi:"rewrite"`
-	// how to match value in the Uri
-	Type string `pulumi:"type"`
-	// Uri path to match for request.
-	Value string `pulumi:"value"`
+	Type    string  `pulumi:"type"`
+	Value   string  `pulumi:"value"`
 }
 
 // HttpRouteMatchPathResponseInput is an input type that accepts HttpRouteMatchPathResponseArgs and HttpRouteMatchPathResponseOutput values.
@@ -5042,14 +4426,10 @@ type HttpRouteMatchPathResponseInput interface {
 	ToHttpRouteMatchPathResponseOutputWithContext(context.Context) HttpRouteMatchPathResponseOutput
 }
 
-// Path to match for routing.
 type HttpRouteMatchPathResponseArgs struct {
-	// replacement string for matched part of the Uri.
 	Rewrite pulumi.StringPtrInput `pulumi:"rewrite"`
-	// how to match value in the Uri
-	Type pulumi.StringInput `pulumi:"type"`
-	// Uri path to match for request.
-	Value pulumi.StringInput `pulumi:"value"`
+	Type    pulumi.StringInput    `pulumi:"type"`
+	Value   pulumi.StringInput    `pulumi:"value"`
 }
 
 func (HttpRouteMatchPathResponseArgs) ElementType() reflect.Type {
@@ -5064,7 +4444,6 @@ func (i HttpRouteMatchPathResponseArgs) ToHttpRouteMatchPathResponseOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(HttpRouteMatchPathResponseOutput)
 }
 
-// Path to match for routing.
 type HttpRouteMatchPathResponseOutput struct{ *pulumi.OutputState }
 
 func (HttpRouteMatchPathResponseOutput) ElementType() reflect.Type {
@@ -5079,27 +4458,21 @@ func (o HttpRouteMatchPathResponseOutput) ToHttpRouteMatchPathResponseOutputWith
 	return o
 }
 
-// replacement string for matched part of the Uri.
 func (o HttpRouteMatchPathResponseOutput) Rewrite() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HttpRouteMatchPathResponse) *string { return v.Rewrite }).(pulumi.StringPtrOutput)
 }
 
-// how to match value in the Uri
 func (o HttpRouteMatchPathResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpRouteMatchPathResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Uri path to match for request.
 func (o HttpRouteMatchPathResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpRouteMatchPathResponse) string { return v.Value }).(pulumi.StringOutput)
 }
 
-// Describes a rule for http route matching.
 type HttpRouteMatchRule struct {
-	// headers and their values to match in request.
 	Headers []HttpRouteMatchHeader `pulumi:"headers"`
-	// Path to match for routing.
-	Path HttpRouteMatchPath `pulumi:"path"`
+	Path    HttpRouteMatchPath     `pulumi:"path"`
 }
 
 // HttpRouteMatchRuleInput is an input type that accepts HttpRouteMatchRuleArgs and HttpRouteMatchRuleOutput values.
@@ -5113,12 +4486,9 @@ type HttpRouteMatchRuleInput interface {
 	ToHttpRouteMatchRuleOutputWithContext(context.Context) HttpRouteMatchRuleOutput
 }
 
-// Describes a rule for http route matching.
 type HttpRouteMatchRuleArgs struct {
-	// headers and their values to match in request.
 	Headers HttpRouteMatchHeaderArrayInput `pulumi:"headers"`
-	// Path to match for routing.
-	Path HttpRouteMatchPathInput `pulumi:"path"`
+	Path    HttpRouteMatchPathInput        `pulumi:"path"`
 }
 
 func (HttpRouteMatchRuleArgs) ElementType() reflect.Type {
@@ -5133,7 +4503,6 @@ func (i HttpRouteMatchRuleArgs) ToHttpRouteMatchRuleOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(HttpRouteMatchRuleOutput)
 }
 
-// Describes a rule for http route matching.
 type HttpRouteMatchRuleOutput struct{ *pulumi.OutputState }
 
 func (HttpRouteMatchRuleOutput) ElementType() reflect.Type {
@@ -5148,22 +4517,17 @@ func (o HttpRouteMatchRuleOutput) ToHttpRouteMatchRuleOutputWithContext(ctx cont
 	return o
 }
 
-// headers and their values to match in request.
 func (o HttpRouteMatchRuleOutput) Headers() HttpRouteMatchHeaderArrayOutput {
 	return o.ApplyT(func(v HttpRouteMatchRule) []HttpRouteMatchHeader { return v.Headers }).(HttpRouteMatchHeaderArrayOutput)
 }
 
-// Path to match for routing.
 func (o HttpRouteMatchRuleOutput) Path() HttpRouteMatchPathOutput {
 	return o.ApplyT(func(v HttpRouteMatchRule) HttpRouteMatchPath { return v.Path }).(HttpRouteMatchPathOutput)
 }
 
-// Describes a rule for http route matching.
 type HttpRouteMatchRuleResponse struct {
-	// headers and their values to match in request.
 	Headers []HttpRouteMatchHeaderResponse `pulumi:"headers"`
-	// Path to match for routing.
-	Path HttpRouteMatchPathResponse `pulumi:"path"`
+	Path    HttpRouteMatchPathResponse     `pulumi:"path"`
 }
 
 // HttpRouteMatchRuleResponseInput is an input type that accepts HttpRouteMatchRuleResponseArgs and HttpRouteMatchRuleResponseOutput values.
@@ -5177,12 +4541,9 @@ type HttpRouteMatchRuleResponseInput interface {
 	ToHttpRouteMatchRuleResponseOutputWithContext(context.Context) HttpRouteMatchRuleResponseOutput
 }
 
-// Describes a rule for http route matching.
 type HttpRouteMatchRuleResponseArgs struct {
-	// headers and their values to match in request.
 	Headers HttpRouteMatchHeaderResponseArrayInput `pulumi:"headers"`
-	// Path to match for routing.
-	Path HttpRouteMatchPathResponseInput `pulumi:"path"`
+	Path    HttpRouteMatchPathResponseInput        `pulumi:"path"`
 }
 
 func (HttpRouteMatchRuleResponseArgs) ElementType() reflect.Type {
@@ -5197,7 +4558,6 @@ func (i HttpRouteMatchRuleResponseArgs) ToHttpRouteMatchRuleResponseOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(HttpRouteMatchRuleResponseOutput)
 }
 
-// Describes a rule for http route matching.
 type HttpRouteMatchRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (HttpRouteMatchRuleResponseOutput) ElementType() reflect.Type {
@@ -5212,24 +4572,18 @@ func (o HttpRouteMatchRuleResponseOutput) ToHttpRouteMatchRuleResponseOutputWith
 	return o
 }
 
-// headers and their values to match in request.
 func (o HttpRouteMatchRuleResponseOutput) Headers() HttpRouteMatchHeaderResponseArrayOutput {
 	return o.ApplyT(func(v HttpRouteMatchRuleResponse) []HttpRouteMatchHeaderResponse { return v.Headers }).(HttpRouteMatchHeaderResponseArrayOutput)
 }
 
-// Path to match for routing.
 func (o HttpRouteMatchRuleResponseOutput) Path() HttpRouteMatchPathResponseOutput {
 	return o.ApplyT(func(v HttpRouteMatchRuleResponse) HttpRouteMatchPathResponse { return v.Path }).(HttpRouteMatchPathResponseOutput)
 }
 
-// Image registry credential.
 type ImageRegistryCredential struct {
-	// The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
 	Password *string `pulumi:"password"`
-	// Docker image registry server, without protocol such as `http` and `https`.
-	Server string `pulumi:"server"`
-	// The username for the private registry.
-	Username string `pulumi:"username"`
+	Server   string  `pulumi:"server"`
+	Username string  `pulumi:"username"`
 }
 
 // ImageRegistryCredentialInput is an input type that accepts ImageRegistryCredentialArgs and ImageRegistryCredentialOutput values.
@@ -5243,14 +4597,10 @@ type ImageRegistryCredentialInput interface {
 	ToImageRegistryCredentialOutputWithContext(context.Context) ImageRegistryCredentialOutput
 }
 
-// Image registry credential.
 type ImageRegistryCredentialArgs struct {
-	// The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Docker image registry server, without protocol such as `http` and `https`.
-	Server pulumi.StringInput `pulumi:"server"`
-	// The username for the private registry.
-	Username pulumi.StringInput `pulumi:"username"`
+	Server   pulumi.StringInput    `pulumi:"server"`
+	Username pulumi.StringInput    `pulumi:"username"`
 }
 
 func (ImageRegistryCredentialArgs) ElementType() reflect.Type {
@@ -5306,7 +4656,6 @@ func (i *imageRegistryCredentialPtrType) ToImageRegistryCredentialPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRegistryCredentialPtrOutput)
 }
 
-// Image registry credential.
 type ImageRegistryCredentialOutput struct{ *pulumi.OutputState }
 
 func (ImageRegistryCredentialOutput) ElementType() reflect.Type {
@@ -5326,22 +4675,19 @@ func (o ImageRegistryCredentialOutput) ToImageRegistryCredentialPtrOutput() Imag
 }
 
 func (o ImageRegistryCredentialOutput) ToImageRegistryCredentialPtrOutputWithContext(ctx context.Context) ImageRegistryCredentialPtrOutput {
-	return o.ApplyT(func(v ImageRegistryCredential) *ImageRegistryCredential {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageRegistryCredential) *ImageRegistryCredential {
 		return &v
 	}).(ImageRegistryCredentialPtrOutput)
 }
 
-// The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
 func (o ImageRegistryCredentialOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRegistryCredential) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Docker image registry server, without protocol such as `http` and `https`.
 func (o ImageRegistryCredentialOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRegistryCredential) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The username for the private registry.
 func (o ImageRegistryCredentialOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRegistryCredential) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -5361,10 +4707,15 @@ func (o ImageRegistryCredentialPtrOutput) ToImageRegistryCredentialPtrOutputWith
 }
 
 func (o ImageRegistryCredentialPtrOutput) Elem() ImageRegistryCredentialOutput {
-	return o.ApplyT(func(v *ImageRegistryCredential) ImageRegistryCredential { return *v }).(ImageRegistryCredentialOutput)
+	return o.ApplyT(func(v *ImageRegistryCredential) ImageRegistryCredential {
+		if v != nil {
+			return *v
+		}
+		var ret ImageRegistryCredential
+		return ret
+	}).(ImageRegistryCredentialOutput)
 }
 
-// The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
 func (o ImageRegistryCredentialPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRegistryCredential) *string {
 		if v == nil {
@@ -5374,7 +4725,6 @@ func (o ImageRegistryCredentialPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Docker image registry server, without protocol such as `http` and `https`.
 func (o ImageRegistryCredentialPtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRegistryCredential) *string {
 		if v == nil {
@@ -5384,7 +4734,6 @@ func (o ImageRegistryCredentialPtrOutput) Server() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The username for the private registry.
 func (o ImageRegistryCredentialPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRegistryCredential) *string {
 		if v == nil {
@@ -5394,14 +4743,10 @@ func (o ImageRegistryCredentialPtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Image registry credential.
 type ImageRegistryCredentialResponse struct {
-	// The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
 	Password *string `pulumi:"password"`
-	// Docker image registry server, without protocol such as `http` and `https`.
-	Server string `pulumi:"server"`
-	// The username for the private registry.
-	Username string `pulumi:"username"`
+	Server   string  `pulumi:"server"`
+	Username string  `pulumi:"username"`
 }
 
 // ImageRegistryCredentialResponseInput is an input type that accepts ImageRegistryCredentialResponseArgs and ImageRegistryCredentialResponseOutput values.
@@ -5415,14 +4760,10 @@ type ImageRegistryCredentialResponseInput interface {
 	ToImageRegistryCredentialResponseOutputWithContext(context.Context) ImageRegistryCredentialResponseOutput
 }
 
-// Image registry credential.
 type ImageRegistryCredentialResponseArgs struct {
-	// The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Docker image registry server, without protocol such as `http` and `https`.
-	Server pulumi.StringInput `pulumi:"server"`
-	// The username for the private registry.
-	Username pulumi.StringInput `pulumi:"username"`
+	Server   pulumi.StringInput    `pulumi:"server"`
+	Username pulumi.StringInput    `pulumi:"username"`
 }
 
 func (ImageRegistryCredentialResponseArgs) ElementType() reflect.Type {
@@ -5478,7 +4819,6 @@ func (i *imageRegistryCredentialResponsePtrType) ToImageRegistryCredentialRespon
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRegistryCredentialResponsePtrOutput)
 }
 
-// Image registry credential.
 type ImageRegistryCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageRegistryCredentialResponseOutput) ElementType() reflect.Type {
@@ -5498,22 +4838,19 @@ func (o ImageRegistryCredentialResponseOutput) ToImageRegistryCredentialResponse
 }
 
 func (o ImageRegistryCredentialResponseOutput) ToImageRegistryCredentialResponsePtrOutputWithContext(ctx context.Context) ImageRegistryCredentialResponsePtrOutput {
-	return o.ApplyT(func(v ImageRegistryCredentialResponse) *ImageRegistryCredentialResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageRegistryCredentialResponse) *ImageRegistryCredentialResponse {
 		return &v
 	}).(ImageRegistryCredentialResponsePtrOutput)
 }
 
-// The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
 func (o ImageRegistryCredentialResponseOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRegistryCredentialResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Docker image registry server, without protocol such as `http` and `https`.
 func (o ImageRegistryCredentialResponseOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRegistryCredentialResponse) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The username for the private registry.
 func (o ImageRegistryCredentialResponseOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRegistryCredentialResponse) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -5533,10 +4870,15 @@ func (o ImageRegistryCredentialResponsePtrOutput) ToImageRegistryCredentialRespo
 }
 
 func (o ImageRegistryCredentialResponsePtrOutput) Elem() ImageRegistryCredentialResponseOutput {
-	return o.ApplyT(func(v *ImageRegistryCredentialResponse) ImageRegistryCredentialResponse { return *v }).(ImageRegistryCredentialResponseOutput)
+	return o.ApplyT(func(v *ImageRegistryCredentialResponse) ImageRegistryCredentialResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImageRegistryCredentialResponse
+		return ret
+	}).(ImageRegistryCredentialResponseOutput)
 }
 
-// The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
 func (o ImageRegistryCredentialResponsePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRegistryCredentialResponse) *string {
 		if v == nil {
@@ -5546,7 +4888,6 @@ func (o ImageRegistryCredentialResponsePtrOutput) Password() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Docker image registry server, without protocol such as `http` and `https`.
 func (o ImageRegistryCredentialResponsePtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRegistryCredentialResponse) *string {
 		if v == nil {
@@ -5556,7 +4897,6 @@ func (o ImageRegistryCredentialResponsePtrOutput) Server() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The username for the private registry.
 func (o ImageRegistryCredentialResponsePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRegistryCredentialResponse) *string {
 		if v == nil {
@@ -5566,12 +4906,9 @@ func (o ImageRegistryCredentialResponsePtrOutput) Username() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a network reference in a service.
 type NetworkRef struct {
-	// A list of endpoints that are exposed on this network.
 	EndpointRefs []EndpointRef `pulumi:"endpointRefs"`
-	// Name of the network
-	Name *string `pulumi:"name"`
+	Name         *string       `pulumi:"name"`
 }
 
 // NetworkRefInput is an input type that accepts NetworkRefArgs and NetworkRefOutput values.
@@ -5585,12 +4922,9 @@ type NetworkRefInput interface {
 	ToNetworkRefOutputWithContext(context.Context) NetworkRefOutput
 }
 
-// Describes a network reference in a service.
 type NetworkRefArgs struct {
-	// A list of endpoints that are exposed on this network.
 	EndpointRefs EndpointRefArrayInput `pulumi:"endpointRefs"`
-	// Name of the network
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (NetworkRefArgs) ElementType() reflect.Type {
@@ -5671,7 +5005,6 @@ func (i NetworkRefArray) ToNetworkRefArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRefArrayOutput)
 }
 
-// Describes a network reference in a service.
 type NetworkRefOutput struct{ *pulumi.OutputState }
 
 func (NetworkRefOutput) ElementType() reflect.Type {
@@ -5691,17 +5024,15 @@ func (o NetworkRefOutput) ToNetworkRefPtrOutput() NetworkRefPtrOutput {
 }
 
 func (o NetworkRefOutput) ToNetworkRefPtrOutputWithContext(ctx context.Context) NetworkRefPtrOutput {
-	return o.ApplyT(func(v NetworkRef) *NetworkRef {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRef) *NetworkRef {
 		return &v
 	}).(NetworkRefPtrOutput)
 }
 
-// A list of endpoints that are exposed on this network.
 func (o NetworkRefOutput) EndpointRefs() EndpointRefArrayOutput {
 	return o.ApplyT(func(v NetworkRef) []EndpointRef { return v.EndpointRefs }).(EndpointRefArrayOutput)
 }
 
-// Name of the network
 func (o NetworkRefOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRef) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -5721,10 +5052,15 @@ func (o NetworkRefPtrOutput) ToNetworkRefPtrOutputWithContext(ctx context.Contex
 }
 
 func (o NetworkRefPtrOutput) Elem() NetworkRefOutput {
-	return o.ApplyT(func(v *NetworkRef) NetworkRef { return *v }).(NetworkRefOutput)
+	return o.ApplyT(func(v *NetworkRef) NetworkRef {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRef
+		return ret
+	}).(NetworkRefOutput)
 }
 
-// A list of endpoints that are exposed on this network.
 func (o NetworkRefPtrOutput) EndpointRefs() EndpointRefArrayOutput {
 	return o.ApplyT(func(v *NetworkRef) []EndpointRef {
 		if v == nil {
@@ -5734,7 +5070,6 @@ func (o NetworkRefPtrOutput) EndpointRefs() EndpointRefArrayOutput {
 	}).(EndpointRefArrayOutput)
 }
 
-// Name of the network
 func (o NetworkRefPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRef) *string {
 		if v == nil {
@@ -5764,12 +5099,9 @@ func (o NetworkRefArrayOutput) Index(i pulumi.IntInput) NetworkRefOutput {
 	}).(NetworkRefOutput)
 }
 
-// Describes a network reference in a service.
 type NetworkRefResponse struct {
-	// A list of endpoints that are exposed on this network.
 	EndpointRefs []EndpointRefResponse `pulumi:"endpointRefs"`
-	// Name of the network
-	Name *string `pulumi:"name"`
+	Name         *string               `pulumi:"name"`
 }
 
 // NetworkRefResponseInput is an input type that accepts NetworkRefResponseArgs and NetworkRefResponseOutput values.
@@ -5783,12 +5115,9 @@ type NetworkRefResponseInput interface {
 	ToNetworkRefResponseOutputWithContext(context.Context) NetworkRefResponseOutput
 }
 
-// Describes a network reference in a service.
 type NetworkRefResponseArgs struct {
-	// A list of endpoints that are exposed on this network.
 	EndpointRefs EndpointRefResponseArrayInput `pulumi:"endpointRefs"`
-	// Name of the network
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name         pulumi.StringPtrInput         `pulumi:"name"`
 }
 
 func (NetworkRefResponseArgs) ElementType() reflect.Type {
@@ -5869,7 +5198,6 @@ func (i NetworkRefResponseArray) ToNetworkRefResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRefResponseArrayOutput)
 }
 
-// Describes a network reference in a service.
 type NetworkRefResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkRefResponseOutput) ElementType() reflect.Type {
@@ -5889,17 +5217,15 @@ func (o NetworkRefResponseOutput) ToNetworkRefResponsePtrOutput() NetworkRefResp
 }
 
 func (o NetworkRefResponseOutput) ToNetworkRefResponsePtrOutputWithContext(ctx context.Context) NetworkRefResponsePtrOutput {
-	return o.ApplyT(func(v NetworkRefResponse) *NetworkRefResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRefResponse) *NetworkRefResponse {
 		return &v
 	}).(NetworkRefResponsePtrOutput)
 }
 
-// A list of endpoints that are exposed on this network.
 func (o NetworkRefResponseOutput) EndpointRefs() EndpointRefResponseArrayOutput {
 	return o.ApplyT(func(v NetworkRefResponse) []EndpointRefResponse { return v.EndpointRefs }).(EndpointRefResponseArrayOutput)
 }
 
-// Name of the network
 func (o NetworkRefResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRefResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -5919,10 +5245,15 @@ func (o NetworkRefResponsePtrOutput) ToNetworkRefResponsePtrOutputWithContext(ct
 }
 
 func (o NetworkRefResponsePtrOutput) Elem() NetworkRefResponseOutput {
-	return o.ApplyT(func(v *NetworkRefResponse) NetworkRefResponse { return *v }).(NetworkRefResponseOutput)
+	return o.ApplyT(func(v *NetworkRefResponse) NetworkRefResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRefResponse
+		return ret
+	}).(NetworkRefResponseOutput)
 }
 
-// A list of endpoints that are exposed on this network.
 func (o NetworkRefResponsePtrOutput) EndpointRefs() EndpointRefResponseArrayOutput {
 	return o.ApplyT(func(v *NetworkRefResponse) []EndpointRefResponse {
 		if v == nil {
@@ -5932,7 +5263,6 @@ func (o NetworkRefResponsePtrOutput) EndpointRefs() EndpointRefResponseArrayOutp
 	}).(EndpointRefResponseArrayOutput)
 }
 
-// Name of the network
 func (o NetworkRefResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRefResponse) *string {
 		if v == nil {
@@ -5962,13 +5292,9 @@ func (o NetworkRefResponseArrayOutput) Index(i pulumi.IntInput) NetworkRefRespon
 	}).(NetworkRefResponseOutput)
 }
 
-// Describes properties of a network resource.
 type NetworkResourceProperties struct {
-	// User readable description of the network.
 	Description *string `pulumi:"description"`
-	// The type of a Service Fabric container network.
-	// Expected value is 'NetworkResourceProperties'.
-	Kind string `pulumi:"kind"`
+	Kind        string  `pulumi:"kind"`
 }
 
 // NetworkResourcePropertiesInput is an input type that accepts NetworkResourcePropertiesArgs and NetworkResourcePropertiesOutput values.
@@ -5982,13 +5308,9 @@ type NetworkResourcePropertiesInput interface {
 	ToNetworkResourcePropertiesOutputWithContext(context.Context) NetworkResourcePropertiesOutput
 }
 
-// Describes properties of a network resource.
 type NetworkResourcePropertiesArgs struct {
-	// User readable description of the network.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The type of a Service Fabric container network.
-	// Expected value is 'NetworkResourceProperties'.
-	Kind pulumi.StringInput `pulumi:"kind"`
+	Kind        pulumi.StringInput    `pulumi:"kind"`
 }
 
 func (NetworkResourcePropertiesArgs) ElementType() reflect.Type {
@@ -6044,7 +5366,6 @@ func (i *networkResourcePropertiesPtrType) ToNetworkResourcePropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkResourcePropertiesPtrOutput)
 }
 
-// Describes properties of a network resource.
 type NetworkResourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (NetworkResourcePropertiesOutput) ElementType() reflect.Type {
@@ -6064,18 +5385,15 @@ func (o NetworkResourcePropertiesOutput) ToNetworkResourcePropertiesPtrOutput() 
 }
 
 func (o NetworkResourcePropertiesOutput) ToNetworkResourcePropertiesPtrOutputWithContext(ctx context.Context) NetworkResourcePropertiesPtrOutput {
-	return o.ApplyT(func(v NetworkResourceProperties) *NetworkResourceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkResourceProperties) *NetworkResourceProperties {
 		return &v
 	}).(NetworkResourcePropertiesPtrOutput)
 }
 
-// User readable description of the network.
 func (o NetworkResourcePropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkResourceProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The type of a Service Fabric container network.
-// Expected value is 'NetworkResourceProperties'.
 func (o NetworkResourcePropertiesOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkResourceProperties) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -6095,10 +5413,15 @@ func (o NetworkResourcePropertiesPtrOutput) ToNetworkResourcePropertiesPtrOutput
 }
 
 func (o NetworkResourcePropertiesPtrOutput) Elem() NetworkResourcePropertiesOutput {
-	return o.ApplyT(func(v *NetworkResourceProperties) NetworkResourceProperties { return *v }).(NetworkResourcePropertiesOutput)
+	return o.ApplyT(func(v *NetworkResourceProperties) NetworkResourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkResourceProperties
+		return ret
+	}).(NetworkResourcePropertiesOutput)
 }
 
-// User readable description of the network.
 func (o NetworkResourcePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkResourceProperties) *string {
 		if v == nil {
@@ -6108,8 +5431,6 @@ func (o NetworkResourcePropertiesPtrOutput) Description() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of a Service Fabric container network.
-// Expected value is 'NetworkResourceProperties'.
 func (o NetworkResourcePropertiesPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkResourceProperties) *string {
 		if v == nil {
@@ -6119,19 +5440,12 @@ func (o NetworkResourcePropertiesPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes properties of a network resource.
 type NetworkResourcePropertiesResponse struct {
-	// User readable description of the network.
-	Description *string `pulumi:"description"`
-	// The type of a Service Fabric container network.
-	// Expected value is 'NetworkResourceProperties'.
-	Kind string `pulumi:"kind"`
-	// State of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Status of the network.
-	Status string `pulumi:"status"`
-	// Gives additional information about the current status of the network.
-	StatusDetails string `pulumi:"statusDetails"`
+	Description       *string `pulumi:"description"`
+	Kind              string  `pulumi:"kind"`
+	ProvisioningState string  `pulumi:"provisioningState"`
+	Status            string  `pulumi:"status"`
+	StatusDetails     string  `pulumi:"statusDetails"`
 }
 
 // NetworkResourcePropertiesResponseInput is an input type that accepts NetworkResourcePropertiesResponseArgs and NetworkResourcePropertiesResponseOutput values.
@@ -6145,19 +5459,12 @@ type NetworkResourcePropertiesResponseInput interface {
 	ToNetworkResourcePropertiesResponseOutputWithContext(context.Context) NetworkResourcePropertiesResponseOutput
 }
 
-// Describes properties of a network resource.
 type NetworkResourcePropertiesResponseArgs struct {
-	// User readable description of the network.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The type of a Service Fabric container network.
-	// Expected value is 'NetworkResourceProperties'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// State of the resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Status of the network.
-	Status pulumi.StringInput `pulumi:"status"`
-	// Gives additional information about the current status of the network.
-	StatusDetails pulumi.StringInput `pulumi:"statusDetails"`
+	Description       pulumi.StringPtrInput `pulumi:"description"`
+	Kind              pulumi.StringInput    `pulumi:"kind"`
+	ProvisioningState pulumi.StringInput    `pulumi:"provisioningState"`
+	Status            pulumi.StringInput    `pulumi:"status"`
+	StatusDetails     pulumi.StringInput    `pulumi:"statusDetails"`
 }
 
 func (NetworkResourcePropertiesResponseArgs) ElementType() reflect.Type {
@@ -6213,7 +5520,6 @@ func (i *networkResourcePropertiesResponsePtrType) ToNetworkResourcePropertiesRe
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkResourcePropertiesResponsePtrOutput)
 }
 
-// Describes properties of a network resource.
 type NetworkResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkResourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -6233,33 +5539,27 @@ func (o NetworkResourcePropertiesResponseOutput) ToNetworkResourcePropertiesResp
 }
 
 func (o NetworkResourcePropertiesResponseOutput) ToNetworkResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkResourcePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v NetworkResourcePropertiesResponse) *NetworkResourcePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkResourcePropertiesResponse) *NetworkResourcePropertiesResponse {
 		return &v
 	}).(NetworkResourcePropertiesResponsePtrOutput)
 }
 
-// User readable description of the network.
 func (o NetworkResourcePropertiesResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkResourcePropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The type of a Service Fabric container network.
-// Expected value is 'NetworkResourceProperties'.
 func (o NetworkResourcePropertiesResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkResourcePropertiesResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// State of the resource.
 func (o NetworkResourcePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkResourcePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Status of the network.
 func (o NetworkResourcePropertiesResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkResourcePropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Gives additional information about the current status of the network.
 func (o NetworkResourcePropertiesResponseOutput) StatusDetails() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkResourcePropertiesResponse) string { return v.StatusDetails }).(pulumi.StringOutput)
 }
@@ -6279,10 +5579,15 @@ func (o NetworkResourcePropertiesResponsePtrOutput) ToNetworkResourcePropertiesR
 }
 
 func (o NetworkResourcePropertiesResponsePtrOutput) Elem() NetworkResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *NetworkResourcePropertiesResponse) NetworkResourcePropertiesResponse { return *v }).(NetworkResourcePropertiesResponseOutput)
+	return o.ApplyT(func(v *NetworkResourcePropertiesResponse) NetworkResourcePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkResourcePropertiesResponse
+		return ret
+	}).(NetworkResourcePropertiesResponseOutput)
 }
 
-// User readable description of the network.
 func (o NetworkResourcePropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkResourcePropertiesResponse) *string {
 		if v == nil {
@@ -6292,8 +5597,6 @@ func (o NetworkResourcePropertiesResponsePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of a Service Fabric container network.
-// Expected value is 'NetworkResourceProperties'.
 func (o NetworkResourcePropertiesResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkResourcePropertiesResponse) *string {
 		if v == nil {
@@ -6303,7 +5606,6 @@ func (o NetworkResourcePropertiesResponsePtrOutput) Kind() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// State of the resource.
 func (o NetworkResourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkResourcePropertiesResponse) *string {
 		if v == nil {
@@ -6313,7 +5615,6 @@ func (o NetworkResourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status of the network.
 func (o NetworkResourcePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkResourcePropertiesResponse) *string {
 		if v == nil {
@@ -6323,7 +5624,6 @@ func (o NetworkResourcePropertiesResponsePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gives additional information about the current status of the network.
 func (o NetworkResourcePropertiesResponsePtrOutput) StatusDetails() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkResourcePropertiesResponse) *string {
 		if v == nil {
@@ -6333,12 +5633,9 @@ func (o NetworkResourcePropertiesResponsePtrOutput) StatusDetails() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifying this parameter adds support for reliable collections
 type ReliableCollectionsRef struct {
-	// False (the default) if ReliableCollections state is persisted to disk as usual. True if you do not want to persist state, in which case replication is still enabled and you can use ReliableCollections as distributed cache.
-	DoNotPersistState *bool `pulumi:"doNotPersistState"`
-	// Name of ReliableCollection resource. Right now it's not used and you can use any string.
-	Name string `pulumi:"name"`
+	DoNotPersistState *bool  `pulumi:"doNotPersistState"`
+	Name              string `pulumi:"name"`
 }
 
 // ReliableCollectionsRefInput is an input type that accepts ReliableCollectionsRefArgs and ReliableCollectionsRefOutput values.
@@ -6352,12 +5649,9 @@ type ReliableCollectionsRefInput interface {
 	ToReliableCollectionsRefOutputWithContext(context.Context) ReliableCollectionsRefOutput
 }
 
-// Specifying this parameter adds support for reliable collections
 type ReliableCollectionsRefArgs struct {
-	// False (the default) if ReliableCollections state is persisted to disk as usual. True if you do not want to persist state, in which case replication is still enabled and you can use ReliableCollections as distributed cache.
 	DoNotPersistState pulumi.BoolPtrInput `pulumi:"doNotPersistState"`
-	// Name of ReliableCollection resource. Right now it's not used and you can use any string.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name              pulumi.StringInput  `pulumi:"name"`
 }
 
 func (ReliableCollectionsRefArgs) ElementType() reflect.Type {
@@ -6397,7 +5691,6 @@ func (i ReliableCollectionsRefArray) ToReliableCollectionsRefArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ReliableCollectionsRefArrayOutput)
 }
 
-// Specifying this parameter adds support for reliable collections
 type ReliableCollectionsRefOutput struct{ *pulumi.OutputState }
 
 func (ReliableCollectionsRefOutput) ElementType() reflect.Type {
@@ -6412,12 +5705,10 @@ func (o ReliableCollectionsRefOutput) ToReliableCollectionsRefOutputWithContext(
 	return o
 }
 
-// False (the default) if ReliableCollections state is persisted to disk as usual. True if you do not want to persist state, in which case replication is still enabled and you can use ReliableCollections as distributed cache.
 func (o ReliableCollectionsRefOutput) DoNotPersistState() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ReliableCollectionsRef) *bool { return v.DoNotPersistState }).(pulumi.BoolPtrOutput)
 }
 
-// Name of ReliableCollection resource. Right now it's not used and you can use any string.
 func (o ReliableCollectionsRefOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReliableCollectionsRef) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6442,12 +5733,9 @@ func (o ReliableCollectionsRefArrayOutput) Index(i pulumi.IntInput) ReliableColl
 	}).(ReliableCollectionsRefOutput)
 }
 
-// Specifying this parameter adds support for reliable collections
 type ReliableCollectionsRefResponse struct {
-	// False (the default) if ReliableCollections state is persisted to disk as usual. True if you do not want to persist state, in which case replication is still enabled and you can use ReliableCollections as distributed cache.
-	DoNotPersistState *bool `pulumi:"doNotPersistState"`
-	// Name of ReliableCollection resource. Right now it's not used and you can use any string.
-	Name string `pulumi:"name"`
+	DoNotPersistState *bool  `pulumi:"doNotPersistState"`
+	Name              string `pulumi:"name"`
 }
 
 // ReliableCollectionsRefResponseInput is an input type that accepts ReliableCollectionsRefResponseArgs and ReliableCollectionsRefResponseOutput values.
@@ -6461,12 +5749,9 @@ type ReliableCollectionsRefResponseInput interface {
 	ToReliableCollectionsRefResponseOutputWithContext(context.Context) ReliableCollectionsRefResponseOutput
 }
 
-// Specifying this parameter adds support for reliable collections
 type ReliableCollectionsRefResponseArgs struct {
-	// False (the default) if ReliableCollections state is persisted to disk as usual. True if you do not want to persist state, in which case replication is still enabled and you can use ReliableCollections as distributed cache.
 	DoNotPersistState pulumi.BoolPtrInput `pulumi:"doNotPersistState"`
-	// Name of ReliableCollection resource. Right now it's not used and you can use any string.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name              pulumi.StringInput  `pulumi:"name"`
 }
 
 func (ReliableCollectionsRefResponseArgs) ElementType() reflect.Type {
@@ -6506,7 +5791,6 @@ func (i ReliableCollectionsRefResponseArray) ToReliableCollectionsRefResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(ReliableCollectionsRefResponseArrayOutput)
 }
 
-// Specifying this parameter adds support for reliable collections
 type ReliableCollectionsRefResponseOutput struct{ *pulumi.OutputState }
 
 func (ReliableCollectionsRefResponseOutput) ElementType() reflect.Type {
@@ -6521,12 +5805,10 @@ func (o ReliableCollectionsRefResponseOutput) ToReliableCollectionsRefResponseOu
 	return o
 }
 
-// False (the default) if ReliableCollections state is persisted to disk as usual. True if you do not want to persist state, in which case replication is still enabled and you can use ReliableCollections as distributed cache.
 func (o ReliableCollectionsRefResponseOutput) DoNotPersistState() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ReliableCollectionsRefResponse) *bool { return v.DoNotPersistState }).(pulumi.BoolPtrOutput)
 }
 
-// Name of ReliableCollection resource. Right now it's not used and you can use any string.
 func (o ReliableCollectionsRefResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReliableCollectionsRefResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6551,11 +5833,8 @@ func (o ReliableCollectionsRefResponseArrayOutput) Index(i pulumi.IntInput) Reli
 	}).(ReliableCollectionsRefResponseOutput)
 }
 
-// This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.
 type ResourceLimits struct {
-	// CPU limits in cores. At present, only full cores are supported.
-	Cpu *float64 `pulumi:"cpu"`
-	// The memory limit in GB.
+	Cpu        *float64 `pulumi:"cpu"`
 	MemoryInGB *float64 `pulumi:"memoryInGB"`
 }
 
@@ -6570,11 +5849,8 @@ type ResourceLimitsInput interface {
 	ToResourceLimitsOutputWithContext(context.Context) ResourceLimitsOutput
 }
 
-// This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.
 type ResourceLimitsArgs struct {
-	// CPU limits in cores. At present, only full cores are supported.
-	Cpu pulumi.Float64PtrInput `pulumi:"cpu"`
-	// The memory limit in GB.
+	Cpu        pulumi.Float64PtrInput `pulumi:"cpu"`
 	MemoryInGB pulumi.Float64PtrInput `pulumi:"memoryInGB"`
 }
 
@@ -6631,7 +5907,6 @@ func (i *resourceLimitsPtrType) ToResourceLimitsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLimitsPtrOutput)
 }
 
-// This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.
 type ResourceLimitsOutput struct{ *pulumi.OutputState }
 
 func (ResourceLimitsOutput) ElementType() reflect.Type {
@@ -6651,17 +5926,15 @@ func (o ResourceLimitsOutput) ToResourceLimitsPtrOutput() ResourceLimitsPtrOutpu
 }
 
 func (o ResourceLimitsOutput) ToResourceLimitsPtrOutputWithContext(ctx context.Context) ResourceLimitsPtrOutput {
-	return o.ApplyT(func(v ResourceLimits) *ResourceLimits {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLimits) *ResourceLimits {
 		return &v
 	}).(ResourceLimitsPtrOutput)
 }
 
-// CPU limits in cores. At present, only full cores are supported.
 func (o ResourceLimitsOutput) Cpu() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ResourceLimits) *float64 { return v.Cpu }).(pulumi.Float64PtrOutput)
 }
 
-// The memory limit in GB.
 func (o ResourceLimitsOutput) MemoryInGB() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ResourceLimits) *float64 { return v.MemoryInGB }).(pulumi.Float64PtrOutput)
 }
@@ -6681,10 +5954,15 @@ func (o ResourceLimitsPtrOutput) ToResourceLimitsPtrOutputWithContext(ctx contex
 }
 
 func (o ResourceLimitsPtrOutput) Elem() ResourceLimitsOutput {
-	return o.ApplyT(func(v *ResourceLimits) ResourceLimits { return *v }).(ResourceLimitsOutput)
+	return o.ApplyT(func(v *ResourceLimits) ResourceLimits {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLimits
+		return ret
+	}).(ResourceLimitsOutput)
 }
 
-// CPU limits in cores. At present, only full cores are supported.
 func (o ResourceLimitsPtrOutput) Cpu() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ResourceLimits) *float64 {
 		if v == nil {
@@ -6694,7 +5972,6 @@ func (o ResourceLimitsPtrOutput) Cpu() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The memory limit in GB.
 func (o ResourceLimitsPtrOutput) MemoryInGB() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ResourceLimits) *float64 {
 		if v == nil {
@@ -6704,11 +5981,8 @@ func (o ResourceLimitsPtrOutput) MemoryInGB() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.
 type ResourceLimitsResponse struct {
-	// CPU limits in cores. At present, only full cores are supported.
-	Cpu *float64 `pulumi:"cpu"`
-	// The memory limit in GB.
+	Cpu        *float64 `pulumi:"cpu"`
 	MemoryInGB *float64 `pulumi:"memoryInGB"`
 }
 
@@ -6723,11 +5997,8 @@ type ResourceLimitsResponseInput interface {
 	ToResourceLimitsResponseOutputWithContext(context.Context) ResourceLimitsResponseOutput
 }
 
-// This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.
 type ResourceLimitsResponseArgs struct {
-	// CPU limits in cores. At present, only full cores are supported.
-	Cpu pulumi.Float64PtrInput `pulumi:"cpu"`
-	// The memory limit in GB.
+	Cpu        pulumi.Float64PtrInput `pulumi:"cpu"`
 	MemoryInGB pulumi.Float64PtrInput `pulumi:"memoryInGB"`
 }
 
@@ -6784,7 +6055,6 @@ func (i *resourceLimitsResponsePtrType) ToResourceLimitsResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLimitsResponsePtrOutput)
 }
 
-// This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.
 type ResourceLimitsResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceLimitsResponseOutput) ElementType() reflect.Type {
@@ -6804,17 +6074,15 @@ func (o ResourceLimitsResponseOutput) ToResourceLimitsResponsePtrOutput() Resour
 }
 
 func (o ResourceLimitsResponseOutput) ToResourceLimitsResponsePtrOutputWithContext(ctx context.Context) ResourceLimitsResponsePtrOutput {
-	return o.ApplyT(func(v ResourceLimitsResponse) *ResourceLimitsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLimitsResponse) *ResourceLimitsResponse {
 		return &v
 	}).(ResourceLimitsResponsePtrOutput)
 }
 
-// CPU limits in cores. At present, only full cores are supported.
 func (o ResourceLimitsResponseOutput) Cpu() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ResourceLimitsResponse) *float64 { return v.Cpu }).(pulumi.Float64PtrOutput)
 }
 
-// The memory limit in GB.
 func (o ResourceLimitsResponseOutput) MemoryInGB() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ResourceLimitsResponse) *float64 { return v.MemoryInGB }).(pulumi.Float64PtrOutput)
 }
@@ -6834,10 +6102,15 @@ func (o ResourceLimitsResponsePtrOutput) ToResourceLimitsResponsePtrOutputWithCo
 }
 
 func (o ResourceLimitsResponsePtrOutput) Elem() ResourceLimitsResponseOutput {
-	return o.ApplyT(func(v *ResourceLimitsResponse) ResourceLimitsResponse { return *v }).(ResourceLimitsResponseOutput)
+	return o.ApplyT(func(v *ResourceLimitsResponse) ResourceLimitsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLimitsResponse
+		return ret
+	}).(ResourceLimitsResponseOutput)
 }
 
-// CPU limits in cores. At present, only full cores are supported.
 func (o ResourceLimitsResponsePtrOutput) Cpu() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ResourceLimitsResponse) *float64 {
 		if v == nil {
@@ -6847,7 +6120,6 @@ func (o ResourceLimitsResponsePtrOutput) Cpu() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The memory limit in GB.
 func (o ResourceLimitsResponsePtrOutput) MemoryInGB() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ResourceLimitsResponse) *float64 {
 		if v == nil {
@@ -6857,11 +6129,8 @@ func (o ResourceLimitsResponsePtrOutput) MemoryInGB() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// This type describes the requested resources for a given container. It describes the least amount of resources required for the container. A container can consume more than requested resources up to the specified limits before being restarted. Currently, the requested resources are treated as limits.
 type ResourceRequests struct {
-	// Requested number of CPU cores. At present, only full cores are supported.
-	Cpu float64 `pulumi:"cpu"`
-	// The memory request in GB for this container.
+	Cpu        float64 `pulumi:"cpu"`
 	MemoryInGB float64 `pulumi:"memoryInGB"`
 }
 
@@ -6876,11 +6145,8 @@ type ResourceRequestsInput interface {
 	ToResourceRequestsOutputWithContext(context.Context) ResourceRequestsOutput
 }
 
-// This type describes the requested resources for a given container. It describes the least amount of resources required for the container. A container can consume more than requested resources up to the specified limits before being restarted. Currently, the requested resources are treated as limits.
 type ResourceRequestsArgs struct {
-	// Requested number of CPU cores. At present, only full cores are supported.
-	Cpu pulumi.Float64Input `pulumi:"cpu"`
-	// The memory request in GB for this container.
+	Cpu        pulumi.Float64Input `pulumi:"cpu"`
 	MemoryInGB pulumi.Float64Input `pulumi:"memoryInGB"`
 }
 
@@ -6896,7 +6162,6 @@ func (i ResourceRequestsArgs) ToResourceRequestsOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceRequestsOutput)
 }
 
-// This type describes the requested resources for a given container. It describes the least amount of resources required for the container. A container can consume more than requested resources up to the specified limits before being restarted. Currently, the requested resources are treated as limits.
 type ResourceRequestsOutput struct{ *pulumi.OutputState }
 
 func (ResourceRequestsOutput) ElementType() reflect.Type {
@@ -6911,21 +6176,16 @@ func (o ResourceRequestsOutput) ToResourceRequestsOutputWithContext(ctx context.
 	return o
 }
 
-// Requested number of CPU cores. At present, only full cores are supported.
 func (o ResourceRequestsOutput) Cpu() pulumi.Float64Output {
 	return o.ApplyT(func(v ResourceRequests) float64 { return v.Cpu }).(pulumi.Float64Output)
 }
 
-// The memory request in GB for this container.
 func (o ResourceRequestsOutput) MemoryInGB() pulumi.Float64Output {
 	return o.ApplyT(func(v ResourceRequests) float64 { return v.MemoryInGB }).(pulumi.Float64Output)
 }
 
-// This type describes the requested resources for a given container. It describes the least amount of resources required for the container. A container can consume more than requested resources up to the specified limits before being restarted. Currently, the requested resources are treated as limits.
 type ResourceRequestsResponse struct {
-	// Requested number of CPU cores. At present, only full cores are supported.
-	Cpu float64 `pulumi:"cpu"`
-	// The memory request in GB for this container.
+	Cpu        float64 `pulumi:"cpu"`
 	MemoryInGB float64 `pulumi:"memoryInGB"`
 }
 
@@ -6940,11 +6200,8 @@ type ResourceRequestsResponseInput interface {
 	ToResourceRequestsResponseOutputWithContext(context.Context) ResourceRequestsResponseOutput
 }
 
-// This type describes the requested resources for a given container. It describes the least amount of resources required for the container. A container can consume more than requested resources up to the specified limits before being restarted. Currently, the requested resources are treated as limits.
 type ResourceRequestsResponseArgs struct {
-	// Requested number of CPU cores. At present, only full cores are supported.
-	Cpu pulumi.Float64Input `pulumi:"cpu"`
-	// The memory request in GB for this container.
+	Cpu        pulumi.Float64Input `pulumi:"cpu"`
 	MemoryInGB pulumi.Float64Input `pulumi:"memoryInGB"`
 }
 
@@ -6960,7 +6217,6 @@ func (i ResourceRequestsResponseArgs) ToResourceRequestsResponseOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceRequestsResponseOutput)
 }
 
-// This type describes the requested resources for a given container. It describes the least amount of resources required for the container. A container can consume more than requested resources up to the specified limits before being restarted. Currently, the requested resources are treated as limits.
 type ResourceRequestsResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceRequestsResponseOutput) ElementType() reflect.Type {
@@ -6975,21 +6231,16 @@ func (o ResourceRequestsResponseOutput) ToResourceRequestsResponseOutputWithCont
 	return o
 }
 
-// Requested number of CPU cores. At present, only full cores are supported.
 func (o ResourceRequestsResponseOutput) Cpu() pulumi.Float64Output {
 	return o.ApplyT(func(v ResourceRequestsResponse) float64 { return v.Cpu }).(pulumi.Float64Output)
 }
 
-// The memory request in GB for this container.
 func (o ResourceRequestsResponseOutput) MemoryInGB() pulumi.Float64Output {
 	return o.ApplyT(func(v ResourceRequestsResponse) float64 { return v.MemoryInGB }).(pulumi.Float64Output)
 }
 
-// This type describes the resource requirements for a container or a service.
 type ResourceRequirements struct {
-	// Describes the maximum limits on the resources for a given container.
-	Limits *ResourceLimits `pulumi:"limits"`
-	// Describes the requested resources for a given container.
+	Limits   *ResourceLimits  `pulumi:"limits"`
 	Requests ResourceRequests `pulumi:"requests"`
 }
 
@@ -7004,12 +6255,9 @@ type ResourceRequirementsInput interface {
 	ToResourceRequirementsOutputWithContext(context.Context) ResourceRequirementsOutput
 }
 
-// This type describes the resource requirements for a container or a service.
 type ResourceRequirementsArgs struct {
-	// Describes the maximum limits on the resources for a given container.
-	Limits ResourceLimitsPtrInput `pulumi:"limits"`
-	// Describes the requested resources for a given container.
-	Requests ResourceRequestsInput `pulumi:"requests"`
+	Limits   ResourceLimitsPtrInput `pulumi:"limits"`
+	Requests ResourceRequestsInput  `pulumi:"requests"`
 }
 
 func (ResourceRequirementsArgs) ElementType() reflect.Type {
@@ -7024,7 +6272,6 @@ func (i ResourceRequirementsArgs) ToResourceRequirementsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceRequirementsOutput)
 }
 
-// This type describes the resource requirements for a container or a service.
 type ResourceRequirementsOutput struct{ *pulumi.OutputState }
 
 func (ResourceRequirementsOutput) ElementType() reflect.Type {
@@ -7039,21 +6286,16 @@ func (o ResourceRequirementsOutput) ToResourceRequirementsOutputWithContext(ctx 
 	return o
 }
 
-// Describes the maximum limits on the resources for a given container.
 func (o ResourceRequirementsOutput) Limits() ResourceLimitsPtrOutput {
 	return o.ApplyT(func(v ResourceRequirements) *ResourceLimits { return v.Limits }).(ResourceLimitsPtrOutput)
 }
 
-// Describes the requested resources for a given container.
 func (o ResourceRequirementsOutput) Requests() ResourceRequestsOutput {
 	return o.ApplyT(func(v ResourceRequirements) ResourceRequests { return v.Requests }).(ResourceRequestsOutput)
 }
 
-// This type describes the resource requirements for a container or a service.
 type ResourceRequirementsResponse struct {
-	// Describes the maximum limits on the resources for a given container.
-	Limits *ResourceLimitsResponse `pulumi:"limits"`
-	// Describes the requested resources for a given container.
+	Limits   *ResourceLimitsResponse  `pulumi:"limits"`
 	Requests ResourceRequestsResponse `pulumi:"requests"`
 }
 
@@ -7068,12 +6310,9 @@ type ResourceRequirementsResponseInput interface {
 	ToResourceRequirementsResponseOutputWithContext(context.Context) ResourceRequirementsResponseOutput
 }
 
-// This type describes the resource requirements for a container or a service.
 type ResourceRequirementsResponseArgs struct {
-	// Describes the maximum limits on the resources for a given container.
-	Limits ResourceLimitsResponsePtrInput `pulumi:"limits"`
-	// Describes the requested resources for a given container.
-	Requests ResourceRequestsResponseInput `pulumi:"requests"`
+	Limits   ResourceLimitsResponsePtrInput `pulumi:"limits"`
+	Requests ResourceRequestsResponseInput  `pulumi:"requests"`
 }
 
 func (ResourceRequirementsResponseArgs) ElementType() reflect.Type {
@@ -7088,7 +6327,6 @@ func (i ResourceRequirementsResponseArgs) ToResourceRequirementsResponseOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceRequirementsResponseOutput)
 }
 
-// This type describes the resource requirements for a container or a service.
 type ResourceRequirementsResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceRequirementsResponseOutput) ElementType() reflect.Type {
@@ -7103,25 +6341,18 @@ func (o ResourceRequirementsResponseOutput) ToResourceRequirementsResponseOutput
 	return o
 }
 
-// Describes the maximum limits on the resources for a given container.
 func (o ResourceRequirementsResponseOutput) Limits() ResourceLimitsResponsePtrOutput {
 	return o.ApplyT(func(v ResourceRequirementsResponse) *ResourceLimitsResponse { return v.Limits }).(ResourceLimitsResponsePtrOutput)
 }
 
-// Describes the requested resources for a given container.
 func (o ResourceRequirementsResponseOutput) Requests() ResourceRequestsResponseOutput {
 	return o.ApplyT(func(v ResourceRequirementsResponse) ResourceRequestsResponse { return v.Requests }).(ResourceRequestsResponseOutput)
 }
 
-// Describes the properties of a secret resource.
 type SecretResourceProperties struct {
-	// The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
 	ContentType *string `pulumi:"contentType"`
-	// User readable description of the secret.
 	Description *string `pulumi:"description"`
-	// Describes the kind of secret.
-	// Expected value is 'SecretResourceProperties'.
-	Kind string `pulumi:"kind"`
+	Kind        string  `pulumi:"kind"`
 }
 
 // SecretResourcePropertiesInput is an input type that accepts SecretResourcePropertiesArgs and SecretResourcePropertiesOutput values.
@@ -7135,15 +6366,10 @@ type SecretResourcePropertiesInput interface {
 	ToSecretResourcePropertiesOutputWithContext(context.Context) SecretResourcePropertiesOutput
 }
 
-// Describes the properties of a secret resource.
 type SecretResourcePropertiesArgs struct {
-	// The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	// User readable description of the secret.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Describes the kind of secret.
-	// Expected value is 'SecretResourceProperties'.
-	Kind pulumi.StringInput `pulumi:"kind"`
+	Kind        pulumi.StringInput    `pulumi:"kind"`
 }
 
 func (SecretResourcePropertiesArgs) ElementType() reflect.Type {
@@ -7199,7 +6425,6 @@ func (i *secretResourcePropertiesPtrType) ToSecretResourcePropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SecretResourcePropertiesPtrOutput)
 }
 
-// Describes the properties of a secret resource.
 type SecretResourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (SecretResourcePropertiesOutput) ElementType() reflect.Type {
@@ -7219,23 +6444,19 @@ func (o SecretResourcePropertiesOutput) ToSecretResourcePropertiesPtrOutput() Se
 }
 
 func (o SecretResourcePropertiesOutput) ToSecretResourcePropertiesPtrOutputWithContext(ctx context.Context) SecretResourcePropertiesPtrOutput {
-	return o.ApplyT(func(v SecretResourceProperties) *SecretResourceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretResourceProperties) *SecretResourceProperties {
 		return &v
 	}).(SecretResourcePropertiesPtrOutput)
 }
 
-// The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
 func (o SecretResourcePropertiesOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretResourceProperties) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-// User readable description of the secret.
 func (o SecretResourcePropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretResourceProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Describes the kind of secret.
-// Expected value is 'SecretResourceProperties'.
 func (o SecretResourcePropertiesOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v SecretResourceProperties) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -7255,10 +6476,15 @@ func (o SecretResourcePropertiesPtrOutput) ToSecretResourcePropertiesPtrOutputWi
 }
 
 func (o SecretResourcePropertiesPtrOutput) Elem() SecretResourcePropertiesOutput {
-	return o.ApplyT(func(v *SecretResourceProperties) SecretResourceProperties { return *v }).(SecretResourcePropertiesOutput)
+	return o.ApplyT(func(v *SecretResourceProperties) SecretResourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SecretResourceProperties
+		return ret
+	}).(SecretResourcePropertiesOutput)
 }
 
-// The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
 func (o SecretResourcePropertiesPtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretResourceProperties) *string {
 		if v == nil {
@@ -7268,7 +6494,6 @@ func (o SecretResourcePropertiesPtrOutput) ContentType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// User readable description of the secret.
 func (o SecretResourcePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretResourceProperties) *string {
 		if v == nil {
@@ -7278,8 +6503,6 @@ func (o SecretResourcePropertiesPtrOutput) Description() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the kind of secret.
-// Expected value is 'SecretResourceProperties'.
 func (o SecretResourcePropertiesPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretResourceProperties) *string {
 		if v == nil {
@@ -7289,21 +6512,13 @@ func (o SecretResourcePropertiesPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties of a secret resource.
 type SecretResourcePropertiesResponse struct {
-	// The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
-	ContentType *string `pulumi:"contentType"`
-	// User readable description of the secret.
-	Description *string `pulumi:"description"`
-	// Describes the kind of secret.
-	// Expected value is 'SecretResourceProperties'.
-	Kind string `pulumi:"kind"`
-	// State of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Status of the resource.
-	Status string `pulumi:"status"`
-	// Gives additional information about the current status of the secret.
-	StatusDetails string `pulumi:"statusDetails"`
+	ContentType       *string `pulumi:"contentType"`
+	Description       *string `pulumi:"description"`
+	Kind              string  `pulumi:"kind"`
+	ProvisioningState string  `pulumi:"provisioningState"`
+	Status            string  `pulumi:"status"`
+	StatusDetails     string  `pulumi:"statusDetails"`
 }
 
 // SecretResourcePropertiesResponseInput is an input type that accepts SecretResourcePropertiesResponseArgs and SecretResourcePropertiesResponseOutput values.
@@ -7317,21 +6532,13 @@ type SecretResourcePropertiesResponseInput interface {
 	ToSecretResourcePropertiesResponseOutputWithContext(context.Context) SecretResourcePropertiesResponseOutput
 }
 
-// Describes the properties of a secret resource.
 type SecretResourcePropertiesResponseArgs struct {
-	// The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
-	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	// User readable description of the secret.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Describes the kind of secret.
-	// Expected value is 'SecretResourceProperties'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// State of the resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Status of the resource.
-	Status pulumi.StringInput `pulumi:"status"`
-	// Gives additional information about the current status of the secret.
-	StatusDetails pulumi.StringInput `pulumi:"statusDetails"`
+	ContentType       pulumi.StringPtrInput `pulumi:"contentType"`
+	Description       pulumi.StringPtrInput `pulumi:"description"`
+	Kind              pulumi.StringInput    `pulumi:"kind"`
+	ProvisioningState pulumi.StringInput    `pulumi:"provisioningState"`
+	Status            pulumi.StringInput    `pulumi:"status"`
+	StatusDetails     pulumi.StringInput    `pulumi:"statusDetails"`
 }
 
 func (SecretResourcePropertiesResponseArgs) ElementType() reflect.Type {
@@ -7387,7 +6594,6 @@ func (i *secretResourcePropertiesResponsePtrType) ToSecretResourcePropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(SecretResourcePropertiesResponsePtrOutput)
 }
 
-// Describes the properties of a secret resource.
 type SecretResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SecretResourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -7407,38 +6613,31 @@ func (o SecretResourcePropertiesResponseOutput) ToSecretResourcePropertiesRespon
 }
 
 func (o SecretResourcePropertiesResponseOutput) ToSecretResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) SecretResourcePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SecretResourcePropertiesResponse) *SecretResourcePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretResourcePropertiesResponse) *SecretResourcePropertiesResponse {
 		return &v
 	}).(SecretResourcePropertiesResponsePtrOutput)
 }
 
-// The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
 func (o SecretResourcePropertiesResponseOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretResourcePropertiesResponse) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-// User readable description of the secret.
 func (o SecretResourcePropertiesResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretResourcePropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Describes the kind of secret.
-// Expected value is 'SecretResourceProperties'.
 func (o SecretResourcePropertiesResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v SecretResourcePropertiesResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// State of the resource.
 func (o SecretResourcePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v SecretResourcePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Status of the resource.
 func (o SecretResourcePropertiesResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v SecretResourcePropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Gives additional information about the current status of the secret.
 func (o SecretResourcePropertiesResponseOutput) StatusDetails() pulumi.StringOutput {
 	return o.ApplyT(func(v SecretResourcePropertiesResponse) string { return v.StatusDetails }).(pulumi.StringOutput)
 }
@@ -7458,10 +6657,15 @@ func (o SecretResourcePropertiesResponsePtrOutput) ToSecretResourcePropertiesRes
 }
 
 func (o SecretResourcePropertiesResponsePtrOutput) Elem() SecretResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *SecretResourcePropertiesResponse) SecretResourcePropertiesResponse { return *v }).(SecretResourcePropertiesResponseOutput)
+	return o.ApplyT(func(v *SecretResourcePropertiesResponse) SecretResourcePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SecretResourcePropertiesResponse
+		return ret
+	}).(SecretResourcePropertiesResponseOutput)
 }
 
-// The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
 func (o SecretResourcePropertiesResponsePtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretResourcePropertiesResponse) *string {
 		if v == nil {
@@ -7471,7 +6675,6 @@ func (o SecretResourcePropertiesResponsePtrOutput) ContentType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// User readable description of the secret.
 func (o SecretResourcePropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretResourcePropertiesResponse) *string {
 		if v == nil {
@@ -7481,8 +6684,6 @@ func (o SecretResourcePropertiesResponsePtrOutput) Description() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the kind of secret.
-// Expected value is 'SecretResourceProperties'.
 func (o SecretResourcePropertiesResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretResourcePropertiesResponse) *string {
 		if v == nil {
@@ -7492,7 +6693,6 @@ func (o SecretResourcePropertiesResponsePtrOutput) Kind() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// State of the resource.
 func (o SecretResourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretResourcePropertiesResponse) *string {
 		if v == nil {
@@ -7502,7 +6702,6 @@ func (o SecretResourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status of the resource.
 func (o SecretResourcePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretResourcePropertiesResponse) *string {
 		if v == nil {
@@ -7512,7 +6711,6 @@ func (o SecretResourcePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gives additional information about the current status of the secret.
 func (o SecretResourcePropertiesResponsePtrOutput) StatusDetails() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretResourcePropertiesResponse) *string {
 		if v == nil {
@@ -7522,24 +6720,15 @@ func (o SecretResourcePropertiesResponsePtrOutput) StatusDetails() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// This type describes a service resource.
 type ServiceResourceDescription struct {
-	// Auto scaling policies
-	AutoScalingPolicies []AutoScalingPolicy `pulumi:"autoScalingPolicies"`
-	// Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
-	CodePackages []ContainerCodePackageProperties `pulumi:"codePackages"`
-	// User readable description of the service.
-	Description *string `pulumi:"description"`
-	// Reference to sinks in DiagnosticsDescription.
-	Diagnostics *DiagnosticsRef `pulumi:"diagnostics"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The names of the private networks that this service needs to be part of.
-	NetworkRefs []NetworkRef `pulumi:"networkRefs"`
-	// The operation system required by the code in service.
-	OsType string `pulumi:"osType"`
-	// The number of replicas of the service to create. Defaults to 1 if not specified.
-	ReplicaCount *int `pulumi:"replicaCount"`
+	AutoScalingPolicies []AutoScalingPolicy              `pulumi:"autoScalingPolicies"`
+	CodePackages        []ContainerCodePackageProperties `pulumi:"codePackages"`
+	Description         *string                          `pulumi:"description"`
+	Diagnostics         *DiagnosticsRef                  `pulumi:"diagnostics"`
+	Name                *string                          `pulumi:"name"`
+	NetworkRefs         []NetworkRef                     `pulumi:"networkRefs"`
+	OsType              string                           `pulumi:"osType"`
+	ReplicaCount        *int                             `pulumi:"replicaCount"`
 }
 
 // ServiceResourceDescriptionInput is an input type that accepts ServiceResourceDescriptionArgs and ServiceResourceDescriptionOutput values.
@@ -7553,24 +6742,15 @@ type ServiceResourceDescriptionInput interface {
 	ToServiceResourceDescriptionOutputWithContext(context.Context) ServiceResourceDescriptionOutput
 }
 
-// This type describes a service resource.
 type ServiceResourceDescriptionArgs struct {
-	// Auto scaling policies
-	AutoScalingPolicies AutoScalingPolicyArrayInput `pulumi:"autoScalingPolicies"`
-	// Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
-	CodePackages ContainerCodePackagePropertiesArrayInput `pulumi:"codePackages"`
-	// User readable description of the service.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Reference to sinks in DiagnosticsDescription.
-	Diagnostics DiagnosticsRefPtrInput `pulumi:"diagnostics"`
-	// The name of the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The names of the private networks that this service needs to be part of.
-	NetworkRefs NetworkRefArrayInput `pulumi:"networkRefs"`
-	// The operation system required by the code in service.
-	OsType pulumi.StringInput `pulumi:"osType"`
-	// The number of replicas of the service to create. Defaults to 1 if not specified.
-	ReplicaCount pulumi.IntPtrInput `pulumi:"replicaCount"`
+	AutoScalingPolicies AutoScalingPolicyArrayInput              `pulumi:"autoScalingPolicies"`
+	CodePackages        ContainerCodePackagePropertiesArrayInput `pulumi:"codePackages"`
+	Description         pulumi.StringPtrInput                    `pulumi:"description"`
+	Diagnostics         DiagnosticsRefPtrInput                   `pulumi:"diagnostics"`
+	Name                pulumi.StringPtrInput                    `pulumi:"name"`
+	NetworkRefs         NetworkRefArrayInput                     `pulumi:"networkRefs"`
+	OsType              pulumi.StringInput                       `pulumi:"osType"`
+	ReplicaCount        pulumi.IntPtrInput                       `pulumi:"replicaCount"`
 }
 
 func (ServiceResourceDescriptionArgs) ElementType() reflect.Type {
@@ -7610,7 +6790,6 @@ func (i ServiceResourceDescriptionArray) ToServiceResourceDescriptionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceResourceDescriptionArrayOutput)
 }
 
-// This type describes a service resource.
 type ServiceResourceDescriptionOutput struct{ *pulumi.OutputState }
 
 func (ServiceResourceDescriptionOutput) ElementType() reflect.Type {
@@ -7625,42 +6804,34 @@ func (o ServiceResourceDescriptionOutput) ToServiceResourceDescriptionOutputWith
 	return o
 }
 
-// Auto scaling policies
 func (o ServiceResourceDescriptionOutput) AutoScalingPolicies() AutoScalingPolicyArrayOutput {
 	return o.ApplyT(func(v ServiceResourceDescription) []AutoScalingPolicy { return v.AutoScalingPolicies }).(AutoScalingPolicyArrayOutput)
 }
 
-// Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
 func (o ServiceResourceDescriptionOutput) CodePackages() ContainerCodePackagePropertiesArrayOutput {
 	return o.ApplyT(func(v ServiceResourceDescription) []ContainerCodePackageProperties { return v.CodePackages }).(ContainerCodePackagePropertiesArrayOutput)
 }
 
-// User readable description of the service.
 func (o ServiceResourceDescriptionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceResourceDescription) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Reference to sinks in DiagnosticsDescription.
 func (o ServiceResourceDescriptionOutput) Diagnostics() DiagnosticsRefPtrOutput {
 	return o.ApplyT(func(v ServiceResourceDescription) *DiagnosticsRef { return v.Diagnostics }).(DiagnosticsRefPtrOutput)
 }
 
-// The name of the resource
 func (o ServiceResourceDescriptionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceResourceDescription) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The names of the private networks that this service needs to be part of.
 func (o ServiceResourceDescriptionOutput) NetworkRefs() NetworkRefArrayOutput {
 	return o.ApplyT(func(v ServiceResourceDescription) []NetworkRef { return v.NetworkRefs }).(NetworkRefArrayOutput)
 }
 
-// The operation system required by the code in service.
 func (o ServiceResourceDescriptionOutput) OsType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceResourceDescription) string { return v.OsType }).(pulumi.StringOutput)
 }
 
-// The number of replicas of the service to create. Defaults to 1 if not specified.
 func (o ServiceResourceDescriptionOutput) ReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceResourceDescription) *int { return v.ReplicaCount }).(pulumi.IntPtrOutput)
 }
@@ -7685,38 +6856,22 @@ func (o ServiceResourceDescriptionArrayOutput) Index(i pulumi.IntInput) ServiceR
 	}).(ServiceResourceDescriptionOutput)
 }
 
-// This type describes a service resource.
 type ServiceResourceDescriptionResponse struct {
-	// Auto scaling policies
-	AutoScalingPolicies []AutoScalingPolicyResponse `pulumi:"autoScalingPolicies"`
-	// Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
-	CodePackages []ContainerCodePackagePropertiesResponse `pulumi:"codePackages"`
-	// User readable description of the service.
-	Description *string `pulumi:"description"`
-	// Reference to sinks in DiagnosticsDescription.
-	Diagnostics *DiagnosticsRefResponse `pulumi:"diagnostics"`
-	// Describes the health state of an application resource.
-	HealthState string `pulumi:"healthState"`
-	// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The names of the private networks that this service needs to be part of.
-	NetworkRefs []NetworkRefResponse `pulumi:"networkRefs"`
-	// The operation system required by the code in service.
-	OsType string `pulumi:"osType"`
-	// State of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The number of replicas of the service to create. Defaults to 1 if not specified.
-	ReplicaCount *int `pulumi:"replicaCount"`
-	// Status of the service.
-	Status string `pulumi:"status"`
-	// Gives additional information about the current status of the service.
-	StatusDetails string `pulumi:"statusDetails"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-	// When the service's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the service is marked unhealthy.
-	UnhealthyEvaluation string `pulumi:"unhealthyEvaluation"`
+	AutoScalingPolicies []AutoScalingPolicyResponse              `pulumi:"autoScalingPolicies"`
+	CodePackages        []ContainerCodePackagePropertiesResponse `pulumi:"codePackages"`
+	Description         *string                                  `pulumi:"description"`
+	Diagnostics         *DiagnosticsRefResponse                  `pulumi:"diagnostics"`
+	HealthState         string                                   `pulumi:"healthState"`
+	Id                  string                                   `pulumi:"id"`
+	Name                *string                                  `pulumi:"name"`
+	NetworkRefs         []NetworkRefResponse                     `pulumi:"networkRefs"`
+	OsType              string                                   `pulumi:"osType"`
+	ProvisioningState   string                                   `pulumi:"provisioningState"`
+	ReplicaCount        *int                                     `pulumi:"replicaCount"`
+	Status              string                                   `pulumi:"status"`
+	StatusDetails       string                                   `pulumi:"statusDetails"`
+	Type                string                                   `pulumi:"type"`
+	UnhealthyEvaluation string                                   `pulumi:"unhealthyEvaluation"`
 }
 
 // ServiceResourceDescriptionResponseInput is an input type that accepts ServiceResourceDescriptionResponseArgs and ServiceResourceDescriptionResponseOutput values.
@@ -7730,38 +6885,22 @@ type ServiceResourceDescriptionResponseInput interface {
 	ToServiceResourceDescriptionResponseOutputWithContext(context.Context) ServiceResourceDescriptionResponseOutput
 }
 
-// This type describes a service resource.
 type ServiceResourceDescriptionResponseArgs struct {
-	// Auto scaling policies
-	AutoScalingPolicies AutoScalingPolicyResponseArrayInput `pulumi:"autoScalingPolicies"`
-	// Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
-	CodePackages ContainerCodePackagePropertiesResponseArrayInput `pulumi:"codePackages"`
-	// User readable description of the service.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Reference to sinks in DiagnosticsDescription.
-	Diagnostics DiagnosticsRefResponsePtrInput `pulumi:"diagnostics"`
-	// Describes the health state of an application resource.
-	HealthState pulumi.StringInput `pulumi:"healthState"`
-	// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The names of the private networks that this service needs to be part of.
-	NetworkRefs NetworkRefResponseArrayInput `pulumi:"networkRefs"`
-	// The operation system required by the code in service.
-	OsType pulumi.StringInput `pulumi:"osType"`
-	// State of the resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The number of replicas of the service to create. Defaults to 1 if not specified.
-	ReplicaCount pulumi.IntPtrInput `pulumi:"replicaCount"`
-	// Status of the service.
-	Status pulumi.StringInput `pulumi:"status"`
-	// Gives additional information about the current status of the service.
-	StatusDetails pulumi.StringInput `pulumi:"statusDetails"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-	// When the service's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the service is marked unhealthy.
-	UnhealthyEvaluation pulumi.StringInput `pulumi:"unhealthyEvaluation"`
+	AutoScalingPolicies AutoScalingPolicyResponseArrayInput              `pulumi:"autoScalingPolicies"`
+	CodePackages        ContainerCodePackagePropertiesResponseArrayInput `pulumi:"codePackages"`
+	Description         pulumi.StringPtrInput                            `pulumi:"description"`
+	Diagnostics         DiagnosticsRefResponsePtrInput                   `pulumi:"diagnostics"`
+	HealthState         pulumi.StringInput                               `pulumi:"healthState"`
+	Id                  pulumi.StringInput                               `pulumi:"id"`
+	Name                pulumi.StringPtrInput                            `pulumi:"name"`
+	NetworkRefs         NetworkRefResponseArrayInput                     `pulumi:"networkRefs"`
+	OsType              pulumi.StringInput                               `pulumi:"osType"`
+	ProvisioningState   pulumi.StringInput                               `pulumi:"provisioningState"`
+	ReplicaCount        pulumi.IntPtrInput                               `pulumi:"replicaCount"`
+	Status              pulumi.StringInput                               `pulumi:"status"`
+	StatusDetails       pulumi.StringInput                               `pulumi:"statusDetails"`
+	Type                pulumi.StringInput                               `pulumi:"type"`
+	UnhealthyEvaluation pulumi.StringInput                               `pulumi:"unhealthyEvaluation"`
 }
 
 func (ServiceResourceDescriptionResponseArgs) ElementType() reflect.Type {
@@ -7801,7 +6940,6 @@ func (i ServiceResourceDescriptionResponseArray) ToServiceResourceDescriptionRes
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceResourceDescriptionResponseArrayOutput)
 }
 
-// This type describes a service resource.
 type ServiceResourceDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceResourceDescriptionResponseOutput) ElementType() reflect.Type {
@@ -7816,79 +6954,64 @@ func (o ServiceResourceDescriptionResponseOutput) ToServiceResourceDescriptionRe
 	return o
 }
 
-// Auto scaling policies
 func (o ServiceResourceDescriptionResponseOutput) AutoScalingPolicies() AutoScalingPolicyResponseArrayOutput {
 	return o.ApplyT(func(v ServiceResourceDescriptionResponse) []AutoScalingPolicyResponse { return v.AutoScalingPolicies }).(AutoScalingPolicyResponseArrayOutput)
 }
 
-// Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
 func (o ServiceResourceDescriptionResponseOutput) CodePackages() ContainerCodePackagePropertiesResponseArrayOutput {
 	return o.ApplyT(func(v ServiceResourceDescriptionResponse) []ContainerCodePackagePropertiesResponse {
 		return v.CodePackages
 	}).(ContainerCodePackagePropertiesResponseArrayOutput)
 }
 
-// User readable description of the service.
 func (o ServiceResourceDescriptionResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceResourceDescriptionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Reference to sinks in DiagnosticsDescription.
 func (o ServiceResourceDescriptionResponseOutput) Diagnostics() DiagnosticsRefResponsePtrOutput {
 	return o.ApplyT(func(v ServiceResourceDescriptionResponse) *DiagnosticsRefResponse { return v.Diagnostics }).(DiagnosticsRefResponsePtrOutput)
 }
 
-// Describes the health state of an application resource.
 func (o ServiceResourceDescriptionResponseOutput) HealthState() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceResourceDescriptionResponse) string { return v.HealthState }).(pulumi.StringOutput)
 }
 
-// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o ServiceResourceDescriptionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceResourceDescriptionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the resource
 func (o ServiceResourceDescriptionResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceResourceDescriptionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The names of the private networks that this service needs to be part of.
 func (o ServiceResourceDescriptionResponseOutput) NetworkRefs() NetworkRefResponseArrayOutput {
 	return o.ApplyT(func(v ServiceResourceDescriptionResponse) []NetworkRefResponse { return v.NetworkRefs }).(NetworkRefResponseArrayOutput)
 }
 
-// The operation system required by the code in service.
 func (o ServiceResourceDescriptionResponseOutput) OsType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceResourceDescriptionResponse) string { return v.OsType }).(pulumi.StringOutput)
 }
 
-// State of the resource.
 func (o ServiceResourceDescriptionResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceResourceDescriptionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The number of replicas of the service to create. Defaults to 1 if not specified.
 func (o ServiceResourceDescriptionResponseOutput) ReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceResourceDescriptionResponse) *int { return v.ReplicaCount }).(pulumi.IntPtrOutput)
 }
 
-// Status of the service.
 func (o ServiceResourceDescriptionResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceResourceDescriptionResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Gives additional information about the current status of the service.
 func (o ServiceResourceDescriptionResponseOutput) StatusDetails() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceResourceDescriptionResponse) string { return v.StatusDetails }).(pulumi.StringOutput)
 }
 
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 func (o ServiceResourceDescriptionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceResourceDescriptionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// When the service's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the service is marked unhealthy.
 func (o ServiceResourceDescriptionResponseOutput) UnhealthyEvaluation() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceResourceDescriptionResponse) string { return v.UnhealthyEvaluation }).(pulumi.StringOutput)
 }
@@ -7913,11 +7036,8 @@ func (o ServiceResourceDescriptionResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(ServiceResourceDescriptionResponseOutput)
 }
 
-// Describes a setting for the container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
 type Setting struct {
-	// The name of the setting.
-	Name *string `pulumi:"name"`
-	// The value of the setting.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -7932,11 +7052,8 @@ type SettingInput interface {
 	ToSettingOutputWithContext(context.Context) SettingOutput
 }
 
-// Describes a setting for the container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
 type SettingArgs struct {
-	// The name of the setting.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the setting.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -7977,7 +7094,6 @@ func (i SettingArray) ToSettingArrayOutputWithContext(ctx context.Context) Setti
 	return pulumi.ToOutputWithContext(ctx, i).(SettingArrayOutput)
 }
 
-// Describes a setting for the container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
 type SettingOutput struct{ *pulumi.OutputState }
 
 func (SettingOutput) ElementType() reflect.Type {
@@ -7992,12 +7108,10 @@ func (o SettingOutput) ToSettingOutputWithContext(ctx context.Context) SettingOu
 	return o
 }
 
-// The name of the setting.
 func (o SettingOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Setting) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value of the setting.
 func (o SettingOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Setting) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -8022,11 +7136,8 @@ func (o SettingArrayOutput) Index(i pulumi.IntInput) SettingOutput {
 	}).(SettingOutput)
 }
 
-// Describes a setting for the container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
 type SettingResponse struct {
-	// The name of the setting.
-	Name *string `pulumi:"name"`
-	// The value of the setting.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -8041,11 +7152,8 @@ type SettingResponseInput interface {
 	ToSettingResponseOutputWithContext(context.Context) SettingResponseOutput
 }
 
-// Describes a setting for the container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
 type SettingResponseArgs struct {
-	// The name of the setting.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the setting.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -8086,7 +7194,6 @@ func (i SettingResponseArray) ToSettingResponseArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SettingResponseArrayOutput)
 }
 
-// Describes a setting for the container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
 type SettingResponseOutput struct{ *pulumi.OutputState }
 
 func (SettingResponseOutput) ElementType() reflect.Type {
@@ -8101,12 +7208,10 @@ func (o SettingResponseOutput) ToSettingResponseOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the setting.
 func (o SettingResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SettingResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value of the setting.
 func (o SettingResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SettingResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -8131,14 +7236,10 @@ func (o SettingResponseArrayOutput) Index(i pulumi.IntInput) SettingResponseOutp
 	}).(SettingResponseOutput)
 }
 
-// Describes the tcp configuration for external connectivity for this network.
 type TcpConfig struct {
-	// Describes destination endpoint for routing traffic.
 	Destination GatewayDestination `pulumi:"destination"`
-	// tcp gateway config name.
-	Name string `pulumi:"name"`
-	// Specifies the port at which the service endpoint below needs to be exposed.
-	Port int `pulumi:"port"`
+	Name        string             `pulumi:"name"`
+	Port        int                `pulumi:"port"`
 }
 
 // TcpConfigInput is an input type that accepts TcpConfigArgs and TcpConfigOutput values.
@@ -8152,14 +7253,10 @@ type TcpConfigInput interface {
 	ToTcpConfigOutputWithContext(context.Context) TcpConfigOutput
 }
 
-// Describes the tcp configuration for external connectivity for this network.
 type TcpConfigArgs struct {
-	// Describes destination endpoint for routing traffic.
 	Destination GatewayDestinationInput `pulumi:"destination"`
-	// tcp gateway config name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies the port at which the service endpoint below needs to be exposed.
-	Port pulumi.IntInput `pulumi:"port"`
+	Name        pulumi.StringInput      `pulumi:"name"`
+	Port        pulumi.IntInput         `pulumi:"port"`
 }
 
 func (TcpConfigArgs) ElementType() reflect.Type {
@@ -8199,7 +7296,6 @@ func (i TcpConfigArray) ToTcpConfigArrayOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TcpConfigArrayOutput)
 }
 
-// Describes the tcp configuration for external connectivity for this network.
 type TcpConfigOutput struct{ *pulumi.OutputState }
 
 func (TcpConfigOutput) ElementType() reflect.Type {
@@ -8214,17 +7310,14 @@ func (o TcpConfigOutput) ToTcpConfigOutputWithContext(ctx context.Context) TcpCo
 	return o
 }
 
-// Describes destination endpoint for routing traffic.
 func (o TcpConfigOutput) Destination() GatewayDestinationOutput {
 	return o.ApplyT(func(v TcpConfig) GatewayDestination { return v.Destination }).(GatewayDestinationOutput)
 }
 
-// tcp gateway config name.
 func (o TcpConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TcpConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the port at which the service endpoint below needs to be exposed.
 func (o TcpConfigOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v TcpConfig) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -8249,14 +7342,10 @@ func (o TcpConfigArrayOutput) Index(i pulumi.IntInput) TcpConfigOutput {
 	}).(TcpConfigOutput)
 }
 
-// Describes the tcp configuration for external connectivity for this network.
 type TcpConfigResponse struct {
-	// Describes destination endpoint for routing traffic.
 	Destination GatewayDestinationResponse `pulumi:"destination"`
-	// tcp gateway config name.
-	Name string `pulumi:"name"`
-	// Specifies the port at which the service endpoint below needs to be exposed.
-	Port int `pulumi:"port"`
+	Name        string                     `pulumi:"name"`
+	Port        int                        `pulumi:"port"`
 }
 
 // TcpConfigResponseInput is an input type that accepts TcpConfigResponseArgs and TcpConfigResponseOutput values.
@@ -8270,14 +7359,10 @@ type TcpConfigResponseInput interface {
 	ToTcpConfigResponseOutputWithContext(context.Context) TcpConfigResponseOutput
 }
 
-// Describes the tcp configuration for external connectivity for this network.
 type TcpConfigResponseArgs struct {
-	// Describes destination endpoint for routing traffic.
 	Destination GatewayDestinationResponseInput `pulumi:"destination"`
-	// tcp gateway config name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies the port at which the service endpoint below needs to be exposed.
-	Port pulumi.IntInput `pulumi:"port"`
+	Name        pulumi.StringInput              `pulumi:"name"`
+	Port        pulumi.IntInput                 `pulumi:"port"`
 }
 
 func (TcpConfigResponseArgs) ElementType() reflect.Type {
@@ -8317,7 +7402,6 @@ func (i TcpConfigResponseArray) ToTcpConfigResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TcpConfigResponseArrayOutput)
 }
 
-// Describes the tcp configuration for external connectivity for this network.
 type TcpConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (TcpConfigResponseOutput) ElementType() reflect.Type {
@@ -8332,17 +7416,14 @@ func (o TcpConfigResponseOutput) ToTcpConfigResponseOutputWithContext(ctx contex
 	return o
 }
 
-// Describes destination endpoint for routing traffic.
 func (o TcpConfigResponseOutput) Destination() GatewayDestinationResponseOutput {
 	return o.ApplyT(func(v TcpConfigResponse) GatewayDestinationResponse { return v.Destination }).(GatewayDestinationResponseOutput)
 }
 
-// tcp gateway config name.
 func (o TcpConfigResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TcpConfigResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the port at which the service endpoint below needs to be exposed.
 func (o TcpConfigResponseOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v TcpConfigResponse) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -8367,14 +7448,10 @@ func (o TcpConfigResponseArrayOutput) Index(i pulumi.IntInput) TcpConfigResponse
 	}).(TcpConfigResponseOutput)
 }
 
-// This type describes a volume provided by an Azure Files file share.
 type VolumeProviderParametersAzureFile struct {
-	// Access key of the Azure storage account for the File Share.
-	AccountKey *string `pulumi:"accountKey"`
-	// Name of the Azure storage account for the File Share.
-	AccountName string `pulumi:"accountName"`
-	// Name of the Azure Files file share that provides storage for the volume.
-	ShareName string `pulumi:"shareName"`
+	AccountKey  *string `pulumi:"accountKey"`
+	AccountName string  `pulumi:"accountName"`
+	ShareName   string  `pulumi:"shareName"`
 }
 
 // VolumeProviderParametersAzureFileInput is an input type that accepts VolumeProviderParametersAzureFileArgs and VolumeProviderParametersAzureFileOutput values.
@@ -8388,14 +7465,10 @@ type VolumeProviderParametersAzureFileInput interface {
 	ToVolumeProviderParametersAzureFileOutputWithContext(context.Context) VolumeProviderParametersAzureFileOutput
 }
 
-// This type describes a volume provided by an Azure Files file share.
 type VolumeProviderParametersAzureFileArgs struct {
-	// Access key of the Azure storage account for the File Share.
-	AccountKey pulumi.StringPtrInput `pulumi:"accountKey"`
-	// Name of the Azure storage account for the File Share.
-	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// Name of the Azure Files file share that provides storage for the volume.
-	ShareName pulumi.StringInput `pulumi:"shareName"`
+	AccountKey  pulumi.StringPtrInput `pulumi:"accountKey"`
+	AccountName pulumi.StringInput    `pulumi:"accountName"`
+	ShareName   pulumi.StringInput    `pulumi:"shareName"`
 }
 
 func (VolumeProviderParametersAzureFileArgs) ElementType() reflect.Type {
@@ -8451,7 +7524,6 @@ func (i *volumeProviderParametersAzureFilePtrType) ToVolumeProviderParametersAzu
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeProviderParametersAzureFilePtrOutput)
 }
 
-// This type describes a volume provided by an Azure Files file share.
 type VolumeProviderParametersAzureFileOutput struct{ *pulumi.OutputState }
 
 func (VolumeProviderParametersAzureFileOutput) ElementType() reflect.Type {
@@ -8471,22 +7543,19 @@ func (o VolumeProviderParametersAzureFileOutput) ToVolumeProviderParametersAzure
 }
 
 func (o VolumeProviderParametersAzureFileOutput) ToVolumeProviderParametersAzureFilePtrOutputWithContext(ctx context.Context) VolumeProviderParametersAzureFilePtrOutput {
-	return o.ApplyT(func(v VolumeProviderParametersAzureFile) *VolumeProviderParametersAzureFile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeProviderParametersAzureFile) *VolumeProviderParametersAzureFile {
 		return &v
 	}).(VolumeProviderParametersAzureFilePtrOutput)
 }
 
-// Access key of the Azure storage account for the File Share.
 func (o VolumeProviderParametersAzureFileOutput) AccountKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeProviderParametersAzureFile) *string { return v.AccountKey }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Azure storage account for the File Share.
 func (o VolumeProviderParametersAzureFileOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeProviderParametersAzureFile) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// Name of the Azure Files file share that provides storage for the volume.
 func (o VolumeProviderParametersAzureFileOutput) ShareName() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeProviderParametersAzureFile) string { return v.ShareName }).(pulumi.StringOutput)
 }
@@ -8506,10 +7575,15 @@ func (o VolumeProviderParametersAzureFilePtrOutput) ToVolumeProviderParametersAz
 }
 
 func (o VolumeProviderParametersAzureFilePtrOutput) Elem() VolumeProviderParametersAzureFileOutput {
-	return o.ApplyT(func(v *VolumeProviderParametersAzureFile) VolumeProviderParametersAzureFile { return *v }).(VolumeProviderParametersAzureFileOutput)
+	return o.ApplyT(func(v *VolumeProviderParametersAzureFile) VolumeProviderParametersAzureFile {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeProviderParametersAzureFile
+		return ret
+	}).(VolumeProviderParametersAzureFileOutput)
 }
 
-// Access key of the Azure storage account for the File Share.
 func (o VolumeProviderParametersAzureFilePtrOutput) AccountKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeProviderParametersAzureFile) *string {
 		if v == nil {
@@ -8519,7 +7593,6 @@ func (o VolumeProviderParametersAzureFilePtrOutput) AccountKey() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Azure storage account for the File Share.
 func (o VolumeProviderParametersAzureFilePtrOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeProviderParametersAzureFile) *string {
 		if v == nil {
@@ -8529,7 +7602,6 @@ func (o VolumeProviderParametersAzureFilePtrOutput) AccountName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Azure Files file share that provides storage for the volume.
 func (o VolumeProviderParametersAzureFilePtrOutput) ShareName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeProviderParametersAzureFile) *string {
 		if v == nil {
@@ -8539,14 +7611,10 @@ func (o VolumeProviderParametersAzureFilePtrOutput) ShareName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// This type describes a volume provided by an Azure Files file share.
 type VolumeProviderParametersAzureFileResponse struct {
-	// Access key of the Azure storage account for the File Share.
-	AccountKey *string `pulumi:"accountKey"`
-	// Name of the Azure storage account for the File Share.
-	AccountName string `pulumi:"accountName"`
-	// Name of the Azure Files file share that provides storage for the volume.
-	ShareName string `pulumi:"shareName"`
+	AccountKey  *string `pulumi:"accountKey"`
+	AccountName string  `pulumi:"accountName"`
+	ShareName   string  `pulumi:"shareName"`
 }
 
 // VolumeProviderParametersAzureFileResponseInput is an input type that accepts VolumeProviderParametersAzureFileResponseArgs and VolumeProviderParametersAzureFileResponseOutput values.
@@ -8560,14 +7628,10 @@ type VolumeProviderParametersAzureFileResponseInput interface {
 	ToVolumeProviderParametersAzureFileResponseOutputWithContext(context.Context) VolumeProviderParametersAzureFileResponseOutput
 }
 
-// This type describes a volume provided by an Azure Files file share.
 type VolumeProviderParametersAzureFileResponseArgs struct {
-	// Access key of the Azure storage account for the File Share.
-	AccountKey pulumi.StringPtrInput `pulumi:"accountKey"`
-	// Name of the Azure storage account for the File Share.
-	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// Name of the Azure Files file share that provides storage for the volume.
-	ShareName pulumi.StringInput `pulumi:"shareName"`
+	AccountKey  pulumi.StringPtrInput `pulumi:"accountKey"`
+	AccountName pulumi.StringInput    `pulumi:"accountName"`
+	ShareName   pulumi.StringInput    `pulumi:"shareName"`
 }
 
 func (VolumeProviderParametersAzureFileResponseArgs) ElementType() reflect.Type {
@@ -8623,7 +7687,6 @@ func (i *volumeProviderParametersAzureFileResponsePtrType) ToVolumeProviderParam
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeProviderParametersAzureFileResponsePtrOutput)
 }
 
-// This type describes a volume provided by an Azure Files file share.
 type VolumeProviderParametersAzureFileResponseOutput struct{ *pulumi.OutputState }
 
 func (VolumeProviderParametersAzureFileResponseOutput) ElementType() reflect.Type {
@@ -8643,22 +7706,19 @@ func (o VolumeProviderParametersAzureFileResponseOutput) ToVolumeProviderParamet
 }
 
 func (o VolumeProviderParametersAzureFileResponseOutput) ToVolumeProviderParametersAzureFileResponsePtrOutputWithContext(ctx context.Context) VolumeProviderParametersAzureFileResponsePtrOutput {
-	return o.ApplyT(func(v VolumeProviderParametersAzureFileResponse) *VolumeProviderParametersAzureFileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeProviderParametersAzureFileResponse) *VolumeProviderParametersAzureFileResponse {
 		return &v
 	}).(VolumeProviderParametersAzureFileResponsePtrOutput)
 }
 
-// Access key of the Azure storage account for the File Share.
 func (o VolumeProviderParametersAzureFileResponseOutput) AccountKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeProviderParametersAzureFileResponse) *string { return v.AccountKey }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Azure storage account for the File Share.
 func (o VolumeProviderParametersAzureFileResponseOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeProviderParametersAzureFileResponse) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// Name of the Azure Files file share that provides storage for the volume.
 func (o VolumeProviderParametersAzureFileResponseOutput) ShareName() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeProviderParametersAzureFileResponse) string { return v.ShareName }).(pulumi.StringOutput)
 }
@@ -8679,11 +7739,14 @@ func (o VolumeProviderParametersAzureFileResponsePtrOutput) ToVolumeProviderPara
 
 func (o VolumeProviderParametersAzureFileResponsePtrOutput) Elem() VolumeProviderParametersAzureFileResponseOutput {
 	return o.ApplyT(func(v *VolumeProviderParametersAzureFileResponse) VolumeProviderParametersAzureFileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VolumeProviderParametersAzureFileResponse
+		return ret
 	}).(VolumeProviderParametersAzureFileResponseOutput)
 }
 
-// Access key of the Azure storage account for the File Share.
 func (o VolumeProviderParametersAzureFileResponsePtrOutput) AccountKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeProviderParametersAzureFileResponse) *string {
 		if v == nil {
@@ -8693,7 +7756,6 @@ func (o VolumeProviderParametersAzureFileResponsePtrOutput) AccountKey() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Azure storage account for the File Share.
 func (o VolumeProviderParametersAzureFileResponsePtrOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeProviderParametersAzureFileResponse) *string {
 		if v == nil {
@@ -8703,7 +7765,6 @@ func (o VolumeProviderParametersAzureFileResponsePtrOutput) AccountName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Azure Files file share that provides storage for the volume.
 func (o VolumeProviderParametersAzureFileResponsePtrOutput) ShareName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeProviderParametersAzureFileResponse) *string {
 		if v == nil {
@@ -8713,14 +7774,10 @@ func (o VolumeProviderParametersAzureFileResponsePtrOutput) ShareName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a reference to a volume resource.
 type VolumeReference struct {
-	// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
 	DestinationPath string `pulumi:"destinationPath"`
-	// Name of the volume being referenced.
-	Name string `pulumi:"name"`
-	// The flag indicating whether the volume is read only. Default is 'false'.
-	ReadOnly *bool `pulumi:"readOnly"`
+	Name            string `pulumi:"name"`
+	ReadOnly        *bool  `pulumi:"readOnly"`
 }
 
 // VolumeReferenceInput is an input type that accepts VolumeReferenceArgs and VolumeReferenceOutput values.
@@ -8734,14 +7791,10 @@ type VolumeReferenceInput interface {
 	ToVolumeReferenceOutputWithContext(context.Context) VolumeReferenceOutput
 }
 
-// Describes a reference to a volume resource.
 type VolumeReferenceArgs struct {
-	// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
-	DestinationPath pulumi.StringInput `pulumi:"destinationPath"`
-	// Name of the volume being referenced.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The flag indicating whether the volume is read only. Default is 'false'.
-	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+	DestinationPath pulumi.StringInput  `pulumi:"destinationPath"`
+	Name            pulumi.StringInput  `pulumi:"name"`
+	ReadOnly        pulumi.BoolPtrInput `pulumi:"readOnly"`
 }
 
 func (VolumeReferenceArgs) ElementType() reflect.Type {
@@ -8781,7 +7834,6 @@ func (i VolumeReferenceArray) ToVolumeReferenceArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeReferenceArrayOutput)
 }
 
-// Describes a reference to a volume resource.
 type VolumeReferenceOutput struct{ *pulumi.OutputState }
 
 func (VolumeReferenceOutput) ElementType() reflect.Type {
@@ -8796,17 +7848,14 @@ func (o VolumeReferenceOutput) ToVolumeReferenceOutputWithContext(ctx context.Co
 	return o
 }
 
-// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
 func (o VolumeReferenceOutput) DestinationPath() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeReference) string { return v.DestinationPath }).(pulumi.StringOutput)
 }
 
-// Name of the volume being referenced.
 func (o VolumeReferenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeReference) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The flag indicating whether the volume is read only. Default is 'false'.
 func (o VolumeReferenceOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VolumeReference) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
@@ -8831,14 +7880,10 @@ func (o VolumeReferenceArrayOutput) Index(i pulumi.IntInput) VolumeReferenceOutp
 	}).(VolumeReferenceOutput)
 }
 
-// Describes a reference to a volume resource.
 type VolumeReferenceResponse struct {
-	// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
 	DestinationPath string `pulumi:"destinationPath"`
-	// Name of the volume being referenced.
-	Name string `pulumi:"name"`
-	// The flag indicating whether the volume is read only. Default is 'false'.
-	ReadOnly *bool `pulumi:"readOnly"`
+	Name            string `pulumi:"name"`
+	ReadOnly        *bool  `pulumi:"readOnly"`
 }
 
 // VolumeReferenceResponseInput is an input type that accepts VolumeReferenceResponseArgs and VolumeReferenceResponseOutput values.
@@ -8852,14 +7897,10 @@ type VolumeReferenceResponseInput interface {
 	ToVolumeReferenceResponseOutputWithContext(context.Context) VolumeReferenceResponseOutput
 }
 
-// Describes a reference to a volume resource.
 type VolumeReferenceResponseArgs struct {
-	// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
-	DestinationPath pulumi.StringInput `pulumi:"destinationPath"`
-	// Name of the volume being referenced.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The flag indicating whether the volume is read only. Default is 'false'.
-	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+	DestinationPath pulumi.StringInput  `pulumi:"destinationPath"`
+	Name            pulumi.StringInput  `pulumi:"name"`
+	ReadOnly        pulumi.BoolPtrInput `pulumi:"readOnly"`
 }
 
 func (VolumeReferenceResponseArgs) ElementType() reflect.Type {
@@ -8899,7 +7940,6 @@ func (i VolumeReferenceResponseArray) ToVolumeReferenceResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeReferenceResponseArrayOutput)
 }
 
-// Describes a reference to a volume resource.
 type VolumeReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (VolumeReferenceResponseOutput) ElementType() reflect.Type {
@@ -8914,17 +7954,14 @@ func (o VolumeReferenceResponseOutput) ToVolumeReferenceResponseOutputWithContex
 	return o
 }
 
-// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
 func (o VolumeReferenceResponseOutput) DestinationPath() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeReferenceResponse) string { return v.DestinationPath }).(pulumi.StringOutput)
 }
 
-// Name of the volume being referenced.
 func (o VolumeReferenceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeReferenceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The flag indicating whether the volume is read only. Default is 'false'.
 func (o VolumeReferenceResponseOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VolumeReferenceResponse) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// String dictionary resource.
 func ListWebAppConnectionStringsSlot(ctx *pulumi.Context, args *ListWebAppConnectionStringsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppConnectionStringsSlotResult, error) {
 	var rv ListWebAppConnectionStringsSlotResult
 	err := ctx.Invoke("azure-native:web/v20160801:listWebAppConnectionStringsSlot", args, &rv, opts...)
@@ -18,24 +17,16 @@ func ListWebAppConnectionStringsSlot(ctx *pulumi.Context, args *ListWebAppConnec
 }
 
 type ListWebAppConnectionStringsSlotArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will get the connection settings for the production slot.
-	Slot string `pulumi:"slot"`
+	Slot              string `pulumi:"slot"`
 }
 
 // String dictionary resource.
 type ListWebAppConnectionStringsSlotResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Connection strings.
+	Id         string                                     `pulumi:"id"`
+	Kind       *string                                    `pulumi:"kind"`
+	Name       string                                     `pulumi:"name"`
 	Properties map[string]ConnStringValueTypePairResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type       string                                     `pulumi:"type"`
 }

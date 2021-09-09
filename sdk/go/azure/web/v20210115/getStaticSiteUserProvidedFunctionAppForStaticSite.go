@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Static Site User Provided Function App ARM resource.
 func LookupStaticSiteUserProvidedFunctionAppForStaticSite(ctx *pulumi.Context, args *LookupStaticSiteUserProvidedFunctionAppForStaticSiteArgs, opts ...pulumi.InvokeOption) (*LookupStaticSiteUserProvidedFunctionAppForStaticSiteResult, error) {
 	var rv LookupStaticSiteUserProvidedFunctionAppForStaticSiteResult
 	err := ctx.Invoke("azure-native:web/v20210115:getStaticSiteUserProvidedFunctionAppForStaticSite", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupStaticSiteUserProvidedFunctionAppForStaticSite(ctx *pulumi.Context, a
 }
 
 type LookupStaticSiteUserProvidedFunctionAppForStaticSiteArgs struct {
-	// Name of the function app registered with the static site.
-	FunctionAppName string `pulumi:"functionAppName"`
-	// Name of the static site.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	FunctionAppName   string `pulumi:"functionAppName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Static Site User Provided Function App ARM resource.
 type LookupStaticSiteUserProvidedFunctionAppForStaticSiteResult struct {
-	// The date and time on which the function app was registered with the static site.
-	CreatedOn string `pulumi:"createdOn"`
-	// The region of the function app registered with the static site
-	FunctionAppRegion *string `pulumi:"functionAppRegion"`
-	// The resource id of the function app registered with the static site
+	CreatedOn             string  `pulumi:"createdOn"`
+	FunctionAppRegion     *string `pulumi:"functionAppRegion"`
 	FunctionAppResourceId *string `pulumi:"functionAppResourceId"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id                    string  `pulumi:"id"`
+	Kind                  *string `pulumi:"kind"`
+	Name                  string  `pulumi:"name"`
+	Type                  string  `pulumi:"type"`
 }

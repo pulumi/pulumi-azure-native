@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NetworkSecurityGroup resource
 type NetworkSecurityGroup struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets Default security rules of network security group
 	DefaultSecurityRules SecurityRuleResponseArrayOutput `pulumi:"defaultSecurityRules"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets collection of references to Network Interfaces
-	NetworkInterfaces SubResourceResponseArrayOutput `pulumi:"networkInterfaces"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Gets or sets resource guid property of the network security group resource
-	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
-	// Gets or sets Security rules of network security group
-	SecurityRules SecurityRuleResponseArrayOutput `pulumi:"securityRules"`
-	// Gets collection of references to subnets
-	Subnets SubResourceResponseArrayOutput `pulumi:"subnets"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag                 pulumi.StringPtrOutput          `pulumi:"etag"`
+	Location             pulumi.StringOutput             `pulumi:"location"`
+	Name                 pulumi.StringOutput             `pulumi:"name"`
+	NetworkInterfaces    SubResourceResponseArrayOutput  `pulumi:"networkInterfaces"`
+	ProvisioningState    pulumi.StringPtrOutput          `pulumi:"provisioningState"`
+	ResourceGuid         pulumi.StringPtrOutput          `pulumi:"resourceGuid"`
+	SecurityRules        SecurityRuleResponseArrayOutput `pulumi:"securityRules"`
+	Subnets              SubResourceResponseArrayOutput  `pulumi:"subnets"`
+	Tags                 pulumi.StringMapOutput          `pulumi:"tags"`
+	Type                 pulumi.StringOutput             `pulumi:"type"`
 }
 
 // NewNetworkSecurityGroup registers a new resource with the given unique name, arguments, and options.
@@ -315,54 +303,32 @@ func (NetworkSecurityGroupState) ElementType() reflect.Type {
 }
 
 type networkSecurityGroupArgs struct {
-	// Gets or sets Default security rules of network security group
-	DefaultSecurityRules []SecurityRuleType `pulumi:"defaultSecurityRules"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Gets collection of references to Network Interfaces
-	NetworkInterfaces []SubResource `pulumi:"networkInterfaces"`
-	// The name of the network security group.
-	NetworkSecurityGroupName *string `pulumi:"networkSecurityGroupName"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets resource guid property of the network security group resource
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Gets or sets Security rules of network security group
-	SecurityRules []SecurityRuleType `pulumi:"securityRules"`
-	// Gets collection of references to subnets
-	Subnets []SubResource `pulumi:"subnets"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	DefaultSecurityRules     []SecurityRuleType `pulumi:"defaultSecurityRules"`
+	Etag                     *string            `pulumi:"etag"`
+	Location                 *string            `pulumi:"location"`
+	NetworkInterfaces        []SubResource      `pulumi:"networkInterfaces"`
+	NetworkSecurityGroupName *string            `pulumi:"networkSecurityGroupName"`
+	ProvisioningState        *string            `pulumi:"provisioningState"`
+	ResourceGroupName        string             `pulumi:"resourceGroupName"`
+	ResourceGuid             *string            `pulumi:"resourceGuid"`
+	SecurityRules            []SecurityRuleType `pulumi:"securityRules"`
+	Subnets                  []SubResource      `pulumi:"subnets"`
+	Tags                     map[string]string  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkSecurityGroup resource.
 type NetworkSecurityGroupArgs struct {
-	// Gets or sets Default security rules of network security group
-	DefaultSecurityRules SecurityRuleTypeArrayInput
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Gets collection of references to Network Interfaces
-	NetworkInterfaces SubResourceArrayInput
-	// The name of the network security group.
+	DefaultSecurityRules     SecurityRuleTypeArrayInput
+	Etag                     pulumi.StringPtrInput
+	Location                 pulumi.StringPtrInput
+	NetworkInterfaces        SubResourceArrayInput
 	NetworkSecurityGroupName pulumi.StringPtrInput
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets resource guid property of the network security group resource
-	ResourceGuid pulumi.StringPtrInput
-	// Gets or sets Security rules of network security group
-	SecurityRules SecurityRuleTypeArrayInput
-	// Gets collection of references to subnets
-	Subnets SubResourceArrayInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	ProvisioningState        pulumi.StringPtrInput
+	ResourceGroupName        pulumi.StringInput
+	ResourceGuid             pulumi.StringPtrInput
+	SecurityRules            SecurityRuleTypeArrayInput
+	Subnets                  SubResourceArrayInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (NetworkSecurityGroupArgs) ElementType() reflect.Type {
@@ -388,9 +354,7 @@ func (i *NetworkSecurityGroup) ToNetworkSecurityGroupOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityGroupOutput)
 }
 
-type NetworkSecurityGroupOutput struct {
-	*pulumi.OutputState
-}
+type NetworkSecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (NetworkSecurityGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkSecurityGroup)(nil))

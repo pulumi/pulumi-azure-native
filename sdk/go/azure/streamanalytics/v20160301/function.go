@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
 type Function struct {
 	pulumi.CustomResourceState
 
-	// Resource name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The properties that are associated with a function.
+	Name       pulumi.StringPtrOutput                 `pulumi:"name"`
 	Properties ScalarFunctionPropertiesResponseOutput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewFunction registers a new resource with the given unique name, arguments, and options.
@@ -92,29 +88,19 @@ func (FunctionState) ElementType() reflect.Type {
 }
 
 type functionArgs struct {
-	// The name of the function.
-	FunctionName *string `pulumi:"functionName"`
-	// The name of the streaming job.
-	JobName string `pulumi:"jobName"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The properties that are associated with a function.
-	Properties *ScalarFunctionProperties `pulumi:"properties"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	FunctionName      *string                   `pulumi:"functionName"`
+	JobName           string                    `pulumi:"jobName"`
+	Name              *string                   `pulumi:"name"`
+	Properties        *ScalarFunctionProperties `pulumi:"properties"`
+	ResourceGroupName string                    `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
-	// The name of the function.
-	FunctionName pulumi.StringPtrInput
-	// The name of the streaming job.
-	JobName pulumi.StringInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The properties that are associated with a function.
-	Properties ScalarFunctionPropertiesPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	FunctionName      pulumi.StringPtrInput
+	JobName           pulumi.StringInput
+	Name              pulumi.StringPtrInput
+	Properties        ScalarFunctionPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -141,9 +127,7 @@ func (i *Function) ToFunctionOutputWithContext(ctx context.Context) FunctionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutput)
 }
 
-type FunctionOutput struct {
-	*pulumi.OutputState
-}
+type FunctionOutput struct{ *pulumi.OutputState }
 
 func (FunctionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Function)(nil))

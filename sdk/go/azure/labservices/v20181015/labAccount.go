@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a lab account.
 type LabAccount struct {
 	pulumi.CustomResourceState
 
-	// Represents if region selection is enabled
-	EnabledRegionSelection pulumi.BoolPtrOutput `pulumi:"enabledRegionSelection"`
-	// The details of the latest operation. ex: status, error
-	LatestOperationResult LatestOperationResultResponseOutput `pulumi:"latestOperationResult"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Represents the size configuration under the lab account
-	SizeConfiguration SizeConfigurationPropertiesResponseOutput `pulumi:"sizeConfiguration"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrOutput `pulumi:"uniqueIdentifier"`
+	EnabledRegionSelection pulumi.BoolPtrOutput                      `pulumi:"enabledRegionSelection"`
+	LatestOperationResult  LatestOperationResultResponseOutput       `pulumi:"latestOperationResult"`
+	Location               pulumi.StringPtrOutput                    `pulumi:"location"`
+	Name                   pulumi.StringOutput                       `pulumi:"name"`
+	ProvisioningState      pulumi.StringPtrOutput                    `pulumi:"provisioningState"`
+	SizeConfiguration      SizeConfigurationPropertiesResponseOutput `pulumi:"sizeConfiguration"`
+	Tags                   pulumi.StringMapOutput                    `pulumi:"tags"`
+	Type                   pulumi.StringOutput                       `pulumi:"type"`
+	UniqueIdentifier       pulumi.StringPtrOutput                    `pulumi:"uniqueIdentifier"`
 }
 
 // NewLabAccount registers a new resource with the given unique name, arguments, and options.
@@ -89,38 +79,24 @@ func (LabAccountState) ElementType() reflect.Type {
 }
 
 type labAccountArgs struct {
-	// Represents if region selection is enabled
-	EnabledRegionSelection *bool `pulumi:"enabledRegionSelection"`
-	// The name of the lab Account.
-	LabAccountName *string `pulumi:"labAccountName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	EnabledRegionSelection *bool             `pulumi:"enabledRegionSelection"`
+	LabAccountName         *string           `pulumi:"labAccountName"`
+	Location               *string           `pulumi:"location"`
+	ProvisioningState      *string           `pulumi:"provisioningState"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	Tags                   map[string]string `pulumi:"tags"`
+	UniqueIdentifier       *string           `pulumi:"uniqueIdentifier"`
 }
 
 // The set of arguments for constructing a LabAccount resource.
 type LabAccountArgs struct {
-	// Represents if region selection is enabled
 	EnabledRegionSelection pulumi.BoolPtrInput
-	// The name of the lab Account.
-	LabAccountName pulumi.StringPtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
+	LabAccountName         pulumi.StringPtrInput
+	Location               pulumi.StringPtrInput
+	ProvisioningState      pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
+	UniqueIdentifier       pulumi.StringPtrInput
 }
 
 func (LabAccountArgs) ElementType() reflect.Type {
@@ -146,9 +122,7 @@ func (i *LabAccount) ToLabAccountOutputWithContext(ctx context.Context) LabAccou
 	return pulumi.ToOutputWithContext(ctx, i).(LabAccountOutput)
 }
 
-type LabAccountOutput struct {
-	*pulumi.OutputState
-}
+type LabAccountOutput struct{ *pulumi.OutputState }
 
 func (LabAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LabAccount)(nil))

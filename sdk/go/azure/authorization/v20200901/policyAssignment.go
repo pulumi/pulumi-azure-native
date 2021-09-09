@@ -11,36 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The policy assignment.
 type PolicyAssignment struct {
 	pulumi.CustomResourceState
 
-	// This message will be part of response in case of policy violation.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The display name of the policy assignment.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
-	EnforcementMode pulumi.StringPtrOutput `pulumi:"enforcementMode"`
-	// The managed identity associated with the policy assignment.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// The location of the policy assignment. Only required when utilizing managed identity.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.AnyOutput `pulumi:"metadata"`
-	// The name of the policy assignment.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The messages that describe why a resource is non-compliant with the policy.
+	Description           pulumi.StringPtrOutput                  `pulumi:"description"`
+	DisplayName           pulumi.StringPtrOutput                  `pulumi:"displayName"`
+	EnforcementMode       pulumi.StringPtrOutput                  `pulumi:"enforcementMode"`
+	Identity              IdentityResponsePtrOutput               `pulumi:"identity"`
+	Location              pulumi.StringPtrOutput                  `pulumi:"location"`
+	Metadata              pulumi.AnyOutput                        `pulumi:"metadata"`
+	Name                  pulumi.StringOutput                     `pulumi:"name"`
 	NonComplianceMessages NonComplianceMessageResponseArrayOutput `pulumi:"nonComplianceMessages"`
-	// The policy's excluded scopes.
-	NotScopes pulumi.StringArrayOutput `pulumi:"notScopes"`
-	// The parameter values for the assigned policy rule. The keys are the parameter names.
-	Parameters ParameterValuesValueResponseMapOutput `pulumi:"parameters"`
-	// The ID of the policy definition or policy set definition being assigned.
-	PolicyDefinitionId pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
-	// The scope for the policy assignment.
-	Scope pulumi.StringOutput `pulumi:"scope"`
-	// The type of the policy assignment.
-	Type pulumi.StringOutput `pulumi:"type"`
+	NotScopes             pulumi.StringArrayOutput                `pulumi:"notScopes"`
+	Parameters            ParameterValuesValueResponseMapOutput   `pulumi:"parameters"`
+	PolicyDefinitionId    pulumi.StringPtrOutput                  `pulumi:"policyDefinitionId"`
+	Scope                 pulumi.StringOutput                     `pulumi:"scope"`
+	Type                  pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewPolicyAssignment registers a new resource with the given unique name, arguments, and options.
@@ -166,58 +152,34 @@ func (PolicyAssignmentState) ElementType() reflect.Type {
 }
 
 type policyAssignmentArgs struct {
-	// This message will be part of response in case of policy violation.
-	Description *string `pulumi:"description"`
-	// The display name of the policy assignment.
-	DisplayName *string `pulumi:"displayName"`
-	// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
-	EnforcementMode *string `pulumi:"enforcementMode"`
-	// The managed identity associated with the policy assignment.
-	Identity *Identity `pulumi:"identity"`
-	// The location of the policy assignment. Only required when utilizing managed identity.
-	Location *string `pulumi:"location"`
-	// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata interface{} `pulumi:"metadata"`
-	// The messages that describe why a resource is non-compliant with the policy.
-	NonComplianceMessages []NonComplianceMessage `pulumi:"nonComplianceMessages"`
-	// The policy's excluded scopes.
-	NotScopes []string `pulumi:"notScopes"`
-	// The parameter values for the assigned policy rule. The keys are the parameter names.
-	Parameters map[string]ParameterValuesValue `pulumi:"parameters"`
-	// The name of the policy assignment.
-	PolicyAssignmentName *string `pulumi:"policyAssignmentName"`
-	// The ID of the policy definition or policy set definition being assigned.
-	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
-	// The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
-	Scope string `pulumi:"scope"`
+	Description           *string                         `pulumi:"description"`
+	DisplayName           *string                         `pulumi:"displayName"`
+	EnforcementMode       *string                         `pulumi:"enforcementMode"`
+	Identity              *Identity                       `pulumi:"identity"`
+	Location              *string                         `pulumi:"location"`
+	Metadata              interface{}                     `pulumi:"metadata"`
+	NonComplianceMessages []NonComplianceMessage          `pulumi:"nonComplianceMessages"`
+	NotScopes             []string                        `pulumi:"notScopes"`
+	Parameters            map[string]ParameterValuesValue `pulumi:"parameters"`
+	PolicyAssignmentName  *string                         `pulumi:"policyAssignmentName"`
+	PolicyDefinitionId    *string                         `pulumi:"policyDefinitionId"`
+	Scope                 string                          `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a PolicyAssignment resource.
 type PolicyAssignmentArgs struct {
-	// This message will be part of response in case of policy violation.
-	Description pulumi.StringPtrInput
-	// The display name of the policy assignment.
-	DisplayName pulumi.StringPtrInput
-	// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
-	EnforcementMode pulumi.StringPtrInput
-	// The managed identity associated with the policy assignment.
-	Identity IdentityPtrInput
-	// The location of the policy assignment. Only required when utilizing managed identity.
-	Location pulumi.StringPtrInput
-	// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.Input
-	// The messages that describe why a resource is non-compliant with the policy.
+	Description           pulumi.StringPtrInput
+	DisplayName           pulumi.StringPtrInput
+	EnforcementMode       pulumi.StringPtrInput
+	Identity              IdentityPtrInput
+	Location              pulumi.StringPtrInput
+	Metadata              pulumi.Input
 	NonComplianceMessages NonComplianceMessageArrayInput
-	// The policy's excluded scopes.
-	NotScopes pulumi.StringArrayInput
-	// The parameter values for the assigned policy rule. The keys are the parameter names.
-	Parameters ParameterValuesValueMapInput
-	// The name of the policy assignment.
-	PolicyAssignmentName pulumi.StringPtrInput
-	// The ID of the policy definition or policy set definition being assigned.
-	PolicyDefinitionId pulumi.StringPtrInput
-	// The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
-	Scope pulumi.StringInput
+	NotScopes             pulumi.StringArrayInput
+	Parameters            ParameterValuesValueMapInput
+	PolicyAssignmentName  pulumi.StringPtrInput
+	PolicyDefinitionId    pulumi.StringPtrInput
+	Scope                 pulumi.StringInput
 }
 
 func (PolicyAssignmentArgs) ElementType() reflect.Type {
@@ -243,9 +205,7 @@ func (i *PolicyAssignment) ToPolicyAssignmentOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentOutput)
 }
 
-type PolicyAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type PolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (PolicyAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyAssignment)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Hybrid Connection for an App Service app.
 func LookupWebAppRelayServiceConnection(ctx *pulumi.Context, args *LookupWebAppRelayServiceConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppRelayServiceConnectionResult, error) {
 	var rv LookupWebAppRelayServiceConnectionResult
 	err := ctx.Invoke("azure-native:web/v20200901:getWebAppRelayServiceConnection", args, &rv, opts...)
@@ -18,31 +17,23 @@ func LookupWebAppRelayServiceConnection(ctx *pulumi.Context, args *LookupWebAppR
 }
 
 type LookupWebAppRelayServiceConnectionArgs struct {
-	// Name of the hybrid connection.
-	EntityName string `pulumi:"entityName"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	EntityName        string `pulumi:"entityName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Hybrid Connection for an App Service app.
 type LookupWebAppRelayServiceConnectionResult struct {
-	BiztalkUri             *string `pulumi:"biztalkUri"`
-	EntityConnectionString *string `pulumi:"entityConnectionString"`
-	EntityName             *string `pulumi:"entityName"`
-	Hostname               *string `pulumi:"hostname"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name                     string  `pulumi:"name"`
-	Port                     *int    `pulumi:"port"`
-	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
-	ResourceType             *string `pulumi:"resourceType"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	BiztalkUri               *string            `pulumi:"biztalkUri"`
+	EntityConnectionString   *string            `pulumi:"entityConnectionString"`
+	EntityName               *string            `pulumi:"entityName"`
+	Hostname                 *string            `pulumi:"hostname"`
+	Id                       string             `pulumi:"id"`
+	Kind                     *string            `pulumi:"kind"`
+	Name                     string             `pulumi:"name"`
+	Port                     *int               `pulumi:"port"`
+	ResourceConnectionString *string            `pulumi:"resourceConnectionString"`
+	ResourceType             *string            `pulumi:"resourceType"`
+	SystemData               SystemDataResponse `pulumi:"systemData"`
+	Type                     string             `pulumi:"type"`
 }

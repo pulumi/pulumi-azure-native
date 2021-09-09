@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a server.
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	var rv LookupServerResult
 	err := ctx.Invoke("azure-native:dbforpostgresql/v20171201:getServer", args, &rv, opts...)
@@ -18,56 +17,32 @@ func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.In
 }
 
 type LookupServerArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ServerName        string `pulumi:"serverName"`
 }
 
 // Represents a server.
 type LookupServerResult struct {
-	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
-	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// Status showing whether the server data encryption is enabled with customer-managed keys.
-	ByokEnforcement string `pulumi:"byokEnforcement"`
-	// Earliest restore point creation time (ISO8601 format)
-	EarliestRestoreDate *string `pulumi:"earliestRestoreDate"`
-	// The fully qualified domain name of a server.
-	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The Azure Active Directory identity of the server.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// Status showing whether the server enabled infrastructure encryption.
-	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The master server id of a replica server.
-	MasterServerId *string `pulumi:"masterServerId"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// List of private endpoint connections on a server
+	AdministratorLogin         *string                                   `pulumi:"administratorLogin"`
+	ByokEnforcement            string                                    `pulumi:"byokEnforcement"`
+	EarliestRestoreDate        *string                                   `pulumi:"earliestRestoreDate"`
+	FullyQualifiedDomainName   *string                                   `pulumi:"fullyQualifiedDomainName"`
+	Id                         string                                    `pulumi:"id"`
+	Identity                   *ResourceIdentityResponse                 `pulumi:"identity"`
+	InfrastructureEncryption   *string                                   `pulumi:"infrastructureEncryption"`
+	Location                   string                                    `pulumi:"location"`
+	MasterServerId             *string                                   `pulumi:"masterServerId"`
+	MinimalTlsVersion          *string                                   `pulumi:"minimalTlsVersion"`
+	Name                       string                                    `pulumi:"name"`
 	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The maximum number of replicas that a master server can have.
-	ReplicaCapacity *int `pulumi:"replicaCapacity"`
-	// The replication role of the server.
-	ReplicationRole *string `pulumi:"replicationRole"`
-	// The SKU (pricing tier) of the server.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *string `pulumi:"sslEnforcement"`
-	// Storage profile of a server.
-	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
-	// A state of a server that is visible to user.
-	UserVisibleState *string `pulumi:"userVisibleState"`
-	// Server version.
-	Version *string `pulumi:"version"`
+	PublicNetworkAccess        *string                                   `pulumi:"publicNetworkAccess"`
+	ReplicaCapacity            *int                                      `pulumi:"replicaCapacity"`
+	ReplicationRole            *string                                   `pulumi:"replicationRole"`
+	Sku                        *SkuResponse                              `pulumi:"sku"`
+	SslEnforcement             *string                                   `pulumi:"sslEnforcement"`
+	StorageProfile             *StorageProfileResponse                   `pulumi:"storageProfile"`
+	Tags                       map[string]string                         `pulumi:"tags"`
+	Type                       string                                    `pulumi:"type"`
+	UserVisibleState           *string                                   `pulumi:"userVisibleState"`
+	Version                    *string                                   `pulumi:"version"`
 }

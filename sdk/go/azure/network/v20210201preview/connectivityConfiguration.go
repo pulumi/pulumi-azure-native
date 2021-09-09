@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The network manager connectivity configuration resource
 type ConnectivityConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Groups for configuration
-	AppliesToGroups ConnectivityGroupItemResponseArrayOutput `pulumi:"appliesToGroups"`
-	// Connectivity topology type.
-	ConnectivityTopology pulumi.StringOutput `pulumi:"connectivityTopology"`
-	// Flag if need to remove current existing peerings.
-	DeleteExistingPeering pulumi.StringPtrOutput `pulumi:"deleteExistingPeering"`
-	// A description of the connectivity configuration.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A friendly name for the resource.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// List of hubItems
-	Hubs HubResponseArrayOutput `pulumi:"hubs"`
-	// Flag if global mesh is supported.
-	IsGlobal pulumi.StringPtrOutput `pulumi:"isGlobal"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the connectivity configuration resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The system metadata related to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AppliesToGroups       ConnectivityGroupItemResponseArrayOutput `pulumi:"appliesToGroups"`
+	ConnectivityTopology  pulumi.StringOutput                      `pulumi:"connectivityTopology"`
+	DeleteExistingPeering pulumi.StringPtrOutput                   `pulumi:"deleteExistingPeering"`
+	Description           pulumi.StringPtrOutput                   `pulumi:"description"`
+	DisplayName           pulumi.StringPtrOutput                   `pulumi:"displayName"`
+	Etag                  pulumi.StringOutput                      `pulumi:"etag"`
+	Hubs                  HubResponseArrayOutput                   `pulumi:"hubs"`
+	IsGlobal              pulumi.StringPtrOutput                   `pulumi:"isGlobal"`
+	Name                  pulumi.StringOutput                      `pulumi:"name"`
+	ProvisioningState     pulumi.StringOutput                      `pulumi:"provisioningState"`
+	SystemData            SystemDataResponseOutput                 `pulumi:"systemData"`
+	Type                  pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewConnectivityConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -101,50 +88,30 @@ func (ConnectivityConfigurationState) ElementType() reflect.Type {
 }
 
 type connectivityConfigurationArgs struct {
-	// Groups for configuration
-	AppliesToGroups []ConnectivityGroupItem `pulumi:"appliesToGroups"`
-	// The name of the network manager connectivity configuration.
-	ConfigurationName *string `pulumi:"configurationName"`
-	// Connectivity topology type.
-	ConnectivityTopology string `pulumi:"connectivityTopology"`
-	// Flag if need to remove current existing peerings.
-	DeleteExistingPeering *string `pulumi:"deleteExistingPeering"`
-	// A description of the connectivity configuration.
-	Description *string `pulumi:"description"`
-	// A friendly name for the resource.
-	DisplayName *string `pulumi:"displayName"`
-	// List of hubItems
-	Hubs []Hub `pulumi:"hubs"`
-	// Flag if global mesh is supported.
-	IsGlobal *string `pulumi:"isGlobal"`
-	// The name of the network manager.
-	NetworkManagerName string `pulumi:"networkManagerName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AppliesToGroups       []ConnectivityGroupItem `pulumi:"appliesToGroups"`
+	ConfigurationName     *string                 `pulumi:"configurationName"`
+	ConnectivityTopology  string                  `pulumi:"connectivityTopology"`
+	DeleteExistingPeering *string                 `pulumi:"deleteExistingPeering"`
+	Description           *string                 `pulumi:"description"`
+	DisplayName           *string                 `pulumi:"displayName"`
+	Hubs                  []Hub                   `pulumi:"hubs"`
+	IsGlobal              *string                 `pulumi:"isGlobal"`
+	NetworkManagerName    string                  `pulumi:"networkManagerName"`
+	ResourceGroupName     string                  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ConnectivityConfiguration resource.
 type ConnectivityConfigurationArgs struct {
-	// Groups for configuration
-	AppliesToGroups ConnectivityGroupItemArrayInput
-	// The name of the network manager connectivity configuration.
-	ConfigurationName pulumi.StringPtrInput
-	// Connectivity topology type.
-	ConnectivityTopology pulumi.StringInput
-	// Flag if need to remove current existing peerings.
+	AppliesToGroups       ConnectivityGroupItemArrayInput
+	ConfigurationName     pulumi.StringPtrInput
+	ConnectivityTopology  pulumi.StringInput
 	DeleteExistingPeering pulumi.StringPtrInput
-	// A description of the connectivity configuration.
-	Description pulumi.StringPtrInput
-	// A friendly name for the resource.
-	DisplayName pulumi.StringPtrInput
-	// List of hubItems
-	Hubs HubArrayInput
-	// Flag if global mesh is supported.
-	IsGlobal pulumi.StringPtrInput
-	// The name of the network manager.
-	NetworkManagerName pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	Description           pulumi.StringPtrInput
+	DisplayName           pulumi.StringPtrInput
+	Hubs                  HubArrayInput
+	IsGlobal              pulumi.StringPtrInput
+	NetworkManagerName    pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 }
 
 func (ConnectivityConfigurationArgs) ElementType() reflect.Type {
@@ -170,9 +137,7 @@ func (i *ConnectivityConfiguration) ToConnectivityConfigurationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectivityConfigurationOutput)
 }
 
-type ConnectivityConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type ConnectivityConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConnectivityConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConnectivityConfiguration)(nil))

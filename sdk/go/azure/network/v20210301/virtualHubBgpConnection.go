@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual Appliance Site resource.
 type VirtualHubBgpConnection struct {
 	pulumi.CustomResourceState
 
-	// The current state of the VirtualHub to Peer.
-	ConnectionState pulumi.StringOutput `pulumi:"connectionState"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The reference to the HubVirtualNetworkConnection resource.
+	ConnectionState             pulumi.StringOutput          `pulumi:"connectionState"`
+	Etag                        pulumi.StringOutput          `pulumi:"etag"`
 	HubVirtualNetworkConnection SubResourceResponsePtrOutput `pulumi:"hubVirtualNetworkConnection"`
-	// Name of the connection.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Peer ASN.
-	PeerAsn pulumi.Float64PtrOutput `pulumi:"peerAsn"`
-	// Peer IP.
-	PeerIp pulumi.StringPtrOutput `pulumi:"peerIp"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Connection type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name                        pulumi.StringPtrOutput       `pulumi:"name"`
+	PeerAsn                     pulumi.Float64PtrOutput      `pulumi:"peerAsn"`
+	PeerIp                      pulumi.StringPtrOutput       `pulumi:"peerIp"`
+	ProvisioningState           pulumi.StringOutput          `pulumi:"provisioningState"`
+	Type                        pulumi.StringOutput          `pulumi:"type"`
 }
 
 // NewVirtualHubBgpConnection registers a new resource with the given unique name, arguments, and options.
@@ -126,42 +117,26 @@ func (VirtualHubBgpConnectionState) ElementType() reflect.Type {
 }
 
 type virtualHubBgpConnectionArgs struct {
-	// The name of the connection.
-	ConnectionName *string `pulumi:"connectionName"`
-	// The reference to the HubVirtualNetworkConnection resource.
+	ConnectionName              *string      `pulumi:"connectionName"`
 	HubVirtualNetworkConnection *SubResource `pulumi:"hubVirtualNetworkConnection"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Name of the connection.
-	Name *string `pulumi:"name"`
-	// Peer ASN.
-	PeerAsn *float64 `pulumi:"peerAsn"`
-	// Peer IP.
-	PeerIp *string `pulumi:"peerIp"`
-	// The resource group name of the VirtualHub.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the VirtualHub.
-	VirtualHubName string `pulumi:"virtualHubName"`
+	Id                          *string      `pulumi:"id"`
+	Name                        *string      `pulumi:"name"`
+	PeerAsn                     *float64     `pulumi:"peerAsn"`
+	PeerIp                      *string      `pulumi:"peerIp"`
+	ResourceGroupName           string       `pulumi:"resourceGroupName"`
+	VirtualHubName              string       `pulumi:"virtualHubName"`
 }
 
 // The set of arguments for constructing a VirtualHubBgpConnection resource.
 type VirtualHubBgpConnectionArgs struct {
-	// The name of the connection.
-	ConnectionName pulumi.StringPtrInput
-	// The reference to the HubVirtualNetworkConnection resource.
+	ConnectionName              pulumi.StringPtrInput
 	HubVirtualNetworkConnection SubResourcePtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Name of the connection.
-	Name pulumi.StringPtrInput
-	// Peer ASN.
-	PeerAsn pulumi.Float64PtrInput
-	// Peer IP.
-	PeerIp pulumi.StringPtrInput
-	// The resource group name of the VirtualHub.
-	ResourceGroupName pulumi.StringInput
-	// The name of the VirtualHub.
-	VirtualHubName pulumi.StringInput
+	Id                          pulumi.StringPtrInput
+	Name                        pulumi.StringPtrInput
+	PeerAsn                     pulumi.Float64PtrInput
+	PeerIp                      pulumi.StringPtrInput
+	ResourceGroupName           pulumi.StringInput
+	VirtualHubName              pulumi.StringInput
 }
 
 func (VirtualHubBgpConnectionArgs) ElementType() reflect.Type {
@@ -187,9 +162,7 @@ func (i *VirtualHubBgpConnection) ToVirtualHubBgpConnectionOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubBgpConnectionOutput)
 }
 
-type VirtualHubBgpConnectionOutput struct {
-	*pulumi.OutputState
-}
+type VirtualHubBgpConnectionOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubBgpConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualHubBgpConnection)(nil))

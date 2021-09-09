@@ -10,20 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An API key used for authenticating with a configuration store endpoint.
 type ApiKeyResponse struct {
-	// A connection string that can be used by supporting clients for authentication.
 	ConnectionString string `pulumi:"connectionString"`
-	// The key ID.
-	Id string `pulumi:"id"`
-	// The last time any of the key's properties were modified.
-	LastModified string `pulumi:"lastModified"`
-	// A name for the key describing its usage.
-	Name string `pulumi:"name"`
-	// Whether this key can only be used for read operations.
-	ReadOnly bool `pulumi:"readOnly"`
-	// The value of the key that is used for authentication purposes.
-	Value string `pulumi:"value"`
+	Id               string `pulumi:"id"`
+	LastModified     string `pulumi:"lastModified"`
+	Name             string `pulumi:"name"`
+	ReadOnly         bool   `pulumi:"readOnly"`
+	Value            string `pulumi:"value"`
 }
 
 // ApiKeyResponseInput is an input type that accepts ApiKeyResponseArgs and ApiKeyResponseOutput values.
@@ -37,20 +30,13 @@ type ApiKeyResponseInput interface {
 	ToApiKeyResponseOutputWithContext(context.Context) ApiKeyResponseOutput
 }
 
-// An API key used for authenticating with a configuration store endpoint.
 type ApiKeyResponseArgs struct {
-	// A connection string that can be used by supporting clients for authentication.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
-	// The key ID.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The last time any of the key's properties were modified.
-	LastModified pulumi.StringInput `pulumi:"lastModified"`
-	// A name for the key describing its usage.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Whether this key can only be used for read operations.
-	ReadOnly pulumi.BoolInput `pulumi:"readOnly"`
-	// The value of the key that is used for authentication purposes.
-	Value pulumi.StringInput `pulumi:"value"`
+	Id               pulumi.StringInput `pulumi:"id"`
+	LastModified     pulumi.StringInput `pulumi:"lastModified"`
+	Name             pulumi.StringInput `pulumi:"name"`
+	ReadOnly         pulumi.BoolInput   `pulumi:"readOnly"`
+	Value            pulumi.StringInput `pulumi:"value"`
 }
 
 func (ApiKeyResponseArgs) ElementType() reflect.Type {
@@ -90,7 +76,6 @@ func (i ApiKeyResponseArray) ToApiKeyResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyResponseArrayOutput)
 }
 
-// An API key used for authenticating with a configuration store endpoint.
 type ApiKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyResponseOutput) ElementType() reflect.Type {
@@ -105,32 +90,26 @@ func (o ApiKeyResponseOutput) ToApiKeyResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// A connection string that can be used by supporting clients for authentication.
 func (o ApiKeyResponseOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyResponse) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
-// The key ID.
 func (o ApiKeyResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The last time any of the key's properties were modified.
 func (o ApiKeyResponseOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyResponse) string { return v.LastModified }).(pulumi.StringOutput)
 }
 
-// A name for the key describing its usage.
 func (o ApiKeyResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether this key can only be used for read operations.
 func (o ApiKeyResponseOutput) ReadOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v ApiKeyResponse) bool { return v.ReadOnly }).(pulumi.BoolOutput)
 }
 
-// The value of the key that is used for authentication purposes.
 func (o ApiKeyResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyResponse) string { return v.Value }).(pulumi.StringOutput)
 }

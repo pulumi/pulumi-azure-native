@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in List or Get Consumer group operation
 func LookupConsumerGroup(ctx *pulumi.Context, args *LookupConsumerGroupArgs, opts ...pulumi.InvokeOption) (*LookupConsumerGroupResult, error) {
 	var rv LookupConsumerGroupResult
 	err := ctx.Invoke("azure-native:eventhub/v20210101preview:getConsumerGroup", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupConsumerGroup(ctx *pulumi.Context, args *LookupConsumerGroupArgs, opt
 }
 
 type LookupConsumerGroupArgs struct {
-	// The consumer group name
 	ConsumerGroupName string `pulumi:"consumerGroupName"`
-	// The Event Hub name
-	EventHubName string `pulumi:"eventHubName"`
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the resource group within the azure subscription.
+	EventHubName      string `pulumi:"eventHubName"`
+	NamespaceName     string `pulumi:"namespaceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Single item in List or Get Consumer group operation
 type LookupConsumerGroupResult struct {
-	// Exact time the message was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The exact time the message was updated.
-	UpdatedAt string `pulumi:"updatedAt"`
-	// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
-	UserMetadata *string `pulumi:"userMetadata"`
+	CreatedAt    string             `pulumi:"createdAt"`
+	Id           string             `pulumi:"id"`
+	Name         string             `pulumi:"name"`
+	SystemData   SystemDataResponse `pulumi:"systemData"`
+	Type         string             `pulumi:"type"`
+	UpdatedAt    string             `pulumi:"updatedAt"`
+	UserMetadata *string            `pulumi:"userMetadata"`
 }

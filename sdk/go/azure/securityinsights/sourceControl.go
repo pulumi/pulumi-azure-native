@@ -179,9 +179,7 @@ func (i *SourceControl) ToSourceControlOutputWithContext(ctx context.Context) So
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlOutput)
 }
 
-type SourceControlOutput struct {
-	*pulumi.OutputState
-}
+type SourceControlOutput struct{ *pulumi.OutputState }
 
 func (SourceControlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SourceControl)(nil))

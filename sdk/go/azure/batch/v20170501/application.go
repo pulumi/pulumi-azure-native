@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contains information about an application in a Batch account.
 type Application struct {
 	pulumi.CustomResourceState
 
-	// A value indicating whether packages within the application may be overwritten using the same version string.
-	AllowUpdates pulumi.BoolPtrOutput `pulumi:"allowUpdates"`
-	// The package to use if a client requests the application but does not specify a version.
-	DefaultVersion pulumi.StringPtrOutput `pulumi:"defaultVersion"`
-	// The display name for the application.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The list of packages under this application.
-	Packages ApplicationPackageResponseArrayOutput `pulumi:"packages"`
+	AllowUpdates   pulumi.BoolPtrOutput                  `pulumi:"allowUpdates"`
+	DefaultVersion pulumi.StringPtrOutput                `pulumi:"defaultVersion"`
+	DisplayName    pulumi.StringPtrOutput                `pulumi:"displayName"`
+	Packages       ApplicationPackageResponseArrayOutput `pulumi:"packages"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -148,29 +143,19 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// The name of the Batch account.
-	AccountName string `pulumi:"accountName"`
-	// A value indicating whether packages within the application may be overwritten using the same version string.
-	AllowUpdates *bool `pulumi:"allowUpdates"`
-	// The ID of the application.
-	ApplicationId *string `pulumi:"applicationId"`
-	// The display name for the application.
-	DisplayName *string `pulumi:"displayName"`
-	// The name of the resource group that contains the Batch account.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName       string  `pulumi:"accountName"`
+	AllowUpdates      *bool   `pulumi:"allowUpdates"`
+	ApplicationId     *string `pulumi:"applicationId"`
+	DisplayName       *string `pulumi:"displayName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// The name of the Batch account.
-	AccountName pulumi.StringInput
-	// A value indicating whether packages within the application may be overwritten using the same version string.
-	AllowUpdates pulumi.BoolPtrInput
-	// The ID of the application.
-	ApplicationId pulumi.StringPtrInput
-	// The display name for the application.
-	DisplayName pulumi.StringPtrInput
-	// The name of the resource group that contains the Batch account.
+	AccountName       pulumi.StringInput
+	AllowUpdates      pulumi.BoolPtrInput
+	ApplicationId     pulumi.StringPtrInput
+	DisplayName       pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -197,9 +182,7 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutput)
 }
 
-type ApplicationOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Application)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// disk access resource.
 func LookupDiskAccess(ctx *pulumi.Context, args *LookupDiskAccessArgs, opts ...pulumi.InvokeOption) (*LookupDiskAccessResult, error) {
 	var rv LookupDiskAccessResult
 	err := ctx.Invoke("azure-native:compute/v20200930:getDiskAccess", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupDiskAccess(ctx *pulumi.Context, args *LookupDiskAccessArgs, opts ...p
 }
 
 type LookupDiskAccessArgs struct {
-	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	DiskAccessName string `pulumi:"diskAccessName"`
-	// The name of the resource group.
+	DiskAccessName    string `pulumi:"diskAccessName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // disk access resource.
 type LookupDiskAccessResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
+	Id                         string                              `pulumi:"id"`
+	Location                   string                              `pulumi:"location"`
+	Name                       string                              `pulumi:"name"`
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// The disk access resource provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The time when the disk access was created.
-	TimeCreated string `pulumi:"timeCreated"`
-	// Resource type
-	Type string `pulumi:"type"`
+	ProvisioningState          string                              `pulumi:"provisioningState"`
+	Tags                       map[string]string                   `pulumi:"tags"`
+	TimeCreated                string                              `pulumi:"timeCreated"`
+	Type                       string                              `pulumi:"type"`
 }

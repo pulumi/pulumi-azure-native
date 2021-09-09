@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a published Blueprint.
 type PublishedBlueprint struct {
 	pulumi.CustomResourceState
 
-	// Name of the Blueprint definition.
-	BlueprintName pulumi.StringPtrOutput `pulumi:"blueprintName"`
-	// Version-specific change notes
-	ChangeNotes pulumi.StringPtrOutput `pulumi:"changeNotes"`
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Name of this resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Parameters required by this Blueprint definition.
-	Parameters ParameterDefinitionResponseMapOutput `pulumi:"parameters"`
-	// Resource group placeholders defined by this Blueprint definition.
+	BlueprintName  pulumi.StringPtrOutput                   `pulumi:"blueprintName"`
+	ChangeNotes    pulumi.StringPtrOutput                   `pulumi:"changeNotes"`
+	Description    pulumi.StringPtrOutput                   `pulumi:"description"`
+	DisplayName    pulumi.StringPtrOutput                   `pulumi:"displayName"`
+	Name           pulumi.StringOutput                      `pulumi:"name"`
+	Parameters     ParameterDefinitionResponseMapOutput     `pulumi:"parameters"`
 	ResourceGroups ResourceGroupDefinitionResponseMapOutput `pulumi:"resourceGroups"`
-	// Status of the Blueprint. This field is readonly.
-	Status BlueprintStatusResponseOutput `pulumi:"status"`
-	// The scope where this Blueprint can be applied.
-	TargetScope pulumi.StringPtrOutput `pulumi:"targetScope"`
-	// Type of this resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Status         BlueprintStatusResponseOutput            `pulumi:"status"`
+	TargetScope    pulumi.StringPtrOutput                   `pulumi:"targetScope"`
+	Type           pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewPublishedBlueprint registers a new resource with the given unique name, arguments, and options.
@@ -88,22 +77,16 @@ func (PublishedBlueprintState) ElementType() reflect.Type {
 }
 
 type publishedBlueprintArgs struct {
-	// name of the blueprint.
-	BlueprintName string `pulumi:"blueprintName"`
-	// ManagementGroup where blueprint stores.
-	ManagementGroupName string `pulumi:"managementGroupName"`
-	// version of the published blueprint.
-	VersionId *string `pulumi:"versionId"`
+	BlueprintName       string  `pulumi:"blueprintName"`
+	ManagementGroupName string  `pulumi:"managementGroupName"`
+	VersionId           *string `pulumi:"versionId"`
 }
 
 // The set of arguments for constructing a PublishedBlueprint resource.
 type PublishedBlueprintArgs struct {
-	// name of the blueprint.
-	BlueprintName pulumi.StringInput
-	// ManagementGroup where blueprint stores.
+	BlueprintName       pulumi.StringInput
 	ManagementGroupName pulumi.StringInput
-	// version of the published blueprint.
-	VersionId pulumi.StringPtrInput
+	VersionId           pulumi.StringPtrInput
 }
 
 func (PublishedBlueprintArgs) ElementType() reflect.Type {
@@ -129,9 +112,7 @@ func (i *PublishedBlueprint) ToPublishedBlueprintOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PublishedBlueprintOutput)
 }
 
-type PublishedBlueprintOutput struct {
-	*pulumi.OutputState
-}
+type PublishedBlueprintOutput struct{ *pulumi.OutputState }
 
 func (PublishedBlueprintOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PublishedBlueprint)(nil))

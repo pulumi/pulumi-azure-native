@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cache encryption settings.
 type CacheEncryptionSettings struct {
-	// Specifies the location of the key encryption key in Key Vault.
 	KeyEncryptionKey *KeyVaultKeyReference `pulumi:"keyEncryptionKey"`
 }
 
@@ -27,9 +25,7 @@ type CacheEncryptionSettingsInput interface {
 	ToCacheEncryptionSettingsOutputWithContext(context.Context) CacheEncryptionSettingsOutput
 }
 
-// Cache encryption settings.
 type CacheEncryptionSettingsArgs struct {
-	// Specifies the location of the key encryption key in Key Vault.
 	KeyEncryptionKey KeyVaultKeyReferencePtrInput `pulumi:"keyEncryptionKey"`
 }
 
@@ -86,7 +82,6 @@ func (i *cacheEncryptionSettingsPtrType) ToCacheEncryptionSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(CacheEncryptionSettingsPtrOutput)
 }
 
-// Cache encryption settings.
 type CacheEncryptionSettingsOutput struct{ *pulumi.OutputState }
 
 func (CacheEncryptionSettingsOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o CacheEncryptionSettingsOutput) ToCacheEncryptionSettingsPtrOutput() Cach
 }
 
 func (o CacheEncryptionSettingsOutput) ToCacheEncryptionSettingsPtrOutputWithContext(ctx context.Context) CacheEncryptionSettingsPtrOutput {
-	return o.ApplyT(func(v CacheEncryptionSettings) *CacheEncryptionSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheEncryptionSettings) *CacheEncryptionSettings {
 		return &v
 	}).(CacheEncryptionSettingsPtrOutput)
 }
 
-// Specifies the location of the key encryption key in Key Vault.
 func (o CacheEncryptionSettingsOutput) KeyEncryptionKey() KeyVaultKeyReferencePtrOutput {
 	return o.ApplyT(func(v CacheEncryptionSettings) *KeyVaultKeyReference { return v.KeyEncryptionKey }).(KeyVaultKeyReferencePtrOutput)
 }
@@ -131,10 +125,15 @@ func (o CacheEncryptionSettingsPtrOutput) ToCacheEncryptionSettingsPtrOutputWith
 }
 
 func (o CacheEncryptionSettingsPtrOutput) Elem() CacheEncryptionSettingsOutput {
-	return o.ApplyT(func(v *CacheEncryptionSettings) CacheEncryptionSettings { return *v }).(CacheEncryptionSettingsOutput)
+	return o.ApplyT(func(v *CacheEncryptionSettings) CacheEncryptionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheEncryptionSettings
+		return ret
+	}).(CacheEncryptionSettingsOutput)
 }
 
-// Specifies the location of the key encryption key in Key Vault.
 func (o CacheEncryptionSettingsPtrOutput) KeyEncryptionKey() KeyVaultKeyReferencePtrOutput {
 	return o.ApplyT(func(v *CacheEncryptionSettings) *KeyVaultKeyReference {
 		if v == nil {
@@ -144,9 +143,7 @@ func (o CacheEncryptionSettingsPtrOutput) KeyEncryptionKey() KeyVaultKeyReferenc
 	}).(KeyVaultKeyReferencePtrOutput)
 }
 
-// Cache encryption settings.
 type CacheEncryptionSettingsResponse struct {
-	// Specifies the location of the key encryption key in Key Vault.
 	KeyEncryptionKey *KeyVaultKeyReferenceResponse `pulumi:"keyEncryptionKey"`
 }
 
@@ -161,9 +158,7 @@ type CacheEncryptionSettingsResponseInput interface {
 	ToCacheEncryptionSettingsResponseOutputWithContext(context.Context) CacheEncryptionSettingsResponseOutput
 }
 
-// Cache encryption settings.
 type CacheEncryptionSettingsResponseArgs struct {
-	// Specifies the location of the key encryption key in Key Vault.
 	KeyEncryptionKey KeyVaultKeyReferenceResponsePtrInput `pulumi:"keyEncryptionKey"`
 }
 
@@ -220,7 +215,6 @@ func (i *cacheEncryptionSettingsResponsePtrType) ToCacheEncryptionSettingsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(CacheEncryptionSettingsResponsePtrOutput)
 }
 
-// Cache encryption settings.
 type CacheEncryptionSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheEncryptionSettingsResponseOutput) ElementType() reflect.Type {
@@ -240,12 +234,11 @@ func (o CacheEncryptionSettingsResponseOutput) ToCacheEncryptionSettingsResponse
 }
 
 func (o CacheEncryptionSettingsResponseOutput) ToCacheEncryptionSettingsResponsePtrOutputWithContext(ctx context.Context) CacheEncryptionSettingsResponsePtrOutput {
-	return o.ApplyT(func(v CacheEncryptionSettingsResponse) *CacheEncryptionSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheEncryptionSettingsResponse) *CacheEncryptionSettingsResponse {
 		return &v
 	}).(CacheEncryptionSettingsResponsePtrOutput)
 }
 
-// Specifies the location of the key encryption key in Key Vault.
 func (o CacheEncryptionSettingsResponseOutput) KeyEncryptionKey() KeyVaultKeyReferenceResponsePtrOutput {
 	return o.ApplyT(func(v CacheEncryptionSettingsResponse) *KeyVaultKeyReferenceResponse { return v.KeyEncryptionKey }).(KeyVaultKeyReferenceResponsePtrOutput)
 }
@@ -265,10 +258,15 @@ func (o CacheEncryptionSettingsResponsePtrOutput) ToCacheEncryptionSettingsRespo
 }
 
 func (o CacheEncryptionSettingsResponsePtrOutput) Elem() CacheEncryptionSettingsResponseOutput {
-	return o.ApplyT(func(v *CacheEncryptionSettingsResponse) CacheEncryptionSettingsResponse { return *v }).(CacheEncryptionSettingsResponseOutput)
+	return o.ApplyT(func(v *CacheEncryptionSettingsResponse) CacheEncryptionSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheEncryptionSettingsResponse
+		return ret
+	}).(CacheEncryptionSettingsResponseOutput)
 }
 
-// Specifies the location of the key encryption key in Key Vault.
 func (o CacheEncryptionSettingsResponsePtrOutput) KeyEncryptionKey() KeyVaultKeyReferenceResponsePtrOutput {
 	return o.ApplyT(func(v *CacheEncryptionSettingsResponse) *KeyVaultKeyReferenceResponse {
 		if v == nil {
@@ -278,11 +276,8 @@ func (o CacheEncryptionSettingsResponsePtrOutput) KeyEncryptionKey() KeyVaultKey
 	}).(KeyVaultKeyReferenceResponsePtrOutput)
 }
 
-// An indication of Cache health. Gives more information about health than just that related to provisioning.
 type CacheHealthResponse struct {
-	// List of Cache health states.
-	State *string `pulumi:"state"`
-	// Describes explanation of state.
+	State             *string `pulumi:"state"`
 	StatusDescription *string `pulumi:"statusDescription"`
 }
 
@@ -297,11 +292,8 @@ type CacheHealthResponseInput interface {
 	ToCacheHealthResponseOutputWithContext(context.Context) CacheHealthResponseOutput
 }
 
-// An indication of Cache health. Gives more information about health than just that related to provisioning.
 type CacheHealthResponseArgs struct {
-	// List of Cache health states.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// Describes explanation of state.
+	State             pulumi.StringPtrInput `pulumi:"state"`
 	StatusDescription pulumi.StringPtrInput `pulumi:"statusDescription"`
 }
 
@@ -358,7 +350,6 @@ func (i *cacheHealthResponsePtrType) ToCacheHealthResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CacheHealthResponsePtrOutput)
 }
 
-// An indication of Cache health. Gives more information about health than just that related to provisioning.
 type CacheHealthResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheHealthResponseOutput) ElementType() reflect.Type {
@@ -378,17 +369,15 @@ func (o CacheHealthResponseOutput) ToCacheHealthResponsePtrOutput() CacheHealthR
 }
 
 func (o CacheHealthResponseOutput) ToCacheHealthResponsePtrOutputWithContext(ctx context.Context) CacheHealthResponsePtrOutput {
-	return o.ApplyT(func(v CacheHealthResponse) *CacheHealthResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheHealthResponse) *CacheHealthResponse {
 		return &v
 	}).(CacheHealthResponsePtrOutput)
 }
 
-// List of Cache health states.
 func (o CacheHealthResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheHealthResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Describes explanation of state.
 func (o CacheHealthResponseOutput) StatusDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheHealthResponse) *string { return v.StatusDescription }).(pulumi.StringPtrOutput)
 }
@@ -408,10 +397,15 @@ func (o CacheHealthResponsePtrOutput) ToCacheHealthResponsePtrOutputWithContext(
 }
 
 func (o CacheHealthResponsePtrOutput) Elem() CacheHealthResponseOutput {
-	return o.ApplyT(func(v *CacheHealthResponse) CacheHealthResponse { return *v }).(CacheHealthResponseOutput)
+	return o.ApplyT(func(v *CacheHealthResponse) CacheHealthResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheHealthResponse
+		return ret
+	}).(CacheHealthResponseOutput)
 }
 
-// List of Cache health states.
 func (o CacheHealthResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheHealthResponse) *string {
 		if v == nil {
@@ -421,7 +415,6 @@ func (o CacheHealthResponsePtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes explanation of state.
 func (o CacheHealthResponsePtrOutput) StatusDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheHealthResponse) *string {
 		if v == nil {
@@ -431,10 +424,8 @@ func (o CacheHealthResponsePtrOutput) StatusDescription() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cache identity properties.
 type CacheIdentity struct {
-	// The type of identity used for the cache
-	Type *string `pulumi:"type"`
+	Type *CacheIdentityType `pulumi:"type"`
 }
 
 // CacheIdentityInput is an input type that accepts CacheIdentityArgs and CacheIdentityOutput values.
@@ -448,10 +439,8 @@ type CacheIdentityInput interface {
 	ToCacheIdentityOutputWithContext(context.Context) CacheIdentityOutput
 }
 
-// Cache identity properties.
 type CacheIdentityArgs struct {
-	// The type of identity used for the cache
-	Type *CacheIdentityType `pulumi:"type"`
+	Type CacheIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (CacheIdentityArgs) ElementType() reflect.Type {
@@ -507,7 +496,6 @@ func (i *cacheIdentityPtrType) ToCacheIdentityPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityPtrOutput)
 }
 
-// Cache identity properties.
 type CacheIdentityOutput struct{ *pulumi.OutputState }
 
 func (CacheIdentityOutput) ElementType() reflect.Type {
@@ -527,14 +515,13 @@ func (o CacheIdentityOutput) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
 }
 
 func (o CacheIdentityOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
-	return o.ApplyT(func(v CacheIdentity) *CacheIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheIdentity) *CacheIdentity {
 		return &v
 	}).(CacheIdentityPtrOutput)
 }
 
-// The type of identity used for the cache
-func (o CacheIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o CacheIdentityOutput) Type() CacheIdentityTypePtrOutput {
+	return o.ApplyT(func(v CacheIdentity) *CacheIdentityType { return v.Type }).(CacheIdentityTypePtrOutput)
 }
 
 type CacheIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -552,27 +539,28 @@ func (o CacheIdentityPtrOutput) ToCacheIdentityPtrOutputWithContext(ctx context.
 }
 
 func (o CacheIdentityPtrOutput) Elem() CacheIdentityOutput {
-	return o.ApplyT(func(v *CacheIdentity) CacheIdentity { return *v }).(CacheIdentityOutput)
+	return o.ApplyT(func(v *CacheIdentity) CacheIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret CacheIdentity
+		return ret
+	}).(CacheIdentityOutput)
 }
 
-// The type of identity used for the cache
-func (o CacheIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CacheIdentity) *string {
+func (o CacheIdentityPtrOutput) Type() CacheIdentityTypePtrOutput {
+	return o.ApplyT(func(v *CacheIdentity) *CacheIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(CacheIdentityTypePtrOutput)
 }
 
-// Cache identity properties.
 type CacheIdentityResponse struct {
-	// The principal id of the cache.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant id associated with the cache.
-	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the cache
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // CacheIdentityResponseInput is an input type that accepts CacheIdentityResponseArgs and CacheIdentityResponseOutput values.
@@ -586,14 +574,10 @@ type CacheIdentityResponseInput interface {
 	ToCacheIdentityResponseOutputWithContext(context.Context) CacheIdentityResponseOutput
 }
 
-// Cache identity properties.
 type CacheIdentityResponseArgs struct {
-	// The principal id of the cache.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant id associated with the cache.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for the cache
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (CacheIdentityResponseArgs) ElementType() reflect.Type {
@@ -649,7 +633,6 @@ func (i *cacheIdentityResponsePtrType) ToCacheIdentityResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityResponsePtrOutput)
 }
 
-// Cache identity properties.
 type CacheIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheIdentityResponseOutput) ElementType() reflect.Type {
@@ -669,22 +652,19 @@ func (o CacheIdentityResponseOutput) ToCacheIdentityResponsePtrOutput() CacheIde
 }
 
 func (o CacheIdentityResponseOutput) ToCacheIdentityResponsePtrOutputWithContext(ctx context.Context) CacheIdentityResponsePtrOutput {
-	return o.ApplyT(func(v CacheIdentityResponse) *CacheIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheIdentityResponse) *CacheIdentityResponse {
 		return &v
 	}).(CacheIdentityResponsePtrOutput)
 }
 
-// The principal id of the cache.
 func (o CacheIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id associated with the cache.
 func (o CacheIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for the cache
 func (o CacheIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -704,10 +684,15 @@ func (o CacheIdentityResponsePtrOutput) ToCacheIdentityResponsePtrOutputWithCont
 }
 
 func (o CacheIdentityResponsePtrOutput) Elem() CacheIdentityResponseOutput {
-	return o.ApplyT(func(v *CacheIdentityResponse) CacheIdentityResponse { return *v }).(CacheIdentityResponseOutput)
+	return o.ApplyT(func(v *CacheIdentityResponse) CacheIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheIdentityResponse
+		return ret
+	}).(CacheIdentityResponseOutput)
 }
 
-// The principal id of the cache.
 func (o CacheIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheIdentityResponse) *string {
 		if v == nil {
@@ -717,7 +702,6 @@ func (o CacheIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id associated with the cache.
 func (o CacheIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheIdentityResponse) *string {
 		if v == nil {
@@ -727,7 +711,6 @@ func (o CacheIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the cache
 func (o CacheIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheIdentityResponse) *string {
 		if v == nil {
@@ -737,9 +720,7 @@ func (o CacheIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cache network settings.
 type CacheNetworkSettings struct {
-	// The IPv4 maximum transmission unit configured for the subnet.
 	Mtu *int `pulumi:"mtu"`
 }
 
@@ -754,9 +735,7 @@ type CacheNetworkSettingsInput interface {
 	ToCacheNetworkSettingsOutputWithContext(context.Context) CacheNetworkSettingsOutput
 }
 
-// Cache network settings.
 type CacheNetworkSettingsArgs struct {
-	// The IPv4 maximum transmission unit configured for the subnet.
 	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
 }
 
@@ -813,7 +792,6 @@ func (i *cacheNetworkSettingsPtrType) ToCacheNetworkSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CacheNetworkSettingsPtrOutput)
 }
 
-// Cache network settings.
 type CacheNetworkSettingsOutput struct{ *pulumi.OutputState }
 
 func (CacheNetworkSettingsOutput) ElementType() reflect.Type {
@@ -833,12 +811,11 @@ func (o CacheNetworkSettingsOutput) ToCacheNetworkSettingsPtrOutput() CacheNetwo
 }
 
 func (o CacheNetworkSettingsOutput) ToCacheNetworkSettingsPtrOutputWithContext(ctx context.Context) CacheNetworkSettingsPtrOutput {
-	return o.ApplyT(func(v CacheNetworkSettings) *CacheNetworkSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheNetworkSettings) *CacheNetworkSettings {
 		return &v
 	}).(CacheNetworkSettingsPtrOutput)
 }
 
-// The IPv4 maximum transmission unit configured for the subnet.
 func (o CacheNetworkSettingsOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheNetworkSettings) *int { return v.Mtu }).(pulumi.IntPtrOutput)
 }
@@ -858,10 +835,15 @@ func (o CacheNetworkSettingsPtrOutput) ToCacheNetworkSettingsPtrOutputWithContex
 }
 
 func (o CacheNetworkSettingsPtrOutput) Elem() CacheNetworkSettingsOutput {
-	return o.ApplyT(func(v *CacheNetworkSettings) CacheNetworkSettings { return *v }).(CacheNetworkSettingsOutput)
+	return o.ApplyT(func(v *CacheNetworkSettings) CacheNetworkSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheNetworkSettings
+		return ret
+	}).(CacheNetworkSettingsOutput)
 }
 
-// The IPv4 maximum transmission unit configured for the subnet.
 func (o CacheNetworkSettingsPtrOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CacheNetworkSettings) *int {
 		if v == nil {
@@ -871,11 +853,8 @@ func (o CacheNetworkSettingsPtrOutput) Mtu() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Cache network settings.
 type CacheNetworkSettingsResponse struct {
-	// The IPv4 maximum transmission unit configured for the subnet.
-	Mtu *int `pulumi:"mtu"`
-	// Array of additional IP addresses used by this Cache.
+	Mtu              *int     `pulumi:"mtu"`
 	UtilityAddresses []string `pulumi:"utilityAddresses"`
 }
 
@@ -890,11 +869,8 @@ type CacheNetworkSettingsResponseInput interface {
 	ToCacheNetworkSettingsResponseOutputWithContext(context.Context) CacheNetworkSettingsResponseOutput
 }
 
-// Cache network settings.
 type CacheNetworkSettingsResponseArgs struct {
-	// The IPv4 maximum transmission unit configured for the subnet.
-	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
-	// Array of additional IP addresses used by this Cache.
+	Mtu              pulumi.IntPtrInput      `pulumi:"mtu"`
 	UtilityAddresses pulumi.StringArrayInput `pulumi:"utilityAddresses"`
 }
 
@@ -951,7 +927,6 @@ func (i *cacheNetworkSettingsResponsePtrType) ToCacheNetworkSettingsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CacheNetworkSettingsResponsePtrOutput)
 }
 
-// Cache network settings.
 type CacheNetworkSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheNetworkSettingsResponseOutput) ElementType() reflect.Type {
@@ -971,17 +946,15 @@ func (o CacheNetworkSettingsResponseOutput) ToCacheNetworkSettingsResponsePtrOut
 }
 
 func (o CacheNetworkSettingsResponseOutput) ToCacheNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) CacheNetworkSettingsResponsePtrOutput {
-	return o.ApplyT(func(v CacheNetworkSettingsResponse) *CacheNetworkSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheNetworkSettingsResponse) *CacheNetworkSettingsResponse {
 		return &v
 	}).(CacheNetworkSettingsResponsePtrOutput)
 }
 
-// The IPv4 maximum transmission unit configured for the subnet.
 func (o CacheNetworkSettingsResponseOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheNetworkSettingsResponse) *int { return v.Mtu }).(pulumi.IntPtrOutput)
 }
 
-// Array of additional IP addresses used by this Cache.
 func (o CacheNetworkSettingsResponseOutput) UtilityAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CacheNetworkSettingsResponse) []string { return v.UtilityAddresses }).(pulumi.StringArrayOutput)
 }
@@ -1001,10 +974,15 @@ func (o CacheNetworkSettingsResponsePtrOutput) ToCacheNetworkSettingsResponsePtr
 }
 
 func (o CacheNetworkSettingsResponsePtrOutput) Elem() CacheNetworkSettingsResponseOutput {
-	return o.ApplyT(func(v *CacheNetworkSettingsResponse) CacheNetworkSettingsResponse { return *v }).(CacheNetworkSettingsResponseOutput)
+	return o.ApplyT(func(v *CacheNetworkSettingsResponse) CacheNetworkSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheNetworkSettingsResponse
+		return ret
+	}).(CacheNetworkSettingsResponseOutput)
 }
 
-// The IPv4 maximum transmission unit configured for the subnet.
 func (o CacheNetworkSettingsResponsePtrOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CacheNetworkSettingsResponse) *int {
 		if v == nil {
@@ -1014,7 +992,6 @@ func (o CacheNetworkSettingsResponsePtrOutput) Mtu() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Array of additional IP addresses used by this Cache.
 func (o CacheNetworkSettingsResponsePtrOutput) UtilityAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CacheNetworkSettingsResponse) []string {
 		if v == nil {
@@ -1024,9 +1001,7 @@ func (o CacheNetworkSettingsResponsePtrOutput) UtilityAddresses() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// SKU for the Cache.
 type CacheResponseSku struct {
-	// SKU name for this Cache.
 	Name *string `pulumi:"name"`
 }
 
@@ -1041,9 +1016,7 @@ type CacheResponseSkuInput interface {
 	ToCacheResponseSkuOutputWithContext(context.Context) CacheResponseSkuOutput
 }
 
-// SKU for the Cache.
 type CacheResponseSkuArgs struct {
-	// SKU name for this Cache.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1100,7 +1073,6 @@ func (i *cacheResponseSkuPtrType) ToCacheResponseSkuPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CacheResponseSkuPtrOutput)
 }
 
-// SKU for the Cache.
 type CacheResponseSkuOutput struct{ *pulumi.OutputState }
 
 func (CacheResponseSkuOutput) ElementType() reflect.Type {
@@ -1120,12 +1092,11 @@ func (o CacheResponseSkuOutput) ToCacheResponseSkuPtrOutput() CacheResponseSkuPt
 }
 
 func (o CacheResponseSkuOutput) ToCacheResponseSkuPtrOutputWithContext(ctx context.Context) CacheResponseSkuPtrOutput {
-	return o.ApplyT(func(v CacheResponseSku) *CacheResponseSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheResponseSku) *CacheResponseSku {
 		return &v
 	}).(CacheResponseSkuPtrOutput)
 }
 
-// SKU name for this Cache.
 func (o CacheResponseSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheResponseSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1145,10 +1116,15 @@ func (o CacheResponseSkuPtrOutput) ToCacheResponseSkuPtrOutputWithContext(ctx co
 }
 
 func (o CacheResponseSkuPtrOutput) Elem() CacheResponseSkuOutput {
-	return o.ApplyT(func(v *CacheResponseSku) CacheResponseSku { return *v }).(CacheResponseSkuOutput)
+	return o.ApplyT(func(v *CacheResponseSku) CacheResponseSku {
+		if v != nil {
+			return *v
+		}
+		var ret CacheResponseSku
+		return ret
+	}).(CacheResponseSkuOutput)
 }
 
-// SKU name for this Cache.
 func (o CacheResponseSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheResponseSku) *string {
 		if v == nil {
@@ -1158,9 +1134,7 @@ func (o CacheResponseSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cache security settings.
 type CacheSecuritySettings struct {
-	// root squash of cache property.
 	RootSquash *bool `pulumi:"rootSquash"`
 }
 
@@ -1175,9 +1149,7 @@ type CacheSecuritySettingsInput interface {
 	ToCacheSecuritySettingsOutputWithContext(context.Context) CacheSecuritySettingsOutput
 }
 
-// Cache security settings.
 type CacheSecuritySettingsArgs struct {
-	// root squash of cache property.
 	RootSquash pulumi.BoolPtrInput `pulumi:"rootSquash"`
 }
 
@@ -1234,7 +1206,6 @@ func (i *cacheSecuritySettingsPtrType) ToCacheSecuritySettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CacheSecuritySettingsPtrOutput)
 }
 
-// Cache security settings.
 type CacheSecuritySettingsOutput struct{ *pulumi.OutputState }
 
 func (CacheSecuritySettingsOutput) ElementType() reflect.Type {
@@ -1254,12 +1225,11 @@ func (o CacheSecuritySettingsOutput) ToCacheSecuritySettingsPtrOutput() CacheSec
 }
 
 func (o CacheSecuritySettingsOutput) ToCacheSecuritySettingsPtrOutputWithContext(ctx context.Context) CacheSecuritySettingsPtrOutput {
-	return o.ApplyT(func(v CacheSecuritySettings) *CacheSecuritySettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSecuritySettings) *CacheSecuritySettings {
 		return &v
 	}).(CacheSecuritySettingsPtrOutput)
 }
 
-// root squash of cache property.
 func (o CacheSecuritySettingsOutput) RootSquash() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheSecuritySettings) *bool { return v.RootSquash }).(pulumi.BoolPtrOutput)
 }
@@ -1279,10 +1249,15 @@ func (o CacheSecuritySettingsPtrOutput) ToCacheSecuritySettingsPtrOutputWithCont
 }
 
 func (o CacheSecuritySettingsPtrOutput) Elem() CacheSecuritySettingsOutput {
-	return o.ApplyT(func(v *CacheSecuritySettings) CacheSecuritySettings { return *v }).(CacheSecuritySettingsOutput)
+	return o.ApplyT(func(v *CacheSecuritySettings) CacheSecuritySettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheSecuritySettings
+		return ret
+	}).(CacheSecuritySettingsOutput)
 }
 
-// root squash of cache property.
 func (o CacheSecuritySettingsPtrOutput) RootSquash() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheSecuritySettings) *bool {
 		if v == nil {
@@ -1292,9 +1267,7 @@ func (o CacheSecuritySettingsPtrOutput) RootSquash() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Cache security settings.
 type CacheSecuritySettingsResponse struct {
-	// root squash of cache property.
 	RootSquash *bool `pulumi:"rootSquash"`
 }
 
@@ -1309,9 +1282,7 @@ type CacheSecuritySettingsResponseInput interface {
 	ToCacheSecuritySettingsResponseOutputWithContext(context.Context) CacheSecuritySettingsResponseOutput
 }
 
-// Cache security settings.
 type CacheSecuritySettingsResponseArgs struct {
-	// root squash of cache property.
 	RootSquash pulumi.BoolPtrInput `pulumi:"rootSquash"`
 }
 
@@ -1368,7 +1339,6 @@ func (i *cacheSecuritySettingsResponsePtrType) ToCacheSecuritySettingsResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(CacheSecuritySettingsResponsePtrOutput)
 }
 
-// Cache security settings.
 type CacheSecuritySettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheSecuritySettingsResponseOutput) ElementType() reflect.Type {
@@ -1388,12 +1358,11 @@ func (o CacheSecuritySettingsResponseOutput) ToCacheSecuritySettingsResponsePtrO
 }
 
 func (o CacheSecuritySettingsResponseOutput) ToCacheSecuritySettingsResponsePtrOutputWithContext(ctx context.Context) CacheSecuritySettingsResponsePtrOutput {
-	return o.ApplyT(func(v CacheSecuritySettingsResponse) *CacheSecuritySettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSecuritySettingsResponse) *CacheSecuritySettingsResponse {
 		return &v
 	}).(CacheSecuritySettingsResponsePtrOutput)
 }
 
-// root squash of cache property.
 func (o CacheSecuritySettingsResponseOutput) RootSquash() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheSecuritySettingsResponse) *bool { return v.RootSquash }).(pulumi.BoolPtrOutput)
 }
@@ -1413,10 +1382,15 @@ func (o CacheSecuritySettingsResponsePtrOutput) ToCacheSecuritySettingsResponseP
 }
 
 func (o CacheSecuritySettingsResponsePtrOutput) Elem() CacheSecuritySettingsResponseOutput {
-	return o.ApplyT(func(v *CacheSecuritySettingsResponse) CacheSecuritySettingsResponse { return *v }).(CacheSecuritySettingsResponseOutput)
+	return o.ApplyT(func(v *CacheSecuritySettingsResponse) CacheSecuritySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheSecuritySettingsResponse
+		return ret
+	}).(CacheSecuritySettingsResponseOutput)
 }
 
-// root squash of cache property.
 func (o CacheSecuritySettingsResponsePtrOutput) RootSquash() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheSecuritySettingsResponse) *bool {
 		if v == nil {
@@ -1426,9 +1400,7 @@ func (o CacheSecuritySettingsResponsePtrOutput) RootSquash() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// SKU for the Cache.
 type CacheSku struct {
-	// SKU name for this Cache.
 	Name *string `pulumi:"name"`
 }
 
@@ -1443,9 +1415,7 @@ type CacheSkuInput interface {
 	ToCacheSkuOutputWithContext(context.Context) CacheSkuOutput
 }
 
-// SKU for the Cache.
 type CacheSkuArgs struct {
-	// SKU name for this Cache.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1502,7 +1472,6 @@ func (i *cacheSkuPtrType) ToCacheSkuPtrOutputWithContext(ctx context.Context) Ca
 	return pulumi.ToOutputWithContext(ctx, i).(CacheSkuPtrOutput)
 }
 
-// SKU for the Cache.
 type CacheSkuOutput struct{ *pulumi.OutputState }
 
 func (CacheSkuOutput) ElementType() reflect.Type {
@@ -1522,12 +1491,11 @@ func (o CacheSkuOutput) ToCacheSkuPtrOutput() CacheSkuPtrOutput {
 }
 
 func (o CacheSkuOutput) ToCacheSkuPtrOutputWithContext(ctx context.Context) CacheSkuPtrOutput {
-	return o.ApplyT(func(v CacheSku) *CacheSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSku) *CacheSku {
 		return &v
 	}).(CacheSkuPtrOutput)
 }
 
-// SKU name for this Cache.
 func (o CacheSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1547,10 +1515,15 @@ func (o CacheSkuPtrOutput) ToCacheSkuPtrOutputWithContext(ctx context.Context) C
 }
 
 func (o CacheSkuPtrOutput) Elem() CacheSkuOutput {
-	return o.ApplyT(func(v *CacheSku) CacheSku { return *v }).(CacheSkuOutput)
+	return o.ApplyT(func(v *CacheSku) CacheSku {
+		if v != nil {
+			return *v
+		}
+		var ret CacheSku
+		return ret
+	}).(CacheSkuOutput)
 }
 
-// SKU name for this Cache.
 func (o CacheSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheSku) *string {
 		if v == nil {
@@ -1560,17 +1533,11 @@ func (o CacheSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties describing the software upgrade state of the Cache.
 type CacheUpgradeStatusResponse struct {
-	// Version string of the firmware currently installed on this Cache.
 	CurrentFirmwareVersion string `pulumi:"currentFirmwareVersion"`
-	// Time at which the pending firmware update will automatically be installed on the Cache.
 	FirmwareUpdateDeadline string `pulumi:"firmwareUpdateDeadline"`
-	// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
-	FirmwareUpdateStatus string `pulumi:"firmwareUpdateStatus"`
-	// Time of the last successful firmware update.
-	LastFirmwareUpdate string `pulumi:"lastFirmwareUpdate"`
-	// When firmwareUpdateAvailable is true, this field holds the version string for the update.
+	FirmwareUpdateStatus   string `pulumi:"firmwareUpdateStatus"`
+	LastFirmwareUpdate     string `pulumi:"lastFirmwareUpdate"`
 	PendingFirmwareVersion string `pulumi:"pendingFirmwareVersion"`
 }
 
@@ -1585,17 +1552,11 @@ type CacheUpgradeStatusResponseInput interface {
 	ToCacheUpgradeStatusResponseOutputWithContext(context.Context) CacheUpgradeStatusResponseOutput
 }
 
-// Properties describing the software upgrade state of the Cache.
 type CacheUpgradeStatusResponseArgs struct {
-	// Version string of the firmware currently installed on this Cache.
 	CurrentFirmwareVersion pulumi.StringInput `pulumi:"currentFirmwareVersion"`
-	// Time at which the pending firmware update will automatically be installed on the Cache.
 	FirmwareUpdateDeadline pulumi.StringInput `pulumi:"firmwareUpdateDeadline"`
-	// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
-	FirmwareUpdateStatus pulumi.StringInput `pulumi:"firmwareUpdateStatus"`
-	// Time of the last successful firmware update.
-	LastFirmwareUpdate pulumi.StringInput `pulumi:"lastFirmwareUpdate"`
-	// When firmwareUpdateAvailable is true, this field holds the version string for the update.
+	FirmwareUpdateStatus   pulumi.StringInput `pulumi:"firmwareUpdateStatus"`
+	LastFirmwareUpdate     pulumi.StringInput `pulumi:"lastFirmwareUpdate"`
 	PendingFirmwareVersion pulumi.StringInput `pulumi:"pendingFirmwareVersion"`
 }
 
@@ -1652,7 +1613,6 @@ func (i *cacheUpgradeStatusResponsePtrType) ToCacheUpgradeStatusResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CacheUpgradeStatusResponsePtrOutput)
 }
 
-// Properties describing the software upgrade state of the Cache.
 type CacheUpgradeStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheUpgradeStatusResponseOutput) ElementType() reflect.Type {
@@ -1672,32 +1632,27 @@ func (o CacheUpgradeStatusResponseOutput) ToCacheUpgradeStatusResponsePtrOutput(
 }
 
 func (o CacheUpgradeStatusResponseOutput) ToCacheUpgradeStatusResponsePtrOutputWithContext(ctx context.Context) CacheUpgradeStatusResponsePtrOutput {
-	return o.ApplyT(func(v CacheUpgradeStatusResponse) *CacheUpgradeStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheUpgradeStatusResponse) *CacheUpgradeStatusResponse {
 		return &v
 	}).(CacheUpgradeStatusResponsePtrOutput)
 }
 
-// Version string of the firmware currently installed on this Cache.
 func (o CacheUpgradeStatusResponseOutput) CurrentFirmwareVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.CurrentFirmwareVersion }).(pulumi.StringOutput)
 }
 
-// Time at which the pending firmware update will automatically be installed on the Cache.
 func (o CacheUpgradeStatusResponseOutput) FirmwareUpdateDeadline() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.FirmwareUpdateDeadline }).(pulumi.StringOutput)
 }
 
-// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
 func (o CacheUpgradeStatusResponseOutput) FirmwareUpdateStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.FirmwareUpdateStatus }).(pulumi.StringOutput)
 }
 
-// Time of the last successful firmware update.
 func (o CacheUpgradeStatusResponseOutput) LastFirmwareUpdate() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.LastFirmwareUpdate }).(pulumi.StringOutput)
 }
 
-// When firmwareUpdateAvailable is true, this field holds the version string for the update.
 func (o CacheUpgradeStatusResponseOutput) PendingFirmwareVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.PendingFirmwareVersion }).(pulumi.StringOutput)
 }
@@ -1717,10 +1672,15 @@ func (o CacheUpgradeStatusResponsePtrOutput) ToCacheUpgradeStatusResponsePtrOutp
 }
 
 func (o CacheUpgradeStatusResponsePtrOutput) Elem() CacheUpgradeStatusResponseOutput {
-	return o.ApplyT(func(v *CacheUpgradeStatusResponse) CacheUpgradeStatusResponse { return *v }).(CacheUpgradeStatusResponseOutput)
+	return o.ApplyT(func(v *CacheUpgradeStatusResponse) CacheUpgradeStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheUpgradeStatusResponse
+		return ret
+	}).(CacheUpgradeStatusResponseOutput)
 }
 
-// Version string of the firmware currently installed on this Cache.
 func (o CacheUpgradeStatusResponsePtrOutput) CurrentFirmwareVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
 		if v == nil {
@@ -1730,7 +1690,6 @@ func (o CacheUpgradeStatusResponsePtrOutput) CurrentFirmwareVersion() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time at which the pending firmware update will automatically be installed on the Cache.
 func (o CacheUpgradeStatusResponsePtrOutput) FirmwareUpdateDeadline() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
 		if v == nil {
@@ -1740,7 +1699,6 @@ func (o CacheUpgradeStatusResponsePtrOutput) FirmwareUpdateDeadline() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
 func (o CacheUpgradeStatusResponsePtrOutput) FirmwareUpdateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
 		if v == nil {
@@ -1750,7 +1708,6 @@ func (o CacheUpgradeStatusResponsePtrOutput) FirmwareUpdateStatus() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time of the last successful firmware update.
 func (o CacheUpgradeStatusResponsePtrOutput) LastFirmwareUpdate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
 		if v == nil {
@@ -1760,7 +1717,6 @@ func (o CacheUpgradeStatusResponsePtrOutput) LastFirmwareUpdate() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// When firmwareUpdateAvailable is true, this field holds the version string for the update.
 func (o CacheUpgradeStatusResponsePtrOutput) PendingFirmwareVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
 		if v == nil {
@@ -1770,9 +1726,7 @@ func (o CacheUpgradeStatusResponsePtrOutput) PendingFirmwareVersion() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties pertained to ClfsTarget
 type ClfsTarget struct {
-	// Resource ID of storage container.
 	Target *string `pulumi:"target"`
 }
 
@@ -1787,9 +1741,7 @@ type ClfsTargetInput interface {
 	ToClfsTargetOutputWithContext(context.Context) ClfsTargetOutput
 }
 
-// Properties pertained to ClfsTarget
 type ClfsTargetArgs struct {
-	// Resource ID of storage container.
 	Target pulumi.StringPtrInput `pulumi:"target"`
 }
 
@@ -1846,7 +1798,6 @@ func (i *clfsTargetPtrType) ToClfsTargetPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClfsTargetPtrOutput)
 }
 
-// Properties pertained to ClfsTarget
 type ClfsTargetOutput struct{ *pulumi.OutputState }
 
 func (ClfsTargetOutput) ElementType() reflect.Type {
@@ -1866,12 +1817,11 @@ func (o ClfsTargetOutput) ToClfsTargetPtrOutput() ClfsTargetPtrOutput {
 }
 
 func (o ClfsTargetOutput) ToClfsTargetPtrOutputWithContext(ctx context.Context) ClfsTargetPtrOutput {
-	return o.ApplyT(func(v ClfsTarget) *ClfsTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClfsTarget) *ClfsTarget {
 		return &v
 	}).(ClfsTargetPtrOutput)
 }
 
-// Resource ID of storage container.
 func (o ClfsTargetOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClfsTarget) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -1891,10 +1841,15 @@ func (o ClfsTargetPtrOutput) ToClfsTargetPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ClfsTargetPtrOutput) Elem() ClfsTargetOutput {
-	return o.ApplyT(func(v *ClfsTarget) ClfsTarget { return *v }).(ClfsTargetOutput)
+	return o.ApplyT(func(v *ClfsTarget) ClfsTarget {
+		if v != nil {
+			return *v
+		}
+		var ret ClfsTarget
+		return ret
+	}).(ClfsTargetOutput)
 }
 
-// Resource ID of storage container.
 func (o ClfsTargetPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClfsTarget) *string {
 		if v == nil {
@@ -1904,9 +1859,7 @@ func (o ClfsTargetPtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties pertained to ClfsTarget
 type ClfsTargetResponse struct {
-	// Resource ID of storage container.
 	Target *string `pulumi:"target"`
 }
 
@@ -1921,9 +1874,7 @@ type ClfsTargetResponseInput interface {
 	ToClfsTargetResponseOutputWithContext(context.Context) ClfsTargetResponseOutput
 }
 
-// Properties pertained to ClfsTarget
 type ClfsTargetResponseArgs struct {
-	// Resource ID of storage container.
 	Target pulumi.StringPtrInput `pulumi:"target"`
 }
 
@@ -1980,7 +1931,6 @@ func (i *clfsTargetResponsePtrType) ToClfsTargetResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ClfsTargetResponsePtrOutput)
 }
 
-// Properties pertained to ClfsTarget
 type ClfsTargetResponseOutput struct{ *pulumi.OutputState }
 
 func (ClfsTargetResponseOutput) ElementType() reflect.Type {
@@ -2000,12 +1950,11 @@ func (o ClfsTargetResponseOutput) ToClfsTargetResponsePtrOutput() ClfsTargetResp
 }
 
 func (o ClfsTargetResponseOutput) ToClfsTargetResponsePtrOutputWithContext(ctx context.Context) ClfsTargetResponsePtrOutput {
-	return o.ApplyT(func(v ClfsTargetResponse) *ClfsTargetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClfsTargetResponse) *ClfsTargetResponse {
 		return &v
 	}).(ClfsTargetResponsePtrOutput)
 }
 
-// Resource ID of storage container.
 func (o ClfsTargetResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClfsTargetResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -2025,10 +1974,15 @@ func (o ClfsTargetResponsePtrOutput) ToClfsTargetResponsePtrOutputWithContext(ct
 }
 
 func (o ClfsTargetResponsePtrOutput) Elem() ClfsTargetResponseOutput {
-	return o.ApplyT(func(v *ClfsTargetResponse) ClfsTargetResponse { return *v }).(ClfsTargetResponseOutput)
+	return o.ApplyT(func(v *ClfsTargetResponse) ClfsTargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ClfsTargetResponse
+		return ret
+	}).(ClfsTargetResponseOutput)
 }
 
-// Resource ID of storage container.
 func (o ClfsTargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClfsTargetResponse) *string {
 		if v == nil {
@@ -2038,11 +1992,8 @@ func (o ClfsTargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a reference to Key Vault Key.
 type KeyVaultKeyReference struct {
-	// The URL referencing a key encryption key in Key Vault.
-	KeyUrl string `pulumi:"keyUrl"`
-	// Describes a resource Id to source Key Vault.
+	KeyUrl      string                          `pulumi:"keyUrl"`
 	SourceVault KeyVaultKeyReferenceSourceVault `pulumi:"sourceVault"`
 }
 
@@ -2057,11 +2008,8 @@ type KeyVaultKeyReferenceInput interface {
 	ToKeyVaultKeyReferenceOutputWithContext(context.Context) KeyVaultKeyReferenceOutput
 }
 
-// Describes a reference to Key Vault Key.
 type KeyVaultKeyReferenceArgs struct {
-	// The URL referencing a key encryption key in Key Vault.
-	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
-	// Describes a resource Id to source Key Vault.
+	KeyUrl      pulumi.StringInput                   `pulumi:"keyUrl"`
 	SourceVault KeyVaultKeyReferenceSourceVaultInput `pulumi:"sourceVault"`
 }
 
@@ -2118,7 +2066,6 @@ func (i *keyVaultKeyReferencePtrType) ToKeyVaultKeyReferencePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferencePtrOutput)
 }
 
-// Describes a reference to Key Vault Key.
 type KeyVaultKeyReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceOutput) ElementType() reflect.Type {
@@ -2138,17 +2085,15 @@ func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferencePtrOutput() KeyVaultKe
 }
 
 func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferencePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferencePtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReference) *KeyVaultKeyReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReference) *KeyVaultKeyReference {
 		return &v
 	}).(KeyVaultKeyReferencePtrOutput)
 }
 
-// The URL referencing a key encryption key in Key Vault.
 func (o KeyVaultKeyReferenceOutput) KeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultKeyReference) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
-// Describes a resource Id to source Key Vault.
 func (o KeyVaultKeyReferenceOutput) SourceVault() KeyVaultKeyReferenceSourceVaultOutput {
 	return o.ApplyT(func(v KeyVaultKeyReference) KeyVaultKeyReferenceSourceVault { return v.SourceVault }).(KeyVaultKeyReferenceSourceVaultOutput)
 }
@@ -2168,10 +2113,15 @@ func (o KeyVaultKeyReferencePtrOutput) ToKeyVaultKeyReferencePtrOutputWithContex
 }
 
 func (o KeyVaultKeyReferencePtrOutput) Elem() KeyVaultKeyReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReference) KeyVaultKeyReference { return *v }).(KeyVaultKeyReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReference) KeyVaultKeyReference {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReference
+		return ret
+	}).(KeyVaultKeyReferenceOutput)
 }
 
-// The URL referencing a key encryption key in Key Vault.
 func (o KeyVaultKeyReferencePtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReference) *string {
 		if v == nil {
@@ -2181,7 +2131,6 @@ func (o KeyVaultKeyReferencePtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a resource Id to source Key Vault.
 func (o KeyVaultKeyReferencePtrOutput) SourceVault() KeyVaultKeyReferenceSourceVaultPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReference) *KeyVaultKeyReferenceSourceVault {
 		if v == nil {
@@ -2191,11 +2140,8 @@ func (o KeyVaultKeyReferencePtrOutput) SourceVault() KeyVaultKeyReferenceSourceV
 	}).(KeyVaultKeyReferenceSourceVaultPtrOutput)
 }
 
-// Describes a reference to Key Vault Key.
 type KeyVaultKeyReferenceResponse struct {
-	// The URL referencing a key encryption key in Key Vault.
-	KeyUrl string `pulumi:"keyUrl"`
-	// Describes a resource Id to source Key Vault.
+	KeyUrl      string                                  `pulumi:"keyUrl"`
 	SourceVault KeyVaultKeyReferenceResponseSourceVault `pulumi:"sourceVault"`
 }
 
@@ -2210,11 +2156,8 @@ type KeyVaultKeyReferenceResponseInput interface {
 	ToKeyVaultKeyReferenceResponseOutputWithContext(context.Context) KeyVaultKeyReferenceResponseOutput
 }
 
-// Describes a reference to Key Vault Key.
 type KeyVaultKeyReferenceResponseArgs struct {
-	// The URL referencing a key encryption key in Key Vault.
-	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
-	// Describes a resource Id to source Key Vault.
+	KeyUrl      pulumi.StringInput                           `pulumi:"keyUrl"`
 	SourceVault KeyVaultKeyReferenceResponseSourceVaultInput `pulumi:"sourceVault"`
 }
 
@@ -2271,7 +2214,6 @@ func (i *keyVaultKeyReferenceResponsePtrType) ToKeyVaultKeyReferenceResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponsePtrOutput)
 }
 
-// Describes a reference to Key Vault Key.
 type KeyVaultKeyReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceResponseOutput) ElementType() reflect.Type {
@@ -2291,17 +2233,15 @@ func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponsePtrOut
 }
 
 func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponse {
 		return &v
 	}).(KeyVaultKeyReferenceResponsePtrOutput)
 }
 
-// The URL referencing a key encryption key in Key Vault.
 func (o KeyVaultKeyReferenceResponseOutput) KeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
-// Describes a resource Id to source Key Vault.
 func (o KeyVaultKeyReferenceResponseOutput) SourceVault() KeyVaultKeyReferenceResponseSourceVaultOutput {
 	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponseSourceVault { return v.SourceVault }).(KeyVaultKeyReferenceResponseSourceVaultOutput)
 }
@@ -2321,10 +2261,15 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) ToKeyVaultKeyReferenceResponsePtr
 }
 
 func (o KeyVaultKeyReferenceResponsePtrOutput) Elem() KeyVaultKeyReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponse { return *v }).(KeyVaultKeyReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceResponse
+		return ret
+	}).(KeyVaultKeyReferenceResponseOutput)
 }
 
-// The URL referencing a key encryption key in Key Vault.
 func (o KeyVaultKeyReferenceResponsePtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) *string {
 		if v == nil {
@@ -2334,7 +2279,6 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a resource Id to source Key Vault.
 func (o KeyVaultKeyReferenceResponsePtrOutput) SourceVault() KeyVaultKeyReferenceResponseSourceVaultPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponseSourceVault {
 		if v == nil {
@@ -2344,9 +2288,7 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) SourceVault() KeyVaultKeyReferenc
 	}).(KeyVaultKeyReferenceResponseSourceVaultPtrOutput)
 }
 
-// Describes a resource Id to source Key Vault.
 type KeyVaultKeyReferenceResponseSourceVault struct {
-	// Resource Id.
 	Id *string `pulumi:"id"`
 }
 
@@ -2361,9 +2303,7 @@ type KeyVaultKeyReferenceResponseSourceVaultInput interface {
 	ToKeyVaultKeyReferenceResponseSourceVaultOutputWithContext(context.Context) KeyVaultKeyReferenceResponseSourceVaultOutput
 }
 
-// Describes a resource Id to source Key Vault.
 type KeyVaultKeyReferenceResponseSourceVaultArgs struct {
-	// Resource Id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -2420,7 +2360,6 @@ func (i *keyVaultKeyReferenceResponseSourceVaultPtrType) ToKeyVaultKeyReferenceR
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponseSourceVaultPtrOutput)
 }
 
-// Describes a resource Id to source Key Vault.
 type KeyVaultKeyReferenceResponseSourceVaultOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceResponseSourceVaultOutput) ElementType() reflect.Type {
@@ -2440,12 +2379,11 @@ func (o KeyVaultKeyReferenceResponseSourceVaultOutput) ToKeyVaultKeyReferenceRes
 }
 
 func (o KeyVaultKeyReferenceResponseSourceVaultOutput) ToKeyVaultKeyReferenceResponseSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseSourceVaultPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceResponseSourceVault) *KeyVaultKeyReferenceResponseSourceVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceResponseSourceVault) *KeyVaultKeyReferenceResponseSourceVault {
 		return &v
 	}).(KeyVaultKeyReferenceResponseSourceVaultPtrOutput)
 }
 
-// Resource Id.
 func (o KeyVaultKeyReferenceResponseSourceVaultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultKeyReferenceResponseSourceVault) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -2465,10 +2403,15 @@ func (o KeyVaultKeyReferenceResponseSourceVaultPtrOutput) ToKeyVaultKeyReference
 }
 
 func (o KeyVaultKeyReferenceResponseSourceVaultPtrOutput) Elem() KeyVaultKeyReferenceResponseSourceVaultOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseSourceVault) KeyVaultKeyReferenceResponseSourceVault { return *v }).(KeyVaultKeyReferenceResponseSourceVaultOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseSourceVault) KeyVaultKeyReferenceResponseSourceVault {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceResponseSourceVault
+		return ret
+	}).(KeyVaultKeyReferenceResponseSourceVaultOutput)
 }
 
-// Resource Id.
 func (o KeyVaultKeyReferenceResponseSourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseSourceVault) *string {
 		if v == nil {
@@ -2478,9 +2421,7 @@ func (o KeyVaultKeyReferenceResponseSourceVaultPtrOutput) Id() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a resource Id to source Key Vault.
 type KeyVaultKeyReferenceSourceVault struct {
-	// Resource Id.
 	Id *string `pulumi:"id"`
 }
 
@@ -2495,9 +2436,7 @@ type KeyVaultKeyReferenceSourceVaultInput interface {
 	ToKeyVaultKeyReferenceSourceVaultOutputWithContext(context.Context) KeyVaultKeyReferenceSourceVaultOutput
 }
 
-// Describes a resource Id to source Key Vault.
 type KeyVaultKeyReferenceSourceVaultArgs struct {
-	// Resource Id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -2554,7 +2493,6 @@ func (i *keyVaultKeyReferenceSourceVaultPtrType) ToKeyVaultKeyReferenceSourceVau
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceSourceVaultPtrOutput)
 }
 
-// Describes a resource Id to source Key Vault.
 type KeyVaultKeyReferenceSourceVaultOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceSourceVaultOutput) ElementType() reflect.Type {
@@ -2574,12 +2512,11 @@ func (o KeyVaultKeyReferenceSourceVaultOutput) ToKeyVaultKeyReferenceSourceVault
 }
 
 func (o KeyVaultKeyReferenceSourceVaultOutput) ToKeyVaultKeyReferenceSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceSourceVaultPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceSourceVault) *KeyVaultKeyReferenceSourceVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceSourceVault) *KeyVaultKeyReferenceSourceVault {
 		return &v
 	}).(KeyVaultKeyReferenceSourceVaultPtrOutput)
 }
 
-// Resource Id.
 func (o KeyVaultKeyReferenceSourceVaultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultKeyReferenceSourceVault) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -2599,10 +2536,15 @@ func (o KeyVaultKeyReferenceSourceVaultPtrOutput) ToKeyVaultKeyReferenceSourceVa
 }
 
 func (o KeyVaultKeyReferenceSourceVaultPtrOutput) Elem() KeyVaultKeyReferenceSourceVaultOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceSourceVault) KeyVaultKeyReferenceSourceVault { return *v }).(KeyVaultKeyReferenceSourceVaultOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceSourceVault) KeyVaultKeyReferenceSourceVault {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceSourceVault
+		return ret
+	}).(KeyVaultKeyReferenceSourceVaultOutput)
 }
 
-// Resource Id.
 func (o KeyVaultKeyReferenceSourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReferenceSourceVault) *string {
 		if v == nil {
@@ -2612,14 +2554,10 @@ func (o KeyVaultKeyReferenceSourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A namespace junction.
 type NamespaceJunction struct {
-	// Namespace path on a Cache for a Storage Target.
 	NamespacePath *string `pulumi:"namespacePath"`
-	// NFS export where targetPath exists.
-	NfsExport *string `pulumi:"nfsExport"`
-	// Path in Storage Target to which namespacePath points.
-	TargetPath *string `pulumi:"targetPath"`
+	NfsExport     *string `pulumi:"nfsExport"`
+	TargetPath    *string `pulumi:"targetPath"`
 }
 
 // NamespaceJunctionInput is an input type that accepts NamespaceJunctionArgs and NamespaceJunctionOutput values.
@@ -2633,14 +2571,10 @@ type NamespaceJunctionInput interface {
 	ToNamespaceJunctionOutputWithContext(context.Context) NamespaceJunctionOutput
 }
 
-// A namespace junction.
 type NamespaceJunctionArgs struct {
-	// Namespace path on a Cache for a Storage Target.
 	NamespacePath pulumi.StringPtrInput `pulumi:"namespacePath"`
-	// NFS export where targetPath exists.
-	NfsExport pulumi.StringPtrInput `pulumi:"nfsExport"`
-	// Path in Storage Target to which namespacePath points.
-	TargetPath pulumi.StringPtrInput `pulumi:"targetPath"`
+	NfsExport     pulumi.StringPtrInput `pulumi:"nfsExport"`
+	TargetPath    pulumi.StringPtrInput `pulumi:"targetPath"`
 }
 
 func (NamespaceJunctionArgs) ElementType() reflect.Type {
@@ -2680,7 +2614,6 @@ func (i NamespaceJunctionArray) ToNamespaceJunctionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceJunctionArrayOutput)
 }
 
-// A namespace junction.
 type NamespaceJunctionOutput struct{ *pulumi.OutputState }
 
 func (NamespaceJunctionOutput) ElementType() reflect.Type {
@@ -2695,17 +2628,14 @@ func (o NamespaceJunctionOutput) ToNamespaceJunctionOutputWithContext(ctx contex
 	return o
 }
 
-// Namespace path on a Cache for a Storage Target.
 func (o NamespaceJunctionOutput) NamespacePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunction) *string { return v.NamespacePath }).(pulumi.StringPtrOutput)
 }
 
-// NFS export where targetPath exists.
 func (o NamespaceJunctionOutput) NfsExport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunction) *string { return v.NfsExport }).(pulumi.StringPtrOutput)
 }
 
-// Path in Storage Target to which namespacePath points.
 func (o NamespaceJunctionOutput) TargetPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunction) *string { return v.TargetPath }).(pulumi.StringPtrOutput)
 }
@@ -2730,14 +2660,10 @@ func (o NamespaceJunctionArrayOutput) Index(i pulumi.IntInput) NamespaceJunction
 	}).(NamespaceJunctionOutput)
 }
 
-// A namespace junction.
 type NamespaceJunctionResponse struct {
-	// Namespace path on a Cache for a Storage Target.
 	NamespacePath *string `pulumi:"namespacePath"`
-	// NFS export where targetPath exists.
-	NfsExport *string `pulumi:"nfsExport"`
-	// Path in Storage Target to which namespacePath points.
-	TargetPath *string `pulumi:"targetPath"`
+	NfsExport     *string `pulumi:"nfsExport"`
+	TargetPath    *string `pulumi:"targetPath"`
 }
 
 // NamespaceJunctionResponseInput is an input type that accepts NamespaceJunctionResponseArgs and NamespaceJunctionResponseOutput values.
@@ -2751,14 +2677,10 @@ type NamespaceJunctionResponseInput interface {
 	ToNamespaceJunctionResponseOutputWithContext(context.Context) NamespaceJunctionResponseOutput
 }
 
-// A namespace junction.
 type NamespaceJunctionResponseArgs struct {
-	// Namespace path on a Cache for a Storage Target.
 	NamespacePath pulumi.StringPtrInput `pulumi:"namespacePath"`
-	// NFS export where targetPath exists.
-	NfsExport pulumi.StringPtrInput `pulumi:"nfsExport"`
-	// Path in Storage Target to which namespacePath points.
-	TargetPath pulumi.StringPtrInput `pulumi:"targetPath"`
+	NfsExport     pulumi.StringPtrInput `pulumi:"nfsExport"`
+	TargetPath    pulumi.StringPtrInput `pulumi:"targetPath"`
 }
 
 func (NamespaceJunctionResponseArgs) ElementType() reflect.Type {
@@ -2798,7 +2720,6 @@ func (i NamespaceJunctionResponseArray) ToNamespaceJunctionResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceJunctionResponseArrayOutput)
 }
 
-// A namespace junction.
 type NamespaceJunctionResponseOutput struct{ *pulumi.OutputState }
 
 func (NamespaceJunctionResponseOutput) ElementType() reflect.Type {
@@ -2813,17 +2734,14 @@ func (o NamespaceJunctionResponseOutput) ToNamespaceJunctionResponseOutputWithCo
 	return o
 }
 
-// Namespace path on a Cache for a Storage Target.
 func (o NamespaceJunctionResponseOutput) NamespacePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunctionResponse) *string { return v.NamespacePath }).(pulumi.StringPtrOutput)
 }
 
-// NFS export where targetPath exists.
 func (o NamespaceJunctionResponseOutput) NfsExport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunctionResponse) *string { return v.NfsExport }).(pulumi.StringPtrOutput)
 }
 
-// Path in Storage Target to which namespacePath points.
 func (o NamespaceJunctionResponseOutput) TargetPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunctionResponse) *string { return v.TargetPath }).(pulumi.StringPtrOutput)
 }
@@ -2848,11 +2766,8 @@ func (o NamespaceJunctionResponseArrayOutput) Index(i pulumi.IntInput) Namespace
 	}).(NamespaceJunctionResponseOutput)
 }
 
-// Properties pertained to Nfs3Target
 type Nfs3Target struct {
-	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-	Target *string `pulumi:"target"`
-	// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+	Target     *string `pulumi:"target"`
 	UsageModel *string `pulumi:"usageModel"`
 }
 
@@ -2867,11 +2782,8 @@ type Nfs3TargetInput interface {
 	ToNfs3TargetOutputWithContext(context.Context) Nfs3TargetOutput
 }
 
-// Properties pertained to Nfs3Target
 type Nfs3TargetArgs struct {
-	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+	Target     pulumi.StringPtrInput `pulumi:"target"`
 	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
 }
 
@@ -2928,7 +2840,6 @@ func (i *nfs3TargetPtrType) ToNfs3TargetPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(Nfs3TargetPtrOutput)
 }
 
-// Properties pertained to Nfs3Target
 type Nfs3TargetOutput struct{ *pulumi.OutputState }
 
 func (Nfs3TargetOutput) ElementType() reflect.Type {
@@ -2948,17 +2859,15 @@ func (o Nfs3TargetOutput) ToNfs3TargetPtrOutput() Nfs3TargetPtrOutput {
 }
 
 func (o Nfs3TargetOutput) ToNfs3TargetPtrOutputWithContext(ctx context.Context) Nfs3TargetPtrOutput {
-	return o.ApplyT(func(v Nfs3Target) *Nfs3Target {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Nfs3Target) *Nfs3Target {
 		return &v
 	}).(Nfs3TargetPtrOutput)
 }
 
-// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 func (o Nfs3TargetOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3Target) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
 func (o Nfs3TargetOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3Target) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
 }
@@ -2978,10 +2887,15 @@ func (o Nfs3TargetPtrOutput) ToNfs3TargetPtrOutputWithContext(ctx context.Contex
 }
 
 func (o Nfs3TargetPtrOutput) Elem() Nfs3TargetOutput {
-	return o.ApplyT(func(v *Nfs3Target) Nfs3Target { return *v }).(Nfs3TargetOutput)
+	return o.ApplyT(func(v *Nfs3Target) Nfs3Target {
+		if v != nil {
+			return *v
+		}
+		var ret Nfs3Target
+		return ret
+	}).(Nfs3TargetOutput)
 }
 
-// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 func (o Nfs3TargetPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nfs3Target) *string {
 		if v == nil {
@@ -2991,7 +2905,6 @@ func (o Nfs3TargetPtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
 func (o Nfs3TargetPtrOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nfs3Target) *string {
 		if v == nil {
@@ -3001,11 +2914,8 @@ func (o Nfs3TargetPtrOutput) UsageModel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties pertained to Nfs3Target
 type Nfs3TargetResponse struct {
-	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-	Target *string `pulumi:"target"`
-	// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+	Target     *string `pulumi:"target"`
 	UsageModel *string `pulumi:"usageModel"`
 }
 
@@ -3020,11 +2930,8 @@ type Nfs3TargetResponseInput interface {
 	ToNfs3TargetResponseOutputWithContext(context.Context) Nfs3TargetResponseOutput
 }
 
-// Properties pertained to Nfs3Target
 type Nfs3TargetResponseArgs struct {
-	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+	Target     pulumi.StringPtrInput `pulumi:"target"`
 	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
 }
 
@@ -3081,7 +2988,6 @@ func (i *nfs3TargetResponsePtrType) ToNfs3TargetResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(Nfs3TargetResponsePtrOutput)
 }
 
-// Properties pertained to Nfs3Target
 type Nfs3TargetResponseOutput struct{ *pulumi.OutputState }
 
 func (Nfs3TargetResponseOutput) ElementType() reflect.Type {
@@ -3101,17 +3007,15 @@ func (o Nfs3TargetResponseOutput) ToNfs3TargetResponsePtrOutput() Nfs3TargetResp
 }
 
 func (o Nfs3TargetResponseOutput) ToNfs3TargetResponsePtrOutputWithContext(ctx context.Context) Nfs3TargetResponsePtrOutput {
-	return o.ApplyT(func(v Nfs3TargetResponse) *Nfs3TargetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Nfs3TargetResponse) *Nfs3TargetResponse {
 		return &v
 	}).(Nfs3TargetResponsePtrOutput)
 }
 
-// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 func (o Nfs3TargetResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3TargetResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
 func (o Nfs3TargetResponseOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3TargetResponse) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
 }
@@ -3131,10 +3035,15 @@ func (o Nfs3TargetResponsePtrOutput) ToNfs3TargetResponsePtrOutputWithContext(ct
 }
 
 func (o Nfs3TargetResponsePtrOutput) Elem() Nfs3TargetResponseOutput {
-	return o.ApplyT(func(v *Nfs3TargetResponse) Nfs3TargetResponse { return *v }).(Nfs3TargetResponseOutput)
+	return o.ApplyT(func(v *Nfs3TargetResponse) Nfs3TargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret Nfs3TargetResponse
+		return ret
+	}).(Nfs3TargetResponseOutput)
 }
 
-// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 func (o Nfs3TargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nfs3TargetResponse) *string {
 		if v == nil {
@@ -3144,7 +3053,6 @@ func (o Nfs3TargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
 func (o Nfs3TargetResponsePtrOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nfs3TargetResponse) *string {
 		if v == nil {
@@ -3154,19 +3062,12 @@ func (o Nfs3TargetResponsePtrOutput) UsageModel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -3181,19 +3082,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -3250,7 +3144,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -3270,37 +3163,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -3320,10 +3207,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3333,7 +3225,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3343,7 +3234,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3353,7 +3243,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3363,7 +3252,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3373,7 +3261,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -3383,9 +3270,7 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties pertained to UnknownTarget
 type UnknownTarget struct {
-	// Dictionary of string->string pairs containing information about the Storage Target.
 	UnknownMap map[string]string `pulumi:"unknownMap"`
 }
 
@@ -3400,9 +3285,7 @@ type UnknownTargetInput interface {
 	ToUnknownTargetOutputWithContext(context.Context) UnknownTargetOutput
 }
 
-// Properties pertained to UnknownTarget
 type UnknownTargetArgs struct {
-	// Dictionary of string->string pairs containing information about the Storage Target.
 	UnknownMap pulumi.StringMapInput `pulumi:"unknownMap"`
 }
 
@@ -3459,7 +3342,6 @@ func (i *unknownTargetPtrType) ToUnknownTargetPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(UnknownTargetPtrOutput)
 }
 
-// Properties pertained to UnknownTarget
 type UnknownTargetOutput struct{ *pulumi.OutputState }
 
 func (UnknownTargetOutput) ElementType() reflect.Type {
@@ -3479,12 +3361,11 @@ func (o UnknownTargetOutput) ToUnknownTargetPtrOutput() UnknownTargetPtrOutput {
 }
 
 func (o UnknownTargetOutput) ToUnknownTargetPtrOutputWithContext(ctx context.Context) UnknownTargetPtrOutput {
-	return o.ApplyT(func(v UnknownTarget) *UnknownTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnknownTarget) *UnknownTarget {
 		return &v
 	}).(UnknownTargetPtrOutput)
 }
 
-// Dictionary of string->string pairs containing information about the Storage Target.
 func (o UnknownTargetOutput) UnknownMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v UnknownTarget) map[string]string { return v.UnknownMap }).(pulumi.StringMapOutput)
 }
@@ -3504,10 +3385,15 @@ func (o UnknownTargetPtrOutput) ToUnknownTargetPtrOutputWithContext(ctx context.
 }
 
 func (o UnknownTargetPtrOutput) Elem() UnknownTargetOutput {
-	return o.ApplyT(func(v *UnknownTarget) UnknownTarget { return *v }).(UnknownTargetOutput)
+	return o.ApplyT(func(v *UnknownTarget) UnknownTarget {
+		if v != nil {
+			return *v
+		}
+		var ret UnknownTarget
+		return ret
+	}).(UnknownTargetOutput)
 }
 
-// Dictionary of string->string pairs containing information about the Storage Target.
 func (o UnknownTargetPtrOutput) UnknownMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UnknownTarget) map[string]string {
 		if v == nil {
@@ -3517,9 +3403,7 @@ func (o UnknownTargetPtrOutput) UnknownMap() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Properties pertained to UnknownTarget
 type UnknownTargetResponse struct {
-	// Dictionary of string->string pairs containing information about the Storage Target.
 	UnknownMap map[string]string `pulumi:"unknownMap"`
 }
 
@@ -3534,9 +3418,7 @@ type UnknownTargetResponseInput interface {
 	ToUnknownTargetResponseOutputWithContext(context.Context) UnknownTargetResponseOutput
 }
 
-// Properties pertained to UnknownTarget
 type UnknownTargetResponseArgs struct {
-	// Dictionary of string->string pairs containing information about the Storage Target.
 	UnknownMap pulumi.StringMapInput `pulumi:"unknownMap"`
 }
 
@@ -3593,7 +3475,6 @@ func (i *unknownTargetResponsePtrType) ToUnknownTargetResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(UnknownTargetResponsePtrOutput)
 }
 
-// Properties pertained to UnknownTarget
 type UnknownTargetResponseOutput struct{ *pulumi.OutputState }
 
 func (UnknownTargetResponseOutput) ElementType() reflect.Type {
@@ -3613,12 +3494,11 @@ func (o UnknownTargetResponseOutput) ToUnknownTargetResponsePtrOutput() UnknownT
 }
 
 func (o UnknownTargetResponseOutput) ToUnknownTargetResponsePtrOutputWithContext(ctx context.Context) UnknownTargetResponsePtrOutput {
-	return o.ApplyT(func(v UnknownTargetResponse) *UnknownTargetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnknownTargetResponse) *UnknownTargetResponse {
 		return &v
 	}).(UnknownTargetResponsePtrOutput)
 }
 
-// Dictionary of string->string pairs containing information about the Storage Target.
 func (o UnknownTargetResponseOutput) UnknownMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v UnknownTargetResponse) map[string]string { return v.UnknownMap }).(pulumi.StringMapOutput)
 }
@@ -3638,10 +3518,15 @@ func (o UnknownTargetResponsePtrOutput) ToUnknownTargetResponsePtrOutputWithCont
 }
 
 func (o UnknownTargetResponsePtrOutput) Elem() UnknownTargetResponseOutput {
-	return o.ApplyT(func(v *UnknownTargetResponse) UnknownTargetResponse { return *v }).(UnknownTargetResponseOutput)
+	return o.ApplyT(func(v *UnknownTargetResponse) UnknownTargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UnknownTargetResponse
+		return ret
+	}).(UnknownTargetResponseOutput)
 }
 
-// Dictionary of string->string pairs containing information about the Storage Target.
 func (o UnknownTargetResponsePtrOutput) UnknownMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UnknownTargetResponse) map[string]string {
 		if v == nil {

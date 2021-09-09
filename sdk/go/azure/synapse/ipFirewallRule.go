@@ -170,9 +170,7 @@ func (i *IpFirewallRule) ToIpFirewallRuleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(IpFirewallRuleOutput)
 }
 
-type IpFirewallRuleOutput struct {
-	*pulumi.OutputState
-}
+type IpFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (IpFirewallRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IpFirewallRule)(nil))

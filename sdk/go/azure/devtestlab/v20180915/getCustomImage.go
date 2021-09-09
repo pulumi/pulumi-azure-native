@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A custom image.
 func LookupCustomImage(ctx *pulumi.Context, args *LookupCustomImageArgs, opts ...pulumi.InvokeOption) (*LookupCustomImageResult, error) {
 	var rv LookupCustomImageResult
 	err := ctx.Invoke("azure-native:devtestlab/v20180915:getCustomImage", args, &rv, opts...)
@@ -18,50 +17,29 @@ func LookupCustomImage(ctx *pulumi.Context, args *LookupCustomImageArgs, opts ..
 }
 
 type LookupCustomImageArgs struct {
-	// Specify the $expand query. Example: 'properties($select=vm)'
-	Expand *string `pulumi:"expand"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The name of the custom image.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand            *string `pulumi:"expand"`
+	LabName           string  `pulumi:"labName"`
+	Name              string  `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // A custom image.
 type LookupCustomImageResult struct {
-	// The author of the custom image.
-	Author *string `pulumi:"author"`
-	// The creation date of the custom image.
-	CreationDate string `pulumi:"creationDate"`
-	// Storage information about the plan related to this custom image
-	CustomImagePlan *CustomImagePropertiesFromPlanResponse `pulumi:"customImagePlan"`
-	// Storage information about the data disks present in the custom image
-	DataDiskStorageInfo []DataDiskStorageTypeInfoResponse `pulumi:"dataDiskStorageInfo"`
-	// The description of the custom image.
-	Description *string `pulumi:"description"`
-	// The identifier of the resource.
-	Id string `pulumi:"id"`
-	// Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
-	IsPlanAuthorized *bool `pulumi:"isPlanAuthorized"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The Managed Image Id backing the custom image.
-	ManagedImageId *string `pulumi:"managedImageId"`
-	// The Managed Snapshot Id backing the custom image.
-	ManagedSnapshotId *string `pulumi:"managedSnapshotId"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
-	// The VHD from which the image is to be created.
-	Vhd *CustomImagePropertiesCustomResponse `pulumi:"vhd"`
-	// The virtual machine from which the image is to be created.
-	Vm *CustomImagePropertiesFromVmResponse `pulumi:"vm"`
+	Author              *string                                `pulumi:"author"`
+	CreationDate        string                                 `pulumi:"creationDate"`
+	CustomImagePlan     *CustomImagePropertiesFromPlanResponse `pulumi:"customImagePlan"`
+	DataDiskStorageInfo []DataDiskStorageTypeInfoResponse      `pulumi:"dataDiskStorageInfo"`
+	Description         *string                                `pulumi:"description"`
+	Id                  string                                 `pulumi:"id"`
+	IsPlanAuthorized    *bool                                  `pulumi:"isPlanAuthorized"`
+	Location            *string                                `pulumi:"location"`
+	ManagedImageId      *string                                `pulumi:"managedImageId"`
+	ManagedSnapshotId   *string                                `pulumi:"managedSnapshotId"`
+	Name                string                                 `pulumi:"name"`
+	ProvisioningState   string                                 `pulumi:"provisioningState"`
+	Tags                map[string]string                      `pulumi:"tags"`
+	Type                string                                 `pulumi:"type"`
+	UniqueIdentifier    string                                 `pulumi:"uniqueIdentifier"`
+	Vhd                 *CustomImagePropertiesCustomResponse   `pulumi:"vhd"`
+	Vm                  *CustomImagePropertiesFromVmResponse   `pulumi:"vm"`
 }

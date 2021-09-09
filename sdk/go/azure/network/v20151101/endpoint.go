@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Traffic Manager endpoint.
 type Endpoint struct {
 	pulumi.CustomResourceState
 
-	// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
-	EndpointLocation pulumi.StringPtrOutput `pulumi:"endpointLocation"`
-	// Gets or sets the monitoring status of the endpoint.
-	EndpointMonitorStatus pulumi.StringPtrOutput `pulumi:"endpointMonitorStatus"`
-	// Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
-	EndpointStatus pulumi.StringPtrOutput `pulumi:"endpointStatus"`
-	// Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpoints pulumi.Float64PtrOutput `pulumi:"minChildEndpoints"`
-	// Gets or sets the name of the Traffic Manager endpoint.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-	Priority pulumi.Float64PtrOutput `pulumi:"priority"`
-	// Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-	Target pulumi.StringPtrOutput `pulumi:"target"`
-	// Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
-	TargetResourceId pulumi.StringPtrOutput `pulumi:"targetResourceId"`
-	// Gets or sets the endpoint type of the Traffic Manager endpoint.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-	Weight pulumi.Float64PtrOutput `pulumi:"weight"`
+	EndpointLocation      pulumi.StringPtrOutput  `pulumi:"endpointLocation"`
+	EndpointMonitorStatus pulumi.StringPtrOutput  `pulumi:"endpointMonitorStatus"`
+	EndpointStatus        pulumi.StringPtrOutput  `pulumi:"endpointStatus"`
+	MinChildEndpoints     pulumi.Float64PtrOutput `pulumi:"minChildEndpoints"`
+	Name                  pulumi.StringPtrOutput  `pulumi:"name"`
+	Priority              pulumi.Float64PtrOutput `pulumi:"priority"`
+	Target                pulumi.StringPtrOutput  `pulumi:"target"`
+	TargetResourceId      pulumi.StringPtrOutput  `pulumi:"targetResourceId"`
+	Type                  pulumi.StringPtrOutput  `pulumi:"type"`
+	Weight                pulumi.Float64PtrOutput `pulumi:"weight"`
 }
 
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -133,70 +122,40 @@ func (EndpointState) ElementType() reflect.Type {
 }
 
 type endpointArgs struct {
-	// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
-	EndpointLocation *string `pulumi:"endpointLocation"`
-	// Gets or sets the monitoring status of the endpoint.
-	EndpointMonitorStatus *string `pulumi:"endpointMonitorStatus"`
-	// The name of the Traffic Manager endpoint to be created or updated.
-	EndpointName *string `pulumi:"endpointName"`
-	// Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
-	EndpointStatus *string `pulumi:"endpointStatus"`
-	// The type of the Traffic Manager endpoint to be created or updated.
-	EndpointType string `pulumi:"endpointType"`
-	// Gets or sets the ID of the Traffic Manager endpoint.
-	Id *string `pulumi:"id"`
-	// Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpoints *float64 `pulumi:"minChildEndpoints"`
-	// Gets or sets the name of the Traffic Manager endpoint.
-	Name *string `pulumi:"name"`
-	// Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-	Priority *float64 `pulumi:"priority"`
-	// The name of the Traffic Manager profile.
-	ProfileName string `pulumi:"profileName"`
-	// The name of the resource group containing the Traffic Manager endpoint to be created or updated.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-	Target *string `pulumi:"target"`
-	// Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
-	TargetResourceId *string `pulumi:"targetResourceId"`
-	// Gets or sets the endpoint type of the Traffic Manager endpoint.
-	Type *string `pulumi:"type"`
-	// Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-	Weight *float64 `pulumi:"weight"`
+	EndpointLocation      *string  `pulumi:"endpointLocation"`
+	EndpointMonitorStatus *string  `pulumi:"endpointMonitorStatus"`
+	EndpointName          *string  `pulumi:"endpointName"`
+	EndpointStatus        *string  `pulumi:"endpointStatus"`
+	EndpointType          string   `pulumi:"endpointType"`
+	Id                    *string  `pulumi:"id"`
+	MinChildEndpoints     *float64 `pulumi:"minChildEndpoints"`
+	Name                  *string  `pulumi:"name"`
+	Priority              *float64 `pulumi:"priority"`
+	ProfileName           string   `pulumi:"profileName"`
+	ResourceGroupName     string   `pulumi:"resourceGroupName"`
+	Target                *string  `pulumi:"target"`
+	TargetResourceId      *string  `pulumi:"targetResourceId"`
+	Type                  *string  `pulumi:"type"`
+	Weight                *float64 `pulumi:"weight"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
-	// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
-	EndpointLocation pulumi.StringPtrInput
-	// Gets or sets the monitoring status of the endpoint.
+	EndpointLocation      pulumi.StringPtrInput
 	EndpointMonitorStatus pulumi.StringPtrInput
-	// The name of the Traffic Manager endpoint to be created or updated.
-	EndpointName pulumi.StringPtrInput
-	// Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
-	EndpointStatus pulumi.StringPtrInput
-	// The type of the Traffic Manager endpoint to be created or updated.
-	EndpointType pulumi.StringInput
-	// Gets or sets the ID of the Traffic Manager endpoint.
-	Id pulumi.StringPtrInput
-	// Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpoints pulumi.Float64PtrInput
-	// Gets or sets the name of the Traffic Manager endpoint.
-	Name pulumi.StringPtrInput
-	// Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-	Priority pulumi.Float64PtrInput
-	// The name of the Traffic Manager profile.
-	ProfileName pulumi.StringInput
-	// The name of the resource group containing the Traffic Manager endpoint to be created or updated.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-	Target pulumi.StringPtrInput
-	// Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
-	TargetResourceId pulumi.StringPtrInput
-	// Gets or sets the endpoint type of the Traffic Manager endpoint.
-	Type pulumi.StringPtrInput
-	// Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-	Weight pulumi.Float64PtrInput
+	EndpointName          pulumi.StringPtrInput
+	EndpointStatus        pulumi.StringPtrInput
+	EndpointType          pulumi.StringInput
+	Id                    pulumi.StringPtrInput
+	MinChildEndpoints     pulumi.Float64PtrInput
+	Name                  pulumi.StringPtrInput
+	Priority              pulumi.Float64PtrInput
+	ProfileName           pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	Target                pulumi.StringPtrInput
+	TargetResourceId      pulumi.StringPtrInput
+	Type                  pulumi.StringPtrInput
+	Weight                pulumi.Float64PtrInput
 }
 
 func (EndpointArgs) ElementType() reflect.Type {
@@ -222,9 +181,7 @@ func (i *Endpoint) ToEndpointOutputWithContext(ctx context.Context) EndpointOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOutput)
 }
 
-type EndpointOutput struct {
-	*pulumi.OutputState
-}
+type EndpointOutput struct{ *pulumi.OutputState }
 
 func (EndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Endpoint)(nil))

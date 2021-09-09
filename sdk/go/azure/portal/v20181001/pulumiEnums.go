@@ -10,8 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Size of terminal font.
-type FontSize pulumi.String
+type FontSize string
 
 const (
 	FontSizeNotSpecified = FontSize("NotSpecified")
@@ -21,7 +20,23 @@ const (
 )
 
 func (FontSize) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*FontSize)(nil)).Elem()
+}
+
+func (e FontSize) ToFontSizeOutput() FontSizeOutput {
+	return pulumi.ToOutput(e).(FontSizeOutput)
+}
+
+func (e FontSize) ToFontSizeOutputWithContext(ctx context.Context) FontSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FontSizeOutput)
+}
+
+func (e FontSize) ToFontSizePtrOutput() FontSizePtrOutput {
+	return e.ToFontSizePtrOutputWithContext(context.Background())
+}
+
+func (e FontSize) ToFontSizePtrOutputWithContext(ctx context.Context) FontSizePtrOutput {
+	return FontSize(e).ToFontSizeOutputWithContext(ctx).ToFontSizePtrOutputWithContext(ctx)
 }
 
 func (e FontSize) ToStringOutput() pulumi.StringOutput {
@@ -40,8 +55,128 @@ func (e FontSize) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Style of terminal font.
-type FontStyle pulumi.String
+type FontSizeOutput struct{ *pulumi.OutputState }
+
+func (FontSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FontSize)(nil)).Elem()
+}
+
+func (o FontSizeOutput) ToFontSizeOutput() FontSizeOutput {
+	return o
+}
+
+func (o FontSizeOutput) ToFontSizeOutputWithContext(ctx context.Context) FontSizeOutput {
+	return o
+}
+
+func (o FontSizeOutput) ToFontSizePtrOutput() FontSizePtrOutput {
+	return o.ToFontSizePtrOutputWithContext(context.Background())
+}
+
+func (o FontSizeOutput) ToFontSizePtrOutputWithContext(ctx context.Context) FontSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FontSize) *FontSize {
+		return &v
+	}).(FontSizePtrOutput)
+}
+
+func (o FontSizeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FontSizeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FontSize) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FontSizeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FontSizeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FontSize) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FontSizePtrOutput struct{ *pulumi.OutputState }
+
+func (FontSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FontSize)(nil)).Elem()
+}
+
+func (o FontSizePtrOutput) ToFontSizePtrOutput() FontSizePtrOutput {
+	return o
+}
+
+func (o FontSizePtrOutput) ToFontSizePtrOutputWithContext(ctx context.Context) FontSizePtrOutput {
+	return o
+}
+
+func (o FontSizePtrOutput) Elem() FontSizeOutput {
+	return o.ApplyT(func(v *FontSize) FontSize {
+		if v != nil {
+			return *v
+		}
+		var ret FontSize
+		return ret
+	}).(FontSizeOutput)
+}
+
+func (o FontSizePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FontSizePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FontSize) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FontSizeInput is an input type that accepts FontSizeArgs and FontSizeOutput values.
+// You can construct a concrete instance of `FontSizeInput` via:
+//
+//          FontSizeArgs{...}
+type FontSizeInput interface {
+	pulumi.Input
+
+	ToFontSizeOutput() FontSizeOutput
+	ToFontSizeOutputWithContext(context.Context) FontSizeOutput
+}
+
+var fontSizePtrType = reflect.TypeOf((**FontSize)(nil)).Elem()
+
+type FontSizePtrInput interface {
+	pulumi.Input
+
+	ToFontSizePtrOutput() FontSizePtrOutput
+	ToFontSizePtrOutputWithContext(context.Context) FontSizePtrOutput
+}
+
+type fontSizePtr string
+
+func FontSizePtr(v string) FontSizePtrInput {
+	return (*fontSizePtr)(&v)
+}
+
+func (*fontSizePtr) ElementType() reflect.Type {
+	return fontSizePtrType
+}
+
+func (in *fontSizePtr) ToFontSizePtrOutput() FontSizePtrOutput {
+	return pulumi.ToOutput(in).(FontSizePtrOutput)
+}
+
+func (in *fontSizePtr) ToFontSizePtrOutputWithContext(ctx context.Context) FontSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FontSizePtrOutput)
+}
+
+type FontStyle string
 
 const (
 	FontStyleNotSpecified = FontStyle("NotSpecified")
@@ -50,7 +185,23 @@ const (
 )
 
 func (FontStyle) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*FontStyle)(nil)).Elem()
+}
+
+func (e FontStyle) ToFontStyleOutput() FontStyleOutput {
+	return pulumi.ToOutput(e).(FontStyleOutput)
+}
+
+func (e FontStyle) ToFontStyleOutputWithContext(ctx context.Context) FontStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FontStyleOutput)
+}
+
+func (e FontStyle) ToFontStylePtrOutput() FontStylePtrOutput {
+	return e.ToFontStylePtrOutputWithContext(context.Background())
+}
+
+func (e FontStyle) ToFontStylePtrOutputWithContext(ctx context.Context) FontStylePtrOutput {
+	return FontStyle(e).ToFontStyleOutputWithContext(ctx).ToFontStylePtrOutputWithContext(ctx)
 }
 
 func (e FontStyle) ToStringOutput() pulumi.StringOutput {
@@ -69,8 +220,128 @@ func (e FontStyle) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The operating system type of the cloud shell. Deprecated, use preferredShellType.
-type OsType pulumi.String
+type FontStyleOutput struct{ *pulumi.OutputState }
+
+func (FontStyleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FontStyle)(nil)).Elem()
+}
+
+func (o FontStyleOutput) ToFontStyleOutput() FontStyleOutput {
+	return o
+}
+
+func (o FontStyleOutput) ToFontStyleOutputWithContext(ctx context.Context) FontStyleOutput {
+	return o
+}
+
+func (o FontStyleOutput) ToFontStylePtrOutput() FontStylePtrOutput {
+	return o.ToFontStylePtrOutputWithContext(context.Background())
+}
+
+func (o FontStyleOutput) ToFontStylePtrOutputWithContext(ctx context.Context) FontStylePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FontStyle) *FontStyle {
+		return &v
+	}).(FontStylePtrOutput)
+}
+
+func (o FontStyleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FontStyleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FontStyle) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FontStyleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FontStyleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FontStyle) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FontStylePtrOutput struct{ *pulumi.OutputState }
+
+func (FontStylePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FontStyle)(nil)).Elem()
+}
+
+func (o FontStylePtrOutput) ToFontStylePtrOutput() FontStylePtrOutput {
+	return o
+}
+
+func (o FontStylePtrOutput) ToFontStylePtrOutputWithContext(ctx context.Context) FontStylePtrOutput {
+	return o
+}
+
+func (o FontStylePtrOutput) Elem() FontStyleOutput {
+	return o.ApplyT(func(v *FontStyle) FontStyle {
+		if v != nil {
+			return *v
+		}
+		var ret FontStyle
+		return ret
+	}).(FontStyleOutput)
+}
+
+func (o FontStylePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FontStylePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FontStyle) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FontStyleInput is an input type that accepts FontStyleArgs and FontStyleOutput values.
+// You can construct a concrete instance of `FontStyleInput` via:
+//
+//          FontStyleArgs{...}
+type FontStyleInput interface {
+	pulumi.Input
+
+	ToFontStyleOutput() FontStyleOutput
+	ToFontStyleOutputWithContext(context.Context) FontStyleOutput
+}
+
+var fontStylePtrType = reflect.TypeOf((**FontStyle)(nil)).Elem()
+
+type FontStylePtrInput interface {
+	pulumi.Input
+
+	ToFontStylePtrOutput() FontStylePtrOutput
+	ToFontStylePtrOutputWithContext(context.Context) FontStylePtrOutput
+}
+
+type fontStylePtr string
+
+func FontStylePtr(v string) FontStylePtrInput {
+	return (*fontStylePtr)(&v)
+}
+
+func (*fontStylePtr) ElementType() reflect.Type {
+	return fontStylePtrType
+}
+
+func (in *fontStylePtr) ToFontStylePtrOutput() FontStylePtrOutput {
+	return pulumi.ToOutput(in).(FontStylePtrOutput)
+}
+
+func (in *fontStylePtr) ToFontStylePtrOutputWithContext(ctx context.Context) FontStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FontStylePtrOutput)
+}
+
+type OsType string
 
 const (
 	OsTypeWindows = OsType("Windows")
@@ -78,7 +349,23 @@ const (
 )
 
 func (OsType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*OsType)(nil)).Elem()
+}
+
+func (e OsType) ToOsTypeOutput() OsTypeOutput {
+	return pulumi.ToOutput(e).(OsTypeOutput)
+}
+
+func (e OsType) ToOsTypeOutputWithContext(ctx context.Context) OsTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OsTypeOutput)
+}
+
+func (e OsType) ToOsTypePtrOutput() OsTypePtrOutput {
+	return e.ToOsTypePtrOutputWithContext(context.Background())
+}
+
+func (e OsType) ToOsTypePtrOutputWithContext(ctx context.Context) OsTypePtrOutput {
+	return OsType(e).ToOsTypeOutputWithContext(ctx).ToOsTypePtrOutputWithContext(ctx)
 }
 
 func (e OsType) ToStringOutput() pulumi.StringOutput {
@@ -97,8 +384,128 @@ func (e OsType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringP
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Provisioning state of the console.
-type ProvisioningState pulumi.String
+type OsTypeOutput struct{ *pulumi.OutputState }
+
+func (OsTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OsType)(nil)).Elem()
+}
+
+func (o OsTypeOutput) ToOsTypeOutput() OsTypeOutput {
+	return o
+}
+
+func (o OsTypeOutput) ToOsTypeOutputWithContext(ctx context.Context) OsTypeOutput {
+	return o
+}
+
+func (o OsTypeOutput) ToOsTypePtrOutput() OsTypePtrOutput {
+	return o.ToOsTypePtrOutputWithContext(context.Background())
+}
+
+func (o OsTypeOutput) ToOsTypePtrOutputWithContext(ctx context.Context) OsTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OsType) *OsType {
+		return &v
+	}).(OsTypePtrOutput)
+}
+
+func (o OsTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OsTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OsType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OsTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OsTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OsType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OsTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OsTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OsType)(nil)).Elem()
+}
+
+func (o OsTypePtrOutput) ToOsTypePtrOutput() OsTypePtrOutput {
+	return o
+}
+
+func (o OsTypePtrOutput) ToOsTypePtrOutputWithContext(ctx context.Context) OsTypePtrOutput {
+	return o
+}
+
+func (o OsTypePtrOutput) Elem() OsTypeOutput {
+	return o.ApplyT(func(v *OsType) OsType {
+		if v != nil {
+			return *v
+		}
+		var ret OsType
+		return ret
+	}).(OsTypeOutput)
+}
+
+func (o OsTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OsTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OsType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OsTypeInput is an input type that accepts OsTypeArgs and OsTypeOutput values.
+// You can construct a concrete instance of `OsTypeInput` via:
+//
+//          OsTypeArgs{...}
+type OsTypeInput interface {
+	pulumi.Input
+
+	ToOsTypeOutput() OsTypeOutput
+	ToOsTypeOutputWithContext(context.Context) OsTypeOutput
+}
+
+var osTypePtrType = reflect.TypeOf((**OsType)(nil)).Elem()
+
+type OsTypePtrInput interface {
+	pulumi.Input
+
+	ToOsTypePtrOutput() OsTypePtrOutput
+	ToOsTypePtrOutputWithContext(context.Context) OsTypePtrOutput
+}
+
+type osTypePtr string
+
+func OsTypePtr(v string) OsTypePtrInput {
+	return (*osTypePtr)(&v)
+}
+
+func (*osTypePtr) ElementType() reflect.Type {
+	return osTypePtrType
+}
+
+func (in *osTypePtr) ToOsTypePtrOutput() OsTypePtrOutput {
+	return pulumi.ToOutput(in).(OsTypePtrOutput)
+}
+
+func (in *osTypePtr) ToOsTypePtrOutputWithContext(ctx context.Context) OsTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OsTypePtrOutput)
+}
+
+type ProvisioningState string
 
 const (
 	ProvisioningStateNotSpecified = ProvisioningState("NotSpecified")
@@ -113,7 +520,23 @@ const (
 )
 
 func (ProvisioningState) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ProvisioningState)(nil)).Elem()
+}
+
+func (e ProvisioningState) ToProvisioningStateOutput() ProvisioningStateOutput {
+	return pulumi.ToOutput(e).(ProvisioningStateOutput)
+}
+
+func (e ProvisioningState) ToProvisioningStateOutputWithContext(ctx context.Context) ProvisioningStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProvisioningStateOutput)
+}
+
+func (e ProvisioningState) ToProvisioningStatePtrOutput() ProvisioningStatePtrOutput {
+	return e.ToProvisioningStatePtrOutputWithContext(context.Background())
+}
+
+func (e ProvisioningState) ToProvisioningStatePtrOutputWithContext(ctx context.Context) ProvisioningStatePtrOutput {
+	return ProvisioningState(e).ToProvisioningStateOutputWithContext(ctx).ToProvisioningStatePtrOutputWithContext(ctx)
 }
 
 func (e ProvisioningState) ToStringOutput() pulumi.StringOutput {
@@ -132,8 +555,128 @@ func (e ProvisioningState) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The shell type of the cloud shell.
-type ShellType pulumi.String
+type ProvisioningStateOutput struct{ *pulumi.OutputState }
+
+func (ProvisioningStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisioningState)(nil)).Elem()
+}
+
+func (o ProvisioningStateOutput) ToProvisioningStateOutput() ProvisioningStateOutput {
+	return o
+}
+
+func (o ProvisioningStateOutput) ToProvisioningStateOutputWithContext(ctx context.Context) ProvisioningStateOutput {
+	return o
+}
+
+func (o ProvisioningStateOutput) ToProvisioningStatePtrOutput() ProvisioningStatePtrOutput {
+	return o.ToProvisioningStatePtrOutputWithContext(context.Background())
+}
+
+func (o ProvisioningStateOutput) ToProvisioningStatePtrOutputWithContext(ctx context.Context) ProvisioningStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProvisioningState) *ProvisioningState {
+		return &v
+	}).(ProvisioningStatePtrOutput)
+}
+
+func (o ProvisioningStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProvisioningStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProvisioningState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProvisioningStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProvisioningStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProvisioningState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProvisioningStatePtrOutput struct{ *pulumi.OutputState }
+
+func (ProvisioningStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisioningState)(nil)).Elem()
+}
+
+func (o ProvisioningStatePtrOutput) ToProvisioningStatePtrOutput() ProvisioningStatePtrOutput {
+	return o
+}
+
+func (o ProvisioningStatePtrOutput) ToProvisioningStatePtrOutputWithContext(ctx context.Context) ProvisioningStatePtrOutput {
+	return o
+}
+
+func (o ProvisioningStatePtrOutput) Elem() ProvisioningStateOutput {
+	return o.ApplyT(func(v *ProvisioningState) ProvisioningState {
+		if v != nil {
+			return *v
+		}
+		var ret ProvisioningState
+		return ret
+	}).(ProvisioningStateOutput)
+}
+
+func (o ProvisioningStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProvisioningStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProvisioningState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProvisioningStateInput is an input type that accepts ProvisioningStateArgs and ProvisioningStateOutput values.
+// You can construct a concrete instance of `ProvisioningStateInput` via:
+//
+//          ProvisioningStateArgs{...}
+type ProvisioningStateInput interface {
+	pulumi.Input
+
+	ToProvisioningStateOutput() ProvisioningStateOutput
+	ToProvisioningStateOutputWithContext(context.Context) ProvisioningStateOutput
+}
+
+var provisioningStatePtrType = reflect.TypeOf((**ProvisioningState)(nil)).Elem()
+
+type ProvisioningStatePtrInput interface {
+	pulumi.Input
+
+	ToProvisioningStatePtrOutput() ProvisioningStatePtrOutput
+	ToProvisioningStatePtrOutputWithContext(context.Context) ProvisioningStatePtrOutput
+}
+
+type provisioningStatePtr string
+
+func ProvisioningStatePtr(v string) ProvisioningStatePtrInput {
+	return (*provisioningStatePtr)(&v)
+}
+
+func (*provisioningStatePtr) ElementType() reflect.Type {
+	return provisioningStatePtrType
+}
+
+func (in *provisioningStatePtr) ToProvisioningStatePtrOutput() ProvisioningStatePtrOutput {
+	return pulumi.ToOutput(in).(ProvisioningStatePtrOutput)
+}
+
+func (in *provisioningStatePtr) ToProvisioningStatePtrOutputWithContext(ctx context.Context) ProvisioningStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProvisioningStatePtrOutput)
+}
+
+type ShellType string
 
 const (
 	ShellTypeBash       = ShellType("bash")
@@ -142,7 +685,23 @@ const (
 )
 
 func (ShellType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ShellType)(nil)).Elem()
+}
+
+func (e ShellType) ToShellTypeOutput() ShellTypeOutput {
+	return pulumi.ToOutput(e).(ShellTypeOutput)
+}
+
+func (e ShellType) ToShellTypeOutputWithContext(ctx context.Context) ShellTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ShellTypeOutput)
+}
+
+func (e ShellType) ToShellTypePtrOutput() ShellTypePtrOutput {
+	return e.ToShellTypePtrOutputWithContext(context.Background())
+}
+
+func (e ShellType) ToShellTypePtrOutputWithContext(ctx context.Context) ShellTypePtrOutput {
+	return ShellType(e).ToShellTypeOutputWithContext(ctx).ToShellTypePtrOutputWithContext(ctx)
 }
 
 func (e ShellType) ToStringOutput() pulumi.StringOutput {
@@ -159,4 +718,138 @@ func (e ShellType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e ShellType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ShellTypeOutput struct{ *pulumi.OutputState }
+
+func (ShellTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShellType)(nil)).Elem()
+}
+
+func (o ShellTypeOutput) ToShellTypeOutput() ShellTypeOutput {
+	return o
+}
+
+func (o ShellTypeOutput) ToShellTypeOutputWithContext(ctx context.Context) ShellTypeOutput {
+	return o
+}
+
+func (o ShellTypeOutput) ToShellTypePtrOutput() ShellTypePtrOutput {
+	return o.ToShellTypePtrOutputWithContext(context.Background())
+}
+
+func (o ShellTypeOutput) ToShellTypePtrOutputWithContext(ctx context.Context) ShellTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShellType) *ShellType {
+		return &v
+	}).(ShellTypePtrOutput)
+}
+
+func (o ShellTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ShellTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ShellType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ShellTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ShellTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ShellType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ShellTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ShellTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ShellType)(nil)).Elem()
+}
+
+func (o ShellTypePtrOutput) ToShellTypePtrOutput() ShellTypePtrOutput {
+	return o
+}
+
+func (o ShellTypePtrOutput) ToShellTypePtrOutputWithContext(ctx context.Context) ShellTypePtrOutput {
+	return o
+}
+
+func (o ShellTypePtrOutput) Elem() ShellTypeOutput {
+	return o.ApplyT(func(v *ShellType) ShellType {
+		if v != nil {
+			return *v
+		}
+		var ret ShellType
+		return ret
+	}).(ShellTypeOutput)
+}
+
+func (o ShellTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ShellTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ShellType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ShellTypeInput is an input type that accepts ShellTypeArgs and ShellTypeOutput values.
+// You can construct a concrete instance of `ShellTypeInput` via:
+//
+//          ShellTypeArgs{...}
+type ShellTypeInput interface {
+	pulumi.Input
+
+	ToShellTypeOutput() ShellTypeOutput
+	ToShellTypeOutputWithContext(context.Context) ShellTypeOutput
+}
+
+var shellTypePtrType = reflect.TypeOf((**ShellType)(nil)).Elem()
+
+type ShellTypePtrInput interface {
+	pulumi.Input
+
+	ToShellTypePtrOutput() ShellTypePtrOutput
+	ToShellTypePtrOutputWithContext(context.Context) ShellTypePtrOutput
+}
+
+type shellTypePtr string
+
+func ShellTypePtr(v string) ShellTypePtrInput {
+	return (*shellTypePtr)(&v)
+}
+
+func (*shellTypePtr) ElementType() reflect.Type {
+	return shellTypePtrType
+}
+
+func (in *shellTypePtr) ToShellTypePtrOutput() ShellTypePtrOutput {
+	return pulumi.ToOutput(in).(ShellTypePtrOutput)
+}
+
+func (in *shellTypePtr) ToShellTypePtrOutputWithContext(ctx context.Context) ShellTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ShellTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(FontSizeOutput{})
+	pulumi.RegisterOutputType(FontSizePtrOutput{})
+	pulumi.RegisterOutputType(FontStyleOutput{})
+	pulumi.RegisterOutputType(FontStylePtrOutput{})
+	pulumi.RegisterOutputType(OsTypeOutput{})
+	pulumi.RegisterOutputType(OsTypePtrOutput{})
+	pulumi.RegisterOutputType(ProvisioningStateOutput{})
+	pulumi.RegisterOutputType(ProvisioningStatePtrOutput{})
+	pulumi.RegisterOutputType(ShellTypeOutput{})
+	pulumi.RegisterOutputType(ShellTypePtrOutput{})
 }

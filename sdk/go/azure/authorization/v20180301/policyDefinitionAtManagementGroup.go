@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The policy definition.
 type PolicyDefinitionAtManagementGroup struct {
 	pulumi.CustomResourceState
 
-	// The policy definition description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The policy definition metadata.
-	Metadata pulumi.AnyOutput `pulumi:"metadata"`
-	// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
-	Mode pulumi.StringPtrOutput `pulumi:"mode"`
-	// The name of the policy definition.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Required if a parameter is used in policy rule.
-	Parameters pulumi.AnyOutput `pulumi:"parameters"`
-	// The policy rule.
-	PolicyRule pulumi.AnyOutput `pulumi:"policyRule"`
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
-	// The type of the resource (Microsoft.Authorization/policyDefinitions).
-	Type pulumi.StringOutput `pulumi:"type"`
+	Metadata    pulumi.AnyOutput       `pulumi:"metadata"`
+	Mode        pulumi.StringPtrOutput `pulumi:"mode"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Parameters  pulumi.AnyOutput       `pulumi:"parameters"`
+	PolicyRule  pulumi.AnyOutput       `pulumi:"policyRule"`
+	PolicyType  pulumi.StringPtrOutput `pulumi:"policyType"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewPolicyDefinitionAtManagementGroup registers a new resource with the given unique name, arguments, and options.
@@ -137,46 +127,28 @@ func (PolicyDefinitionAtManagementGroupState) ElementType() reflect.Type {
 }
 
 type policyDefinitionAtManagementGroupArgs struct {
-	// The policy definition description.
-	Description *string `pulumi:"description"`
-	// The display name of the policy definition.
-	DisplayName *string `pulumi:"displayName"`
-	// The ID of the management group.
-	ManagementGroupId string `pulumi:"managementGroupId"`
-	// The policy definition metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
-	Mode *string `pulumi:"mode"`
-	// Required if a parameter is used in policy rule.
-	Parameters interface{} `pulumi:"parameters"`
-	// The name of the policy definition to create.
-	PolicyDefinitionName *string `pulumi:"policyDefinitionName"`
-	// The policy rule.
-	PolicyRule interface{} `pulumi:"policyRule"`
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-	PolicyType *string `pulumi:"policyType"`
+	Description          *string     `pulumi:"description"`
+	DisplayName          *string     `pulumi:"displayName"`
+	ManagementGroupId    string      `pulumi:"managementGroupId"`
+	Metadata             interface{} `pulumi:"metadata"`
+	Mode                 *string     `pulumi:"mode"`
+	Parameters           interface{} `pulumi:"parameters"`
+	PolicyDefinitionName *string     `pulumi:"policyDefinitionName"`
+	PolicyRule           interface{} `pulumi:"policyRule"`
+	PolicyType           *string     `pulumi:"policyType"`
 }
 
 // The set of arguments for constructing a PolicyDefinitionAtManagementGroup resource.
 type PolicyDefinitionAtManagementGroupArgs struct {
-	// The policy definition description.
-	Description pulumi.StringPtrInput
-	// The display name of the policy definition.
-	DisplayName pulumi.StringPtrInput
-	// The ID of the management group.
-	ManagementGroupId pulumi.StringInput
-	// The policy definition metadata.
-	Metadata pulumi.Input
-	// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
-	Mode pulumi.StringPtrInput
-	// Required if a parameter is used in policy rule.
-	Parameters pulumi.Input
-	// The name of the policy definition to create.
+	Description          pulumi.StringPtrInput
+	DisplayName          pulumi.StringPtrInput
+	ManagementGroupId    pulumi.StringInput
+	Metadata             pulumi.Input
+	Mode                 pulumi.StringPtrInput
+	Parameters           pulumi.Input
 	PolicyDefinitionName pulumi.StringPtrInput
-	// The policy rule.
-	PolicyRule pulumi.Input
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-	PolicyType pulumi.StringPtrInput
+	PolicyRule           pulumi.Input
+	PolicyType           pulumi.StringPtrInput
 }
 
 func (PolicyDefinitionAtManagementGroupArgs) ElementType() reflect.Type {
@@ -202,9 +174,7 @@ func (i *PolicyDefinitionAtManagementGroup) ToPolicyDefinitionAtManagementGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionAtManagementGroupOutput)
 }
 
-type PolicyDefinitionAtManagementGroupOutput struct {
-	*pulumi.OutputState
-}
+type PolicyDefinitionAtManagementGroupOutput struct{ *pulumi.OutputState }
 
 func (PolicyDefinitionAtManagementGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyDefinitionAtManagementGroup)(nil))

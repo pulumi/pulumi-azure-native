@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A share data transfer object.
 func LookupShare(ctx *pulumi.Context, args *LookupShareArgs, opts ...pulumi.InvokeOption) (*LookupShareResult, error) {
 	var rv LookupShareResult
 	err := ctx.Invoke("azure-native:datashare/v20191101:getShare", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupShare(ctx *pulumi.Context, args *LookupShareArgs, opts ...pulumi.Invo
 }
 
 type LookupShareArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The resource group name.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share to retrieve.
-	ShareName string `pulumi:"shareName"`
+	ShareName         string `pulumi:"shareName"`
 }
 
 // A share data transfer object.
 type LookupShareResult struct {
-	// Time at which the share was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// Share description.
-	Description *string `pulumi:"description"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Gets or sets the provisioning state
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Share kind.
-	ShareKind *string `pulumi:"shareKind"`
-	// Share terms.
-	Terms *string `pulumi:"terms"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
-	// Email of the user who created the resource
-	UserEmail string `pulumi:"userEmail"`
-	// Name of the user who created the resource
-	UserName string `pulumi:"userName"`
+	CreatedAt         string  `pulumi:"createdAt"`
+	Description       *string `pulumi:"description"`
+	Id                string  `pulumi:"id"`
+	Name              string  `pulumi:"name"`
+	ProvisioningState string  `pulumi:"provisioningState"`
+	ShareKind         *string `pulumi:"shareKind"`
+	Terms             *string `pulumi:"terms"`
+	Type              string  `pulumi:"type"`
+	UserEmail         string  `pulumi:"userEmail"`
+	UserName          string  `pulumi:"userName"`
 }

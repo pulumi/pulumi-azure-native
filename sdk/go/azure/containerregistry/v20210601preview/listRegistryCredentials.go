@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The response from the ListCredentials operation.
 func ListRegistryCredentials(ctx *pulumi.Context, args *ListRegistryCredentialsArgs, opts ...pulumi.InvokeOption) (*ListRegistryCredentialsResult, error) {
 	var rv ListRegistryCredentialsResult
 	err := ctx.Invoke("azure-native:containerregistry/v20210601preview:listRegistryCredentials", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListRegistryCredentials(ctx *pulumi.Context, args *ListRegistryCredentialsA
 }
 
 type ListRegistryCredentialsArgs struct {
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
+	RegistryName      string `pulumi:"registryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The response from the ListCredentials operation.
 type ListRegistryCredentialsResult struct {
-	// The list of passwords for a container registry.
 	Passwords []RegistryPasswordResponse `pulumi:"passwords"`
-	// The username for a container registry.
-	Username *string `pulumi:"username"`
+	Username  *string                    `pulumi:"username"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Invitation data transfer object.
 func LookupInvitation(ctx *pulumi.Context, args *LookupInvitationArgs, opts ...pulumi.InvokeOption) (*LookupInvitationResult, error) {
 	var rv LookupInvitationResult
 	err := ctx.Invoke("azure-native:datashare/v20191101:getInvitation", args, &rv, opts...)
@@ -18,42 +17,24 @@ func LookupInvitation(ctx *pulumi.Context, args *LookupInvitationArgs, opts ...p
 }
 
 type LookupInvitationArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the invitation.
-	InvitationName string `pulumi:"invitationName"`
-	// The resource group name.
+	AccountName       string `pulumi:"accountName"`
+	InvitationName    string `pulumi:"invitationName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share.
-	ShareName string `pulumi:"shareName"`
+	ShareName         string `pulumi:"shareName"`
 }
 
 // A Invitation data transfer object.
 type LookupInvitationResult struct {
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// unique invitation id
-	InvitationId string `pulumi:"invitationId"`
-	// The status of the invitation.
-	InvitationStatus string `pulumi:"invitationStatus"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// The time the recipient responded to the invitation.
-	RespondedAt string `pulumi:"respondedAt"`
-	// Gets the time at which the invitation was sent.
-	SentAt string `pulumi:"sentAt"`
-	// The target Azure AD Id. Can't be combined with email.
+	Id                      string  `pulumi:"id"`
+	InvitationId            string  `pulumi:"invitationId"`
+	InvitationStatus        string  `pulumi:"invitationStatus"`
+	Name                    string  `pulumi:"name"`
+	RespondedAt             string  `pulumi:"respondedAt"`
+	SentAt                  string  `pulumi:"sentAt"`
 	TargetActiveDirectoryId *string `pulumi:"targetActiveDirectoryId"`
-	// The email the invitation is directed to.
-	TargetEmail *string `pulumi:"targetEmail"`
-	// The target user or application Id that invitation is being sent to.
-	// Must be specified along TargetActiveDirectoryId. This enables sending
-	// invitations to specific users or applications in an AD tenant.
-	TargetObjectId *string `pulumi:"targetObjectId"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
-	// Email of the user who created the resource
-	UserEmail string `pulumi:"userEmail"`
-	// Name of the user who created the resource
-	UserName string `pulumi:"userName"`
+	TargetEmail             *string `pulumi:"targetEmail"`
+	TargetObjectId          *string `pulumi:"targetObjectId"`
+	Type                    string  `pulumi:"type"`
+	UserEmail               string  `pulumi:"userEmail"`
+	UserName                string  `pulumi:"userName"`
 }

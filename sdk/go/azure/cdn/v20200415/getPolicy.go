@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines web application firewall policy for Azure CDN.
 func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupPolicyResult, error) {
 	var rv LookupPolicyResult
 	err := ctx.Invoke("azure-native:cdn/v20200415:getPolicy", args, &rv, opts...)
@@ -18,39 +17,24 @@ func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.In
 }
 
 type LookupPolicyArgs struct {
-	// The name of the CdnWebApplicationFirewallPolicy.
-	PolicyName string `pulumi:"policyName"`
-	// Name of the Resource group within the Azure subscription.
+	PolicyName        string `pulumi:"policyName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Defines web application firewall policy for Azure CDN.
 type LookupPolicyResult struct {
-	// Describes custom rules inside the policy.
-	CustomRules *CustomRuleListResponse `pulumi:"customRules"`
-	// Describes Azure CDN endpoints associated with this Web Application Firewall policy.
-	EndpointLinks []CdnEndpointResponse `pulumi:"endpointLinks"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Describes managed rules inside the policy.
-	ManagedRules *ManagedRuleSetListResponse `pulumi:"managedRules"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Describes  policySettings for policy
-	PolicySettings *PolicySettingsResponse `pulumi:"policySettings"`
-	// Provisioning state of the WebApplicationFirewallPolicy.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Describes rate limit rules inside the policy.
-	RateLimitRules *RateLimitRuleListResponse `pulumi:"rateLimitRules"`
-	ResourceState  string                     `pulumi:"resourceState"`
-	// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
-	Sku SkuResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	CustomRules       *CustomRuleListResponse     `pulumi:"customRules"`
+	EndpointLinks     []CdnEndpointResponse       `pulumi:"endpointLinks"`
+	Etag              *string                     `pulumi:"etag"`
+	Id                string                      `pulumi:"id"`
+	Location          string                      `pulumi:"location"`
+	ManagedRules      *ManagedRuleSetListResponse `pulumi:"managedRules"`
+	Name              string                      `pulumi:"name"`
+	PolicySettings    *PolicySettingsResponse     `pulumi:"policySettings"`
+	ProvisioningState string                      `pulumi:"provisioningState"`
+	RateLimitRules    *RateLimitRuleListResponse  `pulumi:"rateLimitRules"`
+	ResourceState     string                      `pulumi:"resourceState"`
+	Sku               SkuResponse                 `pulumi:"sku"`
+	Tags              map[string]string           `pulumi:"tags"`
+	Type              string                      `pulumi:"type"`
 }

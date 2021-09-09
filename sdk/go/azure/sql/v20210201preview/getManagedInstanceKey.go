@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A managed instance key.
 func LookupManagedInstanceKey(ctx *pulumi.Context, args *LookupManagedInstanceKeyArgs, opts ...pulumi.InvokeOption) (*LookupManagedInstanceKeyResult, error) {
 	var rv LookupManagedInstanceKeyResult
 	err := ctx.Invoke("azure-native:sql/v20210201preview:getManagedInstanceKey", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupManagedInstanceKey(ctx *pulumi.Context, args *LookupManagedInstanceKe
 }
 
 type LookupManagedInstanceKeyArgs struct {
-	// The name of the managed instance key to be retrieved.
-	KeyName string `pulumi:"keyName"`
-	// The name of the managed instance.
+	KeyName             string `pulumi:"keyName"`
 	ManagedInstanceName string `pulumi:"managedInstanceName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 }
 
 // A managed instance key.
 type LookupManagedInstanceKeyResult struct {
-	// Key auto rotation opt-in flag. Either true or false.
-	AutoRotationEnabled bool `pulumi:"autoRotationEnabled"`
-	// The key creation date.
-	CreationDate string `pulumi:"creationDate"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Kind of encryption protector. This is metadata used for the Azure portal experience.
-	Kind string `pulumi:"kind"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Thumbprint of the key.
-	Thumbprint string `pulumi:"thumbprint"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	AutoRotationEnabled bool   `pulumi:"autoRotationEnabled"`
+	CreationDate        string `pulumi:"creationDate"`
+	Id                  string `pulumi:"id"`
+	Kind                string `pulumi:"kind"`
+	Name                string `pulumi:"name"`
+	Thumbprint          string `pulumi:"thumbprint"`
+	Type                string `pulumi:"type"`
 }

@@ -11,27 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VirtualWAN Resource.
 type VirtualWAN struct {
 	pulumi.CustomResourceState
 
-	// Vpn encryption to be disabled or not.
-	DisableVpnEncryption pulumi.BoolPtrOutput `pulumi:"disableVpnEncryption"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// List of VirtualHubs in the VirtualWAN.
-	VirtualHubs SubResourceResponseArrayOutput `pulumi:"virtualHubs"`
-	VpnSites    SubResourceResponseArrayOutput `pulumi:"vpnSites"`
+	DisableVpnEncryption pulumi.BoolPtrOutput           `pulumi:"disableVpnEncryption"`
+	Etag                 pulumi.StringOutput            `pulumi:"etag"`
+	Location             pulumi.StringOutput            `pulumi:"location"`
+	Name                 pulumi.StringOutput            `pulumi:"name"`
+	ProvisioningState    pulumi.StringOutput            `pulumi:"provisioningState"`
+	Tags                 pulumi.StringMapOutput         `pulumi:"tags"`
+	Type                 pulumi.StringOutput            `pulumi:"type"`
+	VirtualHubs          SubResourceResponseArrayOutput `pulumi:"virtualHubs"`
+	VpnSites             SubResourceResponseArrayOutput `pulumi:"vpnSites"`
 }
 
 // NewVirtualWAN registers a new resource with the given unique name, arguments, and options.
@@ -226,34 +217,22 @@ func (VirtualWANState) ElementType() reflect.Type {
 }
 
 type virtualWANArgs struct {
-	// Vpn encryption to be disabled or not.
-	DisableVpnEncryption *bool `pulumi:"disableVpnEncryption"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The resource group name of the VirtualWan.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the VirtualWAN being created or updated.
-	VirtualWANName *string `pulumi:"virtualWANName"`
+	DisableVpnEncryption *bool             `pulumi:"disableVpnEncryption"`
+	Id                   *string           `pulumi:"id"`
+	Location             *string           `pulumi:"location"`
+	ResourceGroupName    string            `pulumi:"resourceGroupName"`
+	Tags                 map[string]string `pulumi:"tags"`
+	VirtualWANName       *string           `pulumi:"virtualWANName"`
 }
 
 // The set of arguments for constructing a VirtualWAN resource.
 type VirtualWANArgs struct {
-	// Vpn encryption to be disabled or not.
 	DisableVpnEncryption pulumi.BoolPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The resource group name of the VirtualWan.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the VirtualWAN being created or updated.
-	VirtualWANName pulumi.StringPtrInput
+	Id                   pulumi.StringPtrInput
+	Location             pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
+	Tags                 pulumi.StringMapInput
+	VirtualWANName       pulumi.StringPtrInput
 }
 
 func (VirtualWANArgs) ElementType() reflect.Type {
@@ -279,9 +258,7 @@ func (i *VirtualWAN) ToVirtualWANOutputWithContext(ctx context.Context) VirtualW
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualWANOutput)
 }
 
-type VirtualWANOutput struct {
-	*pulumi.OutputState
-}
+type VirtualWANOutput struct{ *pulumi.OutputState }
 
 func (VirtualWANOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualWAN)(nil))

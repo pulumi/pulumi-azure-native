@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single Namespace item in List or Get Operation
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	var rv LookupNamespaceResult
 	err := ctx.Invoke("azure-native:eventhub/v20170401:getNamespace", args, &rv, opts...)
@@ -18,40 +17,24 @@ func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pul
 }
 
 type LookupNamespaceArgs struct {
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the resource group within the azure subscription.
+	NamespaceName     string `pulumi:"namespaceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Single Namespace item in List or Get Operation
 type LookupNamespaceResult struct {
-	// The time the Namespace was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
-	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
-	// Value that indicates whether Kafka is enabled for eventhub namespace.
-	KafkaEnabled *bool `pulumi:"kafkaEnabled"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
-	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
-	// Identifier for Azure Insights metrics.
-	MetricId string `pulumi:"metricId"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Provisioning state of the Namespace.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Endpoint you can use to perform Service Bus operations.
-	ServiceBusEndpoint string `pulumi:"serviceBusEndpoint"`
-	// Properties of sku resource
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The time the Namespace was updated.
-	UpdatedAt string `pulumi:"updatedAt"`
+	CreatedAt              string            `pulumi:"createdAt"`
+	Id                     string            `pulumi:"id"`
+	IsAutoInflateEnabled   *bool             `pulumi:"isAutoInflateEnabled"`
+	KafkaEnabled           *bool             `pulumi:"kafkaEnabled"`
+	Location               *string           `pulumi:"location"`
+	MaximumThroughputUnits *int              `pulumi:"maximumThroughputUnits"`
+	MetricId               string            `pulumi:"metricId"`
+	Name                   string            `pulumi:"name"`
+	ProvisioningState      string            `pulumi:"provisioningState"`
+	ServiceBusEndpoint     string            `pulumi:"serviceBusEndpoint"`
+	Sku                    *SkuResponse      `pulumi:"sku"`
+	Tags                   map[string]string `pulumi:"tags"`
+	Type                   string            `pulumi:"type"`
+	UpdatedAt              string            `pulumi:"updatedAt"`
 }

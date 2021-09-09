@@ -11,23 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Settings with single toggle.
 type EntityAnalytics struct {
 	pulumi.CustomResourceState
 
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Determines whether the setting is enable or disabled.
-	IsEnabled pulumi.BoolOutput `pulumi:"isEnabled"`
-	// The kind of the setting
-	// Expected value is 'EntityAnalytics'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	Etag       pulumi.StringPtrOutput   `pulumi:"etag"`
+	IsEnabled  pulumi.BoolOutput        `pulumi:"isEnabled"`
+	Kind       pulumi.StringOutput      `pulumi:"kind"`
+	Name       pulumi.StringOutput      `pulumi:"name"`
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewEntityAnalytics registers a new resource with the given unique name, arguments, and options.
@@ -100,36 +92,22 @@ func (EntityAnalyticsState) ElementType() reflect.Type {
 }
 
 type entityAnalyticsArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The kind of the setting
-	// Expected value is 'EntityAnalytics'.
-	Kind string `pulumi:"kind"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
-	SettingsName *string `pulumi:"settingsName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Etag                                *string `pulumi:"etag"`
+	Kind                                string  `pulumi:"kind"`
+	OperationalInsightsResourceProvider string  `pulumi:"operationalInsightsResourceProvider"`
+	ResourceGroupName                   string  `pulumi:"resourceGroupName"`
+	SettingsName                        *string `pulumi:"settingsName"`
+	WorkspaceName                       string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a EntityAnalytics resource.
 type EntityAnalyticsArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The kind of the setting
-	// Expected value is 'EntityAnalytics'.
-	Kind pulumi.StringInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	Etag                                pulumi.StringPtrInput
+	Kind                                pulumi.StringInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
-	SettingsName pulumi.StringPtrInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	ResourceGroupName                   pulumi.StringInput
+	SettingsName                        pulumi.StringPtrInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (EntityAnalyticsArgs) ElementType() reflect.Type {
@@ -155,9 +133,7 @@ func (i *EntityAnalytics) ToEntityAnalyticsOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EntityAnalyticsOutput)
 }
 
-type EntityAnalyticsOutput struct {
-	*pulumi.OutputState
-}
+type EntityAnalyticsOutput struct{ *pulumi.OutputState }
 
 func (EntityAnalyticsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EntityAnalytics)(nil))

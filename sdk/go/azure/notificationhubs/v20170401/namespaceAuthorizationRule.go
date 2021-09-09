@@ -11,38 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a Namespace AuthorizationRules.
 type NamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState
 
-	// A string that describes the claim type
-	ClaimType pulumi.StringOutput `pulumi:"claimType"`
-	// A string that describes the claim value
-	ClaimValue pulumi.StringOutput `pulumi:"claimValue"`
-	// The created time for this rule
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// A string that describes the authorization rule.
-	KeyName pulumi.StringOutput `pulumi:"keyName"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The last modified time for this rule
-	ModifiedTime pulumi.StringOutput `pulumi:"modifiedTime"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
-	// The revision number for the rule
-	Revision pulumi.IntOutput `pulumi:"revision"`
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayOutput `pulumi:"rights"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
-	// The sku of the created namespace
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ClaimType    pulumi.StringOutput      `pulumi:"claimType"`
+	ClaimValue   pulumi.StringOutput      `pulumi:"claimValue"`
+	CreatedTime  pulumi.StringOutput      `pulumi:"createdTime"`
+	KeyName      pulumi.StringOutput      `pulumi:"keyName"`
+	Location     pulumi.StringPtrOutput   `pulumi:"location"`
+	ModifiedTime pulumi.StringOutput      `pulumi:"modifiedTime"`
+	Name         pulumi.StringOutput      `pulumi:"name"`
+	PrimaryKey   pulumi.StringOutput      `pulumi:"primaryKey"`
+	Revision     pulumi.IntOutput         `pulumi:"revision"`
+	Rights       pulumi.StringArrayOutput `pulumi:"rights"`
+	SecondaryKey pulumi.StringOutput      `pulumi:"secondaryKey"`
+	Sku          SkuResponsePtrOutput     `pulumi:"sku"`
+	Tags         pulumi.StringMapOutput   `pulumi:"tags"`
+	Type         pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewNamespaceAuthorizationRule registers a new resource with the given unique name, arguments, and options.
@@ -111,26 +96,18 @@ func (NamespaceAuthorizationRuleState) ElementType() reflect.Type {
 }
 
 type namespaceAuthorizationRuleArgs struct {
-	// Authorization Rule Name.
-	AuthorizationRuleName *string `pulumi:"authorizationRuleName"`
-	// The namespace name.
-	NamespaceName string `pulumi:"namespaceName"`
-	// Properties of the Namespace AuthorizationRules.
-	Properties SharedAccessAuthorizationRuleProperties `pulumi:"properties"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AuthorizationRuleName *string                                 `pulumi:"authorizationRuleName"`
+	NamespaceName         string                                  `pulumi:"namespaceName"`
+	Properties            SharedAccessAuthorizationRuleProperties `pulumi:"properties"`
+	ResourceGroupName     string                                  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a NamespaceAuthorizationRule resource.
 type NamespaceAuthorizationRuleArgs struct {
-	// Authorization Rule Name.
 	AuthorizationRuleName pulumi.StringPtrInput
-	// The namespace name.
-	NamespaceName pulumi.StringInput
-	// Properties of the Namespace AuthorizationRules.
-	Properties SharedAccessAuthorizationRulePropertiesInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	NamespaceName         pulumi.StringInput
+	Properties            SharedAccessAuthorizationRulePropertiesInput
+	ResourceGroupName     pulumi.StringInput
 }
 
 func (NamespaceAuthorizationRuleArgs) ElementType() reflect.Type {
@@ -156,9 +133,7 @@ func (i *NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceAuthorizationRuleOutput)
 }
 
-type NamespaceAuthorizationRuleOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (NamespaceAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NamespaceAuthorizationRule)(nil))

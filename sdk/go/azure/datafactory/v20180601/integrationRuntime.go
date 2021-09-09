@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Integration runtime resource type.
 type IntegrationRuntime struct {
 	pulumi.CustomResourceState
 
-	// Etag identifies change in the resource.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Integration runtime properties.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag       pulumi.StringOutput `pulumi:"etag"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	Properties pulumi.AnyOutput    `pulumi:"properties"`
+	Type       pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewIntegrationRuntime registers a new resource with the given unique name, arguments, and options.
@@ -91,26 +86,18 @@ func (IntegrationRuntimeState) ElementType() reflect.Type {
 }
 
 type integrationRuntimeArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The integration runtime name.
-	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
-	// Integration runtime properties.
-	Properties interface{} `pulumi:"properties"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	FactoryName            string      `pulumi:"factoryName"`
+	IntegrationRuntimeName *string     `pulumi:"integrationRuntimeName"`
+	Properties             interface{} `pulumi:"properties"`
+	ResourceGroupName      string      `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a IntegrationRuntime resource.
 type IntegrationRuntimeArgs struct {
-	// The factory name.
-	FactoryName pulumi.StringInput
-	// The integration runtime name.
+	FactoryName            pulumi.StringInput
 	IntegrationRuntimeName pulumi.StringPtrInput
-	// Integration runtime properties.
-	Properties pulumi.Input
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
+	Properties             pulumi.Input
+	ResourceGroupName      pulumi.StringInput
 }
 
 func (IntegrationRuntimeArgs) ElementType() reflect.Type {
@@ -136,9 +123,7 @@ func (i *IntegrationRuntime) ToIntegrationRuntimeOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeOutput)
 }
 
-type IntegrationRuntimeOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationRuntimeOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationRuntime)(nil))

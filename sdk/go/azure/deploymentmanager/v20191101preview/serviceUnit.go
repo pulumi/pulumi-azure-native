@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents the response of a service unit resource.
 type ServiceUnit struct {
 	pulumi.CustomResourceState
 
-	// The artifacts for the service unit.
-	Artifacts ServiceUnitArtifactsResponsePtrOutput `pulumi:"artifacts"`
-	// Describes the type of ARM deployment to be performed on the resource.
-	DeploymentMode pulumi.StringOutput `pulumi:"deploymentMode"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
-	TargetResourceGroup pulumi.StringOutput `pulumi:"targetResourceGroup"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Artifacts           ServiceUnitArtifactsResponsePtrOutput `pulumi:"artifacts"`
+	DeploymentMode      pulumi.StringOutput                   `pulumi:"deploymentMode"`
+	Location            pulumi.StringOutput                   `pulumi:"location"`
+	Name                pulumi.StringOutput                   `pulumi:"name"`
+	Tags                pulumi.StringMapOutput                `pulumi:"tags"`
+	TargetResourceGroup pulumi.StringOutput                   `pulumi:"targetResourceGroup"`
+	Type                pulumi.StringOutput                   `pulumi:"type"`
 }
 
 // NewServiceUnit registers a new resource with the given unique name, arguments, and options.
@@ -38,6 +30,9 @@ func NewServiceUnit(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DeploymentMode == nil {
+		return nil, errors.New("invalid value for required argument 'DeploymentMode'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -100,45 +95,27 @@ func (ServiceUnitState) ElementType() reflect.Type {
 }
 
 type serviceUnitArgs struct {
-	// The artifacts for the service unit.
-	Artifacts *ServiceUnitArtifacts `pulumi:"artifacts"`
-	// Describes the type of ARM deployment to be performed on the resource.
-	DeploymentMode string `pulumi:"deploymentMode"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the service resource.
-	ServiceName string `pulumi:"serviceName"`
-	// The name of the service topology .
-	ServiceTopologyName string `pulumi:"serviceTopologyName"`
-	// The name of the service unit resource.
-	ServiceUnitName *string `pulumi:"serviceUnitName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
-	TargetResourceGroup string `pulumi:"targetResourceGroup"`
+	Artifacts           *ServiceUnitArtifacts `pulumi:"artifacts"`
+	DeploymentMode      DeploymentMode        `pulumi:"deploymentMode"`
+	Location            *string               `pulumi:"location"`
+	ResourceGroupName   string                `pulumi:"resourceGroupName"`
+	ServiceName         string                `pulumi:"serviceName"`
+	ServiceTopologyName string                `pulumi:"serviceTopologyName"`
+	ServiceUnitName     *string               `pulumi:"serviceUnitName"`
+	Tags                map[string]string     `pulumi:"tags"`
+	TargetResourceGroup string                `pulumi:"targetResourceGroup"`
 }
 
 // The set of arguments for constructing a ServiceUnit resource.
 type ServiceUnitArgs struct {
-	// The artifacts for the service unit.
-	Artifacts ServiceUnitArtifactsPtrInput
-	// Describes the type of ARM deployment to be performed on the resource.
-	DeploymentMode DeploymentMode
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the service resource.
-	ServiceName pulumi.StringInput
-	// The name of the service topology .
+	Artifacts           ServiceUnitArtifactsPtrInput
+	DeploymentMode      DeploymentModeInput
+	Location            pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	ServiceName         pulumi.StringInput
 	ServiceTopologyName pulumi.StringInput
-	// The name of the service unit resource.
-	ServiceUnitName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
+	ServiceUnitName     pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
 	TargetResourceGroup pulumi.StringInput
 }
 
@@ -165,9 +142,7 @@ func (i *ServiceUnit) ToServiceUnitOutputWithContext(ctx context.Context) Servic
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceUnitOutput)
 }
 
-type ServiceUnitOutput struct {
-	*pulumi.OutputState
-}
+type ServiceUnitOutput struct{ *pulumi.OutputState }
 
 func (ServiceUnitOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceUnit)(nil))

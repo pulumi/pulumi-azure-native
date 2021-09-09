@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Managed private endpoint resource type.
 type ManagedPrivateEndpoint struct {
 	pulumi.CustomResourceState
 
-	// Etag identifies change in the resource.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Managed private endpoint properties.
+	Etag       pulumi.StringOutput                  `pulumi:"etag"`
+	Name       pulumi.StringOutput                  `pulumi:"name"`
 	Properties ManagedPrivateEndpointResponseOutput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewManagedPrivateEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -88,30 +83,20 @@ func (ManagedPrivateEndpointState) ElementType() reflect.Type {
 }
 
 type managedPrivateEndpointArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// Managed private endpoint name
-	ManagedPrivateEndpointName *string `pulumi:"managedPrivateEndpointName"`
-	// Managed virtual network name
-	ManagedVirtualNetworkName string `pulumi:"managedVirtualNetworkName"`
-	// Managed private endpoint properties.
-	Properties ManagedPrivateEndpointType `pulumi:"properties"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	FactoryName                string                     `pulumi:"factoryName"`
+	ManagedPrivateEndpointName *string                    `pulumi:"managedPrivateEndpointName"`
+	ManagedVirtualNetworkName  string                     `pulumi:"managedVirtualNetworkName"`
+	Properties                 ManagedPrivateEndpointType `pulumi:"properties"`
+	ResourceGroupName          string                     `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ManagedPrivateEndpoint resource.
 type ManagedPrivateEndpointArgs struct {
-	// The factory name.
-	FactoryName pulumi.StringInput
-	// Managed private endpoint name
+	FactoryName                pulumi.StringInput
 	ManagedPrivateEndpointName pulumi.StringPtrInput
-	// Managed virtual network name
-	ManagedVirtualNetworkName pulumi.StringInput
-	// Managed private endpoint properties.
-	Properties ManagedPrivateEndpointTypeInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
+	ManagedVirtualNetworkName  pulumi.StringInput
+	Properties                 ManagedPrivateEndpointTypeInput
+	ResourceGroupName          pulumi.StringInput
 }
 
 func (ManagedPrivateEndpointArgs) ElementType() reflect.Type {
@@ -137,9 +122,7 @@ func (i *ManagedPrivateEndpoint) ToManagedPrivateEndpointOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointOutput)
 }
 
-type ManagedPrivateEndpointOutput struct {
-	*pulumi.OutputState
-}
+type ManagedPrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (ManagedPrivateEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedPrivateEndpoint)(nil))

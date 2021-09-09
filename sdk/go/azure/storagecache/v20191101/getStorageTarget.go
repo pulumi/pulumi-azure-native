@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A storage system being cached by a Cache.
 func LookupStorageTarget(ctx *pulumi.Context, args *LookupStorageTargetArgs, opts ...pulumi.InvokeOption) (*LookupStorageTargetResult, error) {
 	var rv LookupStorageTargetResult
 	err := ctx.Invoke("azure-native:storagecache/v20191101:getStorageTarget", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupStorageTarget(ctx *pulumi.Context, args *LookupStorageTargetArgs, opt
 }
 
 type LookupStorageTargetArgs struct {
-	// Name of Cache.
-	CacheName string `pulumi:"cacheName"`
-	// Target resource group.
+	CacheName         string `pulumi:"cacheName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Storage Target.
 	StorageTargetName string `pulumi:"storageTargetName"`
 }
 
 // A storage system being cached by a Cache.
 type LookupStorageTargetResult struct {
-	// Properties when targetType is clfs.
-	Clfs *ClfsTargetResponse `pulumi:"clfs"`
-	// Resource ID of the Storage Target.
-	Id string `pulumi:"id"`
-	// List of Cache namespace junctions to target for namespace associations.
-	Junctions []NamespaceJunctionResponse `pulumi:"junctions"`
-	// Name of the Storage Target.
-	Name string `pulumi:"name"`
-	// Properties when targetType is nfs3.
-	Nfs3 *Nfs3TargetResponse `pulumi:"nfs3"`
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Type of the Storage Target.
-	TargetType *string `pulumi:"targetType"`
-	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
-	Type string `pulumi:"type"`
-	// Properties when targetType is unknown.
-	Unknown *UnknownTargetResponse `pulumi:"unknown"`
+	Clfs              *ClfsTargetResponse         `pulumi:"clfs"`
+	Id                string                      `pulumi:"id"`
+	Junctions         []NamespaceJunctionResponse `pulumi:"junctions"`
+	Name              string                      `pulumi:"name"`
+	Nfs3              *Nfs3TargetResponse         `pulumi:"nfs3"`
+	ProvisioningState *string                     `pulumi:"provisioningState"`
+	TargetType        *string                     `pulumi:"targetType"`
+	Type              string                      `pulumi:"type"`
+	Unknown           *UnknownTargetResponse      `pulumi:"unknown"`
 }

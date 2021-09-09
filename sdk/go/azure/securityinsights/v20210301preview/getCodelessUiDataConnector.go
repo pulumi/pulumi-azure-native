@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents Codeless UI data connector.
 func LookupCodelessUiDataConnector(ctx *pulumi.Context, args *LookupCodelessUiDataConnectorArgs, opts ...pulumi.InvokeOption) (*LookupCodelessUiDataConnectorResult, error) {
 	var rv LookupCodelessUiDataConnectorResult
 	err := ctx.Invoke("azure-native:securityinsights/v20210301preview:getCodelessUiDataConnector", args, &rv, opts...)
@@ -18,31 +17,19 @@ func LookupCodelessUiDataConnector(ctx *pulumi.Context, args *LookupCodelessUiDa
 }
 
 type LookupCodelessUiDataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId string `pulumi:"dataConnectorId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	DataConnectorId                     string `pulumi:"dataConnectorId"`
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Represents Codeless UI data connector.
 type LookupCodelessUiDataConnectorResult struct {
-	// Config to describe the instructions blade
 	ConnectorUiConfig *CodelessUiConnectorConfigPropertiesResponse `pulumi:"connectorUiConfig"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The kind of the data connector
-	// Expected value is 'GenericUI'.
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Etag              *string                                      `pulumi:"etag"`
+	Id                string                                       `pulumi:"id"`
+	Kind              string                                       `pulumi:"kind"`
+	Name              string                                       `pulumi:"name"`
+	SystemData        SystemDataResponse                           `pulumi:"systemData"`
+	Type              string                                       `pulumi:"type"`
 }

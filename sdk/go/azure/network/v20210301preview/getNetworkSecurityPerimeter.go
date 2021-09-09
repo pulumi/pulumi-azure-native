@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Network Security Perimeter resource
 func LookupNetworkSecurityPerimeter(ctx *pulumi.Context, args *LookupNetworkSecurityPerimeterArgs, opts ...pulumi.InvokeOption) (*LookupNetworkSecurityPerimeterResult, error) {
 	var rv LookupNetworkSecurityPerimeterResult
 	err := ctx.Invoke("azure-native:network/v20210301preview:getNetworkSecurityPerimeter", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupNetworkSecurityPerimeter(ctx *pulumi.Context, args *LookupNetworkSecu
 }
 
 type LookupNetworkSecurityPerimeterArgs struct {
-	// The name of the network security perimeter.
 	NetworkSecurityPerimeterName string `pulumi:"networkSecurityPerimeterName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName            string `pulumi:"resourceGroupName"`
 }
 
 // The Network Security Perimeter resource
 type LookupNetworkSecurityPerimeterResult struct {
-	// A description of the network security perimeter.
-	Description *string `pulumi:"description"`
-	// A friendly name for the network security perimeter.
-	DisplayName *string `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the scope assignment resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Description       *string           `pulumi:"description"`
+	DisplayName       *string           `pulumi:"displayName"`
+	Etag              string            `pulumi:"etag"`
+	Id                string            `pulumi:"id"`
+	Location          *string           `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	ProvisioningState string            `pulumi:"provisioningState"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              string            `pulumi:"type"`
 }

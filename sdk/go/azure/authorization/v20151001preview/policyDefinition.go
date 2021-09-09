@@ -10,20 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The policy definition.
 type PolicyDefinition struct {
 	pulumi.CustomResourceState
 
-	// The policy definition description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The policy rule.
-	PolicyRule pulumi.AnyOutput `pulumi:"policyRule"`
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
+	Name        pulumi.StringPtrOutput `pulumi:"name"`
+	PolicyRule  pulumi.AnyOutput       `pulumi:"policyRule"`
+	PolicyType  pulumi.StringPtrOutput `pulumi:"policyType"`
 }
 
 // NewPolicyDefinition registers a new resource with the given unique name, arguments, and options.
@@ -137,34 +131,22 @@ func (PolicyDefinitionState) ElementType() reflect.Type {
 }
 
 type policyDefinitionArgs struct {
-	// The policy definition description.
-	Description *string `pulumi:"description"`
-	// The display name of the policy definition.
-	DisplayName *string `pulumi:"displayName"`
-	// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
-	Name *string `pulumi:"name"`
-	// The name of the policy definition to create.
-	PolicyDefinitionName *string `pulumi:"policyDefinitionName"`
-	// The policy rule.
-	PolicyRule interface{} `pulumi:"policyRule"`
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-	PolicyType *string `pulumi:"policyType"`
+	Description          *string     `pulumi:"description"`
+	DisplayName          *string     `pulumi:"displayName"`
+	Name                 *string     `pulumi:"name"`
+	PolicyDefinitionName *string     `pulumi:"policyDefinitionName"`
+	PolicyRule           interface{} `pulumi:"policyRule"`
+	PolicyType           *string     `pulumi:"policyType"`
 }
 
 // The set of arguments for constructing a PolicyDefinition resource.
 type PolicyDefinitionArgs struct {
-	// The policy definition description.
-	Description pulumi.StringPtrInput
-	// The display name of the policy definition.
-	DisplayName pulumi.StringPtrInput
-	// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
-	Name pulumi.StringPtrInput
-	// The name of the policy definition to create.
+	Description          pulumi.StringPtrInput
+	DisplayName          pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
 	PolicyDefinitionName pulumi.StringPtrInput
-	// The policy rule.
-	PolicyRule pulumi.Input
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-	PolicyType pulumi.StringPtrInput
+	PolicyRule           pulumi.Input
+	PolicyType           pulumi.StringPtrInput
 }
 
 func (PolicyDefinitionArgs) ElementType() reflect.Type {
@@ -190,9 +172,7 @@ func (i *PolicyDefinition) ToPolicyDefinitionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionOutput)
 }
 
-type PolicyDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type PolicyDefinitionOutput struct{ *pulumi.OutputState }
 
 func (PolicyDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyDefinition)(nil))

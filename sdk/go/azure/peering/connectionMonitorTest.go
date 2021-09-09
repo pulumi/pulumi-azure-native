@@ -150,9 +150,7 @@ func (i *ConnectionMonitorTest) ToConnectionMonitorTestOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMonitorTestOutput)
 }
 
-type ConnectionMonitorTestOutput struct {
-	*pulumi.OutputState
-}
+type ConnectionMonitorTestOutput struct{ *pulumi.OutputState }
 
 func (ConnectionMonitorTestOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConnectionMonitorTest)(nil))

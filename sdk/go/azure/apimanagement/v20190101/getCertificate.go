@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Certificate details.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
 	err := ctx.Invoke("azure-native:apimanagement/v20190101:getCertificate", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 }
 
 type LookupCertificateArgs struct {
-	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
-	CertificateId string `pulumi:"certificateId"`
-	// The name of the resource group.
+	CertificateId     string `pulumi:"certificateId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Certificate details.
 type LookupCertificateResult struct {
-	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 	ExpirationDate string `pulumi:"expirationDate"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Subject attribute of the certificate.
-	Subject string `pulumi:"subject"`
-	// Thumbprint of the certificate.
-	Thumbprint string `pulumi:"thumbprint"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
+	Id             string `pulumi:"id"`
+	Name           string `pulumi:"name"`
+	Subject        string `pulumi:"subject"`
+	Thumbprint     string `pulumi:"thumbprint"`
+	Type           string `pulumi:"type"`
 }

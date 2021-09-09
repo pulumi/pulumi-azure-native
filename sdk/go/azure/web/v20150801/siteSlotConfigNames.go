@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Slot Config names azure resource
 type SiteSlotConfigNames struct {
 	pulumi.CustomResourceState
 
-	// List of application settings names
-	AppSettingNames pulumi.StringArrayOutput `pulumi:"appSettingNames"`
-	// List of connection string names
+	AppSettingNames       pulumi.StringArrayOutput `pulumi:"appSettingNames"`
 	ConnectionStringNames pulumi.StringArrayOutput `pulumi:"connectionStringNames"`
-	// Kind of resource
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Kind                  pulumi.StringPtrOutput   `pulumi:"kind"`
+	Location              pulumi.StringOutput      `pulumi:"location"`
+	Name                  pulumi.StringPtrOutput   `pulumi:"name"`
+	Tags                  pulumi.StringMapOutput   `pulumi:"tags"`
+	Type                  pulumi.StringPtrOutput   `pulumi:"type"`
 }
 
 // NewSiteSlotConfigNames registers a new resource with the given unique name, arguments, and options.
@@ -154,46 +146,28 @@ func (SiteSlotConfigNamesState) ElementType() reflect.Type {
 }
 
 type siteSlotConfigNamesArgs struct {
-	// List of application settings names
-	AppSettingNames []string `pulumi:"appSettingNames"`
-	// List of connection string names
-	ConnectionStringNames []string `pulumi:"connectionStringNames"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// Name of resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	AppSettingNames       []string          `pulumi:"appSettingNames"`
+	ConnectionStringNames []string          `pulumi:"connectionStringNames"`
+	Id                    *string           `pulumi:"id"`
+	Kind                  *string           `pulumi:"kind"`
+	Location              *string           `pulumi:"location"`
+	Name                  string            `pulumi:"name"`
+	ResourceGroupName     string            `pulumi:"resourceGroupName"`
+	Tags                  map[string]string `pulumi:"tags"`
+	Type                  *string           `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SiteSlotConfigNames resource.
 type SiteSlotConfigNamesArgs struct {
-	// List of application settings names
-	AppSettingNames pulumi.StringArrayInput
-	// List of connection string names
+	AppSettingNames       pulumi.StringArrayInput
 	ConnectionStringNames pulumi.StringArrayInput
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringInput
-	// Name of resource group
-	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
+	Id                    pulumi.StringPtrInput
+	Kind                  pulumi.StringPtrInput
+	Location              pulumi.StringPtrInput
+	Name                  pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	Tags                  pulumi.StringMapInput
+	Type                  pulumi.StringPtrInput
 }
 
 func (SiteSlotConfigNamesArgs) ElementType() reflect.Type {
@@ -219,9 +193,7 @@ func (i *SiteSlotConfigNames) ToSiteSlotConfigNamesOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SiteSlotConfigNamesOutput)
 }
 
-type SiteSlotConfigNamesOutput struct {
-	*pulumi.OutputState
-}
+type SiteSlotConfigNamesOutput struct{ *pulumi.OutputState }
 
 func (SiteSlotConfigNamesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteSlotConfigNames)(nil))

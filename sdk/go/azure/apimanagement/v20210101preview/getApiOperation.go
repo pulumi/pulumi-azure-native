@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Operation details.
 func LookupApiOperation(ctx *pulumi.Context, args *LookupApiOperationArgs, opts ...pulumi.InvokeOption) (*LookupApiOperationResult, error) {
 	var rv LookupApiOperationResult
 	err := ctx.Invoke("azure-native:apimanagement/v20210101preview:getApiOperation", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupApiOperation(ctx *pulumi.Context, args *LookupApiOperationArgs, opts 
 }
 
 type LookupApiOperationArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId string `pulumi:"apiId"`
-	// Operation identifier within an API. Must be unique in the current API Management service instance.
-	OperationId string `pulumi:"operationId"`
-	// The name of the resource group.
+	ApiId             string `pulumi:"apiId"`
+	OperationId       string `pulumi:"operationId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // API Operation details.
 type LookupApiOperationResult struct {
-	// Description of the operation. May include HTML formatting tags.
-	Description *string `pulumi:"description"`
-	// Operation Name.
-	DisplayName string `pulumi:"displayName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
-	Method string `pulumi:"method"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Operation Policies
-	Policies *string `pulumi:"policies"`
-	// An entity containing request details.
-	Request *RequestContractResponse `pulumi:"request"`
-	// Array of Operation responses.
-	Responses []ResponseContractResponse `pulumi:"responses"`
-	// Collection of URL template parameters.
+	Description        *string                     `pulumi:"description"`
+	DisplayName        string                      `pulumi:"displayName"`
+	Id                 string                      `pulumi:"id"`
+	Method             string                      `pulumi:"method"`
+	Name               string                      `pulumi:"name"`
+	Policies           *string                     `pulumi:"policies"`
+	Request            *RequestContractResponse    `pulumi:"request"`
+	Responses          []ResponseContractResponse  `pulumi:"responses"`
 	TemplateParameters []ParameterContractResponse `pulumi:"templateParameters"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-	// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
-	UrlTemplate string `pulumi:"urlTemplate"`
+	Type               string                      `pulumi:"type"`
+	UrlTemplate        string                      `pulumi:"urlTemplate"`
 }

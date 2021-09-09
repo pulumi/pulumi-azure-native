@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A common class for general resource information.
 func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *LookupVirtualNetworkGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkGatewayResult, error) {
 	var rv LookupVirtualNetworkGatewayResult
 	err := ctx.Invoke("azure-native:network/v20210301:getVirtualNetworkGateway", args, &rv, opts...)
@@ -18,64 +17,36 @@ func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *LookupVirtualNetwork
 }
 
 type LookupVirtualNetworkGatewayArgs struct {
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the virtual network gateway.
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
 	VirtualNetworkGatewayName string `pulumi:"virtualNetworkGatewayName"`
 }
 
 // A common class for general resource information.
 type LookupVirtualNetworkGatewayResult struct {
-	// ActiveActive flag.
-	ActiveActive *bool `pulumi:"activeActive"`
-	// Virtual network gateway's BGP speaker settings.
-	BgpSettings *BgpSettingsResponse `pulumi:"bgpSettings"`
-	// The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
-	CustomRoutes *AddressSpaceResponse `pulumi:"customRoutes"`
-	// Whether BGP is enabled for this virtual network gateway or not.
-	EnableBgp *bool `pulumi:"enableBgp"`
-	// EnableBgpRouteTranslationForNat flag.
-	EnableBgpRouteTranslationForNat *bool `pulumi:"enableBgpRouteTranslationForNat"`
-	// Whether dns forwarding is enabled or not.
-	EnableDnsForwarding *bool `pulumi:"enableDnsForwarding"`
-	// Whether private IP needs to be enabled on this gateway for connections or not.
-	EnablePrivateIpAddress *bool `pulumi:"enablePrivateIpAddress"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// The extended location of type local virtual network gateway.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
-	GatewayDefaultSite *SubResourceResponse `pulumi:"gatewayDefaultSite"`
-	// The type of this virtual network gateway.
-	GatewayType *string `pulumi:"gatewayType"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The IP address allocated by the gateway to which dns requests can be sent.
-	InboundDnsForwardingEndpoint string `pulumi:"inboundDnsForwardingEndpoint"`
-	// IP configurations for virtual network gateway.
-	IpConfigurations []VirtualNetworkGatewayIPConfigurationResponse `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// NatRules for virtual network gateway.
-	NatRules []VirtualNetworkGatewayNatRuleResponse `pulumi:"natRules"`
-	// The provisioning state of the virtual network gateway resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The resource GUID property of the virtual network gateway resource.
-	ResourceGuid string `pulumi:"resourceGuid"`
-	// The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
-	Sku *VirtualNetworkGatewaySkuResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
-	VNetExtendedLocationResourceId *string `pulumi:"vNetExtendedLocationResourceId"`
-	// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-	VpnClientConfiguration *VpnClientConfigurationResponse `pulumi:"vpnClientConfiguration"`
-	// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
-	VpnGatewayGeneration *string `pulumi:"vpnGatewayGeneration"`
-	// The type of this virtual network gateway.
-	VpnType *string `pulumi:"vpnType"`
+	ActiveActive                    *bool                                          `pulumi:"activeActive"`
+	BgpSettings                     *BgpSettingsResponse                           `pulumi:"bgpSettings"`
+	CustomRoutes                    *AddressSpaceResponse                          `pulumi:"customRoutes"`
+	EnableBgp                       *bool                                          `pulumi:"enableBgp"`
+	EnableBgpRouteTranslationForNat *bool                                          `pulumi:"enableBgpRouteTranslationForNat"`
+	EnableDnsForwarding             *bool                                          `pulumi:"enableDnsForwarding"`
+	EnablePrivateIpAddress          *bool                                          `pulumi:"enablePrivateIpAddress"`
+	Etag                            string                                         `pulumi:"etag"`
+	ExtendedLocation                *ExtendedLocationResponse                      `pulumi:"extendedLocation"`
+	GatewayDefaultSite              *SubResourceResponse                           `pulumi:"gatewayDefaultSite"`
+	GatewayType                     *string                                        `pulumi:"gatewayType"`
+	Id                              *string                                        `pulumi:"id"`
+	InboundDnsForwardingEndpoint    string                                         `pulumi:"inboundDnsForwardingEndpoint"`
+	IpConfigurations                []VirtualNetworkGatewayIPConfigurationResponse `pulumi:"ipConfigurations"`
+	Location                        *string                                        `pulumi:"location"`
+	Name                            string                                         `pulumi:"name"`
+	NatRules                        []VirtualNetworkGatewayNatRuleResponse         `pulumi:"natRules"`
+	ProvisioningState               string                                         `pulumi:"provisioningState"`
+	ResourceGuid                    string                                         `pulumi:"resourceGuid"`
+	Sku                             *VirtualNetworkGatewaySkuResponse              `pulumi:"sku"`
+	Tags                            map[string]string                              `pulumi:"tags"`
+	Type                            string                                         `pulumi:"type"`
+	VNetExtendedLocationResourceId  *string                                        `pulumi:"vNetExtendedLocationResourceId"`
+	VpnClientConfiguration          *VpnClientConfigurationResponse                `pulumi:"vpnClientConfiguration"`
+	VpnGatewayGeneration            *string                                        `pulumi:"vpnGatewayGeneration"`
+	VpnType                         *string                                        `pulumi:"vpnType"`
 }

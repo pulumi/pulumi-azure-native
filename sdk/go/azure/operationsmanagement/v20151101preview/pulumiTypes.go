@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Parameter to pass to ARM template
 type ArmTemplateParameter struct {
-	// name of the parameter.
-	Name *string `pulumi:"name"`
-	// value for the parameter. In Jtoken
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -29,11 +26,8 @@ type ArmTemplateParameterInput interface {
 	ToArmTemplateParameterOutputWithContext(context.Context) ArmTemplateParameterOutput
 }
 
-// Parameter to pass to ARM template
 type ArmTemplateParameterArgs struct {
-	// name of the parameter.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// value for the parameter. In Jtoken
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -74,7 +68,6 @@ func (i ArmTemplateParameterArray) ToArmTemplateParameterArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ArmTemplateParameterArrayOutput)
 }
 
-// Parameter to pass to ARM template
 type ArmTemplateParameterOutput struct{ *pulumi.OutputState }
 
 func (ArmTemplateParameterOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o ArmTemplateParameterOutput) ToArmTemplateParameterOutputWithContext(ctx 
 	return o
 }
 
-// name of the parameter.
 func (o ArmTemplateParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmTemplateParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// value for the parameter. In Jtoken
 func (o ArmTemplateParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmTemplateParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -119,11 +110,8 @@ func (o ArmTemplateParameterArrayOutput) Index(i pulumi.IntInput) ArmTemplatePar
 	}).(ArmTemplateParameterOutput)
 }
 
-// Parameter to pass to ARM template
 type ArmTemplateParameterResponse struct {
-	// name of the parameter.
-	Name *string `pulumi:"name"`
-	// value for the parameter. In Jtoken
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -138,11 +126,8 @@ type ArmTemplateParameterResponseInput interface {
 	ToArmTemplateParameterResponseOutputWithContext(context.Context) ArmTemplateParameterResponseOutput
 }
 
-// Parameter to pass to ARM template
 type ArmTemplateParameterResponseArgs struct {
-	// name of the parameter.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// value for the parameter. In Jtoken
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -183,7 +168,6 @@ func (i ArmTemplateParameterResponseArray) ToArmTemplateParameterResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ArmTemplateParameterResponseArrayOutput)
 }
 
-// Parameter to pass to ARM template
 type ArmTemplateParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (ArmTemplateParameterResponseOutput) ElementType() reflect.Type {
@@ -198,12 +182,10 @@ func (o ArmTemplateParameterResponseOutput) ToArmTemplateParameterResponseOutput
 	return o
 }
 
-// name of the parameter.
 func (o ArmTemplateParameterResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmTemplateParameterResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// value for the parameter. In Jtoken
 func (o ArmTemplateParameterResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmTemplateParameterResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -228,9 +210,7 @@ func (o ArmTemplateParameterResponseArrayOutput) Index(i pulumi.IntInput) ArmTem
 	}).(ArmTemplateParameterResponseOutput)
 }
 
-// ManagementAssociation properties supported by the OperationsManagement resource provider.
 type ManagementAssociationProperties struct {
-	// The applicationId of the appliance for this association.
 	ApplicationId string `pulumi:"applicationId"`
 }
 
@@ -245,9 +225,7 @@ type ManagementAssociationPropertiesInput interface {
 	ToManagementAssociationPropertiesOutputWithContext(context.Context) ManagementAssociationPropertiesOutput
 }
 
-// ManagementAssociation properties supported by the OperationsManagement resource provider.
 type ManagementAssociationPropertiesArgs struct {
-	// The applicationId of the appliance for this association.
 	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 }
 
@@ -304,7 +282,6 @@ func (i *managementAssociationPropertiesPtrType) ToManagementAssociationProperti
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementAssociationPropertiesPtrOutput)
 }
 
-// ManagementAssociation properties supported by the OperationsManagement resource provider.
 type ManagementAssociationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ManagementAssociationPropertiesOutput) ElementType() reflect.Type {
@@ -324,12 +301,11 @@ func (o ManagementAssociationPropertiesOutput) ToManagementAssociationProperties
 }
 
 func (o ManagementAssociationPropertiesOutput) ToManagementAssociationPropertiesPtrOutputWithContext(ctx context.Context) ManagementAssociationPropertiesPtrOutput {
-	return o.ApplyT(func(v ManagementAssociationProperties) *ManagementAssociationProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementAssociationProperties) *ManagementAssociationProperties {
 		return &v
 	}).(ManagementAssociationPropertiesPtrOutput)
 }
 
-// The applicationId of the appliance for this association.
 func (o ManagementAssociationPropertiesOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementAssociationProperties) string { return v.ApplicationId }).(pulumi.StringOutput)
 }
@@ -349,10 +325,15 @@ func (o ManagementAssociationPropertiesPtrOutput) ToManagementAssociationPropert
 }
 
 func (o ManagementAssociationPropertiesPtrOutput) Elem() ManagementAssociationPropertiesOutput {
-	return o.ApplyT(func(v *ManagementAssociationProperties) ManagementAssociationProperties { return *v }).(ManagementAssociationPropertiesOutput)
+	return o.ApplyT(func(v *ManagementAssociationProperties) ManagementAssociationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementAssociationProperties
+		return ret
+	}).(ManagementAssociationPropertiesOutput)
 }
 
-// The applicationId of the appliance for this association.
 func (o ManagementAssociationPropertiesPtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagementAssociationProperties) *string {
 		if v == nil {
@@ -362,9 +343,7 @@ func (o ManagementAssociationPropertiesPtrOutput) ApplicationId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// ManagementAssociation properties supported by the OperationsManagement resource provider.
 type ManagementAssociationPropertiesResponse struct {
-	// The applicationId of the appliance for this association.
 	ApplicationId string `pulumi:"applicationId"`
 }
 
@@ -379,9 +358,7 @@ type ManagementAssociationPropertiesResponseInput interface {
 	ToManagementAssociationPropertiesResponseOutputWithContext(context.Context) ManagementAssociationPropertiesResponseOutput
 }
 
-// ManagementAssociation properties supported by the OperationsManagement resource provider.
 type ManagementAssociationPropertiesResponseArgs struct {
-	// The applicationId of the appliance for this association.
 	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 }
 
@@ -438,7 +415,6 @@ func (i *managementAssociationPropertiesResponsePtrType) ToManagementAssociation
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementAssociationPropertiesResponsePtrOutput)
 }
 
-// ManagementAssociation properties supported by the OperationsManagement resource provider.
 type ManagementAssociationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementAssociationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -458,12 +434,11 @@ func (o ManagementAssociationPropertiesResponseOutput) ToManagementAssociationPr
 }
 
 func (o ManagementAssociationPropertiesResponseOutput) ToManagementAssociationPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagementAssociationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ManagementAssociationPropertiesResponse) *ManagementAssociationPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementAssociationPropertiesResponse) *ManagementAssociationPropertiesResponse {
 		return &v
 	}).(ManagementAssociationPropertiesResponsePtrOutput)
 }
 
-// The applicationId of the appliance for this association.
 func (o ManagementAssociationPropertiesResponseOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementAssociationPropertiesResponse) string { return v.ApplicationId }).(pulumi.StringOutput)
 }
@@ -483,10 +458,15 @@ func (o ManagementAssociationPropertiesResponsePtrOutput) ToManagementAssociatio
 }
 
 func (o ManagementAssociationPropertiesResponsePtrOutput) Elem() ManagementAssociationPropertiesResponseOutput {
-	return o.ApplyT(func(v *ManagementAssociationPropertiesResponse) ManagementAssociationPropertiesResponse { return *v }).(ManagementAssociationPropertiesResponseOutput)
+	return o.ApplyT(func(v *ManagementAssociationPropertiesResponse) ManagementAssociationPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementAssociationPropertiesResponse
+		return ret
+	}).(ManagementAssociationPropertiesResponseOutput)
 }
 
-// The applicationId of the appliance for this association.
 func (o ManagementAssociationPropertiesResponsePtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagementAssociationPropertiesResponse) *string {
 		if v == nil {
@@ -496,16 +476,11 @@ func (o ManagementAssociationPropertiesResponsePtrOutput) ApplicationId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// ManagementConfiguration properties supported by the OperationsManagement resource provider.
 type ManagementConfigurationProperties struct {
-	// The applicationId of the appliance for this Management.
-	ApplicationId *string `pulumi:"applicationId"`
-	// Parameters to run the ARM template
-	Parameters []ArmTemplateParameter `pulumi:"parameters"`
-	// The type of the parent resource.
-	ParentResourceType string `pulumi:"parentResourceType"`
-	// The Json object containing the ARM template to deploy
-	Template interface{} `pulumi:"template"`
+	ApplicationId      *string                `pulumi:"applicationId"`
+	Parameters         []ArmTemplateParameter `pulumi:"parameters"`
+	ParentResourceType string                 `pulumi:"parentResourceType"`
+	Template           interface{}            `pulumi:"template"`
 }
 
 // ManagementConfigurationPropertiesInput is an input type that accepts ManagementConfigurationPropertiesArgs and ManagementConfigurationPropertiesOutput values.
@@ -519,16 +494,11 @@ type ManagementConfigurationPropertiesInput interface {
 	ToManagementConfigurationPropertiesOutputWithContext(context.Context) ManagementConfigurationPropertiesOutput
 }
 
-// ManagementConfiguration properties supported by the OperationsManagement resource provider.
 type ManagementConfigurationPropertiesArgs struct {
-	// The applicationId of the appliance for this Management.
-	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// Parameters to run the ARM template
-	Parameters ArmTemplateParameterArrayInput `pulumi:"parameters"`
-	// The type of the parent resource.
-	ParentResourceType pulumi.StringInput `pulumi:"parentResourceType"`
-	// The Json object containing the ARM template to deploy
-	Template pulumi.Input `pulumi:"template"`
+	ApplicationId      pulumi.StringPtrInput          `pulumi:"applicationId"`
+	Parameters         ArmTemplateParameterArrayInput `pulumi:"parameters"`
+	ParentResourceType pulumi.StringInput             `pulumi:"parentResourceType"`
+	Template           pulumi.Input                   `pulumi:"template"`
 }
 
 func (ManagementConfigurationPropertiesArgs) ElementType() reflect.Type {
@@ -584,7 +554,6 @@ func (i *managementConfigurationPropertiesPtrType) ToManagementConfigurationProp
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementConfigurationPropertiesPtrOutput)
 }
 
-// ManagementConfiguration properties supported by the OperationsManagement resource provider.
 type ManagementConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ManagementConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -604,27 +573,23 @@ func (o ManagementConfigurationPropertiesOutput) ToManagementConfigurationProper
 }
 
 func (o ManagementConfigurationPropertiesOutput) ToManagementConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ManagementConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v ManagementConfigurationProperties) *ManagementConfigurationProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementConfigurationProperties) *ManagementConfigurationProperties {
 		return &v
 	}).(ManagementConfigurationPropertiesPtrOutput)
 }
 
-// The applicationId of the appliance for this Management.
 func (o ManagementConfigurationPropertiesOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementConfigurationProperties) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// Parameters to run the ARM template
 func (o ManagementConfigurationPropertiesOutput) Parameters() ArmTemplateParameterArrayOutput {
 	return o.ApplyT(func(v ManagementConfigurationProperties) []ArmTemplateParameter { return v.Parameters }).(ArmTemplateParameterArrayOutput)
 }
 
-// The type of the parent resource.
 func (o ManagementConfigurationPropertiesOutput) ParentResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementConfigurationProperties) string { return v.ParentResourceType }).(pulumi.StringOutput)
 }
 
-// The Json object containing the ARM template to deploy
 func (o ManagementConfigurationPropertiesOutput) Template() pulumi.AnyOutput {
 	return o.ApplyT(func(v ManagementConfigurationProperties) interface{} { return v.Template }).(pulumi.AnyOutput)
 }
@@ -644,10 +609,15 @@ func (o ManagementConfigurationPropertiesPtrOutput) ToManagementConfigurationPro
 }
 
 func (o ManagementConfigurationPropertiesPtrOutput) Elem() ManagementConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *ManagementConfigurationProperties) ManagementConfigurationProperties { return *v }).(ManagementConfigurationPropertiesOutput)
+	return o.ApplyT(func(v *ManagementConfigurationProperties) ManagementConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementConfigurationProperties
+		return ret
+	}).(ManagementConfigurationPropertiesOutput)
 }
 
-// The applicationId of the appliance for this Management.
 func (o ManagementConfigurationPropertiesPtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagementConfigurationProperties) *string {
 		if v == nil {
@@ -657,7 +627,6 @@ func (o ManagementConfigurationPropertiesPtrOutput) ApplicationId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Parameters to run the ARM template
 func (o ManagementConfigurationPropertiesPtrOutput) Parameters() ArmTemplateParameterArrayOutput {
 	return o.ApplyT(func(v *ManagementConfigurationProperties) []ArmTemplateParameter {
 		if v == nil {
@@ -667,7 +636,6 @@ func (o ManagementConfigurationPropertiesPtrOutput) Parameters() ArmTemplatePara
 	}).(ArmTemplateParameterArrayOutput)
 }
 
-// The type of the parent resource.
 func (o ManagementConfigurationPropertiesPtrOutput) ParentResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagementConfigurationProperties) *string {
 		if v == nil {
@@ -677,7 +645,6 @@ func (o ManagementConfigurationPropertiesPtrOutput) ParentResourceType() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Json object containing the ARM template to deploy
 func (o ManagementConfigurationPropertiesPtrOutput) Template() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ManagementConfigurationProperties) interface{} {
 		if v == nil {
@@ -687,18 +654,12 @@ func (o ManagementConfigurationPropertiesPtrOutput) Template() pulumi.AnyOutput 
 	}).(pulumi.AnyOutput)
 }
 
-// ManagementConfiguration properties supported by the OperationsManagement resource provider.
 type ManagementConfigurationPropertiesResponse struct {
-	// The applicationId of the appliance for this Management.
-	ApplicationId *string `pulumi:"applicationId"`
-	// Parameters to run the ARM template
-	Parameters []ArmTemplateParameterResponse `pulumi:"parameters"`
-	// The type of the parent resource.
-	ParentResourceType string `pulumi:"parentResourceType"`
-	// The provisioning state for the ManagementConfiguration.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The Json object containing the ARM template to deploy
-	Template interface{} `pulumi:"template"`
+	ApplicationId      *string                        `pulumi:"applicationId"`
+	Parameters         []ArmTemplateParameterResponse `pulumi:"parameters"`
+	ParentResourceType string                         `pulumi:"parentResourceType"`
+	ProvisioningState  string                         `pulumi:"provisioningState"`
+	Template           interface{}                    `pulumi:"template"`
 }
 
 // ManagementConfigurationPropertiesResponseInput is an input type that accepts ManagementConfigurationPropertiesResponseArgs and ManagementConfigurationPropertiesResponseOutput values.
@@ -712,18 +673,12 @@ type ManagementConfigurationPropertiesResponseInput interface {
 	ToManagementConfigurationPropertiesResponseOutputWithContext(context.Context) ManagementConfigurationPropertiesResponseOutput
 }
 
-// ManagementConfiguration properties supported by the OperationsManagement resource provider.
 type ManagementConfigurationPropertiesResponseArgs struct {
-	// The applicationId of the appliance for this Management.
-	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// Parameters to run the ARM template
-	Parameters ArmTemplateParameterResponseArrayInput `pulumi:"parameters"`
-	// The type of the parent resource.
-	ParentResourceType pulumi.StringInput `pulumi:"parentResourceType"`
-	// The provisioning state for the ManagementConfiguration.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The Json object containing the ARM template to deploy
-	Template pulumi.Input `pulumi:"template"`
+	ApplicationId      pulumi.StringPtrInput                  `pulumi:"applicationId"`
+	Parameters         ArmTemplateParameterResponseArrayInput `pulumi:"parameters"`
+	ParentResourceType pulumi.StringInput                     `pulumi:"parentResourceType"`
+	ProvisioningState  pulumi.StringInput                     `pulumi:"provisioningState"`
+	Template           pulumi.Input                           `pulumi:"template"`
 }
 
 func (ManagementConfigurationPropertiesResponseArgs) ElementType() reflect.Type {
@@ -779,7 +734,6 @@ func (i *managementConfigurationPropertiesResponsePtrType) ToManagementConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementConfigurationPropertiesResponsePtrOutput)
 }
 
-// ManagementConfiguration properties supported by the OperationsManagement resource provider.
 type ManagementConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -799,32 +753,27 @@ func (o ManagementConfigurationPropertiesResponseOutput) ToManagementConfigurati
 }
 
 func (o ManagementConfigurationPropertiesResponseOutput) ToManagementConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagementConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ManagementConfigurationPropertiesResponse) *ManagementConfigurationPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementConfigurationPropertiesResponse) *ManagementConfigurationPropertiesResponse {
 		return &v
 	}).(ManagementConfigurationPropertiesResponsePtrOutput)
 }
 
-// The applicationId of the appliance for this Management.
 func (o ManagementConfigurationPropertiesResponseOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementConfigurationPropertiesResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// Parameters to run the ARM template
 func (o ManagementConfigurationPropertiesResponseOutput) Parameters() ArmTemplateParameterResponseArrayOutput {
 	return o.ApplyT(func(v ManagementConfigurationPropertiesResponse) []ArmTemplateParameterResponse { return v.Parameters }).(ArmTemplateParameterResponseArrayOutput)
 }
 
-// The type of the parent resource.
 func (o ManagementConfigurationPropertiesResponseOutput) ParentResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementConfigurationPropertiesResponse) string { return v.ParentResourceType }).(pulumi.StringOutput)
 }
 
-// The provisioning state for the ManagementConfiguration.
 func (o ManagementConfigurationPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementConfigurationPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The Json object containing the ARM template to deploy
 func (o ManagementConfigurationPropertiesResponseOutput) Template() pulumi.AnyOutput {
 	return o.ApplyT(func(v ManagementConfigurationPropertiesResponse) interface{} { return v.Template }).(pulumi.AnyOutput)
 }
@@ -845,11 +794,14 @@ func (o ManagementConfigurationPropertiesResponsePtrOutput) ToManagementConfigur
 
 func (o ManagementConfigurationPropertiesResponsePtrOutput) Elem() ManagementConfigurationPropertiesResponseOutput {
 	return o.ApplyT(func(v *ManagementConfigurationPropertiesResponse) ManagementConfigurationPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagementConfigurationPropertiesResponse
+		return ret
 	}).(ManagementConfigurationPropertiesResponseOutput)
 }
 
-// The applicationId of the appliance for this Management.
 func (o ManagementConfigurationPropertiesResponsePtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagementConfigurationPropertiesResponse) *string {
 		if v == nil {
@@ -859,7 +811,6 @@ func (o ManagementConfigurationPropertiesResponsePtrOutput) ApplicationId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Parameters to run the ARM template
 func (o ManagementConfigurationPropertiesResponsePtrOutput) Parameters() ArmTemplateParameterResponseArrayOutput {
 	return o.ApplyT(func(v *ManagementConfigurationPropertiesResponse) []ArmTemplateParameterResponse {
 		if v == nil {
@@ -869,7 +820,6 @@ func (o ManagementConfigurationPropertiesResponsePtrOutput) Parameters() ArmTemp
 	}).(ArmTemplateParameterResponseArrayOutput)
 }
 
-// The type of the parent resource.
 func (o ManagementConfigurationPropertiesResponsePtrOutput) ParentResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagementConfigurationPropertiesResponse) *string {
 		if v == nil {
@@ -879,7 +829,6 @@ func (o ManagementConfigurationPropertiesResponsePtrOutput) ParentResourceType()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The provisioning state for the ManagementConfiguration.
 func (o ManagementConfigurationPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagementConfigurationPropertiesResponse) *string {
 		if v == nil {
@@ -889,7 +838,6 @@ func (o ManagementConfigurationPropertiesResponsePtrOutput) ProvisioningState() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Json object containing the ARM template to deploy
 func (o ManagementConfigurationPropertiesResponsePtrOutput) Template() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ManagementConfigurationPropertiesResponse) interface{} {
 		if v == nil {
@@ -899,16 +847,11 @@ func (o ManagementConfigurationPropertiesResponsePtrOutput) Template() pulumi.An
 	}).(pulumi.AnyOutput)
 }
 
-// Plan for solution object supported by the OperationsManagement resource provider.
 type SolutionPlan struct {
-	// name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
-	Name *string `pulumi:"name"`
-	// name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
-	Product *string `pulumi:"product"`
-	// promotionCode, Not really used now, can you left as empty
+	Name          *string `pulumi:"name"`
+	Product       *string `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// Publisher name. For gallery solution, it is Microsoft.
-	Publisher *string `pulumi:"publisher"`
+	Publisher     *string `pulumi:"publisher"`
 }
 
 // SolutionPlanInput is an input type that accepts SolutionPlanArgs and SolutionPlanOutput values.
@@ -922,16 +865,11 @@ type SolutionPlanInput interface {
 	ToSolutionPlanOutputWithContext(context.Context) SolutionPlanOutput
 }
 
-// Plan for solution object supported by the OperationsManagement resource provider.
 type SolutionPlanArgs struct {
-	// name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
-	Product pulumi.StringPtrInput `pulumi:"product"`
-	// promotionCode, Not really used now, can you left as empty
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Product       pulumi.StringPtrInput `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// Publisher name. For gallery solution, it is Microsoft.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	Publisher     pulumi.StringPtrInput `pulumi:"publisher"`
 }
 
 func (SolutionPlanArgs) ElementType() reflect.Type {
@@ -987,7 +925,6 @@ func (i *solutionPlanPtrType) ToSolutionPlanPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionPlanPtrOutput)
 }
 
-// Plan for solution object supported by the OperationsManagement resource provider.
 type SolutionPlanOutput struct{ *pulumi.OutputState }
 
 func (SolutionPlanOutput) ElementType() reflect.Type {
@@ -1007,27 +944,23 @@ func (o SolutionPlanOutput) ToSolutionPlanPtrOutput() SolutionPlanPtrOutput {
 }
 
 func (o SolutionPlanOutput) ToSolutionPlanPtrOutputWithContext(ctx context.Context) SolutionPlanPtrOutput {
-	return o.ApplyT(func(v SolutionPlan) *SolutionPlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionPlan) *SolutionPlan {
 		return &v
 	}).(SolutionPlanPtrOutput)
 }
 
-// name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
 func (o SolutionPlanOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPlan) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
 func (o SolutionPlanOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPlan) *string { return v.Product }).(pulumi.StringPtrOutput)
 }
 
-// promotionCode, Not really used now, can you left as empty
 func (o SolutionPlanOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// Publisher name. For gallery solution, it is Microsoft.
 func (o SolutionPlanOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPlan) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
@@ -1047,10 +980,15 @@ func (o SolutionPlanPtrOutput) ToSolutionPlanPtrOutputWithContext(ctx context.Co
 }
 
 func (o SolutionPlanPtrOutput) Elem() SolutionPlanOutput {
-	return o.ApplyT(func(v *SolutionPlan) SolutionPlan { return *v }).(SolutionPlanOutput)
+	return o.ApplyT(func(v *SolutionPlan) SolutionPlan {
+		if v != nil {
+			return *v
+		}
+		var ret SolutionPlan
+		return ret
+	}).(SolutionPlanOutput)
 }
 
-// name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
 func (o SolutionPlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPlan) *string {
 		if v == nil {
@@ -1060,7 +998,6 @@ func (o SolutionPlanPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
 func (o SolutionPlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPlan) *string {
 		if v == nil {
@@ -1070,7 +1007,6 @@ func (o SolutionPlanPtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// promotionCode, Not really used now, can you left as empty
 func (o SolutionPlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPlan) *string {
 		if v == nil {
@@ -1080,7 +1016,6 @@ func (o SolutionPlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Publisher name. For gallery solution, it is Microsoft.
 func (o SolutionPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPlan) *string {
 		if v == nil {
@@ -1090,16 +1025,11 @@ func (o SolutionPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Plan for solution object supported by the OperationsManagement resource provider.
 type SolutionPlanResponse struct {
-	// name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
-	Name *string `pulumi:"name"`
-	// name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
-	Product *string `pulumi:"product"`
-	// promotionCode, Not really used now, can you left as empty
+	Name          *string `pulumi:"name"`
+	Product       *string `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// Publisher name. For gallery solution, it is Microsoft.
-	Publisher *string `pulumi:"publisher"`
+	Publisher     *string `pulumi:"publisher"`
 }
 
 // SolutionPlanResponseInput is an input type that accepts SolutionPlanResponseArgs and SolutionPlanResponseOutput values.
@@ -1113,16 +1043,11 @@ type SolutionPlanResponseInput interface {
 	ToSolutionPlanResponseOutputWithContext(context.Context) SolutionPlanResponseOutput
 }
 
-// Plan for solution object supported by the OperationsManagement resource provider.
 type SolutionPlanResponseArgs struct {
-	// name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
-	Product pulumi.StringPtrInput `pulumi:"product"`
-	// promotionCode, Not really used now, can you left as empty
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Product       pulumi.StringPtrInput `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// Publisher name. For gallery solution, it is Microsoft.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	Publisher     pulumi.StringPtrInput `pulumi:"publisher"`
 }
 
 func (SolutionPlanResponseArgs) ElementType() reflect.Type {
@@ -1178,7 +1103,6 @@ func (i *solutionPlanResponsePtrType) ToSolutionPlanResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionPlanResponsePtrOutput)
 }
 
-// Plan for solution object supported by the OperationsManagement resource provider.
 type SolutionPlanResponseOutput struct{ *pulumi.OutputState }
 
 func (SolutionPlanResponseOutput) ElementType() reflect.Type {
@@ -1198,27 +1122,23 @@ func (o SolutionPlanResponseOutput) ToSolutionPlanResponsePtrOutput() SolutionPl
 }
 
 func (o SolutionPlanResponseOutput) ToSolutionPlanResponsePtrOutputWithContext(ctx context.Context) SolutionPlanResponsePtrOutput {
-	return o.ApplyT(func(v SolutionPlanResponse) *SolutionPlanResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionPlanResponse) *SolutionPlanResponse {
 		return &v
 	}).(SolutionPlanResponsePtrOutput)
 }
 
-// name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
 func (o SolutionPlanResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPlanResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
 func (o SolutionPlanResponseOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPlanResponse) *string { return v.Product }).(pulumi.StringPtrOutput)
 }
 
-// promotionCode, Not really used now, can you left as empty
 func (o SolutionPlanResponseOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPlanResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// Publisher name. For gallery solution, it is Microsoft.
 func (o SolutionPlanResponseOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPlanResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
@@ -1238,10 +1158,15 @@ func (o SolutionPlanResponsePtrOutput) ToSolutionPlanResponsePtrOutputWithContex
 }
 
 func (o SolutionPlanResponsePtrOutput) Elem() SolutionPlanResponseOutput {
-	return o.ApplyT(func(v *SolutionPlanResponse) SolutionPlanResponse { return *v }).(SolutionPlanResponseOutput)
+	return o.ApplyT(func(v *SolutionPlanResponse) SolutionPlanResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SolutionPlanResponse
+		return ret
+	}).(SolutionPlanResponseOutput)
 }
 
-// name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
 func (o SolutionPlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPlanResponse) *string {
 		if v == nil {
@@ -1251,7 +1176,6 @@ func (o SolutionPlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
 func (o SolutionPlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPlanResponse) *string {
 		if v == nil {
@@ -1261,7 +1185,6 @@ func (o SolutionPlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// promotionCode, Not really used now, can you left as empty
 func (o SolutionPlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPlanResponse) *string {
 		if v == nil {
@@ -1271,7 +1194,6 @@ func (o SolutionPlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Publisher name. For gallery solution, it is Microsoft.
 func (o SolutionPlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPlanResponse) *string {
 		if v == nil {
@@ -1281,14 +1203,10 @@ func (o SolutionPlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Solution properties supported by the OperationsManagement resource provider.
 type SolutionProperties struct {
-	// The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
-	ContainedResources []string `pulumi:"containedResources"`
-	// The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
+	ContainedResources  []string `pulumi:"containedResources"`
 	ReferencedResources []string `pulumi:"referencedResources"`
-	// The azure resourceId for the workspace where the solution will be deployed/enabled.
-	WorkspaceResourceId string `pulumi:"workspaceResourceId"`
+	WorkspaceResourceId string   `pulumi:"workspaceResourceId"`
 }
 
 // SolutionPropertiesInput is an input type that accepts SolutionPropertiesArgs and SolutionPropertiesOutput values.
@@ -1302,14 +1220,10 @@ type SolutionPropertiesInput interface {
 	ToSolutionPropertiesOutputWithContext(context.Context) SolutionPropertiesOutput
 }
 
-// Solution properties supported by the OperationsManagement resource provider.
 type SolutionPropertiesArgs struct {
-	// The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
-	ContainedResources pulumi.StringArrayInput `pulumi:"containedResources"`
-	// The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
+	ContainedResources  pulumi.StringArrayInput `pulumi:"containedResources"`
 	ReferencedResources pulumi.StringArrayInput `pulumi:"referencedResources"`
-	// The azure resourceId for the workspace where the solution will be deployed/enabled.
-	WorkspaceResourceId pulumi.StringInput `pulumi:"workspaceResourceId"`
+	WorkspaceResourceId pulumi.StringInput      `pulumi:"workspaceResourceId"`
 }
 
 func (SolutionPropertiesArgs) ElementType() reflect.Type {
@@ -1365,7 +1279,6 @@ func (i *solutionPropertiesPtrType) ToSolutionPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionPropertiesPtrOutput)
 }
 
-// Solution properties supported by the OperationsManagement resource provider.
 type SolutionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SolutionPropertiesOutput) ElementType() reflect.Type {
@@ -1385,22 +1298,19 @@ func (o SolutionPropertiesOutput) ToSolutionPropertiesPtrOutput() SolutionProper
 }
 
 func (o SolutionPropertiesOutput) ToSolutionPropertiesPtrOutputWithContext(ctx context.Context) SolutionPropertiesPtrOutput {
-	return o.ApplyT(func(v SolutionProperties) *SolutionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionProperties) *SolutionProperties {
 		return &v
 	}).(SolutionPropertiesPtrOutput)
 }
 
-// The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
 func (o SolutionPropertiesOutput) ContainedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SolutionProperties) []string { return v.ContainedResources }).(pulumi.StringArrayOutput)
 }
 
-// The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
 func (o SolutionPropertiesOutput) ReferencedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SolutionProperties) []string { return v.ReferencedResources }).(pulumi.StringArrayOutput)
 }
 
-// The azure resourceId for the workspace where the solution will be deployed/enabled.
 func (o SolutionPropertiesOutput) WorkspaceResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v SolutionProperties) string { return v.WorkspaceResourceId }).(pulumi.StringOutput)
 }
@@ -1420,10 +1330,15 @@ func (o SolutionPropertiesPtrOutput) ToSolutionPropertiesPtrOutputWithContext(ct
 }
 
 func (o SolutionPropertiesPtrOutput) Elem() SolutionPropertiesOutput {
-	return o.ApplyT(func(v *SolutionProperties) SolutionProperties { return *v }).(SolutionPropertiesOutput)
+	return o.ApplyT(func(v *SolutionProperties) SolutionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SolutionProperties
+		return ret
+	}).(SolutionPropertiesOutput)
 }
 
-// The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
 func (o SolutionPropertiesPtrOutput) ContainedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SolutionProperties) []string {
 		if v == nil {
@@ -1433,7 +1348,6 @@ func (o SolutionPropertiesPtrOutput) ContainedResources() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
 func (o SolutionPropertiesPtrOutput) ReferencedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SolutionProperties) []string {
 		if v == nil {
@@ -1443,7 +1357,6 @@ func (o SolutionPropertiesPtrOutput) ReferencedResources() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// The azure resourceId for the workspace where the solution will be deployed/enabled.
 func (o SolutionPropertiesPtrOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionProperties) *string {
 		if v == nil {
@@ -1453,16 +1366,11 @@ func (o SolutionPropertiesPtrOutput) WorkspaceResourceId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Solution properties supported by the OperationsManagement resource provider.
 type SolutionPropertiesResponse struct {
-	// The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
-	ContainedResources []string `pulumi:"containedResources"`
-	// The provisioning state for the solution.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
+	ContainedResources  []string `pulumi:"containedResources"`
+	ProvisioningState   string   `pulumi:"provisioningState"`
 	ReferencedResources []string `pulumi:"referencedResources"`
-	// The azure resourceId for the workspace where the solution will be deployed/enabled.
-	WorkspaceResourceId string `pulumi:"workspaceResourceId"`
+	WorkspaceResourceId string   `pulumi:"workspaceResourceId"`
 }
 
 // SolutionPropertiesResponseInput is an input type that accepts SolutionPropertiesResponseArgs and SolutionPropertiesResponseOutput values.
@@ -1476,16 +1384,11 @@ type SolutionPropertiesResponseInput interface {
 	ToSolutionPropertiesResponseOutputWithContext(context.Context) SolutionPropertiesResponseOutput
 }
 
-// Solution properties supported by the OperationsManagement resource provider.
 type SolutionPropertiesResponseArgs struct {
-	// The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
-	ContainedResources pulumi.StringArrayInput `pulumi:"containedResources"`
-	// The provisioning state for the solution.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
+	ContainedResources  pulumi.StringArrayInput `pulumi:"containedResources"`
+	ProvisioningState   pulumi.StringInput      `pulumi:"provisioningState"`
 	ReferencedResources pulumi.StringArrayInput `pulumi:"referencedResources"`
-	// The azure resourceId for the workspace where the solution will be deployed/enabled.
-	WorkspaceResourceId pulumi.StringInput `pulumi:"workspaceResourceId"`
+	WorkspaceResourceId pulumi.StringInput      `pulumi:"workspaceResourceId"`
 }
 
 func (SolutionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1541,7 +1444,6 @@ func (i *solutionPropertiesResponsePtrType) ToSolutionPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionPropertiesResponsePtrOutput)
 }
 
-// Solution properties supported by the OperationsManagement resource provider.
 type SolutionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SolutionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1561,27 +1463,23 @@ func (o SolutionPropertiesResponseOutput) ToSolutionPropertiesResponsePtrOutput(
 }
 
 func (o SolutionPropertiesResponseOutput) ToSolutionPropertiesResponsePtrOutputWithContext(ctx context.Context) SolutionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SolutionPropertiesResponse) *SolutionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionPropertiesResponse) *SolutionPropertiesResponse {
 		return &v
 	}).(SolutionPropertiesResponsePtrOutput)
 }
 
-// The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
 func (o SolutionPropertiesResponseOutput) ContainedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) []string { return v.ContainedResources }).(pulumi.StringArrayOutput)
 }
 
-// The provisioning state for the solution.
 func (o SolutionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
 func (o SolutionPropertiesResponseOutput) ReferencedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) []string { return v.ReferencedResources }).(pulumi.StringArrayOutput)
 }
 
-// The azure resourceId for the workspace where the solution will be deployed/enabled.
 func (o SolutionPropertiesResponseOutput) WorkspaceResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) string { return v.WorkspaceResourceId }).(pulumi.StringOutput)
 }
@@ -1601,10 +1499,15 @@ func (o SolutionPropertiesResponsePtrOutput) ToSolutionPropertiesResponsePtrOutp
 }
 
 func (o SolutionPropertiesResponsePtrOutput) Elem() SolutionPropertiesResponseOutput {
-	return o.ApplyT(func(v *SolutionPropertiesResponse) SolutionPropertiesResponse { return *v }).(SolutionPropertiesResponseOutput)
+	return o.ApplyT(func(v *SolutionPropertiesResponse) SolutionPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SolutionPropertiesResponse
+		return ret
+	}).(SolutionPropertiesResponseOutput)
 }
 
-// The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
 func (o SolutionPropertiesResponsePtrOutput) ContainedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) []string {
 		if v == nil {
@@ -1614,7 +1517,6 @@ func (o SolutionPropertiesResponsePtrOutput) ContainedResources() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// The provisioning state for the solution.
 func (o SolutionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
 		if v == nil {
@@ -1624,7 +1526,6 @@ func (o SolutionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
 func (o SolutionPropertiesResponsePtrOutput) ReferencedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) []string {
 		if v == nil {
@@ -1634,7 +1535,6 @@ func (o SolutionPropertiesResponsePtrOutput) ReferencedResources() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// The azure resourceId for the workspace where the solution will be deployed/enabled.
 func (o SolutionPropertiesResponsePtrOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
 		if v == nil {

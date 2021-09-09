@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NSX DHCP
 func LookupWorkloadNetworkDhcp(ctx *pulumi.Context, args *LookupWorkloadNetworkDhcpArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkDhcpResult, error) {
 	var rv LookupWorkloadNetworkDhcpResult
 	err := ctx.Invoke("azure-native:avs/v20210101preview:getWorkloadNetworkDhcp", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupWorkloadNetworkDhcp(ctx *pulumi.Context, args *LookupWorkloadNetworkD
 }
 
 type LookupWorkloadNetworkDhcpArgs struct {
-	// NSX DHCP identifier. Generally the same as the DHCP display name
-	DhcpId string `pulumi:"dhcpId"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
+	DhcpId            string `pulumi:"dhcpId"`
+	PrivateCloudName  string `pulumi:"privateCloudName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // NSX DHCP
 type LookupWorkloadNetworkDhcpResult struct {
-	// Type of DHCP: SERVER or RELAY.
-	DhcpType string `pulumi:"dhcpType"`
-	// Display name of the DHCP entity.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state
-	ProvisioningState string `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// NSX Segments consuming DHCP.
-	Segments []string `pulumi:"segments"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	DhcpType          string   `pulumi:"dhcpType"`
+	DisplayName       *string  `pulumi:"displayName"`
+	Id                string   `pulumi:"id"`
+	Name              string   `pulumi:"name"`
+	ProvisioningState string   `pulumi:"provisioningState"`
+	Revision          *float64 `pulumi:"revision"`
+	Segments          []string `pulumi:"segments"`
+	Type              string   `pulumi:"type"`
 }

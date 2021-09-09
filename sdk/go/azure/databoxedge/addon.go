@@ -164,9 +164,7 @@ func (i *Addon) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AddonOutput)
 }
 
-type AddonOutput struct {
-	*pulumi.OutputState
-}
+type AddonOutput struct{ *pulumi.OutputState }
 
 func (AddonOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Addon)(nil))

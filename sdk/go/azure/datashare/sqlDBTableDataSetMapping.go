@@ -209,9 +209,7 @@ func (i *SqlDBTableDataSetMapping) ToSqlDBTableDataSetMappingOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDBTableDataSetMappingOutput)
 }
 
-type SqlDBTableDataSetMappingOutput struct {
-	*pulumi.OutputState
-}
+type SqlDBTableDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (SqlDBTableDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlDBTableDataSetMapping)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The representation of an edge module.
 func LookupEdgeModule(ctx *pulumi.Context, args *LookupEdgeModuleArgs, opts ...pulumi.InvokeOption) (*LookupEdgeModuleResult, error) {
 	var rv LookupEdgeModuleResult
 	err := ctx.Invoke("azure-native:videoanalyzer/v20210501preview:getEdgeModule", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupEdgeModule(ctx *pulumi.Context, args *LookupEdgeModuleArgs, opts ...p
 }
 
 type LookupEdgeModuleArgs struct {
-	// The Azure Video Analyzer account name.
-	AccountName string `pulumi:"accountName"`
-	// The name of the edge module to retrieve.
-	EdgeModuleName string `pulumi:"edgeModuleName"`
-	// The name of the resource group. The name is case insensitive.
+	AccountName       string `pulumi:"accountName"`
+	EdgeModuleName    string `pulumi:"edgeModuleName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The representation of an edge module.
 type LookupEdgeModuleResult struct {
-	// Internal ID generated for the instance of the Video Analyzer edge module.
-	EdgeModuleId string `pulumi:"edgeModuleId"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	EdgeModuleId string             `pulumi:"edgeModuleId"`
+	Id           string             `pulumi:"id"`
+	Name         string             `pulumi:"name"`
+	SystemData   SystemDataResponse `pulumi:"systemData"`
+	Type         string             `pulumi:"type"`
 }

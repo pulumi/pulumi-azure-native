@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The list Kusto database principals operation response.
 func ListKustoPoolFollowerDatabases(ctx *pulumi.Context, args *ListKustoPoolFollowerDatabasesArgs, opts ...pulumi.InvokeOption) (*ListKustoPoolFollowerDatabasesResult, error) {
 	var rv ListKustoPoolFollowerDatabasesResult
 	err := ctx.Invoke("azure-native:synapse/v20210601preview:listKustoPoolFollowerDatabases", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListKustoPoolFollowerDatabases(ctx *pulumi.Context, args *ListKustoPoolFoll
 }
 
 type ListKustoPoolFollowerDatabasesArgs struct {
-	// The name of the Kusto pool.
-	KustoPoolName string `pulumi:"kustoPoolName"`
-	// The name of the resource group. The name is case insensitive.
+	KustoPoolName     string `pulumi:"kustoPoolName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // The list Kusto database principals operation response.
 type ListKustoPoolFollowerDatabasesResult struct {
-	// The list of follower database result.
 	Value []FollowerDatabaseDefinitionResponse `pulumi:"value"`
 }

@@ -11,9 +11,7 @@ import (
 )
 
 type AzureSku struct {
-	// SKU name
 	Name string `pulumi:"name"`
-	// SKU tier
 	Tier string `pulumi:"tier"`
 }
 
@@ -29,9 +27,7 @@ type AzureSkuInput interface {
 }
 
 type AzureSkuArgs struct {
-	// SKU name
 	Name pulumi.StringInput `pulumi:"name"`
-	// SKU tier
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -107,17 +103,15 @@ func (o AzureSkuOutput) ToAzureSkuPtrOutput() AzureSkuPtrOutput {
 }
 
 func (o AzureSkuOutput) ToAzureSkuPtrOutputWithContext(ctx context.Context) AzureSkuPtrOutput {
-	return o.ApplyT(func(v AzureSku) *AzureSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSku) *AzureSku {
 		return &v
 	}).(AzureSkuPtrOutput)
 }
 
-// SKU name
 func (o AzureSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// SKU tier
 func (o AzureSkuOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSku) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -137,10 +131,15 @@ func (o AzureSkuPtrOutput) ToAzureSkuPtrOutputWithContext(ctx context.Context) A
 }
 
 func (o AzureSkuPtrOutput) Elem() AzureSkuOutput {
-	return o.ApplyT(func(v *AzureSku) AzureSku { return *v }).(AzureSkuOutput)
+	return o.ApplyT(func(v *AzureSku) AzureSku {
+		if v != nil {
+			return *v
+		}
+		var ret AzureSku
+		return ret
+	}).(AzureSkuOutput)
 }
 
-// SKU name
 func (o AzureSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSku) *string {
 		if v == nil {
@@ -150,7 +149,6 @@ func (o AzureSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU tier
 func (o AzureSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSku) *string {
 		if v == nil {
@@ -161,9 +159,7 @@ func (o AzureSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type AzureSkuResponse struct {
-	// SKU name
 	Name string `pulumi:"name"`
-	// SKU tier
 	Tier string `pulumi:"tier"`
 }
 
@@ -179,9 +175,7 @@ type AzureSkuResponseInput interface {
 }
 
 type AzureSkuResponseArgs struct {
-	// SKU name
 	Name pulumi.StringInput `pulumi:"name"`
-	// SKU tier
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -257,17 +251,15 @@ func (o AzureSkuResponseOutput) ToAzureSkuResponsePtrOutput() AzureSkuResponsePt
 }
 
 func (o AzureSkuResponseOutput) ToAzureSkuResponsePtrOutputWithContext(ctx context.Context) AzureSkuResponsePtrOutput {
-	return o.ApplyT(func(v AzureSkuResponse) *AzureSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSkuResponse) *AzureSkuResponse {
 		return &v
 	}).(AzureSkuResponsePtrOutput)
 }
 
-// SKU name
 func (o AzureSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// SKU tier
 func (o AzureSkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -287,10 +279,15 @@ func (o AzureSkuResponsePtrOutput) ToAzureSkuResponsePtrOutputWithContext(ctx co
 }
 
 func (o AzureSkuResponsePtrOutput) Elem() AzureSkuResponseOutput {
-	return o.ApplyT(func(v *AzureSkuResponse) AzureSkuResponse { return *v }).(AzureSkuResponseOutput)
+	return o.ApplyT(func(v *AzureSkuResponse) AzureSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureSkuResponse
+		return ret
+	}).(AzureSkuResponseOutput)
 }
 
-// SKU name
 func (o AzureSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSkuResponse) *string {
 		if v == nil {
@@ -300,7 +297,6 @@ func (o AzureSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU tier
 func (o AzureSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSkuResponse) *string {
 		if v == nil {

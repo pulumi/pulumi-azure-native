@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Storage Sync Service object.
 type StorageSyncService struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Storage Sync service status.
-	StorageSyncServiceStatus pulumi.IntOutput `pulumi:"storageSyncServiceStatus"`
-	// Storage Sync service Uid
-	StorageSyncServiceUid pulumi.StringOutput `pulumi:"storageSyncServiceUid"`
-	// The tags of the resource.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
-	// The type of the resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location                 pulumi.StringPtrOutput `pulumi:"location"`
+	Name                     pulumi.StringOutput    `pulumi:"name"`
+	StorageSyncServiceStatus pulumi.IntOutput       `pulumi:"storageSyncServiceStatus"`
+	StorageSyncServiceUid    pulumi.StringOutput    `pulumi:"storageSyncServiceUid"`
+	Tags                     pulumi.AnyOutput       `pulumi:"tags"`
+	Type                     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewStorageSyncService registers a new resource with the given unique name, arguments, and options.
@@ -137,26 +130,18 @@ func (StorageSyncServiceState) ElementType() reflect.Type {
 }
 
 type storageSyncServiceArgs struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Storage Sync Service resource.
-	StorageSyncServiceName *string `pulumi:"storageSyncServiceName"`
-	// The tags of the resource.
-	Tags interface{} `pulumi:"tags"`
+	Location               *string     `pulumi:"location"`
+	ResourceGroupName      string      `pulumi:"resourceGroupName"`
+	StorageSyncServiceName *string     `pulumi:"storageSyncServiceName"`
+	Tags                   interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StorageSyncService resource.
 type StorageSyncServiceArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Name of Storage Sync Service resource.
+	Location               pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
 	StorageSyncServiceName pulumi.StringPtrInput
-	// The tags of the resource.
-	Tags pulumi.Input
+	Tags                   pulumi.Input
 }
 
 func (StorageSyncServiceArgs) ElementType() reflect.Type {
@@ -182,9 +167,7 @@ func (i *StorageSyncService) ToStorageSyncServiceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(StorageSyncServiceOutput)
 }
 
-type StorageSyncServiceOutput struct {
-	*pulumi.OutputState
-}
+type StorageSyncServiceOutput struct{ *pulumi.OutputState }
 
 func (StorageSyncServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageSyncService)(nil))

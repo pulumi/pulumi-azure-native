@@ -11,48 +11,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Subnet in a virtual network resource.
 type Subnet struct {
 	pulumi.CustomResourceState
 
-	// The address prefix for the subnet.
-	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
-	// List of address prefixes for the subnet.
-	AddressPrefixes pulumi.StringArrayOutput `pulumi:"addressPrefixes"`
-	// An array of references to the delegations on the subnet.
-	Delegations DelegationResponseArrayOutput `pulumi:"delegations"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Array of IP configuration profiles which reference this subnet.
-	IpConfigurationProfiles IPConfigurationProfileResponseArrayOutput `pulumi:"ipConfigurationProfiles"`
-	// An array of references to the network interface IP configurations using subnet.
-	IpConfigurations IPConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Nat gateway associated with this subnet.
-	NatGateway SubResourceResponsePtrOutput `pulumi:"natGateway"`
-	// The reference of the NetworkSecurityGroup resource.
-	NetworkSecurityGroup NetworkSecurityGroupResponsePtrOutput `pulumi:"networkSecurityGroup"`
-	// Enable or Disable apply network policies on private end point in the subnet.
-	PrivateEndpointNetworkPolicies pulumi.StringPtrOutput `pulumi:"privateEndpointNetworkPolicies"`
-	// An array of references to private endpoints.
-	PrivateEndpoints PrivateEndpointResponseArrayOutput `pulumi:"privateEndpoints"`
-	// Enable or Disable apply network policies on private link service in the subnet.
-	PrivateLinkServiceNetworkPolicies pulumi.StringPtrOutput `pulumi:"privateLinkServiceNetworkPolicies"`
-	// The provisioning state of the subnet resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
-	Purpose pulumi.StringOutput `pulumi:"purpose"`
-	// An array of references to the external resources using subnet.
-	ResourceNavigationLinks ResourceNavigationLinkResponseArrayOutput `pulumi:"resourceNavigationLinks"`
-	// The reference of the RouteTable resource.
-	RouteTable RouteTableResponsePtrOutput `pulumi:"routeTable"`
-	// An array of references to services injecting into this subnet.
-	ServiceAssociationLinks ServiceAssociationLinkResponseArrayOutput `pulumi:"serviceAssociationLinks"`
-	// An array of service endpoint policies.
-	ServiceEndpointPolicies ServiceEndpointPolicyResponseArrayOutput `pulumi:"serviceEndpointPolicies"`
-	// An array of service endpoints.
-	ServiceEndpoints ServiceEndpointPropertiesFormatResponseArrayOutput `pulumi:"serviceEndpoints"`
+	AddressPrefix                     pulumi.StringPtrOutput                             `pulumi:"addressPrefix"`
+	AddressPrefixes                   pulumi.StringArrayOutput                           `pulumi:"addressPrefixes"`
+	Delegations                       DelegationResponseArrayOutput                      `pulumi:"delegations"`
+	Etag                              pulumi.StringOutput                                `pulumi:"etag"`
+	IpConfigurationProfiles           IPConfigurationProfileResponseArrayOutput          `pulumi:"ipConfigurationProfiles"`
+	IpConfigurations                  IPConfigurationResponseArrayOutput                 `pulumi:"ipConfigurations"`
+	Name                              pulumi.StringPtrOutput                             `pulumi:"name"`
+	NatGateway                        SubResourceResponsePtrOutput                       `pulumi:"natGateway"`
+	NetworkSecurityGroup              NetworkSecurityGroupResponsePtrOutput              `pulumi:"networkSecurityGroup"`
+	PrivateEndpointNetworkPolicies    pulumi.StringPtrOutput                             `pulumi:"privateEndpointNetworkPolicies"`
+	PrivateEndpoints                  PrivateEndpointResponseArrayOutput                 `pulumi:"privateEndpoints"`
+	PrivateLinkServiceNetworkPolicies pulumi.StringPtrOutput                             `pulumi:"privateLinkServiceNetworkPolicies"`
+	ProvisioningState                 pulumi.StringOutput                                `pulumi:"provisioningState"`
+	Purpose                           pulumi.StringOutput                                `pulumi:"purpose"`
+	ResourceNavigationLinks           ResourceNavigationLinkResponseArrayOutput          `pulumi:"resourceNavigationLinks"`
+	RouteTable                        RouteTableResponsePtrOutput                        `pulumi:"routeTable"`
+	ServiceAssociationLinks           ServiceAssociationLinkResponseArrayOutput          `pulumi:"serviceAssociationLinks"`
+	ServiceEndpointPolicies           ServiceEndpointPolicyResponseArrayOutput           `pulumi:"serviceEndpointPolicies"`
+	ServiceEndpoints                  ServiceEndpointPropertiesFormatResponseArrayOutput `pulumi:"serviceEndpoints"`
 }
 
 // NewSubnet registers a new resource with the given unique name, arguments, and options.
@@ -334,70 +314,40 @@ func (SubnetState) ElementType() reflect.Type {
 }
 
 type subnetArgs struct {
-	// The address prefix for the subnet.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// List of address prefixes for the subnet.
-	AddressPrefixes []string `pulumi:"addressPrefixes"`
-	// An array of references to the delegations on the subnet.
-	Delegations []Delegation `pulumi:"delegations"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// Nat gateway associated with this subnet.
-	NatGateway *SubResource `pulumi:"natGateway"`
-	// The reference of the NetworkSecurityGroup resource.
-	NetworkSecurityGroup *NetworkSecurityGroupType `pulumi:"networkSecurityGroup"`
-	// Enable or Disable apply network policies on private end point in the subnet.
-	PrivateEndpointNetworkPolicies *string `pulumi:"privateEndpointNetworkPolicies"`
-	// Enable or Disable apply network policies on private link service in the subnet.
-	PrivateLinkServiceNetworkPolicies *string `pulumi:"privateLinkServiceNetworkPolicies"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The reference of the RouteTable resource.
-	RouteTable *RouteTableType `pulumi:"routeTable"`
-	// An array of service endpoint policies.
-	ServiceEndpointPolicies []ServiceEndpointPolicyType `pulumi:"serviceEndpointPolicies"`
-	// An array of service endpoints.
-	ServiceEndpoints []ServiceEndpointPropertiesFormat `pulumi:"serviceEndpoints"`
-	// The name of the subnet.
-	SubnetName *string `pulumi:"subnetName"`
-	// The name of the virtual network.
-	VirtualNetworkName string `pulumi:"virtualNetworkName"`
+	AddressPrefix                     *string                           `pulumi:"addressPrefix"`
+	AddressPrefixes                   []string                          `pulumi:"addressPrefixes"`
+	Delegations                       []Delegation                      `pulumi:"delegations"`
+	Id                                *string                           `pulumi:"id"`
+	Name                              *string                           `pulumi:"name"`
+	NatGateway                        *SubResource                      `pulumi:"natGateway"`
+	NetworkSecurityGroup              *NetworkSecurityGroupType         `pulumi:"networkSecurityGroup"`
+	PrivateEndpointNetworkPolicies    *string                           `pulumi:"privateEndpointNetworkPolicies"`
+	PrivateLinkServiceNetworkPolicies *string                           `pulumi:"privateLinkServiceNetworkPolicies"`
+	ResourceGroupName                 string                            `pulumi:"resourceGroupName"`
+	RouteTable                        *RouteTableType                   `pulumi:"routeTable"`
+	ServiceEndpointPolicies           []ServiceEndpointPolicyType       `pulumi:"serviceEndpointPolicies"`
+	ServiceEndpoints                  []ServiceEndpointPropertiesFormat `pulumi:"serviceEndpoints"`
+	SubnetName                        *string                           `pulumi:"subnetName"`
+	VirtualNetworkName                string                            `pulumi:"virtualNetworkName"`
 }
 
 // The set of arguments for constructing a Subnet resource.
 type SubnetArgs struct {
-	// The address prefix for the subnet.
-	AddressPrefix pulumi.StringPtrInput
-	// List of address prefixes for the subnet.
-	AddressPrefixes pulumi.StringArrayInput
-	// An array of references to the delegations on the subnet.
-	Delegations DelegationArrayInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// Nat gateway associated with this subnet.
-	NatGateway SubResourcePtrInput
-	// The reference of the NetworkSecurityGroup resource.
-	NetworkSecurityGroup NetworkSecurityGroupTypePtrInput
-	// Enable or Disable apply network policies on private end point in the subnet.
-	PrivateEndpointNetworkPolicies pulumi.StringPtrInput
-	// Enable or Disable apply network policies on private link service in the subnet.
+	AddressPrefix                     pulumi.StringPtrInput
+	AddressPrefixes                   pulumi.StringArrayInput
+	Delegations                       DelegationArrayInput
+	Id                                pulumi.StringPtrInput
+	Name                              pulumi.StringPtrInput
+	NatGateway                        SubResourcePtrInput
+	NetworkSecurityGroup              NetworkSecurityGroupTypePtrInput
+	PrivateEndpointNetworkPolicies    pulumi.StringPtrInput
 	PrivateLinkServiceNetworkPolicies pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The reference of the RouteTable resource.
-	RouteTable RouteTableTypePtrInput
-	// An array of service endpoint policies.
-	ServiceEndpointPolicies ServiceEndpointPolicyTypeArrayInput
-	// An array of service endpoints.
-	ServiceEndpoints ServiceEndpointPropertiesFormatArrayInput
-	// The name of the subnet.
-	SubnetName pulumi.StringPtrInput
-	// The name of the virtual network.
-	VirtualNetworkName pulumi.StringInput
+	ResourceGroupName                 pulumi.StringInput
+	RouteTable                        RouteTableTypePtrInput
+	ServiceEndpointPolicies           ServiceEndpointPolicyTypeArrayInput
+	ServiceEndpoints                  ServiceEndpointPropertiesFormatArrayInput
+	SubnetName                        pulumi.StringPtrInput
+	VirtualNetworkName                pulumi.StringInput
 }
 
 func (SubnetArgs) ElementType() reflect.Type {
@@ -423,9 +373,7 @@ func (i *Subnet) ToSubnetOutputWithContext(ctx context.Context) SubnetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetOutput)
 }
 
-type SubnetOutput struct {
-	*pulumi.OutputState
-}
+type SubnetOutput struct{ *pulumi.OutputState }
 
 func (SubnetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Subnet)(nil))

@@ -11,37 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of ARM tracked top level resource.
 type DataCollectionRule struct {
 	pulumi.CustomResourceState
 
-	// The specification of data flows.
-	DataFlows DataFlowResponseArrayOutput `pulumi:"dataFlows"`
-	// The specification of data sources.
-	// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
-	DataSources DataCollectionRuleResponseDataSourcesPtrOutput `pulumi:"dataSources"`
-	// Description of the data collection rule.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The specification of destinations.
-	Destinations DataCollectionRuleResponseDestinationsPtrOutput `pulumi:"destinations"`
-	// Resource entity tag (ETag).
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The immutable ID of this data collection rule. This property is READ-ONLY.
-	ImmutableId pulumi.StringOutput `pulumi:"immutableId"`
-	// The kind of the resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The geo-location where the resource lives.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData DataCollectionRuleResourceResponseSystemDataOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataFlows         DataFlowResponseArrayOutput                        `pulumi:"dataFlows"`
+	DataSources       DataCollectionRuleResponseDataSourcesPtrOutput     `pulumi:"dataSources"`
+	Description       pulumi.StringPtrOutput                             `pulumi:"description"`
+	Destinations      DataCollectionRuleResponseDestinationsPtrOutput    `pulumi:"destinations"`
+	Etag              pulumi.StringOutput                                `pulumi:"etag"`
+	ImmutableId       pulumi.StringOutput                                `pulumi:"immutableId"`
+	Kind              pulumi.StringPtrOutput                             `pulumi:"kind"`
+	Location          pulumi.StringOutput                                `pulumi:"location"`
+	Name              pulumi.StringOutput                                `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                                `pulumi:"provisioningState"`
+	SystemData        DataCollectionRuleResourceResponseSystemDataOutput `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput                             `pulumi:"tags"`
+	Type              pulumi.StringOutput                                `pulumi:"type"`
 }
 
 // NewDataCollectionRule registers a new resource with the given unique name, arguments, and options.
@@ -104,48 +89,28 @@ func (DataCollectionRuleState) ElementType() reflect.Type {
 }
 
 type dataCollectionRuleArgs struct {
-	// The name of the data collection rule. The name is case insensitive.
-	DataCollectionRuleName *string `pulumi:"dataCollectionRuleName"`
-	// The specification of data flows.
-	DataFlows []DataFlow `pulumi:"dataFlows"`
-	// The specification of data sources.
-	// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
-	DataSources *DataCollectionRuleDataSources `pulumi:"dataSources"`
-	// Description of the data collection rule.
-	Description *string `pulumi:"description"`
-	// The specification of destinations.
-	Destinations *DataCollectionRuleDestinations `pulumi:"destinations"`
-	// The kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives.
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	DataCollectionRuleName *string                         `pulumi:"dataCollectionRuleName"`
+	DataFlows              []DataFlow                      `pulumi:"dataFlows"`
+	DataSources            *DataCollectionRuleDataSources  `pulumi:"dataSources"`
+	Description            *string                         `pulumi:"description"`
+	Destinations           *DataCollectionRuleDestinations `pulumi:"destinations"`
+	Kind                   *string                         `pulumi:"kind"`
+	Location               *string                         `pulumi:"location"`
+	ResourceGroupName      string                          `pulumi:"resourceGroupName"`
+	Tags                   map[string]string               `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataCollectionRule resource.
 type DataCollectionRuleArgs struct {
-	// The name of the data collection rule. The name is case insensitive.
 	DataCollectionRuleName pulumi.StringPtrInput
-	// The specification of data flows.
-	DataFlows DataFlowArrayInput
-	// The specification of data sources.
-	// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
-	DataSources DataCollectionRuleDataSourcesPtrInput
-	// Description of the data collection rule.
-	Description pulumi.StringPtrInput
-	// The specification of destinations.
-	Destinations DataCollectionRuleDestinationsPtrInput
-	// The kind of the resource.
-	Kind pulumi.StringPtrInput
-	// The geo-location where the resource lives.
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	DataFlows              DataFlowArrayInput
+	DataSources            DataCollectionRuleDataSourcesPtrInput
+	Description            pulumi.StringPtrInput
+	Destinations           DataCollectionRuleDestinationsPtrInput
+	Kind                   pulumi.StringPtrInput
+	Location               pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (DataCollectionRuleArgs) ElementType() reflect.Type {
@@ -171,9 +136,7 @@ func (i *DataCollectionRule) ToDataCollectionRuleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleOutput)
 }
 
-type DataCollectionRuleOutput struct {
-	*pulumi.OutputState
-}
+type DataCollectionRuleOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataCollectionRule)(nil))

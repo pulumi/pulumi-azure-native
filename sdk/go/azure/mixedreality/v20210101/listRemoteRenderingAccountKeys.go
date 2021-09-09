@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Developer Keys of account
 func ListRemoteRenderingAccountKeys(ctx *pulumi.Context, args *ListRemoteRenderingAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListRemoteRenderingAccountKeysResult, error) {
 	var rv ListRemoteRenderingAccountKeysResult
 	err := ctx.Invoke("azure-native:mixedreality/v20210101:listRemoteRenderingAccountKeys", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListRemoteRenderingAccountKeys(ctx *pulumi.Context, args *ListRemoteRenderi
 }
 
 type ListRemoteRenderingAccountKeysArgs struct {
-	// Name of an Mixed Reality Account.
-	AccountName string `pulumi:"accountName"`
-	// Name of an Azure resource group.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Developer Keys of account
 type ListRemoteRenderingAccountKeysResult struct {
-	// value of primary key.
-	PrimaryKey string `pulumi:"primaryKey"`
-	// value of secondary key.
+	PrimaryKey   string `pulumi:"primaryKey"`
 	SecondaryKey string `pulumi:"secondaryKey"`
 }

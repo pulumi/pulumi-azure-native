@@ -11,44 +11,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties of the file share, including Id, resource name, resource type, Etag.
 type FileShare struct {
 	pulumi.CustomResourceState
 
-	// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
-	AccessTier pulumi.StringPtrOutput `pulumi:"accessTier"`
-	// Indicates the last modification time for share access tier.
-	AccessTierChangeTime pulumi.StringOutput `pulumi:"accessTierChangeTime"`
-	// Indicates if there is a pending transition for access tier.
-	AccessTierStatus pulumi.StringOutput `pulumi:"accessTierStatus"`
-	// Indicates whether the share was deleted.
-	Deleted pulumi.BoolOutput `pulumi:"deleted"`
-	// The deleted time if the share was deleted.
-	DeletedTime pulumi.StringOutput `pulumi:"deletedTime"`
-	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
-	EnabledProtocols pulumi.StringPtrOutput `pulumi:"enabledProtocols"`
-	// Resource Etag.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Returns the date and time the share was last modified.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// A name-value pair to associate with the share as metadata.
-	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Remaining retention days for share that was soft deleted.
-	RemainingRetentionDays pulumi.IntOutput `pulumi:"remainingRetentionDays"`
-	// The property is for NFS share only. The default is NoRootSquash.
-	RootSquash pulumi.StringPtrOutput `pulumi:"rootSquash"`
-	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
-	ShareQuota pulumi.IntPtrOutput `pulumi:"shareQuota"`
-	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
-	ShareUsageBytes pulumi.Float64Output `pulumi:"shareUsageBytes"`
-	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
-	SnapshotTime pulumi.StringOutput `pulumi:"snapshotTime"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The version of the share.
-	Version pulumi.StringOutput `pulumi:"version"`
+	AccessTier             pulumi.StringPtrOutput `pulumi:"accessTier"`
+	AccessTierChangeTime   pulumi.StringOutput    `pulumi:"accessTierChangeTime"`
+	AccessTierStatus       pulumi.StringOutput    `pulumi:"accessTierStatus"`
+	Deleted                pulumi.BoolOutput      `pulumi:"deleted"`
+	DeletedTime            pulumi.StringOutput    `pulumi:"deletedTime"`
+	EnabledProtocols       pulumi.StringPtrOutput `pulumi:"enabledProtocols"`
+	Etag                   pulumi.StringOutput    `pulumi:"etag"`
+	LastModifiedTime       pulumi.StringOutput    `pulumi:"lastModifiedTime"`
+	Metadata               pulumi.StringMapOutput `pulumi:"metadata"`
+	Name                   pulumi.StringOutput    `pulumi:"name"`
+	RemainingRetentionDays pulumi.IntOutput       `pulumi:"remainingRetentionDays"`
+	RootSquash             pulumi.StringPtrOutput `pulumi:"rootSquash"`
+	ShareQuota             pulumi.IntPtrOutput    `pulumi:"shareQuota"`
+	ShareUsageBytes        pulumi.Float64Output   `pulumi:"shareUsageBytes"`
+	SnapshotTime           pulumi.StringOutput    `pulumi:"snapshotTime"`
+	Type                   pulumi.StringOutput    `pulumi:"type"`
+	Version                pulumi.StringOutput    `pulumi:"version"`
 }
 
 // NewFileShare registers a new resource with the given unique name, arguments, and options.
@@ -138,46 +120,28 @@ func (FileShareState) ElementType() reflect.Type {
 }
 
 type fileShareArgs struct {
-	// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
-	AccessTier *string `pulumi:"accessTier"`
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
-	EnabledProtocols *string `pulumi:"enabledProtocols"`
-	// Optional, used to create a snapshot.
-	Expand *string `pulumi:"expand"`
-	// A name-value pair to associate with the share as metadata.
-	Metadata map[string]string `pulumi:"metadata"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The property is for NFS share only. The default is NoRootSquash.
-	RootSquash *string `pulumi:"rootSquash"`
-	// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	ShareName *string `pulumi:"shareName"`
-	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
-	ShareQuota *int `pulumi:"shareQuota"`
+	AccessTier        *string           `pulumi:"accessTier"`
+	AccountName       string            `pulumi:"accountName"`
+	EnabledProtocols  *string           `pulumi:"enabledProtocols"`
+	Expand            *string           `pulumi:"expand"`
+	Metadata          map[string]string `pulumi:"metadata"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	RootSquash        *string           `pulumi:"rootSquash"`
+	ShareName         *string           `pulumi:"shareName"`
+	ShareQuota        *int              `pulumi:"shareQuota"`
 }
 
 // The set of arguments for constructing a FileShare resource.
 type FileShareArgs struct {
-	// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
-	AccessTier pulumi.StringPtrInput
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
-	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
-	EnabledProtocols pulumi.StringPtrInput
-	// Optional, used to create a snapshot.
-	Expand pulumi.StringPtrInput
-	// A name-value pair to associate with the share as metadata.
-	Metadata pulumi.StringMapInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	AccessTier        pulumi.StringPtrInput
+	AccountName       pulumi.StringInput
+	EnabledProtocols  pulumi.StringPtrInput
+	Expand            pulumi.StringPtrInput
+	Metadata          pulumi.StringMapInput
 	ResourceGroupName pulumi.StringInput
-	// The property is for NFS share only. The default is NoRootSquash.
-	RootSquash pulumi.StringPtrInput
-	// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	ShareName pulumi.StringPtrInput
-	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
-	ShareQuota pulumi.IntPtrInput
+	RootSquash        pulumi.StringPtrInput
+	ShareName         pulumi.StringPtrInput
+	ShareQuota        pulumi.IntPtrInput
 }
 
 func (FileShareArgs) ElementType() reflect.Type {
@@ -203,9 +167,7 @@ func (i *FileShare) ToFileShareOutputWithContext(ctx context.Context) FileShareO
 	return pulumi.ToOutputWithContext(ctx, i).(FileShareOutput)
 }
 
-type FileShareOutput struct {
-	*pulumi.OutputState
-}
+type FileShareOutput struct{ *pulumi.OutputState }
 
 func (FileShareOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FileShare)(nil))

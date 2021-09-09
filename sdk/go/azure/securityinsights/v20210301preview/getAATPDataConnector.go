@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents AATP (Azure Advanced Threat Protection) data connector.
 func LookupAATPDataConnector(ctx *pulumi.Context, args *LookupAATPDataConnectorArgs, opts ...pulumi.InvokeOption) (*LookupAATPDataConnectorResult, error) {
 	var rv LookupAATPDataConnectorResult
 	err := ctx.Invoke("azure-native:securityinsights/v20210301preview:getAATPDataConnector", args, &rv, opts...)
@@ -18,33 +17,20 @@ func LookupAATPDataConnector(ctx *pulumi.Context, args *LookupAATPDataConnectorA
 }
 
 type LookupAATPDataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId string `pulumi:"dataConnectorId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	DataConnectorId                     string `pulumi:"dataConnectorId"`
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Represents AATP (Azure Advanced Threat Protection) data connector.
 type LookupAATPDataConnectorResult struct {
-	// The available data types for the connector.
-	DataTypes *AlertsDataTypeOfDataConnectorResponse `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The kind of the data connector
-	// Expected value is 'AzureAdvancedThreatProtection'.
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The tenant id to connect to, and get the data from.
-	TenantId string `pulumi:"tenantId"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	DataTypes  *AlertsDataTypeOfDataConnectorResponse `pulumi:"dataTypes"`
+	Etag       *string                                `pulumi:"etag"`
+	Id         string                                 `pulumi:"id"`
+	Kind       string                                 `pulumi:"kind"`
+	Name       string                                 `pulumi:"name"`
+	SystemData SystemDataResponse                     `pulumi:"systemData"`
+	TenantId   string                                 `pulumi:"tenantId"`
+	Type       string                                 `pulumi:"type"`
 }

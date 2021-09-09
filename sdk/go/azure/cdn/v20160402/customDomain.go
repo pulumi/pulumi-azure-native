@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
 type CustomDomain struct {
 	pulumi.CustomResourceState
 
-	// The host name of the custom domain. Must be a domain name.
-	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning status of the custom domain.
+	HostName          pulumi.StringOutput `pulumi:"hostName"`
+	Name              pulumi.StringOutput `pulumi:"name"`
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource status of the custom domain.
-	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ResourceState     pulumi.StringOutput `pulumi:"resourceState"`
+	Type              pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewCustomDomain registers a new resource with the given unique name, arguments, and options.
@@ -156,29 +150,19 @@ func (CustomDomainState) ElementType() reflect.Type {
 }
 
 type customDomainArgs struct {
-	// Name of the custom domain within an endpoint.
-	CustomDomainName *string `pulumi:"customDomainName"`
-	// Name of the endpoint within the CDN profile.
-	EndpointName string `pulumi:"endpointName"`
-	// The host name of the custom domain. Must be a domain name.
-	HostName string `pulumi:"hostName"`
-	// Name of the CDN profile within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	CustomDomainName  *string `pulumi:"customDomainName"`
+	EndpointName      string  `pulumi:"endpointName"`
+	HostName          string  `pulumi:"hostName"`
+	ProfileName       string  `pulumi:"profileName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a CustomDomain resource.
 type CustomDomainArgs struct {
-	// Name of the custom domain within an endpoint.
-	CustomDomainName pulumi.StringPtrInput
-	// Name of the endpoint within the CDN profile.
-	EndpointName pulumi.StringInput
-	// The host name of the custom domain. Must be a domain name.
-	HostName pulumi.StringInput
-	// Name of the CDN profile within the resource group.
-	ProfileName pulumi.StringInput
-	// Name of the resource group within the Azure subscription.
+	CustomDomainName  pulumi.StringPtrInput
+	EndpointName      pulumi.StringInput
+	HostName          pulumi.StringInput
+	ProfileName       pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -205,9 +189,7 @@ func (i *CustomDomain) ToCustomDomainOutputWithContext(ctx context.Context) Cust
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainOutput)
 }
 
-type CustomDomainOutput struct {
-	*pulumi.OutputState
-}
+type CustomDomainOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomDomain)(nil))

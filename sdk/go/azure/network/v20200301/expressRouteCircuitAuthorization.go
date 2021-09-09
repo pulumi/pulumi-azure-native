@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Authorization in an ExpressRouteCircuit resource.
 type ExpressRouteCircuitAuthorization struct {
 	pulumi.CustomResourceState
 
-	// The authorization key.
-	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
-	// The authorization use status.
+	AuthorizationKey       pulumi.StringPtrOutput `pulumi:"authorizationKey"`
 	AuthorizationUseStatus pulumi.StringPtrOutput `pulumi:"authorizationUseStatus"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The provisioning state of the authorization resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag                   pulumi.StringOutput    `pulumi:"etag"`
+	Name                   pulumi.StringPtrOutput `pulumi:"name"`
+	ProvisioningState      pulumi.StringOutput    `pulumi:"provisioningState"`
+	Type                   pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewExpressRouteCircuitAuthorization registers a new resource with the given unique name, arguments, and options.
@@ -308,38 +301,24 @@ func (ExpressRouteCircuitAuthorizationState) ElementType() reflect.Type {
 }
 
 type expressRouteCircuitAuthorizationArgs struct {
-	// The authorization key.
-	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// The name of the authorization.
-	AuthorizationName *string `pulumi:"authorizationName"`
-	// The authorization use status.
+	AuthorizationKey       *string `pulumi:"authorizationKey"`
+	AuthorizationName      *string `pulumi:"authorizationName"`
 	AuthorizationUseStatus *string `pulumi:"authorizationUseStatus"`
-	// The name of the express route circuit.
-	CircuitName string `pulumi:"circuitName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	CircuitName            string  `pulumi:"circuitName"`
+	Id                     *string `pulumi:"id"`
+	Name                   *string `pulumi:"name"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ExpressRouteCircuitAuthorization resource.
 type ExpressRouteCircuitAuthorizationArgs struct {
-	// The authorization key.
-	AuthorizationKey pulumi.StringPtrInput
-	// The name of the authorization.
-	AuthorizationName pulumi.StringPtrInput
-	// The authorization use status.
+	AuthorizationKey       pulumi.StringPtrInput
+	AuthorizationName      pulumi.StringPtrInput
 	AuthorizationUseStatus pulumi.StringPtrInput
-	// The name of the express route circuit.
-	CircuitName pulumi.StringInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	CircuitName            pulumi.StringInput
+	Id                     pulumi.StringPtrInput
+	Name                   pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
 }
 
 func (ExpressRouteCircuitAuthorizationArgs) ElementType() reflect.Type {
@@ -365,9 +344,7 @@ func (i *ExpressRouteCircuitAuthorization) ToExpressRouteCircuitAuthorizationOut
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitAuthorizationOutput)
 }
 
-type ExpressRouteCircuitAuthorizationOutput struct {
-	*pulumi.OutputState
-}
+type ExpressRouteCircuitAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitAuthorizationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRouteCircuitAuthorization)(nil))

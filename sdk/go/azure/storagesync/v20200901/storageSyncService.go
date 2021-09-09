@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Storage Sync Service object.
 type StorageSyncService struct {
 	pulumi.CustomResourceState
 
-	// Incoming Traffic Policy
-	IncomingTrafficPolicy pulumi.StringPtrOutput `pulumi:"incomingTrafficPolicy"`
-	// Resource Last Operation Name
-	LastOperationName pulumi.StringOutput `pulumi:"lastOperationName"`
-	// StorageSyncService lastWorkflowId
-	LastWorkflowId pulumi.StringOutput `pulumi:"lastWorkflowId"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of private endpoint connection associated with the specified storage sync service
+	IncomingTrafficPolicy      pulumi.StringPtrOutput                       `pulumi:"incomingTrafficPolicy"`
+	LastOperationName          pulumi.StringOutput                          `pulumi:"lastOperationName"`
+	LastWorkflowId             pulumi.StringOutput                          `pulumi:"lastWorkflowId"`
+	Location                   pulumi.StringOutput                          `pulumi:"location"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// StorageSyncService Provisioning State
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Storage Sync service status.
-	StorageSyncServiceStatus pulumi.IntOutput `pulumi:"storageSyncServiceStatus"`
-	// Storage Sync service Uid
-	StorageSyncServiceUid pulumi.StringOutput `pulumi:"storageSyncServiceUid"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState          pulumi.StringOutput                          `pulumi:"provisioningState"`
+	StorageSyncServiceStatus   pulumi.IntOutput                             `pulumi:"storageSyncServiceStatus"`
+	StorageSyncServiceUid      pulumi.StringOutput                          `pulumi:"storageSyncServiceUid"`
+	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
+	Type                       pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewStorageSyncService registers a new resource with the given unique name, arguments, and options.
@@ -147,30 +135,20 @@ func (StorageSyncServiceState) ElementType() reflect.Type {
 }
 
 type storageSyncServiceArgs struct {
-	// Incoming Traffic Policy
-	IncomingTrafficPolicy *string `pulumi:"incomingTrafficPolicy"`
-	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Storage Sync Service resource.
-	StorageSyncServiceName *string `pulumi:"storageSyncServiceName"`
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
-	Tags map[string]string `pulumi:"tags"`
+	IncomingTrafficPolicy  *string           `pulumi:"incomingTrafficPolicy"`
+	Location               *string           `pulumi:"location"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	StorageSyncServiceName *string           `pulumi:"storageSyncServiceName"`
+	Tags                   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StorageSyncService resource.
 type StorageSyncServiceArgs struct {
-	// Incoming Traffic Policy
-	IncomingTrafficPolicy pulumi.StringPtrInput
-	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Name of Storage Sync Service resource.
+	IncomingTrafficPolicy  pulumi.StringPtrInput
+	Location               pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
 	StorageSyncServiceName pulumi.StringPtrInput
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
-	Tags pulumi.StringMapInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (StorageSyncServiceArgs) ElementType() reflect.Type {
@@ -196,9 +174,7 @@ func (i *StorageSyncService) ToStorageSyncServiceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(StorageSyncServiceOutput)
 }
 
-type StorageSyncServiceOutput struct {
-	*pulumi.OutputState
-}
+type StorageSyncServiceOutput struct{ *pulumi.OutputState }
 
 func (StorageSyncServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageSyncService)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The customer's ASN that is registered by the peering service provider.
 func LookupRegisteredAsn(ctx *pulumi.Context, args *LookupRegisteredAsnArgs, opts ...pulumi.InvokeOption) (*LookupRegisteredAsnResult, error) {
 	var rv LookupRegisteredAsnResult
 	err := ctx.Invoke("azure-native:peering/v20210101:getRegisteredAsn", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupRegisteredAsn(ctx *pulumi.Context, args *LookupRegisteredAsnArgs, opt
 }
 
 type LookupRegisteredAsnArgs struct {
-	// The name of the peering.
-	PeeringName string `pulumi:"peeringName"`
-	// The name of the registered ASN.
+	PeeringName       string `pulumi:"peeringName"`
 	RegisteredAsnName string `pulumi:"registeredAsnName"`
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The customer's ASN that is registered by the peering service provider.
 type LookupRegisteredAsnResult struct {
-	// The customer's ASN from which traffic originates.
-	Asn *int `pulumi:"asn"`
-	// The ID of the resource.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The peering service prefix key that is to be shared with the customer.
+	Asn                     *int   `pulumi:"asn"`
+	Id                      string `pulumi:"id"`
+	Name                    string `pulumi:"name"`
 	PeeringServicePrefixKey string `pulumi:"peeringServicePrefixKey"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	ProvisioningState       string `pulumi:"provisioningState"`
+	Type                    string `pulumi:"type"`
 }

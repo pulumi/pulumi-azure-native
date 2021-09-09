@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// FirewallPolicy Resource.
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 
-	// The parent firewall policy from which rules are inherited.
-	BasePolicy SubResourceResponsePtrOutput `pulumi:"basePolicy"`
-	// List of references to Child Firewall Policies.
-	ChildPolicies SubResourceResponseArrayOutput `pulumi:"childPolicies"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// List of references to Azure Firewalls that this Firewall Policy is associated with.
-	Firewalls SubResourceResponseArrayOutput `pulumi:"firewalls"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the firewall policy resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// List of references to FirewallPolicyRuleGroups.
-	RuleGroups SubResourceResponseArrayOutput `pulumi:"ruleGroups"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The operation mode for Threat Intelligence.
-	ThreatIntelMode pulumi.StringPtrOutput `pulumi:"threatIntelMode"`
-	// ThreatIntel Whitelist for Firewall Policy.
+	BasePolicy           SubResourceResponsePtrOutput                        `pulumi:"basePolicy"`
+	ChildPolicies        SubResourceResponseArrayOutput                      `pulumi:"childPolicies"`
+	Etag                 pulumi.StringOutput                                 `pulumi:"etag"`
+	Firewalls            SubResourceResponseArrayOutput                      `pulumi:"firewalls"`
+	Location             pulumi.StringPtrOutput                              `pulumi:"location"`
+	Name                 pulumi.StringOutput                                 `pulumi:"name"`
+	ProvisioningState    pulumi.StringOutput                                 `pulumi:"provisioningState"`
+	RuleGroups           SubResourceResponseArrayOutput                      `pulumi:"ruleGroups"`
+	Tags                 pulumi.StringMapOutput                              `pulumi:"tags"`
+	ThreatIntelMode      pulumi.StringPtrOutput                              `pulumi:"threatIntelMode"`
 	ThreatIntelWhitelist FirewallPolicyThreatIntelWhitelistResponsePtrOutput `pulumi:"threatIntelWhitelist"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type                 pulumi.StringOutput                                 `pulumi:"type"`
 }
 
 // NewFirewallPolicy registers a new resource with the given unique name, arguments, and options.
@@ -179,41 +166,25 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 }
 
 type firewallPolicyArgs struct {
-	// The parent firewall policy from which rules are inherited.
-	BasePolicy *SubResource `pulumi:"basePolicy"`
-	// The name of the Firewall Policy.
-	FirewallPolicyName *string `pulumi:"firewallPolicyName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The operation mode for Threat Intelligence.
-	ThreatIntelMode *string `pulumi:"threatIntelMode"`
-	// ThreatIntel Whitelist for Firewall Policy.
+	BasePolicy           *SubResource                        `pulumi:"basePolicy"`
+	FirewallPolicyName   *string                             `pulumi:"firewallPolicyName"`
+	Id                   *string                             `pulumi:"id"`
+	Location             *string                             `pulumi:"location"`
+	ResourceGroupName    string                              `pulumi:"resourceGroupName"`
+	Tags                 map[string]string                   `pulumi:"tags"`
+	ThreatIntelMode      *string                             `pulumi:"threatIntelMode"`
 	ThreatIntelWhitelist *FirewallPolicyThreatIntelWhitelist `pulumi:"threatIntelWhitelist"`
 }
 
 // The set of arguments for constructing a FirewallPolicy resource.
 type FirewallPolicyArgs struct {
-	// The parent firewall policy from which rules are inherited.
-	BasePolicy SubResourcePtrInput
-	// The name of the Firewall Policy.
-	FirewallPolicyName pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The operation mode for Threat Intelligence.
-	ThreatIntelMode pulumi.StringPtrInput
-	// ThreatIntel Whitelist for Firewall Policy.
+	BasePolicy           SubResourcePtrInput
+	FirewallPolicyName   pulumi.StringPtrInput
+	Id                   pulumi.StringPtrInput
+	Location             pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
+	Tags                 pulumi.StringMapInput
+	ThreatIntelMode      pulumi.StringPtrInput
 	ThreatIntelWhitelist FirewallPolicyThreatIntelWhitelistPtrInput
 }
 
@@ -240,9 +211,7 @@ func (i *FirewallPolicy) ToFirewallPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyOutput)
 }
 
-type FirewallPolicyOutput struct {
-	*pulumi.OutputState
-}
+type FirewallPolicyOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicy)(nil))

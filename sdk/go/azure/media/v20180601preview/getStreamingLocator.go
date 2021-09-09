@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Streaming Locator resource
 func LookupStreamingLocator(ctx *pulumi.Context, args *LookupStreamingLocatorArgs, opts ...pulumi.InvokeOption) (*LookupStreamingLocatorResult, error) {
 	var rv LookupStreamingLocatorResult
 	err := ctx.Invoke("azure-native:media/v20180601preview:getStreamingLocator", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupStreamingLocator(ctx *pulumi.Context, args *LookupStreamingLocatorArg
 }
 
 type LookupStreamingLocatorArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Streaming Locator name.
+	AccountName          string `pulumi:"accountName"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
 	StreamingLocatorName string `pulumi:"streamingLocatorName"`
 }
 
 // A Streaming Locator resource
 type LookupStreamingLocatorResult struct {
-	// An Alternative Media Identifier associated with the StreamingLocator.  This identifier can be used to distinguish different StreamingLocators for the same Asset for authorization purposes in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-	AlternativeMediaId *string `pulumi:"alternativeMediaId"`
-	// Asset Name
-	AssetName string `pulumi:"assetName"`
-	// ContentKeys used by this Streaming Locator
-	ContentKeys []StreamingLocatorContentKeyResponse `pulumi:"contentKeys"`
-	// Creation time of Streaming Locator
-	Created string `pulumi:"created"`
-	// Default ContentKeyPolicy used by this Streaming Locator
-	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
-	// EndTime of Streaming Locator
-	EndTime *string `pulumi:"endTime"`
-	// Fully qualified resource ID for the resource.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// StartTime of Streaming Locator
-	StartTime *string `pulumi:"startTime"`
-	// StreamingLocatorId of Streaming Locator
-	StreamingLocatorId *string `pulumi:"streamingLocatorId"`
-	// Streaming policy name used by this streaming locator. Either specify the name of streaming policy you created or use one of the predefined streaming polices. The predefined streaming policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_SecureStreaming' and 'Predefined_SecureStreamingWithFairPlay'
-	StreamingPolicyName string `pulumi:"streamingPolicyName"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	AlternativeMediaId          *string                              `pulumi:"alternativeMediaId"`
+	AssetName                   string                               `pulumi:"assetName"`
+	ContentKeys                 []StreamingLocatorContentKeyResponse `pulumi:"contentKeys"`
+	Created                     string                               `pulumi:"created"`
+	DefaultContentKeyPolicyName *string                              `pulumi:"defaultContentKeyPolicyName"`
+	EndTime                     *string                              `pulumi:"endTime"`
+	Id                          string                               `pulumi:"id"`
+	Name                        string                               `pulumi:"name"`
+	StartTime                   *string                              `pulumi:"startTime"`
+	StreamingLocatorId          *string                              `pulumi:"streamingLocatorId"`
+	StreamingPolicyName         string                               `pulumi:"streamingPolicyName"`
+	Type                        string                               `pulumi:"type"`
 }

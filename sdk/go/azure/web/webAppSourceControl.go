@@ -230,9 +230,7 @@ func (i *WebAppSourceControl) ToWebAppSourceControlOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSourceControlOutput)
 }
 
-type WebAppSourceControlOutput struct {
-	*pulumi.OutputState
-}
+type WebAppSourceControlOutput struct{ *pulumi.OutputState }
 
 func (WebAppSourceControlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppSourceControl)(nil))

@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The File Share.
 type FileShare struct {
 	pulumi.CustomResourceState
 
-	// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
-	AdminUser pulumi.StringOutput `pulumi:"adminUser"`
-	// The data policy
-	DataPolicy pulumi.StringOutput `pulumi:"dataPolicy"`
-	// Description for file share
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The local used capacity in Bytes.
-	LocalUsedCapacityInBytes pulumi.Float64Output `pulumi:"localUsedCapacityInBytes"`
-	// The monitoring status
-	MonitoringStatus pulumi.StringOutput `pulumi:"monitoringStatus"`
-	// The name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The total provisioned capacity in Bytes
-	ProvisionedCapacityInBytes pulumi.Float64Output `pulumi:"provisionedCapacityInBytes"`
-	// The Share Status
-	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
-	// The type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The used capacity in Bytes.
-	UsedCapacityInBytes pulumi.Float64Output `pulumi:"usedCapacityInBytes"`
+	AdminUser                  pulumi.StringOutput    `pulumi:"adminUser"`
+	DataPolicy                 pulumi.StringOutput    `pulumi:"dataPolicy"`
+	Description                pulumi.StringPtrOutput `pulumi:"description"`
+	LocalUsedCapacityInBytes   pulumi.Float64Output   `pulumi:"localUsedCapacityInBytes"`
+	MonitoringStatus           pulumi.StringOutput    `pulumi:"monitoringStatus"`
+	Name                       pulumi.StringOutput    `pulumi:"name"`
+	ProvisionedCapacityInBytes pulumi.Float64Output   `pulumi:"provisionedCapacityInBytes"`
+	ShareStatus                pulumi.StringOutput    `pulumi:"shareStatus"`
+	Type                       pulumi.StringOutput    `pulumi:"type"`
+	UsedCapacityInBytes        pulumi.Float64Output   `pulumi:"usedCapacityInBytes"`
 }
 
 // NewFileShare registers a new resource with the given unique name, arguments, and options.
@@ -47,6 +36,9 @@ func NewFileShare(ctx *pulumi.Context,
 	if args.AdminUser == nil {
 		return nil, errors.New("invalid value for required argument 'AdminUser'")
 	}
+	if args.DataPolicy == nil {
+		return nil, errors.New("invalid value for required argument 'DataPolicy'")
+	}
 	if args.DeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceName'")
 	}
@@ -56,11 +48,17 @@ func NewFileShare(ctx *pulumi.Context,
 	if args.ManagerName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagerName'")
 	}
+	if args.MonitoringStatus == nil {
+		return nil, errors.New("invalid value for required argument 'MonitoringStatus'")
+	}
 	if args.ProvisionedCapacityInBytes == nil {
 		return nil, errors.New("invalid value for required argument 'ProvisionedCapacityInBytes'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ShareStatus == nil {
+		return nil, errors.New("invalid value for required argument 'ShareStatus'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -100,54 +98,32 @@ func (FileShareState) ElementType() reflect.Type {
 }
 
 type fileShareArgs struct {
-	// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
-	AdminUser string `pulumi:"adminUser"`
-	// The data policy
-	DataPolicy string `pulumi:"dataPolicy"`
-	// Description for file share
-	Description *string `pulumi:"description"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The file server name.
-	FileServerName string `pulumi:"fileServerName"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The monitoring status
-	MonitoringStatus string `pulumi:"monitoringStatus"`
-	// The total provisioned capacity in Bytes
-	ProvisionedCapacityInBytes float64 `pulumi:"provisionedCapacityInBytes"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The file share name.
-	ShareName *string `pulumi:"shareName"`
-	// The Share Status
-	ShareStatus string `pulumi:"shareStatus"`
+	AdminUser                  string           `pulumi:"adminUser"`
+	DataPolicy                 DataPolicy       `pulumi:"dataPolicy"`
+	Description                *string          `pulumi:"description"`
+	DeviceName                 string           `pulumi:"deviceName"`
+	FileServerName             string           `pulumi:"fileServerName"`
+	ManagerName                string           `pulumi:"managerName"`
+	MonitoringStatus           MonitoringStatus `pulumi:"monitoringStatus"`
+	ProvisionedCapacityInBytes float64          `pulumi:"provisionedCapacityInBytes"`
+	ResourceGroupName          string           `pulumi:"resourceGroupName"`
+	ShareName                  *string          `pulumi:"shareName"`
+	ShareStatus                ShareStatus      `pulumi:"shareStatus"`
 }
 
 // The set of arguments for constructing a FileShare resource.
 type FileShareArgs struct {
-	// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
-	AdminUser pulumi.StringInput
-	// The data policy
-	DataPolicy DataPolicy
-	// Description for file share
-	Description pulumi.StringPtrInput
-	// The device name.
-	DeviceName pulumi.StringInput
-	// The file server name.
-	FileServerName pulumi.StringInput
-	// The manager name
-	ManagerName pulumi.StringInput
-	// The monitoring status
-	MonitoringStatus MonitoringStatus
-	// The total provisioned capacity in Bytes
+	AdminUser                  pulumi.StringInput
+	DataPolicy                 DataPolicyInput
+	Description                pulumi.StringPtrInput
+	DeviceName                 pulumi.StringInput
+	FileServerName             pulumi.StringInput
+	ManagerName                pulumi.StringInput
+	MonitoringStatus           MonitoringStatusInput
 	ProvisionedCapacityInBytes pulumi.Float64Input
-	// The resource group name
-	ResourceGroupName pulumi.StringInput
-	// The file share name.
-	ShareName pulumi.StringPtrInput
-	// The Share Status
-	ShareStatus ShareStatus
+	ResourceGroupName          pulumi.StringInput
+	ShareName                  pulumi.StringPtrInput
+	ShareStatus                ShareStatusInput
 }
 
 func (FileShareArgs) ElementType() reflect.Type {
@@ -173,9 +149,7 @@ func (i *FileShare) ToFileShareOutputWithContext(ctx context.Context) FileShareO
 	return pulumi.ToOutputWithContext(ctx, i).(FileShareOutput)
 }
 
-type FileShareOutput struct {
-	*pulumi.OutputState
-}
+type FileShareOutput struct{ *pulumi.OutputState }
 
 func (FileShareOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FileShare)(nil))

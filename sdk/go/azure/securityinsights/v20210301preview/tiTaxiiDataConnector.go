@@ -11,41 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
 type TiTaxiiDataConnector struct {
 	pulumi.CustomResourceState
 
-	// The collection id of the TAXII server.
-	CollectionId pulumi.StringPtrOutput `pulumi:"collectionId"`
-	// The available data types for Threat Intelligence TAXII data connector.
-	DataTypes TiTaxiiDataConnectorDataTypesResponseOutput `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The friendly name for the TAXII server.
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// The kind of the data connector
-	// Expected value is 'ThreatIntelligenceTaxii'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The password for the TAXII server.
-	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// The polling frequency for the TAXII server.
-	PollingFrequency pulumi.StringOutput `pulumi:"pollingFrequency"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The lookback period for the TAXII server.
-	TaxiiLookbackPeriod pulumi.StringPtrOutput `pulumi:"taxiiLookbackPeriod"`
-	// The API root for the TAXII server.
-	TaxiiServer pulumi.StringPtrOutput `pulumi:"taxiiServer"`
-	// The tenant id to connect to, and get the data from.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The userName for the TAXII server.
-	UserName pulumi.StringPtrOutput `pulumi:"userName"`
-	// The workspace id.
-	WorkspaceId pulumi.StringPtrOutput `pulumi:"workspaceId"`
+	CollectionId        pulumi.StringPtrOutput                      `pulumi:"collectionId"`
+	DataTypes           TiTaxiiDataConnectorDataTypesResponseOutput `pulumi:"dataTypes"`
+	Etag                pulumi.StringPtrOutput                      `pulumi:"etag"`
+	FriendlyName        pulumi.StringPtrOutput                      `pulumi:"friendlyName"`
+	Kind                pulumi.StringOutput                         `pulumi:"kind"`
+	Name                pulumi.StringOutput                         `pulumi:"name"`
+	Password            pulumi.StringPtrOutput                      `pulumi:"password"`
+	PollingFrequency    pulumi.StringOutput                         `pulumi:"pollingFrequency"`
+	SystemData          SystemDataResponseOutput                    `pulumi:"systemData"`
+	TaxiiLookbackPeriod pulumi.StringPtrOutput                      `pulumi:"taxiiLookbackPeriod"`
+	TaxiiServer         pulumi.StringPtrOutput                      `pulumi:"taxiiServer"`
+	TenantId            pulumi.StringOutput                         `pulumi:"tenantId"`
+	Type                pulumi.StringOutput                         `pulumi:"type"`
+	UserName            pulumi.StringPtrOutput                      `pulumi:"userName"`
+	WorkspaceId         pulumi.StringPtrOutput                      `pulumi:"workspaceId"`
 }
 
 // NewTiTaxiiDataConnector registers a new resource with the given unique name, arguments, and options.
@@ -133,76 +116,42 @@ func (TiTaxiiDataConnectorState) ElementType() reflect.Type {
 }
 
 type tiTaxiiDataConnectorArgs struct {
-	// The collection id of the TAXII server.
-	CollectionId *string `pulumi:"collectionId"`
-	// Connector ID
-	DataConnectorId *string `pulumi:"dataConnectorId"`
-	// The available data types for Threat Intelligence TAXII data connector.
-	DataTypes TiTaxiiDataConnectorDataTypes `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The friendly name for the TAXII server.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The kind of the data connector
-	// Expected value is 'ThreatIntelligenceTaxii'.
-	Kind string `pulumi:"kind"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The password for the TAXII server.
-	Password *string `pulumi:"password"`
-	// The polling frequency for the TAXII server.
-	PollingFrequency string `pulumi:"pollingFrequency"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The lookback period for the TAXII server.
-	TaxiiLookbackPeriod *string `pulumi:"taxiiLookbackPeriod"`
-	// The API root for the TAXII server.
-	TaxiiServer *string `pulumi:"taxiiServer"`
-	// The tenant id to connect to, and get the data from.
-	TenantId string `pulumi:"tenantId"`
-	// The userName for the TAXII server.
-	UserName *string `pulumi:"userName"`
-	// The workspace id.
-	WorkspaceId *string `pulumi:"workspaceId"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	CollectionId                        *string                       `pulumi:"collectionId"`
+	DataConnectorId                     *string                       `pulumi:"dataConnectorId"`
+	DataTypes                           TiTaxiiDataConnectorDataTypes `pulumi:"dataTypes"`
+	Etag                                *string                       `pulumi:"etag"`
+	FriendlyName                        *string                       `pulumi:"friendlyName"`
+	Kind                                string                        `pulumi:"kind"`
+	OperationalInsightsResourceProvider string                        `pulumi:"operationalInsightsResourceProvider"`
+	Password                            *string                       `pulumi:"password"`
+	PollingFrequency                    string                        `pulumi:"pollingFrequency"`
+	ResourceGroupName                   string                        `pulumi:"resourceGroupName"`
+	TaxiiLookbackPeriod                 *string                       `pulumi:"taxiiLookbackPeriod"`
+	TaxiiServer                         *string                       `pulumi:"taxiiServer"`
+	TenantId                            string                        `pulumi:"tenantId"`
+	UserName                            *string                       `pulumi:"userName"`
+	WorkspaceId                         *string                       `pulumi:"workspaceId"`
+	WorkspaceName                       string                        `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a TiTaxiiDataConnector resource.
 type TiTaxiiDataConnectorArgs struct {
-	// The collection id of the TAXII server.
-	CollectionId pulumi.StringPtrInput
-	// Connector ID
-	DataConnectorId pulumi.StringPtrInput
-	// The available data types for Threat Intelligence TAXII data connector.
-	DataTypes TiTaxiiDataConnectorDataTypesInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The friendly name for the TAXII server.
-	FriendlyName pulumi.StringPtrInput
-	// The kind of the data connector
-	// Expected value is 'ThreatIntelligenceTaxii'.
-	Kind pulumi.StringInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	CollectionId                        pulumi.StringPtrInput
+	DataConnectorId                     pulumi.StringPtrInput
+	DataTypes                           TiTaxiiDataConnectorDataTypesInput
+	Etag                                pulumi.StringPtrInput
+	FriendlyName                        pulumi.StringPtrInput
+	Kind                                pulumi.StringInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The password for the TAXII server.
-	Password pulumi.StringPtrInput
-	// The polling frequency for the TAXII server.
-	PollingFrequency pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The lookback period for the TAXII server.
-	TaxiiLookbackPeriod pulumi.StringPtrInput
-	// The API root for the TAXII server.
-	TaxiiServer pulumi.StringPtrInput
-	// The tenant id to connect to, and get the data from.
-	TenantId pulumi.StringInput
-	// The userName for the TAXII server.
-	UserName pulumi.StringPtrInput
-	// The workspace id.
-	WorkspaceId pulumi.StringPtrInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	Password                            pulumi.StringPtrInput
+	PollingFrequency                    pulumi.StringInput
+	ResourceGroupName                   pulumi.StringInput
+	TaxiiLookbackPeriod                 pulumi.StringPtrInput
+	TaxiiServer                         pulumi.StringPtrInput
+	TenantId                            pulumi.StringInput
+	UserName                            pulumi.StringPtrInput
+	WorkspaceId                         pulumi.StringPtrInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (TiTaxiiDataConnectorArgs) ElementType() reflect.Type {
@@ -228,9 +177,7 @@ func (i *TiTaxiiDataConnector) ToTiTaxiiDataConnectorOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(TiTaxiiDataConnectorOutput)
 }
 
-type TiTaxiiDataConnectorOutput struct {
-	*pulumi.OutputState
-}
+type TiTaxiiDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (TiTaxiiDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TiTaxiiDataConnector)(nil))

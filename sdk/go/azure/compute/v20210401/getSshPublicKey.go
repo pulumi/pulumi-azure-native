@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies information about the SSH public key.
 func LookupSshPublicKey(ctx *pulumi.Context, args *LookupSshPublicKeyArgs, opts ...pulumi.InvokeOption) (*LookupSshPublicKeyResult, error) {
 	var rv LookupSshPublicKeyResult
 	err := ctx.Invoke("azure-native:compute/v20210401:getSshPublicKey", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupSshPublicKey(ctx *pulumi.Context, args *LookupSshPublicKeyArgs, opts 
 }
 
 type LookupSshPublicKeyArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the SSH public key.
-	SshPublicKeyName string `pulumi:"sshPublicKeyName"`
+	SshPublicKeyName  string `pulumi:"sshPublicKeyName"`
 }
 
 // Specifies information about the SSH public key.
 type LookupSshPublicKeyResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
-	PublicKey *string `pulumi:"publicKey"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id        string            `pulumi:"id"`
+	Location  string            `pulumi:"location"`
+	Name      string            `pulumi:"name"`
+	PublicKey *string           `pulumi:"publicKey"`
+	Tags      map[string]string `pulumi:"tags"`
+	Type      string            `pulumi:"type"`
 }

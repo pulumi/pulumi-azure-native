@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a machine learning team account workspace.
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	// The immutable id of the team account which contains this workspace.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The creation date of the machine learning workspace in ISO8601 format.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// The description of this workspace.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
-	FriendlyName pulumi.StringOutput `pulumi:"friendlyName"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The current deployment state of team account workspace resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The immutable id of this workspace.
-	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
+	AccountId         pulumi.StringOutput    `pulumi:"accountId"`
+	CreationDate      pulumi.StringOutput    `pulumi:"creationDate"`
+	Description       pulumi.StringPtrOutput `pulumi:"description"`
+	FriendlyName      pulumi.StringOutput    `pulumi:"friendlyName"`
+	Location          pulumi.StringOutput    `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
+	WorkspaceId       pulumi.StringOutput    `pulumi:"workspaceId"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -97,38 +86,24 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// The name of the machine learning team account.
-	AccountName string `pulumi:"accountName"`
-	// The description of this workspace.
-	Description *string `pulumi:"description"`
-	// The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
-	FriendlyName string `pulumi:"friendlyName"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The name of the resource group to which the machine learning team account belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the machine learning team account workspace.
-	WorkspaceName *string `pulumi:"workspaceName"`
+	AccountName       string            `pulumi:"accountName"`
+	Description       *string           `pulumi:"description"`
+	FriendlyName      string            `pulumi:"friendlyName"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	WorkspaceName     *string           `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// The name of the machine learning team account.
-	AccountName pulumi.StringInput
-	// The description of this workspace.
-	Description pulumi.StringPtrInput
-	// The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
-	FriendlyName pulumi.StringInput
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The name of the resource group to which the machine learning team account belongs.
+	AccountName       pulumi.StringInput
+	Description       pulumi.StringPtrInput
+	FriendlyName      pulumi.StringInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The name of the machine learning team account workspace.
-	WorkspaceName pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	WorkspaceName     pulumi.StringPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {
@@ -154,9 +129,7 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceOutput)
 }
 
-type WorkspaceOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workspace)(nil))

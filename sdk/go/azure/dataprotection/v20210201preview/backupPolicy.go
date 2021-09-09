@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// BaseBackupPolicy resource
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 
-	// Resource name associated with the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// BaseBackupPolicyResource properties
+	Name       pulumi.StringOutput        `pulumi:"name"`
 	Properties BackupPolicyResponseOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput   `pulumi:"systemData"`
+	Type       pulumi.StringOutput        `pulumi:"type"`
 }
 
 // NewBackupPolicy registers a new resource with the given unique name, arguments, and options.
@@ -100,26 +95,18 @@ func (BackupPolicyState) ElementType() reflect.Type {
 }
 
 type backupPolicyArgs struct {
-	// Name of the policy
-	BackupPolicyName *string `pulumi:"backupPolicyName"`
-	// BaseBackupPolicyResource properties
-	Properties *BackupPolicyType `pulumi:"properties"`
-	// The name of the resource group where the backup vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the backup vault.
-	VaultName string `pulumi:"vaultName"`
+	BackupPolicyName  *string           `pulumi:"backupPolicyName"`
+	Properties        *BackupPolicyType `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	VaultName         string            `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a BackupPolicy resource.
 type BackupPolicyArgs struct {
-	// Name of the policy
-	BackupPolicyName pulumi.StringPtrInput
-	// BaseBackupPolicyResource properties
-	Properties BackupPolicyTypePtrInput
-	// The name of the resource group where the backup vault is present.
+	BackupPolicyName  pulumi.StringPtrInput
+	Properties        BackupPolicyTypePtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the backup vault.
-	VaultName pulumi.StringInput
+	VaultName         pulumi.StringInput
 }
 
 func (BackupPolicyArgs) ElementType() reflect.Type {
@@ -145,9 +132,7 @@ func (i *BackupPolicy) ToBackupPolicyOutputWithContext(ctx context.Context) Back
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyOutput)
 }
 
-type BackupPolicyOutput struct {
-	*pulumi.OutputState
-}
+type BackupPolicyOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupPolicy)(nil))

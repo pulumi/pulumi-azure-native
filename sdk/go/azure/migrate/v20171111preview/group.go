@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A group created in a Migration project.
 type Group struct {
 	pulumi.CustomResourceState
 
-	// List of References to Assessments created on this group.
-	Assessments pulumi.StringArrayOutput `pulumi:"assessments"`
-	// Time when this project was created. Date-Time represented in ISO-8601 format.
-	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// List of machine names that are part of this group.
-	Machines pulumi.StringArrayOutput `pulumi:"machines"`
-	// Name of the group.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Type of the object = [Microsoft.Migrate/projects/groups].
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
-	UpdatedTimestamp pulumi.StringOutput `pulumi:"updatedTimestamp"`
+	Assessments      pulumi.StringArrayOutput `pulumi:"assessments"`
+	CreatedTimestamp pulumi.StringOutput      `pulumi:"createdTimestamp"`
+	ETag             pulumi.StringPtrOutput   `pulumi:"eTag"`
+	Machines         pulumi.StringArrayOutput `pulumi:"machines"`
+	Name             pulumi.StringOutput      `pulumi:"name"`
+	Type             pulumi.StringOutput      `pulumi:"type"`
+	UpdatedTimestamp pulumi.StringOutput      `pulumi:"updatedTimestamp"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -91,29 +83,19 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Unique name of a group within a project.
-	GroupName *string `pulumi:"groupName"`
-	// List of machine names that are part of this group.
-	Machines []string `pulumi:"machines"`
-	// Name of the Azure Migrate project.
-	ProjectName string `pulumi:"projectName"`
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ETag              *string  `pulumi:"eTag"`
+	GroupName         *string  `pulumi:"groupName"`
+	Machines          []string `pulumi:"machines"`
+	ProjectName       string   `pulumi:"projectName"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrInput
-	// Unique name of a group within a project.
-	GroupName pulumi.StringPtrInput
-	// List of machine names that are part of this group.
-	Machines pulumi.StringArrayInput
-	// Name of the Azure Migrate project.
-	ProjectName pulumi.StringInput
-	// Name of the Azure Resource Group that project is part of.
+	ETag              pulumi.StringPtrInput
+	GroupName         pulumi.StringPtrInput
+	Machines          pulumi.StringArrayInput
+	ProjectName       pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -140,9 +122,7 @@ func (i *Group) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupOutput)
 }
 
-type GroupOutput struct {
-	*pulumi.OutputState
-}
+type GroupOutput struct{ *pulumi.OutputState }
 
 func (GroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Group)(nil))

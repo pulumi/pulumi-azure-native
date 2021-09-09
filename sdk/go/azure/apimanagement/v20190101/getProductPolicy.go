@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Policy Contract details.
 func LookupProductPolicy(ctx *pulumi.Context, args *LookupProductPolicyArgs, opts ...pulumi.InvokeOption) (*LookupProductPolicyResult, error) {
 	var rv LookupProductPolicyResult
 	err := ctx.Invoke("azure-native:apimanagement/v20190101:getProductPolicy", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupProductPolicy(ctx *pulumi.Context, args *LookupProductPolicyArgs, opt
 }
 
 type LookupProductPolicyArgs struct {
-	// Policy Export Format.
-	Format *string `pulumi:"format"`
-	// The identifier of the Policy.
-	PolicyId string `pulumi:"policyId"`
-	// Product identifier. Must be unique in the current API Management service instance.
-	ProductId string `pulumi:"productId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	Format            *string `pulumi:"format"`
+	PolicyId          string  `pulumi:"policyId"`
+	ProductId         string  `pulumi:"productId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
 }
 
 // Policy Contract details.
 type LookupProductPolicyResult struct {
-	// Format of the policyContent.
 	Format *string `pulumi:"format"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-	// Contents of the Policy as defined by the format.
-	Value string `pulumi:"value"`
+	Id     string  `pulumi:"id"`
+	Name   string  `pulumi:"name"`
+	Type   string  `pulumi:"type"`
+	Value  string  `pulumi:"value"`
 }

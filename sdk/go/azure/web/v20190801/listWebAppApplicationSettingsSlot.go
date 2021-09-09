@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// String dictionary resource.
 func ListWebAppApplicationSettingsSlot(ctx *pulumi.Context, args *ListWebAppApplicationSettingsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppApplicationSettingsSlotResult, error) {
 	var rv ListWebAppApplicationSettingsSlotResult
 	err := ctx.Invoke("azure-native:web/v20190801:listWebAppApplicationSettingsSlot", args, &rv, opts...)
@@ -18,24 +17,16 @@ func ListWebAppApplicationSettingsSlot(ctx *pulumi.Context, args *ListWebAppAppl
 }
 
 type ListWebAppApplicationSettingsSlotArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will get the application settings for the production slot.
-	Slot string `pulumi:"slot"`
+	Slot              string `pulumi:"slot"`
 }
 
 // String dictionary resource.
 type ListWebAppApplicationSettingsSlotResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Settings.
+	Id         string            `pulumi:"id"`
+	Kind       *string           `pulumi:"kind"`
+	Name       string            `pulumi:"name"`
 	Properties map[string]string `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type       string            `pulumi:"type"`
 }

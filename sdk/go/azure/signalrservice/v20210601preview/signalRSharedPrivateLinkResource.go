@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a Shared Private Link Resource
 type SignalRSharedPrivateLinkResource struct {
 	pulumi.CustomResourceState
 
-	// The group id from the provider of resource the shared private link resource is for
-	GroupId pulumi.StringOutput `pulumi:"groupId"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource id of the resource the shared private link resource is for
-	PrivateLinkResourceId pulumi.StringOutput `pulumi:"privateLinkResourceId"`
-	// Provisioning state of the shared private link resource
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The request message for requesting approval of the shared private link resource
-	RequestMessage pulumi.StringPtrOutput `pulumi:"requestMessage"`
-	// Status of the shared private link resource
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type pulumi.StringOutput `pulumi:"type"`
+	GroupId               pulumi.StringOutput      `pulumi:"groupId"`
+	Name                  pulumi.StringOutput      `pulumi:"name"`
+	PrivateLinkResourceId pulumi.StringOutput      `pulumi:"privateLinkResourceId"`
+	ProvisioningState     pulumi.StringOutput      `pulumi:"provisioningState"`
+	RequestMessage        pulumi.StringPtrOutput   `pulumi:"requestMessage"`
+	Status                pulumi.StringOutput      `pulumi:"status"`
+	SystemData            SystemDataResponseOutput `pulumi:"systemData"`
+	Type                  pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewSignalRSharedPrivateLinkResource registers a new resource with the given unique name, arguments, and options.
@@ -102,33 +93,21 @@ func (SignalRSharedPrivateLinkResourceState) ElementType() reflect.Type {
 }
 
 type signalRSharedPrivateLinkResourceArgs struct {
-	// The group id from the provider of resource the shared private link resource is for
-	GroupId string `pulumi:"groupId"`
-	// The resource id of the resource the shared private link resource is for
-	PrivateLinkResourceId string `pulumi:"privateLinkResourceId"`
-	// The request message for requesting approval of the shared private link resource
-	RequestMessage *string `pulumi:"requestMessage"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource.
-	ResourceName string `pulumi:"resourceName"`
-	// The name of the shared private link resource
+	GroupId                       string  `pulumi:"groupId"`
+	PrivateLinkResourceId         string  `pulumi:"privateLinkResourceId"`
+	RequestMessage                *string `pulumi:"requestMessage"`
+	ResourceGroupName             string  `pulumi:"resourceGroupName"`
+	ResourceName                  string  `pulumi:"resourceName"`
 	SharedPrivateLinkResourceName *string `pulumi:"sharedPrivateLinkResourceName"`
 }
 
 // The set of arguments for constructing a SignalRSharedPrivateLinkResource resource.
 type SignalRSharedPrivateLinkResourceArgs struct {
-	// The group id from the provider of resource the shared private link resource is for
-	GroupId pulumi.StringInput
-	// The resource id of the resource the shared private link resource is for
-	PrivateLinkResourceId pulumi.StringInput
-	// The request message for requesting approval of the shared private link resource
-	RequestMessage pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// The name of the resource.
-	ResourceName pulumi.StringInput
-	// The name of the shared private link resource
+	GroupId                       pulumi.StringInput
+	PrivateLinkResourceId         pulumi.StringInput
+	RequestMessage                pulumi.StringPtrInput
+	ResourceGroupName             pulumi.StringInput
+	ResourceName                  pulumi.StringInput
 	SharedPrivateLinkResourceName pulumi.StringPtrInput
 }
 
@@ -155,9 +134,7 @@ func (i *SignalRSharedPrivateLinkResource) ToSignalRSharedPrivateLinkResourceOut
 	return pulumi.ToOutputWithContext(ctx, i).(SignalRSharedPrivateLinkResourceOutput)
 }
 
-type SignalRSharedPrivateLinkResourceOutput struct {
-	*pulumi.OutputState
-}
+type SignalRSharedPrivateLinkResourceOutput struct{ *pulumi.OutputState }
 
 func (SignalRSharedPrivateLinkResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SignalRSharedPrivateLinkResource)(nil))

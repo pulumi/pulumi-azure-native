@@ -11,36 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a machine learning workspace.
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	// The creation time for this workspace resource.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// The key vault identifier used for encrypted workspaces.
+	CreationTime         pulumi.StringOutput    `pulumi:"creationTime"`
 	KeyVaultIdentifierId pulumi.StringPtrOutput `pulumi:"keyVaultIdentifierId"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The email id of the owner for this workspace.
-	OwnerEmail pulumi.StringOutput `pulumi:"ownerEmail"`
-	// The sku of the workspace.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// The regional endpoint for the machine learning studio service which hosts this workspace.
-	StudioEndpoint pulumi.StringOutput `pulumi:"studioEndpoint"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The fully qualified arm id of the storage account associated with this workspace.
-	UserStorageAccountId pulumi.StringOutput `pulumi:"userStorageAccountId"`
-	// The immutable id associated with this workspace.
-	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
-	// The current state of workspace resource.
-	WorkspaceState pulumi.StringOutput `pulumi:"workspaceState"`
-	// The type of this workspace.
-	WorkspaceType pulumi.StringOutput `pulumi:"workspaceType"`
+	Location             pulumi.StringOutput    `pulumi:"location"`
+	Name                 pulumi.StringOutput    `pulumi:"name"`
+	OwnerEmail           pulumi.StringOutput    `pulumi:"ownerEmail"`
+	Sku                  SkuResponsePtrOutput   `pulumi:"sku"`
+	StudioEndpoint       pulumi.StringOutput    `pulumi:"studioEndpoint"`
+	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
+	Type                 pulumi.StringOutput    `pulumi:"type"`
+	UserStorageAccountId pulumi.StringOutput    `pulumi:"userStorageAccountId"`
+	WorkspaceId          pulumi.StringOutput    `pulumi:"workspaceId"`
+	WorkspaceState       pulumi.StringOutput    `pulumi:"workspaceState"`
+	WorkspaceType        pulumi.StringOutput    `pulumi:"workspaceType"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -109,42 +95,26 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// The key vault identifier used for encrypted workspaces.
-	KeyVaultIdentifierId *string `pulumi:"keyVaultIdentifierId"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The email id of the owner for this workspace.
-	OwnerEmail string `pulumi:"ownerEmail"`
-	// The name of the resource group to which the machine learning workspace belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku of the workspace.
-	Sku *Sku `pulumi:"sku"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The fully qualified arm id of the storage account associated with this workspace.
-	UserStorageAccountId string `pulumi:"userStorageAccountId"`
-	// The name of the machine learning workspace.
-	WorkspaceName *string `pulumi:"workspaceName"`
+	KeyVaultIdentifierId *string           `pulumi:"keyVaultIdentifierId"`
+	Location             *string           `pulumi:"location"`
+	OwnerEmail           string            `pulumi:"ownerEmail"`
+	ResourceGroupName    string            `pulumi:"resourceGroupName"`
+	Sku                  *Sku              `pulumi:"sku"`
+	Tags                 map[string]string `pulumi:"tags"`
+	UserStorageAccountId string            `pulumi:"userStorageAccountId"`
+	WorkspaceName        *string           `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// The key vault identifier used for encrypted workspaces.
 	KeyVaultIdentifierId pulumi.StringPtrInput
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The email id of the owner for this workspace.
-	OwnerEmail pulumi.StringInput
-	// The name of the resource group to which the machine learning workspace belongs.
-	ResourceGroupName pulumi.StringInput
-	// The sku of the workspace.
-	Sku SkuPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The fully qualified arm id of the storage account associated with this workspace.
+	Location             pulumi.StringPtrInput
+	OwnerEmail           pulumi.StringInput
+	ResourceGroupName    pulumi.StringInput
+	Sku                  SkuPtrInput
+	Tags                 pulumi.StringMapInput
 	UserStorageAccountId pulumi.StringInput
-	// The name of the machine learning workspace.
-	WorkspaceName pulumi.StringPtrInput
+	WorkspaceName        pulumi.StringPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {
@@ -170,9 +140,7 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceOutput)
 }
 
-type WorkspaceOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workspace)(nil))

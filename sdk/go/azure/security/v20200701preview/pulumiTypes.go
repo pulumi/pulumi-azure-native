@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Rule results properties.
 type RuleResultsPropertiesResponse struct {
-	// Expected results in the baseline.
 	Results [][]string `pulumi:"results"`
 }
 
@@ -27,9 +25,7 @@ type RuleResultsPropertiesResponseInput interface {
 	ToRuleResultsPropertiesResponseOutputWithContext(context.Context) RuleResultsPropertiesResponseOutput
 }
 
-// Rule results properties.
 type RuleResultsPropertiesResponseArgs struct {
-	// Expected results in the baseline.
 	Results pulumi.StringArrayArrayInput `pulumi:"results"`
 }
 
@@ -86,7 +82,6 @@ func (i *ruleResultsPropertiesResponsePtrType) ToRuleResultsPropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(RuleResultsPropertiesResponsePtrOutput)
 }
 
-// Rule results properties.
 type RuleResultsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RuleResultsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o RuleResultsPropertiesResponseOutput) ToRuleResultsPropertiesResponsePtrO
 }
 
 func (o RuleResultsPropertiesResponseOutput) ToRuleResultsPropertiesResponsePtrOutputWithContext(ctx context.Context) RuleResultsPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RuleResultsPropertiesResponse) *RuleResultsPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleResultsPropertiesResponse) *RuleResultsPropertiesResponse {
 		return &v
 	}).(RuleResultsPropertiesResponsePtrOutput)
 }
 
-// Expected results in the baseline.
 func (o RuleResultsPropertiesResponseOutput) Results() pulumi.StringArrayArrayOutput {
 	return o.ApplyT(func(v RuleResultsPropertiesResponse) [][]string { return v.Results }).(pulumi.StringArrayArrayOutput)
 }
@@ -131,10 +125,15 @@ func (o RuleResultsPropertiesResponsePtrOutput) ToRuleResultsPropertiesResponseP
 }
 
 func (o RuleResultsPropertiesResponsePtrOutput) Elem() RuleResultsPropertiesResponseOutput {
-	return o.ApplyT(func(v *RuleResultsPropertiesResponse) RuleResultsPropertiesResponse { return *v }).(RuleResultsPropertiesResponseOutput)
+	return o.ApplyT(func(v *RuleResultsPropertiesResponse) RuleResultsPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RuleResultsPropertiesResponse
+		return ret
+	}).(RuleResultsPropertiesResponseOutput)
 }
 
-// Expected results in the baseline.
 func (o RuleResultsPropertiesResponsePtrOutput) Results() pulumi.StringArrayArrayOutput {
 	return o.ApplyT(func(v *RuleResultsPropertiesResponse) [][]string {
 		if v == nil {

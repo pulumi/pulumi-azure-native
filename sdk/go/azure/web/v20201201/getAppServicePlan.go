@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// App Service plan.
 func LookupAppServicePlan(ctx *pulumi.Context, args *LookupAppServicePlanArgs, opts ...pulumi.InvokeOption) (*LookupAppServicePlanResult, error) {
 	var rv LookupAppServicePlanResult
 	err := ctx.Invoke("azure-native:web/v20201201:getAppServicePlan", args, &rv, opts...)
@@ -18,67 +17,37 @@ func LookupAppServicePlan(ctx *pulumi.Context, args *LookupAppServicePlanArgs, o
 }
 
 type LookupAppServicePlanArgs struct {
-	// Name of the App Service plan.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // App Service plan.
 type LookupAppServicePlanResult struct {
-	// The time when the server farm free offer expires.
-	FreeOfferExpirationTime *string `pulumi:"freeOfferExpirationTime"`
-	// Geographical location for the App Service plan.
-	GeoRegion string `pulumi:"geoRegion"`
-	// Specification for the App Service Environment to use for the App Service plan.
+	FreeOfferExpirationTime   *string                            `pulumi:"freeOfferExpirationTime"`
+	GeoRegion                 string                             `pulumi:"geoRegion"`
 	HostingEnvironmentProfile *HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
-	// If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-	HyperV *bool `pulumi:"hyperV"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// If <code>true</code>, this App Service Plan owns spot instances.
-	IsSpot *bool `pulumi:"isSpot"`
-	// Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-	IsXenon *bool `pulumi:"isXenon"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Specification for the Kubernetes Environment to use for the App Service plan.
-	KubeEnvironmentProfile *KubeEnvironmentProfileResponse `pulumi:"kubeEnvironmentProfile"`
-	// Resource Location.
-	Location string `pulumi:"location"`
-	// Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
-	MaximumElasticWorkerCount *int `pulumi:"maximumElasticWorkerCount"`
-	// Maximum number of instances that can be assigned to this App Service plan.
-	MaximumNumberOfWorkers int `pulumi:"maximumNumberOfWorkers"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Number of apps assigned to this App Service plan.
-	NumberOfSites int `pulumi:"numberOfSites"`
-	// If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
-	// If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
-	PerSiteScaling *bool `pulumi:"perSiteScaling"`
-	// Provisioning state of the App Service Plan.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// If Linux app service plan <code>true</code>, <code>false</code> otherwise.
-	Reserved *bool `pulumi:"reserved"`
-	// Resource group of the App Service plan.
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// Description of a SKU for a scalable resource.
-	Sku *SkuDescriptionResponse `pulumi:"sku"`
-	// The time when the server farm expires. Valid only if it is a spot server farm.
-	SpotExpirationTime *string `pulumi:"spotExpirationTime"`
-	// App Service plan status.
-	Status string `pulumi:"status"`
-	// App Service plan subscription.
-	Subscription string `pulumi:"subscription"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Scaling worker count.
-	TargetWorkerCount *int `pulumi:"targetWorkerCount"`
-	// Scaling worker size ID.
-	TargetWorkerSizeId *int `pulumi:"targetWorkerSizeId"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// Target worker tier assigned to the App Service plan.
-	WorkerTierName *string `pulumi:"workerTierName"`
+	HyperV                    *bool                              `pulumi:"hyperV"`
+	Id                        string                             `pulumi:"id"`
+	IsSpot                    *bool                              `pulumi:"isSpot"`
+	IsXenon                   *bool                              `pulumi:"isXenon"`
+	Kind                      *string                            `pulumi:"kind"`
+	KubeEnvironmentProfile    *KubeEnvironmentProfileResponse    `pulumi:"kubeEnvironmentProfile"`
+	Location                  string                             `pulumi:"location"`
+	MaximumElasticWorkerCount *int                               `pulumi:"maximumElasticWorkerCount"`
+	MaximumNumberOfWorkers    int                                `pulumi:"maximumNumberOfWorkers"`
+	Name                      string                             `pulumi:"name"`
+	NumberOfSites             int                                `pulumi:"numberOfSites"`
+	PerSiteScaling            *bool                              `pulumi:"perSiteScaling"`
+	ProvisioningState         string                             `pulumi:"provisioningState"`
+	Reserved                  *bool                              `pulumi:"reserved"`
+	ResourceGroup             string                             `pulumi:"resourceGroup"`
+	Sku                       *SkuDescriptionResponse            `pulumi:"sku"`
+	SpotExpirationTime        *string                            `pulumi:"spotExpirationTime"`
+	Status                    string                             `pulumi:"status"`
+	Subscription              string                             `pulumi:"subscription"`
+	Tags                      map[string]string                  `pulumi:"tags"`
+	TargetWorkerCount         *int                               `pulumi:"targetWorkerCount"`
+	TargetWorkerSizeId        *int                               `pulumi:"targetWorkerSizeId"`
+	Type                      string                             `pulumi:"type"`
+	WorkerTierName            *string                            `pulumi:"workerTierName"`
 }

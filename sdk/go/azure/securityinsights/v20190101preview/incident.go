@@ -11,54 +11,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an incident in Azure Security Insights.
 type Incident struct {
 	pulumi.CustomResourceState
 
-	// Additional data on the incident
-	AdditionalData IncidentAdditionalDataResponseOutput `pulumi:"additionalData"`
-	// The reason the incident was closed
-	Classification pulumi.StringPtrOutput `pulumi:"classification"`
-	// Describes the reason the incident was closed
-	ClassificationComment pulumi.StringPtrOutput `pulumi:"classificationComment"`
-	// The classification reason the incident was closed with
-	ClassificationReason pulumi.StringPtrOutput `pulumi:"classificationReason"`
-	// The time the incident was created
-	CreatedTimeUtc pulumi.StringOutput `pulumi:"createdTimeUtc"`
-	// The description of the incident
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The time of the first activity in the incident
-	FirstActivityTimeUtc pulumi.StringPtrOutput `pulumi:"firstActivityTimeUtc"`
-	// A sequential number
-	IncidentNumber pulumi.IntOutput `pulumi:"incidentNumber"`
-	// The deep-link url to the incident in Azure portal
-	IncidentUrl pulumi.StringOutput `pulumi:"incidentUrl"`
-	// List of labels relevant to this incident
-	Labels IncidentLabelResponseArrayOutput `pulumi:"labels"`
-	// The time of the last activity in the incident
-	LastActivityTimeUtc pulumi.StringPtrOutput `pulumi:"lastActivityTimeUtc"`
-	// The last time the incident was updated
-	LastModifiedTimeUtc pulumi.StringOutput `pulumi:"lastModifiedTimeUtc"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes a user that the incident is assigned to
-	Owner IncidentOwnerInfoResponsePtrOutput `pulumi:"owner"`
-	// The incident ID assigned by the incident provider
-	ProviderIncidentId pulumi.StringPtrOutput `pulumi:"providerIncidentId"`
-	// The name of the source provider that generated the incident
-	ProviderName pulumi.StringPtrOutput `pulumi:"providerName"`
-	// List of resource ids of Analytic rules related to the incident
-	RelatedAnalyticRuleIds pulumi.StringArrayOutput `pulumi:"relatedAnalyticRuleIds"`
-	// The severity of the incident
-	Severity pulumi.StringOutput `pulumi:"severity"`
-	// The status of the incident
-	Status pulumi.StringOutput `pulumi:"status"`
-	// The title of the incident
-	Title pulumi.StringOutput `pulumi:"title"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	AdditionalData         IncidentAdditionalDataResponseOutput `pulumi:"additionalData"`
+	Classification         pulumi.StringPtrOutput               `pulumi:"classification"`
+	ClassificationComment  pulumi.StringPtrOutput               `pulumi:"classificationComment"`
+	ClassificationReason   pulumi.StringPtrOutput               `pulumi:"classificationReason"`
+	CreatedTimeUtc         pulumi.StringOutput                  `pulumi:"createdTimeUtc"`
+	Description            pulumi.StringPtrOutput               `pulumi:"description"`
+	Etag                   pulumi.StringPtrOutput               `pulumi:"etag"`
+	FirstActivityTimeUtc   pulumi.StringPtrOutput               `pulumi:"firstActivityTimeUtc"`
+	IncidentNumber         pulumi.IntOutput                     `pulumi:"incidentNumber"`
+	IncidentUrl            pulumi.StringOutput                  `pulumi:"incidentUrl"`
+	Labels                 IncidentLabelResponseArrayOutput     `pulumi:"labels"`
+	LastActivityTimeUtc    pulumi.StringPtrOutput               `pulumi:"lastActivityTimeUtc"`
+	LastModifiedTimeUtc    pulumi.StringOutput                  `pulumi:"lastModifiedTimeUtc"`
+	Name                   pulumi.StringOutput                  `pulumi:"name"`
+	Owner                  IncidentOwnerInfoResponsePtrOutput   `pulumi:"owner"`
+	ProviderIncidentId     pulumi.StringPtrOutput               `pulumi:"providerIncidentId"`
+	ProviderName           pulumi.StringPtrOutput               `pulumi:"providerName"`
+	RelatedAnalyticRuleIds pulumi.StringArrayOutput             `pulumi:"relatedAnalyticRuleIds"`
+	Severity               pulumi.StringOutput                  `pulumi:"severity"`
+	Status                 pulumi.StringOutput                  `pulumi:"status"`
+	Title                  pulumi.StringOutput                  `pulumi:"title"`
+	Type                   pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewIncident registers a new resource with the given unique name, arguments, and options.
@@ -148,82 +125,46 @@ func (IncidentState) ElementType() reflect.Type {
 }
 
 type incidentArgs struct {
-	// The reason the incident was closed
-	Classification *string `pulumi:"classification"`
-	// Describes the reason the incident was closed
-	ClassificationComment *string `pulumi:"classificationComment"`
-	// The classification reason the incident was closed with
-	ClassificationReason *string `pulumi:"classificationReason"`
-	// The description of the incident
-	Description *string `pulumi:"description"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The time of the first activity in the incident
-	FirstActivityTimeUtc *string `pulumi:"firstActivityTimeUtc"`
-	// Incident ID
-	IncidentId *string `pulumi:"incidentId"`
-	// List of labels relevant to this incident
-	Labels []IncidentLabel `pulumi:"labels"`
-	// The time of the last activity in the incident
-	LastActivityTimeUtc *string `pulumi:"lastActivityTimeUtc"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// Describes a user that the incident is assigned to
-	Owner *IncidentOwnerInfo `pulumi:"owner"`
-	// The incident ID assigned by the incident provider
-	ProviderIncidentId *string `pulumi:"providerIncidentId"`
-	// The name of the source provider that generated the incident
-	ProviderName *string `pulumi:"providerName"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The severity of the incident
-	Severity string `pulumi:"severity"`
-	// The status of the incident
-	Status string `pulumi:"status"`
-	// The title of the incident
-	Title string `pulumi:"title"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Classification                      *string            `pulumi:"classification"`
+	ClassificationComment               *string            `pulumi:"classificationComment"`
+	ClassificationReason                *string            `pulumi:"classificationReason"`
+	Description                         *string            `pulumi:"description"`
+	Etag                                *string            `pulumi:"etag"`
+	FirstActivityTimeUtc                *string            `pulumi:"firstActivityTimeUtc"`
+	IncidentId                          *string            `pulumi:"incidentId"`
+	Labels                              []IncidentLabel    `pulumi:"labels"`
+	LastActivityTimeUtc                 *string            `pulumi:"lastActivityTimeUtc"`
+	OperationalInsightsResourceProvider string             `pulumi:"operationalInsightsResourceProvider"`
+	Owner                               *IncidentOwnerInfo `pulumi:"owner"`
+	ProviderIncidentId                  *string            `pulumi:"providerIncidentId"`
+	ProviderName                        *string            `pulumi:"providerName"`
+	ResourceGroupName                   string             `pulumi:"resourceGroupName"`
+	Severity                            string             `pulumi:"severity"`
+	Status                              string             `pulumi:"status"`
+	Title                               string             `pulumi:"title"`
+	WorkspaceName                       string             `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Incident resource.
 type IncidentArgs struct {
-	// The reason the incident was closed
-	Classification pulumi.StringPtrInput
-	// Describes the reason the incident was closed
-	ClassificationComment pulumi.StringPtrInput
-	// The classification reason the incident was closed with
-	ClassificationReason pulumi.StringPtrInput
-	// The description of the incident
-	Description pulumi.StringPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The time of the first activity in the incident
-	FirstActivityTimeUtc pulumi.StringPtrInput
-	// Incident ID
-	IncidentId pulumi.StringPtrInput
-	// List of labels relevant to this incident
-	Labels IncidentLabelArrayInput
-	// The time of the last activity in the incident
-	LastActivityTimeUtc pulumi.StringPtrInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	Classification                      pulumi.StringPtrInput
+	ClassificationComment               pulumi.StringPtrInput
+	ClassificationReason                pulumi.StringPtrInput
+	Description                         pulumi.StringPtrInput
+	Etag                                pulumi.StringPtrInput
+	FirstActivityTimeUtc                pulumi.StringPtrInput
+	IncidentId                          pulumi.StringPtrInput
+	Labels                              IncidentLabelArrayInput
+	LastActivityTimeUtc                 pulumi.StringPtrInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// Describes a user that the incident is assigned to
-	Owner IncidentOwnerInfoPtrInput
-	// The incident ID assigned by the incident provider
-	ProviderIncidentId pulumi.StringPtrInput
-	// The name of the source provider that generated the incident
-	ProviderName pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The severity of the incident
-	Severity pulumi.StringInput
-	// The status of the incident
-	Status pulumi.StringInput
-	// The title of the incident
-	Title pulumi.StringInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	Owner                               IncidentOwnerInfoPtrInput
+	ProviderIncidentId                  pulumi.StringPtrInput
+	ProviderName                        pulumi.StringPtrInput
+	ResourceGroupName                   pulumi.StringInput
+	Severity                            pulumi.StringInput
+	Status                              pulumi.StringInput
+	Title                               pulumi.StringInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (IncidentArgs) ElementType() reflect.Type {
@@ -249,9 +190,7 @@ func (i *Incident) ToIncidentOutputWithContext(ctx context.Context) IncidentOutp
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentOutput)
 }
 
-type IncidentOutput struct {
-	*pulumi.OutputState
-}
+type IncidentOutput struct{ *pulumi.OutputState }
 
 func (IncidentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Incident)(nil))

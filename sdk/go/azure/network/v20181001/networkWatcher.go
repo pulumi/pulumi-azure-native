@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Network watcher in a resource group.
 type NetworkWatcher struct {
 	pulumi.CustomResourceState
 
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag              pulumi.StringPtrOutput `pulumi:"etag"`
+	Location          pulumi.StringPtrOutput `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewNetworkWatcher registers a new resource with the given unique name, arguments, and options.
@@ -281,34 +274,22 @@ func (NetworkWatcherState) ElementType() reflect.Type {
 }
 
 type networkWatcherArgs struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the network watcher.
-	NetworkWatcherName *string `pulumi:"networkWatcherName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Etag               *string           `pulumi:"etag"`
+	Id                 *string           `pulumi:"id"`
+	Location           *string           `pulumi:"location"`
+	NetworkWatcherName *string           `pulumi:"networkWatcherName"`
+	ResourceGroupName  string            `pulumi:"resourceGroupName"`
+	Tags               map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkWatcher resource.
 type NetworkWatcherArgs struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the network watcher.
+	Etag               pulumi.StringPtrInput
+	Id                 pulumi.StringPtrInput
+	Location           pulumi.StringPtrInput
 	NetworkWatcherName pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ResourceGroupName  pulumi.StringInput
+	Tags               pulumi.StringMapInput
 }
 
 func (NetworkWatcherArgs) ElementType() reflect.Type {
@@ -334,9 +315,7 @@ func (i *NetworkWatcher) ToNetworkWatcherOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherOutput)
 }
 
-type NetworkWatcherOutput struct {
-	*pulumi.OutputState
-}
+type NetworkWatcherOutput struct{ *pulumi.OutputState }
 
 func (NetworkWatcherOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkWatcher)(nil))

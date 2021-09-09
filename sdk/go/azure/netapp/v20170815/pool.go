@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Capacity pool resource
 type Pool struct {
 	pulumi.CustomResourceState
 
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// UUID v4 used to identify the Pool
-	PoolId pulumi.StringOutput `pulumi:"poolId"`
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The service level of the file system
-	ServiceLevel pulumi.StringPtrOutput `pulumi:"serviceLevel"`
-	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-	Size pulumi.Float64PtrOutput `pulumi:"size"`
-	// Resource tags
-	Tags pulumi.AnyOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location          pulumi.StringOutput     `pulumi:"location"`
+	Name              pulumi.StringOutput     `pulumi:"name"`
+	PoolId            pulumi.StringOutput     `pulumi:"poolId"`
+	ProvisioningState pulumi.StringOutput     `pulumi:"provisioningState"`
+	ServiceLevel      pulumi.StringPtrOutput  `pulumi:"serviceLevel"`
+	Size              pulumi.Float64PtrOutput `pulumi:"size"`
+	Tags              pulumi.AnyOutput        `pulumi:"tags"`
+	Type              pulumi.StringOutput     `pulumi:"type"`
 }
 
 // NewPool registers a new resource with the given unique name, arguments, and options.
@@ -210,38 +201,24 @@ func (PoolState) ElementType() reflect.Type {
 }
 
 type poolArgs struct {
-	// The name of the NetApp account
-	AccountName string `pulumi:"accountName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the capacity pool
-	PoolName *string `pulumi:"poolName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The service level of the file system
-	ServiceLevel *string `pulumi:"serviceLevel"`
-	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-	Size *float64 `pulumi:"size"`
-	// Resource tags
-	Tags interface{} `pulumi:"tags"`
+	AccountName       string      `pulumi:"accountName"`
+	Location          *string     `pulumi:"location"`
+	PoolName          *string     `pulumi:"poolName"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
+	ServiceLevel      *string     `pulumi:"serviceLevel"`
+	Size              *float64    `pulumi:"size"`
+	Tags              interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Pool resource.
 type PoolArgs struct {
-	// The name of the NetApp account
-	AccountName pulumi.StringInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the capacity pool
-	PoolName pulumi.StringPtrInput
-	// The name of the resource group.
+	AccountName       pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	PoolName          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The service level of the file system
-	ServiceLevel pulumi.StringPtrInput
-	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-	Size pulumi.Float64PtrInput
-	// Resource tags
-	Tags pulumi.Input
+	ServiceLevel      pulumi.StringPtrInput
+	Size              pulumi.Float64PtrInput
+	Tags              pulumi.Input
 }
 
 func (PoolArgs) ElementType() reflect.Type {
@@ -267,9 +244,7 @@ func (i *Pool) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PoolOutput)
 }
 
-type PoolOutput struct {
-	*pulumi.OutputState
-}
+type PoolOutput struct{ *pulumi.OutputState }
 
 func (PoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Pool)(nil))

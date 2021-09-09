@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The backup schedule.
 type BackupSchedule struct {
 	pulumi.CustomResourceState
 
-	// The type of backup which needs to be taken.
-	BackupType pulumi.StringOutput `pulumi:"backupType"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The last successful backup run which was triggered for the schedule.
-	LastSuccessfulRun pulumi.StringOutput `pulumi:"lastSuccessfulRun"`
-	// The name of the object.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of backups to be retained.
-	RetentionCount pulumi.Float64Output `pulumi:"retentionCount"`
-	// The schedule recurrence.
+	BackupType         pulumi.StringOutput              `pulumi:"backupType"`
+	Kind               pulumi.StringPtrOutput           `pulumi:"kind"`
+	LastSuccessfulRun  pulumi.StringOutput              `pulumi:"lastSuccessfulRun"`
+	Name               pulumi.StringOutput              `pulumi:"name"`
+	RetentionCount     pulumi.Float64Output             `pulumi:"retentionCount"`
 	ScheduleRecurrence ScheduleRecurrenceResponseOutput `pulumi:"scheduleRecurrence"`
-	// The schedule status.
-	ScheduleStatus pulumi.StringOutput `pulumi:"scheduleStatus"`
-	// The start time of the schedule.
-	StartTime pulumi.StringOutput `pulumi:"startTime"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ScheduleStatus     pulumi.StringOutput              `pulumi:"scheduleStatus"`
+	StartTime          pulumi.StringOutput              `pulumi:"startTime"`
+	Type               pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewBackupSchedule registers a new resource with the given unique name, arguments, and options.
@@ -44,6 +34,9 @@ func NewBackupSchedule(ctx *pulumi.Context,
 
 	if args.BackupPolicyName == nil {
 		return nil, errors.New("invalid value for required argument 'BackupPolicyName'")
+	}
+	if args.BackupType == nil {
+		return nil, errors.New("invalid value for required argument 'BackupType'")
 	}
 	if args.DeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceName'")
@@ -59,6 +52,9 @@ func NewBackupSchedule(ctx *pulumi.Context,
 	}
 	if args.ScheduleRecurrence == nil {
 		return nil, errors.New("invalid value for required argument 'ScheduleRecurrence'")
+	}
+	if args.ScheduleStatus == nil {
+		return nil, errors.New("invalid value for required argument 'ScheduleStatus'")
 	}
 	if args.StartTime == nil {
 		return nil, errors.New("invalid value for required argument 'StartTime'")
@@ -107,54 +103,32 @@ func (BackupScheduleState) ElementType() reflect.Type {
 }
 
 type backupScheduleArgs struct {
-	// The backup policy name.
-	BackupPolicyName string `pulumi:"backupPolicyName"`
-	// The backup schedule name.
-	BackupScheduleName *string `pulumi:"backupScheduleName"`
-	// The type of backup which needs to be taken.
-	BackupType string `pulumi:"backupType"`
-	// The device name
-	DeviceName string `pulumi:"deviceName"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The number of backups to be retained.
-	RetentionCount float64 `pulumi:"retentionCount"`
-	// The schedule recurrence.
+	BackupPolicyName   string             `pulumi:"backupPolicyName"`
+	BackupScheduleName *string            `pulumi:"backupScheduleName"`
+	BackupType         BackupType         `pulumi:"backupType"`
+	DeviceName         string             `pulumi:"deviceName"`
+	Kind               *Kind              `pulumi:"kind"`
+	ManagerName        string             `pulumi:"managerName"`
+	ResourceGroupName  string             `pulumi:"resourceGroupName"`
+	RetentionCount     float64            `pulumi:"retentionCount"`
 	ScheduleRecurrence ScheduleRecurrence `pulumi:"scheduleRecurrence"`
-	// The schedule status.
-	ScheduleStatus string `pulumi:"scheduleStatus"`
-	// The start time of the schedule.
-	StartTime string `pulumi:"startTime"`
+	ScheduleStatus     ScheduleStatus     `pulumi:"scheduleStatus"`
+	StartTime          string             `pulumi:"startTime"`
 }
 
 // The set of arguments for constructing a BackupSchedule resource.
 type BackupScheduleArgs struct {
-	// The backup policy name.
-	BackupPolicyName pulumi.StringInput
-	// The backup schedule name.
+	BackupPolicyName   pulumi.StringInput
 	BackupScheduleName pulumi.StringPtrInput
-	// The type of backup which needs to be taken.
-	BackupType BackupType
-	// The device name
-	DeviceName pulumi.StringInput
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *Kind
-	// The manager name
-	ManagerName pulumi.StringInput
-	// The resource group name
-	ResourceGroupName pulumi.StringInput
-	// The number of backups to be retained.
-	RetentionCount pulumi.Float64Input
-	// The schedule recurrence.
+	BackupType         BackupTypeInput
+	DeviceName         pulumi.StringInput
+	Kind               KindPtrInput
+	ManagerName        pulumi.StringInput
+	ResourceGroupName  pulumi.StringInput
+	RetentionCount     pulumi.Float64Input
 	ScheduleRecurrence ScheduleRecurrenceInput
-	// The schedule status.
-	ScheduleStatus ScheduleStatus
-	// The start time of the schedule.
-	StartTime pulumi.StringInput
+	ScheduleStatus     ScheduleStatusInput
+	StartTime          pulumi.StringInput
 }
 
 func (BackupScheduleArgs) ElementType() reflect.Type {
@@ -180,9 +154,7 @@ func (i *BackupSchedule) ToBackupScheduleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleOutput)
 }
 
-type BackupScheduleOutput struct {
-	*pulumi.OutputState
-}
+type BackupScheduleOutput struct{ *pulumi.OutputState }
 
 func (BackupScheduleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupSchedule)(nil))

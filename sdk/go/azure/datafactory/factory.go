@@ -169,9 +169,7 @@ func (i *Factory) ToFactoryOutputWithContext(ctx context.Context) FactoryOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(FactoryOutput)
 }
 
-type FactoryOutput struct {
-	*pulumi.OutputState
-}
+type FactoryOutput struct{ *pulumi.OutputState }
 
 func (FactoryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Factory)(nil))

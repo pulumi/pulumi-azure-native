@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The description of the service.
 type Service struct {
 	pulumi.CustomResourceState
 
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ResourceResponseIdentityPtrOutput `pulumi:"identity"`
-	// The kind of the service.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The common properties of a service.
-	Properties ServicesPropertiesResponseOutput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag       pulumi.StringPtrOutput            `pulumi:"etag"`
+	Identity   ResourceResponseIdentityPtrOutput `pulumi:"identity"`
+	Kind       pulumi.StringOutput               `pulumi:"kind"`
+	Location   pulumi.StringOutput               `pulumi:"location"`
+	Name       pulumi.StringOutput               `pulumi:"name"`
+	Properties ServicesPropertiesResponseOutput  `pulumi:"properties"`
+	Tags       pulumi.StringMapOutput            `pulumi:"tags"`
+	Type       pulumi.StringOutput               `pulumi:"type"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -40,6 +31,9 @@ func NewService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -117,42 +111,26 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ResourceIdentity `pulumi:"identity"`
-	// The kind of the service.
-	Kind string `pulumi:"kind"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The common properties of a service.
-	Properties *ServicesProperties `pulumi:"properties"`
-	// The name of the resource group that contains the service instance.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the service instance.
-	ResourceName *string `pulumi:"resourceName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Etag              *string             `pulumi:"etag"`
+	Identity          *ResourceIdentity   `pulumi:"identity"`
+	Kind              Kind                `pulumi:"kind"`
+	Location          *string             `pulumi:"location"`
+	Properties        *ServicesProperties `pulumi:"properties"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	ResourceName      *string             `pulumi:"resourceName"`
+	Tags              map[string]string   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ResourceIdentityPtrInput
-	// The kind of the service.
-	Kind Kind
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The common properties of a service.
-	Properties ServicesPropertiesPtrInput
-	// The name of the resource group that contains the service instance.
+	Etag              pulumi.StringPtrInput
+	Identity          ResourceIdentityPtrInput
+	Kind              KindInput
+	Location          pulumi.StringPtrInput
+	Properties        ServicesPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the service instance.
-	ResourceName pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	ResourceName      pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -178,9 +156,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
-type ServiceOutput struct {
-	*pulumi.OutputState
-}
+type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Service)(nil))

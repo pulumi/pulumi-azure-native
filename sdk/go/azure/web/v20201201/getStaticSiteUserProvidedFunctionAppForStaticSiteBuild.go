@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Static Site User Provided Function App ARM resource.
 func LookupStaticSiteUserProvidedFunctionAppForStaticSiteBuild(ctx *pulumi.Context, args *LookupStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs, opts ...pulumi.InvokeOption) (*LookupStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult, error) {
 	var rv LookupStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult
 	err := ctx.Invoke("azure-native:web/v20201201:getStaticSiteUserProvidedFunctionAppForStaticSiteBuild", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupStaticSiteUserProvidedFunctionAppForStaticSiteBuild(ctx *pulumi.Conte
 }
 
 type LookupStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs struct {
-	// The stage site identifier.
-	EnvironmentName string `pulumi:"environmentName"`
-	// Name of the function app registered with the static site build.
-	FunctionAppName string `pulumi:"functionAppName"`
-	// Name of the static site.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	EnvironmentName   string `pulumi:"environmentName"`
+	FunctionAppName   string `pulumi:"functionAppName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Static Site User Provided Function App ARM resource.
 type LookupStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult struct {
-	// The date and time on which the function app was registered with the static site.
-	CreatedOn string `pulumi:"createdOn"`
-	// The region of the function app registered with the static site
-	FunctionAppRegion *string `pulumi:"functionAppRegion"`
-	// The resource id of the function app registered with the static site
+	CreatedOn             string  `pulumi:"createdOn"`
+	FunctionAppRegion     *string `pulumi:"functionAppRegion"`
 	FunctionAppResourceId *string `pulumi:"functionAppResourceId"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id                    string  `pulumi:"id"`
+	Kind                  *string `pulumi:"kind"`
+	Name                  string  `pulumi:"name"`
+	Type                  string  `pulumi:"type"`
 }

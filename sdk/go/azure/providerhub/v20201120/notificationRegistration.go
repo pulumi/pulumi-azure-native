@@ -11,15 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The notification registration definition.
 type NotificationRegistration struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
 	Name       pulumi.StringOutput                              `pulumi:"name"`
 	Properties NotificationRegistrationResponsePropertiesOutput `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                              `pulumi:"type"`
 }
 
 // NewNotificationRegistration registers a new resource with the given unique name, arguments, and options.
@@ -88,20 +85,16 @@ func (NotificationRegistrationState) ElementType() reflect.Type {
 }
 
 type notificationRegistrationArgs struct {
-	// The notification registration.
 	NotificationRegistrationName *string                             `pulumi:"notificationRegistrationName"`
 	Properties                   *NotificationRegistrationProperties `pulumi:"properties"`
-	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace string `pulumi:"providerNamespace"`
+	ProviderNamespace            string                              `pulumi:"providerNamespace"`
 }
 
 // The set of arguments for constructing a NotificationRegistration resource.
 type NotificationRegistrationArgs struct {
-	// The notification registration.
 	NotificationRegistrationName pulumi.StringPtrInput
 	Properties                   NotificationRegistrationPropertiesPtrInput
-	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace pulumi.StringInput
+	ProviderNamespace            pulumi.StringInput
 }
 
 func (NotificationRegistrationArgs) ElementType() reflect.Type {
@@ -127,9 +120,7 @@ func (i *NotificationRegistration) ToNotificationRegistrationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRegistrationOutput)
 }
 
-type NotificationRegistrationOutput struct {
-	*pulumi.OutputState
-}
+type NotificationRegistrationOutput struct{ *pulumi.OutputState }
 
 func (NotificationRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotificationRegistration)(nil))

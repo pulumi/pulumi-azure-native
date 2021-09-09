@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the runbook property type.
 type ContentHash struct {
-	// Gets or sets the content hash algorithm used to hash the content.
 	Algorithm string `pulumi:"algorithm"`
-	// Gets or sets expected hash value of the content.
-	Value string `pulumi:"value"`
+	Value     string `pulumi:"value"`
 }
 
 // ContentHashInput is an input type that accepts ContentHashArgs and ContentHashOutput values.
@@ -29,12 +26,9 @@ type ContentHashInput interface {
 	ToContentHashOutputWithContext(context.Context) ContentHashOutput
 }
 
-// Definition of the runbook property type.
 type ContentHashArgs struct {
-	// Gets or sets the content hash algorithm used to hash the content.
 	Algorithm pulumi.StringInput `pulumi:"algorithm"`
-	// Gets or sets expected hash value of the content.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value     pulumi.StringInput `pulumi:"value"`
 }
 
 func (ContentHashArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *contentHashPtrType) ToContentHashPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ContentHashPtrOutput)
 }
 
-// Definition of the runbook property type.
 type ContentHashOutput struct{ *pulumi.OutputState }
 
 func (ContentHashOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o ContentHashOutput) ToContentHashPtrOutput() ContentHashPtrOutput {
 }
 
 func (o ContentHashOutput) ToContentHashPtrOutputWithContext(ctx context.Context) ContentHashPtrOutput {
-	return o.ApplyT(func(v ContentHash) *ContentHash {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentHash) *ContentHash {
 		return &v
 	}).(ContentHashPtrOutput)
 }
 
-// Gets or sets the content hash algorithm used to hash the content.
 func (o ContentHashOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentHash) string { return v.Algorithm }).(pulumi.StringOutput)
 }
 
-// Gets or sets expected hash value of the content.
 func (o ContentHashOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentHash) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -140,10 +131,15 @@ func (o ContentHashPtrOutput) ToContentHashPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ContentHashPtrOutput) Elem() ContentHashOutput {
-	return o.ApplyT(func(v *ContentHash) ContentHash { return *v }).(ContentHashOutput)
+	return o.ApplyT(func(v *ContentHash) ContentHash {
+		if v != nil {
+			return *v
+		}
+		var ret ContentHash
+		return ret
+	}).(ContentHashOutput)
 }
 
-// Gets or sets the content hash algorithm used to hash the content.
 func (o ContentHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHash) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o ContentHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets expected hash value of the content.
 func (o ContentHashPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHash) *string {
 		if v == nil {
@@ -163,16 +158,11 @@ func (o ContentHashPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Definition of the content source.
 type ContentSource struct {
-	// Gets or sets the hash.
-	Hash *ContentHash `pulumi:"hash"`
-	// Gets or sets the content source type.
-	Type *string `pulumi:"type"`
-	// Gets or sets the value of the content. This is based on the content source type.
-	Value *string `pulumi:"value"`
-	// Gets or sets the version of the content.
-	Version *string `pulumi:"version"`
+	Hash    *ContentHash `pulumi:"hash"`
+	Type    *string      `pulumi:"type"`
+	Value   *string      `pulumi:"value"`
+	Version *string      `pulumi:"version"`
 }
 
 // ContentSourceInput is an input type that accepts ContentSourceArgs and ContentSourceOutput values.
@@ -186,15 +176,10 @@ type ContentSourceInput interface {
 	ToContentSourceOutputWithContext(context.Context) ContentSourceOutput
 }
 
-// Definition of the content source.
 type ContentSourceArgs struct {
-	// Gets or sets the hash.
-	Hash ContentHashPtrInput `pulumi:"hash"`
-	// Gets or sets the content source type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Gets or sets the value of the content. This is based on the content source type.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-	// Gets or sets the version of the content.
+	Hash    ContentHashPtrInput   `pulumi:"hash"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -251,7 +236,6 @@ func (i *contentSourcePtrType) ToContentSourcePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ContentSourcePtrOutput)
 }
 
-// Definition of the content source.
 type ContentSourceOutput struct{ *pulumi.OutputState }
 
 func (ContentSourceOutput) ElementType() reflect.Type {
@@ -271,27 +255,23 @@ func (o ContentSourceOutput) ToContentSourcePtrOutput() ContentSourcePtrOutput {
 }
 
 func (o ContentSourceOutput) ToContentSourcePtrOutputWithContext(ctx context.Context) ContentSourcePtrOutput {
-	return o.ApplyT(func(v ContentSource) *ContentSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentSource) *ContentSource {
 		return &v
 	}).(ContentSourcePtrOutput)
 }
 
-// Gets or sets the hash.
 func (o ContentSourceOutput) Hash() ContentHashPtrOutput {
 	return o.ApplyT(func(v ContentSource) *ContentHash { return v.Hash }).(ContentHashPtrOutput)
 }
 
-// Gets or sets the content source type.
 func (o ContentSourceOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentSource) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the value of the content. This is based on the content source type.
 func (o ContentSourceOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentSource) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the version of the content.
 func (o ContentSourceOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentSource) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -311,10 +291,15 @@ func (o ContentSourcePtrOutput) ToContentSourcePtrOutputWithContext(ctx context.
 }
 
 func (o ContentSourcePtrOutput) Elem() ContentSourceOutput {
-	return o.ApplyT(func(v *ContentSource) ContentSource { return *v }).(ContentSourceOutput)
+	return o.ApplyT(func(v *ContentSource) ContentSource {
+		if v != nil {
+			return *v
+		}
+		var ret ContentSource
+		return ret
+	}).(ContentSourceOutput)
 }
 
-// Gets or sets the hash.
 func (o ContentSourcePtrOutput) Hash() ContentHashPtrOutput {
 	return o.ApplyT(func(v *ContentSource) *ContentHash {
 		if v == nil {
@@ -324,7 +309,6 @@ func (o ContentSourcePtrOutput) Hash() ContentHashPtrOutput {
 	}).(ContentHashPtrOutput)
 }
 
-// Gets or sets the content source type.
 func (o ContentSourcePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentSource) *string {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o ContentSourcePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the value of the content. This is based on the content source type.
 func (o ContentSourcePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentSource) *string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o ContentSourcePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the version of the content.
 func (o ContentSourcePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentSource) *string {
 		if v == nil {
@@ -354,9 +336,7 @@ func (o ContentSourcePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Dsc configuration property associated with the entity.
 type DscConfigurationAssociationProperty struct {
-	// Gets or sets the name of the Dsc configuration.
 	Name *string `pulumi:"name"`
 }
 
@@ -371,9 +351,7 @@ type DscConfigurationAssociationPropertyInput interface {
 	ToDscConfigurationAssociationPropertyOutputWithContext(context.Context) DscConfigurationAssociationPropertyOutput
 }
 
-// The Dsc configuration property associated with the entity.
 type DscConfigurationAssociationPropertyArgs struct {
-	// Gets or sets the name of the Dsc configuration.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -430,7 +408,6 @@ func (i *dscConfigurationAssociationPropertyPtrType) ToDscConfigurationAssociati
 	return pulumi.ToOutputWithContext(ctx, i).(DscConfigurationAssociationPropertyPtrOutput)
 }
 
-// The Dsc configuration property associated with the entity.
 type DscConfigurationAssociationPropertyOutput struct{ *pulumi.OutputState }
 
 func (DscConfigurationAssociationPropertyOutput) ElementType() reflect.Type {
@@ -450,12 +427,11 @@ func (o DscConfigurationAssociationPropertyOutput) ToDscConfigurationAssociation
 }
 
 func (o DscConfigurationAssociationPropertyOutput) ToDscConfigurationAssociationPropertyPtrOutputWithContext(ctx context.Context) DscConfigurationAssociationPropertyPtrOutput {
-	return o.ApplyT(func(v DscConfigurationAssociationProperty) *DscConfigurationAssociationProperty {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DscConfigurationAssociationProperty) *DscConfigurationAssociationProperty {
 		return &v
 	}).(DscConfigurationAssociationPropertyPtrOutput)
 }
 
-// Gets or sets the name of the Dsc configuration.
 func (o DscConfigurationAssociationPropertyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DscConfigurationAssociationProperty) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -475,10 +451,15 @@ func (o DscConfigurationAssociationPropertyPtrOutput) ToDscConfigurationAssociat
 }
 
 func (o DscConfigurationAssociationPropertyPtrOutput) Elem() DscConfigurationAssociationPropertyOutput {
-	return o.ApplyT(func(v *DscConfigurationAssociationProperty) DscConfigurationAssociationProperty { return *v }).(DscConfigurationAssociationPropertyOutput)
+	return o.ApplyT(func(v *DscConfigurationAssociationProperty) DscConfigurationAssociationProperty {
+		if v != nil {
+			return *v
+		}
+		var ret DscConfigurationAssociationProperty
+		return ret
+	}).(DscConfigurationAssociationPropertyOutput)
 }
 
-// Gets or sets the name of the Dsc configuration.
 func (o DscConfigurationAssociationPropertyPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DscConfigurationAssociationProperty) *string {
 		if v == nil {
@@ -488,9 +469,7 @@ func (o DscConfigurationAssociationPropertyPtrOutput) Name() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Dsc configuration property associated with the entity.
 type DscConfigurationAssociationPropertyResponse struct {
-	// Gets or sets the name of the Dsc configuration.
 	Name *string `pulumi:"name"`
 }
 
@@ -505,9 +484,7 @@ type DscConfigurationAssociationPropertyResponseInput interface {
 	ToDscConfigurationAssociationPropertyResponseOutputWithContext(context.Context) DscConfigurationAssociationPropertyResponseOutput
 }
 
-// The Dsc configuration property associated with the entity.
 type DscConfigurationAssociationPropertyResponseArgs struct {
-	// Gets or sets the name of the Dsc configuration.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -564,7 +541,6 @@ func (i *dscConfigurationAssociationPropertyResponsePtrType) ToDscConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(DscConfigurationAssociationPropertyResponsePtrOutput)
 }
 
-// The Dsc configuration property associated with the entity.
 type DscConfigurationAssociationPropertyResponseOutput struct{ *pulumi.OutputState }
 
 func (DscConfigurationAssociationPropertyResponseOutput) ElementType() reflect.Type {
@@ -584,12 +560,11 @@ func (o DscConfigurationAssociationPropertyResponseOutput) ToDscConfigurationAss
 }
 
 func (o DscConfigurationAssociationPropertyResponseOutput) ToDscConfigurationAssociationPropertyResponsePtrOutputWithContext(ctx context.Context) DscConfigurationAssociationPropertyResponsePtrOutput {
-	return o.ApplyT(func(v DscConfigurationAssociationPropertyResponse) *DscConfigurationAssociationPropertyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DscConfigurationAssociationPropertyResponse) *DscConfigurationAssociationPropertyResponse {
 		return &v
 	}).(DscConfigurationAssociationPropertyResponsePtrOutput)
 }
 
-// Gets or sets the name of the Dsc configuration.
 func (o DscConfigurationAssociationPropertyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DscConfigurationAssociationPropertyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -610,11 +585,14 @@ func (o DscConfigurationAssociationPropertyResponsePtrOutput) ToDscConfiguration
 
 func (o DscConfigurationAssociationPropertyResponsePtrOutput) Elem() DscConfigurationAssociationPropertyResponseOutput {
 	return o.ApplyT(func(v *DscConfigurationAssociationPropertyResponse) DscConfigurationAssociationPropertyResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DscConfigurationAssociationPropertyResponse
+		return ret
 	}).(DscConfigurationAssociationPropertyResponseOutput)
 }
 
-// Gets or sets the name of the Dsc configuration.
 func (o DscConfigurationAssociationPropertyResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DscConfigurationAssociationPropertyResponse) *string {
 		if v == nil {

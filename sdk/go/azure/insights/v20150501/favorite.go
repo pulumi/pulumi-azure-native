@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties that define a favorite that is associated to an Application Insights component.
 type Favorite struct {
 	pulumi.CustomResourceState
 
-	// Favorite category, as defined by the user at creation time.
-	Category pulumi.StringPtrOutput `pulumi:"category"`
-	// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
-	Config pulumi.StringPtrOutput `pulumi:"config"`
-	// Internally assigned unique id of the favorite definition.
-	FavoriteId pulumi.StringOutput `pulumi:"favoriteId"`
-	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	FavoriteType pulumi.StringPtrOutput `pulumi:"favoriteType"`
-	// Flag denoting wether or not this favorite was generated from a template.
-	IsGeneratedFromTemplate pulumi.BoolPtrOutput `pulumi:"isGeneratedFromTemplate"`
-	// The user-defined name of the favorite.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The source of the favorite definition.
-	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
-	// A list of 0 or more tags that are associated with this favorite definition
-	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// Date and time in UTC of the last modification that was made to this favorite definition.
-	TimeModified pulumi.StringOutput `pulumi:"timeModified"`
-	// Unique user id of the specific user that owns this favorite.
-	UserId pulumi.StringOutput `pulumi:"userId"`
-	// This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
-	Version pulumi.StringPtrOutput `pulumi:"version"`
+	Category                pulumi.StringPtrOutput   `pulumi:"category"`
+	Config                  pulumi.StringPtrOutput   `pulumi:"config"`
+	FavoriteId              pulumi.StringOutput      `pulumi:"favoriteId"`
+	FavoriteType            pulumi.StringPtrOutput   `pulumi:"favoriteType"`
+	IsGeneratedFromTemplate pulumi.BoolPtrOutput     `pulumi:"isGeneratedFromTemplate"`
+	Name                    pulumi.StringPtrOutput   `pulumi:"name"`
+	SourceType              pulumi.StringPtrOutput   `pulumi:"sourceType"`
+	Tags                    pulumi.StringArrayOutput `pulumi:"tags"`
+	TimeModified            pulumi.StringOutput      `pulumi:"timeModified"`
+	UserId                  pulumi.StringOutput      `pulumi:"userId"`
+	Version                 pulumi.StringPtrOutput   `pulumi:"version"`
 }
 
 // NewFavorite registers a new resource with the given unique name, arguments, and options.
@@ -96,54 +84,32 @@ func (FavoriteState) ElementType() reflect.Type {
 }
 
 type favoriteArgs struct {
-	// Favorite category, as defined by the user at creation time.
-	Category *string `pulumi:"category"`
-	// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
-	Config *string `pulumi:"config"`
-	// The Id of a specific favorite defined in the Application Insights component
-	FavoriteId *string `pulumi:"favoriteId"`
-	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	FavoriteType *string `pulumi:"favoriteType"`
-	// Flag denoting wether or not this favorite was generated from a template.
-	IsGeneratedFromTemplate *bool `pulumi:"isGeneratedFromTemplate"`
-	// The user-defined name of the favorite.
-	Name *string `pulumi:"name"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Application Insights component resource.
-	ResourceName string `pulumi:"resourceName"`
-	// The source of the favorite definition.
-	SourceType *string `pulumi:"sourceType"`
-	// A list of 0 or more tags that are associated with this favorite definition
-	Tags []string `pulumi:"tags"`
-	// This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
-	Version *string `pulumi:"version"`
+	Category                *string       `pulumi:"category"`
+	Config                  *string       `pulumi:"config"`
+	FavoriteId              *string       `pulumi:"favoriteId"`
+	FavoriteType            *FavoriteType `pulumi:"favoriteType"`
+	IsGeneratedFromTemplate *bool         `pulumi:"isGeneratedFromTemplate"`
+	Name                    *string       `pulumi:"name"`
+	ResourceGroupName       string        `pulumi:"resourceGroupName"`
+	ResourceName            string        `pulumi:"resourceName"`
+	SourceType              *string       `pulumi:"sourceType"`
+	Tags                    []string      `pulumi:"tags"`
+	Version                 *string       `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Favorite resource.
 type FavoriteArgs struct {
-	// Favorite category, as defined by the user at creation time.
-	Category pulumi.StringPtrInput
-	// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
-	Config pulumi.StringPtrInput
-	// The Id of a specific favorite defined in the Application Insights component
-	FavoriteId pulumi.StringPtrInput
-	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	FavoriteType *FavoriteType
-	// Flag denoting wether or not this favorite was generated from a template.
+	Category                pulumi.StringPtrInput
+	Config                  pulumi.StringPtrInput
+	FavoriteId              pulumi.StringPtrInput
+	FavoriteType            FavoriteTypePtrInput
 	IsGeneratedFromTemplate pulumi.BoolPtrInput
-	// The user-defined name of the favorite.
-	Name pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the Application Insights component resource.
-	ResourceName pulumi.StringInput
-	// The source of the favorite definition.
-	SourceType pulumi.StringPtrInput
-	// A list of 0 or more tags that are associated with this favorite definition
-	Tags pulumi.StringArrayInput
-	// This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
-	Version pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	ResourceGroupName       pulumi.StringInput
+	ResourceName            pulumi.StringInput
+	SourceType              pulumi.StringPtrInput
+	Tags                    pulumi.StringArrayInput
+	Version                 pulumi.StringPtrInput
 }
 
 func (FavoriteArgs) ElementType() reflect.Type {
@@ -169,9 +135,7 @@ func (i *Favorite) ToFavoriteOutputWithContext(ctx context.Context) FavoriteOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FavoriteOutput)
 }
 
-type FavoriteOutput struct {
-	*pulumi.OutputState
-}
+type FavoriteOutput struct{ *pulumi.OutputState }
 
 func (FavoriteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Favorite)(nil))

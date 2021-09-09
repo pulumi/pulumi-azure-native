@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Public IP address resource.
 func LookupPublicIPAddress(ctx *pulumi.Context, args *LookupPublicIPAddressArgs, opts ...pulumi.InvokeOption) (*LookupPublicIPAddressResult, error) {
 	var rv LookupPublicIPAddressResult
 	err := ctx.Invoke("azure-native:network/v20210201:getPublicIPAddress", args, &rv, opts...)
@@ -18,64 +17,36 @@ func LookupPublicIPAddress(ctx *pulumi.Context, args *LookupPublicIPAddressArgs,
 }
 
 type LookupPublicIPAddressArgs struct {
-	// Expands referenced resources.
-	Expand *string `pulumi:"expand"`
-	// The name of the public IP address.
-	PublicIpAddressName string `pulumi:"publicIpAddressName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand              *string `pulumi:"expand"`
+	PublicIpAddressName string  `pulumi:"publicIpAddressName"`
+	ResourceGroupName   string  `pulumi:"resourceGroupName"`
 }
 
 // Public IP address resource.
 type LookupPublicIPAddressResult struct {
-	// The DDoS protection custom policy associated with the public IP address.
-	DdosSettings *DdosSettingsResponse `pulumi:"ddosSettings"`
-	// Specify what happens to the public IP address when the VM using it is deleted
-	DeleteOption *string `pulumi:"deleteOption"`
-	// The FQDN of the DNS record associated with the public IP address.
-	DnsSettings *PublicIPAddressDnsSettingsResponse `pulumi:"dnsSettings"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// The extended location of the public ip address.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The idle timeout of the public IP address.
-	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
-	// The IP address associated with the public IP address resource.
-	IpAddress *string `pulumi:"ipAddress"`
-	// The IP configuration associated with the public IP address.
-	IpConfiguration IPConfigurationResponse `pulumi:"ipConfiguration"`
-	// The list of tags associated with the public IP address.
-	IpTags []IpTagResponse `pulumi:"ipTags"`
-	// The linked public IP address of the public IP address resource.
-	LinkedPublicIPAddress *PublicIPAddressResponse `pulumi:"linkedPublicIPAddress"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Migration phase of Public IP Address.
-	MigrationPhase *string `pulumi:"migrationPhase"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The NatGateway for the Public IP address.
-	NatGateway *NatGatewayResponse `pulumi:"natGateway"`
-	// The provisioning state of the public IP address resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The public IP address version.
-	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
-	// The public IP address allocation method.
-	PublicIPAllocationMethod *string `pulumi:"publicIPAllocationMethod"`
-	// The Public IP Prefix this Public IP Address should be allocated from.
-	PublicIPPrefix *SubResourceResponse `pulumi:"publicIPPrefix"`
-	// The resource GUID property of the public IP address resource.
-	ResourceGuid string `pulumi:"resourceGuid"`
-	// The service public IP address of the public IP address resource.
-	ServicePublicIPAddress *PublicIPAddressResponse `pulumi:"servicePublicIPAddress"`
-	// The public IP address SKU.
-	Sku *PublicIPAddressSkuResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// A list of availability zones denoting the IP allocated for the resource needs to come from.
-	Zones []string `pulumi:"zones"`
+	DdosSettings             *DdosSettingsResponse               `pulumi:"ddosSettings"`
+	DeleteOption             *string                             `pulumi:"deleteOption"`
+	DnsSettings              *PublicIPAddressDnsSettingsResponse `pulumi:"dnsSettings"`
+	Etag                     string                              `pulumi:"etag"`
+	ExtendedLocation         *ExtendedLocationResponse           `pulumi:"extendedLocation"`
+	Id                       *string                             `pulumi:"id"`
+	IdleTimeoutInMinutes     *int                                `pulumi:"idleTimeoutInMinutes"`
+	IpAddress                *string                             `pulumi:"ipAddress"`
+	IpConfiguration          IPConfigurationResponse             `pulumi:"ipConfiguration"`
+	IpTags                   []IpTagResponse                     `pulumi:"ipTags"`
+	LinkedPublicIPAddress    *PublicIPAddressResponse            `pulumi:"linkedPublicIPAddress"`
+	Location                 *string                             `pulumi:"location"`
+	MigrationPhase           *string                             `pulumi:"migrationPhase"`
+	Name                     string                              `pulumi:"name"`
+	NatGateway               *NatGatewayResponse                 `pulumi:"natGateway"`
+	ProvisioningState        string                              `pulumi:"provisioningState"`
+	PublicIPAddressVersion   *string                             `pulumi:"publicIPAddressVersion"`
+	PublicIPAllocationMethod *string                             `pulumi:"publicIPAllocationMethod"`
+	PublicIPPrefix           *SubResourceResponse                `pulumi:"publicIPPrefix"`
+	ResourceGuid             string                              `pulumi:"resourceGuid"`
+	ServicePublicIPAddress   *PublicIPAddressResponse            `pulumi:"servicePublicIPAddress"`
+	Sku                      *PublicIPAddressSkuResponse         `pulumi:"sku"`
+	Tags                     map[string]string                   `pulumi:"tags"`
+	Type                     string                              `pulumi:"type"`
+	Zones                    []string                            `pulumi:"zones"`
 }

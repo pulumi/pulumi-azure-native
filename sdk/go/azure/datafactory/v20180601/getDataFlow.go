@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data flow resource type.
 func LookupDataFlow(ctx *pulumi.Context, args *LookupDataFlowArgs, opts ...pulumi.InvokeOption) (*LookupDataFlowResult, error) {
 	var rv LookupDataFlowResult
 	err := ctx.Invoke("azure-native:datafactory/v20180601:getDataFlow", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupDataFlow(ctx *pulumi.Context, args *LookupDataFlowArgs, opts ...pulum
 }
 
 type LookupDataFlowArgs struct {
-	// The data flow name.
-	DataFlowName string `pulumi:"dataFlowName"`
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The resource group name.
+	DataFlowName      string `pulumi:"dataFlowName"`
+	FactoryName       string `pulumi:"factoryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Data flow resource type.
 type LookupDataFlowResult struct {
-	// Etag identifies change in the resource.
-	Etag string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Data flow properties.
+	Etag       string      `pulumi:"etag"`
+	Id         string      `pulumi:"id"`
+	Name       string      `pulumi:"name"`
 	Properties interface{} `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type       string      `pulumi:"type"`
 }

@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The StorSimple Manager
 type Manager struct {
 	pulumi.CustomResourceState
 
-	// Specifies if the Manager is Garda or Helsinki
 	CisIntrinsicSettings ManagerIntrinsicSettingsResponsePtrOutput `pulumi:"cisIntrinsicSettings"`
-	// ETag of the Manager
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The Geo location of the Manager
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The Resource Name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Specifies the Sku
-	Sku ManagerSkuResponsePtrOutput `pulumi:"sku"`
-	// Tags attached to the Manager
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag                 pulumi.StringPtrOutput                    `pulumi:"etag"`
+	Location             pulumi.StringOutput                       `pulumi:"location"`
+	Name                 pulumi.StringOutput                       `pulumi:"name"`
+	ProvisioningState    pulumi.StringOutput                       `pulumi:"provisioningState"`
+	Sku                  ManagerSkuResponsePtrOutput               `pulumi:"sku"`
+	Tags                 pulumi.StringMapOutput                    `pulumi:"tags"`
+	Type                 pulumi.StringOutput                       `pulumi:"type"`
 }
 
 // NewManager registers a new resource with the given unique name, arguments, and options.
@@ -93,38 +84,24 @@ func (ManagerState) ElementType() reflect.Type {
 }
 
 type managerArgs struct {
-	// Specifies if the Manager is Garda or Helsinki
 	CisIntrinsicSettings *ManagerIntrinsicSettings `pulumi:"cisIntrinsicSettings"`
-	// ETag of the Manager
-	Etag *string `pulumi:"etag"`
-	// The Geo location of the Manager
-	Location *string `pulumi:"location"`
-	// The manager name
-	ManagerName *string `pulumi:"managerName"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the Sku
-	Sku *ManagerSku `pulumi:"sku"`
-	// Tags attached to the Manager
-	Tags map[string]string `pulumi:"tags"`
+	Etag                 *string                   `pulumi:"etag"`
+	Location             *string                   `pulumi:"location"`
+	ManagerName          *string                   `pulumi:"managerName"`
+	ResourceGroupName    string                    `pulumi:"resourceGroupName"`
+	Sku                  *ManagerSku               `pulumi:"sku"`
+	Tags                 map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Manager resource.
 type ManagerArgs struct {
-	// Specifies if the Manager is Garda or Helsinki
 	CisIntrinsicSettings ManagerIntrinsicSettingsPtrInput
-	// ETag of the Manager
-	Etag pulumi.StringPtrInput
-	// The Geo location of the Manager
-	Location pulumi.StringPtrInput
-	// The manager name
-	ManagerName pulumi.StringPtrInput
-	// The resource group name
-	ResourceGroupName pulumi.StringInput
-	// Specifies the Sku
-	Sku ManagerSkuPtrInput
-	// Tags attached to the Manager
-	Tags pulumi.StringMapInput
+	Etag                 pulumi.StringPtrInput
+	Location             pulumi.StringPtrInput
+	ManagerName          pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
+	Sku                  ManagerSkuPtrInput
+	Tags                 pulumi.StringMapInput
 }
 
 func (ManagerArgs) ElementType() reflect.Type {
@@ -150,9 +127,7 @@ func (i *Manager) ToManagerOutputWithContext(ctx context.Context) ManagerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ManagerOutput)
 }
 
-type ManagerOutput struct {
-	*pulumi.OutputState
-}
+type ManagerOutput struct{ *pulumi.OutputState }
 
 func (ManagerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Manager)(nil))

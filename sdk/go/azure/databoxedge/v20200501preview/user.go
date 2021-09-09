@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
 type User struct {
 	pulumi.CustomResourceState
 
-	// The password details.
 	EncryptedPassword AsymmetricEncryptedSecretResponsePtrOutput `pulumi:"encryptedPassword"`
-	// The object name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of shares that the user has rights on. This field should not be specified during user creation.
-	ShareAccessRights ShareAccessRightResponseArrayOutput `pulumi:"shareAccessRights"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Type of the user.
-	UserType pulumi.StringOutput `pulumi:"userType"`
+	Name              pulumi.StringOutput                        `pulumi:"name"`
+	ShareAccessRights ShareAccessRightResponseArrayOutput        `pulumi:"shareAccessRights"`
+	Type              pulumi.StringOutput                        `pulumi:"type"`
+	UserType          pulumi.StringOutput                        `pulumi:"userType"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -135,30 +129,20 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The password details.
+	DeviceName        string                     `pulumi:"deviceName"`
 	EncryptedPassword *AsymmetricEncryptedSecret `pulumi:"encryptedPassword"`
-	// The user name.
-	Name *string `pulumi:"name"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Type of the user.
-	UserType string `pulumi:"userType"`
+	Name              *string                    `pulumi:"name"`
+	ResourceGroupName string                     `pulumi:"resourceGroupName"`
+	UserType          string                     `pulumi:"userType"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// The device name.
-	DeviceName pulumi.StringInput
-	// The password details.
+	DeviceName        pulumi.StringInput
 	EncryptedPassword AsymmetricEncryptedSecretPtrInput
-	// The user name.
-	Name pulumi.StringPtrInput
-	// The resource group name.
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Type of the user.
-	UserType pulumi.StringInput
+	UserType          pulumi.StringInput
 }
 
 func (UserArgs) ElementType() reflect.Type {
@@ -184,9 +168,7 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserOutput)
 }
 
-type UserOutput struct {
-	*pulumi.OutputState
-}
+type UserOutput struct{ *pulumi.OutputState }
 
 func (UserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*User)(nil))

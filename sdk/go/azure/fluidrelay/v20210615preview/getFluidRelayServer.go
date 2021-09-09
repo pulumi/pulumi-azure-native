@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A FluidRelay Server.
 func LookupFluidRelayServer(ctx *pulumi.Context, args *LookupFluidRelayServerArgs, opts ...pulumi.InvokeOption) (*LookupFluidRelayServerResult, error) {
 	var rv LookupFluidRelayServerResult
 	err := ctx.Invoke("azure-native:fluidrelay/v20210615preview:getFluidRelayServer", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupFluidRelayServer(ctx *pulumi.Context, args *LookupFluidRelayServerArg
 }
 
 type LookupFluidRelayServerArgs struct {
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The resource group containing the resource.
+	Name          string `pulumi:"name"`
 	ResourceGroup string `pulumi:"resourceGroup"`
 }
 
 // A FluidRelay Server.
 type LookupFluidRelayServerResult struct {
-	// The Fluid Relay Service endpoints for this server.
 	FluidRelayEndpoints FluidRelayEndpointsResponse `pulumi:"fluidRelayEndpoints"`
-	// The Fluid tenantId for this server
-	FrsTenantId string `pulumi:"frsTenantId"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The type of identity used for the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Provision states for FluidRelay RP
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// System meta data for this resource, including creation and modification information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	FrsTenantId         string                      `pulumi:"frsTenantId"`
+	Id                  string                      `pulumi:"id"`
+	Identity            *IdentityResponse           `pulumi:"identity"`
+	Location            string                      `pulumi:"location"`
+	Name                string                      `pulumi:"name"`
+	ProvisioningState   *string                     `pulumi:"provisioningState"`
+	SystemData          SystemDataResponse          `pulumi:"systemData"`
+	Tags                map[string]string           `pulumi:"tags"`
+	Type                string                      `pulumi:"type"`
 }

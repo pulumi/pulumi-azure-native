@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Role Assignments
 type RoleAssignment struct {
 	pulumi.CustomResourceState
 
-	// The Delegation flag for the role assignment
-	CanDelegate pulumi.BoolPtrOutput `pulumi:"canDelegate"`
-	// The role assignment name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The principal ID.
-	PrincipalId pulumi.StringPtrOutput `pulumi:"principalId"`
-	// The role definition ID.
+	CanDelegate      pulumi.BoolPtrOutput   `pulumi:"canDelegate"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	PrincipalId      pulumi.StringPtrOutput `pulumi:"principalId"`
 	RoleDefinitionId pulumi.StringPtrOutput `pulumi:"roleDefinitionId"`
-	// The role assignment scope.
-	Scope pulumi.StringPtrOutput `pulumi:"scope"`
-	// The role assignment type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Scope            pulumi.StringPtrOutput `pulumi:"scope"`
+	Type             pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewRoleAssignment registers a new resource with the given unique name, arguments, and options.
@@ -131,30 +124,20 @@ func (RoleAssignmentState) ElementType() reflect.Type {
 }
 
 type roleAssignmentArgs struct {
-	// The delegation flag used for creating a role assignment
-	CanDelegate *bool `pulumi:"canDelegate"`
-	// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-	PrincipalId string `pulumi:"principalId"`
-	// The name of the role assignment to create. It can be any valid GUID.
+	CanDelegate        *bool   `pulumi:"canDelegate"`
+	PrincipalId        string  `pulumi:"principalId"`
 	RoleAssignmentName *string `pulumi:"roleAssignmentName"`
-	// The role definition ID used in the role assignment.
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
-	// The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
-	Scope string `pulumi:"scope"`
+	RoleDefinitionId   string  `pulumi:"roleDefinitionId"`
+	Scope              string  `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a RoleAssignment resource.
 type RoleAssignmentArgs struct {
-	// The delegation flag used for creating a role assignment
-	CanDelegate pulumi.BoolPtrInput
-	// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-	PrincipalId pulumi.StringInput
-	// The name of the role assignment to create. It can be any valid GUID.
+	CanDelegate        pulumi.BoolPtrInput
+	PrincipalId        pulumi.StringInput
 	RoleAssignmentName pulumi.StringPtrInput
-	// The role definition ID used in the role assignment.
-	RoleDefinitionId pulumi.StringInput
-	// The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
-	Scope pulumi.StringInput
+	RoleDefinitionId   pulumi.StringInput
+	Scope              pulumi.StringInput
 }
 
 func (RoleAssignmentArgs) ElementType() reflect.Type {
@@ -180,9 +163,7 @@ func (i *RoleAssignment) ToRoleAssignmentOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentOutput)
 }
 
-type RoleAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type RoleAssignmentOutput struct{ *pulumi.OutputState }
 
 func (RoleAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleAssignment)(nil))

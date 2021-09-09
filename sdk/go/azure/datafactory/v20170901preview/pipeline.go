@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Pipeline resource type.
 type Pipeline struct {
 	pulumi.CustomResourceState
 
-	// List of activities in pipeline.
-	Activities pulumi.ArrayOutput `pulumi:"activities"`
-	// List of tags that can be used for describing the Pipeline.
-	Annotations pulumi.ArrayOutput `pulumi:"annotations"`
-	// The max number of concurrent runs for the pipeline.
-	Concurrency pulumi.IntPtrOutput `pulumi:"concurrency"`
-	// The description of the pipeline.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Etag identifies change in the resource.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of parameters for pipeline.
-	Parameters ParameterSpecificationResponseMapOutput `pulumi:"parameters"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Activities  pulumi.ArrayOutput                      `pulumi:"activities"`
+	Annotations pulumi.ArrayOutput                      `pulumi:"annotations"`
+	Concurrency pulumi.IntPtrOutput                     `pulumi:"concurrency"`
+	Description pulumi.StringPtrOutput                  `pulumi:"description"`
+	Etag        pulumi.StringOutput                     `pulumi:"etag"`
+	Name        pulumi.StringOutput                     `pulumi:"name"`
+	Parameters  ParameterSpecificationResponseMapOutput `pulumi:"parameters"`
+	Type        pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
@@ -96,41 +87,25 @@ func (PipelineState) ElementType() reflect.Type {
 }
 
 type pipelineArgs struct {
-	// List of activities in pipeline.
-	Activities []interface{} `pulumi:"activities"`
-	// List of tags that can be used for describing the Pipeline.
-	Annotations []interface{} `pulumi:"annotations"`
-	// The max number of concurrent runs for the pipeline.
-	Concurrency *int `pulumi:"concurrency"`
-	// The description of the pipeline.
-	Description *string `pulumi:"description"`
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// List of parameters for pipeline.
-	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
-	// The pipeline name.
-	PipelineName *string `pulumi:"pipelineName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Activities        []interface{}                     `pulumi:"activities"`
+	Annotations       []interface{}                     `pulumi:"annotations"`
+	Concurrency       *int                              `pulumi:"concurrency"`
+	Description       *string                           `pulumi:"description"`
+	FactoryName       string                            `pulumi:"factoryName"`
+	Parameters        map[string]ParameterSpecification `pulumi:"parameters"`
+	PipelineName      *string                           `pulumi:"pipelineName"`
+	ResourceGroupName string                            `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
-	// List of activities in pipeline.
-	Activities pulumi.ArrayInput
-	// List of tags that can be used for describing the Pipeline.
-	Annotations pulumi.ArrayInput
-	// The max number of concurrent runs for the pipeline.
-	Concurrency pulumi.IntPtrInput
-	// The description of the pipeline.
-	Description pulumi.StringPtrInput
-	// The factory name.
-	FactoryName pulumi.StringInput
-	// List of parameters for pipeline.
-	Parameters ParameterSpecificationMapInput
-	// The pipeline name.
-	PipelineName pulumi.StringPtrInput
-	// The resource group name.
+	Activities        pulumi.ArrayInput
+	Annotations       pulumi.ArrayInput
+	Concurrency       pulumi.IntPtrInput
+	Description       pulumi.StringPtrInput
+	FactoryName       pulumi.StringInput
+	Parameters        ParameterSpecificationMapInput
+	PipelineName      pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -157,9 +132,7 @@ func (i *Pipeline) ToPipelineOutputWithContext(ctx context.Context) PipelineOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineOutput)
 }
 
-type PipelineOutput struct {
-	*pulumi.OutputState
-}
+type PipelineOutput struct{ *pulumi.OutputState }
 
 func (PipelineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Pipeline)(nil))

@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Public certificate object
 type WebAppPublicCertificate struct {
 	pulumi.CustomResourceState
 
-	// Public Certificate byte array
-	Blob pulumi.StringPtrOutput `pulumi:"blob"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Public Certificate Location
+	Blob                      pulumi.StringPtrOutput `pulumi:"blob"`
+	Kind                      pulumi.StringPtrOutput `pulumi:"kind"`
+	Name                      pulumi.StringOutput    `pulumi:"name"`
 	PublicCertificateLocation pulumi.StringPtrOutput `pulumi:"publicCertificateLocation"`
-	// Certificate Thumbprint
-	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Thumbprint                pulumi.StringOutput    `pulumi:"thumbprint"`
+	Type                      pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewWebAppPublicCertificate registers a new resource with the given unique name, arguments, and options.
@@ -146,34 +139,22 @@ func (WebAppPublicCertificateState) ElementType() reflect.Type {
 }
 
 type webAppPublicCertificateArgs struct {
-	// Public Certificate byte array
-	Blob *string `pulumi:"blob"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Public Certificate Location
-	PublicCertificateLocation *string `pulumi:"publicCertificateLocation"`
-	// Public certificate name.
-	PublicCertificateName *string `pulumi:"publicCertificateName"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Blob                      *string                    `pulumi:"blob"`
+	Kind                      *string                    `pulumi:"kind"`
+	Name                      string                     `pulumi:"name"`
+	PublicCertificateLocation *PublicCertificateLocation `pulumi:"publicCertificateLocation"`
+	PublicCertificateName     *string                    `pulumi:"publicCertificateName"`
+	ResourceGroupName         string                     `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a WebAppPublicCertificate resource.
 type WebAppPublicCertificateArgs struct {
-	// Public Certificate byte array
-	Blob pulumi.StringPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the app.
-	Name pulumi.StringInput
-	// Public Certificate Location
-	PublicCertificateLocation *PublicCertificateLocation
-	// Public certificate name.
-	PublicCertificateName pulumi.StringPtrInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
+	Blob                      pulumi.StringPtrInput
+	Kind                      pulumi.StringPtrInput
+	Name                      pulumi.StringInput
+	PublicCertificateLocation PublicCertificateLocationPtrInput
+	PublicCertificateName     pulumi.StringPtrInput
+	ResourceGroupName         pulumi.StringInput
 }
 
 func (WebAppPublicCertificateArgs) ElementType() reflect.Type {
@@ -199,9 +180,7 @@ func (i *WebAppPublicCertificate) ToWebAppPublicCertificateOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppPublicCertificateOutput)
 }
 
-type WebAppPublicCertificateOutput struct {
-	*pulumi.OutputState
-}
+type WebAppPublicCertificateOutput struct{ *pulumi.OutputState }
 
 func (WebAppPublicCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppPublicCertificate)(nil))

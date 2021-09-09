@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NSX Public IP Block
 type WorkloadNetworkPublicIP struct {
 	pulumi.CustomResourceState
 
-	// Display name of the Public IP Block.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Number of Public IPs requested.
+	DisplayName       pulumi.StringPtrOutput  `pulumi:"displayName"`
+	Name              pulumi.StringOutput     `pulumi:"name"`
 	NumberOfPublicIPs pulumi.Float64PtrOutput `pulumi:"numberOfPublicIPs"`
-	// The provisioning state
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// CIDR Block of the Public IP Block.
-	PublicIPBlock pulumi.StringOutput `pulumi:"publicIPBlock"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState pulumi.StringOutput     `pulumi:"provisioningState"`
+	PublicIPBlock     pulumi.StringOutput     `pulumi:"publicIPBlock"`
+	Type              pulumi.StringOutput     `pulumi:"type"`
 }
 
 // NewWorkloadNetworkPublicIP registers a new resource with the given unique name, arguments, and options.
@@ -86,29 +79,19 @@ func (WorkloadNetworkPublicIPState) ElementType() reflect.Type {
 }
 
 type workloadNetworkPublicIPArgs struct {
-	// Display name of the Public IP Block.
-	DisplayName *string `pulumi:"displayName"`
-	// Number of Public IPs requested.
+	DisplayName       *string  `pulumi:"displayName"`
 	NumberOfPublicIPs *float64 `pulumi:"numberOfPublicIPs"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
-	PublicIPId *string `pulumi:"publicIPId"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PrivateCloudName  string   `pulumi:"privateCloudName"`
+	PublicIPId        *string  `pulumi:"publicIPId"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a WorkloadNetworkPublicIP resource.
 type WorkloadNetworkPublicIPArgs struct {
-	// Display name of the Public IP Block.
-	DisplayName pulumi.StringPtrInput
-	// Number of Public IPs requested.
+	DisplayName       pulumi.StringPtrInput
 	NumberOfPublicIPs pulumi.Float64PtrInput
-	// Name of the private cloud
-	PrivateCloudName pulumi.StringInput
-	// NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
-	PublicIPId pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	PrivateCloudName  pulumi.StringInput
+	PublicIPId        pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -135,9 +118,7 @@ func (i *WorkloadNetworkPublicIP) ToWorkloadNetworkPublicIPOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkPublicIPOutput)
 }
 
-type WorkloadNetworkPublicIPOutput struct {
-	*pulumi.OutputState
-}
+type WorkloadNetworkPublicIPOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkPublicIPOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkPublicIP)(nil))

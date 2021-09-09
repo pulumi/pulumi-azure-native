@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The description of the service.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
 	err := ctx.Invoke("azure-native:healthcareapis/v20200330:getService", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 }
 
 type LookupServiceArgs struct {
-	// The name of the resource group that contains the service instance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the service instance.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // The description of the service.
 type LookupServiceResult struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ServicesResourceResponseIdentity `pulumi:"identity"`
-	// The kind of the service.
-	Kind string `pulumi:"kind"`
-	// The resource location.
-	Location string `pulumi:"location"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The common properties of a service.
-	Properties ServicesPropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Etag       *string                           `pulumi:"etag"`
+	Id         string                            `pulumi:"id"`
+	Identity   *ServicesResourceResponseIdentity `pulumi:"identity"`
+	Kind       string                            `pulumi:"kind"`
+	Location   string                            `pulumi:"location"`
+	Name       string                            `pulumi:"name"`
+	Properties ServicesPropertiesResponse        `pulumi:"properties"`
+	Tags       map[string]string                 `pulumi:"tags"`
+	Type       string                            `pulumi:"type"`
 }

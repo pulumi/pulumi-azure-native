@@ -10,17 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The specification of data sources.
-// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
 type DataCollectionRuleDataSources struct {
-	// The list of Azure VM extension data source configurations.
-	Extensions []ExtensionDataSource `pulumi:"extensions"`
-	// The list of performance counter data source configurations.
-	PerformanceCounters []PerfCounterDataSource `pulumi:"performanceCounters"`
-	// The list of Syslog data source configurations.
-	Syslog []SyslogDataSource `pulumi:"syslog"`
-	// The list of Windows Event Log data source configurations.
-	WindowsEventLogs []WindowsEventLogDataSource `pulumi:"windowsEventLogs"`
+	Extensions          []ExtensionDataSource       `pulumi:"extensions"`
+	PerformanceCounters []PerfCounterDataSource     `pulumi:"performanceCounters"`
+	Syslog              []SyslogDataSource          `pulumi:"syslog"`
+	WindowsEventLogs    []WindowsEventLogDataSource `pulumi:"windowsEventLogs"`
 }
 
 // DataCollectionRuleDataSourcesInput is an input type that accepts DataCollectionRuleDataSourcesArgs and DataCollectionRuleDataSourcesOutput values.
@@ -34,17 +28,11 @@ type DataCollectionRuleDataSourcesInput interface {
 	ToDataCollectionRuleDataSourcesOutputWithContext(context.Context) DataCollectionRuleDataSourcesOutput
 }
 
-// The specification of data sources.
-// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
 type DataCollectionRuleDataSourcesArgs struct {
-	// The list of Azure VM extension data source configurations.
-	Extensions ExtensionDataSourceArrayInput `pulumi:"extensions"`
-	// The list of performance counter data source configurations.
-	PerformanceCounters PerfCounterDataSourceArrayInput `pulumi:"performanceCounters"`
-	// The list of Syslog data source configurations.
-	Syslog SyslogDataSourceArrayInput `pulumi:"syslog"`
-	// The list of Windows Event Log data source configurations.
-	WindowsEventLogs WindowsEventLogDataSourceArrayInput `pulumi:"windowsEventLogs"`
+	Extensions          ExtensionDataSourceArrayInput       `pulumi:"extensions"`
+	PerformanceCounters PerfCounterDataSourceArrayInput     `pulumi:"performanceCounters"`
+	Syslog              SyslogDataSourceArrayInput          `pulumi:"syslog"`
+	WindowsEventLogs    WindowsEventLogDataSourceArrayInput `pulumi:"windowsEventLogs"`
 }
 
 func (DataCollectionRuleDataSourcesArgs) ElementType() reflect.Type {
@@ -100,8 +88,6 @@ func (i *dataCollectionRuleDataSourcesPtrType) ToDataCollectionRuleDataSourcesPt
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesPtrOutput)
 }
 
-// The specification of data sources.
-// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
 type DataCollectionRuleDataSourcesOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesOutput) ElementType() reflect.Type {
@@ -121,27 +107,23 @@ func (o DataCollectionRuleDataSourcesOutput) ToDataCollectionRuleDataSourcesPtrO
 }
 
 func (o DataCollectionRuleDataSourcesOutput) ToDataCollectionRuleDataSourcesPtrOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPtrOutput {
-	return o.ApplyT(func(v DataCollectionRuleDataSources) *DataCollectionRuleDataSources {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleDataSources) *DataCollectionRuleDataSources {
 		return &v
 	}).(DataCollectionRuleDataSourcesPtrOutput)
 }
 
-// The list of Azure VM extension data source configurations.
 func (o DataCollectionRuleDataSourcesOutput) Extensions() ExtensionDataSourceArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSources) []ExtensionDataSource { return v.Extensions }).(ExtensionDataSourceArrayOutput)
 }
 
-// The list of performance counter data source configurations.
 func (o DataCollectionRuleDataSourcesOutput) PerformanceCounters() PerfCounterDataSourceArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSources) []PerfCounterDataSource { return v.PerformanceCounters }).(PerfCounterDataSourceArrayOutput)
 }
 
-// The list of Syslog data source configurations.
 func (o DataCollectionRuleDataSourcesOutput) Syslog() SyslogDataSourceArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSources) []SyslogDataSource { return v.Syslog }).(SyslogDataSourceArrayOutput)
 }
 
-// The list of Windows Event Log data source configurations.
 func (o DataCollectionRuleDataSourcesOutput) WindowsEventLogs() WindowsEventLogDataSourceArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSources) []WindowsEventLogDataSource { return v.WindowsEventLogs }).(WindowsEventLogDataSourceArrayOutput)
 }
@@ -161,10 +143,15 @@ func (o DataCollectionRuleDataSourcesPtrOutput) ToDataCollectionRuleDataSourcesP
 }
 
 func (o DataCollectionRuleDataSourcesPtrOutput) Elem() DataCollectionRuleDataSourcesOutput {
-	return o.ApplyT(func(v *DataCollectionRuleDataSources) DataCollectionRuleDataSources { return *v }).(DataCollectionRuleDataSourcesOutput)
+	return o.ApplyT(func(v *DataCollectionRuleDataSources) DataCollectionRuleDataSources {
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleDataSources
+		return ret
+	}).(DataCollectionRuleDataSourcesOutput)
 }
 
-// The list of Azure VM extension data source configurations.
 func (o DataCollectionRuleDataSourcesPtrOutput) Extensions() ExtensionDataSourceArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleDataSources) []ExtensionDataSource {
 		if v == nil {
@@ -174,7 +161,6 @@ func (o DataCollectionRuleDataSourcesPtrOutput) Extensions() ExtensionDataSource
 	}).(ExtensionDataSourceArrayOutput)
 }
 
-// The list of performance counter data source configurations.
 func (o DataCollectionRuleDataSourcesPtrOutput) PerformanceCounters() PerfCounterDataSourceArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleDataSources) []PerfCounterDataSource {
 		if v == nil {
@@ -184,7 +170,6 @@ func (o DataCollectionRuleDataSourcesPtrOutput) PerformanceCounters() PerfCounte
 	}).(PerfCounterDataSourceArrayOutput)
 }
 
-// The list of Syslog data source configurations.
 func (o DataCollectionRuleDataSourcesPtrOutput) Syslog() SyslogDataSourceArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleDataSources) []SyslogDataSource {
 		if v == nil {
@@ -194,7 +179,6 @@ func (o DataCollectionRuleDataSourcesPtrOutput) Syslog() SyslogDataSourceArrayOu
 	}).(SyslogDataSourceArrayOutput)
 }
 
-// The list of Windows Event Log data source configurations.
 func (o DataCollectionRuleDataSourcesPtrOutput) WindowsEventLogs() WindowsEventLogDataSourceArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleDataSources) []WindowsEventLogDataSource {
 		if v == nil {
@@ -204,12 +188,9 @@ func (o DataCollectionRuleDataSourcesPtrOutput) WindowsEventLogs() WindowsEventL
 	}).(WindowsEventLogDataSourceArrayOutput)
 }
 
-// The specification of destinations.
 type DataCollectionRuleDestinations struct {
-	// Azure Monitor Metrics destination.
 	AzureMonitorMetrics *DestinationsSpecAzureMonitorMetrics `pulumi:"azureMonitorMetrics"`
-	// List of Log Analytics destinations.
-	LogAnalytics []LogAnalyticsDestination `pulumi:"logAnalytics"`
+	LogAnalytics        []LogAnalyticsDestination            `pulumi:"logAnalytics"`
 }
 
 // DataCollectionRuleDestinationsInput is an input type that accepts DataCollectionRuleDestinationsArgs and DataCollectionRuleDestinationsOutput values.
@@ -223,12 +204,9 @@ type DataCollectionRuleDestinationsInput interface {
 	ToDataCollectionRuleDestinationsOutputWithContext(context.Context) DataCollectionRuleDestinationsOutput
 }
 
-// The specification of destinations.
 type DataCollectionRuleDestinationsArgs struct {
-	// Azure Monitor Metrics destination.
 	AzureMonitorMetrics DestinationsSpecAzureMonitorMetricsPtrInput `pulumi:"azureMonitorMetrics"`
-	// List of Log Analytics destinations.
-	LogAnalytics LogAnalyticsDestinationArrayInput `pulumi:"logAnalytics"`
+	LogAnalytics        LogAnalyticsDestinationArrayInput           `pulumi:"logAnalytics"`
 }
 
 func (DataCollectionRuleDestinationsArgs) ElementType() reflect.Type {
@@ -284,7 +262,6 @@ func (i *dataCollectionRuleDestinationsPtrType) ToDataCollectionRuleDestinations
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsPtrOutput)
 }
 
-// The specification of destinations.
 type DataCollectionRuleDestinationsOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDestinationsOutput) ElementType() reflect.Type {
@@ -304,19 +281,17 @@ func (o DataCollectionRuleDestinationsOutput) ToDataCollectionRuleDestinationsPt
 }
 
 func (o DataCollectionRuleDestinationsOutput) ToDataCollectionRuleDestinationsPtrOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsPtrOutput {
-	return o.ApplyT(func(v DataCollectionRuleDestinations) *DataCollectionRuleDestinations {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleDestinations) *DataCollectionRuleDestinations {
 		return &v
 	}).(DataCollectionRuleDestinationsPtrOutput)
 }
 
-// Azure Monitor Metrics destination.
 func (o DataCollectionRuleDestinationsOutput) AzureMonitorMetrics() DestinationsSpecAzureMonitorMetricsPtrOutput {
 	return o.ApplyT(func(v DataCollectionRuleDestinations) *DestinationsSpecAzureMonitorMetrics {
 		return v.AzureMonitorMetrics
 	}).(DestinationsSpecAzureMonitorMetricsPtrOutput)
 }
 
-// List of Log Analytics destinations.
 func (o DataCollectionRuleDestinationsOutput) LogAnalytics() LogAnalyticsDestinationArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDestinations) []LogAnalyticsDestination { return v.LogAnalytics }).(LogAnalyticsDestinationArrayOutput)
 }
@@ -336,10 +311,15 @@ func (o DataCollectionRuleDestinationsPtrOutput) ToDataCollectionRuleDestination
 }
 
 func (o DataCollectionRuleDestinationsPtrOutput) Elem() DataCollectionRuleDestinationsOutput {
-	return o.ApplyT(func(v *DataCollectionRuleDestinations) DataCollectionRuleDestinations { return *v }).(DataCollectionRuleDestinationsOutput)
+	return o.ApplyT(func(v *DataCollectionRuleDestinations) DataCollectionRuleDestinations {
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleDestinations
+		return ret
+	}).(DataCollectionRuleDestinationsOutput)
 }
 
-// Azure Monitor Metrics destination.
 func (o DataCollectionRuleDestinationsPtrOutput) AzureMonitorMetrics() DestinationsSpecAzureMonitorMetricsPtrOutput {
 	return o.ApplyT(func(v *DataCollectionRuleDestinations) *DestinationsSpecAzureMonitorMetrics {
 		if v == nil {
@@ -349,7 +329,6 @@ func (o DataCollectionRuleDestinationsPtrOutput) AzureMonitorMetrics() Destinati
 	}).(DestinationsSpecAzureMonitorMetricsPtrOutput)
 }
 
-// List of Log Analytics destinations.
 func (o DataCollectionRuleDestinationsPtrOutput) LogAnalytics() LogAnalyticsDestinationArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleDestinations) []LogAnalyticsDestination {
 		if v == nil {
@@ -359,17 +338,11 @@ func (o DataCollectionRuleDestinationsPtrOutput) LogAnalytics() LogAnalyticsDest
 	}).(LogAnalyticsDestinationArrayOutput)
 }
 
-// The specification of data sources.
-// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
 type DataCollectionRuleResponseDataSources struct {
-	// The list of Azure VM extension data source configurations.
-	Extensions []ExtensionDataSourceResponse `pulumi:"extensions"`
-	// The list of performance counter data source configurations.
-	PerformanceCounters []PerfCounterDataSourceResponse `pulumi:"performanceCounters"`
-	// The list of Syslog data source configurations.
-	Syslog []SyslogDataSourceResponse `pulumi:"syslog"`
-	// The list of Windows Event Log data source configurations.
-	WindowsEventLogs []WindowsEventLogDataSourceResponse `pulumi:"windowsEventLogs"`
+	Extensions          []ExtensionDataSourceResponse       `pulumi:"extensions"`
+	PerformanceCounters []PerfCounterDataSourceResponse     `pulumi:"performanceCounters"`
+	Syslog              []SyslogDataSourceResponse          `pulumi:"syslog"`
+	WindowsEventLogs    []WindowsEventLogDataSourceResponse `pulumi:"windowsEventLogs"`
 }
 
 // DataCollectionRuleResponseDataSourcesInput is an input type that accepts DataCollectionRuleResponseDataSourcesArgs and DataCollectionRuleResponseDataSourcesOutput values.
@@ -383,17 +356,11 @@ type DataCollectionRuleResponseDataSourcesInput interface {
 	ToDataCollectionRuleResponseDataSourcesOutputWithContext(context.Context) DataCollectionRuleResponseDataSourcesOutput
 }
 
-// The specification of data sources.
-// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
 type DataCollectionRuleResponseDataSourcesArgs struct {
-	// The list of Azure VM extension data source configurations.
-	Extensions ExtensionDataSourceResponseArrayInput `pulumi:"extensions"`
-	// The list of performance counter data source configurations.
-	PerformanceCounters PerfCounterDataSourceResponseArrayInput `pulumi:"performanceCounters"`
-	// The list of Syslog data source configurations.
-	Syslog SyslogDataSourceResponseArrayInput `pulumi:"syslog"`
-	// The list of Windows Event Log data source configurations.
-	WindowsEventLogs WindowsEventLogDataSourceResponseArrayInput `pulumi:"windowsEventLogs"`
+	Extensions          ExtensionDataSourceResponseArrayInput       `pulumi:"extensions"`
+	PerformanceCounters PerfCounterDataSourceResponseArrayInput     `pulumi:"performanceCounters"`
+	Syslog              SyslogDataSourceResponseArrayInput          `pulumi:"syslog"`
+	WindowsEventLogs    WindowsEventLogDataSourceResponseArrayInput `pulumi:"windowsEventLogs"`
 }
 
 func (DataCollectionRuleResponseDataSourcesArgs) ElementType() reflect.Type {
@@ -449,8 +416,6 @@ func (i *dataCollectionRuleResponseDataSourcesPtrType) ToDataCollectionRuleRespo
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleResponseDataSourcesPtrOutput)
 }
 
-// The specification of data sources.
-// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
 type DataCollectionRuleResponseDataSourcesOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleResponseDataSourcesOutput) ElementType() reflect.Type {
@@ -470,29 +435,25 @@ func (o DataCollectionRuleResponseDataSourcesOutput) ToDataCollectionRuleRespons
 }
 
 func (o DataCollectionRuleResponseDataSourcesOutput) ToDataCollectionRuleResponseDataSourcesPtrOutputWithContext(ctx context.Context) DataCollectionRuleResponseDataSourcesPtrOutput {
-	return o.ApplyT(func(v DataCollectionRuleResponseDataSources) *DataCollectionRuleResponseDataSources {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleResponseDataSources) *DataCollectionRuleResponseDataSources {
 		return &v
 	}).(DataCollectionRuleResponseDataSourcesPtrOutput)
 }
 
-// The list of Azure VM extension data source configurations.
 func (o DataCollectionRuleResponseDataSourcesOutput) Extensions() ExtensionDataSourceResponseArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleResponseDataSources) []ExtensionDataSourceResponse { return v.Extensions }).(ExtensionDataSourceResponseArrayOutput)
 }
 
-// The list of performance counter data source configurations.
 func (o DataCollectionRuleResponseDataSourcesOutput) PerformanceCounters() PerfCounterDataSourceResponseArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleResponseDataSources) []PerfCounterDataSourceResponse {
 		return v.PerformanceCounters
 	}).(PerfCounterDataSourceResponseArrayOutput)
 }
 
-// The list of Syslog data source configurations.
 func (o DataCollectionRuleResponseDataSourcesOutput) Syslog() SyslogDataSourceResponseArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleResponseDataSources) []SyslogDataSourceResponse { return v.Syslog }).(SyslogDataSourceResponseArrayOutput)
 }
 
-// The list of Windows Event Log data source configurations.
 func (o DataCollectionRuleResponseDataSourcesOutput) WindowsEventLogs() WindowsEventLogDataSourceResponseArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleResponseDataSources) []WindowsEventLogDataSourceResponse {
 		return v.WindowsEventLogs
@@ -514,10 +475,15 @@ func (o DataCollectionRuleResponseDataSourcesPtrOutput) ToDataCollectionRuleResp
 }
 
 func (o DataCollectionRuleResponseDataSourcesPtrOutput) Elem() DataCollectionRuleResponseDataSourcesOutput {
-	return o.ApplyT(func(v *DataCollectionRuleResponseDataSources) DataCollectionRuleResponseDataSources { return *v }).(DataCollectionRuleResponseDataSourcesOutput)
+	return o.ApplyT(func(v *DataCollectionRuleResponseDataSources) DataCollectionRuleResponseDataSources {
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleResponseDataSources
+		return ret
+	}).(DataCollectionRuleResponseDataSourcesOutput)
 }
 
-// The list of Azure VM extension data source configurations.
 func (o DataCollectionRuleResponseDataSourcesPtrOutput) Extensions() ExtensionDataSourceResponseArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleResponseDataSources) []ExtensionDataSourceResponse {
 		if v == nil {
@@ -527,7 +493,6 @@ func (o DataCollectionRuleResponseDataSourcesPtrOutput) Extensions() ExtensionDa
 	}).(ExtensionDataSourceResponseArrayOutput)
 }
 
-// The list of performance counter data source configurations.
 func (o DataCollectionRuleResponseDataSourcesPtrOutput) PerformanceCounters() PerfCounterDataSourceResponseArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleResponseDataSources) []PerfCounterDataSourceResponse {
 		if v == nil {
@@ -537,7 +502,6 @@ func (o DataCollectionRuleResponseDataSourcesPtrOutput) PerformanceCounters() Pe
 	}).(PerfCounterDataSourceResponseArrayOutput)
 }
 
-// The list of Syslog data source configurations.
 func (o DataCollectionRuleResponseDataSourcesPtrOutput) Syslog() SyslogDataSourceResponseArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleResponseDataSources) []SyslogDataSourceResponse {
 		if v == nil {
@@ -547,7 +511,6 @@ func (o DataCollectionRuleResponseDataSourcesPtrOutput) Syslog() SyslogDataSourc
 	}).(SyslogDataSourceResponseArrayOutput)
 }
 
-// The list of Windows Event Log data source configurations.
 func (o DataCollectionRuleResponseDataSourcesPtrOutput) WindowsEventLogs() WindowsEventLogDataSourceResponseArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleResponseDataSources) []WindowsEventLogDataSourceResponse {
 		if v == nil {
@@ -557,12 +520,9 @@ func (o DataCollectionRuleResponseDataSourcesPtrOutput) WindowsEventLogs() Windo
 	}).(WindowsEventLogDataSourceResponseArrayOutput)
 }
 
-// The specification of destinations.
 type DataCollectionRuleResponseDestinations struct {
-	// Azure Monitor Metrics destination.
 	AzureMonitorMetrics *DestinationsSpecResponseAzureMonitorMetrics `pulumi:"azureMonitorMetrics"`
-	// List of Log Analytics destinations.
-	LogAnalytics []LogAnalyticsDestinationResponse `pulumi:"logAnalytics"`
+	LogAnalytics        []LogAnalyticsDestinationResponse            `pulumi:"logAnalytics"`
 }
 
 // DataCollectionRuleResponseDestinationsInput is an input type that accepts DataCollectionRuleResponseDestinationsArgs and DataCollectionRuleResponseDestinationsOutput values.
@@ -576,12 +536,9 @@ type DataCollectionRuleResponseDestinationsInput interface {
 	ToDataCollectionRuleResponseDestinationsOutputWithContext(context.Context) DataCollectionRuleResponseDestinationsOutput
 }
 
-// The specification of destinations.
 type DataCollectionRuleResponseDestinationsArgs struct {
-	// Azure Monitor Metrics destination.
 	AzureMonitorMetrics DestinationsSpecResponseAzureMonitorMetricsPtrInput `pulumi:"azureMonitorMetrics"`
-	// List of Log Analytics destinations.
-	LogAnalytics LogAnalyticsDestinationResponseArrayInput `pulumi:"logAnalytics"`
+	LogAnalytics        LogAnalyticsDestinationResponseArrayInput           `pulumi:"logAnalytics"`
 }
 
 func (DataCollectionRuleResponseDestinationsArgs) ElementType() reflect.Type {
@@ -637,7 +594,6 @@ func (i *dataCollectionRuleResponseDestinationsPtrType) ToDataCollectionRuleResp
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleResponseDestinationsPtrOutput)
 }
 
-// The specification of destinations.
 type DataCollectionRuleResponseDestinationsOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleResponseDestinationsOutput) ElementType() reflect.Type {
@@ -657,19 +613,17 @@ func (o DataCollectionRuleResponseDestinationsOutput) ToDataCollectionRuleRespon
 }
 
 func (o DataCollectionRuleResponseDestinationsOutput) ToDataCollectionRuleResponseDestinationsPtrOutputWithContext(ctx context.Context) DataCollectionRuleResponseDestinationsPtrOutput {
-	return o.ApplyT(func(v DataCollectionRuleResponseDestinations) *DataCollectionRuleResponseDestinations {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleResponseDestinations) *DataCollectionRuleResponseDestinations {
 		return &v
 	}).(DataCollectionRuleResponseDestinationsPtrOutput)
 }
 
-// Azure Monitor Metrics destination.
 func (o DataCollectionRuleResponseDestinationsOutput) AzureMonitorMetrics() DestinationsSpecResponseAzureMonitorMetricsPtrOutput {
 	return o.ApplyT(func(v DataCollectionRuleResponseDestinations) *DestinationsSpecResponseAzureMonitorMetrics {
 		return v.AzureMonitorMetrics
 	}).(DestinationsSpecResponseAzureMonitorMetricsPtrOutput)
 }
 
-// List of Log Analytics destinations.
 func (o DataCollectionRuleResponseDestinationsOutput) LogAnalytics() LogAnalyticsDestinationResponseArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleResponseDestinations) []LogAnalyticsDestinationResponse {
 		return v.LogAnalytics
@@ -691,10 +645,15 @@ func (o DataCollectionRuleResponseDestinationsPtrOutput) ToDataCollectionRuleRes
 }
 
 func (o DataCollectionRuleResponseDestinationsPtrOutput) Elem() DataCollectionRuleResponseDestinationsOutput {
-	return o.ApplyT(func(v *DataCollectionRuleResponseDestinations) DataCollectionRuleResponseDestinations { return *v }).(DataCollectionRuleResponseDestinationsOutput)
+	return o.ApplyT(func(v *DataCollectionRuleResponseDestinations) DataCollectionRuleResponseDestinations {
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleResponseDestinations
+		return ret
+	}).(DataCollectionRuleResponseDestinationsOutput)
 }
 
-// Azure Monitor Metrics destination.
 func (o DataCollectionRuleResponseDestinationsPtrOutput) AzureMonitorMetrics() DestinationsSpecResponseAzureMonitorMetricsPtrOutput {
 	return o.ApplyT(func(v *DataCollectionRuleResponseDestinations) *DestinationsSpecResponseAzureMonitorMetrics {
 		if v == nil {
@@ -704,7 +663,6 @@ func (o DataCollectionRuleResponseDestinationsPtrOutput) AzureMonitorMetrics() D
 	}).(DestinationsSpecResponseAzureMonitorMetricsPtrOutput)
 }
 
-// List of Log Analytics destinations.
 func (o DataCollectionRuleResponseDestinationsPtrOutput) LogAnalytics() LogAnalyticsDestinationResponseArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleResponseDestinations) []LogAnalyticsDestinationResponse {
 		if v == nil {
@@ -714,12 +672,9 @@ func (o DataCollectionRuleResponseDestinationsPtrOutput) LogAnalytics() LogAnaly
 	}).(LogAnalyticsDestinationResponseArrayOutput)
 }
 
-// Definition of which streams are sent to which destinations.
 type DataFlow struct {
-	// List of destinations for this data flow.
 	Destinations []string `pulumi:"destinations"`
-	// List of streams for this data flow.
-	Streams []string `pulumi:"streams"`
+	Streams      []string `pulumi:"streams"`
 }
 
 // DataFlowInput is an input type that accepts DataFlowArgs and DataFlowOutput values.
@@ -733,12 +688,9 @@ type DataFlowInput interface {
 	ToDataFlowOutputWithContext(context.Context) DataFlowOutput
 }
 
-// Definition of which streams are sent to which destinations.
 type DataFlowArgs struct {
-	// List of destinations for this data flow.
 	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
-	// List of streams for this data flow.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	Streams      pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (DataFlowArgs) ElementType() reflect.Type {
@@ -778,7 +730,6 @@ func (i DataFlowArray) ToDataFlowArrayOutputWithContext(ctx context.Context) Dat
 	return pulumi.ToOutputWithContext(ctx, i).(DataFlowArrayOutput)
 }
 
-// Definition of which streams are sent to which destinations.
 type DataFlowOutput struct{ *pulumi.OutputState }
 
 func (DataFlowOutput) ElementType() reflect.Type {
@@ -793,12 +744,10 @@ func (o DataFlowOutput) ToDataFlowOutputWithContext(ctx context.Context) DataFlo
 	return o
 }
 
-// List of destinations for this data flow.
 func (o DataFlowOutput) Destinations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataFlow) []string { return v.Destinations }).(pulumi.StringArrayOutput)
 }
 
-// List of streams for this data flow.
 func (o DataFlowOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataFlow) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -823,12 +772,9 @@ func (o DataFlowArrayOutput) Index(i pulumi.IntInput) DataFlowOutput {
 	}).(DataFlowOutput)
 }
 
-// Definition of which streams are sent to which destinations.
 type DataFlowResponse struct {
-	// List of destinations for this data flow.
 	Destinations []string `pulumi:"destinations"`
-	// List of streams for this data flow.
-	Streams []string `pulumi:"streams"`
+	Streams      []string `pulumi:"streams"`
 }
 
 // DataFlowResponseInput is an input type that accepts DataFlowResponseArgs and DataFlowResponseOutput values.
@@ -842,12 +788,9 @@ type DataFlowResponseInput interface {
 	ToDataFlowResponseOutputWithContext(context.Context) DataFlowResponseOutput
 }
 
-// Definition of which streams are sent to which destinations.
 type DataFlowResponseArgs struct {
-	// List of destinations for this data flow.
 	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
-	// List of streams for this data flow.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	Streams      pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (DataFlowResponseArgs) ElementType() reflect.Type {
@@ -887,7 +830,6 @@ func (i DataFlowResponseArray) ToDataFlowResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataFlowResponseArrayOutput)
 }
 
-// Definition of which streams are sent to which destinations.
 type DataFlowResponseOutput struct{ *pulumi.OutputState }
 
 func (DataFlowResponseOutput) ElementType() reflect.Type {
@@ -902,12 +844,10 @@ func (o DataFlowResponseOutput) ToDataFlowResponseOutputWithContext(ctx context.
 	return o
 }
 
-// List of destinations for this data flow.
 func (o DataFlowResponseOutput) Destinations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataFlowResponse) []string { return v.Destinations }).(pulumi.StringArrayOutput)
 }
 
-// List of streams for this data flow.
 func (o DataFlowResponseOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataFlowResponse) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -932,10 +872,7 @@ func (o DataFlowResponseArrayOutput) Index(i pulumi.IntInput) DataFlowResponseOu
 	}).(DataFlowResponseOutput)
 }
 
-// Azure Monitor Metrics destination.
 type DestinationsSpecAzureMonitorMetrics struct {
-	// A friendly name for the destination.
-	// This name should be unique across all destinations (regardless of type) within the data collection rule.
 	Name *string `pulumi:"name"`
 }
 
@@ -950,10 +887,7 @@ type DestinationsSpecAzureMonitorMetricsInput interface {
 	ToDestinationsSpecAzureMonitorMetricsOutputWithContext(context.Context) DestinationsSpecAzureMonitorMetricsOutput
 }
 
-// Azure Monitor Metrics destination.
 type DestinationsSpecAzureMonitorMetricsArgs struct {
-	// A friendly name for the destination.
-	// This name should be unique across all destinations (regardless of type) within the data collection rule.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1010,7 +944,6 @@ func (i *destinationsSpecAzureMonitorMetricsPtrType) ToDestinationsSpecAzureMoni
 	return pulumi.ToOutputWithContext(ctx, i).(DestinationsSpecAzureMonitorMetricsPtrOutput)
 }
 
-// Azure Monitor Metrics destination.
 type DestinationsSpecAzureMonitorMetricsOutput struct{ *pulumi.OutputState }
 
 func (DestinationsSpecAzureMonitorMetricsOutput) ElementType() reflect.Type {
@@ -1030,13 +963,11 @@ func (o DestinationsSpecAzureMonitorMetricsOutput) ToDestinationsSpecAzureMonito
 }
 
 func (o DestinationsSpecAzureMonitorMetricsOutput) ToDestinationsSpecAzureMonitorMetricsPtrOutputWithContext(ctx context.Context) DestinationsSpecAzureMonitorMetricsPtrOutput {
-	return o.ApplyT(func(v DestinationsSpecAzureMonitorMetrics) *DestinationsSpecAzureMonitorMetrics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationsSpecAzureMonitorMetrics) *DestinationsSpecAzureMonitorMetrics {
 		return &v
 	}).(DestinationsSpecAzureMonitorMetricsPtrOutput)
 }
 
-// A friendly name for the destination.
-// This name should be unique across all destinations (regardless of type) within the data collection rule.
 func (o DestinationsSpecAzureMonitorMetricsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DestinationsSpecAzureMonitorMetrics) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1056,11 +987,15 @@ func (o DestinationsSpecAzureMonitorMetricsPtrOutput) ToDestinationsSpecAzureMon
 }
 
 func (o DestinationsSpecAzureMonitorMetricsPtrOutput) Elem() DestinationsSpecAzureMonitorMetricsOutput {
-	return o.ApplyT(func(v *DestinationsSpecAzureMonitorMetrics) DestinationsSpecAzureMonitorMetrics { return *v }).(DestinationsSpecAzureMonitorMetricsOutput)
+	return o.ApplyT(func(v *DestinationsSpecAzureMonitorMetrics) DestinationsSpecAzureMonitorMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationsSpecAzureMonitorMetrics
+		return ret
+	}).(DestinationsSpecAzureMonitorMetricsOutput)
 }
 
-// A friendly name for the destination.
-// This name should be unique across all destinations (regardless of type) within the data collection rule.
 func (o DestinationsSpecAzureMonitorMetricsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DestinationsSpecAzureMonitorMetrics) *string {
 		if v == nil {
@@ -1070,10 +1005,7 @@ func (o DestinationsSpecAzureMonitorMetricsPtrOutput) Name() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Monitor Metrics destination.
 type DestinationsSpecResponseAzureMonitorMetrics struct {
-	// A friendly name for the destination.
-	// This name should be unique across all destinations (regardless of type) within the data collection rule.
 	Name *string `pulumi:"name"`
 }
 
@@ -1088,10 +1020,7 @@ type DestinationsSpecResponseAzureMonitorMetricsInput interface {
 	ToDestinationsSpecResponseAzureMonitorMetricsOutputWithContext(context.Context) DestinationsSpecResponseAzureMonitorMetricsOutput
 }
 
-// Azure Monitor Metrics destination.
 type DestinationsSpecResponseAzureMonitorMetricsArgs struct {
-	// A friendly name for the destination.
-	// This name should be unique across all destinations (regardless of type) within the data collection rule.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1148,7 +1077,6 @@ func (i *destinationsSpecResponseAzureMonitorMetricsPtrType) ToDestinationsSpecR
 	return pulumi.ToOutputWithContext(ctx, i).(DestinationsSpecResponseAzureMonitorMetricsPtrOutput)
 }
 
-// Azure Monitor Metrics destination.
 type DestinationsSpecResponseAzureMonitorMetricsOutput struct{ *pulumi.OutputState }
 
 func (DestinationsSpecResponseAzureMonitorMetricsOutput) ElementType() reflect.Type {
@@ -1168,13 +1096,11 @@ func (o DestinationsSpecResponseAzureMonitorMetricsOutput) ToDestinationsSpecRes
 }
 
 func (o DestinationsSpecResponseAzureMonitorMetricsOutput) ToDestinationsSpecResponseAzureMonitorMetricsPtrOutputWithContext(ctx context.Context) DestinationsSpecResponseAzureMonitorMetricsPtrOutput {
-	return o.ApplyT(func(v DestinationsSpecResponseAzureMonitorMetrics) *DestinationsSpecResponseAzureMonitorMetrics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationsSpecResponseAzureMonitorMetrics) *DestinationsSpecResponseAzureMonitorMetrics {
 		return &v
 	}).(DestinationsSpecResponseAzureMonitorMetricsPtrOutput)
 }
 
-// A friendly name for the destination.
-// This name should be unique across all destinations (regardless of type) within the data collection rule.
 func (o DestinationsSpecResponseAzureMonitorMetricsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DestinationsSpecResponseAzureMonitorMetrics) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1195,12 +1121,14 @@ func (o DestinationsSpecResponseAzureMonitorMetricsPtrOutput) ToDestinationsSpec
 
 func (o DestinationsSpecResponseAzureMonitorMetricsPtrOutput) Elem() DestinationsSpecResponseAzureMonitorMetricsOutput {
 	return o.ApplyT(func(v *DestinationsSpecResponseAzureMonitorMetrics) DestinationsSpecResponseAzureMonitorMetrics {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DestinationsSpecResponseAzureMonitorMetrics
+		return ret
 	}).(DestinationsSpecResponseAzureMonitorMetricsOutput)
 }
 
-// A friendly name for the destination.
-// This name should be unique across all destinations (regardless of type) within the data collection rule.
 func (o DestinationsSpecResponseAzureMonitorMetricsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DestinationsSpecResponseAzureMonitorMetrics) *string {
 		if v == nil {
@@ -1210,21 +1138,12 @@ func (o DestinationsSpecResponseAzureMonitorMetricsPtrOutput) Name() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
-// Collected from either Windows and Linux machines, depending on which extension is defined.
 type ExtensionDataSource struct {
-	// The name of the VM extension.
-	ExtensionName string `pulumi:"extensionName"`
-	// The extension settings. The format is specific for particular extension.
+	ExtensionName     string      `pulumi:"extensionName"`
 	ExtensionSettings interface{} `pulumi:"extensionSettings"`
-	// The list of data sources this extension needs data from.
-	InputDataSources []string `pulumi:"inputDataSources"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams []string `pulumi:"streams"`
+	InputDataSources  []string    `pulumi:"inputDataSources"`
+	Name              *string     `pulumi:"name"`
+	Streams           []string    `pulumi:"streams"`
 }
 
 // ExtensionDataSourceInput is an input type that accepts ExtensionDataSourceArgs and ExtensionDataSourceOutput values.
@@ -1238,21 +1157,12 @@ type ExtensionDataSourceInput interface {
 	ToExtensionDataSourceOutputWithContext(context.Context) ExtensionDataSourceOutput
 }
 
-// Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
-// Collected from either Windows and Linux machines, depending on which extension is defined.
 type ExtensionDataSourceArgs struct {
-	// The name of the VM extension.
-	ExtensionName pulumi.StringInput `pulumi:"extensionName"`
-	// The extension settings. The format is specific for particular extension.
-	ExtensionSettings pulumi.Input `pulumi:"extensionSettings"`
-	// The list of data sources this extension needs data from.
-	InputDataSources pulumi.StringArrayInput `pulumi:"inputDataSources"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	ExtensionName     pulumi.StringInput      `pulumi:"extensionName"`
+	ExtensionSettings pulumi.Input            `pulumi:"extensionSettings"`
+	InputDataSources  pulumi.StringArrayInput `pulumi:"inputDataSources"`
+	Name              pulumi.StringPtrInput   `pulumi:"name"`
+	Streams           pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (ExtensionDataSourceArgs) ElementType() reflect.Type {
@@ -1292,8 +1202,6 @@ func (i ExtensionDataSourceArray) ToExtensionDataSourceArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionDataSourceArrayOutput)
 }
 
-// Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
-// Collected from either Windows and Linux machines, depending on which extension is defined.
 type ExtensionDataSourceOutput struct{ *pulumi.OutputState }
 
 func (ExtensionDataSourceOutput) ElementType() reflect.Type {
@@ -1308,29 +1216,22 @@ func (o ExtensionDataSourceOutput) ToExtensionDataSourceOutputWithContext(ctx co
 	return o
 }
 
-// The name of the VM extension.
 func (o ExtensionDataSourceOutput) ExtensionName() pulumi.StringOutput {
 	return o.ApplyT(func(v ExtensionDataSource) string { return v.ExtensionName }).(pulumi.StringOutput)
 }
 
-// The extension settings. The format is specific for particular extension.
 func (o ExtensionDataSourceOutput) ExtensionSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v ExtensionDataSource) interface{} { return v.ExtensionSettings }).(pulumi.AnyOutput)
 }
 
-// The list of data sources this extension needs data from.
 func (o ExtensionDataSourceOutput) InputDataSources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExtensionDataSource) []string { return v.InputDataSources }).(pulumi.StringArrayOutput)
 }
 
-// A friendly name for the data source.
-// This name should be unique across all data sources (regardless of type) within the data collection rule.
 func (o ExtensionDataSourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionDataSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// List of streams that this data source will be sent to.
-// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 func (o ExtensionDataSourceOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExtensionDataSource) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -1355,21 +1256,12 @@ func (o ExtensionDataSourceArrayOutput) Index(i pulumi.IntInput) ExtensionDataSo
 	}).(ExtensionDataSourceOutput)
 }
 
-// Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
-// Collected from either Windows and Linux machines, depending on which extension is defined.
 type ExtensionDataSourceResponse struct {
-	// The name of the VM extension.
-	ExtensionName string `pulumi:"extensionName"`
-	// The extension settings. The format is specific for particular extension.
+	ExtensionName     string      `pulumi:"extensionName"`
 	ExtensionSettings interface{} `pulumi:"extensionSettings"`
-	// The list of data sources this extension needs data from.
-	InputDataSources []string `pulumi:"inputDataSources"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams []string `pulumi:"streams"`
+	InputDataSources  []string    `pulumi:"inputDataSources"`
+	Name              *string     `pulumi:"name"`
+	Streams           []string    `pulumi:"streams"`
 }
 
 // ExtensionDataSourceResponseInput is an input type that accepts ExtensionDataSourceResponseArgs and ExtensionDataSourceResponseOutput values.
@@ -1383,21 +1275,12 @@ type ExtensionDataSourceResponseInput interface {
 	ToExtensionDataSourceResponseOutputWithContext(context.Context) ExtensionDataSourceResponseOutput
 }
 
-// Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
-// Collected from either Windows and Linux machines, depending on which extension is defined.
 type ExtensionDataSourceResponseArgs struct {
-	// The name of the VM extension.
-	ExtensionName pulumi.StringInput `pulumi:"extensionName"`
-	// The extension settings. The format is specific for particular extension.
-	ExtensionSettings pulumi.Input `pulumi:"extensionSettings"`
-	// The list of data sources this extension needs data from.
-	InputDataSources pulumi.StringArrayInput `pulumi:"inputDataSources"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	ExtensionName     pulumi.StringInput      `pulumi:"extensionName"`
+	ExtensionSettings pulumi.Input            `pulumi:"extensionSettings"`
+	InputDataSources  pulumi.StringArrayInput `pulumi:"inputDataSources"`
+	Name              pulumi.StringPtrInput   `pulumi:"name"`
+	Streams           pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (ExtensionDataSourceResponseArgs) ElementType() reflect.Type {
@@ -1437,8 +1320,6 @@ func (i ExtensionDataSourceResponseArray) ToExtensionDataSourceResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionDataSourceResponseArrayOutput)
 }
 
-// Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
-// Collected from either Windows and Linux machines, depending on which extension is defined.
 type ExtensionDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (ExtensionDataSourceResponseOutput) ElementType() reflect.Type {
@@ -1453,29 +1334,22 @@ func (o ExtensionDataSourceResponseOutput) ToExtensionDataSourceResponseOutputWi
 	return o
 }
 
-// The name of the VM extension.
 func (o ExtensionDataSourceResponseOutput) ExtensionName() pulumi.StringOutput {
 	return o.ApplyT(func(v ExtensionDataSourceResponse) string { return v.ExtensionName }).(pulumi.StringOutput)
 }
 
-// The extension settings. The format is specific for particular extension.
 func (o ExtensionDataSourceResponseOutput) ExtensionSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v ExtensionDataSourceResponse) interface{} { return v.ExtensionSettings }).(pulumi.AnyOutput)
 }
 
-// The list of data sources this extension needs data from.
 func (o ExtensionDataSourceResponseOutput) InputDataSources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExtensionDataSourceResponse) []string { return v.InputDataSources }).(pulumi.StringArrayOutput)
 }
 
-// A friendly name for the data source.
-// This name should be unique across all data sources (regardless of type) within the data collection rule.
 func (o ExtensionDataSourceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionDataSourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// List of streams that this data source will be sent to.
-// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 func (o ExtensionDataSourceResponseOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExtensionDataSourceResponse) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -1500,12 +1374,8 @@ func (o ExtensionDataSourceResponseArrayOutput) Index(i pulumi.IntInput) Extensi
 	}).(ExtensionDataSourceResponseOutput)
 }
 
-// Log Analytics destination.
 type LogAnalyticsDestination struct {
-	// A friendly name for the destination.
-	// This name should be unique across all destinations (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// The resource ID of the Log Analytics workspace.
+	Name                *string `pulumi:"name"`
 	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
 
@@ -1520,12 +1390,8 @@ type LogAnalyticsDestinationInput interface {
 	ToLogAnalyticsDestinationOutputWithContext(context.Context) LogAnalyticsDestinationOutput
 }
 
-// Log Analytics destination.
 type LogAnalyticsDestinationArgs struct {
-	// A friendly name for the destination.
-	// This name should be unique across all destinations (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The resource ID of the Log Analytics workspace.
+	Name                pulumi.StringPtrInput `pulumi:"name"`
 	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
 }
 
@@ -1566,7 +1432,6 @@ func (i LogAnalyticsDestinationArray) ToLogAnalyticsDestinationArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsDestinationArrayOutput)
 }
 
-// Log Analytics destination.
 type LogAnalyticsDestinationOutput struct{ *pulumi.OutputState }
 
 func (LogAnalyticsDestinationOutput) ElementType() reflect.Type {
@@ -1581,13 +1446,10 @@ func (o LogAnalyticsDestinationOutput) ToLogAnalyticsDestinationOutputWithContex
 	return o
 }
 
-// A friendly name for the destination.
-// This name should be unique across all destinations (regardless of type) within the data collection rule.
 func (o LogAnalyticsDestinationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogAnalyticsDestination) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the Log Analytics workspace.
 func (o LogAnalyticsDestinationOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogAnalyticsDestination) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
@@ -1612,14 +1474,9 @@ func (o LogAnalyticsDestinationArrayOutput) Index(i pulumi.IntInput) LogAnalytic
 	}).(LogAnalyticsDestinationOutput)
 }
 
-// Log Analytics destination.
 type LogAnalyticsDestinationResponse struct {
-	// A friendly name for the destination.
-	// This name should be unique across all destinations (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// The Customer ID of the Log Analytics workspace.
-	WorkspaceId string `pulumi:"workspaceId"`
-	// The resource ID of the Log Analytics workspace.
+	Name                *string `pulumi:"name"`
+	WorkspaceId         string  `pulumi:"workspaceId"`
 	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
 
@@ -1634,14 +1491,9 @@ type LogAnalyticsDestinationResponseInput interface {
 	ToLogAnalyticsDestinationResponseOutputWithContext(context.Context) LogAnalyticsDestinationResponseOutput
 }
 
-// Log Analytics destination.
 type LogAnalyticsDestinationResponseArgs struct {
-	// A friendly name for the destination.
-	// This name should be unique across all destinations (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The Customer ID of the Log Analytics workspace.
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
-	// The resource ID of the Log Analytics workspace.
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	WorkspaceId         pulumi.StringInput    `pulumi:"workspaceId"`
 	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
 }
 
@@ -1682,7 +1534,6 @@ func (i LogAnalyticsDestinationResponseArray) ToLogAnalyticsDestinationResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsDestinationResponseArrayOutput)
 }
 
-// Log Analytics destination.
 type LogAnalyticsDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (LogAnalyticsDestinationResponseOutput) ElementType() reflect.Type {
@@ -1697,18 +1548,14 @@ func (o LogAnalyticsDestinationResponseOutput) ToLogAnalyticsDestinationResponse
 	return o
 }
 
-// A friendly name for the destination.
-// This name should be unique across all destinations (regardless of type) within the data collection rule.
 func (o LogAnalyticsDestinationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogAnalyticsDestinationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The Customer ID of the Log Analytics workspace.
 func (o LogAnalyticsDestinationResponseOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LogAnalyticsDestinationResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
-// The resource ID of the Log Analytics workspace.
 func (o LogAnalyticsDestinationResponseOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogAnalyticsDestinationResponse) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
@@ -1733,21 +1580,11 @@ func (o LogAnalyticsDestinationResponseArrayOutput) Index(i pulumi.IntInput) Log
 	}).(LogAnalyticsDestinationResponseOutput)
 }
 
-// Definition of which performance counters will be collected and how they will be collected by this data collection rule.
-// Collected from both Windows and Linux machines where the counter is present.
 type PerfCounterDataSource struct {
-	// A list of specifier names of the performance counters you want to collect.
-	// Use a wildcard (*) to collect a counter for all instances.
-	// To get a list of performance counters on Windows, run the command 'typeperf'.
-	CounterSpecifiers []string `pulumi:"counterSpecifiers"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// The number of seconds between consecutive counter measurements (samples).
-	SamplingFrequencyInSeconds *int `pulumi:"samplingFrequencyInSeconds"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams []string `pulumi:"streams"`
+	CounterSpecifiers          []string `pulumi:"counterSpecifiers"`
+	Name                       *string  `pulumi:"name"`
+	SamplingFrequencyInSeconds *int     `pulumi:"samplingFrequencyInSeconds"`
+	Streams                    []string `pulumi:"streams"`
 }
 
 // PerfCounterDataSourceInput is an input type that accepts PerfCounterDataSourceArgs and PerfCounterDataSourceOutput values.
@@ -1761,21 +1598,11 @@ type PerfCounterDataSourceInput interface {
 	ToPerfCounterDataSourceOutputWithContext(context.Context) PerfCounterDataSourceOutput
 }
 
-// Definition of which performance counters will be collected and how they will be collected by this data collection rule.
-// Collected from both Windows and Linux machines where the counter is present.
 type PerfCounterDataSourceArgs struct {
-	// A list of specifier names of the performance counters you want to collect.
-	// Use a wildcard (*) to collect a counter for all instances.
-	// To get a list of performance counters on Windows, run the command 'typeperf'.
-	CounterSpecifiers pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The number of seconds between consecutive counter measurements (samples).
-	SamplingFrequencyInSeconds pulumi.IntPtrInput `pulumi:"samplingFrequencyInSeconds"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	CounterSpecifiers          pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
+	Name                       pulumi.StringPtrInput   `pulumi:"name"`
+	SamplingFrequencyInSeconds pulumi.IntPtrInput      `pulumi:"samplingFrequencyInSeconds"`
+	Streams                    pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (PerfCounterDataSourceArgs) ElementType() reflect.Type {
@@ -1815,8 +1642,6 @@ func (i PerfCounterDataSourceArray) ToPerfCounterDataSourceArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PerfCounterDataSourceArrayOutput)
 }
 
-// Definition of which performance counters will be collected and how they will be collected by this data collection rule.
-// Collected from both Windows and Linux machines where the counter is present.
 type PerfCounterDataSourceOutput struct{ *pulumi.OutputState }
 
 func (PerfCounterDataSourceOutput) ElementType() reflect.Type {
@@ -1831,26 +1656,18 @@ func (o PerfCounterDataSourceOutput) ToPerfCounterDataSourceOutputWithContext(ct
 	return o
 }
 
-// A list of specifier names of the performance counters you want to collect.
-// Use a wildcard (*) to collect a counter for all instances.
-// To get a list of performance counters on Windows, run the command 'typeperf'.
 func (o PerfCounterDataSourceOutput) CounterSpecifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PerfCounterDataSource) []string { return v.CounterSpecifiers }).(pulumi.StringArrayOutput)
 }
 
-// A friendly name for the data source.
-// This name should be unique across all data sources (regardless of type) within the data collection rule.
 func (o PerfCounterDataSourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PerfCounterDataSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The number of seconds between consecutive counter measurements (samples).
 func (o PerfCounterDataSourceOutput) SamplingFrequencyInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PerfCounterDataSource) *int { return v.SamplingFrequencyInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// List of streams that this data source will be sent to.
-// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 func (o PerfCounterDataSourceOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PerfCounterDataSource) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -1875,21 +1692,11 @@ func (o PerfCounterDataSourceArrayOutput) Index(i pulumi.IntInput) PerfCounterDa
 	}).(PerfCounterDataSourceOutput)
 }
 
-// Definition of which performance counters will be collected and how they will be collected by this data collection rule.
-// Collected from both Windows and Linux machines where the counter is present.
 type PerfCounterDataSourceResponse struct {
-	// A list of specifier names of the performance counters you want to collect.
-	// Use a wildcard (*) to collect a counter for all instances.
-	// To get a list of performance counters on Windows, run the command 'typeperf'.
-	CounterSpecifiers []string `pulumi:"counterSpecifiers"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// The number of seconds between consecutive counter measurements (samples).
-	SamplingFrequencyInSeconds *int `pulumi:"samplingFrequencyInSeconds"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams []string `pulumi:"streams"`
+	CounterSpecifiers          []string `pulumi:"counterSpecifiers"`
+	Name                       *string  `pulumi:"name"`
+	SamplingFrequencyInSeconds *int     `pulumi:"samplingFrequencyInSeconds"`
+	Streams                    []string `pulumi:"streams"`
 }
 
 // PerfCounterDataSourceResponseInput is an input type that accepts PerfCounterDataSourceResponseArgs and PerfCounterDataSourceResponseOutput values.
@@ -1903,21 +1710,11 @@ type PerfCounterDataSourceResponseInput interface {
 	ToPerfCounterDataSourceResponseOutputWithContext(context.Context) PerfCounterDataSourceResponseOutput
 }
 
-// Definition of which performance counters will be collected and how they will be collected by this data collection rule.
-// Collected from both Windows and Linux machines where the counter is present.
 type PerfCounterDataSourceResponseArgs struct {
-	// A list of specifier names of the performance counters you want to collect.
-	// Use a wildcard (*) to collect a counter for all instances.
-	// To get a list of performance counters on Windows, run the command 'typeperf'.
-	CounterSpecifiers pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The number of seconds between consecutive counter measurements (samples).
-	SamplingFrequencyInSeconds pulumi.IntPtrInput `pulumi:"samplingFrequencyInSeconds"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	CounterSpecifiers          pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
+	Name                       pulumi.StringPtrInput   `pulumi:"name"`
+	SamplingFrequencyInSeconds pulumi.IntPtrInput      `pulumi:"samplingFrequencyInSeconds"`
+	Streams                    pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (PerfCounterDataSourceResponseArgs) ElementType() reflect.Type {
@@ -1957,8 +1754,6 @@ func (i PerfCounterDataSourceResponseArray) ToPerfCounterDataSourceResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(PerfCounterDataSourceResponseArrayOutput)
 }
 
-// Definition of which performance counters will be collected and how they will be collected by this data collection rule.
-// Collected from both Windows and Linux machines where the counter is present.
 type PerfCounterDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (PerfCounterDataSourceResponseOutput) ElementType() reflect.Type {
@@ -1973,26 +1768,18 @@ func (o PerfCounterDataSourceResponseOutput) ToPerfCounterDataSourceResponseOutp
 	return o
 }
 
-// A list of specifier names of the performance counters you want to collect.
-// Use a wildcard (*) to collect a counter for all instances.
-// To get a list of performance counters on Windows, run the command 'typeperf'.
 func (o PerfCounterDataSourceResponseOutput) CounterSpecifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PerfCounterDataSourceResponse) []string { return v.CounterSpecifiers }).(pulumi.StringArrayOutput)
 }
 
-// A friendly name for the data source.
-// This name should be unique across all data sources (regardless of type) within the data collection rule.
 func (o PerfCounterDataSourceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PerfCounterDataSourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The number of seconds between consecutive counter measurements (samples).
 func (o PerfCounterDataSourceResponseOutput) SamplingFrequencyInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PerfCounterDataSourceResponse) *int { return v.SamplingFrequencyInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// List of streams that this data source will be sent to.
-// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 func (o PerfCounterDataSourceResponseOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PerfCounterDataSourceResponse) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -2017,19 +1804,11 @@ func (o PerfCounterDataSourceResponseArrayOutput) Index(i pulumi.IntInput) PerfC
 	}).(PerfCounterDataSourceResponseOutput)
 }
 
-// Definition of which syslog data will be collected and how it will be collected.
-// Only collected from Linux machines.
 type SyslogDataSource struct {
-	// The list of facility names.
 	FacilityNames []string `pulumi:"facilityNames"`
-	// The log levels to collect.
-	LogLevels []string `pulumi:"logLevels"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams []string `pulumi:"streams"`
+	LogLevels     []string `pulumi:"logLevels"`
+	Name          *string  `pulumi:"name"`
+	Streams       []string `pulumi:"streams"`
 }
 
 // SyslogDataSourceInput is an input type that accepts SyslogDataSourceArgs and SyslogDataSourceOutput values.
@@ -2043,19 +1822,11 @@ type SyslogDataSourceInput interface {
 	ToSyslogDataSourceOutputWithContext(context.Context) SyslogDataSourceOutput
 }
 
-// Definition of which syslog data will be collected and how it will be collected.
-// Only collected from Linux machines.
 type SyslogDataSourceArgs struct {
-	// The list of facility names.
 	FacilityNames pulumi.StringArrayInput `pulumi:"facilityNames"`
-	// The log levels to collect.
-	LogLevels pulumi.StringArrayInput `pulumi:"logLevels"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	LogLevels     pulumi.StringArrayInput `pulumi:"logLevels"`
+	Name          pulumi.StringPtrInput   `pulumi:"name"`
+	Streams       pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (SyslogDataSourceArgs) ElementType() reflect.Type {
@@ -2095,8 +1866,6 @@ func (i SyslogDataSourceArray) ToSyslogDataSourceArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SyslogDataSourceArrayOutput)
 }
 
-// Definition of which syslog data will be collected and how it will be collected.
-// Only collected from Linux machines.
 type SyslogDataSourceOutput struct{ *pulumi.OutputState }
 
 func (SyslogDataSourceOutput) ElementType() reflect.Type {
@@ -2111,24 +1880,18 @@ func (o SyslogDataSourceOutput) ToSyslogDataSourceOutputWithContext(ctx context.
 	return o
 }
 
-// The list of facility names.
 func (o SyslogDataSourceOutput) FacilityNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SyslogDataSource) []string { return v.FacilityNames }).(pulumi.StringArrayOutput)
 }
 
-// The log levels to collect.
 func (o SyslogDataSourceOutput) LogLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SyslogDataSource) []string { return v.LogLevels }).(pulumi.StringArrayOutput)
 }
 
-// A friendly name for the data source.
-// This name should be unique across all data sources (regardless of type) within the data collection rule.
 func (o SyslogDataSourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyslogDataSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// List of streams that this data source will be sent to.
-// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 func (o SyslogDataSourceOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SyslogDataSource) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -2153,19 +1916,11 @@ func (o SyslogDataSourceArrayOutput) Index(i pulumi.IntInput) SyslogDataSourceOu
 	}).(SyslogDataSourceOutput)
 }
 
-// Definition of which syslog data will be collected and how it will be collected.
-// Only collected from Linux machines.
 type SyslogDataSourceResponse struct {
-	// The list of facility names.
 	FacilityNames []string `pulumi:"facilityNames"`
-	// The log levels to collect.
-	LogLevels []string `pulumi:"logLevels"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams []string `pulumi:"streams"`
+	LogLevels     []string `pulumi:"logLevels"`
+	Name          *string  `pulumi:"name"`
+	Streams       []string `pulumi:"streams"`
 }
 
 // SyslogDataSourceResponseInput is an input type that accepts SyslogDataSourceResponseArgs and SyslogDataSourceResponseOutput values.
@@ -2179,19 +1934,11 @@ type SyslogDataSourceResponseInput interface {
 	ToSyslogDataSourceResponseOutputWithContext(context.Context) SyslogDataSourceResponseOutput
 }
 
-// Definition of which syslog data will be collected and how it will be collected.
-// Only collected from Linux machines.
 type SyslogDataSourceResponseArgs struct {
-	// The list of facility names.
 	FacilityNames pulumi.StringArrayInput `pulumi:"facilityNames"`
-	// The log levels to collect.
-	LogLevels pulumi.StringArrayInput `pulumi:"logLevels"`
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	LogLevels     pulumi.StringArrayInput `pulumi:"logLevels"`
+	Name          pulumi.StringPtrInput   `pulumi:"name"`
+	Streams       pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (SyslogDataSourceResponseArgs) ElementType() reflect.Type {
@@ -2231,8 +1978,6 @@ func (i SyslogDataSourceResponseArray) ToSyslogDataSourceResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SyslogDataSourceResponseArrayOutput)
 }
 
-// Definition of which syslog data will be collected and how it will be collected.
-// Only collected from Linux machines.
 type SyslogDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SyslogDataSourceResponseOutput) ElementType() reflect.Type {
@@ -2247,24 +1992,18 @@ func (o SyslogDataSourceResponseOutput) ToSyslogDataSourceResponseOutputWithCont
 	return o
 }
 
-// The list of facility names.
 func (o SyslogDataSourceResponseOutput) FacilityNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SyslogDataSourceResponse) []string { return v.FacilityNames }).(pulumi.StringArrayOutput)
 }
 
-// The log levels to collect.
 func (o SyslogDataSourceResponseOutput) LogLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SyslogDataSourceResponse) []string { return v.LogLevels }).(pulumi.StringArrayOutput)
 }
 
-// A friendly name for the data source.
-// This name should be unique across all data sources (regardless of type) within the data collection rule.
 func (o SyslogDataSourceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyslogDataSourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// List of streams that this data source will be sent to.
-// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 func (o SyslogDataSourceResponseOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SyslogDataSourceResponse) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -2289,16 +2028,9 @@ func (o SyslogDataSourceResponseArrayOutput) Index(i pulumi.IntInput) SyslogData
 	}).(SyslogDataSourceResponseOutput)
 }
 
-// Definition of which Windows Event Log events will be collected and how they will be collected.
-// Only collected from Windows machines.
 type WindowsEventLogDataSource struct {
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams []string `pulumi:"streams"`
-	// A list of Windows Event Log queries in XPATH format.
+	Name         *string  `pulumi:"name"`
+	Streams      []string `pulumi:"streams"`
 	XPathQueries []string `pulumi:"xPathQueries"`
 }
 
@@ -2313,16 +2045,9 @@ type WindowsEventLogDataSourceInput interface {
 	ToWindowsEventLogDataSourceOutputWithContext(context.Context) WindowsEventLogDataSourceOutput
 }
 
-// Definition of which Windows Event Log events will be collected and how they will be collected.
-// Only collected from Windows machines.
 type WindowsEventLogDataSourceArgs struct {
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
-	// A list of Windows Event Log queries in XPATH format.
+	Name         pulumi.StringPtrInput   `pulumi:"name"`
+	Streams      pulumi.StringArrayInput `pulumi:"streams"`
 	XPathQueries pulumi.StringArrayInput `pulumi:"xPathQueries"`
 }
 
@@ -2363,8 +2088,6 @@ func (i WindowsEventLogDataSourceArray) ToWindowsEventLogDataSourceArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsEventLogDataSourceArrayOutput)
 }
 
-// Definition of which Windows Event Log events will be collected and how they will be collected.
-// Only collected from Windows machines.
 type WindowsEventLogDataSourceOutput struct{ *pulumi.OutputState }
 
 func (WindowsEventLogDataSourceOutput) ElementType() reflect.Type {
@@ -2379,19 +2102,14 @@ func (o WindowsEventLogDataSourceOutput) ToWindowsEventLogDataSourceOutputWithCo
 	return o
 }
 
-// A friendly name for the data source.
-// This name should be unique across all data sources (regardless of type) within the data collection rule.
 func (o WindowsEventLogDataSourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsEventLogDataSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// List of streams that this data source will be sent to.
-// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 func (o WindowsEventLogDataSourceOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WindowsEventLogDataSource) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
 
-// A list of Windows Event Log queries in XPATH format.
 func (o WindowsEventLogDataSourceOutput) XPathQueries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WindowsEventLogDataSource) []string { return v.XPathQueries }).(pulumi.StringArrayOutput)
 }
@@ -2416,16 +2134,9 @@ func (o WindowsEventLogDataSourceArrayOutput) Index(i pulumi.IntInput) WindowsEv
 	}).(WindowsEventLogDataSourceOutput)
 }
 
-// Definition of which Windows Event Log events will be collected and how they will be collected.
-// Only collected from Windows machines.
 type WindowsEventLogDataSourceResponse struct {
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name *string `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams []string `pulumi:"streams"`
-	// A list of Windows Event Log queries in XPATH format.
+	Name         *string  `pulumi:"name"`
+	Streams      []string `pulumi:"streams"`
 	XPathQueries []string `pulumi:"xPathQueries"`
 }
 
@@ -2440,16 +2151,9 @@ type WindowsEventLogDataSourceResponseInput interface {
 	ToWindowsEventLogDataSourceResponseOutputWithContext(context.Context) WindowsEventLogDataSourceResponseOutput
 }
 
-// Definition of which Windows Event Log events will be collected and how they will be collected.
-// Only collected from Windows machines.
 type WindowsEventLogDataSourceResponseArgs struct {
-	// A friendly name for the data source.
-	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// List of streams that this data source will be sent to.
-	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-	Streams pulumi.StringArrayInput `pulumi:"streams"`
-	// A list of Windows Event Log queries in XPATH format.
+	Name         pulumi.StringPtrInput   `pulumi:"name"`
+	Streams      pulumi.StringArrayInput `pulumi:"streams"`
 	XPathQueries pulumi.StringArrayInput `pulumi:"xPathQueries"`
 }
 
@@ -2490,8 +2194,6 @@ func (i WindowsEventLogDataSourceResponseArray) ToWindowsEventLogDataSourceRespo
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsEventLogDataSourceResponseArrayOutput)
 }
 
-// Definition of which Windows Event Log events will be collected and how they will be collected.
-// Only collected from Windows machines.
 type WindowsEventLogDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (WindowsEventLogDataSourceResponseOutput) ElementType() reflect.Type {
@@ -2506,19 +2208,14 @@ func (o WindowsEventLogDataSourceResponseOutput) ToWindowsEventLogDataSourceResp
 	return o
 }
 
-// A friendly name for the data source.
-// This name should be unique across all data sources (regardless of type) within the data collection rule.
 func (o WindowsEventLogDataSourceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsEventLogDataSourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// List of streams that this data source will be sent to.
-// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 func (o WindowsEventLogDataSourceResponseOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WindowsEventLogDataSourceResponse) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
 
-// A list of Windows Event Log queries in XPATH format.
 func (o WindowsEventLogDataSourceResponseOutput) XPathQueries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WindowsEventLogDataSourceResponse) []string { return v.XPathQueries }).(pulumi.StringArrayOutput)
 }

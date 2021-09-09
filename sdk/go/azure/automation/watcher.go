@@ -188,9 +188,7 @@ func (i *Watcher) ToWatcherOutputWithContext(ctx context.Context) WatcherOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(WatcherOutput)
 }
 
-type WatcherOutput struct {
-	*pulumi.OutputState
-}
+type WatcherOutput struct{ *pulumi.OutputState }
 
 func (WatcherOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Watcher)(nil))

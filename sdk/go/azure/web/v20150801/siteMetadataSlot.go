@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// String dictionary resource
 type SiteMetadataSlot struct {
 	pulumi.CustomResourceState
 
-	// Kind of resource
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Settings
+	Kind       pulumi.StringPtrOutput `pulumi:"kind"`
+	Location   pulumi.StringOutput    `pulumi:"location"`
+	Name       pulumi.StringPtrOutput `pulumi:"name"`
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	Type       pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewSiteMetadataSlot registers a new resource with the given unique name, arguments, and options.
@@ -155,46 +148,28 @@ func (SiteMetadataSlotState) ElementType() reflect.Type {
 }
 
 type siteMetadataSlotArgs struct {
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// Settings
-	Properties map[string]string `pulumi:"properties"`
-	// Name of resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of web app slot. If not specified then will default to production slot.
-	Slot string `pulumi:"slot"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Id                *string           `pulumi:"id"`
+	Kind              *string           `pulumi:"kind"`
+	Location          *string           `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	Properties        map[string]string `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Slot              string            `pulumi:"slot"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              *string           `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SiteMetadataSlot resource.
 type SiteMetadataSlotArgs struct {
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringInput
-	// Settings
-	Properties pulumi.StringMapInput
-	// Name of resource group
+	Id                pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringInput
+	Properties        pulumi.StringMapInput
 	ResourceGroupName pulumi.StringInput
-	// Name of web app slot. If not specified then will default to production slot.
-	Slot pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
+	Slot              pulumi.StringInput
+	Tags              pulumi.StringMapInput
+	Type              pulumi.StringPtrInput
 }
 
 func (SiteMetadataSlotArgs) ElementType() reflect.Type {
@@ -220,9 +195,7 @@ func (i *SiteMetadataSlot) ToSiteMetadataSlotOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SiteMetadataSlotOutput)
 }
 
-type SiteMetadataSlotOutput struct {
-	*pulumi.OutputState
-}
+type SiteMetadataSlotOutput struct{ *pulumi.OutputState }
 
 func (SiteMetadataSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteMetadataSlot)(nil))

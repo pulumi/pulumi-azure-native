@@ -204,9 +204,7 @@ func (i *ApiVersionSet) ToApiVersionSetOutputWithContext(ctx context.Context) Ap
 	return pulumi.ToOutputWithContext(ctx, i).(ApiVersionSetOutput)
 }
 
-type ApiVersionSetOutput struct {
-	*pulumi.OutputState
-}
+type ApiVersionSetOutput struct{ *pulumi.OutputState }
 
 func (ApiVersionSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiVersionSet)(nil))

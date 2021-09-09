@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Recovery plan details.
 func LookupReplicationRecoveryPlan(ctx *pulumi.Context, args *LookupReplicationRecoveryPlanArgs, opts ...pulumi.InvokeOption) (*LookupReplicationRecoveryPlanResult, error) {
 	var rv LookupReplicationRecoveryPlanResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20180110:getReplicationRecoveryPlan", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupReplicationRecoveryPlan(ctx *pulumi.Context, args *LookupReplicationR
 }
 
 type LookupReplicationRecoveryPlanArgs struct {
-	// Name of the recovery plan.
-	RecoveryPlanName string `pulumi:"recoveryPlanName"`
-	// The name of the resource group where the recovery services vault is present.
+	RecoveryPlanName  string `pulumi:"recoveryPlanName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // Recovery plan details.
 type LookupReplicationRecoveryPlanResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// The custom details.
+	Id         string                         `pulumi:"id"`
+	Location   *string                        `pulumi:"location"`
+	Name       string                         `pulumi:"name"`
 	Properties RecoveryPlanPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
+	Type       string                         `pulumi:"type"`
 }

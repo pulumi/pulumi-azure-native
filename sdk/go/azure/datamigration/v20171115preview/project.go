@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A project resource
 type Project struct {
 	pulumi.CustomResourceState
 
-	// UTC Date and time when project was created
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// List of DatabaseInfo
-	DatabasesInfo DatabaseInfoResponseArrayOutput `pulumi:"databasesInfo"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The project's provisioning state
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Information for connecting to source
+	CreationTime         pulumi.StringOutput                `pulumi:"creationTime"`
+	DatabasesInfo        DatabaseInfoResponseArrayOutput    `pulumi:"databasesInfo"`
+	Location             pulumi.StringOutput                `pulumi:"location"`
+	Name                 pulumi.StringOutput                `pulumi:"name"`
+	ProvisioningState    pulumi.StringOutput                `pulumi:"provisioningState"`
 	SourceConnectionInfo SqlConnectionInfoResponsePtrOutput `pulumi:"sourceConnectionInfo"`
-	// Source platform for the project
-	SourcePlatform pulumi.StringOutput `pulumi:"sourcePlatform"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Information for connecting to target
+	SourcePlatform       pulumi.StringOutput                `pulumi:"sourcePlatform"`
+	Tags                 pulumi.StringMapOutput             `pulumi:"tags"`
 	TargetConnectionInfo SqlConnectionInfoResponsePtrOutput `pulumi:"targetConnectionInfo"`
-	// Target platform for the project
-	TargetPlatform pulumi.StringOutput `pulumi:"targetPlatform"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	TargetPlatform       pulumi.StringOutput                `pulumi:"targetPlatform"`
+	Type                 pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -51,6 +39,12 @@ func NewProject(ctx *pulumi.Context,
 	}
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.SourcePlatform == nil {
+		return nil, errors.New("invalid value for required argument 'SourcePlatform'")
+	}
+	if args.TargetPlatform == nil {
+		return nil, errors.New("invalid value for required argument 'TargetPlatform'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -126,50 +120,30 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	// List of DatabaseInfo
-	DatabasesInfo []DatabaseInfo `pulumi:"databasesInfo"`
-	// Name of the resource group
-	GroupName string `pulumi:"groupName"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Name of the project
-	ProjectName *string `pulumi:"projectName"`
-	// Name of the service
-	ServiceName string `pulumi:"serviceName"`
-	// Information for connecting to source
-	SourceConnectionInfo *SqlConnectionInfo `pulumi:"sourceConnectionInfo"`
-	// Source platform for the project
-	SourcePlatform string `pulumi:"sourcePlatform"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Information for connecting to target
-	TargetConnectionInfo *SqlConnectionInfo `pulumi:"targetConnectionInfo"`
-	// Target platform for the project
-	TargetPlatform string `pulumi:"targetPlatform"`
+	DatabasesInfo        []DatabaseInfo        `pulumi:"databasesInfo"`
+	GroupName            string                `pulumi:"groupName"`
+	Location             *string               `pulumi:"location"`
+	ProjectName          *string               `pulumi:"projectName"`
+	ServiceName          string                `pulumi:"serviceName"`
+	SourceConnectionInfo *SqlConnectionInfo    `pulumi:"sourceConnectionInfo"`
+	SourcePlatform       ProjectSourcePlatform `pulumi:"sourcePlatform"`
+	Tags                 map[string]string     `pulumi:"tags"`
+	TargetConnectionInfo *SqlConnectionInfo    `pulumi:"targetConnectionInfo"`
+	TargetPlatform       ProjectTargetPlatform `pulumi:"targetPlatform"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
-	// List of DatabaseInfo
-	DatabasesInfo DatabaseInfoArrayInput
-	// Name of the resource group
-	GroupName pulumi.StringInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Name of the project
-	ProjectName pulumi.StringPtrInput
-	// Name of the service
-	ServiceName pulumi.StringInput
-	// Information for connecting to source
+	DatabasesInfo        DatabaseInfoArrayInput
+	GroupName            pulumi.StringInput
+	Location             pulumi.StringPtrInput
+	ProjectName          pulumi.StringPtrInput
+	ServiceName          pulumi.StringInput
 	SourceConnectionInfo SqlConnectionInfoPtrInput
-	// Source platform for the project
-	SourcePlatform ProjectSourcePlatform
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Information for connecting to target
+	SourcePlatform       ProjectSourcePlatformInput
+	Tags                 pulumi.StringMapInput
 	TargetConnectionInfo SqlConnectionInfoPtrInput
-	// Target platform for the project
-	TargetPlatform ProjectTargetPlatform
+	TargetPlatform       ProjectTargetPlatformInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -195,9 +169,7 @@ func (i *Project) ToProjectOutputWithContext(ctx context.Context) ProjectOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectOutput)
 }
 
-type ProjectOutput struct {
-	*pulumi.OutputState
-}
+type ProjectOutput struct{ *pulumi.OutputState }
 
 func (ProjectOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Project)(nil))

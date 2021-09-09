@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The description of the Windows IoT Device Service.
 type Service struct {
 	pulumi.CustomResourceState
 
-	// Windows IoT Device Service OEM AAD domain
-	AdminDomainName pulumi.StringPtrOutput `pulumi:"adminDomainName"`
-	// Windows IoT Device Service ODM AAD domain
-	BillingDomainName pulumi.StringPtrOutput `pulumi:"billingDomainName"`
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Windows IoT Device Service notes.
-	Notes pulumi.StringPtrOutput `pulumi:"notes"`
-	// Windows IoT Device Service device allocation,
-	Quantity pulumi.Float64PtrOutput `pulumi:"quantity"`
-	// Windows IoT Device Service start date,
-	StartDate pulumi.StringOutput `pulumi:"startDate"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AdminDomainName   pulumi.StringPtrOutput  `pulumi:"adminDomainName"`
+	BillingDomainName pulumi.StringPtrOutput  `pulumi:"billingDomainName"`
+	Etag              pulumi.StringPtrOutput  `pulumi:"etag"`
+	Location          pulumi.StringPtrOutput  `pulumi:"location"`
+	Name              pulumi.StringOutput     `pulumi:"name"`
+	Notes             pulumi.StringPtrOutput  `pulumi:"notes"`
+	Quantity          pulumi.Float64PtrOutput `pulumi:"quantity"`
+	StartDate         pulumi.StringOutput     `pulumi:"startDate"`
+	Tags              pulumi.StringMapOutput  `pulumi:"tags"`
+	Type              pulumi.StringOutput     `pulumi:"type"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -97,46 +86,28 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// Windows IoT Device Service OEM AAD domain
-	AdminDomainName *string `pulumi:"adminDomainName"`
-	// Windows IoT Device Service ODM AAD domain
-	BillingDomainName *string `pulumi:"billingDomainName"`
-	// The name of the Windows IoT Device Service.
-	DeviceName *string `pulumi:"deviceName"`
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag *string `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// Windows IoT Device Service notes.
-	Notes *string `pulumi:"notes"`
-	// Windows IoT Device Service device allocation,
-	Quantity *float64 `pulumi:"quantity"`
-	// The name of the resource group that contains the Windows IoT Device Service.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AdminDomainName   *string           `pulumi:"adminDomainName"`
+	BillingDomainName *string           `pulumi:"billingDomainName"`
+	DeviceName        *string           `pulumi:"deviceName"`
+	Etag              *string           `pulumi:"etag"`
+	Location          *string           `pulumi:"location"`
+	Notes             *string           `pulumi:"notes"`
+	Quantity          *float64          `pulumi:"quantity"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// Windows IoT Device Service OEM AAD domain
-	AdminDomainName pulumi.StringPtrInput
-	// Windows IoT Device Service ODM AAD domain
+	AdminDomainName   pulumi.StringPtrInput
 	BillingDomainName pulumi.StringPtrInput
-	// The name of the Windows IoT Device Service.
-	DeviceName pulumi.StringPtrInput
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag pulumi.StringPtrInput
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput
-	// Windows IoT Device Service notes.
-	Notes pulumi.StringPtrInput
-	// Windows IoT Device Service device allocation,
-	Quantity pulumi.Float64PtrInput
-	// The name of the resource group that contains the Windows IoT Device Service.
+	DeviceName        pulumi.StringPtrInput
+	Etag              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Notes             pulumi.StringPtrInput
+	Quantity          pulumi.Float64PtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -162,9 +133,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
-type ServiceOutput struct {
-	*pulumi.OutputState
-}
+type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Service)(nil))

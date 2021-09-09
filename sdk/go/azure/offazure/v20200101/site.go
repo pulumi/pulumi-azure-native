@@ -11,21 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Site REST Resource.
 type Site struct {
 	pulumi.CustomResourceState
 
-	// eTag for concurrency control.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Azure location in which Sites is created.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Name of the VMware site.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Nested properties of VMWare site.
+	ETag       pulumi.StringPtrOutput       `pulumi:"eTag"`
+	Location   pulumi.StringPtrOutput       `pulumi:"location"`
+	Name       pulumi.StringPtrOutput       `pulumi:"name"`
 	Properties SitePropertiesResponseOutput `pulumi:"properties"`
 	Tags       pulumi.StringMapOutput       `pulumi:"tags"`
-	// Type of resource. Type = Microsoft.OffAzure/VMWareSites.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput          `pulumi:"type"`
 }
 
 // NewSite registers a new resource with the given unique name, arguments, and options.
@@ -88,36 +82,24 @@ func (SiteState) ElementType() reflect.Type {
 }
 
 type siteArgs struct {
-	// eTag for concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Azure location in which Sites is created.
-	Location *string `pulumi:"location"`
-	// Name of the VMware site.
-	Name *string `pulumi:"name"`
-	// Nested properties of VMWare site.
-	Properties *SiteProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Site name.
-	SiteName *string           `pulumi:"siteName"`
-	Tags     map[string]string `pulumi:"tags"`
+	ETag              *string           `pulumi:"eTag"`
+	Location          *string           `pulumi:"location"`
+	Name              *string           `pulumi:"name"`
+	Properties        *SiteProperties   `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	SiteName          *string           `pulumi:"siteName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Site resource.
 type SiteArgs struct {
-	// eTag for concurrency control.
-	ETag pulumi.StringPtrInput
-	// Azure location in which Sites is created.
-	Location pulumi.StringPtrInput
-	// Name of the VMware site.
-	Name pulumi.StringPtrInput
-	// Nested properties of VMWare site.
-	Properties SitePropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
+	ETag              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	Properties        SitePropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Site name.
-	SiteName pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
+	SiteName          pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (SiteArgs) ElementType() reflect.Type {
@@ -143,9 +125,7 @@ func (i *Site) ToSiteOutputWithContext(ctx context.Context) SiteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SiteOutput)
 }
 
-type SiteOutput struct {
-	*pulumi.OutputState
-}
+type SiteOutput struct{ *pulumi.OutputState }
 
 func (SiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Site)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
 func LookupCustomDomain(ctx *pulumi.Context, args *LookupCustomDomainArgs, opts ...pulumi.InvokeOption) (*LookupCustomDomainResult, error) {
 	var rv LookupCustomDomainResult
 	err := ctx.Invoke("azure-native:cdn/v20150601:getCustomDomain", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupCustomDomain(ctx *pulumi.Context, args *LookupCustomDomainArgs, opts 
 }
 
 type LookupCustomDomainArgs struct {
-	// Name of the custom domain within an endpoint.
-	CustomDomainName string `pulumi:"customDomainName"`
-	// Name of the endpoint within the CDN profile.
-	EndpointName string `pulumi:"endpointName"`
-	// Name of the CDN profile within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Name of the resource group within the Azure subscription.
+	CustomDomainName  string `pulumi:"customDomainName"`
+	EndpointName      string `pulumi:"endpointName"`
+	ProfileName       string `pulumi:"profileName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
 type LookupCustomDomainResult struct {
-	// The host name of the custom domain. Must be a domain name.
-	HostName string `pulumi:"hostName"`
-	// Resource ID
-	Id string `pulumi:"id"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Provisioning status of the custom domain.
+	HostName          string `pulumi:"hostName"`
+	Id                string `pulumi:"id"`
+	Name              string `pulumi:"name"`
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource status of the custom domain.
-	ResourceState string `pulumi:"resourceState"`
-	// Resource type
-	Type string `pulumi:"type"`
+	ResourceState     string `pulumi:"resourceState"`
+	Type              string `pulumi:"type"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Action rule object containing target scope, conditions and suppression logic
 func LookupActionRuleByName(ctx *pulumi.Context, args *LookupActionRuleByNameArgs, opts ...pulumi.InvokeOption) (*LookupActionRuleByNameResult, error) {
 	var rv LookupActionRuleByNameResult
 	err := ctx.Invoke("azure-native:alertsmanagement/v20190505preview:getActionRuleByName", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupActionRuleByName(ctx *pulumi.Context, args *LookupActionRuleByNameArg
 }
 
 type LookupActionRuleByNameArgs struct {
-	// The name of action rule that needs to be fetched
-	ActionRuleName string `pulumi:"actionRuleName"`
-	// Resource group name where the resource is created.
+	ActionRuleName    string `pulumi:"actionRuleName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Action rule object containing target scope, conditions and suppression logic
 type LookupActionRuleByNameResult struct {
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// action rule properties
-	Properties interface{} `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Id         string            `pulumi:"id"`
+	Location   string            `pulumi:"location"`
+	Name       string            `pulumi:"name"`
+	Properties interface{}       `pulumi:"properties"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

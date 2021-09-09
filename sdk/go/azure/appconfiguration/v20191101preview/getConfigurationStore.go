@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
 func LookupConfigurationStore(ctx *pulumi.Context, args *LookupConfigurationStoreArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationStoreResult, error) {
 	var rv LookupConfigurationStoreResult
 	err := ctx.Invoke("azure-native:appconfiguration/v20191101preview:getConfigurationStore", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupConfigurationStore(ctx *pulumi.Context, args *LookupConfigurationStor
 }
 
 type LookupConfigurationStoreArgs struct {
-	// The name of the configuration store.
-	ConfigStoreName string `pulumi:"configStoreName"`
-	// The name of the resource group to which the container registry belongs.
+	ConfigStoreName   string `pulumi:"configStoreName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
 type LookupConfigurationStoreResult struct {
-	// The creation date of configuration store.
-	CreationDate string `pulumi:"creationDate"`
-	// The encryption settings of the configuration store.
-	Encryption *EncryptionPropertiesResponse `pulumi:"encryption"`
-	// The DNS endpoint where the configuration store API will be available.
-	Endpoint string `pulumi:"endpoint"`
-	// The resource ID.
-	Id string `pulumi:"id"`
-	// The managed identity information, if configured.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The list of private endpoint connections that are set up for this resource.
+	CreationDate               string                                       `pulumi:"creationDate"`
+	Encryption                 *EncryptionPropertiesResponse                `pulumi:"encryption"`
+	Endpoint                   string                                       `pulumi:"endpoint"`
+	Id                         string                                       `pulumi:"id"`
+	Identity                   *ResourceIdentityResponse                    `pulumi:"identity"`
+	Location                   string                                       `pulumi:"location"`
+	Name                       string                                       `pulumi:"name"`
 	PrivateEndpointConnections []PrivateEndpointConnectionReferenceResponse `pulumi:"privateEndpointConnections"`
-	// The provisioning state of the configuration store.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The sku of the configuration store.
-	Sku SkuResponse `pulumi:"sku"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	ProvisioningState          string                                       `pulumi:"provisioningState"`
+	PublicNetworkAccess        *string                                      `pulumi:"publicNetworkAccess"`
+	Sku                        SkuResponse                                  `pulumi:"sku"`
+	Tags                       map[string]string                            `pulumi:"tags"`
+	Type                       string                                       `pulumi:"type"`
 }

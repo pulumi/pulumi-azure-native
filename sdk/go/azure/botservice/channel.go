@@ -180,9 +180,7 @@ func (i *Channel) ToChannelOutputWithContext(ctx context.Context) ChannelOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutput)
 }
 
-type ChannelOutput struct {
-	*pulumi.OutputState
-}
+type ChannelOutput struct{ *pulumi.OutputState }
 
 func (ChannelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Channel)(nil))

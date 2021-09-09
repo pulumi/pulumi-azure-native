@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Result of the request to list networkManagerEffectiveConnectivityConfiguration. It contains a list of groups and a skiptoken to get the next set of results.
 func ListEffectiveConnectivityConfiguration(ctx *pulumi.Context, args *ListEffectiveConnectivityConfigurationArgs, opts ...pulumi.InvokeOption) (*ListEffectiveConnectivityConfigurationResult, error) {
 	var rv ListEffectiveConnectivityConfigurationResult
 	err := ctx.Invoke("azure-native:network/v20210201preview:listEffectiveConnectivityConfiguration", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListEffectiveConnectivityConfiguration(ctx *pulumi.Context, args *ListEffec
 }
 
 type ListEffectiveConnectivityConfigurationArgs struct {
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
-	SkipToken *string `pulumi:"skipToken"`
-	// The name of the virtual network.
-	VirtualNetworkName string `pulumi:"virtualNetworkName"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
+	SkipToken          *string `pulumi:"skipToken"`
+	VirtualNetworkName string  `pulumi:"virtualNetworkName"`
 }
 
 // Result of the request to list networkManagerEffectiveConnectivityConfiguration. It contains a list of groups and a skiptoken to get the next set of results.
 type ListEffectiveConnectivityConfigurationResult struct {
-	// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
-	SkipToken *string `pulumi:"skipToken"`
-	// Gets a page of NetworkManagerEffectiveConnectivityConfiguration
-	Value []EffectiveConnectivityConfigurationResponse `pulumi:"value"`
+	SkipToken *string                                      `pulumi:"skipToken"`
+	Value     []EffectiveConnectivityConfigurationResponse `pulumi:"value"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The QueueStatus of Agent Pool
 func ListAgentPoolQueueStatus(ctx *pulumi.Context, args *ListAgentPoolQueueStatusArgs, opts ...pulumi.InvokeOption) (*ListAgentPoolQueueStatusResult, error) {
 	var rv ListAgentPoolQueueStatusResult
 	err := ctx.Invoke("azure-native:containerregistry/v20190601preview:listAgentPoolQueueStatus", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListAgentPoolQueueStatus(ctx *pulumi.Context, args *ListAgentPoolQueueStatu
 }
 
 type ListAgentPoolQueueStatusArgs struct {
-	// The name of the agent pool.
-	AgentPoolName string `pulumi:"agentPoolName"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
+	AgentPoolName     string `pulumi:"agentPoolName"`
+	RegistryName      string `pulumi:"registryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The QueueStatus of Agent Pool
 type ListAgentPoolQueueStatusResult struct {
-	// The number of pending runs in the queue
 	Count *int `pulumi:"count"`
 }

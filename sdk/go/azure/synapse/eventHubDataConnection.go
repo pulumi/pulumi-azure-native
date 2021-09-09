@@ -211,9 +211,7 @@ func (i *EventHubDataConnection) ToEventHubDataConnectionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubDataConnectionOutput)
 }
 
-type EventHubDataConnectionOutput struct {
-	*pulumi.OutputState
-}
+type EventHubDataConnectionOutput struct{ *pulumi.OutputState }
 
 func (EventHubDataConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHubDataConnection)(nil))

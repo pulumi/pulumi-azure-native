@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contact details and configurations for notifications coming from Azure Security Center.
 func LookupSecurityContact(ctx *pulumi.Context, args *LookupSecurityContactArgs, opts ...pulumi.InvokeOption) (*LookupSecurityContactResult, error) {
 	var rv LookupSecurityContactResult
 	err := ctx.Invoke("azure-native:security/v20200101preview:getSecurityContact", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupSecurityContact(ctx *pulumi.Context, args *LookupSecurityContactArgs,
 }
 
 type LookupSecurityContactArgs struct {
-	// Name of the security contact object
 	SecurityContactName string `pulumi:"securityContactName"`
 }
 
 // Contact details and configurations for notifications coming from Azure Security Center.
 type LookupSecurityContactResult struct {
-	// Defines whether to send email notifications about new security alerts
-	AlertNotifications *SecurityContactPropertiesResponseAlertNotifications `pulumi:"alertNotifications"`
-	// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
-	Emails *string `pulumi:"emails"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	AlertNotifications  *SecurityContactPropertiesResponseAlertNotifications  `pulumi:"alertNotifications"`
+	Emails              *string                                               `pulumi:"emails"`
+	Id                  string                                                `pulumi:"id"`
+	Name                string                                                `pulumi:"name"`
 	NotificationsByRole *SecurityContactPropertiesResponseNotificationsByRole `pulumi:"notificationsByRole"`
-	// The security contact's phone number
-	Phone *string `pulumi:"phone"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Phone               *string                                               `pulumi:"phone"`
+	Type                string                                                `pulumi:"type"`
 }

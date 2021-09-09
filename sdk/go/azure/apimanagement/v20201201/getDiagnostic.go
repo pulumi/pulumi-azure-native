@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Diagnostic details.
 func LookupDiagnostic(ctx *pulumi.Context, args *LookupDiagnosticArgs, opts ...pulumi.InvokeOption) (*LookupDiagnosticResult, error) {
 	var rv LookupDiagnosticResult
 	err := ctx.Invoke("azure-native:apimanagement/v20201201:getDiagnostic", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupDiagnostic(ctx *pulumi.Context, args *LookupDiagnosticArgs, opts ...p
 }
 
 type LookupDiagnosticArgs struct {
-	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	DiagnosticId string `pulumi:"diagnosticId"`
-	// The name of the resource group.
+	DiagnosticId      string `pulumi:"diagnosticId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Diagnostic details.
 type LookupDiagnosticResult struct {
-	// Specifies for what type of messages sampling settings should not apply.
-	AlwaysLog *string `pulumi:"alwaysLog"`
-	// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
-	Backend *PipelineDiagnosticSettingsResponse `pulumi:"backend"`
-	// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
-	Frontend *PipelineDiagnosticSettingsResponse `pulumi:"frontend"`
-	// Sets correlation protocol to use for Application Insights diagnostics.
-	HttpCorrelationProtocol *string `pulumi:"httpCorrelationProtocol"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Log the ClientIP. Default is false.
-	LogClientIp *bool `pulumi:"logClientIp"`
-	// Resource Id of a target logger.
-	LoggerId string `pulumi:"loggerId"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The format of the Operation Name for Application Insights telemetries. Default is Name.
-	OperationNameFormat *string `pulumi:"operationNameFormat"`
-	// Sampling settings for Diagnostic.
-	Sampling *SamplingSettingsResponse `pulumi:"sampling"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-	// The verbosity level applied to traces emitted by trace policies.
-	Verbosity *string `pulumi:"verbosity"`
+	AlwaysLog               *string                             `pulumi:"alwaysLog"`
+	Backend                 *PipelineDiagnosticSettingsResponse `pulumi:"backend"`
+	Frontend                *PipelineDiagnosticSettingsResponse `pulumi:"frontend"`
+	HttpCorrelationProtocol *string                             `pulumi:"httpCorrelationProtocol"`
+	Id                      string                              `pulumi:"id"`
+	LogClientIp             *bool                               `pulumi:"logClientIp"`
+	LoggerId                string                              `pulumi:"loggerId"`
+	Name                    string                              `pulumi:"name"`
+	OperationNameFormat     *string                             `pulumi:"operationNameFormat"`
+	Sampling                *SamplingSettingsResponse           `pulumi:"sampling"`
+	Type                    string                              `pulumi:"type"`
+	Verbosity               *string                             `pulumi:"verbosity"`
 }

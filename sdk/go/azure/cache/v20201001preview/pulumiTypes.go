@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SKU parameters supplied to the create RedisEnterprise operation.
 type EnterpriseSku struct {
-	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
-	Capacity *int `pulumi:"capacity"`
-	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-	Name string `pulumi:"name"`
+	Capacity *int   `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
 }
 
 // EnterpriseSkuInput is an input type that accepts EnterpriseSkuArgs and EnterpriseSkuOutput values.
@@ -29,12 +26,9 @@ type EnterpriseSkuInput interface {
 	ToEnterpriseSkuOutputWithContext(context.Context) EnterpriseSkuOutput
 }
 
-// SKU parameters supplied to the create RedisEnterprise operation.
 type EnterpriseSkuArgs struct {
-	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-	Name pulumi.StringInput `pulumi:"name"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (EnterpriseSkuArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *enterpriseSkuPtrType) ToEnterpriseSkuPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseSkuPtrOutput)
 }
 
-// SKU parameters supplied to the create RedisEnterprise operation.
 type EnterpriseSkuOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseSkuOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o EnterpriseSkuOutput) ToEnterpriseSkuPtrOutput() EnterpriseSkuPtrOutput {
 }
 
 func (o EnterpriseSkuOutput) ToEnterpriseSkuPtrOutputWithContext(ctx context.Context) EnterpriseSkuPtrOutput {
-	return o.ApplyT(func(v EnterpriseSku) *EnterpriseSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterpriseSku) *EnterpriseSku {
 		return &v
 	}).(EnterpriseSkuPtrOutput)
 }
 
-// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 func (o EnterpriseSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EnterpriseSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 func (o EnterpriseSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EnterpriseSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -140,10 +131,15 @@ func (o EnterpriseSkuPtrOutput) ToEnterpriseSkuPtrOutputWithContext(ctx context.
 }
 
 func (o EnterpriseSkuPtrOutput) Elem() EnterpriseSkuOutput {
-	return o.ApplyT(func(v *EnterpriseSku) EnterpriseSku { return *v }).(EnterpriseSkuOutput)
+	return o.ApplyT(func(v *EnterpriseSku) EnterpriseSku {
+		if v != nil {
+			return *v
+		}
+		var ret EnterpriseSku
+		return ret
+	}).(EnterpriseSkuOutput)
 }
 
-// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 func (o EnterpriseSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EnterpriseSku) *int {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o EnterpriseSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 func (o EnterpriseSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterpriseSku) *string {
 		if v == nil {
@@ -163,12 +158,9 @@ func (o EnterpriseSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU parameters supplied to the create RedisEnterprise operation.
 type EnterpriseSkuResponse struct {
-	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
-	Capacity *int `pulumi:"capacity"`
-	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-	Name string `pulumi:"name"`
+	Capacity *int   `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
 }
 
 // EnterpriseSkuResponseInput is an input type that accepts EnterpriseSkuResponseArgs and EnterpriseSkuResponseOutput values.
@@ -182,12 +174,9 @@ type EnterpriseSkuResponseInput interface {
 	ToEnterpriseSkuResponseOutputWithContext(context.Context) EnterpriseSkuResponseOutput
 }
 
-// SKU parameters supplied to the create RedisEnterprise operation.
 type EnterpriseSkuResponseArgs struct {
-	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-	Name pulumi.StringInput `pulumi:"name"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (EnterpriseSkuResponseArgs) ElementType() reflect.Type {
@@ -243,7 +232,6 @@ func (i *enterpriseSkuResponsePtrType) ToEnterpriseSkuResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseSkuResponsePtrOutput)
 }
 
-// SKU parameters supplied to the create RedisEnterprise operation.
 type EnterpriseSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseSkuResponseOutput) ElementType() reflect.Type {
@@ -263,17 +251,15 @@ func (o EnterpriseSkuResponseOutput) ToEnterpriseSkuResponsePtrOutput() Enterpri
 }
 
 func (o EnterpriseSkuResponseOutput) ToEnterpriseSkuResponsePtrOutputWithContext(ctx context.Context) EnterpriseSkuResponsePtrOutput {
-	return o.ApplyT(func(v EnterpriseSkuResponse) *EnterpriseSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterpriseSkuResponse) *EnterpriseSkuResponse {
 		return &v
 	}).(EnterpriseSkuResponsePtrOutput)
 }
 
-// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 func (o EnterpriseSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EnterpriseSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 func (o EnterpriseSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EnterpriseSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -293,10 +279,15 @@ func (o EnterpriseSkuResponsePtrOutput) ToEnterpriseSkuResponsePtrOutputWithCont
 }
 
 func (o EnterpriseSkuResponsePtrOutput) Elem() EnterpriseSkuResponseOutput {
-	return o.ApplyT(func(v *EnterpriseSkuResponse) EnterpriseSkuResponse { return *v }).(EnterpriseSkuResponseOutput)
+	return o.ApplyT(func(v *EnterpriseSkuResponse) EnterpriseSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EnterpriseSkuResponse
+		return ret
+	}).(EnterpriseSkuResponseOutput)
 }
 
-// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 func (o EnterpriseSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EnterpriseSkuResponse) *int {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o EnterpriseSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 func (o EnterpriseSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterpriseSkuResponse) *string {
 		if v == nil {
@@ -316,12 +306,9 @@ func (o EnterpriseSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies configuration of a redis module
 type Module struct {
-	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
 	Args *string `pulumi:"args"`
-	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
-	Name string `pulumi:"name"`
+	Name string  `pulumi:"name"`
 }
 
 // ModuleInput is an input type that accepts ModuleArgs and ModuleOutput values.
@@ -335,12 +322,9 @@ type ModuleInput interface {
 	ToModuleOutputWithContext(context.Context) ModuleOutput
 }
 
-// Specifies configuration of a redis module
 type ModuleArgs struct {
-	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
 	Args pulumi.StringPtrInput `pulumi:"args"`
-	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringInput    `pulumi:"name"`
 }
 
 func (ModuleArgs) ElementType() reflect.Type {
@@ -380,7 +364,6 @@ func (i ModuleArray) ToModuleArrayOutputWithContext(ctx context.Context) ModuleA
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleArrayOutput)
 }
 
-// Specifies configuration of a redis module
 type ModuleOutput struct{ *pulumi.OutputState }
 
 func (ModuleOutput) ElementType() reflect.Type {
@@ -395,12 +378,10 @@ func (o ModuleOutput) ToModuleOutputWithContext(ctx context.Context) ModuleOutpu
 	return o
 }
 
-// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
 func (o ModuleOutput) Args() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Module) *string { return v.Args }).(pulumi.StringPtrOutput)
 }
 
-// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
 func (o ModuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Module) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -425,14 +406,10 @@ func (o ModuleArrayOutput) Index(i pulumi.IntInput) ModuleOutput {
 	}).(ModuleOutput)
 }
 
-// Specifies configuration of a redis module
 type ModuleResponse struct {
-	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
-	Args *string `pulumi:"args"`
-	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
-	Name string `pulumi:"name"`
-	// The version of the module, e.g. '1.0'.
-	Version string `pulumi:"version"`
+	Args    *string `pulumi:"args"`
+	Name    string  `pulumi:"name"`
+	Version string  `pulumi:"version"`
 }
 
 // ModuleResponseInput is an input type that accepts ModuleResponseArgs and ModuleResponseOutput values.
@@ -446,14 +423,10 @@ type ModuleResponseInput interface {
 	ToModuleResponseOutputWithContext(context.Context) ModuleResponseOutput
 }
 
-// Specifies configuration of a redis module
 type ModuleResponseArgs struct {
-	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
-	Args pulumi.StringPtrInput `pulumi:"args"`
-	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
-	Name pulumi.StringInput `pulumi:"name"`
-	// The version of the module, e.g. '1.0'.
-	Version pulumi.StringInput `pulumi:"version"`
+	Args    pulumi.StringPtrInput `pulumi:"args"`
+	Name    pulumi.StringInput    `pulumi:"name"`
+	Version pulumi.StringInput    `pulumi:"version"`
 }
 
 func (ModuleResponseArgs) ElementType() reflect.Type {
@@ -493,7 +466,6 @@ func (i ModuleResponseArray) ToModuleResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleResponseArrayOutput)
 }
 
-// Specifies configuration of a redis module
 type ModuleResponseOutput struct{ *pulumi.OutputState }
 
 func (ModuleResponseOutput) ElementType() reflect.Type {
@@ -508,17 +480,14 @@ func (o ModuleResponseOutput) ToModuleResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
 func (o ModuleResponseOutput) Args() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModuleResponse) *string { return v.Args }).(pulumi.StringPtrOutput)
 }
 
-// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
 func (o ModuleResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ModuleResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The version of the module, e.g. '1.0'.
 func (o ModuleResponseOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v ModuleResponse) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -543,20 +512,13 @@ func (o ModuleResponseArrayOutput) Index(i pulumi.IntInput) ModuleResponseOutput
 	}).(ModuleResponseOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	Id                                string                                    `pulumi:"id"`
+	Name                              string                                    `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointResponse                  `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	ProvisioningState                 string                                    `pulumi:"provisioningState"`
+	Type                              string                                    `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -570,20 +532,13 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseArgs struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	Id                                pulumi.StringInput                             `pulumi:"id"`
+	Name                              pulumi.StringInput                             `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponsePtrInput                `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringInput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringInput                             `pulumi:"provisioningState"`
+	Type                              pulumi.StringInput                             `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -623,7 +578,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -638,34 +592,28 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the resource
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource of private end point.
 func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// The provisioning state of the private endpoint connection resource.
 func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -690,9 +638,7 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponse struct {
-	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
 }
 
@@ -707,9 +653,7 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseArgs struct {
-	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -766,7 +710,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -786,12 +729,11 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -811,10 +753,15 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -824,14 +771,10 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionState struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -845,14 +788,10 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -908,7 +847,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -928,22 +866,19 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -963,10 +898,15 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -976,7 +916,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -986,7 +925,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -996,14 +934,10 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -1017,14 +951,10 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -1080,7 +1010,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -1100,22 +1029,19 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1136,11 +1062,14 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1150,7 +1079,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1160,7 +1088,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {

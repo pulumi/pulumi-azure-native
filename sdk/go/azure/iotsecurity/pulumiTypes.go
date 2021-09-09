@@ -106,7 +106,7 @@ func (o DefenderSettingsPropertiesMdeIntegrationOutput) ToDefenderSettingsProper
 }
 
 func (o DefenderSettingsPropertiesMdeIntegrationOutput) ToDefenderSettingsPropertiesMdeIntegrationPtrOutputWithContext(ctx context.Context) DefenderSettingsPropertiesMdeIntegrationPtrOutput {
-	return o.ApplyT(func(v DefenderSettingsPropertiesMdeIntegration) *DefenderSettingsPropertiesMdeIntegration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefenderSettingsPropertiesMdeIntegration) *DefenderSettingsPropertiesMdeIntegration {
 		return &v
 	}).(DefenderSettingsPropertiesMdeIntegrationPtrOutput)
 }
@@ -131,7 +131,13 @@ func (o DefenderSettingsPropertiesMdeIntegrationPtrOutput) ToDefenderSettingsPro
 }
 
 func (o DefenderSettingsPropertiesMdeIntegrationPtrOutput) Elem() DefenderSettingsPropertiesMdeIntegrationOutput {
-	return o.ApplyT(func(v *DefenderSettingsPropertiesMdeIntegration) DefenderSettingsPropertiesMdeIntegration { return *v }).(DefenderSettingsPropertiesMdeIntegrationOutput)
+	return o.ApplyT(func(v *DefenderSettingsPropertiesMdeIntegration) DefenderSettingsPropertiesMdeIntegration {
+		if v != nil {
+			return *v
+		}
+		var ret DefenderSettingsPropertiesMdeIntegration
+		return ret
+	}).(DefenderSettingsPropertiesMdeIntegrationOutput)
 }
 
 // Integration status
@@ -240,7 +246,7 @@ func (o DefenderSettingsPropertiesResponseMdeIntegrationOutput) ToDefenderSettin
 }
 
 func (o DefenderSettingsPropertiesResponseMdeIntegrationOutput) ToDefenderSettingsPropertiesResponseMdeIntegrationPtrOutputWithContext(ctx context.Context) DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput {
-	return o.ApplyT(func(v DefenderSettingsPropertiesResponseMdeIntegration) *DefenderSettingsPropertiesResponseMdeIntegration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefenderSettingsPropertiesResponseMdeIntegration) *DefenderSettingsPropertiesResponseMdeIntegration {
 		return &v
 	}).(DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput)
 }
@@ -266,7 +272,11 @@ func (o DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput) ToDefenderSet
 
 func (o DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput) Elem() DefenderSettingsPropertiesResponseMdeIntegrationOutput {
 	return o.ApplyT(func(v *DefenderSettingsPropertiesResponseMdeIntegration) DefenderSettingsPropertiesResponseMdeIntegration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DefenderSettingsPropertiesResponseMdeIntegration
+		return ret
 	}).(DefenderSettingsPropertiesResponseMdeIntegrationOutput)
 }
 
@@ -396,7 +406,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -446,7 +456,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

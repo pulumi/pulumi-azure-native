@@ -10,15 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// BoolEquals Advanced Filter.
 type BoolEqualsAdvancedFilter struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'BoolEquals'.
-	OperatorType string `pulumi:"operatorType"`
-	// The boolean filter value.
-	Value *bool `pulumi:"value"`
+	Key          *string `pulumi:"key"`
+	OperatorType string  `pulumi:"operatorType"`
+	Value        *bool   `pulumi:"value"`
 }
 
 // BoolEqualsAdvancedFilterInput is an input type that accepts BoolEqualsAdvancedFilterArgs and BoolEqualsAdvancedFilterOutput values.
@@ -32,15 +27,10 @@ type BoolEqualsAdvancedFilterInput interface {
 	ToBoolEqualsAdvancedFilterOutputWithContext(context.Context) BoolEqualsAdvancedFilterOutput
 }
 
-// BoolEquals Advanced Filter.
 type BoolEqualsAdvancedFilterArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'BoolEquals'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The boolean filter value.
-	Value pulumi.BoolPtrInput `pulumi:"value"`
+	Key          pulumi.StringPtrInput `pulumi:"key"`
+	OperatorType pulumi.StringInput    `pulumi:"operatorType"`
+	Value        pulumi.BoolPtrInput   `pulumi:"value"`
 }
 
 func (BoolEqualsAdvancedFilterArgs) ElementType() reflect.Type {
@@ -55,7 +45,6 @@ func (i BoolEqualsAdvancedFilterArgs) ToBoolEqualsAdvancedFilterOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BoolEqualsAdvancedFilterOutput)
 }
 
-// BoolEquals Advanced Filter.
 type BoolEqualsAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (BoolEqualsAdvancedFilterOutput) ElementType() reflect.Type {
@@ -70,31 +59,22 @@ func (o BoolEqualsAdvancedFilterOutput) ToBoolEqualsAdvancedFilterOutputWithCont
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o BoolEqualsAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BoolEqualsAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'BoolEquals'.
 func (o BoolEqualsAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v BoolEqualsAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The boolean filter value.
 func (o BoolEqualsAdvancedFilterOutput) Value() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BoolEqualsAdvancedFilter) *bool { return v.Value }).(pulumi.BoolPtrOutput)
 }
 
-// BoolEquals Advanced Filter.
 type BoolEqualsAdvancedFilterResponse struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'BoolEquals'.
-	OperatorType string `pulumi:"operatorType"`
-	// The boolean filter value.
-	Value *bool `pulumi:"value"`
+	Key          *string `pulumi:"key"`
+	OperatorType string  `pulumi:"operatorType"`
+	Value        *bool   `pulumi:"value"`
 }
 
 // BoolEqualsAdvancedFilterResponseInput is an input type that accepts BoolEqualsAdvancedFilterResponseArgs and BoolEqualsAdvancedFilterResponseOutput values.
@@ -108,15 +88,10 @@ type BoolEqualsAdvancedFilterResponseInput interface {
 	ToBoolEqualsAdvancedFilterResponseOutputWithContext(context.Context) BoolEqualsAdvancedFilterResponseOutput
 }
 
-// BoolEquals Advanced Filter.
 type BoolEqualsAdvancedFilterResponseArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'BoolEquals'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The boolean filter value.
-	Value pulumi.BoolPtrInput `pulumi:"value"`
+	Key          pulumi.StringPtrInput `pulumi:"key"`
+	OperatorType pulumi.StringInput    `pulumi:"operatorType"`
+	Value        pulumi.BoolPtrInput   `pulumi:"value"`
 }
 
 func (BoolEqualsAdvancedFilterResponseArgs) ElementType() reflect.Type {
@@ -131,7 +106,6 @@ func (i BoolEqualsAdvancedFilterResponseArgs) ToBoolEqualsAdvancedFilterResponse
 	return pulumi.ToOutputWithContext(ctx, i).(BoolEqualsAdvancedFilterResponseOutput)
 }
 
-// BoolEquals Advanced Filter.
 type BoolEqualsAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (BoolEqualsAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -146,29 +120,21 @@ func (o BoolEqualsAdvancedFilterResponseOutput) ToBoolEqualsAdvancedFilterRespon
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o BoolEqualsAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BoolEqualsAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'BoolEquals'.
 func (o BoolEqualsAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v BoolEqualsAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The boolean filter value.
 func (o BoolEqualsAdvancedFilterResponseOutput) Value() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BoolEqualsAdvancedFilterResponse) *bool { return v.Value }).(pulumi.BoolPtrOutput)
 }
 
-// Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestination struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'EventHub'.
-	EndpointType string `pulumi:"endpointType"`
-	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType string  `pulumi:"endpointType"`
+	ResourceId   *string `pulumi:"resourceId"`
 }
 
 // EventHubEventSubscriptionDestinationInput is an input type that accepts EventHubEventSubscriptionDestinationArgs and EventHubEventSubscriptionDestinationOutput values.
@@ -182,13 +148,9 @@ type EventHubEventSubscriptionDestinationInput interface {
 	ToEventHubEventSubscriptionDestinationOutputWithContext(context.Context) EventHubEventSubscriptionDestinationOutput
 }
 
-// Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestinationArgs struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'EventHub'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (EventHubEventSubscriptionDestinationArgs) ElementType() reflect.Type {
@@ -203,7 +165,6 @@ func (i EventHubEventSubscriptionDestinationArgs) ToEventHubEventSubscriptionDes
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubEventSubscriptionDestinationOutput)
 }
 
-// Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventHubEventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -218,24 +179,17 @@ func (o EventHubEventSubscriptionDestinationOutput) ToEventHubEventSubscriptionD
 	return o
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'EventHub'.
 func (o EventHubEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
 func (o EventHubEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestinationResponse struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'EventHub'.
-	EndpointType string `pulumi:"endpointType"`
-	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType string  `pulumi:"endpointType"`
+	ResourceId   *string `pulumi:"resourceId"`
 }
 
 // EventHubEventSubscriptionDestinationResponseInput is an input type that accepts EventHubEventSubscriptionDestinationResponseArgs and EventHubEventSubscriptionDestinationResponseOutput values.
@@ -249,13 +203,9 @@ type EventHubEventSubscriptionDestinationResponseInput interface {
 	ToEventHubEventSubscriptionDestinationResponseOutputWithContext(context.Context) EventHubEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestinationResponseArgs struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'EventHub'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (EventHubEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
@@ -270,7 +220,6 @@ func (i EventHubEventSubscriptionDestinationResponseArgs) ToEventHubEventSubscri
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubEventSubscriptionDestinationResponseOutput)
 }
 
-// Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (EventHubEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -285,33 +234,20 @@ func (o EventHubEventSubscriptionDestinationResponseOutput) ToEventHubEventSubsc
 	return o
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'EventHub'.
 func (o EventHubEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
 func (o EventHubEventSubscriptionDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Filter for the Event Subscription.
 type EventSubscriptionFilter struct {
-	// An array of advanced filters that are used for filtering event subscriptions.
-	AdvancedFilters []interface{} `pulumi:"advancedFilters"`
-	// A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
-	IncludedEventTypes []string `pulumi:"includedEventTypes"`
-	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-	// should be compared in a case sensitive manner.
-	IsSubjectCaseSensitive *bool `pulumi:"isSubjectCaseSensitive"`
-	// An optional string to filter events for an event subscription based on a resource path prefix.
-	// The format of this depends on the publisher of the events.
-	// Wildcard characters are not supported in this path.
-	SubjectBeginsWith *string `pulumi:"subjectBeginsWith"`
-	// An optional string to filter events for an event subscription based on a resource path suffix.
-	// Wildcard characters are not supported in this path.
-	SubjectEndsWith *string `pulumi:"subjectEndsWith"`
+	AdvancedFilters        []interface{} `pulumi:"advancedFilters"`
+	IncludedEventTypes     []string      `pulumi:"includedEventTypes"`
+	IsSubjectCaseSensitive *bool         `pulumi:"isSubjectCaseSensitive"`
+	SubjectBeginsWith      *string       `pulumi:"subjectBeginsWith"`
+	SubjectEndsWith        *string       `pulumi:"subjectEndsWith"`
 }
 
 // EventSubscriptionFilterInput is an input type that accepts EventSubscriptionFilterArgs and EventSubscriptionFilterOutput values.
@@ -325,22 +261,12 @@ type EventSubscriptionFilterInput interface {
 	ToEventSubscriptionFilterOutputWithContext(context.Context) EventSubscriptionFilterOutput
 }
 
-// Filter for the Event Subscription.
 type EventSubscriptionFilterArgs struct {
-	// An array of advanced filters that are used for filtering event subscriptions.
-	AdvancedFilters pulumi.ArrayInput `pulumi:"advancedFilters"`
-	// A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
-	IncludedEventTypes pulumi.StringArrayInput `pulumi:"includedEventTypes"`
-	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-	// should be compared in a case sensitive manner.
-	IsSubjectCaseSensitive pulumi.BoolPtrInput `pulumi:"isSubjectCaseSensitive"`
-	// An optional string to filter events for an event subscription based on a resource path prefix.
-	// The format of this depends on the publisher of the events.
-	// Wildcard characters are not supported in this path.
-	SubjectBeginsWith pulumi.StringPtrInput `pulumi:"subjectBeginsWith"`
-	// An optional string to filter events for an event subscription based on a resource path suffix.
-	// Wildcard characters are not supported in this path.
-	SubjectEndsWith pulumi.StringPtrInput `pulumi:"subjectEndsWith"`
+	AdvancedFilters        pulumi.ArrayInput       `pulumi:"advancedFilters"`
+	IncludedEventTypes     pulumi.StringArrayInput `pulumi:"includedEventTypes"`
+	IsSubjectCaseSensitive pulumi.BoolPtrInput     `pulumi:"isSubjectCaseSensitive"`
+	SubjectBeginsWith      pulumi.StringPtrInput   `pulumi:"subjectBeginsWith"`
+	SubjectEndsWith        pulumi.StringPtrInput   `pulumi:"subjectEndsWith"`
 }
 
 func (EventSubscriptionFilterArgs) ElementType() reflect.Type {
@@ -396,7 +322,6 @@ func (i *eventSubscriptionFilterPtrType) ToEventSubscriptionFilterPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionFilterPtrOutput)
 }
 
-// Filter for the Event Subscription.
 type EventSubscriptionFilterOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionFilterOutput) ElementType() reflect.Type {
@@ -416,36 +341,27 @@ func (o EventSubscriptionFilterOutput) ToEventSubscriptionFilterPtrOutput() Even
 }
 
 func (o EventSubscriptionFilterOutput) ToEventSubscriptionFilterPtrOutputWithContext(ctx context.Context) EventSubscriptionFilterPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionFilter) *EventSubscriptionFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionFilter) *EventSubscriptionFilter {
 		return &v
 	}).(EventSubscriptionFilterPtrOutput)
 }
 
-// An array of advanced filters that are used for filtering event subscriptions.
 func (o EventSubscriptionFilterOutput) AdvancedFilters() pulumi.ArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionFilter) []interface{} { return v.AdvancedFilters }).(pulumi.ArrayOutput)
 }
 
-// A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
 func (o EventSubscriptionFilterOutput) IncludedEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionFilter) []string { return v.IncludedEventTypes }).(pulumi.StringArrayOutput)
 }
 
-// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-// should be compared in a case sensitive manner.
 func (o EventSubscriptionFilterOutput) IsSubjectCaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilter) *bool { return v.IsSubjectCaseSensitive }).(pulumi.BoolPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path prefix.
-// The format of this depends on the publisher of the events.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilter) *string { return v.SubjectBeginsWith }).(pulumi.StringPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path suffix.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterOutput) SubjectEndsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilter) *string { return v.SubjectEndsWith }).(pulumi.StringPtrOutput)
 }
@@ -465,10 +381,15 @@ func (o EventSubscriptionFilterPtrOutput) ToEventSubscriptionFilterPtrOutputWith
 }
 
 func (o EventSubscriptionFilterPtrOutput) Elem() EventSubscriptionFilterOutput {
-	return o.ApplyT(func(v *EventSubscriptionFilter) EventSubscriptionFilter { return *v }).(EventSubscriptionFilterOutput)
+	return o.ApplyT(func(v *EventSubscriptionFilter) EventSubscriptionFilter {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionFilter
+		return ret
+	}).(EventSubscriptionFilterOutput)
 }
 
-// An array of advanced filters that are used for filtering event subscriptions.
 func (o EventSubscriptionFilterPtrOutput) AdvancedFilters() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilter) []interface{} {
 		if v == nil {
@@ -478,7 +399,6 @@ func (o EventSubscriptionFilterPtrOutput) AdvancedFilters() pulumi.ArrayOutput {
 	}).(pulumi.ArrayOutput)
 }
 
-// A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
 func (o EventSubscriptionFilterPtrOutput) IncludedEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilter) []string {
 		if v == nil {
@@ -488,8 +408,6 @@ func (o EventSubscriptionFilterPtrOutput) IncludedEventTypes() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-// should be compared in a case sensitive manner.
 func (o EventSubscriptionFilterPtrOutput) IsSubjectCaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilter) *bool {
 		if v == nil {
@@ -499,9 +417,6 @@ func (o EventSubscriptionFilterPtrOutput) IsSubjectCaseSensitive() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path prefix.
-// The format of this depends on the publisher of the events.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterPtrOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilter) *string {
 		if v == nil {
@@ -511,8 +426,6 @@ func (o EventSubscriptionFilterPtrOutput) SubjectBeginsWith() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path suffix.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterPtrOutput) SubjectEndsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilter) *string {
 		if v == nil {
@@ -522,22 +435,12 @@ func (o EventSubscriptionFilterPtrOutput) SubjectEndsWith() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Filter for the Event Subscription.
 type EventSubscriptionFilterResponse struct {
-	// An array of advanced filters that are used for filtering event subscriptions.
-	AdvancedFilters []interface{} `pulumi:"advancedFilters"`
-	// A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
-	IncludedEventTypes []string `pulumi:"includedEventTypes"`
-	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-	// should be compared in a case sensitive manner.
-	IsSubjectCaseSensitive *bool `pulumi:"isSubjectCaseSensitive"`
-	// An optional string to filter events for an event subscription based on a resource path prefix.
-	// The format of this depends on the publisher of the events.
-	// Wildcard characters are not supported in this path.
-	SubjectBeginsWith *string `pulumi:"subjectBeginsWith"`
-	// An optional string to filter events for an event subscription based on a resource path suffix.
-	// Wildcard characters are not supported in this path.
-	SubjectEndsWith *string `pulumi:"subjectEndsWith"`
+	AdvancedFilters        []interface{} `pulumi:"advancedFilters"`
+	IncludedEventTypes     []string      `pulumi:"includedEventTypes"`
+	IsSubjectCaseSensitive *bool         `pulumi:"isSubjectCaseSensitive"`
+	SubjectBeginsWith      *string       `pulumi:"subjectBeginsWith"`
+	SubjectEndsWith        *string       `pulumi:"subjectEndsWith"`
 }
 
 // EventSubscriptionFilterResponseInput is an input type that accepts EventSubscriptionFilterResponseArgs and EventSubscriptionFilterResponseOutput values.
@@ -551,22 +454,12 @@ type EventSubscriptionFilterResponseInput interface {
 	ToEventSubscriptionFilterResponseOutputWithContext(context.Context) EventSubscriptionFilterResponseOutput
 }
 
-// Filter for the Event Subscription.
 type EventSubscriptionFilterResponseArgs struct {
-	// An array of advanced filters that are used for filtering event subscriptions.
-	AdvancedFilters pulumi.ArrayInput `pulumi:"advancedFilters"`
-	// A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
-	IncludedEventTypes pulumi.StringArrayInput `pulumi:"includedEventTypes"`
-	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-	// should be compared in a case sensitive manner.
-	IsSubjectCaseSensitive pulumi.BoolPtrInput `pulumi:"isSubjectCaseSensitive"`
-	// An optional string to filter events for an event subscription based on a resource path prefix.
-	// The format of this depends on the publisher of the events.
-	// Wildcard characters are not supported in this path.
-	SubjectBeginsWith pulumi.StringPtrInput `pulumi:"subjectBeginsWith"`
-	// An optional string to filter events for an event subscription based on a resource path suffix.
-	// Wildcard characters are not supported in this path.
-	SubjectEndsWith pulumi.StringPtrInput `pulumi:"subjectEndsWith"`
+	AdvancedFilters        pulumi.ArrayInput       `pulumi:"advancedFilters"`
+	IncludedEventTypes     pulumi.StringArrayInput `pulumi:"includedEventTypes"`
+	IsSubjectCaseSensitive pulumi.BoolPtrInput     `pulumi:"isSubjectCaseSensitive"`
+	SubjectBeginsWith      pulumi.StringPtrInput   `pulumi:"subjectBeginsWith"`
+	SubjectEndsWith        pulumi.StringPtrInput   `pulumi:"subjectEndsWith"`
 }
 
 func (EventSubscriptionFilterResponseArgs) ElementType() reflect.Type {
@@ -622,7 +515,6 @@ func (i *eventSubscriptionFilterResponsePtrType) ToEventSubscriptionFilterRespon
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionFilterResponsePtrOutput)
 }
 
-// Filter for the Event Subscription.
 type EventSubscriptionFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionFilterResponseOutput) ElementType() reflect.Type {
@@ -642,36 +534,27 @@ func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponse
 }
 
 func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionFilterResponsePtrOutput {
-	return o.ApplyT(func(v EventSubscriptionFilterResponse) *EventSubscriptionFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionFilterResponse) *EventSubscriptionFilterResponse {
 		return &v
 	}).(EventSubscriptionFilterResponsePtrOutput)
 }
 
-// An array of advanced filters that are used for filtering event subscriptions.
 func (o EventSubscriptionFilterResponseOutput) AdvancedFilters() pulumi.ArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionFilterResponse) []interface{} { return v.AdvancedFilters }).(pulumi.ArrayOutput)
 }
 
-// A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
 func (o EventSubscriptionFilterResponseOutput) IncludedEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionFilterResponse) []string { return v.IncludedEventTypes }).(pulumi.StringArrayOutput)
 }
 
-// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-// should be compared in a case sensitive manner.
 func (o EventSubscriptionFilterResponseOutput) IsSubjectCaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilterResponse) *bool { return v.IsSubjectCaseSensitive }).(pulumi.BoolPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path prefix.
-// The format of this depends on the publisher of the events.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterResponseOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilterResponse) *string { return v.SubjectBeginsWith }).(pulumi.StringPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path suffix.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterResponseOutput) SubjectEndsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilterResponse) *string { return v.SubjectEndsWith }).(pulumi.StringPtrOutput)
 }
@@ -691,10 +574,15 @@ func (o EventSubscriptionFilterResponsePtrOutput) ToEventSubscriptionFilterRespo
 }
 
 func (o EventSubscriptionFilterResponsePtrOutput) Elem() EventSubscriptionFilterResponseOutput {
-	return o.ApplyT(func(v *EventSubscriptionFilterResponse) EventSubscriptionFilterResponse { return *v }).(EventSubscriptionFilterResponseOutput)
+	return o.ApplyT(func(v *EventSubscriptionFilterResponse) EventSubscriptionFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionFilterResponse
+		return ret
+	}).(EventSubscriptionFilterResponseOutput)
 }
 
-// An array of advanced filters that are used for filtering event subscriptions.
 func (o EventSubscriptionFilterResponsePtrOutput) AdvancedFilters() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilterResponse) []interface{} {
 		if v == nil {
@@ -704,7 +592,6 @@ func (o EventSubscriptionFilterResponsePtrOutput) AdvancedFilters() pulumi.Array
 	}).(pulumi.ArrayOutput)
 }
 
-// A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
 func (o EventSubscriptionFilterResponsePtrOutput) IncludedEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilterResponse) []string {
 		if v == nil {
@@ -714,8 +601,6 @@ func (o EventSubscriptionFilterResponsePtrOutput) IncludedEventTypes() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-// should be compared in a case sensitive manner.
 func (o EventSubscriptionFilterResponsePtrOutput) IsSubjectCaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilterResponse) *bool {
 		if v == nil {
@@ -725,9 +610,6 @@ func (o EventSubscriptionFilterResponsePtrOutput) IsSubjectCaseSensitive() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path prefix.
-// The format of this depends on the publisher of the events.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterResponsePtrOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilterResponse) *string {
 		if v == nil {
@@ -737,8 +619,6 @@ func (o EventSubscriptionFilterResponsePtrOutput) SubjectBeginsWith() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path suffix.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterResponsePtrOutput) SubjectEndsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilterResponse) *string {
 		if v == nil {
@@ -748,13 +628,9 @@ func (o EventSubscriptionFilterResponsePtrOutput) SubjectEndsWith() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestination struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'HybridConnection'.
-	EndpointType string `pulumi:"endpointType"`
-	// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType string  `pulumi:"endpointType"`
+	ResourceId   *string `pulumi:"resourceId"`
 }
 
 // HybridConnectionEventSubscriptionDestinationInput is an input type that accepts HybridConnectionEventSubscriptionDestinationArgs and HybridConnectionEventSubscriptionDestinationOutput values.
@@ -768,13 +644,9 @@ type HybridConnectionEventSubscriptionDestinationInput interface {
 	ToHybridConnectionEventSubscriptionDestinationOutputWithContext(context.Context) HybridConnectionEventSubscriptionDestinationOutput
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestinationArgs struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'HybridConnection'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (HybridConnectionEventSubscriptionDestinationArgs) ElementType() reflect.Type {
@@ -789,7 +661,6 @@ func (i HybridConnectionEventSubscriptionDestinationArgs) ToHybridConnectionEven
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionEventSubscriptionDestinationOutput)
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (HybridConnectionEventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -804,24 +675,17 @@ func (o HybridConnectionEventSubscriptionDestinationOutput) ToHybridConnectionEv
 	return o
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'HybridConnection'.
 func (o HybridConnectionEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
 func (o HybridConnectionEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestinationResponse struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'HybridConnection'.
-	EndpointType string `pulumi:"endpointType"`
-	// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType string  `pulumi:"endpointType"`
+	ResourceId   *string `pulumi:"resourceId"`
 }
 
 // HybridConnectionEventSubscriptionDestinationResponseInput is an input type that accepts HybridConnectionEventSubscriptionDestinationResponseArgs and HybridConnectionEventSubscriptionDestinationResponseOutput values.
@@ -835,13 +699,9 @@ type HybridConnectionEventSubscriptionDestinationResponseInput interface {
 	ToHybridConnectionEventSubscriptionDestinationResponseOutputWithContext(context.Context) HybridConnectionEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestinationResponseArgs struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'HybridConnection'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (HybridConnectionEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
@@ -856,7 +716,6 @@ func (i HybridConnectionEventSubscriptionDestinationResponseArgs) ToHybridConnec
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionEventSubscriptionDestinationResponseOutput)
 }
 
-// Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (HybridConnectionEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -871,26 +730,18 @@ func (o HybridConnectionEventSubscriptionDestinationResponseOutput) ToHybridConn
 	return o
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'HybridConnection'.
 func (o HybridConnectionEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
 func (o HybridConnectionEventSubscriptionDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// NumberGreaterThan Advanced Filter.
 type NumberGreaterThanAdvancedFilter struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberGreaterThan'.
-	OperatorType string `pulumi:"operatorType"`
-	// The filter value.
-	Value *float64 `pulumi:"value"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Value        *float64 `pulumi:"value"`
 }
 
 // NumberGreaterThanAdvancedFilterInput is an input type that accepts NumberGreaterThanAdvancedFilterArgs and NumberGreaterThanAdvancedFilterOutput values.
@@ -904,15 +755,10 @@ type NumberGreaterThanAdvancedFilterInput interface {
 	ToNumberGreaterThanAdvancedFilterOutputWithContext(context.Context) NumberGreaterThanAdvancedFilterOutput
 }
 
-// NumberGreaterThan Advanced Filter.
 type NumberGreaterThanAdvancedFilterArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberGreaterThan'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The filter value.
-	Value pulumi.Float64PtrInput `pulumi:"value"`
+	Key          pulumi.StringPtrInput  `pulumi:"key"`
+	OperatorType pulumi.StringInput     `pulumi:"operatorType"`
+	Value        pulumi.Float64PtrInput `pulumi:"value"`
 }
 
 func (NumberGreaterThanAdvancedFilterArgs) ElementType() reflect.Type {
@@ -927,7 +773,6 @@ func (i NumberGreaterThanAdvancedFilterArgs) ToNumberGreaterThanAdvancedFilterOu
 	return pulumi.ToOutputWithContext(ctx, i).(NumberGreaterThanAdvancedFilterOutput)
 }
 
-// NumberGreaterThan Advanced Filter.
 type NumberGreaterThanAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (NumberGreaterThanAdvancedFilterOutput) ElementType() reflect.Type {
@@ -942,31 +787,22 @@ func (o NumberGreaterThanAdvancedFilterOutput) ToNumberGreaterThanAdvancedFilter
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o NumberGreaterThanAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NumberGreaterThanAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'NumberGreaterThan'.
 func (o NumberGreaterThanAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v NumberGreaterThanAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The filter value.
 func (o NumberGreaterThanAdvancedFilterOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v NumberGreaterThanAdvancedFilter) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-// NumberGreaterThan Advanced Filter.
 type NumberGreaterThanAdvancedFilterResponse struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberGreaterThan'.
-	OperatorType string `pulumi:"operatorType"`
-	// The filter value.
-	Value *float64 `pulumi:"value"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Value        *float64 `pulumi:"value"`
 }
 
 // NumberGreaterThanAdvancedFilterResponseInput is an input type that accepts NumberGreaterThanAdvancedFilterResponseArgs and NumberGreaterThanAdvancedFilterResponseOutput values.
@@ -980,15 +816,10 @@ type NumberGreaterThanAdvancedFilterResponseInput interface {
 	ToNumberGreaterThanAdvancedFilterResponseOutputWithContext(context.Context) NumberGreaterThanAdvancedFilterResponseOutput
 }
 
-// NumberGreaterThan Advanced Filter.
 type NumberGreaterThanAdvancedFilterResponseArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberGreaterThan'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The filter value.
-	Value pulumi.Float64PtrInput `pulumi:"value"`
+	Key          pulumi.StringPtrInput  `pulumi:"key"`
+	OperatorType pulumi.StringInput     `pulumi:"operatorType"`
+	Value        pulumi.Float64PtrInput `pulumi:"value"`
 }
 
 func (NumberGreaterThanAdvancedFilterResponseArgs) ElementType() reflect.Type {
@@ -1003,7 +834,6 @@ func (i NumberGreaterThanAdvancedFilterResponseArgs) ToNumberGreaterThanAdvanced
 	return pulumi.ToOutputWithContext(ctx, i).(NumberGreaterThanAdvancedFilterResponseOutput)
 }
 
-// NumberGreaterThan Advanced Filter.
 type NumberGreaterThanAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (NumberGreaterThanAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -1018,31 +848,22 @@ func (o NumberGreaterThanAdvancedFilterResponseOutput) ToNumberGreaterThanAdvanc
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o NumberGreaterThanAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NumberGreaterThanAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'NumberGreaterThan'.
 func (o NumberGreaterThanAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v NumberGreaterThanAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The filter value.
 func (o NumberGreaterThanAdvancedFilterResponseOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v NumberGreaterThanAdvancedFilterResponse) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-// NumberGreaterThanOrEquals Advanced Filter.
 type NumberGreaterThanOrEqualsAdvancedFilter struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberGreaterThanOrEquals'.
-	OperatorType string `pulumi:"operatorType"`
-	// The filter value.
-	Value *float64 `pulumi:"value"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Value        *float64 `pulumi:"value"`
 }
 
 // NumberGreaterThanOrEqualsAdvancedFilterInput is an input type that accepts NumberGreaterThanOrEqualsAdvancedFilterArgs and NumberGreaterThanOrEqualsAdvancedFilterOutput values.
@@ -1056,15 +877,10 @@ type NumberGreaterThanOrEqualsAdvancedFilterInput interface {
 	ToNumberGreaterThanOrEqualsAdvancedFilterOutputWithContext(context.Context) NumberGreaterThanOrEqualsAdvancedFilterOutput
 }
 
-// NumberGreaterThanOrEquals Advanced Filter.
 type NumberGreaterThanOrEqualsAdvancedFilterArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberGreaterThanOrEquals'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The filter value.
-	Value pulumi.Float64PtrInput `pulumi:"value"`
+	Key          pulumi.StringPtrInput  `pulumi:"key"`
+	OperatorType pulumi.StringInput     `pulumi:"operatorType"`
+	Value        pulumi.Float64PtrInput `pulumi:"value"`
 }
 
 func (NumberGreaterThanOrEqualsAdvancedFilterArgs) ElementType() reflect.Type {
@@ -1079,7 +895,6 @@ func (i NumberGreaterThanOrEqualsAdvancedFilterArgs) ToNumberGreaterThanOrEquals
 	return pulumi.ToOutputWithContext(ctx, i).(NumberGreaterThanOrEqualsAdvancedFilterOutput)
 }
 
-// NumberGreaterThanOrEquals Advanced Filter.
 type NumberGreaterThanOrEqualsAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (NumberGreaterThanOrEqualsAdvancedFilterOutput) ElementType() reflect.Type {
@@ -1094,31 +909,22 @@ func (o NumberGreaterThanOrEqualsAdvancedFilterOutput) ToNumberGreaterThanOrEqua
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o NumberGreaterThanOrEqualsAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NumberGreaterThanOrEqualsAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'NumberGreaterThanOrEquals'.
 func (o NumberGreaterThanOrEqualsAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v NumberGreaterThanOrEqualsAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The filter value.
 func (o NumberGreaterThanOrEqualsAdvancedFilterOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v NumberGreaterThanOrEqualsAdvancedFilter) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-// NumberGreaterThanOrEquals Advanced Filter.
 type NumberGreaterThanOrEqualsAdvancedFilterResponse struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberGreaterThanOrEquals'.
-	OperatorType string `pulumi:"operatorType"`
-	// The filter value.
-	Value *float64 `pulumi:"value"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Value        *float64 `pulumi:"value"`
 }
 
 // NumberGreaterThanOrEqualsAdvancedFilterResponseInput is an input type that accepts NumberGreaterThanOrEqualsAdvancedFilterResponseArgs and NumberGreaterThanOrEqualsAdvancedFilterResponseOutput values.
@@ -1132,15 +938,10 @@ type NumberGreaterThanOrEqualsAdvancedFilterResponseInput interface {
 	ToNumberGreaterThanOrEqualsAdvancedFilterResponseOutputWithContext(context.Context) NumberGreaterThanOrEqualsAdvancedFilterResponseOutput
 }
 
-// NumberGreaterThanOrEquals Advanced Filter.
 type NumberGreaterThanOrEqualsAdvancedFilterResponseArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberGreaterThanOrEquals'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The filter value.
-	Value pulumi.Float64PtrInput `pulumi:"value"`
+	Key          pulumi.StringPtrInput  `pulumi:"key"`
+	OperatorType pulumi.StringInput     `pulumi:"operatorType"`
+	Value        pulumi.Float64PtrInput `pulumi:"value"`
 }
 
 func (NumberGreaterThanOrEqualsAdvancedFilterResponseArgs) ElementType() reflect.Type {
@@ -1155,7 +956,6 @@ func (i NumberGreaterThanOrEqualsAdvancedFilterResponseArgs) ToNumberGreaterThan
 	return pulumi.ToOutputWithContext(ctx, i).(NumberGreaterThanOrEqualsAdvancedFilterResponseOutput)
 }
 
-// NumberGreaterThanOrEquals Advanced Filter.
 type NumberGreaterThanOrEqualsAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (NumberGreaterThanOrEqualsAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -1170,31 +970,22 @@ func (o NumberGreaterThanOrEqualsAdvancedFilterResponseOutput) ToNumberGreaterTh
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o NumberGreaterThanOrEqualsAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NumberGreaterThanOrEqualsAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'NumberGreaterThanOrEquals'.
 func (o NumberGreaterThanOrEqualsAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v NumberGreaterThanOrEqualsAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The filter value.
 func (o NumberGreaterThanOrEqualsAdvancedFilterResponseOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v NumberGreaterThanOrEqualsAdvancedFilterResponse) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-// NumberIn Advanced Filter.
 type NumberInAdvancedFilter struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberIn'.
-	OperatorType string `pulumi:"operatorType"`
-	// The set of filter values.
-	Values []float64 `pulumi:"values"`
+	Key          *string   `pulumi:"key"`
+	OperatorType string    `pulumi:"operatorType"`
+	Values       []float64 `pulumi:"values"`
 }
 
 // NumberInAdvancedFilterInput is an input type that accepts NumberInAdvancedFilterArgs and NumberInAdvancedFilterOutput values.
@@ -1208,15 +999,10 @@ type NumberInAdvancedFilterInput interface {
 	ToNumberInAdvancedFilterOutputWithContext(context.Context) NumberInAdvancedFilterOutput
 }
 
-// NumberIn Advanced Filter.
 type NumberInAdvancedFilterArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberIn'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The set of filter values.
-	Values pulumi.Float64ArrayInput `pulumi:"values"`
+	Key          pulumi.StringPtrInput    `pulumi:"key"`
+	OperatorType pulumi.StringInput       `pulumi:"operatorType"`
+	Values       pulumi.Float64ArrayInput `pulumi:"values"`
 }
 
 func (NumberInAdvancedFilterArgs) ElementType() reflect.Type {
@@ -1231,7 +1017,6 @@ func (i NumberInAdvancedFilterArgs) ToNumberInAdvancedFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(NumberInAdvancedFilterOutput)
 }
 
-// NumberIn Advanced Filter.
 type NumberInAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (NumberInAdvancedFilterOutput) ElementType() reflect.Type {
@@ -1246,31 +1031,22 @@ func (o NumberInAdvancedFilterOutput) ToNumberInAdvancedFilterOutputWithContext(
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o NumberInAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NumberInAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'NumberIn'.
 func (o NumberInAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v NumberInAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The set of filter values.
 func (o NumberInAdvancedFilterOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v NumberInAdvancedFilter) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
 
-// NumberIn Advanced Filter.
 type NumberInAdvancedFilterResponse struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberIn'.
-	OperatorType string `pulumi:"operatorType"`
-	// The set of filter values.
-	Values []float64 `pulumi:"values"`
+	Key          *string   `pulumi:"key"`
+	OperatorType string    `pulumi:"operatorType"`
+	Values       []float64 `pulumi:"values"`
 }
 
 // NumberInAdvancedFilterResponseInput is an input type that accepts NumberInAdvancedFilterResponseArgs and NumberInAdvancedFilterResponseOutput values.
@@ -1284,15 +1060,10 @@ type NumberInAdvancedFilterResponseInput interface {
 	ToNumberInAdvancedFilterResponseOutputWithContext(context.Context) NumberInAdvancedFilterResponseOutput
 }
 
-// NumberIn Advanced Filter.
 type NumberInAdvancedFilterResponseArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberIn'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The set of filter values.
-	Values pulumi.Float64ArrayInput `pulumi:"values"`
+	Key          pulumi.StringPtrInput    `pulumi:"key"`
+	OperatorType pulumi.StringInput       `pulumi:"operatorType"`
+	Values       pulumi.Float64ArrayInput `pulumi:"values"`
 }
 
 func (NumberInAdvancedFilterResponseArgs) ElementType() reflect.Type {
@@ -1307,7 +1078,6 @@ func (i NumberInAdvancedFilterResponseArgs) ToNumberInAdvancedFilterResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(NumberInAdvancedFilterResponseOutput)
 }
 
-// NumberIn Advanced Filter.
 type NumberInAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (NumberInAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -1322,31 +1092,22 @@ func (o NumberInAdvancedFilterResponseOutput) ToNumberInAdvancedFilterResponseOu
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o NumberInAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NumberInAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'NumberIn'.
 func (o NumberInAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v NumberInAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The set of filter values.
 func (o NumberInAdvancedFilterResponseOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v NumberInAdvancedFilterResponse) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
 
-// NumberLessThan Advanced Filter.
 type NumberLessThanAdvancedFilter struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberLessThan'.
-	OperatorType string `pulumi:"operatorType"`
-	// The filter value.
-	Value *float64 `pulumi:"value"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Value        *float64 `pulumi:"value"`
 }
 
 // NumberLessThanAdvancedFilterInput is an input type that accepts NumberLessThanAdvancedFilterArgs and NumberLessThanAdvancedFilterOutput values.
@@ -1360,15 +1121,10 @@ type NumberLessThanAdvancedFilterInput interface {
 	ToNumberLessThanAdvancedFilterOutputWithContext(context.Context) NumberLessThanAdvancedFilterOutput
 }
 
-// NumberLessThan Advanced Filter.
 type NumberLessThanAdvancedFilterArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberLessThan'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The filter value.
-	Value pulumi.Float64PtrInput `pulumi:"value"`
+	Key          pulumi.StringPtrInput  `pulumi:"key"`
+	OperatorType pulumi.StringInput     `pulumi:"operatorType"`
+	Value        pulumi.Float64PtrInput `pulumi:"value"`
 }
 
 func (NumberLessThanAdvancedFilterArgs) ElementType() reflect.Type {
@@ -1383,7 +1139,6 @@ func (i NumberLessThanAdvancedFilterArgs) ToNumberLessThanAdvancedFilterOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(NumberLessThanAdvancedFilterOutput)
 }
 
-// NumberLessThan Advanced Filter.
 type NumberLessThanAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (NumberLessThanAdvancedFilterOutput) ElementType() reflect.Type {
@@ -1398,31 +1153,22 @@ func (o NumberLessThanAdvancedFilterOutput) ToNumberLessThanAdvancedFilterOutput
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o NumberLessThanAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NumberLessThanAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'NumberLessThan'.
 func (o NumberLessThanAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v NumberLessThanAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The filter value.
 func (o NumberLessThanAdvancedFilterOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v NumberLessThanAdvancedFilter) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-// NumberLessThan Advanced Filter.
 type NumberLessThanAdvancedFilterResponse struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberLessThan'.
-	OperatorType string `pulumi:"operatorType"`
-	// The filter value.
-	Value *float64 `pulumi:"value"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Value        *float64 `pulumi:"value"`
 }
 
 // NumberLessThanAdvancedFilterResponseInput is an input type that accepts NumberLessThanAdvancedFilterResponseArgs and NumberLessThanAdvancedFilterResponseOutput values.
@@ -1436,15 +1182,10 @@ type NumberLessThanAdvancedFilterResponseInput interface {
 	ToNumberLessThanAdvancedFilterResponseOutputWithContext(context.Context) NumberLessThanAdvancedFilterResponseOutput
 }
 
-// NumberLessThan Advanced Filter.
 type NumberLessThanAdvancedFilterResponseArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberLessThan'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The filter value.
-	Value pulumi.Float64PtrInput `pulumi:"value"`
+	Key          pulumi.StringPtrInput  `pulumi:"key"`
+	OperatorType pulumi.StringInput     `pulumi:"operatorType"`
+	Value        pulumi.Float64PtrInput `pulumi:"value"`
 }
 
 func (NumberLessThanAdvancedFilterResponseArgs) ElementType() reflect.Type {
@@ -1459,7 +1200,6 @@ func (i NumberLessThanAdvancedFilterResponseArgs) ToNumberLessThanAdvancedFilter
 	return pulumi.ToOutputWithContext(ctx, i).(NumberLessThanAdvancedFilterResponseOutput)
 }
 
-// NumberLessThan Advanced Filter.
 type NumberLessThanAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (NumberLessThanAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -1474,31 +1214,22 @@ func (o NumberLessThanAdvancedFilterResponseOutput) ToNumberLessThanAdvancedFilt
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o NumberLessThanAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NumberLessThanAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'NumberLessThan'.
 func (o NumberLessThanAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v NumberLessThanAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The filter value.
 func (o NumberLessThanAdvancedFilterResponseOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v NumberLessThanAdvancedFilterResponse) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-// NumberLessThanOrEquals Advanced Filter.
 type NumberLessThanOrEqualsAdvancedFilter struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberLessThanOrEquals'.
-	OperatorType string `pulumi:"operatorType"`
-	// The filter value.
-	Value *float64 `pulumi:"value"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Value        *float64 `pulumi:"value"`
 }
 
 // NumberLessThanOrEqualsAdvancedFilterInput is an input type that accepts NumberLessThanOrEqualsAdvancedFilterArgs and NumberLessThanOrEqualsAdvancedFilterOutput values.
@@ -1512,15 +1243,10 @@ type NumberLessThanOrEqualsAdvancedFilterInput interface {
 	ToNumberLessThanOrEqualsAdvancedFilterOutputWithContext(context.Context) NumberLessThanOrEqualsAdvancedFilterOutput
 }
 
-// NumberLessThanOrEquals Advanced Filter.
 type NumberLessThanOrEqualsAdvancedFilterArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberLessThanOrEquals'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The filter value.
-	Value pulumi.Float64PtrInput `pulumi:"value"`
+	Key          pulumi.StringPtrInput  `pulumi:"key"`
+	OperatorType pulumi.StringInput     `pulumi:"operatorType"`
+	Value        pulumi.Float64PtrInput `pulumi:"value"`
 }
 
 func (NumberLessThanOrEqualsAdvancedFilterArgs) ElementType() reflect.Type {
@@ -1535,7 +1261,6 @@ func (i NumberLessThanOrEqualsAdvancedFilterArgs) ToNumberLessThanOrEqualsAdvanc
 	return pulumi.ToOutputWithContext(ctx, i).(NumberLessThanOrEqualsAdvancedFilterOutput)
 }
 
-// NumberLessThanOrEquals Advanced Filter.
 type NumberLessThanOrEqualsAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (NumberLessThanOrEqualsAdvancedFilterOutput) ElementType() reflect.Type {
@@ -1550,31 +1275,22 @@ func (o NumberLessThanOrEqualsAdvancedFilterOutput) ToNumberLessThanOrEqualsAdva
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o NumberLessThanOrEqualsAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NumberLessThanOrEqualsAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'NumberLessThanOrEquals'.
 func (o NumberLessThanOrEqualsAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v NumberLessThanOrEqualsAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The filter value.
 func (o NumberLessThanOrEqualsAdvancedFilterOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v NumberLessThanOrEqualsAdvancedFilter) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-// NumberLessThanOrEquals Advanced Filter.
 type NumberLessThanOrEqualsAdvancedFilterResponse struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberLessThanOrEquals'.
-	OperatorType string `pulumi:"operatorType"`
-	// The filter value.
-	Value *float64 `pulumi:"value"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Value        *float64 `pulumi:"value"`
 }
 
 // NumberLessThanOrEqualsAdvancedFilterResponseInput is an input type that accepts NumberLessThanOrEqualsAdvancedFilterResponseArgs and NumberLessThanOrEqualsAdvancedFilterResponseOutput values.
@@ -1588,15 +1304,10 @@ type NumberLessThanOrEqualsAdvancedFilterResponseInput interface {
 	ToNumberLessThanOrEqualsAdvancedFilterResponseOutputWithContext(context.Context) NumberLessThanOrEqualsAdvancedFilterResponseOutput
 }
 
-// NumberLessThanOrEquals Advanced Filter.
 type NumberLessThanOrEqualsAdvancedFilterResponseArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberLessThanOrEquals'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The filter value.
-	Value pulumi.Float64PtrInput `pulumi:"value"`
+	Key          pulumi.StringPtrInput  `pulumi:"key"`
+	OperatorType pulumi.StringInput     `pulumi:"operatorType"`
+	Value        pulumi.Float64PtrInput `pulumi:"value"`
 }
 
 func (NumberLessThanOrEqualsAdvancedFilterResponseArgs) ElementType() reflect.Type {
@@ -1611,7 +1322,6 @@ func (i NumberLessThanOrEqualsAdvancedFilterResponseArgs) ToNumberLessThanOrEqua
 	return pulumi.ToOutputWithContext(ctx, i).(NumberLessThanOrEqualsAdvancedFilterResponseOutput)
 }
 
-// NumberLessThanOrEquals Advanced Filter.
 type NumberLessThanOrEqualsAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (NumberLessThanOrEqualsAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -1626,31 +1336,22 @@ func (o NumberLessThanOrEqualsAdvancedFilterResponseOutput) ToNumberLessThanOrEq
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o NumberLessThanOrEqualsAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NumberLessThanOrEqualsAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'NumberLessThanOrEquals'.
 func (o NumberLessThanOrEqualsAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v NumberLessThanOrEqualsAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The filter value.
 func (o NumberLessThanOrEqualsAdvancedFilterResponseOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v NumberLessThanOrEqualsAdvancedFilterResponse) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-// NumberNotIn Advanced Filter.
 type NumberNotInAdvancedFilter struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberNotIn'.
-	OperatorType string `pulumi:"operatorType"`
-	// The set of filter values.
-	Values []float64 `pulumi:"values"`
+	Key          *string   `pulumi:"key"`
+	OperatorType string    `pulumi:"operatorType"`
+	Values       []float64 `pulumi:"values"`
 }
 
 // NumberNotInAdvancedFilterInput is an input type that accepts NumberNotInAdvancedFilterArgs and NumberNotInAdvancedFilterOutput values.
@@ -1664,15 +1365,10 @@ type NumberNotInAdvancedFilterInput interface {
 	ToNumberNotInAdvancedFilterOutputWithContext(context.Context) NumberNotInAdvancedFilterOutput
 }
 
-// NumberNotIn Advanced Filter.
 type NumberNotInAdvancedFilterArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberNotIn'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The set of filter values.
-	Values pulumi.Float64ArrayInput `pulumi:"values"`
+	Key          pulumi.StringPtrInput    `pulumi:"key"`
+	OperatorType pulumi.StringInput       `pulumi:"operatorType"`
+	Values       pulumi.Float64ArrayInput `pulumi:"values"`
 }
 
 func (NumberNotInAdvancedFilterArgs) ElementType() reflect.Type {
@@ -1687,7 +1383,6 @@ func (i NumberNotInAdvancedFilterArgs) ToNumberNotInAdvancedFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NumberNotInAdvancedFilterOutput)
 }
 
-// NumberNotIn Advanced Filter.
 type NumberNotInAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (NumberNotInAdvancedFilterOutput) ElementType() reflect.Type {
@@ -1702,31 +1397,22 @@ func (o NumberNotInAdvancedFilterOutput) ToNumberNotInAdvancedFilterOutputWithCo
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o NumberNotInAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NumberNotInAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'NumberNotIn'.
 func (o NumberNotInAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v NumberNotInAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The set of filter values.
 func (o NumberNotInAdvancedFilterOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v NumberNotInAdvancedFilter) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
 
-// NumberNotIn Advanced Filter.
 type NumberNotInAdvancedFilterResponse struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberNotIn'.
-	OperatorType string `pulumi:"operatorType"`
-	// The set of filter values.
-	Values []float64 `pulumi:"values"`
+	Key          *string   `pulumi:"key"`
+	OperatorType string    `pulumi:"operatorType"`
+	Values       []float64 `pulumi:"values"`
 }
 
 // NumberNotInAdvancedFilterResponseInput is an input type that accepts NumberNotInAdvancedFilterResponseArgs and NumberNotInAdvancedFilterResponseOutput values.
@@ -1740,15 +1426,10 @@ type NumberNotInAdvancedFilterResponseInput interface {
 	ToNumberNotInAdvancedFilterResponseOutputWithContext(context.Context) NumberNotInAdvancedFilterResponseOutput
 }
 
-// NumberNotIn Advanced Filter.
 type NumberNotInAdvancedFilterResponseArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'NumberNotIn'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The set of filter values.
-	Values pulumi.Float64ArrayInput `pulumi:"values"`
+	Key          pulumi.StringPtrInput    `pulumi:"key"`
+	OperatorType pulumi.StringInput       `pulumi:"operatorType"`
+	Values       pulumi.Float64ArrayInput `pulumi:"values"`
 }
 
 func (NumberNotInAdvancedFilterResponseArgs) ElementType() reflect.Type {
@@ -1763,7 +1444,6 @@ func (i NumberNotInAdvancedFilterResponseArgs) ToNumberNotInAdvancedFilterRespon
 	return pulumi.ToOutputWithContext(ctx, i).(NumberNotInAdvancedFilterResponseOutput)
 }
 
-// NumberNotIn Advanced Filter.
 type NumberNotInAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (NumberNotInAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -1778,28 +1458,21 @@ func (o NumberNotInAdvancedFilterResponseOutput) ToNumberNotInAdvancedFilterResp
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o NumberNotInAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NumberNotInAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'NumberNotIn'.
 func (o NumberNotInAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v NumberNotInAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The set of filter values.
 func (o NumberNotInAdvancedFilterResponseOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v NumberNotInAdvancedFilterResponse) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
 
-// Information about the retry policy for an event subscription.
 type RetryPolicy struct {
-	// Time To Live (in minutes) for events.
 	EventTimeToLiveInMinutes *int `pulumi:"eventTimeToLiveInMinutes"`
-	// Maximum number of delivery retry attempts for events.
-	MaxDeliveryAttempts *int `pulumi:"maxDeliveryAttempts"`
+	MaxDeliveryAttempts      *int `pulumi:"maxDeliveryAttempts"`
 }
 
 // RetryPolicyInput is an input type that accepts RetryPolicyArgs and RetryPolicyOutput values.
@@ -1813,12 +1486,9 @@ type RetryPolicyInput interface {
 	ToRetryPolicyOutputWithContext(context.Context) RetryPolicyOutput
 }
 
-// Information about the retry policy for an event subscription.
 type RetryPolicyArgs struct {
-	// Time To Live (in minutes) for events.
 	EventTimeToLiveInMinutes pulumi.IntPtrInput `pulumi:"eventTimeToLiveInMinutes"`
-	// Maximum number of delivery retry attempts for events.
-	MaxDeliveryAttempts pulumi.IntPtrInput `pulumi:"maxDeliveryAttempts"`
+	MaxDeliveryAttempts      pulumi.IntPtrInput `pulumi:"maxDeliveryAttempts"`
 }
 
 func (RetryPolicyArgs) ElementType() reflect.Type {
@@ -1874,7 +1544,6 @@ func (i *retryPolicyPtrType) ToRetryPolicyPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RetryPolicyPtrOutput)
 }
 
-// Information about the retry policy for an event subscription.
 type RetryPolicyOutput struct{ *pulumi.OutputState }
 
 func (RetryPolicyOutput) ElementType() reflect.Type {
@@ -1894,17 +1563,15 @@ func (o RetryPolicyOutput) ToRetryPolicyPtrOutput() RetryPolicyPtrOutput {
 }
 
 func (o RetryPolicyOutput) ToRetryPolicyPtrOutputWithContext(ctx context.Context) RetryPolicyPtrOutput {
-	return o.ApplyT(func(v RetryPolicy) *RetryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetryPolicy) *RetryPolicy {
 		return &v
 	}).(RetryPolicyPtrOutput)
 }
 
-// Time To Live (in minutes) for events.
 func (o RetryPolicyOutput) EventTimeToLiveInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RetryPolicy) *int { return v.EventTimeToLiveInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of delivery retry attempts for events.
 func (o RetryPolicyOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RetryPolicy) *int { return v.MaxDeliveryAttempts }).(pulumi.IntPtrOutput)
 }
@@ -1924,10 +1591,15 @@ func (o RetryPolicyPtrOutput) ToRetryPolicyPtrOutputWithContext(ctx context.Cont
 }
 
 func (o RetryPolicyPtrOutput) Elem() RetryPolicyOutput {
-	return o.ApplyT(func(v *RetryPolicy) RetryPolicy { return *v }).(RetryPolicyOutput)
+	return o.ApplyT(func(v *RetryPolicy) RetryPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RetryPolicy
+		return ret
+	}).(RetryPolicyOutput)
 }
 
-// Time To Live (in minutes) for events.
 func (o RetryPolicyPtrOutput) EventTimeToLiveInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RetryPolicy) *int {
 		if v == nil {
@@ -1937,7 +1609,6 @@ func (o RetryPolicyPtrOutput) EventTimeToLiveInMinutes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of delivery retry attempts for events.
 func (o RetryPolicyPtrOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RetryPolicy) *int {
 		if v == nil {
@@ -1947,12 +1618,9 @@ func (o RetryPolicyPtrOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Information about the retry policy for an event subscription.
 type RetryPolicyResponse struct {
-	// Time To Live (in minutes) for events.
 	EventTimeToLiveInMinutes *int `pulumi:"eventTimeToLiveInMinutes"`
-	// Maximum number of delivery retry attempts for events.
-	MaxDeliveryAttempts *int `pulumi:"maxDeliveryAttempts"`
+	MaxDeliveryAttempts      *int `pulumi:"maxDeliveryAttempts"`
 }
 
 // RetryPolicyResponseInput is an input type that accepts RetryPolicyResponseArgs and RetryPolicyResponseOutput values.
@@ -1966,12 +1634,9 @@ type RetryPolicyResponseInput interface {
 	ToRetryPolicyResponseOutputWithContext(context.Context) RetryPolicyResponseOutput
 }
 
-// Information about the retry policy for an event subscription.
 type RetryPolicyResponseArgs struct {
-	// Time To Live (in minutes) for events.
 	EventTimeToLiveInMinutes pulumi.IntPtrInput `pulumi:"eventTimeToLiveInMinutes"`
-	// Maximum number of delivery retry attempts for events.
-	MaxDeliveryAttempts pulumi.IntPtrInput `pulumi:"maxDeliveryAttempts"`
+	MaxDeliveryAttempts      pulumi.IntPtrInput `pulumi:"maxDeliveryAttempts"`
 }
 
 func (RetryPolicyResponseArgs) ElementType() reflect.Type {
@@ -2027,7 +1692,6 @@ func (i *retryPolicyResponsePtrType) ToRetryPolicyResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(RetryPolicyResponsePtrOutput)
 }
 
-// Information about the retry policy for an event subscription.
 type RetryPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (RetryPolicyResponseOutput) ElementType() reflect.Type {
@@ -2047,17 +1711,15 @@ func (o RetryPolicyResponseOutput) ToRetryPolicyResponsePtrOutput() RetryPolicyR
 }
 
 func (o RetryPolicyResponseOutput) ToRetryPolicyResponsePtrOutputWithContext(ctx context.Context) RetryPolicyResponsePtrOutput {
-	return o.ApplyT(func(v RetryPolicyResponse) *RetryPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetryPolicyResponse) *RetryPolicyResponse {
 		return &v
 	}).(RetryPolicyResponsePtrOutput)
 }
 
-// Time To Live (in minutes) for events.
 func (o RetryPolicyResponseOutput) EventTimeToLiveInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RetryPolicyResponse) *int { return v.EventTimeToLiveInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of delivery retry attempts for events.
 func (o RetryPolicyResponseOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RetryPolicyResponse) *int { return v.MaxDeliveryAttempts }).(pulumi.IntPtrOutput)
 }
@@ -2077,10 +1739,15 @@ func (o RetryPolicyResponsePtrOutput) ToRetryPolicyResponsePtrOutputWithContext(
 }
 
 func (o RetryPolicyResponsePtrOutput) Elem() RetryPolicyResponseOutput {
-	return o.ApplyT(func(v *RetryPolicyResponse) RetryPolicyResponse { return *v }).(RetryPolicyResponseOutput)
+	return o.ApplyT(func(v *RetryPolicyResponse) RetryPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RetryPolicyResponse
+		return ret
+	}).(RetryPolicyResponseOutput)
 }
 
-// Time To Live (in minutes) for events.
 func (o RetryPolicyResponsePtrOutput) EventTimeToLiveInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RetryPolicyResponse) *int {
 		if v == nil {
@@ -2090,7 +1757,6 @@ func (o RetryPolicyResponsePtrOutput) EventTimeToLiveInMinutes() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of delivery retry attempts for events.
 func (o RetryPolicyResponsePtrOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RetryPolicyResponse) *int {
 		if v == nil {
@@ -2100,13 +1766,9 @@ func (o RetryPolicyResponsePtrOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Information about the service bus destination for an event subscription
 type ServiceBusQueueEventSubscriptionDestination struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'ServiceBusQueue'.
-	EndpointType string `pulumi:"endpointType"`
-	// The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType string  `pulumi:"endpointType"`
+	ResourceId   *string `pulumi:"resourceId"`
 }
 
 // ServiceBusQueueEventSubscriptionDestinationInput is an input type that accepts ServiceBusQueueEventSubscriptionDestinationArgs and ServiceBusQueueEventSubscriptionDestinationOutput values.
@@ -2120,13 +1782,9 @@ type ServiceBusQueueEventSubscriptionDestinationInput interface {
 	ToServiceBusQueueEventSubscriptionDestinationOutputWithContext(context.Context) ServiceBusQueueEventSubscriptionDestinationOutput
 }
 
-// Information about the service bus destination for an event subscription
 type ServiceBusQueueEventSubscriptionDestinationArgs struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'ServiceBusQueue'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (ServiceBusQueueEventSubscriptionDestinationArgs) ElementType() reflect.Type {
@@ -2141,7 +1799,6 @@ func (i ServiceBusQueueEventSubscriptionDestinationArgs) ToServiceBusQueueEventS
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusQueueEventSubscriptionDestinationOutput)
 }
 
-// Information about the service bus destination for an event subscription
 type ServiceBusQueueEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (ServiceBusQueueEventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -2156,24 +1813,17 @@ func (o ServiceBusQueueEventSubscriptionDestinationOutput) ToServiceBusQueueEven
 	return o
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'ServiceBusQueue'.
 func (o ServiceBusQueueEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBusQueueEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.
 func (o ServiceBusQueueEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBusQueueEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Information about the service bus destination for an event subscription
 type ServiceBusQueueEventSubscriptionDestinationResponse struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'ServiceBusQueue'.
-	EndpointType string `pulumi:"endpointType"`
-	// The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType string  `pulumi:"endpointType"`
+	ResourceId   *string `pulumi:"resourceId"`
 }
 
 // ServiceBusQueueEventSubscriptionDestinationResponseInput is an input type that accepts ServiceBusQueueEventSubscriptionDestinationResponseArgs and ServiceBusQueueEventSubscriptionDestinationResponseOutput values.
@@ -2187,13 +1837,9 @@ type ServiceBusQueueEventSubscriptionDestinationResponseInput interface {
 	ToServiceBusQueueEventSubscriptionDestinationResponseOutputWithContext(context.Context) ServiceBusQueueEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the service bus destination for an event subscription
 type ServiceBusQueueEventSubscriptionDestinationResponseArgs struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'ServiceBusQueue'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (ServiceBusQueueEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
@@ -2208,7 +1854,6 @@ func (i ServiceBusQueueEventSubscriptionDestinationResponseArgs) ToServiceBusQue
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusQueueEventSubscriptionDestinationResponseOutput)
 }
 
-// Information about the service bus destination for an event subscription
 type ServiceBusQueueEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceBusQueueEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -2223,26 +1868,18 @@ func (o ServiceBusQueueEventSubscriptionDestinationResponseOutput) ToServiceBusQ
 	return o
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'ServiceBusQueue'.
 func (o ServiceBusQueueEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBusQueueEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.
 func (o ServiceBusQueueEventSubscriptionDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBusQueueEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestination struct {
-	// The name of the Storage blob container that is the destination of the deadletter events
 	BlobContainerName *string `pulumi:"blobContainerName"`
-	// Type of the endpoint for the dead letter destination
-	// Expected value is 'StorageBlob'.
-	EndpointType string `pulumi:"endpointType"`
-	// The Azure Resource ID of the storage account that is the destination of the deadletter events
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType      string  `pulumi:"endpointType"`
+	ResourceId        *string `pulumi:"resourceId"`
 }
 
 // StorageBlobDeadLetterDestinationInput is an input type that accepts StorageBlobDeadLetterDestinationArgs and StorageBlobDeadLetterDestinationOutput values.
@@ -2256,15 +1893,10 @@ type StorageBlobDeadLetterDestinationInput interface {
 	ToStorageBlobDeadLetterDestinationOutputWithContext(context.Context) StorageBlobDeadLetterDestinationOutput
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestinationArgs struct {
-	// The name of the Storage blob container that is the destination of the deadletter events
 	BlobContainerName pulumi.StringPtrInput `pulumi:"blobContainerName"`
-	// Type of the endpoint for the dead letter destination
-	// Expected value is 'StorageBlob'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The Azure Resource ID of the storage account that is the destination of the deadletter events
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType      pulumi.StringInput    `pulumi:"endpointType"`
+	ResourceId        pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (StorageBlobDeadLetterDestinationArgs) ElementType() reflect.Type {
@@ -2320,7 +1952,6 @@ func (i *storageBlobDeadLetterDestinationPtrType) ToStorageBlobDeadLetterDestina
 	return pulumi.ToOutputWithContext(ctx, i).(StorageBlobDeadLetterDestinationPtrOutput)
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestinationOutput struct{ *pulumi.OutputState }
 
 func (StorageBlobDeadLetterDestinationOutput) ElementType() reflect.Type {
@@ -2340,23 +1971,19 @@ func (o StorageBlobDeadLetterDestinationOutput) ToStorageBlobDeadLetterDestinati
 }
 
 func (o StorageBlobDeadLetterDestinationOutput) ToStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationPtrOutput {
-	return o.ApplyT(func(v StorageBlobDeadLetterDestination) *StorageBlobDeadLetterDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageBlobDeadLetterDestination) *StorageBlobDeadLetterDestination {
 		return &v
 	}).(StorageBlobDeadLetterDestinationPtrOutput)
 }
 
-// The name of the Storage blob container that is the destination of the deadletter events
 func (o StorageBlobDeadLetterDestinationOutput) BlobContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageBlobDeadLetterDestination) *string { return v.BlobContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Type of the endpoint for the dead letter destination
-// Expected value is 'StorageBlob'.
 func (o StorageBlobDeadLetterDestinationOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageBlobDeadLetterDestination) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The Azure Resource ID of the storage account that is the destination of the deadletter events
 func (o StorageBlobDeadLetterDestinationOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageBlobDeadLetterDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -2376,10 +2003,15 @@ func (o StorageBlobDeadLetterDestinationPtrOutput) ToStorageBlobDeadLetterDestin
 }
 
 func (o StorageBlobDeadLetterDestinationPtrOutput) Elem() StorageBlobDeadLetterDestinationOutput {
-	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) StorageBlobDeadLetterDestination { return *v }).(StorageBlobDeadLetterDestinationOutput)
+	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) StorageBlobDeadLetterDestination {
+		if v != nil {
+			return *v
+		}
+		var ret StorageBlobDeadLetterDestination
+		return ret
+	}).(StorageBlobDeadLetterDestinationOutput)
 }
 
-// The name of the Storage blob container that is the destination of the deadletter events
 func (o StorageBlobDeadLetterDestinationPtrOutput) BlobContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) *string {
 		if v == nil {
@@ -2389,8 +2021,6 @@ func (o StorageBlobDeadLetterDestinationPtrOutput) BlobContainerName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the endpoint for the dead letter destination
-// Expected value is 'StorageBlob'.
 func (o StorageBlobDeadLetterDestinationPtrOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) *string {
 		if v == nil {
@@ -2400,7 +2030,6 @@ func (o StorageBlobDeadLetterDestinationPtrOutput) EndpointType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Azure Resource ID of the storage account that is the destination of the deadletter events
 func (o StorageBlobDeadLetterDestinationPtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) *string {
 		if v == nil {
@@ -2410,15 +2039,10 @@ func (o StorageBlobDeadLetterDestinationPtrOutput) ResourceId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestinationResponse struct {
-	// The name of the Storage blob container that is the destination of the deadletter events
 	BlobContainerName *string `pulumi:"blobContainerName"`
-	// Type of the endpoint for the dead letter destination
-	// Expected value is 'StorageBlob'.
-	EndpointType string `pulumi:"endpointType"`
-	// The Azure Resource ID of the storage account that is the destination of the deadletter events
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType      string  `pulumi:"endpointType"`
+	ResourceId        *string `pulumi:"resourceId"`
 }
 
 // StorageBlobDeadLetterDestinationResponseInput is an input type that accepts StorageBlobDeadLetterDestinationResponseArgs and StorageBlobDeadLetterDestinationResponseOutput values.
@@ -2432,15 +2056,10 @@ type StorageBlobDeadLetterDestinationResponseInput interface {
 	ToStorageBlobDeadLetterDestinationResponseOutputWithContext(context.Context) StorageBlobDeadLetterDestinationResponseOutput
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestinationResponseArgs struct {
-	// The name of the Storage blob container that is the destination of the deadletter events
 	BlobContainerName pulumi.StringPtrInput `pulumi:"blobContainerName"`
-	// Type of the endpoint for the dead letter destination
-	// Expected value is 'StorageBlob'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The Azure Resource ID of the storage account that is the destination of the deadletter events
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType      pulumi.StringInput    `pulumi:"endpointType"`
+	ResourceId        pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (StorageBlobDeadLetterDestinationResponseArgs) ElementType() reflect.Type {
@@ -2496,7 +2115,6 @@ func (i *storageBlobDeadLetterDestinationResponsePtrType) ToStorageBlobDeadLette
 	return pulumi.ToOutputWithContext(ctx, i).(StorageBlobDeadLetterDestinationResponsePtrOutput)
 }
 
-// Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageBlobDeadLetterDestinationResponseOutput) ElementType() reflect.Type {
@@ -2516,23 +2134,19 @@ func (o StorageBlobDeadLetterDestinationResponseOutput) ToStorageBlobDeadLetterD
 }
 
 func (o StorageBlobDeadLetterDestinationResponseOutput) ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationResponsePtrOutput {
-	return o.ApplyT(func(v StorageBlobDeadLetterDestinationResponse) *StorageBlobDeadLetterDestinationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageBlobDeadLetterDestinationResponse) *StorageBlobDeadLetterDestinationResponse {
 		return &v
 	}).(StorageBlobDeadLetterDestinationResponsePtrOutput)
 }
 
-// The name of the Storage blob container that is the destination of the deadletter events
 func (o StorageBlobDeadLetterDestinationResponseOutput) BlobContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageBlobDeadLetterDestinationResponse) *string { return v.BlobContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Type of the endpoint for the dead letter destination
-// Expected value is 'StorageBlob'.
 func (o StorageBlobDeadLetterDestinationResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageBlobDeadLetterDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The Azure Resource ID of the storage account that is the destination of the deadletter events
 func (o StorageBlobDeadLetterDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageBlobDeadLetterDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -2552,10 +2166,15 @@ func (o StorageBlobDeadLetterDestinationResponsePtrOutput) ToStorageBlobDeadLett
 }
 
 func (o StorageBlobDeadLetterDestinationResponsePtrOutput) Elem() StorageBlobDeadLetterDestinationResponseOutput {
-	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) StorageBlobDeadLetterDestinationResponse { return *v }).(StorageBlobDeadLetterDestinationResponseOutput)
+	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) StorageBlobDeadLetterDestinationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageBlobDeadLetterDestinationResponse
+		return ret
+	}).(StorageBlobDeadLetterDestinationResponseOutput)
 }
 
-// The name of the Storage blob container that is the destination of the deadletter events
 func (o StorageBlobDeadLetterDestinationResponsePtrOutput) BlobContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) *string {
 		if v == nil {
@@ -2565,8 +2184,6 @@ func (o StorageBlobDeadLetterDestinationResponsePtrOutput) BlobContainerName() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the endpoint for the dead letter destination
-// Expected value is 'StorageBlob'.
 func (o StorageBlobDeadLetterDestinationResponsePtrOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) *string {
 		if v == nil {
@@ -2576,7 +2193,6 @@ func (o StorageBlobDeadLetterDestinationResponsePtrOutput) EndpointType() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Azure Resource ID of the storage account that is the destination of the deadletter events
 func (o StorageBlobDeadLetterDestinationResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) *string {
 		if v == nil {
@@ -2586,15 +2202,10 @@ func (o StorageBlobDeadLetterDestinationResponsePtrOutput) ResourceId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestination struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'StorageQueue'.
-	EndpointType string `pulumi:"endpointType"`
-	// The name of the Storage queue under a storage account that is the destination of an event subscription.
-	QueueName *string `pulumi:"queueName"`
-	// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType string  `pulumi:"endpointType"`
+	QueueName    *string `pulumi:"queueName"`
+	ResourceId   *string `pulumi:"resourceId"`
 }
 
 // StorageQueueEventSubscriptionDestinationInput is an input type that accepts StorageQueueEventSubscriptionDestinationArgs and StorageQueueEventSubscriptionDestinationOutput values.
@@ -2608,15 +2219,10 @@ type StorageQueueEventSubscriptionDestinationInput interface {
 	ToStorageQueueEventSubscriptionDestinationOutputWithContext(context.Context) StorageQueueEventSubscriptionDestinationOutput
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestinationArgs struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'StorageQueue'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The name of the Storage queue under a storage account that is the destination of an event subscription.
-	QueueName pulumi.StringPtrInput `pulumi:"queueName"`
-	// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	QueueName    pulumi.StringPtrInput `pulumi:"queueName"`
+	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (StorageQueueEventSubscriptionDestinationArgs) ElementType() reflect.Type {
@@ -2631,7 +2237,6 @@ func (i StorageQueueEventSubscriptionDestinationArgs) ToStorageQueueEventSubscri
 	return pulumi.ToOutputWithContext(ctx, i).(StorageQueueEventSubscriptionDestinationOutput)
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (StorageQueueEventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -2646,31 +2251,22 @@ func (o StorageQueueEventSubscriptionDestinationOutput) ToStorageQueueEventSubsc
 	return o
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'StorageQueue'.
 func (o StorageQueueEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageQueueEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The name of the Storage queue under a storage account that is the destination of an event subscription.
 func (o StorageQueueEventSubscriptionDestinationOutput) QueueName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageQueueEventSubscriptionDestination) *string { return v.QueueName }).(pulumi.StringPtrOutput)
 }
 
-// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
 func (o StorageQueueEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageQueueEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestinationResponse struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'StorageQueue'.
-	EndpointType string `pulumi:"endpointType"`
-	// The name of the Storage queue under a storage account that is the destination of an event subscription.
-	QueueName *string `pulumi:"queueName"`
-	// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
-	ResourceId *string `pulumi:"resourceId"`
+	EndpointType string  `pulumi:"endpointType"`
+	QueueName    *string `pulumi:"queueName"`
+	ResourceId   *string `pulumi:"resourceId"`
 }
 
 // StorageQueueEventSubscriptionDestinationResponseInput is an input type that accepts StorageQueueEventSubscriptionDestinationResponseArgs and StorageQueueEventSubscriptionDestinationResponseOutput values.
@@ -2684,15 +2280,10 @@ type StorageQueueEventSubscriptionDestinationResponseInput interface {
 	ToStorageQueueEventSubscriptionDestinationResponseOutputWithContext(context.Context) StorageQueueEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestinationResponseArgs struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'StorageQueue'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The name of the Storage queue under a storage account that is the destination of an event subscription.
-	QueueName pulumi.StringPtrInput `pulumi:"queueName"`
-	// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	QueueName    pulumi.StringPtrInput `pulumi:"queueName"`
+	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (StorageQueueEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
@@ -2707,7 +2298,6 @@ func (i StorageQueueEventSubscriptionDestinationResponseArgs) ToStorageQueueEven
 	return pulumi.ToOutputWithContext(ctx, i).(StorageQueueEventSubscriptionDestinationResponseOutput)
 }
 
-// Information about the storage queue destination for an event subscription.
 type StorageQueueEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageQueueEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -2722,31 +2312,22 @@ func (o StorageQueueEventSubscriptionDestinationResponseOutput) ToStorageQueueEv
 	return o
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'StorageQueue'.
 func (o StorageQueueEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageQueueEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The name of the Storage queue under a storage account that is the destination of an event subscription.
 func (o StorageQueueEventSubscriptionDestinationResponseOutput) QueueName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageQueueEventSubscriptionDestinationResponse) *string { return v.QueueName }).(pulumi.StringPtrOutput)
 }
 
-// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
 func (o StorageQueueEventSubscriptionDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageQueueEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// StringBeginsWith Advanced Filter.
 type StringBeginsWithAdvancedFilter struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringBeginsWith'.
-	OperatorType string `pulumi:"operatorType"`
-	// The set of filter values.
-	Values []string `pulumi:"values"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Values       []string `pulumi:"values"`
 }
 
 // StringBeginsWithAdvancedFilterInput is an input type that accepts StringBeginsWithAdvancedFilterArgs and StringBeginsWithAdvancedFilterOutput values.
@@ -2760,15 +2341,10 @@ type StringBeginsWithAdvancedFilterInput interface {
 	ToStringBeginsWithAdvancedFilterOutputWithContext(context.Context) StringBeginsWithAdvancedFilterOutput
 }
 
-// StringBeginsWith Advanced Filter.
 type StringBeginsWithAdvancedFilterArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringBeginsWith'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The set of filter values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
+	OperatorType pulumi.StringInput      `pulumi:"operatorType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (StringBeginsWithAdvancedFilterArgs) ElementType() reflect.Type {
@@ -2783,7 +2359,6 @@ func (i StringBeginsWithAdvancedFilterArgs) ToStringBeginsWithAdvancedFilterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StringBeginsWithAdvancedFilterOutput)
 }
 
-// StringBeginsWith Advanced Filter.
 type StringBeginsWithAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (StringBeginsWithAdvancedFilterOutput) ElementType() reflect.Type {
@@ -2798,31 +2373,22 @@ func (o StringBeginsWithAdvancedFilterOutput) ToStringBeginsWithAdvancedFilterOu
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o StringBeginsWithAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StringBeginsWithAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'StringBeginsWith'.
 func (o StringBeginsWithAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v StringBeginsWithAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The set of filter values.
 func (o StringBeginsWithAdvancedFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StringBeginsWithAdvancedFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringBeginsWith Advanced Filter.
 type StringBeginsWithAdvancedFilterResponse struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringBeginsWith'.
-	OperatorType string `pulumi:"operatorType"`
-	// The set of filter values.
-	Values []string `pulumi:"values"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Values       []string `pulumi:"values"`
 }
 
 // StringBeginsWithAdvancedFilterResponseInput is an input type that accepts StringBeginsWithAdvancedFilterResponseArgs and StringBeginsWithAdvancedFilterResponseOutput values.
@@ -2836,15 +2402,10 @@ type StringBeginsWithAdvancedFilterResponseInput interface {
 	ToStringBeginsWithAdvancedFilterResponseOutputWithContext(context.Context) StringBeginsWithAdvancedFilterResponseOutput
 }
 
-// StringBeginsWith Advanced Filter.
 type StringBeginsWithAdvancedFilterResponseArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringBeginsWith'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The set of filter values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
+	OperatorType pulumi.StringInput      `pulumi:"operatorType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (StringBeginsWithAdvancedFilterResponseArgs) ElementType() reflect.Type {
@@ -2859,7 +2420,6 @@ func (i StringBeginsWithAdvancedFilterResponseArgs) ToStringBeginsWithAdvancedFi
 	return pulumi.ToOutputWithContext(ctx, i).(StringBeginsWithAdvancedFilterResponseOutput)
 }
 
-// StringBeginsWith Advanced Filter.
 type StringBeginsWithAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (StringBeginsWithAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -2874,31 +2434,22 @@ func (o StringBeginsWithAdvancedFilterResponseOutput) ToStringBeginsWithAdvanced
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o StringBeginsWithAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StringBeginsWithAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'StringBeginsWith'.
 func (o StringBeginsWithAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v StringBeginsWithAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The set of filter values.
 func (o StringBeginsWithAdvancedFilterResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StringBeginsWithAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringContains Advanced Filter.
 type StringContainsAdvancedFilter struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringContains'.
-	OperatorType string `pulumi:"operatorType"`
-	// The set of filter values.
-	Values []string `pulumi:"values"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Values       []string `pulumi:"values"`
 }
 
 // StringContainsAdvancedFilterInput is an input type that accepts StringContainsAdvancedFilterArgs and StringContainsAdvancedFilterOutput values.
@@ -2912,15 +2463,10 @@ type StringContainsAdvancedFilterInput interface {
 	ToStringContainsAdvancedFilterOutputWithContext(context.Context) StringContainsAdvancedFilterOutput
 }
 
-// StringContains Advanced Filter.
 type StringContainsAdvancedFilterArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringContains'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The set of filter values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
+	OperatorType pulumi.StringInput      `pulumi:"operatorType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (StringContainsAdvancedFilterArgs) ElementType() reflect.Type {
@@ -2935,7 +2481,6 @@ func (i StringContainsAdvancedFilterArgs) ToStringContainsAdvancedFilterOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StringContainsAdvancedFilterOutput)
 }
 
-// StringContains Advanced Filter.
 type StringContainsAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (StringContainsAdvancedFilterOutput) ElementType() reflect.Type {
@@ -2950,31 +2495,22 @@ func (o StringContainsAdvancedFilterOutput) ToStringContainsAdvancedFilterOutput
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o StringContainsAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StringContainsAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'StringContains'.
 func (o StringContainsAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v StringContainsAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The set of filter values.
 func (o StringContainsAdvancedFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StringContainsAdvancedFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringContains Advanced Filter.
 type StringContainsAdvancedFilterResponse struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringContains'.
-	OperatorType string `pulumi:"operatorType"`
-	// The set of filter values.
-	Values []string `pulumi:"values"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Values       []string `pulumi:"values"`
 }
 
 // StringContainsAdvancedFilterResponseInput is an input type that accepts StringContainsAdvancedFilterResponseArgs and StringContainsAdvancedFilterResponseOutput values.
@@ -2988,15 +2524,10 @@ type StringContainsAdvancedFilterResponseInput interface {
 	ToStringContainsAdvancedFilterResponseOutputWithContext(context.Context) StringContainsAdvancedFilterResponseOutput
 }
 
-// StringContains Advanced Filter.
 type StringContainsAdvancedFilterResponseArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringContains'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The set of filter values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
+	OperatorType pulumi.StringInput      `pulumi:"operatorType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (StringContainsAdvancedFilterResponseArgs) ElementType() reflect.Type {
@@ -3011,7 +2542,6 @@ func (i StringContainsAdvancedFilterResponseArgs) ToStringContainsAdvancedFilter
 	return pulumi.ToOutputWithContext(ctx, i).(StringContainsAdvancedFilterResponseOutput)
 }
 
-// StringContains Advanced Filter.
 type StringContainsAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (StringContainsAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -3026,31 +2556,22 @@ func (o StringContainsAdvancedFilterResponseOutput) ToStringContainsAdvancedFilt
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o StringContainsAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StringContainsAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'StringContains'.
 func (o StringContainsAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v StringContainsAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The set of filter values.
 func (o StringContainsAdvancedFilterResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StringContainsAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringEndsWith Advanced Filter.
 type StringEndsWithAdvancedFilter struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringEndsWith'.
-	OperatorType string `pulumi:"operatorType"`
-	// The set of filter values.
-	Values []string `pulumi:"values"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Values       []string `pulumi:"values"`
 }
 
 // StringEndsWithAdvancedFilterInput is an input type that accepts StringEndsWithAdvancedFilterArgs and StringEndsWithAdvancedFilterOutput values.
@@ -3064,15 +2585,10 @@ type StringEndsWithAdvancedFilterInput interface {
 	ToStringEndsWithAdvancedFilterOutputWithContext(context.Context) StringEndsWithAdvancedFilterOutput
 }
 
-// StringEndsWith Advanced Filter.
 type StringEndsWithAdvancedFilterArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringEndsWith'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The set of filter values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
+	OperatorType pulumi.StringInput      `pulumi:"operatorType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (StringEndsWithAdvancedFilterArgs) ElementType() reflect.Type {
@@ -3087,7 +2603,6 @@ func (i StringEndsWithAdvancedFilterArgs) ToStringEndsWithAdvancedFilterOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StringEndsWithAdvancedFilterOutput)
 }
 
-// StringEndsWith Advanced Filter.
 type StringEndsWithAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (StringEndsWithAdvancedFilterOutput) ElementType() reflect.Type {
@@ -3102,31 +2617,22 @@ func (o StringEndsWithAdvancedFilterOutput) ToStringEndsWithAdvancedFilterOutput
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o StringEndsWithAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StringEndsWithAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'StringEndsWith'.
 func (o StringEndsWithAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v StringEndsWithAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The set of filter values.
 func (o StringEndsWithAdvancedFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StringEndsWithAdvancedFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringEndsWith Advanced Filter.
 type StringEndsWithAdvancedFilterResponse struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringEndsWith'.
-	OperatorType string `pulumi:"operatorType"`
-	// The set of filter values.
-	Values []string `pulumi:"values"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Values       []string `pulumi:"values"`
 }
 
 // StringEndsWithAdvancedFilterResponseInput is an input type that accepts StringEndsWithAdvancedFilterResponseArgs and StringEndsWithAdvancedFilterResponseOutput values.
@@ -3140,15 +2646,10 @@ type StringEndsWithAdvancedFilterResponseInput interface {
 	ToStringEndsWithAdvancedFilterResponseOutputWithContext(context.Context) StringEndsWithAdvancedFilterResponseOutput
 }
 
-// StringEndsWith Advanced Filter.
 type StringEndsWithAdvancedFilterResponseArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringEndsWith'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The set of filter values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
+	OperatorType pulumi.StringInput      `pulumi:"operatorType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (StringEndsWithAdvancedFilterResponseArgs) ElementType() reflect.Type {
@@ -3163,7 +2664,6 @@ func (i StringEndsWithAdvancedFilterResponseArgs) ToStringEndsWithAdvancedFilter
 	return pulumi.ToOutputWithContext(ctx, i).(StringEndsWithAdvancedFilterResponseOutput)
 }
 
-// StringEndsWith Advanced Filter.
 type StringEndsWithAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (StringEndsWithAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -3178,31 +2678,22 @@ func (o StringEndsWithAdvancedFilterResponseOutput) ToStringEndsWithAdvancedFilt
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o StringEndsWithAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StringEndsWithAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'StringEndsWith'.
 func (o StringEndsWithAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v StringEndsWithAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The set of filter values.
 func (o StringEndsWithAdvancedFilterResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StringEndsWithAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringIn Advanced Filter.
 type StringInAdvancedFilter struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringIn'.
-	OperatorType string `pulumi:"operatorType"`
-	// The set of filter values.
-	Values []string `pulumi:"values"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Values       []string `pulumi:"values"`
 }
 
 // StringInAdvancedFilterInput is an input type that accepts StringInAdvancedFilterArgs and StringInAdvancedFilterOutput values.
@@ -3216,15 +2707,10 @@ type StringInAdvancedFilterInput interface {
 	ToStringInAdvancedFilterOutputWithContext(context.Context) StringInAdvancedFilterOutput
 }
 
-// StringIn Advanced Filter.
 type StringInAdvancedFilterArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringIn'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The set of filter values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
+	OperatorType pulumi.StringInput      `pulumi:"operatorType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (StringInAdvancedFilterArgs) ElementType() reflect.Type {
@@ -3239,7 +2725,6 @@ func (i StringInAdvancedFilterArgs) ToStringInAdvancedFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StringInAdvancedFilterOutput)
 }
 
-// StringIn Advanced Filter.
 type StringInAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (StringInAdvancedFilterOutput) ElementType() reflect.Type {
@@ -3254,31 +2739,22 @@ func (o StringInAdvancedFilterOutput) ToStringInAdvancedFilterOutputWithContext(
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o StringInAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StringInAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'StringIn'.
 func (o StringInAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v StringInAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The set of filter values.
 func (o StringInAdvancedFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StringInAdvancedFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringIn Advanced Filter.
 type StringInAdvancedFilterResponse struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringIn'.
-	OperatorType string `pulumi:"operatorType"`
-	// The set of filter values.
-	Values []string `pulumi:"values"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Values       []string `pulumi:"values"`
 }
 
 // StringInAdvancedFilterResponseInput is an input type that accepts StringInAdvancedFilterResponseArgs and StringInAdvancedFilterResponseOutput values.
@@ -3292,15 +2768,10 @@ type StringInAdvancedFilterResponseInput interface {
 	ToStringInAdvancedFilterResponseOutputWithContext(context.Context) StringInAdvancedFilterResponseOutput
 }
 
-// StringIn Advanced Filter.
 type StringInAdvancedFilterResponseArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringIn'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The set of filter values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
+	OperatorType pulumi.StringInput      `pulumi:"operatorType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (StringInAdvancedFilterResponseArgs) ElementType() reflect.Type {
@@ -3315,7 +2786,6 @@ func (i StringInAdvancedFilterResponseArgs) ToStringInAdvancedFilterResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StringInAdvancedFilterResponseOutput)
 }
 
-// StringIn Advanced Filter.
 type StringInAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (StringInAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -3330,31 +2800,22 @@ func (o StringInAdvancedFilterResponseOutput) ToStringInAdvancedFilterResponseOu
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o StringInAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StringInAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'StringIn'.
 func (o StringInAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v StringInAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The set of filter values.
 func (o StringInAdvancedFilterResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StringInAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringNotIn Advanced Filter.
 type StringNotInAdvancedFilter struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringNotIn'.
-	OperatorType string `pulumi:"operatorType"`
-	// The set of filter values.
-	Values []string `pulumi:"values"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Values       []string `pulumi:"values"`
 }
 
 // StringNotInAdvancedFilterInput is an input type that accepts StringNotInAdvancedFilterArgs and StringNotInAdvancedFilterOutput values.
@@ -3368,15 +2829,10 @@ type StringNotInAdvancedFilterInput interface {
 	ToStringNotInAdvancedFilterOutputWithContext(context.Context) StringNotInAdvancedFilterOutput
 }
 
-// StringNotIn Advanced Filter.
 type StringNotInAdvancedFilterArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringNotIn'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The set of filter values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
+	OperatorType pulumi.StringInput      `pulumi:"operatorType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (StringNotInAdvancedFilterArgs) ElementType() reflect.Type {
@@ -3391,7 +2847,6 @@ func (i StringNotInAdvancedFilterArgs) ToStringNotInAdvancedFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StringNotInAdvancedFilterOutput)
 }
 
-// StringNotIn Advanced Filter.
 type StringNotInAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (StringNotInAdvancedFilterOutput) ElementType() reflect.Type {
@@ -3406,31 +2861,22 @@ func (o StringNotInAdvancedFilterOutput) ToStringNotInAdvancedFilterOutputWithCo
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o StringNotInAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StringNotInAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'StringNotIn'.
 func (o StringNotInAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v StringNotInAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The set of filter values.
 func (o StringNotInAdvancedFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StringNotInAdvancedFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// StringNotIn Advanced Filter.
 type StringNotInAdvancedFilterResponse struct {
-	// The field/property in the event based on which you want to filter.
-	Key *string `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringNotIn'.
-	OperatorType string `pulumi:"operatorType"`
-	// The set of filter values.
-	Values []string `pulumi:"values"`
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Values       []string `pulumi:"values"`
 }
 
 // StringNotInAdvancedFilterResponseInput is an input type that accepts StringNotInAdvancedFilterResponseArgs and StringNotInAdvancedFilterResponseOutput values.
@@ -3444,15 +2890,10 @@ type StringNotInAdvancedFilterResponseInput interface {
 	ToStringNotInAdvancedFilterResponseOutputWithContext(context.Context) StringNotInAdvancedFilterResponseOutput
 }
 
-// StringNotIn Advanced Filter.
 type StringNotInAdvancedFilterResponseArgs struct {
-	// The field/property in the event based on which you want to filter.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-	// Expected value is 'StringNotIn'.
-	OperatorType pulumi.StringInput `pulumi:"operatorType"`
-	// The set of filter values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
+	OperatorType pulumi.StringInput      `pulumi:"operatorType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (StringNotInAdvancedFilterResponseArgs) ElementType() reflect.Type {
@@ -3467,7 +2908,6 @@ func (i StringNotInAdvancedFilterResponseArgs) ToStringNotInAdvancedFilterRespon
 	return pulumi.ToOutputWithContext(ctx, i).(StringNotInAdvancedFilterResponseOutput)
 }
 
-// StringNotIn Advanced Filter.
 type StringNotInAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (StringNotInAdvancedFilterResponseOutput) ElementType() reflect.Type {
@@ -3482,29 +2922,21 @@ func (o StringNotInAdvancedFilterResponseOutput) ToStringNotInAdvancedFilterResp
 	return o
 }
 
-// The field/property in the event based on which you want to filter.
 func (o StringNotInAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StringNotInAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-// Expected value is 'StringNotIn'.
 func (o StringNotInAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
 	return o.ApplyT(func(v StringNotInAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
 }
 
-// The set of filter values.
 func (o StringNotInAdvancedFilterResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StringNotInAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// Information about the webhook destination for an event subscription
 type WebHookEventSubscriptionDestination struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'WebHook'.
-	EndpointType string `pulumi:"endpointType"`
-	// The URL that represents the endpoint of the destination of an event subscription.
-	EndpointUrl *string `pulumi:"endpointUrl"`
+	EndpointType string  `pulumi:"endpointType"`
+	EndpointUrl  *string `pulumi:"endpointUrl"`
 }
 
 // WebHookEventSubscriptionDestinationInput is an input type that accepts WebHookEventSubscriptionDestinationArgs and WebHookEventSubscriptionDestinationOutput values.
@@ -3518,13 +2950,9 @@ type WebHookEventSubscriptionDestinationInput interface {
 	ToWebHookEventSubscriptionDestinationOutputWithContext(context.Context) WebHookEventSubscriptionDestinationOutput
 }
 
-// Information about the webhook destination for an event subscription
 type WebHookEventSubscriptionDestinationArgs struct {
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'WebHook'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The URL that represents the endpoint of the destination of an event subscription.
-	EndpointUrl pulumi.StringPtrInput `pulumi:"endpointUrl"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	EndpointUrl  pulumi.StringPtrInput `pulumi:"endpointUrl"`
 }
 
 func (WebHookEventSubscriptionDestinationArgs) ElementType() reflect.Type {
@@ -3539,7 +2967,6 @@ func (i WebHookEventSubscriptionDestinationArgs) ToWebHookEventSubscriptionDesti
 	return pulumi.ToOutputWithContext(ctx, i).(WebHookEventSubscriptionDestinationOutput)
 }
 
-// Information about the webhook destination for an event subscription
 type WebHookEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (WebHookEventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -3554,26 +2981,18 @@ func (o WebHookEventSubscriptionDestinationOutput) ToWebHookEventSubscriptionDes
 	return o
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'WebHook'.
 func (o WebHookEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebHookEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The URL that represents the endpoint of the destination of an event subscription.
 func (o WebHookEventSubscriptionDestinationOutput) EndpointUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebHookEventSubscriptionDestination) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
 }
 
-// Information about the webhook destination for an event subscription
 type WebHookEventSubscriptionDestinationResponse struct {
-	// The base URL that represents the endpoint of the destination of an event subscription.
-	EndpointBaseUrl string `pulumi:"endpointBaseUrl"`
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'WebHook'.
-	EndpointType string `pulumi:"endpointType"`
-	// The URL that represents the endpoint of the destination of an event subscription.
-	EndpointUrl *string `pulumi:"endpointUrl"`
+	EndpointBaseUrl string  `pulumi:"endpointBaseUrl"`
+	EndpointType    string  `pulumi:"endpointType"`
+	EndpointUrl     *string `pulumi:"endpointUrl"`
 }
 
 // WebHookEventSubscriptionDestinationResponseInput is an input type that accepts WebHookEventSubscriptionDestinationResponseArgs and WebHookEventSubscriptionDestinationResponseOutput values.
@@ -3587,15 +3006,10 @@ type WebHookEventSubscriptionDestinationResponseInput interface {
 	ToWebHookEventSubscriptionDestinationResponseOutputWithContext(context.Context) WebHookEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the webhook destination for an event subscription
 type WebHookEventSubscriptionDestinationResponseArgs struct {
-	// The base URL that represents the endpoint of the destination of an event subscription.
-	EndpointBaseUrl pulumi.StringInput `pulumi:"endpointBaseUrl"`
-	// Type of the endpoint for the event subscription destination
-	// Expected value is 'WebHook'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The URL that represents the endpoint of the destination of an event subscription.
-	EndpointUrl pulumi.StringPtrInput `pulumi:"endpointUrl"`
+	EndpointBaseUrl pulumi.StringInput    `pulumi:"endpointBaseUrl"`
+	EndpointType    pulumi.StringInput    `pulumi:"endpointType"`
+	EndpointUrl     pulumi.StringPtrInput `pulumi:"endpointUrl"`
 }
 
 func (WebHookEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
@@ -3610,7 +3024,6 @@ func (i WebHookEventSubscriptionDestinationResponseArgs) ToWebHookEventSubscript
 	return pulumi.ToOutputWithContext(ctx, i).(WebHookEventSubscriptionDestinationResponseOutput)
 }
 
-// Information about the webhook destination for an event subscription
 type WebHookEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (WebHookEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -3625,18 +3038,14 @@ func (o WebHookEventSubscriptionDestinationResponseOutput) ToWebHookEventSubscri
 	return o
 }
 
-// The base URL that represents the endpoint of the destination of an event subscription.
 func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointBaseUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v WebHookEventSubscriptionDestinationResponse) string { return v.EndpointBaseUrl }).(pulumi.StringOutput)
 }
 
-// Type of the endpoint for the event subscription destination
-// Expected value is 'WebHook'.
 func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebHookEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The URL that represents the endpoint of the destination of an event subscription.
 func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebHookEventSubscriptionDestinationResponse) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
 }

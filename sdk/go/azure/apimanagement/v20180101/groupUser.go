@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// User details.
 type GroupUser struct {
 	pulumi.CustomResourceState
 
-	// Email address.
-	Email pulumi.StringPtrOutput `pulumi:"email"`
-	// First name.
-	FirstName pulumi.StringPtrOutput `pulumi:"firstName"`
-	// Collection of groups user is part of.
-	Groups GroupContractPropertiesResponseArrayOutput `pulumi:"groups"`
-	// Collection of user identities.
-	Identities UserIdentityContractResponseArrayOutput `pulumi:"identities"`
-	// Last name.
-	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Optional note about a user set by the administrator.
-	Note pulumi.StringPtrOutput `pulumi:"note"`
-	// Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	RegistrationDate pulumi.StringPtrOutput `pulumi:"registrationDate"`
-	// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
-	State pulumi.StringPtrOutput `pulumi:"state"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Email            pulumi.StringPtrOutput                     `pulumi:"email"`
+	FirstName        pulumi.StringPtrOutput                     `pulumi:"firstName"`
+	Groups           GroupContractPropertiesResponseArrayOutput `pulumi:"groups"`
+	Identities       UserIdentityContractResponseArrayOutput    `pulumi:"identities"`
+	LastName         pulumi.StringPtrOutput                     `pulumi:"lastName"`
+	Name             pulumi.StringOutput                        `pulumi:"name"`
+	Note             pulumi.StringPtrOutput                     `pulumi:"note"`
+	RegistrationDate pulumi.StringPtrOutput                     `pulumi:"registrationDate"`
+	State            pulumi.StringPtrOutput                     `pulumi:"state"`
+	Type             pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewGroupUser registers a new resource with the given unique name, arguments, and options.
@@ -145,26 +134,18 @@ func (GroupUserState) ElementType() reflect.Type {
 }
 
 type groupUserArgs struct {
-	// Group identifier. Must be unique in the current API Management service instance.
-	GroupId string `pulumi:"groupId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// User identifier. Must be unique in the current API Management service instance.
-	Uid *string `pulumi:"uid"`
+	GroupId           string  `pulumi:"groupId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
+	Uid               *string `pulumi:"uid"`
 }
 
 // The set of arguments for constructing a GroupUser resource.
 type GroupUserArgs struct {
-	// Group identifier. Must be unique in the current API Management service instance.
-	GroupId pulumi.StringInput
-	// The name of the resource group.
+	GroupId           pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// User identifier. Must be unique in the current API Management service instance.
-	Uid pulumi.StringPtrInput
+	ServiceName       pulumi.StringInput
+	Uid               pulumi.StringPtrInput
 }
 
 func (GroupUserArgs) ElementType() reflect.Type {
@@ -190,9 +171,7 @@ func (i *GroupUser) ToGroupUserOutputWithContext(ctx context.Context) GroupUserO
 	return pulumi.ToOutputWithContext(ctx, i).(GroupUserOutput)
 }
 
-type GroupUserOutput struct {
-	*pulumi.OutputState
-}
+type GroupUserOutput struct{ *pulumi.OutputState }
 
 func (GroupUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupUser)(nil))

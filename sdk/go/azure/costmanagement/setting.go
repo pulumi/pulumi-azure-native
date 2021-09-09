@@ -129,9 +129,7 @@ func (i *Setting) ToSettingOutputWithContext(ctx context.Context) SettingOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(SettingOutput)
 }
 
-type SettingOutput struct {
-	*pulumi.OutputState
-}
+type SettingOutput struct{ *pulumi.OutputState }
 
 func (SettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Setting)(nil))

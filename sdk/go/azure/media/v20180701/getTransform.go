@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
 func LookupTransform(ctx *pulumi.Context, args *LookupTransformArgs, opts ...pulumi.InvokeOption) (*LookupTransformResult, error) {
 	var rv LookupTransformResult
 	err := ctx.Invoke("azure-native:media/v20180701:getTransform", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupTransform(ctx *pulumi.Context, args *LookupTransformArgs, opts ...pul
 }
 
 type LookupTransformArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// The name of the resource group within the Azure subscription.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Transform name.
-	TransformName string `pulumi:"transformName"`
+	TransformName     string `pulumi:"transformName"`
 }
 
 // A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
 type LookupTransformResult struct {
-	// The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
-	Created string `pulumi:"created"`
-	// An optional verbose description of the Transform.
-	Description *string `pulumi:"description"`
-	// Fully qualified resource ID for the resource.
-	Id string `pulumi:"id"`
-	// The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
-	LastModified string `pulumi:"lastModified"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// An array of one or more TransformOutputs that the Transform should generate.
-	Outputs []TransformOutputResponse `pulumi:"outputs"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Created      string                    `pulumi:"created"`
+	Description  *string                   `pulumi:"description"`
+	Id           string                    `pulumi:"id"`
+	LastModified string                    `pulumi:"lastModified"`
+	Name         string                    `pulumi:"name"`
+	Outputs      []TransformOutputResponse `pulumi:"outputs"`
+	Type         string                    `pulumi:"type"`
 }

@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure resource which represents Maps Creator product and provides ability to manage private location data.
 type Creator struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Creator resource properties.
+	Location   pulumi.StringOutput             `pulumi:"location"`
+	Name       pulumi.StringOutput             `pulumi:"name"`
 	Properties CreatorPropertiesResponseOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput          `pulumi:"tags"`
+	Type       pulumi.StringOutput             `pulumi:"type"`
 }
 
 // NewCreator registers a new resource with the given unique name, arguments, and options.
@@ -99,34 +93,22 @@ func (CreatorState) ElementType() reflect.Type {
 }
 
 type creatorArgs struct {
-	// The name of the Maps Account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the Maps Creator instance.
-	CreatorName *string `pulumi:"creatorName"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The Creator resource properties.
-	Properties CreatorProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       string            `pulumi:"accountName"`
+	CreatorName       *string           `pulumi:"creatorName"`
+	Location          *string           `pulumi:"location"`
+	Properties        CreatorProperties `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Creator resource.
 type CreatorArgs struct {
-	// The name of the Maps Account.
-	AccountName pulumi.StringInput
-	// The name of the Maps Creator instance.
-	CreatorName pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The Creator resource properties.
-	Properties CreatorPropertiesInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	CreatorName       pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        CreatorPropertiesInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (CreatorArgs) ElementType() reflect.Type {
@@ -152,9 +134,7 @@ func (i *Creator) ToCreatorOutputWithContext(ctx context.Context) CreatorOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(CreatorOutput)
 }
 
-type CreatorOutput struct {
-	*pulumi.OutputState
-}
+type CreatorOutput struct{ *pulumi.OutputState }
 
 func (CreatorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Creator)(nil))

@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB MongoDB collection.
 type DatabaseAccountMongoDBCollection struct {
 	pulumi.CustomResourceState
 
-	// List of index keys
-	Indexes MongoIndexResponseArrayOutput `pulumi:"indexes"`
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the database account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A key-value pair of shard keys to be applied for the request.
-	ShardKey pulumi.StringMapOutput `pulumi:"shardKey"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Indexes  MongoIndexResponseArrayOutput `pulumi:"indexes"`
+	Location pulumi.StringPtrOutput        `pulumi:"location"`
+	Name     pulumi.StringOutput           `pulumi:"name"`
+	ShardKey pulumi.StringMapOutput        `pulumi:"shardKey"`
+	Tags     pulumi.StringMapOutput        `pulumi:"tags"`
+	Type     pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewDatabaseAccountMongoDBCollection registers a new resource with the given unique name, arguments, and options.
@@ -203,33 +196,21 @@ func (DatabaseAccountMongoDBCollectionState) ElementType() reflect.Type {
 }
 
 type databaseAccountMongoDBCollectionArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Cosmos DB collection name.
-	CollectionName *string `pulumi:"collectionName"`
-	// Cosmos DB database name.
-	DatabaseName string `pulumi:"databaseName"`
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options map[string]string `pulumi:"options"`
-	// The standard JSON format of a MongoDB collection
-	Resource MongoDBCollectionResource `pulumi:"resource"`
-	// Name of an Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName       string                    `pulumi:"accountName"`
+	CollectionName    *string                   `pulumi:"collectionName"`
+	DatabaseName      string                    `pulumi:"databaseName"`
+	Options           map[string]string         `pulumi:"options"`
+	Resource          MongoDBCollectionResource `pulumi:"resource"`
+	ResourceGroupName string                    `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a DatabaseAccountMongoDBCollection resource.
 type DatabaseAccountMongoDBCollectionArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Cosmos DB collection name.
-	CollectionName pulumi.StringPtrInput
-	// Cosmos DB database name.
-	DatabaseName pulumi.StringInput
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options pulumi.StringMapInput
-	// The standard JSON format of a MongoDB collection
-	Resource MongoDBCollectionResourceInput
-	// Name of an Azure resource group.
+	AccountName       pulumi.StringInput
+	CollectionName    pulumi.StringPtrInput
+	DatabaseName      pulumi.StringInput
+	Options           pulumi.StringMapInput
+	Resource          MongoDBCollectionResourceInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -256,9 +237,7 @@ func (i *DatabaseAccountMongoDBCollection) ToDatabaseAccountMongoDBCollectionOut
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountMongoDBCollectionOutput)
 }
 
-type DatabaseAccountMongoDBCollectionOutput struct {
-	*pulumi.OutputState
-}
+type DatabaseAccountMongoDBCollectionOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAccountMongoDBCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAccountMongoDBCollection)(nil))

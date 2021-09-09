@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Managed cluster.
 func LookupManagedCluster(ctx *pulumi.Context, args *LookupManagedClusterArgs, opts ...pulumi.InvokeOption) (*LookupManagedClusterResult, error) {
 	var rv LookupManagedClusterResult
 	err := ctx.Invoke("azure-native:containerservice/v20170831:getManagedCluster", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupManagedCluster(ctx *pulumi.Context, args *LookupManagedClusterArgs, o
 }
 
 type LookupManagedClusterArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the managed cluster resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // Managed cluster.
 type LookupManagedClusterResult struct {
-	// Properties of the agent pool.
-	AgentPoolProfiles []ContainerServiceAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
-	// DNS prefix specified when creating the managed cluster.
-	DnsPrefix *string `pulumi:"dnsPrefix"`
-	// FQDN for the master pool.
-	Fqdn string `pulumi:"fqdn"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Version of Kubernetes specified when creating the managed cluster.
-	KubernetesVersion *string `pulumi:"kubernetesVersion"`
-	// Profile for Linux VMs in the container service cluster.
-	LinuxProfile *ContainerServiceLinuxProfileResponse `pulumi:"linuxProfile"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The current deployment or provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+	AgentPoolProfiles       []ContainerServiceAgentPoolProfileResponse       `pulumi:"agentPoolProfiles"`
+	DnsPrefix               *string                                          `pulumi:"dnsPrefix"`
+	Fqdn                    string                                           `pulumi:"fqdn"`
+	Id                      string                                           `pulumi:"id"`
+	KubernetesVersion       *string                                          `pulumi:"kubernetesVersion"`
+	LinuxProfile            *ContainerServiceLinuxProfileResponse            `pulumi:"linuxProfile"`
+	Location                string                                           `pulumi:"location"`
+	Name                    string                                           `pulumi:"name"`
+	ProvisioningState       string                                           `pulumi:"provisioningState"`
 	ServicePrincipalProfile *ContainerServiceServicePrincipalProfileResponse `pulumi:"servicePrincipalProfile"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Tags                    map[string]string                                `pulumi:"tags"`
+	Type                    string                                           `pulumi:"type"`
 }

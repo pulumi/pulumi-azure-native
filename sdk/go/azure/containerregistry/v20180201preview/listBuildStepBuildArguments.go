@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The list of build arguments for a build step.
 func ListBuildStepBuildArguments(ctx *pulumi.Context, args *ListBuildStepBuildArgumentsArgs, opts ...pulumi.InvokeOption) (*ListBuildStepBuildArgumentsResult, error) {
 	var rv ListBuildStepBuildArgumentsResult
 	err := ctx.Invoke("azure-native:containerregistry/v20180201preview:listBuildStepBuildArguments", args, &rv, opts...)
@@ -18,20 +17,14 @@ func ListBuildStepBuildArguments(ctx *pulumi.Context, args *ListBuildStepBuildAr
 }
 
 type ListBuildStepBuildArgumentsArgs struct {
-	// The name of the container registry build task.
-	BuildTaskName string `pulumi:"buildTaskName"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
+	BuildTaskName     string `pulumi:"buildTaskName"`
+	RegistryName      string `pulumi:"registryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of a build step for a container registry build task.
-	StepName string `pulumi:"stepName"`
+	StepName          string `pulumi:"stepName"`
 }
 
 // The list of build arguments for a build step.
 type ListBuildStepBuildArgumentsResult struct {
-	// The URI that can be used to request the next set of paged results.
-	NextLink *string `pulumi:"nextLink"`
-	// The collection value.
-	Value []BuildArgumentResponse `pulumi:"value"`
+	NextLink *string                 `pulumi:"nextLink"`
+	Value    []BuildArgumentResponse `pulumi:"value"`
 }

@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Fabric definition.
 type ReplicationFabric struct {
 	pulumi.CustomResourceState
 
-	// Resource Location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Fabric related data.
+	Location   pulumi.StringPtrOutput         `pulumi:"location"`
+	Name       pulumi.StringOutput            `pulumi:"name"`
 	Properties FabricPropertiesResponseOutput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput            `pulumi:"type"`
 }
 
 // NewReplicationFabric registers a new resource with the given unique name, arguments, and options.
@@ -124,22 +119,16 @@ func (ReplicationFabricState) ElementType() reflect.Type {
 }
 
 type replicationFabricArgs struct {
-	// Name of the ASR fabric.
-	FabricName *string `pulumi:"fabricName"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
+	FabricName        *string `pulumi:"fabricName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ResourceName      string  `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a ReplicationFabric resource.
 type ReplicationFabricArgs struct {
-	// Name of the ASR fabric.
-	FabricName pulumi.StringPtrInput
-	// The name of the resource group where the recovery services vault is present.
+	FabricName        pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the recovery services vault.
-	ResourceName pulumi.StringInput
+	ResourceName      pulumi.StringInput
 }
 
 func (ReplicationFabricArgs) ElementType() reflect.Type {
@@ -165,9 +154,7 @@ func (i *ReplicationFabric) ToReplicationFabricOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationFabricOutput)
 }
 
-type ReplicationFabricOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationFabricOutput struct{ *pulumi.OutputState }
 
 func (ReplicationFabricOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationFabric)(nil))

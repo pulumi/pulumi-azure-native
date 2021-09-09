@@ -196,7 +196,7 @@ type subscriptionArgs struct {
 	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
 	Sid *string `pulumi:"sid"`
 	// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-	State *string `pulumi:"state"`
+	State *SubscriptionStateEnum `pulumi:"state"`
 }
 
 // The set of arguments for constructing a Subscription resource.
@@ -226,7 +226,7 @@ type SubscriptionArgs struct {
 	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
 	Sid pulumi.StringPtrInput
 	// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-	State *SubscriptionStateEnum
+	State SubscriptionStateEnumPtrInput
 }
 
 func (SubscriptionArgs) ElementType() reflect.Type {
@@ -252,9 +252,7 @@ func (i *Subscription) ToSubscriptionOutputWithContext(ctx context.Context) Subs
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionOutput)
 }
 
-type SubscriptionOutput struct {
-	*pulumi.OutputState
-}
+type SubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Subscription)(nil))

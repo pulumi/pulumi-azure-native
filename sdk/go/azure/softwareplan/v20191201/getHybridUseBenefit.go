@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response on GET of a hybrid use benefit
 func LookupHybridUseBenefit(ctx *pulumi.Context, args *LookupHybridUseBenefitArgs, opts ...pulumi.InvokeOption) (*LookupHybridUseBenefitResult, error) {
 	var rv LookupHybridUseBenefitResult
 	err := ctx.Invoke("azure-native:softwareplan/v20191201:getHybridUseBenefit", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupHybridUseBenefit(ctx *pulumi.Context, args *LookupHybridUseBenefitArg
 }
 
 type LookupHybridUseBenefitArgs struct {
-	// This is a unique identifier for a plan. Should be a guid.
 	PlanId string `pulumi:"planId"`
-	// The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
-	Scope string `pulumi:"scope"`
+	Scope  string `pulumi:"scope"`
 }
 
 // Response on GET of a hybrid use benefit
 type LookupHybridUseBenefitResult struct {
-	// Created date
-	CreatedDate string `pulumi:"createdDate"`
-	// Indicates the revision of the hybrid use benefit
-	Etag int `pulumi:"etag"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Last updated date
-	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Provisioning state
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Hybrid use benefit SKU
-	Sku SkuResponse `pulumi:"sku"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	CreatedDate       string      `pulumi:"createdDate"`
+	Etag              int         `pulumi:"etag"`
+	Id                string      `pulumi:"id"`
+	LastUpdatedDate   string      `pulumi:"lastUpdatedDate"`
+	Name              string      `pulumi:"name"`
+	ProvisioningState string      `pulumi:"provisioningState"`
+	Sku               SkuResponse `pulumi:"sku"`
+	Type              string      `pulumi:"type"`
 }

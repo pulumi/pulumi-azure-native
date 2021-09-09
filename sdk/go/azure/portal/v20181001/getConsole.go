@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cloud shell console
 func LookupConsole(ctx *pulumi.Context, args *LookupConsoleArgs, opts ...pulumi.InvokeOption) (*LookupConsoleResult, error) {
 	var rv LookupConsoleResult
 	err := ctx.Invoke("azure-native:portal/v20181001:getConsole", args, &rv, opts...)
@@ -18,12 +17,10 @@ func LookupConsole(ctx *pulumi.Context, args *LookupConsoleArgs, opts ...pulumi.
 }
 
 type LookupConsoleArgs struct {
-	// The name of the console
 	ConsoleName string `pulumi:"consoleName"`
 }
 
 // Cloud shell console
 type LookupConsoleResult struct {
-	// Cloud shell console properties.
 	Properties ConsolePropertiesResponse `pulumi:"properties"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The result of a request to get the administrator login credentials for a container registry.
 func GetRegistryCredentials(ctx *pulumi.Context, args *GetRegistryCredentialsArgs, opts ...pulumi.InvokeOption) (*GetRegistryCredentialsResult, error) {
 	var rv GetRegistryCredentialsResult
 	err := ctx.Invoke("azure-native:containerregistry/v20160627preview:getRegistryCredentials", args, &rv, opts...)
@@ -18,16 +17,12 @@ func GetRegistryCredentials(ctx *pulumi.Context, args *GetRegistryCredentialsArg
 }
 
 type GetRegistryCredentialsArgs struct {
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
+	RegistryName      string `pulumi:"registryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The result of a request to get the administrator login credentials for a container registry.
 type GetRegistryCredentialsResult struct {
-	// The administrator password.
 	Password *string `pulumi:"password"`
-	// The administrator username.
 	Username *string `pulumi:"username"`
 }

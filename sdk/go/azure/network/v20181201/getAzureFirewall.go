@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Firewall resource
 func LookupAzureFirewall(ctx *pulumi.Context, args *LookupAzureFirewallArgs, opts ...pulumi.InvokeOption) (*LookupAzureFirewallResult, error) {
 	var rv LookupAzureFirewallResult
 	err := ctx.Invoke("azure-native:network/v20181201:getAzureFirewall", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupAzureFirewall(ctx *pulumi.Context, args *LookupAzureFirewallArgs, opt
 }
 
 type LookupAzureFirewallArgs struct {
-	// The name of the Azure Firewall.
 	AzureFirewallName string `pulumi:"azureFirewallName"`
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Azure Firewall resource
 type LookupAzureFirewallResult struct {
-	// Collection of application rule collections used by Azure Firewall.
 	ApplicationRuleCollections []AzureFirewallApplicationRuleCollectionResponse `pulumi:"applicationRuleCollections"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// IP configuration of the Azure Firewall resource.
-	IpConfigurations []AzureFirewallIPConfigurationResponse `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Collection of NAT rule collections used by Azure Firewall.
-	NatRuleCollections []AzureFirewallNatRuleCollectionResponse `pulumi:"natRuleCollections"`
-	// Collection of network rule collections used by Azure Firewall.
-	NetworkRuleCollections []AzureFirewallNetworkRuleCollectionResponse `pulumi:"networkRuleCollections"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The operation mode for Threat Intelligence.
-	ThreatIntelMode *string `pulumi:"threatIntelMode"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Etag                       string                                           `pulumi:"etag"`
+	Id                         *string                                          `pulumi:"id"`
+	IpConfigurations           []AzureFirewallIPConfigurationResponse           `pulumi:"ipConfigurations"`
+	Location                   *string                                          `pulumi:"location"`
+	Name                       string                                           `pulumi:"name"`
+	NatRuleCollections         []AzureFirewallNatRuleCollectionResponse         `pulumi:"natRuleCollections"`
+	NetworkRuleCollections     []AzureFirewallNetworkRuleCollectionResponse     `pulumi:"networkRuleCollections"`
+	ProvisioningState          string                                           `pulumi:"provisioningState"`
+	Tags                       map[string]string                                `pulumi:"tags"`
+	ThreatIntelMode            *string                                          `pulumi:"threatIntelMode"`
+	Type                       string                                           `pulumi:"type"`
 }

@@ -208,9 +208,7 @@ func (i *SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadGroupOutput)
 }
 
-type SqlPoolWorkloadGroupOutput struct {
-	*pulumi.OutputState
-}
+type SqlPoolWorkloadGroupOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolWorkloadGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPoolWorkloadGroup)(nil))

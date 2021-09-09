@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
 type ReferenceDataSet struct {
 	pulumi.CustomResourceState
 
-	// The time the resource was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-	DataStringComparisonBehavior pulumi.StringPtrOutput `pulumi:"dataStringComparisonBehavior"`
-	// The list of key properties for the reference data set.
-	KeyProperties ReferenceDataSetKeyPropertyResponseArrayOutput `pulumi:"keyProperties"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	CreationTime                 pulumi.StringOutput                            `pulumi:"creationTime"`
+	DataStringComparisonBehavior pulumi.StringPtrOutput                         `pulumi:"dataStringComparisonBehavior"`
+	KeyProperties                ReferenceDataSetKeyPropertyResponseArrayOutput `pulumi:"keyProperties"`
+	Location                     pulumi.StringOutput                            `pulumi:"location"`
+	Name                         pulumi.StringOutput                            `pulumi:"name"`
+	ProvisioningState            pulumi.StringOutput                            `pulumi:"provisioningState"`
+	Tags                         pulumi.StringMapOutput                         `pulumi:"tags"`
+	Type                         pulumi.StringOutput                            `pulumi:"type"`
 }
 
 // NewReferenceDataSet registers a new resource with the given unique name, arguments, and options.
@@ -117,38 +108,24 @@ func (ReferenceDataSetState) ElementType() reflect.Type {
 }
 
 type referenceDataSetArgs struct {
-	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-	DataStringComparisonBehavior *string `pulumi:"dataStringComparisonBehavior"`
-	// The name of the Time Series Insights environment associated with the specified resource group.
-	EnvironmentName string `pulumi:"environmentName"`
-	// The list of key properties for the reference data set.
-	KeyProperties []ReferenceDataSetKeyProperty `pulumi:"keyProperties"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// Name of the reference data set.
-	ReferenceDataSetName *string `pulumi:"referenceDataSetName"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Key-value pairs of additional properties for the resource.
-	Tags map[string]string `pulumi:"tags"`
+	DataStringComparisonBehavior *DataStringComparisonBehavior `pulumi:"dataStringComparisonBehavior"`
+	EnvironmentName              string                        `pulumi:"environmentName"`
+	KeyProperties                []ReferenceDataSetKeyProperty `pulumi:"keyProperties"`
+	Location                     *string                       `pulumi:"location"`
+	ReferenceDataSetName         *string                       `pulumi:"referenceDataSetName"`
+	ResourceGroupName            string                        `pulumi:"resourceGroupName"`
+	Tags                         map[string]string             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ReferenceDataSet resource.
 type ReferenceDataSetArgs struct {
-	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-	DataStringComparisonBehavior *DataStringComparisonBehavior
-	// The name of the Time Series Insights environment associated with the specified resource group.
-	EnvironmentName pulumi.StringInput
-	// The list of key properties for the reference data set.
-	KeyProperties ReferenceDataSetKeyPropertyArrayInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// Name of the reference data set.
-	ReferenceDataSetName pulumi.StringPtrInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
-	// Key-value pairs of additional properties for the resource.
-	Tags pulumi.StringMapInput
+	DataStringComparisonBehavior DataStringComparisonBehaviorPtrInput
+	EnvironmentName              pulumi.StringInput
+	KeyProperties                ReferenceDataSetKeyPropertyArrayInput
+	Location                     pulumi.StringPtrInput
+	ReferenceDataSetName         pulumi.StringPtrInput
+	ResourceGroupName            pulumi.StringInput
+	Tags                         pulumi.StringMapInput
 }
 
 func (ReferenceDataSetArgs) ElementType() reflect.Type {
@@ -174,9 +151,7 @@ func (i *ReferenceDataSet) ToReferenceDataSetOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetOutput)
 }
 
-type ReferenceDataSetOutput struct {
-	*pulumi.OutputState
-}
+type ReferenceDataSetOutput struct{ *pulumi.OutputState }
 
 func (ReferenceDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReferenceDataSet)(nil))

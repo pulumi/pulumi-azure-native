@@ -10,13 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Configures how to correlate scan data and logs with resources associated with the subscription.
 type IngestionSetting struct {
 	pulumi.CustomResourceState
 
-	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -71,13 +68,11 @@ func (IngestionSettingState) ElementType() reflect.Type {
 }
 
 type ingestionSettingArgs struct {
-	// Name of the ingestion setting
 	IngestionSettingName *string `pulumi:"ingestionSettingName"`
 }
 
 // The set of arguments for constructing a IngestionSetting resource.
 type IngestionSettingArgs struct {
-	// Name of the ingestion setting
 	IngestionSettingName pulumi.StringPtrInput
 }
 
@@ -104,9 +99,7 @@ func (i *IngestionSetting) ToIngestionSettingOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(IngestionSettingOutput)
 }
 
-type IngestionSettingOutput struct {
-	*pulumi.OutputState
-}
+type IngestionSettingOutput struct{ *pulumi.OutputState }
 
 func (IngestionSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IngestionSetting)(nil))

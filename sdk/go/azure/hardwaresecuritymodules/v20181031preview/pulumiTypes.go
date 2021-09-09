@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The API entity reference.
 type ApiEntityReference struct {
-	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 	Id *string `pulumi:"id"`
 }
 
@@ -27,9 +25,7 @@ type ApiEntityReferenceInput interface {
 	ToApiEntityReferenceOutputWithContext(context.Context) ApiEntityReferenceOutput
 }
 
-// The API entity reference.
 type ApiEntityReferenceArgs struct {
-	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -86,7 +82,6 @@ func (i *apiEntityReferencePtrType) ToApiEntityReferencePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ApiEntityReferencePtrOutput)
 }
 
-// The API entity reference.
 type ApiEntityReferenceOutput struct{ *pulumi.OutputState }
 
 func (ApiEntityReferenceOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o ApiEntityReferenceOutput) ToApiEntityReferencePtrOutput() ApiEntityRefer
 }
 
 func (o ApiEntityReferenceOutput) ToApiEntityReferencePtrOutputWithContext(ctx context.Context) ApiEntityReferencePtrOutput {
-	return o.ApplyT(func(v ApiEntityReference) *ApiEntityReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEntityReference) *ApiEntityReference {
 		return &v
 	}).(ApiEntityReferencePtrOutput)
 }
 
-// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 func (o ApiEntityReferenceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntityReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -131,10 +125,15 @@ func (o ApiEntityReferencePtrOutput) ToApiEntityReferencePtrOutputWithContext(ct
 }
 
 func (o ApiEntityReferencePtrOutput) Elem() ApiEntityReferenceOutput {
-	return o.ApplyT(func(v *ApiEntityReference) ApiEntityReference { return *v }).(ApiEntityReferenceOutput)
+	return o.ApplyT(func(v *ApiEntityReference) ApiEntityReference {
+		if v != nil {
+			return *v
+		}
+		var ret ApiEntityReference
+		return ret
+	}).(ApiEntityReferenceOutput)
 }
 
-// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 func (o ApiEntityReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntityReference) *string {
 		if v == nil {
@@ -144,9 +143,7 @@ func (o ApiEntityReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The API entity reference.
 type ApiEntityReferenceResponse struct {
-	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 	Id *string `pulumi:"id"`
 }
 
@@ -161,9 +158,7 @@ type ApiEntityReferenceResponseInput interface {
 	ToApiEntityReferenceResponseOutputWithContext(context.Context) ApiEntityReferenceResponseOutput
 }
 
-// The API entity reference.
 type ApiEntityReferenceResponseArgs struct {
-	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -220,7 +215,6 @@ func (i *apiEntityReferenceResponsePtrType) ToApiEntityReferenceResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ApiEntityReferenceResponsePtrOutput)
 }
 
-// The API entity reference.
 type ApiEntityReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiEntityReferenceResponseOutput) ElementType() reflect.Type {
@@ -240,12 +234,11 @@ func (o ApiEntityReferenceResponseOutput) ToApiEntityReferenceResponsePtrOutput(
 }
 
 func (o ApiEntityReferenceResponseOutput) ToApiEntityReferenceResponsePtrOutputWithContext(ctx context.Context) ApiEntityReferenceResponsePtrOutput {
-	return o.ApplyT(func(v ApiEntityReferenceResponse) *ApiEntityReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEntityReferenceResponse) *ApiEntityReferenceResponse {
 		return &v
 	}).(ApiEntityReferenceResponsePtrOutput)
 }
 
-// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 func (o ApiEntityReferenceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntityReferenceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -265,10 +258,15 @@ func (o ApiEntityReferenceResponsePtrOutput) ToApiEntityReferenceResponsePtrOutp
 }
 
 func (o ApiEntityReferenceResponsePtrOutput) Elem() ApiEntityReferenceResponseOutput {
-	return o.ApplyT(func(v *ApiEntityReferenceResponse) ApiEntityReferenceResponse { return *v }).(ApiEntityReferenceResponseOutput)
+	return o.ApplyT(func(v *ApiEntityReferenceResponse) ApiEntityReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiEntityReferenceResponse
+		return ret
+	}).(ApiEntityReferenceResponseOutput)
 }
 
-// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 func (o ApiEntityReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntityReferenceResponse) *string {
 		if v == nil {
@@ -278,9 +276,7 @@ func (o ApiEntityReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The network interface definition.
 type NetworkInterface struct {
-	// Private Ip address of the interface
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 }
 
@@ -295,9 +291,7 @@ type NetworkInterfaceInput interface {
 	ToNetworkInterfaceOutputWithContext(context.Context) NetworkInterfaceOutput
 }
 
-// The network interface definition.
 type NetworkInterfaceArgs struct {
-	// Private Ip address of the interface
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 }
 
@@ -338,7 +332,6 @@ func (i NetworkInterfaceArray) ToNetworkInterfaceArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceArrayOutput)
 }
 
-// The network interface definition.
 type NetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceOutput) ElementType() reflect.Type {
@@ -353,7 +346,6 @@ func (o NetworkInterfaceOutput) ToNetworkInterfaceOutputWithContext(ctx context.
 	return o
 }
 
-// Private Ip address of the interface
 func (o NetworkInterfaceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterface) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -378,11 +370,8 @@ func (o NetworkInterfaceArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceOu
 	}).(NetworkInterfaceOutput)
 }
 
-// The network interface definition.
 type NetworkInterfaceResponse struct {
-	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-	Id string `pulumi:"id"`
-	// Private Ip address of the interface
+	Id               string  `pulumi:"id"`
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 }
 
@@ -397,11 +386,8 @@ type NetworkInterfaceResponseInput interface {
 	ToNetworkInterfaceResponseOutputWithContext(context.Context) NetworkInterfaceResponseOutput
 }
 
-// The network interface definition.
 type NetworkInterfaceResponseArgs struct {
-	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-	Id pulumi.StringInput `pulumi:"id"`
-	// Private Ip address of the interface
+	Id               pulumi.StringInput    `pulumi:"id"`
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 }
 
@@ -442,7 +428,6 @@ func (i NetworkInterfaceResponseArray) ToNetworkInterfaceResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceResponseArrayOutput)
 }
 
-// The network interface definition.
 type NetworkInterfaceResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceResponseOutput) ElementType() reflect.Type {
@@ -457,12 +442,10 @@ func (o NetworkInterfaceResponseOutput) ToNetworkInterfaceResponseOutputWithCont
 	return o
 }
 
-// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 func (o NetworkInterfaceResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Private Ip address of the interface
 func (o NetworkInterfaceResponseOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceResponse) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -488,10 +471,8 @@ func (o NetworkInterfaceResponseArrayOutput) Index(i pulumi.IntInput) NetworkInt
 }
 
 type NetworkProfile struct {
-	// Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
-	NetworkInterfaces []NetworkInterface `pulumi:"networkInterfaces"`
-	// Specifies the identifier of the subnet.
-	Subnet *ApiEntityReference `pulumi:"subnet"`
+	NetworkInterfaces []NetworkInterface  `pulumi:"networkInterfaces"`
+	Subnet            *ApiEntityReference `pulumi:"subnet"`
 }
 
 // NetworkProfileInput is an input type that accepts NetworkProfileArgs and NetworkProfileOutput values.
@@ -506,10 +487,8 @@ type NetworkProfileInput interface {
 }
 
 type NetworkProfileArgs struct {
-	// Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
 	NetworkInterfaces NetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
-	// Specifies the identifier of the subnet.
-	Subnet ApiEntityReferencePtrInput `pulumi:"subnet"`
+	Subnet            ApiEntityReferencePtrInput `pulumi:"subnet"`
 }
 
 func (NetworkProfileArgs) ElementType() reflect.Type {
@@ -584,17 +563,15 @@ func (o NetworkProfileOutput) ToNetworkProfilePtrOutput() NetworkProfilePtrOutpu
 }
 
 func (o NetworkProfileOutput) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
-	return o.ApplyT(func(v NetworkProfile) *NetworkProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfile) *NetworkProfile {
 		return &v
 	}).(NetworkProfilePtrOutput)
 }
 
-// Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
 func (o NetworkProfileOutput) NetworkInterfaces() NetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v NetworkProfile) []NetworkInterface { return v.NetworkInterfaces }).(NetworkInterfaceArrayOutput)
 }
 
-// Specifies the identifier of the subnet.
 func (o NetworkProfileOutput) Subnet() ApiEntityReferencePtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *ApiEntityReference { return v.Subnet }).(ApiEntityReferencePtrOutput)
 }
@@ -614,10 +591,15 @@ func (o NetworkProfilePtrOutput) ToNetworkProfilePtrOutputWithContext(ctx contex
 }
 
 func (o NetworkProfilePtrOutput) Elem() NetworkProfileOutput {
-	return o.ApplyT(func(v *NetworkProfile) NetworkProfile { return *v }).(NetworkProfileOutput)
+	return o.ApplyT(func(v *NetworkProfile) NetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkProfile
+		return ret
+	}).(NetworkProfileOutput)
 }
 
-// Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
 func (o NetworkProfilePtrOutput) NetworkInterfaces() NetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v *NetworkProfile) []NetworkInterface {
 		if v == nil {
@@ -627,7 +609,6 @@ func (o NetworkProfilePtrOutput) NetworkInterfaces() NetworkInterfaceArrayOutput
 	}).(NetworkInterfaceArrayOutput)
 }
 
-// Specifies the identifier of the subnet.
 func (o NetworkProfilePtrOutput) Subnet() ApiEntityReferencePtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *ApiEntityReference {
 		if v == nil {
@@ -638,10 +619,8 @@ func (o NetworkProfilePtrOutput) Subnet() ApiEntityReferencePtrOutput {
 }
 
 type NetworkProfileResponse struct {
-	// Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
-	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
-	// Specifies the identifier of the subnet.
-	Subnet *ApiEntityReferenceResponse `pulumi:"subnet"`
+	NetworkInterfaces []NetworkInterfaceResponse  `pulumi:"networkInterfaces"`
+	Subnet            *ApiEntityReferenceResponse `pulumi:"subnet"`
 }
 
 // NetworkProfileResponseInput is an input type that accepts NetworkProfileResponseArgs and NetworkProfileResponseOutput values.
@@ -656,10 +635,8 @@ type NetworkProfileResponseInput interface {
 }
 
 type NetworkProfileResponseArgs struct {
-	// Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
 	NetworkInterfaces NetworkInterfaceResponseArrayInput `pulumi:"networkInterfaces"`
-	// Specifies the identifier of the subnet.
-	Subnet ApiEntityReferenceResponsePtrInput `pulumi:"subnet"`
+	Subnet            ApiEntityReferenceResponsePtrInput `pulumi:"subnet"`
 }
 
 func (NetworkProfileResponseArgs) ElementType() reflect.Type {
@@ -734,17 +711,15 @@ func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutput() Networ
 }
 
 func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutputWithContext(ctx context.Context) NetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v NetworkProfileResponse) *NetworkProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfileResponse) *NetworkProfileResponse {
 		return &v
 	}).(NetworkProfileResponsePtrOutput)
 }
 
-// Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
 func (o NetworkProfileResponseOutput) NetworkInterfaces() NetworkInterfaceResponseArrayOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) []NetworkInterfaceResponse { return v.NetworkInterfaces }).(NetworkInterfaceResponseArrayOutput)
 }
 
-// Specifies the identifier of the subnet.
 func (o NetworkProfileResponseOutput) Subnet() ApiEntityReferenceResponsePtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *ApiEntityReferenceResponse { return v.Subnet }).(ApiEntityReferenceResponsePtrOutput)
 }
@@ -764,10 +739,15 @@ func (o NetworkProfileResponsePtrOutput) ToNetworkProfileResponsePtrOutputWithCo
 }
 
 func (o NetworkProfileResponsePtrOutput) Elem() NetworkProfileResponseOutput {
-	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse { return *v }).(NetworkProfileResponseOutput)
+	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkProfileResponse
+		return ret
+	}).(NetworkProfileResponseOutput)
 }
 
-// Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
 func (o NetworkProfileResponsePtrOutput) NetworkInterfaces() NetworkInterfaceResponseArrayOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) []NetworkInterfaceResponse {
 		if v == nil {
@@ -777,7 +757,6 @@ func (o NetworkProfileResponsePtrOutput) NetworkInterfaces() NetworkInterfaceRes
 	}).(NetworkInterfaceResponseArrayOutput)
 }
 
-// Specifies the identifier of the subnet.
 func (o NetworkProfileResponsePtrOutput) Subnet() ApiEntityReferenceResponsePtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *ApiEntityReferenceResponse {
 		if v == nil {
@@ -788,7 +767,6 @@ func (o NetworkProfileResponsePtrOutput) Subnet() ApiEntityReferenceResponsePtrO
 }
 
 type Sku struct {
-	// SKU of the dedicated HSM
 	Name *string `pulumi:"name"`
 }
 
@@ -804,7 +782,6 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// SKU of the dedicated HSM
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -880,12 +857,11 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// SKU of the dedicated HSM
 func (o SkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -905,10 +881,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// SKU of the dedicated HSM
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -919,7 +900,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type SkuResponse struct {
-	// SKU of the dedicated HSM
 	Name *string `pulumi:"name"`
 }
 
@@ -935,7 +915,6 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// SKU of the dedicated HSM
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1011,12 +990,11 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// SKU of the dedicated HSM
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1036,10 +1014,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// SKU of the dedicated HSM
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

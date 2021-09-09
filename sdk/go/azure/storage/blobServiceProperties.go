@@ -218,9 +218,7 @@ func (i *BlobServiceProperties) ToBlobServicePropertiesOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BlobServicePropertiesOutput)
 }
 
-type BlobServicePropertiesOutput struct {
-	*pulumi.OutputState
-}
+type BlobServicePropertiesOutput struct{ *pulumi.OutputState }
 
 func (BlobServicePropertiesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BlobServiceProperties)(nil))

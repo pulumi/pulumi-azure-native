@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Resource Manager resource envelope.
 func LookupLabelingJob(ctx *pulumi.Context, args *LookupLabelingJobArgs, opts ...pulumi.InvokeOption) (*LookupLabelingJobResult, error) {
 	var rv LookupLabelingJobResult
 	err := ctx.Invoke("azure-native:machinelearningservices/v20210301preview:getLabelingJob", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupLabelingJob(ctx *pulumi.Context, args *LookupLabelingJobArgs, opts ..
 }
 
 type LookupLabelingJobArgs struct {
-	// The name and identifier for the LabelingJob.
-	Id string `pulumi:"id"`
-	// Boolean value to indicate whether to include JobInstructions in response.
-	IncludeJobInstructions *bool `pulumi:"includeJobInstructions"`
-	// Boolean value to indicate Whether to include LabelCategories in response.
-	IncludeLabelCategories *bool `pulumi:"includeLabelCategories"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Id                     string `pulumi:"id"`
+	IncludeJobInstructions *bool  `pulumi:"includeJobInstructions"`
+	IncludeLabelCategories *bool  `pulumi:"includeLabelCategories"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
+	WorkspaceName          string `pulumi:"workspaceName"`
 }
 
 // Azure Resource Manager resource envelope.
 type LookupLabelingJobResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Additional attributes of the entity.
+	Id         string              `pulumi:"id"`
+	Name       string              `pulumi:"name"`
 	Properties LabelingJobResponse `pulumi:"properties"`
-	// System data associated with resource provider
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	SystemData SystemDataResponse  `pulumi:"systemData"`
+	Type       string              `pulumi:"type"`
 }

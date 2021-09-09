@@ -154,9 +154,7 @@ func (i *PostgresInstance) ToPostgresInstanceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstanceOutput)
 }
 
-type PostgresInstanceOutput struct {
-	*pulumi.OutputState
-}
+type PostgresInstanceOutput struct{ *pulumi.OutputState }
 
 func (PostgresInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PostgresInstance)(nil))

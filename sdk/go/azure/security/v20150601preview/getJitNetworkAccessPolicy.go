@@ -17,28 +17,18 @@ func LookupJitNetworkAccessPolicy(ctx *pulumi.Context, args *LookupJitNetworkAcc
 }
 
 type LookupJitNetworkAccessPolicyArgs struct {
-	// The location where ASC stores the data of the subscription. can be retrieved from Get locations
-	AscLocation string `pulumi:"ascLocation"`
-	// Name of a Just-in-Time access configuration policy.
+	AscLocation                string `pulumi:"ascLocation"`
 	JitNetworkAccessPolicyName string `pulumi:"jitNetworkAccessPolicyName"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName          string `pulumi:"resourceGroupName"`
 }
 
 type LookupJitNetworkAccessPolicyResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Kind of the resource
-	Kind *string `pulumi:"kind"`
-	// Location where the resource is stored
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Gets the provisioning state of the Just-in-Time policy.
-	ProvisioningState string                            `pulumi:"provisioningState"`
-	Requests          []JitNetworkAccessRequestResponse `pulumi:"requests"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// Configurations for Microsoft.Compute/virtualMachines resource type.
-	VirtualMachines []JitNetworkAccessPolicyVirtualMachineResponse `pulumi:"virtualMachines"`
+	Id                string                                         `pulumi:"id"`
+	Kind              *string                                        `pulumi:"kind"`
+	Location          string                                         `pulumi:"location"`
+	Name              string                                         `pulumi:"name"`
+	ProvisioningState string                                         `pulumi:"provisioningState"`
+	Requests          []JitNetworkAccessRequestResponse              `pulumi:"requests"`
+	Type              string                                         `pulumi:"type"`
+	VirtualMachines   []JitNetworkAccessPolicyVirtualMachineResponse `pulumi:"virtualMachines"`
 }

@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure SQL managed instance administrator.
 type ManagedInstanceAdministrator struct {
 	pulumi.CustomResourceState
 
-	// Type of the managed instance administrator.
-	AdministratorType pulumi.StringOutput `pulumi:"administratorType"`
-	// Login name of the managed instance administrator.
-	Login pulumi.StringOutput `pulumi:"login"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// SID (object ID) of the managed instance administrator.
-	Sid pulumi.StringOutput `pulumi:"sid"`
-	// Tenant ID of the managed instance administrator.
-	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AdministratorType pulumi.StringOutput    `pulumi:"administratorType"`
+	Login             pulumi.StringOutput    `pulumi:"login"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	Sid               pulumi.StringOutput    `pulumi:"sid"`
+	TenantId          pulumi.StringPtrOutput `pulumi:"tenantId"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewManagedInstanceAdministrator registers a new resource with the given unique name, arguments, and options.
@@ -119,38 +112,24 @@ func (ManagedInstanceAdministratorState) ElementType() reflect.Type {
 }
 
 type managedInstanceAdministratorArgs struct {
-	// The requested administrator name.
-	AdministratorName *string `pulumi:"administratorName"`
-	// Type of the managed instance administrator.
-	AdministratorType string `pulumi:"administratorType"`
-	// Login name of the managed instance administrator.
-	Login string `pulumi:"login"`
-	// The name of the managed instance.
-	ManagedInstanceName string `pulumi:"managedInstanceName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SID (object ID) of the managed instance administrator.
-	Sid string `pulumi:"sid"`
-	// Tenant ID of the managed instance administrator.
-	TenantId *string `pulumi:"tenantId"`
+	AdministratorName   *string `pulumi:"administratorName"`
+	AdministratorType   string  `pulumi:"administratorType"`
+	Login               string  `pulumi:"login"`
+	ManagedInstanceName string  `pulumi:"managedInstanceName"`
+	ResourceGroupName   string  `pulumi:"resourceGroupName"`
+	Sid                 string  `pulumi:"sid"`
+	TenantId            *string `pulumi:"tenantId"`
 }
 
 // The set of arguments for constructing a ManagedInstanceAdministrator resource.
 type ManagedInstanceAdministratorArgs struct {
-	// The requested administrator name.
-	AdministratorName pulumi.StringPtrInput
-	// Type of the managed instance administrator.
-	AdministratorType pulumi.StringInput
-	// Login name of the managed instance administrator.
-	Login pulumi.StringInput
-	// The name of the managed instance.
+	AdministratorName   pulumi.StringPtrInput
+	AdministratorType   pulumi.StringInput
+	Login               pulumi.StringInput
 	ManagedInstanceName pulumi.StringInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// SID (object ID) of the managed instance administrator.
-	Sid pulumi.StringInput
-	// Tenant ID of the managed instance administrator.
-	TenantId pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	Sid                 pulumi.StringInput
+	TenantId            pulumi.StringPtrInput
 }
 
 func (ManagedInstanceAdministratorArgs) ElementType() reflect.Type {
@@ -176,9 +155,7 @@ func (i *ManagedInstanceAdministrator) ToManagedInstanceAdministratorOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceAdministratorOutput)
 }
 
-type ManagedInstanceAdministratorOutput struct {
-	*pulumi.OutputState
-}
+type ManagedInstanceAdministratorOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceAdministratorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedInstanceAdministrator)(nil))

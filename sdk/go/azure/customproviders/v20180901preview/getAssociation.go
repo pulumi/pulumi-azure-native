@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The resource definition of this association.
 func LookupAssociation(ctx *pulumi.Context, args *LookupAssociationArgs, opts ...pulumi.InvokeOption) (*LookupAssociationResult, error) {
 	var rv LookupAssociationResult
 	err := ctx.Invoke("azure-native:customproviders/v20180901preview:getAssociation", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupAssociation(ctx *pulumi.Context, args *LookupAssociationArgs, opts ..
 }
 
 type LookupAssociationArgs struct {
-	// The name of the association.
 	AssociationName string `pulumi:"associationName"`
-	// The scope of the association.
-	Scope string `pulumi:"scope"`
+	Scope           string `pulumi:"scope"`
 }
 
 // The resource definition of this association.
 type LookupAssociationResult struct {
-	// The association id.
-	Id string `pulumi:"id"`
-	// The association name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the association.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The REST resource instance of the target resource for this association.
-	TargetResourceId *string `pulumi:"targetResourceId"`
-	// The association type.
-	Type string `pulumi:"type"`
+	Id                string  `pulumi:"id"`
+	Name              string  `pulumi:"name"`
+	ProvisioningState string  `pulumi:"provisioningState"`
+	TargetResourceId  *string `pulumi:"targetResourceId"`
+	Type              string  `pulumi:"type"`
 }

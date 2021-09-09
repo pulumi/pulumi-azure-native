@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gateway hostname configuration details.
 type GatewayHostnameConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Identifier of Certificate entity that will be used for TLS connection establishment
-	CertificateId pulumi.StringPtrOutput `pulumi:"certificateId"`
-	// Hostname value. Supports valid domain name, partial or full wildcard
-	Hostname pulumi.StringPtrOutput `pulumi:"hostname"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Determines whether gateway requests client certificate
-	NegotiateClientCertificate pulumi.BoolPtrOutput `pulumi:"negotiateClientCertificate"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CertificateId              pulumi.StringPtrOutput `pulumi:"certificateId"`
+	Hostname                   pulumi.StringPtrOutput `pulumi:"hostname"`
+	Name                       pulumi.StringOutput    `pulumi:"name"`
+	NegotiateClientCertificate pulumi.BoolPtrOutput   `pulumi:"negotiateClientCertificate"`
+	Type                       pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewGatewayHostnameConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -111,38 +105,24 @@ func (GatewayHostnameConfigurationState) ElementType() reflect.Type {
 }
 
 type gatewayHostnameConfigurationArgs struct {
-	// Identifier of Certificate entity that will be used for TLS connection establishment
-	CertificateId *string `pulumi:"certificateId"`
-	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	GatewayId string `pulumi:"gatewayId"`
-	// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
-	HcId *string `pulumi:"hcId"`
-	// Hostname value. Supports valid domain name, partial or full wildcard
-	Hostname *string `pulumi:"hostname"`
-	// Determines whether gateway requests client certificate
-	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	CertificateId              *string `pulumi:"certificateId"`
+	GatewayId                  string  `pulumi:"gatewayId"`
+	HcId                       *string `pulumi:"hcId"`
+	Hostname                   *string `pulumi:"hostname"`
+	NegotiateClientCertificate *bool   `pulumi:"negotiateClientCertificate"`
+	ResourceGroupName          string  `pulumi:"resourceGroupName"`
+	ServiceName                string  `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a GatewayHostnameConfiguration resource.
 type GatewayHostnameConfigurationArgs struct {
-	// Identifier of Certificate entity that will be used for TLS connection establishment
-	CertificateId pulumi.StringPtrInput
-	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	GatewayId pulumi.StringInput
-	// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
-	HcId pulumi.StringPtrInput
-	// Hostname value. Supports valid domain name, partial or full wildcard
-	Hostname pulumi.StringPtrInput
-	// Determines whether gateway requests client certificate
+	CertificateId              pulumi.StringPtrInput
+	GatewayId                  pulumi.StringInput
+	HcId                       pulumi.StringPtrInput
+	Hostname                   pulumi.StringPtrInput
 	NegotiateClientCertificate pulumi.BoolPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ResourceGroupName          pulumi.StringInput
+	ServiceName                pulumi.StringInput
 }
 
 func (GatewayHostnameConfigurationArgs) ElementType() reflect.Type {
@@ -168,9 +148,7 @@ func (i *GatewayHostnameConfiguration) ToGatewayHostnameConfigurationOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayHostnameConfigurationOutput)
 }
 
-type GatewayHostnameConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type GatewayHostnameConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GatewayHostnameConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GatewayHostnameConfiguration)(nil))

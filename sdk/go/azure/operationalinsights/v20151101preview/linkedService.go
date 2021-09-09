@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The top level Linked service resource container.
 type LinkedService struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource id of the resource that will be linked to the workspace.
+	Name       pulumi.StringOutput `pulumi:"name"`
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewLinkedService registers a new resource with the given unique name, arguments, and options.
@@ -101,26 +97,18 @@ func (LinkedServiceState) ElementType() reflect.Type {
 }
 
 type linkedServiceArgs struct {
-	// Name of the linkedServices resource
 	LinkedServiceName *string `pulumi:"linkedServiceName"`
-	// The name of the resource group to get. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource id of the resource that will be linked to the workspace.
-	ResourceId string `pulumi:"resourceId"`
-	// Name of the Log Analytics Workspace that will contain the linkedServices resource
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ResourceId        string  `pulumi:"resourceId"`
+	WorkspaceName     string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a LinkedService resource.
 type LinkedServiceArgs struct {
-	// Name of the linkedServices resource
 	LinkedServiceName pulumi.StringPtrInput
-	// The name of the resource group to get. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// The resource id of the resource that will be linked to the workspace.
-	ResourceId pulumi.StringInput
-	// Name of the Log Analytics Workspace that will contain the linkedServices resource
-	WorkspaceName pulumi.StringInput
+	ResourceId        pulumi.StringInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (LinkedServiceArgs) ElementType() reflect.Type {
@@ -146,9 +134,7 @@ func (i *LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) Li
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOutput)
 }
 
-type LinkedServiceOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedService)(nil))

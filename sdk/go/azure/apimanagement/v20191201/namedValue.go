@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NamedValue details.
 type NamedValue struct {
 	pulumi.CustomResourceState
 
-	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
-	Secret pulumi.BoolPtrOutput `pulumi:"secret"`
-	// Optional tags that when provided can be used to filter the NamedValue list.
-	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-	Value pulumi.StringPtrOutput `pulumi:"value"`
+	DisplayName pulumi.StringOutput      `pulumi:"displayName"`
+	Name        pulumi.StringOutput      `pulumi:"name"`
+	Secret      pulumi.BoolPtrOutput     `pulumi:"secret"`
+	Tags        pulumi.StringArrayOutput `pulumi:"tags"`
+	Type        pulumi.StringOutput      `pulumi:"type"`
+	Value       pulumi.StringPtrOutput   `pulumi:"value"`
 }
 
 // NewNamedValue registers a new resource with the given unique name, arguments, and options.
@@ -116,38 +109,24 @@ func (NamedValueState) ElementType() reflect.Type {
 }
 
 type namedValueArgs struct {
-	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
-	DisplayName string `pulumi:"displayName"`
-	// Identifier of the NamedValue.
-	NamedValueId *string `pulumi:"namedValueId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
-	Secret *bool `pulumi:"secret"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Optional tags that when provided can be used to filter the NamedValue list.
-	Tags []string `pulumi:"tags"`
-	// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-	Value string `pulumi:"value"`
+	DisplayName       string   `pulumi:"displayName"`
+	NamedValueId      *string  `pulumi:"namedValueId"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
+	Secret            *bool    `pulumi:"secret"`
+	ServiceName       string   `pulumi:"serviceName"`
+	Tags              []string `pulumi:"tags"`
+	Value             string   `pulumi:"value"`
 }
 
 // The set of arguments for constructing a NamedValue resource.
 type NamedValueArgs struct {
-	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
-	DisplayName pulumi.StringInput
-	// Identifier of the NamedValue.
-	NamedValueId pulumi.StringPtrInput
-	// The name of the resource group.
+	DisplayName       pulumi.StringInput
+	NamedValueId      pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
-	Secret pulumi.BoolPtrInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Optional tags that when provided can be used to filter the NamedValue list.
-	Tags pulumi.StringArrayInput
-	// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-	Value pulumi.StringInput
+	Secret            pulumi.BoolPtrInput
+	ServiceName       pulumi.StringInput
+	Tags              pulumi.StringArrayInput
+	Value             pulumi.StringInput
 }
 
 func (NamedValueArgs) ElementType() reflect.Type {
@@ -173,9 +152,7 @@ func (i *NamedValue) ToNamedValueOutputWithContext(ctx context.Context) NamedVal
 	return pulumi.ToOutputWithContext(ctx, i).(NamedValueOutput)
 }
 
-type NamedValueOutput struct {
-	*pulumi.OutputState
-}
+type NamedValueOutput struct{ *pulumi.OutputState }
 
 func (NamedValueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NamedValue)(nil))

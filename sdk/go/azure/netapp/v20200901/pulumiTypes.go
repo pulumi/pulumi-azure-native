@@ -10,38 +10,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Active Directory
 type ActiveDirectory struct {
-	// Id of the Active Directory
-	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
-	// Name of the active directory machine. This optional parameter is used only while creating kerberos volume
-	AdName *string `pulumi:"adName"`
-	// If enabled, AES encryption will be enabled for SMB communication.
-	AesEncryption *bool `pulumi:"aesEncryption"`
-	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-	BackupOperators []string `pulumi:"backupOperators"`
-	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
-	Dns *string `pulumi:"dns"`
-	// Name of the Active Directory domain
-	Domain *string `pulumi:"domain"`
-	// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
-	KdcIP *string `pulumi:"kdcIP"`
-	// Specifies whether or not the LDAP traffic needs to be signed.
-	LdapSigning *bool `pulumi:"ldapSigning"`
-	// The Organizational Unit (OU) within the Windows Active Directory
-	OrganizationalUnit *string `pulumi:"organizationalUnit"`
-	// Plain text password of Active Directory domain administrator, value is masked in the response
-	Password *string `pulumi:"password"`
-	// Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
-	SecurityOperators []string `pulumi:"securityOperators"`
-	// When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
-	ServerRootCACertificate *string `pulumi:"serverRootCACertificate"`
-	// The Active Directory site the service will limit Domain Controller discovery to
-	Site *string `pulumi:"site"`
-	// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-	SmbServerName *string `pulumi:"smbServerName"`
-	// Username of Active Directory domain administrator
-	Username *string `pulumi:"username"`
+	ActiveDirectoryId       *string  `pulumi:"activeDirectoryId"`
+	AdName                  *string  `pulumi:"adName"`
+	AesEncryption           *bool    `pulumi:"aesEncryption"`
+	BackupOperators         []string `pulumi:"backupOperators"`
+	Dns                     *string  `pulumi:"dns"`
+	Domain                  *string  `pulumi:"domain"`
+	KdcIP                   *string  `pulumi:"kdcIP"`
+	LdapSigning             *bool    `pulumi:"ldapSigning"`
+	OrganizationalUnit      *string  `pulumi:"organizationalUnit"`
+	Password                *string  `pulumi:"password"`
+	SecurityOperators       []string `pulumi:"securityOperators"`
+	ServerRootCACertificate *string  `pulumi:"serverRootCACertificate"`
+	Site                    *string  `pulumi:"site"`
+	SmbServerName           *string  `pulumi:"smbServerName"`
+	Username                *string  `pulumi:"username"`
 }
 
 // ActiveDirectoryInput is an input type that accepts ActiveDirectoryArgs and ActiveDirectoryOutput values.
@@ -55,38 +39,22 @@ type ActiveDirectoryInput interface {
 	ToActiveDirectoryOutputWithContext(context.Context) ActiveDirectoryOutput
 }
 
-// Active Directory
 type ActiveDirectoryArgs struct {
-	// Id of the Active Directory
-	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
-	// Name of the active directory machine. This optional parameter is used only while creating kerberos volume
-	AdName pulumi.StringPtrInput `pulumi:"adName"`
-	// If enabled, AES encryption will be enabled for SMB communication.
-	AesEncryption pulumi.BoolPtrInput `pulumi:"aesEncryption"`
-	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-	BackupOperators pulumi.StringArrayInput `pulumi:"backupOperators"`
-	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
-	Dns pulumi.StringPtrInput `pulumi:"dns"`
-	// Name of the Active Directory domain
-	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
-	KdcIP pulumi.StringPtrInput `pulumi:"kdcIP"`
-	// Specifies whether or not the LDAP traffic needs to be signed.
-	LdapSigning pulumi.BoolPtrInput `pulumi:"ldapSigning"`
-	// The Organizational Unit (OU) within the Windows Active Directory
-	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
-	// Plain text password of Active Directory domain administrator, value is masked in the response
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
-	SecurityOperators pulumi.StringArrayInput `pulumi:"securityOperators"`
-	// When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
-	ServerRootCACertificate pulumi.StringPtrInput `pulumi:"serverRootCACertificate"`
-	// The Active Directory site the service will limit Domain Controller discovery to
-	Site pulumi.StringPtrInput `pulumi:"site"`
-	// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-	SmbServerName pulumi.StringPtrInput `pulumi:"smbServerName"`
-	// Username of Active Directory domain administrator
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	ActiveDirectoryId       pulumi.StringPtrInput   `pulumi:"activeDirectoryId"`
+	AdName                  pulumi.StringPtrInput   `pulumi:"adName"`
+	AesEncryption           pulumi.BoolPtrInput     `pulumi:"aesEncryption"`
+	BackupOperators         pulumi.StringArrayInput `pulumi:"backupOperators"`
+	Dns                     pulumi.StringPtrInput   `pulumi:"dns"`
+	Domain                  pulumi.StringPtrInput   `pulumi:"domain"`
+	KdcIP                   pulumi.StringPtrInput   `pulumi:"kdcIP"`
+	LdapSigning             pulumi.BoolPtrInput     `pulumi:"ldapSigning"`
+	OrganizationalUnit      pulumi.StringPtrInput   `pulumi:"organizationalUnit"`
+	Password                pulumi.StringPtrInput   `pulumi:"password"`
+	SecurityOperators       pulumi.StringArrayInput `pulumi:"securityOperators"`
+	ServerRootCACertificate pulumi.StringPtrInput   `pulumi:"serverRootCACertificate"`
+	Site                    pulumi.StringPtrInput   `pulumi:"site"`
+	SmbServerName           pulumi.StringPtrInput   `pulumi:"smbServerName"`
+	Username                pulumi.StringPtrInput   `pulumi:"username"`
 }
 
 func (ActiveDirectoryArgs) ElementType() reflect.Type {
@@ -126,7 +94,6 @@ func (i ActiveDirectoryArray) ToActiveDirectoryArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryArrayOutput)
 }
 
-// Active Directory
 type ActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryOutput) ElementType() reflect.Type {
@@ -141,77 +108,62 @@ func (o ActiveDirectoryOutput) ToActiveDirectoryOutputWithContext(ctx context.Co
 	return o
 }
 
-// Id of the Active Directory
 func (o ActiveDirectoryOutput) ActiveDirectoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.ActiveDirectoryId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the active directory machine. This optional parameter is used only while creating kerberos volume
 func (o ActiveDirectoryOutput) AdName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.AdName }).(pulumi.StringPtrOutput)
 }
 
-// If enabled, AES encryption will be enabled for SMB communication.
 func (o ActiveDirectoryOutput) AesEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *bool { return v.AesEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
 func (o ActiveDirectoryOutput) BackupOperators() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActiveDirectory) []string { return v.BackupOperators }).(pulumi.StringArrayOutput)
 }
 
-// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
 func (o ActiveDirectoryOutput) Dns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Dns }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Active Directory domain
 func (o ActiveDirectoryOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 func (o ActiveDirectoryOutput) KdcIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.KdcIP }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether or not the LDAP traffic needs to be signed.
 func (o ActiveDirectoryOutput) LdapSigning() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *bool { return v.LdapSigning }).(pulumi.BoolPtrOutput)
 }
 
-// The Organizational Unit (OU) within the Windows Active Directory
 func (o ActiveDirectoryOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
 }
 
-// Plain text password of Active Directory domain administrator, value is masked in the response
 func (o ActiveDirectoryOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
 func (o ActiveDirectoryOutput) SecurityOperators() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActiveDirectory) []string { return v.SecurityOperators }).(pulumi.StringArrayOutput)
 }
 
-// When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
 func (o ActiveDirectoryOutput) ServerRootCACertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.ServerRootCACertificate }).(pulumi.StringPtrOutput)
 }
 
-// The Active Directory site the service will limit Domain Controller discovery to
 func (o ActiveDirectoryOutput) Site() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Site }).(pulumi.StringPtrOutput)
 }
 
-// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
 func (o ActiveDirectoryOutput) SmbServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.SmbServerName }).(pulumi.StringPtrOutput)
 }
 
-// Username of Active Directory domain administrator
 func (o ActiveDirectoryOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -236,42 +188,24 @@ func (o ActiveDirectoryArrayOutput) Index(i pulumi.IntInput) ActiveDirectoryOutp
 	}).(ActiveDirectoryOutput)
 }
 
-// Active Directory
 type ActiveDirectoryResponse struct {
-	// Id of the Active Directory
-	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
-	// Name of the active directory machine. This optional parameter is used only while creating kerberos volume
-	AdName *string `pulumi:"adName"`
-	// If enabled, AES encryption will be enabled for SMB communication.
-	AesEncryption *bool `pulumi:"aesEncryption"`
-	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-	BackupOperators []string `pulumi:"backupOperators"`
-	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
-	Dns *string `pulumi:"dns"`
-	// Name of the Active Directory domain
-	Domain *string `pulumi:"domain"`
-	// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
-	KdcIP *string `pulumi:"kdcIP"`
-	// Specifies whether or not the LDAP traffic needs to be signed.
-	LdapSigning *bool `pulumi:"ldapSigning"`
-	// The Organizational Unit (OU) within the Windows Active Directory
-	OrganizationalUnit *string `pulumi:"organizationalUnit"`
-	// Plain text password of Active Directory domain administrator, value is masked in the response
-	Password *string `pulumi:"password"`
-	// Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
-	SecurityOperators []string `pulumi:"securityOperators"`
-	// When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
-	ServerRootCACertificate *string `pulumi:"serverRootCACertificate"`
-	// The Active Directory site the service will limit Domain Controller discovery to
-	Site *string `pulumi:"site"`
-	// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-	SmbServerName *string `pulumi:"smbServerName"`
-	// Status of the Active Directory
-	Status string `pulumi:"status"`
-	// Any details in regards to the Status of the Active Directory
-	StatusDetails string `pulumi:"statusDetails"`
-	// Username of Active Directory domain administrator
-	Username *string `pulumi:"username"`
+	ActiveDirectoryId       *string  `pulumi:"activeDirectoryId"`
+	AdName                  *string  `pulumi:"adName"`
+	AesEncryption           *bool    `pulumi:"aesEncryption"`
+	BackupOperators         []string `pulumi:"backupOperators"`
+	Dns                     *string  `pulumi:"dns"`
+	Domain                  *string  `pulumi:"domain"`
+	KdcIP                   *string  `pulumi:"kdcIP"`
+	LdapSigning             *bool    `pulumi:"ldapSigning"`
+	OrganizationalUnit      *string  `pulumi:"organizationalUnit"`
+	Password                *string  `pulumi:"password"`
+	SecurityOperators       []string `pulumi:"securityOperators"`
+	ServerRootCACertificate *string  `pulumi:"serverRootCACertificate"`
+	Site                    *string  `pulumi:"site"`
+	SmbServerName           *string  `pulumi:"smbServerName"`
+	Status                  string   `pulumi:"status"`
+	StatusDetails           string   `pulumi:"statusDetails"`
+	Username                *string  `pulumi:"username"`
 }
 
 // ActiveDirectoryResponseInput is an input type that accepts ActiveDirectoryResponseArgs and ActiveDirectoryResponseOutput values.
@@ -285,42 +219,24 @@ type ActiveDirectoryResponseInput interface {
 	ToActiveDirectoryResponseOutputWithContext(context.Context) ActiveDirectoryResponseOutput
 }
 
-// Active Directory
 type ActiveDirectoryResponseArgs struct {
-	// Id of the Active Directory
-	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
-	// Name of the active directory machine. This optional parameter is used only while creating kerberos volume
-	AdName pulumi.StringPtrInput `pulumi:"adName"`
-	// If enabled, AES encryption will be enabled for SMB communication.
-	AesEncryption pulumi.BoolPtrInput `pulumi:"aesEncryption"`
-	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-	BackupOperators pulumi.StringArrayInput `pulumi:"backupOperators"`
-	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
-	Dns pulumi.StringPtrInput `pulumi:"dns"`
-	// Name of the Active Directory domain
-	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
-	KdcIP pulumi.StringPtrInput `pulumi:"kdcIP"`
-	// Specifies whether or not the LDAP traffic needs to be signed.
-	LdapSigning pulumi.BoolPtrInput `pulumi:"ldapSigning"`
-	// The Organizational Unit (OU) within the Windows Active Directory
-	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
-	// Plain text password of Active Directory domain administrator, value is masked in the response
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
-	SecurityOperators pulumi.StringArrayInput `pulumi:"securityOperators"`
-	// When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
-	ServerRootCACertificate pulumi.StringPtrInput `pulumi:"serverRootCACertificate"`
-	// The Active Directory site the service will limit Domain Controller discovery to
-	Site pulumi.StringPtrInput `pulumi:"site"`
-	// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-	SmbServerName pulumi.StringPtrInput `pulumi:"smbServerName"`
-	// Status of the Active Directory
-	Status pulumi.StringInput `pulumi:"status"`
-	// Any details in regards to the Status of the Active Directory
-	StatusDetails pulumi.StringInput `pulumi:"statusDetails"`
-	// Username of Active Directory domain administrator
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	ActiveDirectoryId       pulumi.StringPtrInput   `pulumi:"activeDirectoryId"`
+	AdName                  pulumi.StringPtrInput   `pulumi:"adName"`
+	AesEncryption           pulumi.BoolPtrInput     `pulumi:"aesEncryption"`
+	BackupOperators         pulumi.StringArrayInput `pulumi:"backupOperators"`
+	Dns                     pulumi.StringPtrInput   `pulumi:"dns"`
+	Domain                  pulumi.StringPtrInput   `pulumi:"domain"`
+	KdcIP                   pulumi.StringPtrInput   `pulumi:"kdcIP"`
+	LdapSigning             pulumi.BoolPtrInput     `pulumi:"ldapSigning"`
+	OrganizationalUnit      pulumi.StringPtrInput   `pulumi:"organizationalUnit"`
+	Password                pulumi.StringPtrInput   `pulumi:"password"`
+	SecurityOperators       pulumi.StringArrayInput `pulumi:"securityOperators"`
+	ServerRootCACertificate pulumi.StringPtrInput   `pulumi:"serverRootCACertificate"`
+	Site                    pulumi.StringPtrInput   `pulumi:"site"`
+	SmbServerName           pulumi.StringPtrInput   `pulumi:"smbServerName"`
+	Status                  pulumi.StringInput      `pulumi:"status"`
+	StatusDetails           pulumi.StringInput      `pulumi:"statusDetails"`
+	Username                pulumi.StringPtrInput   `pulumi:"username"`
 }
 
 func (ActiveDirectoryResponseArgs) ElementType() reflect.Type {
@@ -360,7 +276,6 @@ func (i ActiveDirectoryResponseArray) ToActiveDirectoryResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryResponseArrayOutput)
 }
 
-// Active Directory
 type ActiveDirectoryResponseOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryResponseOutput) ElementType() reflect.Type {
@@ -375,87 +290,70 @@ func (o ActiveDirectoryResponseOutput) ToActiveDirectoryResponseOutputWithContex
 	return o
 }
 
-// Id of the Active Directory
 func (o ActiveDirectoryResponseOutput) ActiveDirectoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.ActiveDirectoryId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the active directory machine. This optional parameter is used only while creating kerberos volume
 func (o ActiveDirectoryResponseOutput) AdName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.AdName }).(pulumi.StringPtrOutput)
 }
 
-// If enabled, AES encryption will be enabled for SMB communication.
 func (o ActiveDirectoryResponseOutput) AesEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *bool { return v.AesEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
 func (o ActiveDirectoryResponseOutput) BackupOperators() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) []string { return v.BackupOperators }).(pulumi.StringArrayOutput)
 }
 
-// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
 func (o ActiveDirectoryResponseOutput) Dns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Dns }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Active Directory domain
 func (o ActiveDirectoryResponseOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 func (o ActiveDirectoryResponseOutput) KdcIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.KdcIP }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether or not the LDAP traffic needs to be signed.
 func (o ActiveDirectoryResponseOutput) LdapSigning() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *bool { return v.LdapSigning }).(pulumi.BoolPtrOutput)
 }
 
-// The Organizational Unit (OU) within the Windows Active Directory
 func (o ActiveDirectoryResponseOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
 }
 
-// Plain text password of Active Directory domain administrator, value is masked in the response
 func (o ActiveDirectoryResponseOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
 func (o ActiveDirectoryResponseOutput) SecurityOperators() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) []string { return v.SecurityOperators }).(pulumi.StringArrayOutput)
 }
 
-// When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
 func (o ActiveDirectoryResponseOutput) ServerRootCACertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.ServerRootCACertificate }).(pulumi.StringPtrOutput)
 }
 
-// The Active Directory site the service will limit Domain Controller discovery to
 func (o ActiveDirectoryResponseOutput) Site() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Site }).(pulumi.StringPtrOutput)
 }
 
-// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
 func (o ActiveDirectoryResponseOutput) SmbServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.SmbServerName }).(pulumi.StringPtrOutput)
 }
 
-// Status of the Active Directory
 func (o ActiveDirectoryResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Any details in regards to the Status of the Active Directory
 func (o ActiveDirectoryResponseOutput) StatusDetails() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) string { return v.StatusDetails }).(pulumi.StringOutput)
 }
 
-// Username of Active Directory domain administrator
 func (o ActiveDirectoryResponseOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -480,16 +378,11 @@ func (o ActiveDirectoryResponseArrayOutput) Index(i pulumi.IntInput) ActiveDirec
 	}).(ActiveDirectoryResponseOutput)
 }
 
-// Daily Schedule properties
 type DailySchedule struct {
-	// Indicates which hour in UTC timezone a snapshot should be taken
-	Hour *int `pulumi:"hour"`
-	// Indicates which minute snapshot should be taken
-	Minute *int `pulumi:"minute"`
-	// Daily snapshot count to keep
-	SnapshotsToKeep *int `pulumi:"snapshotsToKeep"`
-	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes *float64 `pulumi:"usedBytes"`
+	Hour            *int     `pulumi:"hour"`
+	Minute          *int     `pulumi:"minute"`
+	SnapshotsToKeep *int     `pulumi:"snapshotsToKeep"`
+	UsedBytes       *float64 `pulumi:"usedBytes"`
 }
 
 // DailyScheduleInput is an input type that accepts DailyScheduleArgs and DailyScheduleOutput values.
@@ -503,16 +396,11 @@ type DailyScheduleInput interface {
 	ToDailyScheduleOutputWithContext(context.Context) DailyScheduleOutput
 }
 
-// Daily Schedule properties
 type DailyScheduleArgs struct {
-	// Indicates which hour in UTC timezone a snapshot should be taken
-	Hour pulumi.IntPtrInput `pulumi:"hour"`
-	// Indicates which minute snapshot should be taken
-	Minute pulumi.IntPtrInput `pulumi:"minute"`
-	// Daily snapshot count to keep
-	SnapshotsToKeep pulumi.IntPtrInput `pulumi:"snapshotsToKeep"`
-	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes pulumi.Float64PtrInput `pulumi:"usedBytes"`
+	Hour            pulumi.IntPtrInput     `pulumi:"hour"`
+	Minute          pulumi.IntPtrInput     `pulumi:"minute"`
+	SnapshotsToKeep pulumi.IntPtrInput     `pulumi:"snapshotsToKeep"`
+	UsedBytes       pulumi.Float64PtrInput `pulumi:"usedBytes"`
 }
 
 func (DailyScheduleArgs) ElementType() reflect.Type {
@@ -568,7 +456,6 @@ func (i *dailySchedulePtrType) ToDailySchedulePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DailySchedulePtrOutput)
 }
 
-// Daily Schedule properties
 type DailyScheduleOutput struct{ *pulumi.OutputState }
 
 func (DailyScheduleOutput) ElementType() reflect.Type {
@@ -588,27 +475,23 @@ func (o DailyScheduleOutput) ToDailySchedulePtrOutput() DailySchedulePtrOutput {
 }
 
 func (o DailyScheduleOutput) ToDailySchedulePtrOutputWithContext(ctx context.Context) DailySchedulePtrOutput {
-	return o.ApplyT(func(v DailySchedule) *DailySchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DailySchedule) *DailySchedule {
 		return &v
 	}).(DailySchedulePtrOutput)
 }
 
-// Indicates which hour in UTC timezone a snapshot should be taken
 func (o DailyScheduleOutput) Hour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DailySchedule) *int { return v.Hour }).(pulumi.IntPtrOutput)
 }
 
-// Indicates which minute snapshot should be taken
 func (o DailyScheduleOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DailySchedule) *int { return v.Minute }).(pulumi.IntPtrOutput)
 }
 
-// Daily snapshot count to keep
 func (o DailyScheduleOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DailySchedule) *int { return v.SnapshotsToKeep }).(pulumi.IntPtrOutput)
 }
 
-// Resource size in bytes, current storage usage for the volume in bytes
 func (o DailyScheduleOutput) UsedBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DailySchedule) *float64 { return v.UsedBytes }).(pulumi.Float64PtrOutput)
 }
@@ -628,10 +511,15 @@ func (o DailySchedulePtrOutput) ToDailySchedulePtrOutputWithContext(ctx context.
 }
 
 func (o DailySchedulePtrOutput) Elem() DailyScheduleOutput {
-	return o.ApplyT(func(v *DailySchedule) DailySchedule { return *v }).(DailyScheduleOutput)
+	return o.ApplyT(func(v *DailySchedule) DailySchedule {
+		if v != nil {
+			return *v
+		}
+		var ret DailySchedule
+		return ret
+	}).(DailyScheduleOutput)
 }
 
-// Indicates which hour in UTC timezone a snapshot should be taken
 func (o DailySchedulePtrOutput) Hour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DailySchedule) *int {
 		if v == nil {
@@ -641,7 +529,6 @@ func (o DailySchedulePtrOutput) Hour() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates which minute snapshot should be taken
 func (o DailySchedulePtrOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DailySchedule) *int {
 		if v == nil {
@@ -651,7 +538,6 @@ func (o DailySchedulePtrOutput) Minute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Daily snapshot count to keep
 func (o DailySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DailySchedule) *int {
 		if v == nil {
@@ -661,7 +547,6 @@ func (o DailySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Resource size in bytes, current storage usage for the volume in bytes
 func (o DailySchedulePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DailySchedule) *float64 {
 		if v == nil {
@@ -671,16 +556,11 @@ func (o DailySchedulePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Daily Schedule properties
 type DailyScheduleResponse struct {
-	// Indicates which hour in UTC timezone a snapshot should be taken
-	Hour *int `pulumi:"hour"`
-	// Indicates which minute snapshot should be taken
-	Minute *int `pulumi:"minute"`
-	// Daily snapshot count to keep
-	SnapshotsToKeep *int `pulumi:"snapshotsToKeep"`
-	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes *float64 `pulumi:"usedBytes"`
+	Hour            *int     `pulumi:"hour"`
+	Minute          *int     `pulumi:"minute"`
+	SnapshotsToKeep *int     `pulumi:"snapshotsToKeep"`
+	UsedBytes       *float64 `pulumi:"usedBytes"`
 }
 
 // DailyScheduleResponseInput is an input type that accepts DailyScheduleResponseArgs and DailyScheduleResponseOutput values.
@@ -694,16 +574,11 @@ type DailyScheduleResponseInput interface {
 	ToDailyScheduleResponseOutputWithContext(context.Context) DailyScheduleResponseOutput
 }
 
-// Daily Schedule properties
 type DailyScheduleResponseArgs struct {
-	// Indicates which hour in UTC timezone a snapshot should be taken
-	Hour pulumi.IntPtrInput `pulumi:"hour"`
-	// Indicates which minute snapshot should be taken
-	Minute pulumi.IntPtrInput `pulumi:"minute"`
-	// Daily snapshot count to keep
-	SnapshotsToKeep pulumi.IntPtrInput `pulumi:"snapshotsToKeep"`
-	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes pulumi.Float64PtrInput `pulumi:"usedBytes"`
+	Hour            pulumi.IntPtrInput     `pulumi:"hour"`
+	Minute          pulumi.IntPtrInput     `pulumi:"minute"`
+	SnapshotsToKeep pulumi.IntPtrInput     `pulumi:"snapshotsToKeep"`
+	UsedBytes       pulumi.Float64PtrInput `pulumi:"usedBytes"`
 }
 
 func (DailyScheduleResponseArgs) ElementType() reflect.Type {
@@ -759,7 +634,6 @@ func (i *dailyScheduleResponsePtrType) ToDailyScheduleResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DailyScheduleResponsePtrOutput)
 }
 
-// Daily Schedule properties
 type DailyScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (DailyScheduleResponseOutput) ElementType() reflect.Type {
@@ -779,27 +653,23 @@ func (o DailyScheduleResponseOutput) ToDailyScheduleResponsePtrOutput() DailySch
 }
 
 func (o DailyScheduleResponseOutput) ToDailyScheduleResponsePtrOutputWithContext(ctx context.Context) DailyScheduleResponsePtrOutput {
-	return o.ApplyT(func(v DailyScheduleResponse) *DailyScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DailyScheduleResponse) *DailyScheduleResponse {
 		return &v
 	}).(DailyScheduleResponsePtrOutput)
 }
 
-// Indicates which hour in UTC timezone a snapshot should be taken
 func (o DailyScheduleResponseOutput) Hour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DailyScheduleResponse) *int { return v.Hour }).(pulumi.IntPtrOutput)
 }
 
-// Indicates which minute snapshot should be taken
 func (o DailyScheduleResponseOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DailyScheduleResponse) *int { return v.Minute }).(pulumi.IntPtrOutput)
 }
 
-// Daily snapshot count to keep
 func (o DailyScheduleResponseOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DailyScheduleResponse) *int { return v.SnapshotsToKeep }).(pulumi.IntPtrOutput)
 }
 
-// Resource size in bytes, current storage usage for the volume in bytes
 func (o DailyScheduleResponseOutput) UsedBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DailyScheduleResponse) *float64 { return v.UsedBytes }).(pulumi.Float64PtrOutput)
 }
@@ -819,10 +689,15 @@ func (o DailyScheduleResponsePtrOutput) ToDailyScheduleResponsePtrOutputWithCont
 }
 
 func (o DailyScheduleResponsePtrOutput) Elem() DailyScheduleResponseOutput {
-	return o.ApplyT(func(v *DailyScheduleResponse) DailyScheduleResponse { return *v }).(DailyScheduleResponseOutput)
+	return o.ApplyT(func(v *DailyScheduleResponse) DailyScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DailyScheduleResponse
+		return ret
+	}).(DailyScheduleResponseOutput)
 }
 
-// Indicates which hour in UTC timezone a snapshot should be taken
 func (o DailyScheduleResponsePtrOutput) Hour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DailyScheduleResponse) *int {
 		if v == nil {
@@ -832,7 +707,6 @@ func (o DailyScheduleResponsePtrOutput) Hour() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates which minute snapshot should be taken
 func (o DailyScheduleResponsePtrOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DailyScheduleResponse) *int {
 		if v == nil {
@@ -842,7 +716,6 @@ func (o DailyScheduleResponsePtrOutput) Minute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Daily snapshot count to keep
 func (o DailyScheduleResponsePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DailyScheduleResponse) *int {
 		if v == nil {
@@ -852,7 +725,6 @@ func (o DailyScheduleResponsePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Resource size in bytes, current storage usage for the volume in bytes
 func (o DailyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DailyScheduleResponse) *float64 {
 		if v == nil {
@@ -862,36 +734,21 @@ func (o DailyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRule struct {
-	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
-	AllowedClients *string `pulumi:"allowedClients"`
-	// Allows CIFS protocol
-	Cifs *bool `pulumi:"cifs"`
-	// Has root access to volume
-	HasRootAccess *bool `pulumi:"hasRootAccess"`
-	// Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
-	Kerberos5ReadOnly *bool `pulumi:"kerberos5ReadOnly"`
-	// Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
-	Kerberos5ReadWrite *bool `pulumi:"kerberos5ReadWrite"`
-	// Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
-	Kerberos5iReadOnly *bool `pulumi:"kerberos5iReadOnly"`
-	// Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
-	Kerberos5iReadWrite *bool `pulumi:"kerberos5iReadWrite"`
-	// Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
-	Kerberos5pReadOnly *bool `pulumi:"kerberos5pReadOnly"`
-	// Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
-	Kerberos5pReadWrite *bool `pulumi:"kerberos5pReadWrite"`
-	// Allows NFSv3 protocol. Enable only for NFSv3 type volumes
-	Nfsv3 *bool `pulumi:"nfsv3"`
-	// Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
-	Nfsv41 *bool `pulumi:"nfsv41"`
-	// Order index
-	RuleIndex *int `pulumi:"ruleIndex"`
-	// Read only access
-	UnixReadOnly *bool `pulumi:"unixReadOnly"`
-	// Read and write access
-	UnixReadWrite *bool `pulumi:"unixReadWrite"`
+	AllowedClients      *string `pulumi:"allowedClients"`
+	Cifs                *bool   `pulumi:"cifs"`
+	HasRootAccess       *bool   `pulumi:"hasRootAccess"`
+	Kerberos5ReadOnly   *bool   `pulumi:"kerberos5ReadOnly"`
+	Kerberos5ReadWrite  *bool   `pulumi:"kerberos5ReadWrite"`
+	Kerberos5iReadOnly  *bool   `pulumi:"kerberos5iReadOnly"`
+	Kerberos5iReadWrite *bool   `pulumi:"kerberos5iReadWrite"`
+	Kerberos5pReadOnly  *bool   `pulumi:"kerberos5pReadOnly"`
+	Kerberos5pReadWrite *bool   `pulumi:"kerberos5pReadWrite"`
+	Nfsv3               *bool   `pulumi:"nfsv3"`
+	Nfsv41              *bool   `pulumi:"nfsv41"`
+	RuleIndex           *int    `pulumi:"ruleIndex"`
+	UnixReadOnly        *bool   `pulumi:"unixReadOnly"`
+	UnixReadWrite       *bool   `pulumi:"unixReadWrite"`
 }
 
 // ExportPolicyRuleInput is an input type that accepts ExportPolicyRuleArgs and ExportPolicyRuleOutput values.
@@ -905,36 +762,21 @@ type ExportPolicyRuleInput interface {
 	ToExportPolicyRuleOutputWithContext(context.Context) ExportPolicyRuleOutput
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleArgs struct {
-	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
-	AllowedClients pulumi.StringPtrInput `pulumi:"allowedClients"`
-	// Allows CIFS protocol
-	Cifs pulumi.BoolPtrInput `pulumi:"cifs"`
-	// Has root access to volume
-	HasRootAccess pulumi.BoolPtrInput `pulumi:"hasRootAccess"`
-	// Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
-	Kerberos5ReadOnly pulumi.BoolPtrInput `pulumi:"kerberos5ReadOnly"`
-	// Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
-	Kerberos5ReadWrite pulumi.BoolPtrInput `pulumi:"kerberos5ReadWrite"`
-	// Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
-	Kerberos5iReadOnly pulumi.BoolPtrInput `pulumi:"kerberos5iReadOnly"`
-	// Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
-	Kerberos5iReadWrite pulumi.BoolPtrInput `pulumi:"kerberos5iReadWrite"`
-	// Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
-	Kerberos5pReadOnly pulumi.BoolPtrInput `pulumi:"kerberos5pReadOnly"`
-	// Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
-	Kerberos5pReadWrite pulumi.BoolPtrInput `pulumi:"kerberos5pReadWrite"`
-	// Allows NFSv3 protocol. Enable only for NFSv3 type volumes
-	Nfsv3 pulumi.BoolPtrInput `pulumi:"nfsv3"`
-	// Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
-	Nfsv41 pulumi.BoolPtrInput `pulumi:"nfsv41"`
-	// Order index
-	RuleIndex pulumi.IntPtrInput `pulumi:"ruleIndex"`
-	// Read only access
-	UnixReadOnly pulumi.BoolPtrInput `pulumi:"unixReadOnly"`
-	// Read and write access
-	UnixReadWrite pulumi.BoolPtrInput `pulumi:"unixReadWrite"`
+	AllowedClients      pulumi.StringPtrInput `pulumi:"allowedClients"`
+	Cifs                pulumi.BoolPtrInput   `pulumi:"cifs"`
+	HasRootAccess       pulumi.BoolPtrInput   `pulumi:"hasRootAccess"`
+	Kerberos5ReadOnly   pulumi.BoolPtrInput   `pulumi:"kerberos5ReadOnly"`
+	Kerberos5ReadWrite  pulumi.BoolPtrInput   `pulumi:"kerberos5ReadWrite"`
+	Kerberos5iReadOnly  pulumi.BoolPtrInput   `pulumi:"kerberos5iReadOnly"`
+	Kerberos5iReadWrite pulumi.BoolPtrInput   `pulumi:"kerberos5iReadWrite"`
+	Kerberos5pReadOnly  pulumi.BoolPtrInput   `pulumi:"kerberos5pReadOnly"`
+	Kerberos5pReadWrite pulumi.BoolPtrInput   `pulumi:"kerberos5pReadWrite"`
+	Nfsv3               pulumi.BoolPtrInput   `pulumi:"nfsv3"`
+	Nfsv41              pulumi.BoolPtrInput   `pulumi:"nfsv41"`
+	RuleIndex           pulumi.IntPtrInput    `pulumi:"ruleIndex"`
+	UnixReadOnly        pulumi.BoolPtrInput   `pulumi:"unixReadOnly"`
+	UnixReadWrite       pulumi.BoolPtrInput   `pulumi:"unixReadWrite"`
 }
 
 func (ExportPolicyRuleArgs) ElementType() reflect.Type {
@@ -974,7 +816,6 @@ func (i ExportPolicyRuleArray) ToExportPolicyRuleArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ExportPolicyRuleArrayOutput)
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (ExportPolicyRuleOutput) ElementType() reflect.Type {
@@ -989,72 +830,58 @@ func (o ExportPolicyRuleOutput) ToExportPolicyRuleOutputWithContext(ctx context.
 	return o
 }
 
-// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 func (o ExportPolicyRuleOutput) AllowedClients() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *string { return v.AllowedClients }).(pulumi.StringPtrOutput)
 }
 
-// Allows CIFS protocol
 func (o ExportPolicyRuleOutput) Cifs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.Cifs }).(pulumi.BoolPtrOutput)
 }
 
-// Has root access to volume
 func (o ExportPolicyRuleOutput) HasRootAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.HasRootAccess }).(pulumi.BoolPtrOutput)
 }
 
-// Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
 func (o ExportPolicyRuleOutput) Kerberos5ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.Kerberos5ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
 func (o ExportPolicyRuleOutput) Kerberos5ReadWrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.Kerberos5ReadWrite }).(pulumi.BoolPtrOutput)
 }
 
-// Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
 func (o ExportPolicyRuleOutput) Kerberos5iReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.Kerberos5iReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
 func (o ExportPolicyRuleOutput) Kerberos5iReadWrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.Kerberos5iReadWrite }).(pulumi.BoolPtrOutput)
 }
 
-// Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
 func (o ExportPolicyRuleOutput) Kerberos5pReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.Kerberos5pReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
 func (o ExportPolicyRuleOutput) Kerberos5pReadWrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.Kerberos5pReadWrite }).(pulumi.BoolPtrOutput)
 }
 
-// Allows NFSv3 protocol. Enable only for NFSv3 type volumes
 func (o ExportPolicyRuleOutput) Nfsv3() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.Nfsv3 }).(pulumi.BoolPtrOutput)
 }
 
-// Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
 func (o ExportPolicyRuleOutput) Nfsv41() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.Nfsv41 }).(pulumi.BoolPtrOutput)
 }
 
-// Order index
 func (o ExportPolicyRuleOutput) RuleIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *int { return v.RuleIndex }).(pulumi.IntPtrOutput)
 }
 
-// Read only access
 func (o ExportPolicyRuleOutput) UnixReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.UnixReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Read and write access
 func (o ExportPolicyRuleOutput) UnixReadWrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.UnixReadWrite }).(pulumi.BoolPtrOutput)
 }
@@ -1079,36 +906,21 @@ func (o ExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) ExportPolicyRuleOu
 	}).(ExportPolicyRuleOutput)
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleResponse struct {
-	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
-	AllowedClients *string `pulumi:"allowedClients"`
-	// Allows CIFS protocol
-	Cifs *bool `pulumi:"cifs"`
-	// Has root access to volume
-	HasRootAccess *bool `pulumi:"hasRootAccess"`
-	// Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
-	Kerberos5ReadOnly *bool `pulumi:"kerberos5ReadOnly"`
-	// Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
-	Kerberos5ReadWrite *bool `pulumi:"kerberos5ReadWrite"`
-	// Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
-	Kerberos5iReadOnly *bool `pulumi:"kerberos5iReadOnly"`
-	// Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
-	Kerberos5iReadWrite *bool `pulumi:"kerberos5iReadWrite"`
-	// Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
-	Kerberos5pReadOnly *bool `pulumi:"kerberos5pReadOnly"`
-	// Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
-	Kerberos5pReadWrite *bool `pulumi:"kerberos5pReadWrite"`
-	// Allows NFSv3 protocol. Enable only for NFSv3 type volumes
-	Nfsv3 *bool `pulumi:"nfsv3"`
-	// Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
-	Nfsv41 *bool `pulumi:"nfsv41"`
-	// Order index
-	RuleIndex *int `pulumi:"ruleIndex"`
-	// Read only access
-	UnixReadOnly *bool `pulumi:"unixReadOnly"`
-	// Read and write access
-	UnixReadWrite *bool `pulumi:"unixReadWrite"`
+	AllowedClients      *string `pulumi:"allowedClients"`
+	Cifs                *bool   `pulumi:"cifs"`
+	HasRootAccess       *bool   `pulumi:"hasRootAccess"`
+	Kerberos5ReadOnly   *bool   `pulumi:"kerberos5ReadOnly"`
+	Kerberos5ReadWrite  *bool   `pulumi:"kerberos5ReadWrite"`
+	Kerberos5iReadOnly  *bool   `pulumi:"kerberos5iReadOnly"`
+	Kerberos5iReadWrite *bool   `pulumi:"kerberos5iReadWrite"`
+	Kerberos5pReadOnly  *bool   `pulumi:"kerberos5pReadOnly"`
+	Kerberos5pReadWrite *bool   `pulumi:"kerberos5pReadWrite"`
+	Nfsv3               *bool   `pulumi:"nfsv3"`
+	Nfsv41              *bool   `pulumi:"nfsv41"`
+	RuleIndex           *int    `pulumi:"ruleIndex"`
+	UnixReadOnly        *bool   `pulumi:"unixReadOnly"`
+	UnixReadWrite       *bool   `pulumi:"unixReadWrite"`
 }
 
 // ExportPolicyRuleResponseInput is an input type that accepts ExportPolicyRuleResponseArgs and ExportPolicyRuleResponseOutput values.
@@ -1122,36 +934,21 @@ type ExportPolicyRuleResponseInput interface {
 	ToExportPolicyRuleResponseOutputWithContext(context.Context) ExportPolicyRuleResponseOutput
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleResponseArgs struct {
-	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
-	AllowedClients pulumi.StringPtrInput `pulumi:"allowedClients"`
-	// Allows CIFS protocol
-	Cifs pulumi.BoolPtrInput `pulumi:"cifs"`
-	// Has root access to volume
-	HasRootAccess pulumi.BoolPtrInput `pulumi:"hasRootAccess"`
-	// Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
-	Kerberos5ReadOnly pulumi.BoolPtrInput `pulumi:"kerberos5ReadOnly"`
-	// Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
-	Kerberos5ReadWrite pulumi.BoolPtrInput `pulumi:"kerberos5ReadWrite"`
-	// Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
-	Kerberos5iReadOnly pulumi.BoolPtrInput `pulumi:"kerberos5iReadOnly"`
-	// Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
-	Kerberos5iReadWrite pulumi.BoolPtrInput `pulumi:"kerberos5iReadWrite"`
-	// Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
-	Kerberos5pReadOnly pulumi.BoolPtrInput `pulumi:"kerberos5pReadOnly"`
-	// Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
-	Kerberos5pReadWrite pulumi.BoolPtrInput `pulumi:"kerberos5pReadWrite"`
-	// Allows NFSv3 protocol. Enable only for NFSv3 type volumes
-	Nfsv3 pulumi.BoolPtrInput `pulumi:"nfsv3"`
-	// Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
-	Nfsv41 pulumi.BoolPtrInput `pulumi:"nfsv41"`
-	// Order index
-	RuleIndex pulumi.IntPtrInput `pulumi:"ruleIndex"`
-	// Read only access
-	UnixReadOnly pulumi.BoolPtrInput `pulumi:"unixReadOnly"`
-	// Read and write access
-	UnixReadWrite pulumi.BoolPtrInput `pulumi:"unixReadWrite"`
+	AllowedClients      pulumi.StringPtrInput `pulumi:"allowedClients"`
+	Cifs                pulumi.BoolPtrInput   `pulumi:"cifs"`
+	HasRootAccess       pulumi.BoolPtrInput   `pulumi:"hasRootAccess"`
+	Kerberos5ReadOnly   pulumi.BoolPtrInput   `pulumi:"kerberos5ReadOnly"`
+	Kerberos5ReadWrite  pulumi.BoolPtrInput   `pulumi:"kerberos5ReadWrite"`
+	Kerberos5iReadOnly  pulumi.BoolPtrInput   `pulumi:"kerberos5iReadOnly"`
+	Kerberos5iReadWrite pulumi.BoolPtrInput   `pulumi:"kerberos5iReadWrite"`
+	Kerberos5pReadOnly  pulumi.BoolPtrInput   `pulumi:"kerberos5pReadOnly"`
+	Kerberos5pReadWrite pulumi.BoolPtrInput   `pulumi:"kerberos5pReadWrite"`
+	Nfsv3               pulumi.BoolPtrInput   `pulumi:"nfsv3"`
+	Nfsv41              pulumi.BoolPtrInput   `pulumi:"nfsv41"`
+	RuleIndex           pulumi.IntPtrInput    `pulumi:"ruleIndex"`
+	UnixReadOnly        pulumi.BoolPtrInput   `pulumi:"unixReadOnly"`
+	UnixReadWrite       pulumi.BoolPtrInput   `pulumi:"unixReadWrite"`
 }
 
 func (ExportPolicyRuleResponseArgs) ElementType() reflect.Type {
@@ -1191,7 +988,6 @@ func (i ExportPolicyRuleResponseArray) ToExportPolicyRuleResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ExportPolicyRuleResponseArrayOutput)
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportPolicyRuleResponseOutput) ElementType() reflect.Type {
@@ -1206,72 +1002,58 @@ func (o ExportPolicyRuleResponseOutput) ToExportPolicyRuleResponseOutputWithCont
 	return o
 }
 
-// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 func (o ExportPolicyRuleResponseOutput) AllowedClients() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *string { return v.AllowedClients }).(pulumi.StringPtrOutput)
 }
 
-// Allows CIFS protocol
 func (o ExportPolicyRuleResponseOutput) Cifs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.Cifs }).(pulumi.BoolPtrOutput)
 }
 
-// Has root access to volume
 func (o ExportPolicyRuleResponseOutput) HasRootAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.HasRootAccess }).(pulumi.BoolPtrOutput)
 }
 
-// Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
 func (o ExportPolicyRuleResponseOutput) Kerberos5ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.Kerberos5ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
 func (o ExportPolicyRuleResponseOutput) Kerberos5ReadWrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.Kerberos5ReadWrite }).(pulumi.BoolPtrOutput)
 }
 
-// Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
 func (o ExportPolicyRuleResponseOutput) Kerberos5iReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.Kerberos5iReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
 func (o ExportPolicyRuleResponseOutput) Kerberos5iReadWrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.Kerberos5iReadWrite }).(pulumi.BoolPtrOutput)
 }
 
-// Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
 func (o ExportPolicyRuleResponseOutput) Kerberos5pReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.Kerberos5pReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
 func (o ExportPolicyRuleResponseOutput) Kerberos5pReadWrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.Kerberos5pReadWrite }).(pulumi.BoolPtrOutput)
 }
 
-// Allows NFSv3 protocol. Enable only for NFSv3 type volumes
 func (o ExportPolicyRuleResponseOutput) Nfsv3() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.Nfsv3 }).(pulumi.BoolPtrOutput)
 }
 
-// Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
 func (o ExportPolicyRuleResponseOutput) Nfsv41() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.Nfsv41 }).(pulumi.BoolPtrOutput)
 }
 
-// Order index
 func (o ExportPolicyRuleResponseOutput) RuleIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *int { return v.RuleIndex }).(pulumi.IntPtrOutput)
 }
 
-// Read only access
 func (o ExportPolicyRuleResponseOutput) UnixReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.UnixReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Read and write access
 func (o ExportPolicyRuleResponseOutput) UnixReadWrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.UnixReadWrite }).(pulumi.BoolPtrOutput)
 }
@@ -1296,14 +1078,10 @@ func (o ExportPolicyRuleResponseArrayOutput) Index(i pulumi.IntInput) ExportPoli
 	}).(ExportPolicyRuleResponseOutput)
 }
 
-// Hourly Schedule properties
 type HourlySchedule struct {
-	// Indicates which minute snapshot should be taken
-	Minute *int `pulumi:"minute"`
-	// Hourly snapshot count to keep
-	SnapshotsToKeep *int `pulumi:"snapshotsToKeep"`
-	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes *float64 `pulumi:"usedBytes"`
+	Minute          *int     `pulumi:"minute"`
+	SnapshotsToKeep *int     `pulumi:"snapshotsToKeep"`
+	UsedBytes       *float64 `pulumi:"usedBytes"`
 }
 
 // HourlyScheduleInput is an input type that accepts HourlyScheduleArgs and HourlyScheduleOutput values.
@@ -1317,14 +1095,10 @@ type HourlyScheduleInput interface {
 	ToHourlyScheduleOutputWithContext(context.Context) HourlyScheduleOutput
 }
 
-// Hourly Schedule properties
 type HourlyScheduleArgs struct {
-	// Indicates which minute snapshot should be taken
-	Minute pulumi.IntPtrInput `pulumi:"minute"`
-	// Hourly snapshot count to keep
-	SnapshotsToKeep pulumi.IntPtrInput `pulumi:"snapshotsToKeep"`
-	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes pulumi.Float64PtrInput `pulumi:"usedBytes"`
+	Minute          pulumi.IntPtrInput     `pulumi:"minute"`
+	SnapshotsToKeep pulumi.IntPtrInput     `pulumi:"snapshotsToKeep"`
+	UsedBytes       pulumi.Float64PtrInput `pulumi:"usedBytes"`
 }
 
 func (HourlyScheduleArgs) ElementType() reflect.Type {
@@ -1380,7 +1154,6 @@ func (i *hourlySchedulePtrType) ToHourlySchedulePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(HourlySchedulePtrOutput)
 }
 
-// Hourly Schedule properties
 type HourlyScheduleOutput struct{ *pulumi.OutputState }
 
 func (HourlyScheduleOutput) ElementType() reflect.Type {
@@ -1400,22 +1173,19 @@ func (o HourlyScheduleOutput) ToHourlySchedulePtrOutput() HourlySchedulePtrOutpu
 }
 
 func (o HourlyScheduleOutput) ToHourlySchedulePtrOutputWithContext(ctx context.Context) HourlySchedulePtrOutput {
-	return o.ApplyT(func(v HourlySchedule) *HourlySchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HourlySchedule) *HourlySchedule {
 		return &v
 	}).(HourlySchedulePtrOutput)
 }
 
-// Indicates which minute snapshot should be taken
 func (o HourlyScheduleOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HourlySchedule) *int { return v.Minute }).(pulumi.IntPtrOutput)
 }
 
-// Hourly snapshot count to keep
 func (o HourlyScheduleOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HourlySchedule) *int { return v.SnapshotsToKeep }).(pulumi.IntPtrOutput)
 }
 
-// Resource size in bytes, current storage usage for the volume in bytes
 func (o HourlyScheduleOutput) UsedBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v HourlySchedule) *float64 { return v.UsedBytes }).(pulumi.Float64PtrOutput)
 }
@@ -1435,10 +1205,15 @@ func (o HourlySchedulePtrOutput) ToHourlySchedulePtrOutputWithContext(ctx contex
 }
 
 func (o HourlySchedulePtrOutput) Elem() HourlyScheduleOutput {
-	return o.ApplyT(func(v *HourlySchedule) HourlySchedule { return *v }).(HourlyScheduleOutput)
+	return o.ApplyT(func(v *HourlySchedule) HourlySchedule {
+		if v != nil {
+			return *v
+		}
+		var ret HourlySchedule
+		return ret
+	}).(HourlyScheduleOutput)
 }
 
-// Indicates which minute snapshot should be taken
 func (o HourlySchedulePtrOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HourlySchedule) *int {
 		if v == nil {
@@ -1448,7 +1223,6 @@ func (o HourlySchedulePtrOutput) Minute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Hourly snapshot count to keep
 func (o HourlySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HourlySchedule) *int {
 		if v == nil {
@@ -1458,7 +1232,6 @@ func (o HourlySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Resource size in bytes, current storage usage for the volume in bytes
 func (o HourlySchedulePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *HourlySchedule) *float64 {
 		if v == nil {
@@ -1468,14 +1241,10 @@ func (o HourlySchedulePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Hourly Schedule properties
 type HourlyScheduleResponse struct {
-	// Indicates which minute snapshot should be taken
-	Minute *int `pulumi:"minute"`
-	// Hourly snapshot count to keep
-	SnapshotsToKeep *int `pulumi:"snapshotsToKeep"`
-	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes *float64 `pulumi:"usedBytes"`
+	Minute          *int     `pulumi:"minute"`
+	SnapshotsToKeep *int     `pulumi:"snapshotsToKeep"`
+	UsedBytes       *float64 `pulumi:"usedBytes"`
 }
 
 // HourlyScheduleResponseInput is an input type that accepts HourlyScheduleResponseArgs and HourlyScheduleResponseOutput values.
@@ -1489,14 +1258,10 @@ type HourlyScheduleResponseInput interface {
 	ToHourlyScheduleResponseOutputWithContext(context.Context) HourlyScheduleResponseOutput
 }
 
-// Hourly Schedule properties
 type HourlyScheduleResponseArgs struct {
-	// Indicates which minute snapshot should be taken
-	Minute pulumi.IntPtrInput `pulumi:"minute"`
-	// Hourly snapshot count to keep
-	SnapshotsToKeep pulumi.IntPtrInput `pulumi:"snapshotsToKeep"`
-	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes pulumi.Float64PtrInput `pulumi:"usedBytes"`
+	Minute          pulumi.IntPtrInput     `pulumi:"minute"`
+	SnapshotsToKeep pulumi.IntPtrInput     `pulumi:"snapshotsToKeep"`
+	UsedBytes       pulumi.Float64PtrInput `pulumi:"usedBytes"`
 }
 
 func (HourlyScheduleResponseArgs) ElementType() reflect.Type {
@@ -1552,7 +1317,6 @@ func (i *hourlyScheduleResponsePtrType) ToHourlyScheduleResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(HourlyScheduleResponsePtrOutput)
 }
 
-// Hourly Schedule properties
 type HourlyScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (HourlyScheduleResponseOutput) ElementType() reflect.Type {
@@ -1572,22 +1336,19 @@ func (o HourlyScheduleResponseOutput) ToHourlyScheduleResponsePtrOutput() Hourly
 }
 
 func (o HourlyScheduleResponseOutput) ToHourlyScheduleResponsePtrOutputWithContext(ctx context.Context) HourlyScheduleResponsePtrOutput {
-	return o.ApplyT(func(v HourlyScheduleResponse) *HourlyScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HourlyScheduleResponse) *HourlyScheduleResponse {
 		return &v
 	}).(HourlyScheduleResponsePtrOutput)
 }
 
-// Indicates which minute snapshot should be taken
 func (o HourlyScheduleResponseOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HourlyScheduleResponse) *int { return v.Minute }).(pulumi.IntPtrOutput)
 }
 
-// Hourly snapshot count to keep
 func (o HourlyScheduleResponseOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HourlyScheduleResponse) *int { return v.SnapshotsToKeep }).(pulumi.IntPtrOutput)
 }
 
-// Resource size in bytes, current storage usage for the volume in bytes
 func (o HourlyScheduleResponseOutput) UsedBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v HourlyScheduleResponse) *float64 { return v.UsedBytes }).(pulumi.Float64PtrOutput)
 }
@@ -1607,10 +1368,15 @@ func (o HourlyScheduleResponsePtrOutput) ToHourlyScheduleResponsePtrOutputWithCo
 }
 
 func (o HourlyScheduleResponsePtrOutput) Elem() HourlyScheduleResponseOutput {
-	return o.ApplyT(func(v *HourlyScheduleResponse) HourlyScheduleResponse { return *v }).(HourlyScheduleResponseOutput)
+	return o.ApplyT(func(v *HourlyScheduleResponse) HourlyScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HourlyScheduleResponse
+		return ret
+	}).(HourlyScheduleResponseOutput)
 }
 
-// Indicates which minute snapshot should be taken
 func (o HourlyScheduleResponsePtrOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HourlyScheduleResponse) *int {
 		if v == nil {
@@ -1620,7 +1386,6 @@ func (o HourlyScheduleResponsePtrOutput) Minute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Hourly snapshot count to keep
 func (o HourlyScheduleResponsePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HourlyScheduleResponse) *int {
 		if v == nil {
@@ -1630,7 +1395,6 @@ func (o HourlyScheduleResponsePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Resource size in bytes, current storage usage for the volume in bytes
 func (o HourlyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *HourlyScheduleResponse) *float64 {
 		if v == nil {
@@ -1640,18 +1404,12 @@ func (o HourlyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Monthly Schedule properties
 type MonthlySchedule struct {
-	// Indicates which days of the month snapshot should be taken. A comma delimited string.
-	DaysOfMonth *string `pulumi:"daysOfMonth"`
-	// Indicates which hour in UTC timezone a snapshot should be taken
-	Hour *int `pulumi:"hour"`
-	// Indicates which minute snapshot should be taken
-	Minute *int `pulumi:"minute"`
-	// Monthly snapshot count to keep
-	SnapshotsToKeep *int `pulumi:"snapshotsToKeep"`
-	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes *float64 `pulumi:"usedBytes"`
+	DaysOfMonth     *string  `pulumi:"daysOfMonth"`
+	Hour            *int     `pulumi:"hour"`
+	Minute          *int     `pulumi:"minute"`
+	SnapshotsToKeep *int     `pulumi:"snapshotsToKeep"`
+	UsedBytes       *float64 `pulumi:"usedBytes"`
 }
 
 // MonthlyScheduleInput is an input type that accepts MonthlyScheduleArgs and MonthlyScheduleOutput values.
@@ -1665,18 +1423,12 @@ type MonthlyScheduleInput interface {
 	ToMonthlyScheduleOutputWithContext(context.Context) MonthlyScheduleOutput
 }
 
-// Monthly Schedule properties
 type MonthlyScheduleArgs struct {
-	// Indicates which days of the month snapshot should be taken. A comma delimited string.
-	DaysOfMonth pulumi.StringPtrInput `pulumi:"daysOfMonth"`
-	// Indicates which hour in UTC timezone a snapshot should be taken
-	Hour pulumi.IntPtrInput `pulumi:"hour"`
-	// Indicates which minute snapshot should be taken
-	Minute pulumi.IntPtrInput `pulumi:"minute"`
-	// Monthly snapshot count to keep
-	SnapshotsToKeep pulumi.IntPtrInput `pulumi:"snapshotsToKeep"`
-	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes pulumi.Float64PtrInput `pulumi:"usedBytes"`
+	DaysOfMonth     pulumi.StringPtrInput  `pulumi:"daysOfMonth"`
+	Hour            pulumi.IntPtrInput     `pulumi:"hour"`
+	Minute          pulumi.IntPtrInput     `pulumi:"minute"`
+	SnapshotsToKeep pulumi.IntPtrInput     `pulumi:"snapshotsToKeep"`
+	UsedBytes       pulumi.Float64PtrInput `pulumi:"usedBytes"`
 }
 
 func (MonthlyScheduleArgs) ElementType() reflect.Type {
@@ -1732,7 +1484,6 @@ func (i *monthlySchedulePtrType) ToMonthlySchedulePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(MonthlySchedulePtrOutput)
 }
 
-// Monthly Schedule properties
 type MonthlyScheduleOutput struct{ *pulumi.OutputState }
 
 func (MonthlyScheduleOutput) ElementType() reflect.Type {
@@ -1752,32 +1503,27 @@ func (o MonthlyScheduleOutput) ToMonthlySchedulePtrOutput() MonthlySchedulePtrOu
 }
 
 func (o MonthlyScheduleOutput) ToMonthlySchedulePtrOutputWithContext(ctx context.Context) MonthlySchedulePtrOutput {
-	return o.ApplyT(func(v MonthlySchedule) *MonthlySchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonthlySchedule) *MonthlySchedule {
 		return &v
 	}).(MonthlySchedulePtrOutput)
 }
 
-// Indicates which days of the month snapshot should be taken. A comma delimited string.
 func (o MonthlyScheduleOutput) DaysOfMonth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonthlySchedule) *string { return v.DaysOfMonth }).(pulumi.StringPtrOutput)
 }
 
-// Indicates which hour in UTC timezone a snapshot should be taken
 func (o MonthlyScheduleOutput) Hour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonthlySchedule) *int { return v.Hour }).(pulumi.IntPtrOutput)
 }
 
-// Indicates which minute snapshot should be taken
 func (o MonthlyScheduleOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonthlySchedule) *int { return v.Minute }).(pulumi.IntPtrOutput)
 }
 
-// Monthly snapshot count to keep
 func (o MonthlyScheduleOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonthlySchedule) *int { return v.SnapshotsToKeep }).(pulumi.IntPtrOutput)
 }
 
-// Resource size in bytes, current storage usage for the volume in bytes
 func (o MonthlyScheduleOutput) UsedBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MonthlySchedule) *float64 { return v.UsedBytes }).(pulumi.Float64PtrOutput)
 }
@@ -1797,10 +1543,15 @@ func (o MonthlySchedulePtrOutput) ToMonthlySchedulePtrOutputWithContext(ctx cont
 }
 
 func (o MonthlySchedulePtrOutput) Elem() MonthlyScheduleOutput {
-	return o.ApplyT(func(v *MonthlySchedule) MonthlySchedule { return *v }).(MonthlyScheduleOutput)
+	return o.ApplyT(func(v *MonthlySchedule) MonthlySchedule {
+		if v != nil {
+			return *v
+		}
+		var ret MonthlySchedule
+		return ret
+	}).(MonthlyScheduleOutput)
 }
 
-// Indicates which days of the month snapshot should be taken. A comma delimited string.
 func (o MonthlySchedulePtrOutput) DaysOfMonth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonthlySchedule) *string {
 		if v == nil {
@@ -1810,7 +1561,6 @@ func (o MonthlySchedulePtrOutput) DaysOfMonth() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates which hour in UTC timezone a snapshot should be taken
 func (o MonthlySchedulePtrOutput) Hour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MonthlySchedule) *int {
 		if v == nil {
@@ -1820,7 +1570,6 @@ func (o MonthlySchedulePtrOutput) Hour() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates which minute snapshot should be taken
 func (o MonthlySchedulePtrOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MonthlySchedule) *int {
 		if v == nil {
@@ -1830,7 +1579,6 @@ func (o MonthlySchedulePtrOutput) Minute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Monthly snapshot count to keep
 func (o MonthlySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MonthlySchedule) *int {
 		if v == nil {
@@ -1840,7 +1588,6 @@ func (o MonthlySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Resource size in bytes, current storage usage for the volume in bytes
 func (o MonthlySchedulePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MonthlySchedule) *float64 {
 		if v == nil {
@@ -1850,18 +1597,12 @@ func (o MonthlySchedulePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Monthly Schedule properties
 type MonthlyScheduleResponse struct {
-	// Indicates which days of the month snapshot should be taken. A comma delimited string.
-	DaysOfMonth *string `pulumi:"daysOfMonth"`
-	// Indicates which hour in UTC timezone a snapshot should be taken
-	Hour *int `pulumi:"hour"`
-	// Indicates which minute snapshot should be taken
-	Minute *int `pulumi:"minute"`
-	// Monthly snapshot count to keep
-	SnapshotsToKeep *int `pulumi:"snapshotsToKeep"`
-	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes *float64 `pulumi:"usedBytes"`
+	DaysOfMonth     *string  `pulumi:"daysOfMonth"`
+	Hour            *int     `pulumi:"hour"`
+	Minute          *int     `pulumi:"minute"`
+	SnapshotsToKeep *int     `pulumi:"snapshotsToKeep"`
+	UsedBytes       *float64 `pulumi:"usedBytes"`
 }
 
 // MonthlyScheduleResponseInput is an input type that accepts MonthlyScheduleResponseArgs and MonthlyScheduleResponseOutput values.
@@ -1875,18 +1616,12 @@ type MonthlyScheduleResponseInput interface {
 	ToMonthlyScheduleResponseOutputWithContext(context.Context) MonthlyScheduleResponseOutput
 }
 
-// Monthly Schedule properties
 type MonthlyScheduleResponseArgs struct {
-	// Indicates which days of the month snapshot should be taken. A comma delimited string.
-	DaysOfMonth pulumi.StringPtrInput `pulumi:"daysOfMonth"`
-	// Indicates which hour in UTC timezone a snapshot should be taken
-	Hour pulumi.IntPtrInput `pulumi:"hour"`
-	// Indicates which minute snapshot should be taken
-	Minute pulumi.IntPtrInput `pulumi:"minute"`
-	// Monthly snapshot count to keep
-	SnapshotsToKeep pulumi.IntPtrInput `pulumi:"snapshotsToKeep"`
-	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes pulumi.Float64PtrInput `pulumi:"usedBytes"`
+	DaysOfMonth     pulumi.StringPtrInput  `pulumi:"daysOfMonth"`
+	Hour            pulumi.IntPtrInput     `pulumi:"hour"`
+	Minute          pulumi.IntPtrInput     `pulumi:"minute"`
+	SnapshotsToKeep pulumi.IntPtrInput     `pulumi:"snapshotsToKeep"`
+	UsedBytes       pulumi.Float64PtrInput `pulumi:"usedBytes"`
 }
 
 func (MonthlyScheduleResponseArgs) ElementType() reflect.Type {
@@ -1942,7 +1677,6 @@ func (i *monthlyScheduleResponsePtrType) ToMonthlyScheduleResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(MonthlyScheduleResponsePtrOutput)
 }
 
-// Monthly Schedule properties
 type MonthlyScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (MonthlyScheduleResponseOutput) ElementType() reflect.Type {
@@ -1962,32 +1696,27 @@ func (o MonthlyScheduleResponseOutput) ToMonthlyScheduleResponsePtrOutput() Mont
 }
 
 func (o MonthlyScheduleResponseOutput) ToMonthlyScheduleResponsePtrOutputWithContext(ctx context.Context) MonthlyScheduleResponsePtrOutput {
-	return o.ApplyT(func(v MonthlyScheduleResponse) *MonthlyScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonthlyScheduleResponse) *MonthlyScheduleResponse {
 		return &v
 	}).(MonthlyScheduleResponsePtrOutput)
 }
 
-// Indicates which days of the month snapshot should be taken. A comma delimited string.
 func (o MonthlyScheduleResponseOutput) DaysOfMonth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonthlyScheduleResponse) *string { return v.DaysOfMonth }).(pulumi.StringPtrOutput)
 }
 
-// Indicates which hour in UTC timezone a snapshot should be taken
 func (o MonthlyScheduleResponseOutput) Hour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonthlyScheduleResponse) *int { return v.Hour }).(pulumi.IntPtrOutput)
 }
 
-// Indicates which minute snapshot should be taken
 func (o MonthlyScheduleResponseOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonthlyScheduleResponse) *int { return v.Minute }).(pulumi.IntPtrOutput)
 }
 
-// Monthly snapshot count to keep
 func (o MonthlyScheduleResponseOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonthlyScheduleResponse) *int { return v.SnapshotsToKeep }).(pulumi.IntPtrOutput)
 }
 
-// Resource size in bytes, current storage usage for the volume in bytes
 func (o MonthlyScheduleResponseOutput) UsedBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MonthlyScheduleResponse) *float64 { return v.UsedBytes }).(pulumi.Float64PtrOutput)
 }
@@ -2007,10 +1736,15 @@ func (o MonthlyScheduleResponsePtrOutput) ToMonthlyScheduleResponsePtrOutputWith
 }
 
 func (o MonthlyScheduleResponsePtrOutput) Elem() MonthlyScheduleResponseOutput {
-	return o.ApplyT(func(v *MonthlyScheduleResponse) MonthlyScheduleResponse { return *v }).(MonthlyScheduleResponseOutput)
+	return o.ApplyT(func(v *MonthlyScheduleResponse) MonthlyScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MonthlyScheduleResponse
+		return ret
+	}).(MonthlyScheduleResponseOutput)
 }
 
-// Indicates which days of the month snapshot should be taken. A comma delimited string.
 func (o MonthlyScheduleResponsePtrOutput) DaysOfMonth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonthlyScheduleResponse) *string {
 		if v == nil {
@@ -2020,7 +1754,6 @@ func (o MonthlyScheduleResponsePtrOutput) DaysOfMonth() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates which hour in UTC timezone a snapshot should be taken
 func (o MonthlyScheduleResponsePtrOutput) Hour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MonthlyScheduleResponse) *int {
 		if v == nil {
@@ -2030,7 +1763,6 @@ func (o MonthlyScheduleResponsePtrOutput) Hour() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates which minute snapshot should be taken
 func (o MonthlyScheduleResponsePtrOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MonthlyScheduleResponse) *int {
 		if v == nil {
@@ -2040,7 +1772,6 @@ func (o MonthlyScheduleResponsePtrOutput) Minute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Monthly snapshot count to keep
 func (o MonthlyScheduleResponsePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MonthlyScheduleResponse) *int {
 		if v == nil {
@@ -2050,7 +1781,6 @@ func (o MonthlyScheduleResponsePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Resource size in bytes, current storage usage for the volume in bytes
 func (o MonthlyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MonthlyScheduleResponse) *float64 {
 		if v == nil {
@@ -2060,15 +1790,10 @@ func (o MonthlyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Mount target properties
 type MountTargetPropertiesResponse struct {
-	// UUID v4 used to identify the MountTarget
-	FileSystemId string `pulumi:"fileSystemId"`
-	// The mount target's IPv4 address
-	IpAddress string `pulumi:"ipAddress"`
-	// UUID v4 used to identify the MountTarget
-	MountTargetId string `pulumi:"mountTargetId"`
-	// The SMB server's Fully Qualified Domain Name, FQDN
+	FileSystemId  string  `pulumi:"fileSystemId"`
+	IpAddress     string  `pulumi:"ipAddress"`
+	MountTargetId string  `pulumi:"mountTargetId"`
 	SmbServerFqdn *string `pulumi:"smbServerFqdn"`
 }
 
@@ -2083,15 +1808,10 @@ type MountTargetPropertiesResponseInput interface {
 	ToMountTargetPropertiesResponseOutputWithContext(context.Context) MountTargetPropertiesResponseOutput
 }
 
-// Mount target properties
 type MountTargetPropertiesResponseArgs struct {
-	// UUID v4 used to identify the MountTarget
-	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// The mount target's IPv4 address
-	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
-	// UUID v4 used to identify the MountTarget
-	MountTargetId pulumi.StringInput `pulumi:"mountTargetId"`
-	// The SMB server's Fully Qualified Domain Name, FQDN
+	FileSystemId  pulumi.StringInput    `pulumi:"fileSystemId"`
+	IpAddress     pulumi.StringInput    `pulumi:"ipAddress"`
+	MountTargetId pulumi.StringInput    `pulumi:"mountTargetId"`
 	SmbServerFqdn pulumi.StringPtrInput `pulumi:"smbServerFqdn"`
 }
 
@@ -2132,7 +1852,6 @@ func (i MountTargetPropertiesResponseArray) ToMountTargetPropertiesResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(MountTargetPropertiesResponseArrayOutput)
 }
 
-// Mount target properties
 type MountTargetPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MountTargetPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2147,22 +1866,18 @@ func (o MountTargetPropertiesResponseOutput) ToMountTargetPropertiesResponseOutp
 	return o
 }
 
-// UUID v4 used to identify the MountTarget
 func (o MountTargetPropertiesResponseOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// The mount target's IPv4 address
 func (o MountTargetPropertiesResponseOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// UUID v4 used to identify the MountTarget
 func (o MountTargetPropertiesResponseOutput) MountTargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) string { return v.MountTargetId }).(pulumi.StringOutput)
 }
 
-// The SMB server's Fully Qualified Domain Name, FQDN
 func (o MountTargetPropertiesResponseOutput) SmbServerFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) *string { return v.SmbServerFqdn }).(pulumi.StringPtrOutput)
 }
@@ -2187,18 +1902,12 @@ func (o MountTargetPropertiesResponseArrayOutput) Index(i pulumi.IntInput) Mount
 	}).(MountTargetPropertiesResponseOutput)
 }
 
-// Replication properties
 type ReplicationObject struct {
-	// Indicates whether the local volume is the source or destination for the Volume Replication
-	EndpointType *string `pulumi:"endpointType"`
-	// The remote region for the other end of the Volume Replication.
-	RemoteVolumeRegion *string `pulumi:"remoteVolumeRegion"`
-	// The resource ID of the remote volume.
-	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
-	// Id
-	ReplicationId *string `pulumi:"replicationId"`
-	// Schedule
-	ReplicationSchedule string `pulumi:"replicationSchedule"`
+	EndpointType           *string `pulumi:"endpointType"`
+	RemoteVolumeRegion     *string `pulumi:"remoteVolumeRegion"`
+	RemoteVolumeResourceId string  `pulumi:"remoteVolumeResourceId"`
+	ReplicationId          *string `pulumi:"replicationId"`
+	ReplicationSchedule    string  `pulumi:"replicationSchedule"`
 }
 
 // ReplicationObjectInput is an input type that accepts ReplicationObjectArgs and ReplicationObjectOutput values.
@@ -2212,18 +1921,12 @@ type ReplicationObjectInput interface {
 	ToReplicationObjectOutputWithContext(context.Context) ReplicationObjectOutput
 }
 
-// Replication properties
 type ReplicationObjectArgs struct {
-	// Indicates whether the local volume is the source or destination for the Volume Replication
-	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	// The remote region for the other end of the Volume Replication.
-	RemoteVolumeRegion pulumi.StringPtrInput `pulumi:"remoteVolumeRegion"`
-	// The resource ID of the remote volume.
-	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
-	// Id
-	ReplicationId pulumi.StringPtrInput `pulumi:"replicationId"`
-	// Schedule
-	ReplicationSchedule pulumi.StringInput `pulumi:"replicationSchedule"`
+	EndpointType           pulumi.StringPtrInput `pulumi:"endpointType"`
+	RemoteVolumeRegion     pulumi.StringPtrInput `pulumi:"remoteVolumeRegion"`
+	RemoteVolumeResourceId pulumi.StringInput    `pulumi:"remoteVolumeResourceId"`
+	ReplicationId          pulumi.StringPtrInput `pulumi:"replicationId"`
+	ReplicationSchedule    pulumi.StringInput    `pulumi:"replicationSchedule"`
 }
 
 func (ReplicationObjectArgs) ElementType() reflect.Type {
@@ -2279,7 +1982,6 @@ func (i *replicationObjectPtrType) ToReplicationObjectPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationObjectPtrOutput)
 }
 
-// Replication properties
 type ReplicationObjectOutput struct{ *pulumi.OutputState }
 
 func (ReplicationObjectOutput) ElementType() reflect.Type {
@@ -2299,32 +2001,27 @@ func (o ReplicationObjectOutput) ToReplicationObjectPtrOutput() ReplicationObjec
 }
 
 func (o ReplicationObjectOutput) ToReplicationObjectPtrOutputWithContext(ctx context.Context) ReplicationObjectPtrOutput {
-	return o.ApplyT(func(v ReplicationObject) *ReplicationObject {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationObject) *ReplicationObject {
 		return &v
 	}).(ReplicationObjectPtrOutput)
 }
 
-// Indicates whether the local volume is the source or destination for the Volume Replication
 func (o ReplicationObjectOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationObject) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
-// The remote region for the other end of the Volume Replication.
 func (o ReplicationObjectOutput) RemoteVolumeRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationObject) *string { return v.RemoteVolumeRegion }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the remote volume.
 func (o ReplicationObjectOutput) RemoteVolumeResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationObject) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
 }
 
-// Id
 func (o ReplicationObjectOutput) ReplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationObject) *string { return v.ReplicationId }).(pulumi.StringPtrOutput)
 }
 
-// Schedule
 func (o ReplicationObjectOutput) ReplicationSchedule() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationObject) string { return v.ReplicationSchedule }).(pulumi.StringOutput)
 }
@@ -2344,10 +2041,15 @@ func (o ReplicationObjectPtrOutput) ToReplicationObjectPtrOutputWithContext(ctx 
 }
 
 func (o ReplicationObjectPtrOutput) Elem() ReplicationObjectOutput {
-	return o.ApplyT(func(v *ReplicationObject) ReplicationObject { return *v }).(ReplicationObjectOutput)
+	return o.ApplyT(func(v *ReplicationObject) ReplicationObject {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationObject
+		return ret
+	}).(ReplicationObjectOutput)
 }
 
-// Indicates whether the local volume is the source or destination for the Volume Replication
 func (o ReplicationObjectPtrOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObject) *string {
 		if v == nil {
@@ -2357,7 +2059,6 @@ func (o ReplicationObjectPtrOutput) EndpointType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The remote region for the other end of the Volume Replication.
 func (o ReplicationObjectPtrOutput) RemoteVolumeRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObject) *string {
 		if v == nil {
@@ -2367,7 +2068,6 @@ func (o ReplicationObjectPtrOutput) RemoteVolumeRegion() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the remote volume.
 func (o ReplicationObjectPtrOutput) RemoteVolumeResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObject) *string {
 		if v == nil {
@@ -2377,7 +2077,6 @@ func (o ReplicationObjectPtrOutput) RemoteVolumeResourceId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Id
 func (o ReplicationObjectPtrOutput) ReplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObject) *string {
 		if v == nil {
@@ -2387,7 +2086,6 @@ func (o ReplicationObjectPtrOutput) ReplicationId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule
 func (o ReplicationObjectPtrOutput) ReplicationSchedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObject) *string {
 		if v == nil {
@@ -2397,18 +2095,12 @@ func (o ReplicationObjectPtrOutput) ReplicationSchedule() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Replication properties
 type ReplicationObjectResponse struct {
-	// Indicates whether the local volume is the source or destination for the Volume Replication
-	EndpointType *string `pulumi:"endpointType"`
-	// The remote region for the other end of the Volume Replication.
-	RemoteVolumeRegion *string `pulumi:"remoteVolumeRegion"`
-	// The resource ID of the remote volume.
-	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
-	// Id
-	ReplicationId *string `pulumi:"replicationId"`
-	// Schedule
-	ReplicationSchedule string `pulumi:"replicationSchedule"`
+	EndpointType           *string `pulumi:"endpointType"`
+	RemoteVolumeRegion     *string `pulumi:"remoteVolumeRegion"`
+	RemoteVolumeResourceId string  `pulumi:"remoteVolumeResourceId"`
+	ReplicationId          *string `pulumi:"replicationId"`
+	ReplicationSchedule    string  `pulumi:"replicationSchedule"`
 }
 
 // ReplicationObjectResponseInput is an input type that accepts ReplicationObjectResponseArgs and ReplicationObjectResponseOutput values.
@@ -2422,18 +2114,12 @@ type ReplicationObjectResponseInput interface {
 	ToReplicationObjectResponseOutputWithContext(context.Context) ReplicationObjectResponseOutput
 }
 
-// Replication properties
 type ReplicationObjectResponseArgs struct {
-	// Indicates whether the local volume is the source or destination for the Volume Replication
-	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	// The remote region for the other end of the Volume Replication.
-	RemoteVolumeRegion pulumi.StringPtrInput `pulumi:"remoteVolumeRegion"`
-	// The resource ID of the remote volume.
-	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
-	// Id
-	ReplicationId pulumi.StringPtrInput `pulumi:"replicationId"`
-	// Schedule
-	ReplicationSchedule pulumi.StringInput `pulumi:"replicationSchedule"`
+	EndpointType           pulumi.StringPtrInput `pulumi:"endpointType"`
+	RemoteVolumeRegion     pulumi.StringPtrInput `pulumi:"remoteVolumeRegion"`
+	RemoteVolumeResourceId pulumi.StringInput    `pulumi:"remoteVolumeResourceId"`
+	ReplicationId          pulumi.StringPtrInput `pulumi:"replicationId"`
+	ReplicationSchedule    pulumi.StringInput    `pulumi:"replicationSchedule"`
 }
 
 func (ReplicationObjectResponseArgs) ElementType() reflect.Type {
@@ -2489,7 +2175,6 @@ func (i *replicationObjectResponsePtrType) ToReplicationObjectResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationObjectResponsePtrOutput)
 }
 
-// Replication properties
 type ReplicationObjectResponseOutput struct{ *pulumi.OutputState }
 
 func (ReplicationObjectResponseOutput) ElementType() reflect.Type {
@@ -2509,32 +2194,27 @@ func (o ReplicationObjectResponseOutput) ToReplicationObjectResponsePtrOutput() 
 }
 
 func (o ReplicationObjectResponseOutput) ToReplicationObjectResponsePtrOutputWithContext(ctx context.Context) ReplicationObjectResponsePtrOutput {
-	return o.ApplyT(func(v ReplicationObjectResponse) *ReplicationObjectResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationObjectResponse) *ReplicationObjectResponse {
 		return &v
 	}).(ReplicationObjectResponsePtrOutput)
 }
 
-// Indicates whether the local volume is the source or destination for the Volume Replication
 func (o ReplicationObjectResponseOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationObjectResponse) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
-// The remote region for the other end of the Volume Replication.
 func (o ReplicationObjectResponseOutput) RemoteVolumeRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationObjectResponse) *string { return v.RemoteVolumeRegion }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the remote volume.
 func (o ReplicationObjectResponseOutput) RemoteVolumeResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationObjectResponse) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
 }
 
-// Id
 func (o ReplicationObjectResponseOutput) ReplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationObjectResponse) *string { return v.ReplicationId }).(pulumi.StringPtrOutput)
 }
 
-// Schedule
 func (o ReplicationObjectResponseOutput) ReplicationSchedule() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationObjectResponse) string { return v.ReplicationSchedule }).(pulumi.StringOutput)
 }
@@ -2554,10 +2234,15 @@ func (o ReplicationObjectResponsePtrOutput) ToReplicationObjectResponsePtrOutput
 }
 
 func (o ReplicationObjectResponsePtrOutput) Elem() ReplicationObjectResponseOutput {
-	return o.ApplyT(func(v *ReplicationObjectResponse) ReplicationObjectResponse { return *v }).(ReplicationObjectResponseOutput)
+	return o.ApplyT(func(v *ReplicationObjectResponse) ReplicationObjectResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationObjectResponse
+		return ret
+	}).(ReplicationObjectResponseOutput)
 }
 
-// Indicates whether the local volume is the source or destination for the Volume Replication
 func (o ReplicationObjectResponsePtrOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObjectResponse) *string {
 		if v == nil {
@@ -2567,7 +2252,6 @@ func (o ReplicationObjectResponsePtrOutput) EndpointType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The remote region for the other end of the Volume Replication.
 func (o ReplicationObjectResponsePtrOutput) RemoteVolumeRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObjectResponse) *string {
 		if v == nil {
@@ -2577,7 +2261,6 @@ func (o ReplicationObjectResponsePtrOutput) RemoteVolumeRegion() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the remote volume.
 func (o ReplicationObjectResponsePtrOutput) RemoteVolumeResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObjectResponse) *string {
 		if v == nil {
@@ -2587,7 +2270,6 @@ func (o ReplicationObjectResponsePtrOutput) RemoteVolumeResourceId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Id
 func (o ReplicationObjectResponsePtrOutput) ReplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObjectResponse) *string {
 		if v == nil {
@@ -2597,7 +2279,6 @@ func (o ReplicationObjectResponsePtrOutput) ReplicationId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule
 func (o ReplicationObjectResponsePtrOutput) ReplicationSchedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObjectResponse) *string {
 		if v == nil {
@@ -2607,16 +2288,11 @@ func (o ReplicationObjectResponsePtrOutput) ReplicationSchedule() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Volume Backup Properties
 type VolumeBackupProperties struct {
-	// Backup Enabled
-	BackupEnabled *bool `pulumi:"backupEnabled"`
-	// Backup Policy Resource ID
+	BackupEnabled  *bool   `pulumi:"backupEnabled"`
 	BackupPolicyId *string `pulumi:"backupPolicyId"`
-	// Policy Enforced
-	PolicyEnforced *bool `pulumi:"policyEnforced"`
-	// Vault Resource ID
-	VaultId *string `pulumi:"vaultId"`
+	PolicyEnforced *bool   `pulumi:"policyEnforced"`
+	VaultId        *string `pulumi:"vaultId"`
 }
 
 // VolumeBackupPropertiesInput is an input type that accepts VolumeBackupPropertiesArgs and VolumeBackupPropertiesOutput values.
@@ -2630,16 +2306,11 @@ type VolumeBackupPropertiesInput interface {
 	ToVolumeBackupPropertiesOutputWithContext(context.Context) VolumeBackupPropertiesOutput
 }
 
-// Volume Backup Properties
 type VolumeBackupPropertiesArgs struct {
-	// Backup Enabled
-	BackupEnabled pulumi.BoolPtrInput `pulumi:"backupEnabled"`
-	// Backup Policy Resource ID
+	BackupEnabled  pulumi.BoolPtrInput   `pulumi:"backupEnabled"`
 	BackupPolicyId pulumi.StringPtrInput `pulumi:"backupPolicyId"`
-	// Policy Enforced
-	PolicyEnforced pulumi.BoolPtrInput `pulumi:"policyEnforced"`
-	// Vault Resource ID
-	VaultId pulumi.StringPtrInput `pulumi:"vaultId"`
+	PolicyEnforced pulumi.BoolPtrInput   `pulumi:"policyEnforced"`
+	VaultId        pulumi.StringPtrInput `pulumi:"vaultId"`
 }
 
 func (VolumeBackupPropertiesArgs) ElementType() reflect.Type {
@@ -2695,7 +2366,6 @@ func (i *volumeBackupPropertiesPtrType) ToVolumeBackupPropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeBackupPropertiesPtrOutput)
 }
 
-// Volume Backup Properties
 type VolumeBackupPropertiesOutput struct{ *pulumi.OutputState }
 
 func (VolumeBackupPropertiesOutput) ElementType() reflect.Type {
@@ -2715,27 +2385,23 @@ func (o VolumeBackupPropertiesOutput) ToVolumeBackupPropertiesPtrOutput() Volume
 }
 
 func (o VolumeBackupPropertiesOutput) ToVolumeBackupPropertiesPtrOutputWithContext(ctx context.Context) VolumeBackupPropertiesPtrOutput {
-	return o.ApplyT(func(v VolumeBackupProperties) *VolumeBackupProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeBackupProperties) *VolumeBackupProperties {
 		return &v
 	}).(VolumeBackupPropertiesPtrOutput)
 }
 
-// Backup Enabled
 func (o VolumeBackupPropertiesOutput) BackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VolumeBackupProperties) *bool { return v.BackupEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Backup Policy Resource ID
 func (o VolumeBackupPropertiesOutput) BackupPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeBackupProperties) *string { return v.BackupPolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Policy Enforced
 func (o VolumeBackupPropertiesOutput) PolicyEnforced() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VolumeBackupProperties) *bool { return v.PolicyEnforced }).(pulumi.BoolPtrOutput)
 }
 
-// Vault Resource ID
 func (o VolumeBackupPropertiesOutput) VaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeBackupProperties) *string { return v.VaultId }).(pulumi.StringPtrOutput)
 }
@@ -2755,10 +2421,15 @@ func (o VolumeBackupPropertiesPtrOutput) ToVolumeBackupPropertiesPtrOutputWithCo
 }
 
 func (o VolumeBackupPropertiesPtrOutput) Elem() VolumeBackupPropertiesOutput {
-	return o.ApplyT(func(v *VolumeBackupProperties) VolumeBackupProperties { return *v }).(VolumeBackupPropertiesOutput)
+	return o.ApplyT(func(v *VolumeBackupProperties) VolumeBackupProperties {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeBackupProperties
+		return ret
+	}).(VolumeBackupPropertiesOutput)
 }
 
-// Backup Enabled
 func (o VolumeBackupPropertiesPtrOutput) BackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VolumeBackupProperties) *bool {
 		if v == nil {
@@ -2768,7 +2439,6 @@ func (o VolumeBackupPropertiesPtrOutput) BackupEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Backup Policy Resource ID
 func (o VolumeBackupPropertiesPtrOutput) BackupPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeBackupProperties) *string {
 		if v == nil {
@@ -2778,7 +2448,6 @@ func (o VolumeBackupPropertiesPtrOutput) BackupPolicyId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Policy Enforced
 func (o VolumeBackupPropertiesPtrOutput) PolicyEnforced() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VolumeBackupProperties) *bool {
 		if v == nil {
@@ -2788,7 +2457,6 @@ func (o VolumeBackupPropertiesPtrOutput) PolicyEnforced() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Vault Resource ID
 func (o VolumeBackupPropertiesPtrOutput) VaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeBackupProperties) *string {
 		if v == nil {
@@ -2798,16 +2466,11 @@ func (o VolumeBackupPropertiesPtrOutput) VaultId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Volume Backup Properties
 type VolumeBackupPropertiesResponse struct {
-	// Backup Enabled
-	BackupEnabled *bool `pulumi:"backupEnabled"`
-	// Backup Policy Resource ID
+	BackupEnabled  *bool   `pulumi:"backupEnabled"`
 	BackupPolicyId *string `pulumi:"backupPolicyId"`
-	// Policy Enforced
-	PolicyEnforced *bool `pulumi:"policyEnforced"`
-	// Vault Resource ID
-	VaultId *string `pulumi:"vaultId"`
+	PolicyEnforced *bool   `pulumi:"policyEnforced"`
+	VaultId        *string `pulumi:"vaultId"`
 }
 
 // VolumeBackupPropertiesResponseInput is an input type that accepts VolumeBackupPropertiesResponseArgs and VolumeBackupPropertiesResponseOutput values.
@@ -2821,16 +2484,11 @@ type VolumeBackupPropertiesResponseInput interface {
 	ToVolumeBackupPropertiesResponseOutputWithContext(context.Context) VolumeBackupPropertiesResponseOutput
 }
 
-// Volume Backup Properties
 type VolumeBackupPropertiesResponseArgs struct {
-	// Backup Enabled
-	BackupEnabled pulumi.BoolPtrInput `pulumi:"backupEnabled"`
-	// Backup Policy Resource ID
+	BackupEnabled  pulumi.BoolPtrInput   `pulumi:"backupEnabled"`
 	BackupPolicyId pulumi.StringPtrInput `pulumi:"backupPolicyId"`
-	// Policy Enforced
-	PolicyEnforced pulumi.BoolPtrInput `pulumi:"policyEnforced"`
-	// Vault Resource ID
-	VaultId pulumi.StringPtrInput `pulumi:"vaultId"`
+	PolicyEnforced pulumi.BoolPtrInput   `pulumi:"policyEnforced"`
+	VaultId        pulumi.StringPtrInput `pulumi:"vaultId"`
 }
 
 func (VolumeBackupPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2886,7 +2544,6 @@ func (i *volumeBackupPropertiesResponsePtrType) ToVolumeBackupPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeBackupPropertiesResponsePtrOutput)
 }
 
-// Volume Backup Properties
 type VolumeBackupPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VolumeBackupPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2906,27 +2563,23 @@ func (o VolumeBackupPropertiesResponseOutput) ToVolumeBackupPropertiesResponsePt
 }
 
 func (o VolumeBackupPropertiesResponseOutput) ToVolumeBackupPropertiesResponsePtrOutputWithContext(ctx context.Context) VolumeBackupPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VolumeBackupPropertiesResponse) *VolumeBackupPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeBackupPropertiesResponse) *VolumeBackupPropertiesResponse {
 		return &v
 	}).(VolumeBackupPropertiesResponsePtrOutput)
 }
 
-// Backup Enabled
 func (o VolumeBackupPropertiesResponseOutput) BackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VolumeBackupPropertiesResponse) *bool { return v.BackupEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Backup Policy Resource ID
 func (o VolumeBackupPropertiesResponseOutput) BackupPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeBackupPropertiesResponse) *string { return v.BackupPolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Policy Enforced
 func (o VolumeBackupPropertiesResponseOutput) PolicyEnforced() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VolumeBackupPropertiesResponse) *bool { return v.PolicyEnforced }).(pulumi.BoolPtrOutput)
 }
 
-// Vault Resource ID
 func (o VolumeBackupPropertiesResponseOutput) VaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeBackupPropertiesResponse) *string { return v.VaultId }).(pulumi.StringPtrOutput)
 }
@@ -2946,10 +2599,15 @@ func (o VolumeBackupPropertiesResponsePtrOutput) ToVolumeBackupPropertiesRespons
 }
 
 func (o VolumeBackupPropertiesResponsePtrOutput) Elem() VolumeBackupPropertiesResponseOutput {
-	return o.ApplyT(func(v *VolumeBackupPropertiesResponse) VolumeBackupPropertiesResponse { return *v }).(VolumeBackupPropertiesResponseOutput)
+	return o.ApplyT(func(v *VolumeBackupPropertiesResponse) VolumeBackupPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeBackupPropertiesResponse
+		return ret
+	}).(VolumeBackupPropertiesResponseOutput)
 }
 
-// Backup Enabled
 func (o VolumeBackupPropertiesResponsePtrOutput) BackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VolumeBackupPropertiesResponse) *bool {
 		if v == nil {
@@ -2959,7 +2617,6 @@ func (o VolumeBackupPropertiesResponsePtrOutput) BackupEnabled() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Backup Policy Resource ID
 func (o VolumeBackupPropertiesResponsePtrOutput) BackupPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeBackupPropertiesResponse) *string {
 		if v == nil {
@@ -2969,7 +2626,6 @@ func (o VolumeBackupPropertiesResponsePtrOutput) BackupPolicyId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Policy Enforced
 func (o VolumeBackupPropertiesResponsePtrOutput) PolicyEnforced() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VolumeBackupPropertiesResponse) *bool {
 		if v == nil {
@@ -2979,7 +2635,6 @@ func (o VolumeBackupPropertiesResponsePtrOutput) PolicyEnforced() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Vault Resource ID
 func (o VolumeBackupPropertiesResponsePtrOutput) VaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeBackupPropertiesResponse) *string {
 		if v == nil {
@@ -2989,14 +2644,10 @@ func (o VolumeBackupPropertiesResponsePtrOutput) VaultId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Volume details using the backup policy
 type VolumeBackups struct {
-	// Total count of backups for volume
-	BackupsCount *int `pulumi:"backupsCount"`
-	// Policy enabled
-	PolicyEnabled *bool `pulumi:"policyEnabled"`
-	// Volume name
-	VolumeName *string `pulumi:"volumeName"`
+	BackupsCount  *int    `pulumi:"backupsCount"`
+	PolicyEnabled *bool   `pulumi:"policyEnabled"`
+	VolumeName    *string `pulumi:"volumeName"`
 }
 
 // VolumeBackupsInput is an input type that accepts VolumeBackupsArgs and VolumeBackupsOutput values.
@@ -3010,14 +2661,10 @@ type VolumeBackupsInput interface {
 	ToVolumeBackupsOutputWithContext(context.Context) VolumeBackupsOutput
 }
 
-// Volume details using the backup policy
 type VolumeBackupsArgs struct {
-	// Total count of backups for volume
-	BackupsCount pulumi.IntPtrInput `pulumi:"backupsCount"`
-	// Policy enabled
-	PolicyEnabled pulumi.BoolPtrInput `pulumi:"policyEnabled"`
-	// Volume name
-	VolumeName pulumi.StringPtrInput `pulumi:"volumeName"`
+	BackupsCount  pulumi.IntPtrInput    `pulumi:"backupsCount"`
+	PolicyEnabled pulumi.BoolPtrInput   `pulumi:"policyEnabled"`
+	VolumeName    pulumi.StringPtrInput `pulumi:"volumeName"`
 }
 
 func (VolumeBackupsArgs) ElementType() reflect.Type {
@@ -3057,7 +2704,6 @@ func (i VolumeBackupsArray) ToVolumeBackupsArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeBackupsArrayOutput)
 }
 
-// Volume details using the backup policy
 type VolumeBackupsOutput struct{ *pulumi.OutputState }
 
 func (VolumeBackupsOutput) ElementType() reflect.Type {
@@ -3072,17 +2718,14 @@ func (o VolumeBackupsOutput) ToVolumeBackupsOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Total count of backups for volume
 func (o VolumeBackupsOutput) BackupsCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VolumeBackups) *int { return v.BackupsCount }).(pulumi.IntPtrOutput)
 }
 
-// Policy enabled
 func (o VolumeBackupsOutput) PolicyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VolumeBackups) *bool { return v.PolicyEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Volume name
 func (o VolumeBackupsOutput) VolumeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeBackups) *string { return v.VolumeName }).(pulumi.StringPtrOutput)
 }
@@ -3107,14 +2750,10 @@ func (o VolumeBackupsArrayOutput) Index(i pulumi.IntInput) VolumeBackupsOutput {
 	}).(VolumeBackupsOutput)
 }
 
-// Volume details using the backup policy
 type VolumeBackupsResponse struct {
-	// Total count of backups for volume
-	BackupsCount *int `pulumi:"backupsCount"`
-	// Policy enabled
-	PolicyEnabled *bool `pulumi:"policyEnabled"`
-	// Volume name
-	VolumeName *string `pulumi:"volumeName"`
+	BackupsCount  *int    `pulumi:"backupsCount"`
+	PolicyEnabled *bool   `pulumi:"policyEnabled"`
+	VolumeName    *string `pulumi:"volumeName"`
 }
 
 // VolumeBackupsResponseInput is an input type that accepts VolumeBackupsResponseArgs and VolumeBackupsResponseOutput values.
@@ -3128,14 +2767,10 @@ type VolumeBackupsResponseInput interface {
 	ToVolumeBackupsResponseOutputWithContext(context.Context) VolumeBackupsResponseOutput
 }
 
-// Volume details using the backup policy
 type VolumeBackupsResponseArgs struct {
-	// Total count of backups for volume
-	BackupsCount pulumi.IntPtrInput `pulumi:"backupsCount"`
-	// Policy enabled
-	PolicyEnabled pulumi.BoolPtrInput `pulumi:"policyEnabled"`
-	// Volume name
-	VolumeName pulumi.StringPtrInput `pulumi:"volumeName"`
+	BackupsCount  pulumi.IntPtrInput    `pulumi:"backupsCount"`
+	PolicyEnabled pulumi.BoolPtrInput   `pulumi:"policyEnabled"`
+	VolumeName    pulumi.StringPtrInput `pulumi:"volumeName"`
 }
 
 func (VolumeBackupsResponseArgs) ElementType() reflect.Type {
@@ -3175,7 +2810,6 @@ func (i VolumeBackupsResponseArray) ToVolumeBackupsResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeBackupsResponseArrayOutput)
 }
 
-// Volume details using the backup policy
 type VolumeBackupsResponseOutput struct{ *pulumi.OutputState }
 
 func (VolumeBackupsResponseOutput) ElementType() reflect.Type {
@@ -3190,17 +2824,14 @@ func (o VolumeBackupsResponseOutput) ToVolumeBackupsResponseOutputWithContext(ct
 	return o
 }
 
-// Total count of backups for volume
 func (o VolumeBackupsResponseOutput) BackupsCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VolumeBackupsResponse) *int { return v.BackupsCount }).(pulumi.IntPtrOutput)
 }
 
-// Policy enabled
 func (o VolumeBackupsResponseOutput) PolicyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VolumeBackupsResponse) *bool { return v.PolicyEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Volume name
 func (o VolumeBackupsResponseOutput) VolumeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeBackupsResponse) *string { return v.VolumeName }).(pulumi.StringPtrOutput)
 }
@@ -3225,14 +2856,10 @@ func (o VolumeBackupsResponseArrayOutput) Index(i pulumi.IntInput) VolumeBackups
 	}).(VolumeBackupsResponseOutput)
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesDataProtection struct {
-	// Backup Properties
-	Backup *VolumeBackupProperties `pulumi:"backup"`
-	// Replication properties
-	Replication *ReplicationObject `pulumi:"replication"`
-	// Snapshot properties.
-	Snapshot *VolumeSnapshotProperties `pulumi:"snapshot"`
+	Backup      *VolumeBackupProperties   `pulumi:"backup"`
+	Replication *ReplicationObject        `pulumi:"replication"`
+	Snapshot    *VolumeSnapshotProperties `pulumi:"snapshot"`
 }
 
 // VolumePropertiesDataProtectionInput is an input type that accepts VolumePropertiesDataProtectionArgs and VolumePropertiesDataProtectionOutput values.
@@ -3246,14 +2873,10 @@ type VolumePropertiesDataProtectionInput interface {
 	ToVolumePropertiesDataProtectionOutputWithContext(context.Context) VolumePropertiesDataProtectionOutput
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesDataProtectionArgs struct {
-	// Backup Properties
-	Backup VolumeBackupPropertiesPtrInput `pulumi:"backup"`
-	// Replication properties
-	Replication ReplicationObjectPtrInput `pulumi:"replication"`
-	// Snapshot properties.
-	Snapshot VolumeSnapshotPropertiesPtrInput `pulumi:"snapshot"`
+	Backup      VolumeBackupPropertiesPtrInput   `pulumi:"backup"`
+	Replication ReplicationObjectPtrInput        `pulumi:"replication"`
+	Snapshot    VolumeSnapshotPropertiesPtrInput `pulumi:"snapshot"`
 }
 
 func (VolumePropertiesDataProtectionArgs) ElementType() reflect.Type {
@@ -3309,7 +2932,6 @@ func (i *volumePropertiesDataProtectionPtrType) ToVolumePropertiesDataProtection
 	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesDataProtectionPtrOutput)
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesDataProtectionOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesDataProtectionOutput) ElementType() reflect.Type {
@@ -3329,22 +2951,19 @@ func (o VolumePropertiesDataProtectionOutput) ToVolumePropertiesDataProtectionPt
 }
 
 func (o VolumePropertiesDataProtectionOutput) ToVolumePropertiesDataProtectionPtrOutputWithContext(ctx context.Context) VolumePropertiesDataProtectionPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesDataProtection) *VolumePropertiesDataProtection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesDataProtection) *VolumePropertiesDataProtection {
 		return &v
 	}).(VolumePropertiesDataProtectionPtrOutput)
 }
 
-// Backup Properties
 func (o VolumePropertiesDataProtectionOutput) Backup() VolumeBackupPropertiesPtrOutput {
 	return o.ApplyT(func(v VolumePropertiesDataProtection) *VolumeBackupProperties { return v.Backup }).(VolumeBackupPropertiesPtrOutput)
 }
 
-// Replication properties
 func (o VolumePropertiesDataProtectionOutput) Replication() ReplicationObjectPtrOutput {
 	return o.ApplyT(func(v VolumePropertiesDataProtection) *ReplicationObject { return v.Replication }).(ReplicationObjectPtrOutput)
 }
 
-// Snapshot properties.
 func (o VolumePropertiesDataProtectionOutput) Snapshot() VolumeSnapshotPropertiesPtrOutput {
 	return o.ApplyT(func(v VolumePropertiesDataProtection) *VolumeSnapshotProperties { return v.Snapshot }).(VolumeSnapshotPropertiesPtrOutput)
 }
@@ -3364,10 +2983,15 @@ func (o VolumePropertiesDataProtectionPtrOutput) ToVolumePropertiesDataProtectio
 }
 
 func (o VolumePropertiesDataProtectionPtrOutput) Elem() VolumePropertiesDataProtectionOutput {
-	return o.ApplyT(func(v *VolumePropertiesDataProtection) VolumePropertiesDataProtection { return *v }).(VolumePropertiesDataProtectionOutput)
+	return o.ApplyT(func(v *VolumePropertiesDataProtection) VolumePropertiesDataProtection {
+		if v != nil {
+			return *v
+		}
+		var ret VolumePropertiesDataProtection
+		return ret
+	}).(VolumePropertiesDataProtectionOutput)
 }
 
-// Backup Properties
 func (o VolumePropertiesDataProtectionPtrOutput) Backup() VolumeBackupPropertiesPtrOutput {
 	return o.ApplyT(func(v *VolumePropertiesDataProtection) *VolumeBackupProperties {
 		if v == nil {
@@ -3377,7 +3001,6 @@ func (o VolumePropertiesDataProtectionPtrOutput) Backup() VolumeBackupProperties
 	}).(VolumeBackupPropertiesPtrOutput)
 }
 
-// Replication properties
 func (o VolumePropertiesDataProtectionPtrOutput) Replication() ReplicationObjectPtrOutput {
 	return o.ApplyT(func(v *VolumePropertiesDataProtection) *ReplicationObject {
 		if v == nil {
@@ -3387,7 +3010,6 @@ func (o VolumePropertiesDataProtectionPtrOutput) Replication() ReplicationObject
 	}).(ReplicationObjectPtrOutput)
 }
 
-// Snapshot properties.
 func (o VolumePropertiesDataProtectionPtrOutput) Snapshot() VolumeSnapshotPropertiesPtrOutput {
 	return o.ApplyT(func(v *VolumePropertiesDataProtection) *VolumeSnapshotProperties {
 		if v == nil {
@@ -3397,9 +3019,7 @@ func (o VolumePropertiesDataProtectionPtrOutput) Snapshot() VolumeSnapshotProper
 	}).(VolumeSnapshotPropertiesPtrOutput)
 }
 
-// Set of export policy rules
 type VolumePropertiesExportPolicy struct {
-	// Export policy rule
 	Rules []ExportPolicyRule `pulumi:"rules"`
 }
 
@@ -3414,9 +3034,7 @@ type VolumePropertiesExportPolicyInput interface {
 	ToVolumePropertiesExportPolicyOutputWithContext(context.Context) VolumePropertiesExportPolicyOutput
 }
 
-// Set of export policy rules
 type VolumePropertiesExportPolicyArgs struct {
-	// Export policy rule
 	Rules ExportPolicyRuleArrayInput `pulumi:"rules"`
 }
 
@@ -3473,7 +3091,6 @@ func (i *volumePropertiesExportPolicyPtrType) ToVolumePropertiesExportPolicyPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesExportPolicyPtrOutput)
 }
 
-// Set of export policy rules
 type VolumePropertiesExportPolicyOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesExportPolicyOutput) ElementType() reflect.Type {
@@ -3493,12 +3110,11 @@ func (o VolumePropertiesExportPolicyOutput) ToVolumePropertiesExportPolicyPtrOut
 }
 
 func (o VolumePropertiesExportPolicyOutput) ToVolumePropertiesExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesExportPolicyPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesExportPolicy) *VolumePropertiesExportPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesExportPolicy) *VolumePropertiesExportPolicy {
 		return &v
 	}).(VolumePropertiesExportPolicyPtrOutput)
 }
 
-// Export policy rule
 func (o VolumePropertiesExportPolicyOutput) Rules() ExportPolicyRuleArrayOutput {
 	return o.ApplyT(func(v VolumePropertiesExportPolicy) []ExportPolicyRule { return v.Rules }).(ExportPolicyRuleArrayOutput)
 }
@@ -3518,10 +3134,15 @@ func (o VolumePropertiesExportPolicyPtrOutput) ToVolumePropertiesExportPolicyPtr
 }
 
 func (o VolumePropertiesExportPolicyPtrOutput) Elem() VolumePropertiesExportPolicyOutput {
-	return o.ApplyT(func(v *VolumePropertiesExportPolicy) VolumePropertiesExportPolicy { return *v }).(VolumePropertiesExportPolicyOutput)
+	return o.ApplyT(func(v *VolumePropertiesExportPolicy) VolumePropertiesExportPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VolumePropertiesExportPolicy
+		return ret
+	}).(VolumePropertiesExportPolicyOutput)
 }
 
-// Export policy rule
 func (o VolumePropertiesExportPolicyPtrOutput) Rules() ExportPolicyRuleArrayOutput {
 	return o.ApplyT(func(v *VolumePropertiesExportPolicy) []ExportPolicyRule {
 		if v == nil {
@@ -3531,14 +3152,10 @@ func (o VolumePropertiesExportPolicyPtrOutput) Rules() ExportPolicyRuleArrayOutp
 	}).(ExportPolicyRuleArrayOutput)
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesResponseDataProtection struct {
-	// Backup Properties
-	Backup *VolumeBackupPropertiesResponse `pulumi:"backup"`
-	// Replication properties
-	Replication *ReplicationObjectResponse `pulumi:"replication"`
-	// Snapshot properties.
-	Snapshot *VolumeSnapshotPropertiesResponse `pulumi:"snapshot"`
+	Backup      *VolumeBackupPropertiesResponse   `pulumi:"backup"`
+	Replication *ReplicationObjectResponse        `pulumi:"replication"`
+	Snapshot    *VolumeSnapshotPropertiesResponse `pulumi:"snapshot"`
 }
 
 // VolumePropertiesResponseDataProtectionInput is an input type that accepts VolumePropertiesResponseDataProtectionArgs and VolumePropertiesResponseDataProtectionOutput values.
@@ -3552,14 +3169,10 @@ type VolumePropertiesResponseDataProtectionInput interface {
 	ToVolumePropertiesResponseDataProtectionOutputWithContext(context.Context) VolumePropertiesResponseDataProtectionOutput
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesResponseDataProtectionArgs struct {
-	// Backup Properties
-	Backup VolumeBackupPropertiesResponsePtrInput `pulumi:"backup"`
-	// Replication properties
-	Replication ReplicationObjectResponsePtrInput `pulumi:"replication"`
-	// Snapshot properties.
-	Snapshot VolumeSnapshotPropertiesResponsePtrInput `pulumi:"snapshot"`
+	Backup      VolumeBackupPropertiesResponsePtrInput   `pulumi:"backup"`
+	Replication ReplicationObjectResponsePtrInput        `pulumi:"replication"`
+	Snapshot    VolumeSnapshotPropertiesResponsePtrInput `pulumi:"snapshot"`
 }
 
 func (VolumePropertiesResponseDataProtectionArgs) ElementType() reflect.Type {
@@ -3615,7 +3228,6 @@ func (i *volumePropertiesResponseDataProtectionPtrType) ToVolumePropertiesRespon
 	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseDataProtectionPtrOutput)
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesResponseDataProtectionOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesResponseDataProtectionOutput) ElementType() reflect.Type {
@@ -3635,22 +3247,19 @@ func (o VolumePropertiesResponseDataProtectionOutput) ToVolumePropertiesResponse
 }
 
 func (o VolumePropertiesResponseDataProtectionOutput) ToVolumePropertiesResponseDataProtectionPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseDataProtectionPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesResponseDataProtection) *VolumePropertiesResponseDataProtection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesResponseDataProtection) *VolumePropertiesResponseDataProtection {
 		return &v
 	}).(VolumePropertiesResponseDataProtectionPtrOutput)
 }
 
-// Backup Properties
 func (o VolumePropertiesResponseDataProtectionOutput) Backup() VolumeBackupPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v VolumePropertiesResponseDataProtection) *VolumeBackupPropertiesResponse { return v.Backup }).(VolumeBackupPropertiesResponsePtrOutput)
 }
 
-// Replication properties
 func (o VolumePropertiesResponseDataProtectionOutput) Replication() ReplicationObjectResponsePtrOutput {
 	return o.ApplyT(func(v VolumePropertiesResponseDataProtection) *ReplicationObjectResponse { return v.Replication }).(ReplicationObjectResponsePtrOutput)
 }
 
-// Snapshot properties.
 func (o VolumePropertiesResponseDataProtectionOutput) Snapshot() VolumeSnapshotPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v VolumePropertiesResponseDataProtection) *VolumeSnapshotPropertiesResponse { return v.Snapshot }).(VolumeSnapshotPropertiesResponsePtrOutput)
 }
@@ -3670,10 +3279,15 @@ func (o VolumePropertiesResponseDataProtectionPtrOutput) ToVolumePropertiesRespo
 }
 
 func (o VolumePropertiesResponseDataProtectionPtrOutput) Elem() VolumePropertiesResponseDataProtectionOutput {
-	return o.ApplyT(func(v *VolumePropertiesResponseDataProtection) VolumePropertiesResponseDataProtection { return *v }).(VolumePropertiesResponseDataProtectionOutput)
+	return o.ApplyT(func(v *VolumePropertiesResponseDataProtection) VolumePropertiesResponseDataProtection {
+		if v != nil {
+			return *v
+		}
+		var ret VolumePropertiesResponseDataProtection
+		return ret
+	}).(VolumePropertiesResponseDataProtectionOutput)
 }
 
-// Backup Properties
 func (o VolumePropertiesResponseDataProtectionPtrOutput) Backup() VolumeBackupPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *VolumePropertiesResponseDataProtection) *VolumeBackupPropertiesResponse {
 		if v == nil {
@@ -3683,7 +3297,6 @@ func (o VolumePropertiesResponseDataProtectionPtrOutput) Backup() VolumeBackupPr
 	}).(VolumeBackupPropertiesResponsePtrOutput)
 }
 
-// Replication properties
 func (o VolumePropertiesResponseDataProtectionPtrOutput) Replication() ReplicationObjectResponsePtrOutput {
 	return o.ApplyT(func(v *VolumePropertiesResponseDataProtection) *ReplicationObjectResponse {
 		if v == nil {
@@ -3693,7 +3306,6 @@ func (o VolumePropertiesResponseDataProtectionPtrOutput) Replication() Replicati
 	}).(ReplicationObjectResponsePtrOutput)
 }
 
-// Snapshot properties.
 func (o VolumePropertiesResponseDataProtectionPtrOutput) Snapshot() VolumeSnapshotPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *VolumePropertiesResponseDataProtection) *VolumeSnapshotPropertiesResponse {
 		if v == nil {
@@ -3703,9 +3315,7 @@ func (o VolumePropertiesResponseDataProtectionPtrOutput) Snapshot() VolumeSnapsh
 	}).(VolumeSnapshotPropertiesResponsePtrOutput)
 }
 
-// Set of export policy rules
 type VolumePropertiesResponseExportPolicy struct {
-	// Export policy rule
 	Rules []ExportPolicyRuleResponse `pulumi:"rules"`
 }
 
@@ -3720,9 +3330,7 @@ type VolumePropertiesResponseExportPolicyInput interface {
 	ToVolumePropertiesResponseExportPolicyOutputWithContext(context.Context) VolumePropertiesResponseExportPolicyOutput
 }
 
-// Set of export policy rules
 type VolumePropertiesResponseExportPolicyArgs struct {
-	// Export policy rule
 	Rules ExportPolicyRuleResponseArrayInput `pulumi:"rules"`
 }
 
@@ -3779,7 +3387,6 @@ func (i *volumePropertiesResponseExportPolicyPtrType) ToVolumePropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseExportPolicyPtrOutput)
 }
 
-// Set of export policy rules
 type VolumePropertiesResponseExportPolicyOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesResponseExportPolicyOutput) ElementType() reflect.Type {
@@ -3799,12 +3406,11 @@ func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseEx
 }
 
 func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesResponseExportPolicy) *VolumePropertiesResponseExportPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesResponseExportPolicy) *VolumePropertiesResponseExportPolicy {
 		return &v
 	}).(VolumePropertiesResponseExportPolicyPtrOutput)
 }
 
-// Export policy rule
 func (o VolumePropertiesResponseExportPolicyOutput) Rules() ExportPolicyRuleResponseArrayOutput {
 	return o.ApplyT(func(v VolumePropertiesResponseExportPolicy) []ExportPolicyRuleResponse { return v.Rules }).(ExportPolicyRuleResponseArrayOutput)
 }
@@ -3824,10 +3430,15 @@ func (o VolumePropertiesResponseExportPolicyPtrOutput) ToVolumePropertiesRespons
 }
 
 func (o VolumePropertiesResponseExportPolicyPtrOutput) Elem() VolumePropertiesResponseExportPolicyOutput {
-	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) VolumePropertiesResponseExportPolicy { return *v }).(VolumePropertiesResponseExportPolicyOutput)
+	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) VolumePropertiesResponseExportPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VolumePropertiesResponseExportPolicy
+		return ret
+	}).(VolumePropertiesResponseExportPolicyOutput)
 }
 
-// Export policy rule
 func (o VolumePropertiesResponseExportPolicyPtrOutput) Rules() ExportPolicyRuleResponseArrayOutput {
 	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) []ExportPolicyRuleResponse {
 		if v == nil {
@@ -3837,9 +3448,7 @@ func (o VolumePropertiesResponseExportPolicyPtrOutput) Rules() ExportPolicyRuleR
 	}).(ExportPolicyRuleResponseArrayOutput)
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotProperties struct {
-	// Snapshot Policy ResourceId
 	SnapshotPolicyId *string `pulumi:"snapshotPolicyId"`
 }
 
@@ -3854,9 +3463,7 @@ type VolumeSnapshotPropertiesInput interface {
 	ToVolumeSnapshotPropertiesOutputWithContext(context.Context) VolumeSnapshotPropertiesOutput
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotPropertiesArgs struct {
-	// Snapshot Policy ResourceId
 	SnapshotPolicyId pulumi.StringPtrInput `pulumi:"snapshotPolicyId"`
 }
 
@@ -3913,7 +3520,6 @@ func (i *volumeSnapshotPropertiesPtrType) ToVolumeSnapshotPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnapshotPropertiesPtrOutput)
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotPropertiesOutput struct{ *pulumi.OutputState }
 
 func (VolumeSnapshotPropertiesOutput) ElementType() reflect.Type {
@@ -3933,12 +3539,11 @@ func (o VolumeSnapshotPropertiesOutput) ToVolumeSnapshotPropertiesPtrOutput() Vo
 }
 
 func (o VolumeSnapshotPropertiesOutput) ToVolumeSnapshotPropertiesPtrOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesPtrOutput {
-	return o.ApplyT(func(v VolumeSnapshotProperties) *VolumeSnapshotProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeSnapshotProperties) *VolumeSnapshotProperties {
 		return &v
 	}).(VolumeSnapshotPropertiesPtrOutput)
 }
 
-// Snapshot Policy ResourceId
 func (o VolumeSnapshotPropertiesOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeSnapshotProperties) *string { return v.SnapshotPolicyId }).(pulumi.StringPtrOutput)
 }
@@ -3958,10 +3563,15 @@ func (o VolumeSnapshotPropertiesPtrOutput) ToVolumeSnapshotPropertiesPtrOutputWi
 }
 
 func (o VolumeSnapshotPropertiesPtrOutput) Elem() VolumeSnapshotPropertiesOutput {
-	return o.ApplyT(func(v *VolumeSnapshotProperties) VolumeSnapshotProperties { return *v }).(VolumeSnapshotPropertiesOutput)
+	return o.ApplyT(func(v *VolumeSnapshotProperties) VolumeSnapshotProperties {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeSnapshotProperties
+		return ret
+	}).(VolumeSnapshotPropertiesOutput)
 }
 
-// Snapshot Policy ResourceId
 func (o VolumeSnapshotPropertiesPtrOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeSnapshotProperties) *string {
 		if v == nil {
@@ -3971,9 +3581,7 @@ func (o VolumeSnapshotPropertiesPtrOutput) SnapshotPolicyId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotPropertiesResponse struct {
-	// Snapshot Policy ResourceId
 	SnapshotPolicyId *string `pulumi:"snapshotPolicyId"`
 }
 
@@ -3988,9 +3596,7 @@ type VolumeSnapshotPropertiesResponseInput interface {
 	ToVolumeSnapshotPropertiesResponseOutputWithContext(context.Context) VolumeSnapshotPropertiesResponseOutput
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotPropertiesResponseArgs struct {
-	// Snapshot Policy ResourceId
 	SnapshotPolicyId pulumi.StringPtrInput `pulumi:"snapshotPolicyId"`
 }
 
@@ -4047,7 +3653,6 @@ func (i *volumeSnapshotPropertiesResponsePtrType) ToVolumeSnapshotPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnapshotPropertiesResponsePtrOutput)
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VolumeSnapshotPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4067,12 +3672,11 @@ func (o VolumeSnapshotPropertiesResponseOutput) ToVolumeSnapshotPropertiesRespon
 }
 
 func (o VolumeSnapshotPropertiesResponseOutput) ToVolumeSnapshotPropertiesResponsePtrOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VolumeSnapshotPropertiesResponse) *VolumeSnapshotPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeSnapshotPropertiesResponse) *VolumeSnapshotPropertiesResponse {
 		return &v
 	}).(VolumeSnapshotPropertiesResponsePtrOutput)
 }
 
-// Snapshot Policy ResourceId
 func (o VolumeSnapshotPropertiesResponseOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeSnapshotPropertiesResponse) *string { return v.SnapshotPolicyId }).(pulumi.StringPtrOutput)
 }
@@ -4092,10 +3696,15 @@ func (o VolumeSnapshotPropertiesResponsePtrOutput) ToVolumeSnapshotPropertiesRes
 }
 
 func (o VolumeSnapshotPropertiesResponsePtrOutput) Elem() VolumeSnapshotPropertiesResponseOutput {
-	return o.ApplyT(func(v *VolumeSnapshotPropertiesResponse) VolumeSnapshotPropertiesResponse { return *v }).(VolumeSnapshotPropertiesResponseOutput)
+	return o.ApplyT(func(v *VolumeSnapshotPropertiesResponse) VolumeSnapshotPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeSnapshotPropertiesResponse
+		return ret
+	}).(VolumeSnapshotPropertiesResponseOutput)
 }
 
-// Snapshot Policy ResourceId
 func (o VolumeSnapshotPropertiesResponsePtrOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeSnapshotPropertiesResponse) *string {
 		if v == nil {
@@ -4105,18 +3714,12 @@ func (o VolumeSnapshotPropertiesResponsePtrOutput) SnapshotPolicyId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Weekly Schedule properties, make a snapshot every week at a specific day or days
 type WeeklySchedule struct {
-	// Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
-	Day *string `pulumi:"day"`
-	// Indicates which hour in UTC timezone a snapshot should be taken
-	Hour *int `pulumi:"hour"`
-	// Indicates which minute snapshot should be taken
-	Minute *int `pulumi:"minute"`
-	// Weekly snapshot count to keep
-	SnapshotsToKeep *int `pulumi:"snapshotsToKeep"`
-	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes *float64 `pulumi:"usedBytes"`
+	Day             *string  `pulumi:"day"`
+	Hour            *int     `pulumi:"hour"`
+	Minute          *int     `pulumi:"minute"`
+	SnapshotsToKeep *int     `pulumi:"snapshotsToKeep"`
+	UsedBytes       *float64 `pulumi:"usedBytes"`
 }
 
 // WeeklyScheduleInput is an input type that accepts WeeklyScheduleArgs and WeeklyScheduleOutput values.
@@ -4130,18 +3733,12 @@ type WeeklyScheduleInput interface {
 	ToWeeklyScheduleOutputWithContext(context.Context) WeeklyScheduleOutput
 }
 
-// Weekly Schedule properties, make a snapshot every week at a specific day or days
 type WeeklyScheduleArgs struct {
-	// Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
-	Day pulumi.StringPtrInput `pulumi:"day"`
-	// Indicates which hour in UTC timezone a snapshot should be taken
-	Hour pulumi.IntPtrInput `pulumi:"hour"`
-	// Indicates which minute snapshot should be taken
-	Minute pulumi.IntPtrInput `pulumi:"minute"`
-	// Weekly snapshot count to keep
-	SnapshotsToKeep pulumi.IntPtrInput `pulumi:"snapshotsToKeep"`
-	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes pulumi.Float64PtrInput `pulumi:"usedBytes"`
+	Day             pulumi.StringPtrInput  `pulumi:"day"`
+	Hour            pulumi.IntPtrInput     `pulumi:"hour"`
+	Minute          pulumi.IntPtrInput     `pulumi:"minute"`
+	SnapshotsToKeep pulumi.IntPtrInput     `pulumi:"snapshotsToKeep"`
+	UsedBytes       pulumi.Float64PtrInput `pulumi:"usedBytes"`
 }
 
 func (WeeklyScheduleArgs) ElementType() reflect.Type {
@@ -4197,7 +3794,6 @@ func (i *weeklySchedulePtrType) ToWeeklySchedulePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WeeklySchedulePtrOutput)
 }
 
-// Weekly Schedule properties, make a snapshot every week at a specific day or days
 type WeeklyScheduleOutput struct{ *pulumi.OutputState }
 
 func (WeeklyScheduleOutput) ElementType() reflect.Type {
@@ -4217,32 +3813,27 @@ func (o WeeklyScheduleOutput) ToWeeklySchedulePtrOutput() WeeklySchedulePtrOutpu
 }
 
 func (o WeeklyScheduleOutput) ToWeeklySchedulePtrOutputWithContext(ctx context.Context) WeeklySchedulePtrOutput {
-	return o.ApplyT(func(v WeeklySchedule) *WeeklySchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WeeklySchedule) *WeeklySchedule {
 		return &v
 	}).(WeeklySchedulePtrOutput)
 }
 
-// Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
 func (o WeeklyScheduleOutput) Day() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WeeklySchedule) *string { return v.Day }).(pulumi.StringPtrOutput)
 }
 
-// Indicates which hour in UTC timezone a snapshot should be taken
 func (o WeeklyScheduleOutput) Hour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WeeklySchedule) *int { return v.Hour }).(pulumi.IntPtrOutput)
 }
 
-// Indicates which minute snapshot should be taken
 func (o WeeklyScheduleOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WeeklySchedule) *int { return v.Minute }).(pulumi.IntPtrOutput)
 }
 
-// Weekly snapshot count to keep
 func (o WeeklyScheduleOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WeeklySchedule) *int { return v.SnapshotsToKeep }).(pulumi.IntPtrOutput)
 }
 
-// Resource size in bytes, current storage usage for the volume in bytes
 func (o WeeklyScheduleOutput) UsedBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v WeeklySchedule) *float64 { return v.UsedBytes }).(pulumi.Float64PtrOutput)
 }
@@ -4262,10 +3853,15 @@ func (o WeeklySchedulePtrOutput) ToWeeklySchedulePtrOutputWithContext(ctx contex
 }
 
 func (o WeeklySchedulePtrOutput) Elem() WeeklyScheduleOutput {
-	return o.ApplyT(func(v *WeeklySchedule) WeeklySchedule { return *v }).(WeeklyScheduleOutput)
+	return o.ApplyT(func(v *WeeklySchedule) WeeklySchedule {
+		if v != nil {
+			return *v
+		}
+		var ret WeeklySchedule
+		return ret
+	}).(WeeklyScheduleOutput)
 }
 
-// Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
 func (o WeeklySchedulePtrOutput) Day() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WeeklySchedule) *string {
 		if v == nil {
@@ -4275,7 +3871,6 @@ func (o WeeklySchedulePtrOutput) Day() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates which hour in UTC timezone a snapshot should be taken
 func (o WeeklySchedulePtrOutput) Hour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WeeklySchedule) *int {
 		if v == nil {
@@ -4285,7 +3880,6 @@ func (o WeeklySchedulePtrOutput) Hour() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates which minute snapshot should be taken
 func (o WeeklySchedulePtrOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WeeklySchedule) *int {
 		if v == nil {
@@ -4295,7 +3889,6 @@ func (o WeeklySchedulePtrOutput) Minute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Weekly snapshot count to keep
 func (o WeeklySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WeeklySchedule) *int {
 		if v == nil {
@@ -4305,7 +3898,6 @@ func (o WeeklySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Resource size in bytes, current storage usage for the volume in bytes
 func (o WeeklySchedulePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *WeeklySchedule) *float64 {
 		if v == nil {
@@ -4315,18 +3907,12 @@ func (o WeeklySchedulePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Weekly Schedule properties, make a snapshot every week at a specific day or days
 type WeeklyScheduleResponse struct {
-	// Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
-	Day *string `pulumi:"day"`
-	// Indicates which hour in UTC timezone a snapshot should be taken
-	Hour *int `pulumi:"hour"`
-	// Indicates which minute snapshot should be taken
-	Minute *int `pulumi:"minute"`
-	// Weekly snapshot count to keep
-	SnapshotsToKeep *int `pulumi:"snapshotsToKeep"`
-	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes *float64 `pulumi:"usedBytes"`
+	Day             *string  `pulumi:"day"`
+	Hour            *int     `pulumi:"hour"`
+	Minute          *int     `pulumi:"minute"`
+	SnapshotsToKeep *int     `pulumi:"snapshotsToKeep"`
+	UsedBytes       *float64 `pulumi:"usedBytes"`
 }
 
 // WeeklyScheduleResponseInput is an input type that accepts WeeklyScheduleResponseArgs and WeeklyScheduleResponseOutput values.
@@ -4340,18 +3926,12 @@ type WeeklyScheduleResponseInput interface {
 	ToWeeklyScheduleResponseOutputWithContext(context.Context) WeeklyScheduleResponseOutput
 }
 
-// Weekly Schedule properties, make a snapshot every week at a specific day or days
 type WeeklyScheduleResponseArgs struct {
-	// Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
-	Day pulumi.StringPtrInput `pulumi:"day"`
-	// Indicates which hour in UTC timezone a snapshot should be taken
-	Hour pulumi.IntPtrInput `pulumi:"hour"`
-	// Indicates which minute snapshot should be taken
-	Minute pulumi.IntPtrInput `pulumi:"minute"`
-	// Weekly snapshot count to keep
-	SnapshotsToKeep pulumi.IntPtrInput `pulumi:"snapshotsToKeep"`
-	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes pulumi.Float64PtrInput `pulumi:"usedBytes"`
+	Day             pulumi.StringPtrInput  `pulumi:"day"`
+	Hour            pulumi.IntPtrInput     `pulumi:"hour"`
+	Minute          pulumi.IntPtrInput     `pulumi:"minute"`
+	SnapshotsToKeep pulumi.IntPtrInput     `pulumi:"snapshotsToKeep"`
+	UsedBytes       pulumi.Float64PtrInput `pulumi:"usedBytes"`
 }
 
 func (WeeklyScheduleResponseArgs) ElementType() reflect.Type {
@@ -4407,7 +3987,6 @@ func (i *weeklyScheduleResponsePtrType) ToWeeklyScheduleResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WeeklyScheduleResponsePtrOutput)
 }
 
-// Weekly Schedule properties, make a snapshot every week at a specific day or days
 type WeeklyScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (WeeklyScheduleResponseOutput) ElementType() reflect.Type {
@@ -4427,32 +4006,27 @@ func (o WeeklyScheduleResponseOutput) ToWeeklyScheduleResponsePtrOutput() Weekly
 }
 
 func (o WeeklyScheduleResponseOutput) ToWeeklyScheduleResponsePtrOutputWithContext(ctx context.Context) WeeklyScheduleResponsePtrOutput {
-	return o.ApplyT(func(v WeeklyScheduleResponse) *WeeklyScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WeeklyScheduleResponse) *WeeklyScheduleResponse {
 		return &v
 	}).(WeeklyScheduleResponsePtrOutput)
 }
 
-// Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
 func (o WeeklyScheduleResponseOutput) Day() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WeeklyScheduleResponse) *string { return v.Day }).(pulumi.StringPtrOutput)
 }
 
-// Indicates which hour in UTC timezone a snapshot should be taken
 func (o WeeklyScheduleResponseOutput) Hour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WeeklyScheduleResponse) *int { return v.Hour }).(pulumi.IntPtrOutput)
 }
 
-// Indicates which minute snapshot should be taken
 func (o WeeklyScheduleResponseOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WeeklyScheduleResponse) *int { return v.Minute }).(pulumi.IntPtrOutput)
 }
 
-// Weekly snapshot count to keep
 func (o WeeklyScheduleResponseOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WeeklyScheduleResponse) *int { return v.SnapshotsToKeep }).(pulumi.IntPtrOutput)
 }
 
-// Resource size in bytes, current storage usage for the volume in bytes
 func (o WeeklyScheduleResponseOutput) UsedBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v WeeklyScheduleResponse) *float64 { return v.UsedBytes }).(pulumi.Float64PtrOutput)
 }
@@ -4472,10 +4046,15 @@ func (o WeeklyScheduleResponsePtrOutput) ToWeeklyScheduleResponsePtrOutputWithCo
 }
 
 func (o WeeklyScheduleResponsePtrOutput) Elem() WeeklyScheduleResponseOutput {
-	return o.ApplyT(func(v *WeeklyScheduleResponse) WeeklyScheduleResponse { return *v }).(WeeklyScheduleResponseOutput)
+	return o.ApplyT(func(v *WeeklyScheduleResponse) WeeklyScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WeeklyScheduleResponse
+		return ret
+	}).(WeeklyScheduleResponseOutput)
 }
 
-// Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
 func (o WeeklyScheduleResponsePtrOutput) Day() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WeeklyScheduleResponse) *string {
 		if v == nil {
@@ -4485,7 +4064,6 @@ func (o WeeklyScheduleResponsePtrOutput) Day() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates which hour in UTC timezone a snapshot should be taken
 func (o WeeklyScheduleResponsePtrOutput) Hour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WeeklyScheduleResponse) *int {
 		if v == nil {
@@ -4495,7 +4073,6 @@ func (o WeeklyScheduleResponsePtrOutput) Hour() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates which minute snapshot should be taken
 func (o WeeklyScheduleResponsePtrOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WeeklyScheduleResponse) *int {
 		if v == nil {
@@ -4505,7 +4082,6 @@ func (o WeeklyScheduleResponsePtrOutput) Minute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Weekly snapshot count to keep
 func (o WeeklyScheduleResponsePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WeeklyScheduleResponse) *int {
 		if v == nil {
@@ -4515,7 +4091,6 @@ func (o WeeklyScheduleResponsePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Resource size in bytes, current storage usage for the volume in bytes
 func (o WeeklyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *WeeklyScheduleResponse) *float64 {
 		if v == nil {

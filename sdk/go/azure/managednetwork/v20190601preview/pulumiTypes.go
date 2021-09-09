@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The collection of Connectivity related groups and policies within the Managed Network
 type ConnectivityCollectionResponse struct {
-	// The collection of connectivity related Managed Network Groups within the Managed Network
-	Groups []ManagedNetworkGroupResponse `pulumi:"groups"`
-	// The collection of Managed Network Peering Policies within the Managed Network
+	Groups   []ManagedNetworkGroupResponse         `pulumi:"groups"`
 	Peerings []ManagedNetworkPeeringPolicyResponse `pulumi:"peerings"`
 }
 
@@ -29,11 +26,8 @@ type ConnectivityCollectionResponseInput interface {
 	ToConnectivityCollectionResponseOutputWithContext(context.Context) ConnectivityCollectionResponseOutput
 }
 
-// The collection of Connectivity related groups and policies within the Managed Network
 type ConnectivityCollectionResponseArgs struct {
-	// The collection of connectivity related Managed Network Groups within the Managed Network
-	Groups ManagedNetworkGroupResponseArrayInput `pulumi:"groups"`
-	// The collection of Managed Network Peering Policies within the Managed Network
+	Groups   ManagedNetworkGroupResponseArrayInput         `pulumi:"groups"`
 	Peerings ManagedNetworkPeeringPolicyResponseArrayInput `pulumi:"peerings"`
 }
 
@@ -90,7 +84,6 @@ func (i *connectivityCollectionResponsePtrType) ToConnectivityCollectionResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectivityCollectionResponsePtrOutput)
 }
 
-// The collection of Connectivity related groups and policies within the Managed Network
 type ConnectivityCollectionResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectivityCollectionResponseOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o ConnectivityCollectionResponseOutput) ToConnectivityCollectionResponsePt
 }
 
 func (o ConnectivityCollectionResponseOutput) ToConnectivityCollectionResponsePtrOutputWithContext(ctx context.Context) ConnectivityCollectionResponsePtrOutput {
-	return o.ApplyT(func(v ConnectivityCollectionResponse) *ConnectivityCollectionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectivityCollectionResponse) *ConnectivityCollectionResponse {
 		return &v
 	}).(ConnectivityCollectionResponsePtrOutput)
 }
 
-// The collection of connectivity related Managed Network Groups within the Managed Network
 func (o ConnectivityCollectionResponseOutput) Groups() ManagedNetworkGroupResponseArrayOutput {
 	return o.ApplyT(func(v ConnectivityCollectionResponse) []ManagedNetworkGroupResponse { return v.Groups }).(ManagedNetworkGroupResponseArrayOutput)
 }
 
-// The collection of Managed Network Peering Policies within the Managed Network
 func (o ConnectivityCollectionResponseOutput) Peerings() ManagedNetworkPeeringPolicyResponseArrayOutput {
 	return o.ApplyT(func(v ConnectivityCollectionResponse) []ManagedNetworkPeeringPolicyResponse { return v.Peerings }).(ManagedNetworkPeeringPolicyResponseArrayOutput)
 }
@@ -140,10 +131,15 @@ func (o ConnectivityCollectionResponsePtrOutput) ToConnectivityCollectionRespons
 }
 
 func (o ConnectivityCollectionResponsePtrOutput) Elem() ConnectivityCollectionResponseOutput {
-	return o.ApplyT(func(v *ConnectivityCollectionResponse) ConnectivityCollectionResponse { return *v }).(ConnectivityCollectionResponseOutput)
+	return o.ApplyT(func(v *ConnectivityCollectionResponse) ConnectivityCollectionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectivityCollectionResponse
+		return ret
+	}).(ConnectivityCollectionResponseOutput)
 }
 
-// The collection of connectivity related Managed Network Groups within the Managed Network
 func (o ConnectivityCollectionResponsePtrOutput) Groups() ManagedNetworkGroupResponseArrayOutput {
 	return o.ApplyT(func(v *ConnectivityCollectionResponse) []ManagedNetworkGroupResponse {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o ConnectivityCollectionResponsePtrOutput) Groups() ManagedNetworkGroupRes
 	}).(ManagedNetworkGroupResponseArrayOutput)
 }
 
-// The collection of Managed Network Peering Policies within the Managed Network
 func (o ConnectivityCollectionResponsePtrOutput) Peerings() ManagedNetworkPeeringPolicyResponseArrayOutput {
 	return o.ApplyT(func(v *ConnectivityCollectionResponse) []ManagedNetworkPeeringPolicyResponse {
 		if v == nil {
@@ -163,30 +158,18 @@ func (o ConnectivityCollectionResponsePtrOutput) Peerings() ManagedNetworkPeerin
 	}).(ManagedNetworkPeeringPolicyResponseArrayOutput)
 }
 
-// The Managed Network Group resource
 type ManagedNetworkGroupResponse struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Responsibility role under which this Managed Network Group will be created
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The collection of management groups covered by the Managed Network
-	ManagementGroups []ResourceIdResponse `pulumi:"managementGroups"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Provisioning state of the ManagedNetwork resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The collection of  subnets covered by the Managed Network
-	Subnets []ResourceIdResponse `pulumi:"subnets"`
-	// The collection of subscriptions covered by the Managed Network
-	Subscriptions []ResourceIdResponse `pulumi:"subscriptions"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-	// The collection of virtual nets covered by the Managed Network
-	VirtualNetworks []ResourceIdResponse `pulumi:"virtualNetworks"`
+	Etag              string               `pulumi:"etag"`
+	Id                string               `pulumi:"id"`
+	Kind              *string              `pulumi:"kind"`
+	Location          *string              `pulumi:"location"`
+	ManagementGroups  []ResourceIdResponse `pulumi:"managementGroups"`
+	Name              string               `pulumi:"name"`
+	ProvisioningState string               `pulumi:"provisioningState"`
+	Subnets           []ResourceIdResponse `pulumi:"subnets"`
+	Subscriptions     []ResourceIdResponse `pulumi:"subscriptions"`
+	Type              string               `pulumi:"type"`
+	VirtualNetworks   []ResourceIdResponse `pulumi:"virtualNetworks"`
 }
 
 // ManagedNetworkGroupResponseInput is an input type that accepts ManagedNetworkGroupResponseArgs and ManagedNetworkGroupResponseOutput values.
@@ -200,30 +183,18 @@ type ManagedNetworkGroupResponseInput interface {
 	ToManagedNetworkGroupResponseOutputWithContext(context.Context) ManagedNetworkGroupResponseOutput
 }
 
-// The Managed Network Group resource
 type ManagedNetworkGroupResponseArgs struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id pulumi.StringInput `pulumi:"id"`
-	// Responsibility role under which this Managed Network Group will be created
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The collection of management groups covered by the Managed Network
-	ManagementGroups ResourceIdResponseArrayInput `pulumi:"managementGroups"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Provisioning state of the ManagedNetwork resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The collection of  subnets covered by the Managed Network
-	Subnets ResourceIdResponseArrayInput `pulumi:"subnets"`
-	// The collection of subscriptions covered by the Managed Network
-	Subscriptions ResourceIdResponseArrayInput `pulumi:"subscriptions"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The collection of virtual nets covered by the Managed Network
-	VirtualNetworks ResourceIdResponseArrayInput `pulumi:"virtualNetworks"`
+	Etag              pulumi.StringInput           `pulumi:"etag"`
+	Id                pulumi.StringInput           `pulumi:"id"`
+	Kind              pulumi.StringPtrInput        `pulumi:"kind"`
+	Location          pulumi.StringPtrInput        `pulumi:"location"`
+	ManagementGroups  ResourceIdResponseArrayInput `pulumi:"managementGroups"`
+	Name              pulumi.StringInput           `pulumi:"name"`
+	ProvisioningState pulumi.StringInput           `pulumi:"provisioningState"`
+	Subnets           ResourceIdResponseArrayInput `pulumi:"subnets"`
+	Subscriptions     ResourceIdResponseArrayInput `pulumi:"subscriptions"`
+	Type              pulumi.StringInput           `pulumi:"type"`
+	VirtualNetworks   ResourceIdResponseArrayInput `pulumi:"virtualNetworks"`
 }
 
 func (ManagedNetworkGroupResponseArgs) ElementType() reflect.Type {
@@ -263,7 +234,6 @@ func (i ManagedNetworkGroupResponseArray) ToManagedNetworkGroupResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkGroupResponseArrayOutput)
 }
 
-// The Managed Network Group resource
 type ManagedNetworkGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedNetworkGroupResponseOutput) ElementType() reflect.Type {
@@ -278,57 +248,46 @@ func (o ManagedNetworkGroupResponseOutput) ToManagedNetworkGroupResponseOutputWi
 	return o
 }
 
-// A unique read-only string that changes whenever the resource is updated.
 func (o ManagedNetworkGroupResponseOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedNetworkGroupResponse) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o ManagedNetworkGroupResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedNetworkGroupResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Responsibility role under which this Managed Network Group will be created
 func (o ManagedNetworkGroupResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedNetworkGroupResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// The geo-location where the resource lives
 func (o ManagedNetworkGroupResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedNetworkGroupResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// The collection of management groups covered by the Managed Network
 func (o ManagedNetworkGroupResponseOutput) ManagementGroups() ResourceIdResponseArrayOutput {
 	return o.ApplyT(func(v ManagedNetworkGroupResponse) []ResourceIdResponse { return v.ManagementGroups }).(ResourceIdResponseArrayOutput)
 }
 
-// The name of the resource
 func (o ManagedNetworkGroupResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedNetworkGroupResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Provisioning state of the ManagedNetwork resource.
 func (o ManagedNetworkGroupResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedNetworkGroupResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The collection of  subnets covered by the Managed Network
 func (o ManagedNetworkGroupResponseOutput) Subnets() ResourceIdResponseArrayOutput {
 	return o.ApplyT(func(v ManagedNetworkGroupResponse) []ResourceIdResponse { return v.Subnets }).(ResourceIdResponseArrayOutput)
 }
 
-// The collection of subscriptions covered by the Managed Network
 func (o ManagedNetworkGroupResponseOutput) Subscriptions() ResourceIdResponseArrayOutput {
 	return o.ApplyT(func(v ManagedNetworkGroupResponse) []ResourceIdResponse { return v.Subscriptions }).(ResourceIdResponseArrayOutput)
 }
 
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 func (o ManagedNetworkGroupResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedNetworkGroupResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The collection of virtual nets covered by the Managed Network
 func (o ManagedNetworkGroupResponseOutput) VirtualNetworks() ResourceIdResponseArrayOutput {
 	return o.ApplyT(func(v ManagedNetworkGroupResponse) []ResourceIdResponse { return v.VirtualNetworks }).(ResourceIdResponseArrayOutput)
 }
@@ -353,16 +312,11 @@ func (o ManagedNetworkGroupResponseArrayOutput) Index(i pulumi.IntInput) Managed
 	}).(ManagedNetworkGroupResponseOutput)
 }
 
-// Properties of a Managed Network Peering Policy
 type ManagedNetworkPeeringPolicyProperties struct {
-	// Gets or sets the hub virtual network ID
-	Hub *ResourceId `pulumi:"hub"`
-	// Gets or sets the mesh group IDs
-	Mesh []ResourceId `pulumi:"mesh"`
-	// Gets or sets the spokes group IDs
+	Hub    *ResourceId  `pulumi:"hub"`
+	Mesh   []ResourceId `pulumi:"mesh"`
 	Spokes []ResourceId `pulumi:"spokes"`
-	// Gets or sets the connectivity type of a network structure policy
-	Type string `pulumi:"type"`
+	Type   string       `pulumi:"type"`
 }
 
 // ManagedNetworkPeeringPolicyPropertiesInput is an input type that accepts ManagedNetworkPeeringPolicyPropertiesArgs and ManagedNetworkPeeringPolicyPropertiesOutput values.
@@ -376,16 +330,11 @@ type ManagedNetworkPeeringPolicyPropertiesInput interface {
 	ToManagedNetworkPeeringPolicyPropertiesOutputWithContext(context.Context) ManagedNetworkPeeringPolicyPropertiesOutput
 }
 
-// Properties of a Managed Network Peering Policy
 type ManagedNetworkPeeringPolicyPropertiesArgs struct {
-	// Gets or sets the hub virtual network ID
-	Hub ResourceIdPtrInput `pulumi:"hub"`
-	// Gets or sets the mesh group IDs
-	Mesh ResourceIdArrayInput `pulumi:"mesh"`
-	// Gets or sets the spokes group IDs
+	Hub    ResourceIdPtrInput   `pulumi:"hub"`
+	Mesh   ResourceIdArrayInput `pulumi:"mesh"`
 	Spokes ResourceIdArrayInput `pulumi:"spokes"`
-	// Gets or sets the connectivity type of a network structure policy
-	Type pulumi.StringInput `pulumi:"type"`
+	Type   pulumi.StringInput   `pulumi:"type"`
 }
 
 func (ManagedNetworkPeeringPolicyPropertiesArgs) ElementType() reflect.Type {
@@ -441,7 +390,6 @@ func (i *managedNetworkPeeringPolicyPropertiesPtrType) ToManagedNetworkPeeringPo
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyPropertiesPtrOutput)
 }
 
-// Properties of a Managed Network Peering Policy
 type ManagedNetworkPeeringPolicyPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ManagedNetworkPeeringPolicyPropertiesOutput) ElementType() reflect.Type {
@@ -461,27 +409,23 @@ func (o ManagedNetworkPeeringPolicyPropertiesOutput) ToManagedNetworkPeeringPoli
 }
 
 func (o ManagedNetworkPeeringPolicyPropertiesOutput) ToManagedNetworkPeeringPolicyPropertiesPtrOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyPropertiesPtrOutput {
-	return o.ApplyT(func(v ManagedNetworkPeeringPolicyProperties) *ManagedNetworkPeeringPolicyProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedNetworkPeeringPolicyProperties) *ManagedNetworkPeeringPolicyProperties {
 		return &v
 	}).(ManagedNetworkPeeringPolicyPropertiesPtrOutput)
 }
 
-// Gets or sets the hub virtual network ID
 func (o ManagedNetworkPeeringPolicyPropertiesOutput) Hub() ResourceIdPtrOutput {
 	return o.ApplyT(func(v ManagedNetworkPeeringPolicyProperties) *ResourceId { return v.Hub }).(ResourceIdPtrOutput)
 }
 
-// Gets or sets the mesh group IDs
 func (o ManagedNetworkPeeringPolicyPropertiesOutput) Mesh() ResourceIdArrayOutput {
 	return o.ApplyT(func(v ManagedNetworkPeeringPolicyProperties) []ResourceId { return v.Mesh }).(ResourceIdArrayOutput)
 }
 
-// Gets or sets the spokes group IDs
 func (o ManagedNetworkPeeringPolicyPropertiesOutput) Spokes() ResourceIdArrayOutput {
 	return o.ApplyT(func(v ManagedNetworkPeeringPolicyProperties) []ResourceId { return v.Spokes }).(ResourceIdArrayOutput)
 }
 
-// Gets or sets the connectivity type of a network structure policy
 func (o ManagedNetworkPeeringPolicyPropertiesOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedNetworkPeeringPolicyProperties) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -501,10 +445,15 @@ func (o ManagedNetworkPeeringPolicyPropertiesPtrOutput) ToManagedNetworkPeeringP
 }
 
 func (o ManagedNetworkPeeringPolicyPropertiesPtrOutput) Elem() ManagedNetworkPeeringPolicyPropertiesOutput {
-	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyProperties) ManagedNetworkPeeringPolicyProperties { return *v }).(ManagedNetworkPeeringPolicyPropertiesOutput)
+	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyProperties) ManagedNetworkPeeringPolicyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedNetworkPeeringPolicyProperties
+		return ret
+	}).(ManagedNetworkPeeringPolicyPropertiesOutput)
 }
 
-// Gets or sets the hub virtual network ID
 func (o ManagedNetworkPeeringPolicyPropertiesPtrOutput) Hub() ResourceIdPtrOutput {
 	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyProperties) *ResourceId {
 		if v == nil {
@@ -514,7 +463,6 @@ func (o ManagedNetworkPeeringPolicyPropertiesPtrOutput) Hub() ResourceIdPtrOutpu
 	}).(ResourceIdPtrOutput)
 }
 
-// Gets or sets the mesh group IDs
 func (o ManagedNetworkPeeringPolicyPropertiesPtrOutput) Mesh() ResourceIdArrayOutput {
 	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyProperties) []ResourceId {
 		if v == nil {
@@ -524,7 +472,6 @@ func (o ManagedNetworkPeeringPolicyPropertiesPtrOutput) Mesh() ResourceIdArrayOu
 	}).(ResourceIdArrayOutput)
 }
 
-// Gets or sets the spokes group IDs
 func (o ManagedNetworkPeeringPolicyPropertiesPtrOutput) Spokes() ResourceIdArrayOutput {
 	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyProperties) []ResourceId {
 		if v == nil {
@@ -534,7 +481,6 @@ func (o ManagedNetworkPeeringPolicyPropertiesPtrOutput) Spokes() ResourceIdArray
 	}).(ResourceIdArrayOutput)
 }
 
-// Gets or sets the connectivity type of a network structure policy
 func (o ManagedNetworkPeeringPolicyPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyProperties) *string {
 		if v == nil {
@@ -544,20 +490,13 @@ func (o ManagedNetworkPeeringPolicyPropertiesPtrOutput) Type() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a Managed Network Peering Policy
 type ManagedNetworkPeeringPolicyPropertiesResponse struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Gets or sets the hub virtual network ID
-	Hub *ResourceIdResponse `pulumi:"hub"`
-	// Gets or sets the mesh group IDs
-	Mesh []ResourceIdResponse `pulumi:"mesh"`
-	// Provisioning state of the ManagedNetwork resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Gets or sets the spokes group IDs
-	Spokes []ResourceIdResponse `pulumi:"spokes"`
-	// Gets or sets the connectivity type of a network structure policy
-	Type string `pulumi:"type"`
+	Etag              string               `pulumi:"etag"`
+	Hub               *ResourceIdResponse  `pulumi:"hub"`
+	Mesh              []ResourceIdResponse `pulumi:"mesh"`
+	ProvisioningState string               `pulumi:"provisioningState"`
+	Spokes            []ResourceIdResponse `pulumi:"spokes"`
+	Type              string               `pulumi:"type"`
 }
 
 // ManagedNetworkPeeringPolicyPropertiesResponseInput is an input type that accepts ManagedNetworkPeeringPolicyPropertiesResponseArgs and ManagedNetworkPeeringPolicyPropertiesResponseOutput values.
@@ -571,20 +510,13 @@ type ManagedNetworkPeeringPolicyPropertiesResponseInput interface {
 	ToManagedNetworkPeeringPolicyPropertiesResponseOutputWithContext(context.Context) ManagedNetworkPeeringPolicyPropertiesResponseOutput
 }
 
-// Properties of a Managed Network Peering Policy
 type ManagedNetworkPeeringPolicyPropertiesResponseArgs struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Gets or sets the hub virtual network ID
-	Hub ResourceIdResponsePtrInput `pulumi:"hub"`
-	// Gets or sets the mesh group IDs
-	Mesh ResourceIdResponseArrayInput `pulumi:"mesh"`
-	// Provisioning state of the ManagedNetwork resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Gets or sets the spokes group IDs
-	Spokes ResourceIdResponseArrayInput `pulumi:"spokes"`
-	// Gets or sets the connectivity type of a network structure policy
-	Type pulumi.StringInput `pulumi:"type"`
+	Etag              pulumi.StringInput           `pulumi:"etag"`
+	Hub               ResourceIdResponsePtrInput   `pulumi:"hub"`
+	Mesh              ResourceIdResponseArrayInput `pulumi:"mesh"`
+	ProvisioningState pulumi.StringInput           `pulumi:"provisioningState"`
+	Spokes            ResourceIdResponseArrayInput `pulumi:"spokes"`
+	Type              pulumi.StringInput           `pulumi:"type"`
 }
 
 func (ManagedNetworkPeeringPolicyPropertiesResponseArgs) ElementType() reflect.Type {
@@ -640,7 +572,6 @@ func (i *managedNetworkPeeringPolicyPropertiesResponsePtrType) ToManagedNetworkP
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput)
 }
 
-// Properties of a Managed Network Peering Policy
 type ManagedNetworkPeeringPolicyPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedNetworkPeeringPolicyPropertiesResponseOutput) ElementType() reflect.Type {
@@ -660,37 +591,31 @@ func (o ManagedNetworkPeeringPolicyPropertiesResponseOutput) ToManagedNetworkPee
 }
 
 func (o ManagedNetworkPeeringPolicyPropertiesResponseOutput) ToManagedNetworkPeeringPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ManagedNetworkPeeringPolicyPropertiesResponse) *ManagedNetworkPeeringPolicyPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedNetworkPeeringPolicyPropertiesResponse) *ManagedNetworkPeeringPolicyPropertiesResponse {
 		return &v
 	}).(ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated.
 func (o ManagedNetworkPeeringPolicyPropertiesResponseOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedNetworkPeeringPolicyPropertiesResponse) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Gets or sets the hub virtual network ID
 func (o ManagedNetworkPeeringPolicyPropertiesResponseOutput) Hub() ResourceIdResponsePtrOutput {
 	return o.ApplyT(func(v ManagedNetworkPeeringPolicyPropertiesResponse) *ResourceIdResponse { return v.Hub }).(ResourceIdResponsePtrOutput)
 }
 
-// Gets or sets the mesh group IDs
 func (o ManagedNetworkPeeringPolicyPropertiesResponseOutput) Mesh() ResourceIdResponseArrayOutput {
 	return o.ApplyT(func(v ManagedNetworkPeeringPolicyPropertiesResponse) []ResourceIdResponse { return v.Mesh }).(ResourceIdResponseArrayOutput)
 }
 
-// Provisioning state of the ManagedNetwork resource.
 func (o ManagedNetworkPeeringPolicyPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedNetworkPeeringPolicyPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Gets or sets the spokes group IDs
 func (o ManagedNetworkPeeringPolicyPropertiesResponseOutput) Spokes() ResourceIdResponseArrayOutput {
 	return o.ApplyT(func(v ManagedNetworkPeeringPolicyPropertiesResponse) []ResourceIdResponse { return v.Spokes }).(ResourceIdResponseArrayOutput)
 }
 
-// Gets or sets the connectivity type of a network structure policy
 func (o ManagedNetworkPeeringPolicyPropertiesResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedNetworkPeeringPolicyPropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -711,11 +636,14 @@ func (o ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput) ToManagedNetwork
 
 func (o ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput) Elem() ManagedNetworkPeeringPolicyPropertiesResponseOutput {
 	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyPropertiesResponse) ManagedNetworkPeeringPolicyPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedNetworkPeeringPolicyPropertiesResponse
+		return ret
 	}).(ManagedNetworkPeeringPolicyPropertiesResponseOutput)
 }
 
-// A unique read-only string that changes whenever the resource is updated.
 func (o ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyPropertiesResponse) *string {
 		if v == nil {
@@ -725,7 +653,6 @@ func (o ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput) Etag() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the hub virtual network ID
 func (o ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput) Hub() ResourceIdResponsePtrOutput {
 	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyPropertiesResponse) *ResourceIdResponse {
 		if v == nil {
@@ -735,7 +662,6 @@ func (o ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput) Hub() ResourceId
 	}).(ResourceIdResponsePtrOutput)
 }
 
-// Gets or sets the mesh group IDs
 func (o ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput) Mesh() ResourceIdResponseArrayOutput {
 	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyPropertiesResponse) []ResourceIdResponse {
 		if v == nil {
@@ -745,7 +671,6 @@ func (o ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput) Mesh() ResourceI
 	}).(ResourceIdResponseArrayOutput)
 }
 
-// Provisioning state of the ManagedNetwork resource.
 func (o ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyPropertiesResponse) *string {
 		if v == nil {
@@ -755,7 +680,6 @@ func (o ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput) ProvisioningStat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the spokes group IDs
 func (o ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput) Spokes() ResourceIdResponseArrayOutput {
 	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyPropertiesResponse) []ResourceIdResponse {
 		if v == nil {
@@ -765,7 +689,6 @@ func (o ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput) Spokes() Resourc
 	}).(ResourceIdResponseArrayOutput)
 }
 
-// Gets or sets the connectivity type of a network structure policy
 func (o ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyPropertiesResponse) *string {
 		if v == nil {
@@ -775,18 +698,12 @@ func (o ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput) Type() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Managed Network Peering Policy resource
 type ManagedNetworkPeeringPolicyResponse struct {
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets the properties of a Managed Network Policy
+	Id         string                                         `pulumi:"id"`
+	Location   *string                                        `pulumi:"location"`
+	Name       string                                         `pulumi:"name"`
 	Properties *ManagedNetworkPeeringPolicyPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
+	Type       string                                         `pulumi:"type"`
 }
 
 // ManagedNetworkPeeringPolicyResponseInput is an input type that accepts ManagedNetworkPeeringPolicyResponseArgs and ManagedNetworkPeeringPolicyResponseOutput values.
@@ -800,18 +717,12 @@ type ManagedNetworkPeeringPolicyResponseInput interface {
 	ToManagedNetworkPeeringPolicyResponseOutputWithContext(context.Context) ManagedNetworkPeeringPolicyResponseOutput
 }
 
-// The Managed Network Peering Policy resource
 type ManagedNetworkPeeringPolicyResponseArgs struct {
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id pulumi.StringInput `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the properties of a Managed Network Policy
+	Id         pulumi.StringInput                                    `pulumi:"id"`
+	Location   pulumi.StringPtrInput                                 `pulumi:"location"`
+	Name       pulumi.StringInput                                    `pulumi:"name"`
 	Properties ManagedNetworkPeeringPolicyPropertiesResponsePtrInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                                    `pulumi:"type"`
 }
 
 func (ManagedNetworkPeeringPolicyResponseArgs) ElementType() reflect.Type {
@@ -851,7 +762,6 @@ func (i ManagedNetworkPeeringPolicyResponseArray) ToManagedNetworkPeeringPolicyR
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyResponseArrayOutput)
 }
 
-// The Managed Network Peering Policy resource
 type ManagedNetworkPeeringPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedNetworkPeeringPolicyResponseOutput) ElementType() reflect.Type {
@@ -866,29 +776,24 @@ func (o ManagedNetworkPeeringPolicyResponseOutput) ToManagedNetworkPeeringPolicy
 	return o
 }
 
-// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o ManagedNetworkPeeringPolicyResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedNetworkPeeringPolicyResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The geo-location where the resource lives
 func (o ManagedNetworkPeeringPolicyResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedNetworkPeeringPolicyResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource
 func (o ManagedNetworkPeeringPolicyResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedNetworkPeeringPolicyResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Gets or sets the properties of a Managed Network Policy
 func (o ManagedNetworkPeeringPolicyResponseOutput) Properties() ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v ManagedNetworkPeeringPolicyResponse) *ManagedNetworkPeeringPolicyPropertiesResponse {
 		return v.Properties
 	}).(ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput)
 }
 
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 func (o ManagedNetworkPeeringPolicyResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedNetworkPeeringPolicyResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -913,9 +818,7 @@ func (o ManagedNetworkPeeringPolicyResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ManagedNetworkPeeringPolicyResponseOutput)
 }
 
-// Generic pointer to a resource
 type ResourceId struct {
-	// Resource Id
 	Id *string `pulumi:"id"`
 }
 
@@ -930,9 +833,7 @@ type ResourceIdInput interface {
 	ToResourceIdOutputWithContext(context.Context) ResourceIdOutput
 }
 
-// Generic pointer to a resource
 type ResourceIdArgs struct {
-	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -1014,7 +915,6 @@ func (i ResourceIdArray) ToResourceIdArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdArrayOutput)
 }
 
-// Generic pointer to a resource
 type ResourceIdOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdOutput) ElementType() reflect.Type {
@@ -1034,12 +934,11 @@ func (o ResourceIdOutput) ToResourceIdPtrOutput() ResourceIdPtrOutput {
 }
 
 func (o ResourceIdOutput) ToResourceIdPtrOutputWithContext(ctx context.Context) ResourceIdPtrOutput {
-	return o.ApplyT(func(v ResourceId) *ResourceId {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceId) *ResourceId {
 		return &v
 	}).(ResourceIdPtrOutput)
 }
 
-// Resource Id
 func (o ResourceIdOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceId) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -1059,10 +958,15 @@ func (o ResourceIdPtrOutput) ToResourceIdPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ResourceIdPtrOutput) Elem() ResourceIdOutput {
-	return o.ApplyT(func(v *ResourceId) ResourceId { return *v }).(ResourceIdOutput)
+	return o.ApplyT(func(v *ResourceId) ResourceId {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceId
+		return ret
+	}).(ResourceIdOutput)
 }
 
-// Resource Id
 func (o ResourceIdPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceId) *string {
 		if v == nil {
@@ -1092,9 +996,7 @@ func (o ResourceIdArrayOutput) Index(i pulumi.IntInput) ResourceIdOutput {
 	}).(ResourceIdOutput)
 }
 
-// Generic pointer to a resource
 type ResourceIdResponse struct {
-	// Resource Id
 	Id *string `pulumi:"id"`
 }
 
@@ -1109,9 +1011,7 @@ type ResourceIdResponseInput interface {
 	ToResourceIdResponseOutputWithContext(context.Context) ResourceIdResponseOutput
 }
 
-// Generic pointer to a resource
 type ResourceIdResponseArgs struct {
-	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -1193,7 +1093,6 @@ func (i ResourceIdResponseArray) ToResourceIdResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdResponseArrayOutput)
 }
 
-// Generic pointer to a resource
 type ResourceIdResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdResponseOutput) ElementType() reflect.Type {
@@ -1213,12 +1112,11 @@ func (o ResourceIdResponseOutput) ToResourceIdResponsePtrOutput() ResourceIdResp
 }
 
 func (o ResourceIdResponseOutput) ToResourceIdResponsePtrOutputWithContext(ctx context.Context) ResourceIdResponsePtrOutput {
-	return o.ApplyT(func(v ResourceIdResponse) *ResourceIdResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdResponse) *ResourceIdResponse {
 		return &v
 	}).(ResourceIdResponsePtrOutput)
 }
 
-// Resource Id
 func (o ResourceIdResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceIdResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -1238,10 +1136,15 @@ func (o ResourceIdResponsePtrOutput) ToResourceIdResponsePtrOutputWithContext(ct
 }
 
 func (o ResourceIdResponsePtrOutput) Elem() ResourceIdResponseOutput {
-	return o.ApplyT(func(v *ResourceIdResponse) ResourceIdResponse { return *v }).(ResourceIdResponseOutput)
+	return o.ApplyT(func(v *ResourceIdResponse) ResourceIdResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdResponse
+		return ret
+	}).(ResourceIdResponseOutput)
 }
 
-// Resource Id
 func (o ResourceIdResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdResponse) *string {
 		if v == nil {
@@ -1271,16 +1174,11 @@ func (o ResourceIdResponseArrayOutput) Index(i pulumi.IntInput) ResourceIdRespon
 	}).(ResourceIdResponseOutput)
 }
 
-// Scope of a Managed Network
 type Scope struct {
-	// The collection of management groups covered by the Managed Network
 	ManagementGroups []ResourceId `pulumi:"managementGroups"`
-	// The collection of  subnets covered by the Managed Network
-	Subnets []ResourceId `pulumi:"subnets"`
-	// The collection of subscriptions covered by the Managed Network
-	Subscriptions []ResourceId `pulumi:"subscriptions"`
-	// The collection of virtual nets covered by the Managed Network
-	VirtualNetworks []ResourceId `pulumi:"virtualNetworks"`
+	Subnets          []ResourceId `pulumi:"subnets"`
+	Subscriptions    []ResourceId `pulumi:"subscriptions"`
+	VirtualNetworks  []ResourceId `pulumi:"virtualNetworks"`
 }
 
 // ScopeInput is an input type that accepts ScopeArgs and ScopeOutput values.
@@ -1294,16 +1192,11 @@ type ScopeInput interface {
 	ToScopeOutputWithContext(context.Context) ScopeOutput
 }
 
-// Scope of a Managed Network
 type ScopeArgs struct {
-	// The collection of management groups covered by the Managed Network
 	ManagementGroups ResourceIdArrayInput `pulumi:"managementGroups"`
-	// The collection of  subnets covered by the Managed Network
-	Subnets ResourceIdArrayInput `pulumi:"subnets"`
-	// The collection of subscriptions covered by the Managed Network
-	Subscriptions ResourceIdArrayInput `pulumi:"subscriptions"`
-	// The collection of virtual nets covered by the Managed Network
-	VirtualNetworks ResourceIdArrayInput `pulumi:"virtualNetworks"`
+	Subnets          ResourceIdArrayInput `pulumi:"subnets"`
+	Subscriptions    ResourceIdArrayInput `pulumi:"subscriptions"`
+	VirtualNetworks  ResourceIdArrayInput `pulumi:"virtualNetworks"`
 }
 
 func (ScopeArgs) ElementType() reflect.Type {
@@ -1359,7 +1252,6 @@ func (i *scopePtrType) ToScopePtrOutputWithContext(ctx context.Context) ScopePtr
 	return pulumi.ToOutputWithContext(ctx, i).(ScopePtrOutput)
 }
 
-// Scope of a Managed Network
 type ScopeOutput struct{ *pulumi.OutputState }
 
 func (ScopeOutput) ElementType() reflect.Type {
@@ -1379,27 +1271,23 @@ func (o ScopeOutput) ToScopePtrOutput() ScopePtrOutput {
 }
 
 func (o ScopeOutput) ToScopePtrOutputWithContext(ctx context.Context) ScopePtrOutput {
-	return o.ApplyT(func(v Scope) *Scope {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Scope) *Scope {
 		return &v
 	}).(ScopePtrOutput)
 }
 
-// The collection of management groups covered by the Managed Network
 func (o ScopeOutput) ManagementGroups() ResourceIdArrayOutput {
 	return o.ApplyT(func(v Scope) []ResourceId { return v.ManagementGroups }).(ResourceIdArrayOutput)
 }
 
-// The collection of  subnets covered by the Managed Network
 func (o ScopeOutput) Subnets() ResourceIdArrayOutput {
 	return o.ApplyT(func(v Scope) []ResourceId { return v.Subnets }).(ResourceIdArrayOutput)
 }
 
-// The collection of subscriptions covered by the Managed Network
 func (o ScopeOutput) Subscriptions() ResourceIdArrayOutput {
 	return o.ApplyT(func(v Scope) []ResourceId { return v.Subscriptions }).(ResourceIdArrayOutput)
 }
 
-// The collection of virtual nets covered by the Managed Network
 func (o ScopeOutput) VirtualNetworks() ResourceIdArrayOutput {
 	return o.ApplyT(func(v Scope) []ResourceId { return v.VirtualNetworks }).(ResourceIdArrayOutput)
 }
@@ -1419,10 +1307,15 @@ func (o ScopePtrOutput) ToScopePtrOutputWithContext(ctx context.Context) ScopePt
 }
 
 func (o ScopePtrOutput) Elem() ScopeOutput {
-	return o.ApplyT(func(v *Scope) Scope { return *v }).(ScopeOutput)
+	return o.ApplyT(func(v *Scope) Scope {
+		if v != nil {
+			return *v
+		}
+		var ret Scope
+		return ret
+	}).(ScopeOutput)
 }
 
-// The collection of management groups covered by the Managed Network
 func (o ScopePtrOutput) ManagementGroups() ResourceIdArrayOutput {
 	return o.ApplyT(func(v *Scope) []ResourceId {
 		if v == nil {
@@ -1432,7 +1325,6 @@ func (o ScopePtrOutput) ManagementGroups() ResourceIdArrayOutput {
 	}).(ResourceIdArrayOutput)
 }
 
-// The collection of  subnets covered by the Managed Network
 func (o ScopePtrOutput) Subnets() ResourceIdArrayOutput {
 	return o.ApplyT(func(v *Scope) []ResourceId {
 		if v == nil {
@@ -1442,7 +1334,6 @@ func (o ScopePtrOutput) Subnets() ResourceIdArrayOutput {
 	}).(ResourceIdArrayOutput)
 }
 
-// The collection of subscriptions covered by the Managed Network
 func (o ScopePtrOutput) Subscriptions() ResourceIdArrayOutput {
 	return o.ApplyT(func(v *Scope) []ResourceId {
 		if v == nil {
@@ -1452,7 +1343,6 @@ func (o ScopePtrOutput) Subscriptions() ResourceIdArrayOutput {
 	}).(ResourceIdArrayOutput)
 }
 
-// The collection of virtual nets covered by the Managed Network
 func (o ScopePtrOutput) VirtualNetworks() ResourceIdArrayOutput {
 	return o.ApplyT(func(v *Scope) []ResourceId {
 		if v == nil {
@@ -1462,16 +1352,11 @@ func (o ScopePtrOutput) VirtualNetworks() ResourceIdArrayOutput {
 	}).(ResourceIdArrayOutput)
 }
 
-// Scope of a Managed Network
 type ScopeResponse struct {
-	// The collection of management groups covered by the Managed Network
 	ManagementGroups []ResourceIdResponse `pulumi:"managementGroups"`
-	// The collection of  subnets covered by the Managed Network
-	Subnets []ResourceIdResponse `pulumi:"subnets"`
-	// The collection of subscriptions covered by the Managed Network
-	Subscriptions []ResourceIdResponse `pulumi:"subscriptions"`
-	// The collection of virtual nets covered by the Managed Network
-	VirtualNetworks []ResourceIdResponse `pulumi:"virtualNetworks"`
+	Subnets          []ResourceIdResponse `pulumi:"subnets"`
+	Subscriptions    []ResourceIdResponse `pulumi:"subscriptions"`
+	VirtualNetworks  []ResourceIdResponse `pulumi:"virtualNetworks"`
 }
 
 // ScopeResponseInput is an input type that accepts ScopeResponseArgs and ScopeResponseOutput values.
@@ -1485,16 +1370,11 @@ type ScopeResponseInput interface {
 	ToScopeResponseOutputWithContext(context.Context) ScopeResponseOutput
 }
 
-// Scope of a Managed Network
 type ScopeResponseArgs struct {
-	// The collection of management groups covered by the Managed Network
 	ManagementGroups ResourceIdResponseArrayInput `pulumi:"managementGroups"`
-	// The collection of  subnets covered by the Managed Network
-	Subnets ResourceIdResponseArrayInput `pulumi:"subnets"`
-	// The collection of subscriptions covered by the Managed Network
-	Subscriptions ResourceIdResponseArrayInput `pulumi:"subscriptions"`
-	// The collection of virtual nets covered by the Managed Network
-	VirtualNetworks ResourceIdResponseArrayInput `pulumi:"virtualNetworks"`
+	Subnets          ResourceIdResponseArrayInput `pulumi:"subnets"`
+	Subscriptions    ResourceIdResponseArrayInput `pulumi:"subscriptions"`
+	VirtualNetworks  ResourceIdResponseArrayInput `pulumi:"virtualNetworks"`
 }
 
 func (ScopeResponseArgs) ElementType() reflect.Type {
@@ -1550,7 +1430,6 @@ func (i *scopeResponsePtrType) ToScopeResponsePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeResponsePtrOutput)
 }
 
-// Scope of a Managed Network
 type ScopeResponseOutput struct{ *pulumi.OutputState }
 
 func (ScopeResponseOutput) ElementType() reflect.Type {
@@ -1570,27 +1449,23 @@ func (o ScopeResponseOutput) ToScopeResponsePtrOutput() ScopeResponsePtrOutput {
 }
 
 func (o ScopeResponseOutput) ToScopeResponsePtrOutputWithContext(ctx context.Context) ScopeResponsePtrOutput {
-	return o.ApplyT(func(v ScopeResponse) *ScopeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeResponse) *ScopeResponse {
 		return &v
 	}).(ScopeResponsePtrOutput)
 }
 
-// The collection of management groups covered by the Managed Network
 func (o ScopeResponseOutput) ManagementGroups() ResourceIdResponseArrayOutput {
 	return o.ApplyT(func(v ScopeResponse) []ResourceIdResponse { return v.ManagementGroups }).(ResourceIdResponseArrayOutput)
 }
 
-// The collection of  subnets covered by the Managed Network
 func (o ScopeResponseOutput) Subnets() ResourceIdResponseArrayOutput {
 	return o.ApplyT(func(v ScopeResponse) []ResourceIdResponse { return v.Subnets }).(ResourceIdResponseArrayOutput)
 }
 
-// The collection of subscriptions covered by the Managed Network
 func (o ScopeResponseOutput) Subscriptions() ResourceIdResponseArrayOutput {
 	return o.ApplyT(func(v ScopeResponse) []ResourceIdResponse { return v.Subscriptions }).(ResourceIdResponseArrayOutput)
 }
 
-// The collection of virtual nets covered by the Managed Network
 func (o ScopeResponseOutput) VirtualNetworks() ResourceIdResponseArrayOutput {
 	return o.ApplyT(func(v ScopeResponse) []ResourceIdResponse { return v.VirtualNetworks }).(ResourceIdResponseArrayOutput)
 }
@@ -1610,10 +1485,15 @@ func (o ScopeResponsePtrOutput) ToScopeResponsePtrOutputWithContext(ctx context.
 }
 
 func (o ScopeResponsePtrOutput) Elem() ScopeResponseOutput {
-	return o.ApplyT(func(v *ScopeResponse) ScopeResponse { return *v }).(ScopeResponseOutput)
+	return o.ApplyT(func(v *ScopeResponse) ScopeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ScopeResponse
+		return ret
+	}).(ScopeResponseOutput)
 }
 
-// The collection of management groups covered by the Managed Network
 func (o ScopeResponsePtrOutput) ManagementGroups() ResourceIdResponseArrayOutput {
 	return o.ApplyT(func(v *ScopeResponse) []ResourceIdResponse {
 		if v == nil {
@@ -1623,7 +1503,6 @@ func (o ScopeResponsePtrOutput) ManagementGroups() ResourceIdResponseArrayOutput
 	}).(ResourceIdResponseArrayOutput)
 }
 
-// The collection of  subnets covered by the Managed Network
 func (o ScopeResponsePtrOutput) Subnets() ResourceIdResponseArrayOutput {
 	return o.ApplyT(func(v *ScopeResponse) []ResourceIdResponse {
 		if v == nil {
@@ -1633,7 +1512,6 @@ func (o ScopeResponsePtrOutput) Subnets() ResourceIdResponseArrayOutput {
 	}).(ResourceIdResponseArrayOutput)
 }
 
-// The collection of subscriptions covered by the Managed Network
 func (o ScopeResponsePtrOutput) Subscriptions() ResourceIdResponseArrayOutput {
 	return o.ApplyT(func(v *ScopeResponse) []ResourceIdResponse {
 		if v == nil {
@@ -1643,7 +1521,6 @@ func (o ScopeResponsePtrOutput) Subscriptions() ResourceIdResponseArrayOutput {
 	}).(ResourceIdResponseArrayOutput)
 }
 
-// The collection of virtual nets covered by the Managed Network
 func (o ScopeResponsePtrOutput) VirtualNetworks() ResourceIdResponseArrayOutput {
 	return o.ApplyT(func(v *ScopeResponse) []ResourceIdResponse {
 		if v == nil {

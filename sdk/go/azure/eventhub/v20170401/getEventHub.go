@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in List or Get Event Hub operation
 func LookupEventHub(ctx *pulumi.Context, args *LookupEventHubArgs, opts ...pulumi.InvokeOption) (*LookupEventHubResult, error) {
 	var rv LookupEventHubResult
 	err := ctx.Invoke("azure-native:eventhub/v20170401:getEventHub", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupEventHub(ctx *pulumi.Context, args *LookupEventHubArgs, opts ...pulum
 }
 
 type LookupEventHubArgs struct {
-	// The Event Hub name
-	EventHubName string `pulumi:"eventHubName"`
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the resource group within the azure subscription.
+	EventHubName      string `pulumi:"eventHubName"`
+	NamespaceName     string `pulumi:"namespaceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Single item in List or Get Event Hub operation
 type LookupEventHubResult struct {
-	// Properties of capture description
-	CaptureDescription *CaptureDescriptionResponse `pulumi:"captureDescription"`
-	// Exact time the Event Hub was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
-	MessageRetentionInDays *float64 `pulumi:"messageRetentionInDays"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
-	PartitionCount *float64 `pulumi:"partitionCount"`
-	// Current number of shards on the Event Hub.
-	PartitionIds []string `pulumi:"partitionIds"`
-	// Enumerates the possible values for the status of the Event Hub.
-	Status *string `pulumi:"status"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The exact time the message was updated.
-	UpdatedAt string `pulumi:"updatedAt"`
+	CaptureDescription     *CaptureDescriptionResponse `pulumi:"captureDescription"`
+	CreatedAt              string                      `pulumi:"createdAt"`
+	Id                     string                      `pulumi:"id"`
+	MessageRetentionInDays *float64                    `pulumi:"messageRetentionInDays"`
+	Name                   string                      `pulumi:"name"`
+	PartitionCount         *float64                    `pulumi:"partitionCount"`
+	PartitionIds           []string                    `pulumi:"partitionIds"`
+	Status                 *string                     `pulumi:"status"`
+	Type                   string                      `pulumi:"type"`
+	UpdatedAt              string                      `pulumi:"updatedAt"`
 }

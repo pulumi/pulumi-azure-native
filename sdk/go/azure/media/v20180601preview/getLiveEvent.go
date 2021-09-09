@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Live Event.
 func LookupLiveEvent(ctx *pulumi.Context, args *LookupLiveEventArgs, opts ...pulumi.InvokeOption) (*LookupLiveEventResult, error) {
 	var rv LookupLiveEventResult
 	err := ctx.Invoke("azure-native:media/v20180601preview:getLiveEvent", args, &rv, opts...)
@@ -18,46 +17,27 @@ func LookupLiveEvent(ctx *pulumi.Context, args *LookupLiveEventArgs, opts ...pul
 }
 
 type LookupLiveEventArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// The name of the Live Event.
-	LiveEventName string `pulumi:"liveEventName"`
-	// The name of the resource group within the Azure subscription.
+	AccountName       string `pulumi:"accountName"`
+	LiveEventName     string `pulumi:"liveEventName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The Live Event.
 type LookupLiveEventResult struct {
-	// The exact time the Live Event was created.
-	Created string `pulumi:"created"`
-	// The Live Event access policies.
+	Created                 string                           `pulumi:"created"`
 	CrossSiteAccessPolicies *CrossSiteAccessPoliciesResponse `pulumi:"crossSiteAccessPolicies"`
-	// The Live Event description.
-	Description *string `pulumi:"description"`
-	// The Live Event encoding.
-	Encoding *LiveEventEncodingResponse `pulumi:"encoding"`
-	// Fully qualified resource ID for the resource.
-	Id string `pulumi:"id"`
-	// The Live Event input.
-	Input LiveEventInputResponse `pulumi:"input"`
-	// The exact time the Live Event was last modified.
-	LastModified string `pulumi:"lastModified"`
-	// The Azure Region of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The Live Event preview.
-	Preview *LiveEventPreviewResponse `pulumi:"preview"`
-	// The provisioning state of the Live Event.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The resource state of the Live Event.
-	ResourceState string `pulumi:"resourceState"`
-	// The stream options.
-	StreamOptions []string `pulumi:"streamOptions"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-	// The Live Event vanity URL flag.
-	VanityUrl *bool `pulumi:"vanityUrl"`
+	Description             *string                          `pulumi:"description"`
+	Encoding                *LiveEventEncodingResponse       `pulumi:"encoding"`
+	Id                      string                           `pulumi:"id"`
+	Input                   LiveEventInputResponse           `pulumi:"input"`
+	LastModified            string                           `pulumi:"lastModified"`
+	Location                *string                          `pulumi:"location"`
+	Name                    string                           `pulumi:"name"`
+	Preview                 *LiveEventPreviewResponse        `pulumi:"preview"`
+	ProvisioningState       string                           `pulumi:"provisioningState"`
+	ResourceState           string                           `pulumi:"resourceState"`
+	StreamOptions           []string                         `pulumi:"streamOptions"`
+	Tags                    map[string]string                `pulumi:"tags"`
+	Type                    string                           `pulumi:"type"`
+	VanityUrl               *bool                            `pulumi:"vanityUrl"`
 }

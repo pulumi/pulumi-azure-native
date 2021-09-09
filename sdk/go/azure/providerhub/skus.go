@@ -134,9 +134,7 @@ func (i *Skus) ToSkusOutputWithContext(ctx context.Context) SkusOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SkusOutput)
 }
 
-type SkusOutput struct {
-	*pulumi.OutputState
-}
+type SkusOutput struct{ *pulumi.OutputState }
 
 func (SkusOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Skus)(nil))

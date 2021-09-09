@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Base class for backup policy. Workload-specific backup policies are derived from this class.
 func LookupProtectionPolicy(ctx *pulumi.Context, args *LookupProtectionPolicyArgs, opts ...pulumi.InvokeOption) (*LookupProtectionPolicyResult, error) {
 	var rv LookupProtectionPolicyResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20210301:getProtectionPolicy", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupProtectionPolicy(ctx *pulumi.Context, args *LookupProtectionPolicyArg
 }
 
 type LookupProtectionPolicyArgs struct {
-	// Backup policy information to be fetched.
-	PolicyName string `pulumi:"policyName"`
-	// The name of the resource group where the recovery services vault is present.
+	PolicyName        string `pulumi:"policyName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	VaultName string `pulumi:"vaultName"`
+	VaultName         string `pulumi:"vaultName"`
 }
 
 // Base class for backup policy. Workload-specific backup policies are derived from this class.
 type LookupProtectionPolicyResult struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Resource Id represents the complete path to the resource.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name string `pulumi:"name"`
-	// ProtectionPolicyResource properties
-	Properties interface{} `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type string `pulumi:"type"`
+	ETag       *string           `pulumi:"eTag"`
+	Id         string            `pulumi:"id"`
+	Location   *string           `pulumi:"location"`
+	Name       string            `pulumi:"name"`
+	Properties interface{}       `pulumi:"properties"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

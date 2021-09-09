@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB Role Assignment
 func LookupSqlResourceSqlRoleAssignment(ctx *pulumi.Context, args *LookupSqlResourceSqlRoleAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlRoleAssignmentResult, error) {
 	var rv LookupSqlResourceSqlRoleAssignmentResult
 	err := ctx.Invoke("azure-native:documentdb/v20210415:getSqlResourceSqlRoleAssignment", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupSqlResourceSqlRoleAssignment(ctx *pulumi.Context, args *LookupSqlReso
 }
 
 type LookupSqlResourceSqlRoleAssignmentArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// The name of the resource group. The name is case insensitive.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The GUID for the Role Assignment.
-	RoleAssignmentId string `pulumi:"roleAssignmentId"`
+	RoleAssignmentId  string `pulumi:"roleAssignmentId"`
 }
 
 // An Azure Cosmos DB Role Assignment
 type LookupSqlResourceSqlRoleAssignmentResult struct {
-	// The unique resource identifier of the database account.
-	Id string `pulumi:"id"`
-	// The name of the database account.
-	Name string `pulumi:"name"`
-	// The unique identifier for the associated AAD principal in the AAD graph to which access is being granted through this Role Assignment. Tenant ID for the principal is inferred using the tenant associated with the subscription.
-	PrincipalId *string `pulumi:"principalId"`
-	// The unique identifier for the associated Role Definition.
+	Id               string  `pulumi:"id"`
+	Name             string  `pulumi:"name"`
+	PrincipalId      *string `pulumi:"principalId"`
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// The data plane resource path for which access is being granted through this Role Assignment.
-	Scope *string `pulumi:"scope"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
+	Scope            *string `pulumi:"scope"`
+	Type             string  `pulumi:"type"`
 }

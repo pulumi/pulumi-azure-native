@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A group of job targets.
 type JobTargetGroup struct {
 	pulumi.CustomResourceState
 
-	// Members of the target group.
 	Members JobTargetResponseArrayOutput `pulumi:"members"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name    pulumi.StringOutput          `pulumi:"name"`
+	Type    pulumi.StringOutput          `pulumi:"type"`
 }
 
 // NewJobTargetGroup registers a new resource with the given unique name, arguments, and options.
@@ -110,30 +106,20 @@ func (JobTargetGroupState) ElementType() reflect.Type {
 }
 
 type jobTargetGroupArgs struct {
-	// The name of the job agent.
-	JobAgentName string `pulumi:"jobAgentName"`
-	// Members of the target group.
-	Members []JobTarget `pulumi:"members"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The name of the target group.
-	TargetGroupName *string `pulumi:"targetGroupName"`
+	JobAgentName      string      `pulumi:"jobAgentName"`
+	Members           []JobTarget `pulumi:"members"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
+	ServerName        string      `pulumi:"serverName"`
+	TargetGroupName   *string     `pulumi:"targetGroupName"`
 }
 
 // The set of arguments for constructing a JobTargetGroup resource.
 type JobTargetGroupArgs struct {
-	// The name of the job agent.
-	JobAgentName pulumi.StringInput
-	// Members of the target group.
-	Members JobTargetArrayInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	JobAgentName      pulumi.StringInput
+	Members           JobTargetArrayInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
-	// The name of the target group.
-	TargetGroupName pulumi.StringPtrInput
+	ServerName        pulumi.StringInput
+	TargetGroupName   pulumi.StringPtrInput
 }
 
 func (JobTargetGroupArgs) ElementType() reflect.Type {
@@ -159,9 +145,7 @@ func (i *JobTargetGroup) ToJobTargetGroupOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(JobTargetGroupOutput)
 }
 
-type JobTargetGroupOutput struct {
-	*pulumi.OutputState
-}
+type JobTargetGroupOutput struct{ *pulumi.OutputState }
 
 func (JobTargetGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobTargetGroup)(nil))

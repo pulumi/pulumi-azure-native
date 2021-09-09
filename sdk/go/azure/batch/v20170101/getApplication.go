@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contains information about an application in a Batch account.
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
 	err := ctx.Invoke("azure-native:batch/v20170101:getApplication", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 }
 
 type LookupApplicationArgs struct {
-	// The name of the Batch account.
-	AccountName string `pulumi:"accountName"`
-	// The ID of the application.
-	ApplicationId string `pulumi:"applicationId"`
-	// The name of the resource group that contains the Batch account.
+	AccountName       string `pulumi:"accountName"`
+	ApplicationId     string `pulumi:"applicationId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Contains information about an application in a Batch account.
 type LookupApplicationResult struct {
-	// A value indicating whether packages within the application may be overwritten using the same version string.
-	AllowUpdates *bool `pulumi:"allowUpdates"`
-	// The package to use if a client requests the application but does not specify a version.
-	DefaultVersion *string `pulumi:"defaultVersion"`
-	// The display name for the application.
-	DisplayName *string `pulumi:"displayName"`
-	// A string that uniquely identifies the application within the account.
-	Id *string `pulumi:"id"`
-	// The list of packages under this application.
-	Packages []ApplicationPackageResponse `pulumi:"packages"`
+	AllowUpdates   *bool                        `pulumi:"allowUpdates"`
+	DefaultVersion *string                      `pulumi:"defaultVersion"`
+	DisplayName    *string                      `pulumi:"displayName"`
+	Id             *string                      `pulumi:"id"`
+	Packages       []ApplicationPackageResponse `pulumi:"packages"`
 }

@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
 type MaintenanceConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Time slots on which upgrade is not allowed.
-	NotAllowedTime TimeSpanResponseArrayOutput `pulumi:"notAllowedTime"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
-	TimeInWeek TimeInWeekResponseArrayOutput `pulumi:"timeInWeek"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name           pulumi.StringOutput           `pulumi:"name"`
+	NotAllowedTime TimeSpanResponseArrayOutput   `pulumi:"notAllowedTime"`
+	SystemData     SystemDataResponseOutput      `pulumi:"systemData"`
+	TimeInWeek     TimeInWeekResponseArrayOutput `pulumi:"timeInWeek"`
+	Type           pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewMaintenanceConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -114,30 +108,20 @@ func (MaintenanceConfigurationState) ElementType() reflect.Type {
 }
 
 type maintenanceConfigurationArgs struct {
-	// The name of the maintenance configuration.
-	ConfigName *string `pulumi:"configName"`
-	// Time slots on which upgrade is not allowed.
-	NotAllowedTime []TimeSpan `pulumi:"notAllowedTime"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the managed cluster resource.
-	ResourceName string `pulumi:"resourceName"`
-	// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
-	TimeInWeek []TimeInWeek `pulumi:"timeInWeek"`
+	ConfigName        *string      `pulumi:"configName"`
+	NotAllowedTime    []TimeSpan   `pulumi:"notAllowedTime"`
+	ResourceGroupName string       `pulumi:"resourceGroupName"`
+	ResourceName      string       `pulumi:"resourceName"`
+	TimeInWeek        []TimeInWeek `pulumi:"timeInWeek"`
 }
 
 // The set of arguments for constructing a MaintenanceConfiguration resource.
 type MaintenanceConfigurationArgs struct {
-	// The name of the maintenance configuration.
-	ConfigName pulumi.StringPtrInput
-	// Time slots on which upgrade is not allowed.
-	NotAllowedTime TimeSpanArrayInput
-	// The name of the resource group.
+	ConfigName        pulumi.StringPtrInput
+	NotAllowedTime    TimeSpanArrayInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the managed cluster resource.
-	ResourceName pulumi.StringInput
-	// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
-	TimeInWeek TimeInWeekArrayInput
+	ResourceName      pulumi.StringInput
+	TimeInWeek        TimeInWeekArrayInput
 }
 
 func (MaintenanceConfigurationArgs) ElementType() reflect.Type {
@@ -163,9 +147,7 @@ func (i *MaintenanceConfiguration) ToMaintenanceConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceConfigurationOutput)
 }
 
-type MaintenanceConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type MaintenanceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MaintenanceConfiguration)(nil))

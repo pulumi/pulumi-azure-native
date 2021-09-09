@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Security assessment on a resource
 type Assessment struct {
 	pulumi.CustomResourceState
 
-	// Additional data regarding the assessment
-	AdditionalData pulumi.StringMapOutput `pulumi:"additionalData"`
-	// User friendly display name of the assessment
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Links relevant to the assessment
-	Links AssessmentLinksResponseOutput `pulumi:"links"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Details of the resource that was assessed
-	ResourceDetails pulumi.AnyOutput `pulumi:"resourceDetails"`
-	// The result of the assessment
-	Status AssessmentStatusResponseOutput `pulumi:"status"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	AdditionalData  pulumi.StringMapOutput         `pulumi:"additionalData"`
+	DisplayName     pulumi.StringOutput            `pulumi:"displayName"`
+	Links           AssessmentLinksResponseOutput  `pulumi:"links"`
+	Name            pulumi.StringOutput            `pulumi:"name"`
+	ResourceDetails pulumi.AnyOutput               `pulumi:"resourceDetails"`
+	Status          AssessmentStatusResponseOutput `pulumi:"status"`
+	Type            pulumi.StringOutput            `pulumi:"type"`
 }
 
 // NewAssessment registers a new resource with the given unique name, arguments, and options.
@@ -103,30 +95,20 @@ func (AssessmentState) ElementType() reflect.Type {
 }
 
 type assessmentArgs struct {
-	// Additional data regarding the assessment
-	AdditionalData map[string]string `pulumi:"additionalData"`
-	// The Assessment Key - Unique key for the assessment type
-	AssessmentName *string `pulumi:"assessmentName"`
-	// Details of the resource that was assessed
-	ResourceDetails interface{} `pulumi:"resourceDetails"`
-	// The identifier of the resource.
-	ResourceId string `pulumi:"resourceId"`
-	// The result of the assessment
-	Status AssessmentStatus `pulumi:"status"`
+	AdditionalData  map[string]string `pulumi:"additionalData"`
+	AssessmentName  *string           `pulumi:"assessmentName"`
+	ResourceDetails interface{}       `pulumi:"resourceDetails"`
+	ResourceId      string            `pulumi:"resourceId"`
+	Status          AssessmentStatus  `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Assessment resource.
 type AssessmentArgs struct {
-	// Additional data regarding the assessment
-	AdditionalData pulumi.StringMapInput
-	// The Assessment Key - Unique key for the assessment type
-	AssessmentName pulumi.StringPtrInput
-	// Details of the resource that was assessed
+	AdditionalData  pulumi.StringMapInput
+	AssessmentName  pulumi.StringPtrInput
 	ResourceDetails pulumi.Input
-	// The identifier of the resource.
-	ResourceId pulumi.StringInput
-	// The result of the assessment
-	Status AssessmentStatusInput
+	ResourceId      pulumi.StringInput
+	Status          AssessmentStatusInput
 }
 
 func (AssessmentArgs) ElementType() reflect.Type {
@@ -152,9 +134,7 @@ func (i *Assessment) ToAssessmentOutputWithContext(ctx context.Context) Assessme
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentOutput)
 }
 
-type AssessmentOutput struct {
-	*pulumi.OutputState
-}
+type AssessmentOutput struct{ *pulumi.OutputState }
 
 func (AssessmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Assessment)(nil))

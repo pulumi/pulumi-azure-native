@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Settings to customize ACI container instance.
 type ContainerConfiguration struct {
-	// Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
 	ContainerGroupName *string `pulumi:"containerGroupName"`
 }
 
@@ -27,9 +25,7 @@ type ContainerConfigurationInput interface {
 	ToContainerConfigurationOutputWithContext(context.Context) ContainerConfigurationOutput
 }
 
-// Settings to customize ACI container instance.
 type ContainerConfigurationArgs struct {
-	// Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
 	ContainerGroupName pulumi.StringPtrInput `pulumi:"containerGroupName"`
 }
 
@@ -86,7 +82,6 @@ func (i *containerConfigurationPtrType) ToContainerConfigurationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerConfigurationPtrOutput)
 }
 
-// Settings to customize ACI container instance.
 type ContainerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ContainerConfigurationOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o ContainerConfigurationOutput) ToContainerConfigurationPtrOutput() Contai
 }
 
 func (o ContainerConfigurationOutput) ToContainerConfigurationPtrOutputWithContext(ctx context.Context) ContainerConfigurationPtrOutput {
-	return o.ApplyT(func(v ContainerConfiguration) *ContainerConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerConfiguration) *ContainerConfiguration {
 		return &v
 	}).(ContainerConfigurationPtrOutput)
 }
 
-// Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
 func (o ContainerConfigurationOutput) ContainerGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerConfiguration) *string { return v.ContainerGroupName }).(pulumi.StringPtrOutput)
 }
@@ -131,10 +125,15 @@ func (o ContainerConfigurationPtrOutput) ToContainerConfigurationPtrOutputWithCo
 }
 
 func (o ContainerConfigurationPtrOutput) Elem() ContainerConfigurationOutput {
-	return o.ApplyT(func(v *ContainerConfiguration) ContainerConfiguration { return *v }).(ContainerConfigurationOutput)
+	return o.ApplyT(func(v *ContainerConfiguration) ContainerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerConfiguration
+		return ret
+	}).(ContainerConfigurationOutput)
 }
 
-// Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
 func (o ContainerConfigurationPtrOutput) ContainerGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerConfiguration) *string {
 		if v == nil {
@@ -144,9 +143,7 @@ func (o ContainerConfigurationPtrOutput) ContainerGroupName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings to customize ACI container instance.
 type ContainerConfigurationResponse struct {
-	// Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
 	ContainerGroupName *string `pulumi:"containerGroupName"`
 }
 
@@ -161,9 +158,7 @@ type ContainerConfigurationResponseInput interface {
 	ToContainerConfigurationResponseOutputWithContext(context.Context) ContainerConfigurationResponseOutput
 }
 
-// Settings to customize ACI container instance.
 type ContainerConfigurationResponseArgs struct {
-	// Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
 	ContainerGroupName pulumi.StringPtrInput `pulumi:"containerGroupName"`
 }
 
@@ -220,7 +215,6 @@ func (i *containerConfigurationResponsePtrType) ToContainerConfigurationResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerConfigurationResponsePtrOutput)
 }
 
-// Settings to customize ACI container instance.
 type ContainerConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerConfigurationResponseOutput) ElementType() reflect.Type {
@@ -240,12 +234,11 @@ func (o ContainerConfigurationResponseOutput) ToContainerConfigurationResponsePt
 }
 
 func (o ContainerConfigurationResponseOutput) ToContainerConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ContainerConfigurationResponse) *ContainerConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerConfigurationResponse) *ContainerConfigurationResponse {
 		return &v
 	}).(ContainerConfigurationResponsePtrOutput)
 }
 
-// Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
 func (o ContainerConfigurationResponseOutput) ContainerGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerConfigurationResponse) *string { return v.ContainerGroupName }).(pulumi.StringPtrOutput)
 }
@@ -265,10 +258,15 @@ func (o ContainerConfigurationResponsePtrOutput) ToContainerConfigurationRespons
 }
 
 func (o ContainerConfigurationResponsePtrOutput) Elem() ContainerConfigurationResponseOutput {
-	return o.ApplyT(func(v *ContainerConfigurationResponse) ContainerConfigurationResponse { return *v }).(ContainerConfigurationResponseOutput)
+	return o.ApplyT(func(v *ContainerConfigurationResponse) ContainerConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerConfigurationResponse
+		return ret
+	}).(ContainerConfigurationResponseOutput)
 }
 
-// Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
 func (o ContainerConfigurationResponsePtrOutput) ContainerGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerConfigurationResponse) *string {
 		if v == nil {
@@ -278,14 +276,10 @@ func (o ContainerConfigurationResponsePtrOutput) ContainerGroupName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The environment variable to pass to the script in the container instance.
 type EnvironmentVariable struct {
-	// The name of the environment variable.
-	Name string `pulumi:"name"`
-	// The value of the secure environment variable.
+	Name        string  `pulumi:"name"`
 	SecureValue *string `pulumi:"secureValue"`
-	// The value of the environment variable.
-	Value *string `pulumi:"value"`
+	Value       *string `pulumi:"value"`
 }
 
 // EnvironmentVariableInput is an input type that accepts EnvironmentVariableArgs and EnvironmentVariableOutput values.
@@ -299,14 +293,10 @@ type EnvironmentVariableInput interface {
 	ToEnvironmentVariableOutputWithContext(context.Context) EnvironmentVariableOutput
 }
 
-// The environment variable to pass to the script in the container instance.
 type EnvironmentVariableArgs struct {
-	// The name of the environment variable.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the secure environment variable.
+	Name        pulumi.StringInput    `pulumi:"name"`
 	SecureValue pulumi.StringPtrInput `pulumi:"secureValue"`
-	// The value of the environment variable.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (EnvironmentVariableArgs) ElementType() reflect.Type {
@@ -346,7 +336,6 @@ func (i EnvironmentVariableArray) ToEnvironmentVariableArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentVariableArrayOutput)
 }
 
-// The environment variable to pass to the script in the container instance.
 type EnvironmentVariableOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentVariableOutput) ElementType() reflect.Type {
@@ -361,17 +350,14 @@ func (o EnvironmentVariableOutput) ToEnvironmentVariableOutputWithContext(ctx co
 	return o
 }
 
-// The name of the environment variable.
 func (o EnvironmentVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentVariable) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the secure environment variable.
 func (o EnvironmentVariableOutput) SecureValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentVariable) *string { return v.SecureValue }).(pulumi.StringPtrOutput)
 }
 
-// The value of the environment variable.
 func (o EnvironmentVariableOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -396,14 +382,10 @@ func (o EnvironmentVariableArrayOutput) Index(i pulumi.IntInput) EnvironmentVari
 	}).(EnvironmentVariableOutput)
 }
 
-// The environment variable to pass to the script in the container instance.
 type EnvironmentVariableResponse struct {
-	// The name of the environment variable.
-	Name string `pulumi:"name"`
-	// The value of the secure environment variable.
+	Name        string  `pulumi:"name"`
 	SecureValue *string `pulumi:"secureValue"`
-	// The value of the environment variable.
-	Value *string `pulumi:"value"`
+	Value       *string `pulumi:"value"`
 }
 
 // EnvironmentVariableResponseInput is an input type that accepts EnvironmentVariableResponseArgs and EnvironmentVariableResponseOutput values.
@@ -417,14 +399,10 @@ type EnvironmentVariableResponseInput interface {
 	ToEnvironmentVariableResponseOutputWithContext(context.Context) EnvironmentVariableResponseOutput
 }
 
-// The environment variable to pass to the script in the container instance.
 type EnvironmentVariableResponseArgs struct {
-	// The name of the environment variable.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the secure environment variable.
+	Name        pulumi.StringInput    `pulumi:"name"`
 	SecureValue pulumi.StringPtrInput `pulumi:"secureValue"`
-	// The value of the environment variable.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (EnvironmentVariableResponseArgs) ElementType() reflect.Type {
@@ -464,7 +442,6 @@ func (i EnvironmentVariableResponseArray) ToEnvironmentVariableResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentVariableResponseArrayOutput)
 }
 
-// The environment variable to pass to the script in the container instance.
 type EnvironmentVariableResponseOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentVariableResponseOutput) ElementType() reflect.Type {
@@ -479,17 +456,14 @@ func (o EnvironmentVariableResponseOutput) ToEnvironmentVariableResponseOutputWi
 	return o
 }
 
-// The name of the environment variable.
 func (o EnvironmentVariableResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentVariableResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the secure environment variable.
 func (o EnvironmentVariableResponseOutput) SecureValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentVariableResponse) *string { return v.SecureValue }).(pulumi.StringPtrOutput)
 }
 
-// The value of the environment variable.
 func (o EnvironmentVariableResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentVariableResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -514,12 +488,9 @@ func (o EnvironmentVariableResponseArrayOutput) Index(i pulumi.IntInput) Environ
 	}).(EnvironmentVariableResponseOutput)
 }
 
-// The resource management error additional info.
 type ErrorAdditionalInfoResponse struct {
-	// The additional info.
 	Info interface{} `pulumi:"info"`
-	// The additional info type.
-	Type string `pulumi:"type"`
+	Type string      `pulumi:"type"`
 }
 
 // ErrorAdditionalInfoResponseInput is an input type that accepts ErrorAdditionalInfoResponseArgs and ErrorAdditionalInfoResponseOutput values.
@@ -533,11 +504,8 @@ type ErrorAdditionalInfoResponseInput interface {
 	ToErrorAdditionalInfoResponseOutputWithContext(context.Context) ErrorAdditionalInfoResponseOutput
 }
 
-// The resource management error additional info.
 type ErrorAdditionalInfoResponseArgs struct {
-	// The additional info.
-	Info pulumi.Input `pulumi:"info"`
-	// The additional info type.
+	Info pulumi.Input       `pulumi:"info"`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -578,7 +546,6 @@ func (i ErrorAdditionalInfoResponseArray) ToErrorAdditionalInfoResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorAdditionalInfoResponseArrayOutput)
 }
 
-// The resource management error additional info.
 type ErrorAdditionalInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorAdditionalInfoResponseOutput) ElementType() reflect.Type {
@@ -593,12 +560,10 @@ func (o ErrorAdditionalInfoResponseOutput) ToErrorAdditionalInfoResponseOutputWi
 	return o
 }
 
-// The additional info.
 func (o ErrorAdditionalInfoResponseOutput) Info() pulumi.AnyOutput {
 	return o.ApplyT(func(v ErrorAdditionalInfoResponse) interface{} { return v.Info }).(pulumi.AnyOutput)
 }
 
-// The additional info type.
 func (o ErrorAdditionalInfoResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorAdditionalInfoResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -623,18 +588,12 @@ func (o ErrorAdditionalInfoResponseArrayOutput) Index(i pulumi.IntInput) ErrorAd
 	}).(ErrorAdditionalInfoResponseOutput)
 }
 
-// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
 type ErrorResponseResponse struct {
-	// The error additional info.
 	AdditionalInfo []ErrorAdditionalInfoResponse `pulumi:"additionalInfo"`
-	// The error code.
-	Code string `pulumi:"code"`
-	// The error details.
-	Details []ErrorResponseResponse `pulumi:"details"`
-	// The error message.
-	Message string `pulumi:"message"`
-	// The error target.
-	Target string `pulumi:"target"`
+	Code           string                        `pulumi:"code"`
+	Details        []ErrorResponseResponse       `pulumi:"details"`
+	Message        string                        `pulumi:"message"`
+	Target         string                        `pulumi:"target"`
 }
 
 // ErrorResponseResponseInput is an input type that accepts ErrorResponseResponseArgs and ErrorResponseResponseOutput values.
@@ -648,18 +607,12 @@ type ErrorResponseResponseInput interface {
 	ToErrorResponseResponseOutputWithContext(context.Context) ErrorResponseResponseOutput
 }
 
-// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
 type ErrorResponseResponseArgs struct {
-	// The error additional info.
 	AdditionalInfo ErrorAdditionalInfoResponseArrayInput `pulumi:"additionalInfo"`
-	// The error code.
-	Code pulumi.StringInput `pulumi:"code"`
-	// The error details.
-	Details ErrorResponseResponseArrayInput `pulumi:"details"`
-	// The error message.
-	Message pulumi.StringInput `pulumi:"message"`
-	// The error target.
-	Target pulumi.StringInput `pulumi:"target"`
+	Code           pulumi.StringInput                    `pulumi:"code"`
+	Details        ErrorResponseResponseArrayInput       `pulumi:"details"`
+	Message        pulumi.StringInput                    `pulumi:"message"`
+	Target         pulumi.StringInput                    `pulumi:"target"`
 }
 
 func (ErrorResponseResponseArgs) ElementType() reflect.Type {
@@ -740,7 +693,6 @@ func (i ErrorResponseResponseArray) ToErrorResponseResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorResponseResponseArrayOutput)
 }
 
-// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
 type ErrorResponseResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorResponseResponseOutput) ElementType() reflect.Type {
@@ -760,32 +712,27 @@ func (o ErrorResponseResponseOutput) ToErrorResponseResponsePtrOutput() ErrorRes
 }
 
 func (o ErrorResponseResponseOutput) ToErrorResponseResponsePtrOutputWithContext(ctx context.Context) ErrorResponseResponsePtrOutput {
-	return o.ApplyT(func(v ErrorResponseResponse) *ErrorResponseResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorResponseResponse) *ErrorResponseResponse {
 		return &v
 	}).(ErrorResponseResponsePtrOutput)
 }
 
-// The error additional info.
 func (o ErrorResponseResponseOutput) AdditionalInfo() ErrorAdditionalInfoResponseArrayOutput {
 	return o.ApplyT(func(v ErrorResponseResponse) []ErrorAdditionalInfoResponse { return v.AdditionalInfo }).(ErrorAdditionalInfoResponseArrayOutput)
 }
 
-// The error code.
 func (o ErrorResponseResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorResponseResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// The error details.
 func (o ErrorResponseResponseOutput) Details() ErrorResponseResponseArrayOutput {
 	return o.ApplyT(func(v ErrorResponseResponse) []ErrorResponseResponse { return v.Details }).(ErrorResponseResponseArrayOutput)
 }
 
-// The error message.
 func (o ErrorResponseResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorResponseResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// The error target.
 func (o ErrorResponseResponseOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorResponseResponse) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -805,10 +752,15 @@ func (o ErrorResponseResponsePtrOutput) ToErrorResponseResponsePtrOutputWithCont
 }
 
 func (o ErrorResponseResponsePtrOutput) Elem() ErrorResponseResponseOutput {
-	return o.ApplyT(func(v *ErrorResponseResponse) ErrorResponseResponse { return *v }).(ErrorResponseResponseOutput)
+	return o.ApplyT(func(v *ErrorResponseResponse) ErrorResponseResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ErrorResponseResponse
+		return ret
+	}).(ErrorResponseResponseOutput)
 }
 
-// The error additional info.
 func (o ErrorResponseResponsePtrOutput) AdditionalInfo() ErrorAdditionalInfoResponseArrayOutput {
 	return o.ApplyT(func(v *ErrorResponseResponse) []ErrorAdditionalInfoResponse {
 		if v == nil {
@@ -818,7 +770,6 @@ func (o ErrorResponseResponsePtrOutput) AdditionalInfo() ErrorAdditionalInfoResp
 	}).(ErrorAdditionalInfoResponseArrayOutput)
 }
 
-// The error code.
 func (o ErrorResponseResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorResponseResponse) *string {
 		if v == nil {
@@ -828,7 +779,6 @@ func (o ErrorResponseResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The error details.
 func (o ErrorResponseResponsePtrOutput) Details() ErrorResponseResponseArrayOutput {
 	return o.ApplyT(func(v *ErrorResponseResponse) []ErrorResponseResponse {
 		if v == nil {
@@ -838,7 +788,6 @@ func (o ErrorResponseResponsePtrOutput) Details() ErrorResponseResponseArrayOutp
 	}).(ErrorResponseResponseArrayOutput)
 }
 
-// The error message.
 func (o ErrorResponseResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorResponseResponse) *string {
 		if v == nil {
@@ -848,7 +797,6 @@ func (o ErrorResponseResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The error target.
 func (o ErrorResponseResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorResponseResponse) *string {
 		if v == nil {
@@ -878,11 +826,8 @@ func (o ErrorResponseResponseArrayOutput) Index(i pulumi.IntInput) ErrorResponse
 	}).(ErrorResponseResponseOutput)
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentity struct {
-	// Type of the managed identity.
-	Type *string `pulumi:"type"`
-	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+	Type                   *string                `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -897,12 +842,9 @@ type ManagedServiceIdentityInput interface {
 	ToManagedServiceIdentityOutputWithContext(context.Context) ManagedServiceIdentityOutput
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentityArgs struct {
-	// Type of the managed identity.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	Type                   pulumi.StringPtrInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput       `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedServiceIdentityArgs) ElementType() reflect.Type {
@@ -958,7 +900,6 @@ func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityPtrOutput)
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ManagedServiceIdentityOutput) ElementType() reflect.Type {
@@ -978,17 +919,15 @@ func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() Manage
 }
 
 func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) *ManagedServiceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentity) *ManagedServiceIdentity {
 		return &v
 	}).(ManagedServiceIdentityPtrOutput)
 }
 
-// Type of the managed identity.
 func (o ManagedServiceIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedServiceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
 func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v ManagedServiceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -1008,10 +947,15 @@ func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithCo
 }
 
 func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity { return *v }).(ManagedServiceIdentityOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentity
+		return ret
+	}).(ManagedServiceIdentityOutput)
 }
 
-// Type of the managed identity.
 func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
 		if v == nil {
@@ -1021,7 +965,6 @@ func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
 func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentity) map[string]interface{} {
 		if v == nil {
@@ -1031,13 +974,9 @@ func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutp
 	}).(pulumi.MapOutput)
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentityResponse struct {
-	// ID of the Azure Active Directory.
-	TenantId string `pulumi:"tenantId"`
-	// Type of the managed identity.
-	Type *string `pulumi:"type"`
-	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+	TenantId               string                                  `pulumi:"tenantId"`
+	Type                   *string                                 `pulumi:"type"`
 	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -1052,13 +991,9 @@ type ManagedServiceIdentityResponseInput interface {
 	ToManagedServiceIdentityResponseOutputWithContext(context.Context) ManagedServiceIdentityResponseOutput
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentityResponseArgs struct {
-	// ID of the Azure Active Directory.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// Type of the managed identity.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+	TenantId               pulumi.StringInput                   `pulumi:"tenantId"`
+	Type                   pulumi.StringPtrInput                `pulumi:"type"`
 	UserAssignedIdentities UserAssignedIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -1115,7 +1050,6 @@ func (i *managedServiceIdentityResponsePtrType) ToManagedServiceIdentityResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponsePtrOutput)
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedServiceIdentityResponseOutput) ElementType() reflect.Type {
@@ -1135,22 +1069,19 @@ func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePt
 }
 
 func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
 		return &v
 	}).(ManagedServiceIdentityResponsePtrOutput)
 }
 
-// ID of the Azure Active Directory.
 func (o ManagedServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Type of the managed identity.
 func (o ManagedServiceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
 func (o ManagedServiceIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
 		return v.UserAssignedIdentities
@@ -1172,10 +1103,15 @@ func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityRespons
 }
 
 func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse { return *v }).(ManagedServiceIdentityResponseOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentityResponse
+		return ret
+	}).(ManagedServiceIdentityResponseOutput)
 }
 
-// ID of the Azure Active Directory.
 func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
@@ -1185,7 +1121,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the managed identity.
 func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
@@ -1195,7 +1130,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
 func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
 		if v == nil {
@@ -1205,20 +1139,13 @@ func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserAs
 	}).(UserAssignedIdentityResponseMapOutput)
 }
 
-// Generic object modeling results of script execution.
 type ScriptStatusResponse struct {
-	// ACI resource Id.
-	ContainerInstanceId string `pulumi:"containerInstanceId"`
-	// End time of the script execution.
-	EndTime string `pulumi:"endTime"`
-	// Error that is relayed from the script execution.
-	Error *ErrorResponseResponse `pulumi:"error"`
-	// Time the deployment script resource will expire.
-	ExpirationTime string `pulumi:"expirationTime"`
-	// Start time of the script execution.
-	StartTime string `pulumi:"startTime"`
-	// Storage account resource Id.
-	StorageAccountId string `pulumi:"storageAccountId"`
+	ContainerInstanceId string                 `pulumi:"containerInstanceId"`
+	EndTime             string                 `pulumi:"endTime"`
+	Error               *ErrorResponseResponse `pulumi:"error"`
+	ExpirationTime      string                 `pulumi:"expirationTime"`
+	StartTime           string                 `pulumi:"startTime"`
+	StorageAccountId    string                 `pulumi:"storageAccountId"`
 }
 
 // ScriptStatusResponseInput is an input type that accepts ScriptStatusResponseArgs and ScriptStatusResponseOutput values.
@@ -1232,20 +1159,13 @@ type ScriptStatusResponseInput interface {
 	ToScriptStatusResponseOutputWithContext(context.Context) ScriptStatusResponseOutput
 }
 
-// Generic object modeling results of script execution.
 type ScriptStatusResponseArgs struct {
-	// ACI resource Id.
-	ContainerInstanceId pulumi.StringInput `pulumi:"containerInstanceId"`
-	// End time of the script execution.
-	EndTime pulumi.StringInput `pulumi:"endTime"`
-	// Error that is relayed from the script execution.
-	Error ErrorResponseResponsePtrInput `pulumi:"error"`
-	// Time the deployment script resource will expire.
-	ExpirationTime pulumi.StringInput `pulumi:"expirationTime"`
-	// Start time of the script execution.
-	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// Storage account resource Id.
-	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+	ContainerInstanceId pulumi.StringInput            `pulumi:"containerInstanceId"`
+	EndTime             pulumi.StringInput            `pulumi:"endTime"`
+	Error               ErrorResponseResponsePtrInput `pulumi:"error"`
+	ExpirationTime      pulumi.StringInput            `pulumi:"expirationTime"`
+	StartTime           pulumi.StringInput            `pulumi:"startTime"`
+	StorageAccountId    pulumi.StringInput            `pulumi:"storageAccountId"`
 }
 
 func (ScriptStatusResponseArgs) ElementType() reflect.Type {
@@ -1301,7 +1221,6 @@ func (i *scriptStatusResponsePtrType) ToScriptStatusResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptStatusResponsePtrOutput)
 }
 
-// Generic object modeling results of script execution.
 type ScriptStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ScriptStatusResponseOutput) ElementType() reflect.Type {
@@ -1321,37 +1240,31 @@ func (o ScriptStatusResponseOutput) ToScriptStatusResponsePtrOutput() ScriptStat
 }
 
 func (o ScriptStatusResponseOutput) ToScriptStatusResponsePtrOutputWithContext(ctx context.Context) ScriptStatusResponsePtrOutput {
-	return o.ApplyT(func(v ScriptStatusResponse) *ScriptStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScriptStatusResponse) *ScriptStatusResponse {
 		return &v
 	}).(ScriptStatusResponsePtrOutput)
 }
 
-// ACI resource Id.
 func (o ScriptStatusResponseOutput) ContainerInstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ScriptStatusResponse) string { return v.ContainerInstanceId }).(pulumi.StringOutput)
 }
 
-// End time of the script execution.
 func (o ScriptStatusResponseOutput) EndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v ScriptStatusResponse) string { return v.EndTime }).(pulumi.StringOutput)
 }
 
-// Error that is relayed from the script execution.
 func (o ScriptStatusResponseOutput) Error() ErrorResponseResponsePtrOutput {
 	return o.ApplyT(func(v ScriptStatusResponse) *ErrorResponseResponse { return v.Error }).(ErrorResponseResponsePtrOutput)
 }
 
-// Time the deployment script resource will expire.
 func (o ScriptStatusResponseOutput) ExpirationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v ScriptStatusResponse) string { return v.ExpirationTime }).(pulumi.StringOutput)
 }
 
-// Start time of the script execution.
 func (o ScriptStatusResponseOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v ScriptStatusResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// Storage account resource Id.
 func (o ScriptStatusResponseOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v ScriptStatusResponse) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
@@ -1371,10 +1284,15 @@ func (o ScriptStatusResponsePtrOutput) ToScriptStatusResponsePtrOutputWithContex
 }
 
 func (o ScriptStatusResponsePtrOutput) Elem() ScriptStatusResponseOutput {
-	return o.ApplyT(func(v *ScriptStatusResponse) ScriptStatusResponse { return *v }).(ScriptStatusResponseOutput)
+	return o.ApplyT(func(v *ScriptStatusResponse) ScriptStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ScriptStatusResponse
+		return ret
+	}).(ScriptStatusResponseOutput)
 }
 
-// ACI resource Id.
 func (o ScriptStatusResponsePtrOutput) ContainerInstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScriptStatusResponse) *string {
 		if v == nil {
@@ -1384,7 +1302,6 @@ func (o ScriptStatusResponsePtrOutput) ContainerInstanceId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// End time of the script execution.
 func (o ScriptStatusResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScriptStatusResponse) *string {
 		if v == nil {
@@ -1394,7 +1311,6 @@ func (o ScriptStatusResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Error that is relayed from the script execution.
 func (o ScriptStatusResponsePtrOutput) Error() ErrorResponseResponsePtrOutput {
 	return o.ApplyT(func(v *ScriptStatusResponse) *ErrorResponseResponse {
 		if v == nil {
@@ -1404,7 +1320,6 @@ func (o ScriptStatusResponsePtrOutput) Error() ErrorResponseResponsePtrOutput {
 	}).(ErrorResponseResponsePtrOutput)
 }
 
-// Time the deployment script resource will expire.
 func (o ScriptStatusResponsePtrOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScriptStatusResponse) *string {
 		if v == nil {
@@ -1414,7 +1329,6 @@ func (o ScriptStatusResponsePtrOutput) ExpirationTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Start time of the script execution.
 func (o ScriptStatusResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScriptStatusResponse) *string {
 		if v == nil {
@@ -1424,7 +1338,6 @@ func (o ScriptStatusResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage account resource Id.
 func (o ScriptStatusResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScriptStatusResponse) *string {
 		if v == nil {
@@ -1434,11 +1347,8 @@ func (o ScriptStatusResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
 type StorageAccountConfiguration struct {
-	// The storage account access key.
-	StorageAccountKey *string `pulumi:"storageAccountKey"`
-	// The storage account name.
+	StorageAccountKey  *string `pulumi:"storageAccountKey"`
 	StorageAccountName *string `pulumi:"storageAccountName"`
 }
 
@@ -1453,11 +1363,8 @@ type StorageAccountConfigurationInput interface {
 	ToStorageAccountConfigurationOutputWithContext(context.Context) StorageAccountConfigurationOutput
 }
 
-// Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
 type StorageAccountConfigurationArgs struct {
-	// The storage account access key.
-	StorageAccountKey pulumi.StringPtrInput `pulumi:"storageAccountKey"`
-	// The storage account name.
+	StorageAccountKey  pulumi.StringPtrInput `pulumi:"storageAccountKey"`
 	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
 }
 
@@ -1514,7 +1421,6 @@ func (i *storageAccountConfigurationPtrType) ToStorageAccountConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountConfigurationPtrOutput)
 }
 
-// Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
 type StorageAccountConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountConfigurationOutput) ElementType() reflect.Type {
@@ -1534,17 +1440,15 @@ func (o StorageAccountConfigurationOutput) ToStorageAccountConfigurationPtrOutpu
 }
 
 func (o StorageAccountConfigurationOutput) ToStorageAccountConfigurationPtrOutputWithContext(ctx context.Context) StorageAccountConfigurationPtrOutput {
-	return o.ApplyT(func(v StorageAccountConfiguration) *StorageAccountConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountConfiguration) *StorageAccountConfiguration {
 		return &v
 	}).(StorageAccountConfigurationPtrOutput)
 }
 
-// The storage account access key.
 func (o StorageAccountConfigurationOutput) StorageAccountKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccountConfiguration) *string { return v.StorageAccountKey }).(pulumi.StringPtrOutput)
 }
 
-// The storage account name.
 func (o StorageAccountConfigurationOutput) StorageAccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccountConfiguration) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
 }
@@ -1564,10 +1468,15 @@ func (o StorageAccountConfigurationPtrOutput) ToStorageAccountConfigurationPtrOu
 }
 
 func (o StorageAccountConfigurationPtrOutput) Elem() StorageAccountConfigurationOutput {
-	return o.ApplyT(func(v *StorageAccountConfiguration) StorageAccountConfiguration { return *v }).(StorageAccountConfigurationOutput)
+	return o.ApplyT(func(v *StorageAccountConfiguration) StorageAccountConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountConfiguration
+		return ret
+	}).(StorageAccountConfigurationOutput)
 }
 
-// The storage account access key.
 func (o StorageAccountConfigurationPtrOutput) StorageAccountKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountConfiguration) *string {
 		if v == nil {
@@ -1577,7 +1486,6 @@ func (o StorageAccountConfigurationPtrOutput) StorageAccountKey() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage account name.
 func (o StorageAccountConfigurationPtrOutput) StorageAccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountConfiguration) *string {
 		if v == nil {
@@ -1587,11 +1495,8 @@ func (o StorageAccountConfigurationPtrOutput) StorageAccountName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
 type StorageAccountConfigurationResponse struct {
-	// The storage account access key.
-	StorageAccountKey *string `pulumi:"storageAccountKey"`
-	// The storage account name.
+	StorageAccountKey  *string `pulumi:"storageAccountKey"`
 	StorageAccountName *string `pulumi:"storageAccountName"`
 }
 
@@ -1606,11 +1511,8 @@ type StorageAccountConfigurationResponseInput interface {
 	ToStorageAccountConfigurationResponseOutputWithContext(context.Context) StorageAccountConfigurationResponseOutput
 }
 
-// Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
 type StorageAccountConfigurationResponseArgs struct {
-	// The storage account access key.
-	StorageAccountKey pulumi.StringPtrInput `pulumi:"storageAccountKey"`
-	// The storage account name.
+	StorageAccountKey  pulumi.StringPtrInput `pulumi:"storageAccountKey"`
 	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
 }
 
@@ -1667,7 +1569,6 @@ func (i *storageAccountConfigurationResponsePtrType) ToStorageAccountConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountConfigurationResponsePtrOutput)
 }
 
-// Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
 type StorageAccountConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1687,17 +1588,15 @@ func (o StorageAccountConfigurationResponseOutput) ToStorageAccountConfiguration
 }
 
 func (o StorageAccountConfigurationResponseOutput) ToStorageAccountConfigurationResponsePtrOutputWithContext(ctx context.Context) StorageAccountConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v StorageAccountConfigurationResponse) *StorageAccountConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountConfigurationResponse) *StorageAccountConfigurationResponse {
 		return &v
 	}).(StorageAccountConfigurationResponsePtrOutput)
 }
 
-// The storage account access key.
 func (o StorageAccountConfigurationResponseOutput) StorageAccountKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccountConfigurationResponse) *string { return v.StorageAccountKey }).(pulumi.StringPtrOutput)
 }
 
-// The storage account name.
 func (o StorageAccountConfigurationResponseOutput) StorageAccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccountConfigurationResponse) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
 }
@@ -1717,10 +1616,15 @@ func (o StorageAccountConfigurationResponsePtrOutput) ToStorageAccountConfigurat
 }
 
 func (o StorageAccountConfigurationResponsePtrOutput) Elem() StorageAccountConfigurationResponseOutput {
-	return o.ApplyT(func(v *StorageAccountConfigurationResponse) StorageAccountConfigurationResponse { return *v }).(StorageAccountConfigurationResponseOutput)
+	return o.ApplyT(func(v *StorageAccountConfigurationResponse) StorageAccountConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountConfigurationResponse
+		return ret
+	}).(StorageAccountConfigurationResponseOutput)
 }
 
-// The storage account access key.
 func (o StorageAccountConfigurationResponsePtrOutput) StorageAccountKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountConfigurationResponse) *string {
 		if v == nil {
@@ -1730,7 +1634,6 @@ func (o StorageAccountConfigurationResponsePtrOutput) StorageAccountKey() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage account name.
 func (o StorageAccountConfigurationResponsePtrOutput) StorageAccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountConfigurationResponse) *string {
 		if v == nil {
@@ -1740,19 +1643,12 @@ func (o StorageAccountConfigurationResponsePtrOutput) StorageAccountName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -1767,19 +1663,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1836,7 +1725,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1856,37 +1744,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1906,10 +1788,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1919,7 +1806,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1929,7 +1815,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1939,7 +1824,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1949,7 +1833,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1959,7 +1842,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1969,11 +1851,8 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityResponse struct {
-	// Client App Id associated with this identity.
-	ClientId string `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this identity.
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
 }
 
@@ -1988,11 +1867,8 @@ type UserAssignedIdentityResponseInput interface {
 	ToUserAssignedIdentityResponseOutputWithContext(context.Context) UserAssignedIdentityResponseOutput
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityResponseArgs struct {
-	// Client App Id associated with this identity.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this identity.
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
@@ -2033,7 +1909,6 @@ func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseMapOutput)
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
@@ -2048,12 +1923,10 @@ func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput
 	return o
 }
 
-// Client App Id associated with this identity.
 func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// Azure Active Directory principal ID associated with this identity.
 func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }

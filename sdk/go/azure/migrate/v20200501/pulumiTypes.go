@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties of Connection state request.
 type ConnectionStateRequestBodyProperties struct {
-	// Private endpoint connection state.
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -27,9 +25,7 @@ type ConnectionStateRequestBodyPropertiesInput interface {
 	ToConnectionStateRequestBodyPropertiesOutputWithContext(context.Context) ConnectionStateRequestBodyPropertiesOutput
 }
 
-// Properties of Connection state request.
 type ConnectionStateRequestBodyPropertiesArgs struct {
-	// Private endpoint connection state.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -86,7 +82,6 @@ func (i *connectionStateRequestBodyPropertiesPtrType) ToConnectionStateRequestBo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStateRequestBodyPropertiesPtrOutput)
 }
 
-// Properties of Connection state request.
 type ConnectionStateRequestBodyPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectionStateRequestBodyPropertiesOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o ConnectionStateRequestBodyPropertiesOutput) ToConnectionStateRequestBody
 }
 
 func (o ConnectionStateRequestBodyPropertiesOutput) ToConnectionStateRequestBodyPropertiesPtrOutputWithContext(ctx context.Context) ConnectionStateRequestBodyPropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectionStateRequestBodyProperties) *ConnectionStateRequestBodyProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionStateRequestBodyProperties) *ConnectionStateRequestBodyProperties {
 		return &v
 	}).(ConnectionStateRequestBodyPropertiesPtrOutput)
 }
 
-// Private endpoint connection state.
 func (o ConnectionStateRequestBodyPropertiesOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
 	return o.ApplyT(func(v ConnectionStateRequestBodyProperties) *PrivateLinkServiceConnectionState {
 		return v.PrivateLinkServiceConnectionState
@@ -133,10 +127,15 @@ func (o ConnectionStateRequestBodyPropertiesPtrOutput) ToConnectionStateRequestB
 }
 
 func (o ConnectionStateRequestBodyPropertiesPtrOutput) Elem() ConnectionStateRequestBodyPropertiesOutput {
-	return o.ApplyT(func(v *ConnectionStateRequestBodyProperties) ConnectionStateRequestBodyProperties { return *v }).(ConnectionStateRequestBodyPropertiesOutput)
+	return o.ApplyT(func(v *ConnectionStateRequestBodyProperties) ConnectionStateRequestBodyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionStateRequestBodyProperties
+		return ret
+	}).(ConnectionStateRequestBodyPropertiesOutput)
 }
 
-// Private endpoint connection state.
 func (o ConnectionStateRequestBodyPropertiesPtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
 	return o.ApplyT(func(v *ConnectionStateRequestBodyProperties) *PrivateLinkServiceConnectionState {
 		if v == nil {
@@ -146,13 +145,9 @@ func (o ConnectionStateRequestBodyPropertiesPtrOutput) PrivateLinkServiceConnect
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Properties of a migrate project.
 type MigrateProjectProperties struct {
-	// Gets or sets the state of public network access.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Service endpoint.
-	ServiceEndpoint *string `pulumi:"serviceEndpoint"`
-	// Utility storage account id.
+	PublicNetworkAccess     *string `pulumi:"publicNetworkAccess"`
+	ServiceEndpoint         *string `pulumi:"serviceEndpoint"`
 	UtilityStorageAccountId *string `pulumi:"utilityStorageAccountId"`
 }
 
@@ -167,13 +162,9 @@ type MigrateProjectPropertiesInput interface {
 	ToMigrateProjectPropertiesOutputWithContext(context.Context) MigrateProjectPropertiesOutput
 }
 
-// Properties of a migrate project.
 type MigrateProjectPropertiesArgs struct {
-	// Gets or sets the state of public network access.
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-	// Service endpoint.
-	ServiceEndpoint pulumi.StringPtrInput `pulumi:"serviceEndpoint"`
-	// Utility storage account id.
+	PublicNetworkAccess     pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+	ServiceEndpoint         pulumi.StringPtrInput `pulumi:"serviceEndpoint"`
 	UtilityStorageAccountId pulumi.StringPtrInput `pulumi:"utilityStorageAccountId"`
 }
 
@@ -230,7 +221,6 @@ func (i *migrateProjectPropertiesPtrType) ToMigrateProjectPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectPropertiesPtrOutput)
 }
 
-// Properties of a migrate project.
 type MigrateProjectPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectPropertiesOutput) ElementType() reflect.Type {
@@ -250,22 +240,19 @@ func (o MigrateProjectPropertiesOutput) ToMigrateProjectPropertiesPtrOutput() Mi
 }
 
 func (o MigrateProjectPropertiesOutput) ToMigrateProjectPropertiesPtrOutputWithContext(ctx context.Context) MigrateProjectPropertiesPtrOutput {
-	return o.ApplyT(func(v MigrateProjectProperties) *MigrateProjectProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateProjectProperties) *MigrateProjectProperties {
 		return &v
 	}).(MigrateProjectPropertiesPtrOutput)
 }
 
-// Gets or sets the state of public network access.
 func (o MigrateProjectPropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrateProjectProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
-// Service endpoint.
 func (o MigrateProjectPropertiesOutput) ServiceEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrateProjectProperties) *string { return v.ServiceEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// Utility storage account id.
 func (o MigrateProjectPropertiesOutput) UtilityStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrateProjectProperties) *string { return v.UtilityStorageAccountId }).(pulumi.StringPtrOutput)
 }
@@ -285,10 +272,15 @@ func (o MigrateProjectPropertiesPtrOutput) ToMigrateProjectPropertiesPtrOutputWi
 }
 
 func (o MigrateProjectPropertiesPtrOutput) Elem() MigrateProjectPropertiesOutput {
-	return o.ApplyT(func(v *MigrateProjectProperties) MigrateProjectProperties { return *v }).(MigrateProjectPropertiesOutput)
+	return o.ApplyT(func(v *MigrateProjectProperties) MigrateProjectProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MigrateProjectProperties
+		return ret
+	}).(MigrateProjectPropertiesOutput)
 }
 
-// Gets or sets the state of public network access.
 func (o MigrateProjectPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectProperties) *string {
 		if v == nil {
@@ -298,7 +290,6 @@ func (o MigrateProjectPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service endpoint.
 func (o MigrateProjectPropertiesPtrOutput) ServiceEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectProperties) *string {
 		if v == nil {
@@ -308,7 +299,6 @@ func (o MigrateProjectPropertiesPtrOutput) ServiceEndpoint() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Utility storage account id.
 func (o MigrateProjectPropertiesPtrOutput) UtilityStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectProperties) *string {
 		if v == nil {
@@ -318,24 +308,15 @@ func (o MigrateProjectPropertiesPtrOutput) UtilityStorageAccountId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a migrate project.
 type MigrateProjectPropertiesResponse struct {
-	// Last summary refresh time.
-	LastSummaryRefreshedTime string `pulumi:"lastSummaryRefreshedTime"`
-	// Gets the private endpoint connections.
+	LastSummaryRefreshedTime   string                              `pulumi:"lastSummaryRefreshedTime"`
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Gets or sets the state of public network access.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Refresh summary state.
-	RefreshSummaryState string `pulumi:"refreshSummaryState"`
-	// Register tools inside project.
-	RegisteredTools []string `pulumi:"registeredTools"`
-	// Service endpoint.
-	ServiceEndpoint *string `pulumi:"serviceEndpoint"`
-	// Project summary.
-	Summary map[string]ProjectSummaryResponse `pulumi:"summary"`
-	// Utility storage account id.
-	UtilityStorageAccountId *string `pulumi:"utilityStorageAccountId"`
+	PublicNetworkAccess        *string                             `pulumi:"publicNetworkAccess"`
+	RefreshSummaryState        string                              `pulumi:"refreshSummaryState"`
+	RegisteredTools            []string                            `pulumi:"registeredTools"`
+	ServiceEndpoint            *string                             `pulumi:"serviceEndpoint"`
+	Summary                    map[string]ProjectSummaryResponse   `pulumi:"summary"`
+	UtilityStorageAccountId    *string                             `pulumi:"utilityStorageAccountId"`
 }
 
 // MigrateProjectPropertiesResponseInput is an input type that accepts MigrateProjectPropertiesResponseArgs and MigrateProjectPropertiesResponseOutput values.
@@ -349,24 +330,15 @@ type MigrateProjectPropertiesResponseInput interface {
 	ToMigrateProjectPropertiesResponseOutputWithContext(context.Context) MigrateProjectPropertiesResponseOutput
 }
 
-// Properties of a migrate project.
 type MigrateProjectPropertiesResponseArgs struct {
-	// Last summary refresh time.
-	LastSummaryRefreshedTime pulumi.StringInput `pulumi:"lastSummaryRefreshedTime"`
-	// Gets the private endpoint connections.
+	LastSummaryRefreshedTime   pulumi.StringInput                          `pulumi:"lastSummaryRefreshedTime"`
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput `pulumi:"privateEndpointConnections"`
-	// Gets or sets the state of public network access.
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-	// Refresh summary state.
-	RefreshSummaryState pulumi.StringInput `pulumi:"refreshSummaryState"`
-	// Register tools inside project.
-	RegisteredTools pulumi.StringArrayInput `pulumi:"registeredTools"`
-	// Service endpoint.
-	ServiceEndpoint pulumi.StringPtrInput `pulumi:"serviceEndpoint"`
-	// Project summary.
-	Summary ProjectSummaryResponseMapInput `pulumi:"summary"`
-	// Utility storage account id.
-	UtilityStorageAccountId pulumi.StringPtrInput `pulumi:"utilityStorageAccountId"`
+	PublicNetworkAccess        pulumi.StringPtrInput                       `pulumi:"publicNetworkAccess"`
+	RefreshSummaryState        pulumi.StringInput                          `pulumi:"refreshSummaryState"`
+	RegisteredTools            pulumi.StringArrayInput                     `pulumi:"registeredTools"`
+	ServiceEndpoint            pulumi.StringPtrInput                       `pulumi:"serviceEndpoint"`
+	Summary                    ProjectSummaryResponseMapInput              `pulumi:"summary"`
+	UtilityStorageAccountId    pulumi.StringPtrInput                       `pulumi:"utilityStorageAccountId"`
 }
 
 func (MigrateProjectPropertiesResponseArgs) ElementType() reflect.Type {
@@ -422,7 +394,6 @@ func (i *migrateProjectPropertiesResponsePtrType) ToMigrateProjectPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectPropertiesResponsePtrOutput)
 }
 
-// Properties of a migrate project.
 type MigrateProjectPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectPropertiesResponseOutput) ElementType() reflect.Type {
@@ -442,49 +413,41 @@ func (o MigrateProjectPropertiesResponseOutput) ToMigrateProjectPropertiesRespon
 }
 
 func (o MigrateProjectPropertiesResponseOutput) ToMigrateProjectPropertiesResponsePtrOutputWithContext(ctx context.Context) MigrateProjectPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MigrateProjectPropertiesResponse) *MigrateProjectPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateProjectPropertiesResponse) *MigrateProjectPropertiesResponse {
 		return &v
 	}).(MigrateProjectPropertiesResponsePtrOutput)
 }
 
-// Last summary refresh time.
 func (o MigrateProjectPropertiesResponseOutput) LastSummaryRefreshedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) string { return v.LastSummaryRefreshedTime }).(pulumi.StringOutput)
 }
 
-// Gets the private endpoint connections.
 func (o MigrateProjectPropertiesResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) []PrivateEndpointConnectionResponse {
 		return v.PrivateEndpointConnections
 	}).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// Gets or sets the state of public network access.
 func (o MigrateProjectPropertiesResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
-// Refresh summary state.
 func (o MigrateProjectPropertiesResponseOutput) RefreshSummaryState() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) string { return v.RefreshSummaryState }).(pulumi.StringOutput)
 }
 
-// Register tools inside project.
 func (o MigrateProjectPropertiesResponseOutput) RegisteredTools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) []string { return v.RegisteredTools }).(pulumi.StringArrayOutput)
 }
 
-// Service endpoint.
 func (o MigrateProjectPropertiesResponseOutput) ServiceEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) *string { return v.ServiceEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// Project summary.
 func (o MigrateProjectPropertiesResponseOutput) Summary() ProjectSummaryResponseMapOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) map[string]ProjectSummaryResponse { return v.Summary }).(ProjectSummaryResponseMapOutput)
 }
 
-// Utility storage account id.
 func (o MigrateProjectPropertiesResponseOutput) UtilityStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) *string { return v.UtilityStorageAccountId }).(pulumi.StringPtrOutput)
 }
@@ -504,10 +467,15 @@ func (o MigrateProjectPropertiesResponsePtrOutput) ToMigrateProjectPropertiesRes
 }
 
 func (o MigrateProjectPropertiesResponsePtrOutput) Elem() MigrateProjectPropertiesResponseOutput {
-	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) MigrateProjectPropertiesResponse { return *v }).(MigrateProjectPropertiesResponseOutput)
+	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) MigrateProjectPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MigrateProjectPropertiesResponse
+		return ret
+	}).(MigrateProjectPropertiesResponseOutput)
 }
 
-// Last summary refresh time.
 func (o MigrateProjectPropertiesResponsePtrOutput) LastSummaryRefreshedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) *string {
 		if v == nil {
@@ -517,7 +485,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) LastSummaryRefreshedTime() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the private endpoint connections.
 func (o MigrateProjectPropertiesResponsePtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) []PrivateEndpointConnectionResponse {
 		if v == nil {
@@ -527,7 +494,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) PrivateEndpointConnections() 
 	}).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// Gets or sets the state of public network access.
 func (o MigrateProjectPropertiesResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) *string {
 		if v == nil {
@@ -537,7 +503,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) PublicNetworkAccess() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Refresh summary state.
 func (o MigrateProjectPropertiesResponsePtrOutput) RefreshSummaryState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) *string {
 		if v == nil {
@@ -547,7 +512,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) RefreshSummaryState() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Register tools inside project.
 func (o MigrateProjectPropertiesResponsePtrOutput) RegisteredTools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) []string {
 		if v == nil {
@@ -557,7 +521,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) RegisteredTools() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// Service endpoint.
 func (o MigrateProjectPropertiesResponsePtrOutput) ServiceEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) *string {
 		if v == nil {
@@ -567,7 +530,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) ServiceEndpoint() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Project summary.
 func (o MigrateProjectPropertiesResponsePtrOutput) Summary() ProjectSummaryResponseMapOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) map[string]ProjectSummaryResponse {
 		if v == nil {
@@ -577,7 +539,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) Summary() ProjectSummaryRespo
 	}).(ProjectSummaryResponseMapOutput)
 }
 
-// Utility storage account id.
 func (o MigrateProjectPropertiesResponsePtrOutput) UtilityStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) *string {
 		if v == nil {
@@ -587,13 +548,10 @@ func (o MigrateProjectPropertiesResponsePtrOutput) UtilityStorageAccountId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a private endpoint connection.
 type PrivateEndpointConnectionPropertiesResponse struct {
-	PrivateEndpoint ResourceIdResponse `pulumi:"privateEndpoint"`
-	// Gets the properties of the object.
+	PrivateEndpoint                   ResourceIdResponse                         `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState                 string                                     `pulumi:"provisioningState"`
 }
 
 // PrivateEndpointConnectionPropertiesResponseInput is an input type that accepts PrivateEndpointConnectionPropertiesResponseArgs and PrivateEndpointConnectionPropertiesResponseOutput values.
@@ -607,13 +565,10 @@ type PrivateEndpointConnectionPropertiesResponseInput interface {
 	ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponseOutput
 }
 
-// Properties of a private endpoint connection.
 type PrivateEndpointConnectionPropertiesResponseArgs struct {
-	PrivateEndpoint ResourceIdResponseInput `pulumi:"privateEndpoint"`
-	// Gets the properties of the object.
+	PrivateEndpoint                   ResourceIdResponseInput                           `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	ProvisioningState                 pulumi.StringInput                                `pulumi:"provisioningState"`
 }
 
 func (PrivateEndpointConnectionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -669,7 +624,6 @@ func (i *privateEndpointConnectionPropertiesResponsePtrType) ToPrivateEndpointCo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-// Properties of a private endpoint connection.
 type PrivateEndpointConnectionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -689,22 +643,21 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConn
 }
 
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
+
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateEndpoint() ResourceIdResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) ResourceIdResponse { return v.PrivateEndpoint }).(ResourceIdResponseOutput)
 }
 
-// Gets the properties of the object.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Provisioning state.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -725,7 +678,11 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ToPrivateEndpointC
 
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) Elem() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) PrivateEndpointConnectionPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionPropertiesResponse
+		return ret
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
@@ -738,7 +695,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateEndpoint() 
 	}).(ResourceIdResponsePtrOutput)
 }
 
-// Gets the properties of the object.
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *PrivateLinkServiceConnectionStateResponse {
 		if v == nil {
@@ -748,7 +704,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkService
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Provisioning state.
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *string {
 		if v == nil {
@@ -758,20 +713,13 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ProvisioningState(
 	}).(pulumi.StringPtrOutput)
 }
 
-// REST model used to encapsulate the user visible state of a PrivateEndpoint.
 type PrivateEndpointConnectionResponse struct {
-	// Gets the tag for optimistic concurrency control.
-	ETag string `pulumi:"eTag"`
-	// Relative URL to get this Sites.
-	Id string `pulumi:"id"`
-	// Gets the name of the resource.
-	Name string `pulumi:"name"`
-	// Gets the properties of the object.
+	ETag       string                                      `pulumi:"eTag"`
+	Id         string                                      `pulumi:"id"`
+	Name       string                                      `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
+	SystemData SystemDataResponse                          `pulumi:"systemData"`
+	Type       string                                      `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -785,20 +733,13 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// REST model used to encapsulate the user visible state of a PrivateEndpoint.
 type PrivateEndpointConnectionResponseArgs struct {
-	// Gets the tag for optimistic concurrency control.
-	ETag pulumi.StringInput `pulumi:"eTag"`
-	// Relative URL to get this Sites.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Gets the name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets the properties of the object.
+	ETag       pulumi.StringInput                               `pulumi:"eTag"`
+	Id         pulumi.StringInput                               `pulumi:"id"`
+	Name       pulumi.StringInput                               `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
-	// Gets the resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	SystemData SystemDataResponseInput                          `pulumi:"systemData"`
+	Type       pulumi.StringInput                               `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -838,7 +779,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// REST model used to encapsulate the user visible state of a PrivateEndpoint.
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -853,34 +793,28 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// Gets the tag for optimistic concurrency control.
 func (o PrivateEndpointConnectionResponseOutput) ETag() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ETag }).(pulumi.StringOutput)
 }
 
-// Relative URL to get this Sites.
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Gets the name of the resource.
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Gets the properties of the object.
 func (o PrivateEndpointConnectionResponseOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateEndpointConnectionPropertiesResponse {
 		return v.Properties
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 func (o PrivateEndpointConnectionResponseOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// Gets the resource type.
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -905,14 +839,10 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// Private endpoint connection state.
 type PrivateLinkServiceConnectionState struct {
-	// Action required.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// Description of the object.
-	Description *string `pulumi:"description"`
-	// Private link connection state.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -926,14 +856,10 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// Private endpoint connection state.
 type PrivateLinkServiceConnectionStateArgs struct {
-	// Action required.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// Description of the object.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Private link connection state.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -989,7 +915,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Private endpoint connection state.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -1009,22 +934,19 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Action required.
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// Description of the object.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Private link connection state.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1044,10 +966,15 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// Action required.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1057,7 +984,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of the object.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1067,7 +993,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private link connection state.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1077,14 +1002,10 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private endpoint connection state.
 type PrivateLinkServiceConnectionStateResponse struct {
-	// Action required.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// Description of the object.
-	Description *string `pulumi:"description"`
-	// Private link connection state.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -1098,14 +1019,10 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// Private endpoint connection state.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// Action required.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// Description of the object.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Private link connection state.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -1161,7 +1078,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Private endpoint connection state.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -1181,22 +1097,19 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Action required.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// Description of the object.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Private link connection state.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1217,11 +1130,14 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// Action required.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1231,7 +1147,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of the object.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1241,7 +1156,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private link connection state.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1251,16 +1165,11 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Project summary.
 type ProjectSummaryResponse struct {
-	// Extended summary.
-	ExtendedSummary map[string]string `pulumi:"extendedSummary"`
-	// Instance type.
-	InstanceType string `pulumi:"instanceType"`
-	// Last summary refresh time.
-	LastSummaryRefreshedTime *string `pulumi:"lastSummaryRefreshedTime"`
-	// Refresh summary state.
-	RefreshSummaryState *string `pulumi:"refreshSummaryState"`
+	ExtendedSummary          map[string]string `pulumi:"extendedSummary"`
+	InstanceType             string            `pulumi:"instanceType"`
+	LastSummaryRefreshedTime *string           `pulumi:"lastSummaryRefreshedTime"`
+	RefreshSummaryState      *string           `pulumi:"refreshSummaryState"`
 }
 
 // ProjectSummaryResponseInput is an input type that accepts ProjectSummaryResponseArgs and ProjectSummaryResponseOutput values.
@@ -1274,16 +1183,11 @@ type ProjectSummaryResponseInput interface {
 	ToProjectSummaryResponseOutputWithContext(context.Context) ProjectSummaryResponseOutput
 }
 
-// Project summary.
 type ProjectSummaryResponseArgs struct {
-	// Extended summary.
-	ExtendedSummary pulumi.StringMapInput `pulumi:"extendedSummary"`
-	// Instance type.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// Last summary refresh time.
+	ExtendedSummary          pulumi.StringMapInput `pulumi:"extendedSummary"`
+	InstanceType             pulumi.StringInput    `pulumi:"instanceType"`
 	LastSummaryRefreshedTime pulumi.StringPtrInput `pulumi:"lastSummaryRefreshedTime"`
-	// Refresh summary state.
-	RefreshSummaryState pulumi.StringPtrInput `pulumi:"refreshSummaryState"`
+	RefreshSummaryState      pulumi.StringPtrInput `pulumi:"refreshSummaryState"`
 }
 
 func (ProjectSummaryResponseArgs) ElementType() reflect.Type {
@@ -1323,7 +1227,6 @@ func (i ProjectSummaryResponseMap) ToProjectSummaryResponseMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectSummaryResponseMapOutput)
 }
 
-// Project summary.
 type ProjectSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (ProjectSummaryResponseOutput) ElementType() reflect.Type {
@@ -1338,22 +1241,18 @@ func (o ProjectSummaryResponseOutput) ToProjectSummaryResponseOutputWithContext(
 	return o
 }
 
-// Extended summary.
 func (o ProjectSummaryResponseOutput) ExtendedSummary() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ProjectSummaryResponse) map[string]string { return v.ExtendedSummary }).(pulumi.StringMapOutput)
 }
 
-// Instance type.
 func (o ProjectSummaryResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Last summary refresh time.
 func (o ProjectSummaryResponseOutput) LastSummaryRefreshedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSummaryResponse) *string { return v.LastSummaryRefreshedTime }).(pulumi.StringPtrOutput)
 }
 
-// Refresh summary state.
 func (o ProjectSummaryResponseOutput) RefreshSummaryState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSummaryResponse) *string { return v.RefreshSummaryState }).(pulumi.StringPtrOutput)
 }
@@ -1469,10 +1368,11 @@ func (o ResourceIdResponseOutput) ToResourceIdResponsePtrOutput() ResourceIdResp
 }
 
 func (o ResourceIdResponseOutput) ToResourceIdResponsePtrOutputWithContext(ctx context.Context) ResourceIdResponsePtrOutput {
-	return o.ApplyT(func(v ResourceIdResponse) *ResourceIdResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdResponse) *ResourceIdResponse {
 		return &v
 	}).(ResourceIdResponsePtrOutput)
 }
+
 func (o ResourceIdResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceIdResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -1492,7 +1392,13 @@ func (o ResourceIdResponsePtrOutput) ToResourceIdResponsePtrOutputWithContext(ct
 }
 
 func (o ResourceIdResponsePtrOutput) Elem() ResourceIdResponseOutput {
-	return o.ApplyT(func(v *ResourceIdResponse) ResourceIdResponse { return *v }).(ResourceIdResponseOutput)
+	return o.ApplyT(func(v *ResourceIdResponse) ResourceIdResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdResponse
+		return ret
+	}).(ResourceIdResponseOutput)
 }
 
 func (o ResourceIdResponsePtrOutput) Id() pulumi.StringPtrOutput {
@@ -1504,19 +1410,12 @@ func (o ResourceIdResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The type of identity that last modified the resource.
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -1531,19 +1430,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The type of identity that last modified the resource.
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1600,7 +1492,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1620,37 +1511,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1670,10 +1555,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1683,7 +1573,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1693,7 +1582,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1703,7 +1591,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1713,7 +1600,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1723,7 +1609,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SpatialAnchorsAccount Response.
 func LookupSpatialAnchorsAccount(ctx *pulumi.Context, args *LookupSpatialAnchorsAccountArgs, opts ...pulumi.InvokeOption) (*LookupSpatialAnchorsAccountResult, error) {
 	var rv LookupSpatialAnchorsAccountResult
 	err := ctx.Invoke("azure-native:mixedreality/v20191202preview:getSpatialAnchorsAccount", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupSpatialAnchorsAccount(ctx *pulumi.Context, args *LookupSpatialAnchors
 }
 
 type LookupSpatialAnchorsAccountArgs struct {
-	// Name of an Mixed Reality Account.
-	AccountName string `pulumi:"accountName"`
-	// Name of an Azure resource group.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // SpatialAnchorsAccount Response.
 type LookupSpatialAnchorsAccountResult struct {
-	// Correspond domain name of certain Spatial Anchors Account
-	AccountDomain string `pulumi:"accountDomain"`
-	// unique id of certain account.
-	AccountId string `pulumi:"accountId"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The identity associated with this account
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	AccountDomain string            `pulumi:"accountDomain"`
+	AccountId     string            `pulumi:"accountId"`
+	Id            string            `pulumi:"id"`
+	Identity      *IdentityResponse `pulumi:"identity"`
+	Location      string            `pulumi:"location"`
+	Name          string            `pulumi:"name"`
+	Tags          map[string]string `pulumi:"tags"`
+	Type          string            `pulumi:"type"`
 }

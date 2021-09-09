@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource information, as returned by the resource provider.
 type Vault struct {
 	pulumi.CustomResourceState
 
-	// Optional ETag.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Identity for the resource.
-	Identity IdentityDataResponsePtrOutput `pulumi:"identity"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the vault.
+	ETag       pulumi.StringPtrOutput        `pulumi:"eTag"`
+	Identity   IdentityDataResponsePtrOutput `pulumi:"identity"`
+	Location   pulumi.StringOutput           `pulumi:"location"`
+	Name       pulumi.StringOutput           `pulumi:"name"`
 	Properties VaultPropertiesResponseOutput `pulumi:"properties"`
-	// Identifies the unique system identifier for each Azure resource.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        SkuResponsePtrOutput          `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput        `pulumi:"tags"`
+	Type       pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewVault registers a new resource with the given unique name, arguments, and options.
@@ -135,38 +126,24 @@ func (VaultState) ElementType() reflect.Type {
 }
 
 type vaultArgs struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Identity for the resource.
-	Identity *IdentityData `pulumi:"identity"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Identifies the unique system identifier for each Azure resource.
-	Sku *Sku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the recovery services vault.
-	VaultName *string `pulumi:"vaultName"`
+	ETag              *string           `pulumi:"eTag"`
+	Identity          *IdentityData     `pulumi:"identity"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               *Sku              `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
+	VaultName         *string           `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a Vault resource.
 type VaultArgs struct {
-	// Optional ETag.
-	ETag pulumi.StringPtrInput
-	// Identity for the resource.
-	Identity IdentityDataPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group where the recovery services vault is present.
+	ETag              pulumi.StringPtrInput
+	Identity          IdentityDataPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Identifies the unique system identifier for each Azure resource.
-	Sku SkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the recovery services vault.
-	VaultName pulumi.StringPtrInput
+	Sku               SkuPtrInput
+	Tags              pulumi.StringMapInput
+	VaultName         pulumi.StringPtrInput
 }
 
 func (VaultArgs) ElementType() reflect.Type {
@@ -192,9 +169,7 @@ func (i *Vault) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultOutput)
 }
 
-type VaultOutput struct {
-	*pulumi.OutputState
-}
+type VaultOutput struct{ *pulumi.OutputState }
 
 func (VaultOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Vault)(nil))

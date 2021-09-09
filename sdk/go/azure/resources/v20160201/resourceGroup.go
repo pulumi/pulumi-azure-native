@@ -10,18 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource group information.
 type ResourceGroup struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource group. It cannot be changed after the resource group has been created. Has to be one of the supported Azure Locations, such as West US, East US, West Europe, East Asia, etc.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The Name of the resource group.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The resource group properties.
+	Location   pulumi.StringOutput                   `pulumi:"location"`
+	Name       pulumi.StringPtrOutput                `pulumi:"name"`
 	Properties ResourceGroupPropertiesResponseOutput `pulumi:"properties"`
-	// The tags attached to the resource group.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags       pulumi.StringMapOutput                `pulumi:"tags"`
 }
 
 // NewResourceGroup registers a new resource with the given unique name, arguments, and options.
@@ -177,26 +172,18 @@ func (ResourceGroupState) ElementType() reflect.Type {
 }
 
 type resourceGroupArgs struct {
-	// The location of the resource group. It cannot be changed after the resource group has been created. Has to be one of the supported Azure Locations, such as West US, East US, West Europe, East Asia, etc.
-	Location *string `pulumi:"location"`
-	// The Name of the resource group.
-	Name *string `pulumi:"name"`
-	// The name of the resource group to be created or updated.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The tags attached to the resource group.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string           `pulumi:"location"`
+	Name              *string           `pulumi:"name"`
+	ResourceGroupName *string           `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceGroup resource.
 type ResourceGroupArgs struct {
-	// The location of the resource group. It cannot be changed after the resource group has been created. Has to be one of the supported Azure Locations, such as West US, East US, West Europe, East Asia, etc.
-	Location pulumi.StringPtrInput
-	// The Name of the resource group.
-	Name pulumi.StringPtrInput
-	// The name of the resource group to be created or updated.
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringPtrInput
-	// The tags attached to the resource group.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ResourceGroupArgs) ElementType() reflect.Type {
@@ -222,9 +209,7 @@ func (i *ResourceGroup) ToResourceGroupOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupOutput)
 }
 
-type ResourceGroupOutput struct {
-	*pulumi.OutputState
-}
+type ResourceGroupOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceGroup)(nil))

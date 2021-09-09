@@ -260,7 +260,7 @@ type webAppArgs struct {
 	// - ClientCertEnabled: false means ClientCert is ignored.
 	// - ClientCertEnabled: true and ClientCertMode: Required means ClientCert is required.
 	// - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
-	ClientCertMode *string `pulumi:"clientCertMode"`
+	ClientCertMode *ClientCertMode `pulumi:"clientCertMode"`
 	// If specified during app creation, the app is cloned from a source app.
 	CloningInfo *CloningInfo `pulumi:"cloningInfo"`
 	// Size of the function container.
@@ -296,7 +296,7 @@ type webAppArgs struct {
 	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
 	Name *string `pulumi:"name"`
 	// Site redundancy mode
-	RedundancyMode *string `pulumi:"redundancyMode"`
+	RedundancyMode *RedundancyMode `pulumi:"redundancyMode"`
 	// <code>true</code> if reserved; otherwise, <code>false</code>.
 	Reserved *bool `pulumi:"reserved"`
 	// Name of the resource group to which the resource belongs.
@@ -328,7 +328,7 @@ type WebAppArgs struct {
 	// - ClientCertEnabled: false means ClientCert is ignored.
 	// - ClientCertEnabled: true and ClientCertMode: Required means ClientCert is required.
 	// - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
-	ClientCertMode *ClientCertMode
+	ClientCertMode ClientCertModePtrInput
 	// If specified during app creation, the app is cloned from a source app.
 	CloningInfo CloningInfoPtrInput
 	// Size of the function container.
@@ -364,7 +364,7 @@ type WebAppArgs struct {
 	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
 	Name pulumi.StringPtrInput
 	// Site redundancy mode
-	RedundancyMode *RedundancyMode
+	RedundancyMode RedundancyModePtrInput
 	// <code>true</code> if reserved; otherwise, <code>false</code>.
 	Reserved pulumi.BoolPtrInput
 	// Name of the resource group to which the resource belongs.
@@ -407,9 +407,7 @@ func (i *WebApp) ToWebAppOutputWithContext(ctx context.Context) WebAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppOutput)
 }
 
-type WebAppOutput struct {
-	*pulumi.OutputState
-}
+type WebAppOutput struct{ *pulumi.OutputState }
 
 func (WebAppOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebApp)(nil))

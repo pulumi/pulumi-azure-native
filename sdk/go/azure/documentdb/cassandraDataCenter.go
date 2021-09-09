@@ -138,9 +138,7 @@ func (i *CassandraDataCenter) ToCassandraDataCenterOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraDataCenterOutput)
 }
 
-type CassandraDataCenterOutput struct {
-	*pulumi.OutputState
-}
+type CassandraDataCenterOutput struct{ *pulumi.OutputState }
 
 func (CassandraDataCenterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CassandraDataCenter)(nil))

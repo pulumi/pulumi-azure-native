@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// FirewallPolicy Resource.
 func LookupFirewallPolicy(ctx *pulumi.Context, args *LookupFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*LookupFirewallPolicyResult, error) {
 	var rv LookupFirewallPolicyResult
 	err := ctx.Invoke("azure-native:network/v20200301:getFirewallPolicy", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupFirewallPolicy(ctx *pulumi.Context, args *LookupFirewallPolicyArgs, o
 }
 
 type LookupFirewallPolicyArgs struct {
-	// Expands referenced resources.
-	Expand *string `pulumi:"expand"`
-	// The name of the Firewall Policy.
-	FirewallPolicyName string `pulumi:"firewallPolicyName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand             *string `pulumi:"expand"`
+	FirewallPolicyName string  `pulumi:"firewallPolicyName"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
 }
 
 // FirewallPolicy Resource.
 type LookupFirewallPolicyResult struct {
-	// The parent firewall policy from which rules are inherited.
-	BasePolicy *SubResourceResponse `pulumi:"basePolicy"`
-	// List of references to Child Firewall Policies.
-	ChildPolicies []SubResourceResponse `pulumi:"childPolicies"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// List of references to Azure Firewalls that this Firewall Policy is associated with.
-	Firewalls []SubResourceResponse `pulumi:"firewalls"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the firewall policy resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// List of references to FirewallPolicyRuleGroups.
-	RuleGroups []SubResourceResponse `pulumi:"ruleGroups"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The operation mode for Threat Intelligence.
-	ThreatIntelMode *string `pulumi:"threatIntelMode"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	BasePolicy        *SubResourceResponse  `pulumi:"basePolicy"`
+	ChildPolicies     []SubResourceResponse `pulumi:"childPolicies"`
+	Etag              string                `pulumi:"etag"`
+	Firewalls         []SubResourceResponse `pulumi:"firewalls"`
+	Id                *string               `pulumi:"id"`
+	Location          *string               `pulumi:"location"`
+	Name              string                `pulumi:"name"`
+	ProvisioningState string                `pulumi:"provisioningState"`
+	RuleGroups        []SubResourceResponse `pulumi:"ruleGroups"`
+	Tags              map[string]string     `pulumi:"tags"`
+	ThreatIntelMode   *string               `pulumi:"threatIntelMode"`
+	Type              string                `pulumi:"type"`
 }

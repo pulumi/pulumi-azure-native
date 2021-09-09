@@ -11,52 +11,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Registered Server resource.
 type RegisteredServer struct {
 	pulumi.CustomResourceState
 
-	// Registered Server Agent Version
-	AgentVersion pulumi.StringPtrOutput `pulumi:"agentVersion"`
-	// Registered Server clusterId
-	ClusterId pulumi.StringPtrOutput `pulumi:"clusterId"`
-	// Registered Server clusterName
-	ClusterName pulumi.StringPtrOutput `pulumi:"clusterName"`
-	// Resource discoveryEndpointUri
-	DiscoveryEndpointUri pulumi.StringPtrOutput `pulumi:"discoveryEndpointUri"`
-	// Friendly Name
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// Registered Server last heart beat
-	LastHeartBeat pulumi.StringPtrOutput `pulumi:"lastHeartBeat"`
-	// Resource Last Operation Name
-	LastOperationName pulumi.StringPtrOutput `pulumi:"lastOperationName"`
-	// Registered Server lastWorkflowId
-	LastWorkflowId pulumi.StringPtrOutput `pulumi:"lastWorkflowId"`
-	// Management Endpoint Uri
-	ManagementEndpointUri pulumi.StringPtrOutput `pulumi:"managementEndpointUri"`
-	// Monitoring Configuration
-	MonitoringConfiguration pulumi.StringPtrOutput `pulumi:"monitoringConfiguration"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Registered Server Provisioning State
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Resource Location
-	ResourceLocation pulumi.StringPtrOutput `pulumi:"resourceLocation"`
-	// Registered Server Certificate
-	ServerCertificate pulumi.StringPtrOutput `pulumi:"serverCertificate"`
-	// Registered Server serverId
-	ServerId pulumi.StringPtrOutput `pulumi:"serverId"`
-	// Registered Server Management Error Code
-	ServerManagementErrorCode pulumi.IntPtrOutput `pulumi:"serverManagementErrorCode"`
-	// Registered Server OS Version
-	ServerOSVersion pulumi.StringPtrOutput `pulumi:"serverOSVersion"`
-	// Registered Server serverRole
-	ServerRole pulumi.StringPtrOutput `pulumi:"serverRole"`
-	// Service Location
-	ServiceLocation pulumi.StringPtrOutput `pulumi:"serviceLocation"`
-	// Registered Server storageSyncServiceUid
-	StorageSyncServiceUid pulumi.StringPtrOutput `pulumi:"storageSyncServiceUid"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AgentVersion              pulumi.StringPtrOutput `pulumi:"agentVersion"`
+	ClusterId                 pulumi.StringPtrOutput `pulumi:"clusterId"`
+	ClusterName               pulumi.StringPtrOutput `pulumi:"clusterName"`
+	DiscoveryEndpointUri      pulumi.StringPtrOutput `pulumi:"discoveryEndpointUri"`
+	FriendlyName              pulumi.StringPtrOutput `pulumi:"friendlyName"`
+	LastHeartBeat             pulumi.StringPtrOutput `pulumi:"lastHeartBeat"`
+	LastOperationName         pulumi.StringPtrOutput `pulumi:"lastOperationName"`
+	LastWorkflowId            pulumi.StringPtrOutput `pulumi:"lastWorkflowId"`
+	ManagementEndpointUri     pulumi.StringPtrOutput `pulumi:"managementEndpointUri"`
+	MonitoringConfiguration   pulumi.StringPtrOutput `pulumi:"monitoringConfiguration"`
+	Name                      pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState         pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ResourceLocation          pulumi.StringPtrOutput `pulumi:"resourceLocation"`
+	ServerCertificate         pulumi.StringPtrOutput `pulumi:"serverCertificate"`
+	ServerId                  pulumi.StringPtrOutput `pulumi:"serverId"`
+	ServerManagementErrorCode pulumi.IntPtrOutput    `pulumi:"serverManagementErrorCode"`
+	ServerOSVersion           pulumi.StringPtrOutput `pulumi:"serverOSVersion"`
+	ServerRole                pulumi.StringPtrOutput `pulumi:"serverRole"`
+	ServiceLocation           pulumi.StringPtrOutput `pulumi:"serviceLocation"`
+	StorageSyncServiceUid     pulumi.StringPtrOutput `pulumi:"storageSyncServiceUid"`
+	Type                      pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewRegisteredServer registers a new resource with the given unique name, arguments, and options.
@@ -170,53 +148,31 @@ func (RegisteredServerState) ElementType() reflect.Type {
 }
 
 type registeredServerArgs struct {
-	// Registered Server Agent Version
-	AgentVersion *string `pulumi:"agentVersion"`
-	// Registered Server clusterId
-	ClusterId *string `pulumi:"clusterId"`
-	// Registered Server clusterName
-	ClusterName *string `pulumi:"clusterName"`
-	// Friendly Name
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Registered Server last heart beat
-	LastHeartBeat *string `pulumi:"lastHeartBeat"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Registered Server Certificate
-	ServerCertificate *string `pulumi:"serverCertificate"`
-	// Registered Server serverId
-	ServerId *string `pulumi:"serverId"`
-	// Registered Server OS Version
-	ServerOSVersion *string `pulumi:"serverOSVersion"`
-	// Registered Server serverRole
-	ServerRole *string `pulumi:"serverRole"`
-	// Name of Storage Sync Service resource.
-	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
+	AgentVersion           *string `pulumi:"agentVersion"`
+	ClusterId              *string `pulumi:"clusterId"`
+	ClusterName            *string `pulumi:"clusterName"`
+	FriendlyName           *string `pulumi:"friendlyName"`
+	LastHeartBeat          *string `pulumi:"lastHeartBeat"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
+	ServerCertificate      *string `pulumi:"serverCertificate"`
+	ServerId               *string `pulumi:"serverId"`
+	ServerOSVersion        *string `pulumi:"serverOSVersion"`
+	ServerRole             *string `pulumi:"serverRole"`
+	StorageSyncServiceName string  `pulumi:"storageSyncServiceName"`
 }
 
 // The set of arguments for constructing a RegisteredServer resource.
 type RegisteredServerArgs struct {
-	// Registered Server Agent Version
-	AgentVersion pulumi.StringPtrInput
-	// Registered Server clusterId
-	ClusterId pulumi.StringPtrInput
-	// Registered Server clusterName
-	ClusterName pulumi.StringPtrInput
-	// Friendly Name
-	FriendlyName pulumi.StringPtrInput
-	// Registered Server last heart beat
-	LastHeartBeat pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Registered Server Certificate
-	ServerCertificate pulumi.StringPtrInput
-	// Registered Server serverId
-	ServerId pulumi.StringPtrInput
-	// Registered Server OS Version
-	ServerOSVersion pulumi.StringPtrInput
-	// Registered Server serverRole
-	ServerRole pulumi.StringPtrInput
-	// Name of Storage Sync Service resource.
+	AgentVersion           pulumi.StringPtrInput
+	ClusterId              pulumi.StringPtrInput
+	ClusterName            pulumi.StringPtrInput
+	FriendlyName           pulumi.StringPtrInput
+	LastHeartBeat          pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	ServerCertificate      pulumi.StringPtrInput
+	ServerId               pulumi.StringPtrInput
+	ServerOSVersion        pulumi.StringPtrInput
+	ServerRole             pulumi.StringPtrInput
 	StorageSyncServiceName pulumi.StringInput
 }
 
@@ -243,9 +199,7 @@ func (i *RegisteredServer) ToRegisteredServerOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredServerOutput)
 }
 
-type RegisteredServerOutput struct {
-	*pulumi.OutputState
-}
+type RegisteredServerOutput struct{ *pulumi.OutputState }
 
 func (RegisteredServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegisteredServer)(nil))

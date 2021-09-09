@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Bot channel resource definition
 func LookupChannel(ctx *pulumi.Context, args *LookupChannelArgs, opts ...pulumi.InvokeOption) (*LookupChannelResult, error) {
 	var rv LookupChannelResult
 	err := ctx.Invoke("azure-native:botservice/v20171201:getChannel", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupChannel(ctx *pulumi.Context, args *LookupChannelArgs, opts ...pulumi.
 }
 
 type LookupChannelArgs struct {
-	// The name of the Bot resource.
-	ChannelName string `pulumi:"channelName"`
-	// The name of the Bot resource group in the user subscription.
+	ChannelName       string `pulumi:"channelName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Bot resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // Bot channel resource definition
 type LookupChannelResult struct {
-	// Entity Tag
-	Etag *string `pulumi:"etag"`
-	// Specifies the resource ID.
-	Id string `pulumi:"id"`
-	// Required. Gets or sets the Kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// The set of properties specific to bot channel resource
-	Properties interface{} `pulumi:"properties"`
-	// Gets or sets the SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
+	Etag       *string           `pulumi:"etag"`
+	Id         string            `pulumi:"id"`
+	Kind       *string           `pulumi:"kind"`
+	Location   *string           `pulumi:"location"`
+	Name       string            `pulumi:"name"`
+	Properties interface{}       `pulumi:"properties"`
+	Sku        *SkuResponse      `pulumi:"sku"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Machine Learning service object wrapped into ARM resource envelope.
-//
 // Deprecated: Please use one of the variants: ACIService, AKSService, EndpointVariant.
 func LookupMachineLearningService(ctx *pulumi.Context, args *LookupMachineLearningServiceArgs, opts ...pulumi.InvokeOption) (*LookupMachineLearningServiceResult, error) {
 	var rv LookupMachineLearningServiceResult
@@ -20,34 +18,21 @@ func LookupMachineLearningService(ctx *pulumi.Context, args *LookupMachineLearni
 }
 
 type LookupMachineLearningServiceArgs struct {
-	// Set to True to include Model details.
-	Expand *bool `pulumi:"expand"`
-	// Name of the resource group in which workspace is located.
+	Expand            *bool  `pulumi:"expand"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Azure Machine Learning service.
-	ServiceName string `pulumi:"serviceName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ServiceName       string `pulumi:"serviceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Machine Learning service object wrapped into ARM resource envelope.
 type LookupMachineLearningServiceResult struct {
-	// Specifies the resource ID.
-	Id string `pulumi:"id"`
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// Service properties
-	Properties interface{} `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Read only system data
+	Id         string             `pulumi:"id"`
+	Identity   *IdentityResponse  `pulumi:"identity"`
+	Location   *string            `pulumi:"location"`
+	Name       string             `pulumi:"name"`
+	Properties interface{}        `pulumi:"properties"`
+	Sku        *SkuResponse       `pulumi:"sku"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
+	Tags       map[string]string  `pulumi:"tags"`
+	Type       string             `pulumi:"type"`
 }

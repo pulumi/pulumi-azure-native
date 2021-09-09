@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The gateway definition
 func LookupConnectionGateway(ctx *pulumi.Context, args *LookupConnectionGatewayArgs, opts ...pulumi.InvokeOption) (*LookupConnectionGatewayResult, error) {
 	var rv LookupConnectionGatewayResult
 	err := ctx.Invoke("azure-native:web/v20160601:getConnectionGateway", args, &rv, opts...)
@@ -18,27 +17,18 @@ func LookupConnectionGateway(ctx *pulumi.Context, args *LookupConnectionGatewayA
 }
 
 type LookupConnectionGatewayArgs struct {
-	// The connection gateway name
-	ConnectionGatewayName string `pulumi:"connectionGatewayName"`
-	// The resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Subscription Id
-	SubscriptionId *string `pulumi:"subscriptionId"`
+	ConnectionGatewayName string  `pulumi:"connectionGatewayName"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	SubscriptionId        *string `pulumi:"subscriptionId"`
 }
 
 // The gateway definition
 type LookupConnectionGatewayResult struct {
-	// Resource ETag
-	Etag *string `pulumi:"etag"`
-	// Resource id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
+	Etag       *string                                       `pulumi:"etag"`
+	Id         string                                        `pulumi:"id"`
+	Location   *string                                       `pulumi:"location"`
 	Name       string                                        `pulumi:"name"`
 	Properties ConnectionGatewayDefinitionResponseProperties `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Tags       map[string]string                             `pulumi:"tags"`
+	Type       string                                        `pulumi:"type"`
 }

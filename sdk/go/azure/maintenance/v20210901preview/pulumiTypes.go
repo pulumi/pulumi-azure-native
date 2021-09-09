@@ -10,13 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Input properties for patching a Linux machine.
 type InputLinuxParameters struct {
-	// Classification category of patches to be patched
-	ClassificationsToInclude []string `pulumi:"classificationsToInclude"`
-	// Package names to be excluded for patching.
+	ClassificationsToInclude  []string `pulumi:"classificationsToInclude"`
 	PackageNameMasksToExclude []string `pulumi:"packageNameMasksToExclude"`
-	// Package names to be included for patching.
 	PackageNameMasksToInclude []string `pulumi:"packageNameMasksToInclude"`
 }
 
@@ -31,13 +27,9 @@ type InputLinuxParametersInput interface {
 	ToInputLinuxParametersOutputWithContext(context.Context) InputLinuxParametersOutput
 }
 
-// Input properties for patching a Linux machine.
 type InputLinuxParametersArgs struct {
-	// Classification category of patches to be patched
-	ClassificationsToInclude pulumi.StringArrayInput `pulumi:"classificationsToInclude"`
-	// Package names to be excluded for patching.
+	ClassificationsToInclude  pulumi.StringArrayInput `pulumi:"classificationsToInclude"`
 	PackageNameMasksToExclude pulumi.StringArrayInput `pulumi:"packageNameMasksToExclude"`
-	// Package names to be included for patching.
 	PackageNameMasksToInclude pulumi.StringArrayInput `pulumi:"packageNameMasksToInclude"`
 }
 
@@ -94,7 +86,6 @@ func (i *inputLinuxParametersPtrType) ToInputLinuxParametersPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(InputLinuxParametersPtrOutput)
 }
 
-// Input properties for patching a Linux machine.
 type InputLinuxParametersOutput struct{ *pulumi.OutputState }
 
 func (InputLinuxParametersOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o InputLinuxParametersOutput) ToInputLinuxParametersPtrOutput() InputLinux
 }
 
 func (o InputLinuxParametersOutput) ToInputLinuxParametersPtrOutputWithContext(ctx context.Context) InputLinuxParametersPtrOutput {
-	return o.ApplyT(func(v InputLinuxParameters) *InputLinuxParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputLinuxParameters) *InputLinuxParameters {
 		return &v
 	}).(InputLinuxParametersPtrOutput)
 }
 
-// Classification category of patches to be patched
 func (o InputLinuxParametersOutput) ClassificationsToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InputLinuxParameters) []string { return v.ClassificationsToInclude }).(pulumi.StringArrayOutput)
 }
 
-// Package names to be excluded for patching.
 func (o InputLinuxParametersOutput) PackageNameMasksToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InputLinuxParameters) []string { return v.PackageNameMasksToExclude }).(pulumi.StringArrayOutput)
 }
 
-// Package names to be included for patching.
 func (o InputLinuxParametersOutput) PackageNameMasksToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InputLinuxParameters) []string { return v.PackageNameMasksToInclude }).(pulumi.StringArrayOutput)
 }
@@ -149,10 +137,15 @@ func (o InputLinuxParametersPtrOutput) ToInputLinuxParametersPtrOutputWithContex
 }
 
 func (o InputLinuxParametersPtrOutput) Elem() InputLinuxParametersOutput {
-	return o.ApplyT(func(v *InputLinuxParameters) InputLinuxParameters { return *v }).(InputLinuxParametersOutput)
+	return o.ApplyT(func(v *InputLinuxParameters) InputLinuxParameters {
+		if v != nil {
+			return *v
+		}
+		var ret InputLinuxParameters
+		return ret
+	}).(InputLinuxParametersOutput)
 }
 
-// Classification category of patches to be patched
 func (o InputLinuxParametersPtrOutput) ClassificationsToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputLinuxParameters) []string {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o InputLinuxParametersPtrOutput) ClassificationsToInclude() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// Package names to be excluded for patching.
 func (o InputLinuxParametersPtrOutput) PackageNameMasksToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputLinuxParameters) []string {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o InputLinuxParametersPtrOutput) PackageNameMasksToExclude() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// Package names to be included for patching.
 func (o InputLinuxParametersPtrOutput) PackageNameMasksToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputLinuxParameters) []string {
 		if v == nil {
@@ -182,13 +173,9 @@ func (o InputLinuxParametersPtrOutput) PackageNameMasksToInclude() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// Input properties for patching a Linux machine.
 type InputLinuxParametersResponse struct {
-	// Classification category of patches to be patched
-	ClassificationsToInclude []string `pulumi:"classificationsToInclude"`
-	// Package names to be excluded for patching.
+	ClassificationsToInclude  []string `pulumi:"classificationsToInclude"`
 	PackageNameMasksToExclude []string `pulumi:"packageNameMasksToExclude"`
-	// Package names to be included for patching.
 	PackageNameMasksToInclude []string `pulumi:"packageNameMasksToInclude"`
 }
 
@@ -203,13 +190,9 @@ type InputLinuxParametersResponseInput interface {
 	ToInputLinuxParametersResponseOutputWithContext(context.Context) InputLinuxParametersResponseOutput
 }
 
-// Input properties for patching a Linux machine.
 type InputLinuxParametersResponseArgs struct {
-	// Classification category of patches to be patched
-	ClassificationsToInclude pulumi.StringArrayInput `pulumi:"classificationsToInclude"`
-	// Package names to be excluded for patching.
+	ClassificationsToInclude  pulumi.StringArrayInput `pulumi:"classificationsToInclude"`
 	PackageNameMasksToExclude pulumi.StringArrayInput `pulumi:"packageNameMasksToExclude"`
-	// Package names to be included for patching.
 	PackageNameMasksToInclude pulumi.StringArrayInput `pulumi:"packageNameMasksToInclude"`
 }
 
@@ -266,7 +249,6 @@ func (i *inputLinuxParametersResponsePtrType) ToInputLinuxParametersResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(InputLinuxParametersResponsePtrOutput)
 }
 
-// Input properties for patching a Linux machine.
 type InputLinuxParametersResponseOutput struct{ *pulumi.OutputState }
 
 func (InputLinuxParametersResponseOutput) ElementType() reflect.Type {
@@ -286,22 +268,19 @@ func (o InputLinuxParametersResponseOutput) ToInputLinuxParametersResponsePtrOut
 }
 
 func (o InputLinuxParametersResponseOutput) ToInputLinuxParametersResponsePtrOutputWithContext(ctx context.Context) InputLinuxParametersResponsePtrOutput {
-	return o.ApplyT(func(v InputLinuxParametersResponse) *InputLinuxParametersResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputLinuxParametersResponse) *InputLinuxParametersResponse {
 		return &v
 	}).(InputLinuxParametersResponsePtrOutput)
 }
 
-// Classification category of patches to be patched
 func (o InputLinuxParametersResponseOutput) ClassificationsToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InputLinuxParametersResponse) []string { return v.ClassificationsToInclude }).(pulumi.StringArrayOutput)
 }
 
-// Package names to be excluded for patching.
 func (o InputLinuxParametersResponseOutput) PackageNameMasksToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InputLinuxParametersResponse) []string { return v.PackageNameMasksToExclude }).(pulumi.StringArrayOutput)
 }
 
-// Package names to be included for patching.
 func (o InputLinuxParametersResponseOutput) PackageNameMasksToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InputLinuxParametersResponse) []string { return v.PackageNameMasksToInclude }).(pulumi.StringArrayOutput)
 }
@@ -321,10 +300,15 @@ func (o InputLinuxParametersResponsePtrOutput) ToInputLinuxParametersResponsePtr
 }
 
 func (o InputLinuxParametersResponsePtrOutput) Elem() InputLinuxParametersResponseOutput {
-	return o.ApplyT(func(v *InputLinuxParametersResponse) InputLinuxParametersResponse { return *v }).(InputLinuxParametersResponseOutput)
+	return o.ApplyT(func(v *InputLinuxParametersResponse) InputLinuxParametersResponse {
+		if v != nil {
+			return *v
+		}
+		var ret InputLinuxParametersResponse
+		return ret
+	}).(InputLinuxParametersResponseOutput)
 }
 
-// Classification category of patches to be patched
 func (o InputLinuxParametersResponsePtrOutput) ClassificationsToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputLinuxParametersResponse) []string {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o InputLinuxParametersResponsePtrOutput) ClassificationsToInclude() pulumi
 	}).(pulumi.StringArrayOutput)
 }
 
-// Package names to be excluded for patching.
 func (o InputLinuxParametersResponsePtrOutput) PackageNameMasksToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputLinuxParametersResponse) []string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o InputLinuxParametersResponsePtrOutput) PackageNameMasksToExclude() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// Package names to be included for patching.
 func (o InputLinuxParametersResponsePtrOutput) PackageNameMasksToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputLinuxParametersResponse) []string {
 		if v == nil {
@@ -354,17 +336,11 @@ func (o InputLinuxParametersResponsePtrOutput) PackageNameMasksToInclude() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// Input configuration for a patch run
 type InputPatchConfiguration struct {
-	// Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
-	LinuxParameters *InputLinuxParameters `pulumi:"linuxParameters"`
-	// List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
-	PostTasks []TaskProperties `pulumi:"postTasks"`
-	// List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
-	PreTasks []TaskProperties `pulumi:"preTasks"`
-	// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
-	RebootSetting *string `pulumi:"rebootSetting"`
-	// Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
+	LinuxParameters   *InputLinuxParameters   `pulumi:"linuxParameters"`
+	PostTasks         []TaskProperties        `pulumi:"postTasks"`
+	PreTasks          []TaskProperties        `pulumi:"preTasks"`
+	RebootSetting     *string                 `pulumi:"rebootSetting"`
 	WindowsParameters *InputWindowsParameters `pulumi:"windowsParameters"`
 }
 
@@ -379,17 +355,11 @@ type InputPatchConfigurationInput interface {
 	ToInputPatchConfigurationOutputWithContext(context.Context) InputPatchConfigurationOutput
 }
 
-// Input configuration for a patch run
 type InputPatchConfigurationArgs struct {
-	// Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
-	LinuxParameters InputLinuxParametersPtrInput `pulumi:"linuxParameters"`
-	// List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
-	PostTasks TaskPropertiesArrayInput `pulumi:"postTasks"`
-	// List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
-	PreTasks TaskPropertiesArrayInput `pulumi:"preTasks"`
-	// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
-	RebootSetting pulumi.StringPtrInput `pulumi:"rebootSetting"`
-	// Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
+	LinuxParameters   InputLinuxParametersPtrInput   `pulumi:"linuxParameters"`
+	PostTasks         TaskPropertiesArrayInput       `pulumi:"postTasks"`
+	PreTasks          TaskPropertiesArrayInput       `pulumi:"preTasks"`
+	RebootSetting     pulumi.StringPtrInput          `pulumi:"rebootSetting"`
 	WindowsParameters InputWindowsParametersPtrInput `pulumi:"windowsParameters"`
 }
 
@@ -446,7 +416,6 @@ func (i *inputPatchConfigurationPtrType) ToInputPatchConfigurationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(InputPatchConfigurationPtrOutput)
 }
 
-// Input configuration for a patch run
 type InputPatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (InputPatchConfigurationOutput) ElementType() reflect.Type {
@@ -466,32 +435,27 @@ func (o InputPatchConfigurationOutput) ToInputPatchConfigurationPtrOutput() Inpu
 }
 
 func (o InputPatchConfigurationOutput) ToInputPatchConfigurationPtrOutputWithContext(ctx context.Context) InputPatchConfigurationPtrOutput {
-	return o.ApplyT(func(v InputPatchConfiguration) *InputPatchConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputPatchConfiguration) *InputPatchConfiguration {
 		return &v
 	}).(InputPatchConfigurationPtrOutput)
 }
 
-// Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
 func (o InputPatchConfigurationOutput) LinuxParameters() InputLinuxParametersPtrOutput {
 	return o.ApplyT(func(v InputPatchConfiguration) *InputLinuxParameters { return v.LinuxParameters }).(InputLinuxParametersPtrOutput)
 }
 
-// List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
 func (o InputPatchConfigurationOutput) PostTasks() TaskPropertiesArrayOutput {
 	return o.ApplyT(func(v InputPatchConfiguration) []TaskProperties { return v.PostTasks }).(TaskPropertiesArrayOutput)
 }
 
-// List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
 func (o InputPatchConfigurationOutput) PreTasks() TaskPropertiesArrayOutput {
 	return o.ApplyT(func(v InputPatchConfiguration) []TaskProperties { return v.PreTasks }).(TaskPropertiesArrayOutput)
 }
 
-// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
 func (o InputPatchConfigurationOutput) RebootSetting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InputPatchConfiguration) *string { return v.RebootSetting }).(pulumi.StringPtrOutput)
 }
 
-// Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
 func (o InputPatchConfigurationOutput) WindowsParameters() InputWindowsParametersPtrOutput {
 	return o.ApplyT(func(v InputPatchConfiguration) *InputWindowsParameters { return v.WindowsParameters }).(InputWindowsParametersPtrOutput)
 }
@@ -511,10 +475,15 @@ func (o InputPatchConfigurationPtrOutput) ToInputPatchConfigurationPtrOutputWith
 }
 
 func (o InputPatchConfigurationPtrOutput) Elem() InputPatchConfigurationOutput {
-	return o.ApplyT(func(v *InputPatchConfiguration) InputPatchConfiguration { return *v }).(InputPatchConfigurationOutput)
+	return o.ApplyT(func(v *InputPatchConfiguration) InputPatchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret InputPatchConfiguration
+		return ret
+	}).(InputPatchConfigurationOutput)
 }
 
-// Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
 func (o InputPatchConfigurationPtrOutput) LinuxParameters() InputLinuxParametersPtrOutput {
 	return o.ApplyT(func(v *InputPatchConfiguration) *InputLinuxParameters {
 		if v == nil {
@@ -524,7 +493,6 @@ func (o InputPatchConfigurationPtrOutput) LinuxParameters() InputLinuxParameters
 	}).(InputLinuxParametersPtrOutput)
 }
 
-// List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
 func (o InputPatchConfigurationPtrOutput) PostTasks() TaskPropertiesArrayOutput {
 	return o.ApplyT(func(v *InputPatchConfiguration) []TaskProperties {
 		if v == nil {
@@ -534,7 +502,6 @@ func (o InputPatchConfigurationPtrOutput) PostTasks() TaskPropertiesArrayOutput 
 	}).(TaskPropertiesArrayOutput)
 }
 
-// List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
 func (o InputPatchConfigurationPtrOutput) PreTasks() TaskPropertiesArrayOutput {
 	return o.ApplyT(func(v *InputPatchConfiguration) []TaskProperties {
 		if v == nil {
@@ -544,7 +511,6 @@ func (o InputPatchConfigurationPtrOutput) PreTasks() TaskPropertiesArrayOutput {
 	}).(TaskPropertiesArrayOutput)
 }
 
-// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
 func (o InputPatchConfigurationPtrOutput) RebootSetting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InputPatchConfiguration) *string {
 		if v == nil {
@@ -554,7 +520,6 @@ func (o InputPatchConfigurationPtrOutput) RebootSetting() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
 func (o InputPatchConfigurationPtrOutput) WindowsParameters() InputWindowsParametersPtrOutput {
 	return o.ApplyT(func(v *InputPatchConfiguration) *InputWindowsParameters {
 		if v == nil {
@@ -564,17 +529,11 @@ func (o InputPatchConfigurationPtrOutput) WindowsParameters() InputWindowsParame
 	}).(InputWindowsParametersPtrOutput)
 }
 
-// Input configuration for a patch run
 type InputPatchConfigurationResponse struct {
-	// Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
-	LinuxParameters *InputLinuxParametersResponse `pulumi:"linuxParameters"`
-	// List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
-	PostTasks []TaskPropertiesResponse `pulumi:"postTasks"`
-	// List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
-	PreTasks []TaskPropertiesResponse `pulumi:"preTasks"`
-	// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
-	RebootSetting *string `pulumi:"rebootSetting"`
-	// Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
+	LinuxParameters   *InputLinuxParametersResponse   `pulumi:"linuxParameters"`
+	PostTasks         []TaskPropertiesResponse        `pulumi:"postTasks"`
+	PreTasks          []TaskPropertiesResponse        `pulumi:"preTasks"`
+	RebootSetting     *string                         `pulumi:"rebootSetting"`
 	WindowsParameters *InputWindowsParametersResponse `pulumi:"windowsParameters"`
 }
 
@@ -589,17 +548,11 @@ type InputPatchConfigurationResponseInput interface {
 	ToInputPatchConfigurationResponseOutputWithContext(context.Context) InputPatchConfigurationResponseOutput
 }
 
-// Input configuration for a patch run
 type InputPatchConfigurationResponseArgs struct {
-	// Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
-	LinuxParameters InputLinuxParametersResponsePtrInput `pulumi:"linuxParameters"`
-	// List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
-	PostTasks TaskPropertiesResponseArrayInput `pulumi:"postTasks"`
-	// List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
-	PreTasks TaskPropertiesResponseArrayInput `pulumi:"preTasks"`
-	// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
-	RebootSetting pulumi.StringPtrInput `pulumi:"rebootSetting"`
-	// Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
+	LinuxParameters   InputLinuxParametersResponsePtrInput   `pulumi:"linuxParameters"`
+	PostTasks         TaskPropertiesResponseArrayInput       `pulumi:"postTasks"`
+	PreTasks          TaskPropertiesResponseArrayInput       `pulumi:"preTasks"`
+	RebootSetting     pulumi.StringPtrInput                  `pulumi:"rebootSetting"`
 	WindowsParameters InputWindowsParametersResponsePtrInput `pulumi:"windowsParameters"`
 }
 
@@ -656,7 +609,6 @@ func (i *inputPatchConfigurationResponsePtrType) ToInputPatchConfigurationRespon
 	return pulumi.ToOutputWithContext(ctx, i).(InputPatchConfigurationResponsePtrOutput)
 }
 
-// Input configuration for a patch run
 type InputPatchConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (InputPatchConfigurationResponseOutput) ElementType() reflect.Type {
@@ -676,32 +628,27 @@ func (o InputPatchConfigurationResponseOutput) ToInputPatchConfigurationResponse
 }
 
 func (o InputPatchConfigurationResponseOutput) ToInputPatchConfigurationResponsePtrOutputWithContext(ctx context.Context) InputPatchConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v InputPatchConfigurationResponse) *InputPatchConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputPatchConfigurationResponse) *InputPatchConfigurationResponse {
 		return &v
 	}).(InputPatchConfigurationResponsePtrOutput)
 }
 
-// Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
 func (o InputPatchConfigurationResponseOutput) LinuxParameters() InputLinuxParametersResponsePtrOutput {
 	return o.ApplyT(func(v InputPatchConfigurationResponse) *InputLinuxParametersResponse { return v.LinuxParameters }).(InputLinuxParametersResponsePtrOutput)
 }
 
-// List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
 func (o InputPatchConfigurationResponseOutput) PostTasks() TaskPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v InputPatchConfigurationResponse) []TaskPropertiesResponse { return v.PostTasks }).(TaskPropertiesResponseArrayOutput)
 }
 
-// List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
 func (o InputPatchConfigurationResponseOutput) PreTasks() TaskPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v InputPatchConfigurationResponse) []TaskPropertiesResponse { return v.PreTasks }).(TaskPropertiesResponseArrayOutput)
 }
 
-// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
 func (o InputPatchConfigurationResponseOutput) RebootSetting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InputPatchConfigurationResponse) *string { return v.RebootSetting }).(pulumi.StringPtrOutput)
 }
 
-// Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
 func (o InputPatchConfigurationResponseOutput) WindowsParameters() InputWindowsParametersResponsePtrOutput {
 	return o.ApplyT(func(v InputPatchConfigurationResponse) *InputWindowsParametersResponse { return v.WindowsParameters }).(InputWindowsParametersResponsePtrOutput)
 }
@@ -721,10 +668,15 @@ func (o InputPatchConfigurationResponsePtrOutput) ToInputPatchConfigurationRespo
 }
 
 func (o InputPatchConfigurationResponsePtrOutput) Elem() InputPatchConfigurationResponseOutput {
-	return o.ApplyT(func(v *InputPatchConfigurationResponse) InputPatchConfigurationResponse { return *v }).(InputPatchConfigurationResponseOutput)
+	return o.ApplyT(func(v *InputPatchConfigurationResponse) InputPatchConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret InputPatchConfigurationResponse
+		return ret
+	}).(InputPatchConfigurationResponseOutput)
 }
 
-// Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
 func (o InputPatchConfigurationResponsePtrOutput) LinuxParameters() InputLinuxParametersResponsePtrOutput {
 	return o.ApplyT(func(v *InputPatchConfigurationResponse) *InputLinuxParametersResponse {
 		if v == nil {
@@ -734,7 +686,6 @@ func (o InputPatchConfigurationResponsePtrOutput) LinuxParameters() InputLinuxPa
 	}).(InputLinuxParametersResponsePtrOutput)
 }
 
-// List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
 func (o InputPatchConfigurationResponsePtrOutput) PostTasks() TaskPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *InputPatchConfigurationResponse) []TaskPropertiesResponse {
 		if v == nil {
@@ -744,7 +695,6 @@ func (o InputPatchConfigurationResponsePtrOutput) PostTasks() TaskPropertiesResp
 	}).(TaskPropertiesResponseArrayOutput)
 }
 
-// List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
 func (o InputPatchConfigurationResponsePtrOutput) PreTasks() TaskPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *InputPatchConfigurationResponse) []TaskPropertiesResponse {
 		if v == nil {
@@ -754,7 +704,6 @@ func (o InputPatchConfigurationResponsePtrOutput) PreTasks() TaskPropertiesRespo
 	}).(TaskPropertiesResponseArrayOutput)
 }
 
-// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
 func (o InputPatchConfigurationResponsePtrOutput) RebootSetting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InputPatchConfigurationResponse) *string {
 		if v == nil {
@@ -764,7 +713,6 @@ func (o InputPatchConfigurationResponsePtrOutput) RebootSetting() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
 func (o InputPatchConfigurationResponsePtrOutput) WindowsParameters() InputWindowsParametersResponsePtrOutput {
 	return o.ApplyT(func(v *InputPatchConfigurationResponse) *InputWindowsParametersResponse {
 		if v == nil {
@@ -774,16 +722,11 @@ func (o InputPatchConfigurationResponsePtrOutput) WindowsParameters() InputWindo
 	}).(InputWindowsParametersResponsePtrOutput)
 }
 
-// Input properties for patching a Windows machine.
 type InputWindowsParameters struct {
-	// Classification category of patches to be patched
-	ClassificationsToInclude []string `pulumi:"classificationsToInclude"`
-	// Exclude patches which need reboot
-	ExcludeKbsRequiringReboot *bool `pulumi:"excludeKbsRequiringReboot"`
-	// Windows KBID to be excluded for patching.
-	KbNumbersToExclude []string `pulumi:"kbNumbersToExclude"`
-	// Windows KBID to be included for patching.
-	KbNumbersToInclude []string `pulumi:"kbNumbersToInclude"`
+	ClassificationsToInclude  []string `pulumi:"classificationsToInclude"`
+	ExcludeKbsRequiringReboot *bool    `pulumi:"excludeKbsRequiringReboot"`
+	KbNumbersToExclude        []string `pulumi:"kbNumbersToExclude"`
+	KbNumbersToInclude        []string `pulumi:"kbNumbersToInclude"`
 }
 
 // InputWindowsParametersInput is an input type that accepts InputWindowsParametersArgs and InputWindowsParametersOutput values.
@@ -797,16 +740,11 @@ type InputWindowsParametersInput interface {
 	ToInputWindowsParametersOutputWithContext(context.Context) InputWindowsParametersOutput
 }
 
-// Input properties for patching a Windows machine.
 type InputWindowsParametersArgs struct {
-	// Classification category of patches to be patched
-	ClassificationsToInclude pulumi.StringArrayInput `pulumi:"classificationsToInclude"`
-	// Exclude patches which need reboot
-	ExcludeKbsRequiringReboot pulumi.BoolPtrInput `pulumi:"excludeKbsRequiringReboot"`
-	// Windows KBID to be excluded for patching.
-	KbNumbersToExclude pulumi.StringArrayInput `pulumi:"kbNumbersToExclude"`
-	// Windows KBID to be included for patching.
-	KbNumbersToInclude pulumi.StringArrayInput `pulumi:"kbNumbersToInclude"`
+	ClassificationsToInclude  pulumi.StringArrayInput `pulumi:"classificationsToInclude"`
+	ExcludeKbsRequiringReboot pulumi.BoolPtrInput     `pulumi:"excludeKbsRequiringReboot"`
+	KbNumbersToExclude        pulumi.StringArrayInput `pulumi:"kbNumbersToExclude"`
+	KbNumbersToInclude        pulumi.StringArrayInput `pulumi:"kbNumbersToInclude"`
 }
 
 func (InputWindowsParametersArgs) ElementType() reflect.Type {
@@ -862,7 +800,6 @@ func (i *inputWindowsParametersPtrType) ToInputWindowsParametersPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(InputWindowsParametersPtrOutput)
 }
 
-// Input properties for patching a Windows machine.
 type InputWindowsParametersOutput struct{ *pulumi.OutputState }
 
 func (InputWindowsParametersOutput) ElementType() reflect.Type {
@@ -882,27 +819,23 @@ func (o InputWindowsParametersOutput) ToInputWindowsParametersPtrOutput() InputW
 }
 
 func (o InputWindowsParametersOutput) ToInputWindowsParametersPtrOutputWithContext(ctx context.Context) InputWindowsParametersPtrOutput {
-	return o.ApplyT(func(v InputWindowsParameters) *InputWindowsParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputWindowsParameters) *InputWindowsParameters {
 		return &v
 	}).(InputWindowsParametersPtrOutput)
 }
 
-// Classification category of patches to be patched
 func (o InputWindowsParametersOutput) ClassificationsToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InputWindowsParameters) []string { return v.ClassificationsToInclude }).(pulumi.StringArrayOutput)
 }
 
-// Exclude patches which need reboot
 func (o InputWindowsParametersOutput) ExcludeKbsRequiringReboot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InputWindowsParameters) *bool { return v.ExcludeKbsRequiringReboot }).(pulumi.BoolPtrOutput)
 }
 
-// Windows KBID to be excluded for patching.
 func (o InputWindowsParametersOutput) KbNumbersToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InputWindowsParameters) []string { return v.KbNumbersToExclude }).(pulumi.StringArrayOutput)
 }
 
-// Windows KBID to be included for patching.
 func (o InputWindowsParametersOutput) KbNumbersToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InputWindowsParameters) []string { return v.KbNumbersToInclude }).(pulumi.StringArrayOutput)
 }
@@ -922,10 +855,15 @@ func (o InputWindowsParametersPtrOutput) ToInputWindowsParametersPtrOutputWithCo
 }
 
 func (o InputWindowsParametersPtrOutput) Elem() InputWindowsParametersOutput {
-	return o.ApplyT(func(v *InputWindowsParameters) InputWindowsParameters { return *v }).(InputWindowsParametersOutput)
+	return o.ApplyT(func(v *InputWindowsParameters) InputWindowsParameters {
+		if v != nil {
+			return *v
+		}
+		var ret InputWindowsParameters
+		return ret
+	}).(InputWindowsParametersOutput)
 }
 
-// Classification category of patches to be patched
 func (o InputWindowsParametersPtrOutput) ClassificationsToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputWindowsParameters) []string {
 		if v == nil {
@@ -935,7 +873,6 @@ func (o InputWindowsParametersPtrOutput) ClassificationsToInclude() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// Exclude patches which need reboot
 func (o InputWindowsParametersPtrOutput) ExcludeKbsRequiringReboot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InputWindowsParameters) *bool {
 		if v == nil {
@@ -945,7 +882,6 @@ func (o InputWindowsParametersPtrOutput) ExcludeKbsRequiringReboot() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Windows KBID to be excluded for patching.
 func (o InputWindowsParametersPtrOutput) KbNumbersToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputWindowsParameters) []string {
 		if v == nil {
@@ -955,7 +891,6 @@ func (o InputWindowsParametersPtrOutput) KbNumbersToExclude() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// Windows KBID to be included for patching.
 func (o InputWindowsParametersPtrOutput) KbNumbersToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputWindowsParameters) []string {
 		if v == nil {
@@ -965,16 +900,11 @@ func (o InputWindowsParametersPtrOutput) KbNumbersToInclude() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// Input properties for patching a Windows machine.
 type InputWindowsParametersResponse struct {
-	// Classification category of patches to be patched
-	ClassificationsToInclude []string `pulumi:"classificationsToInclude"`
-	// Exclude patches which need reboot
-	ExcludeKbsRequiringReboot *bool `pulumi:"excludeKbsRequiringReboot"`
-	// Windows KBID to be excluded for patching.
-	KbNumbersToExclude []string `pulumi:"kbNumbersToExclude"`
-	// Windows KBID to be included for patching.
-	KbNumbersToInclude []string `pulumi:"kbNumbersToInclude"`
+	ClassificationsToInclude  []string `pulumi:"classificationsToInclude"`
+	ExcludeKbsRequiringReboot *bool    `pulumi:"excludeKbsRequiringReboot"`
+	KbNumbersToExclude        []string `pulumi:"kbNumbersToExclude"`
+	KbNumbersToInclude        []string `pulumi:"kbNumbersToInclude"`
 }
 
 // InputWindowsParametersResponseInput is an input type that accepts InputWindowsParametersResponseArgs and InputWindowsParametersResponseOutput values.
@@ -988,16 +918,11 @@ type InputWindowsParametersResponseInput interface {
 	ToInputWindowsParametersResponseOutputWithContext(context.Context) InputWindowsParametersResponseOutput
 }
 
-// Input properties for patching a Windows machine.
 type InputWindowsParametersResponseArgs struct {
-	// Classification category of patches to be patched
-	ClassificationsToInclude pulumi.StringArrayInput `pulumi:"classificationsToInclude"`
-	// Exclude patches which need reboot
-	ExcludeKbsRequiringReboot pulumi.BoolPtrInput `pulumi:"excludeKbsRequiringReboot"`
-	// Windows KBID to be excluded for patching.
-	KbNumbersToExclude pulumi.StringArrayInput `pulumi:"kbNumbersToExclude"`
-	// Windows KBID to be included for patching.
-	KbNumbersToInclude pulumi.StringArrayInput `pulumi:"kbNumbersToInclude"`
+	ClassificationsToInclude  pulumi.StringArrayInput `pulumi:"classificationsToInclude"`
+	ExcludeKbsRequiringReboot pulumi.BoolPtrInput     `pulumi:"excludeKbsRequiringReboot"`
+	KbNumbersToExclude        pulumi.StringArrayInput `pulumi:"kbNumbersToExclude"`
+	KbNumbersToInclude        pulumi.StringArrayInput `pulumi:"kbNumbersToInclude"`
 }
 
 func (InputWindowsParametersResponseArgs) ElementType() reflect.Type {
@@ -1053,7 +978,6 @@ func (i *inputWindowsParametersResponsePtrType) ToInputWindowsParametersResponse
 	return pulumi.ToOutputWithContext(ctx, i).(InputWindowsParametersResponsePtrOutput)
 }
 
-// Input properties for patching a Windows machine.
 type InputWindowsParametersResponseOutput struct{ *pulumi.OutputState }
 
 func (InputWindowsParametersResponseOutput) ElementType() reflect.Type {
@@ -1073,27 +997,23 @@ func (o InputWindowsParametersResponseOutput) ToInputWindowsParametersResponsePt
 }
 
 func (o InputWindowsParametersResponseOutput) ToInputWindowsParametersResponsePtrOutputWithContext(ctx context.Context) InputWindowsParametersResponsePtrOutput {
-	return o.ApplyT(func(v InputWindowsParametersResponse) *InputWindowsParametersResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputWindowsParametersResponse) *InputWindowsParametersResponse {
 		return &v
 	}).(InputWindowsParametersResponsePtrOutput)
 }
 
-// Classification category of patches to be patched
 func (o InputWindowsParametersResponseOutput) ClassificationsToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InputWindowsParametersResponse) []string { return v.ClassificationsToInclude }).(pulumi.StringArrayOutput)
 }
 
-// Exclude patches which need reboot
 func (o InputWindowsParametersResponseOutput) ExcludeKbsRequiringReboot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InputWindowsParametersResponse) *bool { return v.ExcludeKbsRequiringReboot }).(pulumi.BoolPtrOutput)
 }
 
-// Windows KBID to be excluded for patching.
 func (o InputWindowsParametersResponseOutput) KbNumbersToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InputWindowsParametersResponse) []string { return v.KbNumbersToExclude }).(pulumi.StringArrayOutput)
 }
 
-// Windows KBID to be included for patching.
 func (o InputWindowsParametersResponseOutput) KbNumbersToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InputWindowsParametersResponse) []string { return v.KbNumbersToInclude }).(pulumi.StringArrayOutput)
 }
@@ -1113,10 +1033,15 @@ func (o InputWindowsParametersResponsePtrOutput) ToInputWindowsParametersRespons
 }
 
 func (o InputWindowsParametersResponsePtrOutput) Elem() InputWindowsParametersResponseOutput {
-	return o.ApplyT(func(v *InputWindowsParametersResponse) InputWindowsParametersResponse { return *v }).(InputWindowsParametersResponseOutput)
+	return o.ApplyT(func(v *InputWindowsParametersResponse) InputWindowsParametersResponse {
+		if v != nil {
+			return *v
+		}
+		var ret InputWindowsParametersResponse
+		return ret
+	}).(InputWindowsParametersResponseOutput)
 }
 
-// Classification category of patches to be patched
 func (o InputWindowsParametersResponsePtrOutput) ClassificationsToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputWindowsParametersResponse) []string {
 		if v == nil {
@@ -1126,7 +1051,6 @@ func (o InputWindowsParametersResponsePtrOutput) ClassificationsToInclude() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Exclude patches which need reboot
 func (o InputWindowsParametersResponsePtrOutput) ExcludeKbsRequiringReboot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InputWindowsParametersResponse) *bool {
 		if v == nil {
@@ -1136,7 +1060,6 @@ func (o InputWindowsParametersResponsePtrOutput) ExcludeKbsRequiringReboot() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Windows KBID to be excluded for patching.
 func (o InputWindowsParametersResponsePtrOutput) KbNumbersToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputWindowsParametersResponse) []string {
 		if v == nil {
@@ -1146,7 +1069,6 @@ func (o InputWindowsParametersResponsePtrOutput) KbNumbersToExclude() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// Windows KBID to be included for patching.
 func (o InputWindowsParametersResponsePtrOutput) KbNumbersToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputWindowsParametersResponse) []string {
 		if v == nil {
@@ -1156,19 +1078,12 @@ func (o InputWindowsParametersResponsePtrOutput) KbNumbersToInclude() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -1183,19 +1098,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1252,7 +1160,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1272,37 +1179,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1322,10 +1223,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1335,7 +1241,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1345,7 +1250,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1355,7 +1259,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1365,7 +1268,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1375,7 +1277,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1385,14 +1286,10 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Task properties of the software update configuration.
 type TaskProperties struct {
-	// Gets or sets the parameters of the task.
 	Parameters map[string]string `pulumi:"parameters"`
-	// Gets or sets the name of the runbook.
-	Source *string `pulumi:"source"`
-	// Global Task execute once when schedule trigger. Resource task execute for each VM.
-	TaskScope *string `pulumi:"taskScope"`
+	Source     *string           `pulumi:"source"`
+	TaskScope  *string           `pulumi:"taskScope"`
 }
 
 // TaskPropertiesInput is an input type that accepts TaskPropertiesArgs and TaskPropertiesOutput values.
@@ -1406,14 +1303,10 @@ type TaskPropertiesInput interface {
 	ToTaskPropertiesOutputWithContext(context.Context) TaskPropertiesOutput
 }
 
-// Task properties of the software update configuration.
 type TaskPropertiesArgs struct {
-	// Gets or sets the parameters of the task.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	// Gets or sets the name of the runbook.
-	Source pulumi.StringPtrInput `pulumi:"source"`
-	// Global Task execute once when schedule trigger. Resource task execute for each VM.
-	TaskScope pulumi.StringPtrInput `pulumi:"taskScope"`
+	Source     pulumi.StringPtrInput `pulumi:"source"`
+	TaskScope  pulumi.StringPtrInput `pulumi:"taskScope"`
 }
 
 func (TaskPropertiesArgs) ElementType() reflect.Type {
@@ -1453,7 +1346,6 @@ func (i TaskPropertiesArray) ToTaskPropertiesArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TaskPropertiesArrayOutput)
 }
 
-// Task properties of the software update configuration.
 type TaskPropertiesOutput struct{ *pulumi.OutputState }
 
 func (TaskPropertiesOutput) ElementType() reflect.Type {
@@ -1468,17 +1360,14 @@ func (o TaskPropertiesOutput) ToTaskPropertiesOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Gets or sets the parameters of the task.
 func (o TaskPropertiesOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TaskProperties) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// Gets or sets the name of the runbook.
 func (o TaskPropertiesOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskProperties) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-// Global Task execute once when schedule trigger. Resource task execute for each VM.
 func (o TaskPropertiesOutput) TaskScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskProperties) *string { return v.TaskScope }).(pulumi.StringPtrOutput)
 }
@@ -1503,14 +1392,10 @@ func (o TaskPropertiesArrayOutput) Index(i pulumi.IntInput) TaskPropertiesOutput
 	}).(TaskPropertiesOutput)
 }
 
-// Task properties of the software update configuration.
 type TaskPropertiesResponse struct {
-	// Gets or sets the parameters of the task.
 	Parameters map[string]string `pulumi:"parameters"`
-	// Gets or sets the name of the runbook.
-	Source *string `pulumi:"source"`
-	// Global Task execute once when schedule trigger. Resource task execute for each VM.
-	TaskScope *string `pulumi:"taskScope"`
+	Source     *string           `pulumi:"source"`
+	TaskScope  *string           `pulumi:"taskScope"`
 }
 
 // TaskPropertiesResponseInput is an input type that accepts TaskPropertiesResponseArgs and TaskPropertiesResponseOutput values.
@@ -1524,14 +1409,10 @@ type TaskPropertiesResponseInput interface {
 	ToTaskPropertiesResponseOutputWithContext(context.Context) TaskPropertiesResponseOutput
 }
 
-// Task properties of the software update configuration.
 type TaskPropertiesResponseArgs struct {
-	// Gets or sets the parameters of the task.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	// Gets or sets the name of the runbook.
-	Source pulumi.StringPtrInput `pulumi:"source"`
-	// Global Task execute once when schedule trigger. Resource task execute for each VM.
-	TaskScope pulumi.StringPtrInput `pulumi:"taskScope"`
+	Source     pulumi.StringPtrInput `pulumi:"source"`
+	TaskScope  pulumi.StringPtrInput `pulumi:"taskScope"`
 }
 
 func (TaskPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1571,7 +1452,6 @@ func (i TaskPropertiesResponseArray) ToTaskPropertiesResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TaskPropertiesResponseArrayOutput)
 }
 
-// Task properties of the software update configuration.
 type TaskPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (TaskPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1586,17 +1466,14 @@ func (o TaskPropertiesResponseOutput) ToTaskPropertiesResponseOutputWithContext(
 	return o
 }
 
-// Gets or sets the parameters of the task.
 func (o TaskPropertiesResponseOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TaskPropertiesResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// Gets or sets the name of the runbook.
 func (o TaskPropertiesResponseOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskPropertiesResponse) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-// Global Task execute once when schedule trigger. Resource task execute for each VM.
 func (o TaskPropertiesResponseOutput) TaskScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskPropertiesResponse) *string { return v.TaskScope }).(pulumi.StringPtrOutput)
 }

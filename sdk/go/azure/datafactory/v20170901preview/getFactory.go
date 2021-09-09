@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Factory resource type.
 func LookupFactory(ctx *pulumi.Context, args *LookupFactoryArgs, opts ...pulumi.InvokeOption) (*LookupFactoryResult, error) {
 	var rv LookupFactoryResult
 	err := ctx.Invoke("azure-native:datafactory/v20170901preview:getFactory", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupFactory(ctx *pulumi.Context, args *LookupFactoryArgs, opts ...pulumi.
 }
 
 type LookupFactoryArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The resource group name.
+	FactoryName       string `pulumi:"factoryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Factory resource type.
 type LookupFactoryResult struct {
-	// Time the factory was created in ISO8601 format.
-	CreateTime string `pulumi:"createTime"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// Managed service identity of the factory.
-	Identity *FactoryIdentityResponse `pulumi:"identity"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Factory provisioning state, example Succeeded.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
-	// Version of the factory.
-	Version string `pulumi:"version"`
-	// VSTS repo information of the factory.
+	CreateTime        string                            `pulumi:"createTime"`
+	Id                string                            `pulumi:"id"`
+	Identity          *FactoryIdentityResponse          `pulumi:"identity"`
+	Location          *string                           `pulumi:"location"`
+	Name              string                            `pulumi:"name"`
+	ProvisioningState string                            `pulumi:"provisioningState"`
+	Tags              map[string]string                 `pulumi:"tags"`
+	Type              string                            `pulumi:"type"`
+	Version           string                            `pulumi:"version"`
 	VstsConfiguration *FactoryVSTSConfigurationResponse `pulumi:"vstsConfiguration"`
 }

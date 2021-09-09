@@ -149,9 +149,7 @@ func (i *PrivateStoreCollection) ToPrivateStoreCollectionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateStoreCollectionOutput)
 }
 
-type PrivateStoreCollectionOutput struct {
-	*pulumi.OutputState
-}
+type PrivateStoreCollectionOutput struct{ *pulumi.OutputState }
 
 func (PrivateStoreCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateStoreCollection)(nil))

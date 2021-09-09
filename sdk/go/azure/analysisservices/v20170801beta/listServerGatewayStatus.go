@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Status of gateway is live.
 func ListServerGatewayStatus(ctx *pulumi.Context, args *ListServerGatewayStatusArgs, opts ...pulumi.InvokeOption) (*ListServerGatewayStatusResult, error) {
 	var rv ListServerGatewayStatusResult
 	err := ctx.Invoke("azure-native:analysisservices/v20170801beta:listServerGatewayStatus", args, &rv, opts...)
@@ -18,14 +17,11 @@ func ListServerGatewayStatus(ctx *pulumi.Context, args *ListServerGatewayStatusA
 }
 
 type ListServerGatewayStatusArgs struct {
-	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Analysis Services server.
-	ServerName string `pulumi:"serverName"`
+	ServerName        string `pulumi:"serverName"`
 }
 
 // Status of gateway is live.
 type ListServerGatewayStatusResult struct {
-	// Live message of list gateway. Status: 0 - Live
 	Status *int `pulumi:"status"`
 }

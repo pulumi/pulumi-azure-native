@@ -11,23 +11,15 @@ import (
 )
 
 type ApiConnectionDefinitionProperties struct {
-	Api *ApiReference `pulumi:"api"`
-	// Timestamp of last connection change
-	ChangedTime *string `pulumi:"changedTime"`
-	// Timestamp of the connection creation
-	CreatedTime *string `pulumi:"createdTime"`
-	// Dictionary of custom parameter values
-	CustomParameterValues map[string]string `pulumi:"customParameterValues"`
-	// Display name
-	DisplayName *string `pulumi:"displayName"`
-	// Dictionary of nonsecret parameter values
-	NonSecretParameterValues map[string]string `pulumi:"nonSecretParameterValues"`
-	// Dictionary of parameter values
-	ParameterValues map[string]string `pulumi:"parameterValues"`
-	// Status of the connection
-	Statuses []ConnectionStatusDefinition `pulumi:"statuses"`
-	// Links to test the API connection
-	TestLinks []ApiConnectionTestLink `pulumi:"testLinks"`
+	Api                      *ApiReference                `pulumi:"api"`
+	ChangedTime              *string                      `pulumi:"changedTime"`
+	CreatedTime              *string                      `pulumi:"createdTime"`
+	CustomParameterValues    map[string]string            `pulumi:"customParameterValues"`
+	DisplayName              *string                      `pulumi:"displayName"`
+	NonSecretParameterValues map[string]string            `pulumi:"nonSecretParameterValues"`
+	ParameterValues          map[string]string            `pulumi:"parameterValues"`
+	Statuses                 []ConnectionStatusDefinition `pulumi:"statuses"`
+	TestLinks                []ApiConnectionTestLink      `pulumi:"testLinks"`
 }
 
 // ApiConnectionDefinitionPropertiesInput is an input type that accepts ApiConnectionDefinitionPropertiesArgs and ApiConnectionDefinitionPropertiesOutput values.
@@ -42,23 +34,15 @@ type ApiConnectionDefinitionPropertiesInput interface {
 }
 
 type ApiConnectionDefinitionPropertiesArgs struct {
-	Api ApiReferencePtrInput `pulumi:"api"`
-	// Timestamp of last connection change
-	ChangedTime pulumi.StringPtrInput `pulumi:"changedTime"`
-	// Timestamp of the connection creation
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// Dictionary of custom parameter values
-	CustomParameterValues pulumi.StringMapInput `pulumi:"customParameterValues"`
-	// Display name
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Dictionary of nonsecret parameter values
-	NonSecretParameterValues pulumi.StringMapInput `pulumi:"nonSecretParameterValues"`
-	// Dictionary of parameter values
-	ParameterValues pulumi.StringMapInput `pulumi:"parameterValues"`
-	// Status of the connection
-	Statuses ConnectionStatusDefinitionArrayInput `pulumi:"statuses"`
-	// Links to test the API connection
-	TestLinks ApiConnectionTestLinkArrayInput `pulumi:"testLinks"`
+	Api                      ApiReferencePtrInput                 `pulumi:"api"`
+	ChangedTime              pulumi.StringPtrInput                `pulumi:"changedTime"`
+	CreatedTime              pulumi.StringPtrInput                `pulumi:"createdTime"`
+	CustomParameterValues    pulumi.StringMapInput                `pulumi:"customParameterValues"`
+	DisplayName              pulumi.StringPtrInput                `pulumi:"displayName"`
+	NonSecretParameterValues pulumi.StringMapInput                `pulumi:"nonSecretParameterValues"`
+	ParameterValues          pulumi.StringMapInput                `pulumi:"parameterValues"`
+	Statuses                 ConnectionStatusDefinitionArrayInput `pulumi:"statuses"`
+	TestLinks                ApiConnectionTestLinkArrayInput      `pulumi:"testLinks"`
 }
 
 func (ApiConnectionDefinitionPropertiesArgs) ElementType() reflect.Type {
@@ -133,50 +117,43 @@ func (o ApiConnectionDefinitionPropertiesOutput) ToApiConnectionDefinitionProper
 }
 
 func (o ApiConnectionDefinitionPropertiesOutput) ToApiConnectionDefinitionPropertiesPtrOutputWithContext(ctx context.Context) ApiConnectionDefinitionPropertiesPtrOutput {
-	return o.ApplyT(func(v ApiConnectionDefinitionProperties) *ApiConnectionDefinitionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiConnectionDefinitionProperties) *ApiConnectionDefinitionProperties {
 		return &v
 	}).(ApiConnectionDefinitionPropertiesPtrOutput)
 }
+
 func (o ApiConnectionDefinitionPropertiesOutput) Api() ApiReferencePtrOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionProperties) *ApiReference { return v.Api }).(ApiReferencePtrOutput)
 }
 
-// Timestamp of last connection change
 func (o ApiConnectionDefinitionPropertiesOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionProperties) *string { return v.ChangedTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the connection creation
 func (o ApiConnectionDefinitionPropertiesOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionProperties) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of custom parameter values
 func (o ApiConnectionDefinitionPropertiesOutput) CustomParameterValues() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionProperties) map[string]string { return v.CustomParameterValues }).(pulumi.StringMapOutput)
 }
 
-// Display name
 func (o ApiConnectionDefinitionPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionProperties) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of nonsecret parameter values
 func (o ApiConnectionDefinitionPropertiesOutput) NonSecretParameterValues() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionProperties) map[string]string { return v.NonSecretParameterValues }).(pulumi.StringMapOutput)
 }
 
-// Dictionary of parameter values
 func (o ApiConnectionDefinitionPropertiesOutput) ParameterValues() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionProperties) map[string]string { return v.ParameterValues }).(pulumi.StringMapOutput)
 }
 
-// Status of the connection
 func (o ApiConnectionDefinitionPropertiesOutput) Statuses() ConnectionStatusDefinitionArrayOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionProperties) []ConnectionStatusDefinition { return v.Statuses }).(ConnectionStatusDefinitionArrayOutput)
 }
 
-// Links to test the API connection
 func (o ApiConnectionDefinitionPropertiesOutput) TestLinks() ApiConnectionTestLinkArrayOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionProperties) []ApiConnectionTestLink { return v.TestLinks }).(ApiConnectionTestLinkArrayOutput)
 }
@@ -196,7 +173,13 @@ func (o ApiConnectionDefinitionPropertiesPtrOutput) ToApiConnectionDefinitionPro
 }
 
 func (o ApiConnectionDefinitionPropertiesPtrOutput) Elem() ApiConnectionDefinitionPropertiesOutput {
-	return o.ApplyT(func(v *ApiConnectionDefinitionProperties) ApiConnectionDefinitionProperties { return *v }).(ApiConnectionDefinitionPropertiesOutput)
+	return o.ApplyT(func(v *ApiConnectionDefinitionProperties) ApiConnectionDefinitionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ApiConnectionDefinitionProperties
+		return ret
+	}).(ApiConnectionDefinitionPropertiesOutput)
 }
 
 func (o ApiConnectionDefinitionPropertiesPtrOutput) Api() ApiReferencePtrOutput {
@@ -208,7 +191,6 @@ func (o ApiConnectionDefinitionPropertiesPtrOutput) Api() ApiReferencePtrOutput 
 	}).(ApiReferencePtrOutput)
 }
 
-// Timestamp of last connection change
 func (o ApiConnectionDefinitionPropertiesPtrOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionProperties) *string {
 		if v == nil {
@@ -218,7 +200,6 @@ func (o ApiConnectionDefinitionPropertiesPtrOutput) ChangedTime() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the connection creation
 func (o ApiConnectionDefinitionPropertiesPtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionProperties) *string {
 		if v == nil {
@@ -228,7 +209,6 @@ func (o ApiConnectionDefinitionPropertiesPtrOutput) CreatedTime() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of custom parameter values
 func (o ApiConnectionDefinitionPropertiesPtrOutput) CustomParameterValues() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionProperties) map[string]string {
 		if v == nil {
@@ -238,7 +218,6 @@ func (o ApiConnectionDefinitionPropertiesPtrOutput) CustomParameterValues() pulu
 	}).(pulumi.StringMapOutput)
 }
 
-// Display name
 func (o ApiConnectionDefinitionPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionProperties) *string {
 		if v == nil {
@@ -248,7 +227,6 @@ func (o ApiConnectionDefinitionPropertiesPtrOutput) DisplayName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of nonsecret parameter values
 func (o ApiConnectionDefinitionPropertiesPtrOutput) NonSecretParameterValues() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionProperties) map[string]string {
 		if v == nil {
@@ -258,7 +236,6 @@ func (o ApiConnectionDefinitionPropertiesPtrOutput) NonSecretParameterValues() p
 	}).(pulumi.StringMapOutput)
 }
 
-// Dictionary of parameter values
 func (o ApiConnectionDefinitionPropertiesPtrOutput) ParameterValues() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionProperties) map[string]string {
 		if v == nil {
@@ -268,7 +245,6 @@ func (o ApiConnectionDefinitionPropertiesPtrOutput) ParameterValues() pulumi.Str
 	}).(pulumi.StringMapOutput)
 }
 
-// Status of the connection
 func (o ApiConnectionDefinitionPropertiesPtrOutput) Statuses() ConnectionStatusDefinitionArrayOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionProperties) []ConnectionStatusDefinition {
 		if v == nil {
@@ -278,7 +254,6 @@ func (o ApiConnectionDefinitionPropertiesPtrOutput) Statuses() ConnectionStatusD
 	}).(ConnectionStatusDefinitionArrayOutput)
 }
 
-// Links to test the API connection
 func (o ApiConnectionDefinitionPropertiesPtrOutput) TestLinks() ApiConnectionTestLinkArrayOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionProperties) []ApiConnectionTestLink {
 		if v == nil {
@@ -289,23 +264,15 @@ func (o ApiConnectionDefinitionPropertiesPtrOutput) TestLinks() ApiConnectionTes
 }
 
 type ApiConnectionDefinitionResponseProperties struct {
-	Api *ApiReferenceResponse `pulumi:"api"`
-	// Timestamp of last connection change
-	ChangedTime *string `pulumi:"changedTime"`
-	// Timestamp of the connection creation
-	CreatedTime *string `pulumi:"createdTime"`
-	// Dictionary of custom parameter values
-	CustomParameterValues map[string]string `pulumi:"customParameterValues"`
-	// Display name
-	DisplayName *string `pulumi:"displayName"`
-	// Dictionary of nonsecret parameter values
-	NonSecretParameterValues map[string]string `pulumi:"nonSecretParameterValues"`
-	// Dictionary of parameter values
-	ParameterValues map[string]string `pulumi:"parameterValues"`
-	// Status of the connection
-	Statuses []ConnectionStatusDefinitionResponse `pulumi:"statuses"`
-	// Links to test the API connection
-	TestLinks []ApiConnectionTestLinkResponse `pulumi:"testLinks"`
+	Api                      *ApiReferenceResponse                `pulumi:"api"`
+	ChangedTime              *string                              `pulumi:"changedTime"`
+	CreatedTime              *string                              `pulumi:"createdTime"`
+	CustomParameterValues    map[string]string                    `pulumi:"customParameterValues"`
+	DisplayName              *string                              `pulumi:"displayName"`
+	NonSecretParameterValues map[string]string                    `pulumi:"nonSecretParameterValues"`
+	ParameterValues          map[string]string                    `pulumi:"parameterValues"`
+	Statuses                 []ConnectionStatusDefinitionResponse `pulumi:"statuses"`
+	TestLinks                []ApiConnectionTestLinkResponse      `pulumi:"testLinks"`
 }
 
 // ApiConnectionDefinitionResponsePropertiesInput is an input type that accepts ApiConnectionDefinitionResponsePropertiesArgs and ApiConnectionDefinitionResponsePropertiesOutput values.
@@ -320,23 +287,15 @@ type ApiConnectionDefinitionResponsePropertiesInput interface {
 }
 
 type ApiConnectionDefinitionResponsePropertiesArgs struct {
-	Api ApiReferenceResponsePtrInput `pulumi:"api"`
-	// Timestamp of last connection change
-	ChangedTime pulumi.StringPtrInput `pulumi:"changedTime"`
-	// Timestamp of the connection creation
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// Dictionary of custom parameter values
-	CustomParameterValues pulumi.StringMapInput `pulumi:"customParameterValues"`
-	// Display name
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Dictionary of nonsecret parameter values
-	NonSecretParameterValues pulumi.StringMapInput `pulumi:"nonSecretParameterValues"`
-	// Dictionary of parameter values
-	ParameterValues pulumi.StringMapInput `pulumi:"parameterValues"`
-	// Status of the connection
-	Statuses ConnectionStatusDefinitionResponseArrayInput `pulumi:"statuses"`
-	// Links to test the API connection
-	TestLinks ApiConnectionTestLinkResponseArrayInput `pulumi:"testLinks"`
+	Api                      ApiReferenceResponsePtrInput                 `pulumi:"api"`
+	ChangedTime              pulumi.StringPtrInput                        `pulumi:"changedTime"`
+	CreatedTime              pulumi.StringPtrInput                        `pulumi:"createdTime"`
+	CustomParameterValues    pulumi.StringMapInput                        `pulumi:"customParameterValues"`
+	DisplayName              pulumi.StringPtrInput                        `pulumi:"displayName"`
+	NonSecretParameterValues pulumi.StringMapInput                        `pulumi:"nonSecretParameterValues"`
+	ParameterValues          pulumi.StringMapInput                        `pulumi:"parameterValues"`
+	Statuses                 ConnectionStatusDefinitionResponseArrayInput `pulumi:"statuses"`
+	TestLinks                ApiConnectionTestLinkResponseArrayInput      `pulumi:"testLinks"`
 }
 
 func (ApiConnectionDefinitionResponsePropertiesArgs) ElementType() reflect.Type {
@@ -411,52 +370,45 @@ func (o ApiConnectionDefinitionResponsePropertiesOutput) ToApiConnectionDefiniti
 }
 
 func (o ApiConnectionDefinitionResponsePropertiesOutput) ToApiConnectionDefinitionResponsePropertiesPtrOutputWithContext(ctx context.Context) ApiConnectionDefinitionResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v ApiConnectionDefinitionResponseProperties) *ApiConnectionDefinitionResponseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiConnectionDefinitionResponseProperties) *ApiConnectionDefinitionResponseProperties {
 		return &v
 	}).(ApiConnectionDefinitionResponsePropertiesPtrOutput)
 }
+
 func (o ApiConnectionDefinitionResponsePropertiesOutput) Api() ApiReferenceResponsePtrOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionResponseProperties) *ApiReferenceResponse { return v.Api }).(ApiReferenceResponsePtrOutput)
 }
 
-// Timestamp of last connection change
 func (o ApiConnectionDefinitionResponsePropertiesOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionResponseProperties) *string { return v.ChangedTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the connection creation
 func (o ApiConnectionDefinitionResponsePropertiesOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionResponseProperties) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of custom parameter values
 func (o ApiConnectionDefinitionResponsePropertiesOutput) CustomParameterValues() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionResponseProperties) map[string]string { return v.CustomParameterValues }).(pulumi.StringMapOutput)
 }
 
-// Display name
 func (o ApiConnectionDefinitionResponsePropertiesOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionResponseProperties) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of nonsecret parameter values
 func (o ApiConnectionDefinitionResponsePropertiesOutput) NonSecretParameterValues() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionResponseProperties) map[string]string { return v.NonSecretParameterValues }).(pulumi.StringMapOutput)
 }
 
-// Dictionary of parameter values
 func (o ApiConnectionDefinitionResponsePropertiesOutput) ParameterValues() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionResponseProperties) map[string]string { return v.ParameterValues }).(pulumi.StringMapOutput)
 }
 
-// Status of the connection
 func (o ApiConnectionDefinitionResponsePropertiesOutput) Statuses() ConnectionStatusDefinitionResponseArrayOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionResponseProperties) []ConnectionStatusDefinitionResponse {
 		return v.Statuses
 	}).(ConnectionStatusDefinitionResponseArrayOutput)
 }
 
-// Links to test the API connection
 func (o ApiConnectionDefinitionResponsePropertiesOutput) TestLinks() ApiConnectionTestLinkResponseArrayOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionResponseProperties) []ApiConnectionTestLinkResponse { return v.TestLinks }).(ApiConnectionTestLinkResponseArrayOutput)
 }
@@ -477,7 +429,11 @@ func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) ToApiConnectionDefin
 
 func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) Elem() ApiConnectionDefinitionResponsePropertiesOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionResponseProperties) ApiConnectionDefinitionResponseProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApiConnectionDefinitionResponseProperties
+		return ret
 	}).(ApiConnectionDefinitionResponsePropertiesOutput)
 }
 
@@ -490,7 +446,6 @@ func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) Api() ApiReferenceRe
 	}).(ApiReferenceResponsePtrOutput)
 }
 
-// Timestamp of last connection change
 func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionResponseProperties) *string {
 		if v == nil {
@@ -500,7 +455,6 @@ func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) ChangedTime() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the connection creation
 func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionResponseProperties) *string {
 		if v == nil {
@@ -510,7 +464,6 @@ func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) CreatedTime() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of custom parameter values
 func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) CustomParameterValues() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionResponseProperties) map[string]string {
 		if v == nil {
@@ -520,7 +473,6 @@ func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) CustomParameterValue
 	}).(pulumi.StringMapOutput)
 }
 
-// Display name
 func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionResponseProperties) *string {
 		if v == nil {
@@ -530,7 +482,6 @@ func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) DisplayName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of nonsecret parameter values
 func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) NonSecretParameterValues() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionResponseProperties) map[string]string {
 		if v == nil {
@@ -540,7 +491,6 @@ func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) NonSecretParameterVa
 	}).(pulumi.StringMapOutput)
 }
 
-// Dictionary of parameter values
 func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) ParameterValues() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionResponseProperties) map[string]string {
 		if v == nil {
@@ -550,7 +500,6 @@ func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) ParameterValues() pu
 	}).(pulumi.StringMapOutput)
 }
 
-// Status of the connection
 func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) Statuses() ConnectionStatusDefinitionResponseArrayOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionResponseProperties) []ConnectionStatusDefinitionResponse {
 		if v == nil {
@@ -560,7 +509,6 @@ func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) Statuses() Connectio
 	}).(ConnectionStatusDefinitionResponseArrayOutput)
 }
 
-// Links to test the API connection
 func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) TestLinks() ApiConnectionTestLinkResponseArrayOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionResponseProperties) []ApiConnectionTestLinkResponse {
 		if v == nil {
@@ -570,11 +518,8 @@ func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) TestLinks() ApiConne
 	}).(ApiConnectionTestLinkResponseArrayOutput)
 }
 
-// API connection properties
 type ApiConnectionTestLink struct {
-	// HTTP Method
-	Method *string `pulumi:"method"`
-	// Test link request URI
+	Method     *string `pulumi:"method"`
 	RequestUri *string `pulumi:"requestUri"`
 }
 
@@ -589,11 +534,8 @@ type ApiConnectionTestLinkInput interface {
 	ToApiConnectionTestLinkOutputWithContext(context.Context) ApiConnectionTestLinkOutput
 }
 
-// API connection properties
 type ApiConnectionTestLinkArgs struct {
-	// HTTP Method
-	Method pulumi.StringPtrInput `pulumi:"method"`
-	// Test link request URI
+	Method     pulumi.StringPtrInput `pulumi:"method"`
 	RequestUri pulumi.StringPtrInput `pulumi:"requestUri"`
 }
 
@@ -634,7 +576,6 @@ func (i ApiConnectionTestLinkArray) ToApiConnectionTestLinkArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ApiConnectionTestLinkArrayOutput)
 }
 
-// API connection properties
 type ApiConnectionTestLinkOutput struct{ *pulumi.OutputState }
 
 func (ApiConnectionTestLinkOutput) ElementType() reflect.Type {
@@ -649,12 +590,10 @@ func (o ApiConnectionTestLinkOutput) ToApiConnectionTestLinkOutputWithContext(ct
 	return o
 }
 
-// HTTP Method
 func (o ApiConnectionTestLinkOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiConnectionTestLink) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
-// Test link request URI
 func (o ApiConnectionTestLinkOutput) RequestUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiConnectionTestLink) *string { return v.RequestUri }).(pulumi.StringPtrOutput)
 }
@@ -679,11 +618,8 @@ func (o ApiConnectionTestLinkArrayOutput) Index(i pulumi.IntInput) ApiConnection
 	}).(ApiConnectionTestLinkOutput)
 }
 
-// API connection properties
 type ApiConnectionTestLinkResponse struct {
-	// HTTP Method
-	Method *string `pulumi:"method"`
-	// Test link request URI
+	Method     *string `pulumi:"method"`
 	RequestUri *string `pulumi:"requestUri"`
 }
 
@@ -698,11 +634,8 @@ type ApiConnectionTestLinkResponseInput interface {
 	ToApiConnectionTestLinkResponseOutputWithContext(context.Context) ApiConnectionTestLinkResponseOutput
 }
 
-// API connection properties
 type ApiConnectionTestLinkResponseArgs struct {
-	// HTTP Method
-	Method pulumi.StringPtrInput `pulumi:"method"`
-	// Test link request URI
+	Method     pulumi.StringPtrInput `pulumi:"method"`
 	RequestUri pulumi.StringPtrInput `pulumi:"requestUri"`
 }
 
@@ -743,7 +676,6 @@ func (i ApiConnectionTestLinkResponseArray) ToApiConnectionTestLinkResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(ApiConnectionTestLinkResponseArrayOutput)
 }
 
-// API connection properties
 type ApiConnectionTestLinkResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiConnectionTestLinkResponseOutput) ElementType() reflect.Type {
@@ -758,12 +690,10 @@ func (o ApiConnectionTestLinkResponseOutput) ToApiConnectionTestLinkResponseOutp
 	return o
 }
 
-// HTTP Method
 func (o ApiConnectionTestLinkResponseOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiConnectionTestLinkResponse) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
-// Test link request URI
 func (o ApiConnectionTestLinkResponseOutput) RequestUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiConnectionTestLinkResponse) *string { return v.RequestUri }).(pulumi.StringPtrOutput)
 }
@@ -788,22 +718,14 @@ func (o ApiConnectionTestLinkResponseArrayOutput) Index(i pulumi.IntInput) ApiCo
 	}).(ApiConnectionTestLinkResponseOutput)
 }
 
-// OAuth settings for the connection provider
 type ApiOAuthSettings struct {
-	// Resource provider client id
-	ClientId *string `pulumi:"clientId"`
-	// Client Secret needed for OAuth
-	ClientSecret *string `pulumi:"clientSecret"`
-	// OAuth parameters key is the name of parameter
+	ClientId         *string                              `pulumi:"clientId"`
+	ClientSecret     *string                              `pulumi:"clientSecret"`
 	CustomParameters map[string]ApiOAuthSettingsParameter `pulumi:"customParameters"`
-	// Identity provider
-	IdentityProvider *string `pulumi:"identityProvider"`
-	// Read only properties for this oauth setting.
-	Properties interface{} `pulumi:"properties"`
-	// Url
-	RedirectUrl *string `pulumi:"redirectUrl"`
-	// OAuth scopes
-	Scopes []string `pulumi:"scopes"`
+	IdentityProvider *string                              `pulumi:"identityProvider"`
+	Properties       interface{}                          `pulumi:"properties"`
+	RedirectUrl      *string                              `pulumi:"redirectUrl"`
+	Scopes           []string                             `pulumi:"scopes"`
 }
 
 // ApiOAuthSettingsInput is an input type that accepts ApiOAuthSettingsArgs and ApiOAuthSettingsOutput values.
@@ -817,22 +739,14 @@ type ApiOAuthSettingsInput interface {
 	ToApiOAuthSettingsOutputWithContext(context.Context) ApiOAuthSettingsOutput
 }
 
-// OAuth settings for the connection provider
 type ApiOAuthSettingsArgs struct {
-	// Resource provider client id
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// Client Secret needed for OAuth
-	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// OAuth parameters key is the name of parameter
+	ClientId         pulumi.StringPtrInput             `pulumi:"clientId"`
+	ClientSecret     pulumi.StringPtrInput             `pulumi:"clientSecret"`
 	CustomParameters ApiOAuthSettingsParameterMapInput `pulumi:"customParameters"`
-	// Identity provider
-	IdentityProvider pulumi.StringPtrInput `pulumi:"identityProvider"`
-	// Read only properties for this oauth setting.
-	Properties pulumi.Input `pulumi:"properties"`
-	// Url
-	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
-	// OAuth scopes
-	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+	IdentityProvider pulumi.StringPtrInput             `pulumi:"identityProvider"`
+	Properties       pulumi.Input                      `pulumi:"properties"`
+	RedirectUrl      pulumi.StringPtrInput             `pulumi:"redirectUrl"`
+	Scopes           pulumi.StringArrayInput           `pulumi:"scopes"`
 }
 
 func (ApiOAuthSettingsArgs) ElementType() reflect.Type {
@@ -888,7 +802,6 @@ func (i *apiOAuthSettingsPtrType) ToApiOAuthSettingsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsPtrOutput)
 }
 
-// OAuth settings for the connection provider
 type ApiOAuthSettingsOutput struct{ *pulumi.OutputState }
 
 func (ApiOAuthSettingsOutput) ElementType() reflect.Type {
@@ -908,42 +821,35 @@ func (o ApiOAuthSettingsOutput) ToApiOAuthSettingsPtrOutput() ApiOAuthSettingsPt
 }
 
 func (o ApiOAuthSettingsOutput) ToApiOAuthSettingsPtrOutputWithContext(ctx context.Context) ApiOAuthSettingsPtrOutput {
-	return o.ApplyT(func(v ApiOAuthSettings) *ApiOAuthSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOAuthSettings) *ApiOAuthSettings {
 		return &v
 	}).(ApiOAuthSettingsPtrOutput)
 }
 
-// Resource provider client id
 func (o ApiOAuthSettingsOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettings) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// Client Secret needed for OAuth
 func (o ApiOAuthSettingsOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettings) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
-// OAuth parameters key is the name of parameter
 func (o ApiOAuthSettingsOutput) CustomParameters() ApiOAuthSettingsParameterMapOutput {
 	return o.ApplyT(func(v ApiOAuthSettings) map[string]ApiOAuthSettingsParameter { return v.CustomParameters }).(ApiOAuthSettingsParameterMapOutput)
 }
 
-// Identity provider
 func (o ApiOAuthSettingsOutput) IdentityProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettings) *string { return v.IdentityProvider }).(pulumi.StringPtrOutput)
 }
 
-// Read only properties for this oauth setting.
 func (o ApiOAuthSettingsOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApiOAuthSettings) interface{} { return v.Properties }).(pulumi.AnyOutput)
 }
 
-// Url
 func (o ApiOAuthSettingsOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettings) *string { return v.RedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// OAuth scopes
 func (o ApiOAuthSettingsOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiOAuthSettings) []string { return v.Scopes }).(pulumi.StringArrayOutput)
 }
@@ -963,10 +869,15 @@ func (o ApiOAuthSettingsPtrOutput) ToApiOAuthSettingsPtrOutputWithContext(ctx co
 }
 
 func (o ApiOAuthSettingsPtrOutput) Elem() ApiOAuthSettingsOutput {
-	return o.ApplyT(func(v *ApiOAuthSettings) ApiOAuthSettings { return *v }).(ApiOAuthSettingsOutput)
+	return o.ApplyT(func(v *ApiOAuthSettings) ApiOAuthSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ApiOAuthSettings
+		return ret
+	}).(ApiOAuthSettingsOutput)
 }
 
-// Resource provider client id
 func (o ApiOAuthSettingsPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOAuthSettings) *string {
 		if v == nil {
@@ -976,7 +887,6 @@ func (o ApiOAuthSettingsPtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Client Secret needed for OAuth
 func (o ApiOAuthSettingsPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOAuthSettings) *string {
 		if v == nil {
@@ -986,7 +896,6 @@ func (o ApiOAuthSettingsPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth parameters key is the name of parameter
 func (o ApiOAuthSettingsPtrOutput) CustomParameters() ApiOAuthSettingsParameterMapOutput {
 	return o.ApplyT(func(v *ApiOAuthSettings) map[string]ApiOAuthSettingsParameter {
 		if v == nil {
@@ -996,7 +905,6 @@ func (o ApiOAuthSettingsPtrOutput) CustomParameters() ApiOAuthSettingsParameterM
 	}).(ApiOAuthSettingsParameterMapOutput)
 }
 
-// Identity provider
 func (o ApiOAuthSettingsPtrOutput) IdentityProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOAuthSettings) *string {
 		if v == nil {
@@ -1006,7 +914,6 @@ func (o ApiOAuthSettingsPtrOutput) IdentityProvider() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Read only properties for this oauth setting.
 func (o ApiOAuthSettingsPtrOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ApiOAuthSettings) interface{} {
 		if v == nil {
@@ -1016,7 +923,6 @@ func (o ApiOAuthSettingsPtrOutput) Properties() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Url
 func (o ApiOAuthSettingsPtrOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOAuthSettings) *string {
 		if v == nil {
@@ -1026,7 +932,6 @@ func (o ApiOAuthSettingsPtrOutput) RedirectUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth scopes
 func (o ApiOAuthSettingsPtrOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiOAuthSettings) []string {
 		if v == nil {
@@ -1036,14 +941,10 @@ func (o ApiOAuthSettingsPtrOutput) Scopes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// OAuth settings for the API
 type ApiOAuthSettingsParameter struct {
-	// Options available to this parameter
-	Options interface{} `pulumi:"options"`
-	// UI definitions per culture as caller can specify the culture
+	Options      interface{} `pulumi:"options"`
 	UiDefinition interface{} `pulumi:"uiDefinition"`
-	// Value of the setting
-	Value *string `pulumi:"value"`
+	Value        *string     `pulumi:"value"`
 }
 
 // ApiOAuthSettingsParameterInput is an input type that accepts ApiOAuthSettingsParameterArgs and ApiOAuthSettingsParameterOutput values.
@@ -1057,14 +958,10 @@ type ApiOAuthSettingsParameterInput interface {
 	ToApiOAuthSettingsParameterOutputWithContext(context.Context) ApiOAuthSettingsParameterOutput
 }
 
-// OAuth settings for the API
 type ApiOAuthSettingsParameterArgs struct {
-	// Options available to this parameter
-	Options pulumi.Input `pulumi:"options"`
-	// UI definitions per culture as caller can specify the culture
-	UiDefinition pulumi.Input `pulumi:"uiDefinition"`
-	// Value of the setting
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Options      pulumi.Input          `pulumi:"options"`
+	UiDefinition pulumi.Input          `pulumi:"uiDefinition"`
+	Value        pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ApiOAuthSettingsParameterArgs) ElementType() reflect.Type {
@@ -1104,7 +1001,6 @@ func (i ApiOAuthSettingsParameterMap) ToApiOAuthSettingsParameterMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsParameterMapOutput)
 }
 
-// OAuth settings for the API
 type ApiOAuthSettingsParameterOutput struct{ *pulumi.OutputState }
 
 func (ApiOAuthSettingsParameterOutput) ElementType() reflect.Type {
@@ -1119,17 +1015,14 @@ func (o ApiOAuthSettingsParameterOutput) ToApiOAuthSettingsParameterOutputWithCo
 	return o
 }
 
-// Options available to this parameter
 func (o ApiOAuthSettingsParameterOutput) Options() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsParameter) interface{} { return v.Options }).(pulumi.AnyOutput)
 }
 
-// UI definitions per culture as caller can specify the culture
 func (o ApiOAuthSettingsParameterOutput) UiDefinition() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsParameter) interface{} { return v.UiDefinition }).(pulumi.AnyOutput)
 }
 
-// Value of the setting
 func (o ApiOAuthSettingsParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1154,14 +1047,10 @@ func (o ApiOAuthSettingsParameterMapOutput) MapIndex(k pulumi.StringInput) ApiOA
 	}).(ApiOAuthSettingsParameterOutput)
 }
 
-// OAuth settings for the API
 type ApiOAuthSettingsParameterResponse struct {
-	// Options available to this parameter
-	Options interface{} `pulumi:"options"`
-	// UI definitions per culture as caller can specify the culture
+	Options      interface{} `pulumi:"options"`
 	UiDefinition interface{} `pulumi:"uiDefinition"`
-	// Value of the setting
-	Value *string `pulumi:"value"`
+	Value        *string     `pulumi:"value"`
 }
 
 // ApiOAuthSettingsParameterResponseInput is an input type that accepts ApiOAuthSettingsParameterResponseArgs and ApiOAuthSettingsParameterResponseOutput values.
@@ -1175,14 +1064,10 @@ type ApiOAuthSettingsParameterResponseInput interface {
 	ToApiOAuthSettingsParameterResponseOutputWithContext(context.Context) ApiOAuthSettingsParameterResponseOutput
 }
 
-// OAuth settings for the API
 type ApiOAuthSettingsParameterResponseArgs struct {
-	// Options available to this parameter
-	Options pulumi.Input `pulumi:"options"`
-	// UI definitions per culture as caller can specify the culture
-	UiDefinition pulumi.Input `pulumi:"uiDefinition"`
-	// Value of the setting
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Options      pulumi.Input          `pulumi:"options"`
+	UiDefinition pulumi.Input          `pulumi:"uiDefinition"`
+	Value        pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ApiOAuthSettingsParameterResponseArgs) ElementType() reflect.Type {
@@ -1222,7 +1107,6 @@ func (i ApiOAuthSettingsParameterResponseMap) ToApiOAuthSettingsParameterRespons
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsParameterResponseMapOutput)
 }
 
-// OAuth settings for the API
 type ApiOAuthSettingsParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiOAuthSettingsParameterResponseOutput) ElementType() reflect.Type {
@@ -1237,17 +1121,14 @@ func (o ApiOAuthSettingsParameterResponseOutput) ToApiOAuthSettingsParameterResp
 	return o
 }
 
-// Options available to this parameter
 func (o ApiOAuthSettingsParameterResponseOutput) Options() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) interface{} { return v.Options }).(pulumi.AnyOutput)
 }
 
-// UI definitions per culture as caller can specify the culture
 func (o ApiOAuthSettingsParameterResponseOutput) UiDefinition() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) interface{} { return v.UiDefinition }).(pulumi.AnyOutput)
 }
 
-// Value of the setting
 func (o ApiOAuthSettingsParameterResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1272,22 +1153,14 @@ func (o ApiOAuthSettingsParameterResponseMapOutput) MapIndex(k pulumi.StringInpu
 	}).(ApiOAuthSettingsParameterResponseOutput)
 }
 
-// OAuth settings for the connection provider
 type ApiOAuthSettingsResponse struct {
-	// Resource provider client id
-	ClientId *string `pulumi:"clientId"`
-	// Client Secret needed for OAuth
-	ClientSecret *string `pulumi:"clientSecret"`
-	// OAuth parameters key is the name of parameter
+	ClientId         *string                                      `pulumi:"clientId"`
+	ClientSecret     *string                                      `pulumi:"clientSecret"`
 	CustomParameters map[string]ApiOAuthSettingsParameterResponse `pulumi:"customParameters"`
-	// Identity provider
-	IdentityProvider *string `pulumi:"identityProvider"`
-	// Read only properties for this oauth setting.
-	Properties interface{} `pulumi:"properties"`
-	// Url
-	RedirectUrl *string `pulumi:"redirectUrl"`
-	// OAuth scopes
-	Scopes []string `pulumi:"scopes"`
+	IdentityProvider *string                                      `pulumi:"identityProvider"`
+	Properties       interface{}                                  `pulumi:"properties"`
+	RedirectUrl      *string                                      `pulumi:"redirectUrl"`
+	Scopes           []string                                     `pulumi:"scopes"`
 }
 
 // ApiOAuthSettingsResponseInput is an input type that accepts ApiOAuthSettingsResponseArgs and ApiOAuthSettingsResponseOutput values.
@@ -1301,22 +1174,14 @@ type ApiOAuthSettingsResponseInput interface {
 	ToApiOAuthSettingsResponseOutputWithContext(context.Context) ApiOAuthSettingsResponseOutput
 }
 
-// OAuth settings for the connection provider
 type ApiOAuthSettingsResponseArgs struct {
-	// Resource provider client id
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// Client Secret needed for OAuth
-	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// OAuth parameters key is the name of parameter
+	ClientId         pulumi.StringPtrInput                     `pulumi:"clientId"`
+	ClientSecret     pulumi.StringPtrInput                     `pulumi:"clientSecret"`
 	CustomParameters ApiOAuthSettingsParameterResponseMapInput `pulumi:"customParameters"`
-	// Identity provider
-	IdentityProvider pulumi.StringPtrInput `pulumi:"identityProvider"`
-	// Read only properties for this oauth setting.
-	Properties pulumi.Input `pulumi:"properties"`
-	// Url
-	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
-	// OAuth scopes
-	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+	IdentityProvider pulumi.StringPtrInput                     `pulumi:"identityProvider"`
+	Properties       pulumi.Input                              `pulumi:"properties"`
+	RedirectUrl      pulumi.StringPtrInput                     `pulumi:"redirectUrl"`
+	Scopes           pulumi.StringArrayInput                   `pulumi:"scopes"`
 }
 
 func (ApiOAuthSettingsResponseArgs) ElementType() reflect.Type {
@@ -1372,7 +1237,6 @@ func (i *apiOAuthSettingsResponsePtrType) ToApiOAuthSettingsResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsResponsePtrOutput)
 }
 
-// OAuth settings for the connection provider
 type ApiOAuthSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiOAuthSettingsResponseOutput) ElementType() reflect.Type {
@@ -1392,44 +1256,37 @@ func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponsePtrOutput() Ap
 }
 
 func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponsePtrOutputWithContext(ctx context.Context) ApiOAuthSettingsResponsePtrOutput {
-	return o.ApplyT(func(v ApiOAuthSettingsResponse) *ApiOAuthSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOAuthSettingsResponse) *ApiOAuthSettingsResponse {
 		return &v
 	}).(ApiOAuthSettingsResponsePtrOutput)
 }
 
-// Resource provider client id
 func (o ApiOAuthSettingsResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// Client Secret needed for OAuth
 func (o ApiOAuthSettingsResponseOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
-// OAuth parameters key is the name of parameter
 func (o ApiOAuthSettingsResponseOutput) CustomParameters() ApiOAuthSettingsParameterResponseMapOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsResponse) map[string]ApiOAuthSettingsParameterResponse {
 		return v.CustomParameters
 	}).(ApiOAuthSettingsParameterResponseMapOutput)
 }
 
-// Identity provider
 func (o ApiOAuthSettingsResponseOutput) IdentityProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsResponse) *string { return v.IdentityProvider }).(pulumi.StringPtrOutput)
 }
 
-// Read only properties for this oauth setting.
 func (o ApiOAuthSettingsResponseOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsResponse) interface{} { return v.Properties }).(pulumi.AnyOutput)
 }
 
-// Url
 func (o ApiOAuthSettingsResponseOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsResponse) *string { return v.RedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// OAuth scopes
 func (o ApiOAuthSettingsResponseOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsResponse) []string { return v.Scopes }).(pulumi.StringArrayOutput)
 }
@@ -1449,10 +1306,15 @@ func (o ApiOAuthSettingsResponsePtrOutput) ToApiOAuthSettingsResponsePtrOutputWi
 }
 
 func (o ApiOAuthSettingsResponsePtrOutput) Elem() ApiOAuthSettingsResponseOutput {
-	return o.ApplyT(func(v *ApiOAuthSettingsResponse) ApiOAuthSettingsResponse { return *v }).(ApiOAuthSettingsResponseOutput)
+	return o.ApplyT(func(v *ApiOAuthSettingsResponse) ApiOAuthSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiOAuthSettingsResponse
+		return ret
+	}).(ApiOAuthSettingsResponseOutput)
 }
 
-// Resource provider client id
 func (o ApiOAuthSettingsResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOAuthSettingsResponse) *string {
 		if v == nil {
@@ -1462,7 +1324,6 @@ func (o ApiOAuthSettingsResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Client Secret needed for OAuth
 func (o ApiOAuthSettingsResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOAuthSettingsResponse) *string {
 		if v == nil {
@@ -1472,7 +1333,6 @@ func (o ApiOAuthSettingsResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth parameters key is the name of parameter
 func (o ApiOAuthSettingsResponsePtrOutput) CustomParameters() ApiOAuthSettingsParameterResponseMapOutput {
 	return o.ApplyT(func(v *ApiOAuthSettingsResponse) map[string]ApiOAuthSettingsParameterResponse {
 		if v == nil {
@@ -1482,7 +1342,6 @@ func (o ApiOAuthSettingsResponsePtrOutput) CustomParameters() ApiOAuthSettingsPa
 	}).(ApiOAuthSettingsParameterResponseMapOutput)
 }
 
-// Identity provider
 func (o ApiOAuthSettingsResponsePtrOutput) IdentityProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOAuthSettingsResponse) *string {
 		if v == nil {
@@ -1492,7 +1351,6 @@ func (o ApiOAuthSettingsResponsePtrOutput) IdentityProvider() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Read only properties for this oauth setting.
 func (o ApiOAuthSettingsResponsePtrOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ApiOAuthSettingsResponse) interface{} {
 		if v == nil {
@@ -1502,7 +1360,6 @@ func (o ApiOAuthSettingsResponsePtrOutput) Properties() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Url
 func (o ApiOAuthSettingsResponsePtrOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOAuthSettingsResponse) *string {
 		if v == nil {
@@ -1512,7 +1369,6 @@ func (o ApiOAuthSettingsResponsePtrOutput) RedirectUrl() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth scopes
 func (o ApiOAuthSettingsResponsePtrOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiOAuthSettingsResponse) []string {
 		if v == nil {
@@ -1523,22 +1379,14 @@ func (o ApiOAuthSettingsResponsePtrOutput) Scopes() pulumi.StringArrayOutput {
 }
 
 type ApiReference struct {
-	// Brand color
-	BrandColor *string `pulumi:"brandColor"`
-	// The custom API description
-	Description *string `pulumi:"description"`
-	// The display name
-	DisplayName *string `pulumi:"displayName"`
-	// The icon URI
-	IconUri *string `pulumi:"iconUri"`
-	// Resource reference id
-	Id *string `pulumi:"id"`
-	// The name of the API
-	Name *string `pulumi:"name"`
-	// The JSON representation of the swagger
-	Swagger interface{} `pulumi:"swagger"`
-	// Resource reference type
-	Type *string `pulumi:"type"`
+	BrandColor  *string     `pulumi:"brandColor"`
+	Description *string     `pulumi:"description"`
+	DisplayName *string     `pulumi:"displayName"`
+	IconUri     *string     `pulumi:"iconUri"`
+	Id          *string     `pulumi:"id"`
+	Name        *string     `pulumi:"name"`
+	Swagger     interface{} `pulumi:"swagger"`
+	Type        *string     `pulumi:"type"`
 }
 
 // ApiReferenceInput is an input type that accepts ApiReferenceArgs and ApiReferenceOutput values.
@@ -1553,22 +1401,14 @@ type ApiReferenceInput interface {
 }
 
 type ApiReferenceArgs struct {
-	// Brand color
-	BrandColor pulumi.StringPtrInput `pulumi:"brandColor"`
-	// The custom API description
+	BrandColor  pulumi.StringPtrInput `pulumi:"brandColor"`
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The display name
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The icon URI
-	IconUri pulumi.StringPtrInput `pulumi:"iconUri"`
-	// Resource reference id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the API
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The JSON representation of the swagger
-	Swagger pulumi.Input `pulumi:"swagger"`
-	// Resource reference type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	IconUri     pulumi.StringPtrInput `pulumi:"iconUri"`
+	Id          pulumi.StringPtrInput `pulumi:"id"`
+	Name        pulumi.StringPtrInput `pulumi:"name"`
+	Swagger     pulumi.Input          `pulumi:"swagger"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ApiReferenceArgs) ElementType() reflect.Type {
@@ -1643,47 +1483,39 @@ func (o ApiReferenceOutput) ToApiReferencePtrOutput() ApiReferencePtrOutput {
 }
 
 func (o ApiReferenceOutput) ToApiReferencePtrOutputWithContext(ctx context.Context) ApiReferencePtrOutput {
-	return o.ApplyT(func(v ApiReference) *ApiReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiReference) *ApiReference {
 		return &v
 	}).(ApiReferencePtrOutput)
 }
 
-// Brand color
 func (o ApiReferenceOutput) BrandColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiReference) *string { return v.BrandColor }).(pulumi.StringPtrOutput)
 }
 
-// The custom API description
 func (o ApiReferenceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiReference) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The display name
 func (o ApiReferenceOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiReference) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The icon URI
 func (o ApiReferenceOutput) IconUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiReference) *string { return v.IconUri }).(pulumi.StringPtrOutput)
 }
 
-// Resource reference id
 func (o ApiReferenceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the API
 func (o ApiReferenceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiReference) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The JSON representation of the swagger
 func (o ApiReferenceOutput) Swagger() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApiReference) interface{} { return v.Swagger }).(pulumi.AnyOutput)
 }
 
-// Resource reference type
 func (o ApiReferenceOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiReference) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1703,10 +1535,15 @@ func (o ApiReferencePtrOutput) ToApiReferencePtrOutputWithContext(ctx context.Co
 }
 
 func (o ApiReferencePtrOutput) Elem() ApiReferenceOutput {
-	return o.ApplyT(func(v *ApiReference) ApiReference { return *v }).(ApiReferenceOutput)
+	return o.ApplyT(func(v *ApiReference) ApiReference {
+		if v != nil {
+			return *v
+		}
+		var ret ApiReference
+		return ret
+	}).(ApiReferenceOutput)
 }
 
-// Brand color
 func (o ApiReferencePtrOutput) BrandColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiReference) *string {
 		if v == nil {
@@ -1716,7 +1553,6 @@ func (o ApiReferencePtrOutput) BrandColor() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The custom API description
 func (o ApiReferencePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiReference) *string {
 		if v == nil {
@@ -1726,7 +1562,6 @@ func (o ApiReferencePtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The display name
 func (o ApiReferencePtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiReference) *string {
 		if v == nil {
@@ -1736,7 +1571,6 @@ func (o ApiReferencePtrOutput) DisplayName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The icon URI
 func (o ApiReferencePtrOutput) IconUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiReference) *string {
 		if v == nil {
@@ -1746,7 +1580,6 @@ func (o ApiReferencePtrOutput) IconUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource reference id
 func (o ApiReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiReference) *string {
 		if v == nil {
@@ -1756,7 +1589,6 @@ func (o ApiReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the API
 func (o ApiReferencePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiReference) *string {
 		if v == nil {
@@ -1766,7 +1598,6 @@ func (o ApiReferencePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The JSON representation of the swagger
 func (o ApiReferencePtrOutput) Swagger() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ApiReference) interface{} {
 		if v == nil {
@@ -1776,7 +1607,6 @@ func (o ApiReferencePtrOutput) Swagger() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Resource reference type
 func (o ApiReferencePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiReference) *string {
 		if v == nil {
@@ -1787,22 +1617,14 @@ func (o ApiReferencePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ApiReferenceResponse struct {
-	// Brand color
-	BrandColor *string `pulumi:"brandColor"`
-	// The custom API description
-	Description *string `pulumi:"description"`
-	// The display name
-	DisplayName *string `pulumi:"displayName"`
-	// The icon URI
-	IconUri *string `pulumi:"iconUri"`
-	// Resource reference id
-	Id *string `pulumi:"id"`
-	// The name of the API
-	Name *string `pulumi:"name"`
-	// The JSON representation of the swagger
-	Swagger interface{} `pulumi:"swagger"`
-	// Resource reference type
-	Type *string `pulumi:"type"`
+	BrandColor  *string     `pulumi:"brandColor"`
+	Description *string     `pulumi:"description"`
+	DisplayName *string     `pulumi:"displayName"`
+	IconUri     *string     `pulumi:"iconUri"`
+	Id          *string     `pulumi:"id"`
+	Name        *string     `pulumi:"name"`
+	Swagger     interface{} `pulumi:"swagger"`
+	Type        *string     `pulumi:"type"`
 }
 
 // ApiReferenceResponseInput is an input type that accepts ApiReferenceResponseArgs and ApiReferenceResponseOutput values.
@@ -1817,22 +1639,14 @@ type ApiReferenceResponseInput interface {
 }
 
 type ApiReferenceResponseArgs struct {
-	// Brand color
-	BrandColor pulumi.StringPtrInput `pulumi:"brandColor"`
-	// The custom API description
+	BrandColor  pulumi.StringPtrInput `pulumi:"brandColor"`
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The display name
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The icon URI
-	IconUri pulumi.StringPtrInput `pulumi:"iconUri"`
-	// Resource reference id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the API
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The JSON representation of the swagger
-	Swagger pulumi.Input `pulumi:"swagger"`
-	// Resource reference type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	IconUri     pulumi.StringPtrInput `pulumi:"iconUri"`
+	Id          pulumi.StringPtrInput `pulumi:"id"`
+	Name        pulumi.StringPtrInput `pulumi:"name"`
+	Swagger     pulumi.Input          `pulumi:"swagger"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ApiReferenceResponseArgs) ElementType() reflect.Type {
@@ -1907,47 +1721,39 @@ func (o ApiReferenceResponseOutput) ToApiReferenceResponsePtrOutput() ApiReferen
 }
 
 func (o ApiReferenceResponseOutput) ToApiReferenceResponsePtrOutputWithContext(ctx context.Context) ApiReferenceResponsePtrOutput {
-	return o.ApplyT(func(v ApiReferenceResponse) *ApiReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiReferenceResponse) *ApiReferenceResponse {
 		return &v
 	}).(ApiReferenceResponsePtrOutput)
 }
 
-// Brand color
 func (o ApiReferenceResponseOutput) BrandColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiReferenceResponse) *string { return v.BrandColor }).(pulumi.StringPtrOutput)
 }
 
-// The custom API description
 func (o ApiReferenceResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiReferenceResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The display name
 func (o ApiReferenceResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiReferenceResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The icon URI
 func (o ApiReferenceResponseOutput) IconUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiReferenceResponse) *string { return v.IconUri }).(pulumi.StringPtrOutput)
 }
 
-// Resource reference id
 func (o ApiReferenceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiReferenceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the API
 func (o ApiReferenceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiReferenceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The JSON representation of the swagger
 func (o ApiReferenceResponseOutput) Swagger() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApiReferenceResponse) interface{} { return v.Swagger }).(pulumi.AnyOutput)
 }
 
-// Resource reference type
 func (o ApiReferenceResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiReferenceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1967,10 +1773,15 @@ func (o ApiReferenceResponsePtrOutput) ToApiReferenceResponsePtrOutputWithContex
 }
 
 func (o ApiReferenceResponsePtrOutput) Elem() ApiReferenceResponseOutput {
-	return o.ApplyT(func(v *ApiReferenceResponse) ApiReferenceResponse { return *v }).(ApiReferenceResponseOutput)
+	return o.ApplyT(func(v *ApiReferenceResponse) ApiReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiReferenceResponse
+		return ret
+	}).(ApiReferenceResponseOutput)
 }
 
-// Brand color
 func (o ApiReferenceResponsePtrOutput) BrandColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiReferenceResponse) *string {
 		if v == nil {
@@ -1980,7 +1791,6 @@ func (o ApiReferenceResponsePtrOutput) BrandColor() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The custom API description
 func (o ApiReferenceResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiReferenceResponse) *string {
 		if v == nil {
@@ -1990,7 +1800,6 @@ func (o ApiReferenceResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The display name
 func (o ApiReferenceResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiReferenceResponse) *string {
 		if v == nil {
@@ -2000,7 +1809,6 @@ func (o ApiReferenceResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The icon URI
 func (o ApiReferenceResponsePtrOutput) IconUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiReferenceResponse) *string {
 		if v == nil {
@@ -2010,7 +1818,6 @@ func (o ApiReferenceResponsePtrOutput) IconUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource reference id
 func (o ApiReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiReferenceResponse) *string {
 		if v == nil {
@@ -2020,7 +1827,6 @@ func (o ApiReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the API
 func (o ApiReferenceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiReferenceResponse) *string {
 		if v == nil {
@@ -2030,7 +1836,6 @@ func (o ApiReferenceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The JSON representation of the swagger
 func (o ApiReferenceResponsePtrOutput) Swagger() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ApiReferenceResponse) interface{} {
 		if v == nil {
@@ -2040,7 +1845,6 @@ func (o ApiReferenceResponsePtrOutput) Swagger() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Resource reference type
 func (o ApiReferenceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiReferenceResponse) *string {
 		if v == nil {
@@ -2050,9 +1854,7 @@ func (o ApiReferenceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The API backend service
 type ApiResourceBackendService struct {
-	// The service URL
 	ServiceUrl *string `pulumi:"serviceUrl"`
 }
 
@@ -2067,9 +1869,7 @@ type ApiResourceBackendServiceInput interface {
 	ToApiResourceBackendServiceOutputWithContext(context.Context) ApiResourceBackendServiceOutput
 }
 
-// The API backend service
 type ApiResourceBackendServiceArgs struct {
-	// The service URL
 	ServiceUrl pulumi.StringPtrInput `pulumi:"serviceUrl"`
 }
 
@@ -2126,7 +1926,6 @@ func (i *apiResourceBackendServicePtrType) ToApiResourceBackendServicePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceBackendServicePtrOutput)
 }
 
-// The API backend service
 type ApiResourceBackendServiceOutput struct{ *pulumi.OutputState }
 
 func (ApiResourceBackendServiceOutput) ElementType() reflect.Type {
@@ -2146,12 +1945,11 @@ func (o ApiResourceBackendServiceOutput) ToApiResourceBackendServicePtrOutput() 
 }
 
 func (o ApiResourceBackendServiceOutput) ToApiResourceBackendServicePtrOutputWithContext(ctx context.Context) ApiResourceBackendServicePtrOutput {
-	return o.ApplyT(func(v ApiResourceBackendService) *ApiResourceBackendService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiResourceBackendService) *ApiResourceBackendService {
 		return &v
 	}).(ApiResourceBackendServicePtrOutput)
 }
 
-// The service URL
 func (o ApiResourceBackendServiceOutput) ServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiResourceBackendService) *string { return v.ServiceUrl }).(pulumi.StringPtrOutput)
 }
@@ -2171,10 +1969,15 @@ func (o ApiResourceBackendServicePtrOutput) ToApiResourceBackendServicePtrOutput
 }
 
 func (o ApiResourceBackendServicePtrOutput) Elem() ApiResourceBackendServiceOutput {
-	return o.ApplyT(func(v *ApiResourceBackendService) ApiResourceBackendService { return *v }).(ApiResourceBackendServiceOutput)
+	return o.ApplyT(func(v *ApiResourceBackendService) ApiResourceBackendService {
+		if v != nil {
+			return *v
+		}
+		var ret ApiResourceBackendService
+		return ret
+	}).(ApiResourceBackendServiceOutput)
 }
 
-// The service URL
 func (o ApiResourceBackendServicePtrOutput) ServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiResourceBackendService) *string {
 		if v == nil {
@@ -2184,9 +1987,7 @@ func (o ApiResourceBackendServicePtrOutput) ServiceUrl() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The API backend service
 type ApiResourceBackendServiceResponse struct {
-	// The service URL
 	ServiceUrl *string `pulumi:"serviceUrl"`
 }
 
@@ -2201,9 +2002,7 @@ type ApiResourceBackendServiceResponseInput interface {
 	ToApiResourceBackendServiceResponseOutputWithContext(context.Context) ApiResourceBackendServiceResponseOutput
 }
 
-// The API backend service
 type ApiResourceBackendServiceResponseArgs struct {
-	// The service URL
 	ServiceUrl pulumi.StringPtrInput `pulumi:"serviceUrl"`
 }
 
@@ -2260,7 +2059,6 @@ func (i *apiResourceBackendServiceResponsePtrType) ToApiResourceBackendServiceRe
 	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceBackendServiceResponsePtrOutput)
 }
 
-// The API backend service
 type ApiResourceBackendServiceResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiResourceBackendServiceResponseOutput) ElementType() reflect.Type {
@@ -2280,12 +2078,11 @@ func (o ApiResourceBackendServiceResponseOutput) ToApiResourceBackendServiceResp
 }
 
 func (o ApiResourceBackendServiceResponseOutput) ToApiResourceBackendServiceResponsePtrOutputWithContext(ctx context.Context) ApiResourceBackendServiceResponsePtrOutput {
-	return o.ApplyT(func(v ApiResourceBackendServiceResponse) *ApiResourceBackendServiceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiResourceBackendServiceResponse) *ApiResourceBackendServiceResponse {
 		return &v
 	}).(ApiResourceBackendServiceResponsePtrOutput)
 }
 
-// The service URL
 func (o ApiResourceBackendServiceResponseOutput) ServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiResourceBackendServiceResponse) *string { return v.ServiceUrl }).(pulumi.StringPtrOutput)
 }
@@ -2305,10 +2102,15 @@ func (o ApiResourceBackendServiceResponsePtrOutput) ToApiResourceBackendServiceR
 }
 
 func (o ApiResourceBackendServiceResponsePtrOutput) Elem() ApiResourceBackendServiceResponseOutput {
-	return o.ApplyT(func(v *ApiResourceBackendServiceResponse) ApiResourceBackendServiceResponse { return *v }).(ApiResourceBackendServiceResponseOutput)
+	return o.ApplyT(func(v *ApiResourceBackendServiceResponse) ApiResourceBackendServiceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiResourceBackendServiceResponse
+		return ret
+	}).(ApiResourceBackendServiceResponseOutput)
 }
 
-// The service URL
 func (o ApiResourceBackendServiceResponsePtrOutput) ServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiResourceBackendServiceResponse) *string {
 		if v == nil {
@@ -2318,11 +2120,8 @@ func (o ApiResourceBackendServiceResponsePtrOutput) ServiceUrl() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// API Definitions
 type ApiResourceDefinitions struct {
-	// The modified swagger URL
 	ModifiedSwaggerUrl *string `pulumi:"modifiedSwaggerUrl"`
-	// The original swagger URL
 	OriginalSwaggerUrl *string `pulumi:"originalSwaggerUrl"`
 }
 
@@ -2337,11 +2136,8 @@ type ApiResourceDefinitionsInput interface {
 	ToApiResourceDefinitionsOutputWithContext(context.Context) ApiResourceDefinitionsOutput
 }
 
-// API Definitions
 type ApiResourceDefinitionsArgs struct {
-	// The modified swagger URL
 	ModifiedSwaggerUrl pulumi.StringPtrInput `pulumi:"modifiedSwaggerUrl"`
-	// The original swagger URL
 	OriginalSwaggerUrl pulumi.StringPtrInput `pulumi:"originalSwaggerUrl"`
 }
 
@@ -2398,7 +2194,6 @@ func (i *apiResourceDefinitionsPtrType) ToApiResourceDefinitionsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceDefinitionsPtrOutput)
 }
 
-// API Definitions
 type ApiResourceDefinitionsOutput struct{ *pulumi.OutputState }
 
 func (ApiResourceDefinitionsOutput) ElementType() reflect.Type {
@@ -2418,17 +2213,15 @@ func (o ApiResourceDefinitionsOutput) ToApiResourceDefinitionsPtrOutput() ApiRes
 }
 
 func (o ApiResourceDefinitionsOutput) ToApiResourceDefinitionsPtrOutputWithContext(ctx context.Context) ApiResourceDefinitionsPtrOutput {
-	return o.ApplyT(func(v ApiResourceDefinitions) *ApiResourceDefinitions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiResourceDefinitions) *ApiResourceDefinitions {
 		return &v
 	}).(ApiResourceDefinitionsPtrOutput)
 }
 
-// The modified swagger URL
 func (o ApiResourceDefinitionsOutput) ModifiedSwaggerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiResourceDefinitions) *string { return v.ModifiedSwaggerUrl }).(pulumi.StringPtrOutput)
 }
 
-// The original swagger URL
 func (o ApiResourceDefinitionsOutput) OriginalSwaggerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiResourceDefinitions) *string { return v.OriginalSwaggerUrl }).(pulumi.StringPtrOutput)
 }
@@ -2448,10 +2241,15 @@ func (o ApiResourceDefinitionsPtrOutput) ToApiResourceDefinitionsPtrOutputWithCo
 }
 
 func (o ApiResourceDefinitionsPtrOutput) Elem() ApiResourceDefinitionsOutput {
-	return o.ApplyT(func(v *ApiResourceDefinitions) ApiResourceDefinitions { return *v }).(ApiResourceDefinitionsOutput)
+	return o.ApplyT(func(v *ApiResourceDefinitions) ApiResourceDefinitions {
+		if v != nil {
+			return *v
+		}
+		var ret ApiResourceDefinitions
+		return ret
+	}).(ApiResourceDefinitionsOutput)
 }
 
-// The modified swagger URL
 func (o ApiResourceDefinitionsPtrOutput) ModifiedSwaggerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiResourceDefinitions) *string {
 		if v == nil {
@@ -2461,7 +2259,6 @@ func (o ApiResourceDefinitionsPtrOutput) ModifiedSwaggerUrl() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The original swagger URL
 func (o ApiResourceDefinitionsPtrOutput) OriginalSwaggerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiResourceDefinitions) *string {
 		if v == nil {
@@ -2471,11 +2268,8 @@ func (o ApiResourceDefinitionsPtrOutput) OriginalSwaggerUrl() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// API Definitions
 type ApiResourceDefinitionsResponse struct {
-	// The modified swagger URL
 	ModifiedSwaggerUrl *string `pulumi:"modifiedSwaggerUrl"`
-	// The original swagger URL
 	OriginalSwaggerUrl *string `pulumi:"originalSwaggerUrl"`
 }
 
@@ -2490,11 +2284,8 @@ type ApiResourceDefinitionsResponseInput interface {
 	ToApiResourceDefinitionsResponseOutputWithContext(context.Context) ApiResourceDefinitionsResponseOutput
 }
 
-// API Definitions
 type ApiResourceDefinitionsResponseArgs struct {
-	// The modified swagger URL
 	ModifiedSwaggerUrl pulumi.StringPtrInput `pulumi:"modifiedSwaggerUrl"`
-	// The original swagger URL
 	OriginalSwaggerUrl pulumi.StringPtrInput `pulumi:"originalSwaggerUrl"`
 }
 
@@ -2551,7 +2342,6 @@ func (i *apiResourceDefinitionsResponsePtrType) ToApiResourceDefinitionsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceDefinitionsResponsePtrOutput)
 }
 
-// API Definitions
 type ApiResourceDefinitionsResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiResourceDefinitionsResponseOutput) ElementType() reflect.Type {
@@ -2571,17 +2361,15 @@ func (o ApiResourceDefinitionsResponseOutput) ToApiResourceDefinitionsResponsePt
 }
 
 func (o ApiResourceDefinitionsResponseOutput) ToApiResourceDefinitionsResponsePtrOutputWithContext(ctx context.Context) ApiResourceDefinitionsResponsePtrOutput {
-	return o.ApplyT(func(v ApiResourceDefinitionsResponse) *ApiResourceDefinitionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiResourceDefinitionsResponse) *ApiResourceDefinitionsResponse {
 		return &v
 	}).(ApiResourceDefinitionsResponsePtrOutput)
 }
 
-// The modified swagger URL
 func (o ApiResourceDefinitionsResponseOutput) ModifiedSwaggerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiResourceDefinitionsResponse) *string { return v.ModifiedSwaggerUrl }).(pulumi.StringPtrOutput)
 }
 
-// The original swagger URL
 func (o ApiResourceDefinitionsResponseOutput) OriginalSwaggerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiResourceDefinitionsResponse) *string { return v.OriginalSwaggerUrl }).(pulumi.StringPtrOutput)
 }
@@ -2601,10 +2389,15 @@ func (o ApiResourceDefinitionsResponsePtrOutput) ToApiResourceDefinitionsRespons
 }
 
 func (o ApiResourceDefinitionsResponsePtrOutput) Elem() ApiResourceDefinitionsResponseOutput {
-	return o.ApplyT(func(v *ApiResourceDefinitionsResponse) ApiResourceDefinitionsResponse { return *v }).(ApiResourceDefinitionsResponseOutput)
+	return o.ApplyT(func(v *ApiResourceDefinitionsResponse) ApiResourceDefinitionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiResourceDefinitionsResponse
+		return ret
+	}).(ApiResourceDefinitionsResponseOutput)
 }
 
-// The modified swagger URL
 func (o ApiResourceDefinitionsResponsePtrOutput) ModifiedSwaggerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiResourceDefinitionsResponse) *string {
 		if v == nil {
@@ -2614,7 +2407,6 @@ func (o ApiResourceDefinitionsResponsePtrOutput) ModifiedSwaggerUrl() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The original swagger URL
 func (o ApiResourceDefinitionsResponsePtrOutput) OriginalSwaggerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiResourceDefinitionsResponse) *string {
 		if v == nil {
@@ -2624,18 +2416,12 @@ func (o ApiResourceDefinitionsResponsePtrOutput) OriginalSwaggerUrl() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection error
 type ConnectionError struct {
-	// Code of the status
-	Code *string `pulumi:"code"`
-	// Resource ETag
-	Etag *string `pulumi:"etag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Description of the status
-	Message *string `pulumi:"message"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Code     *string           `pulumi:"code"`
+	Etag     *string           `pulumi:"etag"`
+	Location *string           `pulumi:"location"`
+	Message  *string           `pulumi:"message"`
+	Tags     map[string]string `pulumi:"tags"`
 }
 
 // ConnectionErrorInput is an input type that accepts ConnectionErrorArgs and ConnectionErrorOutput values.
@@ -2649,18 +2435,12 @@ type ConnectionErrorInput interface {
 	ToConnectionErrorOutputWithContext(context.Context) ConnectionErrorOutput
 }
 
-// Connection error
 type ConnectionErrorArgs struct {
-	// Code of the status
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Resource ETag
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource location
+	Code     pulumi.StringPtrInput `pulumi:"code"`
+	Etag     pulumi.StringPtrInput `pulumi:"etag"`
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Description of the status
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Message  pulumi.StringPtrInput `pulumi:"message"`
+	Tags     pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (ConnectionErrorArgs) ElementType() reflect.Type {
@@ -2716,7 +2496,6 @@ func (i *connectionErrorPtrType) ToConnectionErrorPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionErrorPtrOutput)
 }
 
-// Connection error
 type ConnectionErrorOutput struct{ *pulumi.OutputState }
 
 func (ConnectionErrorOutput) ElementType() reflect.Type {
@@ -2736,32 +2515,27 @@ func (o ConnectionErrorOutput) ToConnectionErrorPtrOutput() ConnectionErrorPtrOu
 }
 
 func (o ConnectionErrorOutput) ToConnectionErrorPtrOutputWithContext(ctx context.Context) ConnectionErrorPtrOutput {
-	return o.ApplyT(func(v ConnectionError) *ConnectionError {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionError) *ConnectionError {
 		return &v
 	}).(ConnectionErrorPtrOutput)
 }
 
-// Code of the status
 func (o ConnectionErrorOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionError) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Resource ETag
 func (o ConnectionErrorOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionError) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource location
 func (o ConnectionErrorOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionError) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Description of the status
 func (o ConnectionErrorOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionError) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ConnectionErrorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ConnectionError) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -2781,10 +2555,15 @@ func (o ConnectionErrorPtrOutput) ToConnectionErrorPtrOutputWithContext(ctx cont
 }
 
 func (o ConnectionErrorPtrOutput) Elem() ConnectionErrorOutput {
-	return o.ApplyT(func(v *ConnectionError) ConnectionError { return *v }).(ConnectionErrorOutput)
+	return o.ApplyT(func(v *ConnectionError) ConnectionError {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionError
+		return ret
+	}).(ConnectionErrorOutput)
 }
 
-// Code of the status
 func (o ConnectionErrorPtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionError) *string {
 		if v == nil {
@@ -2794,7 +2573,6 @@ func (o ConnectionErrorPtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource ETag
 func (o ConnectionErrorPtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionError) *string {
 		if v == nil {
@@ -2804,7 +2582,6 @@ func (o ConnectionErrorPtrOutput) Etag() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource location
 func (o ConnectionErrorPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionError) *string {
 		if v == nil {
@@ -2814,7 +2591,6 @@ func (o ConnectionErrorPtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of the status
 func (o ConnectionErrorPtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionError) *string {
 		if v == nil {
@@ -2824,7 +2600,6 @@ func (o ConnectionErrorPtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ConnectionErrorPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectionError) map[string]string {
 		if v == nil {
@@ -2834,24 +2609,15 @@ func (o ConnectionErrorPtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Connection error
 type ConnectionErrorResponse struct {
-	// Code of the status
-	Code *string `pulumi:"code"`
-	// Resource ETag
-	Etag *string `pulumi:"etag"`
-	// Resource id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Description of the status
-	Message *string `pulumi:"message"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Code     *string           `pulumi:"code"`
+	Etag     *string           `pulumi:"etag"`
+	Id       string            `pulumi:"id"`
+	Location *string           `pulumi:"location"`
+	Message  *string           `pulumi:"message"`
+	Name     string            `pulumi:"name"`
+	Tags     map[string]string `pulumi:"tags"`
+	Type     string            `pulumi:"type"`
 }
 
 // ConnectionErrorResponseInput is an input type that accepts ConnectionErrorResponseArgs and ConnectionErrorResponseOutput values.
@@ -2865,24 +2631,15 @@ type ConnectionErrorResponseInput interface {
 	ToConnectionErrorResponseOutputWithContext(context.Context) ConnectionErrorResponseOutput
 }
 
-// Connection error
 type ConnectionErrorResponseArgs struct {
-	// Code of the status
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Resource ETag
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource id
-	Id pulumi.StringInput `pulumi:"id"`
-	// Resource location
+	Code     pulumi.StringPtrInput `pulumi:"code"`
+	Etag     pulumi.StringPtrInput `pulumi:"etag"`
+	Id       pulumi.StringInput    `pulumi:"id"`
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Description of the status
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
+	Message  pulumi.StringPtrInput `pulumi:"message"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Tags     pulumi.StringMapInput `pulumi:"tags"`
+	Type     pulumi.StringInput    `pulumi:"type"`
 }
 
 func (ConnectionErrorResponseArgs) ElementType() reflect.Type {
@@ -2938,7 +2695,6 @@ func (i *connectionErrorResponsePtrType) ToConnectionErrorResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionErrorResponsePtrOutput)
 }
 
-// Connection error
 type ConnectionErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionErrorResponseOutput) ElementType() reflect.Type {
@@ -2958,47 +2714,39 @@ func (o ConnectionErrorResponseOutput) ToConnectionErrorResponsePtrOutput() Conn
 }
 
 func (o ConnectionErrorResponseOutput) ToConnectionErrorResponsePtrOutputWithContext(ctx context.Context) ConnectionErrorResponsePtrOutput {
-	return o.ApplyT(func(v ConnectionErrorResponse) *ConnectionErrorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionErrorResponse) *ConnectionErrorResponse {
 		return &v
 	}).(ConnectionErrorResponsePtrOutput)
 }
 
-// Code of the status
 func (o ConnectionErrorResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Resource ETag
 func (o ConnectionErrorResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Resource id
 func (o ConnectionErrorResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource location
 func (o ConnectionErrorResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Description of the status
 func (o ConnectionErrorResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// Resource name
 func (o ConnectionErrorResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource tags
 func (o ConnectionErrorResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ConnectionErrorResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3018,10 +2766,15 @@ func (o ConnectionErrorResponsePtrOutput) ToConnectionErrorResponsePtrOutputWith
 }
 
 func (o ConnectionErrorResponsePtrOutput) Elem() ConnectionErrorResponseOutput {
-	return o.ApplyT(func(v *ConnectionErrorResponse) ConnectionErrorResponse { return *v }).(ConnectionErrorResponseOutput)
+	return o.ApplyT(func(v *ConnectionErrorResponse) ConnectionErrorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionErrorResponse
+		return ret
+	}).(ConnectionErrorResponseOutput)
 }
 
-// Code of the status
 func (o ConnectionErrorResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
 		if v == nil {
@@ -3031,7 +2784,6 @@ func (o ConnectionErrorResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource ETag
 func (o ConnectionErrorResponsePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
 		if v == nil {
@@ -3041,7 +2793,6 @@ func (o ConnectionErrorResponsePtrOutput) Etag() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id
 func (o ConnectionErrorResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
 		if v == nil {
@@ -3051,7 +2802,6 @@ func (o ConnectionErrorResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource location
 func (o ConnectionErrorResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
 		if v == nil {
@@ -3061,7 +2811,6 @@ func (o ConnectionErrorResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of the status
 func (o ConnectionErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
 		if v == nil {
@@ -3071,7 +2820,6 @@ func (o ConnectionErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource name
 func (o ConnectionErrorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
 		if v == nil {
@@ -3081,7 +2829,6 @@ func (o ConnectionErrorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ConnectionErrorResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) map[string]string {
 		if v == nil {
@@ -3091,7 +2838,6 @@ func (o ConnectionErrorResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ConnectionErrorResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
 		if v == nil {
@@ -3102,20 +2848,13 @@ func (o ConnectionErrorResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ConnectionGatewayDefinitionProperties struct {
-	// The URI of the backend
-	BackendUri *string `pulumi:"backendUri"`
-	// The gateway installation reference
+	BackendUri                    *string                     `pulumi:"backendUri"`
 	ConnectionGatewayInstallation *ConnectionGatewayReference `pulumi:"connectionGatewayInstallation"`
-	// The gateway admin
-	ContactInformation []string `pulumi:"contactInformation"`
-	// The gateway description
-	Description *string `pulumi:"description"`
-	// The gateway display name
-	DisplayName *string `pulumi:"displayName"`
-	// The machine name of the gateway
-	MachineName *string `pulumi:"machineName"`
-	// The gateway status
-	Status interface{} `pulumi:"status"`
+	ContactInformation            []string                    `pulumi:"contactInformation"`
+	Description                   *string                     `pulumi:"description"`
+	DisplayName                   *string                     `pulumi:"displayName"`
+	MachineName                   *string                     `pulumi:"machineName"`
+	Status                        interface{}                 `pulumi:"status"`
 }
 
 // ConnectionGatewayDefinitionPropertiesInput is an input type that accepts ConnectionGatewayDefinitionPropertiesArgs and ConnectionGatewayDefinitionPropertiesOutput values.
@@ -3130,20 +2869,13 @@ type ConnectionGatewayDefinitionPropertiesInput interface {
 }
 
 type ConnectionGatewayDefinitionPropertiesArgs struct {
-	// The URI of the backend
-	BackendUri pulumi.StringPtrInput `pulumi:"backendUri"`
-	// The gateway installation reference
+	BackendUri                    pulumi.StringPtrInput              `pulumi:"backendUri"`
 	ConnectionGatewayInstallation ConnectionGatewayReferencePtrInput `pulumi:"connectionGatewayInstallation"`
-	// The gateway admin
-	ContactInformation pulumi.StringArrayInput `pulumi:"contactInformation"`
-	// The gateway description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The gateway display name
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The machine name of the gateway
-	MachineName pulumi.StringPtrInput `pulumi:"machineName"`
-	// The gateway status
-	Status pulumi.Input `pulumi:"status"`
+	ContactInformation            pulumi.StringArrayInput            `pulumi:"contactInformation"`
+	Description                   pulumi.StringPtrInput              `pulumi:"description"`
+	DisplayName                   pulumi.StringPtrInput              `pulumi:"displayName"`
+	MachineName                   pulumi.StringPtrInput              `pulumi:"machineName"`
+	Status                        pulumi.Input                       `pulumi:"status"`
 }
 
 func (ConnectionGatewayDefinitionPropertiesArgs) ElementType() reflect.Type {
@@ -3218,44 +2950,37 @@ func (o ConnectionGatewayDefinitionPropertiesOutput) ToConnectionGatewayDefiniti
 }
 
 func (o ConnectionGatewayDefinitionPropertiesOutput) ToConnectionGatewayDefinitionPropertiesPtrOutputWithContext(ctx context.Context) ConnectionGatewayDefinitionPropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectionGatewayDefinitionProperties) *ConnectionGatewayDefinitionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGatewayDefinitionProperties) *ConnectionGatewayDefinitionProperties {
 		return &v
 	}).(ConnectionGatewayDefinitionPropertiesPtrOutput)
 }
 
-// The URI of the backend
 func (o ConnectionGatewayDefinitionPropertiesOutput) BackendUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayDefinitionProperties) *string { return v.BackendUri }).(pulumi.StringPtrOutput)
 }
 
-// The gateway installation reference
 func (o ConnectionGatewayDefinitionPropertiesOutput) ConnectionGatewayInstallation() ConnectionGatewayReferencePtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayDefinitionProperties) *ConnectionGatewayReference {
 		return v.ConnectionGatewayInstallation
 	}).(ConnectionGatewayReferencePtrOutput)
 }
 
-// The gateway admin
 func (o ConnectionGatewayDefinitionPropertiesOutput) ContactInformation() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectionGatewayDefinitionProperties) []string { return v.ContactInformation }).(pulumi.StringArrayOutput)
 }
 
-// The gateway description
 func (o ConnectionGatewayDefinitionPropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayDefinitionProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The gateway display name
 func (o ConnectionGatewayDefinitionPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayDefinitionProperties) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The machine name of the gateway
 func (o ConnectionGatewayDefinitionPropertiesOutput) MachineName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayDefinitionProperties) *string { return v.MachineName }).(pulumi.StringPtrOutput)
 }
 
-// The gateway status
 func (o ConnectionGatewayDefinitionPropertiesOutput) Status() pulumi.AnyOutput {
 	return o.ApplyT(func(v ConnectionGatewayDefinitionProperties) interface{} { return v.Status }).(pulumi.AnyOutput)
 }
@@ -3275,10 +3000,15 @@ func (o ConnectionGatewayDefinitionPropertiesPtrOutput) ToConnectionGatewayDefin
 }
 
 func (o ConnectionGatewayDefinitionPropertiesPtrOutput) Elem() ConnectionGatewayDefinitionPropertiesOutput {
-	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) ConnectionGatewayDefinitionProperties { return *v }).(ConnectionGatewayDefinitionPropertiesOutput)
+	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) ConnectionGatewayDefinitionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionGatewayDefinitionProperties
+		return ret
+	}).(ConnectionGatewayDefinitionPropertiesOutput)
 }
 
-// The URI of the backend
 func (o ConnectionGatewayDefinitionPropertiesPtrOutput) BackendUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) *string {
 		if v == nil {
@@ -3288,7 +3018,6 @@ func (o ConnectionGatewayDefinitionPropertiesPtrOutput) BackendUri() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The gateway installation reference
 func (o ConnectionGatewayDefinitionPropertiesPtrOutput) ConnectionGatewayInstallation() ConnectionGatewayReferencePtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) *ConnectionGatewayReference {
 		if v == nil {
@@ -3298,7 +3027,6 @@ func (o ConnectionGatewayDefinitionPropertiesPtrOutput) ConnectionGatewayInstall
 	}).(ConnectionGatewayReferencePtrOutput)
 }
 
-// The gateway admin
 func (o ConnectionGatewayDefinitionPropertiesPtrOutput) ContactInformation() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) []string {
 		if v == nil {
@@ -3308,7 +3036,6 @@ func (o ConnectionGatewayDefinitionPropertiesPtrOutput) ContactInformation() pul
 	}).(pulumi.StringArrayOutput)
 }
 
-// The gateway description
 func (o ConnectionGatewayDefinitionPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) *string {
 		if v == nil {
@@ -3318,7 +3045,6 @@ func (o ConnectionGatewayDefinitionPropertiesPtrOutput) Description() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The gateway display name
 func (o ConnectionGatewayDefinitionPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) *string {
 		if v == nil {
@@ -3328,7 +3054,6 @@ func (o ConnectionGatewayDefinitionPropertiesPtrOutput) DisplayName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The machine name of the gateway
 func (o ConnectionGatewayDefinitionPropertiesPtrOutput) MachineName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) *string {
 		if v == nil {
@@ -3338,7 +3063,6 @@ func (o ConnectionGatewayDefinitionPropertiesPtrOutput) MachineName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The gateway status
 func (o ConnectionGatewayDefinitionPropertiesPtrOutput) Status() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) interface{} {
 		if v == nil {
@@ -3349,20 +3073,13 @@ func (o ConnectionGatewayDefinitionPropertiesPtrOutput) Status() pulumi.AnyOutpu
 }
 
 type ConnectionGatewayDefinitionResponseProperties struct {
-	// The URI of the backend
-	BackendUri *string `pulumi:"backendUri"`
-	// The gateway installation reference
+	BackendUri                    *string                             `pulumi:"backendUri"`
 	ConnectionGatewayInstallation *ConnectionGatewayReferenceResponse `pulumi:"connectionGatewayInstallation"`
-	// The gateway admin
-	ContactInformation []string `pulumi:"contactInformation"`
-	// The gateway description
-	Description *string `pulumi:"description"`
-	// The gateway display name
-	DisplayName *string `pulumi:"displayName"`
-	// The machine name of the gateway
-	MachineName *string `pulumi:"machineName"`
-	// The gateway status
-	Status interface{} `pulumi:"status"`
+	ContactInformation            []string                            `pulumi:"contactInformation"`
+	Description                   *string                             `pulumi:"description"`
+	DisplayName                   *string                             `pulumi:"displayName"`
+	MachineName                   *string                             `pulumi:"machineName"`
+	Status                        interface{}                         `pulumi:"status"`
 }
 
 // ConnectionGatewayDefinitionResponsePropertiesInput is an input type that accepts ConnectionGatewayDefinitionResponsePropertiesArgs and ConnectionGatewayDefinitionResponsePropertiesOutput values.
@@ -3377,20 +3094,13 @@ type ConnectionGatewayDefinitionResponsePropertiesInput interface {
 }
 
 type ConnectionGatewayDefinitionResponsePropertiesArgs struct {
-	// The URI of the backend
-	BackendUri pulumi.StringPtrInput `pulumi:"backendUri"`
-	// The gateway installation reference
+	BackendUri                    pulumi.StringPtrInput                      `pulumi:"backendUri"`
 	ConnectionGatewayInstallation ConnectionGatewayReferenceResponsePtrInput `pulumi:"connectionGatewayInstallation"`
-	// The gateway admin
-	ContactInformation pulumi.StringArrayInput `pulumi:"contactInformation"`
-	// The gateway description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The gateway display name
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The machine name of the gateway
-	MachineName pulumi.StringPtrInput `pulumi:"machineName"`
-	// The gateway status
-	Status pulumi.Input `pulumi:"status"`
+	ContactInformation            pulumi.StringArrayInput                    `pulumi:"contactInformation"`
+	Description                   pulumi.StringPtrInput                      `pulumi:"description"`
+	DisplayName                   pulumi.StringPtrInput                      `pulumi:"displayName"`
+	MachineName                   pulumi.StringPtrInput                      `pulumi:"machineName"`
+	Status                        pulumi.Input                               `pulumi:"status"`
 }
 
 func (ConnectionGatewayDefinitionResponsePropertiesArgs) ElementType() reflect.Type {
@@ -3465,44 +3175,37 @@ func (o ConnectionGatewayDefinitionResponsePropertiesOutput) ToConnectionGateway
 }
 
 func (o ConnectionGatewayDefinitionResponsePropertiesOutput) ToConnectionGatewayDefinitionResponsePropertiesPtrOutputWithContext(ctx context.Context) ConnectionGatewayDefinitionResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectionGatewayDefinitionResponseProperties) *ConnectionGatewayDefinitionResponseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGatewayDefinitionResponseProperties) *ConnectionGatewayDefinitionResponseProperties {
 		return &v
 	}).(ConnectionGatewayDefinitionResponsePropertiesPtrOutput)
 }
 
-// The URI of the backend
 func (o ConnectionGatewayDefinitionResponsePropertiesOutput) BackendUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayDefinitionResponseProperties) *string { return v.BackendUri }).(pulumi.StringPtrOutput)
 }
 
-// The gateway installation reference
 func (o ConnectionGatewayDefinitionResponsePropertiesOutput) ConnectionGatewayInstallation() ConnectionGatewayReferenceResponsePtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayDefinitionResponseProperties) *ConnectionGatewayReferenceResponse {
 		return v.ConnectionGatewayInstallation
 	}).(ConnectionGatewayReferenceResponsePtrOutput)
 }
 
-// The gateway admin
 func (o ConnectionGatewayDefinitionResponsePropertiesOutput) ContactInformation() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectionGatewayDefinitionResponseProperties) []string { return v.ContactInformation }).(pulumi.StringArrayOutput)
 }
 
-// The gateway description
 func (o ConnectionGatewayDefinitionResponsePropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayDefinitionResponseProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The gateway display name
 func (o ConnectionGatewayDefinitionResponsePropertiesOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayDefinitionResponseProperties) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The machine name of the gateway
 func (o ConnectionGatewayDefinitionResponsePropertiesOutput) MachineName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayDefinitionResponseProperties) *string { return v.MachineName }).(pulumi.StringPtrOutput)
 }
 
-// The gateway status
 func (o ConnectionGatewayDefinitionResponsePropertiesOutput) Status() pulumi.AnyOutput {
 	return o.ApplyT(func(v ConnectionGatewayDefinitionResponseProperties) interface{} { return v.Status }).(pulumi.AnyOutput)
 }
@@ -3523,11 +3226,14 @@ func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) ToConnectionGate
 
 func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) Elem() ConnectionGatewayDefinitionResponsePropertiesOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionResponseProperties) ConnectionGatewayDefinitionResponseProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionGatewayDefinitionResponseProperties
+		return ret
 	}).(ConnectionGatewayDefinitionResponsePropertiesOutput)
 }
 
-// The URI of the backend
 func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) BackendUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionResponseProperties) *string {
 		if v == nil {
@@ -3537,7 +3243,6 @@ func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) BackendUri() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The gateway installation reference
 func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) ConnectionGatewayInstallation() ConnectionGatewayReferenceResponsePtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionResponseProperties) *ConnectionGatewayReferenceResponse {
 		if v == nil {
@@ -3547,7 +3252,6 @@ func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) ConnectionGatewa
 	}).(ConnectionGatewayReferenceResponsePtrOutput)
 }
 
-// The gateway admin
 func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) ContactInformation() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionResponseProperties) []string {
 		if v == nil {
@@ -3557,7 +3261,6 @@ func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) ContactInformati
 	}).(pulumi.StringArrayOutput)
 }
 
-// The gateway description
 func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionResponseProperties) *string {
 		if v == nil {
@@ -3567,7 +3270,6 @@ func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) Description() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The gateway display name
 func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionResponseProperties) *string {
 		if v == nil {
@@ -3577,7 +3279,6 @@ func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) DisplayName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The machine name of the gateway
 func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) MachineName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionResponseProperties) *string {
 		if v == nil {
@@ -3587,7 +3288,6 @@ func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) MachineName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The gateway status
 func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) Status() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionResponseProperties) interface{} {
 		if v == nil {
@@ -3597,16 +3297,11 @@ func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) Status() pulumi.
 	}).(pulumi.AnyOutput)
 }
 
-// The gateway installation reference
 type ConnectionGatewayReference struct {
-	// Resource reference id
-	Id *string `pulumi:"id"`
-	// Resource reference location
+	Id       *string `pulumi:"id"`
 	Location *string `pulumi:"location"`
-	// Resource reference name
-	Name *string `pulumi:"name"`
-	// Resource reference type
-	Type *string `pulumi:"type"`
+	Name     *string `pulumi:"name"`
+	Type     *string `pulumi:"type"`
 }
 
 // ConnectionGatewayReferenceInput is an input type that accepts ConnectionGatewayReferenceArgs and ConnectionGatewayReferenceOutput values.
@@ -3620,16 +3315,11 @@ type ConnectionGatewayReferenceInput interface {
 	ToConnectionGatewayReferenceOutputWithContext(context.Context) ConnectionGatewayReferenceOutput
 }
 
-// The gateway installation reference
 type ConnectionGatewayReferenceArgs struct {
-	// Resource reference id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Resource reference location
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource reference name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource reference type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Type     pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ConnectionGatewayReferenceArgs) ElementType() reflect.Type {
@@ -3685,7 +3375,6 @@ func (i *connectionGatewayReferencePtrType) ToConnectionGatewayReferencePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGatewayReferencePtrOutput)
 }
 
-// The gateway installation reference
 type ConnectionGatewayReferenceOutput struct{ *pulumi.OutputState }
 
 func (ConnectionGatewayReferenceOutput) ElementType() reflect.Type {
@@ -3705,27 +3394,23 @@ func (o ConnectionGatewayReferenceOutput) ToConnectionGatewayReferencePtrOutput(
 }
 
 func (o ConnectionGatewayReferenceOutput) ToConnectionGatewayReferencePtrOutputWithContext(ctx context.Context) ConnectionGatewayReferencePtrOutput {
-	return o.ApplyT(func(v ConnectionGatewayReference) *ConnectionGatewayReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGatewayReference) *ConnectionGatewayReference {
 		return &v
 	}).(ConnectionGatewayReferencePtrOutput)
 }
 
-// Resource reference id
 func (o ConnectionGatewayReferenceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Resource reference location
 func (o ConnectionGatewayReferenceOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayReference) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Resource reference name
 func (o ConnectionGatewayReferenceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayReference) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource reference type
 func (o ConnectionGatewayReferenceOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayReference) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3745,10 +3430,15 @@ func (o ConnectionGatewayReferencePtrOutput) ToConnectionGatewayReferencePtrOutp
 }
 
 func (o ConnectionGatewayReferencePtrOutput) Elem() ConnectionGatewayReferenceOutput {
-	return o.ApplyT(func(v *ConnectionGatewayReference) ConnectionGatewayReference { return *v }).(ConnectionGatewayReferenceOutput)
+	return o.ApplyT(func(v *ConnectionGatewayReference) ConnectionGatewayReference {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionGatewayReference
+		return ret
+	}).(ConnectionGatewayReferenceOutput)
 }
 
-// Resource reference id
 func (o ConnectionGatewayReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayReference) *string {
 		if v == nil {
@@ -3758,7 +3448,6 @@ func (o ConnectionGatewayReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource reference location
 func (o ConnectionGatewayReferencePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayReference) *string {
 		if v == nil {
@@ -3768,7 +3457,6 @@ func (o ConnectionGatewayReferencePtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource reference name
 func (o ConnectionGatewayReferencePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayReference) *string {
 		if v == nil {
@@ -3778,7 +3466,6 @@ func (o ConnectionGatewayReferencePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource reference type
 func (o ConnectionGatewayReferencePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayReference) *string {
 		if v == nil {
@@ -3788,16 +3475,11 @@ func (o ConnectionGatewayReferencePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The gateway installation reference
 type ConnectionGatewayReferenceResponse struct {
-	// Resource reference id
-	Id *string `pulumi:"id"`
-	// Resource reference location
+	Id       *string `pulumi:"id"`
 	Location *string `pulumi:"location"`
-	// Resource reference name
-	Name *string `pulumi:"name"`
-	// Resource reference type
-	Type *string `pulumi:"type"`
+	Name     *string `pulumi:"name"`
+	Type     *string `pulumi:"type"`
 }
 
 // ConnectionGatewayReferenceResponseInput is an input type that accepts ConnectionGatewayReferenceResponseArgs and ConnectionGatewayReferenceResponseOutput values.
@@ -3811,16 +3493,11 @@ type ConnectionGatewayReferenceResponseInput interface {
 	ToConnectionGatewayReferenceResponseOutputWithContext(context.Context) ConnectionGatewayReferenceResponseOutput
 }
 
-// The gateway installation reference
 type ConnectionGatewayReferenceResponseArgs struct {
-	// Resource reference id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Resource reference location
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource reference name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource reference type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Type     pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ConnectionGatewayReferenceResponseArgs) ElementType() reflect.Type {
@@ -3876,7 +3553,6 @@ func (i *connectionGatewayReferenceResponsePtrType) ToConnectionGatewayReference
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGatewayReferenceResponsePtrOutput)
 }
 
-// The gateway installation reference
 type ConnectionGatewayReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionGatewayReferenceResponseOutput) ElementType() reflect.Type {
@@ -3896,27 +3572,23 @@ func (o ConnectionGatewayReferenceResponseOutput) ToConnectionGatewayReferenceRe
 }
 
 func (o ConnectionGatewayReferenceResponseOutput) ToConnectionGatewayReferenceResponsePtrOutputWithContext(ctx context.Context) ConnectionGatewayReferenceResponsePtrOutput {
-	return o.ApplyT(func(v ConnectionGatewayReferenceResponse) *ConnectionGatewayReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGatewayReferenceResponse) *ConnectionGatewayReferenceResponse {
 		return &v
 	}).(ConnectionGatewayReferenceResponsePtrOutput)
 }
 
-// Resource reference id
 func (o ConnectionGatewayReferenceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayReferenceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Resource reference location
 func (o ConnectionGatewayReferenceResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayReferenceResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Resource reference name
 func (o ConnectionGatewayReferenceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayReferenceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource reference type
 func (o ConnectionGatewayReferenceResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionGatewayReferenceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3936,10 +3608,15 @@ func (o ConnectionGatewayReferenceResponsePtrOutput) ToConnectionGatewayReferenc
 }
 
 func (o ConnectionGatewayReferenceResponsePtrOutput) Elem() ConnectionGatewayReferenceResponseOutput {
-	return o.ApplyT(func(v *ConnectionGatewayReferenceResponse) ConnectionGatewayReferenceResponse { return *v }).(ConnectionGatewayReferenceResponseOutput)
+	return o.ApplyT(func(v *ConnectionGatewayReferenceResponse) ConnectionGatewayReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionGatewayReferenceResponse
+		return ret
+	}).(ConnectionGatewayReferenceResponseOutput)
 }
 
-// Resource reference id
 func (o ConnectionGatewayReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayReferenceResponse) *string {
 		if v == nil {
@@ -3949,7 +3626,6 @@ func (o ConnectionGatewayReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource reference location
 func (o ConnectionGatewayReferenceResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayReferenceResponse) *string {
 		if v == nil {
@@ -3959,7 +3635,6 @@ func (o ConnectionGatewayReferenceResponsePtrOutput) Location() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource reference name
 func (o ConnectionGatewayReferenceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayReferenceResponse) *string {
 		if v == nil {
@@ -3969,7 +3644,6 @@ func (o ConnectionGatewayReferenceResponsePtrOutput) Name() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource reference type
 func (o ConnectionGatewayReferenceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGatewayReferenceResponse) *string {
 		if v == nil {
@@ -3979,12 +3653,9 @@ func (o ConnectionGatewayReferenceResponsePtrOutput) Type() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection provider parameters
 type ConnectionParameter struct {
-	// OAuth settings for the connection provider
-	OAuthSettings *ApiOAuthSettings `pulumi:"oAuthSettings"`
-	// Type of the parameter
-	Type *string `pulumi:"type"`
+	OAuthSettings *ApiOAuthSettings        `pulumi:"oAuthSettings"`
+	Type          *ConnectionParameterType `pulumi:"type"`
 }
 
 // ConnectionParameterInput is an input type that accepts ConnectionParameterArgs and ConnectionParameterOutput values.
@@ -3998,12 +3669,9 @@ type ConnectionParameterInput interface {
 	ToConnectionParameterOutputWithContext(context.Context) ConnectionParameterOutput
 }
 
-// Connection provider parameters
 type ConnectionParameterArgs struct {
-	// OAuth settings for the connection provider
-	OAuthSettings ApiOAuthSettingsPtrInput `pulumi:"oAuthSettings"`
-	// Type of the parameter
-	Type *ConnectionParameterType `pulumi:"type"`
+	OAuthSettings ApiOAuthSettingsPtrInput        `pulumi:"oAuthSettings"`
+	Type          ConnectionParameterTypePtrInput `pulumi:"type"`
 }
 
 func (ConnectionParameterArgs) ElementType() reflect.Type {
@@ -4043,7 +3711,6 @@ func (i ConnectionParameterMap) ToConnectionParameterMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionParameterMapOutput)
 }
 
-// Connection provider parameters
 type ConnectionParameterOutput struct{ *pulumi.OutputState }
 
 func (ConnectionParameterOutput) ElementType() reflect.Type {
@@ -4058,14 +3725,12 @@ func (o ConnectionParameterOutput) ToConnectionParameterOutputWithContext(ctx co
 	return o
 }
 
-// OAuth settings for the connection provider
 func (o ConnectionParameterOutput) OAuthSettings() ApiOAuthSettingsPtrOutput {
 	return o.ApplyT(func(v ConnectionParameter) *ApiOAuthSettings { return v.OAuthSettings }).(ApiOAuthSettingsPtrOutput)
 }
 
-// Type of the parameter
-func (o ConnectionParameterOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ConnectionParameterOutput) Type() ConnectionParameterTypePtrOutput {
+	return o.ApplyT(func(v ConnectionParameter) *ConnectionParameterType { return v.Type }).(ConnectionParameterTypePtrOutput)
 }
 
 type ConnectionParameterMapOutput struct{ *pulumi.OutputState }
@@ -4088,12 +3753,9 @@ func (o ConnectionParameterMapOutput) MapIndex(k pulumi.StringInput) ConnectionP
 	}).(ConnectionParameterOutput)
 }
 
-// Connection provider parameters
 type ConnectionParameterResponse struct {
-	// OAuth settings for the connection provider
 	OAuthSettings *ApiOAuthSettingsResponse `pulumi:"oAuthSettings"`
-	// Type of the parameter
-	Type *string `pulumi:"type"`
+	Type          *string                   `pulumi:"type"`
 }
 
 // ConnectionParameterResponseInput is an input type that accepts ConnectionParameterResponseArgs and ConnectionParameterResponseOutput values.
@@ -4107,12 +3769,9 @@ type ConnectionParameterResponseInput interface {
 	ToConnectionParameterResponseOutputWithContext(context.Context) ConnectionParameterResponseOutput
 }
 
-// Connection provider parameters
 type ConnectionParameterResponseArgs struct {
-	// OAuth settings for the connection provider
 	OAuthSettings ApiOAuthSettingsResponsePtrInput `pulumi:"oAuthSettings"`
-	// Type of the parameter
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type          pulumi.StringPtrInput            `pulumi:"type"`
 }
 
 func (ConnectionParameterResponseArgs) ElementType() reflect.Type {
@@ -4152,7 +3811,6 @@ func (i ConnectionParameterResponseMap) ToConnectionParameterResponseMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionParameterResponseMapOutput)
 }
 
-// Connection provider parameters
 type ConnectionParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionParameterResponseOutput) ElementType() reflect.Type {
@@ -4167,12 +3825,10 @@ func (o ConnectionParameterResponseOutput) ToConnectionParameterResponseOutputWi
 	return o
 }
 
-// OAuth settings for the connection provider
 func (o ConnectionParameterResponseOutput) OAuthSettings() ApiOAuthSettingsResponsePtrOutput {
 	return o.ApplyT(func(v ConnectionParameterResponse) *ApiOAuthSettingsResponse { return v.OAuthSettings }).(ApiOAuthSettingsResponsePtrOutput)
 }
 
-// Type of the parameter
 func (o ConnectionParameterResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionParameterResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4197,14 +3853,10 @@ func (o ConnectionParameterResponseMapOutput) MapIndex(k pulumi.StringInput) Con
 	}).(ConnectionParameterResponseOutput)
 }
 
-// Connection status
 type ConnectionStatusDefinition struct {
-	// Connection error
-	Error *ConnectionError `pulumi:"error"`
-	// The gateway status
-	Status *string `pulumi:"status"`
-	// Target of the error
-	Target *string `pulumi:"target"`
+	Error  *ConnectionError `pulumi:"error"`
+	Status *string          `pulumi:"status"`
+	Target *string          `pulumi:"target"`
 }
 
 // ConnectionStatusDefinitionInput is an input type that accepts ConnectionStatusDefinitionArgs and ConnectionStatusDefinitionOutput values.
@@ -4218,14 +3870,10 @@ type ConnectionStatusDefinitionInput interface {
 	ToConnectionStatusDefinitionOutputWithContext(context.Context) ConnectionStatusDefinitionOutput
 }
 
-// Connection status
 type ConnectionStatusDefinitionArgs struct {
-	// Connection error
-	Error ConnectionErrorPtrInput `pulumi:"error"`
-	// The gateway status
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Target of the error
-	Target pulumi.StringPtrInput `pulumi:"target"`
+	Error  ConnectionErrorPtrInput `pulumi:"error"`
+	Status pulumi.StringPtrInput   `pulumi:"status"`
+	Target pulumi.StringPtrInput   `pulumi:"target"`
 }
 
 func (ConnectionStatusDefinitionArgs) ElementType() reflect.Type {
@@ -4265,7 +3913,6 @@ func (i ConnectionStatusDefinitionArray) ToConnectionStatusDefinitionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStatusDefinitionArrayOutput)
 }
 
-// Connection status
 type ConnectionStatusDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ConnectionStatusDefinitionOutput) ElementType() reflect.Type {
@@ -4280,17 +3927,14 @@ func (o ConnectionStatusDefinitionOutput) ToConnectionStatusDefinitionOutputWith
 	return o
 }
 
-// Connection error
 func (o ConnectionStatusDefinitionOutput) Error() ConnectionErrorPtrOutput {
 	return o.ApplyT(func(v ConnectionStatusDefinition) *ConnectionError { return v.Error }).(ConnectionErrorPtrOutput)
 }
 
-// The gateway status
 func (o ConnectionStatusDefinitionOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStatusDefinition) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Target of the error
 func (o ConnectionStatusDefinitionOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStatusDefinition) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -4315,14 +3959,10 @@ func (o ConnectionStatusDefinitionArrayOutput) Index(i pulumi.IntInput) Connecti
 	}).(ConnectionStatusDefinitionOutput)
 }
 
-// Connection status
 type ConnectionStatusDefinitionResponse struct {
-	// Connection error
-	Error *ConnectionErrorResponse `pulumi:"error"`
-	// The gateway status
-	Status *string `pulumi:"status"`
-	// Target of the error
-	Target *string `pulumi:"target"`
+	Error  *ConnectionErrorResponse `pulumi:"error"`
+	Status *string                  `pulumi:"status"`
+	Target *string                  `pulumi:"target"`
 }
 
 // ConnectionStatusDefinitionResponseInput is an input type that accepts ConnectionStatusDefinitionResponseArgs and ConnectionStatusDefinitionResponseOutput values.
@@ -4336,14 +3976,10 @@ type ConnectionStatusDefinitionResponseInput interface {
 	ToConnectionStatusDefinitionResponseOutputWithContext(context.Context) ConnectionStatusDefinitionResponseOutput
 }
 
-// Connection status
 type ConnectionStatusDefinitionResponseArgs struct {
-	// Connection error
-	Error ConnectionErrorResponsePtrInput `pulumi:"error"`
-	// The gateway status
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Target of the error
-	Target pulumi.StringPtrInput `pulumi:"target"`
+	Error  ConnectionErrorResponsePtrInput `pulumi:"error"`
+	Status pulumi.StringPtrInput           `pulumi:"status"`
+	Target pulumi.StringPtrInput           `pulumi:"target"`
 }
 
 func (ConnectionStatusDefinitionResponseArgs) ElementType() reflect.Type {
@@ -4383,7 +4019,6 @@ func (i ConnectionStatusDefinitionResponseArray) ToConnectionStatusDefinitionRes
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStatusDefinitionResponseArrayOutput)
 }
 
-// Connection status
 type ConnectionStatusDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionStatusDefinitionResponseOutput) ElementType() reflect.Type {
@@ -4398,17 +4033,14 @@ func (o ConnectionStatusDefinitionResponseOutput) ToConnectionStatusDefinitionRe
 	return o
 }
 
-// Connection error
 func (o ConnectionStatusDefinitionResponseOutput) Error() ConnectionErrorResponsePtrOutput {
 	return o.ApplyT(func(v ConnectionStatusDefinitionResponse) *ConnectionErrorResponse { return v.Error }).(ConnectionErrorResponsePtrOutput)
 }
 
-// The gateway status
 func (o ConnectionStatusDefinitionResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStatusDefinitionResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Target of the error
 func (o ConnectionStatusDefinitionResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStatusDefinitionResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -4433,16 +4065,11 @@ func (o ConnectionStatusDefinitionResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(ConnectionStatusDefinitionResponseOutput)
 }
 
-// A consent link
 type ConsentLinkDefinitionResponse struct {
-	// Display name of the parameter in the connection provider's OAuth settings
-	DisplayName *string `pulumi:"displayName"`
-	// URI for first party login
+	DisplayName        *string `pulumi:"displayName"`
 	FirstPartyLoginUri *string `pulumi:"firstPartyLoginUri"`
-	// URI for the consent link
-	Link *string `pulumi:"link"`
-	// Status of the link
-	Status *string `pulumi:"status"`
+	Link               *string `pulumi:"link"`
+	Status             *string `pulumi:"status"`
 }
 
 // ConsentLinkDefinitionResponseInput is an input type that accepts ConsentLinkDefinitionResponseArgs and ConsentLinkDefinitionResponseOutput values.
@@ -4456,16 +4083,11 @@ type ConsentLinkDefinitionResponseInput interface {
 	ToConsentLinkDefinitionResponseOutputWithContext(context.Context) ConsentLinkDefinitionResponseOutput
 }
 
-// A consent link
 type ConsentLinkDefinitionResponseArgs struct {
-	// Display name of the parameter in the connection provider's OAuth settings
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// URI for first party login
+	DisplayName        pulumi.StringPtrInput `pulumi:"displayName"`
 	FirstPartyLoginUri pulumi.StringPtrInput `pulumi:"firstPartyLoginUri"`
-	// URI for the consent link
-	Link pulumi.StringPtrInput `pulumi:"link"`
-	// Status of the link
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Link               pulumi.StringPtrInput `pulumi:"link"`
+	Status             pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (ConsentLinkDefinitionResponseArgs) ElementType() reflect.Type {
@@ -4505,7 +4127,6 @@ func (i ConsentLinkDefinitionResponseArray) ToConsentLinkDefinitionResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(ConsentLinkDefinitionResponseArrayOutput)
 }
 
-// A consent link
 type ConsentLinkDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (ConsentLinkDefinitionResponseOutput) ElementType() reflect.Type {
@@ -4520,22 +4141,18 @@ func (o ConsentLinkDefinitionResponseOutput) ToConsentLinkDefinitionResponseOutp
 	return o
 }
 
-// Display name of the parameter in the connection provider's OAuth settings
 func (o ConsentLinkDefinitionResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkDefinitionResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// URI for first party login
 func (o ConsentLinkDefinitionResponseOutput) FirstPartyLoginUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkDefinitionResponse) *string { return v.FirstPartyLoginUri }).(pulumi.StringPtrOutput)
 }
 
-// URI for the consent link
 func (o ConsentLinkDefinitionResponseOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkDefinitionResponse) *string { return v.Link }).(pulumi.StringPtrOutput)
 }
 
-// Status of the link
 func (o ConsentLinkDefinitionResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkDefinitionResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -4560,16 +4177,11 @@ func (o ConsentLinkDefinitionResponseArrayOutput) Index(i pulumi.IntInput) Conse
 	}).(ConsentLinkDefinitionResponseOutput)
 }
 
-// Consent link definition
 type ConsentLinkParameterDefinition struct {
-	// AAD OID (user or group) if the principal type is ActiveDirectory. MSA PUID if the principal type is MicrosoftAccount
-	ObjectId *string `pulumi:"objectId"`
-	// Name of the parameter in the connection provider's OAuth settings
+	ObjectId      *string `pulumi:"objectId"`
 	ParameterName *string `pulumi:"parameterName"`
-	// Name of the parameter in the connection provider's OAuth settings
-	RedirectUrl *string `pulumi:"redirectUrl"`
-	// The tenant id
-	TenantId *string `pulumi:"tenantId"`
+	RedirectUrl   *string `pulumi:"redirectUrl"`
+	TenantId      *string `pulumi:"tenantId"`
 }
 
 // ConsentLinkParameterDefinitionInput is an input type that accepts ConsentLinkParameterDefinitionArgs and ConsentLinkParameterDefinitionOutput values.
@@ -4583,16 +4195,11 @@ type ConsentLinkParameterDefinitionInput interface {
 	ToConsentLinkParameterDefinitionOutputWithContext(context.Context) ConsentLinkParameterDefinitionOutput
 }
 
-// Consent link definition
 type ConsentLinkParameterDefinitionArgs struct {
-	// AAD OID (user or group) if the principal type is ActiveDirectory. MSA PUID if the principal type is MicrosoftAccount
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// Name of the parameter in the connection provider's OAuth settings
+	ObjectId      pulumi.StringPtrInput `pulumi:"objectId"`
 	ParameterName pulumi.StringPtrInput `pulumi:"parameterName"`
-	// Name of the parameter in the connection provider's OAuth settings
-	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
-	// The tenant id
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	RedirectUrl   pulumi.StringPtrInput `pulumi:"redirectUrl"`
+	TenantId      pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (ConsentLinkParameterDefinitionArgs) ElementType() reflect.Type {
@@ -4632,7 +4239,6 @@ func (i ConsentLinkParameterDefinitionArray) ToConsentLinkParameterDefinitionArr
 	return pulumi.ToOutputWithContext(ctx, i).(ConsentLinkParameterDefinitionArrayOutput)
 }
 
-// Consent link definition
 type ConsentLinkParameterDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ConsentLinkParameterDefinitionOutput) ElementType() reflect.Type {
@@ -4647,22 +4253,18 @@ func (o ConsentLinkParameterDefinitionOutput) ToConsentLinkParameterDefinitionOu
 	return o
 }
 
-// AAD OID (user or group) if the principal type is ActiveDirectory. MSA PUID if the principal type is MicrosoftAccount
 func (o ConsentLinkParameterDefinitionOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkParameterDefinition) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the parameter in the connection provider's OAuth settings
 func (o ConsentLinkParameterDefinitionOutput) ParameterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkParameterDefinition) *string { return v.ParameterName }).(pulumi.StringPtrOutput)
 }
 
-// Name of the parameter in the connection provider's OAuth settings
 func (o ConsentLinkParameterDefinitionOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkParameterDefinition) *string { return v.RedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// The tenant id
 func (o ConsentLinkParameterDefinitionOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkParameterDefinition) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -4687,32 +4289,19 @@ func (o ConsentLinkParameterDefinitionArrayOutput) Index(i pulumi.IntInput) Cons
 	}).(ConsentLinkParameterDefinitionOutput)
 }
 
-// Custom API properties
 type CustomApiPropertiesDefinition struct {
-	// API Definitions
-	ApiDefinitions *ApiResourceDefinitions `pulumi:"apiDefinitions"`
-	// The API type
-	ApiType *string `pulumi:"apiType"`
-	// The API backend service
-	BackendService *ApiResourceBackendService `pulumi:"backendService"`
-	// Brand color
-	BrandColor *string `pulumi:"brandColor"`
-	// The custom API capabilities
-	Capabilities []string `pulumi:"capabilities"`
-	// Connection parameters
+	ApiDefinitions       *ApiResourceDefinitions        `pulumi:"apiDefinitions"`
+	ApiType              *string                        `pulumi:"apiType"`
+	BackendService       *ApiResourceBackendService     `pulumi:"backendService"`
+	BrandColor           *string                        `pulumi:"brandColor"`
+	Capabilities         []string                       `pulumi:"capabilities"`
 	ConnectionParameters map[string]ConnectionParameter `pulumi:"connectionParameters"`
-	// The custom API description
-	Description *string `pulumi:"description"`
-	// The display name
-	DisplayName *string `pulumi:"displayName"`
-	// The icon URI
-	IconUri *string `pulumi:"iconUri"`
-	// Runtime URLs
-	RuntimeUrls []string `pulumi:"runtimeUrls"`
-	// The JSON representation of the swagger
-	Swagger interface{} `pulumi:"swagger"`
-	// The WSDL definition
-	WsdlDefinition *WsdlDefinition `pulumi:"wsdlDefinition"`
+	Description          *string                        `pulumi:"description"`
+	DisplayName          *string                        `pulumi:"displayName"`
+	IconUri              *string                        `pulumi:"iconUri"`
+	RuntimeUrls          []string                       `pulumi:"runtimeUrls"`
+	Swagger              interface{}                    `pulumi:"swagger"`
+	WsdlDefinition       *WsdlDefinition                `pulumi:"wsdlDefinition"`
 }
 
 // CustomApiPropertiesDefinitionInput is an input type that accepts CustomApiPropertiesDefinitionArgs and CustomApiPropertiesDefinitionOutput values.
@@ -4726,32 +4315,19 @@ type CustomApiPropertiesDefinitionInput interface {
 	ToCustomApiPropertiesDefinitionOutputWithContext(context.Context) CustomApiPropertiesDefinitionOutput
 }
 
-// Custom API properties
 type CustomApiPropertiesDefinitionArgs struct {
-	// API Definitions
-	ApiDefinitions ApiResourceDefinitionsPtrInput `pulumi:"apiDefinitions"`
-	// The API type
-	ApiType pulumi.StringPtrInput `pulumi:"apiType"`
-	// The API backend service
-	BackendService ApiResourceBackendServicePtrInput `pulumi:"backendService"`
-	// Brand color
-	BrandColor pulumi.StringPtrInput `pulumi:"brandColor"`
-	// The custom API capabilities
-	Capabilities pulumi.StringArrayInput `pulumi:"capabilities"`
-	// Connection parameters
-	ConnectionParameters ConnectionParameterMapInput `pulumi:"connectionParameters"`
-	// The custom API description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The display name
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The icon URI
-	IconUri pulumi.StringPtrInput `pulumi:"iconUri"`
-	// Runtime URLs
-	RuntimeUrls pulumi.StringArrayInput `pulumi:"runtimeUrls"`
-	// The JSON representation of the swagger
-	Swagger pulumi.Input `pulumi:"swagger"`
-	// The WSDL definition
-	WsdlDefinition WsdlDefinitionPtrInput `pulumi:"wsdlDefinition"`
+	ApiDefinitions       ApiResourceDefinitionsPtrInput    `pulumi:"apiDefinitions"`
+	ApiType              pulumi.StringPtrInput             `pulumi:"apiType"`
+	BackendService       ApiResourceBackendServicePtrInput `pulumi:"backendService"`
+	BrandColor           pulumi.StringPtrInput             `pulumi:"brandColor"`
+	Capabilities         pulumi.StringArrayInput           `pulumi:"capabilities"`
+	ConnectionParameters ConnectionParameterMapInput       `pulumi:"connectionParameters"`
+	Description          pulumi.StringPtrInput             `pulumi:"description"`
+	DisplayName          pulumi.StringPtrInput             `pulumi:"displayName"`
+	IconUri              pulumi.StringPtrInput             `pulumi:"iconUri"`
+	RuntimeUrls          pulumi.StringArrayInput           `pulumi:"runtimeUrls"`
+	Swagger              pulumi.Input                      `pulumi:"swagger"`
+	WsdlDefinition       WsdlDefinitionPtrInput            `pulumi:"wsdlDefinition"`
 }
 
 func (CustomApiPropertiesDefinitionArgs) ElementType() reflect.Type {
@@ -4807,7 +4383,6 @@ func (i *customApiPropertiesDefinitionPtrType) ToCustomApiPropertiesDefinitionPt
 	return pulumi.ToOutputWithContext(ctx, i).(CustomApiPropertiesDefinitionPtrOutput)
 }
 
-// Custom API properties
 type CustomApiPropertiesDefinitionOutput struct{ *pulumi.OutputState }
 
 func (CustomApiPropertiesDefinitionOutput) ElementType() reflect.Type {
@@ -4827,67 +4402,55 @@ func (o CustomApiPropertiesDefinitionOutput) ToCustomApiPropertiesDefinitionPtrO
 }
 
 func (o CustomApiPropertiesDefinitionOutput) ToCustomApiPropertiesDefinitionPtrOutputWithContext(ctx context.Context) CustomApiPropertiesDefinitionPtrOutput {
-	return o.ApplyT(func(v CustomApiPropertiesDefinition) *CustomApiPropertiesDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomApiPropertiesDefinition) *CustomApiPropertiesDefinition {
 		return &v
 	}).(CustomApiPropertiesDefinitionPtrOutput)
 }
 
-// API Definitions
 func (o CustomApiPropertiesDefinitionOutput) ApiDefinitions() ApiResourceDefinitionsPtrOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinition) *ApiResourceDefinitions { return v.ApiDefinitions }).(ApiResourceDefinitionsPtrOutput)
 }
 
-// The API type
 func (o CustomApiPropertiesDefinitionOutput) ApiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinition) *string { return v.ApiType }).(pulumi.StringPtrOutput)
 }
 
-// The API backend service
 func (o CustomApiPropertiesDefinitionOutput) BackendService() ApiResourceBackendServicePtrOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinition) *ApiResourceBackendService { return v.BackendService }).(ApiResourceBackendServicePtrOutput)
 }
 
-// Brand color
 func (o CustomApiPropertiesDefinitionOutput) BrandColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinition) *string { return v.BrandColor }).(pulumi.StringPtrOutput)
 }
 
-// The custom API capabilities
 func (o CustomApiPropertiesDefinitionOutput) Capabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinition) []string { return v.Capabilities }).(pulumi.StringArrayOutput)
 }
 
-// Connection parameters
 func (o CustomApiPropertiesDefinitionOutput) ConnectionParameters() ConnectionParameterMapOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinition) map[string]ConnectionParameter { return v.ConnectionParameters }).(ConnectionParameterMapOutput)
 }
 
-// The custom API description
 func (o CustomApiPropertiesDefinitionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The display name
 func (o CustomApiPropertiesDefinitionOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinition) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The icon URI
 func (o CustomApiPropertiesDefinitionOutput) IconUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinition) *string { return v.IconUri }).(pulumi.StringPtrOutput)
 }
 
-// Runtime URLs
 func (o CustomApiPropertiesDefinitionOutput) RuntimeUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinition) []string { return v.RuntimeUrls }).(pulumi.StringArrayOutput)
 }
 
-// The JSON representation of the swagger
 func (o CustomApiPropertiesDefinitionOutput) Swagger() pulumi.AnyOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinition) interface{} { return v.Swagger }).(pulumi.AnyOutput)
 }
 
-// The WSDL definition
 func (o CustomApiPropertiesDefinitionOutput) WsdlDefinition() WsdlDefinitionPtrOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinition) *WsdlDefinition { return v.WsdlDefinition }).(WsdlDefinitionPtrOutput)
 }
@@ -4907,10 +4470,15 @@ func (o CustomApiPropertiesDefinitionPtrOutput) ToCustomApiPropertiesDefinitionP
 }
 
 func (o CustomApiPropertiesDefinitionPtrOutput) Elem() CustomApiPropertiesDefinitionOutput {
-	return o.ApplyT(func(v *CustomApiPropertiesDefinition) CustomApiPropertiesDefinition { return *v }).(CustomApiPropertiesDefinitionOutput)
+	return o.ApplyT(func(v *CustomApiPropertiesDefinition) CustomApiPropertiesDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret CustomApiPropertiesDefinition
+		return ret
+	}).(CustomApiPropertiesDefinitionOutput)
 }
 
-// API Definitions
 func (o CustomApiPropertiesDefinitionPtrOutput) ApiDefinitions() ApiResourceDefinitionsPtrOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinition) *ApiResourceDefinitions {
 		if v == nil {
@@ -4920,7 +4488,6 @@ func (o CustomApiPropertiesDefinitionPtrOutput) ApiDefinitions() ApiResourceDefi
 	}).(ApiResourceDefinitionsPtrOutput)
 }
 
-// The API type
 func (o CustomApiPropertiesDefinitionPtrOutput) ApiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinition) *string {
 		if v == nil {
@@ -4930,7 +4497,6 @@ func (o CustomApiPropertiesDefinitionPtrOutput) ApiType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The API backend service
 func (o CustomApiPropertiesDefinitionPtrOutput) BackendService() ApiResourceBackendServicePtrOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinition) *ApiResourceBackendService {
 		if v == nil {
@@ -4940,7 +4506,6 @@ func (o CustomApiPropertiesDefinitionPtrOutput) BackendService() ApiResourceBack
 	}).(ApiResourceBackendServicePtrOutput)
 }
 
-// Brand color
 func (o CustomApiPropertiesDefinitionPtrOutput) BrandColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinition) *string {
 		if v == nil {
@@ -4950,7 +4515,6 @@ func (o CustomApiPropertiesDefinitionPtrOutput) BrandColor() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The custom API capabilities
 func (o CustomApiPropertiesDefinitionPtrOutput) Capabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinition) []string {
 		if v == nil {
@@ -4960,7 +4524,6 @@ func (o CustomApiPropertiesDefinitionPtrOutput) Capabilities() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// Connection parameters
 func (o CustomApiPropertiesDefinitionPtrOutput) ConnectionParameters() ConnectionParameterMapOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinition) map[string]ConnectionParameter {
 		if v == nil {
@@ -4970,7 +4533,6 @@ func (o CustomApiPropertiesDefinitionPtrOutput) ConnectionParameters() Connectio
 	}).(ConnectionParameterMapOutput)
 }
 
-// The custom API description
 func (o CustomApiPropertiesDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinition) *string {
 		if v == nil {
@@ -4980,7 +4542,6 @@ func (o CustomApiPropertiesDefinitionPtrOutput) Description() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The display name
 func (o CustomApiPropertiesDefinitionPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinition) *string {
 		if v == nil {
@@ -4990,7 +4551,6 @@ func (o CustomApiPropertiesDefinitionPtrOutput) DisplayName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The icon URI
 func (o CustomApiPropertiesDefinitionPtrOutput) IconUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinition) *string {
 		if v == nil {
@@ -5000,7 +4560,6 @@ func (o CustomApiPropertiesDefinitionPtrOutput) IconUri() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Runtime URLs
 func (o CustomApiPropertiesDefinitionPtrOutput) RuntimeUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinition) []string {
 		if v == nil {
@@ -5010,7 +4569,6 @@ func (o CustomApiPropertiesDefinitionPtrOutput) RuntimeUrls() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// The JSON representation of the swagger
 func (o CustomApiPropertiesDefinitionPtrOutput) Swagger() pulumi.AnyOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinition) interface{} {
 		if v == nil {
@@ -5020,7 +4578,6 @@ func (o CustomApiPropertiesDefinitionPtrOutput) Swagger() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// The WSDL definition
 func (o CustomApiPropertiesDefinitionPtrOutput) WsdlDefinition() WsdlDefinitionPtrOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinition) *WsdlDefinition {
 		if v == nil {
@@ -5030,32 +4587,19 @@ func (o CustomApiPropertiesDefinitionPtrOutput) WsdlDefinition() WsdlDefinitionP
 	}).(WsdlDefinitionPtrOutput)
 }
 
-// Custom API properties
 type CustomApiPropertiesDefinitionResponse struct {
-	// API Definitions
-	ApiDefinitions *ApiResourceDefinitionsResponse `pulumi:"apiDefinitions"`
-	// The API type
-	ApiType *string `pulumi:"apiType"`
-	// The API backend service
-	BackendService *ApiResourceBackendServiceResponse `pulumi:"backendService"`
-	// Brand color
-	BrandColor *string `pulumi:"brandColor"`
-	// The custom API capabilities
-	Capabilities []string `pulumi:"capabilities"`
-	// Connection parameters
+	ApiDefinitions       *ApiResourceDefinitionsResponse        `pulumi:"apiDefinitions"`
+	ApiType              *string                                `pulumi:"apiType"`
+	BackendService       *ApiResourceBackendServiceResponse     `pulumi:"backendService"`
+	BrandColor           *string                                `pulumi:"brandColor"`
+	Capabilities         []string                               `pulumi:"capabilities"`
 	ConnectionParameters map[string]ConnectionParameterResponse `pulumi:"connectionParameters"`
-	// The custom API description
-	Description *string `pulumi:"description"`
-	// The display name
-	DisplayName *string `pulumi:"displayName"`
-	// The icon URI
-	IconUri *string `pulumi:"iconUri"`
-	// Runtime URLs
-	RuntimeUrls []string `pulumi:"runtimeUrls"`
-	// The JSON representation of the swagger
-	Swagger interface{} `pulumi:"swagger"`
-	// The WSDL definition
-	WsdlDefinition *WsdlDefinitionResponse `pulumi:"wsdlDefinition"`
+	Description          *string                                `pulumi:"description"`
+	DisplayName          *string                                `pulumi:"displayName"`
+	IconUri              *string                                `pulumi:"iconUri"`
+	RuntimeUrls          []string                               `pulumi:"runtimeUrls"`
+	Swagger              interface{}                            `pulumi:"swagger"`
+	WsdlDefinition       *WsdlDefinitionResponse                `pulumi:"wsdlDefinition"`
 }
 
 // CustomApiPropertiesDefinitionResponseInput is an input type that accepts CustomApiPropertiesDefinitionResponseArgs and CustomApiPropertiesDefinitionResponseOutput values.
@@ -5069,32 +4613,19 @@ type CustomApiPropertiesDefinitionResponseInput interface {
 	ToCustomApiPropertiesDefinitionResponseOutputWithContext(context.Context) CustomApiPropertiesDefinitionResponseOutput
 }
 
-// Custom API properties
 type CustomApiPropertiesDefinitionResponseArgs struct {
-	// API Definitions
-	ApiDefinitions ApiResourceDefinitionsResponsePtrInput `pulumi:"apiDefinitions"`
-	// The API type
-	ApiType pulumi.StringPtrInput `pulumi:"apiType"`
-	// The API backend service
-	BackendService ApiResourceBackendServiceResponsePtrInput `pulumi:"backendService"`
-	// Brand color
-	BrandColor pulumi.StringPtrInput `pulumi:"brandColor"`
-	// The custom API capabilities
-	Capabilities pulumi.StringArrayInput `pulumi:"capabilities"`
-	// Connection parameters
-	ConnectionParameters ConnectionParameterResponseMapInput `pulumi:"connectionParameters"`
-	// The custom API description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The display name
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The icon URI
-	IconUri pulumi.StringPtrInput `pulumi:"iconUri"`
-	// Runtime URLs
-	RuntimeUrls pulumi.StringArrayInput `pulumi:"runtimeUrls"`
-	// The JSON representation of the swagger
-	Swagger pulumi.Input `pulumi:"swagger"`
-	// The WSDL definition
-	WsdlDefinition WsdlDefinitionResponsePtrInput `pulumi:"wsdlDefinition"`
+	ApiDefinitions       ApiResourceDefinitionsResponsePtrInput    `pulumi:"apiDefinitions"`
+	ApiType              pulumi.StringPtrInput                     `pulumi:"apiType"`
+	BackendService       ApiResourceBackendServiceResponsePtrInput `pulumi:"backendService"`
+	BrandColor           pulumi.StringPtrInput                     `pulumi:"brandColor"`
+	Capabilities         pulumi.StringArrayInput                   `pulumi:"capabilities"`
+	ConnectionParameters ConnectionParameterResponseMapInput       `pulumi:"connectionParameters"`
+	Description          pulumi.StringPtrInput                     `pulumi:"description"`
+	DisplayName          pulumi.StringPtrInput                     `pulumi:"displayName"`
+	IconUri              pulumi.StringPtrInput                     `pulumi:"iconUri"`
+	RuntimeUrls          pulumi.StringArrayInput                   `pulumi:"runtimeUrls"`
+	Swagger              pulumi.Input                              `pulumi:"swagger"`
+	WsdlDefinition       WsdlDefinitionResponsePtrInput            `pulumi:"wsdlDefinition"`
 }
 
 func (CustomApiPropertiesDefinitionResponseArgs) ElementType() reflect.Type {
@@ -5150,7 +4681,6 @@ func (i *customApiPropertiesDefinitionResponsePtrType) ToCustomApiPropertiesDefi
 	return pulumi.ToOutputWithContext(ctx, i).(CustomApiPropertiesDefinitionResponsePtrOutput)
 }
 
-// Custom API properties
 type CustomApiPropertiesDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomApiPropertiesDefinitionResponseOutput) ElementType() reflect.Type {
@@ -5170,71 +4700,59 @@ func (o CustomApiPropertiesDefinitionResponseOutput) ToCustomApiPropertiesDefini
 }
 
 func (o CustomApiPropertiesDefinitionResponseOutput) ToCustomApiPropertiesDefinitionResponsePtrOutputWithContext(ctx context.Context) CustomApiPropertiesDefinitionResponsePtrOutput {
-	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) *CustomApiPropertiesDefinitionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomApiPropertiesDefinitionResponse) *CustomApiPropertiesDefinitionResponse {
 		return &v
 	}).(CustomApiPropertiesDefinitionResponsePtrOutput)
 }
 
-// API Definitions
 func (o CustomApiPropertiesDefinitionResponseOutput) ApiDefinitions() ApiResourceDefinitionsResponsePtrOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) *ApiResourceDefinitionsResponse { return v.ApiDefinitions }).(ApiResourceDefinitionsResponsePtrOutput)
 }
 
-// The API type
 func (o CustomApiPropertiesDefinitionResponseOutput) ApiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) *string { return v.ApiType }).(pulumi.StringPtrOutput)
 }
 
-// The API backend service
 func (o CustomApiPropertiesDefinitionResponseOutput) BackendService() ApiResourceBackendServiceResponsePtrOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) *ApiResourceBackendServiceResponse {
 		return v.BackendService
 	}).(ApiResourceBackendServiceResponsePtrOutput)
 }
 
-// Brand color
 func (o CustomApiPropertiesDefinitionResponseOutput) BrandColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) *string { return v.BrandColor }).(pulumi.StringPtrOutput)
 }
 
-// The custom API capabilities
 func (o CustomApiPropertiesDefinitionResponseOutput) Capabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) []string { return v.Capabilities }).(pulumi.StringArrayOutput)
 }
 
-// Connection parameters
 func (o CustomApiPropertiesDefinitionResponseOutput) ConnectionParameters() ConnectionParameterResponseMapOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) map[string]ConnectionParameterResponse {
 		return v.ConnectionParameters
 	}).(ConnectionParameterResponseMapOutput)
 }
 
-// The custom API description
 func (o CustomApiPropertiesDefinitionResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The display name
 func (o CustomApiPropertiesDefinitionResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The icon URI
 func (o CustomApiPropertiesDefinitionResponseOutput) IconUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) *string { return v.IconUri }).(pulumi.StringPtrOutput)
 }
 
-// Runtime URLs
 func (o CustomApiPropertiesDefinitionResponseOutput) RuntimeUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) []string { return v.RuntimeUrls }).(pulumi.StringArrayOutput)
 }
 
-// The JSON representation of the swagger
 func (o CustomApiPropertiesDefinitionResponseOutput) Swagger() pulumi.AnyOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) interface{} { return v.Swagger }).(pulumi.AnyOutput)
 }
 
-// The WSDL definition
 func (o CustomApiPropertiesDefinitionResponseOutput) WsdlDefinition() WsdlDefinitionResponsePtrOutput {
 	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) *WsdlDefinitionResponse { return v.WsdlDefinition }).(WsdlDefinitionResponsePtrOutput)
 }
@@ -5254,10 +4772,15 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) ToCustomApiPropertiesDef
 }
 
 func (o CustomApiPropertiesDefinitionResponsePtrOutput) Elem() CustomApiPropertiesDefinitionResponseOutput {
-	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) CustomApiPropertiesDefinitionResponse { return *v }).(CustomApiPropertiesDefinitionResponseOutput)
+	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) CustomApiPropertiesDefinitionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CustomApiPropertiesDefinitionResponse
+		return ret
+	}).(CustomApiPropertiesDefinitionResponseOutput)
 }
 
-// API Definitions
 func (o CustomApiPropertiesDefinitionResponsePtrOutput) ApiDefinitions() ApiResourceDefinitionsResponsePtrOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) *ApiResourceDefinitionsResponse {
 		if v == nil {
@@ -5267,7 +4790,6 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) ApiDefinitions() ApiReso
 	}).(ApiResourceDefinitionsResponsePtrOutput)
 }
 
-// The API type
 func (o CustomApiPropertiesDefinitionResponsePtrOutput) ApiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) *string {
 		if v == nil {
@@ -5277,7 +4799,6 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) ApiType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The API backend service
 func (o CustomApiPropertiesDefinitionResponsePtrOutput) BackendService() ApiResourceBackendServiceResponsePtrOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) *ApiResourceBackendServiceResponse {
 		if v == nil {
@@ -5287,7 +4808,6 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) BackendService() ApiReso
 	}).(ApiResourceBackendServiceResponsePtrOutput)
 }
 
-// Brand color
 func (o CustomApiPropertiesDefinitionResponsePtrOutput) BrandColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) *string {
 		if v == nil {
@@ -5297,7 +4817,6 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) BrandColor() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The custom API capabilities
 func (o CustomApiPropertiesDefinitionResponsePtrOutput) Capabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) []string {
 		if v == nil {
@@ -5307,7 +4826,6 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) Capabilities() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// Connection parameters
 func (o CustomApiPropertiesDefinitionResponsePtrOutput) ConnectionParameters() ConnectionParameterResponseMapOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) map[string]ConnectionParameterResponse {
 		if v == nil {
@@ -5317,7 +4835,6 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) ConnectionParameters() C
 	}).(ConnectionParameterResponseMapOutput)
 }
 
-// The custom API description
 func (o CustomApiPropertiesDefinitionResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) *string {
 		if v == nil {
@@ -5327,7 +4844,6 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) Description() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The display name
 func (o CustomApiPropertiesDefinitionResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) *string {
 		if v == nil {
@@ -5337,7 +4853,6 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) DisplayName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The icon URI
 func (o CustomApiPropertiesDefinitionResponsePtrOutput) IconUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) *string {
 		if v == nil {
@@ -5347,7 +4862,6 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) IconUri() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Runtime URLs
 func (o CustomApiPropertiesDefinitionResponsePtrOutput) RuntimeUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) []string {
 		if v == nil {
@@ -5357,7 +4871,6 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) RuntimeUrls() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// The JSON representation of the swagger
 func (o CustomApiPropertiesDefinitionResponsePtrOutput) Swagger() pulumi.AnyOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) interface{} {
 		if v == nil {
@@ -5367,7 +4880,6 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) Swagger() pulumi.AnyOutp
 	}).(pulumi.AnyOutput)
 }
 
-// The WSDL definition
 func (o CustomApiPropertiesDefinitionResponsePtrOutput) WsdlDefinition() WsdlDefinitionResponsePtrOutput {
 	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) *WsdlDefinitionResponse {
 		if v == nil {
@@ -5377,16 +4889,11 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) WsdlDefinition() WsdlDef
 	}).(WsdlDefinitionResponsePtrOutput)
 }
 
-// The WSDL definition
 type WsdlDefinition struct {
-	// The WSDL content
-	Content *string `pulumi:"content"`
-	// The WSDL import method
-	ImportMethod *string `pulumi:"importMethod"`
-	// The service with name and endpoint names
-	Service *WsdlService `pulumi:"service"`
-	// The WSDL URL
-	Url *string `pulumi:"url"`
+	Content      *string      `pulumi:"content"`
+	ImportMethod *string      `pulumi:"importMethod"`
+	Service      *WsdlService `pulumi:"service"`
+	Url          *string      `pulumi:"url"`
 }
 
 // WsdlDefinitionInput is an input type that accepts WsdlDefinitionArgs and WsdlDefinitionOutput values.
@@ -5400,16 +4907,11 @@ type WsdlDefinitionInput interface {
 	ToWsdlDefinitionOutputWithContext(context.Context) WsdlDefinitionOutput
 }
 
-// The WSDL definition
 type WsdlDefinitionArgs struct {
-	// The WSDL content
-	Content pulumi.StringPtrInput `pulumi:"content"`
-	// The WSDL import method
+	Content      pulumi.StringPtrInput `pulumi:"content"`
 	ImportMethod pulumi.StringPtrInput `pulumi:"importMethod"`
-	// The service with name and endpoint names
-	Service WsdlServicePtrInput `pulumi:"service"`
-	// The WSDL URL
-	Url pulumi.StringPtrInput `pulumi:"url"`
+	Service      WsdlServicePtrInput   `pulumi:"service"`
+	Url          pulumi.StringPtrInput `pulumi:"url"`
 }
 
 func (WsdlDefinitionArgs) ElementType() reflect.Type {
@@ -5465,7 +4967,6 @@ func (i *wsdlDefinitionPtrType) ToWsdlDefinitionPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WsdlDefinitionPtrOutput)
 }
 
-// The WSDL definition
 type WsdlDefinitionOutput struct{ *pulumi.OutputState }
 
 func (WsdlDefinitionOutput) ElementType() reflect.Type {
@@ -5485,27 +4986,23 @@ func (o WsdlDefinitionOutput) ToWsdlDefinitionPtrOutput() WsdlDefinitionPtrOutpu
 }
 
 func (o WsdlDefinitionOutput) ToWsdlDefinitionPtrOutputWithContext(ctx context.Context) WsdlDefinitionPtrOutput {
-	return o.ApplyT(func(v WsdlDefinition) *WsdlDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsdlDefinition) *WsdlDefinition {
 		return &v
 	}).(WsdlDefinitionPtrOutput)
 }
 
-// The WSDL content
 func (o WsdlDefinitionOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WsdlDefinition) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
-// The WSDL import method
 func (o WsdlDefinitionOutput) ImportMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WsdlDefinition) *string { return v.ImportMethod }).(pulumi.StringPtrOutput)
 }
 
-// The service with name and endpoint names
 func (o WsdlDefinitionOutput) Service() WsdlServicePtrOutput {
 	return o.ApplyT(func(v WsdlDefinition) *WsdlService { return v.Service }).(WsdlServicePtrOutput)
 }
 
-// The WSDL URL
 func (o WsdlDefinitionOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WsdlDefinition) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -5525,10 +5022,15 @@ func (o WsdlDefinitionPtrOutput) ToWsdlDefinitionPtrOutputWithContext(ctx contex
 }
 
 func (o WsdlDefinitionPtrOutput) Elem() WsdlDefinitionOutput {
-	return o.ApplyT(func(v *WsdlDefinition) WsdlDefinition { return *v }).(WsdlDefinitionOutput)
+	return o.ApplyT(func(v *WsdlDefinition) WsdlDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret WsdlDefinition
+		return ret
+	}).(WsdlDefinitionOutput)
 }
 
-// The WSDL content
 func (o WsdlDefinitionPtrOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WsdlDefinition) *string {
 		if v == nil {
@@ -5538,7 +5040,6 @@ func (o WsdlDefinitionPtrOutput) Content() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The WSDL import method
 func (o WsdlDefinitionPtrOutput) ImportMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WsdlDefinition) *string {
 		if v == nil {
@@ -5548,7 +5049,6 @@ func (o WsdlDefinitionPtrOutput) ImportMethod() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The service with name and endpoint names
 func (o WsdlDefinitionPtrOutput) Service() WsdlServicePtrOutput {
 	return o.ApplyT(func(v *WsdlDefinition) *WsdlService {
 		if v == nil {
@@ -5558,7 +5058,6 @@ func (o WsdlDefinitionPtrOutput) Service() WsdlServicePtrOutput {
 	}).(WsdlServicePtrOutput)
 }
 
-// The WSDL URL
 func (o WsdlDefinitionPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WsdlDefinition) *string {
 		if v == nil {
@@ -5568,16 +5067,11 @@ func (o WsdlDefinitionPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The WSDL definition
 type WsdlDefinitionResponse struct {
-	// The WSDL content
-	Content *string `pulumi:"content"`
-	// The WSDL import method
-	ImportMethod *string `pulumi:"importMethod"`
-	// The service with name and endpoint names
-	Service *WsdlServiceResponse `pulumi:"service"`
-	// The WSDL URL
-	Url *string `pulumi:"url"`
+	Content      *string              `pulumi:"content"`
+	ImportMethod *string              `pulumi:"importMethod"`
+	Service      *WsdlServiceResponse `pulumi:"service"`
+	Url          *string              `pulumi:"url"`
 }
 
 // WsdlDefinitionResponseInput is an input type that accepts WsdlDefinitionResponseArgs and WsdlDefinitionResponseOutput values.
@@ -5591,16 +5085,11 @@ type WsdlDefinitionResponseInput interface {
 	ToWsdlDefinitionResponseOutputWithContext(context.Context) WsdlDefinitionResponseOutput
 }
 
-// The WSDL definition
 type WsdlDefinitionResponseArgs struct {
-	// The WSDL content
-	Content pulumi.StringPtrInput `pulumi:"content"`
-	// The WSDL import method
-	ImportMethod pulumi.StringPtrInput `pulumi:"importMethod"`
-	// The service with name and endpoint names
-	Service WsdlServiceResponsePtrInput `pulumi:"service"`
-	// The WSDL URL
-	Url pulumi.StringPtrInput `pulumi:"url"`
+	Content      pulumi.StringPtrInput       `pulumi:"content"`
+	ImportMethod pulumi.StringPtrInput       `pulumi:"importMethod"`
+	Service      WsdlServiceResponsePtrInput `pulumi:"service"`
+	Url          pulumi.StringPtrInput       `pulumi:"url"`
 }
 
 func (WsdlDefinitionResponseArgs) ElementType() reflect.Type {
@@ -5656,7 +5145,6 @@ func (i *wsdlDefinitionResponsePtrType) ToWsdlDefinitionResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WsdlDefinitionResponsePtrOutput)
 }
 
-// The WSDL definition
 type WsdlDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (WsdlDefinitionResponseOutput) ElementType() reflect.Type {
@@ -5676,27 +5164,23 @@ func (o WsdlDefinitionResponseOutput) ToWsdlDefinitionResponsePtrOutput() WsdlDe
 }
 
 func (o WsdlDefinitionResponseOutput) ToWsdlDefinitionResponsePtrOutputWithContext(ctx context.Context) WsdlDefinitionResponsePtrOutput {
-	return o.ApplyT(func(v WsdlDefinitionResponse) *WsdlDefinitionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsdlDefinitionResponse) *WsdlDefinitionResponse {
 		return &v
 	}).(WsdlDefinitionResponsePtrOutput)
 }
 
-// The WSDL content
 func (o WsdlDefinitionResponseOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WsdlDefinitionResponse) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
-// The WSDL import method
 func (o WsdlDefinitionResponseOutput) ImportMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WsdlDefinitionResponse) *string { return v.ImportMethod }).(pulumi.StringPtrOutput)
 }
 
-// The service with name and endpoint names
 func (o WsdlDefinitionResponseOutput) Service() WsdlServiceResponsePtrOutput {
 	return o.ApplyT(func(v WsdlDefinitionResponse) *WsdlServiceResponse { return v.Service }).(WsdlServiceResponsePtrOutput)
 }
 
-// The WSDL URL
 func (o WsdlDefinitionResponseOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WsdlDefinitionResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -5716,10 +5200,15 @@ func (o WsdlDefinitionResponsePtrOutput) ToWsdlDefinitionResponsePtrOutputWithCo
 }
 
 func (o WsdlDefinitionResponsePtrOutput) Elem() WsdlDefinitionResponseOutput {
-	return o.ApplyT(func(v *WsdlDefinitionResponse) WsdlDefinitionResponse { return *v }).(WsdlDefinitionResponseOutput)
+	return o.ApplyT(func(v *WsdlDefinitionResponse) WsdlDefinitionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WsdlDefinitionResponse
+		return ret
+	}).(WsdlDefinitionResponseOutput)
 }
 
-// The WSDL content
 func (o WsdlDefinitionResponsePtrOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WsdlDefinitionResponse) *string {
 		if v == nil {
@@ -5729,7 +5218,6 @@ func (o WsdlDefinitionResponsePtrOutput) Content() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The WSDL import method
 func (o WsdlDefinitionResponsePtrOutput) ImportMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WsdlDefinitionResponse) *string {
 		if v == nil {
@@ -5739,7 +5227,6 @@ func (o WsdlDefinitionResponsePtrOutput) ImportMethod() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The service with name and endpoint names
 func (o WsdlDefinitionResponsePtrOutput) Service() WsdlServiceResponsePtrOutput {
 	return o.ApplyT(func(v *WsdlDefinitionResponse) *WsdlServiceResponse {
 		if v == nil {
@@ -5749,7 +5236,6 @@ func (o WsdlDefinitionResponsePtrOutput) Service() WsdlServiceResponsePtrOutput 
 	}).(WsdlServiceResponsePtrOutput)
 }
 
-// The WSDL URL
 func (o WsdlDefinitionResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WsdlDefinitionResponse) *string {
 		if v == nil {
@@ -5759,12 +5245,9 @@ func (o WsdlDefinitionResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The service with name and endpoint names
 type WsdlService struct {
-	// List of the endpoints' qualified names
 	EndpointQualifiedNames []string `pulumi:"endpointQualifiedNames"`
-	// The service's qualified name
-	QualifiedName string `pulumi:"qualifiedName"`
+	QualifiedName          string   `pulumi:"qualifiedName"`
 }
 
 // WsdlServiceInput is an input type that accepts WsdlServiceArgs and WsdlServiceOutput values.
@@ -5778,12 +5261,9 @@ type WsdlServiceInput interface {
 	ToWsdlServiceOutputWithContext(context.Context) WsdlServiceOutput
 }
 
-// The service with name and endpoint names
 type WsdlServiceArgs struct {
-	// List of the endpoints' qualified names
 	EndpointQualifiedNames pulumi.StringArrayInput `pulumi:"endpointQualifiedNames"`
-	// The service's qualified name
-	QualifiedName pulumi.StringInput `pulumi:"qualifiedName"`
+	QualifiedName          pulumi.StringInput      `pulumi:"qualifiedName"`
 }
 
 func (WsdlServiceArgs) ElementType() reflect.Type {
@@ -5839,7 +5319,6 @@ func (i *wsdlServicePtrType) ToWsdlServicePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(WsdlServicePtrOutput)
 }
 
-// The service with name and endpoint names
 type WsdlServiceOutput struct{ *pulumi.OutputState }
 
 func (WsdlServiceOutput) ElementType() reflect.Type {
@@ -5859,17 +5338,15 @@ func (o WsdlServiceOutput) ToWsdlServicePtrOutput() WsdlServicePtrOutput {
 }
 
 func (o WsdlServiceOutput) ToWsdlServicePtrOutputWithContext(ctx context.Context) WsdlServicePtrOutput {
-	return o.ApplyT(func(v WsdlService) *WsdlService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsdlService) *WsdlService {
 		return &v
 	}).(WsdlServicePtrOutput)
 }
 
-// List of the endpoints' qualified names
 func (o WsdlServiceOutput) EndpointQualifiedNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WsdlService) []string { return v.EndpointQualifiedNames }).(pulumi.StringArrayOutput)
 }
 
-// The service's qualified name
 func (o WsdlServiceOutput) QualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v WsdlService) string { return v.QualifiedName }).(pulumi.StringOutput)
 }
@@ -5889,10 +5366,15 @@ func (o WsdlServicePtrOutput) ToWsdlServicePtrOutputWithContext(ctx context.Cont
 }
 
 func (o WsdlServicePtrOutput) Elem() WsdlServiceOutput {
-	return o.ApplyT(func(v *WsdlService) WsdlService { return *v }).(WsdlServiceOutput)
+	return o.ApplyT(func(v *WsdlService) WsdlService {
+		if v != nil {
+			return *v
+		}
+		var ret WsdlService
+		return ret
+	}).(WsdlServiceOutput)
 }
 
-// List of the endpoints' qualified names
 func (o WsdlServicePtrOutput) EndpointQualifiedNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WsdlService) []string {
 		if v == nil {
@@ -5902,7 +5384,6 @@ func (o WsdlServicePtrOutput) EndpointQualifiedNames() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// The service's qualified name
 func (o WsdlServicePtrOutput) QualifiedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WsdlService) *string {
 		if v == nil {
@@ -5912,12 +5393,9 @@ func (o WsdlServicePtrOutput) QualifiedName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The service with name and endpoint names
 type WsdlServiceResponse struct {
-	// List of the endpoints' qualified names
 	EndpointQualifiedNames []string `pulumi:"endpointQualifiedNames"`
-	// The service's qualified name
-	QualifiedName string `pulumi:"qualifiedName"`
+	QualifiedName          string   `pulumi:"qualifiedName"`
 }
 
 // WsdlServiceResponseInput is an input type that accepts WsdlServiceResponseArgs and WsdlServiceResponseOutput values.
@@ -5931,12 +5409,9 @@ type WsdlServiceResponseInput interface {
 	ToWsdlServiceResponseOutputWithContext(context.Context) WsdlServiceResponseOutput
 }
 
-// The service with name and endpoint names
 type WsdlServiceResponseArgs struct {
-	// List of the endpoints' qualified names
 	EndpointQualifiedNames pulumi.StringArrayInput `pulumi:"endpointQualifiedNames"`
-	// The service's qualified name
-	QualifiedName pulumi.StringInput `pulumi:"qualifiedName"`
+	QualifiedName          pulumi.StringInput      `pulumi:"qualifiedName"`
 }
 
 func (WsdlServiceResponseArgs) ElementType() reflect.Type {
@@ -6017,7 +5492,6 @@ func (i WsdlServiceResponseArray) ToWsdlServiceResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(WsdlServiceResponseArrayOutput)
 }
 
-// The service with name and endpoint names
 type WsdlServiceResponseOutput struct{ *pulumi.OutputState }
 
 func (WsdlServiceResponseOutput) ElementType() reflect.Type {
@@ -6037,17 +5511,15 @@ func (o WsdlServiceResponseOutput) ToWsdlServiceResponsePtrOutput() WsdlServiceR
 }
 
 func (o WsdlServiceResponseOutput) ToWsdlServiceResponsePtrOutputWithContext(ctx context.Context) WsdlServiceResponsePtrOutput {
-	return o.ApplyT(func(v WsdlServiceResponse) *WsdlServiceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsdlServiceResponse) *WsdlServiceResponse {
 		return &v
 	}).(WsdlServiceResponsePtrOutput)
 }
 
-// List of the endpoints' qualified names
 func (o WsdlServiceResponseOutput) EndpointQualifiedNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WsdlServiceResponse) []string { return v.EndpointQualifiedNames }).(pulumi.StringArrayOutput)
 }
 
-// The service's qualified name
 func (o WsdlServiceResponseOutput) QualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v WsdlServiceResponse) string { return v.QualifiedName }).(pulumi.StringOutput)
 }
@@ -6067,10 +5539,15 @@ func (o WsdlServiceResponsePtrOutput) ToWsdlServiceResponsePtrOutputWithContext(
 }
 
 func (o WsdlServiceResponsePtrOutput) Elem() WsdlServiceResponseOutput {
-	return o.ApplyT(func(v *WsdlServiceResponse) WsdlServiceResponse { return *v }).(WsdlServiceResponseOutput)
+	return o.ApplyT(func(v *WsdlServiceResponse) WsdlServiceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WsdlServiceResponse
+		return ret
+	}).(WsdlServiceResponseOutput)
 }
 
-// List of the endpoints' qualified names
 func (o WsdlServiceResponsePtrOutput) EndpointQualifiedNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WsdlServiceResponse) []string {
 		if v == nil {
@@ -6080,7 +5557,6 @@ func (o WsdlServiceResponsePtrOutput) EndpointQualifiedNames() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// The service's qualified name
 func (o WsdlServiceResponsePtrOutput) QualifiedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WsdlServiceResponse) *string {
 		if v == nil {

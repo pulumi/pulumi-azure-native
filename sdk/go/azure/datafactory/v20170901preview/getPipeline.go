@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Pipeline resource type.
 func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulumi.InvokeOption) (*LookupPipelineResult, error) {
 	var rv LookupPipelineResult
 	err := ctx.Invoke("azure-native:datafactory/v20170901preview:getPipeline", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulum
 }
 
 type LookupPipelineArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The pipeline name.
-	PipelineName string `pulumi:"pipelineName"`
-	// The resource group name.
+	FactoryName       string `pulumi:"factoryName"`
+	PipelineName      string `pulumi:"pipelineName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Pipeline resource type.
 type LookupPipelineResult struct {
-	// List of activities in pipeline.
-	Activities []interface{} `pulumi:"activities"`
-	// List of tags that can be used for describing the Pipeline.
-	Annotations []interface{} `pulumi:"annotations"`
-	// The max number of concurrent runs for the pipeline.
-	Concurrency *int `pulumi:"concurrency"`
-	// The description of the pipeline.
-	Description *string `pulumi:"description"`
-	// Etag identifies change in the resource.
-	Etag string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// List of parameters for pipeline.
-	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Activities  []interface{}                             `pulumi:"activities"`
+	Annotations []interface{}                             `pulumi:"annotations"`
+	Concurrency *int                                      `pulumi:"concurrency"`
+	Description *string                                   `pulumi:"description"`
+	Etag        string                                    `pulumi:"etag"`
+	Id          string                                    `pulumi:"id"`
+	Name        string                                    `pulumi:"name"`
+	Parameters  map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	Type        string                                    `pulumi:"type"`
 }

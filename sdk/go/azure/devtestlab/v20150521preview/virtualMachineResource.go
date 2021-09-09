@@ -11,58 +11,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A virtual machine.
 type VirtualMachineResource struct {
 	pulumi.CustomResourceState
 
-	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus ArtifactDeploymentStatusPropertiesResponsePtrOutput `pulumi:"artifactDeploymentStatus"`
-	// The artifacts to be installed on the virtual machine.
-	Artifacts ArtifactInstallPropertiesResponseArrayOutput `pulumi:"artifacts"`
-	// The resource identifier (Microsoft.Compute) of the virtual machine.
-	ComputeId pulumi.StringPtrOutput `pulumi:"computeId"`
-	// The email address of creator of the virtual machine.
-	CreatedByUser pulumi.StringPtrOutput `pulumi:"createdByUser"`
-	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId pulumi.StringPtrOutput `pulumi:"createdByUserId"`
-	// The custom image identifier of the virtual machine.
-	CustomImageId pulumi.StringPtrOutput `pulumi:"customImageId"`
-	// Indicates whether the virtual machine is to be created without a public IP address.
-	DisallowPublicIpAddress pulumi.BoolPtrOutput `pulumi:"disallowPublicIpAddress"`
-	// The fully-qualified domain name of the virtual machine.
-	Fqdn pulumi.StringPtrOutput `pulumi:"fqdn"`
-	// The Microsoft Azure Marketplace image reference of the virtual machine.
-	GalleryImageReference GalleryImageReferenceResponsePtrOutput `pulumi:"galleryImageReference"`
-	// A value indicating whether this virtual machine uses an SSH key for authentication.
-	IsAuthenticationWithSshKey pulumi.BoolPtrOutput `pulumi:"isAuthenticationWithSshKey"`
-	// The lab subnet name of the virtual machine.
-	LabSubnetName pulumi.StringPtrOutput `pulumi:"labSubnetName"`
-	// The lab virtual network identifier of the virtual machine.
-	LabVirtualNetworkId pulumi.StringPtrOutput `pulumi:"labVirtualNetworkId"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The notes of the virtual machine.
-	Notes pulumi.StringPtrOutput `pulumi:"notes"`
-	// The OS type of the virtual machine.
-	OsType pulumi.StringPtrOutput `pulumi:"osType"`
-	// The object identifier of the owner of the virtual machine.
-	OwnerObjectId pulumi.StringPtrOutput `pulumi:"ownerObjectId"`
-	// The password of the virtual machine administrator.
-	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The size of the virtual machine.
-	Size pulumi.StringPtrOutput `pulumi:"size"`
-	// The SSH key of the virtual machine administrator.
-	SshKey pulumi.StringPtrOutput `pulumi:"sshKey"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// The user name of the virtual machine.
-	UserName pulumi.StringPtrOutput `pulumi:"userName"`
+	ArtifactDeploymentStatus   ArtifactDeploymentStatusPropertiesResponsePtrOutput `pulumi:"artifactDeploymentStatus"`
+	Artifacts                  ArtifactInstallPropertiesResponseArrayOutput        `pulumi:"artifacts"`
+	ComputeId                  pulumi.StringPtrOutput                              `pulumi:"computeId"`
+	CreatedByUser              pulumi.StringPtrOutput                              `pulumi:"createdByUser"`
+	CreatedByUserId            pulumi.StringPtrOutput                              `pulumi:"createdByUserId"`
+	CustomImageId              pulumi.StringPtrOutput                              `pulumi:"customImageId"`
+	DisallowPublicIpAddress    pulumi.BoolPtrOutput                                `pulumi:"disallowPublicIpAddress"`
+	Fqdn                       pulumi.StringPtrOutput                              `pulumi:"fqdn"`
+	GalleryImageReference      GalleryImageReferenceResponsePtrOutput              `pulumi:"galleryImageReference"`
+	IsAuthenticationWithSshKey pulumi.BoolPtrOutput                                `pulumi:"isAuthenticationWithSshKey"`
+	LabSubnetName              pulumi.StringPtrOutput                              `pulumi:"labSubnetName"`
+	LabVirtualNetworkId        pulumi.StringPtrOutput                              `pulumi:"labVirtualNetworkId"`
+	Location                   pulumi.StringPtrOutput                              `pulumi:"location"`
+	Name                       pulumi.StringPtrOutput                              `pulumi:"name"`
+	Notes                      pulumi.StringPtrOutput                              `pulumi:"notes"`
+	OsType                     pulumi.StringPtrOutput                              `pulumi:"osType"`
+	OwnerObjectId              pulumi.StringPtrOutput                              `pulumi:"ownerObjectId"`
+	Password                   pulumi.StringPtrOutput                              `pulumi:"password"`
+	ProvisioningState          pulumi.StringPtrOutput                              `pulumi:"provisioningState"`
+	Size                       pulumi.StringPtrOutput                              `pulumi:"size"`
+	SshKey                     pulumi.StringPtrOutput                              `pulumi:"sshKey"`
+	Tags                       pulumi.StringMapOutput                              `pulumi:"tags"`
+	Type                       pulumi.StringPtrOutput                              `pulumi:"type"`
+	UserName                   pulumi.StringPtrOutput                              `pulumi:"userName"`
 }
 
 // NewVirtualMachineResource registers a new resource with the given unique name, arguments, and options.
@@ -134,118 +109,64 @@ func (VirtualMachineResourceState) ElementType() reflect.Type {
 }
 
 type virtualMachineResourceArgs struct {
-	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus *ArtifactDeploymentStatusProperties `pulumi:"artifactDeploymentStatus"`
-	// The artifacts to be installed on the virtual machine.
-	Artifacts []ArtifactInstallProperties `pulumi:"artifacts"`
-	// The resource identifier (Microsoft.Compute) of the virtual machine.
-	ComputeId *string `pulumi:"computeId"`
-	// The email address of creator of the virtual machine.
-	CreatedByUser *string `pulumi:"createdByUser"`
-	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId *string `pulumi:"createdByUserId"`
-	// The custom image identifier of the virtual machine.
-	CustomImageId *string `pulumi:"customImageId"`
-	// Indicates whether the virtual machine is to be created without a public IP address.
-	DisallowPublicIpAddress *bool `pulumi:"disallowPublicIpAddress"`
-	// The fully-qualified domain name of the virtual machine.
-	Fqdn *string `pulumi:"fqdn"`
-	// The Microsoft Azure Marketplace image reference of the virtual machine.
-	GalleryImageReference *GalleryImageReference `pulumi:"galleryImageReference"`
-	// The identifier of the resource.
-	Id *string `pulumi:"id"`
-	// A value indicating whether this virtual machine uses an SSH key for authentication.
-	IsAuthenticationWithSshKey *bool `pulumi:"isAuthenticationWithSshKey"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The lab subnet name of the virtual machine.
-	LabSubnetName *string `pulumi:"labSubnetName"`
-	// The lab virtual network identifier of the virtual machine.
-	LabVirtualNetworkId *string `pulumi:"labVirtualNetworkId"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The notes of the virtual machine.
-	Notes *string `pulumi:"notes"`
-	// The OS type of the virtual machine.
-	OsType *string `pulumi:"osType"`
-	// The object identifier of the owner of the virtual machine.
-	OwnerObjectId *string `pulumi:"ownerObjectId"`
-	// The password of the virtual machine administrator.
-	Password *string `pulumi:"password"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The size of the virtual machine.
-	Size *string `pulumi:"size"`
-	// The SSH key of the virtual machine administrator.
-	SshKey *string `pulumi:"sshKey"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The user name of the virtual machine.
-	UserName *string `pulumi:"userName"`
+	ArtifactDeploymentStatus   *ArtifactDeploymentStatusProperties `pulumi:"artifactDeploymentStatus"`
+	Artifacts                  []ArtifactInstallProperties         `pulumi:"artifacts"`
+	ComputeId                  *string                             `pulumi:"computeId"`
+	CreatedByUser              *string                             `pulumi:"createdByUser"`
+	CreatedByUserId            *string                             `pulumi:"createdByUserId"`
+	CustomImageId              *string                             `pulumi:"customImageId"`
+	DisallowPublicIpAddress    *bool                               `pulumi:"disallowPublicIpAddress"`
+	Fqdn                       *string                             `pulumi:"fqdn"`
+	GalleryImageReference      *GalleryImageReference              `pulumi:"galleryImageReference"`
+	Id                         *string                             `pulumi:"id"`
+	IsAuthenticationWithSshKey *bool                               `pulumi:"isAuthenticationWithSshKey"`
+	LabName                    string                              `pulumi:"labName"`
+	LabSubnetName              *string                             `pulumi:"labSubnetName"`
+	LabVirtualNetworkId        *string                             `pulumi:"labVirtualNetworkId"`
+	Location                   *string                             `pulumi:"location"`
+	Name                       *string                             `pulumi:"name"`
+	Notes                      *string                             `pulumi:"notes"`
+	OsType                     *string                             `pulumi:"osType"`
+	OwnerObjectId              *string                             `pulumi:"ownerObjectId"`
+	Password                   *string                             `pulumi:"password"`
+	ProvisioningState          *string                             `pulumi:"provisioningState"`
+	ResourceGroupName          string                              `pulumi:"resourceGroupName"`
+	Size                       *string                             `pulumi:"size"`
+	SshKey                     *string                             `pulumi:"sshKey"`
+	Tags                       map[string]string                   `pulumi:"tags"`
+	Type                       *string                             `pulumi:"type"`
+	UserName                   *string                             `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a VirtualMachineResource resource.
 type VirtualMachineResourceArgs struct {
-	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus ArtifactDeploymentStatusPropertiesPtrInput
-	// The artifacts to be installed on the virtual machine.
-	Artifacts ArtifactInstallPropertiesArrayInput
-	// The resource identifier (Microsoft.Compute) of the virtual machine.
-	ComputeId pulumi.StringPtrInput
-	// The email address of creator of the virtual machine.
-	CreatedByUser pulumi.StringPtrInput
-	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId pulumi.StringPtrInput
-	// The custom image identifier of the virtual machine.
-	CustomImageId pulumi.StringPtrInput
-	// Indicates whether the virtual machine is to be created without a public IP address.
-	DisallowPublicIpAddress pulumi.BoolPtrInput
-	// The fully-qualified domain name of the virtual machine.
-	Fqdn pulumi.StringPtrInput
-	// The Microsoft Azure Marketplace image reference of the virtual machine.
-	GalleryImageReference GalleryImageReferencePtrInput
-	// The identifier of the resource.
-	Id pulumi.StringPtrInput
-	// A value indicating whether this virtual machine uses an SSH key for authentication.
+	ArtifactDeploymentStatus   ArtifactDeploymentStatusPropertiesPtrInput
+	Artifacts                  ArtifactInstallPropertiesArrayInput
+	ComputeId                  pulumi.StringPtrInput
+	CreatedByUser              pulumi.StringPtrInput
+	CreatedByUserId            pulumi.StringPtrInput
+	CustomImageId              pulumi.StringPtrInput
+	DisallowPublicIpAddress    pulumi.BoolPtrInput
+	Fqdn                       pulumi.StringPtrInput
+	GalleryImageReference      GalleryImageReferencePtrInput
+	Id                         pulumi.StringPtrInput
 	IsAuthenticationWithSshKey pulumi.BoolPtrInput
-	// The name of the lab.
-	LabName pulumi.StringInput
-	// The lab subnet name of the virtual machine.
-	LabSubnetName pulumi.StringPtrInput
-	// The lab virtual network identifier of the virtual machine.
-	LabVirtualNetworkId pulumi.StringPtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The notes of the virtual machine.
-	Notes pulumi.StringPtrInput
-	// The OS type of the virtual machine.
-	OsType pulumi.StringPtrInput
-	// The object identifier of the owner of the virtual machine.
-	OwnerObjectId pulumi.StringPtrInput
-	// The password of the virtual machine administrator.
-	Password pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The size of the virtual machine.
-	Size pulumi.StringPtrInput
-	// The SSH key of the virtual machine administrator.
-	SshKey pulumi.StringPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The user name of the virtual machine.
-	UserName pulumi.StringPtrInput
+	LabName                    pulumi.StringInput
+	LabSubnetName              pulumi.StringPtrInput
+	LabVirtualNetworkId        pulumi.StringPtrInput
+	Location                   pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	Notes                      pulumi.StringPtrInput
+	OsType                     pulumi.StringPtrInput
+	OwnerObjectId              pulumi.StringPtrInput
+	Password                   pulumi.StringPtrInput
+	ProvisioningState          pulumi.StringPtrInput
+	ResourceGroupName          pulumi.StringInput
+	Size                       pulumi.StringPtrInput
+	SshKey                     pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
+	Type                       pulumi.StringPtrInput
+	UserName                   pulumi.StringPtrInput
 }
 
 func (VirtualMachineResourceArgs) ElementType() reflect.Type {
@@ -271,9 +192,7 @@ func (i *VirtualMachineResource) ToVirtualMachineResourceOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineResourceOutput)
 }
 
-type VirtualMachineResourceOutput struct {
-	*pulumi.OutputState
-}
+type VirtualMachineResourceOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineResource)(nil))

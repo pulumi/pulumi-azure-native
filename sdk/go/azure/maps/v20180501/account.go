@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure resource which represents access to a suite of Maps REST APIs.
 type Account struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the Maps Account, which is unique within a Resource Group.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The map account properties.
+	Location   pulumi.StringOutput                 `pulumi:"location"`
+	Name       pulumi.StringOutput                 `pulumi:"name"`
 	Properties MapsAccountPropertiesResponseOutput `pulumi:"properties"`
-	// The SKU of this account.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        SkuResponseOutput                   `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput              `pulumi:"tags"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -110,30 +103,20 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// The name of the Maps Account.
-	AccountName *string `pulumi:"accountName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the Azure Resource Group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of this account.
-	Sku Sku `pulumi:"sku"`
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       *string           `pulumi:"accountName"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               Sku               `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// The name of the Maps Account.
-	AccountName pulumi.StringPtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the Azure Resource Group.
+	AccountName       pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The SKU of this account.
-	Sku SkuInput
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-	Tags pulumi.StringMapInput
+	Sku               SkuInput
+	Tags              pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {
@@ -159,9 +142,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
 }
 
-type AccountOutput struct {
-	*pulumi.OutputState
-}
+type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Account)(nil))

@@ -11,19 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AzureADMetrics resource.
 type AzureADMetric struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
+	Location   pulumi.StringOutput                          `pulumi:"location"`
 	Name       pulumi.StringOutput                          `pulumi:"name"`
 	Properties AzureADMetricsPropertiesFormatResponseOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput                       `pulumi:"tags"`
+	Type       pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewAzureADMetric registers a new resource with the given unique name, arguments, and options.
@@ -80,26 +75,18 @@ func (AzureADMetricState) ElementType() reflect.Type {
 }
 
 type azureADMetricArgs struct {
-	// Name of the azureADMetrics instance.
-	AzureADMetricsName *string `pulumi:"azureADMetricsName"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Name of an Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AzureADMetricsName *string           `pulumi:"azureADMetricsName"`
+	Location           *string           `pulumi:"location"`
+	ResourceGroupName  string            `pulumi:"resourceGroupName"`
+	Tags               map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AzureADMetric resource.
 type AzureADMetricArgs struct {
-	// Name of the azureADMetrics instance.
 	AzureADMetricsName pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Name of an Azure resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Location           pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	Tags               pulumi.StringMapInput
 }
 
 func (AzureADMetricArgs) ElementType() reflect.Type {
@@ -125,9 +112,7 @@ func (i *AzureADMetric) ToAzureADMetricOutputWithContext(ctx context.Context) Az
 	return pulumi.ToOutputWithContext(ctx, i).(AzureADMetricOutput)
 }
 
-type AzureADMetricOutput struct {
-	*pulumi.OutputState
-}
+type AzureADMetricOutput struct{ *pulumi.OutputState }
 
 func (AzureADMetricOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AzureADMetric)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An application security group in a resource group.
 func LookupApplicationSecurityGroup(ctx *pulumi.Context, args *LookupApplicationSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupApplicationSecurityGroupResult, error) {
 	var rv LookupApplicationSecurityGroupResult
 	err := ctx.Invoke("azure-native:network/v20180101:getApplicationSecurityGroup", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupApplicationSecurityGroup(ctx *pulumi.Context, args *LookupApplication
 }
 
 type LookupApplicationSecurityGroupArgs struct {
-	// The name of the application security group.
 	ApplicationSecurityGroupName string `pulumi:"applicationSecurityGroupName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName            string `pulumi:"resourceGroupName"`
 }
 
 // An application security group in a resource group.
 type LookupApplicationSecurityGroupResult struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the application security group resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
-	ResourceGuid string `pulumi:"resourceGuid"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Etag              string            `pulumi:"etag"`
+	Id                *string           `pulumi:"id"`
+	Location          *string           `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	ProvisioningState string            `pulumi:"provisioningState"`
+	ResourceGuid      string            `pulumi:"resourceGuid"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              string            `pulumi:"type"`
 }

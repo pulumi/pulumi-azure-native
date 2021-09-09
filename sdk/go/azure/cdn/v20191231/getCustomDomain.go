@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 func LookupCustomDomain(ctx *pulumi.Context, args *LookupCustomDomainArgs, opts ...pulumi.InvokeOption) (*LookupCustomDomainResult, error) {
 	var rv LookupCustomDomainResult
 	err := ctx.Invoke("azure-native:cdn/v20191231:getCustomDomain", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupCustomDomain(ctx *pulumi.Context, args *LookupCustomDomainArgs, opts 
 }
 
 type LookupCustomDomainArgs struct {
-	// Name of the custom domain within an endpoint.
-	CustomDomainName string `pulumi:"customDomainName"`
-	// Name of the endpoint under the profile which is unique globally.
-	EndpointName string `pulumi:"endpointName"`
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Name of the Resource group within the Azure subscription.
+	CustomDomainName  string `pulumi:"customDomainName"`
+	EndpointName      string `pulumi:"endpointName"`
+	ProfileName       string `pulumi:"profileName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 type LookupCustomDomainResult struct {
-	// Provisioning status of Custom Https of the custom domain.
-	CustomHttpsProvisioningState string `pulumi:"customHttpsProvisioningState"`
-	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
-	CustomHttpsProvisioningSubstate string `pulumi:"customHttpsProvisioningSubstate"`
-	// The host name of the custom domain. Must be a domain name.
-	HostName string `pulumi:"hostName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Provisioning status of the custom domain.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource status of the custom domain.
-	ResourceState string `pulumi:"resourceState"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
-	ValidationData *string `pulumi:"validationData"`
+	CustomHttpsProvisioningState    string  `pulumi:"customHttpsProvisioningState"`
+	CustomHttpsProvisioningSubstate string  `pulumi:"customHttpsProvisioningSubstate"`
+	HostName                        string  `pulumi:"hostName"`
+	Id                              string  `pulumi:"id"`
+	Name                            string  `pulumi:"name"`
+	ProvisioningState               string  `pulumi:"provisioningState"`
+	ResourceState                   string  `pulumi:"resourceState"`
+	Type                            string  `pulumi:"type"`
+	ValidationData                  *string `pulumi:"validationData"`
 }

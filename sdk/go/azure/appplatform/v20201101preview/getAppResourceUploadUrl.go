@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource upload definition payload
 func GetAppResourceUploadUrl(ctx *pulumi.Context, args *GetAppResourceUploadUrlArgs, opts ...pulumi.InvokeOption) (*GetAppResourceUploadUrlResult, error) {
 	var rv GetAppResourceUploadUrlResult
 	err := ctx.Invoke("azure-native:appplatform/v20201101preview:getAppResourceUploadUrl", args, &rv, opts...)
@@ -18,18 +17,13 @@ func GetAppResourceUploadUrl(ctx *pulumi.Context, args *GetAppResourceUploadUrlA
 }
 
 type GetAppResourceUploadUrlArgs struct {
-	// The name of the App resource.
-	AppName string `pulumi:"appName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	AppName           string `pulumi:"appName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Service resource.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Resource upload definition payload
 type GetAppResourceUploadUrlResult struct {
-	// Source relative path
 	RelativePath *string `pulumi:"relativePath"`
-	// Upload URL
-	UploadUrl *string `pulumi:"uploadUrl"`
+	UploadUrl    *string `pulumi:"uploadUrl"`
 }

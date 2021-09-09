@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The connector resource format.
 func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pulumi.InvokeOption) (*LookupConnectorResult, error) {
 	var rv LookupConnectorResult
 	err := ctx.Invoke("azure-native:customerinsights/v20170101:getConnector", args, &rv, opts...)
@@ -18,42 +17,25 @@ func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pul
 }
 
 type LookupConnectorArgs struct {
-	// The name of the connector.
-	ConnectorName string `pulumi:"connectorName"`
-	// The name of the hub.
-	HubName string `pulumi:"hubName"`
-	// The name of the resource group.
+	ConnectorName     string `pulumi:"connectorName"`
+	HubName           string `pulumi:"hubName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The connector resource format.
 type LookupConnectorResult struct {
-	// ID of the connector.
-	ConnectorId int `pulumi:"connectorId"`
-	// Name of the connector.
-	ConnectorName *string `pulumi:"connectorName"`
-	// The connector properties.
+	ConnectorId         int                    `pulumi:"connectorId"`
+	ConnectorName       *string                `pulumi:"connectorName"`
 	ConnectorProperties map[string]interface{} `pulumi:"connectorProperties"`
-	// Type of connector.
-	ConnectorType string `pulumi:"connectorType"`
-	// The created time.
-	Created string `pulumi:"created"`
-	// Description of the connector.
-	Description *string `pulumi:"description"`
-	// Display name of the connector.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// If this is an internal connector.
-	IsInternal *bool `pulumi:"isInternal"`
-	// The last modified time.
-	LastModified string `pulumi:"lastModified"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// State of connector.
-	State string `pulumi:"state"`
-	// The hub name.
-	TenantId string `pulumi:"tenantId"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	ConnectorType       string                 `pulumi:"connectorType"`
+	Created             string                 `pulumi:"created"`
+	Description         *string                `pulumi:"description"`
+	DisplayName         *string                `pulumi:"displayName"`
+	Id                  string                 `pulumi:"id"`
+	IsInternal          *bool                  `pulumi:"isInternal"`
+	LastModified        string                 `pulumi:"lastModified"`
+	Name                string                 `pulumi:"name"`
+	State               string                 `pulumi:"state"`
+	TenantId            string                 `pulumi:"tenantId"`
+	Type                string                 `pulumi:"type"`
 }

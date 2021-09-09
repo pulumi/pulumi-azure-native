@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Activity Log Alert rule resource.
 func LookupActivityLogAlert(ctx *pulumi.Context, args *LookupActivityLogAlertArgs, opts ...pulumi.InvokeOption) (*LookupActivityLogAlertResult, error) {
 	var rv LookupActivityLogAlertResult
 	err := ctx.Invoke("azure-native:insights/v20201001:getActivityLogAlert", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupActivityLogAlert(ctx *pulumi.Context, args *LookupActivityLogAlertArg
 }
 
 type LookupActivityLogAlertArgs struct {
-	// The name of the Activity Log Alert rule.
 	ActivityLogAlertName string `pulumi:"activityLogAlertName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
 }
 
 // An Activity Log Alert rule resource.
 type LookupActivityLogAlertResult struct {
-	// The actions that will activate when the condition is met.
-	Actions ActionListResponse `pulumi:"actions"`
-	// The condition that will cause this alert to activate.
-	Condition AlertRuleAllOfConditionResponse `pulumi:"condition"`
-	// A description of this Activity Log Alert rule.
-	Description *string `pulumi:"description"`
-	// Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
-	Enabled *bool `pulumi:"enabled"`
-	// The resource Id.
-	Id string `pulumi:"id"`
-	// The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
-	Scopes []string `pulumi:"scopes"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Actions     ActionListResponse              `pulumi:"actions"`
+	Condition   AlertRuleAllOfConditionResponse `pulumi:"condition"`
+	Description *string                         `pulumi:"description"`
+	Enabled     *bool                           `pulumi:"enabled"`
+	Id          string                          `pulumi:"id"`
+	Location    *string                         `pulumi:"location"`
+	Name        string                          `pulumi:"name"`
+	Scopes      []string                        `pulumi:"scopes"`
+	Tags        map[string]string               `pulumi:"tags"`
+	Type        string                          `pulumi:"type"`
 }

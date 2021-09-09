@@ -11,60 +11,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A class represent a resource.
 type WebPubSub struct {
 	pulumi.CustomResourceState
 
-	// DisableLocalAuth
-	// Enable or disable aad auth
-	// When set as true, connection with AuthType=aad won't work.
-	DisableAadAuth pulumi.BoolPtrOutput `pulumi:"disableAadAuth"`
-	// DisableLocalAuth
-	// Enable or disable local auth with AccessKey
-	// When set as true, connection with AccessKey=xxx won't work.
-	DisableLocalAuth pulumi.BoolPtrOutput `pulumi:"disableLocalAuth"`
-	// The settings for event handler in webpubsub service.
-	EventHandler EventHandlerSettingsResponsePtrOutput `pulumi:"eventHandler"`
-	// The publicly accessible IP of the resource.
-	ExternalIP pulumi.StringOutput `pulumi:"externalIP"`
-	// FQDN of the service instance.
-	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// The managed identity response
-	Identity ManagedIdentityResponsePtrOutput `pulumi:"identity"`
-	// Live trace configuration of a Microsoft.SignalRService resource.
-	LiveTraceConfiguration LiveTraceConfigurationResponsePtrOutput `pulumi:"liveTraceConfiguration"`
-	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Network ACLs
-	NetworkACLs WebPubSubNetworkACLsResponsePtrOutput `pulumi:"networkACLs"`
-	// Private endpoint connections to the resource.
+	DisableAadAuth             pulumi.BoolPtrOutput                         `pulumi:"disableAadAuth"`
+	DisableLocalAuth           pulumi.BoolPtrOutput                         `pulumi:"disableLocalAuth"`
+	EventHandler               EventHandlerSettingsResponsePtrOutput        `pulumi:"eventHandler"`
+	ExternalIP                 pulumi.StringOutput                          `pulumi:"externalIP"`
+	HostName                   pulumi.StringOutput                          `pulumi:"hostName"`
+	Identity                   ManagedIdentityResponsePtrOutput             `pulumi:"identity"`
+	LiveTraceConfiguration     LiveTraceConfigurationResponsePtrOutput      `pulumi:"liveTraceConfiguration"`
+	Location                   pulumi.StringPtrOutput                       `pulumi:"location"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
+	NetworkACLs                WebPubSubNetworkACLsResponsePtrOutput        `pulumi:"networkACLs"`
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Enable or disable public network access. Default to "Enabled".
-	// When it's Enabled, network ACLs still apply.
-	// When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
-	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
-	// The publicly accessible port of the resource which is designed for browser/client side usage.
-	PublicPort pulumi.IntOutput `pulumi:"publicPort"`
-	// The publicly accessible port of the resource which is designed for customer server side usage.
-	ServerPort pulumi.IntOutput `pulumi:"serverPort"`
-	// The list of shared private link resources.
+	ProvisioningState          pulumi.StringOutput                          `pulumi:"provisioningState"`
+	PublicNetworkAccess        pulumi.StringPtrOutput                       `pulumi:"publicNetworkAccess"`
+	PublicPort                 pulumi.IntOutput                             `pulumi:"publicPort"`
+	ServerPort                 pulumi.IntOutput                             `pulumi:"serverPort"`
 	SharedPrivateLinkResources SharedPrivateLinkResourceResponseArrayOutput `pulumi:"sharedPrivateLinkResources"`
-	// The billing information of the resource.(e.g. Free, Standard)
-	Sku ResourceSkuResponsePtrOutput `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// TLS settings.
-	Tls WebPubSubTlsSettingsResponsePtrOutput `pulumi:"tls"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Version of the resource. Probably you need the same or higher version of client SDKs.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Sku                        ResourceSkuResponsePtrOutput                 `pulumi:"sku"`
+	SystemData                 SystemDataResponseOutput                     `pulumi:"systemData"`
+	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
+	Tls                        WebPubSubTlsSettingsResponsePtrOutput        `pulumi:"tls"`
+	Type                       pulumi.StringOutput                          `pulumi:"type"`
+	Version                    pulumi.StringOutput                          `pulumi:"version"`
 }
 
 // NewWebPubSub registers a new resource with the given unique name, arguments, and options.
@@ -142,74 +113,36 @@ func (WebPubSubState) ElementType() reflect.Type {
 }
 
 type webPubSubArgs struct {
-	// DisableLocalAuth
-	// Enable or disable aad auth
-	// When set as true, connection with AuthType=aad won't work.
-	DisableAadAuth *bool `pulumi:"disableAadAuth"`
-	// DisableLocalAuth
-	// Enable or disable local auth with AccessKey
-	// When set as true, connection with AccessKey=xxx won't work.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// The settings for event handler in webpubsub service.
-	EventHandler *EventHandlerSettings `pulumi:"eventHandler"`
-	// The managed identity response
-	Identity *ManagedIdentity `pulumi:"identity"`
-	// Live trace configuration of a Microsoft.SignalRService resource.
+	DisableAadAuth         *bool                   `pulumi:"disableAadAuth"`
+	DisableLocalAuth       *bool                   `pulumi:"disableLocalAuth"`
+	EventHandler           *EventHandlerSettings   `pulumi:"eventHandler"`
+	Identity               *ManagedIdentity        `pulumi:"identity"`
 	LiveTraceConfiguration *LiveTraceConfiguration `pulumi:"liveTraceConfiguration"`
-	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-	Location *string `pulumi:"location"`
-	// Network ACLs
-	NetworkACLs *WebPubSubNetworkACLs `pulumi:"networkACLs"`
-	// Enable or disable public network access. Default to "Enabled".
-	// When it's Enabled, network ACLs still apply.
-	// When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// The billing information of the resource.(e.g. Free, Standard)
-	Sku *ResourceSku `pulumi:"sku"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// TLS settings.
-	Tls *WebPubSubTlsSettings `pulumi:"tls"`
+	Location               *string                 `pulumi:"location"`
+	NetworkACLs            *WebPubSubNetworkACLs   `pulumi:"networkACLs"`
+	PublicNetworkAccess    *string                 `pulumi:"publicNetworkAccess"`
+	ResourceGroupName      string                  `pulumi:"resourceGroupName"`
+	ResourceName           *string                 `pulumi:"resourceName"`
+	Sku                    *ResourceSku            `pulumi:"sku"`
+	Tags                   map[string]string       `pulumi:"tags"`
+	Tls                    *WebPubSubTlsSettings   `pulumi:"tls"`
 }
 
 // The set of arguments for constructing a WebPubSub resource.
 type WebPubSubArgs struct {
-	// DisableLocalAuth
-	// Enable or disable aad auth
-	// When set as true, connection with AuthType=aad won't work.
-	DisableAadAuth pulumi.BoolPtrInput
-	// DisableLocalAuth
-	// Enable or disable local auth with AccessKey
-	// When set as true, connection with AccessKey=xxx won't work.
-	DisableLocalAuth pulumi.BoolPtrInput
-	// The settings for event handler in webpubsub service.
-	EventHandler EventHandlerSettingsPtrInput
-	// The managed identity response
-	Identity ManagedIdentityPtrInput
-	// Live trace configuration of a Microsoft.SignalRService resource.
+	DisableAadAuth         pulumi.BoolPtrInput
+	DisableLocalAuth       pulumi.BoolPtrInput
+	EventHandler           EventHandlerSettingsPtrInput
+	Identity               ManagedIdentityPtrInput
 	LiveTraceConfiguration LiveTraceConfigurationPtrInput
-	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-	Location pulumi.StringPtrInput
-	// Network ACLs
-	NetworkACLs WebPubSubNetworkACLsPtrInput
-	// Enable or disable public network access. Default to "Enabled".
-	// When it's Enabled, network ACLs still apply.
-	// When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
-	PublicNetworkAccess pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// The name of the resource.
-	ResourceName pulumi.StringPtrInput
-	// The billing information of the resource.(e.g. Free, Standard)
-	Sku ResourceSkuPtrInput
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags pulumi.StringMapInput
-	// TLS settings.
-	Tls WebPubSubTlsSettingsPtrInput
+	Location               pulumi.StringPtrInput
+	NetworkACLs            WebPubSubNetworkACLsPtrInput
+	PublicNetworkAccess    pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	ResourceName           pulumi.StringPtrInput
+	Sku                    ResourceSkuPtrInput
+	Tags                   pulumi.StringMapInput
+	Tls                    WebPubSubTlsSettingsPtrInput
 }
 
 func (WebPubSubArgs) ElementType() reflect.Type {
@@ -235,9 +168,7 @@ func (i *WebPubSub) ToWebPubSubOutputWithContext(ctx context.Context) WebPubSubO
 	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubOutput)
 }
 
-type WebPubSubOutput struct {
-	*pulumi.OutputState
-}
+type WebPubSubOutput struct{ *pulumi.OutputState }
 
 func (WebPubSubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebPubSub)(nil))

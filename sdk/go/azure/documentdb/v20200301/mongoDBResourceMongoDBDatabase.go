@@ -11,20 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB MongoDB database.
 type MongoDBResourceMongoDBDatabase struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the ARM resource.
+	Location pulumi.StringPtrOutput                                `pulumi:"location"`
 	Name     pulumi.StringOutput                                   `pulumi:"name"`
 	Options  MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput  `pulumi:"options"`
 	Resource MongoDBDatabaseGetPropertiesResponseResourcePtrOutput `pulumi:"resource"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags     pulumi.StringMapOutput                                `pulumi:"tags"`
+	Type     pulumi.StringOutput                                   `pulumi:"type"`
 }
 
 // NewMongoDBResourceMongoDBDatabase registers a new resource with the given unique name, arguments, and options.
@@ -198,38 +193,24 @@ func (MongoDBResourceMongoDBDatabaseState) ElementType() reflect.Type {
 }
 
 type mongoDBResourceMongoDBDatabaseArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Cosmos DB database name.
-	DatabaseName *string `pulumi:"databaseName"`
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options CreateUpdateOptions `pulumi:"options"`
-	// The standard JSON format of a MongoDB database
-	Resource MongoDBDatabaseResource `pulumi:"resource"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       string                  `pulumi:"accountName"`
+	DatabaseName      *string                 `pulumi:"databaseName"`
+	Location          *string                 `pulumi:"location"`
+	Options           CreateUpdateOptions     `pulumi:"options"`
+	Resource          MongoDBDatabaseResource `pulumi:"resource"`
+	ResourceGroupName string                  `pulumi:"resourceGroupName"`
+	Tags              map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MongoDBResourceMongoDBDatabase resource.
 type MongoDBResourceMongoDBDatabaseArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Cosmos DB database name.
-	DatabaseName pulumi.StringPtrInput
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options CreateUpdateOptionsInput
-	// The standard JSON format of a MongoDB database
-	Resource MongoDBDatabaseResourceInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	DatabaseName      pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Options           CreateUpdateOptionsInput
+	Resource          MongoDBDatabaseResourceInput
 	ResourceGroupName pulumi.StringInput
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (MongoDBResourceMongoDBDatabaseArgs) ElementType() reflect.Type {
@@ -255,9 +236,7 @@ func (i *MongoDBResourceMongoDBDatabase) ToMongoDBResourceMongoDBDatabaseOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MongoDBResourceMongoDBDatabaseOutput)
 }
 
-type MongoDBResourceMongoDBDatabaseOutput struct {
-	*pulumi.OutputState
-}
+type MongoDBResourceMongoDBDatabaseOutput struct{ *pulumi.OutputState }
 
 func (MongoDBResourceMongoDBDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MongoDBResourceMongoDBDatabase)(nil))

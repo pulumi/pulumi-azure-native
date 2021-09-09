@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents user credentials used for publishing activity
 func LookupSiteDeployment(ctx *pulumi.Context, args *LookupSiteDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupSiteDeploymentResult, error) {
 	var rv LookupSiteDeploymentResult
 	err := ctx.Invoke("azure-native:web/v20150801:getSiteDeployment", args, &rv, opts...)
@@ -18,44 +17,26 @@ func LookupSiteDeployment(ctx *pulumi.Context, args *LookupSiteDeploymentArgs, o
 }
 
 type LookupSiteDeploymentArgs struct {
-	// Id of the deployment
-	Id string `pulumi:"id"`
-	// Name of web app
-	Name string `pulumi:"name"`
-	// Name of resource group
+	Id                string `pulumi:"id"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Represents user credentials used for publishing activity
 type LookupSiteDeploymentResult struct {
-	// Active
-	Active *bool `pulumi:"active"`
-	// Author
-	Author *string `pulumi:"author"`
-	// AuthorEmail
-	AuthorEmail *string `pulumi:"authorEmail"`
-	// Deployer
-	Deployer *string `pulumi:"deployer"`
-	// Detail
-	Details *string `pulumi:"details"`
-	// EndTime
-	EndTime *string `pulumi:"endTime"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Message
-	Message *string `pulumi:"message"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// StartTime
-	StartTime *string `pulumi:"startTime"`
-	// Status
-	Status *int `pulumi:"status"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Active      *bool             `pulumi:"active"`
+	Author      *string           `pulumi:"author"`
+	AuthorEmail *string           `pulumi:"authorEmail"`
+	Deployer    *string           `pulumi:"deployer"`
+	Details     *string           `pulumi:"details"`
+	EndTime     *string           `pulumi:"endTime"`
+	Id          *string           `pulumi:"id"`
+	Kind        *string           `pulumi:"kind"`
+	Location    string            `pulumi:"location"`
+	Message     *string           `pulumi:"message"`
+	Name        *string           `pulumi:"name"`
+	StartTime   *string           `pulumi:"startTime"`
+	Status      *int              `pulumi:"status"`
+	Tags        map[string]string `pulumi:"tags"`
+	Type        *string           `pulumi:"type"`
 }

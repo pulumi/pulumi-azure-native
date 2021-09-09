@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contact details for security issues
 func LookupSecurityContact(ctx *pulumi.Context, args *LookupSecurityContactArgs, opts ...pulumi.InvokeOption) (*LookupSecurityContactResult, error) {
 	var rv LookupSecurityContactResult
 	err := ctx.Invoke("azure-native:security/v20170801preview:getSecurityContact", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupSecurityContact(ctx *pulumi.Context, args *LookupSecurityContactArgs,
 }
 
 type LookupSecurityContactArgs struct {
-	// Name of the security contact object
 	SecurityContactName string `pulumi:"securityContactName"`
 }
 
 // Contact details for security issues
 type LookupSecurityContactResult struct {
-	// Whether to send security alerts notifications to the security contact
-	AlertNotifications string `pulumi:"alertNotifications"`
-	// Whether to send security alerts notifications to subscription admins
-	AlertsToAdmins string `pulumi:"alertsToAdmins"`
-	// The email of this security contact
-	Email string `pulumi:"email"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The phone number of this security contact
-	Phone *string `pulumi:"phone"`
-	// Resource type
-	Type string `pulumi:"type"`
+	AlertNotifications string  `pulumi:"alertNotifications"`
+	AlertsToAdmins     string  `pulumi:"alertsToAdmins"`
+	Email              string  `pulumi:"email"`
+	Id                 string  `pulumi:"id"`
+	Name               string  `pulumi:"name"`
+	Phone              *string `pulumi:"phone"`
+	Type               string  `pulumi:"type"`
 }

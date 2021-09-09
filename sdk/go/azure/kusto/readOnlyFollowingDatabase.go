@@ -217,9 +217,7 @@ func (i *ReadOnlyFollowingDatabase) ToReadOnlyFollowingDatabaseOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ReadOnlyFollowingDatabaseOutput)
 }
 
-type ReadOnlyFollowingDatabaseOutput struct {
-	*pulumi.OutputState
-}
+type ReadOnlyFollowingDatabaseOutput struct{ *pulumi.OutputState }
 
 func (ReadOnlyFollowingDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReadOnlyFollowingDatabase)(nil))

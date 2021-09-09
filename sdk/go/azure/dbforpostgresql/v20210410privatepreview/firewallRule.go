@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a server firewall rule.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
-	// The end IP address of the server firewall rule. Must be IPv4 format.
-	EndIpAddress pulumi.StringOutput `pulumi:"endIpAddress"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The start IP address of the server firewall rule. Must be IPv4 format.
+	EndIpAddress   pulumi.StringOutput `pulumi:"endIpAddress"`
+	Name           pulumi.StringOutput `pulumi:"name"`
 	StartIpAddress pulumi.StringOutput `pulumi:"startIpAddress"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type           pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewFirewallRule registers a new resource with the given unique name, arguments, and options.
@@ -112,30 +107,20 @@ func (FirewallRuleState) ElementType() reflect.Type {
 }
 
 type firewallRuleArgs struct {
-	// The end IP address of the server firewall rule. Must be IPv4 format.
-	EndIpAddress string `pulumi:"endIpAddress"`
-	// The name of the server firewall rule.
-	FirewallRuleName *string `pulumi:"firewallRuleName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The start IP address of the server firewall rule. Must be IPv4 format.
-	StartIpAddress string `pulumi:"startIpAddress"`
+	EndIpAddress      string  `pulumi:"endIpAddress"`
+	FirewallRuleName  *string `pulumi:"firewallRuleName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServerName        string  `pulumi:"serverName"`
+	StartIpAddress    string  `pulumi:"startIpAddress"`
 }
 
 // The set of arguments for constructing a FirewallRule resource.
 type FirewallRuleArgs struct {
-	// The end IP address of the server firewall rule. Must be IPv4 format.
-	EndIpAddress pulumi.StringInput
-	// The name of the server firewall rule.
-	FirewallRuleName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	EndIpAddress      pulumi.StringInput
+	FirewallRuleName  pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
-	// The start IP address of the server firewall rule. Must be IPv4 format.
-	StartIpAddress pulumi.StringInput
+	ServerName        pulumi.StringInput
+	StartIpAddress    pulumi.StringInput
 }
 
 func (FirewallRuleArgs) ElementType() reflect.Type {
@@ -161,9 +146,7 @@ func (i *FirewallRule) ToFirewallRuleOutputWithContext(ctx context.Context) Fire
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleOutput)
 }
 
-type FirewallRuleOutput struct {
-	*pulumi.OutputState
-}
+type FirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallRule)(nil))

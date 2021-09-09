@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Subscription details.
 func LookupSubscription(ctx *pulumi.Context, args *LookupSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionResult, error) {
 	var rv LookupSubscriptionResult
 	err := ctx.Invoke("azure-native:apimanagement/v20191201:getSubscription", args, &rv, opts...)
@@ -18,46 +17,27 @@ func LookupSubscription(ctx *pulumi.Context, args *LookupSubscriptionArgs, opts 
 }
 
 type LookupSubscriptionArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
-	Sid string `pulumi:"sid"`
+	ServiceName       string `pulumi:"serviceName"`
+	Sid               string `pulumi:"sid"`
 }
 
 // Subscription details.
 type LookupSubscriptionResult struct {
-	// Determines whether tracing is enabled
-	AllowTracing *bool `pulumi:"allowTracing"`
-	// Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	CreatedDate string `pulumi:"createdDate"`
-	// The name of the subscription, or null if the subscription has no name.
-	DisplayName *string `pulumi:"displayName"`
-	// Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	EndDate *string `pulumi:"endDate"`
-	// Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	AllowTracing     *bool   `pulumi:"allowTracing"`
+	CreatedDate      string  `pulumi:"createdDate"`
+	DisplayName      *string `pulumi:"displayName"`
+	EndDate          *string `pulumi:"endDate"`
+	ExpirationDate   *string `pulumi:"expirationDate"`
+	Id               string  `pulumi:"id"`
+	Name             string  `pulumi:"name"`
 	NotificationDate *string `pulumi:"notificationDate"`
-	// The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{userId} where {userId} is a user identifier.
-	OwnerId *string `pulumi:"ownerId"`
-	// Subscription primary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// Scope like /products/{productId} or /apis or /apis/{apiId}.
-	Scope string `pulumi:"scope"`
-	// Subscription secondary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-	SecondaryKey *string `pulumi:"secondaryKey"`
-	// Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	StartDate *string `pulumi:"startDate"`
-	// Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-	State string `pulumi:"state"`
-	// Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
-	StateComment *string `pulumi:"stateComment"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
+	OwnerId          *string `pulumi:"ownerId"`
+	PrimaryKey       *string `pulumi:"primaryKey"`
+	Scope            string  `pulumi:"scope"`
+	SecondaryKey     *string `pulumi:"secondaryKey"`
+	StartDate        *string `pulumi:"startDate"`
+	State            string  `pulumi:"state"`
+	StateComment     *string `pulumi:"stateComment"`
+	Type             string  `pulumi:"type"`
 }

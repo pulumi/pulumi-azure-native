@@ -11,44 +11,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure SQL Database server.
 type Server struct {
 	pulumi.CustomResourceState
 
-	// Administrator username for the server. Once created it cannot be changed.
-	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
-	// The Azure Active Directory identity of the server.
-	Administrators ServerExternalAdministratorResponsePtrOutput `pulumi:"administrators"`
-	// The fully qualified domain name of the server.
-	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
-	// The Azure Active Directory identity of the server.
-	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
-	// A CMK URI of the key to use for encryption.
-	KeyId pulumi.StringPtrOutput `pulumi:"keyId"`
-	// Kind of sql server. This is metadata used for the Azure portal experience.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
-	MinimalTlsVersion pulumi.StringPtrOutput `pulumi:"minimalTlsVersion"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource id of a user assigned identity to be used by default.
-	PrimaryUserAssignedIdentityId pulumi.StringPtrOutput `pulumi:"primaryUserAssignedIdentityId"`
-	// List of private endpoint connections on a server
-	PrivateEndpointConnections ServerPrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
-	// The state of the server.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The version of the server.
-	Version pulumi.StringPtrOutput `pulumi:"version"`
-	// Whether or not existing server has a workspace created and if it allows connection from workspace
-	WorkspaceFeature pulumi.StringOutput `pulumi:"workspaceFeature"`
+	AdministratorLogin            pulumi.StringPtrOutput                             `pulumi:"administratorLogin"`
+	Administrators                ServerExternalAdministratorResponsePtrOutput       `pulumi:"administrators"`
+	FullyQualifiedDomainName      pulumi.StringOutput                                `pulumi:"fullyQualifiedDomainName"`
+	Identity                      ResourceIdentityResponsePtrOutput                  `pulumi:"identity"`
+	KeyId                         pulumi.StringPtrOutput                             `pulumi:"keyId"`
+	Kind                          pulumi.StringOutput                                `pulumi:"kind"`
+	Location                      pulumi.StringOutput                                `pulumi:"location"`
+	MinimalTlsVersion             pulumi.StringPtrOutput                             `pulumi:"minimalTlsVersion"`
+	Name                          pulumi.StringOutput                                `pulumi:"name"`
+	PrimaryUserAssignedIdentityId pulumi.StringPtrOutput                             `pulumi:"primaryUserAssignedIdentityId"`
+	PrivateEndpointConnections    ServerPrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
+	PublicNetworkAccess           pulumi.StringPtrOutput                             `pulumi:"publicNetworkAccess"`
+	State                         pulumi.StringOutput                                `pulumi:"state"`
+	Tags                          pulumi.StringMapOutput                             `pulumi:"tags"`
+	Type                          pulumi.StringOutput                                `pulumi:"type"`
+	Version                       pulumi.StringPtrOutput                             `pulumi:"version"`
+	WorkspaceFeature              pulumi.StringOutput                                `pulumi:"workspaceFeature"`
 }
 
 // NewServer registers a new resource with the given unique name, arguments, and options.
@@ -141,62 +123,36 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
-	// Administrator username for the server. Once created it cannot be changed.
-	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The administrator login password (required for server creation).
-	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
-	// The Azure Active Directory identity of the server.
-	Administrators *ServerExternalAdministrator `pulumi:"administrators"`
-	// The Azure Active Directory identity of the server.
-	Identity *ResourceIdentity `pulumi:"identity"`
-	// A CMK URI of the key to use for encryption.
-	KeyId *string `pulumi:"keyId"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
-	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
-	// The resource id of a user assigned identity to be used by default.
-	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
-	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName *string `pulumi:"serverName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The version of the server.
-	Version *string `pulumi:"version"`
+	AdministratorLogin            *string                      `pulumi:"administratorLogin"`
+	AdministratorLoginPassword    *string                      `pulumi:"administratorLoginPassword"`
+	Administrators                *ServerExternalAdministrator `pulumi:"administrators"`
+	Identity                      *ResourceIdentity            `pulumi:"identity"`
+	KeyId                         *string                      `pulumi:"keyId"`
+	Location                      *string                      `pulumi:"location"`
+	MinimalTlsVersion             *string                      `pulumi:"minimalTlsVersion"`
+	PrimaryUserAssignedIdentityId *string                      `pulumi:"primaryUserAssignedIdentityId"`
+	PublicNetworkAccess           *string                      `pulumi:"publicNetworkAccess"`
+	ResourceGroupName             string                       `pulumi:"resourceGroupName"`
+	ServerName                    *string                      `pulumi:"serverName"`
+	Tags                          map[string]string            `pulumi:"tags"`
+	Version                       *string                      `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
-	// Administrator username for the server. Once created it cannot be changed.
-	AdministratorLogin pulumi.StringPtrInput
-	// The administrator login password (required for server creation).
-	AdministratorLoginPassword pulumi.StringPtrInput
-	// The Azure Active Directory identity of the server.
-	Administrators ServerExternalAdministratorPtrInput
-	// The Azure Active Directory identity of the server.
-	Identity ResourceIdentityPtrInput
-	// A CMK URI of the key to use for encryption.
-	KeyId pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
-	MinimalTlsVersion pulumi.StringPtrInput
-	// The resource id of a user assigned identity to be used by default.
+	AdministratorLogin            pulumi.StringPtrInput
+	AdministratorLoginPassword    pulumi.StringPtrInput
+	Administrators                ServerExternalAdministratorPtrInput
+	Identity                      ResourceIdentityPtrInput
+	KeyId                         pulumi.StringPtrInput
+	Location                      pulumi.StringPtrInput
+	MinimalTlsVersion             pulumi.StringPtrInput
 	PrimaryUserAssignedIdentityId pulumi.StringPtrInput
-	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The version of the server.
-	Version pulumi.StringPtrInput
+	PublicNetworkAccess           pulumi.StringPtrInput
+	ResourceGroupName             pulumi.StringInput
+	ServerName                    pulumi.StringPtrInput
+	Tags                          pulumi.StringMapInput
+	Version                       pulumi.StringPtrInput
 }
 
 func (ServerArgs) ElementType() reflect.Type {
@@ -222,9 +178,7 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerOutput)
 }
 
-type ServerOutput struct {
-	*pulumi.OutputState
-}
+type ServerOutput struct{ *pulumi.OutputState }
 
 func (ServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Server)(nil))

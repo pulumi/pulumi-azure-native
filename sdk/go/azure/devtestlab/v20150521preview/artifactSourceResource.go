@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties of an artifact source.
 type ArtifactSourceResource struct {
 	pulumi.CustomResourceState
 
-	// The branch reference of the artifact source.
-	BranchRef pulumi.StringPtrOutput `pulumi:"branchRef"`
-	// The display name of the artifact source.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The folder path of the artifact source.
-	FolderPath pulumi.StringPtrOutput `pulumi:"folderPath"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The provisioning status of the resource.
+	BranchRef         pulumi.StringPtrOutput `pulumi:"branchRef"`
+	DisplayName       pulumi.StringPtrOutput `pulumi:"displayName"`
+	FolderPath        pulumi.StringPtrOutput `pulumi:"folderPath"`
+	Location          pulumi.StringPtrOutput `pulumi:"location"`
+	Name              pulumi.StringPtrOutput `pulumi:"name"`
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The security token of the artifact source.
-	SecurityToken pulumi.StringPtrOutput `pulumi:"securityToken"`
-	// The type of the artifact source.
-	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
-	// The status of the artifact source.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// The URI of the artifact source.
-	Uri pulumi.StringPtrOutput `pulumi:"uri"`
+	SecurityToken     pulumi.StringPtrOutput `pulumi:"securityToken"`
+	SourceType        pulumi.StringPtrOutput `pulumi:"sourceType"`
+	Status            pulumi.StringPtrOutput `pulumi:"status"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Type              pulumi.StringPtrOutput `pulumi:"type"`
+	Uri               pulumi.StringPtrOutput `pulumi:"uri"`
 }
 
 // NewArtifactSourceResource registers a new resource with the given unique name, arguments, and options.
@@ -110,70 +97,40 @@ func (ArtifactSourceResourceState) ElementType() reflect.Type {
 }
 
 type artifactSourceResourceArgs struct {
-	// The branch reference of the artifact source.
-	BranchRef *string `pulumi:"branchRef"`
-	// The display name of the artifact source.
-	DisplayName *string `pulumi:"displayName"`
-	// The folder path of the artifact source.
-	FolderPath *string `pulumi:"folderPath"`
-	// The identifier of the resource.
-	Id *string `pulumi:"id"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The security token of the artifact source.
-	SecurityToken *string `pulumi:"securityToken"`
-	// The type of the artifact source.
-	SourceType *string `pulumi:"sourceType"`
-	// The status of the artifact source.
-	Status *string `pulumi:"status"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The URI of the artifact source.
-	Uri *string `pulumi:"uri"`
+	BranchRef         *string           `pulumi:"branchRef"`
+	DisplayName       *string           `pulumi:"displayName"`
+	FolderPath        *string           `pulumi:"folderPath"`
+	Id                *string           `pulumi:"id"`
+	LabName           string            `pulumi:"labName"`
+	Location          *string           `pulumi:"location"`
+	Name              *string           `pulumi:"name"`
+	ProvisioningState *string           `pulumi:"provisioningState"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	SecurityToken     *string           `pulumi:"securityToken"`
+	SourceType        *string           `pulumi:"sourceType"`
+	Status            *string           `pulumi:"status"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              *string           `pulumi:"type"`
+	Uri               *string           `pulumi:"uri"`
 }
 
 // The set of arguments for constructing a ArtifactSourceResource resource.
 type ArtifactSourceResourceArgs struct {
-	// The branch reference of the artifact source.
-	BranchRef pulumi.StringPtrInput
-	// The display name of the artifact source.
-	DisplayName pulumi.StringPtrInput
-	// The folder path of the artifact source.
-	FolderPath pulumi.StringPtrInput
-	// The identifier of the resource.
-	Id pulumi.StringPtrInput
-	// The name of the lab.
-	LabName pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning status of the resource.
+	BranchRef         pulumi.StringPtrInput
+	DisplayName       pulumi.StringPtrInput
+	FolderPath        pulumi.StringPtrInput
+	Id                pulumi.StringPtrInput
+	LabName           pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The security token of the artifact source.
-	SecurityToken pulumi.StringPtrInput
-	// The type of the artifact source.
-	SourceType pulumi.StringPtrInput
-	// The status of the artifact source.
-	Status pulumi.StringPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The URI of the artifact source.
-	Uri pulumi.StringPtrInput
+	SecurityToken     pulumi.StringPtrInput
+	SourceType        pulumi.StringPtrInput
+	Status            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	Type              pulumi.StringPtrInput
+	Uri               pulumi.StringPtrInput
 }
 
 func (ArtifactSourceResourceArgs) ElementType() reflect.Type {
@@ -199,9 +156,7 @@ func (i *ArtifactSourceResource) ToArtifactSourceResourceOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactSourceResourceOutput)
 }
 
-type ArtifactSourceResourceOutput struct {
-	*pulumi.OutputState
-}
+type ArtifactSourceResourceOutput struct{ *pulumi.OutputState }
 
 func (ArtifactSourceResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ArtifactSourceResource)(nil))

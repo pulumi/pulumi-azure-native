@@ -182,9 +182,7 @@ func (i *VirtualHubBgpConnection) ToVirtualHubBgpConnectionOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubBgpConnectionOutput)
 }
 
-type VirtualHubBgpConnectionOutput struct {
-	*pulumi.OutputState
-}
+type VirtualHubBgpConnectionOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubBgpConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualHubBgpConnection)(nil))

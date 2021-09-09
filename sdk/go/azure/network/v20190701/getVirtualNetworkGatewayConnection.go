@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A common class for general resource information.
 func LookupVirtualNetworkGatewayConnection(ctx *pulumi.Context, args *LookupVirtualNetworkGatewayConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkGatewayConnectionResult, error) {
 	var rv LookupVirtualNetworkGatewayConnectionResult
 	err := ctx.Invoke("azure-native:network/v20190701:getVirtualNetworkGatewayConnection", args, &rv, opts...)
@@ -18,64 +17,36 @@ func LookupVirtualNetworkGatewayConnection(ctx *pulumi.Context, args *LookupVirt
 }
 
 type LookupVirtualNetworkGatewayConnectionArgs struct {
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the virtual network gateway connection.
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
 	VirtualNetworkGatewayConnectionName string `pulumi:"virtualNetworkGatewayConnectionName"`
 }
 
 // A common class for general resource information.
 type LookupVirtualNetworkGatewayConnectionResult struct {
-	// The authorizationKey.
-	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// Connection protocol used for this connection.
-	ConnectionProtocol *string `pulumi:"connectionProtocol"`
-	// Virtual Network Gateway connection status.
-	ConnectionStatus string `pulumi:"connectionStatus"`
-	// Gateway connection type.
-	ConnectionType string `pulumi:"connectionType"`
-	// The egress bytes transferred in this connection.
-	EgressBytesTransferred float64 `pulumi:"egressBytesTransferred"`
-	// EnableBgp flag.
-	EnableBgp *bool `pulumi:"enableBgp"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Bypass ExpressRoute Gateway for data forwarding.
-	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The ingress bytes transferred in this connection.
-	IngressBytesTransferred float64 `pulumi:"ingressBytesTransferred"`
-	// The IPSec Policies to be considered by this connection.
-	IpsecPolicies []IpsecPolicyResponse `pulumi:"ipsecPolicies"`
-	// The reference to local network gateway resource.
-	LocalNetworkGateway2 *LocalNetworkGatewayResponse `pulumi:"localNetworkGateway2"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The reference to peerings resource.
-	Peer *SubResourceResponse `pulumi:"peer"`
-	// The provisioning state of the virtual network gateway connection resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The resource GUID property of the virtual network gateway connection resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// The routing weight.
-	RoutingWeight *int `pulumi:"routingWeight"`
-	// The IPSec shared key.
-	SharedKey *string `pulumi:"sharedKey"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The Traffic Selector Policies to be considered by this connection.
-	TrafficSelectorPolicies []TrafficSelectorPolicyResponse `pulumi:"trafficSelectorPolicies"`
-	// Collection of all tunnels' connection health status.
-	TunnelConnectionStatus []TunnelConnectionHealthResponse `pulumi:"tunnelConnectionStatus"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// Enable policy-based traffic selectors.
-	UsePolicyBasedTrafficSelectors *bool `pulumi:"usePolicyBasedTrafficSelectors"`
-	// The reference to virtual network gateway resource.
-	VirtualNetworkGateway1 VirtualNetworkGatewayResponse `pulumi:"virtualNetworkGateway1"`
-	// The reference to virtual network gateway resource.
-	VirtualNetworkGateway2 *VirtualNetworkGatewayResponse `pulumi:"virtualNetworkGateway2"`
+	AuthorizationKey               *string                          `pulumi:"authorizationKey"`
+	ConnectionProtocol             *string                          `pulumi:"connectionProtocol"`
+	ConnectionStatus               string                           `pulumi:"connectionStatus"`
+	ConnectionType                 string                           `pulumi:"connectionType"`
+	EgressBytesTransferred         float64                          `pulumi:"egressBytesTransferred"`
+	EnableBgp                      *bool                            `pulumi:"enableBgp"`
+	Etag                           *string                          `pulumi:"etag"`
+	ExpressRouteGatewayBypass      *bool                            `pulumi:"expressRouteGatewayBypass"`
+	Id                             *string                          `pulumi:"id"`
+	IngressBytesTransferred        float64                          `pulumi:"ingressBytesTransferred"`
+	IpsecPolicies                  []IpsecPolicyResponse            `pulumi:"ipsecPolicies"`
+	LocalNetworkGateway2           *LocalNetworkGatewayResponse     `pulumi:"localNetworkGateway2"`
+	Location                       *string                          `pulumi:"location"`
+	Name                           string                           `pulumi:"name"`
+	Peer                           *SubResourceResponse             `pulumi:"peer"`
+	ProvisioningState              string                           `pulumi:"provisioningState"`
+	ResourceGuid                   *string                          `pulumi:"resourceGuid"`
+	RoutingWeight                  *int                             `pulumi:"routingWeight"`
+	SharedKey                      *string                          `pulumi:"sharedKey"`
+	Tags                           map[string]string                `pulumi:"tags"`
+	TrafficSelectorPolicies        []TrafficSelectorPolicyResponse  `pulumi:"trafficSelectorPolicies"`
+	TunnelConnectionStatus         []TunnelConnectionHealthResponse `pulumi:"tunnelConnectionStatus"`
+	Type                           string                           `pulumi:"type"`
+	UsePolicyBasedTrafficSelectors *bool                            `pulumi:"usePolicyBasedTrafficSelectors"`
+	VirtualNetworkGateway1         VirtualNetworkGatewayResponse    `pulumi:"virtualNetworkGateway1"`
+	VirtualNetworkGateway2         *VirtualNetworkGatewayResponse   `pulumi:"virtualNetworkGateway2"`
 }

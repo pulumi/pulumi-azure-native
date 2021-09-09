@@ -211,9 +211,7 @@ func (i *ProtectionContainer) ToProtectionContainerOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerOutput)
 }
 
-type ProtectionContainerOutput struct {
-	*pulumi.OutputState
-}
+type ProtectionContainerOutput struct{ *pulumi.OutputState }
 
 func (ProtectionContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProtectionContainer)(nil))

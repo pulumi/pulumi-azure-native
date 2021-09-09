@@ -11,50 +11,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Api details.
 type ProductApi struct {
 	pulumi.CustomResourceState
 
-	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
-	ApiRevision pulumi.StringPtrOutput `pulumi:"apiRevision"`
-	// Description of the Api Revision.
-	ApiRevisionDescription pulumi.StringPtrOutput `pulumi:"apiRevisionDescription"`
-	// Type of API.
-	ApiType pulumi.StringPtrOutput `pulumi:"apiType"`
-	// Indicates the Version identifier of the API if the API is versioned
-	ApiVersion pulumi.StringPtrOutput `pulumi:"apiVersion"`
-	// Description of the Api Version.
-	ApiVersionDescription pulumi.StringPtrOutput `pulumi:"apiVersionDescription"`
-	// Version set details
-	ApiVersionSet ApiVersionSetContractDetailsResponsePtrOutput `pulumi:"apiVersionSet"`
-	// A resource identifier for the related ApiVersionSet.
-	ApiVersionSetId pulumi.StringPtrOutput `pulumi:"apiVersionSetId"`
-	// Collection of authentication settings included into this API.
-	AuthenticationSettings AuthenticationSettingsContractResponsePtrOutput `pulumi:"authenticationSettings"`
-	// Description of the API. May include HTML formatting tags.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// API name. Must be 1 to 300 characters long.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Indicates if API revision is current api revision.
-	IsCurrent pulumi.BoolPtrOutput `pulumi:"isCurrent"`
-	// Indicates if API revision is accessible via the gateway.
-	IsOnline pulumi.BoolOutput `pulumi:"isOnline"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
-	Path pulumi.StringOutput `pulumi:"path"`
-	// Describes on which protocols the operations in this API can be invoked.
-	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
-	// Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
-	ServiceUrl pulumi.StringPtrOutput `pulumi:"serviceUrl"`
-	// API identifier of the source API.
-	SourceApiId pulumi.StringPtrOutput `pulumi:"sourceApiId"`
-	// Protocols over which API is made available.
+	ApiRevision                   pulumi.StringPtrOutput                                 `pulumi:"apiRevision"`
+	ApiRevisionDescription        pulumi.StringPtrOutput                                 `pulumi:"apiRevisionDescription"`
+	ApiType                       pulumi.StringPtrOutput                                 `pulumi:"apiType"`
+	ApiVersion                    pulumi.StringPtrOutput                                 `pulumi:"apiVersion"`
+	ApiVersionDescription         pulumi.StringPtrOutput                                 `pulumi:"apiVersionDescription"`
+	ApiVersionSet                 ApiVersionSetContractDetailsResponsePtrOutput          `pulumi:"apiVersionSet"`
+	ApiVersionSetId               pulumi.StringPtrOutput                                 `pulumi:"apiVersionSetId"`
+	AuthenticationSettings        AuthenticationSettingsContractResponsePtrOutput        `pulumi:"authenticationSettings"`
+	Description                   pulumi.StringPtrOutput                                 `pulumi:"description"`
+	DisplayName                   pulumi.StringPtrOutput                                 `pulumi:"displayName"`
+	IsCurrent                     pulumi.BoolPtrOutput                                   `pulumi:"isCurrent"`
+	IsOnline                      pulumi.BoolOutput                                      `pulumi:"isOnline"`
+	Name                          pulumi.StringOutput                                    `pulumi:"name"`
+	Path                          pulumi.StringOutput                                    `pulumi:"path"`
+	Protocols                     pulumi.StringArrayOutput                               `pulumi:"protocols"`
+	ServiceUrl                    pulumi.StringPtrOutput                                 `pulumi:"serviceUrl"`
+	SourceApiId                   pulumi.StringPtrOutput                                 `pulumi:"sourceApiId"`
 	SubscriptionKeyParameterNames SubscriptionKeyParameterNamesContractResponsePtrOutput `pulumi:"subscriptionKeyParameterNames"`
-	// Specifies whether an API or Product subscription is required for accessing the API.
-	SubscriptionRequired pulumi.BoolPtrOutput `pulumi:"subscriptionRequired"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SubscriptionRequired          pulumi.BoolPtrOutput                                   `pulumi:"subscriptionRequired"`
+	Type                          pulumi.StringOutput                                    `pulumi:"type"`
 }
 
 // NewProductApi registers a new resource with the given unique name, arguments, and options.
@@ -165,26 +144,18 @@ func (ProductApiState) ElementType() reflect.Type {
 }
 
 type productApiArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId *string `pulumi:"apiId"`
-	// Product identifier. Must be unique in the current API Management service instance.
-	ProductId string `pulumi:"productId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ApiId             *string `pulumi:"apiId"`
+	ProductId         string  `pulumi:"productId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a ProductApi resource.
 type ProductApiArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId pulumi.StringPtrInput
-	// Product identifier. Must be unique in the current API Management service instance.
-	ProductId pulumi.StringInput
-	// The name of the resource group.
+	ApiId             pulumi.StringPtrInput
+	ProductId         pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (ProductApiArgs) ElementType() reflect.Type {
@@ -210,9 +181,7 @@ func (i *ProductApi) ToProductApiOutputWithContext(ctx context.Context) ProductA
 	return pulumi.ToOutputWithContext(ctx, i).(ProductApiOutput)
 }
 
-type ProductApiOutput struct {
-	*pulumi.OutputState
-}
+type ProductApiOutput struct{ *pulumi.OutputState }
 
 func (ProductApiOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProductApi)(nil))

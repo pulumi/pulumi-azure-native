@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response to put/get patch schedules for Redis cache.
 func LookupPatchSchedule(ctx *pulumi.Context, args *LookupPatchScheduleArgs, opts ...pulumi.InvokeOption) (*LookupPatchScheduleResult, error) {
 	var rv LookupPatchScheduleResult
 	err := ctx.Invoke("azure-native:cache/v20201201:getPatchSchedule", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupPatchSchedule(ctx *pulumi.Context, args *LookupPatchScheduleArgs, opt
 }
 
 type LookupPatchScheduleArgs struct {
-	// Default string modeled as parameter for auto generation to work correctly.
-	Default string `pulumi:"default"`
-	// The name of the redis cache.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
+	Default           string `pulumi:"default"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Response to put/get patch schedules for Redis cache.
 type LookupPatchScheduleResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// List of patch schedules for a Redis cache.
+	Id              string                  `pulumi:"id"`
+	Name            string                  `pulumi:"name"`
 	ScheduleEntries []ScheduleEntryResponse `pulumi:"scheduleEntries"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type            string                  `pulumi:"type"`
 }

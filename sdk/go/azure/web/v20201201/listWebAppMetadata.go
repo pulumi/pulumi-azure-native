@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// String dictionary resource.
 func ListWebAppMetadata(ctx *pulumi.Context, args *ListWebAppMetadataArgs, opts ...pulumi.InvokeOption) (*ListWebAppMetadataResult, error) {
 	var rv ListWebAppMetadataResult
 	err := ctx.Invoke("azure-native:web/v20201201:listWebAppMetadata", args, &rv, opts...)
@@ -18,22 +17,15 @@ func ListWebAppMetadata(ctx *pulumi.Context, args *ListWebAppMetadataArgs, opts 
 }
 
 type ListWebAppMetadataArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // String dictionary resource.
 type ListWebAppMetadataResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Settings.
+	Id         string            `pulumi:"id"`
+	Kind       *string           `pulumi:"kind"`
+	Name       string            `pulumi:"name"`
 	Properties map[string]string `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type       string            `pulumi:"type"`
 }

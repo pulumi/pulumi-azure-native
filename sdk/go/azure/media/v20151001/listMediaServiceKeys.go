@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The response body for a ListKeys API.
 func ListMediaServiceKeys(ctx *pulumi.Context, args *ListMediaServiceKeysArgs, opts ...pulumi.InvokeOption) (*ListMediaServiceKeysResult, error) {
 	var rv ListMediaServiceKeysResult
 	err := ctx.Invoke("azure-native:media/v20151001:listMediaServiceKeys", args, &rv, opts...)
@@ -18,22 +17,15 @@ func ListMediaServiceKeys(ctx *pulumi.Context, args *ListMediaServiceKeysArgs, o
 }
 
 type ListMediaServiceKeysArgs struct {
-	// Name of the Media Service.
-	MediaServiceName string `pulumi:"mediaServiceName"`
-	// Name of the resource group within the Azure subscription.
+	MediaServiceName  string `pulumi:"mediaServiceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The response body for a ListKeys API.
 type ListMediaServiceKeysResult struct {
-	// The primary authorization endpoint.
-	PrimaryAuthEndpoint *string `pulumi:"primaryAuthEndpoint"`
-	// The primary key for the Media Service resource.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// The authorization scope.
-	Scope *string `pulumi:"scope"`
-	// The secondary authorization endpoint.
+	PrimaryAuthEndpoint   *string `pulumi:"primaryAuthEndpoint"`
+	PrimaryKey            *string `pulumi:"primaryKey"`
+	Scope                 *string `pulumi:"scope"`
 	SecondaryAuthEndpoint *string `pulumi:"secondaryAuthEndpoint"`
-	// The secondary key for the Media Service resource.
-	SecondaryKey *string `pulumi:"secondaryKey"`
+	SecondaryKey          *string `pulumi:"secondaryKey"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A domain specific resource identifier.
 func LookupWebAppDomainOwnershipIdentifier(ctx *pulumi.Context, args *LookupWebAppDomainOwnershipIdentifierArgs, opts ...pulumi.InvokeOption) (*LookupWebAppDomainOwnershipIdentifierResult, error) {
 	var rv LookupWebAppDomainOwnershipIdentifierResult
 	err := ctx.Invoke("azure-native:web/v20180201:getWebAppDomainOwnershipIdentifier", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupWebAppDomainOwnershipIdentifier(ctx *pulumi.Context, args *LookupWebA
 }
 
 type LookupWebAppDomainOwnershipIdentifierArgs struct {
-	// Name of domain ownership identifier.
 	DomainOwnershipIdentifierName string `pulumi:"domainOwnershipIdentifierName"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Name                          string `pulumi:"name"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
 }
 
 // A domain specific resource identifier.
 type LookupWebAppDomainOwnershipIdentifierResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
+	Id   string  `pulumi:"id"`
 	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Name string  `pulumi:"name"`
+	Type string  `pulumi:"type"`
 }

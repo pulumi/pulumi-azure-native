@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Role Assignments
 type RoleAssignment struct {
 	pulumi.CustomResourceState
 
-	// The role assignment name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Role assignment properties.
+	Name       pulumi.StringOutput                             `pulumi:"name"`
 	Properties RoleAssignmentPropertiesWithScopeResponseOutput `pulumi:"properties"`
-	// The role assignment type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                             `pulumi:"type"`
 }
 
 // NewRoleAssignment registers a new resource with the given unique name, arguments, and options.
@@ -122,22 +118,16 @@ func (RoleAssignmentState) ElementType() reflect.Type {
 }
 
 type roleAssignmentArgs struct {
-	// Role assignment properties.
-	Properties RoleAssignmentProperties `pulumi:"properties"`
-	// The name of the role assignment to create. It can be any valid GUID.
-	RoleAssignmentName *string `pulumi:"roleAssignmentName"`
-	// The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
-	Scope string `pulumi:"scope"`
+	Properties         RoleAssignmentProperties `pulumi:"properties"`
+	RoleAssignmentName *string                  `pulumi:"roleAssignmentName"`
+	Scope              string                   `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a RoleAssignment resource.
 type RoleAssignmentArgs struct {
-	// Role assignment properties.
-	Properties RoleAssignmentPropertiesInput
-	// The name of the role assignment to create. It can be any valid GUID.
+	Properties         RoleAssignmentPropertiesInput
 	RoleAssignmentName pulumi.StringPtrInput
-	// The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
-	Scope pulumi.StringInput
+	Scope              pulumi.StringInput
 }
 
 func (RoleAssignmentArgs) ElementType() reflect.Type {
@@ -163,9 +153,7 @@ func (i *RoleAssignment) ToRoleAssignmentOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentOutput)
 }
 
-type RoleAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type RoleAssignmentOutput struct{ *pulumi.OutputState }
 
 func (RoleAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleAssignment)(nil))

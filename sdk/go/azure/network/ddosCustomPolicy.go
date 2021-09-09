@@ -251,9 +251,7 @@ func (i *DdosCustomPolicy) ToDdosCustomPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DdosCustomPolicyOutput)
 }
 
-type DdosCustomPolicyOutput struct {
-	*pulumi.OutputState
-}
+type DdosCustomPolicyOutput struct{ *pulumi.OutputState }
 
 func (DdosCustomPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DdosCustomPolicy)(nil))

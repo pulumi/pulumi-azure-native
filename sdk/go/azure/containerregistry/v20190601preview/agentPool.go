@@ -11,31 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The agentpool that has the ARM resource and properties.
-// The agentpool will have all information to create an agent pool.
 type AgentPool struct {
 	pulumi.CustomResourceState
 
-	// The count of agent machine
-	Count pulumi.IntPtrOutput `pulumi:"count"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The OS of agent machine
-	Os pulumi.StringPtrOutput `pulumi:"os"`
-	// The provisioning state of this agent pool
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The Tier of agent machine
-	Tier pulumi.StringPtrOutput `pulumi:"tier"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The Virtual Network Subnet Resource Id of the agent machine
-	VirtualNetworkSubnetResourceId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetResourceId"`
+	Count                          pulumi.IntPtrOutput      `pulumi:"count"`
+	Location                       pulumi.StringOutput      `pulumi:"location"`
+	Name                           pulumi.StringOutput      `pulumi:"name"`
+	Os                             pulumi.StringPtrOutput   `pulumi:"os"`
+	ProvisioningState              pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData                     SystemDataResponseOutput `pulumi:"systemData"`
+	Tags                           pulumi.StringMapOutput   `pulumi:"tags"`
+	Tier                           pulumi.StringPtrOutput   `pulumi:"tier"`
+	Type                           pulumi.StringOutput      `pulumi:"type"`
+	VirtualNetworkSubnetResourceId pulumi.StringPtrOutput   `pulumi:"virtualNetworkSubnetResourceId"`
 }
 
 // NewAgentPool registers a new resource with the given unique name, arguments, and options.
@@ -95,45 +83,27 @@ func (AgentPoolState) ElementType() reflect.Type {
 }
 
 type agentPoolArgs struct {
-	// The name of the agent pool.
-	AgentPoolName *string `pulumi:"agentPoolName"`
-	// The count of agent machine
-	Count *int `pulumi:"count"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The OS of agent machine
-	Os *string `pulumi:"os"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The Tier of agent machine
-	Tier *string `pulumi:"tier"`
-	// The Virtual Network Subnet Resource Id of the agent machine
-	VirtualNetworkSubnetResourceId *string `pulumi:"virtualNetworkSubnetResourceId"`
+	AgentPoolName                  *string           `pulumi:"agentPoolName"`
+	Count                          *int              `pulumi:"count"`
+	Location                       *string           `pulumi:"location"`
+	Os                             *string           `pulumi:"os"`
+	RegistryName                   string            `pulumi:"registryName"`
+	ResourceGroupName              string            `pulumi:"resourceGroupName"`
+	Tags                           map[string]string `pulumi:"tags"`
+	Tier                           *string           `pulumi:"tier"`
+	VirtualNetworkSubnetResourceId *string           `pulumi:"virtualNetworkSubnetResourceId"`
 }
 
 // The set of arguments for constructing a AgentPool resource.
 type AgentPoolArgs struct {
-	// The name of the agent pool.
-	AgentPoolName pulumi.StringPtrInput
-	// The count of agent machine
-	Count pulumi.IntPtrInput
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The OS of agent machine
-	Os pulumi.StringPtrInput
-	// The name of the container registry.
-	RegistryName pulumi.StringInput
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName pulumi.StringInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The Tier of agent machine
-	Tier pulumi.StringPtrInput
-	// The Virtual Network Subnet Resource Id of the agent machine
+	AgentPoolName                  pulumi.StringPtrInput
+	Count                          pulumi.IntPtrInput
+	Location                       pulumi.StringPtrInput
+	Os                             pulumi.StringPtrInput
+	RegistryName                   pulumi.StringInput
+	ResourceGroupName              pulumi.StringInput
+	Tags                           pulumi.StringMapInput
+	Tier                           pulumi.StringPtrInput
 	VirtualNetworkSubnetResourceId pulumi.StringPtrInput
 }
 
@@ -160,9 +130,7 @@ func (i *AgentPool) ToAgentPoolOutputWithContext(ctx context.Context) AgentPoolO
 	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolOutput)
 }
 
-type AgentPoolOutput struct {
-	*pulumi.OutputState
-}
+type AgentPoolOutput struct{ *pulumi.OutputState }
 
 func (AgentPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AgentPool)(nil))

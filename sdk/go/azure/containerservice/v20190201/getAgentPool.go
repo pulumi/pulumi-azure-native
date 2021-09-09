@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Agent Pool.
 func LookupAgentPool(ctx *pulumi.Context, args *LookupAgentPoolArgs, opts ...pulumi.InvokeOption) (*LookupAgentPoolResult, error) {
 	var rv LookupAgentPoolResult
 	err := ctx.Invoke("azure-native:containerservice/v20190201:getAgentPool", args, &rv, opts...)
@@ -18,44 +17,26 @@ func LookupAgentPool(ctx *pulumi.Context, args *LookupAgentPoolArgs, opts ...pul
 }
 
 type LookupAgentPoolArgs struct {
-	// The name of the agent pool.
-	AgentPoolName string `pulumi:"agentPoolName"`
-	// The name of the managed cluster resource.
+	AgentPoolName      string `pulumi:"agentPoolName"`
 	ManagedClusterName string `pulumi:"managedClusterName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
 
 // Agent Pool.
 type LookupAgentPoolResult struct {
-	// (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count int `pulumi:"count"`
-	// Whether to enable auto-scaler
-	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Maximum number of nodes for auto-scaling
-	MaxCount *int `pulumi:"maxCount"`
-	// Maximum number of pods that can run on a node.
-	MaxPods *int `pulumi:"maxPods"`
-	// Minimum number of nodes for auto-scaling
-	MinCount *int `pulumi:"minCount"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name string `pulumi:"name"`
-	// Version of orchestrator specified when creating the managed cluster.
-	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
-	// The current deployment or provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// AgentPoolType represents types of an agent pool
-	Type string `pulumi:"type"`
-	// Size of agent VMs.
-	VmSize string `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
-	VnetSubnetID *string `pulumi:"vnetSubnetID"`
+	AvailabilityZones   []string `pulumi:"availabilityZones"`
+	Count               int      `pulumi:"count"`
+	EnableAutoScaling   *bool    `pulumi:"enableAutoScaling"`
+	Id                  string   `pulumi:"id"`
+	MaxCount            *int     `pulumi:"maxCount"`
+	MaxPods             *int     `pulumi:"maxPods"`
+	MinCount            *int     `pulumi:"minCount"`
+	Name                string   `pulumi:"name"`
+	OrchestratorVersion *string  `pulumi:"orchestratorVersion"`
+	OsDiskSizeGB        *int     `pulumi:"osDiskSizeGB"`
+	OsType              *string  `pulumi:"osType"`
+	ProvisioningState   string   `pulumi:"provisioningState"`
+	Type                string   `pulumi:"type"`
+	VmSize              string   `pulumi:"vmSize"`
+	VnetSubnetID        *string  `pulumi:"vnetSubnetID"`
 }

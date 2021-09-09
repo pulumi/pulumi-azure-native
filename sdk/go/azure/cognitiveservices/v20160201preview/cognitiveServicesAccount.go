@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
 type CognitiveServicesAccount struct {
 	pulumi.CustomResourceState
 
-	// Endpoint of the created account
-	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
-	// Entity Tag
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Type of cognitive service account.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The location of the resource
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the created account
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Gets the status of the cognitive services account at the time the operation was called.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The SKU of the cognitive services account.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Endpoint          pulumi.StringPtrOutput `pulumi:"endpoint"`
+	Etag              pulumi.StringPtrOutput `pulumi:"etag"`
+	Kind              pulumi.StringPtrOutput `pulumi:"kind"`
+	Location          pulumi.StringPtrOutput `pulumi:"location"`
+	Name              pulumi.StringPtrOutput `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	Sku               SkuResponsePtrOutput   `pulumi:"sku"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Type              pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewCognitiveServicesAccount registers a new resource with the given unique name, arguments, and options.
@@ -107,34 +97,22 @@ func (CognitiveServicesAccountState) ElementType() reflect.Type {
 }
 
 type cognitiveServicesAccountArgs struct {
-	// The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName *string `pulumi:"accountName"`
-	// Required. Indicates the type of cognitive service account.
-	Kind string `pulumi:"kind"`
-	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update the request will succeed.
-	Location *string `pulumi:"location"`
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of the cognitive services account.
-	Sku Sku `pulumi:"sku"`
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       *string           `pulumi:"accountName"`
+	Kind              string            `pulumi:"kind"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               Sku               `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CognitiveServicesAccount resource.
 type CognitiveServicesAccountArgs struct {
-	// The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringPtrInput
-	// Required. Indicates the type of cognitive service account.
-	Kind pulumi.StringInput
-	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update the request will succeed.
-	Location pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription.
+	AccountName       pulumi.StringPtrInput
+	Kind              pulumi.StringInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The SKU of the cognitive services account.
-	Sku SkuInput
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-	Tags pulumi.StringMapInput
+	Sku               SkuInput
+	Tags              pulumi.StringMapInput
 }
 
 func (CognitiveServicesAccountArgs) ElementType() reflect.Type {
@@ -160,9 +138,7 @@ func (i *CognitiveServicesAccount) ToCognitiveServicesAccountOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CognitiveServicesAccountOutput)
 }
 
-type CognitiveServicesAccountOutput struct {
-	*pulumi.OutputState
-}
+type CognitiveServicesAccountOutput struct{ *pulumi.OutputState }
 
 func (CognitiveServicesAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CognitiveServicesAccount)(nil))

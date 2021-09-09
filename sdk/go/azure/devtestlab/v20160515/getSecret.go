@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A secret.
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
 	err := ctx.Invoke("azure-native:devtestlab/v20160515:getSecret", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.In
 }
 
 type LookupSecretArgs struct {
-	// Specify the $expand query. Example: 'properties($select=value)'
-	Expand *string `pulumi:"expand"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The name of the secret.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the user profile.
-	UserName string `pulumi:"userName"`
+	Expand            *string `pulumi:"expand"`
+	LabName           string  `pulumi:"labName"`
+	Name              string  `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	UserName          string  `pulumi:"userName"`
 }
 
 // A secret.
 type LookupSecretResult struct {
-	// The identifier of the resource.
-	Id string `pulumi:"id"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// The value of the secret for secret creation.
-	Value *string `pulumi:"value"`
+	Id                string            `pulumi:"id"`
+	Location          *string           `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	ProvisioningState *string           `pulumi:"provisioningState"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              string            `pulumi:"type"`
+	UniqueIdentifier  *string           `pulumi:"uniqueIdentifier"`
+	Value             *string           `pulumi:"value"`
 }

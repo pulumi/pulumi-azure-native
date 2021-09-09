@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Actions to invoke when the alert fires.
 type Actions struct {
-	// Action Group resource Ids to invoke when the alert fires.
-	ActionGroups []string `pulumi:"actionGroups"`
-	// The properties of an alert payload.
+	ActionGroups     []string          `pulumi:"actionGroups"`
 	CustomProperties map[string]string `pulumi:"customProperties"`
 }
 
@@ -29,12 +26,9 @@ type ActionsInput interface {
 	ToActionsOutputWithContext(context.Context) ActionsOutput
 }
 
-// Actions to invoke when the alert fires.
 type ActionsArgs struct {
-	// Action Group resource Ids to invoke when the alert fires.
-	ActionGroups pulumi.StringArrayInput `pulumi:"actionGroups"`
-	// The properties of an alert payload.
-	CustomProperties pulumi.StringMapInput `pulumi:"customProperties"`
+	ActionGroups     pulumi.StringArrayInput `pulumi:"actionGroups"`
+	CustomProperties pulumi.StringMapInput   `pulumi:"customProperties"`
 }
 
 func (ActionsArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *actionsPtrType) ToActionsPtrOutputWithContext(ctx context.Context) Acti
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsPtrOutput)
 }
 
-// Actions to invoke when the alert fires.
 type ActionsOutput struct{ *pulumi.OutputState }
 
 func (ActionsOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o ActionsOutput) ToActionsPtrOutput() ActionsPtrOutput {
 }
 
 func (o ActionsOutput) ToActionsPtrOutputWithContext(ctx context.Context) ActionsPtrOutput {
-	return o.ApplyT(func(v Actions) *Actions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Actions) *Actions {
 		return &v
 	}).(ActionsPtrOutput)
 }
 
-// Action Group resource Ids to invoke when the alert fires.
 func (o ActionsOutput) ActionGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Actions) []string { return v.ActionGroups }).(pulumi.StringArrayOutput)
 }
 
-// The properties of an alert payload.
 func (o ActionsOutput) CustomProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v Actions) map[string]string { return v.CustomProperties }).(pulumi.StringMapOutput)
 }
@@ -140,10 +131,15 @@ func (o ActionsPtrOutput) ToActionsPtrOutputWithContext(ctx context.Context) Act
 }
 
 func (o ActionsPtrOutput) Elem() ActionsOutput {
-	return o.ApplyT(func(v *Actions) Actions { return *v }).(ActionsOutput)
+	return o.ApplyT(func(v *Actions) Actions {
+		if v != nil {
+			return *v
+		}
+		var ret Actions
+		return ret
+	}).(ActionsOutput)
 }
 
-// Action Group resource Ids to invoke when the alert fires.
 func (o ActionsPtrOutput) ActionGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Actions) []string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o ActionsPtrOutput) ActionGroups() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The properties of an alert payload.
 func (o ActionsPtrOutput) CustomProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Actions) map[string]string {
 		if v == nil {
@@ -163,11 +158,8 @@ func (o ActionsPtrOutput) CustomProperties() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Actions to invoke when the alert fires.
 type ActionsResponse struct {
-	// Action Group resource Ids to invoke when the alert fires.
-	ActionGroups []string `pulumi:"actionGroups"`
-	// The properties of an alert payload.
+	ActionGroups     []string          `pulumi:"actionGroups"`
 	CustomProperties map[string]string `pulumi:"customProperties"`
 }
 
@@ -182,12 +174,9 @@ type ActionsResponseInput interface {
 	ToActionsResponseOutputWithContext(context.Context) ActionsResponseOutput
 }
 
-// Actions to invoke when the alert fires.
 type ActionsResponseArgs struct {
-	// Action Group resource Ids to invoke when the alert fires.
-	ActionGroups pulumi.StringArrayInput `pulumi:"actionGroups"`
-	// The properties of an alert payload.
-	CustomProperties pulumi.StringMapInput `pulumi:"customProperties"`
+	ActionGroups     pulumi.StringArrayInput `pulumi:"actionGroups"`
+	CustomProperties pulumi.StringMapInput   `pulumi:"customProperties"`
 }
 
 func (ActionsResponseArgs) ElementType() reflect.Type {
@@ -243,7 +232,6 @@ func (i *actionsResponsePtrType) ToActionsResponsePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsResponsePtrOutput)
 }
 
-// Actions to invoke when the alert fires.
 type ActionsResponseOutput struct{ *pulumi.OutputState }
 
 func (ActionsResponseOutput) ElementType() reflect.Type {
@@ -263,17 +251,15 @@ func (o ActionsResponseOutput) ToActionsResponsePtrOutput() ActionsResponsePtrOu
 }
 
 func (o ActionsResponseOutput) ToActionsResponsePtrOutputWithContext(ctx context.Context) ActionsResponsePtrOutput {
-	return o.ApplyT(func(v ActionsResponse) *ActionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionsResponse) *ActionsResponse {
 		return &v
 	}).(ActionsResponsePtrOutput)
 }
 
-// Action Group resource Ids to invoke when the alert fires.
 func (o ActionsResponseOutput) ActionGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActionsResponse) []string { return v.ActionGroups }).(pulumi.StringArrayOutput)
 }
 
-// The properties of an alert payload.
 func (o ActionsResponseOutput) CustomProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ActionsResponse) map[string]string { return v.CustomProperties }).(pulumi.StringMapOutput)
 }
@@ -293,10 +279,15 @@ func (o ActionsResponsePtrOutput) ToActionsResponsePtrOutputWithContext(ctx cont
 }
 
 func (o ActionsResponsePtrOutput) Elem() ActionsResponseOutput {
-	return o.ApplyT(func(v *ActionsResponse) ActionsResponse { return *v }).(ActionsResponseOutput)
+	return o.ApplyT(func(v *ActionsResponse) ActionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ActionsResponse
+		return ret
+	}).(ActionsResponseOutput)
 }
 
-// Action Group resource Ids to invoke when the alert fires.
 func (o ActionsResponsePtrOutput) ActionGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ActionsResponse) []string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o ActionsResponsePtrOutput) ActionGroups() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The properties of an alert payload.
 func (o ActionsResponsePtrOutput) CustomProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ActionsResponse) map[string]string {
 		if v == nil {
@@ -316,26 +306,16 @@ func (o ActionsResponsePtrOutput) CustomProperties() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// A condition of the scheduled query rule.
 type Condition struct {
-	// List of Dimensions conditions
-	Dimensions []Dimension `pulumi:"dimensions"`
-	// The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
-	FailingPeriods *ConditionFailingPeriods `pulumi:"failingPeriods"`
-	// The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
-	MetricMeasureColumn *string `pulumi:"metricMeasureColumn"`
-	// The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
-	MetricName *string `pulumi:"metricName"`
-	// The criteria operator. Relevant and required only for rules of the kind LogAlert.
-	Operator *string `pulumi:"operator"`
-	// Log query alert
-	Query *string `pulumi:"query"`
-	// The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
-	ResourceIdColumn *string `pulumi:"resourceIdColumn"`
-	// the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
-	Threshold *float64 `pulumi:"threshold"`
-	// Aggregation type. Relevant and required only for rules of the kind LogAlert.
-	TimeAggregation *string `pulumi:"timeAggregation"`
+	Dimensions          []Dimension              `pulumi:"dimensions"`
+	FailingPeriods      *ConditionFailingPeriods `pulumi:"failingPeriods"`
+	MetricMeasureColumn *string                  `pulumi:"metricMeasureColumn"`
+	MetricName          *string                  `pulumi:"metricName"`
+	Operator            *string                  `pulumi:"operator"`
+	Query               *string                  `pulumi:"query"`
+	ResourceIdColumn    *string                  `pulumi:"resourceIdColumn"`
+	Threshold           *float64                 `pulumi:"threshold"`
+	TimeAggregation     *string                  `pulumi:"timeAggregation"`
 }
 
 // ConditionInput is an input type that accepts ConditionArgs and ConditionOutput values.
@@ -349,26 +329,16 @@ type ConditionInput interface {
 	ToConditionOutputWithContext(context.Context) ConditionOutput
 }
 
-// A condition of the scheduled query rule.
 type ConditionArgs struct {
-	// List of Dimensions conditions
-	Dimensions DimensionArrayInput `pulumi:"dimensions"`
-	// The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
-	FailingPeriods ConditionFailingPeriodsPtrInput `pulumi:"failingPeriods"`
-	// The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
-	MetricMeasureColumn pulumi.StringPtrInput `pulumi:"metricMeasureColumn"`
-	// The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
-	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
-	// The criteria operator. Relevant and required only for rules of the kind LogAlert.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// Log query alert
-	Query pulumi.StringPtrInput `pulumi:"query"`
-	// The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
-	ResourceIdColumn pulumi.StringPtrInput `pulumi:"resourceIdColumn"`
-	// the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
-	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
-	// Aggregation type. Relevant and required only for rules of the kind LogAlert.
-	TimeAggregation pulumi.StringPtrInput `pulumi:"timeAggregation"`
+	Dimensions          DimensionArrayInput             `pulumi:"dimensions"`
+	FailingPeriods      ConditionFailingPeriodsPtrInput `pulumi:"failingPeriods"`
+	MetricMeasureColumn pulumi.StringPtrInput           `pulumi:"metricMeasureColumn"`
+	MetricName          pulumi.StringPtrInput           `pulumi:"metricName"`
+	Operator            pulumi.StringPtrInput           `pulumi:"operator"`
+	Query               pulumi.StringPtrInput           `pulumi:"query"`
+	ResourceIdColumn    pulumi.StringPtrInput           `pulumi:"resourceIdColumn"`
+	Threshold           pulumi.Float64PtrInput          `pulumi:"threshold"`
+	TimeAggregation     pulumi.StringPtrInput           `pulumi:"timeAggregation"`
 }
 
 func (ConditionArgs) ElementType() reflect.Type {
@@ -408,7 +378,6 @@ func (i ConditionArray) ToConditionArrayOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(ConditionArrayOutput)
 }
 
-// A condition of the scheduled query rule.
 type ConditionOutput struct{ *pulumi.OutputState }
 
 func (ConditionOutput) ElementType() reflect.Type {
@@ -423,47 +392,38 @@ func (o ConditionOutput) ToConditionOutputWithContext(ctx context.Context) Condi
 	return o
 }
 
-// List of Dimensions conditions
 func (o ConditionOutput) Dimensions() DimensionArrayOutput {
 	return o.ApplyT(func(v Condition) []Dimension { return v.Dimensions }).(DimensionArrayOutput)
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
 func (o ConditionOutput) FailingPeriods() ConditionFailingPeriodsPtrOutput {
 	return o.ApplyT(func(v Condition) *ConditionFailingPeriods { return v.FailingPeriods }).(ConditionFailingPeriodsPtrOutput)
 }
 
-// The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
 func (o ConditionOutput) MetricMeasureColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Condition) *string { return v.MetricMeasureColumn }).(pulumi.StringPtrOutput)
 }
 
-// The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
 func (o ConditionOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Condition) *string { return v.MetricName }).(pulumi.StringPtrOutput)
 }
 
-// The criteria operator. Relevant and required only for rules of the kind LogAlert.
 func (o ConditionOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Condition) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// Log query alert
 func (o ConditionOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Condition) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
 
-// The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
 func (o ConditionOutput) ResourceIdColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Condition) *string { return v.ResourceIdColumn }).(pulumi.StringPtrOutput)
 }
 
-// the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
 func (o ConditionOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v Condition) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
 
-// Aggregation type. Relevant and required only for rules of the kind LogAlert.
 func (o ConditionOutput) TimeAggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Condition) *string { return v.TimeAggregation }).(pulumi.StringPtrOutput)
 }
@@ -488,11 +448,8 @@ func (o ConditionArrayOutput) Index(i pulumi.IntInput) ConditionOutput {
 	}).(ConditionOutput)
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
 type ConditionFailingPeriods struct {
-	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-	MinFailingPeriodsToAlert *float64 `pulumi:"minFailingPeriodsToAlert"`
-	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+	MinFailingPeriodsToAlert  *float64 `pulumi:"minFailingPeriodsToAlert"`
 	NumberOfEvaluationPeriods *float64 `pulumi:"numberOfEvaluationPeriods"`
 }
 
@@ -507,11 +464,8 @@ type ConditionFailingPeriodsInput interface {
 	ToConditionFailingPeriodsOutputWithContext(context.Context) ConditionFailingPeriodsOutput
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
 type ConditionFailingPeriodsArgs struct {
-	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-	MinFailingPeriodsToAlert pulumi.Float64PtrInput `pulumi:"minFailingPeriodsToAlert"`
-	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+	MinFailingPeriodsToAlert  pulumi.Float64PtrInput `pulumi:"minFailingPeriodsToAlert"`
 	NumberOfEvaluationPeriods pulumi.Float64PtrInput `pulumi:"numberOfEvaluationPeriods"`
 }
 
@@ -568,7 +522,6 @@ func (i *conditionFailingPeriodsPtrType) ToConditionFailingPeriodsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ConditionFailingPeriodsPtrOutput)
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
 type ConditionFailingPeriodsOutput struct{ *pulumi.OutputState }
 
 func (ConditionFailingPeriodsOutput) ElementType() reflect.Type {
@@ -588,17 +541,15 @@ func (o ConditionFailingPeriodsOutput) ToConditionFailingPeriodsPtrOutput() Cond
 }
 
 func (o ConditionFailingPeriodsOutput) ToConditionFailingPeriodsPtrOutputWithContext(ctx context.Context) ConditionFailingPeriodsPtrOutput {
-	return o.ApplyT(func(v ConditionFailingPeriods) *ConditionFailingPeriods {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConditionFailingPeriods) *ConditionFailingPeriods {
 		return &v
 	}).(ConditionFailingPeriodsPtrOutput)
 }
 
-// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
 func (o ConditionFailingPeriodsOutput) MinFailingPeriodsToAlert() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConditionFailingPeriods) *float64 { return v.MinFailingPeriodsToAlert }).(pulumi.Float64PtrOutput)
 }
 
-// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
 func (o ConditionFailingPeriodsOutput) NumberOfEvaluationPeriods() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConditionFailingPeriods) *float64 { return v.NumberOfEvaluationPeriods }).(pulumi.Float64PtrOutput)
 }
@@ -618,10 +569,15 @@ func (o ConditionFailingPeriodsPtrOutput) ToConditionFailingPeriodsPtrOutputWith
 }
 
 func (o ConditionFailingPeriodsPtrOutput) Elem() ConditionFailingPeriodsOutput {
-	return o.ApplyT(func(v *ConditionFailingPeriods) ConditionFailingPeriods { return *v }).(ConditionFailingPeriodsOutput)
+	return o.ApplyT(func(v *ConditionFailingPeriods) ConditionFailingPeriods {
+		if v != nil {
+			return *v
+		}
+		var ret ConditionFailingPeriods
+		return ret
+	}).(ConditionFailingPeriodsOutput)
 }
 
-// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
 func (o ConditionFailingPeriodsPtrOutput) MinFailingPeriodsToAlert() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ConditionFailingPeriods) *float64 {
 		if v == nil {
@@ -631,7 +587,6 @@ func (o ConditionFailingPeriodsPtrOutput) MinFailingPeriodsToAlert() pulumi.Floa
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
 func (o ConditionFailingPeriodsPtrOutput) NumberOfEvaluationPeriods() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ConditionFailingPeriods) *float64 {
 		if v == nil {
@@ -641,26 +596,16 @@ func (o ConditionFailingPeriodsPtrOutput) NumberOfEvaluationPeriods() pulumi.Flo
 	}).(pulumi.Float64PtrOutput)
 }
 
-// A condition of the scheduled query rule.
 type ConditionResponse struct {
-	// List of Dimensions conditions
-	Dimensions []DimensionResponse `pulumi:"dimensions"`
-	// The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
-	FailingPeriods *ConditionResponseFailingPeriods `pulumi:"failingPeriods"`
-	// The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
-	MetricMeasureColumn *string `pulumi:"metricMeasureColumn"`
-	// The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
-	MetricName *string `pulumi:"metricName"`
-	// The criteria operator. Relevant and required only for rules of the kind LogAlert.
-	Operator *string `pulumi:"operator"`
-	// Log query alert
-	Query *string `pulumi:"query"`
-	// The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
-	ResourceIdColumn *string `pulumi:"resourceIdColumn"`
-	// the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
-	Threshold *float64 `pulumi:"threshold"`
-	// Aggregation type. Relevant and required only for rules of the kind LogAlert.
-	TimeAggregation *string `pulumi:"timeAggregation"`
+	Dimensions          []DimensionResponse              `pulumi:"dimensions"`
+	FailingPeriods      *ConditionResponseFailingPeriods `pulumi:"failingPeriods"`
+	MetricMeasureColumn *string                          `pulumi:"metricMeasureColumn"`
+	MetricName          *string                          `pulumi:"metricName"`
+	Operator            *string                          `pulumi:"operator"`
+	Query               *string                          `pulumi:"query"`
+	ResourceIdColumn    *string                          `pulumi:"resourceIdColumn"`
+	Threshold           *float64                         `pulumi:"threshold"`
+	TimeAggregation     *string                          `pulumi:"timeAggregation"`
 }
 
 // ConditionResponseInput is an input type that accepts ConditionResponseArgs and ConditionResponseOutput values.
@@ -674,26 +619,16 @@ type ConditionResponseInput interface {
 	ToConditionResponseOutputWithContext(context.Context) ConditionResponseOutput
 }
 
-// A condition of the scheduled query rule.
 type ConditionResponseArgs struct {
-	// List of Dimensions conditions
-	Dimensions DimensionResponseArrayInput `pulumi:"dimensions"`
-	// The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
-	FailingPeriods ConditionResponseFailingPeriodsPtrInput `pulumi:"failingPeriods"`
-	// The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
-	MetricMeasureColumn pulumi.StringPtrInput `pulumi:"metricMeasureColumn"`
-	// The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
-	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
-	// The criteria operator. Relevant and required only for rules of the kind LogAlert.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// Log query alert
-	Query pulumi.StringPtrInput `pulumi:"query"`
-	// The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
-	ResourceIdColumn pulumi.StringPtrInput `pulumi:"resourceIdColumn"`
-	// the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
-	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
-	// Aggregation type. Relevant and required only for rules of the kind LogAlert.
-	TimeAggregation pulumi.StringPtrInput `pulumi:"timeAggregation"`
+	Dimensions          DimensionResponseArrayInput             `pulumi:"dimensions"`
+	FailingPeriods      ConditionResponseFailingPeriodsPtrInput `pulumi:"failingPeriods"`
+	MetricMeasureColumn pulumi.StringPtrInput                   `pulumi:"metricMeasureColumn"`
+	MetricName          pulumi.StringPtrInput                   `pulumi:"metricName"`
+	Operator            pulumi.StringPtrInput                   `pulumi:"operator"`
+	Query               pulumi.StringPtrInput                   `pulumi:"query"`
+	ResourceIdColumn    pulumi.StringPtrInput                   `pulumi:"resourceIdColumn"`
+	Threshold           pulumi.Float64PtrInput                  `pulumi:"threshold"`
+	TimeAggregation     pulumi.StringPtrInput                   `pulumi:"timeAggregation"`
 }
 
 func (ConditionResponseArgs) ElementType() reflect.Type {
@@ -733,7 +668,6 @@ func (i ConditionResponseArray) ToConditionResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ConditionResponseArrayOutput)
 }
 
-// A condition of the scheduled query rule.
 type ConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (ConditionResponseOutput) ElementType() reflect.Type {
@@ -748,47 +682,38 @@ func (o ConditionResponseOutput) ToConditionResponseOutputWithContext(ctx contex
 	return o
 }
 
-// List of Dimensions conditions
 func (o ConditionResponseOutput) Dimensions() DimensionResponseArrayOutput {
 	return o.ApplyT(func(v ConditionResponse) []DimensionResponse { return v.Dimensions }).(DimensionResponseArrayOutput)
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
 func (o ConditionResponseOutput) FailingPeriods() ConditionResponseFailingPeriodsPtrOutput {
 	return o.ApplyT(func(v ConditionResponse) *ConditionResponseFailingPeriods { return v.FailingPeriods }).(ConditionResponseFailingPeriodsPtrOutput)
 }
 
-// The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
 func (o ConditionResponseOutput) MetricMeasureColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConditionResponse) *string { return v.MetricMeasureColumn }).(pulumi.StringPtrOutput)
 }
 
-// The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
 func (o ConditionResponseOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConditionResponse) *string { return v.MetricName }).(pulumi.StringPtrOutput)
 }
 
-// The criteria operator. Relevant and required only for rules of the kind LogAlert.
 func (o ConditionResponseOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConditionResponse) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// Log query alert
 func (o ConditionResponseOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConditionResponse) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
 
-// The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
 func (o ConditionResponseOutput) ResourceIdColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConditionResponse) *string { return v.ResourceIdColumn }).(pulumi.StringPtrOutput)
 }
 
-// the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
 func (o ConditionResponseOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConditionResponse) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
 
-// Aggregation type. Relevant and required only for rules of the kind LogAlert.
 func (o ConditionResponseOutput) TimeAggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConditionResponse) *string { return v.TimeAggregation }).(pulumi.StringPtrOutput)
 }
@@ -813,11 +738,8 @@ func (o ConditionResponseArrayOutput) Index(i pulumi.IntInput) ConditionResponse
 	}).(ConditionResponseOutput)
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
 type ConditionResponseFailingPeriods struct {
-	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-	MinFailingPeriodsToAlert *float64 `pulumi:"minFailingPeriodsToAlert"`
-	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+	MinFailingPeriodsToAlert  *float64 `pulumi:"minFailingPeriodsToAlert"`
 	NumberOfEvaluationPeriods *float64 `pulumi:"numberOfEvaluationPeriods"`
 }
 
@@ -832,11 +754,8 @@ type ConditionResponseFailingPeriodsInput interface {
 	ToConditionResponseFailingPeriodsOutputWithContext(context.Context) ConditionResponseFailingPeriodsOutput
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
 type ConditionResponseFailingPeriodsArgs struct {
-	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-	MinFailingPeriodsToAlert pulumi.Float64PtrInput `pulumi:"minFailingPeriodsToAlert"`
-	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+	MinFailingPeriodsToAlert  pulumi.Float64PtrInput `pulumi:"minFailingPeriodsToAlert"`
 	NumberOfEvaluationPeriods pulumi.Float64PtrInput `pulumi:"numberOfEvaluationPeriods"`
 }
 
@@ -893,7 +812,6 @@ func (i *conditionResponseFailingPeriodsPtrType) ToConditionResponseFailingPerio
 	return pulumi.ToOutputWithContext(ctx, i).(ConditionResponseFailingPeriodsPtrOutput)
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
 type ConditionResponseFailingPeriodsOutput struct{ *pulumi.OutputState }
 
 func (ConditionResponseFailingPeriodsOutput) ElementType() reflect.Type {
@@ -913,17 +831,15 @@ func (o ConditionResponseFailingPeriodsOutput) ToConditionResponseFailingPeriods
 }
 
 func (o ConditionResponseFailingPeriodsOutput) ToConditionResponseFailingPeriodsPtrOutputWithContext(ctx context.Context) ConditionResponseFailingPeriodsPtrOutput {
-	return o.ApplyT(func(v ConditionResponseFailingPeriods) *ConditionResponseFailingPeriods {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConditionResponseFailingPeriods) *ConditionResponseFailingPeriods {
 		return &v
 	}).(ConditionResponseFailingPeriodsPtrOutput)
 }
 
-// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
 func (o ConditionResponseFailingPeriodsOutput) MinFailingPeriodsToAlert() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConditionResponseFailingPeriods) *float64 { return v.MinFailingPeriodsToAlert }).(pulumi.Float64PtrOutput)
 }
 
-// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
 func (o ConditionResponseFailingPeriodsOutput) NumberOfEvaluationPeriods() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConditionResponseFailingPeriods) *float64 { return v.NumberOfEvaluationPeriods }).(pulumi.Float64PtrOutput)
 }
@@ -943,10 +859,15 @@ func (o ConditionResponseFailingPeriodsPtrOutput) ToConditionResponseFailingPeri
 }
 
 func (o ConditionResponseFailingPeriodsPtrOutput) Elem() ConditionResponseFailingPeriodsOutput {
-	return o.ApplyT(func(v *ConditionResponseFailingPeriods) ConditionResponseFailingPeriods { return *v }).(ConditionResponseFailingPeriodsOutput)
+	return o.ApplyT(func(v *ConditionResponseFailingPeriods) ConditionResponseFailingPeriods {
+		if v != nil {
+			return *v
+		}
+		var ret ConditionResponseFailingPeriods
+		return ret
+	}).(ConditionResponseFailingPeriodsOutput)
 }
 
-// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
 func (o ConditionResponseFailingPeriodsPtrOutput) MinFailingPeriodsToAlert() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ConditionResponseFailingPeriods) *float64 {
 		if v == nil {
@@ -956,7 +877,6 @@ func (o ConditionResponseFailingPeriodsPtrOutput) MinFailingPeriodsToAlert() pul
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
 func (o ConditionResponseFailingPeriodsPtrOutput) NumberOfEvaluationPeriods() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ConditionResponseFailingPeriods) *float64 {
 		if v == nil {
@@ -966,14 +886,10 @@ func (o ConditionResponseFailingPeriodsPtrOutput) NumberOfEvaluationPeriods() pu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Dimension splitting and filtering definition
 type Dimension struct {
-	// Name of the dimension
-	Name string `pulumi:"name"`
-	// Operator for dimension values
-	Operator string `pulumi:"operator"`
-	// List of dimension values
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // DimensionInput is an input type that accepts DimensionArgs and DimensionOutput values.
@@ -987,14 +903,10 @@ type DimensionInput interface {
 	ToDimensionOutputWithContext(context.Context) DimensionOutput
 }
 
-// Dimension splitting and filtering definition
 type DimensionArgs struct {
-	// Name of the dimension
-	Name pulumi.StringInput `pulumi:"name"`
-	// Operator for dimension values
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// List of dimension values
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (DimensionArgs) ElementType() reflect.Type {
@@ -1034,7 +946,6 @@ func (i DimensionArray) ToDimensionArrayOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DimensionArrayOutput)
 }
 
-// Dimension splitting and filtering definition
 type DimensionOutput struct{ *pulumi.OutputState }
 
 func (DimensionOutput) ElementType() reflect.Type {
@@ -1049,17 +960,14 @@ func (o DimensionOutput) ToDimensionOutputWithContext(ctx context.Context) Dimen
 	return o
 }
 
-// Name of the dimension
 func (o DimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Dimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Operator for dimension values
 func (o DimensionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v Dimension) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// List of dimension values
 func (o DimensionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Dimension) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1084,14 +992,10 @@ func (o DimensionArrayOutput) Index(i pulumi.IntInput) DimensionOutput {
 	}).(DimensionOutput)
 }
 
-// Dimension splitting and filtering definition
 type DimensionResponse struct {
-	// Name of the dimension
-	Name string `pulumi:"name"`
-	// Operator for dimension values
-	Operator string `pulumi:"operator"`
-	// List of dimension values
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // DimensionResponseInput is an input type that accepts DimensionResponseArgs and DimensionResponseOutput values.
@@ -1105,14 +1009,10 @@ type DimensionResponseInput interface {
 	ToDimensionResponseOutputWithContext(context.Context) DimensionResponseOutput
 }
 
-// Dimension splitting and filtering definition
 type DimensionResponseArgs struct {
-	// Name of the dimension
-	Name pulumi.StringInput `pulumi:"name"`
-	// Operator for dimension values
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// List of dimension values
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (DimensionResponseArgs) ElementType() reflect.Type {
@@ -1152,7 +1052,6 @@ func (i DimensionResponseArray) ToDimensionResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DimensionResponseArrayOutput)
 }
 
-// Dimension splitting and filtering definition
 type DimensionResponseOutput struct{ *pulumi.OutputState }
 
 func (DimensionResponseOutput) ElementType() reflect.Type {
@@ -1167,17 +1066,14 @@ func (o DimensionResponseOutput) ToDimensionResponseOutputWithContext(ctx contex
 	return o
 }
 
-// Name of the dimension
 func (o DimensionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DimensionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Operator for dimension values
 func (o DimensionResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v DimensionResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// List of dimension values
 func (o DimensionResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DimensionResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1202,9 +1098,7 @@ func (o DimensionResponseArrayOutput) Index(i pulumi.IntInput) DimensionResponse
 	}).(DimensionResponseOutput)
 }
 
-// The rule criteria that defines the conditions of the scheduled query rule.
 type ScheduledQueryRuleCriteria struct {
-	// A list of conditions to evaluate against the specified scopes
 	AllOf []Condition `pulumi:"allOf"`
 }
 
@@ -1219,9 +1113,7 @@ type ScheduledQueryRuleCriteriaInput interface {
 	ToScheduledQueryRuleCriteriaOutputWithContext(context.Context) ScheduledQueryRuleCriteriaOutput
 }
 
-// The rule criteria that defines the conditions of the scheduled query rule.
 type ScheduledQueryRuleCriteriaArgs struct {
-	// A list of conditions to evaluate against the specified scopes
 	AllOf ConditionArrayInput `pulumi:"allOf"`
 }
 
@@ -1278,7 +1170,6 @@ func (i *scheduledQueryRuleCriteriaPtrType) ToScheduledQueryRuleCriteriaPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRuleCriteriaPtrOutput)
 }
 
-// The rule criteria that defines the conditions of the scheduled query rule.
 type ScheduledQueryRuleCriteriaOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRuleCriteriaOutput) ElementType() reflect.Type {
@@ -1298,12 +1189,11 @@ func (o ScheduledQueryRuleCriteriaOutput) ToScheduledQueryRuleCriteriaPtrOutput(
 }
 
 func (o ScheduledQueryRuleCriteriaOutput) ToScheduledQueryRuleCriteriaPtrOutputWithContext(ctx context.Context) ScheduledQueryRuleCriteriaPtrOutput {
-	return o.ApplyT(func(v ScheduledQueryRuleCriteria) *ScheduledQueryRuleCriteria {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRuleCriteria) *ScheduledQueryRuleCriteria {
 		return &v
 	}).(ScheduledQueryRuleCriteriaPtrOutput)
 }
 
-// A list of conditions to evaluate against the specified scopes
 func (o ScheduledQueryRuleCriteriaOutput) AllOf() ConditionArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRuleCriteria) []Condition { return v.AllOf }).(ConditionArrayOutput)
 }
@@ -1323,10 +1213,15 @@ func (o ScheduledQueryRuleCriteriaPtrOutput) ToScheduledQueryRuleCriteriaPtrOutp
 }
 
 func (o ScheduledQueryRuleCriteriaPtrOutput) Elem() ScheduledQueryRuleCriteriaOutput {
-	return o.ApplyT(func(v *ScheduledQueryRuleCriteria) ScheduledQueryRuleCriteria { return *v }).(ScheduledQueryRuleCriteriaOutput)
+	return o.ApplyT(func(v *ScheduledQueryRuleCriteria) ScheduledQueryRuleCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryRuleCriteria
+		return ret
+	}).(ScheduledQueryRuleCriteriaOutput)
 }
 
-// A list of conditions to evaluate against the specified scopes
 func (o ScheduledQueryRuleCriteriaPtrOutput) AllOf() ConditionArrayOutput {
 	return o.ApplyT(func(v *ScheduledQueryRuleCriteria) []Condition {
 		if v == nil {
@@ -1336,9 +1231,7 @@ func (o ScheduledQueryRuleCriteriaPtrOutput) AllOf() ConditionArrayOutput {
 	}).(ConditionArrayOutput)
 }
 
-// The rule criteria that defines the conditions of the scheduled query rule.
 type ScheduledQueryRuleCriteriaResponse struct {
-	// A list of conditions to evaluate against the specified scopes
 	AllOf []ConditionResponse `pulumi:"allOf"`
 }
 
@@ -1353,9 +1246,7 @@ type ScheduledQueryRuleCriteriaResponseInput interface {
 	ToScheduledQueryRuleCriteriaResponseOutputWithContext(context.Context) ScheduledQueryRuleCriteriaResponseOutput
 }
 
-// The rule criteria that defines the conditions of the scheduled query rule.
 type ScheduledQueryRuleCriteriaResponseArgs struct {
-	// A list of conditions to evaluate against the specified scopes
 	AllOf ConditionResponseArrayInput `pulumi:"allOf"`
 }
 
@@ -1412,7 +1303,6 @@ func (i *scheduledQueryRuleCriteriaResponsePtrType) ToScheduledQueryRuleCriteria
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRuleCriteriaResponsePtrOutput)
 }
 
-// The rule criteria that defines the conditions of the scheduled query rule.
 type ScheduledQueryRuleCriteriaResponseOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRuleCriteriaResponseOutput) ElementType() reflect.Type {
@@ -1432,12 +1322,11 @@ func (o ScheduledQueryRuleCriteriaResponseOutput) ToScheduledQueryRuleCriteriaRe
 }
 
 func (o ScheduledQueryRuleCriteriaResponseOutput) ToScheduledQueryRuleCriteriaResponsePtrOutputWithContext(ctx context.Context) ScheduledQueryRuleCriteriaResponsePtrOutput {
-	return o.ApplyT(func(v ScheduledQueryRuleCriteriaResponse) *ScheduledQueryRuleCriteriaResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRuleCriteriaResponse) *ScheduledQueryRuleCriteriaResponse {
 		return &v
 	}).(ScheduledQueryRuleCriteriaResponsePtrOutput)
 }
 
-// A list of conditions to evaluate against the specified scopes
 func (o ScheduledQueryRuleCriteriaResponseOutput) AllOf() ConditionResponseArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRuleCriteriaResponse) []ConditionResponse { return v.AllOf }).(ConditionResponseArrayOutput)
 }
@@ -1457,10 +1346,15 @@ func (o ScheduledQueryRuleCriteriaResponsePtrOutput) ToScheduledQueryRuleCriteri
 }
 
 func (o ScheduledQueryRuleCriteriaResponsePtrOutput) Elem() ScheduledQueryRuleCriteriaResponseOutput {
-	return o.ApplyT(func(v *ScheduledQueryRuleCriteriaResponse) ScheduledQueryRuleCriteriaResponse { return *v }).(ScheduledQueryRuleCriteriaResponseOutput)
+	return o.ApplyT(func(v *ScheduledQueryRuleCriteriaResponse) ScheduledQueryRuleCriteriaResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryRuleCriteriaResponse
+		return ret
+	}).(ScheduledQueryRuleCriteriaResponseOutput)
 }
 
-// A list of conditions to evaluate against the specified scopes
 func (o ScheduledQueryRuleCriteriaResponsePtrOutput) AllOf() ConditionResponseArrayOutput {
 	return o.ApplyT(func(v *ScheduledQueryRuleCriteriaResponse) []ConditionResponse {
 		if v == nil {
@@ -1470,19 +1364,12 @@ func (o ScheduledQueryRuleCriteriaResponsePtrOutput) AllOf() ConditionResponseAr
 	}).(ConditionResponseArrayOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -1497,19 +1384,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1566,7 +1446,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1586,37 +1465,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1636,10 +1509,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1649,7 +1527,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1659,7 +1536,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1669,7 +1545,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1679,7 +1554,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1689,7 +1563,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

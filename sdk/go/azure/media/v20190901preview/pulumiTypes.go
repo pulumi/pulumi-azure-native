@@ -10,17 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Asset sink
 type MediaGraphAssetSink struct {
-	// Asset name
-	AssetName string `pulumi:"assetName"`
-	// Sink inputs
-	Inputs []string `pulumi:"inputs"`
-	// Sink name
-	Name string `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
-	OdataType string `pulumi:"odataType"`
+	AssetName string   `pulumi:"assetName"`
+	Inputs    []string `pulumi:"inputs"`
+	Name      string   `pulumi:"name"`
+	OdataType string   `pulumi:"odataType"`
 }
 
 // MediaGraphAssetSinkInput is an input type that accepts MediaGraphAssetSinkArgs and MediaGraphAssetSinkOutput values.
@@ -34,17 +28,11 @@ type MediaGraphAssetSinkInput interface {
 	ToMediaGraphAssetSinkOutputWithContext(context.Context) MediaGraphAssetSinkOutput
 }
 
-// Asset sink
 type MediaGraphAssetSinkArgs struct {
-	// Asset name
-	AssetName pulumi.StringInput `pulumi:"assetName"`
-	// Sink inputs
-	Inputs pulumi.StringArrayInput `pulumi:"inputs"`
-	// Sink name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	AssetName pulumi.StringInput      `pulumi:"assetName"`
+	Inputs    pulumi.StringArrayInput `pulumi:"inputs"`
+	Name      pulumi.StringInput      `pulumi:"name"`
+	OdataType pulumi.StringInput      `pulumi:"odataType"`
 }
 
 func (MediaGraphAssetSinkArgs) ElementType() reflect.Type {
@@ -84,7 +72,6 @@ func (i MediaGraphAssetSinkArray) ToMediaGraphAssetSinkArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphAssetSinkArrayOutput)
 }
 
-// Asset sink
 type MediaGraphAssetSinkOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphAssetSinkOutput) ElementType() reflect.Type {
@@ -99,23 +86,18 @@ func (o MediaGraphAssetSinkOutput) ToMediaGraphAssetSinkOutputWithContext(ctx co
 	return o
 }
 
-// Asset name
 func (o MediaGraphAssetSinkOutput) AssetName() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphAssetSink) string { return v.AssetName }).(pulumi.StringOutput)
 }
 
-// Sink inputs
 func (o MediaGraphAssetSinkOutput) Inputs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MediaGraphAssetSink) []string { return v.Inputs }).(pulumi.StringArrayOutput)
 }
 
-// Sink name
 func (o MediaGraphAssetSinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphAssetSink) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
 func (o MediaGraphAssetSinkOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphAssetSink) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -140,17 +122,11 @@ func (o MediaGraphAssetSinkArrayOutput) Index(i pulumi.IntInput) MediaGraphAsset
 	}).(MediaGraphAssetSinkOutput)
 }
 
-// Asset sink
 type MediaGraphAssetSinkResponse struct {
-	// Asset name
-	AssetName string `pulumi:"assetName"`
-	// Sink inputs
-	Inputs []string `pulumi:"inputs"`
-	// Sink name
-	Name string `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
-	OdataType string `pulumi:"odataType"`
+	AssetName string   `pulumi:"assetName"`
+	Inputs    []string `pulumi:"inputs"`
+	Name      string   `pulumi:"name"`
+	OdataType string   `pulumi:"odataType"`
 }
 
 // MediaGraphAssetSinkResponseInput is an input type that accepts MediaGraphAssetSinkResponseArgs and MediaGraphAssetSinkResponseOutput values.
@@ -164,17 +140,11 @@ type MediaGraphAssetSinkResponseInput interface {
 	ToMediaGraphAssetSinkResponseOutputWithContext(context.Context) MediaGraphAssetSinkResponseOutput
 }
 
-// Asset sink
 type MediaGraphAssetSinkResponseArgs struct {
-	// Asset name
-	AssetName pulumi.StringInput `pulumi:"assetName"`
-	// Sink inputs
-	Inputs pulumi.StringArrayInput `pulumi:"inputs"`
-	// Sink name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	AssetName pulumi.StringInput      `pulumi:"assetName"`
+	Inputs    pulumi.StringArrayInput `pulumi:"inputs"`
+	Name      pulumi.StringInput      `pulumi:"name"`
+	OdataType pulumi.StringInput      `pulumi:"odataType"`
 }
 
 func (MediaGraphAssetSinkResponseArgs) ElementType() reflect.Type {
@@ -214,7 +184,6 @@ func (i MediaGraphAssetSinkResponseArray) ToMediaGraphAssetSinkResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphAssetSinkResponseArrayOutput)
 }
 
-// Asset sink
 type MediaGraphAssetSinkResponseOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphAssetSinkResponseOutput) ElementType() reflect.Type {
@@ -229,23 +198,18 @@ func (o MediaGraphAssetSinkResponseOutput) ToMediaGraphAssetSinkResponseOutputWi
 	return o
 }
 
-// Asset name
 func (o MediaGraphAssetSinkResponseOutput) AssetName() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphAssetSinkResponse) string { return v.AssetName }).(pulumi.StringOutput)
 }
 
-// Sink inputs
 func (o MediaGraphAssetSinkResponseOutput) Inputs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MediaGraphAssetSinkResponse) []string { return v.Inputs }).(pulumi.StringArrayOutput)
 }
 
-// Sink name
 func (o MediaGraphAssetSinkResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphAssetSinkResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
 func (o MediaGraphAssetSinkResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphAssetSinkResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -270,17 +234,11 @@ func (o MediaGraphAssetSinkResponseArrayOutput) Index(i pulumi.IntInput) MediaGr
 	}).(MediaGraphAssetSinkResponseOutput)
 }
 
-// RTSP source
 type MediaGraphRtspSource struct {
-	// RTSP Credentials
 	Credentials *MediaGraphUserCredentials `pulumi:"credentials"`
-	// Source name
-	Name string `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
-	OdataType string `pulumi:"odataType"`
-	// RTSP URL
-	RtspUrl string `pulumi:"rtspUrl"`
+	Name        string                     `pulumi:"name"`
+	OdataType   string                     `pulumi:"odataType"`
+	RtspUrl     string                     `pulumi:"rtspUrl"`
 }
 
 // MediaGraphRtspSourceInput is an input type that accepts MediaGraphRtspSourceArgs and MediaGraphRtspSourceOutput values.
@@ -294,17 +252,11 @@ type MediaGraphRtspSourceInput interface {
 	ToMediaGraphRtspSourceOutputWithContext(context.Context) MediaGraphRtspSourceOutput
 }
 
-// RTSP source
 type MediaGraphRtspSourceArgs struct {
-	// RTSP Credentials
 	Credentials MediaGraphUserCredentialsPtrInput `pulumi:"credentials"`
-	// Source name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// RTSP URL
-	RtspUrl pulumi.StringInput `pulumi:"rtspUrl"`
+	Name        pulumi.StringInput                `pulumi:"name"`
+	OdataType   pulumi.StringInput                `pulumi:"odataType"`
+	RtspUrl     pulumi.StringInput                `pulumi:"rtspUrl"`
 }
 
 func (MediaGraphRtspSourceArgs) ElementType() reflect.Type {
@@ -344,7 +296,6 @@ func (i MediaGraphRtspSourceArray) ToMediaGraphRtspSourceArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphRtspSourceArrayOutput)
 }
 
-// RTSP source
 type MediaGraphRtspSourceOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphRtspSourceOutput) ElementType() reflect.Type {
@@ -359,23 +310,18 @@ func (o MediaGraphRtspSourceOutput) ToMediaGraphRtspSourceOutputWithContext(ctx 
 	return o
 }
 
-// RTSP Credentials
 func (o MediaGraphRtspSourceOutput) Credentials() MediaGraphUserCredentialsPtrOutput {
 	return o.ApplyT(func(v MediaGraphRtspSource) *MediaGraphUserCredentials { return v.Credentials }).(MediaGraphUserCredentialsPtrOutput)
 }
 
-// Source name
 func (o MediaGraphRtspSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphRtspSource) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
 func (o MediaGraphRtspSourceOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphRtspSource) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// RTSP URL
 func (o MediaGraphRtspSourceOutput) RtspUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphRtspSource) string { return v.RtspUrl }).(pulumi.StringOutput)
 }
@@ -400,17 +346,11 @@ func (o MediaGraphRtspSourceArrayOutput) Index(i pulumi.IntInput) MediaGraphRtsp
 	}).(MediaGraphRtspSourceOutput)
 }
 
-// RTSP source
 type MediaGraphRtspSourceResponse struct {
-	// RTSP Credentials
 	Credentials *MediaGraphUserCredentialsResponse `pulumi:"credentials"`
-	// Source name
-	Name string `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
-	OdataType string `pulumi:"odataType"`
-	// RTSP URL
-	RtspUrl string `pulumi:"rtspUrl"`
+	Name        string                             `pulumi:"name"`
+	OdataType   string                             `pulumi:"odataType"`
+	RtspUrl     string                             `pulumi:"rtspUrl"`
 }
 
 // MediaGraphRtspSourceResponseInput is an input type that accepts MediaGraphRtspSourceResponseArgs and MediaGraphRtspSourceResponseOutput values.
@@ -424,17 +364,11 @@ type MediaGraphRtspSourceResponseInput interface {
 	ToMediaGraphRtspSourceResponseOutputWithContext(context.Context) MediaGraphRtspSourceResponseOutput
 }
 
-// RTSP source
 type MediaGraphRtspSourceResponseArgs struct {
-	// RTSP Credentials
 	Credentials MediaGraphUserCredentialsResponsePtrInput `pulumi:"credentials"`
-	// Source name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// RTSP URL
-	RtspUrl pulumi.StringInput `pulumi:"rtspUrl"`
+	Name        pulumi.StringInput                        `pulumi:"name"`
+	OdataType   pulumi.StringInput                        `pulumi:"odataType"`
+	RtspUrl     pulumi.StringInput                        `pulumi:"rtspUrl"`
 }
 
 func (MediaGraphRtspSourceResponseArgs) ElementType() reflect.Type {
@@ -474,7 +408,6 @@ func (i MediaGraphRtspSourceResponseArray) ToMediaGraphRtspSourceResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphRtspSourceResponseArrayOutput)
 }
 
-// RTSP source
 type MediaGraphRtspSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphRtspSourceResponseOutput) ElementType() reflect.Type {
@@ -489,23 +422,18 @@ func (o MediaGraphRtspSourceResponseOutput) ToMediaGraphRtspSourceResponseOutput
 	return o
 }
 
-// RTSP Credentials
 func (o MediaGraphRtspSourceResponseOutput) Credentials() MediaGraphUserCredentialsResponsePtrOutput {
 	return o.ApplyT(func(v MediaGraphRtspSourceResponse) *MediaGraphUserCredentialsResponse { return v.Credentials }).(MediaGraphUserCredentialsResponsePtrOutput)
 }
 
-// Source name
 func (o MediaGraphRtspSourceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphRtspSourceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
 func (o MediaGraphRtspSourceResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphRtspSourceResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// RTSP URL
 func (o MediaGraphRtspSourceResponseOutput) RtspUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphRtspSourceResponse) string { return v.RtspUrl }).(pulumi.StringOutput)
 }
@@ -530,11 +458,8 @@ func (o MediaGraphRtspSourceResponseArrayOutput) Index(i pulumi.IntInput) MediaG
 	}).(MediaGraphRtspSourceResponseOutput)
 }
 
-// Credentials to authenticate to Media Graph sources
 type MediaGraphUserCredentials struct {
-	// Password credential
 	Password string `pulumi:"password"`
-	// User name
 	Username string `pulumi:"username"`
 }
 
@@ -549,11 +474,8 @@ type MediaGraphUserCredentialsInput interface {
 	ToMediaGraphUserCredentialsOutputWithContext(context.Context) MediaGraphUserCredentialsOutput
 }
 
-// Credentials to authenticate to Media Graph sources
 type MediaGraphUserCredentialsArgs struct {
-	// Password credential
 	Password pulumi.StringInput `pulumi:"password"`
-	// User name
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -610,7 +532,6 @@ func (i *mediaGraphUserCredentialsPtrType) ToMediaGraphUserCredentialsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphUserCredentialsPtrOutput)
 }
 
-// Credentials to authenticate to Media Graph sources
 type MediaGraphUserCredentialsOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphUserCredentialsOutput) ElementType() reflect.Type {
@@ -630,17 +551,15 @@ func (o MediaGraphUserCredentialsOutput) ToMediaGraphUserCredentialsPtrOutput() 
 }
 
 func (o MediaGraphUserCredentialsOutput) ToMediaGraphUserCredentialsPtrOutputWithContext(ctx context.Context) MediaGraphUserCredentialsPtrOutput {
-	return o.ApplyT(func(v MediaGraphUserCredentials) *MediaGraphUserCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphUserCredentials) *MediaGraphUserCredentials {
 		return &v
 	}).(MediaGraphUserCredentialsPtrOutput)
 }
 
-// Password credential
 func (o MediaGraphUserCredentialsOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphUserCredentials) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// User name
 func (o MediaGraphUserCredentialsOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphUserCredentials) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -660,10 +579,15 @@ func (o MediaGraphUserCredentialsPtrOutput) ToMediaGraphUserCredentialsPtrOutput
 }
 
 func (o MediaGraphUserCredentialsPtrOutput) Elem() MediaGraphUserCredentialsOutput {
-	return o.ApplyT(func(v *MediaGraphUserCredentials) MediaGraphUserCredentials { return *v }).(MediaGraphUserCredentialsOutput)
+	return o.ApplyT(func(v *MediaGraphUserCredentials) MediaGraphUserCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphUserCredentials
+		return ret
+	}).(MediaGraphUserCredentialsOutput)
 }
 
-// Password credential
 func (o MediaGraphUserCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaGraphUserCredentials) *string {
 		if v == nil {
@@ -673,7 +597,6 @@ func (o MediaGraphUserCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// User name
 func (o MediaGraphUserCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaGraphUserCredentials) *string {
 		if v == nil {
@@ -683,11 +606,8 @@ func (o MediaGraphUserCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Credentials to authenticate to Media Graph sources
 type MediaGraphUserCredentialsResponse struct {
-	// Password credential
 	Password string `pulumi:"password"`
-	// User name
 	Username string `pulumi:"username"`
 }
 
@@ -702,11 +622,8 @@ type MediaGraphUserCredentialsResponseInput interface {
 	ToMediaGraphUserCredentialsResponseOutputWithContext(context.Context) MediaGraphUserCredentialsResponseOutput
 }
 
-// Credentials to authenticate to Media Graph sources
 type MediaGraphUserCredentialsResponseArgs struct {
-	// Password credential
 	Password pulumi.StringInput `pulumi:"password"`
-	// User name
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -763,7 +680,6 @@ func (i *mediaGraphUserCredentialsResponsePtrType) ToMediaGraphUserCredentialsRe
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphUserCredentialsResponsePtrOutput)
 }
 
-// Credentials to authenticate to Media Graph sources
 type MediaGraphUserCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphUserCredentialsResponseOutput) ElementType() reflect.Type {
@@ -783,17 +699,15 @@ func (o MediaGraphUserCredentialsResponseOutput) ToMediaGraphUserCredentialsResp
 }
 
 func (o MediaGraphUserCredentialsResponseOutput) ToMediaGraphUserCredentialsResponsePtrOutputWithContext(ctx context.Context) MediaGraphUserCredentialsResponsePtrOutput {
-	return o.ApplyT(func(v MediaGraphUserCredentialsResponse) *MediaGraphUserCredentialsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphUserCredentialsResponse) *MediaGraphUserCredentialsResponse {
 		return &v
 	}).(MediaGraphUserCredentialsResponsePtrOutput)
 }
 
-// Password credential
 func (o MediaGraphUserCredentialsResponseOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphUserCredentialsResponse) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// User name
 func (o MediaGraphUserCredentialsResponseOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphUserCredentialsResponse) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -813,10 +727,15 @@ func (o MediaGraphUserCredentialsResponsePtrOutput) ToMediaGraphUserCredentialsR
 }
 
 func (o MediaGraphUserCredentialsResponsePtrOutput) Elem() MediaGraphUserCredentialsResponseOutput {
-	return o.ApplyT(func(v *MediaGraphUserCredentialsResponse) MediaGraphUserCredentialsResponse { return *v }).(MediaGraphUserCredentialsResponseOutput)
+	return o.ApplyT(func(v *MediaGraphUserCredentialsResponse) MediaGraphUserCredentialsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphUserCredentialsResponse
+		return ret
+	}).(MediaGraphUserCredentialsResponseOutput)
 }
 
-// Password credential
 func (o MediaGraphUserCredentialsResponsePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaGraphUserCredentialsResponse) *string {
 		if v == nil {
@@ -826,7 +745,6 @@ func (o MediaGraphUserCredentialsResponsePtrOutput) Password() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// User name
 func (o MediaGraphUserCredentialsResponsePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaGraphUserCredentialsResponse) *string {
 		if v == nil {

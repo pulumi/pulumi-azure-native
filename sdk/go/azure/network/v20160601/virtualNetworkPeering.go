@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Peerings in a VirtualNetwork resource
 type VirtualNetworkPeering struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets whether the forwarded traffic from the VMs in the remote virtual network will be allowed/disallowed
-	AllowForwardedTraffic pulumi.BoolPtrOutput `pulumi:"allowForwardedTraffic"`
-	// Gets or sets if gatewayLinks can be used in remote virtual network’s link to this virtual network
-	AllowGatewayTransit pulumi.BoolPtrOutput `pulumi:"allowGatewayTransit"`
-	// Gets or sets whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space
-	AllowVirtualNetworkAccess pulumi.BoolPtrOutput `pulumi:"allowVirtualNetworkAccess"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Gets the status of the virtual network peering
-	PeeringState pulumi.StringPtrOutput `pulumi:"peeringState"`
-	// Gets provisioning state of the resource
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Gets or sets the reference of the remote virtual network
-	RemoteVirtualNetwork SubResourceResponsePtrOutput `pulumi:"remoteVirtualNetwork"`
-	// Gets or sets if remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only 1 peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
-	UseRemoteGateways pulumi.BoolPtrOutput `pulumi:"useRemoteGateways"`
+	AllowForwardedTraffic     pulumi.BoolPtrOutput         `pulumi:"allowForwardedTraffic"`
+	AllowGatewayTransit       pulumi.BoolPtrOutput         `pulumi:"allowGatewayTransit"`
+	AllowVirtualNetworkAccess pulumi.BoolPtrOutput         `pulumi:"allowVirtualNetworkAccess"`
+	Etag                      pulumi.StringPtrOutput       `pulumi:"etag"`
+	Name                      pulumi.StringPtrOutput       `pulumi:"name"`
+	PeeringState              pulumi.StringPtrOutput       `pulumi:"peeringState"`
+	ProvisioningState         pulumi.StringPtrOutput       `pulumi:"provisioningState"`
+	RemoteVirtualNetwork      SubResourceResponsePtrOutput `pulumi:"remoteVirtualNetwork"`
+	UseRemoteGateways         pulumi.BoolPtrOutput         `pulumi:"useRemoteGateways"`
 }
 
 // NewVirtualNetworkPeering registers a new resource with the given unique name, arguments, and options.
@@ -296,61 +286,35 @@ func (VirtualNetworkPeeringState) ElementType() reflect.Type {
 }
 
 type virtualNetworkPeeringArgs struct {
-	// Gets or sets whether the forwarded traffic from the VMs in the remote virtual network will be allowed/disallowed
-	AllowForwardedTraffic *bool `pulumi:"allowForwardedTraffic"`
-	// Gets or sets if gatewayLinks can be used in remote virtual network’s link to this virtual network
-	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
-	// Gets or sets whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space
-	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets the status of the virtual network peering
-	PeeringState *string `pulumi:"peeringState"`
-	// Gets provisioning state of the resource
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the reference of the remote virtual network
-	RemoteVirtualNetwork *SubResource `pulumi:"remoteVirtualNetwork"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets if remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only 1 peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
-	UseRemoteGateways *bool `pulumi:"useRemoteGateways"`
-	// The name of the virtual network.
-	VirtualNetworkName string `pulumi:"virtualNetworkName"`
-	// The name of the peering.
-	VirtualNetworkPeeringName *string `pulumi:"virtualNetworkPeeringName"`
+	AllowForwardedTraffic     *bool        `pulumi:"allowForwardedTraffic"`
+	AllowGatewayTransit       *bool        `pulumi:"allowGatewayTransit"`
+	AllowVirtualNetworkAccess *bool        `pulumi:"allowVirtualNetworkAccess"`
+	Etag                      *string      `pulumi:"etag"`
+	Id                        *string      `pulumi:"id"`
+	Name                      *string      `pulumi:"name"`
+	PeeringState              *string      `pulumi:"peeringState"`
+	ProvisioningState         *string      `pulumi:"provisioningState"`
+	RemoteVirtualNetwork      *SubResource `pulumi:"remoteVirtualNetwork"`
+	ResourceGroupName         string       `pulumi:"resourceGroupName"`
+	UseRemoteGateways         *bool        `pulumi:"useRemoteGateways"`
+	VirtualNetworkName        string       `pulumi:"virtualNetworkName"`
+	VirtualNetworkPeeringName *string      `pulumi:"virtualNetworkPeeringName"`
 }
 
 // The set of arguments for constructing a VirtualNetworkPeering resource.
 type VirtualNetworkPeeringArgs struct {
-	// Gets or sets whether the forwarded traffic from the VMs in the remote virtual network will be allowed/disallowed
-	AllowForwardedTraffic pulumi.BoolPtrInput
-	// Gets or sets if gatewayLinks can be used in remote virtual network’s link to this virtual network
-	AllowGatewayTransit pulumi.BoolPtrInput
-	// Gets or sets whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space
+	AllowForwardedTraffic     pulumi.BoolPtrInput
+	AllowGatewayTransit       pulumi.BoolPtrInput
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput
-	// Gets the status of the virtual network peering
-	PeeringState pulumi.StringPtrInput
-	// Gets provisioning state of the resource
-	ProvisioningState pulumi.StringPtrInput
-	// Gets or sets the reference of the remote virtual network
-	RemoteVirtualNetwork SubResourcePtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets if remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only 1 peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
-	UseRemoteGateways pulumi.BoolPtrInput
-	// The name of the virtual network.
-	VirtualNetworkName pulumi.StringInput
-	// The name of the peering.
+	Etag                      pulumi.StringPtrInput
+	Id                        pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	PeeringState              pulumi.StringPtrInput
+	ProvisioningState         pulumi.StringPtrInput
+	RemoteVirtualNetwork      SubResourcePtrInput
+	ResourceGroupName         pulumi.StringInput
+	UseRemoteGateways         pulumi.BoolPtrInput
+	VirtualNetworkName        pulumi.StringInput
 	VirtualNetworkPeeringName pulumi.StringPtrInput
 }
 
@@ -377,9 +341,7 @@ func (i *VirtualNetworkPeering) ToVirtualNetworkPeeringOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringOutput)
 }
 
-type VirtualNetworkPeeringOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkPeeringOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkPeeringOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkPeering)(nil))

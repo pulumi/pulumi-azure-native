@@ -11,36 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Snapshot resource.
 type Snapshot struct {
 	pulumi.CustomResourceState
 
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataResponseOutput `pulumi:"creationData"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB pulumi.IntPtrOutput `pulumi:"diskSizeGB"`
-	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+	CreationData                 CreationDataResponseOutput                    `pulumi:"creationData"`
+	DiskSizeGB                   pulumi.IntPtrOutput                           `pulumi:"diskSizeGB"`
 	EncryptionSettingsCollection EncryptionSettingsCollectionResponsePtrOutput `pulumi:"encryptionSettingsCollection"`
-	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-	HyperVGeneration pulumi.StringPtrOutput `pulumi:"hyperVGeneration"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Unused. Always Null.
-	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Operating System type.
-	OsType pulumi.StringPtrOutput `pulumi:"osType"`
-	// The disk provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
-	Sku SnapshotSkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The time when the disk was created.
-	TimeCreated pulumi.StringOutput `pulumi:"timeCreated"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	HyperVGeneration             pulumi.StringPtrOutput                        `pulumi:"hyperVGeneration"`
+	Location                     pulumi.StringOutput                           `pulumi:"location"`
+	ManagedBy                    pulumi.StringOutput                           `pulumi:"managedBy"`
+	Name                         pulumi.StringOutput                           `pulumi:"name"`
+	OsType                       pulumi.StringPtrOutput                        `pulumi:"osType"`
+	ProvisioningState            pulumi.StringOutput                           `pulumi:"provisioningState"`
+	Sku                          SnapshotSkuResponsePtrOutput                  `pulumi:"sku"`
+	Tags                         pulumi.StringMapOutput                        `pulumi:"tags"`
+	TimeCreated                  pulumi.StringOutput                           `pulumi:"timeCreated"`
+	Type                         pulumi.StringOutput                           `pulumi:"type"`
 }
 
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -172,50 +158,30 @@ func (SnapshotState) ElementType() reflect.Type {
 }
 
 type snapshotArgs struct {
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationData `pulumi:"creationData"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+	CreationData                 CreationData                  `pulumi:"creationData"`
+	DiskSizeGB                   *int                          `pulumi:"diskSizeGB"`
 	EncryptionSettingsCollection *EncryptionSettingsCollection `pulumi:"encryptionSettingsCollection"`
-	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The Operating System type.
-	OsType *string `pulumi:"osType"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
-	Sku *SnapshotSku `pulumi:"sku"`
-	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
-	SnapshotName *string `pulumi:"snapshotName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	HyperVGeneration             *string                       `pulumi:"hyperVGeneration"`
+	Location                     *string                       `pulumi:"location"`
+	OsType                       *OperatingSystemTypes         `pulumi:"osType"`
+	ResourceGroupName            string                        `pulumi:"resourceGroupName"`
+	Sku                          *SnapshotSku                  `pulumi:"sku"`
+	SnapshotName                 *string                       `pulumi:"snapshotName"`
+	Tags                         map[string]string             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataInput
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB pulumi.IntPtrInput
-	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+	CreationData                 CreationDataInput
+	DiskSizeGB                   pulumi.IntPtrInput
 	EncryptionSettingsCollection EncryptionSettingsCollectionPtrInput
-	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-	HyperVGeneration pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The Operating System type.
-	OsType *OperatingSystemTypes
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
-	Sku SnapshotSkuPtrInput
-	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
-	SnapshotName pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	HyperVGeneration             pulumi.StringPtrInput
+	Location                     pulumi.StringPtrInput
+	OsType                       OperatingSystemTypesPtrInput
+	ResourceGroupName            pulumi.StringInput
+	Sku                          SnapshotSkuPtrInput
+	SnapshotName                 pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
 }
 
 func (SnapshotArgs) ElementType() reflect.Type {
@@ -241,9 +207,7 @@ func (i *Snapshot) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotOutput)
 }
 
-type SnapshotOutput struct {
-	*pulumi.OutputState
-}
+type SnapshotOutput struct{ *pulumi.OutputState }
 
 func (SnapshotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Snapshot)(nil))

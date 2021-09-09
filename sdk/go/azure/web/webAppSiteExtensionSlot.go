@@ -228,9 +228,7 @@ func (i *WebAppSiteExtensionSlot) ToWebAppSiteExtensionSlotOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSiteExtensionSlotOutput)
 }
 
-type WebAppSiteExtensionSlotOutput struct {
-	*pulumi.OutputState
-}
+type WebAppSiteExtensionSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppSiteExtensionSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppSiteExtensionSlot)(nil))

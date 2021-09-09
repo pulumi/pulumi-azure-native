@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
 type Action struct {
-	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
-	CompatibilityLevel *int `pulumi:"compatibilityLevel"`
-	// Value that indicates whether the rule action requires preprocessing.
-	RequiresPreprocessing *bool `pulumi:"requiresPreprocessing"`
-	// SQL expression. e.g. MyProperty='ABC'
-	SqlExpression *string `pulumi:"sqlExpression"`
+	CompatibilityLevel    *int    `pulumi:"compatibilityLevel"`
+	RequiresPreprocessing *bool   `pulumi:"requiresPreprocessing"`
+	SqlExpression         *string `pulumi:"sqlExpression"`
 }
 
 // ActionInput is an input type that accepts ActionArgs and ActionOutput values.
@@ -31,14 +27,10 @@ type ActionInput interface {
 	ToActionOutputWithContext(context.Context) ActionOutput
 }
 
-// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
 type ActionArgs struct {
-	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
-	CompatibilityLevel pulumi.IntPtrInput `pulumi:"compatibilityLevel"`
-	// Value that indicates whether the rule action requires preprocessing.
-	RequiresPreprocessing pulumi.BoolPtrInput `pulumi:"requiresPreprocessing"`
-	// SQL expression. e.g. MyProperty='ABC'
-	SqlExpression pulumi.StringPtrInput `pulumi:"sqlExpression"`
+	CompatibilityLevel    pulumi.IntPtrInput    `pulumi:"compatibilityLevel"`
+	RequiresPreprocessing pulumi.BoolPtrInput   `pulumi:"requiresPreprocessing"`
+	SqlExpression         pulumi.StringPtrInput `pulumi:"sqlExpression"`
 }
 
 func (ActionArgs) ElementType() reflect.Type {
@@ -94,7 +86,6 @@ func (i *actionPtrType) ToActionPtrOutputWithContext(ctx context.Context) Action
 	return pulumi.ToOutputWithContext(ctx, i).(ActionPtrOutput)
 }
 
-// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
 type ActionOutput struct{ *pulumi.OutputState }
 
 func (ActionOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o ActionOutput) ToActionPtrOutput() ActionPtrOutput {
 }
 
 func (o ActionOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return o.ApplyT(func(v Action) *Action {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Action) *Action {
 		return &v
 	}).(ActionPtrOutput)
 }
 
-// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 func (o ActionOutput) CompatibilityLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Action) *int { return v.CompatibilityLevel }).(pulumi.IntPtrOutput)
 }
 
-// Value that indicates whether the rule action requires preprocessing.
 func (o ActionOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Action) *bool { return v.RequiresPreprocessing }).(pulumi.BoolPtrOutput)
 }
 
-// SQL expression. e.g. MyProperty='ABC'
 func (o ActionOutput) SqlExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Action) *string { return v.SqlExpression }).(pulumi.StringPtrOutput)
 }
@@ -149,10 +137,15 @@ func (o ActionPtrOutput) ToActionPtrOutputWithContext(ctx context.Context) Actio
 }
 
 func (o ActionPtrOutput) Elem() ActionOutput {
-	return o.ApplyT(func(v *Action) Action { return *v }).(ActionOutput)
+	return o.ApplyT(func(v *Action) Action {
+		if v != nil {
+			return *v
+		}
+		var ret Action
+		return ret
+	}).(ActionOutput)
 }
 
-// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 func (o ActionPtrOutput) CompatibilityLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Action) *int {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o ActionPtrOutput) CompatibilityLevel() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Value that indicates whether the rule action requires preprocessing.
 func (o ActionPtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Action) *bool {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o ActionPtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// SQL expression. e.g. MyProperty='ABC'
 func (o ActionPtrOutput) SqlExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Action) *string {
 		if v == nil {
@@ -182,14 +173,10 @@ func (o ActionPtrOutput) SqlExpression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
 type ActionResponse struct {
-	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
-	CompatibilityLevel *int `pulumi:"compatibilityLevel"`
-	// Value that indicates whether the rule action requires preprocessing.
-	RequiresPreprocessing *bool `pulumi:"requiresPreprocessing"`
-	// SQL expression. e.g. MyProperty='ABC'
-	SqlExpression *string `pulumi:"sqlExpression"`
+	CompatibilityLevel    *int    `pulumi:"compatibilityLevel"`
+	RequiresPreprocessing *bool   `pulumi:"requiresPreprocessing"`
+	SqlExpression         *string `pulumi:"sqlExpression"`
 }
 
 // ActionResponseInput is an input type that accepts ActionResponseArgs and ActionResponseOutput values.
@@ -203,14 +190,10 @@ type ActionResponseInput interface {
 	ToActionResponseOutputWithContext(context.Context) ActionResponseOutput
 }
 
-// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
 type ActionResponseArgs struct {
-	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
-	CompatibilityLevel pulumi.IntPtrInput `pulumi:"compatibilityLevel"`
-	// Value that indicates whether the rule action requires preprocessing.
-	RequiresPreprocessing pulumi.BoolPtrInput `pulumi:"requiresPreprocessing"`
-	// SQL expression. e.g. MyProperty='ABC'
-	SqlExpression pulumi.StringPtrInput `pulumi:"sqlExpression"`
+	CompatibilityLevel    pulumi.IntPtrInput    `pulumi:"compatibilityLevel"`
+	RequiresPreprocessing pulumi.BoolPtrInput   `pulumi:"requiresPreprocessing"`
+	SqlExpression         pulumi.StringPtrInput `pulumi:"sqlExpression"`
 }
 
 func (ActionResponseArgs) ElementType() reflect.Type {
@@ -266,7 +249,6 @@ func (i *actionResponsePtrType) ToActionResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ActionResponsePtrOutput)
 }
 
-// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
 type ActionResponseOutput struct{ *pulumi.OutputState }
 
 func (ActionResponseOutput) ElementType() reflect.Type {
@@ -286,22 +268,19 @@ func (o ActionResponseOutput) ToActionResponsePtrOutput() ActionResponsePtrOutpu
 }
 
 func (o ActionResponseOutput) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
-	return o.ApplyT(func(v ActionResponse) *ActionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionResponse) *ActionResponse {
 		return &v
 	}).(ActionResponsePtrOutput)
 }
 
-// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 func (o ActionResponseOutput) CompatibilityLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ActionResponse) *int { return v.CompatibilityLevel }).(pulumi.IntPtrOutput)
 }
 
-// Value that indicates whether the rule action requires preprocessing.
 func (o ActionResponseOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ActionResponse) *bool { return v.RequiresPreprocessing }).(pulumi.BoolPtrOutput)
 }
 
-// SQL expression. e.g. MyProperty='ABC'
 func (o ActionResponseOutput) SqlExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionResponse) *string { return v.SqlExpression }).(pulumi.StringPtrOutput)
 }
@@ -321,10 +300,15 @@ func (o ActionResponsePtrOutput) ToActionResponsePtrOutputWithContext(ctx contex
 }
 
 func (o ActionResponsePtrOutput) Elem() ActionResponseOutput {
-	return o.ApplyT(func(v *ActionResponse) ActionResponse { return *v }).(ActionResponseOutput)
+	return o.ApplyT(func(v *ActionResponse) ActionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ActionResponse
+		return ret
+	}).(ActionResponseOutput)
 }
 
-// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 func (o ActionResponsePtrOutput) CompatibilityLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ActionResponse) *int {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o ActionResponsePtrOutput) CompatibilityLevel() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Value that indicates whether the rule action requires preprocessing.
 func (o ActionResponsePtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ActionResponse) *bool {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o ActionResponsePtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// SQL expression. e.g. MyProperty='ABC'
 func (o ActionResponsePtrOutput) SqlExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionResponse) *string {
 		if v == nil {
@@ -354,28 +336,17 @@ func (o ActionResponsePtrOutput) SqlExpression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the correlation filter expression.
 type CorrelationFilter struct {
-	// Content type of the message.
-	ContentType *string `pulumi:"contentType"`
-	// Identifier of the correlation.
-	CorrelationId *string `pulumi:"correlationId"`
-	// Application specific label.
-	Label *string `pulumi:"label"`
-	// Identifier of the message.
-	MessageId *string `pulumi:"messageId"`
-	// dictionary object for custom filters
-	Properties map[string]string `pulumi:"properties"`
-	// Address of the queue to reply to.
-	ReplyTo *string `pulumi:"replyTo"`
-	// Session identifier to reply to.
-	ReplyToSessionId *string `pulumi:"replyToSessionId"`
-	// Value that indicates whether the rule action requires preprocessing.
-	RequiresPreprocessing *bool `pulumi:"requiresPreprocessing"`
-	// Session identifier.
-	SessionId *string `pulumi:"sessionId"`
-	// Address to send to.
-	To *string `pulumi:"to"`
+	ContentType           *string           `pulumi:"contentType"`
+	CorrelationId         *string           `pulumi:"correlationId"`
+	Label                 *string           `pulumi:"label"`
+	MessageId             *string           `pulumi:"messageId"`
+	Properties            map[string]string `pulumi:"properties"`
+	ReplyTo               *string           `pulumi:"replyTo"`
+	ReplyToSessionId      *string           `pulumi:"replyToSessionId"`
+	RequiresPreprocessing *bool             `pulumi:"requiresPreprocessing"`
+	SessionId             *string           `pulumi:"sessionId"`
+	To                    *string           `pulumi:"to"`
 }
 
 // CorrelationFilterInput is an input type that accepts CorrelationFilterArgs and CorrelationFilterOutput values.
@@ -389,28 +360,17 @@ type CorrelationFilterInput interface {
 	ToCorrelationFilterOutputWithContext(context.Context) CorrelationFilterOutput
 }
 
-// Represents the correlation filter expression.
 type CorrelationFilterArgs struct {
-	// Content type of the message.
-	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	// Identifier of the correlation.
-	CorrelationId pulumi.StringPtrInput `pulumi:"correlationId"`
-	// Application specific label.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Identifier of the message.
-	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
-	// dictionary object for custom filters
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// Address of the queue to reply to.
-	ReplyTo pulumi.StringPtrInput `pulumi:"replyTo"`
-	// Session identifier to reply to.
-	ReplyToSessionId pulumi.StringPtrInput `pulumi:"replyToSessionId"`
-	// Value that indicates whether the rule action requires preprocessing.
-	RequiresPreprocessing pulumi.BoolPtrInput `pulumi:"requiresPreprocessing"`
-	// Session identifier.
-	SessionId pulumi.StringPtrInput `pulumi:"sessionId"`
-	// Address to send to.
-	To pulumi.StringPtrInput `pulumi:"to"`
+	ContentType           pulumi.StringPtrInput `pulumi:"contentType"`
+	CorrelationId         pulumi.StringPtrInput `pulumi:"correlationId"`
+	Label                 pulumi.StringPtrInput `pulumi:"label"`
+	MessageId             pulumi.StringPtrInput `pulumi:"messageId"`
+	Properties            pulumi.StringMapInput `pulumi:"properties"`
+	ReplyTo               pulumi.StringPtrInput `pulumi:"replyTo"`
+	ReplyToSessionId      pulumi.StringPtrInput `pulumi:"replyToSessionId"`
+	RequiresPreprocessing pulumi.BoolPtrInput   `pulumi:"requiresPreprocessing"`
+	SessionId             pulumi.StringPtrInput `pulumi:"sessionId"`
+	To                    pulumi.StringPtrInput `pulumi:"to"`
 }
 
 func (CorrelationFilterArgs) ElementType() reflect.Type {
@@ -466,7 +426,6 @@ func (i *correlationFilterPtrType) ToCorrelationFilterPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(CorrelationFilterPtrOutput)
 }
 
-// Represents the correlation filter expression.
 type CorrelationFilterOutput struct{ *pulumi.OutputState }
 
 func (CorrelationFilterOutput) ElementType() reflect.Type {
@@ -486,57 +445,47 @@ func (o CorrelationFilterOutput) ToCorrelationFilterPtrOutput() CorrelationFilte
 }
 
 func (o CorrelationFilterOutput) ToCorrelationFilterPtrOutputWithContext(ctx context.Context) CorrelationFilterPtrOutput {
-	return o.ApplyT(func(v CorrelationFilter) *CorrelationFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CorrelationFilter) *CorrelationFilter {
 		return &v
 	}).(CorrelationFilterPtrOutput)
 }
 
-// Content type of the message.
 func (o CorrelationFilterOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorrelationFilter) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the correlation.
 func (o CorrelationFilterOutput) CorrelationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorrelationFilter) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
 }
 
-// Application specific label.
 func (o CorrelationFilterOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorrelationFilter) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the message.
 func (o CorrelationFilterOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorrelationFilter) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
-// dictionary object for custom filters
 func (o CorrelationFilterOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CorrelationFilter) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// Address of the queue to reply to.
 func (o CorrelationFilterOutput) ReplyTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorrelationFilter) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
 }
 
-// Session identifier to reply to.
 func (o CorrelationFilterOutput) ReplyToSessionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorrelationFilter) *string { return v.ReplyToSessionId }).(pulumi.StringPtrOutput)
 }
 
-// Value that indicates whether the rule action requires preprocessing.
 func (o CorrelationFilterOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CorrelationFilter) *bool { return v.RequiresPreprocessing }).(pulumi.BoolPtrOutput)
 }
 
-// Session identifier.
 func (o CorrelationFilterOutput) SessionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorrelationFilter) *string { return v.SessionId }).(pulumi.StringPtrOutput)
 }
 
-// Address to send to.
 func (o CorrelationFilterOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorrelationFilter) *string { return v.To }).(pulumi.StringPtrOutput)
 }
@@ -556,10 +505,15 @@ func (o CorrelationFilterPtrOutput) ToCorrelationFilterPtrOutputWithContext(ctx 
 }
 
 func (o CorrelationFilterPtrOutput) Elem() CorrelationFilterOutput {
-	return o.ApplyT(func(v *CorrelationFilter) CorrelationFilter { return *v }).(CorrelationFilterOutput)
+	return o.ApplyT(func(v *CorrelationFilter) CorrelationFilter {
+		if v != nil {
+			return *v
+		}
+		var ret CorrelationFilter
+		return ret
+	}).(CorrelationFilterOutput)
 }
 
-// Content type of the message.
 func (o CorrelationFilterPtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilter) *string {
 		if v == nil {
@@ -569,7 +523,6 @@ func (o CorrelationFilterPtrOutput) ContentType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the correlation.
 func (o CorrelationFilterPtrOutput) CorrelationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilter) *string {
 		if v == nil {
@@ -579,7 +532,6 @@ func (o CorrelationFilterPtrOutput) CorrelationId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Application specific label.
 func (o CorrelationFilterPtrOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilter) *string {
 		if v == nil {
@@ -589,7 +541,6 @@ func (o CorrelationFilterPtrOutput) Label() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the message.
 func (o CorrelationFilterPtrOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilter) *string {
 		if v == nil {
@@ -599,7 +550,6 @@ func (o CorrelationFilterPtrOutput) MessageId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// dictionary object for custom filters
 func (o CorrelationFilterPtrOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CorrelationFilter) map[string]string {
 		if v == nil {
@@ -609,7 +559,6 @@ func (o CorrelationFilterPtrOutput) Properties() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Address of the queue to reply to.
 func (o CorrelationFilterPtrOutput) ReplyTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilter) *string {
 		if v == nil {
@@ -619,7 +568,6 @@ func (o CorrelationFilterPtrOutput) ReplyTo() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Session identifier to reply to.
 func (o CorrelationFilterPtrOutput) ReplyToSessionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilter) *string {
 		if v == nil {
@@ -629,7 +577,6 @@ func (o CorrelationFilterPtrOutput) ReplyToSessionId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value that indicates whether the rule action requires preprocessing.
 func (o CorrelationFilterPtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilter) *bool {
 		if v == nil {
@@ -639,7 +586,6 @@ func (o CorrelationFilterPtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Session identifier.
 func (o CorrelationFilterPtrOutput) SessionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilter) *string {
 		if v == nil {
@@ -649,7 +595,6 @@ func (o CorrelationFilterPtrOutput) SessionId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Address to send to.
 func (o CorrelationFilterPtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilter) *string {
 		if v == nil {
@@ -659,28 +604,17 @@ func (o CorrelationFilterPtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the correlation filter expression.
 type CorrelationFilterResponse struct {
-	// Content type of the message.
-	ContentType *string `pulumi:"contentType"`
-	// Identifier of the correlation.
-	CorrelationId *string `pulumi:"correlationId"`
-	// Application specific label.
-	Label *string `pulumi:"label"`
-	// Identifier of the message.
-	MessageId *string `pulumi:"messageId"`
-	// dictionary object for custom filters
-	Properties map[string]string `pulumi:"properties"`
-	// Address of the queue to reply to.
-	ReplyTo *string `pulumi:"replyTo"`
-	// Session identifier to reply to.
-	ReplyToSessionId *string `pulumi:"replyToSessionId"`
-	// Value that indicates whether the rule action requires preprocessing.
-	RequiresPreprocessing *bool `pulumi:"requiresPreprocessing"`
-	// Session identifier.
-	SessionId *string `pulumi:"sessionId"`
-	// Address to send to.
-	To *string `pulumi:"to"`
+	ContentType           *string           `pulumi:"contentType"`
+	CorrelationId         *string           `pulumi:"correlationId"`
+	Label                 *string           `pulumi:"label"`
+	MessageId             *string           `pulumi:"messageId"`
+	Properties            map[string]string `pulumi:"properties"`
+	ReplyTo               *string           `pulumi:"replyTo"`
+	ReplyToSessionId      *string           `pulumi:"replyToSessionId"`
+	RequiresPreprocessing *bool             `pulumi:"requiresPreprocessing"`
+	SessionId             *string           `pulumi:"sessionId"`
+	To                    *string           `pulumi:"to"`
 }
 
 // CorrelationFilterResponseInput is an input type that accepts CorrelationFilterResponseArgs and CorrelationFilterResponseOutput values.
@@ -694,28 +628,17 @@ type CorrelationFilterResponseInput interface {
 	ToCorrelationFilterResponseOutputWithContext(context.Context) CorrelationFilterResponseOutput
 }
 
-// Represents the correlation filter expression.
 type CorrelationFilterResponseArgs struct {
-	// Content type of the message.
-	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	// Identifier of the correlation.
-	CorrelationId pulumi.StringPtrInput `pulumi:"correlationId"`
-	// Application specific label.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Identifier of the message.
-	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
-	// dictionary object for custom filters
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// Address of the queue to reply to.
-	ReplyTo pulumi.StringPtrInput `pulumi:"replyTo"`
-	// Session identifier to reply to.
-	ReplyToSessionId pulumi.StringPtrInput `pulumi:"replyToSessionId"`
-	// Value that indicates whether the rule action requires preprocessing.
-	RequiresPreprocessing pulumi.BoolPtrInput `pulumi:"requiresPreprocessing"`
-	// Session identifier.
-	SessionId pulumi.StringPtrInput `pulumi:"sessionId"`
-	// Address to send to.
-	To pulumi.StringPtrInput `pulumi:"to"`
+	ContentType           pulumi.StringPtrInput `pulumi:"contentType"`
+	CorrelationId         pulumi.StringPtrInput `pulumi:"correlationId"`
+	Label                 pulumi.StringPtrInput `pulumi:"label"`
+	MessageId             pulumi.StringPtrInput `pulumi:"messageId"`
+	Properties            pulumi.StringMapInput `pulumi:"properties"`
+	ReplyTo               pulumi.StringPtrInput `pulumi:"replyTo"`
+	ReplyToSessionId      pulumi.StringPtrInput `pulumi:"replyToSessionId"`
+	RequiresPreprocessing pulumi.BoolPtrInput   `pulumi:"requiresPreprocessing"`
+	SessionId             pulumi.StringPtrInput `pulumi:"sessionId"`
+	To                    pulumi.StringPtrInput `pulumi:"to"`
 }
 
 func (CorrelationFilterResponseArgs) ElementType() reflect.Type {
@@ -771,7 +694,6 @@ func (i *correlationFilterResponsePtrType) ToCorrelationFilterResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CorrelationFilterResponsePtrOutput)
 }
 
-// Represents the correlation filter expression.
 type CorrelationFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (CorrelationFilterResponseOutput) ElementType() reflect.Type {
@@ -791,57 +713,47 @@ func (o CorrelationFilterResponseOutput) ToCorrelationFilterResponsePtrOutput() 
 }
 
 func (o CorrelationFilterResponseOutput) ToCorrelationFilterResponsePtrOutputWithContext(ctx context.Context) CorrelationFilterResponsePtrOutput {
-	return o.ApplyT(func(v CorrelationFilterResponse) *CorrelationFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CorrelationFilterResponse) *CorrelationFilterResponse {
 		return &v
 	}).(CorrelationFilterResponsePtrOutput)
 }
 
-// Content type of the message.
 func (o CorrelationFilterResponseOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorrelationFilterResponse) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the correlation.
 func (o CorrelationFilterResponseOutput) CorrelationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorrelationFilterResponse) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
 }
 
-// Application specific label.
 func (o CorrelationFilterResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorrelationFilterResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the message.
 func (o CorrelationFilterResponseOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorrelationFilterResponse) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
-// dictionary object for custom filters
 func (o CorrelationFilterResponseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CorrelationFilterResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// Address of the queue to reply to.
 func (o CorrelationFilterResponseOutput) ReplyTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorrelationFilterResponse) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
 }
 
-// Session identifier to reply to.
 func (o CorrelationFilterResponseOutput) ReplyToSessionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorrelationFilterResponse) *string { return v.ReplyToSessionId }).(pulumi.StringPtrOutput)
 }
 
-// Value that indicates whether the rule action requires preprocessing.
 func (o CorrelationFilterResponseOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CorrelationFilterResponse) *bool { return v.RequiresPreprocessing }).(pulumi.BoolPtrOutput)
 }
 
-// Session identifier.
 func (o CorrelationFilterResponseOutput) SessionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorrelationFilterResponse) *string { return v.SessionId }).(pulumi.StringPtrOutput)
 }
 
-// Address to send to.
 func (o CorrelationFilterResponseOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CorrelationFilterResponse) *string { return v.To }).(pulumi.StringPtrOutput)
 }
@@ -861,10 +773,15 @@ func (o CorrelationFilterResponsePtrOutput) ToCorrelationFilterResponsePtrOutput
 }
 
 func (o CorrelationFilterResponsePtrOutput) Elem() CorrelationFilterResponseOutput {
-	return o.ApplyT(func(v *CorrelationFilterResponse) CorrelationFilterResponse { return *v }).(CorrelationFilterResponseOutput)
+	return o.ApplyT(func(v *CorrelationFilterResponse) CorrelationFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CorrelationFilterResponse
+		return ret
+	}).(CorrelationFilterResponseOutput)
 }
 
-// Content type of the message.
 func (o CorrelationFilterResponsePtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilterResponse) *string {
 		if v == nil {
@@ -874,7 +791,6 @@ func (o CorrelationFilterResponsePtrOutput) ContentType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the correlation.
 func (o CorrelationFilterResponsePtrOutput) CorrelationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilterResponse) *string {
 		if v == nil {
@@ -884,7 +800,6 @@ func (o CorrelationFilterResponsePtrOutput) CorrelationId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Application specific label.
 func (o CorrelationFilterResponsePtrOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilterResponse) *string {
 		if v == nil {
@@ -894,7 +809,6 @@ func (o CorrelationFilterResponsePtrOutput) Label() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the message.
 func (o CorrelationFilterResponsePtrOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilterResponse) *string {
 		if v == nil {
@@ -904,7 +818,6 @@ func (o CorrelationFilterResponsePtrOutput) MessageId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// dictionary object for custom filters
 func (o CorrelationFilterResponsePtrOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CorrelationFilterResponse) map[string]string {
 		if v == nil {
@@ -914,7 +827,6 @@ func (o CorrelationFilterResponsePtrOutput) Properties() pulumi.StringMapOutput 
 	}).(pulumi.StringMapOutput)
 }
 
-// Address of the queue to reply to.
 func (o CorrelationFilterResponsePtrOutput) ReplyTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilterResponse) *string {
 		if v == nil {
@@ -924,7 +836,6 @@ func (o CorrelationFilterResponsePtrOutput) ReplyTo() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Session identifier to reply to.
 func (o CorrelationFilterResponsePtrOutput) ReplyToSessionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilterResponse) *string {
 		if v == nil {
@@ -934,7 +845,6 @@ func (o CorrelationFilterResponsePtrOutput) ReplyToSessionId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value that indicates whether the rule action requires preprocessing.
 func (o CorrelationFilterResponsePtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilterResponse) *bool {
 		if v == nil {
@@ -944,7 +854,6 @@ func (o CorrelationFilterResponsePtrOutput) RequiresPreprocessing() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Session identifier.
 func (o CorrelationFilterResponsePtrOutput) SessionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilterResponse) *string {
 		if v == nil {
@@ -954,7 +863,6 @@ func (o CorrelationFilterResponsePtrOutput) SessionId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Address to send to.
 func (o CorrelationFilterResponsePtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CorrelationFilterResponse) *string {
 		if v == nil {
@@ -964,18 +872,12 @@ func (o CorrelationFilterResponsePtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Message Count Details.
 type MessageCountDetailsResponse struct {
-	// Number of active messages in the queue, topic, or subscription.
-	ActiveMessageCount float64 `pulumi:"activeMessageCount"`
-	// Number of messages that are dead lettered.
-	DeadLetterMessageCount float64 `pulumi:"deadLetterMessageCount"`
-	// Number of scheduled messages.
-	ScheduledMessageCount float64 `pulumi:"scheduledMessageCount"`
-	// Number of messages transferred into dead letters.
+	ActiveMessageCount             float64 `pulumi:"activeMessageCount"`
+	DeadLetterMessageCount         float64 `pulumi:"deadLetterMessageCount"`
+	ScheduledMessageCount          float64 `pulumi:"scheduledMessageCount"`
 	TransferDeadLetterMessageCount float64 `pulumi:"transferDeadLetterMessageCount"`
-	// Number of messages transferred to another queue, topic, or subscription.
-	TransferMessageCount float64 `pulumi:"transferMessageCount"`
+	TransferMessageCount           float64 `pulumi:"transferMessageCount"`
 }
 
 // MessageCountDetailsResponseInput is an input type that accepts MessageCountDetailsResponseArgs and MessageCountDetailsResponseOutput values.
@@ -989,18 +891,12 @@ type MessageCountDetailsResponseInput interface {
 	ToMessageCountDetailsResponseOutputWithContext(context.Context) MessageCountDetailsResponseOutput
 }
 
-// Message Count Details.
 type MessageCountDetailsResponseArgs struct {
-	// Number of active messages in the queue, topic, or subscription.
-	ActiveMessageCount pulumi.Float64Input `pulumi:"activeMessageCount"`
-	// Number of messages that are dead lettered.
-	DeadLetterMessageCount pulumi.Float64Input `pulumi:"deadLetterMessageCount"`
-	// Number of scheduled messages.
-	ScheduledMessageCount pulumi.Float64Input `pulumi:"scheduledMessageCount"`
-	// Number of messages transferred into dead letters.
+	ActiveMessageCount             pulumi.Float64Input `pulumi:"activeMessageCount"`
+	DeadLetterMessageCount         pulumi.Float64Input `pulumi:"deadLetterMessageCount"`
+	ScheduledMessageCount          pulumi.Float64Input `pulumi:"scheduledMessageCount"`
 	TransferDeadLetterMessageCount pulumi.Float64Input `pulumi:"transferDeadLetterMessageCount"`
-	// Number of messages transferred to another queue, topic, or subscription.
-	TransferMessageCount pulumi.Float64Input `pulumi:"transferMessageCount"`
+	TransferMessageCount           pulumi.Float64Input `pulumi:"transferMessageCount"`
 }
 
 func (MessageCountDetailsResponseArgs) ElementType() reflect.Type {
@@ -1056,7 +952,6 @@ func (i *messageCountDetailsResponsePtrType) ToMessageCountDetailsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(MessageCountDetailsResponsePtrOutput)
 }
 
-// Message Count Details.
 type MessageCountDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (MessageCountDetailsResponseOutput) ElementType() reflect.Type {
@@ -1076,32 +971,27 @@ func (o MessageCountDetailsResponseOutput) ToMessageCountDetailsResponsePtrOutpu
 }
 
 func (o MessageCountDetailsResponseOutput) ToMessageCountDetailsResponsePtrOutputWithContext(ctx context.Context) MessageCountDetailsResponsePtrOutput {
-	return o.ApplyT(func(v MessageCountDetailsResponse) *MessageCountDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MessageCountDetailsResponse) *MessageCountDetailsResponse {
 		return &v
 	}).(MessageCountDetailsResponsePtrOutput)
 }
 
-// Number of active messages in the queue, topic, or subscription.
 func (o MessageCountDetailsResponseOutput) ActiveMessageCount() pulumi.Float64Output {
 	return o.ApplyT(func(v MessageCountDetailsResponse) float64 { return v.ActiveMessageCount }).(pulumi.Float64Output)
 }
 
-// Number of messages that are dead lettered.
 func (o MessageCountDetailsResponseOutput) DeadLetterMessageCount() pulumi.Float64Output {
 	return o.ApplyT(func(v MessageCountDetailsResponse) float64 { return v.DeadLetterMessageCount }).(pulumi.Float64Output)
 }
 
-// Number of scheduled messages.
 func (o MessageCountDetailsResponseOutput) ScheduledMessageCount() pulumi.Float64Output {
 	return o.ApplyT(func(v MessageCountDetailsResponse) float64 { return v.ScheduledMessageCount }).(pulumi.Float64Output)
 }
 
-// Number of messages transferred into dead letters.
 func (o MessageCountDetailsResponseOutput) TransferDeadLetterMessageCount() pulumi.Float64Output {
 	return o.ApplyT(func(v MessageCountDetailsResponse) float64 { return v.TransferDeadLetterMessageCount }).(pulumi.Float64Output)
 }
 
-// Number of messages transferred to another queue, topic, or subscription.
 func (o MessageCountDetailsResponseOutput) TransferMessageCount() pulumi.Float64Output {
 	return o.ApplyT(func(v MessageCountDetailsResponse) float64 { return v.TransferMessageCount }).(pulumi.Float64Output)
 }
@@ -1121,10 +1011,15 @@ func (o MessageCountDetailsResponsePtrOutput) ToMessageCountDetailsResponsePtrOu
 }
 
 func (o MessageCountDetailsResponsePtrOutput) Elem() MessageCountDetailsResponseOutput {
-	return o.ApplyT(func(v *MessageCountDetailsResponse) MessageCountDetailsResponse { return *v }).(MessageCountDetailsResponseOutput)
+	return o.ApplyT(func(v *MessageCountDetailsResponse) MessageCountDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MessageCountDetailsResponse
+		return ret
+	}).(MessageCountDetailsResponseOutput)
 }
 
-// Number of active messages in the queue, topic, or subscription.
 func (o MessageCountDetailsResponsePtrOutput) ActiveMessageCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
 		if v == nil {
@@ -1134,7 +1029,6 @@ func (o MessageCountDetailsResponsePtrOutput) ActiveMessageCount() pulumi.Float6
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Number of messages that are dead lettered.
 func (o MessageCountDetailsResponsePtrOutput) DeadLetterMessageCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
 		if v == nil {
@@ -1144,7 +1038,6 @@ func (o MessageCountDetailsResponsePtrOutput) DeadLetterMessageCount() pulumi.Fl
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Number of scheduled messages.
 func (o MessageCountDetailsResponsePtrOutput) ScheduledMessageCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
 		if v == nil {
@@ -1154,7 +1047,6 @@ func (o MessageCountDetailsResponsePtrOutput) ScheduledMessageCount() pulumi.Flo
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Number of messages transferred into dead letters.
 func (o MessageCountDetailsResponsePtrOutput) TransferDeadLetterMessageCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
 		if v == nil {
@@ -1164,7 +1056,6 @@ func (o MessageCountDetailsResponsePtrOutput) TransferDeadLetterMessageCount() p
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Number of messages transferred to another queue, topic, or subscription.
 func (o MessageCountDetailsResponsePtrOutput) TransferMessageCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
 		if v == nil {
@@ -1174,11 +1065,8 @@ func (o MessageCountDetailsResponsePtrOutput) TransferMessageCount() pulumi.Floa
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRules struct {
-	// The IP Filter Action
 	Action *string `pulumi:"action"`
-	// IP Mask
 	IpMask *string `pulumi:"ipMask"`
 }
 
@@ -1193,11 +1081,8 @@ type NWRuleSetIpRulesInput interface {
 	ToNWRuleSetIpRulesOutputWithContext(context.Context) NWRuleSetIpRulesOutput
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesArgs struct {
-	// The IP Filter Action
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// IP Mask
 	IpMask pulumi.StringPtrInput `pulumi:"ipMask"`
 }
 
@@ -1238,7 +1123,6 @@ func (i NWRuleSetIpRulesArray) ToNWRuleSetIpRulesArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesArrayOutput)
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetIpRulesOutput) ElementType() reflect.Type {
@@ -1253,12 +1137,10 @@ func (o NWRuleSetIpRulesOutput) ToNWRuleSetIpRulesOutputWithContext(ctx context.
 	return o
 }
 
-// The IP Filter Action
 func (o NWRuleSetIpRulesOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NWRuleSetIpRules) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// IP Mask
 func (o NWRuleSetIpRulesOutput) IpMask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NWRuleSetIpRules) *string { return v.IpMask }).(pulumi.StringPtrOutput)
 }
@@ -1283,11 +1165,8 @@ func (o NWRuleSetIpRulesArrayOutput) Index(i pulumi.IntInput) NWRuleSetIpRulesOu
 	}).(NWRuleSetIpRulesOutput)
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesResponse struct {
-	// The IP Filter Action
 	Action *string `pulumi:"action"`
-	// IP Mask
 	IpMask *string `pulumi:"ipMask"`
 }
 
@@ -1302,11 +1181,8 @@ type NWRuleSetIpRulesResponseInput interface {
 	ToNWRuleSetIpRulesResponseOutputWithContext(context.Context) NWRuleSetIpRulesResponseOutput
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesResponseArgs struct {
-	// The IP Filter Action
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// IP Mask
 	IpMask pulumi.StringPtrInput `pulumi:"ipMask"`
 }
 
@@ -1347,7 +1223,6 @@ func (i NWRuleSetIpRulesResponseArray) ToNWRuleSetIpRulesResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesResponseArrayOutput)
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesResponseOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetIpRulesResponseOutput) ElementType() reflect.Type {
@@ -1362,12 +1237,10 @@ func (o NWRuleSetIpRulesResponseOutput) ToNWRuleSetIpRulesResponseOutputWithCont
 	return o
 }
 
-// The IP Filter Action
 func (o NWRuleSetIpRulesResponseOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NWRuleSetIpRulesResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// IP Mask
 func (o NWRuleSetIpRulesResponseOutput) IpMask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NWRuleSetIpRulesResponse) *string { return v.IpMask }).(pulumi.StringPtrOutput)
 }
@@ -1392,12 +1265,9 @@ func (o NWRuleSetIpRulesResponseArrayOutput) Index(i pulumi.IntInput) NWRuleSetI
 	}).(NWRuleSetIpRulesResponseOutput)
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRules struct {
-	// Value that indicates whether to ignore missing VNet Service Endpoint
-	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// Subnet properties
-	Subnet *Subnet `pulumi:"subnet"`
+	IgnoreMissingVnetServiceEndpoint *bool   `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	Subnet                           *Subnet `pulumi:"subnet"`
 }
 
 // NWRuleSetVirtualNetworkRulesInput is an input type that accepts NWRuleSetVirtualNetworkRulesArgs and NWRuleSetVirtualNetworkRulesOutput values.
@@ -1411,12 +1281,9 @@ type NWRuleSetVirtualNetworkRulesInput interface {
 	ToNWRuleSetVirtualNetworkRulesOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesOutput
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesArgs struct {
-	// Value that indicates whether to ignore missing VNet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// Subnet properties
-	Subnet SubnetPtrInput `pulumi:"subnet"`
+	Subnet                           SubnetPtrInput      `pulumi:"subnet"`
 }
 
 func (NWRuleSetVirtualNetworkRulesArgs) ElementType() reflect.Type {
@@ -1456,7 +1323,6 @@ func (i NWRuleSetVirtualNetworkRulesArray) ToNWRuleSetVirtualNetworkRulesArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesArrayOutput)
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetVirtualNetworkRulesOutput) ElementType() reflect.Type {
@@ -1471,12 +1337,10 @@ func (o NWRuleSetVirtualNetworkRulesOutput) ToNWRuleSetVirtualNetworkRulesOutput
 	return o
 }
 
-// Value that indicates whether to ignore missing VNet Service Endpoint
 func (o NWRuleSetVirtualNetworkRulesOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NWRuleSetVirtualNetworkRules) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
 
-// Subnet properties
 func (o NWRuleSetVirtualNetworkRulesOutput) Subnet() SubnetPtrOutput {
 	return o.ApplyT(func(v NWRuleSetVirtualNetworkRules) *Subnet { return v.Subnet }).(SubnetPtrOutput)
 }
@@ -1501,12 +1365,9 @@ func (o NWRuleSetVirtualNetworkRulesArrayOutput) Index(i pulumi.IntInput) NWRule
 	}).(NWRuleSetVirtualNetworkRulesOutput)
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesResponse struct {
-	// Value that indicates whether to ignore missing VNet Service Endpoint
-	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// Subnet properties
-	Subnet *SubnetResponse `pulumi:"subnet"`
+	IgnoreMissingVnetServiceEndpoint *bool           `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	Subnet                           *SubnetResponse `pulumi:"subnet"`
 }
 
 // NWRuleSetVirtualNetworkRulesResponseInput is an input type that accepts NWRuleSetVirtualNetworkRulesResponseArgs and NWRuleSetVirtualNetworkRulesResponseOutput values.
@@ -1520,12 +1381,9 @@ type NWRuleSetVirtualNetworkRulesResponseInput interface {
 	ToNWRuleSetVirtualNetworkRulesResponseOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesResponseOutput
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesResponseArgs struct {
-	// Value that indicates whether to ignore missing VNet Service Endpoint
-	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// Subnet properties
-	Subnet SubnetResponsePtrInput `pulumi:"subnet"`
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput    `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	Subnet                           SubnetResponsePtrInput `pulumi:"subnet"`
 }
 
 func (NWRuleSetVirtualNetworkRulesResponseArgs) ElementType() reflect.Type {
@@ -1565,7 +1423,6 @@ func (i NWRuleSetVirtualNetworkRulesResponseArray) ToNWRuleSetVirtualNetworkRule
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesResponseArrayOutput)
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesResponseOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetVirtualNetworkRulesResponseOutput) ElementType() reflect.Type {
@@ -1580,12 +1437,10 @@ func (o NWRuleSetVirtualNetworkRulesResponseOutput) ToNWRuleSetVirtualNetworkRul
 	return o
 }
 
-// Value that indicates whether to ignore missing VNet Service Endpoint
 func (o NWRuleSetVirtualNetworkRulesResponseOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NWRuleSetVirtualNetworkRulesResponse) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
 
-// Subnet properties
 func (o NWRuleSetVirtualNetworkRulesResponseOutput) Subnet() SubnetResponsePtrOutput {
 	return o.ApplyT(func(v NWRuleSetVirtualNetworkRulesResponse) *SubnetResponse { return v.Subnet }).(SubnetResponsePtrOutput)
 }
@@ -1610,14 +1465,10 @@ func (o NWRuleSetVirtualNetworkRulesResponseArrayOutput) Index(i pulumi.IntInput
 	}).(NWRuleSetVirtualNetworkRulesResponseOutput)
 }
 
-// SKU of the namespace.
 type SBSku struct {
-	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
-	Capacity *int `pulumi:"capacity"`
-	// Name of this SKU.
-	Name string `pulumi:"name"`
-	// The billing tier of this particular SKU.
-	Tier *string `pulumi:"tier"`
+	Capacity *int     `pulumi:"capacity"`
+	Name     SkuName  `pulumi:"name"`
+	Tier     *SkuTier `pulumi:"tier"`
 }
 
 // SBSkuInput is an input type that accepts SBSkuArgs and SBSkuOutput values.
@@ -1631,14 +1482,10 @@ type SBSkuInput interface {
 	ToSBSkuOutputWithContext(context.Context) SBSkuOutput
 }
 
-// SKU of the namespace.
 type SBSkuArgs struct {
-	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Name of this SKU.
-	Name SkuName `pulumi:"name"`
-	// The billing tier of this particular SKU.
-	Tier *SkuTier `pulumi:"tier"`
+	Name     SkuNameInput       `pulumi:"name"`
+	Tier     SkuTierPtrInput    `pulumi:"tier"`
 }
 
 func (SBSkuArgs) ElementType() reflect.Type {
@@ -1694,7 +1541,6 @@ func (i *sbskuPtrType) ToSBSkuPtrOutputWithContext(ctx context.Context) SBSkuPtr
 	return pulumi.ToOutputWithContext(ctx, i).(SBSkuPtrOutput)
 }
 
-// SKU of the namespace.
 type SBSkuOutput struct{ *pulumi.OutputState }
 
 func (SBSkuOutput) ElementType() reflect.Type {
@@ -1714,24 +1560,21 @@ func (o SBSkuOutput) ToSBSkuPtrOutput() SBSkuPtrOutput {
 }
 
 func (o SBSkuOutput) ToSBSkuPtrOutputWithContext(ctx context.Context) SBSkuPtrOutput {
-	return o.ApplyT(func(v SBSku) *SBSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SBSku) *SBSku {
 		return &v
 	}).(SBSkuPtrOutput)
 }
 
-// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
 func (o SBSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SBSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Name of this SKU.
-func (o SBSkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SBSku) string { return v.Name }).(pulumi.StringOutput)
+func (o SBSkuOutput) Name() SkuNameOutput {
+	return o.ApplyT(func(v SBSku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
-// The billing tier of this particular SKU.
-func (o SBSkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SBSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+func (o SBSkuOutput) Tier() SkuTierPtrOutput {
+	return o.ApplyT(func(v SBSku) *SkuTier { return v.Tier }).(SkuTierPtrOutput)
 }
 
 type SBSkuPtrOutput struct{ *pulumi.OutputState }
@@ -1749,10 +1592,15 @@ func (o SBSkuPtrOutput) ToSBSkuPtrOutputWithContext(ctx context.Context) SBSkuPt
 }
 
 func (o SBSkuPtrOutput) Elem() SBSkuOutput {
-	return o.ApplyT(func(v *SBSku) SBSku { return *v }).(SBSkuOutput)
+	return o.ApplyT(func(v *SBSku) SBSku {
+		if v != nil {
+			return *v
+		}
+		var ret SBSku
+		return ret
+	}).(SBSkuOutput)
 }
 
-// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
 func (o SBSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SBSku) *int {
 		if v == nil {
@@ -1762,34 +1610,28 @@ func (o SBSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of this SKU.
-func (o SBSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SBSku) *string {
+func (o SBSkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *SBSku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
-// The billing tier of this particular SKU.
-func (o SBSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SBSku) *string {
+func (o SBSkuPtrOutput) Tier() SkuTierPtrOutput {
+	return o.ApplyT(func(v *SBSku) *SkuTier {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(pulumi.StringPtrOutput)
+	}).(SkuTierPtrOutput)
 }
 
-// SKU of the namespace.
 type SBSkuResponse struct {
-	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
-	Capacity *int `pulumi:"capacity"`
-	// Name of this SKU.
-	Name string `pulumi:"name"`
-	// The billing tier of this particular SKU.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     string  `pulumi:"name"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SBSkuResponseInput is an input type that accepts SBSkuResponseArgs and SBSkuResponseOutput values.
@@ -1803,14 +1645,10 @@ type SBSkuResponseInput interface {
 	ToSBSkuResponseOutputWithContext(context.Context) SBSkuResponseOutput
 }
 
-// SKU of the namespace.
 type SBSkuResponseArgs struct {
-	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Name of this SKU.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The billing tier of this particular SKU.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SBSkuResponseArgs) ElementType() reflect.Type {
@@ -1866,7 +1704,6 @@ func (i *sbskuResponsePtrType) ToSBSkuResponsePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SBSkuResponsePtrOutput)
 }
 
-// SKU of the namespace.
 type SBSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SBSkuResponseOutput) ElementType() reflect.Type {
@@ -1886,22 +1723,19 @@ func (o SBSkuResponseOutput) ToSBSkuResponsePtrOutput() SBSkuResponsePtrOutput {
 }
 
 func (o SBSkuResponseOutput) ToSBSkuResponsePtrOutputWithContext(ctx context.Context) SBSkuResponsePtrOutput {
-	return o.ApplyT(func(v SBSkuResponse) *SBSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SBSkuResponse) *SBSkuResponse {
 		return &v
 	}).(SBSkuResponsePtrOutput)
 }
 
-// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
 func (o SBSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SBSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Name of this SKU.
 func (o SBSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SBSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The billing tier of this particular SKU.
 func (o SBSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SBSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1921,10 +1755,15 @@ func (o SBSkuResponsePtrOutput) ToSBSkuResponsePtrOutputWithContext(ctx context.
 }
 
 func (o SBSkuResponsePtrOutput) Elem() SBSkuResponseOutput {
-	return o.ApplyT(func(v *SBSkuResponse) SBSkuResponse { return *v }).(SBSkuResponseOutput)
+	return o.ApplyT(func(v *SBSkuResponse) SBSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SBSkuResponse
+		return ret
+	}).(SBSkuResponseOutput)
 }
 
-// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
 func (o SBSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SBSkuResponse) *int {
 		if v == nil {
@@ -1934,7 +1773,6 @@ func (o SBSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of this SKU.
 func (o SBSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SBSkuResponse) *string {
 		if v == nil {
@@ -1944,7 +1782,6 @@ func (o SBSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The billing tier of this particular SKU.
 func (o SBSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SBSkuResponse) *string {
 		if v == nil {
@@ -1954,14 +1791,10 @@ func (o SBSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
 type SqlFilter struct {
-	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
-	CompatibilityLevel *int `pulumi:"compatibilityLevel"`
-	// Value that indicates whether the rule action requires preprocessing.
-	RequiresPreprocessing *bool `pulumi:"requiresPreprocessing"`
-	// The SQL expression. e.g. MyProperty='ABC'
-	SqlExpression *string `pulumi:"sqlExpression"`
+	CompatibilityLevel    *int    `pulumi:"compatibilityLevel"`
+	RequiresPreprocessing *bool   `pulumi:"requiresPreprocessing"`
+	SqlExpression         *string `pulumi:"sqlExpression"`
 }
 
 // SqlFilterInput is an input type that accepts SqlFilterArgs and SqlFilterOutput values.
@@ -1975,14 +1808,10 @@ type SqlFilterInput interface {
 	ToSqlFilterOutputWithContext(context.Context) SqlFilterOutput
 }
 
-// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
 type SqlFilterArgs struct {
-	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
-	CompatibilityLevel pulumi.IntPtrInput `pulumi:"compatibilityLevel"`
-	// Value that indicates whether the rule action requires preprocessing.
-	RequiresPreprocessing pulumi.BoolPtrInput `pulumi:"requiresPreprocessing"`
-	// The SQL expression. e.g. MyProperty='ABC'
-	SqlExpression pulumi.StringPtrInput `pulumi:"sqlExpression"`
+	CompatibilityLevel    pulumi.IntPtrInput    `pulumi:"compatibilityLevel"`
+	RequiresPreprocessing pulumi.BoolPtrInput   `pulumi:"requiresPreprocessing"`
+	SqlExpression         pulumi.StringPtrInput `pulumi:"sqlExpression"`
 }
 
 func (SqlFilterArgs) ElementType() reflect.Type {
@@ -2038,7 +1867,6 @@ func (i *sqlFilterPtrType) ToSqlFilterPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SqlFilterPtrOutput)
 }
 
-// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
 type SqlFilterOutput struct{ *pulumi.OutputState }
 
 func (SqlFilterOutput) ElementType() reflect.Type {
@@ -2058,22 +1886,19 @@ func (o SqlFilterOutput) ToSqlFilterPtrOutput() SqlFilterPtrOutput {
 }
 
 func (o SqlFilterOutput) ToSqlFilterPtrOutputWithContext(ctx context.Context) SqlFilterPtrOutput {
-	return o.ApplyT(func(v SqlFilter) *SqlFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlFilter) *SqlFilter {
 		return &v
 	}).(SqlFilterPtrOutput)
 }
 
-// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 func (o SqlFilterOutput) CompatibilityLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SqlFilter) *int { return v.CompatibilityLevel }).(pulumi.IntPtrOutput)
 }
 
-// Value that indicates whether the rule action requires preprocessing.
 func (o SqlFilterOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SqlFilter) *bool { return v.RequiresPreprocessing }).(pulumi.BoolPtrOutput)
 }
 
-// The SQL expression. e.g. MyProperty='ABC'
 func (o SqlFilterOutput) SqlExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlFilter) *string { return v.SqlExpression }).(pulumi.StringPtrOutput)
 }
@@ -2093,10 +1918,15 @@ func (o SqlFilterPtrOutput) ToSqlFilterPtrOutputWithContext(ctx context.Context)
 }
 
 func (o SqlFilterPtrOutput) Elem() SqlFilterOutput {
-	return o.ApplyT(func(v *SqlFilter) SqlFilter { return *v }).(SqlFilterOutput)
+	return o.ApplyT(func(v *SqlFilter) SqlFilter {
+		if v != nil {
+			return *v
+		}
+		var ret SqlFilter
+		return ret
+	}).(SqlFilterOutput)
 }
 
-// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 func (o SqlFilterPtrOutput) CompatibilityLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlFilter) *int {
 		if v == nil {
@@ -2106,7 +1936,6 @@ func (o SqlFilterPtrOutput) CompatibilityLevel() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Value that indicates whether the rule action requires preprocessing.
 func (o SqlFilterPtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SqlFilter) *bool {
 		if v == nil {
@@ -2116,7 +1945,6 @@ func (o SqlFilterPtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The SQL expression. e.g. MyProperty='ABC'
 func (o SqlFilterPtrOutput) SqlExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlFilter) *string {
 		if v == nil {
@@ -2126,14 +1954,10 @@ func (o SqlFilterPtrOutput) SqlExpression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
 type SqlFilterResponse struct {
-	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
-	CompatibilityLevel *int `pulumi:"compatibilityLevel"`
-	// Value that indicates whether the rule action requires preprocessing.
-	RequiresPreprocessing *bool `pulumi:"requiresPreprocessing"`
-	// The SQL expression. e.g. MyProperty='ABC'
-	SqlExpression *string `pulumi:"sqlExpression"`
+	CompatibilityLevel    *int    `pulumi:"compatibilityLevel"`
+	RequiresPreprocessing *bool   `pulumi:"requiresPreprocessing"`
+	SqlExpression         *string `pulumi:"sqlExpression"`
 }
 
 // SqlFilterResponseInput is an input type that accepts SqlFilterResponseArgs and SqlFilterResponseOutput values.
@@ -2147,14 +1971,10 @@ type SqlFilterResponseInput interface {
 	ToSqlFilterResponseOutputWithContext(context.Context) SqlFilterResponseOutput
 }
 
-// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
 type SqlFilterResponseArgs struct {
-	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
-	CompatibilityLevel pulumi.IntPtrInput `pulumi:"compatibilityLevel"`
-	// Value that indicates whether the rule action requires preprocessing.
-	RequiresPreprocessing pulumi.BoolPtrInput `pulumi:"requiresPreprocessing"`
-	// The SQL expression. e.g. MyProperty='ABC'
-	SqlExpression pulumi.StringPtrInput `pulumi:"sqlExpression"`
+	CompatibilityLevel    pulumi.IntPtrInput    `pulumi:"compatibilityLevel"`
+	RequiresPreprocessing pulumi.BoolPtrInput   `pulumi:"requiresPreprocessing"`
+	SqlExpression         pulumi.StringPtrInput `pulumi:"sqlExpression"`
 }
 
 func (SqlFilterResponseArgs) ElementType() reflect.Type {
@@ -2210,7 +2030,6 @@ func (i *sqlFilterResponsePtrType) ToSqlFilterResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SqlFilterResponsePtrOutput)
 }
 
-// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
 type SqlFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (SqlFilterResponseOutput) ElementType() reflect.Type {
@@ -2230,22 +2049,19 @@ func (o SqlFilterResponseOutput) ToSqlFilterResponsePtrOutput() SqlFilterRespons
 }
 
 func (o SqlFilterResponseOutput) ToSqlFilterResponsePtrOutputWithContext(ctx context.Context) SqlFilterResponsePtrOutput {
-	return o.ApplyT(func(v SqlFilterResponse) *SqlFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlFilterResponse) *SqlFilterResponse {
 		return &v
 	}).(SqlFilterResponsePtrOutput)
 }
 
-// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 func (o SqlFilterResponseOutput) CompatibilityLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SqlFilterResponse) *int { return v.CompatibilityLevel }).(pulumi.IntPtrOutput)
 }
 
-// Value that indicates whether the rule action requires preprocessing.
 func (o SqlFilterResponseOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SqlFilterResponse) *bool { return v.RequiresPreprocessing }).(pulumi.BoolPtrOutput)
 }
 
-// The SQL expression. e.g. MyProperty='ABC'
 func (o SqlFilterResponseOutput) SqlExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlFilterResponse) *string { return v.SqlExpression }).(pulumi.StringPtrOutput)
 }
@@ -2265,10 +2081,15 @@ func (o SqlFilterResponsePtrOutput) ToSqlFilterResponsePtrOutputWithContext(ctx 
 }
 
 func (o SqlFilterResponsePtrOutput) Elem() SqlFilterResponseOutput {
-	return o.ApplyT(func(v *SqlFilterResponse) SqlFilterResponse { return *v }).(SqlFilterResponseOutput)
+	return o.ApplyT(func(v *SqlFilterResponse) SqlFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SqlFilterResponse
+		return ret
+	}).(SqlFilterResponseOutput)
 }
 
-// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 func (o SqlFilterResponsePtrOutput) CompatibilityLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlFilterResponse) *int {
 		if v == nil {
@@ -2278,7 +2099,6 @@ func (o SqlFilterResponsePtrOutput) CompatibilityLevel() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Value that indicates whether the rule action requires preprocessing.
 func (o SqlFilterResponsePtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SqlFilterResponse) *bool {
 		if v == nil {
@@ -2288,7 +2108,6 @@ func (o SqlFilterResponsePtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The SQL expression. e.g. MyProperty='ABC'
 func (o SqlFilterResponsePtrOutput) SqlExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlFilterResponse) *string {
 		if v == nil {
@@ -2298,9 +2117,7 @@ func (o SqlFilterResponsePtrOutput) SqlExpression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties supplied for Subnet
 type Subnet struct {
-	// Resource ID of Virtual Network Subnet
 	Id string `pulumi:"id"`
 }
 
@@ -2315,9 +2132,7 @@ type SubnetInput interface {
 	ToSubnetOutputWithContext(context.Context) SubnetOutput
 }
 
-// Properties supplied for Subnet
 type SubnetArgs struct {
-	// Resource ID of Virtual Network Subnet
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -2374,7 +2189,6 @@ func (i *subnetPtrType) ToSubnetPtrOutputWithContext(ctx context.Context) Subnet
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetPtrOutput)
 }
 
-// Properties supplied for Subnet
 type SubnetOutput struct{ *pulumi.OutputState }
 
 func (SubnetOutput) ElementType() reflect.Type {
@@ -2394,12 +2208,11 @@ func (o SubnetOutput) ToSubnetPtrOutput() SubnetPtrOutput {
 }
 
 func (o SubnetOutput) ToSubnetPtrOutputWithContext(ctx context.Context) SubnetPtrOutput {
-	return o.ApplyT(func(v Subnet) *Subnet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Subnet) *Subnet {
 		return &v
 	}).(SubnetPtrOutput)
 }
 
-// Resource ID of Virtual Network Subnet
 func (o SubnetOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v Subnet) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -2419,10 +2232,15 @@ func (o SubnetPtrOutput) ToSubnetPtrOutputWithContext(ctx context.Context) Subne
 }
 
 func (o SubnetPtrOutput) Elem() SubnetOutput {
-	return o.ApplyT(func(v *Subnet) Subnet { return *v }).(SubnetOutput)
+	return o.ApplyT(func(v *Subnet) Subnet {
+		if v != nil {
+			return *v
+		}
+		var ret Subnet
+		return ret
+	}).(SubnetOutput)
 }
 
-// Resource ID of Virtual Network Subnet
 func (o SubnetPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subnet) *string {
 		if v == nil {
@@ -2432,9 +2250,7 @@ func (o SubnetPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties supplied for Subnet
 type SubnetResponse struct {
-	// Resource ID of Virtual Network Subnet
 	Id string `pulumi:"id"`
 }
 
@@ -2449,9 +2265,7 @@ type SubnetResponseInput interface {
 	ToSubnetResponseOutputWithContext(context.Context) SubnetResponseOutput
 }
 
-// Properties supplied for Subnet
 type SubnetResponseArgs struct {
-	// Resource ID of Virtual Network Subnet
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -2508,7 +2322,6 @@ func (i *subnetResponsePtrType) ToSubnetResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetResponsePtrOutput)
 }
 
-// Properties supplied for Subnet
 type SubnetResponseOutput struct{ *pulumi.OutputState }
 
 func (SubnetResponseOutput) ElementType() reflect.Type {
@@ -2528,12 +2341,11 @@ func (o SubnetResponseOutput) ToSubnetResponsePtrOutput() SubnetResponsePtrOutpu
 }
 
 func (o SubnetResponseOutput) ToSubnetResponsePtrOutputWithContext(ctx context.Context) SubnetResponsePtrOutput {
-	return o.ApplyT(func(v SubnetResponse) *SubnetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetResponse) *SubnetResponse {
 		return &v
 	}).(SubnetResponsePtrOutput)
 }
 
-// Resource ID of Virtual Network Subnet
 func (o SubnetResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SubnetResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -2553,10 +2365,15 @@ func (o SubnetResponsePtrOutput) ToSubnetResponsePtrOutputWithContext(ctx contex
 }
 
 func (o SubnetResponsePtrOutput) Elem() SubnetResponseOutput {
-	return o.ApplyT(func(v *SubnetResponse) SubnetResponse { return *v }).(SubnetResponseOutput)
+	return o.ApplyT(func(v *SubnetResponse) SubnetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SubnetResponse
+		return ret
+	}).(SubnetResponseOutput)
 }
 
-// Resource ID of Virtual Network Subnet
 func (o SubnetResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetResponse) *string {
 		if v == nil {

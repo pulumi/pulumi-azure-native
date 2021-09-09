@@ -17,15 +17,11 @@ func ListIntegrationAccountCallbackUrl(ctx *pulumi.Context, args *ListIntegratio
 }
 
 type ListIntegrationAccountCallbackUrlArgs struct {
-	// The integration account name.
-	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The expiry time.
-	NotAfter *string `pulumi:"notAfter"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	IntegrationAccountName string  `pulumi:"integrationAccountName"`
+	NotAfter               *string `pulumi:"notAfter"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
 }
 
 type ListIntegrationAccountCallbackUrlResult struct {
-	// The URL value.
 	Value *string `pulumi:"value"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Private Endpoint Connection ARM resource.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:datafactory/v20180601:getPrivateEndpointConnection", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEnd
 }
 
 type LookupPrivateEndpointConnectionArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The private endpoint connection name.
+	FactoryName                   string `pulumi:"factoryName"`
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
 }
 
 // Private Endpoint Connection ARM resource.
 type LookupPrivateEndpointConnectionResult struct {
-	// Etag identifies change in the resource.
-	Etag string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Core resource properties
+	Etag       string                                  `pulumi:"etag"`
+	Id         string                                  `pulumi:"id"`
+	Name       string                                  `pulumi:"name"`
 	Properties RemotePrivateEndpointConnectionResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type       string                                  `pulumi:"type"`
 }

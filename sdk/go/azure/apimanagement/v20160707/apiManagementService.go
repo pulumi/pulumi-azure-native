@@ -11,54 +11,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of an API Management service resource.
 type ApiManagementService struct {
 	pulumi.CustomResourceState
 
-	// Additional datacenter locations of the API Management service.
-	AdditionalLocations AdditionalRegionResponseArrayOutput `pulumi:"additionalLocations"`
-	// Addresser email.
-	AddresserEmail pulumi.StringPtrOutput `pulumi:"addresserEmail"`
-	// Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	CreatedAtUtc pulumi.StringOutput `pulumi:"createdAtUtc"`
-	// Custom properties of the API Management service, like disabling TLS 1.0.
-	CustomProperties pulumi.StringMapOutput `pulumi:"customProperties"`
-	// ETag of the resource.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Custom hostname configuration of the API Management service.
-	HostnameConfigurations HostnameConfigurationResponseArrayOutput `pulumi:"hostnameConfigurations"`
-	// Datacenter location of the API Management service.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Management API endpoint URL of the API Management service.
-	ManagementApiUrl pulumi.StringOutput `pulumi:"managementApiUrl"`
-	// Name of the API Management service.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Publisher portal endpoint Url of the API Management service.
-	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
-	// The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Publisher email.
-	PublisherEmail pulumi.StringOutput `pulumi:"publisherEmail"`
-	// Publisher name.
-	PublisherName pulumi.StringOutput `pulumi:"publisherName"`
-	// Proxy endpoint URL of the API Management service.
-	RuntimeUrl pulumi.StringOutput `pulumi:"runtimeUrl"`
-	// SCM endpoint URL of the API Management service.
-	ScmUrl pulumi.StringOutput `pulumi:"scmUrl"`
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuPropertiesResponseOutput `pulumi:"sku"`
-	// Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
-	StaticIPs pulumi.StringArrayOutput `pulumi:"staticIPs"`
-	// API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
-	TargetProvisioningState pulumi.StringOutput `pulumi:"targetProvisioningState"`
-	// Resource type of the API Management service.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-	VpnType pulumi.StringPtrOutput `pulumi:"vpnType"`
-	// Virtual network configuration of the API Management service.
-	Vpnconfiguration VirtualNetworkConfigurationResponsePtrOutput `pulumi:"vpnconfiguration"`
+	AdditionalLocations     AdditionalRegionResponseArrayOutput             `pulumi:"additionalLocations"`
+	AddresserEmail          pulumi.StringPtrOutput                          `pulumi:"addresserEmail"`
+	CreatedAtUtc            pulumi.StringOutput                             `pulumi:"createdAtUtc"`
+	CustomProperties        pulumi.StringMapOutput                          `pulumi:"customProperties"`
+	Etag                    pulumi.StringPtrOutput                          `pulumi:"etag"`
+	HostnameConfigurations  HostnameConfigurationResponseArrayOutput        `pulumi:"hostnameConfigurations"`
+	Location                pulumi.StringOutput                             `pulumi:"location"`
+	ManagementApiUrl        pulumi.StringOutput                             `pulumi:"managementApiUrl"`
+	Name                    pulumi.StringOutput                             `pulumi:"name"`
+	PortalUrl               pulumi.StringOutput                             `pulumi:"portalUrl"`
+	ProvisioningState       pulumi.StringOutput                             `pulumi:"provisioningState"`
+	PublisherEmail          pulumi.StringOutput                             `pulumi:"publisherEmail"`
+	PublisherName           pulumi.StringOutput                             `pulumi:"publisherName"`
+	RuntimeUrl              pulumi.StringOutput                             `pulumi:"runtimeUrl"`
+	ScmUrl                  pulumi.StringOutput                             `pulumi:"scmUrl"`
+	Sku                     ApiManagementServiceSkuPropertiesResponseOutput `pulumi:"sku"`
+	StaticIPs               pulumi.StringArrayOutput                        `pulumi:"staticIPs"`
+	Tags                    pulumi.StringMapOutput                          `pulumi:"tags"`
+	TargetProvisioningState pulumi.StringOutput                             `pulumi:"targetProvisioningState"`
+	Type                    pulumi.StringOutput                             `pulumi:"type"`
+	VpnType                 pulumi.StringPtrOutput                          `pulumi:"vpnType"`
+	Vpnconfiguration        VirtualNetworkConfigurationResponsePtrOutput    `pulumi:"vpnconfiguration"`
 }
 
 // NewApiManagementService registers a new resource with the given unique name, arguments, and options.
@@ -81,8 +58,7 @@ func NewApiManagementService(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	if args.VpnType == nil {
-		e := VirtualNetworkType("None")
-		args.VpnType = &e
+		args.VpnType = VirtualNetworkType("None")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -188,66 +164,38 @@ func (ApiManagementServiceState) ElementType() reflect.Type {
 }
 
 type apiManagementServiceArgs struct {
-	// Additional datacenter locations of the API Management service.
-	AdditionalLocations []AdditionalRegion `pulumi:"additionalLocations"`
-	// Addresser email.
-	AddresserEmail *string `pulumi:"addresserEmail"`
-	// Custom properties of the API Management service, like disabling TLS 1.0.
-	CustomProperties map[string]string `pulumi:"customProperties"`
-	// ETag of the resource.
-	Etag *string `pulumi:"etag"`
-	// Custom hostname configuration of the API Management service.
-	HostnameConfigurations []HostnameConfiguration `pulumi:"hostnameConfigurations"`
-	// Datacenter location of the API Management service.
-	Location *string `pulumi:"location"`
-	// Publisher email.
-	PublisherEmail string `pulumi:"publisherEmail"`
-	// Publisher name.
-	PublisherName string `pulumi:"publisherName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName *string `pulumi:"serviceName"`
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuProperties `pulumi:"sku"`
-	// API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
-	Tags map[string]string `pulumi:"tags"`
-	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-	VpnType *string `pulumi:"vpnType"`
-	// Virtual network configuration of the API Management service.
-	Vpnconfiguration *VirtualNetworkConfiguration `pulumi:"vpnconfiguration"`
+	AdditionalLocations    []AdditionalRegion                `pulumi:"additionalLocations"`
+	AddresserEmail         *string                           `pulumi:"addresserEmail"`
+	CustomProperties       map[string]string                 `pulumi:"customProperties"`
+	Etag                   *string                           `pulumi:"etag"`
+	HostnameConfigurations []HostnameConfiguration           `pulumi:"hostnameConfigurations"`
+	Location               *string                           `pulumi:"location"`
+	PublisherEmail         string                            `pulumi:"publisherEmail"`
+	PublisherName          string                            `pulumi:"publisherName"`
+	ResourceGroupName      string                            `pulumi:"resourceGroupName"`
+	ServiceName            *string                           `pulumi:"serviceName"`
+	Sku                    ApiManagementServiceSkuProperties `pulumi:"sku"`
+	Tags                   map[string]string                 `pulumi:"tags"`
+	VpnType                *VirtualNetworkType               `pulumi:"vpnType"`
+	Vpnconfiguration       *VirtualNetworkConfiguration      `pulumi:"vpnconfiguration"`
 }
 
 // The set of arguments for constructing a ApiManagementService resource.
 type ApiManagementServiceArgs struct {
-	// Additional datacenter locations of the API Management service.
-	AdditionalLocations AdditionalRegionArrayInput
-	// Addresser email.
-	AddresserEmail pulumi.StringPtrInput
-	// Custom properties of the API Management service, like disabling TLS 1.0.
-	CustomProperties pulumi.StringMapInput
-	// ETag of the resource.
-	Etag pulumi.StringPtrInput
-	// Custom hostname configuration of the API Management service.
+	AdditionalLocations    AdditionalRegionArrayInput
+	AddresserEmail         pulumi.StringPtrInput
+	CustomProperties       pulumi.StringMapInput
+	Etag                   pulumi.StringPtrInput
 	HostnameConfigurations HostnameConfigurationArrayInput
-	// Datacenter location of the API Management service.
-	Location pulumi.StringPtrInput
-	// Publisher email.
-	PublisherEmail pulumi.StringInput
-	// Publisher name.
-	PublisherName pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringPtrInput
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuPropertiesInput
-	// API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
-	Tags pulumi.StringMapInput
-	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-	VpnType *VirtualNetworkType
-	// Virtual network configuration of the API Management service.
-	Vpnconfiguration VirtualNetworkConfigurationPtrInput
+	Location               pulumi.StringPtrInput
+	PublisherEmail         pulumi.StringInput
+	PublisherName          pulumi.StringInput
+	ResourceGroupName      pulumi.StringInput
+	ServiceName            pulumi.StringPtrInput
+	Sku                    ApiManagementServiceSkuPropertiesInput
+	Tags                   pulumi.StringMapInput
+	VpnType                VirtualNetworkTypePtrInput
+	Vpnconfiguration       VirtualNetworkConfigurationPtrInput
 }
 
 func (ApiManagementServiceArgs) ElementType() reflect.Type {
@@ -273,9 +221,7 @@ func (i *ApiManagementService) ToApiManagementServiceOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceOutput)
 }
 
-type ApiManagementServiceOutput struct {
-	*pulumi.OutputState
-}
+type ApiManagementServiceOutput struct{ *pulumi.OutputState }
 
 func (ApiManagementServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiManagementService)(nil))

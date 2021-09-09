@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a DNS zone.
 type Zone struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets the ETag of the zone that is being updated, as received from a Get operation.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the properties of the zone.
+	Etag       pulumi.StringPtrOutput       `pulumi:"etag"`
+	Location   pulumi.StringOutput          `pulumi:"location"`
+	Name       pulumi.StringOutput          `pulumi:"name"`
 	Properties ZonePropertiesResponseOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput       `pulumi:"tags"`
+	Type       pulumi.StringOutput          `pulumi:"type"`
 }
 
 // NewZone registers a new resource with the given unique name, arguments, and options.
@@ -113,34 +106,22 @@ func (ZoneState) ElementType() reflect.Type {
 }
 
 type zoneArgs struct {
-	// Gets or sets the ETag of the zone that is being updated, as received from a Get operation.
-	Etag *string `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Gets or sets the properties of the zone.
-	Properties *ZoneProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the zone without a terminating dot.
-	ZoneName *string `pulumi:"zoneName"`
+	Etag              *string           `pulumi:"etag"`
+	Location          *string           `pulumi:"location"`
+	Properties        *ZoneProperties   `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	ZoneName          *string           `pulumi:"zoneName"`
 }
 
 // The set of arguments for constructing a Zone resource.
 type ZoneArgs struct {
-	// Gets or sets the ETag of the zone that is being updated, as received from a Get operation.
-	Etag pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Gets or sets the properties of the zone.
-	Properties ZonePropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
+	Etag              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        ZonePropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the zone without a terminating dot.
-	ZoneName pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	ZoneName          pulumi.StringPtrInput
 }
 
 func (ZoneArgs) ElementType() reflect.Type {
@@ -166,9 +147,7 @@ func (i *Zone) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneOutput)
 }
 
-type ZoneOutput struct {
-	*pulumi.OutputState
-}
+type ZoneOutput struct{ *pulumi.OutputState }
 
 func (ZoneOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Zone)(nil))

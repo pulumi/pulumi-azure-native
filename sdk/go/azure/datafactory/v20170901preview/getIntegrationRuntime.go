@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Integration runtime resource type.
 func LookupIntegrationRuntime(ctx *pulumi.Context, args *LookupIntegrationRuntimeArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationRuntimeResult, error) {
 	var rv LookupIntegrationRuntimeResult
 	err := ctx.Invoke("azure-native:datafactory/v20170901preview:getIntegrationRuntime", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupIntegrationRuntime(ctx *pulumi.Context, args *LookupIntegrationRuntim
 }
 
 type LookupIntegrationRuntimeArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The integration runtime name.
+	FactoryName            string `pulumi:"factoryName"`
 	IntegrationRuntimeName string `pulumi:"integrationRuntimeName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 // Integration runtime resource type.
 type LookupIntegrationRuntimeResult struct {
-	// Etag identifies change in the resource.
-	Etag string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Integration runtime properties.
+	Etag       string      `pulumi:"etag"`
+	Id         string      `pulumi:"id"`
+	Name       string      `pulumi:"name"`
 	Properties interface{} `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type       string      `pulumi:"type"`
 }

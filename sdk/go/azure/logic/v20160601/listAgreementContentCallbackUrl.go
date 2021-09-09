@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The workflow trigger callback URL.
 func ListAgreementContentCallbackUrl(ctx *pulumi.Context, args *ListAgreementContentCallbackUrlArgs, opts ...pulumi.InvokeOption) (*ListAgreementContentCallbackUrlResult, error) {
 	var rv ListAgreementContentCallbackUrlResult
 	err := ctx.Invoke("azure-native:logic/v20160601:listAgreementContentCallbackUrl", args, &rv, opts...)
@@ -18,30 +17,19 @@ func ListAgreementContentCallbackUrl(ctx *pulumi.Context, args *ListAgreementCon
 }
 
 type ListAgreementContentCallbackUrlArgs struct {
-	// The integration account agreement name.
-	AgreementName string `pulumi:"agreementName"`
-	// The integration account name.
-	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The key type.
-	KeyType *string `pulumi:"keyType"`
-	// The expiry time.
-	NotAfter *string `pulumi:"notAfter"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AgreementName          string   `pulumi:"agreementName"`
+	IntegrationAccountName string   `pulumi:"integrationAccountName"`
+	KeyType                *KeyType `pulumi:"keyType"`
+	NotAfter               *string  `pulumi:"notAfter"`
+	ResourceGroupName      string   `pulumi:"resourceGroupName"`
 }
 
 // The workflow trigger callback URL.
 type ListAgreementContentCallbackUrlResult struct {
-	// Gets the workflow trigger callback URL base path.
-	BasePath string `pulumi:"basePath"`
-	// Gets the workflow trigger callback URL HTTP method.
-	Method string `pulumi:"method"`
-	// Gets the workflow trigger callback URL query parameters.
-	Queries *WorkflowTriggerListCallbackUrlQueriesResponse `pulumi:"queries"`
-	// Gets the workflow trigger callback URL relative path.
-	RelativePath string `pulumi:"relativePath"`
-	// Gets the workflow trigger callback URL relative path parameters.
-	RelativePathParameters []string `pulumi:"relativePathParameters"`
-	// Gets the workflow trigger callback URL.
-	Value string `pulumi:"value"`
+	BasePath               string                                         `pulumi:"basePath"`
+	Method                 string                                         `pulumi:"method"`
+	Queries                *WorkflowTriggerListCallbackUrlQueriesResponse `pulumi:"queries"`
+	RelativePath           string                                         `pulumi:"relativePath"`
+	RelativePathParameters []string                                       `pulumi:"relativePathParameters"`
+	Value                  string                                         `pulumi:"value"`
 }

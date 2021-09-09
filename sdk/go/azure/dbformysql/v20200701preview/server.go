@@ -11,60 +11,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a server.
 type Server struct {
 	pulumi.CustomResourceState
 
-	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
-	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
-	// availability Zone information of the server.
-	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
-	// Status showing whether the data encryption is enabled with customer-managed keys.
-	ByokEnforcement pulumi.StringOutput `pulumi:"byokEnforcement"`
-	// Delegated subnet arguments.
+	AdministratorLogin       pulumi.StringPtrOutput                    `pulumi:"administratorLogin"`
+	AvailabilityZone         pulumi.StringPtrOutput                    `pulumi:"availabilityZone"`
+	ByokEnforcement          pulumi.StringOutput                       `pulumi:"byokEnforcement"`
 	DelegatedSubnetArguments DelegatedSubnetArgumentsResponsePtrOutput `pulumi:"delegatedSubnetArguments"`
-	// Earliest restore point creation time (ISO8601 format)
-	EarliestRestoreDate pulumi.StringOutput `pulumi:"earliestRestoreDate"`
-	// The fully qualified domain name of a server.
-	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
-	// Enable HA or not for a server.
-	HaEnabled pulumi.StringPtrOutput `pulumi:"haEnabled"`
-	// The state of a HA server.
-	HaState pulumi.StringOutput `pulumi:"haState"`
-	// The Azure Active Directory identity of the server.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Maintenance window of a server.
-	MaintenanceWindow MaintenanceWindowResponsePtrOutput `pulumi:"maintenanceWindow"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// private dns zone arguments.
-	PrivateDnsZoneArguments PrivateDnsZoneArgumentsResponsePtrOutput `pulumi:"privateDnsZoneArguments"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringOutput `pulumi:"publicNetworkAccess"`
-	// The maximum number of replicas that a primary server can have.
-	ReplicaCapacity pulumi.IntOutput `pulumi:"replicaCapacity"`
-	// The replication role.
-	ReplicationRole pulumi.StringPtrOutput `pulumi:"replicationRole"`
-	// The SKU (pricing tier) of the server.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// The source MySQL server id.
-	SourceServerId pulumi.StringPtrOutput `pulumi:"sourceServerId"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement pulumi.StringPtrOutput `pulumi:"sslEnforcement"`
-	// availability Zone information of the server.
-	StandbyAvailabilityZone pulumi.StringOutput `pulumi:"standbyAvailabilityZone"`
-	// The state of a server.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Storage profile of a server.
-	StorageProfile StorageProfileResponsePtrOutput `pulumi:"storageProfile"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Server version.
-	Version pulumi.StringPtrOutput `pulumi:"version"`
+	EarliestRestoreDate      pulumi.StringOutput                       `pulumi:"earliestRestoreDate"`
+	FullyQualifiedDomainName pulumi.StringOutput                       `pulumi:"fullyQualifiedDomainName"`
+	HaEnabled                pulumi.StringPtrOutput                    `pulumi:"haEnabled"`
+	HaState                  pulumi.StringOutput                       `pulumi:"haState"`
+	Identity                 IdentityResponsePtrOutput                 `pulumi:"identity"`
+	Location                 pulumi.StringOutput                       `pulumi:"location"`
+	MaintenanceWindow        MaintenanceWindowResponsePtrOutput        `pulumi:"maintenanceWindow"`
+	Name                     pulumi.StringOutput                       `pulumi:"name"`
+	PrivateDnsZoneArguments  PrivateDnsZoneArgumentsResponsePtrOutput  `pulumi:"privateDnsZoneArguments"`
+	PublicNetworkAccess      pulumi.StringOutput                       `pulumi:"publicNetworkAccess"`
+	ReplicaCapacity          pulumi.IntOutput                          `pulumi:"replicaCapacity"`
+	ReplicationRole          pulumi.StringPtrOutput                    `pulumi:"replicationRole"`
+	Sku                      SkuResponsePtrOutput                      `pulumi:"sku"`
+	SourceServerId           pulumi.StringPtrOutput                    `pulumi:"sourceServerId"`
+	SslEnforcement           pulumi.StringPtrOutput                    `pulumi:"sslEnforcement"`
+	StandbyAvailabilityZone  pulumi.StringOutput                       `pulumi:"standbyAvailabilityZone"`
+	State                    pulumi.StringOutput                       `pulumi:"state"`
+	StorageProfile           StorageProfileResponsePtrOutput           `pulumi:"storageProfile"`
+	Tags                     pulumi.StringMapOutput                    `pulumi:"tags"`
+	Type                     pulumi.StringOutput                       `pulumi:"type"`
+	Version                  pulumi.StringPtrOutput                    `pulumi:"version"`
 }
 
 // NewServer registers a new resource with the given unique name, arguments, and options.
@@ -133,94 +107,52 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
-	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
-	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The password of the administrator login (required for server creation).
-	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
-	// availability Zone information of the server.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The mode to create a new MySQL server.
-	CreateMode *string `pulumi:"createMode"`
-	// Delegated subnet arguments.
-	DelegatedSubnetArguments *DelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
-	// Enable HA or not for a server.
-	HaEnabled *string `pulumi:"haEnabled"`
-	// The Azure Active Directory identity of the server.
-	Identity *Identity `pulumi:"identity"`
-	// Status showing whether the server enabled infrastructure encryption.
-	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Maintenance window of a server.
-	MaintenanceWindow *MaintenanceWindow `pulumi:"maintenanceWindow"`
-	// private dns zone arguments.
-	PrivateDnsZoneArguments *PrivateDnsZoneArguments `pulumi:"privateDnsZoneArguments"`
-	// The replication role.
-	ReplicationRole *string `pulumi:"replicationRole"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Restore point creation time (ISO8601 format), specifying the time to restore from.
-	RestorePointInTime *string `pulumi:"restorePointInTime"`
-	// The name of the server.
-	ServerName *string `pulumi:"serverName"`
-	// The SKU (pricing tier) of the server.
-	Sku *Sku `pulumi:"sku"`
-	// The source MySQL server id.
-	SourceServerId *string `pulumi:"sourceServerId"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *string `pulumi:"sslEnforcement"`
-	// Storage profile of a server.
-	StorageProfile *StorageProfile `pulumi:"storageProfile"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Server version.
-	Version *string `pulumi:"version"`
+	AdministratorLogin         *string                   `pulumi:"administratorLogin"`
+	AdministratorLoginPassword *string                   `pulumi:"administratorLoginPassword"`
+	AvailabilityZone           *string                   `pulumi:"availabilityZone"`
+	CreateMode                 *string                   `pulumi:"createMode"`
+	DelegatedSubnetArguments   *DelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
+	HaEnabled                  *string                   `pulumi:"haEnabled"`
+	Identity                   *Identity                 `pulumi:"identity"`
+	InfrastructureEncryption   *string                   `pulumi:"infrastructureEncryption"`
+	Location                   *string                   `pulumi:"location"`
+	MaintenanceWindow          *MaintenanceWindow        `pulumi:"maintenanceWindow"`
+	PrivateDnsZoneArguments    *PrivateDnsZoneArguments  `pulumi:"privateDnsZoneArguments"`
+	ReplicationRole            *string                   `pulumi:"replicationRole"`
+	ResourceGroupName          string                    `pulumi:"resourceGroupName"`
+	RestorePointInTime         *string                   `pulumi:"restorePointInTime"`
+	ServerName                 *string                   `pulumi:"serverName"`
+	Sku                        *Sku                      `pulumi:"sku"`
+	SourceServerId             *string                   `pulumi:"sourceServerId"`
+	SslEnforcement             *string                   `pulumi:"sslEnforcement"`
+	StorageProfile             *StorageProfile           `pulumi:"storageProfile"`
+	Tags                       map[string]string         `pulumi:"tags"`
+	Version                    *string                   `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
-	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
-	AdministratorLogin pulumi.StringPtrInput
-	// The password of the administrator login (required for server creation).
+	AdministratorLogin         pulumi.StringPtrInput
 	AdministratorLoginPassword pulumi.StringPtrInput
-	// availability Zone information of the server.
-	AvailabilityZone pulumi.StringPtrInput
-	// The mode to create a new MySQL server.
-	CreateMode pulumi.StringPtrInput
-	// Delegated subnet arguments.
-	DelegatedSubnetArguments DelegatedSubnetArgumentsPtrInput
-	// Enable HA or not for a server.
-	HaEnabled pulumi.StringPtrInput
-	// The Azure Active Directory identity of the server.
-	Identity IdentityPtrInput
-	// Status showing whether the server enabled infrastructure encryption.
-	InfrastructureEncryption pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Maintenance window of a server.
-	MaintenanceWindow MaintenanceWindowPtrInput
-	// private dns zone arguments.
-	PrivateDnsZoneArguments PrivateDnsZoneArgumentsPtrInput
-	// The replication role.
-	ReplicationRole pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Restore point creation time (ISO8601 format), specifying the time to restore from.
-	RestorePointInTime pulumi.StringPtrInput
-	// The name of the server.
-	ServerName pulumi.StringPtrInput
-	// The SKU (pricing tier) of the server.
-	Sku SkuPtrInput
-	// The source MySQL server id.
-	SourceServerId pulumi.StringPtrInput
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement pulumi.StringPtrInput
-	// Storage profile of a server.
-	StorageProfile StorageProfilePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Server version.
-	Version pulumi.StringPtrInput
+	AvailabilityZone           pulumi.StringPtrInput
+	CreateMode                 pulumi.StringPtrInput
+	DelegatedSubnetArguments   DelegatedSubnetArgumentsPtrInput
+	HaEnabled                  pulumi.StringPtrInput
+	Identity                   IdentityPtrInput
+	InfrastructureEncryption   pulumi.StringPtrInput
+	Location                   pulumi.StringPtrInput
+	MaintenanceWindow          MaintenanceWindowPtrInput
+	PrivateDnsZoneArguments    PrivateDnsZoneArgumentsPtrInput
+	ReplicationRole            pulumi.StringPtrInput
+	ResourceGroupName          pulumi.StringInput
+	RestorePointInTime         pulumi.StringPtrInput
+	ServerName                 pulumi.StringPtrInput
+	Sku                        SkuPtrInput
+	SourceServerId             pulumi.StringPtrInput
+	SslEnforcement             pulumi.StringPtrInput
+	StorageProfile             StorageProfilePtrInput
+	Tags                       pulumi.StringMapInput
+	Version                    pulumi.StringPtrInput
 }
 
 func (ServerArgs) ElementType() reflect.Type {
@@ -246,9 +178,7 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerOutput)
 }
 
-type ServerOutput struct {
-	*pulumi.OutputState
-}
+type ServerOutput struct{ *pulumi.OutputState }
 
 func (ServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Server)(nil))

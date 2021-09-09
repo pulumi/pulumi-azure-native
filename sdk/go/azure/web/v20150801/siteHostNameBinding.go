@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A host name binding object
 type SiteHostNameBinding struct {
 	pulumi.CustomResourceState
 
-	// Azure resource name
-	AzureResourceName pulumi.StringPtrOutput `pulumi:"azureResourceName"`
-	// Azure resource type
-	AzureResourceType pulumi.StringPtrOutput `pulumi:"azureResourceType"`
-	// Custom DNS record type
+	AzureResourceName           pulumi.StringPtrOutput `pulumi:"azureResourceName"`
+	AzureResourceType           pulumi.StringPtrOutput `pulumi:"azureResourceType"`
 	CustomHostNameDnsRecordType pulumi.StringPtrOutput `pulumi:"customHostNameDnsRecordType"`
-	// Fully qualified ARM domain resource URI
-	DomainId pulumi.StringPtrOutput `pulumi:"domainId"`
-	// Host name type
-	HostNameType pulumi.StringPtrOutput `pulumi:"hostNameType"`
-	// Kind of resource
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Web app name
-	SiteName pulumi.StringPtrOutput `pulumi:"siteName"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	DomainId                    pulumi.StringPtrOutput `pulumi:"domainId"`
+	HostNameType                pulumi.StringPtrOutput `pulumi:"hostNameType"`
+	Kind                        pulumi.StringPtrOutput `pulumi:"kind"`
+	Location                    pulumi.StringOutput    `pulumi:"location"`
+	Name                        pulumi.StringPtrOutput `pulumi:"name"`
+	SiteName                    pulumi.StringPtrOutput `pulumi:"siteName"`
+	Tags                        pulumi.StringMapOutput `pulumi:"tags"`
+	Type                        pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewSiteHostNameBinding registers a new resource with the given unique name, arguments, and options.
@@ -162,66 +150,38 @@ func (SiteHostNameBindingState) ElementType() reflect.Type {
 }
 
 type siteHostNameBindingArgs struct {
-	// Azure resource name
-	AzureResourceName *string `pulumi:"azureResourceName"`
-	// Azure resource type
-	AzureResourceType *string `pulumi:"azureResourceType"`
-	// Custom DNS record type
-	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
-	// Fully qualified ARM domain resource URI
-	DomainId *string `pulumi:"domainId"`
-	// Name of host
-	HostName *string `pulumi:"hostName"`
-	// Host name type
-	HostNameType *string `pulumi:"hostNameType"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// Name of resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Web app name
-	SiteName *string `pulumi:"siteName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	AzureResourceName           *string                      `pulumi:"azureResourceName"`
+	AzureResourceType           *AzureResourceType           `pulumi:"azureResourceType"`
+	CustomHostNameDnsRecordType *CustomHostNameDnsRecordType `pulumi:"customHostNameDnsRecordType"`
+	DomainId                    *string                      `pulumi:"domainId"`
+	HostName                    *string                      `pulumi:"hostName"`
+	HostNameType                *HostNameType                `pulumi:"hostNameType"`
+	Id                          *string                      `pulumi:"id"`
+	Kind                        *string                      `pulumi:"kind"`
+	Location                    *string                      `pulumi:"location"`
+	Name                        string                       `pulumi:"name"`
+	ResourceGroupName           string                       `pulumi:"resourceGroupName"`
+	SiteName                    *string                      `pulumi:"siteName"`
+	Tags                        map[string]string            `pulumi:"tags"`
+	Type                        *string                      `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SiteHostNameBinding resource.
 type SiteHostNameBindingArgs struct {
-	// Azure resource name
-	AzureResourceName pulumi.StringPtrInput
-	// Azure resource type
-	AzureResourceType *AzureResourceType
-	// Custom DNS record type
-	CustomHostNameDnsRecordType *CustomHostNameDnsRecordType
-	// Fully qualified ARM domain resource URI
-	DomainId pulumi.StringPtrInput
-	// Name of host
-	HostName pulumi.StringPtrInput
-	// Host name type
-	HostNameType *HostNameType
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringInput
-	// Name of resource group
-	ResourceGroupName pulumi.StringInput
-	// Web app name
-	SiteName pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
+	AzureResourceName           pulumi.StringPtrInput
+	AzureResourceType           AzureResourceTypePtrInput
+	CustomHostNameDnsRecordType CustomHostNameDnsRecordTypePtrInput
+	DomainId                    pulumi.StringPtrInput
+	HostName                    pulumi.StringPtrInput
+	HostNameType                HostNameTypePtrInput
+	Id                          pulumi.StringPtrInput
+	Kind                        pulumi.StringPtrInput
+	Location                    pulumi.StringPtrInput
+	Name                        pulumi.StringInput
+	ResourceGroupName           pulumi.StringInput
+	SiteName                    pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
+	Type                        pulumi.StringPtrInput
 }
 
 func (SiteHostNameBindingArgs) ElementType() reflect.Type {
@@ -247,9 +207,7 @@ func (i *SiteHostNameBinding) ToSiteHostNameBindingOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SiteHostNameBindingOutput)
 }
 
-type SiteHostNameBindingOutput struct {
-	*pulumi.OutputState
-}
+type SiteHostNameBindingOutput struct{ *pulumi.OutputState }
 
 func (SiteHostNameBindingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteHostNameBinding)(nil))

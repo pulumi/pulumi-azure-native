@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Build step resource properties
 func LookupBuildStep(ctx *pulumi.Context, args *LookupBuildStepArgs, opts ...pulumi.InvokeOption) (*LookupBuildStepResult, error) {
 	var rv LookupBuildStepResult
 	err := ctx.Invoke("azure-native:containerregistry/v20180201preview:getBuildStep", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupBuildStep(ctx *pulumi.Context, args *LookupBuildStepArgs, opts ...pul
 }
 
 type LookupBuildStepArgs struct {
-	// The name of the container registry build task.
-	BuildTaskName string `pulumi:"buildTaskName"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
+	BuildTaskName     string `pulumi:"buildTaskName"`
+	RegistryName      string `pulumi:"registryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of a build step for a container registry build task.
-	StepName string `pulumi:"stepName"`
+	StepName          string `pulumi:"stepName"`
 }
 
 // Build step resource properties
 type LookupBuildStepResult struct {
-	// The resource ID.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of a build step.
+	Id         string                  `pulumi:"id"`
+	Name       string                  `pulumi:"name"`
 	Properties DockerBuildStepResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Type       string                  `pulumi:"type"`
 }

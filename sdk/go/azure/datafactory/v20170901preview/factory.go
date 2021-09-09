@@ -11,27 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Factory resource type.
 type Factory struct {
 	pulumi.CustomResourceState
 
-	// Time the factory was created in ISO8601 format.
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
-	// Managed service identity of the factory.
-	Identity FactoryIdentityResponsePtrOutput `pulumi:"identity"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Factory provisioning state, example Succeeded.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Version of the factory.
-	Version pulumi.StringOutput `pulumi:"version"`
-	// VSTS repo information of the factory.
+	CreateTime        pulumi.StringOutput                       `pulumi:"createTime"`
+	Identity          FactoryIdentityResponsePtrOutput          `pulumi:"identity"`
+	Location          pulumi.StringPtrOutput                    `pulumi:"location"`
+	Name              pulumi.StringOutput                       `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                       `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput                    `pulumi:"tags"`
+	Type              pulumi.StringOutput                       `pulumi:"type"`
+	Version           pulumi.StringOutput                       `pulumi:"version"`
 	VstsConfiguration FactoryVSTSConfigurationResponsePtrOutput `pulumi:"vstsConfiguration"`
 }
 
@@ -95,33 +85,21 @@ func (FactoryState) ElementType() reflect.Type {
 }
 
 type factoryArgs struct {
-	// The factory name.
-	FactoryName *string `pulumi:"factoryName"`
-	// Managed service identity of the factory.
-	Identity *FactoryIdentity `pulumi:"identity"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// VSTS repo information of the factory.
+	FactoryName       *string                   `pulumi:"factoryName"`
+	Identity          *FactoryIdentity          `pulumi:"identity"`
+	Location          *string                   `pulumi:"location"`
+	ResourceGroupName string                    `pulumi:"resourceGroupName"`
+	Tags              map[string]string         `pulumi:"tags"`
 	VstsConfiguration *FactoryVSTSConfiguration `pulumi:"vstsConfiguration"`
 }
 
 // The set of arguments for constructing a Factory resource.
 type FactoryArgs struct {
-	// The factory name.
-	FactoryName pulumi.StringPtrInput
-	// Managed service identity of the factory.
-	Identity FactoryIdentityPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource group name.
+	FactoryName       pulumi.StringPtrInput
+	Identity          FactoryIdentityPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// VSTS repo information of the factory.
+	Tags              pulumi.StringMapInput
 	VstsConfiguration FactoryVSTSConfigurationPtrInput
 }
 
@@ -148,9 +126,7 @@ func (i *Factory) ToFactoryOutputWithContext(ctx context.Context) FactoryOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(FactoryOutput)
 }
 
-type FactoryOutput struct {
-	*pulumi.OutputState
-}
+type FactoryOutput struct{ *pulumi.OutputState }
 
 func (FactoryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Factory)(nil))

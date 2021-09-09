@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Collection of identifiers.
 func ListSiteIdentifiersAssignedToHostName(ctx *pulumi.Context, args *ListSiteIdentifiersAssignedToHostNameArgs, opts ...pulumi.InvokeOption) (*ListSiteIdentifiersAssignedToHostNameResult, error) {
 	var rv ListSiteIdentifiersAssignedToHostNameResult
 	err := ctx.Invoke("azure-native:web/v20201201:listSiteIdentifiersAssignedToHostName", args, &rv, opts...)
@@ -18,14 +17,11 @@ func ListSiteIdentifiersAssignedToHostName(ctx *pulumi.Context, args *ListSiteId
 }
 
 type ListSiteIdentifiersAssignedToHostNameArgs struct {
-	// Name of the object.
 	Name *string `pulumi:"name"`
 }
 
 // Collection of identifiers.
 type ListSiteIdentifiersAssignedToHostNameResult struct {
-	// Link to next page of resources.
-	NextLink string `pulumi:"nextLink"`
-	// Collection of resources.
-	Value []IdentifierResponse `pulumi:"value"`
+	NextLink string               `pulumi:"nextLink"`
+	Value    []IdentifierResponse `pulumi:"value"`
 }

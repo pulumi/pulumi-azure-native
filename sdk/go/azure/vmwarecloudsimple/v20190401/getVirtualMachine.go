@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual machine model
 func LookupVirtualMachine(ctx *pulumi.Context, args *LookupVirtualMachineArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineResult, error) {
 	var rv LookupVirtualMachineResult
 	err := ctx.Invoke("azure-native:vmwarecloudsimple/v20190401:getVirtualMachine", args, &rv, opts...)
@@ -18,66 +17,37 @@ func LookupVirtualMachine(ctx *pulumi.Context, args *LookupVirtualMachineArgs, o
 }
 
 type LookupVirtualMachineArgs struct {
-	// The name of the resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// virtual machine name
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	VirtualMachineName string `pulumi:"virtualMachineName"`
 }
 
 // Virtual machine model
 type LookupVirtualMachineResult struct {
-	// The amount of memory
-	AmountOfRam int `pulumi:"amountOfRam"`
-	// The list of Virtual Disks' Controllers
-	Controllers []VirtualDiskControllerResponse `pulumi:"controllers"`
-	// Virtual machine properties
-	Customization *GuestOSCustomizationResponse `pulumi:"customization"`
-	// The list of Virtual Disks
-	Disks []VirtualDiskResponse `pulumi:"disks"`
-	// The DNS name of Virtual Machine in VCenter
-	Dnsname string `pulumi:"dnsname"`
-	// Expose Guest OS or not
-	ExposeToGuestVM *bool `pulumi:"exposeToGuestVM"`
-	// The path to virtual machine folder in VCenter
-	Folder string `pulumi:"folder"`
-	// The name of Guest OS
-	GuestOS string `pulumi:"guestOS"`
-	// The Guest OS type
-	GuestOSType string `pulumi:"guestOSType"`
-	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/virtualMachines/{virtualMachineName}
-	Id string `pulumi:"id"`
-	// Azure region
-	Location string `pulumi:"location"`
-	// {virtualMachineName}
-	Name string `pulumi:"name"`
-	// The list of Virtual NICs
-	Nics []VirtualNicResponse `pulumi:"nics"`
-	// The number of CPU cores
-	NumberOfCores int `pulumi:"numberOfCores"`
-	// Password for login. Deprecated - use customization property
-	Password *string `pulumi:"password"`
-	// Private Cloud Id
-	PrivateCloudId string `pulumi:"privateCloudId"`
-	// The provisioning status of the resource
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The public ip of Virtual Machine
-	PublicIP string `pulumi:"publicIP"`
-	// Virtual Machines Resource Pool
-	ResourcePool *ResourcePoolResponse `pulumi:"resourcePool"`
-	// The status of Virtual machine
-	Status string `pulumi:"status"`
-	// The list of tags
-	Tags map[string]string `pulumi:"tags"`
-	// Virtual Machine Template Id
-	TemplateId *string `pulumi:"templateId"`
-	// {resourceProviderNamespace}/{resourceType}
-	Type string `pulumi:"type"`
-	// Username for login. Deprecated - use customization property
-	Username *string `pulumi:"username"`
-	// The list of Virtual VSphere Networks
-	VSphereNetworks []string `pulumi:"vSphereNetworks"`
-	// The internal id of Virtual Machine in VCenter
-	VmId string `pulumi:"vmId"`
-	// VMware tools version
-	Vmwaretools string `pulumi:"vmwaretools"`
+	AmountOfRam       int                             `pulumi:"amountOfRam"`
+	Controllers       []VirtualDiskControllerResponse `pulumi:"controllers"`
+	Customization     *GuestOSCustomizationResponse   `pulumi:"customization"`
+	Disks             []VirtualDiskResponse           `pulumi:"disks"`
+	Dnsname           string                          `pulumi:"dnsname"`
+	ExposeToGuestVM   *bool                           `pulumi:"exposeToGuestVM"`
+	Folder            string                          `pulumi:"folder"`
+	GuestOS           string                          `pulumi:"guestOS"`
+	GuestOSType       string                          `pulumi:"guestOSType"`
+	Id                string                          `pulumi:"id"`
+	Location          string                          `pulumi:"location"`
+	Name              string                          `pulumi:"name"`
+	Nics              []VirtualNicResponse            `pulumi:"nics"`
+	NumberOfCores     int                             `pulumi:"numberOfCores"`
+	Password          *string                         `pulumi:"password"`
+	PrivateCloudId    string                          `pulumi:"privateCloudId"`
+	ProvisioningState string                          `pulumi:"provisioningState"`
+	PublicIP          string                          `pulumi:"publicIP"`
+	ResourcePool      *ResourcePoolResponse           `pulumi:"resourcePool"`
+	Status            string                          `pulumi:"status"`
+	Tags              map[string]string               `pulumi:"tags"`
+	TemplateId        *string                         `pulumi:"templateId"`
+	Type              string                          `pulumi:"type"`
+	Username          *string                         `pulumi:"username"`
+	VSphereNetworks   []string                        `pulumi:"vSphereNetworks"`
+	VmId              string                          `pulumi:"vmId"`
+	Vmwaretools       string                          `pulumi:"vmwaretools"`
 }

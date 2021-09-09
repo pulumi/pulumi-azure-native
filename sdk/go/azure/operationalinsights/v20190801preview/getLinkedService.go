@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The top level Linked service resource container.
 func LookupLinkedService(ctx *pulumi.Context, args *LookupLinkedServiceArgs, opts ...pulumi.InvokeOption) (*LookupLinkedServiceResult, error) {
 	var rv LookupLinkedServiceResult
 	err := ctx.Invoke("azure-native:operationalinsights/v20190801preview:getLinkedService", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupLinkedService(ctx *pulumi.Context, args *LookupLinkedServiceArgs, opt
 }
 
 type LookupLinkedServiceArgs struct {
-	// Name of the linked service.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
-	// The name of the resource group to get. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Log Analytics Workspace that contains the linkedServices resource
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // The top level Linked service resource container.
 type LookupLinkedServiceResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-	ResourceId *string `pulumi:"resourceId"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
+	Id                    string  `pulumi:"id"`
+	Name                  string  `pulumi:"name"`
+	ResourceId            *string `pulumi:"resourceId"`
+	Type                  string  `pulumi:"type"`
 	WriteAccessResourceId *string `pulumi:"writeAccessResourceId"`
 }

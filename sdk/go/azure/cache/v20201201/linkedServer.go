@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response to put/get linked server (with properties) for Redis cache.
 type LinkedServer struct {
 	pulumi.CustomResourceState
 
-	// Fully qualified resourceId of the linked redis cache.
-	LinkedRedisCacheId pulumi.StringOutput `pulumi:"linkedRedisCacheId"`
-	// Location of the linked redis cache.
+	LinkedRedisCacheId       pulumi.StringOutput `pulumi:"linkedRedisCacheId"`
 	LinkedRedisCacheLocation pulumi.StringOutput `pulumi:"linkedRedisCacheLocation"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Terminal state of the link between primary and secondary redis cache.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Role of the linked server.
-	ServerRole pulumi.StringOutput `pulumi:"serverRole"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name                     pulumi.StringOutput `pulumi:"name"`
+	ProvisioningState        pulumi.StringOutput `pulumi:"provisioningState"`
+	ServerRole               pulumi.StringOutput `pulumi:"serverRole"`
+	Type                     pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewLinkedServer registers a new resource with the given unique name, arguments, and options.
@@ -47,6 +40,9 @@ func NewLinkedServer(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerRole == nil {
+		return nil, errors.New("invalid value for required argument 'ServerRole'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -122,34 +118,22 @@ func (LinkedServerState) ElementType() reflect.Type {
 }
 
 type linkedServerArgs struct {
-	// Fully qualified resourceId of the linked redis cache.
-	LinkedRedisCacheId string `pulumi:"linkedRedisCacheId"`
-	// Location of the linked redis cache.
-	LinkedRedisCacheLocation string `pulumi:"linkedRedisCacheLocation"`
-	// The name of the linked server that is being added to the Redis cache.
-	LinkedServerName *string `pulumi:"linkedServerName"`
-	// The name of the Redis cache.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Role of the linked server.
-	ServerRole string `pulumi:"serverRole"`
+	LinkedRedisCacheId       string          `pulumi:"linkedRedisCacheId"`
+	LinkedRedisCacheLocation string          `pulumi:"linkedRedisCacheLocation"`
+	LinkedServerName         *string         `pulumi:"linkedServerName"`
+	Name                     string          `pulumi:"name"`
+	ResourceGroupName        string          `pulumi:"resourceGroupName"`
+	ServerRole               ReplicationRole `pulumi:"serverRole"`
 }
 
 // The set of arguments for constructing a LinkedServer resource.
 type LinkedServerArgs struct {
-	// Fully qualified resourceId of the linked redis cache.
-	LinkedRedisCacheId pulumi.StringInput
-	// Location of the linked redis cache.
+	LinkedRedisCacheId       pulumi.StringInput
 	LinkedRedisCacheLocation pulumi.StringInput
-	// The name of the linked server that is being added to the Redis cache.
-	LinkedServerName pulumi.StringPtrInput
-	// The name of the Redis cache.
-	Name pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Role of the linked server.
-	ServerRole ReplicationRole
+	LinkedServerName         pulumi.StringPtrInput
+	Name                     pulumi.StringInput
+	ResourceGroupName        pulumi.StringInput
+	ServerRole               ReplicationRoleInput
 }
 
 func (LinkedServerArgs) ElementType() reflect.Type {
@@ -175,9 +159,7 @@ func (i *LinkedServer) ToLinkedServerOutputWithContext(ctx context.Context) Link
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerOutput)
 }
 
-type LinkedServerOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServerOutput struct{ *pulumi.OutputState }
 
 func (LinkedServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedServer)(nil))

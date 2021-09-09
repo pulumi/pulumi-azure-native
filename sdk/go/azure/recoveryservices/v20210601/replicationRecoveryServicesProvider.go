@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provider details.
 type ReplicationRecoveryServicesProvider struct {
 	pulumi.CustomResourceState
 
-	// Resource Location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provider properties.
+	Location   pulumi.StringPtrOutput                           `pulumi:"location"`
+	Name       pulumi.StringOutput                              `pulumi:"name"`
 	Properties RecoveryServicesProviderPropertiesResponseOutput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                              `pulumi:"type"`
 }
 
 // NewReplicationRecoveryServicesProvider registers a new resource with the given unique name, arguments, and options.
@@ -124,30 +119,20 @@ func (ReplicationRecoveryServicesProviderState) ElementType() reflect.Type {
 }
 
 type replicationRecoveryServicesProviderArgs struct {
-	// Fabric name.
-	FabricName string `pulumi:"fabricName"`
-	// The properties of an add provider request.
-	Properties AddRecoveryServicesProviderInputProperties `pulumi:"properties"`
-	// Recovery services provider name.
-	ProviderName *string `pulumi:"providerName"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
+	FabricName        string                                     `pulumi:"fabricName"`
+	Properties        AddRecoveryServicesProviderInputProperties `pulumi:"properties"`
+	ProviderName      *string                                    `pulumi:"providerName"`
+	ResourceGroupName string                                     `pulumi:"resourceGroupName"`
+	ResourceName      string                                     `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a ReplicationRecoveryServicesProvider resource.
 type ReplicationRecoveryServicesProviderArgs struct {
-	// Fabric name.
-	FabricName pulumi.StringInput
-	// The properties of an add provider request.
-	Properties AddRecoveryServicesProviderInputPropertiesInput
-	// Recovery services provider name.
-	ProviderName pulumi.StringPtrInput
-	// The name of the resource group where the recovery services vault is present.
+	FabricName        pulumi.StringInput
+	Properties        AddRecoveryServicesProviderInputPropertiesInput
+	ProviderName      pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the recovery services vault.
-	ResourceName pulumi.StringInput
+	ResourceName      pulumi.StringInput
 }
 
 func (ReplicationRecoveryServicesProviderArgs) ElementType() reflect.Type {
@@ -173,9 +158,7 @@ func (i *ReplicationRecoveryServicesProvider) ToReplicationRecoveryServicesProvi
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryServicesProviderOutput)
 }
 
-type ReplicationRecoveryServicesProviderOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationRecoveryServicesProviderOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryServicesProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationRecoveryServicesProvider)(nil))

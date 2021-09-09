@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents Dynamics365 data connector.
 type Dynamics365DataConnector struct {
 	pulumi.CustomResourceState
 
-	// The available data types for the connector.
 	DataTypes Dynamics365DataConnectorDataTypesResponseOutput `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Expected value is 'Dynamics365'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The tenant id to connect to, and get the data from.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag      pulumi.StringPtrOutput                          `pulumi:"etag"`
+	Kind      pulumi.StringOutput                             `pulumi:"kind"`
+	Name      pulumi.StringOutput                             `pulumi:"name"`
+	TenantId  pulumi.StringOutput                             `pulumi:"tenantId"`
+	Type      pulumi.StringOutput                             `pulumi:"type"`
 }
 
 // NewDynamics365DataConnector registers a new resource with the given unique name, arguments, and options.
@@ -111,42 +104,26 @@ func (Dynamics365DataConnectorState) ElementType() reflect.Type {
 }
 
 type dynamics365DataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId *string `pulumi:"dataConnectorId"`
-	// The available data types for the connector.
-	DataTypes Dynamics365DataConnectorDataTypes `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Expected value is 'Dynamics365'.
-	Kind string `pulumi:"kind"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tenant id to connect to, and get the data from.
-	TenantId string `pulumi:"tenantId"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	DataConnectorId                     *string                           `pulumi:"dataConnectorId"`
+	DataTypes                           Dynamics365DataConnectorDataTypes `pulumi:"dataTypes"`
+	Etag                                *string                           `pulumi:"etag"`
+	Kind                                string                            `pulumi:"kind"`
+	OperationalInsightsResourceProvider string                            `pulumi:"operationalInsightsResourceProvider"`
+	ResourceGroupName                   string                            `pulumi:"resourceGroupName"`
+	TenantId                            string                            `pulumi:"tenantId"`
+	WorkspaceName                       string                            `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Dynamics365DataConnector resource.
 type Dynamics365DataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId pulumi.StringPtrInput
-	// The available data types for the connector.
-	DataTypes Dynamics365DataConnectorDataTypesInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Expected value is 'Dynamics365'.
-	Kind pulumi.StringInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	DataConnectorId                     pulumi.StringPtrInput
+	DataTypes                           Dynamics365DataConnectorDataTypesInput
+	Etag                                pulumi.StringPtrInput
+	Kind                                pulumi.StringInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The tenant id to connect to, and get the data from.
-	TenantId pulumi.StringInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	ResourceGroupName                   pulumi.StringInput
+	TenantId                            pulumi.StringInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (Dynamics365DataConnectorArgs) ElementType() reflect.Type {
@@ -172,9 +149,7 @@ func (i *Dynamics365DataConnector) ToDynamics365DataConnectorOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(Dynamics365DataConnectorOutput)
 }
 
-type Dynamics365DataConnectorOutput struct {
-	*pulumi.OutputState
-}
+type Dynamics365DataConnectorOutput struct{ *pulumi.OutputState }
 
 func (Dynamics365DataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Dynamics365DataConnector)(nil))

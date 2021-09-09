@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntry struct {
-	//  Application ID of the client making request on behalf of a principal
-	ApplicationId *string `pulumi:"applicationId"`
-	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-	ObjectId string `pulumi:"objectId"`
-	// Permissions the identity has for keys, secrets and certificates.
-	Permissions Permissions `pulumi:"permissions"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId string `pulumi:"tenantId"`
+	ApplicationId *string     `pulumi:"applicationId"`
+	ObjectId      string      `pulumi:"objectId"`
+	Permissions   Permissions `pulumi:"permissions"`
+	TenantId      string      `pulumi:"tenantId"`
 }
 
 // AccessPolicyEntryInput is an input type that accepts AccessPolicyEntryArgs and AccessPolicyEntryOutput values.
@@ -33,16 +28,11 @@ type AccessPolicyEntryInput interface {
 	ToAccessPolicyEntryOutputWithContext(context.Context) AccessPolicyEntryOutput
 }
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntryArgs struct {
-	//  Application ID of the client making request on behalf of a principal
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-	ObjectId pulumi.StringInput `pulumi:"objectId"`
-	// Permissions the identity has for keys, secrets and certificates.
-	Permissions PermissionsInput `pulumi:"permissions"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	ObjectId      pulumi.StringInput    `pulumi:"objectId"`
+	Permissions   PermissionsInput      `pulumi:"permissions"`
+	TenantId      pulumi.StringInput    `pulumi:"tenantId"`
 }
 
 func (AccessPolicyEntryArgs) ElementType() reflect.Type {
@@ -82,7 +72,6 @@ func (i AccessPolicyEntryArray) ToAccessPolicyEntryArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyEntryArrayOutput)
 }
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntryOutput struct{ *pulumi.OutputState }
 
 func (AccessPolicyEntryOutput) ElementType() reflect.Type {
@@ -97,22 +86,18 @@ func (o AccessPolicyEntryOutput) ToAccessPolicyEntryOutputWithContext(ctx contex
 	return o
 }
 
-//  Application ID of the client making request on behalf of a principal
 func (o AccessPolicyEntryOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPolicyEntry) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
 func (o AccessPolicyEntryOutput) ObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPolicyEntry) string { return v.ObjectId }).(pulumi.StringOutput)
 }
 
-// Permissions the identity has for keys, secrets and certificates.
 func (o AccessPolicyEntryOutput) Permissions() PermissionsOutput {
 	return o.ApplyT(func(v AccessPolicyEntry) Permissions { return v.Permissions }).(PermissionsOutput)
 }
 
-// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 func (o AccessPolicyEntryOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPolicyEntry) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -137,16 +122,11 @@ func (o AccessPolicyEntryArrayOutput) Index(i pulumi.IntInput) AccessPolicyEntry
 	}).(AccessPolicyEntryOutput)
 }
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntryResponse struct {
-	//  Application ID of the client making request on behalf of a principal
-	ApplicationId *string `pulumi:"applicationId"`
-	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-	ObjectId string `pulumi:"objectId"`
-	// Permissions the identity has for keys, secrets and certificates.
-	Permissions PermissionsResponse `pulumi:"permissions"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId string `pulumi:"tenantId"`
+	ApplicationId *string             `pulumi:"applicationId"`
+	ObjectId      string              `pulumi:"objectId"`
+	Permissions   PermissionsResponse `pulumi:"permissions"`
+	TenantId      string              `pulumi:"tenantId"`
 }
 
 // AccessPolicyEntryResponseInput is an input type that accepts AccessPolicyEntryResponseArgs and AccessPolicyEntryResponseOutput values.
@@ -160,16 +140,11 @@ type AccessPolicyEntryResponseInput interface {
 	ToAccessPolicyEntryResponseOutputWithContext(context.Context) AccessPolicyEntryResponseOutput
 }
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntryResponseArgs struct {
-	//  Application ID of the client making request on behalf of a principal
-	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-	ObjectId pulumi.StringInput `pulumi:"objectId"`
-	// Permissions the identity has for keys, secrets and certificates.
-	Permissions PermissionsResponseInput `pulumi:"permissions"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	ApplicationId pulumi.StringPtrInput    `pulumi:"applicationId"`
+	ObjectId      pulumi.StringInput       `pulumi:"objectId"`
+	Permissions   PermissionsResponseInput `pulumi:"permissions"`
+	TenantId      pulumi.StringInput       `pulumi:"tenantId"`
 }
 
 func (AccessPolicyEntryResponseArgs) ElementType() reflect.Type {
@@ -209,7 +184,6 @@ func (i AccessPolicyEntryResponseArray) ToAccessPolicyEntryResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyEntryResponseArrayOutput)
 }
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntryResponseOutput struct{ *pulumi.OutputState }
 
 func (AccessPolicyEntryResponseOutput) ElementType() reflect.Type {
@@ -224,22 +198,18 @@ func (o AccessPolicyEntryResponseOutput) ToAccessPolicyEntryResponseOutputWithCo
 	return o
 }
 
-//  Application ID of the client making request on behalf of a principal
 func (o AccessPolicyEntryResponseOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPolicyEntryResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
 func (o AccessPolicyEntryResponseOutput) ObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPolicyEntryResponse) string { return v.ObjectId }).(pulumi.StringOutput)
 }
 
-// Permissions the identity has for keys, secrets and certificates.
 func (o AccessPolicyEntryResponseOutput) Permissions() PermissionsResponseOutput {
 	return o.ApplyT(func(v AccessPolicyEntryResponse) PermissionsResponse { return v.Permissions }).(PermissionsResponseOutput)
 }
 
-// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 func (o AccessPolicyEntryResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPolicyEntryResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -264,9 +234,7 @@ func (o AccessPolicyEntryResponseArrayOutput) Index(i pulumi.IntInput) AccessPol
 	}).(AccessPolicyEntryResponseOutput)
 }
 
-// A rule governing the accessibility of a vault from a specific ip address or ip range.
 type IPRule struct {
-	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value string `pulumi:"value"`
 }
 
@@ -281,9 +249,7 @@ type IPRuleInput interface {
 	ToIPRuleOutputWithContext(context.Context) IPRuleOutput
 }
 
-// A rule governing the accessibility of a vault from a specific ip address or ip range.
 type IPRuleArgs struct {
-	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -324,7 +290,6 @@ func (i IPRuleArray) ToIPRuleArrayOutputWithContext(ctx context.Context) IPRuleA
 	return pulumi.ToOutputWithContext(ctx, i).(IPRuleArrayOutput)
 }
 
-// A rule governing the accessibility of a vault from a specific ip address or ip range.
 type IPRuleOutput struct{ *pulumi.OutputState }
 
 func (IPRuleOutput) ElementType() reflect.Type {
@@ -339,7 +304,6 @@ func (o IPRuleOutput) ToIPRuleOutputWithContext(ctx context.Context) IPRuleOutpu
 	return o
 }
 
-// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 func (o IPRuleOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v IPRule) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -364,9 +328,7 @@ func (o IPRuleArrayOutput) Index(i pulumi.IntInput) IPRuleOutput {
 	}).(IPRuleOutput)
 }
 
-// A rule governing the accessibility of a vault from a specific ip address or ip range.
 type IPRuleResponse struct {
-	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value string `pulumi:"value"`
 }
 
@@ -381,9 +343,7 @@ type IPRuleResponseInput interface {
 	ToIPRuleResponseOutputWithContext(context.Context) IPRuleResponseOutput
 }
 
-// A rule governing the accessibility of a vault from a specific ip address or ip range.
 type IPRuleResponseArgs struct {
-	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -424,7 +384,6 @@ func (i IPRuleResponseArray) ToIPRuleResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IPRuleResponseArrayOutput)
 }
 
-// A rule governing the accessibility of a vault from a specific ip address or ip range.
 type IPRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (IPRuleResponseOutput) ElementType() reflect.Type {
@@ -439,7 +398,6 @@ func (o IPRuleResponseOutput) ToIPRuleResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
 func (o IPRuleResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v IPRuleResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -464,15 +422,10 @@ func (o IPRuleResponseArrayOutput) Index(i pulumi.IntInput) IPRuleResponseOutput
 	}).(IPRuleResponseOutput)
 }
 
-// A set of rules governing the network accessibility of a vault.
 type NetworkRuleSet struct {
-	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
-	Bypass *string `pulumi:"bypass"`
-	// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-	DefaultAction *string `pulumi:"defaultAction"`
-	// The list of IP address rules.
-	IpRules []IPRule `pulumi:"ipRules"`
-	// The list of virtual network rules.
+	Bypass              *string              `pulumi:"bypass"`
+	DefaultAction       *string              `pulumi:"defaultAction"`
+	IpRules             []IPRule             `pulumi:"ipRules"`
 	VirtualNetworkRules []VirtualNetworkRule `pulumi:"virtualNetworkRules"`
 }
 
@@ -487,15 +440,10 @@ type NetworkRuleSetInput interface {
 	ToNetworkRuleSetOutputWithContext(context.Context) NetworkRuleSetOutput
 }
 
-// A set of rules governing the network accessibility of a vault.
 type NetworkRuleSetArgs struct {
-	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
-	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
-	// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
-	// The list of IP address rules.
-	IpRules IPRuleArrayInput `pulumi:"ipRules"`
-	// The list of virtual network rules.
+	Bypass              pulumi.StringPtrInput        `pulumi:"bypass"`
+	DefaultAction       pulumi.StringPtrInput        `pulumi:"defaultAction"`
+	IpRules             IPRuleArrayInput             `pulumi:"ipRules"`
 	VirtualNetworkRules VirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
 }
 
@@ -552,7 +500,6 @@ func (i *networkRuleSetPtrType) ToNetworkRuleSetPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetPtrOutput)
 }
 
-// A set of rules governing the network accessibility of a vault.
 type NetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetOutput) ElementType() reflect.Type {
@@ -572,27 +519,23 @@ func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutput() NetworkRuleSetPtrOutpu
 }
 
 func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutputWithContext(ctx context.Context) NetworkRuleSetPtrOutput {
-	return o.ApplyT(func(v NetworkRuleSet) *NetworkRuleSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSet) *NetworkRuleSet {
 		return &v
 	}).(NetworkRuleSetPtrOutput)
 }
 
-// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
 func (o NetworkRuleSetOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSet) *string { return v.Bypass }).(pulumi.StringPtrOutput)
 }
 
-// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
 func (o NetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
-// The list of IP address rules.
 func (o NetworkRuleSetOutput) IpRules() IPRuleArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSet) []IPRule { return v.IpRules }).(IPRuleArrayOutput)
 }
 
-// The list of virtual network rules.
 func (o NetworkRuleSetOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSet) []VirtualNetworkRule { return v.VirtualNetworkRules }).(VirtualNetworkRuleArrayOutput)
 }
@@ -612,10 +555,15 @@ func (o NetworkRuleSetPtrOutput) ToNetworkRuleSetPtrOutputWithContext(ctx contex
 }
 
 func (o NetworkRuleSetPtrOutput) Elem() NetworkRuleSetOutput {
-	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet { return *v }).(NetworkRuleSetOutput)
+	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSet
+		return ret
+	}).(NetworkRuleSetOutput)
 }
 
-// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
 func (o NetworkRuleSetPtrOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) *string {
 		if v == nil {
@@ -625,7 +573,6 @@ func (o NetworkRuleSetPtrOutput) Bypass() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
 func (o NetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) *string {
 		if v == nil {
@@ -635,7 +582,6 @@ func (o NetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of IP address rules.
 func (o NetworkRuleSetPtrOutput) IpRules() IPRuleArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) []IPRule {
 		if v == nil {
@@ -645,7 +591,6 @@ func (o NetworkRuleSetPtrOutput) IpRules() IPRuleArrayOutput {
 	}).(IPRuleArrayOutput)
 }
 
-// The list of virtual network rules.
 func (o NetworkRuleSetPtrOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) []VirtualNetworkRule {
 		if v == nil {
@@ -655,15 +600,10 @@ func (o NetworkRuleSetPtrOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOu
 	}).(VirtualNetworkRuleArrayOutput)
 }
 
-// A set of rules governing the network accessibility of a vault.
 type NetworkRuleSetResponse struct {
-	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
-	Bypass *string `pulumi:"bypass"`
-	// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-	DefaultAction *string `pulumi:"defaultAction"`
-	// The list of IP address rules.
-	IpRules []IPRuleResponse `pulumi:"ipRules"`
-	// The list of virtual network rules.
+	Bypass              *string                      `pulumi:"bypass"`
+	DefaultAction       *string                      `pulumi:"defaultAction"`
+	IpRules             []IPRuleResponse             `pulumi:"ipRules"`
 	VirtualNetworkRules []VirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
 }
 
@@ -678,15 +618,10 @@ type NetworkRuleSetResponseInput interface {
 	ToNetworkRuleSetResponseOutputWithContext(context.Context) NetworkRuleSetResponseOutput
 }
 
-// A set of rules governing the network accessibility of a vault.
 type NetworkRuleSetResponseArgs struct {
-	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
-	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
-	// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
-	// The list of IP address rules.
-	IpRules IPRuleResponseArrayInput `pulumi:"ipRules"`
-	// The list of virtual network rules.
+	Bypass              pulumi.StringPtrInput                `pulumi:"bypass"`
+	DefaultAction       pulumi.StringPtrInput                `pulumi:"defaultAction"`
+	IpRules             IPRuleResponseArrayInput             `pulumi:"ipRules"`
 	VirtualNetworkRules VirtualNetworkRuleResponseArrayInput `pulumi:"virtualNetworkRules"`
 }
 
@@ -743,7 +678,6 @@ func (i *networkRuleSetResponsePtrType) ToNetworkRuleSetResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetResponsePtrOutput)
 }
 
-// A set of rules governing the network accessibility of a vault.
 type NetworkRuleSetResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetResponseOutput) ElementType() reflect.Type {
@@ -763,27 +697,23 @@ func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutput() Networ
 }
 
 func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutputWithContext(ctx context.Context) NetworkRuleSetResponsePtrOutput {
-	return o.ApplyT(func(v NetworkRuleSetResponse) *NetworkRuleSetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSetResponse) *NetworkRuleSetResponse {
 		return &v
 	}).(NetworkRuleSetResponsePtrOutput)
 }
 
-// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
 func (o NetworkRuleSetResponseOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) *string { return v.Bypass }).(pulumi.StringPtrOutput)
 }
 
-// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
 func (o NetworkRuleSetResponseOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
-// The list of IP address rules.
 func (o NetworkRuleSetResponseOutput) IpRules() IPRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) []IPRuleResponse { return v.IpRules }).(IPRuleResponseArrayOutput)
 }
 
-// The list of virtual network rules.
 func (o NetworkRuleSetResponseOutput) VirtualNetworkRules() VirtualNetworkRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) []VirtualNetworkRuleResponse { return v.VirtualNetworkRules }).(VirtualNetworkRuleResponseArrayOutput)
 }
@@ -803,10 +733,15 @@ func (o NetworkRuleSetResponsePtrOutput) ToNetworkRuleSetResponsePtrOutputWithCo
 }
 
 func (o NetworkRuleSetResponsePtrOutput) Elem() NetworkRuleSetResponseOutput {
-	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse { return *v }).(NetworkRuleSetResponseOutput)
+	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSetResponse
+		return ret
+	}).(NetworkRuleSetResponseOutput)
 }
 
-// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
 func (o NetworkRuleSetResponsePtrOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) *string {
 		if v == nil {
@@ -816,7 +751,6 @@ func (o NetworkRuleSetResponsePtrOutput) Bypass() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
 func (o NetworkRuleSetResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) *string {
 		if v == nil {
@@ -826,7 +760,6 @@ func (o NetworkRuleSetResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of IP address rules.
 func (o NetworkRuleSetResponsePtrOutput) IpRules() IPRuleResponseArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) []IPRuleResponse {
 		if v == nil {
@@ -836,7 +769,6 @@ func (o NetworkRuleSetResponsePtrOutput) IpRules() IPRuleResponseArrayOutput {
 	}).(IPRuleResponseArrayOutput)
 }
 
-// The list of virtual network rules.
 func (o NetworkRuleSetResponsePtrOutput) VirtualNetworkRules() VirtualNetworkRuleResponseArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) []VirtualNetworkRuleResponse {
 		if v == nil {
@@ -846,16 +778,11 @@ func (o NetworkRuleSetResponsePtrOutput) VirtualNetworkRules() VirtualNetworkRul
 	}).(VirtualNetworkRuleResponseArrayOutput)
 }
 
-// Permissions the identity has for keys, secrets, certificates and storage.
 type Permissions struct {
-	// Permissions to certificates
 	Certificates []string `pulumi:"certificates"`
-	// Permissions to keys
-	Keys []string `pulumi:"keys"`
-	// Permissions to secrets
-	Secrets []string `pulumi:"secrets"`
-	// Permissions to storage accounts
-	Storage []string `pulumi:"storage"`
+	Keys         []string `pulumi:"keys"`
+	Secrets      []string `pulumi:"secrets"`
+	Storage      []string `pulumi:"storage"`
 }
 
 // PermissionsInput is an input type that accepts PermissionsArgs and PermissionsOutput values.
@@ -869,16 +796,11 @@ type PermissionsInput interface {
 	ToPermissionsOutputWithContext(context.Context) PermissionsOutput
 }
 
-// Permissions the identity has for keys, secrets, certificates and storage.
 type PermissionsArgs struct {
-	// Permissions to certificates
 	Certificates pulumi.StringArrayInput `pulumi:"certificates"`
-	// Permissions to keys
-	Keys pulumi.StringArrayInput `pulumi:"keys"`
-	// Permissions to secrets
-	Secrets pulumi.StringArrayInput `pulumi:"secrets"`
-	// Permissions to storage accounts
-	Storage pulumi.StringArrayInput `pulumi:"storage"`
+	Keys         pulumi.StringArrayInput `pulumi:"keys"`
+	Secrets      pulumi.StringArrayInput `pulumi:"secrets"`
+	Storage      pulumi.StringArrayInput `pulumi:"storage"`
 }
 
 func (PermissionsArgs) ElementType() reflect.Type {
@@ -893,7 +815,6 @@ func (i PermissionsArgs) ToPermissionsOutputWithContext(ctx context.Context) Per
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsOutput)
 }
 
-// Permissions the identity has for keys, secrets, certificates and storage.
 type PermissionsOutput struct{ *pulumi.OutputState }
 
 func (PermissionsOutput) ElementType() reflect.Type {
@@ -908,36 +829,27 @@ func (o PermissionsOutput) ToPermissionsOutputWithContext(ctx context.Context) P
 	return o
 }
 
-// Permissions to certificates
 func (o PermissionsOutput) Certificates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permissions) []string { return v.Certificates }).(pulumi.StringArrayOutput)
 }
 
-// Permissions to keys
 func (o PermissionsOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permissions) []string { return v.Keys }).(pulumi.StringArrayOutput)
 }
 
-// Permissions to secrets
 func (o PermissionsOutput) Secrets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permissions) []string { return v.Secrets }).(pulumi.StringArrayOutput)
 }
 
-// Permissions to storage accounts
 func (o PermissionsOutput) Storage() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permissions) []string { return v.Storage }).(pulumi.StringArrayOutput)
 }
 
-// Permissions the identity has for keys, secrets, certificates and storage.
 type PermissionsResponse struct {
-	// Permissions to certificates
 	Certificates []string `pulumi:"certificates"`
-	// Permissions to keys
-	Keys []string `pulumi:"keys"`
-	// Permissions to secrets
-	Secrets []string `pulumi:"secrets"`
-	// Permissions to storage accounts
-	Storage []string `pulumi:"storage"`
+	Keys         []string `pulumi:"keys"`
+	Secrets      []string `pulumi:"secrets"`
+	Storage      []string `pulumi:"storage"`
 }
 
 // PermissionsResponseInput is an input type that accepts PermissionsResponseArgs and PermissionsResponseOutput values.
@@ -951,16 +863,11 @@ type PermissionsResponseInput interface {
 	ToPermissionsResponseOutputWithContext(context.Context) PermissionsResponseOutput
 }
 
-// Permissions the identity has for keys, secrets, certificates and storage.
 type PermissionsResponseArgs struct {
-	// Permissions to certificates
 	Certificates pulumi.StringArrayInput `pulumi:"certificates"`
-	// Permissions to keys
-	Keys pulumi.StringArrayInput `pulumi:"keys"`
-	// Permissions to secrets
-	Secrets pulumi.StringArrayInput `pulumi:"secrets"`
-	// Permissions to storage accounts
-	Storage pulumi.StringArrayInput `pulumi:"storage"`
+	Keys         pulumi.StringArrayInput `pulumi:"keys"`
+	Secrets      pulumi.StringArrayInput `pulumi:"secrets"`
+	Storage      pulumi.StringArrayInput `pulumi:"storage"`
 }
 
 func (PermissionsResponseArgs) ElementType() reflect.Type {
@@ -975,7 +882,6 @@ func (i PermissionsResponseArgs) ToPermissionsResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsResponseOutput)
 }
 
-// Permissions the identity has for keys, secrets, certificates and storage.
 type PermissionsResponseOutput struct{ *pulumi.OutputState }
 
 func (PermissionsResponseOutput) ElementType() reflect.Type {
@@ -990,34 +896,26 @@ func (o PermissionsResponseOutput) ToPermissionsResponseOutputWithContext(ctx co
 	return o
 }
 
-// Permissions to certificates
 func (o PermissionsResponseOutput) Certificates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionsResponse) []string { return v.Certificates }).(pulumi.StringArrayOutput)
 }
 
-// Permissions to keys
 func (o PermissionsResponseOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionsResponse) []string { return v.Keys }).(pulumi.StringArrayOutput)
 }
 
-// Permissions to secrets
 func (o PermissionsResponseOutput) Secrets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionsResponse) []string { return v.Secrets }).(pulumi.StringArrayOutput)
 }
 
-// Permissions to storage accounts
 func (o PermissionsResponseOutput) Storage() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionsResponse) []string { return v.Storage }).(pulumi.StringArrayOutput)
 }
 
-// Private endpoint connection item.
 type PrivateEndpointConnectionItemResponse struct {
-	// Properties of the private endpoint object.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Approval state of the private link connection.
+	PrivateEndpoint                   *PrivateEndpointResponse                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection.
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState                 string                                     `pulumi:"provisioningState"`
 }
 
 // PrivateEndpointConnectionItemResponseInput is an input type that accepts PrivateEndpointConnectionItemResponseArgs and PrivateEndpointConnectionItemResponseOutput values.
@@ -1031,14 +929,10 @@ type PrivateEndpointConnectionItemResponseInput interface {
 	ToPrivateEndpointConnectionItemResponseOutputWithContext(context.Context) PrivateEndpointConnectionItemResponseOutput
 }
 
-// Private endpoint connection item.
 type PrivateEndpointConnectionItemResponseArgs struct {
-	// Properties of the private endpoint object.
-	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
-	// Approval state of the private link connection.
+	PrivateEndpoint                   PrivateEndpointResponsePtrInput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	ProvisioningState                 pulumi.StringInput                                `pulumi:"provisioningState"`
 }
 
 func (PrivateEndpointConnectionItemResponseArgs) ElementType() reflect.Type {
@@ -1078,7 +972,6 @@ func (i PrivateEndpointConnectionItemResponseArray) ToPrivateEndpointConnectionI
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionItemResponseArrayOutput)
 }
 
-// Private endpoint connection item.
 type PrivateEndpointConnectionItemResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionItemResponseOutput) ElementType() reflect.Type {
@@ -1093,19 +986,16 @@ func (o PrivateEndpointConnectionItemResponseOutput) ToPrivateEndpointConnection
 	return o
 }
 
-// Properties of the private endpoint object.
 func (o PrivateEndpointConnectionItemResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionItemResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
 }
 
-// Approval state of the private link connection.
 func (o PrivateEndpointConnectionItemResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionItemResponse) *PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Provisioning state of the private endpoint connection.
 func (o PrivateEndpointConnectionItemResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionItemResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -1130,9 +1020,7 @@ func (o PrivateEndpointConnectionItemResponseArrayOutput) Index(i pulumi.IntInpu
 	}).(PrivateEndpointConnectionItemResponseOutput)
 }
 
-// Private endpoint object properties.
 type PrivateEndpointResponse struct {
-	// Full identifier of the private endpoint resource.
 	Id string `pulumi:"id"`
 }
 
@@ -1147,9 +1035,7 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// Private endpoint object properties.
 type PrivateEndpointResponseArgs struct {
-	// Full identifier of the private endpoint resource.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -1206,7 +1092,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// Private endpoint object properties.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -1226,12 +1111,11 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// Full identifier of the private endpoint resource.
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -1251,10 +1135,15 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
-// Full identifier of the private endpoint resource.
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -1264,14 +1153,10 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionState struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionRequired *string `pulumi:"actionRequired"`
-	// The reason for approval or rejection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
-	Status *string `pulumi:"status"`
+	Description    *string `pulumi:"description"`
+	Status         *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -1285,14 +1170,10 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
-	// The reason for approval or rejection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description    pulumi.StringPtrInput `pulumi:"description"`
+	Status         pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -1348,7 +1229,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -1368,22 +1248,19 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateOutput) ActionRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval or rejection.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1403,10 +1280,15 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1416,7 +1298,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionRequired() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval or rejection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1426,7 +1307,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1436,14 +1316,10 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateResponse struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionRequired *string `pulumi:"actionRequired"`
-	// The reason for approval or rejection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
-	Status *string `pulumi:"status"`
+	Description    *string `pulumi:"description"`
+	Status         *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -1457,14 +1333,10 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
-	// The reason for approval or rejection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description    pulumi.StringPtrInput `pulumi:"description"`
+	Status         pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -1520,7 +1392,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -1540,22 +1411,19 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval or rejection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1576,11 +1444,14 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1590,7 +1461,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionRequired() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval or rejection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1600,7 +1470,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1610,14 +1479,10 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secret management attributes.
 type SecretAttributes struct {
-	// Determines whether the object is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Expiry date in seconds since 1970-01-01T00:00:00Z.
-	Expires *int `pulumi:"expires"`
-	// Not before date in seconds since 1970-01-01T00:00:00Z.
-	NotBefore *int `pulumi:"notBefore"`
+	Enabled   *bool `pulumi:"enabled"`
+	Expires   *int  `pulumi:"expires"`
+	NotBefore *int  `pulumi:"notBefore"`
 }
 
 // SecretAttributesInput is an input type that accepts SecretAttributesArgs and SecretAttributesOutput values.
@@ -1631,14 +1496,10 @@ type SecretAttributesInput interface {
 	ToSecretAttributesOutputWithContext(context.Context) SecretAttributesOutput
 }
 
-// The secret management attributes.
 type SecretAttributesArgs struct {
-	// Determines whether the object is enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Expiry date in seconds since 1970-01-01T00:00:00Z.
-	Expires pulumi.IntPtrInput `pulumi:"expires"`
-	// Not before date in seconds since 1970-01-01T00:00:00Z.
-	NotBefore pulumi.IntPtrInput `pulumi:"notBefore"`
+	Enabled   pulumi.BoolPtrInput `pulumi:"enabled"`
+	Expires   pulumi.IntPtrInput  `pulumi:"expires"`
+	NotBefore pulumi.IntPtrInput  `pulumi:"notBefore"`
 }
 
 func (SecretAttributesArgs) ElementType() reflect.Type {
@@ -1694,7 +1555,6 @@ func (i *secretAttributesPtrType) ToSecretAttributesPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SecretAttributesPtrOutput)
 }
 
-// The secret management attributes.
 type SecretAttributesOutput struct{ *pulumi.OutputState }
 
 func (SecretAttributesOutput) ElementType() reflect.Type {
@@ -1714,22 +1574,19 @@ func (o SecretAttributesOutput) ToSecretAttributesPtrOutput() SecretAttributesPt
 }
 
 func (o SecretAttributesOutput) ToSecretAttributesPtrOutputWithContext(ctx context.Context) SecretAttributesPtrOutput {
-	return o.ApplyT(func(v SecretAttributes) *SecretAttributes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretAttributes) *SecretAttributes {
 		return &v
 	}).(SecretAttributesPtrOutput)
 }
 
-// Determines whether the object is enabled.
 func (o SecretAttributesOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecretAttributes) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Expiry date in seconds since 1970-01-01T00:00:00Z.
 func (o SecretAttributesOutput) Expires() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecretAttributes) *int { return v.Expires }).(pulumi.IntPtrOutput)
 }
 
-// Not before date in seconds since 1970-01-01T00:00:00Z.
 func (o SecretAttributesOutput) NotBefore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecretAttributes) *int { return v.NotBefore }).(pulumi.IntPtrOutput)
 }
@@ -1749,10 +1606,15 @@ func (o SecretAttributesPtrOutput) ToSecretAttributesPtrOutputWithContext(ctx co
 }
 
 func (o SecretAttributesPtrOutput) Elem() SecretAttributesOutput {
-	return o.ApplyT(func(v *SecretAttributes) SecretAttributes { return *v }).(SecretAttributesOutput)
+	return o.ApplyT(func(v *SecretAttributes) SecretAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret SecretAttributes
+		return ret
+	}).(SecretAttributesOutput)
 }
 
-// Determines whether the object is enabled.
 func (o SecretAttributesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecretAttributes) *bool {
 		if v == nil {
@@ -1762,7 +1624,6 @@ func (o SecretAttributesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Expiry date in seconds since 1970-01-01T00:00:00Z.
 func (o SecretAttributesPtrOutput) Expires() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecretAttributes) *int {
 		if v == nil {
@@ -1772,7 +1633,6 @@ func (o SecretAttributesPtrOutput) Expires() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Not before date in seconds since 1970-01-01T00:00:00Z.
 func (o SecretAttributesPtrOutput) NotBefore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecretAttributes) *int {
 		if v == nil {
@@ -1782,18 +1642,12 @@ func (o SecretAttributesPtrOutput) NotBefore() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The secret management attributes.
 type SecretAttributesResponse struct {
-	// Creation time in seconds since 1970-01-01T00:00:00Z.
-	Created int `pulumi:"created"`
-	// Determines whether the object is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Expiry date in seconds since 1970-01-01T00:00:00Z.
-	Expires *int `pulumi:"expires"`
-	// Not before date in seconds since 1970-01-01T00:00:00Z.
-	NotBefore *int `pulumi:"notBefore"`
-	// Last updated time in seconds since 1970-01-01T00:00:00Z.
-	Updated int `pulumi:"updated"`
+	Created   int   `pulumi:"created"`
+	Enabled   *bool `pulumi:"enabled"`
+	Expires   *int  `pulumi:"expires"`
+	NotBefore *int  `pulumi:"notBefore"`
+	Updated   int   `pulumi:"updated"`
 }
 
 // SecretAttributesResponseInput is an input type that accepts SecretAttributesResponseArgs and SecretAttributesResponseOutput values.
@@ -1807,18 +1661,12 @@ type SecretAttributesResponseInput interface {
 	ToSecretAttributesResponseOutputWithContext(context.Context) SecretAttributesResponseOutput
 }
 
-// The secret management attributes.
 type SecretAttributesResponseArgs struct {
-	// Creation time in seconds since 1970-01-01T00:00:00Z.
-	Created pulumi.IntInput `pulumi:"created"`
-	// Determines whether the object is enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Expiry date in seconds since 1970-01-01T00:00:00Z.
-	Expires pulumi.IntPtrInput `pulumi:"expires"`
-	// Not before date in seconds since 1970-01-01T00:00:00Z.
-	NotBefore pulumi.IntPtrInput `pulumi:"notBefore"`
-	// Last updated time in seconds since 1970-01-01T00:00:00Z.
-	Updated pulumi.IntInput `pulumi:"updated"`
+	Created   pulumi.IntInput     `pulumi:"created"`
+	Enabled   pulumi.BoolPtrInput `pulumi:"enabled"`
+	Expires   pulumi.IntPtrInput  `pulumi:"expires"`
+	NotBefore pulumi.IntPtrInput  `pulumi:"notBefore"`
+	Updated   pulumi.IntInput     `pulumi:"updated"`
 }
 
 func (SecretAttributesResponseArgs) ElementType() reflect.Type {
@@ -1874,7 +1722,6 @@ func (i *secretAttributesResponsePtrType) ToSecretAttributesResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SecretAttributesResponsePtrOutput)
 }
 
-// The secret management attributes.
 type SecretAttributesResponseOutput struct{ *pulumi.OutputState }
 
 func (SecretAttributesResponseOutput) ElementType() reflect.Type {
@@ -1894,32 +1741,27 @@ func (o SecretAttributesResponseOutput) ToSecretAttributesResponsePtrOutput() Se
 }
 
 func (o SecretAttributesResponseOutput) ToSecretAttributesResponsePtrOutputWithContext(ctx context.Context) SecretAttributesResponsePtrOutput {
-	return o.ApplyT(func(v SecretAttributesResponse) *SecretAttributesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretAttributesResponse) *SecretAttributesResponse {
 		return &v
 	}).(SecretAttributesResponsePtrOutput)
 }
 
-// Creation time in seconds since 1970-01-01T00:00:00Z.
 func (o SecretAttributesResponseOutput) Created() pulumi.IntOutput {
 	return o.ApplyT(func(v SecretAttributesResponse) int { return v.Created }).(pulumi.IntOutput)
 }
 
-// Determines whether the object is enabled.
 func (o SecretAttributesResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecretAttributesResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Expiry date in seconds since 1970-01-01T00:00:00Z.
 func (o SecretAttributesResponseOutput) Expires() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecretAttributesResponse) *int { return v.Expires }).(pulumi.IntPtrOutput)
 }
 
-// Not before date in seconds since 1970-01-01T00:00:00Z.
 func (o SecretAttributesResponseOutput) NotBefore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecretAttributesResponse) *int { return v.NotBefore }).(pulumi.IntPtrOutput)
 }
 
-// Last updated time in seconds since 1970-01-01T00:00:00Z.
 func (o SecretAttributesResponseOutput) Updated() pulumi.IntOutput {
 	return o.ApplyT(func(v SecretAttributesResponse) int { return v.Updated }).(pulumi.IntOutput)
 }
@@ -1939,10 +1781,15 @@ func (o SecretAttributesResponsePtrOutput) ToSecretAttributesResponsePtrOutputWi
 }
 
 func (o SecretAttributesResponsePtrOutput) Elem() SecretAttributesResponseOutput {
-	return o.ApplyT(func(v *SecretAttributesResponse) SecretAttributesResponse { return *v }).(SecretAttributesResponseOutput)
+	return o.ApplyT(func(v *SecretAttributesResponse) SecretAttributesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SecretAttributesResponse
+		return ret
+	}).(SecretAttributesResponseOutput)
 }
 
-// Creation time in seconds since 1970-01-01T00:00:00Z.
 func (o SecretAttributesResponsePtrOutput) Created() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecretAttributesResponse) *int {
 		if v == nil {
@@ -1952,7 +1799,6 @@ func (o SecretAttributesResponsePtrOutput) Created() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Determines whether the object is enabled.
 func (o SecretAttributesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecretAttributesResponse) *bool {
 		if v == nil {
@@ -1962,7 +1808,6 @@ func (o SecretAttributesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Expiry date in seconds since 1970-01-01T00:00:00Z.
 func (o SecretAttributesResponsePtrOutput) Expires() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecretAttributesResponse) *int {
 		if v == nil {
@@ -1972,7 +1817,6 @@ func (o SecretAttributesResponsePtrOutput) Expires() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Not before date in seconds since 1970-01-01T00:00:00Z.
 func (o SecretAttributesResponsePtrOutput) NotBefore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecretAttributesResponse) *int {
 		if v == nil {
@@ -1982,7 +1826,6 @@ func (o SecretAttributesResponsePtrOutput) NotBefore() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Last updated time in seconds since 1970-01-01T00:00:00Z.
 func (o SecretAttributesResponsePtrOutput) Updated() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecretAttributesResponse) *int {
 		if v == nil {
@@ -1992,14 +1835,10 @@ func (o SecretAttributesResponsePtrOutput) Updated() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Properties of the secret
 type SecretProperties struct {
-	// The attributes of the secret.
-	Attributes *SecretAttributes `pulumi:"attributes"`
-	// The content type of the secret.
-	ContentType *string `pulumi:"contentType"`
-	// The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
-	Value *string `pulumi:"value"`
+	Attributes  *SecretAttributes `pulumi:"attributes"`
+	ContentType *string           `pulumi:"contentType"`
+	Value       *string           `pulumi:"value"`
 }
 
 // SecretPropertiesInput is an input type that accepts SecretPropertiesArgs and SecretPropertiesOutput values.
@@ -2013,14 +1852,10 @@ type SecretPropertiesInput interface {
 	ToSecretPropertiesOutputWithContext(context.Context) SecretPropertiesOutput
 }
 
-// Properties of the secret
 type SecretPropertiesArgs struct {
-	// The attributes of the secret.
-	Attributes SecretAttributesPtrInput `pulumi:"attributes"`
-	// The content type of the secret.
-	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	// The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Attributes  SecretAttributesPtrInput `pulumi:"attributes"`
+	ContentType pulumi.StringPtrInput    `pulumi:"contentType"`
+	Value       pulumi.StringPtrInput    `pulumi:"value"`
 }
 
 func (SecretPropertiesArgs) ElementType() reflect.Type {
@@ -2076,7 +1911,6 @@ func (i *secretPropertiesPtrType) ToSecretPropertiesPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SecretPropertiesPtrOutput)
 }
 
-// Properties of the secret
 type SecretPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SecretPropertiesOutput) ElementType() reflect.Type {
@@ -2096,22 +1930,19 @@ func (o SecretPropertiesOutput) ToSecretPropertiesPtrOutput() SecretPropertiesPt
 }
 
 func (o SecretPropertiesOutput) ToSecretPropertiesPtrOutputWithContext(ctx context.Context) SecretPropertiesPtrOutput {
-	return o.ApplyT(func(v SecretProperties) *SecretProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretProperties) *SecretProperties {
 		return &v
 	}).(SecretPropertiesPtrOutput)
 }
 
-// The attributes of the secret.
 func (o SecretPropertiesOutput) Attributes() SecretAttributesPtrOutput {
 	return o.ApplyT(func(v SecretProperties) *SecretAttributes { return v.Attributes }).(SecretAttributesPtrOutput)
 }
 
-// The content type of the secret.
 func (o SecretPropertiesOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretProperties) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
 func (o SecretPropertiesOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretProperties) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -2131,10 +1962,15 @@ func (o SecretPropertiesPtrOutput) ToSecretPropertiesPtrOutputWithContext(ctx co
 }
 
 func (o SecretPropertiesPtrOutput) Elem() SecretPropertiesOutput {
-	return o.ApplyT(func(v *SecretProperties) SecretProperties { return *v }).(SecretPropertiesOutput)
+	return o.ApplyT(func(v *SecretProperties) SecretProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SecretProperties
+		return ret
+	}).(SecretPropertiesOutput)
 }
 
-// The attributes of the secret.
 func (o SecretPropertiesPtrOutput) Attributes() SecretAttributesPtrOutput {
 	return o.ApplyT(func(v *SecretProperties) *SecretAttributes {
 		if v == nil {
@@ -2144,7 +1980,6 @@ func (o SecretPropertiesPtrOutput) Attributes() SecretAttributesPtrOutput {
 	}).(SecretAttributesPtrOutput)
 }
 
-// The content type of the secret.
 func (o SecretPropertiesPtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretProperties) *string {
 		if v == nil {
@@ -2154,7 +1989,6 @@ func (o SecretPropertiesPtrOutput) ContentType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
 func (o SecretPropertiesPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretProperties) *string {
 		if v == nil {
@@ -2164,18 +1998,12 @@ func (o SecretPropertiesPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the secret
 type SecretPropertiesResponse struct {
-	// The attributes of the secret.
-	Attributes *SecretAttributesResponse `pulumi:"attributes"`
-	// The content type of the secret.
-	ContentType *string `pulumi:"contentType"`
-	// The URI to retrieve the current version of the secret.
-	SecretUri string `pulumi:"secretUri"`
-	// The URI to retrieve the specific version of the secret.
-	SecretUriWithVersion string `pulumi:"secretUriWithVersion"`
-	// The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
-	Value *string `pulumi:"value"`
+	Attributes           *SecretAttributesResponse `pulumi:"attributes"`
+	ContentType          *string                   `pulumi:"contentType"`
+	SecretUri            string                    `pulumi:"secretUri"`
+	SecretUriWithVersion string                    `pulumi:"secretUriWithVersion"`
+	Value                *string                   `pulumi:"value"`
 }
 
 // SecretPropertiesResponseInput is an input type that accepts SecretPropertiesResponseArgs and SecretPropertiesResponseOutput values.
@@ -2189,18 +2017,12 @@ type SecretPropertiesResponseInput interface {
 	ToSecretPropertiesResponseOutputWithContext(context.Context) SecretPropertiesResponseOutput
 }
 
-// Properties of the secret
 type SecretPropertiesResponseArgs struct {
-	// The attributes of the secret.
-	Attributes SecretAttributesResponsePtrInput `pulumi:"attributes"`
-	// The content type of the secret.
-	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	// The URI to retrieve the current version of the secret.
-	SecretUri pulumi.StringInput `pulumi:"secretUri"`
-	// The URI to retrieve the specific version of the secret.
-	SecretUriWithVersion pulumi.StringInput `pulumi:"secretUriWithVersion"`
-	// The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Attributes           SecretAttributesResponsePtrInput `pulumi:"attributes"`
+	ContentType          pulumi.StringPtrInput            `pulumi:"contentType"`
+	SecretUri            pulumi.StringInput               `pulumi:"secretUri"`
+	SecretUriWithVersion pulumi.StringInput               `pulumi:"secretUriWithVersion"`
+	Value                pulumi.StringPtrInput            `pulumi:"value"`
 }
 
 func (SecretPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2256,7 +2078,6 @@ func (i *secretPropertiesResponsePtrType) ToSecretPropertiesResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SecretPropertiesResponsePtrOutput)
 }
 
-// Properties of the secret
 type SecretPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SecretPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2276,32 +2097,27 @@ func (o SecretPropertiesResponseOutput) ToSecretPropertiesResponsePtrOutput() Se
 }
 
 func (o SecretPropertiesResponseOutput) ToSecretPropertiesResponsePtrOutputWithContext(ctx context.Context) SecretPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SecretPropertiesResponse) *SecretPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretPropertiesResponse) *SecretPropertiesResponse {
 		return &v
 	}).(SecretPropertiesResponsePtrOutput)
 }
 
-// The attributes of the secret.
 func (o SecretPropertiesResponseOutput) Attributes() SecretAttributesResponsePtrOutput {
 	return o.ApplyT(func(v SecretPropertiesResponse) *SecretAttributesResponse { return v.Attributes }).(SecretAttributesResponsePtrOutput)
 }
 
-// The content type of the secret.
 func (o SecretPropertiesResponseOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretPropertiesResponse) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-// The URI to retrieve the current version of the secret.
 func (o SecretPropertiesResponseOutput) SecretUri() pulumi.StringOutput {
 	return o.ApplyT(func(v SecretPropertiesResponse) string { return v.SecretUri }).(pulumi.StringOutput)
 }
 
-// The URI to retrieve the specific version of the secret.
 func (o SecretPropertiesResponseOutput) SecretUriWithVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v SecretPropertiesResponse) string { return v.SecretUriWithVersion }).(pulumi.StringOutput)
 }
 
-// The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
 func (o SecretPropertiesResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretPropertiesResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -2321,10 +2137,15 @@ func (o SecretPropertiesResponsePtrOutput) ToSecretPropertiesResponsePtrOutputWi
 }
 
 func (o SecretPropertiesResponsePtrOutput) Elem() SecretPropertiesResponseOutput {
-	return o.ApplyT(func(v *SecretPropertiesResponse) SecretPropertiesResponse { return *v }).(SecretPropertiesResponseOutput)
+	return o.ApplyT(func(v *SecretPropertiesResponse) SecretPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SecretPropertiesResponse
+		return ret
+	}).(SecretPropertiesResponseOutput)
 }
 
-// The attributes of the secret.
 func (o SecretPropertiesResponsePtrOutput) Attributes() SecretAttributesResponsePtrOutput {
 	return o.ApplyT(func(v *SecretPropertiesResponse) *SecretAttributesResponse {
 		if v == nil {
@@ -2334,7 +2155,6 @@ func (o SecretPropertiesResponsePtrOutput) Attributes() SecretAttributesResponse
 	}).(SecretAttributesResponsePtrOutput)
 }
 
-// The content type of the secret.
 func (o SecretPropertiesResponsePtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretPropertiesResponse) *string {
 		if v == nil {
@@ -2344,7 +2164,6 @@ func (o SecretPropertiesResponsePtrOutput) ContentType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI to retrieve the current version of the secret.
 func (o SecretPropertiesResponsePtrOutput) SecretUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretPropertiesResponse) *string {
 		if v == nil {
@@ -2354,7 +2173,6 @@ func (o SecretPropertiesResponsePtrOutput) SecretUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI to retrieve the specific version of the secret.
 func (o SecretPropertiesResponsePtrOutput) SecretUriWithVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretPropertiesResponse) *string {
 		if v == nil {
@@ -2364,7 +2182,6 @@ func (o SecretPropertiesResponsePtrOutput) SecretUriWithVersion() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
 func (o SecretPropertiesResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretPropertiesResponse) *string {
 		if v == nil {
@@ -2374,12 +2191,9 @@ func (o SecretPropertiesResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU details
 type Sku struct {
-	// SKU family name
-	Family string `pulumi:"family"`
-	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name string `pulumi:"name"`
+	Family string  `pulumi:"family"`
+	Name   SkuName `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -2393,12 +2207,9 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// SKU details
 type SkuArgs struct {
-	// SKU family name
 	Family pulumi.StringInput `pulumi:"family"`
-	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name SkuName `pulumi:"name"`
+	Name   SkuNameInput       `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -2454,7 +2265,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// SKU details
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -2474,19 +2284,17 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// SKU family name
 func (o SkuOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Family }).(pulumi.StringOutput)
 }
 
-// SKU name to specify whether the key vault is a standard vault or a premium vault.
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+func (o SkuOutput) Name() SkuNameOutput {
+	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -2504,10 +2312,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// SKU family name
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -2517,22 +2330,18 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU name to specify whether the key vault is a standard vault or a premium vault.
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
-// SKU details
 type SkuResponse struct {
-	// SKU family name
 	Family string `pulumi:"family"`
-	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -2546,12 +2355,9 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// SKU details
 type SkuResponseArgs struct {
-	// SKU family name
 	Family pulumi.StringInput `pulumi:"family"`
-	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput `pulumi:"name"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -2607,7 +2413,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// SKU details
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -2627,17 +2432,15 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// SKU family name
 func (o SkuResponseOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Family }).(pulumi.StringOutput)
 }
 
-// SKU name to specify whether the key vault is a standard vault or a premium vault.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2657,10 +2460,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// SKU family name
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -2670,7 +2478,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU name to specify whether the key vault is a standard vault or a premium vault.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -2680,30 +2487,18 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the vault
 type VaultProperties struct {
-	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
-	AccessPolicies []AccessPolicyEntry `pulumi:"accessPolicies"`
-	// The vault's create mode to indicate whether the vault need to be recovered or not.
-	CreateMode *string `pulumi:"createMode"`
-	// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
-	EnablePurgeProtection *bool `pulumi:"enablePurgeProtection"`
-	// Property to specify whether the 'soft delete' functionality is enabled for this key vault. It does not accept false value.
-	EnableSoftDelete *bool `pulumi:"enableSoftDelete"`
-	// Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
-	EnabledForDeployment *bool `pulumi:"enabledForDeployment"`
-	// Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
-	EnabledForDiskEncryption *bool `pulumi:"enabledForDiskEncryption"`
-	// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
-	EnabledForTemplateDeployment *bool `pulumi:"enabledForTemplateDeployment"`
-	// Rules governing the accessibility of the key vault from specific network locations.
-	NetworkAcls *NetworkRuleSet `pulumi:"networkAcls"`
-	// SKU details
-	Sku Sku `pulumi:"sku"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId string `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
-	VaultUri *string `pulumi:"vaultUri"`
+	AccessPolicies               []AccessPolicyEntry `pulumi:"accessPolicies"`
+	CreateMode                   *CreateMode         `pulumi:"createMode"`
+	EnablePurgeProtection        *bool               `pulumi:"enablePurgeProtection"`
+	EnableSoftDelete             *bool               `pulumi:"enableSoftDelete"`
+	EnabledForDeployment         *bool               `pulumi:"enabledForDeployment"`
+	EnabledForDiskEncryption     *bool               `pulumi:"enabledForDiskEncryption"`
+	EnabledForTemplateDeployment *bool               `pulumi:"enabledForTemplateDeployment"`
+	NetworkAcls                  *NetworkRuleSet     `pulumi:"networkAcls"`
+	Sku                          Sku                 `pulumi:"sku"`
+	TenantId                     string              `pulumi:"tenantId"`
+	VaultUri                     *string             `pulumi:"vaultUri"`
 }
 
 // VaultPropertiesInput is an input type that accepts VaultPropertiesArgs and VaultPropertiesOutput values.
@@ -2717,30 +2512,18 @@ type VaultPropertiesInput interface {
 	ToVaultPropertiesOutputWithContext(context.Context) VaultPropertiesOutput
 }
 
-// Properties of the vault
 type VaultPropertiesArgs struct {
-	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
-	AccessPolicies AccessPolicyEntryArrayInput `pulumi:"accessPolicies"`
-	// The vault's create mode to indicate whether the vault need to be recovered or not.
-	CreateMode *CreateMode `pulumi:"createMode"`
-	// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
-	EnablePurgeProtection pulumi.BoolPtrInput `pulumi:"enablePurgeProtection"`
-	// Property to specify whether the 'soft delete' functionality is enabled for this key vault. It does not accept false value.
-	EnableSoftDelete pulumi.BoolPtrInput `pulumi:"enableSoftDelete"`
-	// Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
-	EnabledForDeployment pulumi.BoolPtrInput `pulumi:"enabledForDeployment"`
-	// Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
-	EnabledForDiskEncryption pulumi.BoolPtrInput `pulumi:"enabledForDiskEncryption"`
-	// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
-	EnabledForTemplateDeployment pulumi.BoolPtrInput `pulumi:"enabledForTemplateDeployment"`
-	// Rules governing the accessibility of the key vault from specific network locations.
-	NetworkAcls NetworkRuleSetPtrInput `pulumi:"networkAcls"`
-	// SKU details
-	Sku SkuInput `pulumi:"sku"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
-	VaultUri pulumi.StringPtrInput `pulumi:"vaultUri"`
+	AccessPolicies               AccessPolicyEntryArrayInput `pulumi:"accessPolicies"`
+	CreateMode                   CreateModePtrInput          `pulumi:"createMode"`
+	EnablePurgeProtection        pulumi.BoolPtrInput         `pulumi:"enablePurgeProtection"`
+	EnableSoftDelete             pulumi.BoolPtrInput         `pulumi:"enableSoftDelete"`
+	EnabledForDeployment         pulumi.BoolPtrInput         `pulumi:"enabledForDeployment"`
+	EnabledForDiskEncryption     pulumi.BoolPtrInput         `pulumi:"enabledForDiskEncryption"`
+	EnabledForTemplateDeployment pulumi.BoolPtrInput         `pulumi:"enabledForTemplateDeployment"`
+	NetworkAcls                  NetworkRuleSetPtrInput      `pulumi:"networkAcls"`
+	Sku                          SkuInput                    `pulumi:"sku"`
+	TenantId                     pulumi.StringInput          `pulumi:"tenantId"`
+	VaultUri                     pulumi.StringPtrInput       `pulumi:"vaultUri"`
 }
 
 func (VaultPropertiesArgs) ElementType() reflect.Type {
@@ -2796,7 +2579,6 @@ func (i *vaultPropertiesPtrType) ToVaultPropertiesPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesPtrOutput)
 }
 
-// Properties of the vault
 type VaultPropertiesOutput struct{ *pulumi.OutputState }
 
 func (VaultPropertiesOutput) ElementType() reflect.Type {
@@ -2816,62 +2598,51 @@ func (o VaultPropertiesOutput) ToVaultPropertiesPtrOutput() VaultPropertiesPtrOu
 }
 
 func (o VaultPropertiesOutput) ToVaultPropertiesPtrOutputWithContext(ctx context.Context) VaultPropertiesPtrOutput {
-	return o.ApplyT(func(v VaultProperties) *VaultProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultProperties) *VaultProperties {
 		return &v
 	}).(VaultPropertiesPtrOutput)
 }
 
-// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 func (o VaultPropertiesOutput) AccessPolicies() AccessPolicyEntryArrayOutput {
 	return o.ApplyT(func(v VaultProperties) []AccessPolicyEntry { return v.AccessPolicies }).(AccessPolicyEntryArrayOutput)
 }
 
-// The vault's create mode to indicate whether the vault need to be recovered or not.
-func (o VaultPropertiesOutput) CreateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultProperties) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+func (o VaultPropertiesOutput) CreateMode() CreateModePtrOutput {
+	return o.ApplyT(func(v VaultProperties) *CreateMode { return v.CreateMode }).(CreateModePtrOutput)
 }
 
-// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
 func (o VaultPropertiesOutput) EnablePurgeProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *bool { return v.EnablePurgeProtection }).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether the 'soft delete' functionality is enabled for this key vault. It does not accept false value.
 func (o VaultPropertiesOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *bool { return v.EnableSoftDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
 func (o VaultPropertiesOutput) EnabledForDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *bool { return v.EnabledForDeployment }).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
 func (o VaultPropertiesOutput) EnabledForDiskEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *bool { return v.EnabledForDiskEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 func (o VaultPropertiesOutput) EnabledForTemplateDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *bool { return v.EnabledForTemplateDeployment }).(pulumi.BoolPtrOutput)
 }
 
-// Rules governing the accessibility of the key vault from specific network locations.
 func (o VaultPropertiesOutput) NetworkAcls() NetworkRuleSetPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *NetworkRuleSet { return v.NetworkAcls }).(NetworkRuleSetPtrOutput)
 }
 
-// SKU details
 func (o VaultPropertiesOutput) Sku() SkuOutput {
 	return o.ApplyT(func(v VaultProperties) Sku { return v.Sku }).(SkuOutput)
 }
 
-// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 func (o VaultPropertiesOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultProperties) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
 func (o VaultPropertiesOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *string { return v.VaultUri }).(pulumi.StringPtrOutput)
 }
@@ -2891,10 +2662,15 @@ func (o VaultPropertiesPtrOutput) ToVaultPropertiesPtrOutputWithContext(ctx cont
 }
 
 func (o VaultPropertiesPtrOutput) Elem() VaultPropertiesOutput {
-	return o.ApplyT(func(v *VaultProperties) VaultProperties { return *v }).(VaultPropertiesOutput)
+	return o.ApplyT(func(v *VaultProperties) VaultProperties {
+		if v != nil {
+			return *v
+		}
+		var ret VaultProperties
+		return ret
+	}).(VaultPropertiesOutput)
 }
 
-// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 func (o VaultPropertiesPtrOutput) AccessPolicies() AccessPolicyEntryArrayOutput {
 	return o.ApplyT(func(v *VaultProperties) []AccessPolicyEntry {
 		if v == nil {
@@ -2904,17 +2680,15 @@ func (o VaultPropertiesPtrOutput) AccessPolicies() AccessPolicyEntryArrayOutput 
 	}).(AccessPolicyEntryArrayOutput)
 }
 
-// The vault's create mode to indicate whether the vault need to be recovered or not.
-func (o VaultPropertiesPtrOutput) CreateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VaultProperties) *string {
+func (o VaultPropertiesPtrOutput) CreateMode() CreateModePtrOutput {
+	return o.ApplyT(func(v *VaultProperties) *CreateMode {
 		if v == nil {
 			return nil
 		}
 		return v.CreateMode
-	}).(pulumi.StringPtrOutput)
+	}).(CreateModePtrOutput)
 }
 
-// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
 func (o VaultPropertiesPtrOutput) EnablePurgeProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *bool {
 		if v == nil {
@@ -2924,7 +2698,6 @@ func (o VaultPropertiesPtrOutput) EnablePurgeProtection() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether the 'soft delete' functionality is enabled for this key vault. It does not accept false value.
 func (o VaultPropertiesPtrOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *bool {
 		if v == nil {
@@ -2934,7 +2707,6 @@ func (o VaultPropertiesPtrOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
 func (o VaultPropertiesPtrOutput) EnabledForDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *bool {
 		if v == nil {
@@ -2944,7 +2716,6 @@ func (o VaultPropertiesPtrOutput) EnabledForDeployment() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
 func (o VaultPropertiesPtrOutput) EnabledForDiskEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *bool {
 		if v == nil {
@@ -2954,7 +2725,6 @@ func (o VaultPropertiesPtrOutput) EnabledForDiskEncryption() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 func (o VaultPropertiesPtrOutput) EnabledForTemplateDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *bool {
 		if v == nil {
@@ -2964,7 +2734,6 @@ func (o VaultPropertiesPtrOutput) EnabledForTemplateDeployment() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Rules governing the accessibility of the key vault from specific network locations.
 func (o VaultPropertiesPtrOutput) NetworkAcls() NetworkRuleSetPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *NetworkRuleSet {
 		if v == nil {
@@ -2974,7 +2743,6 @@ func (o VaultPropertiesPtrOutput) NetworkAcls() NetworkRuleSetPtrOutput {
 	}).(NetworkRuleSetPtrOutput)
 }
 
-// SKU details
 func (o VaultPropertiesPtrOutput) Sku() SkuPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *Sku {
 		if v == nil {
@@ -2984,7 +2752,6 @@ func (o VaultPropertiesPtrOutput) Sku() SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 func (o VaultPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *string {
 		if v == nil {
@@ -2994,7 +2761,6 @@ func (o VaultPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
 func (o VaultPropertiesPtrOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *string {
 		if v == nil {
@@ -3004,32 +2770,19 @@ func (o VaultPropertiesPtrOutput) VaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the vault
 type VaultPropertiesResponse struct {
-	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
-	AccessPolicies []AccessPolicyEntryResponse `pulumi:"accessPolicies"`
-	// The vault's create mode to indicate whether the vault need to be recovered or not.
-	CreateMode *string `pulumi:"createMode"`
-	// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
-	EnablePurgeProtection *bool `pulumi:"enablePurgeProtection"`
-	// Property to specify whether the 'soft delete' functionality is enabled for this key vault. It does not accept false value.
-	EnableSoftDelete *bool `pulumi:"enableSoftDelete"`
-	// Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
-	EnabledForDeployment *bool `pulumi:"enabledForDeployment"`
-	// Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
-	EnabledForDiskEncryption *bool `pulumi:"enabledForDiskEncryption"`
-	// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
-	EnabledForTemplateDeployment *bool `pulumi:"enabledForTemplateDeployment"`
-	// Rules governing the accessibility of the key vault from specific network locations.
-	NetworkAcls *NetworkRuleSetResponse `pulumi:"networkAcls"`
-	// List of private endpoint connections associated with the key vault.
-	PrivateEndpointConnections []PrivateEndpointConnectionItemResponse `pulumi:"privateEndpointConnections"`
-	// SKU details
-	Sku SkuResponse `pulumi:"sku"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId string `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
-	VaultUri *string `pulumi:"vaultUri"`
+	AccessPolicies               []AccessPolicyEntryResponse             `pulumi:"accessPolicies"`
+	CreateMode                   *string                                 `pulumi:"createMode"`
+	EnablePurgeProtection        *bool                                   `pulumi:"enablePurgeProtection"`
+	EnableSoftDelete             *bool                                   `pulumi:"enableSoftDelete"`
+	EnabledForDeployment         *bool                                   `pulumi:"enabledForDeployment"`
+	EnabledForDiskEncryption     *bool                                   `pulumi:"enabledForDiskEncryption"`
+	EnabledForTemplateDeployment *bool                                   `pulumi:"enabledForTemplateDeployment"`
+	NetworkAcls                  *NetworkRuleSetResponse                 `pulumi:"networkAcls"`
+	PrivateEndpointConnections   []PrivateEndpointConnectionItemResponse `pulumi:"privateEndpointConnections"`
+	Sku                          SkuResponse                             `pulumi:"sku"`
+	TenantId                     string                                  `pulumi:"tenantId"`
+	VaultUri                     *string                                 `pulumi:"vaultUri"`
 }
 
 // VaultPropertiesResponseInput is an input type that accepts VaultPropertiesResponseArgs and VaultPropertiesResponseOutput values.
@@ -3043,32 +2796,19 @@ type VaultPropertiesResponseInput interface {
 	ToVaultPropertiesResponseOutputWithContext(context.Context) VaultPropertiesResponseOutput
 }
 
-// Properties of the vault
 type VaultPropertiesResponseArgs struct {
-	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
-	AccessPolicies AccessPolicyEntryResponseArrayInput `pulumi:"accessPolicies"`
-	// The vault's create mode to indicate whether the vault need to be recovered or not.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
-	EnablePurgeProtection pulumi.BoolPtrInput `pulumi:"enablePurgeProtection"`
-	// Property to specify whether the 'soft delete' functionality is enabled for this key vault. It does not accept false value.
-	EnableSoftDelete pulumi.BoolPtrInput `pulumi:"enableSoftDelete"`
-	// Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
-	EnabledForDeployment pulumi.BoolPtrInput `pulumi:"enabledForDeployment"`
-	// Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
-	EnabledForDiskEncryption pulumi.BoolPtrInput `pulumi:"enabledForDiskEncryption"`
-	// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
-	EnabledForTemplateDeployment pulumi.BoolPtrInput `pulumi:"enabledForTemplateDeployment"`
-	// Rules governing the accessibility of the key vault from specific network locations.
-	NetworkAcls NetworkRuleSetResponsePtrInput `pulumi:"networkAcls"`
-	// List of private endpoint connections associated with the key vault.
-	PrivateEndpointConnections PrivateEndpointConnectionItemResponseArrayInput `pulumi:"privateEndpointConnections"`
-	// SKU details
-	Sku SkuResponseInput `pulumi:"sku"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
-	VaultUri pulumi.StringPtrInput `pulumi:"vaultUri"`
+	AccessPolicies               AccessPolicyEntryResponseArrayInput             `pulumi:"accessPolicies"`
+	CreateMode                   pulumi.StringPtrInput                           `pulumi:"createMode"`
+	EnablePurgeProtection        pulumi.BoolPtrInput                             `pulumi:"enablePurgeProtection"`
+	EnableSoftDelete             pulumi.BoolPtrInput                             `pulumi:"enableSoftDelete"`
+	EnabledForDeployment         pulumi.BoolPtrInput                             `pulumi:"enabledForDeployment"`
+	EnabledForDiskEncryption     pulumi.BoolPtrInput                             `pulumi:"enabledForDiskEncryption"`
+	EnabledForTemplateDeployment pulumi.BoolPtrInput                             `pulumi:"enabledForTemplateDeployment"`
+	NetworkAcls                  NetworkRuleSetResponsePtrInput                  `pulumi:"networkAcls"`
+	PrivateEndpointConnections   PrivateEndpointConnectionItemResponseArrayInput `pulumi:"privateEndpointConnections"`
+	Sku                          SkuResponseInput                                `pulumi:"sku"`
+	TenantId                     pulumi.StringInput                              `pulumi:"tenantId"`
+	VaultUri                     pulumi.StringPtrInput                           `pulumi:"vaultUri"`
 }
 
 func (VaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -3124,7 +2864,6 @@ func (i *vaultPropertiesResponsePtrType) ToVaultPropertiesResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesResponsePtrOutput)
 }
 
-// Properties of the vault
 type VaultPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VaultPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3144,69 +2883,57 @@ func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponsePtrOutput() Vaul
 }
 
 func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) VaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VaultPropertiesResponse) *VaultPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultPropertiesResponse) *VaultPropertiesResponse {
 		return &v
 	}).(VaultPropertiesResponsePtrOutput)
 }
 
-// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 func (o VaultPropertiesResponseOutput) AccessPolicies() AccessPolicyEntryResponseArrayOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) []AccessPolicyEntryResponse { return v.AccessPolicies }).(AccessPolicyEntryResponseArrayOutput)
 }
 
-// The vault's create mode to indicate whether the vault need to be recovered or not.
 func (o VaultPropertiesResponseOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
 func (o VaultPropertiesResponseOutput) EnablePurgeProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *bool { return v.EnablePurgeProtection }).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether the 'soft delete' functionality is enabled for this key vault. It does not accept false value.
 func (o VaultPropertiesResponseOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *bool { return v.EnableSoftDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
 func (o VaultPropertiesResponseOutput) EnabledForDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *bool { return v.EnabledForDeployment }).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
 func (o VaultPropertiesResponseOutput) EnabledForDiskEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *bool { return v.EnabledForDiskEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 func (o VaultPropertiesResponseOutput) EnabledForTemplateDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *bool { return v.EnabledForTemplateDeployment }).(pulumi.BoolPtrOutput)
 }
 
-// Rules governing the accessibility of the key vault from specific network locations.
 func (o VaultPropertiesResponseOutput) NetworkAcls() NetworkRuleSetResponsePtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *NetworkRuleSetResponse { return v.NetworkAcls }).(NetworkRuleSetResponsePtrOutput)
 }
 
-// List of private endpoint connections associated with the key vault.
 func (o VaultPropertiesResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionItemResponseArrayOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) []PrivateEndpointConnectionItemResponse {
 		return v.PrivateEndpointConnections
 	}).(PrivateEndpointConnectionItemResponseArrayOutput)
 }
 
-// SKU details
 func (o VaultPropertiesResponseOutput) Sku() SkuResponseOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) SkuResponse { return v.Sku }).(SkuResponseOutput)
 }
 
-// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 func (o VaultPropertiesResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
 func (o VaultPropertiesResponseOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *string { return v.VaultUri }).(pulumi.StringPtrOutput)
 }
@@ -3226,10 +2953,15 @@ func (o VaultPropertiesResponsePtrOutput) ToVaultPropertiesResponsePtrOutputWith
 }
 
 func (o VaultPropertiesResponsePtrOutput) Elem() VaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *VaultPropertiesResponse) VaultPropertiesResponse { return *v }).(VaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *VaultPropertiesResponse) VaultPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VaultPropertiesResponse
+		return ret
+	}).(VaultPropertiesResponseOutput)
 }
 
-// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 func (o VaultPropertiesResponsePtrOutput) AccessPolicies() AccessPolicyEntryResponseArrayOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) []AccessPolicyEntryResponse {
 		if v == nil {
@@ -3239,7 +2971,6 @@ func (o VaultPropertiesResponsePtrOutput) AccessPolicies() AccessPolicyEntryResp
 	}).(AccessPolicyEntryResponseArrayOutput)
 }
 
-// The vault's create mode to indicate whether the vault need to be recovered or not.
 func (o VaultPropertiesResponsePtrOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *string {
 		if v == nil {
@@ -3249,7 +2980,6 @@ func (o VaultPropertiesResponsePtrOutput) CreateMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
 func (o VaultPropertiesResponsePtrOutput) EnablePurgeProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *bool {
 		if v == nil {
@@ -3259,7 +2989,6 @@ func (o VaultPropertiesResponsePtrOutput) EnablePurgeProtection() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether the 'soft delete' functionality is enabled for this key vault. It does not accept false value.
 func (o VaultPropertiesResponsePtrOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *bool {
 		if v == nil {
@@ -3269,7 +2998,6 @@ func (o VaultPropertiesResponsePtrOutput) EnableSoftDelete() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
 func (o VaultPropertiesResponsePtrOutput) EnabledForDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *bool {
 		if v == nil {
@@ -3279,7 +3007,6 @@ func (o VaultPropertiesResponsePtrOutput) EnabledForDeployment() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
 func (o VaultPropertiesResponsePtrOutput) EnabledForDiskEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *bool {
 		if v == nil {
@@ -3289,7 +3016,6 @@ func (o VaultPropertiesResponsePtrOutput) EnabledForDiskEncryption() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 func (o VaultPropertiesResponsePtrOutput) EnabledForTemplateDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *bool {
 		if v == nil {
@@ -3299,7 +3025,6 @@ func (o VaultPropertiesResponsePtrOutput) EnabledForTemplateDeployment() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Rules governing the accessibility of the key vault from specific network locations.
 func (o VaultPropertiesResponsePtrOutput) NetworkAcls() NetworkRuleSetResponsePtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *NetworkRuleSetResponse {
 		if v == nil {
@@ -3309,7 +3034,6 @@ func (o VaultPropertiesResponsePtrOutput) NetworkAcls() NetworkRuleSetResponsePt
 	}).(NetworkRuleSetResponsePtrOutput)
 }
 
-// List of private endpoint connections associated with the key vault.
 func (o VaultPropertiesResponsePtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionItemResponseArrayOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) []PrivateEndpointConnectionItemResponse {
 		if v == nil {
@@ -3319,7 +3043,6 @@ func (o VaultPropertiesResponsePtrOutput) PrivateEndpointConnections() PrivateEn
 	}).(PrivateEndpointConnectionItemResponseArrayOutput)
 }
 
-// SKU details
 func (o VaultPropertiesResponsePtrOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *SkuResponse {
 		if v == nil {
@@ -3329,7 +3052,6 @@ func (o VaultPropertiesResponsePtrOutput) Sku() SkuResponsePtrOutput {
 	}).(SkuResponsePtrOutput)
 }
 
-// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 func (o VaultPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *string {
 		if v == nil {
@@ -3339,7 +3061,6 @@ func (o VaultPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
 func (o VaultPropertiesResponsePtrOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *string {
 		if v == nil {
@@ -3349,9 +3070,7 @@ func (o VaultPropertiesResponsePtrOutput) VaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A rule governing the accessibility of a vault from a specific virtual network.
 type VirtualNetworkRule struct {
-	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id string `pulumi:"id"`
 }
 
@@ -3366,9 +3085,7 @@ type VirtualNetworkRuleInput interface {
 	ToVirtualNetworkRuleOutputWithContext(context.Context) VirtualNetworkRuleOutput
 }
 
-// A rule governing the accessibility of a vault from a specific virtual network.
 type VirtualNetworkRuleArgs struct {
-	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -3409,7 +3126,6 @@ func (i VirtualNetworkRuleArray) ToVirtualNetworkRuleArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleArrayOutput)
 }
 
-// A rule governing the accessibility of a vault from a specific virtual network.
 type VirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleOutput) ElementType() reflect.Type {
@@ -3424,7 +3140,6 @@ func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx cont
 	return o
 }
 
-// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 func (o VirtualNetworkRuleOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRule) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -3449,9 +3164,7 @@ func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRu
 	}).(VirtualNetworkRuleOutput)
 }
 
-// A rule governing the accessibility of a vault from a specific virtual network.
 type VirtualNetworkRuleResponse struct {
-	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id string `pulumi:"id"`
 }
 
@@ -3466,9 +3179,7 @@ type VirtualNetworkRuleResponseInput interface {
 	ToVirtualNetworkRuleResponseOutputWithContext(context.Context) VirtualNetworkRuleResponseOutput
 }
 
-// A rule governing the accessibility of a vault from a specific virtual network.
 type VirtualNetworkRuleResponseArgs struct {
-	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -3509,7 +3220,6 @@ func (i VirtualNetworkRuleResponseArray) ToVirtualNetworkRuleResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleResponseArrayOutput)
 }
 
-// A rule governing the accessibility of a vault from a specific virtual network.
 type VirtualNetworkRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleResponseOutput) ElementType() reflect.Type {
@@ -3524,7 +3234,6 @@ func (o VirtualNetworkRuleResponseOutput) ToVirtualNetworkRuleResponseOutputWith
 	return o
 }
 
-// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 func (o VirtualNetworkRuleResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.Id }).(pulumi.StringOutput)
 }

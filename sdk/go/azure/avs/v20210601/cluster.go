@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A cluster resource
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// The identity
-	ClusterId pulumi.IntOutput `pulumi:"clusterId"`
-	// The cluster size
-	ClusterSize pulumi.IntPtrOutput `pulumi:"clusterSize"`
-	// The hosts
-	Hosts pulumi.StringArrayOutput `pulumi:"hosts"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The state of the cluster provisioning
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The cluster SKU
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ClusterId         pulumi.IntOutput         `pulumi:"clusterId"`
+	ClusterSize       pulumi.IntPtrOutput      `pulumi:"clusterSize"`
+	Hosts             pulumi.StringArrayOutput `pulumi:"hosts"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	Sku               SkuResponseOutput        `pulumi:"sku"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -109,30 +101,20 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// Name of the cluster in the private cloud
-	ClusterName *string `pulumi:"clusterName"`
-	// The cluster size
-	ClusterSize *int `pulumi:"clusterSize"`
-	// The name of the private cloud.
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The cluster SKU
-	Sku Sku `pulumi:"sku"`
+	ClusterName       *string `pulumi:"clusterName"`
+	ClusterSize       *int    `pulumi:"clusterSize"`
+	PrivateCloudName  string  `pulumi:"privateCloudName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	Sku               Sku     `pulumi:"sku"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// Name of the cluster in the private cloud
-	ClusterName pulumi.StringPtrInput
-	// The cluster size
-	ClusterSize pulumi.IntPtrInput
-	// The name of the private cloud.
-	PrivateCloudName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
+	ClusterName       pulumi.StringPtrInput
+	ClusterSize       pulumi.IntPtrInput
+	PrivateCloudName  pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The cluster SKU
-	Sku SkuInput
+	Sku               SkuInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -158,9 +140,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
 }
 
-type ClusterOutput struct {
-	*pulumi.OutputState
-}
+type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cluster)(nil))

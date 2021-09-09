@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data Lake Store firewall rule information.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
-	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	EndIpAddress pulumi.StringOutput `pulumi:"endIpAddress"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress   pulumi.StringOutput `pulumi:"endIpAddress"`
+	Name           pulumi.StringOutput `pulumi:"name"`
 	StartIpAddress pulumi.StringOutput `pulumi:"startIpAddress"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type           pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewFirewallRule registers a new resource with the given unique name, arguments, and options.
@@ -88,30 +83,20 @@ func (FirewallRuleState) ElementType() reflect.Type {
 }
 
 type firewallRuleArgs struct {
-	// The name of the Data Lake Store account.
-	AccountName string `pulumi:"accountName"`
-	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	EndIpAddress string `pulumi:"endIpAddress"`
-	// The name of the firewall rule to create or update.
-	FirewallRuleName *string `pulumi:"firewallRuleName"`
-	// The name of the Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	StartIpAddress string `pulumi:"startIpAddress"`
+	AccountName       string  `pulumi:"accountName"`
+	EndIpAddress      string  `pulumi:"endIpAddress"`
+	FirewallRuleName  *string `pulumi:"firewallRuleName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	StartIpAddress    string  `pulumi:"startIpAddress"`
 }
 
 // The set of arguments for constructing a FirewallRule resource.
 type FirewallRuleArgs struct {
-	// The name of the Data Lake Store account.
-	AccountName pulumi.StringInput
-	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	EndIpAddress pulumi.StringInput
-	// The name of the firewall rule to create or update.
-	FirewallRuleName pulumi.StringPtrInput
-	// The name of the Azure resource group.
+	AccountName       pulumi.StringInput
+	EndIpAddress      pulumi.StringInput
+	FirewallRuleName  pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	StartIpAddress pulumi.StringInput
+	StartIpAddress    pulumi.StringInput
 }
 
 func (FirewallRuleArgs) ElementType() reflect.Type {
@@ -137,9 +122,7 @@ func (i *FirewallRule) ToFirewallRuleOutputWithContext(ctx context.Context) Fire
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleOutput)
 }
 
-type FirewallRuleOutput struct {
-	*pulumi.OutputState
-}
+type FirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallRule)(nil))

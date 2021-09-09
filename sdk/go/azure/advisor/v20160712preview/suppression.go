@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
 type Suppression struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The GUID of the suppression.
+	Location      pulumi.StringPtrOutput `pulumi:"location"`
+	Name          pulumi.StringOutput    `pulumi:"name"`
 	SuppressionId pulumi.StringPtrOutput `pulumi:"suppressionId"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The duration for which the suppression is valid.
-	Ttl pulumi.StringPtrOutput `pulumi:"ttl"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags          pulumi.StringMapOutput `pulumi:"tags"`
+	Ttl           pulumi.StringPtrOutput `pulumi:"ttl"`
+	Type          pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewSuppression registers a new resource with the given unique name, arguments, and options.
@@ -104,38 +97,24 @@ func (SuppressionState) ElementType() reflect.Type {
 }
 
 type suppressionArgs struct {
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The name of the suppression.
-	Name *string `pulumi:"name"`
-	// The recommendation ID.
-	RecommendationId string `pulumi:"recommendationId"`
-	// The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
-	ResourceUri string `pulumi:"resourceUri"`
-	// The GUID of the suppression.
-	SuppressionId *string `pulumi:"suppressionId"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The duration for which the suppression is valid.
-	Ttl *string `pulumi:"ttl"`
+	Location         *string           `pulumi:"location"`
+	Name             *string           `pulumi:"name"`
+	RecommendationId string            `pulumi:"recommendationId"`
+	ResourceUri      string            `pulumi:"resourceUri"`
+	SuppressionId    *string           `pulumi:"suppressionId"`
+	Tags             map[string]string `pulumi:"tags"`
+	Ttl              *string           `pulumi:"ttl"`
 }
 
 // The set of arguments for constructing a Suppression resource.
 type SuppressionArgs struct {
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The name of the suppression.
-	Name pulumi.StringPtrInput
-	// The recommendation ID.
+	Location         pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
 	RecommendationId pulumi.StringInput
-	// The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
-	ResourceUri pulumi.StringInput
-	// The GUID of the suppression.
-	SuppressionId pulumi.StringPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The duration for which the suppression is valid.
-	Ttl pulumi.StringPtrInput
+	ResourceUri      pulumi.StringInput
+	SuppressionId    pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	Ttl              pulumi.StringPtrInput
 }
 
 func (SuppressionArgs) ElementType() reflect.Type {
@@ -161,9 +140,7 @@ func (i *Suppression) ToSuppressionOutputWithContext(ctx context.Context) Suppre
 	return pulumi.ToOutputWithContext(ctx, i).(SuppressionOutput)
 }
 
-type SuppressionOutput struct {
-	*pulumi.OutputState
-}
+type SuppressionOutput struct{ *pulumi.OutputState }
 
 func (SuppressionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Suppression)(nil))

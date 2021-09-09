@@ -10,22 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An application package which represents a particular version of an application.
 type ApplicationPackageResponse struct {
-	// The format of the application package, if the package is active.
-	Format string `pulumi:"format"`
-	// The ID of the application.
-	Id string `pulumi:"id"`
-	// The time at which the package was last activated, if the package is active.
+	Format             string `pulumi:"format"`
+	Id                 string `pulumi:"id"`
 	LastActivationTime string `pulumi:"lastActivationTime"`
-	// The current state of the application package.
-	State string `pulumi:"state"`
-	// The URL for the application package in Azure Storage.
-	StorageUrl string `pulumi:"storageUrl"`
-	// The UTC time at which the Azure Storage URL will expire.
-	StorageUrlExpiry string `pulumi:"storageUrlExpiry"`
-	// The version of the application package.
-	Version string `pulumi:"version"`
+	State              string `pulumi:"state"`
+	StorageUrl         string `pulumi:"storageUrl"`
+	StorageUrlExpiry   string `pulumi:"storageUrlExpiry"`
+	Version            string `pulumi:"version"`
 }
 
 // ApplicationPackageResponseInput is an input type that accepts ApplicationPackageResponseArgs and ApplicationPackageResponseOutput values.
@@ -39,22 +31,14 @@ type ApplicationPackageResponseInput interface {
 	ToApplicationPackageResponseOutputWithContext(context.Context) ApplicationPackageResponseOutput
 }
 
-// An application package which represents a particular version of an application.
 type ApplicationPackageResponseArgs struct {
-	// The format of the application package, if the package is active.
-	Format pulumi.StringInput `pulumi:"format"`
-	// The ID of the application.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The time at which the package was last activated, if the package is active.
+	Format             pulumi.StringInput `pulumi:"format"`
+	Id                 pulumi.StringInput `pulumi:"id"`
 	LastActivationTime pulumi.StringInput `pulumi:"lastActivationTime"`
-	// The current state of the application package.
-	State pulumi.StringInput `pulumi:"state"`
-	// The URL for the application package in Azure Storage.
-	StorageUrl pulumi.StringInput `pulumi:"storageUrl"`
-	// The UTC time at which the Azure Storage URL will expire.
-	StorageUrlExpiry pulumi.StringInput `pulumi:"storageUrlExpiry"`
-	// The version of the application package.
-	Version pulumi.StringInput `pulumi:"version"`
+	State              pulumi.StringInput `pulumi:"state"`
+	StorageUrl         pulumi.StringInput `pulumi:"storageUrl"`
+	StorageUrlExpiry   pulumi.StringInput `pulumi:"storageUrlExpiry"`
+	Version            pulumi.StringInput `pulumi:"version"`
 }
 
 func (ApplicationPackageResponseArgs) ElementType() reflect.Type {
@@ -94,7 +78,6 @@ func (i ApplicationPackageResponseArray) ToApplicationPackageResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageResponseArrayOutput)
 }
 
-// An application package which represents a particular version of an application.
 type ApplicationPackageResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPackageResponseOutput) ElementType() reflect.Type {
@@ -109,37 +92,30 @@ func (o ApplicationPackageResponseOutput) ToApplicationPackageResponseOutputWith
 	return o
 }
 
-// The format of the application package, if the package is active.
 func (o ApplicationPackageResponseOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPackageResponse) string { return v.Format }).(pulumi.StringOutput)
 }
 
-// The ID of the application.
 func (o ApplicationPackageResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPackageResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The time at which the package was last activated, if the package is active.
 func (o ApplicationPackageResponseOutput) LastActivationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPackageResponse) string { return v.LastActivationTime }).(pulumi.StringOutput)
 }
 
-// The current state of the application package.
 func (o ApplicationPackageResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPackageResponse) string { return v.State }).(pulumi.StringOutput)
 }
 
-// The URL for the application package in Azure Storage.
 func (o ApplicationPackageResponseOutput) StorageUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPackageResponse) string { return v.StorageUrl }).(pulumi.StringOutput)
 }
 
-// The UTC time at which the Azure Storage URL will expire.
 func (o ApplicationPackageResponseOutput) StorageUrlExpiry() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPackageResponse) string { return v.StorageUrlExpiry }).(pulumi.StringOutput)
 }
 
-// The version of the application package.
 func (o ApplicationPackageResponseOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPackageResponse) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -164,9 +140,7 @@ func (o ApplicationPackageResponseArrayOutput) Index(i pulumi.IntInput) Applicat
 	}).(ApplicationPackageResponseOutput)
 }
 
-// The properties related to the auto-storage account.
 type AutoStorageBaseProperties struct {
-	// The resource ID of the storage account to be used for auto-storage account.
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -181,9 +155,7 @@ type AutoStorageBasePropertiesInput interface {
 	ToAutoStorageBasePropertiesOutputWithContext(context.Context) AutoStorageBasePropertiesOutput
 }
 
-// The properties related to the auto-storage account.
 type AutoStorageBasePropertiesArgs struct {
-	// The resource ID of the storage account to be used for auto-storage account.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
@@ -240,7 +212,6 @@ func (i *autoStorageBasePropertiesPtrType) ToAutoStorageBasePropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AutoStorageBasePropertiesPtrOutput)
 }
 
-// The properties related to the auto-storage account.
 type AutoStorageBasePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AutoStorageBasePropertiesOutput) ElementType() reflect.Type {
@@ -260,12 +231,11 @@ func (o AutoStorageBasePropertiesOutput) ToAutoStorageBasePropertiesPtrOutput() 
 }
 
 func (o AutoStorageBasePropertiesOutput) ToAutoStorageBasePropertiesPtrOutputWithContext(ctx context.Context) AutoStorageBasePropertiesPtrOutput {
-	return o.ApplyT(func(v AutoStorageBaseProperties) *AutoStorageBaseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoStorageBaseProperties) *AutoStorageBaseProperties {
 		return &v
 	}).(AutoStorageBasePropertiesPtrOutput)
 }
 
-// The resource ID of the storage account to be used for auto-storage account.
 func (o AutoStorageBasePropertiesOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoStorageBaseProperties) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
@@ -285,10 +255,15 @@ func (o AutoStorageBasePropertiesPtrOutput) ToAutoStorageBasePropertiesPtrOutput
 }
 
 func (o AutoStorageBasePropertiesPtrOutput) Elem() AutoStorageBasePropertiesOutput {
-	return o.ApplyT(func(v *AutoStorageBaseProperties) AutoStorageBaseProperties { return *v }).(AutoStorageBasePropertiesOutput)
+	return o.ApplyT(func(v *AutoStorageBaseProperties) AutoStorageBaseProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AutoStorageBaseProperties
+		return ret
+	}).(AutoStorageBasePropertiesOutput)
 }
 
-// The resource ID of the storage account to be used for auto-storage account.
 func (o AutoStorageBasePropertiesPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoStorageBaseProperties) *string {
 		if v == nil {
@@ -298,11 +273,8 @@ func (o AutoStorageBasePropertiesPtrOutput) StorageAccountId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the auto-storage account associated with a Batch account.
 type AutoStoragePropertiesResponse struct {
-	// The UTC time at which storage keys were last synchronized with the Batch account.
-	LastKeySync string `pulumi:"lastKeySync"`
-	// The resource ID of the storage account to be used for auto-storage account.
+	LastKeySync      string `pulumi:"lastKeySync"`
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -317,11 +289,8 @@ type AutoStoragePropertiesResponseInput interface {
 	ToAutoStoragePropertiesResponseOutputWithContext(context.Context) AutoStoragePropertiesResponseOutput
 }
 
-// Contains information about the auto-storage account associated with a Batch account.
 type AutoStoragePropertiesResponseArgs struct {
-	// The UTC time at which storage keys were last synchronized with the Batch account.
-	LastKeySync pulumi.StringInput `pulumi:"lastKeySync"`
-	// The resource ID of the storage account to be used for auto-storage account.
+	LastKeySync      pulumi.StringInput `pulumi:"lastKeySync"`
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
@@ -378,7 +347,6 @@ func (i *autoStoragePropertiesResponsePtrType) ToAutoStoragePropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(AutoStoragePropertiesResponsePtrOutput)
 }
 
-// Contains information about the auto-storage account associated with a Batch account.
 type AutoStoragePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoStoragePropertiesResponseOutput) ElementType() reflect.Type {
@@ -398,17 +366,15 @@ func (o AutoStoragePropertiesResponseOutput) ToAutoStoragePropertiesResponsePtrO
 }
 
 func (o AutoStoragePropertiesResponseOutput) ToAutoStoragePropertiesResponsePtrOutputWithContext(ctx context.Context) AutoStoragePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AutoStoragePropertiesResponse) *AutoStoragePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoStoragePropertiesResponse) *AutoStoragePropertiesResponse {
 		return &v
 	}).(AutoStoragePropertiesResponsePtrOutput)
 }
 
-// The UTC time at which storage keys were last synchronized with the Batch account.
 func (o AutoStoragePropertiesResponseOutput) LastKeySync() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoStoragePropertiesResponse) string { return v.LastKeySync }).(pulumi.StringOutput)
 }
 
-// The resource ID of the storage account to be used for auto-storage account.
 func (o AutoStoragePropertiesResponseOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoStoragePropertiesResponse) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
@@ -428,10 +394,15 @@ func (o AutoStoragePropertiesResponsePtrOutput) ToAutoStoragePropertiesResponseP
 }
 
 func (o AutoStoragePropertiesResponsePtrOutput) Elem() AutoStoragePropertiesResponseOutput {
-	return o.ApplyT(func(v *AutoStoragePropertiesResponse) AutoStoragePropertiesResponse { return *v }).(AutoStoragePropertiesResponseOutput)
+	return o.ApplyT(func(v *AutoStoragePropertiesResponse) AutoStoragePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoStoragePropertiesResponse
+		return ret
+	}).(AutoStoragePropertiesResponseOutput)
 }
 
-// The UTC time at which storage keys were last synchronized with the Batch account.
 func (o AutoStoragePropertiesResponsePtrOutput) LastKeySync() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoStoragePropertiesResponse) *string {
 		if v == nil {
@@ -441,7 +412,6 @@ func (o AutoStoragePropertiesResponsePtrOutput) LastKeySync() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the storage account to be used for auto-storage account.
 func (o AutoStoragePropertiesResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoStoragePropertiesResponse) *string {
 		if v == nil {
@@ -451,11 +421,8 @@ func (o AutoStoragePropertiesResponsePtrOutput) StorageAccountId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the Azure key vault associated with a Batch account.
 type KeyVaultReference struct {
-	// The resource ID of the Azure key vault associated with the Batch account.
-	Id string `pulumi:"id"`
-	// The URL of the Azure key vault associated with the Batch account.
+	Id  string `pulumi:"id"`
 	Url string `pulumi:"url"`
 }
 
@@ -470,11 +437,8 @@ type KeyVaultReferenceInput interface {
 	ToKeyVaultReferenceOutputWithContext(context.Context) KeyVaultReferenceOutput
 }
 
-// Identifies the Azure key vault associated with a Batch account.
 type KeyVaultReferenceArgs struct {
-	// The resource ID of the Azure key vault associated with the Batch account.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The URL of the Azure key vault associated with the Batch account.
+	Id  pulumi.StringInput `pulumi:"id"`
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -531,7 +495,6 @@ func (i *keyVaultReferencePtrType) ToKeyVaultReferencePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferencePtrOutput)
 }
 
-// Identifies the Azure key vault associated with a Batch account.
 type KeyVaultReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultReferenceOutput) ElementType() reflect.Type {
@@ -551,17 +514,15 @@ func (o KeyVaultReferenceOutput) ToKeyVaultReferencePtrOutput() KeyVaultReferenc
 }
 
 func (o KeyVaultReferenceOutput) ToKeyVaultReferencePtrOutputWithContext(ctx context.Context) KeyVaultReferencePtrOutput {
-	return o.ApplyT(func(v KeyVaultReference) *KeyVaultReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultReference) *KeyVaultReference {
 		return &v
 	}).(KeyVaultReferencePtrOutput)
 }
 
-// The resource ID of the Azure key vault associated with the Batch account.
 func (o KeyVaultReferenceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultReference) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The URL of the Azure key vault associated with the Batch account.
 func (o KeyVaultReferenceOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultReference) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -581,10 +542,15 @@ func (o KeyVaultReferencePtrOutput) ToKeyVaultReferencePtrOutputWithContext(ctx 
 }
 
 func (o KeyVaultReferencePtrOutput) Elem() KeyVaultReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultReference) KeyVaultReference { return *v }).(KeyVaultReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultReference) KeyVaultReference {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultReference
+		return ret
+	}).(KeyVaultReferenceOutput)
 }
 
-// The resource ID of the Azure key vault associated with the Batch account.
 func (o KeyVaultReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultReference) *string {
 		if v == nil {
@@ -594,7 +560,6 @@ func (o KeyVaultReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URL of the Azure key vault associated with the Batch account.
 func (o KeyVaultReferencePtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultReference) *string {
 		if v == nil {
@@ -604,11 +569,8 @@ func (o KeyVaultReferencePtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the Azure key vault associated with a Batch account.
 type KeyVaultReferenceResponse struct {
-	// The resource ID of the Azure key vault associated with the Batch account.
-	Id string `pulumi:"id"`
-	// The URL of the Azure key vault associated with the Batch account.
+	Id  string `pulumi:"id"`
 	Url string `pulumi:"url"`
 }
 
@@ -623,11 +585,8 @@ type KeyVaultReferenceResponseInput interface {
 	ToKeyVaultReferenceResponseOutputWithContext(context.Context) KeyVaultReferenceResponseOutput
 }
 
-// Identifies the Azure key vault associated with a Batch account.
 type KeyVaultReferenceResponseArgs struct {
-	// The resource ID of the Azure key vault associated with the Batch account.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The URL of the Azure key vault associated with the Batch account.
+	Id  pulumi.StringInput `pulumi:"id"`
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -684,7 +643,6 @@ func (i *keyVaultReferenceResponsePtrType) ToKeyVaultReferenceResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceResponsePtrOutput)
 }
 
-// Identifies the Azure key vault associated with a Batch account.
 type KeyVaultReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultReferenceResponseOutput) ElementType() reflect.Type {
@@ -704,17 +662,15 @@ func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponsePtrOutput() 
 }
 
 func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultReferenceResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultReferenceResponse) *KeyVaultReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultReferenceResponse) *KeyVaultReferenceResponse {
 		return &v
 	}).(KeyVaultReferenceResponsePtrOutput)
 }
 
-// The resource ID of the Azure key vault associated with the Batch account.
 func (o KeyVaultReferenceResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultReferenceResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The URL of the Azure key vault associated with the Batch account.
 func (o KeyVaultReferenceResponseOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultReferenceResponse) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -734,10 +690,15 @@ func (o KeyVaultReferenceResponsePtrOutput) ToKeyVaultReferenceResponsePtrOutput
 }
 
 func (o KeyVaultReferenceResponsePtrOutput) Elem() KeyVaultReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultReferenceResponse) KeyVaultReferenceResponse { return *v }).(KeyVaultReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultReferenceResponse) KeyVaultReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultReferenceResponse
+		return ret
+	}).(KeyVaultReferenceResponseOutput)
 }
 
-// The resource ID of the Azure key vault associated with the Batch account.
 func (o KeyVaultReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultReferenceResponse) *string {
 		if v == nil {
@@ -747,7 +708,6 @@ func (o KeyVaultReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URL of the Azure key vault associated with the Batch account.
 func (o KeyVaultReferenceResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultReferenceResponse) *string {
 		if v == nil {

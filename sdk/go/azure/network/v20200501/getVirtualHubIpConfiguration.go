@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IpConfigurations.
 func LookupVirtualHubIpConfiguration(ctx *pulumi.Context, args *LookupVirtualHubIpConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubIpConfigurationResult, error) {
 	var rv LookupVirtualHubIpConfigurationResult
 	err := ctx.Invoke("azure-native:network/v20200501:getVirtualHubIpConfiguration", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupVirtualHubIpConfiguration(ctx *pulumi.Context, args *LookupVirtualHub
 }
 
 type LookupVirtualHubIpConfigurationArgs struct {
-	// The name of the ipconfig.
-	IpConfigName string `pulumi:"ipConfigName"`
-	// The resource group name of the VirtualHub.
+	IpConfigName      string `pulumi:"ipConfigName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the VirtualHub.
-	VirtualHubName string `pulumi:"virtualHubName"`
+	VirtualHubName    string `pulumi:"virtualHubName"`
 }
 
 // IpConfigurations.
 type LookupVirtualHubIpConfigurationResult struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Name of the Ip Configuration.
-	Name *string `pulumi:"name"`
-	// The private IP address of the IP configuration.
-	PrivateIPAddress *string `pulumi:"privateIPAddress"`
-	// The private IP address allocation method.
-	PrivateIPAllocationMethod *string `pulumi:"privateIPAllocationMethod"`
-	// The provisioning state of the IP configuration resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The reference to the public IP resource.
-	PublicIPAddress *PublicIPAddressResponse `pulumi:"publicIPAddress"`
-	// The reference to the subnet resource.
-	Subnet *SubnetResponse `pulumi:"subnet"`
-	// Ipconfiguration type.
-	Type string `pulumi:"type"`
+	Etag                      string                   `pulumi:"etag"`
+	Id                        *string                  `pulumi:"id"`
+	Name                      *string                  `pulumi:"name"`
+	PrivateIPAddress          *string                  `pulumi:"privateIPAddress"`
+	PrivateIPAllocationMethod *string                  `pulumi:"privateIPAllocationMethod"`
+	ProvisioningState         string                   `pulumi:"provisioningState"`
+	PublicIPAddress           *PublicIPAddressResponse `pulumi:"publicIPAddress"`
+	Subnet                    *SubnetResponse          `pulumi:"subnet"`
+	Type                      string                   `pulumi:"type"`
 }

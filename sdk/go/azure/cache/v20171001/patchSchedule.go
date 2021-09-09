@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response to put/get patch schedules for Redis cache.
 type PatchSchedule struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of patch schedules for a Redis cache.
+	Name            pulumi.StringOutput              `pulumi:"name"`
 	ScheduleEntries ScheduleEntryResponseArrayOutput `pulumi:"scheduleEntries"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type            pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewPatchSchedule registers a new resource with the given unique name, arguments, and options.
@@ -107,26 +103,18 @@ func (PatchScheduleState) ElementType() reflect.Type {
 }
 
 type patchScheduleArgs struct {
-	// Default string modeled as parameter for auto generation to work correctly.
-	Default *string `pulumi:"default"`
-	// The name of the Redis cache.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// List of patch schedules for a Redis cache.
-	ScheduleEntries []ScheduleEntry `pulumi:"scheduleEntries"`
+	Default           *string         `pulumi:"default"`
+	Name              string          `pulumi:"name"`
+	ResourceGroupName string          `pulumi:"resourceGroupName"`
+	ScheduleEntries   []ScheduleEntry `pulumi:"scheduleEntries"`
 }
 
 // The set of arguments for constructing a PatchSchedule resource.
 type PatchScheduleArgs struct {
-	// Default string modeled as parameter for auto generation to work correctly.
-	Default pulumi.StringPtrInput
-	// The name of the Redis cache.
-	Name pulumi.StringInput
-	// The name of the resource group.
+	Default           pulumi.StringPtrInput
+	Name              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// List of patch schedules for a Redis cache.
-	ScheduleEntries ScheduleEntryArrayInput
+	ScheduleEntries   ScheduleEntryArrayInput
 }
 
 func (PatchScheduleArgs) ElementType() reflect.Type {
@@ -152,9 +140,7 @@ func (i *PatchSchedule) ToPatchScheduleOutputWithContext(ctx context.Context) Pa
 	return pulumi.ToOutputWithContext(ctx, i).(PatchScheduleOutput)
 }
 
-type PatchScheduleOutput struct {
-	*pulumi.OutputState
-}
+type PatchScheduleOutput struct{ *pulumi.OutputState }
 
 func (PatchScheduleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PatchSchedule)(nil))

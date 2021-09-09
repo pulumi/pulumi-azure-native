@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of a storage account’s Blob service.
 type BlobServiceProperties struct {
 	pulumi.CustomResourceState
 
-	// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
-	Cors CorsRulesResponsePtrOutput `pulumi:"cors"`
-	// DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
-	DefaultServiceVersion pulumi.StringPtrOutput `pulumi:"defaultServiceVersion"`
-	// The blob service properties for soft delete.
+	Cors                  CorsRulesResponsePtrOutput             `pulumi:"cors"`
+	DefaultServiceVersion pulumi.StringPtrOutput                 `pulumi:"defaultServiceVersion"`
 	DeleteRetentionPolicy DeleteRetentionPolicyResponsePtrOutput `pulumi:"deleteRetentionPolicy"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name                  pulumi.StringOutput                    `pulumi:"name"`
+	Type                  pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewBlobServiceProperties registers a new resource with the given unique name, arguments, and options.
@@ -126,34 +120,22 @@ func (BlobServicePropertiesState) ElementType() reflect.Type {
 }
 
 type blobServicePropertiesArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
-	BlobServicesName *string `pulumi:"blobServicesName"`
-	// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
-	Cors *CorsRules `pulumi:"cors"`
-	// DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
-	DefaultServiceVersion *string `pulumi:"defaultServiceVersion"`
-	// The blob service properties for soft delete.
+	AccountName           string                 `pulumi:"accountName"`
+	BlobServicesName      *string                `pulumi:"blobServicesName"`
+	Cors                  *CorsRules             `pulumi:"cors"`
+	DefaultServiceVersion *string                `pulumi:"defaultServiceVersion"`
 	DeleteRetentionPolicy *DeleteRetentionPolicy `pulumi:"deleteRetentionPolicy"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName     string                 `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a BlobServiceProperties resource.
 type BlobServicePropertiesArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
-	// The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
-	BlobServicesName pulumi.StringPtrInput
-	// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
-	Cors CorsRulesPtrInput
-	// DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
+	AccountName           pulumi.StringInput
+	BlobServicesName      pulumi.StringPtrInput
+	Cors                  CorsRulesPtrInput
 	DefaultServiceVersion pulumi.StringPtrInput
-	// The blob service properties for soft delete.
 	DeleteRetentionPolicy DeleteRetentionPolicyPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 }
 
 func (BlobServicePropertiesArgs) ElementType() reflect.Type {
@@ -179,9 +161,7 @@ func (i *BlobServiceProperties) ToBlobServicePropertiesOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BlobServicePropertiesOutput)
 }
 
-type BlobServicePropertiesOutput struct {
-	*pulumi.OutputState
-}
+type BlobServicePropertiesOutput struct{ *pulumi.OutputState }
 
 func (BlobServicePropertiesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BlobServiceProperties)(nil))

@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about the connection monitor.
 type ConnectionMonitor struct {
 	pulumi.CustomResourceState
 
-	// Determines if the connection monitor will start automatically once created.
-	AutoStart pulumi.BoolPtrOutput `pulumi:"autoStart"`
-	// Describes the destination of connection monitor.
-	Destination ConnectionMonitorDestinationResponseOutput `pulumi:"destination"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Connection monitor location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Monitoring interval in seconds.
-	MonitoringIntervalInSeconds pulumi.IntPtrOutput `pulumi:"monitoringIntervalInSeconds"`
-	// The monitoring status of the connection monitor.
-	MonitoringStatus pulumi.StringPtrOutput `pulumi:"monitoringStatus"`
-	// Name of the connection monitor.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the connection monitor.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Describes the source of connection monitor.
-	Source ConnectionMonitorSourceResponseOutput `pulumi:"source"`
-	// The date and time when the connection monitor was started.
-	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
-	// Connection monitor tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Connection monitor type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AutoStart                   pulumi.BoolPtrOutput                       `pulumi:"autoStart"`
+	Destination                 ConnectionMonitorDestinationResponseOutput `pulumi:"destination"`
+	Etag                        pulumi.StringPtrOutput                     `pulumi:"etag"`
+	Location                    pulumi.StringPtrOutput                     `pulumi:"location"`
+	MonitoringIntervalInSeconds pulumi.IntPtrOutput                        `pulumi:"monitoringIntervalInSeconds"`
+	MonitoringStatus            pulumi.StringPtrOutput                     `pulumi:"monitoringStatus"`
+	Name                        pulumi.StringOutput                        `pulumi:"name"`
+	ProvisioningState           pulumi.StringOutput                        `pulumi:"provisioningState"`
+	Source                      ConnectionMonitorSourceResponseOutput      `pulumi:"source"`
+	StartTime                   pulumi.StringPtrOutput                     `pulumi:"startTime"`
+	Tags                        pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type                        pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewConnectionMonitor registers a new resource with the given unique name, arguments, and options.
@@ -272,46 +259,28 @@ func (ConnectionMonitorState) ElementType() reflect.Type {
 }
 
 type connectionMonitorArgs struct {
-	// Determines if the connection monitor will start automatically once created.
-	AutoStart *bool `pulumi:"autoStart"`
-	// The name of the connection monitor.
-	ConnectionMonitorName *string `pulumi:"connectionMonitorName"`
-	// Describes the destination of connection monitor.
-	Destination ConnectionMonitorDestination `pulumi:"destination"`
-	// Connection monitor location.
-	Location *string `pulumi:"location"`
-	// Monitoring interval in seconds.
-	MonitoringIntervalInSeconds *int `pulumi:"monitoringIntervalInSeconds"`
-	// The name of the Network Watcher resource.
-	NetworkWatcherName string `pulumi:"networkWatcherName"`
-	// The name of the resource group containing Network Watcher.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Describes the source of connection monitor.
-	Source ConnectionMonitorSource `pulumi:"source"`
-	// Connection monitor tags.
-	Tags map[string]string `pulumi:"tags"`
+	AutoStart                   *bool                        `pulumi:"autoStart"`
+	ConnectionMonitorName       *string                      `pulumi:"connectionMonitorName"`
+	Destination                 ConnectionMonitorDestination `pulumi:"destination"`
+	Location                    *string                      `pulumi:"location"`
+	MonitoringIntervalInSeconds *int                         `pulumi:"monitoringIntervalInSeconds"`
+	NetworkWatcherName          string                       `pulumi:"networkWatcherName"`
+	ResourceGroupName           string                       `pulumi:"resourceGroupName"`
+	Source                      ConnectionMonitorSource      `pulumi:"source"`
+	Tags                        map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConnectionMonitor resource.
 type ConnectionMonitorArgs struct {
-	// Determines if the connection monitor will start automatically once created.
-	AutoStart pulumi.BoolPtrInput
-	// The name of the connection monitor.
-	ConnectionMonitorName pulumi.StringPtrInput
-	// Describes the destination of connection monitor.
-	Destination ConnectionMonitorDestinationInput
-	// Connection monitor location.
-	Location pulumi.StringPtrInput
-	// Monitoring interval in seconds.
+	AutoStart                   pulumi.BoolPtrInput
+	ConnectionMonitorName       pulumi.StringPtrInput
+	Destination                 ConnectionMonitorDestinationInput
+	Location                    pulumi.StringPtrInput
 	MonitoringIntervalInSeconds pulumi.IntPtrInput
-	// The name of the Network Watcher resource.
-	NetworkWatcherName pulumi.StringInput
-	// The name of the resource group containing Network Watcher.
-	ResourceGroupName pulumi.StringInput
-	// Describes the source of connection monitor.
-	Source ConnectionMonitorSourceInput
-	// Connection monitor tags.
-	Tags pulumi.StringMapInput
+	NetworkWatcherName          pulumi.StringInput
+	ResourceGroupName           pulumi.StringInput
+	Source                      ConnectionMonitorSourceInput
+	Tags                        pulumi.StringMapInput
 }
 
 func (ConnectionMonitorArgs) ElementType() reflect.Type {
@@ -337,9 +306,7 @@ func (i *ConnectionMonitor) ToConnectionMonitorOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMonitorOutput)
 }
 
-type ConnectionMonitorOutput struct {
-	*pulumi.OutputState
-}
+type ConnectionMonitorOutput struct{ *pulumi.OutputState }
 
 func (ConnectionMonitorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConnectionMonitor)(nil))

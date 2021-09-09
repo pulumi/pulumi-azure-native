@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The private endpoint connection of a provisioning service
 type IotDpsResourcePrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of a private endpoint connection
+	Name       pulumi.StringOutput                               `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                               `pulumi:"type"`
 }
 
 // NewIotDpsResourcePrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -89,26 +85,18 @@ func (IotDpsResourcePrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type iotDpsResourcePrivateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// The properties of a private endpoint connection
-	Properties PrivateEndpointConnectionProperties `pulumi:"properties"`
-	// The name of the resource group that contains the provisioning service.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the provisioning service.
-	ResourceName string `pulumi:"resourceName"`
+	PrivateEndpointConnectionName *string                             `pulumi:"privateEndpointConnectionName"`
+	Properties                    PrivateEndpointConnectionProperties `pulumi:"properties"`
+	ResourceGroupName             string                              `pulumi:"resourceGroupName"`
+	ResourceName                  string                              `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a IotDpsResourcePrivateEndpointConnection resource.
 type IotDpsResourcePrivateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection
 	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// The properties of a private endpoint connection
-	Properties PrivateEndpointConnectionPropertiesInput
-	// The name of the resource group that contains the provisioning service.
-	ResourceGroupName pulumi.StringInput
-	// The name of the provisioning service.
-	ResourceName pulumi.StringInput
+	Properties                    PrivateEndpointConnectionPropertiesInput
+	ResourceGroupName             pulumi.StringInput
+	ResourceName                  pulumi.StringInput
 }
 
 func (IotDpsResourcePrivateEndpointConnectionArgs) ElementType() reflect.Type {
@@ -134,9 +122,7 @@ func (i *IotDpsResourcePrivateEndpointConnection) ToIotDpsResourcePrivateEndpoin
 	return pulumi.ToOutputWithContext(ctx, i).(IotDpsResourcePrivateEndpointConnectionOutput)
 }
 
-type IotDpsResourcePrivateEndpointConnectionOutput struct {
-	*pulumi.OutputState
-}
+type IotDpsResourcePrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (IotDpsResourcePrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotDpsResourcePrivateEndpointConnection)(nil))

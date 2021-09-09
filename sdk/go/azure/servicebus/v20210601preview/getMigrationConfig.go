@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in List or Get Migration Config operation
 func LookupMigrationConfig(ctx *pulumi.Context, args *LookupMigrationConfigArgs, opts ...pulumi.InvokeOption) (*LookupMigrationConfigResult, error) {
 	var rv LookupMigrationConfigResult
 	err := ctx.Invoke("azure-native:servicebus/v20210601preview:getMigrationConfig", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupMigrationConfig(ctx *pulumi.Context, args *LookupMigrationConfigArgs,
 }
 
 type LookupMigrationConfigArgs struct {
-	// The configuration name. Should always be "$default".
-	ConfigName string `pulumi:"configName"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
+	ConfigName        string `pulumi:"configName"`
+	NamespaceName     string `pulumi:"namespaceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Single item in List or Get Migration Config operation
 type LookupMigrationConfigResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
-	MigrationState string `pulumi:"migrationState"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Number of entities pending to be replicated.
-	PendingReplicationOperationsCount float64 `pulumi:"pendingReplicationOperationsCount"`
-	// Name to access Standard Namespace after migration
-	PostMigrationName string `pulumi:"postMigrationName"`
-	// Provisioning state of Migration Configuration
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Existing premium Namespace ARM Id name which has no entities, will be used for migration
-	TargetNamespace string `pulumi:"targetNamespace"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id                                string             `pulumi:"id"`
+	MigrationState                    string             `pulumi:"migrationState"`
+	Name                              string             `pulumi:"name"`
+	PendingReplicationOperationsCount float64            `pulumi:"pendingReplicationOperationsCount"`
+	PostMigrationName                 string             `pulumi:"postMigrationName"`
+	ProvisioningState                 string             `pulumi:"provisioningState"`
+	SystemData                        SystemDataResponse `pulumi:"systemData"`
+	TargetNamespace                   string             `pulumi:"targetNamespace"`
+	Type                              string             `pulumi:"type"`
 }

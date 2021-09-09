@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VirtualRouter Resource.
 type VirtualRouter struct {
 	pulumi.CustomResourceState
 
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The Gateway on which VirtualRouter is hosted.
-	HostedGateway SubResourceResponsePtrOutput `pulumi:"hostedGateway"`
-	// The Subnet on which VirtualRouter is hosted.
-	HostedSubnet SubResourceResponsePtrOutput `pulumi:"hostedSubnet"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of references to VirtualRouterPeerings.
-	Peerings SubResourceResponseArrayOutput `pulumi:"peerings"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// VirtualRouter ASN.
-	VirtualRouterAsn pulumi.Float64PtrOutput `pulumi:"virtualRouterAsn"`
-	// VirtualRouter IPs.
-	VirtualRouterIps pulumi.StringArrayOutput `pulumi:"virtualRouterIps"`
+	Etag              pulumi.StringOutput            `pulumi:"etag"`
+	HostedGateway     SubResourceResponsePtrOutput   `pulumi:"hostedGateway"`
+	HostedSubnet      SubResourceResponsePtrOutput   `pulumi:"hostedSubnet"`
+	Location          pulumi.StringPtrOutput         `pulumi:"location"`
+	Name              pulumi.StringOutput            `pulumi:"name"`
+	Peerings          SubResourceResponseArrayOutput `pulumi:"peerings"`
+	ProvisioningState pulumi.StringOutput            `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput         `pulumi:"tags"`
+	Type              pulumi.StringOutput            `pulumi:"type"`
+	VirtualRouterAsn  pulumi.Float64PtrOutput        `pulumi:"virtualRouterAsn"`
+	VirtualRouterIps  pulumi.StringArrayOutput       `pulumi:"virtualRouterIps"`
 }
 
 // NewVirtualRouter registers a new resource with the given unique name, arguments, and options.
@@ -171,45 +159,27 @@ func (VirtualRouterState) ElementType() reflect.Type {
 }
 
 type virtualRouterArgs struct {
-	// The Gateway on which VirtualRouter is hosted.
-	HostedGateway *SubResource `pulumi:"hostedGateway"`
-	// The Subnet on which VirtualRouter is hosted.
-	HostedSubnet *SubResource `pulumi:"hostedSubnet"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// VirtualRouter ASN.
-	VirtualRouterAsn *float64 `pulumi:"virtualRouterAsn"`
-	// VirtualRouter IPs.
-	VirtualRouterIps []string `pulumi:"virtualRouterIps"`
-	// The name of the Virtual Router.
-	VirtualRouterName *string `pulumi:"virtualRouterName"`
+	HostedGateway     *SubResource      `pulumi:"hostedGateway"`
+	HostedSubnet      *SubResource      `pulumi:"hostedSubnet"`
+	Id                *string           `pulumi:"id"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	VirtualRouterAsn  *float64          `pulumi:"virtualRouterAsn"`
+	VirtualRouterIps  []string          `pulumi:"virtualRouterIps"`
+	VirtualRouterName *string           `pulumi:"virtualRouterName"`
 }
 
 // The set of arguments for constructing a VirtualRouter resource.
 type VirtualRouterArgs struct {
-	// The Gateway on which VirtualRouter is hosted.
-	HostedGateway SubResourcePtrInput
-	// The Subnet on which VirtualRouter is hosted.
-	HostedSubnet SubResourcePtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
+	HostedGateway     SubResourcePtrInput
+	HostedSubnet      SubResourcePtrInput
+	Id                pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// VirtualRouter ASN.
-	VirtualRouterAsn pulumi.Float64PtrInput
-	// VirtualRouter IPs.
-	VirtualRouterIps pulumi.StringArrayInput
-	// The name of the Virtual Router.
+	Tags              pulumi.StringMapInput
+	VirtualRouterAsn  pulumi.Float64PtrInput
+	VirtualRouterIps  pulumi.StringArrayInput
 	VirtualRouterName pulumi.StringPtrInput
 }
 
@@ -236,9 +206,7 @@ func (i *VirtualRouter) ToVirtualRouterOutputWithContext(ctx context.Context) Vi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterOutput)
 }
 
-type VirtualRouterOutput struct {
-	*pulumi.OutputState
-}
+type VirtualRouterOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualRouter)(nil))

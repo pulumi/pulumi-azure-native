@@ -166,9 +166,7 @@ func (i *Share) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ShareOutput)
 }
 
-type ShareOutput struct {
-	*pulumi.OutputState
-}
+type ShareOutput struct{ *pulumi.OutputState }
 
 func (ShareOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Share)(nil))

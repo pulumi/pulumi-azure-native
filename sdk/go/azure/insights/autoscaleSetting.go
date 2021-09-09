@@ -171,9 +171,7 @@ func (i *AutoscaleSetting) ToAutoscaleSettingOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingOutput)
 }
 
-type AutoscaleSettingOutput struct {
-	*pulumi.OutputState
-}
+type AutoscaleSettingOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoscaleSetting)(nil))

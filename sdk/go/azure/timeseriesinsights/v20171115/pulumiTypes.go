@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that contains the details about an environment's state.
 type EnvironmentStateDetailsResponse struct {
-	// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
-	Code *string `pulumi:"code"`
-	// A message that describes the state in detail.
+	Code    *string `pulumi:"code"`
 	Message *string `pulumi:"message"`
 }
 
@@ -29,11 +26,8 @@ type EnvironmentStateDetailsResponseInput interface {
 	ToEnvironmentStateDetailsResponseOutputWithContext(context.Context) EnvironmentStateDetailsResponseOutput
 }
 
-// An object that contains the details about an environment's state.
 type EnvironmentStateDetailsResponseArgs struct {
-	// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// A message that describes the state in detail.
+	Code    pulumi.StringPtrInput `pulumi:"code"`
 	Message pulumi.StringPtrInput `pulumi:"message"`
 }
 
@@ -90,7 +84,6 @@ func (i *environmentStateDetailsResponsePtrType) ToEnvironmentStateDetailsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStateDetailsResponsePtrOutput)
 }
 
-// An object that contains the details about an environment's state.
 type EnvironmentStateDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentStateDetailsResponseOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponse
 }
 
 func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponsePtrOutput {
-	return o.ApplyT(func(v EnvironmentStateDetailsResponse) *EnvironmentStateDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentStateDetailsResponse) *EnvironmentStateDetailsResponse {
 		return &v
 	}).(EnvironmentStateDetailsResponsePtrOutput)
 }
 
-// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
 func (o EnvironmentStateDetailsResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentStateDetailsResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// A message that describes the state in detail.
 func (o EnvironmentStateDetailsResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentStateDetailsResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -140,10 +131,15 @@ func (o EnvironmentStateDetailsResponsePtrOutput) ToEnvironmentStateDetailsRespo
 }
 
 func (o EnvironmentStateDetailsResponsePtrOutput) Elem() EnvironmentStateDetailsResponseOutput {
-	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) EnvironmentStateDetailsResponse { return *v }).(EnvironmentStateDetailsResponseOutput)
+	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) EnvironmentStateDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentStateDetailsResponse
+		return ret
+	}).(EnvironmentStateDetailsResponseOutput)
 }
 
-// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
 func (o EnvironmentStateDetailsResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o EnvironmentStateDetailsResponsePtrOutput) Code() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message that describes the state in detail.
 func (o EnvironmentStateDetailsResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) *string {
 		if v == nil {
@@ -163,9 +158,7 @@ func (o EnvironmentStateDetailsResponsePtrOutput) Message() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
 type EnvironmentStatusResponse struct {
-	// An object that represents the status of ingress on an environment.
 	Ingress IngressEnvironmentStatusResponse `pulumi:"ingress"`
 }
 
@@ -180,9 +173,7 @@ type EnvironmentStatusResponseInput interface {
 	ToEnvironmentStatusResponseOutputWithContext(context.Context) EnvironmentStatusResponseOutput
 }
 
-// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
 type EnvironmentStatusResponseArgs struct {
-	// An object that represents the status of ingress on an environment.
 	Ingress IngressEnvironmentStatusResponseInput `pulumi:"ingress"`
 }
 
@@ -239,7 +230,6 @@ func (i *environmentStatusResponsePtrType) ToEnvironmentStatusResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStatusResponsePtrOutput)
 }
 
-// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
 type EnvironmentStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentStatusResponseOutput) ElementType() reflect.Type {
@@ -259,12 +249,11 @@ func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponsePtrOutput() 
 }
 
 func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) EnvironmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v EnvironmentStatusResponse) *EnvironmentStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentStatusResponse) *EnvironmentStatusResponse {
 		return &v
 	}).(EnvironmentStatusResponsePtrOutput)
 }
 
-// An object that represents the status of ingress on an environment.
 func (o EnvironmentStatusResponseOutput) Ingress() IngressEnvironmentStatusResponseOutput {
 	return o.ApplyT(func(v EnvironmentStatusResponse) IngressEnvironmentStatusResponse { return v.Ingress }).(IngressEnvironmentStatusResponseOutput)
 }
@@ -284,10 +273,15 @@ func (o EnvironmentStatusResponsePtrOutput) ToEnvironmentStatusResponsePtrOutput
 }
 
 func (o EnvironmentStatusResponsePtrOutput) Elem() EnvironmentStatusResponseOutput {
-	return o.ApplyT(func(v *EnvironmentStatusResponse) EnvironmentStatusResponse { return *v }).(EnvironmentStatusResponseOutput)
+	return o.ApplyT(func(v *EnvironmentStatusResponse) EnvironmentStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentStatusResponse
+		return ret
+	}).(EnvironmentStatusResponseOutput)
 }
 
-// An object that represents the status of ingress on an environment.
 func (o EnvironmentStatusResponsePtrOutput) Ingress() IngressEnvironmentStatusResponsePtrOutput {
 	return o.ApplyT(func(v *EnvironmentStatusResponse) *IngressEnvironmentStatusResponse {
 		if v == nil {
@@ -297,11 +291,8 @@ func (o EnvironmentStatusResponsePtrOutput) Ingress() IngressEnvironmentStatusRe
 	}).(IngressEnvironmentStatusResponsePtrOutput)
 }
 
-// An object that represents the status of ingress on an environment.
 type IngressEnvironmentStatusResponse struct {
-	// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
-	State *string `pulumi:"state"`
-	// An object that contains the details about an environment's state.
+	State        *string                         `pulumi:"state"`
 	StateDetails EnvironmentStateDetailsResponse `pulumi:"stateDetails"`
 }
 
@@ -316,11 +307,8 @@ type IngressEnvironmentStatusResponseInput interface {
 	ToIngressEnvironmentStatusResponseOutputWithContext(context.Context) IngressEnvironmentStatusResponseOutput
 }
 
-// An object that represents the status of ingress on an environment.
 type IngressEnvironmentStatusResponseArgs struct {
-	// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// An object that contains the details about an environment's state.
+	State        pulumi.StringPtrInput                `pulumi:"state"`
 	StateDetails EnvironmentStateDetailsResponseInput `pulumi:"stateDetails"`
 }
 
@@ -377,7 +365,6 @@ func (i *ingressEnvironmentStatusResponsePtrType) ToIngressEnvironmentStatusResp
 	return pulumi.ToOutputWithContext(ctx, i).(IngressEnvironmentStatusResponsePtrOutput)
 }
 
-// An object that represents the status of ingress on an environment.
 type IngressEnvironmentStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (IngressEnvironmentStatusResponseOutput) ElementType() reflect.Type {
@@ -397,17 +384,15 @@ func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusRespon
 }
 
 func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v IngressEnvironmentStatusResponse) *IngressEnvironmentStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IngressEnvironmentStatusResponse) *IngressEnvironmentStatusResponse {
 		return &v
 	}).(IngressEnvironmentStatusResponsePtrOutput)
 }
 
-// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
 func (o IngressEnvironmentStatusResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IngressEnvironmentStatusResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// An object that contains the details about an environment's state.
 func (o IngressEnvironmentStatusResponseOutput) StateDetails() EnvironmentStateDetailsResponseOutput {
 	return o.ApplyT(func(v IngressEnvironmentStatusResponse) EnvironmentStateDetailsResponse { return v.StateDetails }).(EnvironmentStateDetailsResponseOutput)
 }
@@ -427,10 +412,15 @@ func (o IngressEnvironmentStatusResponsePtrOutput) ToIngressEnvironmentStatusRes
 }
 
 func (o IngressEnvironmentStatusResponsePtrOutput) Elem() IngressEnvironmentStatusResponseOutput {
-	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) IngressEnvironmentStatusResponse { return *v }).(IngressEnvironmentStatusResponseOutput)
+	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) IngressEnvironmentStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IngressEnvironmentStatusResponse
+		return ret
+	}).(IngressEnvironmentStatusResponseOutput)
 }
 
-// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
 func (o IngressEnvironmentStatusResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) *string {
 		if v == nil {
@@ -440,7 +430,6 @@ func (o IngressEnvironmentStatusResponsePtrOutput) State() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that contains the details about an environment's state.
 func (o IngressEnvironmentStatusResponsePtrOutput) StateDetails() EnvironmentStateDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) *EnvironmentStateDetailsResponse {
 		if v == nil {
@@ -450,11 +439,8 @@ func (o IngressEnvironmentStatusResponsePtrOutput) StateDetails() EnvironmentSta
 	}).(EnvironmentStateDetailsResponsePtrOutput)
 }
 
-// The structure of the property that a partition key can have. An environment can have multiple such properties.
 type PartitionKeyProperty struct {
-	// The name of the property.
 	Name *string `pulumi:"name"`
-	// The type of the property.
 	Type *string `pulumi:"type"`
 }
 
@@ -469,11 +455,8 @@ type PartitionKeyPropertyInput interface {
 	ToPartitionKeyPropertyOutputWithContext(context.Context) PartitionKeyPropertyOutput
 }
 
-// The structure of the property that a partition key can have. An environment can have multiple such properties.
 type PartitionKeyPropertyArgs struct {
-	// The name of the property.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the property.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -514,7 +497,6 @@ func (i PartitionKeyPropertyArray) ToPartitionKeyPropertyArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PartitionKeyPropertyArrayOutput)
 }
 
-// The structure of the property that a partition key can have. An environment can have multiple such properties.
 type PartitionKeyPropertyOutput struct{ *pulumi.OutputState }
 
 func (PartitionKeyPropertyOutput) ElementType() reflect.Type {
@@ -529,12 +511,10 @@ func (o PartitionKeyPropertyOutput) ToPartitionKeyPropertyOutputWithContext(ctx 
 	return o
 }
 
-// The name of the property.
 func (o PartitionKeyPropertyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartitionKeyProperty) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the property.
 func (o PartitionKeyPropertyOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartitionKeyProperty) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -559,11 +539,8 @@ func (o PartitionKeyPropertyArrayOutput) Index(i pulumi.IntInput) PartitionKeyPr
 	}).(PartitionKeyPropertyOutput)
 }
 
-// The structure of the property that a partition key can have. An environment can have multiple such properties.
 type PartitionKeyPropertyResponse struct {
-	// The name of the property.
 	Name *string `pulumi:"name"`
-	// The type of the property.
 	Type *string `pulumi:"type"`
 }
 
@@ -578,11 +555,8 @@ type PartitionKeyPropertyResponseInput interface {
 	ToPartitionKeyPropertyResponseOutputWithContext(context.Context) PartitionKeyPropertyResponseOutput
 }
 
-// The structure of the property that a partition key can have. An environment can have multiple such properties.
 type PartitionKeyPropertyResponseArgs struct {
-	// The name of the property.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the property.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -623,7 +597,6 @@ func (i PartitionKeyPropertyResponseArray) ToPartitionKeyPropertyResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(PartitionKeyPropertyResponseArrayOutput)
 }
 
-// The structure of the property that a partition key can have. An environment can have multiple such properties.
 type PartitionKeyPropertyResponseOutput struct{ *pulumi.OutputState }
 
 func (PartitionKeyPropertyResponseOutput) ElementType() reflect.Type {
@@ -638,12 +611,10 @@ func (o PartitionKeyPropertyResponseOutput) ToPartitionKeyPropertyResponseOutput
 	return o
 }
 
-// The name of the property.
 func (o PartitionKeyPropertyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartitionKeyPropertyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the property.
 func (o PartitionKeyPropertyResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartitionKeyPropertyResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -668,12 +639,9 @@ func (o PartitionKeyPropertyResponseArrayOutput) Index(i pulumi.IntInput) Partit
 	}).(PartitionKeyPropertyResponseOutput)
 }
 
-// A key property for the reference data set. A reference data set can have multiple key properties.
 type ReferenceDataSetKeyProperty struct {
-	// The name of the key property.
-	Name *string `pulumi:"name"`
-	// The type of the key property.
-	Type *string `pulumi:"type"`
+	Name *string                       `pulumi:"name"`
+	Type *ReferenceDataKeyPropertyType `pulumi:"type"`
 }
 
 // ReferenceDataSetKeyPropertyInput is an input type that accepts ReferenceDataSetKeyPropertyArgs and ReferenceDataSetKeyPropertyOutput values.
@@ -687,12 +655,9 @@ type ReferenceDataSetKeyPropertyInput interface {
 	ToReferenceDataSetKeyPropertyOutputWithContext(context.Context) ReferenceDataSetKeyPropertyOutput
 }
 
-// A key property for the reference data set. A reference data set can have multiple key properties.
 type ReferenceDataSetKeyPropertyArgs struct {
-	// The name of the key property.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the key property.
-	Type *ReferenceDataKeyPropertyType `pulumi:"type"`
+	Name pulumi.StringPtrInput                `pulumi:"name"`
+	Type ReferenceDataKeyPropertyTypePtrInput `pulumi:"type"`
 }
 
 func (ReferenceDataSetKeyPropertyArgs) ElementType() reflect.Type {
@@ -732,7 +697,6 @@ func (i ReferenceDataSetKeyPropertyArray) ToReferenceDataSetKeyPropertyArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetKeyPropertyArrayOutput)
 }
 
-// A key property for the reference data set. A reference data set can have multiple key properties.
 type ReferenceDataSetKeyPropertyOutput struct{ *pulumi.OutputState }
 
 func (ReferenceDataSetKeyPropertyOutput) ElementType() reflect.Type {
@@ -747,14 +711,12 @@ func (o ReferenceDataSetKeyPropertyOutput) ToReferenceDataSetKeyPropertyOutputWi
 	return o
 }
 
-// The name of the key property.
 func (o ReferenceDataSetKeyPropertyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReferenceDataSetKeyProperty) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the key property.
-func (o ReferenceDataSetKeyPropertyOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReferenceDataSetKeyProperty) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ReferenceDataSetKeyPropertyOutput) Type() ReferenceDataKeyPropertyTypePtrOutput {
+	return o.ApplyT(func(v ReferenceDataSetKeyProperty) *ReferenceDataKeyPropertyType { return v.Type }).(ReferenceDataKeyPropertyTypePtrOutput)
 }
 
 type ReferenceDataSetKeyPropertyArrayOutput struct{ *pulumi.OutputState }
@@ -777,11 +739,8 @@ func (o ReferenceDataSetKeyPropertyArrayOutput) Index(i pulumi.IntInput) Referen
 	}).(ReferenceDataSetKeyPropertyOutput)
 }
 
-// A key property for the reference data set. A reference data set can have multiple key properties.
 type ReferenceDataSetKeyPropertyResponse struct {
-	// The name of the key property.
 	Name *string `pulumi:"name"`
-	// The type of the key property.
 	Type *string `pulumi:"type"`
 }
 
@@ -796,11 +755,8 @@ type ReferenceDataSetKeyPropertyResponseInput interface {
 	ToReferenceDataSetKeyPropertyResponseOutputWithContext(context.Context) ReferenceDataSetKeyPropertyResponseOutput
 }
 
-// A key property for the reference data set. A reference data set can have multiple key properties.
 type ReferenceDataSetKeyPropertyResponseArgs struct {
-	// The name of the key property.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the key property.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -841,7 +797,6 @@ func (i ReferenceDataSetKeyPropertyResponseArray) ToReferenceDataSetKeyPropertyR
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetKeyPropertyResponseArrayOutput)
 }
 
-// A key property for the reference data set. A reference data set can have multiple key properties.
 type ReferenceDataSetKeyPropertyResponseOutput struct{ *pulumi.OutputState }
 
 func (ReferenceDataSetKeyPropertyResponseOutput) ElementType() reflect.Type {
@@ -856,12 +811,10 @@ func (o ReferenceDataSetKeyPropertyResponseOutput) ToReferenceDataSetKeyProperty
 	return o
 }
 
-// The name of the key property.
 func (o ReferenceDataSetKeyPropertyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReferenceDataSetKeyPropertyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the key property.
 func (o ReferenceDataSetKeyPropertyResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReferenceDataSetKeyPropertyResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -886,12 +839,9 @@ func (o ReferenceDataSetKeyPropertyResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ReferenceDataSetKeyPropertyResponseOutput)
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 type Sku struct {
-	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
-	Capacity int `pulumi:"capacity"`
-	// The name of this SKU.
-	Name string `pulumi:"name"`
+	Capacity int     `pulumi:"capacity"`
+	Name     SkuName `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -905,12 +855,9 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 type SkuArgs struct {
-	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The name of this SKU.
-	Name SkuName `pulumi:"name"`
+	Name     SkuNameInput    `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -966,7 +913,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -986,19 +932,17 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 func (o SkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v Sku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The name of this SKU.
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+func (o SkuOutput) Name() SkuNameOutput {
+	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -1016,10 +960,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -1029,22 +978,18 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of this SKU.
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 type SkuResponse struct {
-	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
-	Capacity int `pulumi:"capacity"`
-	// The name of this SKU.
-	Name string `pulumi:"name"`
+	Capacity int    `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -1058,12 +1003,9 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 type SkuResponseArgs struct {
-	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
-	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The name of this SKU.
-	Name pulumi.StringInput `pulumi:"name"`
+	Capacity pulumi.IntInput    `pulumi:"capacity"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -1119,7 +1061,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -1139,17 +1080,15 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 func (o SkuResponseOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v SkuResponse) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The name of this SKU.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1169,10 +1108,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -1182,7 +1126,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of this SKU.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

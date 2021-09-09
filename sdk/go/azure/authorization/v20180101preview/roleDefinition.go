@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Role definition.
 type RoleDefinition struct {
 	pulumi.CustomResourceState
 
-	// Role definition assignable scopes.
-	AssignableScopes pulumi.StringArrayOutput `pulumi:"assignableScopes"`
-	// The role definition description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The role definition name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Role definition permissions.
-	Permissions PermissionResponseArrayOutput `pulumi:"permissions"`
-	// The role name.
-	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
-	// The role type.
-	RoleType pulumi.StringPtrOutput `pulumi:"roleType"`
-	// The role definition type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AssignableScopes pulumi.StringArrayOutput      `pulumi:"assignableScopes"`
+	Description      pulumi.StringPtrOutput        `pulumi:"description"`
+	Name             pulumi.StringOutput           `pulumi:"name"`
+	Permissions      PermissionResponseArrayOutput `pulumi:"permissions"`
+	RoleName         pulumi.StringPtrOutput        `pulumi:"roleName"`
+	RoleType         pulumi.StringPtrOutput        `pulumi:"roleType"`
+	Type             pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewRoleDefinition registers a new resource with the given unique name, arguments, and options.
@@ -91,38 +83,24 @@ func (RoleDefinitionState) ElementType() reflect.Type {
 }
 
 type roleDefinitionArgs struct {
-	// Role definition assignable scopes.
-	AssignableScopes []string `pulumi:"assignableScopes"`
-	// The role definition description.
-	Description *string `pulumi:"description"`
-	// Role definition permissions.
-	Permissions []Permission `pulumi:"permissions"`
-	// The ID of the role definition.
-	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// The role name.
-	RoleName *string `pulumi:"roleName"`
-	// The role type.
-	RoleType *string `pulumi:"roleType"`
-	// The scope of the role definition.
-	Scope string `pulumi:"scope"`
+	AssignableScopes []string     `pulumi:"assignableScopes"`
+	Description      *string      `pulumi:"description"`
+	Permissions      []Permission `pulumi:"permissions"`
+	RoleDefinitionId *string      `pulumi:"roleDefinitionId"`
+	RoleName         *string      `pulumi:"roleName"`
+	RoleType         *string      `pulumi:"roleType"`
+	Scope            string       `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a RoleDefinition resource.
 type RoleDefinitionArgs struct {
-	// Role definition assignable scopes.
 	AssignableScopes pulumi.StringArrayInput
-	// The role definition description.
-	Description pulumi.StringPtrInput
-	// Role definition permissions.
-	Permissions PermissionArrayInput
-	// The ID of the role definition.
+	Description      pulumi.StringPtrInput
+	Permissions      PermissionArrayInput
 	RoleDefinitionId pulumi.StringPtrInput
-	// The role name.
-	RoleName pulumi.StringPtrInput
-	// The role type.
-	RoleType pulumi.StringPtrInput
-	// The scope of the role definition.
-	Scope pulumi.StringInput
+	RoleName         pulumi.StringPtrInput
+	RoleType         pulumi.StringPtrInput
+	Scope            pulumi.StringInput
 }
 
 func (RoleDefinitionArgs) ElementType() reflect.Type {
@@ -148,9 +126,7 @@ func (i *RoleDefinition) ToRoleDefinitionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionOutput)
 }
 
-type RoleDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type RoleDefinitionOutput struct{ *pulumi.OutputState }
 
 func (RoleDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleDefinition)(nil))

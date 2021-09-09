@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual Appliance Site resource.
 func LookupVirtualHubBgpConnection(ctx *pulumi.Context, args *LookupVirtualHubBgpConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubBgpConnectionResult, error) {
 	var rv LookupVirtualHubBgpConnectionResult
 	err := ctx.Invoke("azure-native:network/v20200601:getVirtualHubBgpConnection", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupVirtualHubBgpConnection(ctx *pulumi.Context, args *LookupVirtualHubBg
 }
 
 type LookupVirtualHubBgpConnectionArgs struct {
-	// The name of the connection.
-	ConnectionName string `pulumi:"connectionName"`
-	// The resource group name of the VirtualHub.
+	ConnectionName    string `pulumi:"connectionName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the VirtualHub.
-	VirtualHubName string `pulumi:"virtualHubName"`
+	VirtualHubName    string `pulumi:"virtualHubName"`
 }
 
 // Virtual Appliance Site resource.
 type LookupVirtualHubBgpConnectionResult struct {
-	// The current state of the VirtualHub to Peer.
-	ConnectionState string `pulumi:"connectionState"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Name of the connection.
-	Name *string `pulumi:"name"`
-	// Peer ASN.
-	PeerAsn *float64 `pulumi:"peerAsn"`
-	// Peer IP.
-	PeerIp *string `pulumi:"peerIp"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Connection type.
-	Type string `pulumi:"type"`
+	ConnectionState   string   `pulumi:"connectionState"`
+	Etag              string   `pulumi:"etag"`
+	Id                *string  `pulumi:"id"`
+	Name              *string  `pulumi:"name"`
+	PeerAsn           *float64 `pulumi:"peerAsn"`
+	PeerIp            *string  `pulumi:"peerIp"`
+	ProvisioningState string   `pulumi:"provisioningState"`
+	Type              string   `pulumi:"type"`
 }

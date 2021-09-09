@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The response of a list operation.
 func ListScheduleApplicable(ctx *pulumi.Context, args *ListScheduleApplicableArgs, opts ...pulumi.InvokeOption) (*ListScheduleApplicableResult, error) {
 	var rv ListScheduleApplicableResult
 	err := ctx.Invoke("azure-native:devtestlab/v20180915:listScheduleApplicable", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListScheduleApplicable(ctx *pulumi.Context, args *ListScheduleApplicableArg
 }
 
 type ListScheduleApplicableArgs struct {
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The name of the schedule.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
+	LabName           string `pulumi:"labName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The response of a list operation.
 type ListScheduleApplicableResult struct {
-	// Link for next set of results.
-	NextLink *string `pulumi:"nextLink"`
-	// Results of the list operation.
-	Value []ScheduleResponse `pulumi:"value"`
+	NextLink *string            `pulumi:"nextLink"`
+	Value    []ScheduleResponse `pulumi:"value"`
 }

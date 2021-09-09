@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Lock owner properties.
 type ManagementLockOwner struct {
-	// The application ID of the lock owner.
 	ApplicationId *string `pulumi:"applicationId"`
 }
 
@@ -27,9 +25,7 @@ type ManagementLockOwnerInput interface {
 	ToManagementLockOwnerOutputWithContext(context.Context) ManagementLockOwnerOutput
 }
 
-// Lock owner properties.
 type ManagementLockOwnerArgs struct {
-	// The application ID of the lock owner.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
 }
 
@@ -70,7 +66,6 @@ func (i ManagementLockOwnerArray) ToManagementLockOwnerArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockOwnerArrayOutput)
 }
 
-// Lock owner properties.
 type ManagementLockOwnerOutput struct{ *pulumi.OutputState }
 
 func (ManagementLockOwnerOutput) ElementType() reflect.Type {
@@ -85,7 +80,6 @@ func (o ManagementLockOwnerOutput) ToManagementLockOwnerOutputWithContext(ctx co
 	return o
 }
 
-// The application ID of the lock owner.
 func (o ManagementLockOwnerOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementLockOwner) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
@@ -110,9 +104,7 @@ func (o ManagementLockOwnerArrayOutput) Index(i pulumi.IntInput) ManagementLockO
 	}).(ManagementLockOwnerOutput)
 }
 
-// Lock owner properties.
 type ManagementLockOwnerResponse struct {
-	// The application ID of the lock owner.
 	ApplicationId *string `pulumi:"applicationId"`
 }
 
@@ -127,9 +119,7 @@ type ManagementLockOwnerResponseInput interface {
 	ToManagementLockOwnerResponseOutputWithContext(context.Context) ManagementLockOwnerResponseOutput
 }
 
-// Lock owner properties.
 type ManagementLockOwnerResponseArgs struct {
-	// The application ID of the lock owner.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
 }
 
@@ -170,7 +160,6 @@ func (i ManagementLockOwnerResponseArray) ToManagementLockOwnerResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockOwnerResponseArrayOutput)
 }
 
-// Lock owner properties.
 type ManagementLockOwnerResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementLockOwnerResponseOutput) ElementType() reflect.Type {
@@ -185,7 +174,6 @@ func (o ManagementLockOwnerResponseOutput) ToManagementLockOwnerResponseOutputWi
 	return o
 }
 
-// The application ID of the lock owner.
 func (o ManagementLockOwnerResponseOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementLockOwnerResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }

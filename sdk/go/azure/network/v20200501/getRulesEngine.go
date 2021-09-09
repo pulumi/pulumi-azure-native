@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
 func LookupRulesEngine(ctx *pulumi.Context, args *LookupRulesEngineArgs, opts ...pulumi.InvokeOption) (*LookupRulesEngineResult, error) {
 	var rv LookupRulesEngineResult
 	err := ctx.Invoke("azure-native:network/v20200501:getRulesEngine", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupRulesEngine(ctx *pulumi.Context, args *LookupRulesEngineArgs, opts ..
 }
 
 type LookupRulesEngineArgs struct {
-	// Name of the Front Door which is globally unique.
-	FrontDoorName string `pulumi:"frontDoorName"`
-	// Name of the Resource group within the Azure subscription.
+	FrontDoorName     string `pulumi:"frontDoorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Rules Engine which is unique within the Front Door.
-	RulesEngineName string `pulumi:"rulesEngineName"`
+	RulesEngineName   string `pulumi:"rulesEngineName"`
 }
 
 // A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
 type LookupRulesEngineResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Resource status.
-	ResourceState string `pulumi:"resourceState"`
-	// A list of rules that define a particular Rules Engine Configuration.
-	Rules []RulesEngineRuleResponse `pulumi:"rules"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id            string                    `pulumi:"id"`
+	Name          string                    `pulumi:"name"`
+	ResourceState string                    `pulumi:"resourceState"`
+	Rules         []RulesEngineRuleResponse `pulumi:"rules"`
+	Type          string                    `pulumi:"type"`
 }

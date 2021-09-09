@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntry struct {
-	//  Application ID of the client making request on behalf of a principal
-	ApplicationId *string `pulumi:"applicationId"`
-	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-	ObjectId string `pulumi:"objectId"`
-	// Permissions the identity has for keys, secrets and certificates.
-	Permissions Permissions `pulumi:"permissions"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId string `pulumi:"tenantId"`
+	ApplicationId *string     `pulumi:"applicationId"`
+	ObjectId      string      `pulumi:"objectId"`
+	Permissions   Permissions `pulumi:"permissions"`
+	TenantId      string      `pulumi:"tenantId"`
 }
 
 // AccessPolicyEntryInput is an input type that accepts AccessPolicyEntryArgs and AccessPolicyEntryOutput values.
@@ -33,16 +28,11 @@ type AccessPolicyEntryInput interface {
 	ToAccessPolicyEntryOutputWithContext(context.Context) AccessPolicyEntryOutput
 }
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntryArgs struct {
-	//  Application ID of the client making request on behalf of a principal
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-	ObjectId pulumi.StringInput `pulumi:"objectId"`
-	// Permissions the identity has for keys, secrets and certificates.
-	Permissions PermissionsInput `pulumi:"permissions"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	ObjectId      pulumi.StringInput    `pulumi:"objectId"`
+	Permissions   PermissionsInput      `pulumi:"permissions"`
+	TenantId      pulumi.StringInput    `pulumi:"tenantId"`
 }
 
 func (AccessPolicyEntryArgs) ElementType() reflect.Type {
@@ -82,7 +72,6 @@ func (i AccessPolicyEntryArray) ToAccessPolicyEntryArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyEntryArrayOutput)
 }
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntryOutput struct{ *pulumi.OutputState }
 
 func (AccessPolicyEntryOutput) ElementType() reflect.Type {
@@ -97,22 +86,18 @@ func (o AccessPolicyEntryOutput) ToAccessPolicyEntryOutputWithContext(ctx contex
 	return o
 }
 
-//  Application ID of the client making request on behalf of a principal
 func (o AccessPolicyEntryOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPolicyEntry) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
 func (o AccessPolicyEntryOutput) ObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPolicyEntry) string { return v.ObjectId }).(pulumi.StringOutput)
 }
 
-// Permissions the identity has for keys, secrets and certificates.
 func (o AccessPolicyEntryOutput) Permissions() PermissionsOutput {
 	return o.ApplyT(func(v AccessPolicyEntry) Permissions { return v.Permissions }).(PermissionsOutput)
 }
 
-// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 func (o AccessPolicyEntryOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPolicyEntry) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -137,16 +122,11 @@ func (o AccessPolicyEntryArrayOutput) Index(i pulumi.IntInput) AccessPolicyEntry
 	}).(AccessPolicyEntryOutput)
 }
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntryResponse struct {
-	//  Application ID of the client making request on behalf of a principal
-	ApplicationId *string `pulumi:"applicationId"`
-	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-	ObjectId string `pulumi:"objectId"`
-	// Permissions the identity has for keys, secrets and certificates.
-	Permissions PermissionsResponse `pulumi:"permissions"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId string `pulumi:"tenantId"`
+	ApplicationId *string             `pulumi:"applicationId"`
+	ObjectId      string              `pulumi:"objectId"`
+	Permissions   PermissionsResponse `pulumi:"permissions"`
+	TenantId      string              `pulumi:"tenantId"`
 }
 
 // AccessPolicyEntryResponseInput is an input type that accepts AccessPolicyEntryResponseArgs and AccessPolicyEntryResponseOutput values.
@@ -160,16 +140,11 @@ type AccessPolicyEntryResponseInput interface {
 	ToAccessPolicyEntryResponseOutputWithContext(context.Context) AccessPolicyEntryResponseOutput
 }
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntryResponseArgs struct {
-	//  Application ID of the client making request on behalf of a principal
-	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-	ObjectId pulumi.StringInput `pulumi:"objectId"`
-	// Permissions the identity has for keys, secrets and certificates.
-	Permissions PermissionsResponseInput `pulumi:"permissions"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	ApplicationId pulumi.StringPtrInput    `pulumi:"applicationId"`
+	ObjectId      pulumi.StringInput       `pulumi:"objectId"`
+	Permissions   PermissionsResponseInput `pulumi:"permissions"`
+	TenantId      pulumi.StringInput       `pulumi:"tenantId"`
 }
 
 func (AccessPolicyEntryResponseArgs) ElementType() reflect.Type {
@@ -209,7 +184,6 @@ func (i AccessPolicyEntryResponseArray) ToAccessPolicyEntryResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyEntryResponseArrayOutput)
 }
 
-// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 type AccessPolicyEntryResponseOutput struct{ *pulumi.OutputState }
 
 func (AccessPolicyEntryResponseOutput) ElementType() reflect.Type {
@@ -224,22 +198,18 @@ func (o AccessPolicyEntryResponseOutput) ToAccessPolicyEntryResponseOutputWithCo
 	return o
 }
 
-//  Application ID of the client making request on behalf of a principal
 func (o AccessPolicyEntryResponseOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPolicyEntryResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
 func (o AccessPolicyEntryResponseOutput) ObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPolicyEntryResponse) string { return v.ObjectId }).(pulumi.StringOutput)
 }
 
-// Permissions the identity has for keys, secrets and certificates.
 func (o AccessPolicyEntryResponseOutput) Permissions() PermissionsResponseOutput {
 	return o.ApplyT(func(v AccessPolicyEntryResponse) PermissionsResponse { return v.Permissions }).(PermissionsResponseOutput)
 }
 
-// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 func (o AccessPolicyEntryResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPolicyEntryResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -264,14 +234,10 @@ func (o AccessPolicyEntryResponseArrayOutput) Index(i pulumi.IntInput) AccessPol
 	}).(AccessPolicyEntryResponseOutput)
 }
 
-// Permissions the identity has for keys, secrets and certificates.
 type Permissions struct {
-	// Permissions to certificates
 	Certificates []string `pulumi:"certificates"`
-	// Permissions to keys
-	Keys []string `pulumi:"keys"`
-	// Permissions to secrets
-	Secrets []string `pulumi:"secrets"`
+	Keys         []string `pulumi:"keys"`
+	Secrets      []string `pulumi:"secrets"`
 }
 
 // PermissionsInput is an input type that accepts PermissionsArgs and PermissionsOutput values.
@@ -285,14 +251,10 @@ type PermissionsInput interface {
 	ToPermissionsOutputWithContext(context.Context) PermissionsOutput
 }
 
-// Permissions the identity has for keys, secrets and certificates.
 type PermissionsArgs struct {
-	// Permissions to certificates
 	Certificates pulumi.StringArrayInput `pulumi:"certificates"`
-	// Permissions to keys
-	Keys pulumi.StringArrayInput `pulumi:"keys"`
-	// Permissions to secrets
-	Secrets pulumi.StringArrayInput `pulumi:"secrets"`
+	Keys         pulumi.StringArrayInput `pulumi:"keys"`
+	Secrets      pulumi.StringArrayInput `pulumi:"secrets"`
 }
 
 func (PermissionsArgs) ElementType() reflect.Type {
@@ -307,7 +269,6 @@ func (i PermissionsArgs) ToPermissionsOutputWithContext(ctx context.Context) Per
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsOutput)
 }
 
-// Permissions the identity has for keys, secrets and certificates.
 type PermissionsOutput struct{ *pulumi.OutputState }
 
 func (PermissionsOutput) ElementType() reflect.Type {
@@ -322,29 +283,22 @@ func (o PermissionsOutput) ToPermissionsOutputWithContext(ctx context.Context) P
 	return o
 }
 
-// Permissions to certificates
 func (o PermissionsOutput) Certificates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permissions) []string { return v.Certificates }).(pulumi.StringArrayOutput)
 }
 
-// Permissions to keys
 func (o PermissionsOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permissions) []string { return v.Keys }).(pulumi.StringArrayOutput)
 }
 
-// Permissions to secrets
 func (o PermissionsOutput) Secrets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permissions) []string { return v.Secrets }).(pulumi.StringArrayOutput)
 }
 
-// Permissions the identity has for keys, secrets and certificates.
 type PermissionsResponse struct {
-	// Permissions to certificates
 	Certificates []string `pulumi:"certificates"`
-	// Permissions to keys
-	Keys []string `pulumi:"keys"`
-	// Permissions to secrets
-	Secrets []string `pulumi:"secrets"`
+	Keys         []string `pulumi:"keys"`
+	Secrets      []string `pulumi:"secrets"`
 }
 
 // PermissionsResponseInput is an input type that accepts PermissionsResponseArgs and PermissionsResponseOutput values.
@@ -358,14 +312,10 @@ type PermissionsResponseInput interface {
 	ToPermissionsResponseOutputWithContext(context.Context) PermissionsResponseOutput
 }
 
-// Permissions the identity has for keys, secrets and certificates.
 type PermissionsResponseArgs struct {
-	// Permissions to certificates
 	Certificates pulumi.StringArrayInput `pulumi:"certificates"`
-	// Permissions to keys
-	Keys pulumi.StringArrayInput `pulumi:"keys"`
-	// Permissions to secrets
-	Secrets pulumi.StringArrayInput `pulumi:"secrets"`
+	Keys         pulumi.StringArrayInput `pulumi:"keys"`
+	Secrets      pulumi.StringArrayInput `pulumi:"secrets"`
 }
 
 func (PermissionsResponseArgs) ElementType() reflect.Type {
@@ -380,7 +330,6 @@ func (i PermissionsResponseArgs) ToPermissionsResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsResponseOutput)
 }
 
-// Permissions the identity has for keys, secrets and certificates.
 type PermissionsResponseOutput struct{ *pulumi.OutputState }
 
 func (PermissionsResponseOutput) ElementType() reflect.Type {
@@ -395,27 +344,21 @@ func (o PermissionsResponseOutput) ToPermissionsResponseOutputWithContext(ctx co
 	return o
 }
 
-// Permissions to certificates
 func (o PermissionsResponseOutput) Certificates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionsResponse) []string { return v.Certificates }).(pulumi.StringArrayOutput)
 }
 
-// Permissions to keys
 func (o PermissionsResponseOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionsResponse) []string { return v.Keys }).(pulumi.StringArrayOutput)
 }
 
-// Permissions to secrets
 func (o PermissionsResponseOutput) Secrets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionsResponse) []string { return v.Secrets }).(pulumi.StringArrayOutput)
 }
 
-// SKU details
 type Sku struct {
-	// SKU family name
-	Family string `pulumi:"family"`
-	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name string `pulumi:"name"`
+	Family string  `pulumi:"family"`
+	Name   SkuName `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -429,12 +372,9 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// SKU details
 type SkuArgs struct {
-	// SKU family name
 	Family pulumi.StringInput `pulumi:"family"`
-	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name SkuName `pulumi:"name"`
+	Name   SkuNameInput       `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -490,7 +430,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// SKU details
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -510,19 +449,17 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// SKU family name
 func (o SkuOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Family }).(pulumi.StringOutput)
 }
 
-// SKU name to specify whether the key vault is a standard vault or a premium vault.
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+func (o SkuOutput) Name() SkuNameOutput {
+	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -540,10 +477,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// SKU family name
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -553,22 +495,18 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU name to specify whether the key vault is a standard vault or a premium vault.
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
-// SKU details
 type SkuResponse struct {
-	// SKU family name
 	Family string `pulumi:"family"`
-	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -582,12 +520,9 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// SKU details
 type SkuResponseArgs struct {
-	// SKU family name
 	Family pulumi.StringInput `pulumi:"family"`
-	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput `pulumi:"name"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -643,7 +578,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// SKU details
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -663,17 +597,15 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// SKU family name
 func (o SkuResponseOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Family }).(pulumi.StringOutput)
 }
 
-// SKU name to specify whether the key vault is a standard vault or a premium vault.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -693,10 +625,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// SKU family name
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -706,7 +643,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU name to specify whether the key vault is a standard vault or a premium vault.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -716,24 +652,15 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the vault
 type VaultProperties struct {
-	// An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
-	AccessPolicies []AccessPolicyEntry `pulumi:"accessPolicies"`
-	// Property to specify whether the 'soft delete' functionality is enabled for this key vault.
-	EnableSoftDelete *bool `pulumi:"enableSoftDelete"`
-	// Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
-	EnabledForDeployment *bool `pulumi:"enabledForDeployment"`
-	// Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
-	EnabledForDiskEncryption *bool `pulumi:"enabledForDiskEncryption"`
-	// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
-	EnabledForTemplateDeployment *bool `pulumi:"enabledForTemplateDeployment"`
-	// SKU details
-	Sku Sku `pulumi:"sku"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId string `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
-	VaultUri *string `pulumi:"vaultUri"`
+	AccessPolicies               []AccessPolicyEntry `pulumi:"accessPolicies"`
+	EnableSoftDelete             *bool               `pulumi:"enableSoftDelete"`
+	EnabledForDeployment         *bool               `pulumi:"enabledForDeployment"`
+	EnabledForDiskEncryption     *bool               `pulumi:"enabledForDiskEncryption"`
+	EnabledForTemplateDeployment *bool               `pulumi:"enabledForTemplateDeployment"`
+	Sku                          Sku                 `pulumi:"sku"`
+	TenantId                     string              `pulumi:"tenantId"`
+	VaultUri                     *string             `pulumi:"vaultUri"`
 }
 
 // VaultPropertiesInput is an input type that accepts VaultPropertiesArgs and VaultPropertiesOutput values.
@@ -747,24 +674,15 @@ type VaultPropertiesInput interface {
 	ToVaultPropertiesOutputWithContext(context.Context) VaultPropertiesOutput
 }
 
-// Properties of the vault
 type VaultPropertiesArgs struct {
-	// An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
-	AccessPolicies AccessPolicyEntryArrayInput `pulumi:"accessPolicies"`
-	// Property to specify whether the 'soft delete' functionality is enabled for this key vault.
-	EnableSoftDelete pulumi.BoolPtrInput `pulumi:"enableSoftDelete"`
-	// Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
-	EnabledForDeployment pulumi.BoolPtrInput `pulumi:"enabledForDeployment"`
-	// Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
-	EnabledForDiskEncryption pulumi.BoolPtrInput `pulumi:"enabledForDiskEncryption"`
-	// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
-	EnabledForTemplateDeployment pulumi.BoolPtrInput `pulumi:"enabledForTemplateDeployment"`
-	// SKU details
-	Sku SkuInput `pulumi:"sku"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
-	VaultUri pulumi.StringPtrInput `pulumi:"vaultUri"`
+	AccessPolicies               AccessPolicyEntryArrayInput `pulumi:"accessPolicies"`
+	EnableSoftDelete             pulumi.BoolPtrInput         `pulumi:"enableSoftDelete"`
+	EnabledForDeployment         pulumi.BoolPtrInput         `pulumi:"enabledForDeployment"`
+	EnabledForDiskEncryption     pulumi.BoolPtrInput         `pulumi:"enabledForDiskEncryption"`
+	EnabledForTemplateDeployment pulumi.BoolPtrInput         `pulumi:"enabledForTemplateDeployment"`
+	Sku                          SkuInput                    `pulumi:"sku"`
+	TenantId                     pulumi.StringInput          `pulumi:"tenantId"`
+	VaultUri                     pulumi.StringPtrInput       `pulumi:"vaultUri"`
 }
 
 func (VaultPropertiesArgs) ElementType() reflect.Type {
@@ -820,7 +738,6 @@ func (i *vaultPropertiesPtrType) ToVaultPropertiesPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesPtrOutput)
 }
 
-// Properties of the vault
 type VaultPropertiesOutput struct{ *pulumi.OutputState }
 
 func (VaultPropertiesOutput) ElementType() reflect.Type {
@@ -840,47 +757,39 @@ func (o VaultPropertiesOutput) ToVaultPropertiesPtrOutput() VaultPropertiesPtrOu
 }
 
 func (o VaultPropertiesOutput) ToVaultPropertiesPtrOutputWithContext(ctx context.Context) VaultPropertiesPtrOutput {
-	return o.ApplyT(func(v VaultProperties) *VaultProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultProperties) *VaultProperties {
 		return &v
 	}).(VaultPropertiesPtrOutput)
 }
 
-// An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 func (o VaultPropertiesOutput) AccessPolicies() AccessPolicyEntryArrayOutput {
 	return o.ApplyT(func(v VaultProperties) []AccessPolicyEntry { return v.AccessPolicies }).(AccessPolicyEntryArrayOutput)
 }
 
-// Property to specify whether the 'soft delete' functionality is enabled for this key vault.
 func (o VaultPropertiesOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *bool { return v.EnableSoftDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
 func (o VaultPropertiesOutput) EnabledForDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *bool { return v.EnabledForDeployment }).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
 func (o VaultPropertiesOutput) EnabledForDiskEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *bool { return v.EnabledForDiskEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 func (o VaultPropertiesOutput) EnabledForTemplateDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *bool { return v.EnabledForTemplateDeployment }).(pulumi.BoolPtrOutput)
 }
 
-// SKU details
 func (o VaultPropertiesOutput) Sku() SkuOutput {
 	return o.ApplyT(func(v VaultProperties) Sku { return v.Sku }).(SkuOutput)
 }
 
-// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 func (o VaultPropertiesOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultProperties) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
 func (o VaultPropertiesOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *string { return v.VaultUri }).(pulumi.StringPtrOutput)
 }
@@ -900,10 +809,15 @@ func (o VaultPropertiesPtrOutput) ToVaultPropertiesPtrOutputWithContext(ctx cont
 }
 
 func (o VaultPropertiesPtrOutput) Elem() VaultPropertiesOutput {
-	return o.ApplyT(func(v *VaultProperties) VaultProperties { return *v }).(VaultPropertiesOutput)
+	return o.ApplyT(func(v *VaultProperties) VaultProperties {
+		if v != nil {
+			return *v
+		}
+		var ret VaultProperties
+		return ret
+	}).(VaultPropertiesOutput)
 }
 
-// An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 func (o VaultPropertiesPtrOutput) AccessPolicies() AccessPolicyEntryArrayOutput {
 	return o.ApplyT(func(v *VaultProperties) []AccessPolicyEntry {
 		if v == nil {
@@ -913,7 +827,6 @@ func (o VaultPropertiesPtrOutput) AccessPolicies() AccessPolicyEntryArrayOutput 
 	}).(AccessPolicyEntryArrayOutput)
 }
 
-// Property to specify whether the 'soft delete' functionality is enabled for this key vault.
 func (o VaultPropertiesPtrOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *bool {
 		if v == nil {
@@ -923,7 +836,6 @@ func (o VaultPropertiesPtrOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
 func (o VaultPropertiesPtrOutput) EnabledForDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *bool {
 		if v == nil {
@@ -933,7 +845,6 @@ func (o VaultPropertiesPtrOutput) EnabledForDeployment() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
 func (o VaultPropertiesPtrOutput) EnabledForDiskEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *bool {
 		if v == nil {
@@ -943,7 +854,6 @@ func (o VaultPropertiesPtrOutput) EnabledForDiskEncryption() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 func (o VaultPropertiesPtrOutput) EnabledForTemplateDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *bool {
 		if v == nil {
@@ -953,7 +863,6 @@ func (o VaultPropertiesPtrOutput) EnabledForTemplateDeployment() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// SKU details
 func (o VaultPropertiesPtrOutput) Sku() SkuPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *Sku {
 		if v == nil {
@@ -963,7 +872,6 @@ func (o VaultPropertiesPtrOutput) Sku() SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 func (o VaultPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *string {
 		if v == nil {
@@ -973,7 +881,6 @@ func (o VaultPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
 func (o VaultPropertiesPtrOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *string {
 		if v == nil {
@@ -983,24 +890,15 @@ func (o VaultPropertiesPtrOutput) VaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the vault
 type VaultPropertiesResponse struct {
-	// An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
-	AccessPolicies []AccessPolicyEntryResponse `pulumi:"accessPolicies"`
-	// Property to specify whether the 'soft delete' functionality is enabled for this key vault.
-	EnableSoftDelete *bool `pulumi:"enableSoftDelete"`
-	// Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
-	EnabledForDeployment *bool `pulumi:"enabledForDeployment"`
-	// Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
-	EnabledForDiskEncryption *bool `pulumi:"enabledForDiskEncryption"`
-	// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
-	EnabledForTemplateDeployment *bool `pulumi:"enabledForTemplateDeployment"`
-	// SKU details
-	Sku SkuResponse `pulumi:"sku"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId string `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
-	VaultUri *string `pulumi:"vaultUri"`
+	AccessPolicies               []AccessPolicyEntryResponse `pulumi:"accessPolicies"`
+	EnableSoftDelete             *bool                       `pulumi:"enableSoftDelete"`
+	EnabledForDeployment         *bool                       `pulumi:"enabledForDeployment"`
+	EnabledForDiskEncryption     *bool                       `pulumi:"enabledForDiskEncryption"`
+	EnabledForTemplateDeployment *bool                       `pulumi:"enabledForTemplateDeployment"`
+	Sku                          SkuResponse                 `pulumi:"sku"`
+	TenantId                     string                      `pulumi:"tenantId"`
+	VaultUri                     *string                     `pulumi:"vaultUri"`
 }
 
 // VaultPropertiesResponseInput is an input type that accepts VaultPropertiesResponseArgs and VaultPropertiesResponseOutput values.
@@ -1014,24 +912,15 @@ type VaultPropertiesResponseInput interface {
 	ToVaultPropertiesResponseOutputWithContext(context.Context) VaultPropertiesResponseOutput
 }
 
-// Properties of the vault
 type VaultPropertiesResponseArgs struct {
-	// An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
-	AccessPolicies AccessPolicyEntryResponseArrayInput `pulumi:"accessPolicies"`
-	// Property to specify whether the 'soft delete' functionality is enabled for this key vault.
-	EnableSoftDelete pulumi.BoolPtrInput `pulumi:"enableSoftDelete"`
-	// Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
-	EnabledForDeployment pulumi.BoolPtrInput `pulumi:"enabledForDeployment"`
-	// Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
-	EnabledForDiskEncryption pulumi.BoolPtrInput `pulumi:"enabledForDiskEncryption"`
-	// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
-	EnabledForTemplateDeployment pulumi.BoolPtrInput `pulumi:"enabledForTemplateDeployment"`
-	// SKU details
-	Sku SkuResponseInput `pulumi:"sku"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
-	VaultUri pulumi.StringPtrInput `pulumi:"vaultUri"`
+	AccessPolicies               AccessPolicyEntryResponseArrayInput `pulumi:"accessPolicies"`
+	EnableSoftDelete             pulumi.BoolPtrInput                 `pulumi:"enableSoftDelete"`
+	EnabledForDeployment         pulumi.BoolPtrInput                 `pulumi:"enabledForDeployment"`
+	EnabledForDiskEncryption     pulumi.BoolPtrInput                 `pulumi:"enabledForDiskEncryption"`
+	EnabledForTemplateDeployment pulumi.BoolPtrInput                 `pulumi:"enabledForTemplateDeployment"`
+	Sku                          SkuResponseInput                    `pulumi:"sku"`
+	TenantId                     pulumi.StringInput                  `pulumi:"tenantId"`
+	VaultUri                     pulumi.StringPtrInput               `pulumi:"vaultUri"`
 }
 
 func (VaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1087,7 +976,6 @@ func (i *vaultPropertiesResponsePtrType) ToVaultPropertiesResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesResponsePtrOutput)
 }
 
-// Properties of the vault
 type VaultPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VaultPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1107,47 +995,39 @@ func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponsePtrOutput() Vaul
 }
 
 func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) VaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VaultPropertiesResponse) *VaultPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultPropertiesResponse) *VaultPropertiesResponse {
 		return &v
 	}).(VaultPropertiesResponsePtrOutput)
 }
 
-// An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 func (o VaultPropertiesResponseOutput) AccessPolicies() AccessPolicyEntryResponseArrayOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) []AccessPolicyEntryResponse { return v.AccessPolicies }).(AccessPolicyEntryResponseArrayOutput)
 }
 
-// Property to specify whether the 'soft delete' functionality is enabled for this key vault.
 func (o VaultPropertiesResponseOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *bool { return v.EnableSoftDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
 func (o VaultPropertiesResponseOutput) EnabledForDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *bool { return v.EnabledForDeployment }).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
 func (o VaultPropertiesResponseOutput) EnabledForDiskEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *bool { return v.EnabledForDiskEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 func (o VaultPropertiesResponseOutput) EnabledForTemplateDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *bool { return v.EnabledForTemplateDeployment }).(pulumi.BoolPtrOutput)
 }
 
-// SKU details
 func (o VaultPropertiesResponseOutput) Sku() SkuResponseOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) SkuResponse { return v.Sku }).(SkuResponseOutput)
 }
 
-// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 func (o VaultPropertiesResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
 func (o VaultPropertiesResponseOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *string { return v.VaultUri }).(pulumi.StringPtrOutput)
 }
@@ -1167,10 +1047,15 @@ func (o VaultPropertiesResponsePtrOutput) ToVaultPropertiesResponsePtrOutputWith
 }
 
 func (o VaultPropertiesResponsePtrOutput) Elem() VaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *VaultPropertiesResponse) VaultPropertiesResponse { return *v }).(VaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *VaultPropertiesResponse) VaultPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VaultPropertiesResponse
+		return ret
+	}).(VaultPropertiesResponseOutput)
 }
 
-// An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
 func (o VaultPropertiesResponsePtrOutput) AccessPolicies() AccessPolicyEntryResponseArrayOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) []AccessPolicyEntryResponse {
 		if v == nil {
@@ -1180,7 +1065,6 @@ func (o VaultPropertiesResponsePtrOutput) AccessPolicies() AccessPolicyEntryResp
 	}).(AccessPolicyEntryResponseArrayOutput)
 }
 
-// Property to specify whether the 'soft delete' functionality is enabled for this key vault.
 func (o VaultPropertiesResponsePtrOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *bool {
 		if v == nil {
@@ -1190,7 +1074,6 @@ func (o VaultPropertiesResponsePtrOutput) EnableSoftDelete() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
 func (o VaultPropertiesResponsePtrOutput) EnabledForDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *bool {
 		if v == nil {
@@ -1200,7 +1083,6 @@ func (o VaultPropertiesResponsePtrOutput) EnabledForDeployment() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
 func (o VaultPropertiesResponsePtrOutput) EnabledForDiskEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *bool {
 		if v == nil {
@@ -1210,7 +1092,6 @@ func (o VaultPropertiesResponsePtrOutput) EnabledForDiskEncryption() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 func (o VaultPropertiesResponsePtrOutput) EnabledForTemplateDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *bool {
 		if v == nil {
@@ -1220,7 +1101,6 @@ func (o VaultPropertiesResponsePtrOutput) EnabledForTemplateDeployment() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// SKU details
 func (o VaultPropertiesResponsePtrOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *SkuResponse {
 		if v == nil {
@@ -1230,7 +1110,6 @@ func (o VaultPropertiesResponsePtrOutput) Sku() SkuResponsePtrOutput {
 	}).(SkuResponsePtrOutput)
 }
 
-// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 func (o VaultPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *string {
 		if v == nil {
@@ -1240,7 +1119,6 @@ func (o VaultPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
 func (o VaultPropertiesResponsePtrOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *string {
 		if v == nil {

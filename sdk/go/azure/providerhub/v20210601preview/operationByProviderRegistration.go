@@ -14,9 +14,7 @@ import (
 type OperationByProviderRegistration struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -86,13 +84,11 @@ func (OperationByProviderRegistrationState) ElementType() reflect.Type {
 }
 
 type operationByProviderRegistrationArgs struct {
-	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace string `pulumi:"providerNamespace"`
 }
 
 // The set of arguments for constructing a OperationByProviderRegistration resource.
 type OperationByProviderRegistrationArgs struct {
-	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace pulumi.StringInput
 }
 
@@ -119,9 +115,7 @@ func (i *OperationByProviderRegistration) ToOperationByProviderRegistrationOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(OperationByProviderRegistrationOutput)
 }
 
-type OperationByProviderRegistrationOutput struct {
-	*pulumi.OutputState
-}
+type OperationByProviderRegistrationOutput struct{ *pulumi.OutputState }
 
 func (OperationByProviderRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OperationByProviderRegistration)(nil))

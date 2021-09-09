@@ -14,11 +14,9 @@ import (
 type Skus struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
 	Name       pulumi.StringOutput                 `pulumi:"name"`
 	Properties SkuResourceResponsePropertiesOutput `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewSkus registers a new resource with the given unique name, arguments, and options.
@@ -90,24 +88,18 @@ func (SkusState) ElementType() reflect.Type {
 }
 
 type skusArgs struct {
-	Properties *SkuResourceProperties `pulumi:"properties"`
-	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace string `pulumi:"providerNamespace"`
-	// The resource type.
-	ResourceType string `pulumi:"resourceType"`
-	// The SKU.
-	Sku *string `pulumi:"sku"`
+	Properties        *SkuResourceProperties `pulumi:"properties"`
+	ProviderNamespace string                 `pulumi:"providerNamespace"`
+	ResourceType      string                 `pulumi:"resourceType"`
+	Sku               *string                `pulumi:"sku"`
 }
 
 // The set of arguments for constructing a Skus resource.
 type SkusArgs struct {
-	Properties SkuResourcePropertiesPtrInput
-	// The name of the resource provider hosted within ProviderHub.
+	Properties        SkuResourcePropertiesPtrInput
 	ProviderNamespace pulumi.StringInput
-	// The resource type.
-	ResourceType pulumi.StringInput
-	// The SKU.
-	Sku pulumi.StringPtrInput
+	ResourceType      pulumi.StringInput
+	Sku               pulumi.StringPtrInput
 }
 
 func (SkusArgs) ElementType() reflect.Type {
@@ -133,9 +125,7 @@ func (i *Skus) ToSkusOutputWithContext(ctx context.Context) SkusOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SkusOutput)
 }
 
-type SkusOutput struct {
-	*pulumi.OutputState
-}
+type SkusOutput struct{ *pulumi.OutputState }
 
 func (SkusOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Skus)(nil))

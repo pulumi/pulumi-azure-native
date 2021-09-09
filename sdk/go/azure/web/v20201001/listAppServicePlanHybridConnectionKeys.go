@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
 func ListAppServicePlanHybridConnectionKeys(ctx *pulumi.Context, args *ListAppServicePlanHybridConnectionKeysArgs, opts ...pulumi.InvokeOption) (*ListAppServicePlanHybridConnectionKeysResult, error) {
 	var rv ListAppServicePlanHybridConnectionKeysResult
 	err := ctx.Invoke("azure-native:web/v20201001:listAppServicePlanHybridConnectionKeys", args, &rv, opts...)
@@ -18,30 +17,19 @@ func ListAppServicePlanHybridConnectionKeys(ctx *pulumi.Context, args *ListAppSe
 }
 
 type ListAppServicePlanHybridConnectionKeysArgs struct {
-	// Name of the App Service plan.
-	Name string `pulumi:"name"`
-	// The name of the Service Bus namespace.
-	NamespaceName string `pulumi:"namespaceName"`
-	// The name of the Service Bus relay.
-	RelayName string `pulumi:"relayName"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
+	NamespaceName     string `pulumi:"namespaceName"`
+	RelayName         string `pulumi:"relayName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
 type ListAppServicePlanHybridConnectionKeysResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// The name of the send key.
-	SendKeyName string `pulumi:"sendKeyName"`
-	// The value of the send key.
-	SendKeyValue string `pulumi:"sendKeyValue"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id           string             `pulumi:"id"`
+	Kind         *string            `pulumi:"kind"`
+	Name         string             `pulumi:"name"`
+	SendKeyName  string             `pulumi:"sendKeyName"`
+	SendKeyValue string             `pulumi:"sendKeyValue"`
+	SystemData   SystemDataResponse `pulumi:"systemData"`
+	Type         string             `pulumi:"type"`
 }

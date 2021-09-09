@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Bastion Host resource.
 func LookupBastionHost(ctx *pulumi.Context, args *LookupBastionHostArgs, opts ...pulumi.InvokeOption) (*LookupBastionHostResult, error) {
 	var rv LookupBastionHostResult
 	err := ctx.Invoke("azure-native:network/v20190701:getBastionHost", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupBastionHost(ctx *pulumi.Context, args *LookupBastionHostArgs, opts ..
 }
 
 type LookupBastionHostArgs struct {
-	// The name of the Bastion Host.
-	BastionHostName string `pulumi:"bastionHostName"`
-	// The name of the resource group.
+	BastionHostName   string `pulumi:"bastionHostName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Bastion Host resource.
 type LookupBastionHostResult struct {
-	// FQDN for the endpoint on which bastion host is accessible.
-	DnsName *string `pulumi:"dnsName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// IP configuration of the Bastion Host resource.
-	IpConfigurations []BastionHostIPConfigurationResponse `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the bastion host resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	DnsName           *string                              `pulumi:"dnsName"`
+	Etag              string                               `pulumi:"etag"`
+	Id                *string                              `pulumi:"id"`
+	IpConfigurations  []BastionHostIPConfigurationResponse `pulumi:"ipConfigurations"`
+	Location          *string                              `pulumi:"location"`
+	Name              string                               `pulumi:"name"`
+	ProvisioningState string                               `pulumi:"provisioningState"`
+	Tags              map[string]string                    `pulumi:"tags"`
+	Type              string                               `pulumi:"type"`
 }

@@ -202,9 +202,7 @@ func (i *EndpointVariant) ToEndpointVariantOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointVariantOutput)
 }
 
-type EndpointVariantOutput struct {
-	*pulumi.OutputState
-}
+type EndpointVariantOutput struct{ *pulumi.OutputState }
 
 func (EndpointVariantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EndpointVariant)(nil))

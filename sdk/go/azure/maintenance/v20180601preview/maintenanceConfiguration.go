@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Maintenance configuration record type
 type MaintenanceConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets extensionProperties of the maintenanceConfiguration
 	ExtensionProperties pulumi.StringMapOutput `pulumi:"extensionProperties"`
-	// Gets or sets location of the resource
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Gets or sets maintenanceScope of the configuration
-	MaintenanceScope pulumi.StringPtrOutput `pulumi:"maintenanceScope"`
-	// Name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets namespace of the resource
-	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
-	// Gets or sets tags of the resource
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of the resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location            pulumi.StringPtrOutput `pulumi:"location"`
+	MaintenanceScope    pulumi.StringPtrOutput `pulumi:"maintenanceScope"`
+	Name                pulumi.StringOutput    `pulumi:"name"`
+	Namespace           pulumi.StringPtrOutput `pulumi:"namespace"`
+	Tags                pulumi.StringMapOutput `pulumi:"tags"`
+	Type                pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewMaintenanceConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -115,38 +107,24 @@ func (MaintenanceConfigurationState) ElementType() reflect.Type {
 }
 
 type maintenanceConfigurationArgs struct {
-	// Gets or sets extensionProperties of the maintenanceConfiguration
 	ExtensionProperties map[string]string `pulumi:"extensionProperties"`
-	// Gets or sets location of the resource
-	Location *string `pulumi:"location"`
-	// Gets or sets maintenanceScope of the configuration
-	MaintenanceScope *string `pulumi:"maintenanceScope"`
-	// Gets or sets namespace of the resource
-	Namespace *string `pulumi:"namespace"`
-	// Resource Group Name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource Identifier
-	ResourceName *string `pulumi:"resourceName"`
-	// Gets or sets tags of the resource
-	Tags map[string]string `pulumi:"tags"`
+	Location            *string           `pulumi:"location"`
+	MaintenanceScope    *string           `pulumi:"maintenanceScope"`
+	Namespace           *string           `pulumi:"namespace"`
+	ResourceGroupName   string            `pulumi:"resourceGroupName"`
+	ResourceName        *string           `pulumi:"resourceName"`
+	Tags                map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MaintenanceConfiguration resource.
 type MaintenanceConfigurationArgs struct {
-	// Gets or sets extensionProperties of the maintenanceConfiguration
 	ExtensionProperties pulumi.StringMapInput
-	// Gets or sets location of the resource
-	Location pulumi.StringPtrInput
-	// Gets or sets maintenanceScope of the configuration
-	MaintenanceScope pulumi.StringPtrInput
-	// Gets or sets namespace of the resource
-	Namespace pulumi.StringPtrInput
-	// Resource Group Name
-	ResourceGroupName pulumi.StringInput
-	// Resource Identifier
-	ResourceName pulumi.StringPtrInput
-	// Gets or sets tags of the resource
-	Tags pulumi.StringMapInput
+	Location            pulumi.StringPtrInput
+	MaintenanceScope    pulumi.StringPtrInput
+	Namespace           pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	ResourceName        pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
 }
 
 func (MaintenanceConfigurationArgs) ElementType() reflect.Type {
@@ -172,9 +150,7 @@ func (i *MaintenanceConfiguration) ToMaintenanceConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceConfigurationOutput)
 }
 
-type MaintenanceConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type MaintenanceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MaintenanceConfiguration)(nil))

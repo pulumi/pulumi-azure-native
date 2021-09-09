@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An ADLS Gen 1 folder data set.
 func LookupADLSGen1FolderDataSet(ctx *pulumi.Context, args *LookupADLSGen1FolderDataSetArgs, opts ...pulumi.InvokeOption) (*LookupADLSGen1FolderDataSetResult, error) {
 	var rv LookupADLSGen1FolderDataSetResult
 	err := ctx.Invoke("azure-native:datashare/v20181101preview:getADLSGen1FolderDataSet", args, &rv, opts...)
@@ -18,35 +17,21 @@ func LookupADLSGen1FolderDataSet(ctx *pulumi.Context, args *LookupADLSGen1Folder
 }
 
 type LookupADLSGen1FolderDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName string `pulumi:"dataSetName"`
-	// The resource group name.
+	AccountName       string `pulumi:"accountName"`
+	DataSetName       string `pulumi:"dataSetName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share.
-	ShareName string `pulumi:"shareName"`
+	ShareName         string `pulumi:"shareName"`
 }
 
 // An ADLS Gen 1 folder data set.
 type LookupADLSGen1FolderDataSetResult struct {
-	// The ADLS account name.
-	AccountName string `pulumi:"accountName"`
-	// Unique id for identifying a data set resource
-	DataSetId string `pulumi:"dataSetId"`
-	// The folder path within the ADLS account.
-	FolderPath string `pulumi:"folderPath"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set.
-	// Expected value is 'AdlsGen1Folder'.
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Resource group of ADLS account.
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// Subscription id of ADLS account.
+	AccountName    string `pulumi:"accountName"`
+	DataSetId      string `pulumi:"dataSetId"`
+	FolderPath     string `pulumi:"folderPath"`
+	Id             string `pulumi:"id"`
+	Kind           string `pulumi:"kind"`
+	Name           string `pulumi:"name"`
+	ResourceGroup  string `pulumi:"resourceGroup"`
 	SubscriptionId string `pulumi:"subscriptionId"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	Type           string `pulumi:"type"`
 }

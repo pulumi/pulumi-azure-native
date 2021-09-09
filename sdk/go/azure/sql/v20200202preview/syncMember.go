@@ -11,36 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure SQL Database sync member.
 type SyncMember struct {
 	pulumi.CustomResourceState
 
-	// Database name of the member database in the sync member.
-	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
-	// Database type of the sync member.
-	DatabaseType pulumi.StringPtrOutput `pulumi:"databaseType"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Private endpoint name of the sync member if use private link connection is enabled, for sync members in Azure.
-	PrivateEndpointName pulumi.StringOutput `pulumi:"privateEndpointName"`
-	// Server name of the member database in the sync member
-	ServerName pulumi.StringPtrOutput `pulumi:"serverName"`
-	// SQL Server database id of the sync member.
-	SqlServerDatabaseId pulumi.StringPtrOutput `pulumi:"sqlServerDatabaseId"`
-	// ARM resource id of the sync agent in the sync member.
-	SyncAgentId pulumi.StringPtrOutput `pulumi:"syncAgentId"`
-	// Sync direction of the sync member.
-	SyncDirection pulumi.StringPtrOutput `pulumi:"syncDirection"`
-	// ARM resource id of the sync member logical database, for sync members in Azure.
+	DatabaseName                      pulumi.StringPtrOutput `pulumi:"databaseName"`
+	DatabaseType                      pulumi.StringPtrOutput `pulumi:"databaseType"`
+	Name                              pulumi.StringOutput    `pulumi:"name"`
+	PrivateEndpointName               pulumi.StringOutput    `pulumi:"privateEndpointName"`
+	ServerName                        pulumi.StringPtrOutput `pulumi:"serverName"`
+	SqlServerDatabaseId               pulumi.StringPtrOutput `pulumi:"sqlServerDatabaseId"`
+	SyncAgentId                       pulumi.StringPtrOutput `pulumi:"syncAgentId"`
+	SyncDirection                     pulumi.StringPtrOutput `pulumi:"syncDirection"`
 	SyncMemberAzureDatabaseResourceId pulumi.StringPtrOutput `pulumi:"syncMemberAzureDatabaseResourceId"`
-	// Sync state of the sync member.
-	SyncState pulumi.StringOutput `pulumi:"syncState"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Whether to use private link connection.
-	UsePrivateLinkConnection pulumi.BoolPtrOutput `pulumi:"usePrivateLinkConnection"`
-	// User name of the member database in the sync member.
-	UserName pulumi.StringPtrOutput `pulumi:"userName"`
+	SyncState                         pulumi.StringOutput    `pulumi:"syncState"`
+	Type                              pulumi.StringOutput    `pulumi:"type"`
+	UsePrivateLinkConnection          pulumi.BoolPtrOutput   `pulumi:"usePrivateLinkConnection"`
+	UserName                          pulumi.StringPtrOutput `pulumi:"userName"`
 }
 
 // NewSyncMember registers a new resource with the given unique name, arguments, and options.
@@ -136,62 +122,36 @@ func (SyncMemberState) ElementType() reflect.Type {
 }
 
 type syncMemberArgs struct {
-	// Database name of the member database in the sync member.
-	DatabaseName string `pulumi:"databaseName"`
-	// Database type of the sync member.
-	DatabaseType *string `pulumi:"databaseType"`
-	// Password of the member database in the sync member.
-	Password *string `pulumi:"password"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Server name of the member database in the sync member
-	ServerName string `pulumi:"serverName"`
-	// SQL Server database id of the sync member.
-	SqlServerDatabaseId *string `pulumi:"sqlServerDatabaseId"`
-	// ARM resource id of the sync agent in the sync member.
-	SyncAgentId *string `pulumi:"syncAgentId"`
-	// Sync direction of the sync member.
-	SyncDirection *string `pulumi:"syncDirection"`
-	// The name of the sync group on which the sync member is hosted.
-	SyncGroupName string `pulumi:"syncGroupName"`
-	// ARM resource id of the sync member logical database, for sync members in Azure.
+	DatabaseName                      string  `pulumi:"databaseName"`
+	DatabaseType                      *string `pulumi:"databaseType"`
+	Password                          *string `pulumi:"password"`
+	ResourceGroupName                 string  `pulumi:"resourceGroupName"`
+	ServerName                        string  `pulumi:"serverName"`
+	SqlServerDatabaseId               *string `pulumi:"sqlServerDatabaseId"`
+	SyncAgentId                       *string `pulumi:"syncAgentId"`
+	SyncDirection                     *string `pulumi:"syncDirection"`
+	SyncGroupName                     string  `pulumi:"syncGroupName"`
 	SyncMemberAzureDatabaseResourceId *string `pulumi:"syncMemberAzureDatabaseResourceId"`
-	// The name of the sync member.
-	SyncMemberName *string `pulumi:"syncMemberName"`
-	// Whether to use private link connection.
-	UsePrivateLinkConnection *bool `pulumi:"usePrivateLinkConnection"`
-	// User name of the member database in the sync member.
-	UserName *string `pulumi:"userName"`
+	SyncMemberName                    *string `pulumi:"syncMemberName"`
+	UsePrivateLinkConnection          *bool   `pulumi:"usePrivateLinkConnection"`
+	UserName                          *string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a SyncMember resource.
 type SyncMemberArgs struct {
-	// Database name of the member database in the sync member.
-	DatabaseName pulumi.StringInput
-	// Database type of the sync member.
-	DatabaseType pulumi.StringPtrInput
-	// Password of the member database in the sync member.
-	Password pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// Server name of the member database in the sync member
-	ServerName pulumi.StringInput
-	// SQL Server database id of the sync member.
-	SqlServerDatabaseId pulumi.StringPtrInput
-	// ARM resource id of the sync agent in the sync member.
-	SyncAgentId pulumi.StringPtrInput
-	// Sync direction of the sync member.
-	SyncDirection pulumi.StringPtrInput
-	// The name of the sync group on which the sync member is hosted.
-	SyncGroupName pulumi.StringInput
-	// ARM resource id of the sync member logical database, for sync members in Azure.
+	DatabaseName                      pulumi.StringInput
+	DatabaseType                      pulumi.StringPtrInput
+	Password                          pulumi.StringPtrInput
+	ResourceGroupName                 pulumi.StringInput
+	ServerName                        pulumi.StringInput
+	SqlServerDatabaseId               pulumi.StringPtrInput
+	SyncAgentId                       pulumi.StringPtrInput
+	SyncDirection                     pulumi.StringPtrInput
+	SyncGroupName                     pulumi.StringInput
 	SyncMemberAzureDatabaseResourceId pulumi.StringPtrInput
-	// The name of the sync member.
-	SyncMemberName pulumi.StringPtrInput
-	// Whether to use private link connection.
-	UsePrivateLinkConnection pulumi.BoolPtrInput
-	// User name of the member database in the sync member.
-	UserName pulumi.StringPtrInput
+	SyncMemberName                    pulumi.StringPtrInput
+	UsePrivateLinkConnection          pulumi.BoolPtrInput
+	UserName                          pulumi.StringPtrInput
 }
 
 func (SyncMemberArgs) ElementType() reflect.Type {
@@ -217,9 +177,7 @@ func (i *SyncMember) ToSyncMemberOutputWithContext(ctx context.Context) SyncMemb
 	return pulumi.ToOutputWithContext(ctx, i).(SyncMemberOutput)
 }
 
-type SyncMemberOutput struct {
-	*pulumi.OutputState
-}
+type SyncMemberOutput struct{ *pulumi.OutputState }
 
 func (SyncMemberOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SyncMember)(nil))

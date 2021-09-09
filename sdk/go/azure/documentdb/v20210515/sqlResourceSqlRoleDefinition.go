@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB SQL Role Definition.
 type SqlResourceSqlRoleDefinition struct {
 	pulumi.CustomResourceState
 
-	// A set of fully qualified Scopes at or below which Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
-	AssignableScopes pulumi.StringArrayOutput `pulumi:"assignableScopes"`
-	// The name of the database account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The set of operations allowed through this Role Definition.
-	Permissions PermissionResponseArrayOutput `pulumi:"permissions"`
-	// A user-friendly name for the Role Definition. Must be unique for the database account.
-	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AssignableScopes pulumi.StringArrayOutput      `pulumi:"assignableScopes"`
+	Name             pulumi.StringOutput           `pulumi:"name"`
+	Permissions      PermissionResponseArrayOutput `pulumi:"permissions"`
+	RoleName         pulumi.StringPtrOutput        `pulumi:"roleName"`
+	Type             pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewSqlResourceSqlRoleDefinition registers a new resource with the given unique name, arguments, and options.
@@ -120,38 +114,24 @@ func (SqlResourceSqlRoleDefinitionState) ElementType() reflect.Type {
 }
 
 type sqlResourceSqlRoleDefinitionArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// A set of fully qualified Scopes at or below which Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
-	AssignableScopes []string `pulumi:"assignableScopes"`
-	// The set of operations allowed through this Role Definition.
-	Permissions []Permission `pulumi:"permissions"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The GUID for the Role Definition.
-	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// A user-friendly name for the Role Definition. Must be unique for the database account.
-	RoleName *string `pulumi:"roleName"`
-	// Indicates whether the Role Definition was built-in or user created.
-	Type *string `pulumi:"type"`
+	AccountName       string              `pulumi:"accountName"`
+	AssignableScopes  []string            `pulumi:"assignableScopes"`
+	Permissions       []Permission        `pulumi:"permissions"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	RoleDefinitionId  *string             `pulumi:"roleDefinitionId"`
+	RoleName          *string             `pulumi:"roleName"`
+	Type              *RoleDefinitionType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SqlResourceSqlRoleDefinition resource.
 type SqlResourceSqlRoleDefinitionArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// A set of fully qualified Scopes at or below which Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
-	AssignableScopes pulumi.StringArrayInput
-	// The set of operations allowed through this Role Definition.
-	Permissions PermissionArrayInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	AssignableScopes  pulumi.StringArrayInput
+	Permissions       PermissionArrayInput
 	ResourceGroupName pulumi.StringInput
-	// The GUID for the Role Definition.
-	RoleDefinitionId pulumi.StringPtrInput
-	// A user-friendly name for the Role Definition. Must be unique for the database account.
-	RoleName pulumi.StringPtrInput
-	// Indicates whether the Role Definition was built-in or user created.
-	Type *RoleDefinitionType
+	RoleDefinitionId  pulumi.StringPtrInput
+	RoleName          pulumi.StringPtrInput
+	Type              RoleDefinitionTypePtrInput
 }
 
 func (SqlResourceSqlRoleDefinitionArgs) ElementType() reflect.Type {
@@ -177,9 +157,7 @@ func (i *SqlResourceSqlRoleDefinition) ToSqlResourceSqlRoleDefinitionOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlRoleDefinitionOutput)
 }
 
-type SqlResourceSqlRoleDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type SqlResourceSqlRoleDefinitionOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlRoleDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlResourceSqlRoleDefinition)(nil))

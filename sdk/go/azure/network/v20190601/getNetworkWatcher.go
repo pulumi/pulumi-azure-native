@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Network watcher in a resource group.
 func LookupNetworkWatcher(ctx *pulumi.Context, args *LookupNetworkWatcherArgs, opts ...pulumi.InvokeOption) (*LookupNetworkWatcherResult, error) {
 	var rv LookupNetworkWatcherResult
 	err := ctx.Invoke("azure-native:network/v20190601:getNetworkWatcher", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupNetworkWatcher(ctx *pulumi.Context, args *LookupNetworkWatcherArgs, o
 }
 
 type LookupNetworkWatcherArgs struct {
-	// The name of the network watcher.
 	NetworkWatcherName string `pulumi:"networkWatcherName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
 
 // Network watcher in a resource group.
 type LookupNetworkWatcherResult struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Etag              *string           `pulumi:"etag"`
+	Id                *string           `pulumi:"id"`
+	Location          *string           `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	ProvisioningState string            `pulumi:"provisioningState"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              string            `pulumi:"type"`
 }

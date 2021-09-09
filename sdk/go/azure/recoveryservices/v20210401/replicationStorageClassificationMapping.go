@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Storage mapping object.
 type ReplicationStorageClassificationMapping struct {
 	pulumi.CustomResourceState
 
-	// Resource Location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the storage mapping object.
+	Location   pulumi.StringPtrOutput                               `pulumi:"location"`
+	Name       pulumi.StringOutput                                  `pulumi:"name"`
 	Properties StorageClassificationMappingPropertiesResponseOutput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                                  `pulumi:"type"`
 }
 
 // NewReplicationStorageClassificationMapping registers a new resource with the given unique name, arguments, and options.
@@ -130,34 +125,22 @@ func (ReplicationStorageClassificationMappingState) ElementType() reflect.Type {
 }
 
 type replicationStorageClassificationMappingArgs struct {
-	// Fabric name.
-	FabricName string `pulumi:"fabricName"`
-	// Storage mapping input properties.
-	Properties *StorageMappingInputProperties `pulumi:"properties"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
-	// Storage classification mapping name.
-	StorageClassificationMappingName *string `pulumi:"storageClassificationMappingName"`
-	// Storage classification name.
-	StorageClassificationName string `pulumi:"storageClassificationName"`
+	FabricName                       string                         `pulumi:"fabricName"`
+	Properties                       *StorageMappingInputProperties `pulumi:"properties"`
+	ResourceGroupName                string                         `pulumi:"resourceGroupName"`
+	ResourceName                     string                         `pulumi:"resourceName"`
+	StorageClassificationMappingName *string                        `pulumi:"storageClassificationMappingName"`
+	StorageClassificationName        string                         `pulumi:"storageClassificationName"`
 }
 
 // The set of arguments for constructing a ReplicationStorageClassificationMapping resource.
 type ReplicationStorageClassificationMappingArgs struct {
-	// Fabric name.
-	FabricName pulumi.StringInput
-	// Storage mapping input properties.
-	Properties StorageMappingInputPropertiesPtrInput
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName pulumi.StringInput
-	// The name of the recovery services vault.
-	ResourceName pulumi.StringInput
-	// Storage classification mapping name.
+	FabricName                       pulumi.StringInput
+	Properties                       StorageMappingInputPropertiesPtrInput
+	ResourceGroupName                pulumi.StringInput
+	ResourceName                     pulumi.StringInput
 	StorageClassificationMappingName pulumi.StringPtrInput
-	// Storage classification name.
-	StorageClassificationName pulumi.StringInput
+	StorageClassificationName        pulumi.StringInput
 }
 
 func (ReplicationStorageClassificationMappingArgs) ElementType() reflect.Type {
@@ -183,9 +166,7 @@ func (i *ReplicationStorageClassificationMapping) ToReplicationStorageClassifica
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationStorageClassificationMappingOutput)
 }
 
-type ReplicationStorageClassificationMappingOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationStorageClassificationMappingOutput struct{ *pulumi.OutputState }
 
 func (ReplicationStorageClassificationMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationStorageClassificationMapping)(nil))

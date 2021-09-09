@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in a List or Get AuthorizationRule operation
 type EventHubAuthorizationRule struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The rights associated with the rule.
+	Name   pulumi.StringOutput      `pulumi:"name"`
 	Rights pulumi.StringArrayOutput `pulumi:"rights"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type   pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewEventHubAuthorizationRule registers a new resource with the given unique name, arguments, and options.
@@ -116,30 +112,20 @@ func (EventHubAuthorizationRuleState) ElementType() reflect.Type {
 }
 
 type eventHubAuthorizationRuleArgs struct {
-	// The authorization rule name.
-	AuthorizationRuleName *string `pulumi:"authorizationRuleName"`
-	// The Event Hub name
-	EventHubName string `pulumi:"eventHubName"`
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
+	AuthorizationRuleName *string  `pulumi:"authorizationRuleName"`
+	EventHubName          string   `pulumi:"eventHubName"`
+	NamespaceName         string   `pulumi:"namespaceName"`
+	ResourceGroupName     string   `pulumi:"resourceGroupName"`
+	Rights                []string `pulumi:"rights"`
 }
 
 // The set of arguments for constructing a EventHubAuthorizationRule resource.
 type EventHubAuthorizationRuleArgs struct {
-	// The authorization rule name.
 	AuthorizationRuleName pulumi.StringPtrInput
-	// The Event Hub name
-	EventHubName pulumi.StringInput
-	// The Namespace name
-	NamespaceName pulumi.StringInput
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput
+	EventHubName          pulumi.StringInput
+	NamespaceName         pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	Rights                pulumi.StringArrayInput
 }
 
 func (EventHubAuthorizationRuleArgs) ElementType() reflect.Type {
@@ -165,9 +151,7 @@ func (i *EventHubAuthorizationRule) ToEventHubAuthorizationRuleOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubAuthorizationRuleOutput)
 }
 
-type EventHubAuthorizationRuleOutput struct {
-	*pulumi.OutputState
-}
+type EventHubAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (EventHubAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHubAuthorizationRule)(nil))

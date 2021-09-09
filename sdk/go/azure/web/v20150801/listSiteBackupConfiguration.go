@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a backup which will be performed
 func ListSiteBackupConfiguration(ctx *pulumi.Context, args *ListSiteBackupConfigurationArgs, opts ...pulumi.InvokeOption) (*ListSiteBackupConfigurationResult, error) {
 	var rv ListSiteBackupConfigurationResult
 	err := ctx.Invoke("azure-native:web/v20150801:listSiteBackupConfiguration", args, &rv, opts...)
@@ -18,32 +17,20 @@ func ListSiteBackupConfiguration(ctx *pulumi.Context, args *ListSiteBackupConfig
 }
 
 type ListSiteBackupConfigurationArgs struct {
-	// Name of web app
-	Name string `pulumi:"name"`
-	// Name of resource group
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Description of a backup which will be performed
 type ListSiteBackupConfigurationResult struct {
-	// Schedule for the backup if it is executed periodically
-	BackupSchedule *BackupScheduleResponse `pulumi:"backupSchedule"`
-	// Databases included in the backup
-	Databases []DatabaseBackupSettingResponse `pulumi:"databases"`
-	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
-	Enabled *bool `pulumi:"enabled"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// SAS URL to the container
-	StorageAccountUrl *string `pulumi:"storageAccountUrl"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	BackupSchedule    *BackupScheduleResponse         `pulumi:"backupSchedule"`
+	Databases         []DatabaseBackupSettingResponse `pulumi:"databases"`
+	Enabled           *bool                           `pulumi:"enabled"`
+	Id                *string                         `pulumi:"id"`
+	Kind              *string                         `pulumi:"kind"`
+	Location          string                          `pulumi:"location"`
+	Name              *string                         `pulumi:"name"`
+	StorageAccountUrl *string                         `pulumi:"storageAccountUrl"`
+	Tags              map[string]string               `pulumi:"tags"`
+	Type              string                          `pulumi:"type"`
 }

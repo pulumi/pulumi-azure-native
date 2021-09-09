@@ -181,9 +181,7 @@ func (i *ReplicationMigrationItem) ToReplicationMigrationItemOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationMigrationItemOutput)
 }
 
-type ReplicationMigrationItemOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationMigrationItemOutput struct{ *pulumi.OutputState }
 
 func (ReplicationMigrationItemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationMigrationItem)(nil))

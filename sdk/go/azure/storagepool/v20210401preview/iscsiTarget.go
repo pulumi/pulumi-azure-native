@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response for iSCSI Target requests.
 type IscsiTarget struct {
 	pulumi.CustomResourceState
 
-	// Mode for Target connectivity.
-	AclMode pulumi.StringOutput `pulumi:"aclMode"`
-	// List of private IPv4 addresses to connect to the iSCSI Target.
-	Endpoints pulumi.StringArrayOutput `pulumi:"endpoints"`
-	// List of LUNs to be exposed through iSCSI Target.
-	Luns IscsiLunResponseArrayOutput `pulumi:"luns"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The port used by iSCSI Target portal group.
-	Port pulumi.IntPtrOutput `pulumi:"port"`
-	// State of the operation on the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-	StaticAcls AclResponseArrayOutput `pulumi:"staticAcls"`
-	// Operational status of the iSCSI Target.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Resource metadata required by ARM RPC
-	SystemData SystemMetadataResponseOutput `pulumi:"systemData"`
-	// iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-	TargetIqn pulumi.StringOutput `pulumi:"targetIqn"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AclMode           pulumi.StringOutput          `pulumi:"aclMode"`
+	Endpoints         pulumi.StringArrayOutput     `pulumi:"endpoints"`
+	Luns              IscsiLunResponseArrayOutput  `pulumi:"luns"`
+	Name              pulumi.StringOutput          `pulumi:"name"`
+	Port              pulumi.IntPtrOutput          `pulumi:"port"`
+	ProvisioningState pulumi.StringOutput          `pulumi:"provisioningState"`
+	StaticAcls        AclResponseArrayOutput       `pulumi:"staticAcls"`
+	Status            pulumi.StringOutput          `pulumi:"status"`
+	SystemData        SystemMetadataResponseOutput `pulumi:"systemData"`
+	TargetIqn         pulumi.StringOutput          `pulumi:"targetIqn"`
+	Type              pulumi.StringOutput          `pulumi:"type"`
 }
 
 // NewIscsiTarget registers a new resource with the given unique name, arguments, and options.
@@ -111,38 +99,24 @@ func (IscsiTargetState) ElementType() reflect.Type {
 }
 
 type iscsiTargetArgs struct {
-	// Mode for Target connectivity.
-	AclMode string `pulumi:"aclMode"`
-	// The name of the Disk Pool.
-	DiskPoolName string `pulumi:"diskPoolName"`
-	// The name of the iSCSI Target.
-	IscsiTargetName *string `pulumi:"iscsiTargetName"`
-	// List of LUNs to be exposed through iSCSI Target.
-	Luns []IscsiLun `pulumi:"luns"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-	StaticAcls []Acl `pulumi:"staticAcls"`
-	// iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-	TargetIqn *string `pulumi:"targetIqn"`
+	AclMode           string     `pulumi:"aclMode"`
+	DiskPoolName      string     `pulumi:"diskPoolName"`
+	IscsiTargetName   *string    `pulumi:"iscsiTargetName"`
+	Luns              []IscsiLun `pulumi:"luns"`
+	ResourceGroupName string     `pulumi:"resourceGroupName"`
+	StaticAcls        []Acl      `pulumi:"staticAcls"`
+	TargetIqn         *string    `pulumi:"targetIqn"`
 }
 
 // The set of arguments for constructing a IscsiTarget resource.
 type IscsiTargetArgs struct {
-	// Mode for Target connectivity.
-	AclMode pulumi.StringInput
-	// The name of the Disk Pool.
-	DiskPoolName pulumi.StringInput
-	// The name of the iSCSI Target.
-	IscsiTargetName pulumi.StringPtrInput
-	// List of LUNs to be exposed through iSCSI Target.
-	Luns IscsiLunArrayInput
-	// The name of the resource group. The name is case insensitive.
+	AclMode           pulumi.StringInput
+	DiskPoolName      pulumi.StringInput
+	IscsiTargetName   pulumi.StringPtrInput
+	Luns              IscsiLunArrayInput
 	ResourceGroupName pulumi.StringInput
-	// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-	StaticAcls AclArrayInput
-	// iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-	TargetIqn pulumi.StringPtrInput
+	StaticAcls        AclArrayInput
+	TargetIqn         pulumi.StringPtrInput
 }
 
 func (IscsiTargetArgs) ElementType() reflect.Type {
@@ -168,9 +142,7 @@ func (i *IscsiTarget) ToIscsiTargetOutputWithContext(ctx context.Context) IscsiT
 	return pulumi.ToOutputWithContext(ctx, i).(IscsiTargetOutput)
 }
 
-type IscsiTargetOutput struct {
-	*pulumi.OutputState
-}
+type IscsiTargetOutput struct{ *pulumi.OutputState }
 
 func (IscsiTargetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IscsiTarget)(nil))

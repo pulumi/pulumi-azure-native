@@ -204,9 +204,7 @@ func (i *ProtectionPolicy) ToProtectionPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionPolicyOutput)
 }
 
-type ProtectionPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ProtectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (ProtectionPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProtectionPolicy)(nil))

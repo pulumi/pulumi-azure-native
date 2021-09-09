@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Connector model definition
 func LookupCloudConnector(ctx *pulumi.Context, args *LookupCloudConnectorArgs, opts ...pulumi.InvokeOption) (*LookupCloudConnectorResult, error) {
 	var rv LookupCloudConnectorResult
 	err := ctx.Invoke("azure-native:costmanagement/v20190301preview:getCloudConnector", args, &rv, opts...)
@@ -18,48 +17,28 @@ func LookupCloudConnector(ctx *pulumi.Context, args *LookupCloudConnectorArgs, o
 }
 
 type LookupCloudConnectorArgs struct {
-	// Connector Name.
-	ConnectorName string `pulumi:"connectorName"`
-	// May be used to expand the collectionInfo property. By default, collectionInfo is not included.
-	Expand *string `pulumi:"expand"`
+	ConnectorName string  `pulumi:"connectorName"`
+	Expand        *string `pulumi:"expand"`
 }
 
 // The Connector model definition
 type LookupCloudConnectorResult struct {
-	// Connector billing model
-	BillingModel *string `pulumi:"billingModel"`
-	// Collection information
-	CollectionInfo ConnectorCollectionInfoResponse `pulumi:"collectionInfo"`
-	// Connector definition creation datetime
-	CreatedOn string `pulumi:"createdOn"`
-	// Credentials authentication key (eg AWS ARN)
-	CredentialsKey *string `pulumi:"credentialsKey"`
-	// Number of days remaining of trial
-	DaysTrialRemaining int `pulumi:"daysTrialRemaining"`
-	// Default ManagementGroupId
-	DefaultManagementGroupId *string `pulumi:"defaultManagementGroupId"`
-	// Connector DisplayName
-	DisplayName *string `pulumi:"displayName"`
-	// Associated ExternalBillingAccountId
-	ExternalBillingAccountId string `pulumi:"externalBillingAccountId"`
-	// Connector id
-	Id string `pulumi:"id"`
-	// Connector kind (eg aws)
-	Kind *string `pulumi:"kind"`
-	// Connector last modified datetime
-	ModifiedOn string `pulumi:"modifiedOn"`
-	// Connector name
-	Name string `pulumi:"name"`
-	// The display name of the providerBillingAccountId as defined on the external provider
-	ProviderBillingAccountDisplayName string `pulumi:"providerBillingAccountDisplayName"`
-	// Connector providerBillingAccountId, determined from credentials (eg AWS Consolidated account number)
-	ProviderBillingAccountId string `pulumi:"providerBillingAccountId"`
-	// Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
-	ReportId *string `pulumi:"reportId"`
-	// Connector status
-	Status string `pulumi:"status"`
-	// Billing SubscriptionId
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Connector type
-	Type string `pulumi:"type"`
+	BillingModel                      *string                         `pulumi:"billingModel"`
+	CollectionInfo                    ConnectorCollectionInfoResponse `pulumi:"collectionInfo"`
+	CreatedOn                         string                          `pulumi:"createdOn"`
+	CredentialsKey                    *string                         `pulumi:"credentialsKey"`
+	DaysTrialRemaining                int                             `pulumi:"daysTrialRemaining"`
+	DefaultManagementGroupId          *string                         `pulumi:"defaultManagementGroupId"`
+	DisplayName                       *string                         `pulumi:"displayName"`
+	ExternalBillingAccountId          string                          `pulumi:"externalBillingAccountId"`
+	Id                                string                          `pulumi:"id"`
+	Kind                              *string                         `pulumi:"kind"`
+	ModifiedOn                        string                          `pulumi:"modifiedOn"`
+	Name                              string                          `pulumi:"name"`
+	ProviderBillingAccountDisplayName string                          `pulumi:"providerBillingAccountDisplayName"`
+	ProviderBillingAccountId          string                          `pulumi:"providerBillingAccountId"`
+	ReportId                          *string                         `pulumi:"reportId"`
+	Status                            string                          `pulumi:"status"`
+	SubscriptionId                    *string                         `pulumi:"subscriptionId"`
+	Type                              string                          `pulumi:"type"`
 }

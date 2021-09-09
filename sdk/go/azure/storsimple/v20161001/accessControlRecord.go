@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The access control record
 type AccessControlRecord struct {
 	pulumi.CustomResourceState
 
-	// The Iscsi initiator name (IQN)
 	InitiatorName pulumi.StringOutput `pulumi:"initiatorName"`
-	// The name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name          pulumi.StringOutput `pulumi:"name"`
+	Type          pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewAccessControlRecord registers a new resource with the given unique name, arguments, and options.
@@ -89,26 +85,18 @@ func (AccessControlRecordState) ElementType() reflect.Type {
 }
 
 type accessControlRecordArgs struct {
-	// The name of the access control record.
 	AccessControlRecordName *string `pulumi:"accessControlRecordName"`
-	// The Iscsi initiator name (IQN)
-	InitiatorName string `pulumi:"initiatorName"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	InitiatorName           string  `pulumi:"initiatorName"`
+	ManagerName             string  `pulumi:"managerName"`
+	ResourceGroupName       string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a AccessControlRecord resource.
 type AccessControlRecordArgs struct {
-	// The name of the access control record.
 	AccessControlRecordName pulumi.StringPtrInput
-	// The Iscsi initiator name (IQN)
-	InitiatorName pulumi.StringInput
-	// The manager name
-	ManagerName pulumi.StringInput
-	// The resource group name
-	ResourceGroupName pulumi.StringInput
+	InitiatorName           pulumi.StringInput
+	ManagerName             pulumi.StringInput
+	ResourceGroupName       pulumi.StringInput
 }
 
 func (AccessControlRecordArgs) ElementType() reflect.Type {
@@ -134,9 +122,7 @@ func (i *AccessControlRecord) ToAccessControlRecordOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AccessControlRecordOutput)
 }
 
-type AccessControlRecordOutput struct {
-	*pulumi.OutputState
-}
+type AccessControlRecordOutput struct{ *pulumi.OutputState }
 
 func (AccessControlRecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccessControlRecord)(nil))

@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This type describes a network resource.
 type Network struct {
 	pulumi.CustomResourceState
 
-	// the address prefix for this network.
-	AddressPrefix pulumi.StringOutput `pulumi:"addressPrefix"`
-	// User readable description of the network.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Configuration for public connectivity for this network.
-	IngressConfig IngressConfigResponsePtrOutput `pulumi:"ingressConfig"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// State of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AddressPrefix     pulumi.StringOutput            `pulumi:"addressPrefix"`
+	Description       pulumi.StringPtrOutput         `pulumi:"description"`
+	IngressConfig     IngressConfigResponsePtrOutput `pulumi:"ingressConfig"`
+	Location          pulumi.StringOutput            `pulumi:"location"`
+	Name              pulumi.StringOutput            `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput            `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput         `pulumi:"tags"`
+	Type              pulumi.StringOutput            `pulumi:"type"`
 }
 
 // NewNetwork registers a new resource with the given unique name, arguments, and options.
@@ -96,38 +87,24 @@ func (NetworkState) ElementType() reflect.Type {
 }
 
 type networkArgs struct {
-	// the address prefix for this network.
-	AddressPrefix string `pulumi:"addressPrefix"`
-	// User readable description of the network.
-	Description *string `pulumi:"description"`
-	// Configuration for public connectivity for this network.
-	IngressConfig *IngressConfig `pulumi:"ingressConfig"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The identity of the network.
-	NetworkName *string `pulumi:"networkName"`
-	// Azure resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AddressPrefix     string            `pulumi:"addressPrefix"`
+	Description       *string           `pulumi:"description"`
+	IngressConfig     *IngressConfig    `pulumi:"ingressConfig"`
+	Location          *string           `pulumi:"location"`
+	NetworkName       *string           `pulumi:"networkName"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Network resource.
 type NetworkArgs struct {
-	// the address prefix for this network.
-	AddressPrefix pulumi.StringInput
-	// User readable description of the network.
-	Description pulumi.StringPtrInput
-	// Configuration for public connectivity for this network.
-	IngressConfig IngressConfigPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The identity of the network.
-	NetworkName pulumi.StringPtrInput
-	// Azure resource group name
+	AddressPrefix     pulumi.StringInput
+	Description       pulumi.StringPtrInput
+	IngressConfig     IngressConfigPtrInput
+	Location          pulumi.StringPtrInput
+	NetworkName       pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (NetworkArgs) ElementType() reflect.Type {
@@ -153,9 +130,7 @@ func (i *Network) ToNetworkOutputWithContext(ctx context.Context) NetworkOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkOutput)
 }
 
-type NetworkOutput struct {
-	*pulumi.OutputState
-}
+type NetworkOutput struct{ *pulumi.OutputState }
 
 func (NetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Network)(nil))

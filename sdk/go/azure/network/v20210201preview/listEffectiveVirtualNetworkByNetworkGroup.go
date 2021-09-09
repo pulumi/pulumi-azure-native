@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
 func ListEffectiveVirtualNetworkByNetworkGroup(ctx *pulumi.Context, args *ListEffectiveVirtualNetworkByNetworkGroupArgs, opts ...pulumi.InvokeOption) (*ListEffectiveVirtualNetworkByNetworkGroupResult, error) {
 	var rv ListEffectiveVirtualNetworkByNetworkGroupResult
 	err := ctx.Invoke("azure-native:network/v20210201preview:listEffectiveVirtualNetworkByNetworkGroup", args, &rv, opts...)
@@ -18,20 +17,14 @@ func ListEffectiveVirtualNetworkByNetworkGroup(ctx *pulumi.Context, args *ListEf
 }
 
 type ListEffectiveVirtualNetworkByNetworkGroupArgs struct {
-	// The name of the network group to get.
-	NetworkGroupName string `pulumi:"networkGroupName"`
-	// The name of the network manager.
-	NetworkManagerName string `pulumi:"networkManagerName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
-	SkipToken *string `pulumi:"skipToken"`
+	NetworkGroupName   string  `pulumi:"networkGroupName"`
+	NetworkManagerName string  `pulumi:"networkManagerName"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
+	SkipToken          *string `pulumi:"skipToken"`
 }
 
 // Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
 type ListEffectiveVirtualNetworkByNetworkGroupResult struct {
-	// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
-	SkipToken *string `pulumi:"skipToken"`
-	// Gets a page of EffectiveVirtualNetwork
-	Value []EffectiveVirtualNetworkResponse `pulumi:"value"`
+	SkipToken *string                           `pulumi:"skipToken"`
+	Value     []EffectiveVirtualNetworkResponse `pulumi:"value"`
 }

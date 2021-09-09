@@ -10,19 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Machine Learning compute based on AKS.
 type AKS struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'AKS'.
-	ComputeType string `pulumi:"computeType"`
-	// The description of the Machine Learning compute.
-	Description *string `pulumi:"description"`
-	// AKS properties
-	Properties *AKSProperties `pulumi:"properties"`
-	// ARM resource id of the compute
-	ResourceId *string `pulumi:"resourceId"`
+	ComputeLocation *string        `pulumi:"computeLocation"`
+	ComputeType     string         `pulumi:"computeType"`
+	Description     *string        `pulumi:"description"`
+	Properties      *AKSProperties `pulumi:"properties"`
+	ResourceId      *string        `pulumi:"resourceId"`
 }
 
 // AKSInput is an input type that accepts AKSArgs and AKSOutput values.
@@ -36,19 +29,12 @@ type AKSInput interface {
 	ToAKSOutputWithContext(context.Context) AKSOutput
 }
 
-// A Machine Learning compute based on AKS.
 type AKSArgs struct {
-	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'AKS'.
-	ComputeType pulumi.StringInput `pulumi:"computeType"`
-	// The description of the Machine Learning compute.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// AKS properties
-	Properties AKSPropertiesPtrInput `pulumi:"properties"`
-	// ARM resource id of the compute
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	ComputeType     pulumi.StringInput    `pulumi:"computeType"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Properties      AKSPropertiesPtrInput `pulumi:"properties"`
+	ResourceId      pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (AKSArgs) ElementType() reflect.Type {
@@ -63,7 +49,6 @@ func (i AKSArgs) ToAKSOutputWithContext(ctx context.Context) AKSOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AKSOutput)
 }
 
-// A Machine Learning compute based on AKS.
 type AKSOutput struct{ *pulumi.OutputState }
 
 func (AKSOutput) ElementType() reflect.Type {
@@ -78,41 +63,30 @@ func (o AKSOutput) ToAKSOutputWithContext(ctx context.Context) AKSOutput {
 	return o
 }
 
-// Location for the underlying compute
 func (o AKSOutput) ComputeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AKS) *string { return v.ComputeLocation }).(pulumi.StringPtrOutput)
 }
 
-// The type of compute
-// Expected value is 'AKS'.
 func (o AKSOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v AKS) string { return v.ComputeType }).(pulumi.StringOutput)
 }
 
-// The description of the Machine Learning compute.
 func (o AKSOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AKS) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// AKS properties
 func (o AKSOutput) Properties() AKSPropertiesPtrOutput {
 	return o.ApplyT(func(v AKS) *AKSProperties { return v.Properties }).(AKSPropertiesPtrOutput)
 }
 
-// ARM resource id of the compute
 func (o AKSOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AKS) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// AKS properties
 type AKSProperties struct {
-	// Number of agents
-	AgentCount *int `pulumi:"agentCount"`
-	// Agent virtual machine size
-	AgentVMSize *string `pulumi:"agentVMSize"`
-	// Cluster full qualified domain name
-	ClusterFqdn *string `pulumi:"clusterFqdn"`
-	// SSL configuration
+	AgentCount       *int              `pulumi:"agentCount"`
+	AgentVMSize      *string           `pulumi:"agentVMSize"`
+	ClusterFqdn      *string           `pulumi:"clusterFqdn"`
 	SslConfiguration *SslConfiguration `pulumi:"sslConfiguration"`
 }
 
@@ -127,15 +101,10 @@ type AKSPropertiesInput interface {
 	ToAKSPropertiesOutputWithContext(context.Context) AKSPropertiesOutput
 }
 
-// AKS properties
 type AKSPropertiesArgs struct {
-	// Number of agents
-	AgentCount pulumi.IntPtrInput `pulumi:"agentCount"`
-	// Agent virtual machine size
-	AgentVMSize pulumi.StringPtrInput `pulumi:"agentVMSize"`
-	// Cluster full qualified domain name
-	ClusterFqdn pulumi.StringPtrInput `pulumi:"clusterFqdn"`
-	// SSL configuration
+	AgentCount       pulumi.IntPtrInput       `pulumi:"agentCount"`
+	AgentVMSize      pulumi.StringPtrInput    `pulumi:"agentVMSize"`
+	ClusterFqdn      pulumi.StringPtrInput    `pulumi:"clusterFqdn"`
 	SslConfiguration SslConfigurationPtrInput `pulumi:"sslConfiguration"`
 }
 
@@ -192,7 +161,6 @@ func (i *akspropertiesPtrType) ToAKSPropertiesPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AKSPropertiesPtrOutput)
 }
 
-// AKS properties
 type AKSPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AKSPropertiesOutput) ElementType() reflect.Type {
@@ -212,27 +180,23 @@ func (o AKSPropertiesOutput) ToAKSPropertiesPtrOutput() AKSPropertiesPtrOutput {
 }
 
 func (o AKSPropertiesOutput) ToAKSPropertiesPtrOutputWithContext(ctx context.Context) AKSPropertiesPtrOutput {
-	return o.ApplyT(func(v AKSProperties) *AKSProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSProperties) *AKSProperties {
 		return &v
 	}).(AKSPropertiesPtrOutput)
 }
 
-// Number of agents
 func (o AKSPropertiesOutput) AgentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AKSProperties) *int { return v.AgentCount }).(pulumi.IntPtrOutput)
 }
 
-// Agent virtual machine size
 func (o AKSPropertiesOutput) AgentVMSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AKSProperties) *string { return v.AgentVMSize }).(pulumi.StringPtrOutput)
 }
 
-// Cluster full qualified domain name
 func (o AKSPropertiesOutput) ClusterFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AKSProperties) *string { return v.ClusterFqdn }).(pulumi.StringPtrOutput)
 }
 
-// SSL configuration
 func (o AKSPropertiesOutput) SslConfiguration() SslConfigurationPtrOutput {
 	return o.ApplyT(func(v AKSProperties) *SslConfiguration { return v.SslConfiguration }).(SslConfigurationPtrOutput)
 }
@@ -252,10 +216,15 @@ func (o AKSPropertiesPtrOutput) ToAKSPropertiesPtrOutputWithContext(ctx context.
 }
 
 func (o AKSPropertiesPtrOutput) Elem() AKSPropertiesOutput {
-	return o.ApplyT(func(v *AKSProperties) AKSProperties { return *v }).(AKSPropertiesOutput)
+	return o.ApplyT(func(v *AKSProperties) AKSProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AKSProperties
+		return ret
+	}).(AKSPropertiesOutput)
 }
 
-// Number of agents
 func (o AKSPropertiesPtrOutput) AgentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AKSProperties) *int {
 		if v == nil {
@@ -265,7 +234,6 @@ func (o AKSPropertiesPtrOutput) AgentCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Agent virtual machine size
 func (o AKSPropertiesPtrOutput) AgentVMSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AKSProperties) *string {
 		if v == nil {
@@ -275,7 +243,6 @@ func (o AKSPropertiesPtrOutput) AgentVMSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cluster full qualified domain name
 func (o AKSPropertiesPtrOutput) ClusterFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AKSProperties) *string {
 		if v == nil {
@@ -285,7 +252,6 @@ func (o AKSPropertiesPtrOutput) ClusterFqdn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSL configuration
 func (o AKSPropertiesPtrOutput) SslConfiguration() SslConfigurationPtrOutput {
 	return o.ApplyT(func(v *AKSProperties) *SslConfiguration {
 		if v == nil {
@@ -295,27 +261,16 @@ func (o AKSPropertiesPtrOutput) SslConfiguration() SslConfigurationPtrOutput {
 	}).(SslConfigurationPtrOutput)
 }
 
-// A Machine Learning compute based on AKS.
 type AKSResponse struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'AKS'.
-	ComputeType string `pulumi:"computeType"`
-	// The date and time when the compute was created.
-	CreatedOn string `pulumi:"createdOn"`
-	// The description of the Machine Learning compute.
-	Description *string `pulumi:"description"`
-	// The date and time when the compute was last modified.
-	ModifiedOn string `pulumi:"modifiedOn"`
-	// AKS properties
-	Properties *AKSResponseProperties `pulumi:"properties"`
-	// Errors during provisioning
+	ComputeLocation    *string                               `pulumi:"computeLocation"`
+	ComputeType        string                                `pulumi:"computeType"`
+	CreatedOn          string                                `pulumi:"createdOn"`
+	Description        *string                               `pulumi:"description"`
+	ModifiedOn         string                                `pulumi:"modifiedOn"`
+	Properties         *AKSResponseProperties                `pulumi:"properties"`
 	ProvisioningErrors []MachineLearningServiceErrorResponse `pulumi:"provisioningErrors"`
-	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// ARM resource id of the compute
-	ResourceId *string `pulumi:"resourceId"`
+	ProvisioningState  string                                `pulumi:"provisioningState"`
+	ResourceId         *string                               `pulumi:"resourceId"`
 }
 
 // AKSResponseInput is an input type that accepts AKSResponseArgs and AKSResponseOutput values.
@@ -329,27 +284,16 @@ type AKSResponseInput interface {
 	ToAKSResponseOutputWithContext(context.Context) AKSResponseOutput
 }
 
-// A Machine Learning compute based on AKS.
 type AKSResponseArgs struct {
-	// Location for the underlying compute
-	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'AKS'.
-	ComputeType pulumi.StringInput `pulumi:"computeType"`
-	// The date and time when the compute was created.
-	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
-	// The description of the Machine Learning compute.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The date and time when the compute was last modified.
-	ModifiedOn pulumi.StringInput `pulumi:"modifiedOn"`
-	// AKS properties
-	Properties AKSResponsePropertiesPtrInput `pulumi:"properties"`
-	// Errors during provisioning
+	ComputeLocation    pulumi.StringPtrInput                         `pulumi:"computeLocation"`
+	ComputeType        pulumi.StringInput                            `pulumi:"computeType"`
+	CreatedOn          pulumi.StringInput                            `pulumi:"createdOn"`
+	Description        pulumi.StringPtrInput                         `pulumi:"description"`
+	ModifiedOn         pulumi.StringInput                            `pulumi:"modifiedOn"`
+	Properties         AKSResponsePropertiesPtrInput                 `pulumi:"properties"`
 	ProvisioningErrors MachineLearningServiceErrorResponseArrayInput `pulumi:"provisioningErrors"`
-	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// ARM resource id of the compute
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	ProvisioningState  pulumi.StringInput                            `pulumi:"provisioningState"`
+	ResourceId         pulumi.StringPtrInput                         `pulumi:"resourceId"`
 }
 
 func (AKSResponseArgs) ElementType() reflect.Type {
@@ -364,7 +308,6 @@ func (i AKSResponseArgs) ToAKSResponseOutputWithContext(ctx context.Context) AKS
 	return pulumi.ToOutputWithContext(ctx, i).(AKSResponseOutput)
 }
 
-// A Machine Learning compute based on AKS.
 type AKSResponseOutput struct{ *pulumi.OutputState }
 
 func (AKSResponseOutput) ElementType() reflect.Type {
@@ -379,64 +322,48 @@ func (o AKSResponseOutput) ToAKSResponseOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// Location for the underlying compute
 func (o AKSResponseOutput) ComputeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AKSResponse) *string { return v.ComputeLocation }).(pulumi.StringPtrOutput)
 }
 
-// The type of compute
-// Expected value is 'AKS'.
 func (o AKSResponseOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v AKSResponse) string { return v.ComputeType }).(pulumi.StringOutput)
 }
 
-// The date and time when the compute was created.
 func (o AKSResponseOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v AKSResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
-// The description of the Machine Learning compute.
 func (o AKSResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AKSResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The date and time when the compute was last modified.
 func (o AKSResponseOutput) ModifiedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v AKSResponse) string { return v.ModifiedOn }).(pulumi.StringOutput)
 }
 
-// AKS properties
 func (o AKSResponseOutput) Properties() AKSResponsePropertiesPtrOutput {
 	return o.ApplyT(func(v AKSResponse) *AKSResponseProperties { return v.Properties }).(AKSResponsePropertiesPtrOutput)
 }
 
-// Errors during provisioning
 func (o AKSResponseOutput) ProvisioningErrors() MachineLearningServiceErrorResponseArrayOutput {
 	return o.ApplyT(func(v AKSResponse) []MachineLearningServiceErrorResponse { return v.ProvisioningErrors }).(MachineLearningServiceErrorResponseArrayOutput)
 }
 
-// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
 func (o AKSResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v AKSResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// ARM resource id of the compute
 func (o AKSResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AKSResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// AKS properties
 type AKSResponseProperties struct {
-	// Number of agents
-	AgentCount *int `pulumi:"agentCount"`
-	// Agent virtual machine size
-	AgentVMSize *string `pulumi:"agentVMSize"`
-	// Cluster full qualified domain name
-	ClusterFqdn *string `pulumi:"clusterFqdn"`
-	// SSL configuration
+	AgentCount       *int                      `pulumi:"agentCount"`
+	AgentVMSize      *string                   `pulumi:"agentVMSize"`
+	ClusterFqdn      *string                   `pulumi:"clusterFqdn"`
 	SslConfiguration *SslConfigurationResponse `pulumi:"sslConfiguration"`
-	// System services
-	SystemServices []SystemServiceResponse `pulumi:"systemServices"`
+	SystemServices   []SystemServiceResponse   `pulumi:"systemServices"`
 }
 
 // AKSResponsePropertiesInput is an input type that accepts AKSResponsePropertiesArgs and AKSResponsePropertiesOutput values.
@@ -450,18 +377,12 @@ type AKSResponsePropertiesInput interface {
 	ToAKSResponsePropertiesOutputWithContext(context.Context) AKSResponsePropertiesOutput
 }
 
-// AKS properties
 type AKSResponsePropertiesArgs struct {
-	// Number of agents
-	AgentCount pulumi.IntPtrInput `pulumi:"agentCount"`
-	// Agent virtual machine size
-	AgentVMSize pulumi.StringPtrInput `pulumi:"agentVMSize"`
-	// Cluster full qualified domain name
-	ClusterFqdn pulumi.StringPtrInput `pulumi:"clusterFqdn"`
-	// SSL configuration
+	AgentCount       pulumi.IntPtrInput               `pulumi:"agentCount"`
+	AgentVMSize      pulumi.StringPtrInput            `pulumi:"agentVMSize"`
+	ClusterFqdn      pulumi.StringPtrInput            `pulumi:"clusterFqdn"`
 	SslConfiguration SslConfigurationResponsePtrInput `pulumi:"sslConfiguration"`
-	// System services
-	SystemServices SystemServiceResponseArrayInput `pulumi:"systemServices"`
+	SystemServices   SystemServiceResponseArrayInput  `pulumi:"systemServices"`
 }
 
 func (AKSResponsePropertiesArgs) ElementType() reflect.Type {
@@ -517,7 +438,6 @@ func (i *aksresponsePropertiesPtrType) ToAKSResponsePropertiesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AKSResponsePropertiesPtrOutput)
 }
 
-// AKS properties
 type AKSResponsePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AKSResponsePropertiesOutput) ElementType() reflect.Type {
@@ -537,32 +457,27 @@ func (o AKSResponsePropertiesOutput) ToAKSResponsePropertiesPtrOutput() AKSRespo
 }
 
 func (o AKSResponsePropertiesOutput) ToAKSResponsePropertiesPtrOutputWithContext(ctx context.Context) AKSResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v AKSResponseProperties) *AKSResponseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSResponseProperties) *AKSResponseProperties {
 		return &v
 	}).(AKSResponsePropertiesPtrOutput)
 }
 
-// Number of agents
 func (o AKSResponsePropertiesOutput) AgentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AKSResponseProperties) *int { return v.AgentCount }).(pulumi.IntPtrOutput)
 }
 
-// Agent virtual machine size
 func (o AKSResponsePropertiesOutput) AgentVMSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AKSResponseProperties) *string { return v.AgentVMSize }).(pulumi.StringPtrOutput)
 }
 
-// Cluster full qualified domain name
 func (o AKSResponsePropertiesOutput) ClusterFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AKSResponseProperties) *string { return v.ClusterFqdn }).(pulumi.StringPtrOutput)
 }
 
-// SSL configuration
 func (o AKSResponsePropertiesOutput) SslConfiguration() SslConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v AKSResponseProperties) *SslConfigurationResponse { return v.SslConfiguration }).(SslConfigurationResponsePtrOutput)
 }
 
-// System services
 func (o AKSResponsePropertiesOutput) SystemServices() SystemServiceResponseArrayOutput {
 	return o.ApplyT(func(v AKSResponseProperties) []SystemServiceResponse { return v.SystemServices }).(SystemServiceResponseArrayOutput)
 }
@@ -582,10 +497,15 @@ func (o AKSResponsePropertiesPtrOutput) ToAKSResponsePropertiesPtrOutputWithCont
 }
 
 func (o AKSResponsePropertiesPtrOutput) Elem() AKSResponsePropertiesOutput {
-	return o.ApplyT(func(v *AKSResponseProperties) AKSResponseProperties { return *v }).(AKSResponsePropertiesOutput)
+	return o.ApplyT(func(v *AKSResponseProperties) AKSResponseProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AKSResponseProperties
+		return ret
+	}).(AKSResponsePropertiesOutput)
 }
 
-// Number of agents
 func (o AKSResponsePropertiesPtrOutput) AgentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AKSResponseProperties) *int {
 		if v == nil {
@@ -595,7 +515,6 @@ func (o AKSResponsePropertiesPtrOutput) AgentCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Agent virtual machine size
 func (o AKSResponsePropertiesPtrOutput) AgentVMSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AKSResponseProperties) *string {
 		if v == nil {
@@ -605,7 +524,6 @@ func (o AKSResponsePropertiesPtrOutput) AgentVMSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cluster full qualified domain name
 func (o AKSResponsePropertiesPtrOutput) ClusterFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AKSResponseProperties) *string {
 		if v == nil {
@@ -615,7 +533,6 @@ func (o AKSResponsePropertiesPtrOutput) ClusterFqdn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSL configuration
 func (o AKSResponsePropertiesPtrOutput) SslConfiguration() SslConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *AKSResponseProperties) *SslConfigurationResponse {
 		if v == nil {
@@ -625,7 +542,6 @@ func (o AKSResponsePropertiesPtrOutput) SslConfiguration() SslConfigurationRespo
 	}).(SslConfigurationResponsePtrOutput)
 }
 
-// System services
 func (o AKSResponsePropertiesPtrOutput) SystemServices() SystemServiceResponseArrayOutput {
 	return o.ApplyT(func(v *AKSResponseProperties) []SystemServiceResponse {
 		if v == nil {
@@ -635,19 +551,12 @@ func (o AKSResponsePropertiesPtrOutput) SystemServices() SystemServiceResponseAr
 	}).(SystemServiceResponseArrayOutput)
 }
 
-// A Machine Learning compute based on Azure BatchAI.
 type BatchAI struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'BatchAI'.
-	ComputeType string `pulumi:"computeType"`
-	// The description of the Machine Learning compute.
-	Description *string `pulumi:"description"`
-	// BatchAI properties
-	Properties *BatchAIProperties `pulumi:"properties"`
-	// ARM resource id of the compute
-	ResourceId *string `pulumi:"resourceId"`
+	ComputeLocation *string            `pulumi:"computeLocation"`
+	ComputeType     string             `pulumi:"computeType"`
+	Description     *string            `pulumi:"description"`
+	Properties      *BatchAIProperties `pulumi:"properties"`
+	ResourceId      *string            `pulumi:"resourceId"`
 }
 
 // BatchAIInput is an input type that accepts BatchAIArgs and BatchAIOutput values.
@@ -661,19 +570,12 @@ type BatchAIInput interface {
 	ToBatchAIOutputWithContext(context.Context) BatchAIOutput
 }
 
-// A Machine Learning compute based on Azure BatchAI.
 type BatchAIArgs struct {
-	// Location for the underlying compute
-	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'BatchAI'.
-	ComputeType pulumi.StringInput `pulumi:"computeType"`
-	// The description of the Machine Learning compute.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// BatchAI properties
-	Properties BatchAIPropertiesPtrInput `pulumi:"properties"`
-	// ARM resource id of the compute
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	ComputeLocation pulumi.StringPtrInput     `pulumi:"computeLocation"`
+	ComputeType     pulumi.StringInput        `pulumi:"computeType"`
+	Description     pulumi.StringPtrInput     `pulumi:"description"`
+	Properties      BatchAIPropertiesPtrInput `pulumi:"properties"`
+	ResourceId      pulumi.StringPtrInput     `pulumi:"resourceId"`
 }
 
 func (BatchAIArgs) ElementType() reflect.Type {
@@ -688,7 +590,6 @@ func (i BatchAIArgs) ToBatchAIOutputWithContext(ctx context.Context) BatchAIOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BatchAIOutput)
 }
 
-// A Machine Learning compute based on Azure BatchAI.
 type BatchAIOutput struct{ *pulumi.OutputState }
 
 func (BatchAIOutput) ElementType() reflect.Type {
@@ -703,40 +604,30 @@ func (o BatchAIOutput) ToBatchAIOutputWithContext(ctx context.Context) BatchAIOu
 	return o
 }
 
-// Location for the underlying compute
 func (o BatchAIOutput) ComputeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchAI) *string { return v.ComputeLocation }).(pulumi.StringPtrOutput)
 }
 
-// The type of compute
-// Expected value is 'BatchAI'.
 func (o BatchAIOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v BatchAI) string { return v.ComputeType }).(pulumi.StringOutput)
 }
 
-// The description of the Machine Learning compute.
 func (o BatchAIOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchAI) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// BatchAI properties
 func (o BatchAIOutput) Properties() BatchAIPropertiesPtrOutput {
 	return o.ApplyT(func(v BatchAI) *BatchAIProperties { return v.Properties }).(BatchAIPropertiesPtrOutput)
 }
 
-// ARM resource id of the compute
 func (o BatchAIOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchAI) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// BatchAI properties
 type BatchAIProperties struct {
-	// Scale settings for BatchAI
 	ScaleSettings *ScaleSettings `pulumi:"scaleSettings"`
-	// Virtual Machine priority
-	VmPriority *string `pulumi:"vmPriority"`
-	// Virtual Machine Size
-	VmSize *string `pulumi:"vmSize"`
+	VmPriority    *string        `pulumi:"vmPriority"`
+	VmSize        *string        `pulumi:"vmSize"`
 }
 
 // BatchAIPropertiesInput is an input type that accepts BatchAIPropertiesArgs and BatchAIPropertiesOutput values.
@@ -750,14 +641,10 @@ type BatchAIPropertiesInput interface {
 	ToBatchAIPropertiesOutputWithContext(context.Context) BatchAIPropertiesOutput
 }
 
-// BatchAI properties
 type BatchAIPropertiesArgs struct {
-	// Scale settings for BatchAI
 	ScaleSettings ScaleSettingsPtrInput `pulumi:"scaleSettings"`
-	// Virtual Machine priority
-	VmPriority pulumi.StringPtrInput `pulumi:"vmPriority"`
-	// Virtual Machine Size
-	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
+	VmPriority    pulumi.StringPtrInput `pulumi:"vmPriority"`
+	VmSize        pulumi.StringPtrInput `pulumi:"vmSize"`
 }
 
 func (BatchAIPropertiesArgs) ElementType() reflect.Type {
@@ -813,7 +700,6 @@ func (i *batchAIPropertiesPtrType) ToBatchAIPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(BatchAIPropertiesPtrOutput)
 }
 
-// BatchAI properties
 type BatchAIPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BatchAIPropertiesOutput) ElementType() reflect.Type {
@@ -833,22 +719,19 @@ func (o BatchAIPropertiesOutput) ToBatchAIPropertiesPtrOutput() BatchAIPropertie
 }
 
 func (o BatchAIPropertiesOutput) ToBatchAIPropertiesPtrOutputWithContext(ctx context.Context) BatchAIPropertiesPtrOutput {
-	return o.ApplyT(func(v BatchAIProperties) *BatchAIProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BatchAIProperties) *BatchAIProperties {
 		return &v
 	}).(BatchAIPropertiesPtrOutput)
 }
 
-// Scale settings for BatchAI
 func (o BatchAIPropertiesOutput) ScaleSettings() ScaleSettingsPtrOutput {
 	return o.ApplyT(func(v BatchAIProperties) *ScaleSettings { return v.ScaleSettings }).(ScaleSettingsPtrOutput)
 }
 
-// Virtual Machine priority
 func (o BatchAIPropertiesOutput) VmPriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchAIProperties) *string { return v.VmPriority }).(pulumi.StringPtrOutput)
 }
 
-// Virtual Machine Size
 func (o BatchAIPropertiesOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchAIProperties) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
@@ -868,10 +751,15 @@ func (o BatchAIPropertiesPtrOutput) ToBatchAIPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o BatchAIPropertiesPtrOutput) Elem() BatchAIPropertiesOutput {
-	return o.ApplyT(func(v *BatchAIProperties) BatchAIProperties { return *v }).(BatchAIPropertiesOutput)
+	return o.ApplyT(func(v *BatchAIProperties) BatchAIProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BatchAIProperties
+		return ret
+	}).(BatchAIPropertiesOutput)
 }
 
-// Scale settings for BatchAI
 func (o BatchAIPropertiesPtrOutput) ScaleSettings() ScaleSettingsPtrOutput {
 	return o.ApplyT(func(v *BatchAIProperties) *ScaleSettings {
 		if v == nil {
@@ -881,7 +769,6 @@ func (o BatchAIPropertiesPtrOutput) ScaleSettings() ScaleSettingsPtrOutput {
 	}).(ScaleSettingsPtrOutput)
 }
 
-// Virtual Machine priority
 func (o BatchAIPropertiesPtrOutput) VmPriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BatchAIProperties) *string {
 		if v == nil {
@@ -891,7 +778,6 @@ func (o BatchAIPropertiesPtrOutput) VmPriority() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Virtual Machine Size
 func (o BatchAIPropertiesPtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BatchAIProperties) *string {
 		if v == nil {
@@ -901,27 +787,16 @@ func (o BatchAIPropertiesPtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A Machine Learning compute based on Azure BatchAI.
 type BatchAIResponse struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'BatchAI'.
-	ComputeType string `pulumi:"computeType"`
-	// The date and time when the compute was created.
-	CreatedOn string `pulumi:"createdOn"`
-	// The description of the Machine Learning compute.
-	Description *string `pulumi:"description"`
-	// The date and time when the compute was last modified.
-	ModifiedOn string `pulumi:"modifiedOn"`
-	// BatchAI properties
-	Properties *BatchAIResponseProperties `pulumi:"properties"`
-	// Errors during provisioning
+	ComputeLocation    *string                               `pulumi:"computeLocation"`
+	ComputeType        string                                `pulumi:"computeType"`
+	CreatedOn          string                                `pulumi:"createdOn"`
+	Description        *string                               `pulumi:"description"`
+	ModifiedOn         string                                `pulumi:"modifiedOn"`
+	Properties         *BatchAIResponseProperties            `pulumi:"properties"`
 	ProvisioningErrors []MachineLearningServiceErrorResponse `pulumi:"provisioningErrors"`
-	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// ARM resource id of the compute
-	ResourceId *string `pulumi:"resourceId"`
+	ProvisioningState  string                                `pulumi:"provisioningState"`
+	ResourceId         *string                               `pulumi:"resourceId"`
 }
 
 // BatchAIResponseInput is an input type that accepts BatchAIResponseArgs and BatchAIResponseOutput values.
@@ -935,27 +810,16 @@ type BatchAIResponseInput interface {
 	ToBatchAIResponseOutputWithContext(context.Context) BatchAIResponseOutput
 }
 
-// A Machine Learning compute based on Azure BatchAI.
 type BatchAIResponseArgs struct {
-	// Location for the underlying compute
-	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'BatchAI'.
-	ComputeType pulumi.StringInput `pulumi:"computeType"`
-	// The date and time when the compute was created.
-	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
-	// The description of the Machine Learning compute.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The date and time when the compute was last modified.
-	ModifiedOn pulumi.StringInput `pulumi:"modifiedOn"`
-	// BatchAI properties
-	Properties BatchAIResponsePropertiesPtrInput `pulumi:"properties"`
-	// Errors during provisioning
+	ComputeLocation    pulumi.StringPtrInput                         `pulumi:"computeLocation"`
+	ComputeType        pulumi.StringInput                            `pulumi:"computeType"`
+	CreatedOn          pulumi.StringInput                            `pulumi:"createdOn"`
+	Description        pulumi.StringPtrInput                         `pulumi:"description"`
+	ModifiedOn         pulumi.StringInput                            `pulumi:"modifiedOn"`
+	Properties         BatchAIResponsePropertiesPtrInput             `pulumi:"properties"`
 	ProvisioningErrors MachineLearningServiceErrorResponseArrayInput `pulumi:"provisioningErrors"`
-	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// ARM resource id of the compute
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	ProvisioningState  pulumi.StringInput                            `pulumi:"provisioningState"`
+	ResourceId         pulumi.StringPtrInput                         `pulumi:"resourceId"`
 }
 
 func (BatchAIResponseArgs) ElementType() reflect.Type {
@@ -970,7 +834,6 @@ func (i BatchAIResponseArgs) ToBatchAIResponseOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(BatchAIResponseOutput)
 }
 
-// A Machine Learning compute based on Azure BatchAI.
 type BatchAIResponseOutput struct{ *pulumi.OutputState }
 
 func (BatchAIResponseOutput) ElementType() reflect.Type {
@@ -985,60 +848,46 @@ func (o BatchAIResponseOutput) ToBatchAIResponseOutputWithContext(ctx context.Co
 	return o
 }
 
-// Location for the underlying compute
 func (o BatchAIResponseOutput) ComputeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchAIResponse) *string { return v.ComputeLocation }).(pulumi.StringPtrOutput)
 }
 
-// The type of compute
-// Expected value is 'BatchAI'.
 func (o BatchAIResponseOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v BatchAIResponse) string { return v.ComputeType }).(pulumi.StringOutput)
 }
 
-// The date and time when the compute was created.
 func (o BatchAIResponseOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v BatchAIResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
-// The description of the Machine Learning compute.
 func (o BatchAIResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchAIResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The date and time when the compute was last modified.
 func (o BatchAIResponseOutput) ModifiedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v BatchAIResponse) string { return v.ModifiedOn }).(pulumi.StringOutput)
 }
 
-// BatchAI properties
 func (o BatchAIResponseOutput) Properties() BatchAIResponsePropertiesPtrOutput {
 	return o.ApplyT(func(v BatchAIResponse) *BatchAIResponseProperties { return v.Properties }).(BatchAIResponsePropertiesPtrOutput)
 }
 
-// Errors during provisioning
 func (o BatchAIResponseOutput) ProvisioningErrors() MachineLearningServiceErrorResponseArrayOutput {
 	return o.ApplyT(func(v BatchAIResponse) []MachineLearningServiceErrorResponse { return v.ProvisioningErrors }).(MachineLearningServiceErrorResponseArrayOutput)
 }
 
-// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
 func (o BatchAIResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v BatchAIResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// ARM resource id of the compute
 func (o BatchAIResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchAIResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// BatchAI properties
 type BatchAIResponseProperties struct {
-	// Scale settings for BatchAI
 	ScaleSettings *ScaleSettingsResponse `pulumi:"scaleSettings"`
-	// Virtual Machine priority
-	VmPriority *string `pulumi:"vmPriority"`
-	// Virtual Machine Size
-	VmSize *string `pulumi:"vmSize"`
+	VmPriority    *string                `pulumi:"vmPriority"`
+	VmSize        *string                `pulumi:"vmSize"`
 }
 
 // BatchAIResponsePropertiesInput is an input type that accepts BatchAIResponsePropertiesArgs and BatchAIResponsePropertiesOutput values.
@@ -1052,14 +901,10 @@ type BatchAIResponsePropertiesInput interface {
 	ToBatchAIResponsePropertiesOutputWithContext(context.Context) BatchAIResponsePropertiesOutput
 }
 
-// BatchAI properties
 type BatchAIResponsePropertiesArgs struct {
-	// Scale settings for BatchAI
 	ScaleSettings ScaleSettingsResponsePtrInput `pulumi:"scaleSettings"`
-	// Virtual Machine priority
-	VmPriority pulumi.StringPtrInput `pulumi:"vmPriority"`
-	// Virtual Machine Size
-	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
+	VmPriority    pulumi.StringPtrInput         `pulumi:"vmPriority"`
+	VmSize        pulumi.StringPtrInput         `pulumi:"vmSize"`
 }
 
 func (BatchAIResponsePropertiesArgs) ElementType() reflect.Type {
@@ -1115,7 +960,6 @@ func (i *batchAIResponsePropertiesPtrType) ToBatchAIResponsePropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BatchAIResponsePropertiesPtrOutput)
 }
 
-// BatchAI properties
 type BatchAIResponsePropertiesOutput struct{ *pulumi.OutputState }
 
 func (BatchAIResponsePropertiesOutput) ElementType() reflect.Type {
@@ -1135,22 +979,19 @@ func (o BatchAIResponsePropertiesOutput) ToBatchAIResponsePropertiesPtrOutput() 
 }
 
 func (o BatchAIResponsePropertiesOutput) ToBatchAIResponsePropertiesPtrOutputWithContext(ctx context.Context) BatchAIResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v BatchAIResponseProperties) *BatchAIResponseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BatchAIResponseProperties) *BatchAIResponseProperties {
 		return &v
 	}).(BatchAIResponsePropertiesPtrOutput)
 }
 
-// Scale settings for BatchAI
 func (o BatchAIResponsePropertiesOutput) ScaleSettings() ScaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v BatchAIResponseProperties) *ScaleSettingsResponse { return v.ScaleSettings }).(ScaleSettingsResponsePtrOutput)
 }
 
-// Virtual Machine priority
 func (o BatchAIResponsePropertiesOutput) VmPriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchAIResponseProperties) *string { return v.VmPriority }).(pulumi.StringPtrOutput)
 }
 
-// Virtual Machine Size
 func (o BatchAIResponsePropertiesOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchAIResponseProperties) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
@@ -1170,10 +1011,15 @@ func (o BatchAIResponsePropertiesPtrOutput) ToBatchAIResponsePropertiesPtrOutput
 }
 
 func (o BatchAIResponsePropertiesPtrOutput) Elem() BatchAIResponsePropertiesOutput {
-	return o.ApplyT(func(v *BatchAIResponseProperties) BatchAIResponseProperties { return *v }).(BatchAIResponsePropertiesOutput)
+	return o.ApplyT(func(v *BatchAIResponseProperties) BatchAIResponseProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BatchAIResponseProperties
+		return ret
+	}).(BatchAIResponsePropertiesOutput)
 }
 
-// Scale settings for BatchAI
 func (o BatchAIResponsePropertiesPtrOutput) ScaleSettings() ScaleSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *BatchAIResponseProperties) *ScaleSettingsResponse {
 		if v == nil {
@@ -1183,7 +1029,6 @@ func (o BatchAIResponsePropertiesPtrOutput) ScaleSettings() ScaleSettingsRespons
 	}).(ScaleSettingsResponsePtrOutput)
 }
 
-// Virtual Machine priority
 func (o BatchAIResponsePropertiesPtrOutput) VmPriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BatchAIResponseProperties) *string {
 		if v == nil {
@@ -1193,7 +1038,6 @@ func (o BatchAIResponsePropertiesPtrOutput) VmPriority() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Virtual Machine Size
 func (o BatchAIResponsePropertiesPtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BatchAIResponseProperties) *string {
 		if v == nil {
@@ -1203,17 +1047,11 @@ func (o BatchAIResponsePropertiesPtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A DataFactory compute.
 type DataFactory struct {
-	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'DataFactory'.
-	ComputeType string `pulumi:"computeType"`
-	// The description of the Machine Learning compute.
-	Description *string `pulumi:"description"`
-	// ARM resource id of the compute
-	ResourceId *string `pulumi:"resourceId"`
+	ComputeType     string  `pulumi:"computeType"`
+	Description     *string `pulumi:"description"`
+	ResourceId      *string `pulumi:"resourceId"`
 }
 
 // DataFactoryInput is an input type that accepts DataFactoryArgs and DataFactoryOutput values.
@@ -1227,17 +1065,11 @@ type DataFactoryInput interface {
 	ToDataFactoryOutputWithContext(context.Context) DataFactoryOutput
 }
 
-// A DataFactory compute.
 type DataFactoryArgs struct {
-	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'DataFactory'.
-	ComputeType pulumi.StringInput `pulumi:"computeType"`
-	// The description of the Machine Learning compute.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// ARM resource id of the compute
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	ComputeType     pulumi.StringInput    `pulumi:"computeType"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	ResourceId      pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (DataFactoryArgs) ElementType() reflect.Type {
@@ -1252,7 +1084,6 @@ func (i DataFactoryArgs) ToDataFactoryOutputWithContext(ctx context.Context) Dat
 	return pulumi.ToOutputWithContext(ctx, i).(DataFactoryOutput)
 }
 
-// A DataFactory compute.
 type DataFactoryOutput struct{ *pulumi.OutputState }
 
 func (DataFactoryOutput) ElementType() reflect.Type {
@@ -1267,46 +1098,31 @@ func (o DataFactoryOutput) ToDataFactoryOutputWithContext(ctx context.Context) D
 	return o
 }
 
-// Location for the underlying compute
 func (o DataFactoryOutput) ComputeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataFactory) *string { return v.ComputeLocation }).(pulumi.StringPtrOutput)
 }
 
-// The type of compute
-// Expected value is 'DataFactory'.
 func (o DataFactoryOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataFactory) string { return v.ComputeType }).(pulumi.StringOutput)
 }
 
-// The description of the Machine Learning compute.
 func (o DataFactoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataFactory) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ARM resource id of the compute
 func (o DataFactoryOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataFactory) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// A DataFactory compute.
 type DataFactoryResponse struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'DataFactory'.
-	ComputeType string `pulumi:"computeType"`
-	// The date and time when the compute was created.
-	CreatedOn string `pulumi:"createdOn"`
-	// The description of the Machine Learning compute.
-	Description *string `pulumi:"description"`
-	// The date and time when the compute was last modified.
-	ModifiedOn string `pulumi:"modifiedOn"`
-	// Errors during provisioning
+	ComputeLocation    *string                               `pulumi:"computeLocation"`
+	ComputeType        string                                `pulumi:"computeType"`
+	CreatedOn          string                                `pulumi:"createdOn"`
+	Description        *string                               `pulumi:"description"`
+	ModifiedOn         string                                `pulumi:"modifiedOn"`
 	ProvisioningErrors []MachineLearningServiceErrorResponse `pulumi:"provisioningErrors"`
-	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// ARM resource id of the compute
-	ResourceId *string `pulumi:"resourceId"`
+	ProvisioningState  string                                `pulumi:"provisioningState"`
+	ResourceId         *string                               `pulumi:"resourceId"`
 }
 
 // DataFactoryResponseInput is an input type that accepts DataFactoryResponseArgs and DataFactoryResponseOutput values.
@@ -1320,25 +1136,15 @@ type DataFactoryResponseInput interface {
 	ToDataFactoryResponseOutputWithContext(context.Context) DataFactoryResponseOutput
 }
 
-// A DataFactory compute.
 type DataFactoryResponseArgs struct {
-	// Location for the underlying compute
-	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'DataFactory'.
-	ComputeType pulumi.StringInput `pulumi:"computeType"`
-	// The date and time when the compute was created.
-	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
-	// The description of the Machine Learning compute.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The date and time when the compute was last modified.
-	ModifiedOn pulumi.StringInput `pulumi:"modifiedOn"`
-	// Errors during provisioning
+	ComputeLocation    pulumi.StringPtrInput                         `pulumi:"computeLocation"`
+	ComputeType        pulumi.StringInput                            `pulumi:"computeType"`
+	CreatedOn          pulumi.StringInput                            `pulumi:"createdOn"`
+	Description        pulumi.StringPtrInput                         `pulumi:"description"`
+	ModifiedOn         pulumi.StringInput                            `pulumi:"modifiedOn"`
 	ProvisioningErrors MachineLearningServiceErrorResponseArrayInput `pulumi:"provisioningErrors"`
-	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// ARM resource id of the compute
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	ProvisioningState  pulumi.StringInput                            `pulumi:"provisioningState"`
+	ResourceId         pulumi.StringPtrInput                         `pulumi:"resourceId"`
 }
 
 func (DataFactoryResponseArgs) ElementType() reflect.Type {
@@ -1353,7 +1159,6 @@ func (i DataFactoryResponseArgs) ToDataFactoryResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataFactoryResponseOutput)
 }
 
-// A DataFactory compute.
 type DataFactoryResponseOutput struct{ *pulumi.OutputState }
 
 func (DataFactoryResponseOutput) ElementType() reflect.Type {
@@ -1368,52 +1173,40 @@ func (o DataFactoryResponseOutput) ToDataFactoryResponseOutputWithContext(ctx co
 	return o
 }
 
-// Location for the underlying compute
 func (o DataFactoryResponseOutput) ComputeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataFactoryResponse) *string { return v.ComputeLocation }).(pulumi.StringPtrOutput)
 }
 
-// The type of compute
-// Expected value is 'DataFactory'.
 func (o DataFactoryResponseOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataFactoryResponse) string { return v.ComputeType }).(pulumi.StringOutput)
 }
 
-// The date and time when the compute was created.
 func (o DataFactoryResponseOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataFactoryResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
-// The description of the Machine Learning compute.
 func (o DataFactoryResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataFactoryResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The date and time when the compute was last modified.
 func (o DataFactoryResponseOutput) ModifiedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataFactoryResponse) string { return v.ModifiedOn }).(pulumi.StringOutput)
 }
 
-// Errors during provisioning
 func (o DataFactoryResponseOutput) ProvisioningErrors() MachineLearningServiceErrorResponseArrayOutput {
 	return o.ApplyT(func(v DataFactoryResponse) []MachineLearningServiceErrorResponse { return v.ProvisioningErrors }).(MachineLearningServiceErrorResponseArrayOutput)
 }
 
-// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
 func (o DataFactoryResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v DataFactoryResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// ARM resource id of the compute
 func (o DataFactoryResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataFactoryResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Error detail information.
 type ErrorDetailResponse struct {
-	// Error code.
-	Code string `pulumi:"code"`
-	// Error message.
+	Code    string `pulumi:"code"`
 	Message string `pulumi:"message"`
 }
 
@@ -1428,11 +1221,8 @@ type ErrorDetailResponseInput interface {
 	ToErrorDetailResponseOutputWithContext(context.Context) ErrorDetailResponseOutput
 }
 
-// Error detail information.
 type ErrorDetailResponseArgs struct {
-	// Error code.
-	Code pulumi.StringInput `pulumi:"code"`
-	// Error message.
+	Code    pulumi.StringInput `pulumi:"code"`
 	Message pulumi.StringInput `pulumi:"message"`
 }
 
@@ -1473,7 +1263,6 @@ func (i ErrorDetailResponseArray) ToErrorDetailResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailResponseArrayOutput)
 }
 
-// Error detail information.
 type ErrorDetailResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorDetailResponseOutput) ElementType() reflect.Type {
@@ -1488,12 +1277,10 @@ func (o ErrorDetailResponseOutput) ToErrorDetailResponseOutputWithContext(ctx co
 	return o
 }
 
-// Error code.
 func (o ErrorDetailResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDetailResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// Error message.
 func (o ErrorDetailResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDetailResponse) string { return v.Message }).(pulumi.StringOutput)
 }
@@ -1518,14 +1305,10 @@ func (o ErrorDetailResponseArrayOutput) Index(i pulumi.IntInput) ErrorDetailResp
 	}).(ErrorDetailResponseOutput)
 }
 
-// Error response information.
 type ErrorResponseResponse struct {
-	// Error code.
-	Code string `pulumi:"code"`
-	// An array of error detail objects.
+	Code    string                `pulumi:"code"`
 	Details []ErrorDetailResponse `pulumi:"details"`
-	// Error message.
-	Message string `pulumi:"message"`
+	Message string                `pulumi:"message"`
 }
 
 // ErrorResponseResponseInput is an input type that accepts ErrorResponseResponseArgs and ErrorResponseResponseOutput values.
@@ -1539,14 +1322,10 @@ type ErrorResponseResponseInput interface {
 	ToErrorResponseResponseOutputWithContext(context.Context) ErrorResponseResponseOutput
 }
 
-// Error response information.
 type ErrorResponseResponseArgs struct {
-	// Error code.
-	Code pulumi.StringInput `pulumi:"code"`
-	// An array of error detail objects.
+	Code    pulumi.StringInput            `pulumi:"code"`
 	Details ErrorDetailResponseArrayInput `pulumi:"details"`
-	// Error message.
-	Message pulumi.StringInput `pulumi:"message"`
+	Message pulumi.StringInput            `pulumi:"message"`
 }
 
 func (ErrorResponseResponseArgs) ElementType() reflect.Type {
@@ -1602,7 +1381,6 @@ func (i *errorResponseResponsePtrType) ToErrorResponseResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorResponseResponsePtrOutput)
 }
 
-// Error response information.
 type ErrorResponseResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorResponseResponseOutput) ElementType() reflect.Type {
@@ -1622,22 +1400,19 @@ func (o ErrorResponseResponseOutput) ToErrorResponseResponsePtrOutput() ErrorRes
 }
 
 func (o ErrorResponseResponseOutput) ToErrorResponseResponsePtrOutputWithContext(ctx context.Context) ErrorResponseResponsePtrOutput {
-	return o.ApplyT(func(v ErrorResponseResponse) *ErrorResponseResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorResponseResponse) *ErrorResponseResponse {
 		return &v
 	}).(ErrorResponseResponsePtrOutput)
 }
 
-// Error code.
 func (o ErrorResponseResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorResponseResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// An array of error detail objects.
 func (o ErrorResponseResponseOutput) Details() ErrorDetailResponseArrayOutput {
 	return o.ApplyT(func(v ErrorResponseResponse) []ErrorDetailResponse { return v.Details }).(ErrorDetailResponseArrayOutput)
 }
 
-// Error message.
 func (o ErrorResponseResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorResponseResponse) string { return v.Message }).(pulumi.StringOutput)
 }
@@ -1657,10 +1432,15 @@ func (o ErrorResponseResponsePtrOutput) ToErrorResponseResponsePtrOutputWithCont
 }
 
 func (o ErrorResponseResponsePtrOutput) Elem() ErrorResponseResponseOutput {
-	return o.ApplyT(func(v *ErrorResponseResponse) ErrorResponseResponse { return *v }).(ErrorResponseResponseOutput)
+	return o.ApplyT(func(v *ErrorResponseResponse) ErrorResponseResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ErrorResponseResponse
+		return ret
+	}).(ErrorResponseResponseOutput)
 }
 
-// Error code.
 func (o ErrorResponseResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorResponseResponse) *string {
 		if v == nil {
@@ -1670,7 +1450,6 @@ func (o ErrorResponseResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An array of error detail objects.
 func (o ErrorResponseResponsePtrOutput) Details() ErrorDetailResponseArrayOutput {
 	return o.ApplyT(func(v *ErrorResponseResponse) []ErrorDetailResponse {
 		if v == nil {
@@ -1680,7 +1459,6 @@ func (o ErrorResponseResponsePtrOutput) Details() ErrorDetailResponseArrayOutput
 	}).(ErrorDetailResponseArrayOutput)
 }
 
-// Error message.
 func (o ErrorResponseResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorResponseResponse) *string {
 		if v == nil {
@@ -1690,18 +1468,12 @@ func (o ErrorResponseResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A HDInsight compute.
 type HDInsight struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'HDInsight'.
-	ComputeType string `pulumi:"computeType"`
-	// The description of the Machine Learning compute.
-	Description *string              `pulumi:"description"`
-	Properties  *HDInsightProperties `pulumi:"properties"`
-	// ARM resource id of the compute
-	ResourceId *string `pulumi:"resourceId"`
+	ComputeLocation *string              `pulumi:"computeLocation"`
+	ComputeType     string               `pulumi:"computeType"`
+	Description     *string              `pulumi:"description"`
+	Properties      *HDInsightProperties `pulumi:"properties"`
+	ResourceId      *string              `pulumi:"resourceId"`
 }
 
 // HDInsightInput is an input type that accepts HDInsightArgs and HDInsightOutput values.
@@ -1715,18 +1487,12 @@ type HDInsightInput interface {
 	ToHDInsightOutputWithContext(context.Context) HDInsightOutput
 }
 
-// A HDInsight compute.
 type HDInsightArgs struct {
-	// Location for the underlying compute
-	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'HDInsight'.
-	ComputeType pulumi.StringInput `pulumi:"computeType"`
-	// The description of the Machine Learning compute.
-	Description pulumi.StringPtrInput       `pulumi:"description"`
-	Properties  HDInsightPropertiesPtrInput `pulumi:"properties"`
-	// ARM resource id of the compute
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	ComputeLocation pulumi.StringPtrInput       `pulumi:"computeLocation"`
+	ComputeType     pulumi.StringInput          `pulumi:"computeType"`
+	Description     pulumi.StringPtrInput       `pulumi:"description"`
+	Properties      HDInsightPropertiesPtrInput `pulumi:"properties"`
+	ResourceId      pulumi.StringPtrInput       `pulumi:"resourceId"`
 }
 
 func (HDInsightArgs) ElementType() reflect.Type {
@@ -1741,7 +1507,6 @@ func (i HDInsightArgs) ToHDInsightOutputWithContext(ctx context.Context) HDInsig
 	return pulumi.ToOutputWithContext(ctx, i).(HDInsightOutput)
 }
 
-// A HDInsight compute.
 type HDInsightOutput struct{ *pulumi.OutputState }
 
 func (HDInsightOutput) ElementType() reflect.Type {
@@ -1756,18 +1521,14 @@ func (o HDInsightOutput) ToHDInsightOutputWithContext(ctx context.Context) HDIns
 	return o
 }
 
-// Location for the underlying compute
 func (o HDInsightOutput) ComputeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HDInsight) *string { return v.ComputeLocation }).(pulumi.StringPtrOutput)
 }
 
-// The type of compute
-// Expected value is 'HDInsight'.
 func (o HDInsightOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsight) string { return v.ComputeType }).(pulumi.StringOutput)
 }
 
-// The description of the Machine Learning compute.
 func (o HDInsightOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HDInsight) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -1776,18 +1537,14 @@ func (o HDInsightOutput) Properties() HDInsightPropertiesPtrOutput {
 	return o.ApplyT(func(v HDInsight) *HDInsightProperties { return v.Properties }).(HDInsightPropertiesPtrOutput)
 }
 
-// ARM resource id of the compute
 func (o HDInsightOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HDInsight) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 type HDInsightProperties struct {
-	// Public IP address of the master node of the cluster.
-	Address *string `pulumi:"address"`
-	// Admin credentials for master node of the cluster
+	Address              *string                       `pulumi:"address"`
 	AdministratorAccount *VirtualMachineSshCredentials `pulumi:"administratorAccount"`
-	// Port open for ssh connections on the master node of the cluster.
-	SshPort *int `pulumi:"sshPort"`
+	SshPort              *int                          `pulumi:"sshPort"`
 }
 
 // HDInsightPropertiesInput is an input type that accepts HDInsightPropertiesArgs and HDInsightPropertiesOutput values.
@@ -1802,12 +1559,9 @@ type HDInsightPropertiesInput interface {
 }
 
 type HDInsightPropertiesArgs struct {
-	// Public IP address of the master node of the cluster.
-	Address pulumi.StringPtrInput `pulumi:"address"`
-	// Admin credentials for master node of the cluster
+	Address              pulumi.StringPtrInput                `pulumi:"address"`
 	AdministratorAccount VirtualMachineSshCredentialsPtrInput `pulumi:"administratorAccount"`
-	// Port open for ssh connections on the master node of the cluster.
-	SshPort pulumi.IntPtrInput `pulumi:"sshPort"`
+	SshPort              pulumi.IntPtrInput                   `pulumi:"sshPort"`
 }
 
 func (HDInsightPropertiesArgs) ElementType() reflect.Type {
@@ -1882,22 +1636,19 @@ func (o HDInsightPropertiesOutput) ToHDInsightPropertiesPtrOutput() HDInsightPro
 }
 
 func (o HDInsightPropertiesOutput) ToHDInsightPropertiesPtrOutputWithContext(ctx context.Context) HDInsightPropertiesPtrOutput {
-	return o.ApplyT(func(v HDInsightProperties) *HDInsightProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HDInsightProperties) *HDInsightProperties {
 		return &v
 	}).(HDInsightPropertiesPtrOutput)
 }
 
-// Public IP address of the master node of the cluster.
 func (o HDInsightPropertiesOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HDInsightProperties) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// Admin credentials for master node of the cluster
 func (o HDInsightPropertiesOutput) AdministratorAccount() VirtualMachineSshCredentialsPtrOutput {
 	return o.ApplyT(func(v HDInsightProperties) *VirtualMachineSshCredentials { return v.AdministratorAccount }).(VirtualMachineSshCredentialsPtrOutput)
 }
 
-// Port open for ssh connections on the master node of the cluster.
 func (o HDInsightPropertiesOutput) SshPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HDInsightProperties) *int { return v.SshPort }).(pulumi.IntPtrOutput)
 }
@@ -1917,10 +1668,15 @@ func (o HDInsightPropertiesPtrOutput) ToHDInsightPropertiesPtrOutputWithContext(
 }
 
 func (o HDInsightPropertiesPtrOutput) Elem() HDInsightPropertiesOutput {
-	return o.ApplyT(func(v *HDInsightProperties) HDInsightProperties { return *v }).(HDInsightPropertiesOutput)
+	return o.ApplyT(func(v *HDInsightProperties) HDInsightProperties {
+		if v != nil {
+			return *v
+		}
+		var ret HDInsightProperties
+		return ret
+	}).(HDInsightPropertiesOutput)
 }
 
-// Public IP address of the master node of the cluster.
 func (o HDInsightPropertiesPtrOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HDInsightProperties) *string {
 		if v == nil {
@@ -1930,7 +1686,6 @@ func (o HDInsightPropertiesPtrOutput) Address() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Admin credentials for master node of the cluster
 func (o HDInsightPropertiesPtrOutput) AdministratorAccount() VirtualMachineSshCredentialsPtrOutput {
 	return o.ApplyT(func(v *HDInsightProperties) *VirtualMachineSshCredentials {
 		if v == nil {
@@ -1940,7 +1695,6 @@ func (o HDInsightPropertiesPtrOutput) AdministratorAccount() VirtualMachineSshCr
 	}).(VirtualMachineSshCredentialsPtrOutput)
 }
 
-// Port open for ssh connections on the master node of the cluster.
 func (o HDInsightPropertiesPtrOutput) SshPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HDInsightProperties) *int {
 		if v == nil {
@@ -1950,26 +1704,16 @@ func (o HDInsightPropertiesPtrOutput) SshPort() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// A HDInsight compute.
 type HDInsightResponse struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'HDInsight'.
-	ComputeType string `pulumi:"computeType"`
-	// The date and time when the compute was created.
-	CreatedOn string `pulumi:"createdOn"`
-	// The description of the Machine Learning compute.
-	Description *string `pulumi:"description"`
-	// The date and time when the compute was last modified.
-	ModifiedOn string                       `pulumi:"modifiedOn"`
-	Properties *HDInsightResponseProperties `pulumi:"properties"`
-	// Errors during provisioning
+	ComputeLocation    *string                               `pulumi:"computeLocation"`
+	ComputeType        string                                `pulumi:"computeType"`
+	CreatedOn          string                                `pulumi:"createdOn"`
+	Description        *string                               `pulumi:"description"`
+	ModifiedOn         string                                `pulumi:"modifiedOn"`
+	Properties         *HDInsightResponseProperties          `pulumi:"properties"`
 	ProvisioningErrors []MachineLearningServiceErrorResponse `pulumi:"provisioningErrors"`
-	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// ARM resource id of the compute
-	ResourceId *string `pulumi:"resourceId"`
+	ProvisioningState  string                                `pulumi:"provisioningState"`
+	ResourceId         *string                               `pulumi:"resourceId"`
 }
 
 // HDInsightResponseInput is an input type that accepts HDInsightResponseArgs and HDInsightResponseOutput values.
@@ -1983,26 +1727,16 @@ type HDInsightResponseInput interface {
 	ToHDInsightResponseOutputWithContext(context.Context) HDInsightResponseOutput
 }
 
-// A HDInsight compute.
 type HDInsightResponseArgs struct {
-	// Location for the underlying compute
-	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'HDInsight'.
-	ComputeType pulumi.StringInput `pulumi:"computeType"`
-	// The date and time when the compute was created.
-	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
-	// The description of the Machine Learning compute.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The date and time when the compute was last modified.
-	ModifiedOn pulumi.StringInput                  `pulumi:"modifiedOn"`
-	Properties HDInsightResponsePropertiesPtrInput `pulumi:"properties"`
-	// Errors during provisioning
+	ComputeLocation    pulumi.StringPtrInput                         `pulumi:"computeLocation"`
+	ComputeType        pulumi.StringInput                            `pulumi:"computeType"`
+	CreatedOn          pulumi.StringInput                            `pulumi:"createdOn"`
+	Description        pulumi.StringPtrInput                         `pulumi:"description"`
+	ModifiedOn         pulumi.StringInput                            `pulumi:"modifiedOn"`
+	Properties         HDInsightResponsePropertiesPtrInput           `pulumi:"properties"`
 	ProvisioningErrors MachineLearningServiceErrorResponseArrayInput `pulumi:"provisioningErrors"`
-	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// ARM resource id of the compute
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	ProvisioningState  pulumi.StringInput                            `pulumi:"provisioningState"`
+	ResourceId         pulumi.StringPtrInput                         `pulumi:"resourceId"`
 }
 
 func (HDInsightResponseArgs) ElementType() reflect.Type {
@@ -2017,7 +1751,6 @@ func (i HDInsightResponseArgs) ToHDInsightResponseOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(HDInsightResponseOutput)
 }
 
-// A HDInsight compute.
 type HDInsightResponseOutput struct{ *pulumi.OutputState }
 
 func (HDInsightResponseOutput) ElementType() reflect.Type {
@@ -2032,28 +1765,22 @@ func (o HDInsightResponseOutput) ToHDInsightResponseOutputWithContext(ctx contex
 	return o
 }
 
-// Location for the underlying compute
 func (o HDInsightResponseOutput) ComputeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HDInsightResponse) *string { return v.ComputeLocation }).(pulumi.StringPtrOutput)
 }
 
-// The type of compute
-// Expected value is 'HDInsight'.
 func (o HDInsightResponseOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightResponse) string { return v.ComputeType }).(pulumi.StringOutput)
 }
 
-// The date and time when the compute was created.
 func (o HDInsightResponseOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
-// The description of the Machine Learning compute.
 func (o HDInsightResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HDInsightResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The date and time when the compute was last modified.
 func (o HDInsightResponseOutput) ModifiedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightResponse) string { return v.ModifiedOn }).(pulumi.StringOutput)
 }
@@ -2062,28 +1789,22 @@ func (o HDInsightResponseOutput) Properties() HDInsightResponsePropertiesPtrOutp
 	return o.ApplyT(func(v HDInsightResponse) *HDInsightResponseProperties { return v.Properties }).(HDInsightResponsePropertiesPtrOutput)
 }
 
-// Errors during provisioning
 func (o HDInsightResponseOutput) ProvisioningErrors() MachineLearningServiceErrorResponseArrayOutput {
 	return o.ApplyT(func(v HDInsightResponse) []MachineLearningServiceErrorResponse { return v.ProvisioningErrors }).(MachineLearningServiceErrorResponseArrayOutput)
 }
 
-// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
 func (o HDInsightResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// ARM resource id of the compute
 func (o HDInsightResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HDInsightResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 type HDInsightResponseProperties struct {
-	// Public IP address of the master node of the cluster.
-	Address *string `pulumi:"address"`
-	// Admin credentials for master node of the cluster
+	Address              *string                               `pulumi:"address"`
 	AdministratorAccount *VirtualMachineSshCredentialsResponse `pulumi:"administratorAccount"`
-	// Port open for ssh connections on the master node of the cluster.
-	SshPort *int `pulumi:"sshPort"`
+	SshPort              *int                                  `pulumi:"sshPort"`
 }
 
 // HDInsightResponsePropertiesInput is an input type that accepts HDInsightResponsePropertiesArgs and HDInsightResponsePropertiesOutput values.
@@ -2098,12 +1819,9 @@ type HDInsightResponsePropertiesInput interface {
 }
 
 type HDInsightResponsePropertiesArgs struct {
-	// Public IP address of the master node of the cluster.
-	Address pulumi.StringPtrInput `pulumi:"address"`
-	// Admin credentials for master node of the cluster
+	Address              pulumi.StringPtrInput                        `pulumi:"address"`
 	AdministratorAccount VirtualMachineSshCredentialsResponsePtrInput `pulumi:"administratorAccount"`
-	// Port open for ssh connections on the master node of the cluster.
-	SshPort pulumi.IntPtrInput `pulumi:"sshPort"`
+	SshPort              pulumi.IntPtrInput                           `pulumi:"sshPort"`
 }
 
 func (HDInsightResponsePropertiesArgs) ElementType() reflect.Type {
@@ -2178,24 +1896,21 @@ func (o HDInsightResponsePropertiesOutput) ToHDInsightResponsePropertiesPtrOutpu
 }
 
 func (o HDInsightResponsePropertiesOutput) ToHDInsightResponsePropertiesPtrOutputWithContext(ctx context.Context) HDInsightResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v HDInsightResponseProperties) *HDInsightResponseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HDInsightResponseProperties) *HDInsightResponseProperties {
 		return &v
 	}).(HDInsightResponsePropertiesPtrOutput)
 }
 
-// Public IP address of the master node of the cluster.
 func (o HDInsightResponsePropertiesOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HDInsightResponseProperties) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// Admin credentials for master node of the cluster
 func (o HDInsightResponsePropertiesOutput) AdministratorAccount() VirtualMachineSshCredentialsResponsePtrOutput {
 	return o.ApplyT(func(v HDInsightResponseProperties) *VirtualMachineSshCredentialsResponse {
 		return v.AdministratorAccount
 	}).(VirtualMachineSshCredentialsResponsePtrOutput)
 }
 
-// Port open for ssh connections on the master node of the cluster.
 func (o HDInsightResponsePropertiesOutput) SshPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HDInsightResponseProperties) *int { return v.SshPort }).(pulumi.IntPtrOutput)
 }
@@ -2215,10 +1930,15 @@ func (o HDInsightResponsePropertiesPtrOutput) ToHDInsightResponsePropertiesPtrOu
 }
 
 func (o HDInsightResponsePropertiesPtrOutput) Elem() HDInsightResponsePropertiesOutput {
-	return o.ApplyT(func(v *HDInsightResponseProperties) HDInsightResponseProperties { return *v }).(HDInsightResponsePropertiesOutput)
+	return o.ApplyT(func(v *HDInsightResponseProperties) HDInsightResponseProperties {
+		if v != nil {
+			return *v
+		}
+		var ret HDInsightResponseProperties
+		return ret
+	}).(HDInsightResponsePropertiesOutput)
 }
 
-// Public IP address of the master node of the cluster.
 func (o HDInsightResponsePropertiesPtrOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HDInsightResponseProperties) *string {
 		if v == nil {
@@ -2228,7 +1948,6 @@ func (o HDInsightResponsePropertiesPtrOutput) Address() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Admin credentials for master node of the cluster
 func (o HDInsightResponsePropertiesPtrOutput) AdministratorAccount() VirtualMachineSshCredentialsResponsePtrOutput {
 	return o.ApplyT(func(v *HDInsightResponseProperties) *VirtualMachineSshCredentialsResponse {
 		if v == nil {
@@ -2238,7 +1957,6 @@ func (o HDInsightResponsePropertiesPtrOutput) AdministratorAccount() VirtualMach
 	}).(VirtualMachineSshCredentialsResponsePtrOutput)
 }
 
-// Port open for ssh connections on the master node of the cluster.
 func (o HDInsightResponsePropertiesPtrOutput) SshPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HDInsightResponseProperties) *int {
 		if v == nil {
@@ -2248,10 +1966,8 @@ func (o HDInsightResponsePropertiesPtrOutput) SshPort() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Identity for the resource.
 type Identity struct {
-	// The identity type.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -2265,10 +1981,8 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Identity for the resource.
 type IdentityArgs struct {
-	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -2324,7 +2038,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Identity for the resource.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -2344,14 +2057,13 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
-// The identity type.
-func (o IdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -2369,27 +2081,28 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
-// The identity type.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponse struct {
-	// The principal ID of resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -2403,14 +2116,10 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Identity for the resource.
 type IdentityResponseArgs struct {
-	// The principal ID of resource identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -2466,7 +2175,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -2486,22 +2194,19 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
 func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2521,10 +2226,15 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -2534,7 +2244,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -2544,7 +2253,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -2554,9 +2262,7 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Wrapper for error response to follow ARM guidelines.
 type MachineLearningServiceErrorResponse struct {
-	// The error response.
 	Error *ErrorResponseResponse `pulumi:"error"`
 }
 
@@ -2571,9 +2277,7 @@ type MachineLearningServiceErrorResponseInput interface {
 	ToMachineLearningServiceErrorResponseOutputWithContext(context.Context) MachineLearningServiceErrorResponseOutput
 }
 
-// Wrapper for error response to follow ARM guidelines.
 type MachineLearningServiceErrorResponseArgs struct {
-	// The error response.
 	Error ErrorResponseResponsePtrInput `pulumi:"error"`
 }
 
@@ -2614,7 +2318,6 @@ func (i MachineLearningServiceErrorResponseArray) ToMachineLearningServiceErrorR
 	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningServiceErrorResponseArrayOutput)
 }
 
-// Wrapper for error response to follow ARM guidelines.
 type MachineLearningServiceErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (MachineLearningServiceErrorResponseOutput) ElementType() reflect.Type {
@@ -2629,7 +2332,6 @@ func (o MachineLearningServiceErrorResponseOutput) ToMachineLearningServiceError
 	return o
 }
 
-// The error response.
 func (o MachineLearningServiceErrorResponseOutput) Error() ErrorResponseResponsePtrOutput {
 	return o.ApplyT(func(v MachineLearningServiceErrorResponse) *ErrorResponseResponse { return v.Error }).(ErrorResponseResponsePtrOutput)
 }
@@ -2815,14 +2517,10 @@ func (o RegistryListCredentialsResultResponseOutput) Username() pulumi.StringOut
 	return o.ApplyT(func(v RegistryListCredentialsResultResponse) string { return v.Username }).(pulumi.StringOutput)
 }
 
-// scale settings for BatchAI Compute
 type ScaleSettings struct {
-	// Enable or disable auto scale
 	AutoScaleEnabled *bool `pulumi:"autoScaleEnabled"`
-	// Max number of nodes to use
-	MaxNodeCount *int `pulumi:"maxNodeCount"`
-	// Min number of nodes to use
-	MinNodeCount *int `pulumi:"minNodeCount"`
+	MaxNodeCount     *int  `pulumi:"maxNodeCount"`
+	MinNodeCount     *int  `pulumi:"minNodeCount"`
 }
 
 // ScaleSettingsInput is an input type that accepts ScaleSettingsArgs and ScaleSettingsOutput values.
@@ -2836,14 +2534,10 @@ type ScaleSettingsInput interface {
 	ToScaleSettingsOutputWithContext(context.Context) ScaleSettingsOutput
 }
 
-// scale settings for BatchAI Compute
 type ScaleSettingsArgs struct {
-	// Enable or disable auto scale
 	AutoScaleEnabled pulumi.BoolPtrInput `pulumi:"autoScaleEnabled"`
-	// Max number of nodes to use
-	MaxNodeCount pulumi.IntPtrInput `pulumi:"maxNodeCount"`
-	// Min number of nodes to use
-	MinNodeCount pulumi.IntPtrInput `pulumi:"minNodeCount"`
+	MaxNodeCount     pulumi.IntPtrInput  `pulumi:"maxNodeCount"`
+	MinNodeCount     pulumi.IntPtrInput  `pulumi:"minNodeCount"`
 }
 
 func (ScaleSettingsArgs) ElementType() reflect.Type {
@@ -2899,7 +2593,6 @@ func (i *scaleSettingsPtrType) ToScaleSettingsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSettingsPtrOutput)
 }
 
-// scale settings for BatchAI Compute
 type ScaleSettingsOutput struct{ *pulumi.OutputState }
 
 func (ScaleSettingsOutput) ElementType() reflect.Type {
@@ -2919,22 +2612,19 @@ func (o ScaleSettingsOutput) ToScaleSettingsPtrOutput() ScaleSettingsPtrOutput {
 }
 
 func (o ScaleSettingsOutput) ToScaleSettingsPtrOutputWithContext(ctx context.Context) ScaleSettingsPtrOutput {
-	return o.ApplyT(func(v ScaleSettings) *ScaleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSettings) *ScaleSettings {
 		return &v
 	}).(ScaleSettingsPtrOutput)
 }
 
-// Enable or disable auto scale
 func (o ScaleSettingsOutput) AutoScaleEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScaleSettings) *bool { return v.AutoScaleEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Max number of nodes to use
 func (o ScaleSettingsOutput) MaxNodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScaleSettings) *int { return v.MaxNodeCount }).(pulumi.IntPtrOutput)
 }
 
-// Min number of nodes to use
 func (o ScaleSettingsOutput) MinNodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScaleSettings) *int { return v.MinNodeCount }).(pulumi.IntPtrOutput)
 }
@@ -2954,10 +2644,15 @@ func (o ScaleSettingsPtrOutput) ToScaleSettingsPtrOutputWithContext(ctx context.
 }
 
 func (o ScaleSettingsPtrOutput) Elem() ScaleSettingsOutput {
-	return o.ApplyT(func(v *ScaleSettings) ScaleSettings { return *v }).(ScaleSettingsOutput)
+	return o.ApplyT(func(v *ScaleSettings) ScaleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSettings
+		return ret
+	}).(ScaleSettingsOutput)
 }
 
-// Enable or disable auto scale
 func (o ScaleSettingsPtrOutput) AutoScaleEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScaleSettings) *bool {
 		if v == nil {
@@ -2967,7 +2662,6 @@ func (o ScaleSettingsPtrOutput) AutoScaleEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Max number of nodes to use
 func (o ScaleSettingsPtrOutput) MaxNodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScaleSettings) *int {
 		if v == nil {
@@ -2977,7 +2671,6 @@ func (o ScaleSettingsPtrOutput) MaxNodeCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Min number of nodes to use
 func (o ScaleSettingsPtrOutput) MinNodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScaleSettings) *int {
 		if v == nil {
@@ -2987,14 +2680,10 @@ func (o ScaleSettingsPtrOutput) MinNodeCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// scale settings for BatchAI Compute
 type ScaleSettingsResponse struct {
-	// Enable or disable auto scale
 	AutoScaleEnabled *bool `pulumi:"autoScaleEnabled"`
-	// Max number of nodes to use
-	MaxNodeCount *int `pulumi:"maxNodeCount"`
-	// Min number of nodes to use
-	MinNodeCount *int `pulumi:"minNodeCount"`
+	MaxNodeCount     *int  `pulumi:"maxNodeCount"`
+	MinNodeCount     *int  `pulumi:"minNodeCount"`
 }
 
 // ScaleSettingsResponseInput is an input type that accepts ScaleSettingsResponseArgs and ScaleSettingsResponseOutput values.
@@ -3008,14 +2697,10 @@ type ScaleSettingsResponseInput interface {
 	ToScaleSettingsResponseOutputWithContext(context.Context) ScaleSettingsResponseOutput
 }
 
-// scale settings for BatchAI Compute
 type ScaleSettingsResponseArgs struct {
-	// Enable or disable auto scale
 	AutoScaleEnabled pulumi.BoolPtrInput `pulumi:"autoScaleEnabled"`
-	// Max number of nodes to use
-	MaxNodeCount pulumi.IntPtrInput `pulumi:"maxNodeCount"`
-	// Min number of nodes to use
-	MinNodeCount pulumi.IntPtrInput `pulumi:"minNodeCount"`
+	MaxNodeCount     pulumi.IntPtrInput  `pulumi:"maxNodeCount"`
+	MinNodeCount     pulumi.IntPtrInput  `pulumi:"minNodeCount"`
 }
 
 func (ScaleSettingsResponseArgs) ElementType() reflect.Type {
@@ -3071,7 +2756,6 @@ func (i *scaleSettingsResponsePtrType) ToScaleSettingsResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSettingsResponsePtrOutput)
 }
 
-// scale settings for BatchAI Compute
 type ScaleSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ScaleSettingsResponseOutput) ElementType() reflect.Type {
@@ -3091,22 +2775,19 @@ func (o ScaleSettingsResponseOutput) ToScaleSettingsResponsePtrOutput() ScaleSet
 }
 
 func (o ScaleSettingsResponseOutput) ToScaleSettingsResponsePtrOutputWithContext(ctx context.Context) ScaleSettingsResponsePtrOutput {
-	return o.ApplyT(func(v ScaleSettingsResponse) *ScaleSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSettingsResponse) *ScaleSettingsResponse {
 		return &v
 	}).(ScaleSettingsResponsePtrOutput)
 }
 
-// Enable or disable auto scale
 func (o ScaleSettingsResponseOutput) AutoScaleEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScaleSettingsResponse) *bool { return v.AutoScaleEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Max number of nodes to use
 func (o ScaleSettingsResponseOutput) MaxNodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScaleSettingsResponse) *int { return v.MaxNodeCount }).(pulumi.IntPtrOutput)
 }
 
-// Min number of nodes to use
 func (o ScaleSettingsResponseOutput) MinNodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScaleSettingsResponse) *int { return v.MinNodeCount }).(pulumi.IntPtrOutput)
 }
@@ -3126,10 +2807,15 @@ func (o ScaleSettingsResponsePtrOutput) ToScaleSettingsResponsePtrOutputWithCont
 }
 
 func (o ScaleSettingsResponsePtrOutput) Elem() ScaleSettingsResponseOutput {
-	return o.ApplyT(func(v *ScaleSettingsResponse) ScaleSettingsResponse { return *v }).(ScaleSettingsResponseOutput)
+	return o.ApplyT(func(v *ScaleSettingsResponse) ScaleSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSettingsResponse
+		return ret
+	}).(ScaleSettingsResponseOutput)
 }
 
-// Enable or disable auto scale
 func (o ScaleSettingsResponsePtrOutput) AutoScaleEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScaleSettingsResponse) *bool {
 		if v == nil {
@@ -3139,7 +2825,6 @@ func (o ScaleSettingsResponsePtrOutput) AutoScaleEnabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Max number of nodes to use
 func (o ScaleSettingsResponsePtrOutput) MaxNodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScaleSettingsResponse) *int {
 		if v == nil {
@@ -3149,7 +2834,6 @@ func (o ScaleSettingsResponsePtrOutput) MaxNodeCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Min number of nodes to use
 func (o ScaleSettingsResponsePtrOutput) MinNodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScaleSettingsResponse) *int {
 		if v == nil {
@@ -3159,15 +2843,10 @@ func (o ScaleSettingsResponsePtrOutput) MinNodeCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The SSL configuration for scoring
 type SslConfiguration struct {
-	// Cert data
-	Cert *string `pulumi:"cert"`
-	// CNAME of the cert
-	Cname *string `pulumi:"cname"`
-	// Key data
-	Key *string `pulumi:"key"`
-	// Enable or disable SSL for scoring
+	Cert   *string `pulumi:"cert"`
+	Cname  *string `pulumi:"cname"`
+	Key    *string `pulumi:"key"`
 	Status *string `pulumi:"status"`
 }
 
@@ -3182,15 +2861,10 @@ type SslConfigurationInput interface {
 	ToSslConfigurationOutputWithContext(context.Context) SslConfigurationOutput
 }
 
-// The SSL configuration for scoring
 type SslConfigurationArgs struct {
-	// Cert data
-	Cert pulumi.StringPtrInput `pulumi:"cert"`
-	// CNAME of the cert
-	Cname pulumi.StringPtrInput `pulumi:"cname"`
-	// Key data
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Enable or disable SSL for scoring
+	Cert   pulumi.StringPtrInput `pulumi:"cert"`
+	Cname  pulumi.StringPtrInput `pulumi:"cname"`
+	Key    pulumi.StringPtrInput `pulumi:"key"`
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -3247,7 +2921,6 @@ func (i *sslConfigurationPtrType) ToSslConfigurationPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SslConfigurationPtrOutput)
 }
 
-// The SSL configuration for scoring
 type SslConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SslConfigurationOutput) ElementType() reflect.Type {
@@ -3267,27 +2940,23 @@ func (o SslConfigurationOutput) ToSslConfigurationPtrOutput() SslConfigurationPt
 }
 
 func (o SslConfigurationOutput) ToSslConfigurationPtrOutputWithContext(ctx context.Context) SslConfigurationPtrOutput {
-	return o.ApplyT(func(v SslConfiguration) *SslConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SslConfiguration) *SslConfiguration {
 		return &v
 	}).(SslConfigurationPtrOutput)
 }
 
-// Cert data
 func (o SslConfigurationOutput) Cert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SslConfiguration) *string { return v.Cert }).(pulumi.StringPtrOutput)
 }
 
-// CNAME of the cert
 func (o SslConfigurationOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SslConfiguration) *string { return v.Cname }).(pulumi.StringPtrOutput)
 }
 
-// Key data
 func (o SslConfigurationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SslConfiguration) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Enable or disable SSL for scoring
 func (o SslConfigurationOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SslConfiguration) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -3307,10 +2976,15 @@ func (o SslConfigurationPtrOutput) ToSslConfigurationPtrOutputWithContext(ctx co
 }
 
 func (o SslConfigurationPtrOutput) Elem() SslConfigurationOutput {
-	return o.ApplyT(func(v *SslConfiguration) SslConfiguration { return *v }).(SslConfigurationOutput)
+	return o.ApplyT(func(v *SslConfiguration) SslConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SslConfiguration
+		return ret
+	}).(SslConfigurationOutput)
 }
 
-// Cert data
 func (o SslConfigurationPtrOutput) Cert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SslConfiguration) *string {
 		if v == nil {
@@ -3320,7 +2994,6 @@ func (o SslConfigurationPtrOutput) Cert() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// CNAME of the cert
 func (o SslConfigurationPtrOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SslConfiguration) *string {
 		if v == nil {
@@ -3330,7 +3003,6 @@ func (o SslConfigurationPtrOutput) Cname() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key data
 func (o SslConfigurationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SslConfiguration) *string {
 		if v == nil {
@@ -3340,7 +3012,6 @@ func (o SslConfigurationPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable or disable SSL for scoring
 func (o SslConfigurationPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SslConfiguration) *string {
 		if v == nil {
@@ -3350,15 +3021,10 @@ func (o SslConfigurationPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SSL configuration for scoring
 type SslConfigurationResponse struct {
-	// Cert data
-	Cert *string `pulumi:"cert"`
-	// CNAME of the cert
-	Cname *string `pulumi:"cname"`
-	// Key data
-	Key *string `pulumi:"key"`
-	// Enable or disable SSL for scoring
+	Cert   *string `pulumi:"cert"`
+	Cname  *string `pulumi:"cname"`
+	Key    *string `pulumi:"key"`
 	Status *string `pulumi:"status"`
 }
 
@@ -3373,15 +3039,10 @@ type SslConfigurationResponseInput interface {
 	ToSslConfigurationResponseOutputWithContext(context.Context) SslConfigurationResponseOutput
 }
 
-// The SSL configuration for scoring
 type SslConfigurationResponseArgs struct {
-	// Cert data
-	Cert pulumi.StringPtrInput `pulumi:"cert"`
-	// CNAME of the cert
-	Cname pulumi.StringPtrInput `pulumi:"cname"`
-	// Key data
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Enable or disable SSL for scoring
+	Cert   pulumi.StringPtrInput `pulumi:"cert"`
+	Cname  pulumi.StringPtrInput `pulumi:"cname"`
+	Key    pulumi.StringPtrInput `pulumi:"key"`
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -3438,7 +3099,6 @@ func (i *sslConfigurationResponsePtrType) ToSslConfigurationResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SslConfigurationResponsePtrOutput)
 }
 
-// The SSL configuration for scoring
 type SslConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (SslConfigurationResponseOutput) ElementType() reflect.Type {
@@ -3458,27 +3118,23 @@ func (o SslConfigurationResponseOutput) ToSslConfigurationResponsePtrOutput() Ss
 }
 
 func (o SslConfigurationResponseOutput) ToSslConfigurationResponsePtrOutputWithContext(ctx context.Context) SslConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v SslConfigurationResponse) *SslConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SslConfigurationResponse) *SslConfigurationResponse {
 		return &v
 	}).(SslConfigurationResponsePtrOutput)
 }
 
-// Cert data
 func (o SslConfigurationResponseOutput) Cert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SslConfigurationResponse) *string { return v.Cert }).(pulumi.StringPtrOutput)
 }
 
-// CNAME of the cert
 func (o SslConfigurationResponseOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SslConfigurationResponse) *string { return v.Cname }).(pulumi.StringPtrOutput)
 }
 
-// Key data
 func (o SslConfigurationResponseOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SslConfigurationResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Enable or disable SSL for scoring
 func (o SslConfigurationResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SslConfigurationResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -3498,10 +3154,15 @@ func (o SslConfigurationResponsePtrOutput) ToSslConfigurationResponsePtrOutputWi
 }
 
 func (o SslConfigurationResponsePtrOutput) Elem() SslConfigurationResponseOutput {
-	return o.ApplyT(func(v *SslConfigurationResponse) SslConfigurationResponse { return *v }).(SslConfigurationResponseOutput)
+	return o.ApplyT(func(v *SslConfigurationResponse) SslConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SslConfigurationResponse
+		return ret
+	}).(SslConfigurationResponseOutput)
 }
 
-// Cert data
 func (o SslConfigurationResponsePtrOutput) Cert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SslConfigurationResponse) *string {
 		if v == nil {
@@ -3511,7 +3172,6 @@ func (o SslConfigurationResponsePtrOutput) Cert() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// CNAME of the cert
 func (o SslConfigurationResponsePtrOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SslConfigurationResponse) *string {
 		if v == nil {
@@ -3521,7 +3181,6 @@ func (o SslConfigurationResponsePtrOutput) Cname() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key data
 func (o SslConfigurationResponsePtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SslConfigurationResponse) *string {
 		if v == nil {
@@ -3531,7 +3190,6 @@ func (o SslConfigurationResponsePtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable or disable SSL for scoring
 func (o SslConfigurationResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SslConfigurationResponse) *string {
 		if v == nil {
@@ -3541,14 +3199,10 @@ func (o SslConfigurationResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A system service running on a compute.
 type SystemServiceResponse struct {
-	// Public IP address
-	PublicIpAddress string `pulumi:"publicIpAddress"`
-	// The type of this system service.
+	PublicIpAddress   string `pulumi:"publicIpAddress"`
 	SystemServiceType string `pulumi:"systemServiceType"`
-	// The version for this type.
-	Version string `pulumi:"version"`
+	Version           string `pulumi:"version"`
 }
 
 // SystemServiceResponseInput is an input type that accepts SystemServiceResponseArgs and SystemServiceResponseOutput values.
@@ -3562,14 +3216,10 @@ type SystemServiceResponseInput interface {
 	ToSystemServiceResponseOutputWithContext(context.Context) SystemServiceResponseOutput
 }
 
-// A system service running on a compute.
 type SystemServiceResponseArgs struct {
-	// Public IP address
-	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
-	// The type of this system service.
+	PublicIpAddress   pulumi.StringInput `pulumi:"publicIpAddress"`
 	SystemServiceType pulumi.StringInput `pulumi:"systemServiceType"`
-	// The version for this type.
-	Version pulumi.StringInput `pulumi:"version"`
+	Version           pulumi.StringInput `pulumi:"version"`
 }
 
 func (SystemServiceResponseArgs) ElementType() reflect.Type {
@@ -3609,7 +3259,6 @@ func (i SystemServiceResponseArray) ToSystemServiceResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SystemServiceResponseArrayOutput)
 }
 
-// A system service running on a compute.
 type SystemServiceResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemServiceResponseOutput) ElementType() reflect.Type {
@@ -3624,17 +3273,14 @@ func (o SystemServiceResponseOutput) ToSystemServiceResponseOutputWithContext(ct
 	return o
 }
 
-// Public IP address
 func (o SystemServiceResponseOutput) PublicIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemServiceResponse) string { return v.PublicIpAddress }).(pulumi.StringOutput)
 }
 
-// The type of this system service.
 func (o SystemServiceResponseOutput) SystemServiceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemServiceResponse) string { return v.SystemServiceType }).(pulumi.StringOutput)
 }
 
-// The version for this type.
 func (o SystemServiceResponseOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemServiceResponse) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -3659,18 +3305,12 @@ func (o SystemServiceResponseArrayOutput) Index(i pulumi.IntInput) SystemService
 	}).(SystemServiceResponseOutput)
 }
 
-// A Machine Learning compute based on Azure Virtual Machines.
 type VirtualMachine struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'VirtualMachine'.
-	ComputeType string `pulumi:"computeType"`
-	// The description of the Machine Learning compute.
-	Description *string                   `pulumi:"description"`
-	Properties  *VirtualMachineProperties `pulumi:"properties"`
-	// ARM resource id of the compute
-	ResourceId *string `pulumi:"resourceId"`
+	ComputeLocation *string                   `pulumi:"computeLocation"`
+	ComputeType     string                    `pulumi:"computeType"`
+	Description     *string                   `pulumi:"description"`
+	Properties      *VirtualMachineProperties `pulumi:"properties"`
+	ResourceId      *string                   `pulumi:"resourceId"`
 }
 
 // VirtualMachineInput is an input type that accepts VirtualMachineArgs and VirtualMachineOutput values.
@@ -3684,18 +3324,12 @@ type VirtualMachineInput interface {
 	ToVirtualMachineOutputWithContext(context.Context) VirtualMachineOutput
 }
 
-// A Machine Learning compute based on Azure Virtual Machines.
 type VirtualMachineArgs struct {
-	// Location for the underlying compute
-	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'VirtualMachine'.
-	ComputeType pulumi.StringInput `pulumi:"computeType"`
-	// The description of the Machine Learning compute.
-	Description pulumi.StringPtrInput            `pulumi:"description"`
-	Properties  VirtualMachinePropertiesPtrInput `pulumi:"properties"`
-	// ARM resource id of the compute
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	ComputeLocation pulumi.StringPtrInput            `pulumi:"computeLocation"`
+	ComputeType     pulumi.StringInput               `pulumi:"computeType"`
+	Description     pulumi.StringPtrInput            `pulumi:"description"`
+	Properties      VirtualMachinePropertiesPtrInput `pulumi:"properties"`
+	ResourceId      pulumi.StringPtrInput            `pulumi:"resourceId"`
 }
 
 func (VirtualMachineArgs) ElementType() reflect.Type {
@@ -3710,7 +3344,6 @@ func (i VirtualMachineArgs) ToVirtualMachineOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOutput)
 }
 
-// A Machine Learning compute based on Azure Virtual Machines.
 type VirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOutput) ElementType() reflect.Type {
@@ -3725,18 +3358,14 @@ func (o VirtualMachineOutput) ToVirtualMachineOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Location for the underlying compute
 func (o VirtualMachineOutput) ComputeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachine) *string { return v.ComputeLocation }).(pulumi.StringPtrOutput)
 }
 
-// The type of compute
-// Expected value is 'VirtualMachine'.
 func (o VirtualMachineOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachine) string { return v.ComputeType }).(pulumi.StringOutput)
 }
 
-// The description of the Machine Learning compute.
 func (o VirtualMachineOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachine) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -3745,20 +3374,15 @@ func (o VirtualMachineOutput) Properties() VirtualMachinePropertiesPtrOutput {
 	return o.ApplyT(func(v VirtualMachine) *VirtualMachineProperties { return v.Properties }).(VirtualMachinePropertiesPtrOutput)
 }
 
-// ARM resource id of the compute
 func (o VirtualMachineOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachine) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 type VirtualMachineProperties struct {
-	// Public IP address of the virtual machine.
-	Address *string `pulumi:"address"`
-	// Admin credentials for virtual machine
+	Address              *string                       `pulumi:"address"`
 	AdministratorAccount *VirtualMachineSshCredentials `pulumi:"administratorAccount"`
-	// Port open for ssh connections.
-	SshPort *int `pulumi:"sshPort"`
-	// Virtual Machine size
-	VirtualMachineSize *string `pulumi:"virtualMachineSize"`
+	SshPort              *int                          `pulumi:"sshPort"`
+	VirtualMachineSize   *string                       `pulumi:"virtualMachineSize"`
 }
 
 // VirtualMachinePropertiesInput is an input type that accepts VirtualMachinePropertiesArgs and VirtualMachinePropertiesOutput values.
@@ -3773,14 +3397,10 @@ type VirtualMachinePropertiesInput interface {
 }
 
 type VirtualMachinePropertiesArgs struct {
-	// Public IP address of the virtual machine.
-	Address pulumi.StringPtrInput `pulumi:"address"`
-	// Admin credentials for virtual machine
+	Address              pulumi.StringPtrInput                `pulumi:"address"`
 	AdministratorAccount VirtualMachineSshCredentialsPtrInput `pulumi:"administratorAccount"`
-	// Port open for ssh connections.
-	SshPort pulumi.IntPtrInput `pulumi:"sshPort"`
-	// Virtual Machine size
-	VirtualMachineSize pulumi.StringPtrInput `pulumi:"virtualMachineSize"`
+	SshPort              pulumi.IntPtrInput                   `pulumi:"sshPort"`
+	VirtualMachineSize   pulumi.StringPtrInput                `pulumi:"virtualMachineSize"`
 }
 
 func (VirtualMachinePropertiesArgs) ElementType() reflect.Type {
@@ -3855,27 +3475,23 @@ func (o VirtualMachinePropertiesOutput) ToVirtualMachinePropertiesPtrOutput() Vi
 }
 
 func (o VirtualMachinePropertiesOutput) ToVirtualMachinePropertiesPtrOutputWithContext(ctx context.Context) VirtualMachinePropertiesPtrOutput {
-	return o.ApplyT(func(v VirtualMachineProperties) *VirtualMachineProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineProperties) *VirtualMachineProperties {
 		return &v
 	}).(VirtualMachinePropertiesPtrOutput)
 }
 
-// Public IP address of the virtual machine.
 func (o VirtualMachinePropertiesOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineProperties) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// Admin credentials for virtual machine
 func (o VirtualMachinePropertiesOutput) AdministratorAccount() VirtualMachineSshCredentialsPtrOutput {
 	return o.ApplyT(func(v VirtualMachineProperties) *VirtualMachineSshCredentials { return v.AdministratorAccount }).(VirtualMachineSshCredentialsPtrOutput)
 }
 
-// Port open for ssh connections.
 func (o VirtualMachinePropertiesOutput) SshPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualMachineProperties) *int { return v.SshPort }).(pulumi.IntPtrOutput)
 }
 
-// Virtual Machine size
 func (o VirtualMachinePropertiesOutput) VirtualMachineSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineProperties) *string { return v.VirtualMachineSize }).(pulumi.StringPtrOutput)
 }
@@ -3895,10 +3511,15 @@ func (o VirtualMachinePropertiesPtrOutput) ToVirtualMachinePropertiesPtrOutputWi
 }
 
 func (o VirtualMachinePropertiesPtrOutput) Elem() VirtualMachinePropertiesOutput {
-	return o.ApplyT(func(v *VirtualMachineProperties) VirtualMachineProperties { return *v }).(VirtualMachinePropertiesOutput)
+	return o.ApplyT(func(v *VirtualMachineProperties) VirtualMachineProperties {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineProperties
+		return ret
+	}).(VirtualMachinePropertiesOutput)
 }
 
-// Public IP address of the virtual machine.
 func (o VirtualMachinePropertiesPtrOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineProperties) *string {
 		if v == nil {
@@ -3908,7 +3529,6 @@ func (o VirtualMachinePropertiesPtrOutput) Address() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Admin credentials for virtual machine
 func (o VirtualMachinePropertiesPtrOutput) AdministratorAccount() VirtualMachineSshCredentialsPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineProperties) *VirtualMachineSshCredentials {
 		if v == nil {
@@ -3918,7 +3538,6 @@ func (o VirtualMachinePropertiesPtrOutput) AdministratorAccount() VirtualMachine
 	}).(VirtualMachineSshCredentialsPtrOutput)
 }
 
-// Port open for ssh connections.
 func (o VirtualMachinePropertiesPtrOutput) SshPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineProperties) *int {
 		if v == nil {
@@ -3928,7 +3547,6 @@ func (o VirtualMachinePropertiesPtrOutput) SshPort() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Virtual Machine size
 func (o VirtualMachinePropertiesPtrOutput) VirtualMachineSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineProperties) *string {
 		if v == nil {
@@ -3938,26 +3556,16 @@ func (o VirtualMachinePropertiesPtrOutput) VirtualMachineSize() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// A Machine Learning compute based on Azure Virtual Machines.
 type VirtualMachineResponse struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'VirtualMachine'.
-	ComputeType string `pulumi:"computeType"`
-	// The date and time when the compute was created.
-	CreatedOn string `pulumi:"createdOn"`
-	// The description of the Machine Learning compute.
-	Description *string `pulumi:"description"`
-	// The date and time when the compute was last modified.
-	ModifiedOn string                            `pulumi:"modifiedOn"`
-	Properties *VirtualMachineResponseProperties `pulumi:"properties"`
-	// Errors during provisioning
+	ComputeLocation    *string                               `pulumi:"computeLocation"`
+	ComputeType        string                                `pulumi:"computeType"`
+	CreatedOn          string                                `pulumi:"createdOn"`
+	Description        *string                               `pulumi:"description"`
+	ModifiedOn         string                                `pulumi:"modifiedOn"`
+	Properties         *VirtualMachineResponseProperties     `pulumi:"properties"`
 	ProvisioningErrors []MachineLearningServiceErrorResponse `pulumi:"provisioningErrors"`
-	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// ARM resource id of the compute
-	ResourceId *string `pulumi:"resourceId"`
+	ProvisioningState  string                                `pulumi:"provisioningState"`
+	ResourceId         *string                               `pulumi:"resourceId"`
 }
 
 // VirtualMachineResponseInput is an input type that accepts VirtualMachineResponseArgs and VirtualMachineResponseOutput values.
@@ -3971,26 +3579,16 @@ type VirtualMachineResponseInput interface {
 	ToVirtualMachineResponseOutputWithContext(context.Context) VirtualMachineResponseOutput
 }
 
-// A Machine Learning compute based on Azure Virtual Machines.
 type VirtualMachineResponseArgs struct {
-	// Location for the underlying compute
-	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'VirtualMachine'.
-	ComputeType pulumi.StringInput `pulumi:"computeType"`
-	// The date and time when the compute was created.
-	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
-	// The description of the Machine Learning compute.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The date and time when the compute was last modified.
-	ModifiedOn pulumi.StringInput                       `pulumi:"modifiedOn"`
-	Properties VirtualMachineResponsePropertiesPtrInput `pulumi:"properties"`
-	// Errors during provisioning
+	ComputeLocation    pulumi.StringPtrInput                         `pulumi:"computeLocation"`
+	ComputeType        pulumi.StringInput                            `pulumi:"computeType"`
+	CreatedOn          pulumi.StringInput                            `pulumi:"createdOn"`
+	Description        pulumi.StringPtrInput                         `pulumi:"description"`
+	ModifiedOn         pulumi.StringInput                            `pulumi:"modifiedOn"`
+	Properties         VirtualMachineResponsePropertiesPtrInput      `pulumi:"properties"`
 	ProvisioningErrors MachineLearningServiceErrorResponseArrayInput `pulumi:"provisioningErrors"`
-	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// ARM resource id of the compute
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	ProvisioningState  pulumi.StringInput                            `pulumi:"provisioningState"`
+	ResourceId         pulumi.StringPtrInput                         `pulumi:"resourceId"`
 }
 
 func (VirtualMachineResponseArgs) ElementType() reflect.Type {
@@ -4005,7 +3603,6 @@ func (i VirtualMachineResponseArgs) ToVirtualMachineResponseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineResponseOutput)
 }
 
-// A Machine Learning compute based on Azure Virtual Machines.
 type VirtualMachineResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineResponseOutput) ElementType() reflect.Type {
@@ -4020,28 +3617,22 @@ func (o VirtualMachineResponseOutput) ToVirtualMachineResponseOutputWithContext(
 	return o
 }
 
-// Location for the underlying compute
 func (o VirtualMachineResponseOutput) ComputeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineResponse) *string { return v.ComputeLocation }).(pulumi.StringPtrOutput)
 }
 
-// The type of compute
-// Expected value is 'VirtualMachine'.
 func (o VirtualMachineResponseOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineResponse) string { return v.ComputeType }).(pulumi.StringOutput)
 }
 
-// The date and time when the compute was created.
 func (o VirtualMachineResponseOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
-// The description of the Machine Learning compute.
 func (o VirtualMachineResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The date and time when the compute was last modified.
 func (o VirtualMachineResponseOutput) ModifiedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineResponse) string { return v.ModifiedOn }).(pulumi.StringOutput)
 }
@@ -4050,30 +3641,23 @@ func (o VirtualMachineResponseOutput) Properties() VirtualMachineResponsePropert
 	return o.ApplyT(func(v VirtualMachineResponse) *VirtualMachineResponseProperties { return v.Properties }).(VirtualMachineResponsePropertiesPtrOutput)
 }
 
-// Errors during provisioning
 func (o VirtualMachineResponseOutput) ProvisioningErrors() MachineLearningServiceErrorResponseArrayOutput {
 	return o.ApplyT(func(v VirtualMachineResponse) []MachineLearningServiceErrorResponse { return v.ProvisioningErrors }).(MachineLearningServiceErrorResponseArrayOutput)
 }
 
-// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
 func (o VirtualMachineResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// ARM resource id of the compute
 func (o VirtualMachineResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 type VirtualMachineResponseProperties struct {
-	// Public IP address of the virtual machine.
-	Address *string `pulumi:"address"`
-	// Admin credentials for virtual machine
+	Address              *string                               `pulumi:"address"`
 	AdministratorAccount *VirtualMachineSshCredentialsResponse `pulumi:"administratorAccount"`
-	// Port open for ssh connections.
-	SshPort *int `pulumi:"sshPort"`
-	// Virtual Machine size
-	VirtualMachineSize *string `pulumi:"virtualMachineSize"`
+	SshPort              *int                                  `pulumi:"sshPort"`
+	VirtualMachineSize   *string                               `pulumi:"virtualMachineSize"`
 }
 
 // VirtualMachineResponsePropertiesInput is an input type that accepts VirtualMachineResponsePropertiesArgs and VirtualMachineResponsePropertiesOutput values.
@@ -4088,14 +3672,10 @@ type VirtualMachineResponsePropertiesInput interface {
 }
 
 type VirtualMachineResponsePropertiesArgs struct {
-	// Public IP address of the virtual machine.
-	Address pulumi.StringPtrInput `pulumi:"address"`
-	// Admin credentials for virtual machine
+	Address              pulumi.StringPtrInput                        `pulumi:"address"`
 	AdministratorAccount VirtualMachineSshCredentialsResponsePtrInput `pulumi:"administratorAccount"`
-	// Port open for ssh connections.
-	SshPort pulumi.IntPtrInput `pulumi:"sshPort"`
-	// Virtual Machine size
-	VirtualMachineSize pulumi.StringPtrInput `pulumi:"virtualMachineSize"`
+	SshPort              pulumi.IntPtrInput                           `pulumi:"sshPort"`
+	VirtualMachineSize   pulumi.StringPtrInput                        `pulumi:"virtualMachineSize"`
 }
 
 func (VirtualMachineResponsePropertiesArgs) ElementType() reflect.Type {
@@ -4170,29 +3750,25 @@ func (o VirtualMachineResponsePropertiesOutput) ToVirtualMachineResponseProperti
 }
 
 func (o VirtualMachineResponsePropertiesOutput) ToVirtualMachineResponsePropertiesPtrOutputWithContext(ctx context.Context) VirtualMachineResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v VirtualMachineResponseProperties) *VirtualMachineResponseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineResponseProperties) *VirtualMachineResponseProperties {
 		return &v
 	}).(VirtualMachineResponsePropertiesPtrOutput)
 }
 
-// Public IP address of the virtual machine.
 func (o VirtualMachineResponsePropertiesOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineResponseProperties) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// Admin credentials for virtual machine
 func (o VirtualMachineResponsePropertiesOutput) AdministratorAccount() VirtualMachineSshCredentialsResponsePtrOutput {
 	return o.ApplyT(func(v VirtualMachineResponseProperties) *VirtualMachineSshCredentialsResponse {
 		return v.AdministratorAccount
 	}).(VirtualMachineSshCredentialsResponsePtrOutput)
 }
 
-// Port open for ssh connections.
 func (o VirtualMachineResponsePropertiesOutput) SshPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualMachineResponseProperties) *int { return v.SshPort }).(pulumi.IntPtrOutput)
 }
 
-// Virtual Machine size
 func (o VirtualMachineResponsePropertiesOutput) VirtualMachineSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineResponseProperties) *string { return v.VirtualMachineSize }).(pulumi.StringPtrOutput)
 }
@@ -4212,10 +3788,15 @@ func (o VirtualMachineResponsePropertiesPtrOutput) ToVirtualMachineResponsePrope
 }
 
 func (o VirtualMachineResponsePropertiesPtrOutput) Elem() VirtualMachineResponsePropertiesOutput {
-	return o.ApplyT(func(v *VirtualMachineResponseProperties) VirtualMachineResponseProperties { return *v }).(VirtualMachineResponsePropertiesOutput)
+	return o.ApplyT(func(v *VirtualMachineResponseProperties) VirtualMachineResponseProperties {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineResponseProperties
+		return ret
+	}).(VirtualMachineResponsePropertiesOutput)
 }
 
-// Public IP address of the virtual machine.
 func (o VirtualMachineResponsePropertiesPtrOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineResponseProperties) *string {
 		if v == nil {
@@ -4225,7 +3806,6 @@ func (o VirtualMachineResponsePropertiesPtrOutput) Address() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Admin credentials for virtual machine
 func (o VirtualMachineResponsePropertiesPtrOutput) AdministratorAccount() VirtualMachineSshCredentialsResponsePtrOutput {
 	return o.ApplyT(func(v *VirtualMachineResponseProperties) *VirtualMachineSshCredentialsResponse {
 		if v == nil {
@@ -4235,7 +3815,6 @@ func (o VirtualMachineResponsePropertiesPtrOutput) AdministratorAccount() Virtua
 	}).(VirtualMachineSshCredentialsResponsePtrOutput)
 }
 
-// Port open for ssh connections.
 func (o VirtualMachineResponsePropertiesPtrOutput) SshPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineResponseProperties) *int {
 		if v == nil {
@@ -4245,7 +3824,6 @@ func (o VirtualMachineResponsePropertiesPtrOutput) SshPort() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Virtual Machine size
 func (o VirtualMachineResponsePropertiesPtrOutput) VirtualMachineSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineResponseProperties) *string {
 		if v == nil {
@@ -4255,16 +3833,11 @@ func (o VirtualMachineResponsePropertiesPtrOutput) VirtualMachineSize() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Admin credentials for virtual machine
 type VirtualMachineSshCredentials struct {
-	// Password of admin account
-	Password *string `pulumi:"password"`
-	// Private key data
+	Password       *string `pulumi:"password"`
 	PrivateKeyData *string `pulumi:"privateKeyData"`
-	// Public key data
-	PublicKeyData *string `pulumi:"publicKeyData"`
-	// Username of admin account
-	Username *string `pulumi:"username"`
+	PublicKeyData  *string `pulumi:"publicKeyData"`
+	Username       *string `pulumi:"username"`
 }
 
 // VirtualMachineSshCredentialsInput is an input type that accepts VirtualMachineSshCredentialsArgs and VirtualMachineSshCredentialsOutput values.
@@ -4278,16 +3851,11 @@ type VirtualMachineSshCredentialsInput interface {
 	ToVirtualMachineSshCredentialsOutputWithContext(context.Context) VirtualMachineSshCredentialsOutput
 }
 
-// Admin credentials for virtual machine
 type VirtualMachineSshCredentialsArgs struct {
-	// Password of admin account
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Private key data
+	Password       pulumi.StringPtrInput `pulumi:"password"`
 	PrivateKeyData pulumi.StringPtrInput `pulumi:"privateKeyData"`
-	// Public key data
-	PublicKeyData pulumi.StringPtrInput `pulumi:"publicKeyData"`
-	// Username of admin account
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	PublicKeyData  pulumi.StringPtrInput `pulumi:"publicKeyData"`
+	Username       pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (VirtualMachineSshCredentialsArgs) ElementType() reflect.Type {
@@ -4343,7 +3911,6 @@ func (i *virtualMachineSshCredentialsPtrType) ToVirtualMachineSshCredentialsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineSshCredentialsPtrOutput)
 }
 
-// Admin credentials for virtual machine
 type VirtualMachineSshCredentialsOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineSshCredentialsOutput) ElementType() reflect.Type {
@@ -4363,27 +3930,23 @@ func (o VirtualMachineSshCredentialsOutput) ToVirtualMachineSshCredentialsPtrOut
 }
 
 func (o VirtualMachineSshCredentialsOutput) ToVirtualMachineSshCredentialsPtrOutputWithContext(ctx context.Context) VirtualMachineSshCredentialsPtrOutput {
-	return o.ApplyT(func(v VirtualMachineSshCredentials) *VirtualMachineSshCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineSshCredentials) *VirtualMachineSshCredentials {
 		return &v
 	}).(VirtualMachineSshCredentialsPtrOutput)
 }
 
-// Password of admin account
 func (o VirtualMachineSshCredentialsOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineSshCredentials) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Private key data
 func (o VirtualMachineSshCredentialsOutput) PrivateKeyData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineSshCredentials) *string { return v.PrivateKeyData }).(pulumi.StringPtrOutput)
 }
 
-// Public key data
 func (o VirtualMachineSshCredentialsOutput) PublicKeyData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineSshCredentials) *string { return v.PublicKeyData }).(pulumi.StringPtrOutput)
 }
 
-// Username of admin account
 func (o VirtualMachineSshCredentialsOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineSshCredentials) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -4403,10 +3966,15 @@ func (o VirtualMachineSshCredentialsPtrOutput) ToVirtualMachineSshCredentialsPtr
 }
 
 func (o VirtualMachineSshCredentialsPtrOutput) Elem() VirtualMachineSshCredentialsOutput {
-	return o.ApplyT(func(v *VirtualMachineSshCredentials) VirtualMachineSshCredentials { return *v }).(VirtualMachineSshCredentialsOutput)
+	return o.ApplyT(func(v *VirtualMachineSshCredentials) VirtualMachineSshCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineSshCredentials
+		return ret
+	}).(VirtualMachineSshCredentialsOutput)
 }
 
-// Password of admin account
 func (o VirtualMachineSshCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineSshCredentials) *string {
 		if v == nil {
@@ -4416,7 +3984,6 @@ func (o VirtualMachineSshCredentialsPtrOutput) Password() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private key data
 func (o VirtualMachineSshCredentialsPtrOutput) PrivateKeyData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineSshCredentials) *string {
 		if v == nil {
@@ -4426,7 +3993,6 @@ func (o VirtualMachineSshCredentialsPtrOutput) PrivateKeyData() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Public key data
 func (o VirtualMachineSshCredentialsPtrOutput) PublicKeyData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineSshCredentials) *string {
 		if v == nil {
@@ -4436,7 +4002,6 @@ func (o VirtualMachineSshCredentialsPtrOutput) PublicKeyData() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username of admin account
 func (o VirtualMachineSshCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineSshCredentials) *string {
 		if v == nil {
@@ -4446,16 +4011,11 @@ func (o VirtualMachineSshCredentialsPtrOutput) Username() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Admin credentials for virtual machine
 type VirtualMachineSshCredentialsResponse struct {
-	// Password of admin account
-	Password *string `pulumi:"password"`
-	// Private key data
+	Password       *string `pulumi:"password"`
 	PrivateKeyData *string `pulumi:"privateKeyData"`
-	// Public key data
-	PublicKeyData *string `pulumi:"publicKeyData"`
-	// Username of admin account
-	Username *string `pulumi:"username"`
+	PublicKeyData  *string `pulumi:"publicKeyData"`
+	Username       *string `pulumi:"username"`
 }
 
 // VirtualMachineSshCredentialsResponseInput is an input type that accepts VirtualMachineSshCredentialsResponseArgs and VirtualMachineSshCredentialsResponseOutput values.
@@ -4469,16 +4029,11 @@ type VirtualMachineSshCredentialsResponseInput interface {
 	ToVirtualMachineSshCredentialsResponseOutputWithContext(context.Context) VirtualMachineSshCredentialsResponseOutput
 }
 
-// Admin credentials for virtual machine
 type VirtualMachineSshCredentialsResponseArgs struct {
-	// Password of admin account
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Private key data
+	Password       pulumi.StringPtrInput `pulumi:"password"`
 	PrivateKeyData pulumi.StringPtrInput `pulumi:"privateKeyData"`
-	// Public key data
-	PublicKeyData pulumi.StringPtrInput `pulumi:"publicKeyData"`
-	// Username of admin account
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	PublicKeyData  pulumi.StringPtrInput `pulumi:"publicKeyData"`
+	Username       pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (VirtualMachineSshCredentialsResponseArgs) ElementType() reflect.Type {
@@ -4534,7 +4089,6 @@ func (i *virtualMachineSshCredentialsResponsePtrType) ToVirtualMachineSshCredent
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineSshCredentialsResponsePtrOutput)
 }
 
-// Admin credentials for virtual machine
 type VirtualMachineSshCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineSshCredentialsResponseOutput) ElementType() reflect.Type {
@@ -4554,27 +4108,23 @@ func (o VirtualMachineSshCredentialsResponseOutput) ToVirtualMachineSshCredentia
 }
 
 func (o VirtualMachineSshCredentialsResponseOutput) ToVirtualMachineSshCredentialsResponsePtrOutputWithContext(ctx context.Context) VirtualMachineSshCredentialsResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineSshCredentialsResponse) *VirtualMachineSshCredentialsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineSshCredentialsResponse) *VirtualMachineSshCredentialsResponse {
 		return &v
 	}).(VirtualMachineSshCredentialsResponsePtrOutput)
 }
 
-// Password of admin account
 func (o VirtualMachineSshCredentialsResponseOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineSshCredentialsResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Private key data
 func (o VirtualMachineSshCredentialsResponseOutput) PrivateKeyData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineSshCredentialsResponse) *string { return v.PrivateKeyData }).(pulumi.StringPtrOutput)
 }
 
-// Public key data
 func (o VirtualMachineSshCredentialsResponseOutput) PublicKeyData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineSshCredentialsResponse) *string { return v.PublicKeyData }).(pulumi.StringPtrOutput)
 }
 
-// Username of admin account
 func (o VirtualMachineSshCredentialsResponseOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineSshCredentialsResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -4594,10 +4144,15 @@ func (o VirtualMachineSshCredentialsResponsePtrOutput) ToVirtualMachineSshCreden
 }
 
 func (o VirtualMachineSshCredentialsResponsePtrOutput) Elem() VirtualMachineSshCredentialsResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineSshCredentialsResponse) VirtualMachineSshCredentialsResponse { return *v }).(VirtualMachineSshCredentialsResponseOutput)
+	return o.ApplyT(func(v *VirtualMachineSshCredentialsResponse) VirtualMachineSshCredentialsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineSshCredentialsResponse
+		return ret
+	}).(VirtualMachineSshCredentialsResponseOutput)
 }
 
-// Password of admin account
 func (o VirtualMachineSshCredentialsResponsePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineSshCredentialsResponse) *string {
 		if v == nil {
@@ -4607,7 +4162,6 @@ func (o VirtualMachineSshCredentialsResponsePtrOutput) Password() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private key data
 func (o VirtualMachineSshCredentialsResponsePtrOutput) PrivateKeyData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineSshCredentialsResponse) *string {
 		if v == nil {
@@ -4617,7 +4171,6 @@ func (o VirtualMachineSshCredentialsResponsePtrOutput) PrivateKeyData() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Public key data
 func (o VirtualMachineSshCredentialsResponsePtrOutput) PublicKeyData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineSshCredentialsResponse) *string {
 		if v == nil {
@@ -4627,7 +4180,6 @@ func (o VirtualMachineSshCredentialsResponsePtrOutput) PublicKeyData() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username of admin account
 func (o VirtualMachineSshCredentialsResponsePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineSshCredentialsResponse) *string {
 		if v == nil {

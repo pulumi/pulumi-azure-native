@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Collection of backup items.
 func ListWebAppSiteBackupsSlot(ctx *pulumi.Context, args *ListWebAppSiteBackupsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppSiteBackupsSlotResult, error) {
 	var rv ListWebAppSiteBackupsSlotResult
 	err := ctx.Invoke("azure-native:web/v20201001:listWebAppSiteBackupsSlot", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListWebAppSiteBackupsSlot(ctx *pulumi.Context, args *ListWebAppSiteBackupsS
 }
 
 type ListWebAppSiteBackupsSlotArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will get backups of the production slot.
-	Slot string `pulumi:"slot"`
+	Slot              string `pulumi:"slot"`
 }
 
 // Collection of backup items.
 type ListWebAppSiteBackupsSlotResult struct {
-	// Link to next page of resources.
-	NextLink string `pulumi:"nextLink"`
-	// Collection of resources.
-	Value []BackupItemResponse `pulumi:"value"`
+	NextLink string               `pulumi:"nextLink"`
+	Value    []BackupItemResponse `pulumi:"value"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Server Endpoint object.
 func LookupServerEndpoint(ctx *pulumi.Context, args *LookupServerEndpointArgs, opts ...pulumi.InvokeOption) (*LookupServerEndpointResult, error) {
 	var rv LookupServerEndpointResult
 	err := ctx.Invoke("azure-native:storagesync/v20181001:getServerEndpoint", args, &rv, opts...)
@@ -18,50 +17,29 @@ func LookupServerEndpoint(ctx *pulumi.Context, args *LookupServerEndpointArgs, o
 }
 
 type LookupServerEndpointArgs struct {
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Server Endpoint object.
-	ServerEndpointName string `pulumi:"serverEndpointName"`
-	// Name of Storage Sync Service resource.
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
+	ServerEndpointName     string `pulumi:"serverEndpointName"`
 	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
-	// Name of Sync Group resource.
-	SyncGroupName string `pulumi:"syncGroupName"`
+	SyncGroupName          string `pulumi:"syncGroupName"`
 }
 
 // Server Endpoint object.
 type LookupServerEndpointResult struct {
-	// Cloud Tiering.
-	CloudTiering *string `pulumi:"cloudTiering"`
-	// Friendly Name
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Resource Last Operation Name
-	LastOperationName *string `pulumi:"lastOperationName"`
-	// ServerEndpoint lastWorkflowId
-	LastWorkflowId *string `pulumi:"lastWorkflowId"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Offline data transfer
-	OfflineDataTransfer *string `pulumi:"offlineDataTransfer"`
-	// Offline data transfer share name
-	OfflineDataTransferShareName *string `pulumi:"offlineDataTransferShareName"`
-	// Offline data transfer storage account resource ID
-	OfflineDataTransferStorageAccountResourceId string `pulumi:"offlineDataTransferStorageAccountResourceId"`
-	// Offline data transfer storage account tenant ID
-	OfflineDataTransferStorageAccountTenantId string `pulumi:"offlineDataTransferStorageAccountTenantId"`
-	// ServerEndpoint Provisioning State
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Server Local path.
-	ServerLocalPath *string `pulumi:"serverLocalPath"`
-	// Server Resource Id.
-	ServerResourceId *string `pulumi:"serverResourceId"`
-	// Server Endpoint properties.
-	SyncStatus *ServerEndpointHealthResponse `pulumi:"syncStatus"`
-	// Tier files older than days.
-	TierFilesOlderThanDays *int `pulumi:"tierFilesOlderThanDays"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
-	// Level of free space to be maintained by Cloud Tiering if it is enabled.
-	VolumeFreeSpacePercent *int `pulumi:"volumeFreeSpacePercent"`
+	CloudTiering                                *string                       `pulumi:"cloudTiering"`
+	FriendlyName                                *string                       `pulumi:"friendlyName"`
+	Id                                          string                        `pulumi:"id"`
+	LastOperationName                           *string                       `pulumi:"lastOperationName"`
+	LastWorkflowId                              *string                       `pulumi:"lastWorkflowId"`
+	Name                                        string                        `pulumi:"name"`
+	OfflineDataTransfer                         *string                       `pulumi:"offlineDataTransfer"`
+	OfflineDataTransferShareName                *string                       `pulumi:"offlineDataTransferShareName"`
+	OfflineDataTransferStorageAccountResourceId string                        `pulumi:"offlineDataTransferStorageAccountResourceId"`
+	OfflineDataTransferStorageAccountTenantId   string                        `pulumi:"offlineDataTransferStorageAccountTenantId"`
+	ProvisioningState                           *string                       `pulumi:"provisioningState"`
+	ServerLocalPath                             *string                       `pulumi:"serverLocalPath"`
+	ServerResourceId                            *string                       `pulumi:"serverResourceId"`
+	SyncStatus                                  *ServerEndpointHealthResponse `pulumi:"syncStatus"`
+	TierFilesOlderThanDays                      *int                          `pulumi:"tierFilesOlderThanDays"`
+	Type                                        string                        `pulumi:"type"`
+	VolumeFreeSpacePercent                      *int                          `pulumi:"volumeFreeSpacePercent"`
 }

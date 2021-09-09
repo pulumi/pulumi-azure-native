@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The top level Log Analytics cluster resource container.
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// The ID associated with the cluster.
-	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
-	// The identity of the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// The associated key properties.
+	ClusterId          pulumi.StringOutput                 `pulumi:"clusterId"`
+	Identity           IdentityResponsePtrOutput           `pulumi:"identity"`
 	KeyVaultProperties KeyVaultPropertiesResponsePtrOutput `pulumi:"keyVaultProperties"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The link used to get the next page of recommendations.
-	NextLink pulumi.StringPtrOutput `pulumi:"nextLink"`
-	// The provisioning state of the cluster.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The sku properties.
-	Sku ClusterSkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location           pulumi.StringOutput                 `pulumi:"location"`
+	Name               pulumi.StringOutput                 `pulumi:"name"`
+	NextLink           pulumi.StringPtrOutput              `pulumi:"nextLink"`
+	ProvisioningState  pulumi.StringOutput                 `pulumi:"provisioningState"`
+	Sku                ClusterSkuResponsePtrOutput         `pulumi:"sku"`
+	Tags               pulumi.StringMapOutput              `pulumi:"tags"`
+	Type               pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -115,42 +104,26 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// The name of the Log Analytics cluster.
-	ClusterName *string `pulumi:"clusterName"`
-	// The identity of the resource.
-	Identity *Identity `pulumi:"identity"`
-	// The associated key properties.
+	ClusterName        *string             `pulumi:"clusterName"`
+	Identity           *Identity           `pulumi:"identity"`
 	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The link used to get the next page of recommendations.
-	NextLink *string `pulumi:"nextLink"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku properties.
-	Sku *ClusterSku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location           *string             `pulumi:"location"`
+	NextLink           *string             `pulumi:"nextLink"`
+	ResourceGroupName  string              `pulumi:"resourceGroupName"`
+	Sku                *ClusterSku         `pulumi:"sku"`
+	Tags               map[string]string   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// The name of the Log Analytics cluster.
-	ClusterName pulumi.StringPtrInput
-	// The identity of the resource.
-	Identity IdentityPtrInput
-	// The associated key properties.
+	ClusterName        pulumi.StringPtrInput
+	Identity           IdentityPtrInput
 	KeyVaultProperties KeyVaultPropertiesPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The link used to get the next page of recommendations.
-	NextLink pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The sku properties.
-	Sku ClusterSkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Location           pulumi.StringPtrInput
+	NextLink           pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	Sku                ClusterSkuPtrInput
+	Tags               pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -176,9 +149,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
 }
 
-type ClusterOutput struct {
-	*pulumi.OutputState
-}
+type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cluster)(nil))

@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A data set mapping data transfer object.
-//
 // Deprecated: Please use one of the variants: ADLSGen2FileDataSetMapping, ADLSGen2FileSystemDataSetMapping, ADLSGen2FolderDataSetMapping, BlobContainerDataSetMapping, BlobDataSetMapping, BlobFolderDataSetMapping, KustoClusterDataSetMapping, KustoDatabaseDataSetMapping, SqlDBTableDataSetMapping, SqlDWTableDataSetMapping, SynapseWorkspaceSqlPoolTableDataSetMapping.
 type DataSetMapping struct {
 	pulumi.CustomResourceState
 
-	// Kind of data set mapping.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// System Data of the Azure resource.
+	Kind       pulumi.StringOutput      `pulumi:"kind"`
+	Name       pulumi.StringOutput      `pulumi:"name"`
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewDataSetMapping registers a new resource with the given unique name, arguments, and options.
@@ -108,29 +102,19 @@ func (DataSetMappingState) ElementType() reflect.Type {
 }
 
 type dataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the data set mapping to be created.
-	DataSetMappingName *string `pulumi:"dataSetMappingName"`
-	// Kind of data set mapping.
-	Kind string `pulumi:"kind"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share subscription which will hold the data set sink.
-	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
+	AccountName           string  `pulumi:"accountName"`
+	DataSetMappingName    *string `pulumi:"dataSetMappingName"`
+	Kind                  string  `pulumi:"kind"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	ShareSubscriptionName string  `pulumi:"shareSubscriptionName"`
 }
 
 // The set of arguments for constructing a DataSetMapping resource.
 type DataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// The name of the data set mapping to be created.
-	DataSetMappingName pulumi.StringPtrInput
-	// Kind of data set mapping.
-	Kind pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share subscription which will hold the data set sink.
+	AccountName           pulumi.StringInput
+	DataSetMappingName    pulumi.StringPtrInput
+	Kind                  pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 	ShareSubscriptionName pulumi.StringInput
 }
 
@@ -157,9 +141,7 @@ func (i *DataSetMapping) ToDataSetMappingOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetMappingOutput)
 }
 
-type DataSetMappingOutput struct {
-	*pulumi.OutputState
-}
+type DataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (DataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataSetMapping)(nil))

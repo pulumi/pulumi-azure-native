@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Policy Contract details.
 type ApiOperationPolicy struct {
 	pulumi.CustomResourceState
 
-	// Format of the policyContent.
 	Format pulumi.StringPtrOutput `pulumi:"format"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Contents of the Policy as defined by the format.
-	Value pulumi.StringOutput `pulumi:"value"`
+	Name   pulumi.StringOutput    `pulumi:"name"`
+	Type   pulumi.StringOutput    `pulumi:"type"`
+	Value  pulumi.StringOutput    `pulumi:"value"`
 }
 
 // NewApiOperationPolicy registers a new resource with the given unique name, arguments, and options.
@@ -142,38 +137,24 @@ func (ApiOperationPolicyState) ElementType() reflect.Type {
 }
 
 type apiOperationPolicyArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId string `pulumi:"apiId"`
-	// Format of the policyContent.
-	Format *string `pulumi:"format"`
-	// Operation identifier within an API. Must be unique in the current API Management service instance.
-	OperationId string `pulumi:"operationId"`
-	// The identifier of the Policy.
-	PolicyId *string `pulumi:"policyId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Contents of the Policy as defined by the format.
-	Value string `pulumi:"value"`
+	ApiId             string  `pulumi:"apiId"`
+	Format            *string `pulumi:"format"`
+	OperationId       string  `pulumi:"operationId"`
+	PolicyId          *string `pulumi:"policyId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
+	Value             string  `pulumi:"value"`
 }
 
 // The set of arguments for constructing a ApiOperationPolicy resource.
 type ApiOperationPolicyArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId pulumi.StringInput
-	// Format of the policyContent.
-	Format pulumi.StringPtrInput
-	// Operation identifier within an API. Must be unique in the current API Management service instance.
-	OperationId pulumi.StringInput
-	// The identifier of the Policy.
-	PolicyId pulumi.StringPtrInput
-	// The name of the resource group.
+	ApiId             pulumi.StringInput
+	Format            pulumi.StringPtrInput
+	OperationId       pulumi.StringInput
+	PolicyId          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Contents of the Policy as defined by the format.
-	Value pulumi.StringInput
+	ServiceName       pulumi.StringInput
+	Value             pulumi.StringInput
 }
 
 func (ApiOperationPolicyArgs) ElementType() reflect.Type {
@@ -199,9 +180,7 @@ func (i *ApiOperationPolicy) ToApiOperationPolicyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationPolicyOutput)
 }
 
-type ApiOperationPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ApiOperationPolicyOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperationPolicy)(nil))

@@ -140,9 +140,7 @@ func (i *LinkedStorageAccount) ToLinkedStorageAccountOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedStorageAccountOutput)
 }
 
-type LinkedStorageAccountOutput struct {
-	*pulumi.OutputState
-}
+type LinkedStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (LinkedStorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedStorageAccount)(nil))

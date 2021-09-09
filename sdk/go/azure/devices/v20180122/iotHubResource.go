@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The description of the IoT hub.
 type IotHubResource struct {
 	pulumi.CustomResourceState
 
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of an IoT hub.
+	Etag       pulumi.StringPtrOutput         `pulumi:"etag"`
+	Location   pulumi.StringOutput            `pulumi:"location"`
+	Name       pulumi.StringOutput            `pulumi:"name"`
 	Properties IotHubPropertiesResponseOutput `pulumi:"properties"`
-	// Information about the SKU of the IoT hub.
-	Sku IotHubSkuInfoResponseOutput `pulumi:"sku"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        IotHubSkuInfoResponseOutput    `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput         `pulumi:"tags"`
+	Type       pulumi.StringOutput            `pulumi:"type"`
 }
 
 // NewIotHubResource registers a new resource with the given unique name, arguments, and options.
@@ -214,38 +206,24 @@ func (IotHubResourceState) ElementType() reflect.Type {
 }
 
 type iotHubResourceArgs struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag *string `pulumi:"etag"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The properties of an IoT hub.
-	Properties *IotHubProperties `pulumi:"properties"`
-	// The name of the resource group that contains the IoT hub.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the IoT hub.
-	ResourceName *string `pulumi:"resourceName"`
-	// Information about the SKU of the IoT hub.
-	Sku IotHubSkuInfo `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Etag              *string           `pulumi:"etag"`
+	Location          *string           `pulumi:"location"`
+	Properties        *IotHubProperties `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ResourceName      *string           `pulumi:"resourceName"`
+	Sku               IotHubSkuInfo     `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IotHubResource resource.
 type IotHubResourceArgs struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The properties of an IoT hub.
-	Properties IotHubPropertiesPtrInput
-	// The name of the resource group that contains the IoT hub.
+	Etag              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        IotHubPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the IoT hub.
-	ResourceName pulumi.StringPtrInput
-	// Information about the SKU of the IoT hub.
-	Sku IotHubSkuInfoInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	ResourceName      pulumi.StringPtrInput
+	Sku               IotHubSkuInfoInput
+	Tags              pulumi.StringMapInput
 }
 
 func (IotHubResourceArgs) ElementType() reflect.Type {
@@ -271,9 +249,7 @@ func (i *IotHubResource) ToIotHubResourceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubResourceOutput)
 }
 
-type IotHubResourceOutput struct {
-	*pulumi.OutputState
-}
+type IotHubResourceOutput struct{ *pulumi.OutputState }
 
 func (IotHubResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotHubResource)(nil))

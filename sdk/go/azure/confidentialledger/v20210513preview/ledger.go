@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Confidential Ledger. Contains the properties of Confidential Ledger Resource.
 type Ledger struct {
 	pulumi.CustomResourceState
 
-	// The Azure location where the Confidential Ledger is running.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Name of the Resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of Confidential Ledger Resource.
+	Location   pulumi.StringPtrOutput         `pulumi:"location"`
+	Name       pulumi.StringOutput            `pulumi:"name"`
 	Properties LedgerPropertiesResponseOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Additional tags for Confidential Ledger
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput       `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput         `pulumi:"tags"`
+	Type       pulumi.StringOutput            `pulumi:"type"`
 }
 
 // NewLedger registers a new resource with the given unique name, arguments, and options.
@@ -89,30 +82,20 @@ func (LedgerState) ElementType() reflect.Type {
 }
 
 type ledgerArgs struct {
-	// Name of the Confidential Ledger
-	LedgerName *string `pulumi:"ledgerName"`
-	// The Azure location where the Confidential Ledger is running.
-	Location *string `pulumi:"location"`
-	// Properties of Confidential Ledger Resource.
-	Properties *LedgerProperties `pulumi:"properties"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Additional tags for Confidential Ledger
-	Tags map[string]string `pulumi:"tags"`
+	LedgerName        *string           `pulumi:"ledgerName"`
+	Location          *string           `pulumi:"location"`
+	Properties        *LedgerProperties `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Ledger resource.
 type LedgerArgs struct {
-	// Name of the Confidential Ledger
-	LedgerName pulumi.StringPtrInput
-	// The Azure location where the Confidential Ledger is running.
-	Location pulumi.StringPtrInput
-	// Properties of Confidential Ledger Resource.
-	Properties LedgerPropertiesPtrInput
-	// The name of the resource group.
+	LedgerName        pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        LedgerPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Additional tags for Confidential Ledger
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (LedgerArgs) ElementType() reflect.Type {
@@ -138,9 +121,7 @@ func (i *Ledger) ToLedgerOutputWithContext(ctx context.Context) LedgerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LedgerOutput)
 }
 
-type LedgerOutput struct {
-	*pulumi.OutputState
-}
+type LedgerOutput struct{ *pulumi.OutputState }
 
 func (LedgerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Ledger)(nil))

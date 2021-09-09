@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Tag Contract details.
 type TagByApi struct {
 	pulumi.CustomResourceState
 
-	// Tag name.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name        pulumi.StringOutput `pulumi:"name"`
+	Type        pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewTagByApi registers a new resource with the given unique name, arguments, and options.
@@ -131,26 +127,18 @@ func (TagByApiState) ElementType() reflect.Type {
 }
 
 type tagByApiArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId string `pulumi:"apiId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Tag identifier. Must be unique in the current API Management service instance.
-	TagId *string `pulumi:"tagId"`
+	ApiId             string  `pulumi:"apiId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
+	TagId             *string `pulumi:"tagId"`
 }
 
 // The set of arguments for constructing a TagByApi resource.
 type TagByApiArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId pulumi.StringInput
-	// The name of the resource group.
+	ApiId             pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Tag identifier. Must be unique in the current API Management service instance.
-	TagId pulumi.StringPtrInput
+	ServiceName       pulumi.StringInput
+	TagId             pulumi.StringPtrInput
 }
 
 func (TagByApiArgs) ElementType() reflect.Type {
@@ -176,9 +164,7 @@ func (i *TagByApi) ToTagByApiOutputWithContext(ctx context.Context) TagByApiOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TagByApiOutput)
 }
 
-type TagByApiOutput struct {
-	*pulumi.OutputState
-}
+type TagByApiOutput struct{ *pulumi.OutputState }
 
 func (TagByApiOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TagByApi)(nil))

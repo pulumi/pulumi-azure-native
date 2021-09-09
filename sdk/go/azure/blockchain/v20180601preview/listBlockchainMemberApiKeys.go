@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Collection of the API key payload which is exposed in the response of the resource provider.
 func ListBlockchainMemberApiKeys(ctx *pulumi.Context, args *ListBlockchainMemberApiKeysArgs, opts ...pulumi.InvokeOption) (*ListBlockchainMemberApiKeysResult, error) {
 	var rv ListBlockchainMemberApiKeysResult
 	err := ctx.Invoke("azure-native:blockchain/v20180601preview:listBlockchainMemberApiKeys", args, &rv, opts...)
@@ -18,14 +17,11 @@ func ListBlockchainMemberApiKeys(ctx *pulumi.Context, args *ListBlockchainMember
 }
 
 type ListBlockchainMemberApiKeysArgs struct {
-	// Blockchain member name.
 	BlockchainMemberName string `pulumi:"blockchainMemberName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
 }
 
 // Collection of the API key payload which is exposed in the response of the resource provider.
 type ListBlockchainMemberApiKeysResult struct {
-	// Gets or sets the collection of API key.
 	Keys []ApiKeyResponse `pulumi:"keys"`
 }

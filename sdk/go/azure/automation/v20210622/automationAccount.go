@@ -11,46 +11,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the automation account type.
 type AutomationAccount struct {
 	pulumi.CustomResourceState
 
-	// URL of automation hybrid service which is used for hybrid worker on-boarding.
-	AutomationHybridServiceUrl pulumi.StringPtrOutput `pulumi:"automationHybridServiceUrl"`
-	// Gets the creation time.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Indicates whether requests using non-AAD authentication are blocked
-	DisableLocalAuth pulumi.BoolPtrOutput `pulumi:"disableLocalAuth"`
-	// Encryption properties for the automation account
-	Encryption EncryptionPropertiesResponsePtrOutput `pulumi:"encryption"`
-	// Gets or sets the etag of the resource.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Identity for the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// Gets or sets the last modified by.
-	LastModifiedBy pulumi.StringPtrOutput `pulumi:"lastModifiedBy"`
-	// Gets the last modified time.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of Automation operations supported by the Automation resource provider.
+	AutomationHybridServiceUrl pulumi.StringPtrOutput                       `pulumi:"automationHybridServiceUrl"`
+	CreationTime               pulumi.StringOutput                          `pulumi:"creationTime"`
+	Description                pulumi.StringPtrOutput                       `pulumi:"description"`
+	DisableLocalAuth           pulumi.BoolPtrOutput                         `pulumi:"disableLocalAuth"`
+	Encryption                 EncryptionPropertiesResponsePtrOutput        `pulumi:"encryption"`
+	Etag                       pulumi.StringPtrOutput                       `pulumi:"etag"`
+	Identity                   IdentityResponsePtrOutput                    `pulumi:"identity"`
+	LastModifiedBy             pulumi.StringPtrOutput                       `pulumi:"lastModifiedBy"`
+	LastModifiedTime           pulumi.StringOutput                          `pulumi:"lastModifiedTime"`
+	Location                   pulumi.StringPtrOutput                       `pulumi:"location"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
-	PublicNetworkAccess pulumi.BoolPtrOutput `pulumi:"publicNetworkAccess"`
-	// Gets or sets the SKU of account.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Gets status of account.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Resource system metadata.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	PublicNetworkAccess        pulumi.BoolPtrOutput                         `pulumi:"publicNetworkAccess"`
+	Sku                        SkuResponsePtrOutput                         `pulumi:"sku"`
+	State                      pulumi.StringOutput                          `pulumi:"state"`
+	SystemData                 SystemDataResponseOutput                     `pulumi:"systemData"`
+	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
+	Type                       pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewAutomationAccount registers a new resource with the given unique name, arguments, and options.
@@ -125,50 +106,30 @@ func (AutomationAccountState) ElementType() reflect.Type {
 }
 
 type automationAccountArgs struct {
-	// The name of the automation account.
-	AutomationAccountName *string `pulumi:"automationAccountName"`
-	// Indicates whether requests using non-AAD authentication are blocked
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// Set the encryption properties for the automation account
-	Encryption *EncryptionProperties `pulumi:"encryption"`
-	// Sets the identity property for automation account
-	Identity *Identity `pulumi:"identity"`
-	// Gets or sets the location of the resource.
-	Location *string `pulumi:"location"`
-	// Gets or sets name of the resource.
-	Name *string `pulumi:"name"`
-	// Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
-	PublicNetworkAccess *bool `pulumi:"publicNetworkAccess"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets account SKU.
-	Sku *Sku `pulumi:"sku"`
-	// Gets or sets the tags attached to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	AutomationAccountName *string               `pulumi:"automationAccountName"`
+	DisableLocalAuth      *bool                 `pulumi:"disableLocalAuth"`
+	Encryption            *EncryptionProperties `pulumi:"encryption"`
+	Identity              *Identity             `pulumi:"identity"`
+	Location              *string               `pulumi:"location"`
+	Name                  *string               `pulumi:"name"`
+	PublicNetworkAccess   *bool                 `pulumi:"publicNetworkAccess"`
+	ResourceGroupName     string                `pulumi:"resourceGroupName"`
+	Sku                   *Sku                  `pulumi:"sku"`
+	Tags                  map[string]string     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AutomationAccount resource.
 type AutomationAccountArgs struct {
-	// The name of the automation account.
 	AutomationAccountName pulumi.StringPtrInput
-	// Indicates whether requests using non-AAD authentication are blocked
-	DisableLocalAuth pulumi.BoolPtrInput
-	// Set the encryption properties for the automation account
-	Encryption EncryptionPropertiesPtrInput
-	// Sets the identity property for automation account
-	Identity IdentityPtrInput
-	// Gets or sets the location of the resource.
-	Location pulumi.StringPtrInput
-	// Gets or sets name of the resource.
-	Name pulumi.StringPtrInput
-	// Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
-	PublicNetworkAccess pulumi.BoolPtrInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets account SKU.
-	Sku SkuPtrInput
-	// Gets or sets the tags attached to the resource.
-	Tags pulumi.StringMapInput
+	DisableLocalAuth      pulumi.BoolPtrInput
+	Encryption            EncryptionPropertiesPtrInput
+	Identity              IdentityPtrInput
+	Location              pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
+	PublicNetworkAccess   pulumi.BoolPtrInput
+	ResourceGroupName     pulumi.StringInput
+	Sku                   SkuPtrInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (AutomationAccountArgs) ElementType() reflect.Type {
@@ -194,9 +155,7 @@ func (i *AutomationAccount) ToAutomationAccountOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationAccountOutput)
 }
 
-type AutomationAccountOutput struct {
-	*pulumi.OutputState
-}
+type AutomationAccountOutput struct{ *pulumi.OutputState }
 
 func (AutomationAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutomationAccount)(nil))

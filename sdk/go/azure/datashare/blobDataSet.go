@@ -207,9 +207,7 @@ func (i *BlobDataSet) ToBlobDataSetOutputWithContext(ctx context.Context) BlobDa
 	return pulumi.ToOutputWithContext(ctx, i).(BlobDataSetOutput)
 }
 
-type BlobDataSetOutput struct {
-	*pulumi.OutputState
-}
+type BlobDataSetOutput struct{ *pulumi.OutputState }
 
 func (BlobDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BlobDataSet)(nil))

@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Settings defined at the Management Group scope.
 type HierarchySetting struct {
 	pulumi.CustomResourceState
 
-	// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
-	DefaultManagementGroup pulumi.StringPtrOutput `pulumi:"defaultManagementGroup"`
-	// The name of the object. In this case, default.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
-	RequireAuthorizationForGroupCreation pulumi.BoolPtrOutput `pulumi:"requireAuthorizationForGroupCreation"`
-	// The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
-	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DefaultManagementGroup               pulumi.StringPtrOutput `pulumi:"defaultManagementGroup"`
+	Name                                 pulumi.StringOutput    `pulumi:"name"`
+	RequireAuthorizationForGroupCreation pulumi.BoolPtrOutput   `pulumi:"requireAuthorizationForGroupCreation"`
+	TenantId                             pulumi.StringPtrOutput `pulumi:"tenantId"`
+	Type                                 pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewHierarchySetting registers a new resource with the given unique name, arguments, and options.
@@ -99,21 +93,15 @@ func (HierarchySettingState) ElementType() reflect.Type {
 }
 
 type hierarchySettingArgs struct {
-	// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
-	DefaultManagementGroup *string `pulumi:"defaultManagementGroup"`
-	// Management Group ID.
-	GroupId string `pulumi:"groupId"`
-	// Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
-	RequireAuthorizationForGroupCreation *bool `pulumi:"requireAuthorizationForGroupCreation"`
+	DefaultManagementGroup               *string `pulumi:"defaultManagementGroup"`
+	GroupId                              string  `pulumi:"groupId"`
+	RequireAuthorizationForGroupCreation *bool   `pulumi:"requireAuthorizationForGroupCreation"`
 }
 
 // The set of arguments for constructing a HierarchySetting resource.
 type HierarchySettingArgs struct {
-	// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
-	DefaultManagementGroup pulumi.StringPtrInput
-	// Management Group ID.
-	GroupId pulumi.StringInput
-	// Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
+	DefaultManagementGroup               pulumi.StringPtrInput
+	GroupId                              pulumi.StringInput
 	RequireAuthorizationForGroupCreation pulumi.BoolPtrInput
 }
 
@@ -140,9 +128,7 @@ func (i *HierarchySetting) ToHierarchySettingOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HierarchySettingOutput)
 }
 
-type HierarchySettingOutput struct {
-	*pulumi.OutputState
-}
+type HierarchySettingOutput struct{ *pulumi.OutputState }
 
 func (HierarchySettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HierarchySetting)(nil))

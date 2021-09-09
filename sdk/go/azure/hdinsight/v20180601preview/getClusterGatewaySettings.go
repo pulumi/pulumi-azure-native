@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gateway settings.
 func GetClusterGatewaySettings(ctx *pulumi.Context, args *GetClusterGatewaySettingsArgs, opts ...pulumi.InvokeOption) (*GetClusterGatewaySettingsResult, error) {
 	var rv GetClusterGatewaySettingsResult
 	err := ctx.Invoke("azure-native:hdinsight/v20180601preview:getClusterGatewaySettings", args, &rv, opts...)
@@ -18,18 +17,13 @@ func GetClusterGatewaySettings(ctx *pulumi.Context, args *GetClusterGatewaySetti
 }
 
 type GetClusterGatewaySettingsArgs struct {
-	// The name of the cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the resource group.
+	ClusterName       string `pulumi:"clusterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Gateway settings.
 type GetClusterGatewaySettingsResult struct {
-	// Indicates whether or not the gateway settings based authorization is enabled.
 	IsCredentialEnabled string `pulumi:"isCredentialEnabled"`
-	// The gateway settings user password.
-	Password string `pulumi:"password"`
-	// The gateway settings user name.
-	UserName string `pulumi:"userName"`
+	Password            string `pulumi:"password"`
+	UserName            string `pulumi:"userName"`
 }

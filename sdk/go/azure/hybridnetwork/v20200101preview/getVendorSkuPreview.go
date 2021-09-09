@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Customer subscription which can use a sku.
 func LookupVendorSkuPreview(ctx *pulumi.Context, args *LookupVendorSkuPreviewArgs, opts ...pulumi.InvokeOption) (*LookupVendorSkuPreviewResult, error) {
 	var rv LookupVendorSkuPreviewResult
 	err := ctx.Invoke("azure-native:hybridnetwork/v20200101preview:getVendorSkuPreview", args, &rv, opts...)
@@ -18,20 +17,14 @@ func LookupVendorSkuPreview(ctx *pulumi.Context, args *LookupVendorSkuPreviewArg
 }
 
 type LookupVendorSkuPreviewArgs struct {
-	// Preview subscription ID.
 	PreviewSubscription string `pulumi:"previewSubscription"`
-	// The name of the vendor sku.
-	SkuName string `pulumi:"skuName"`
-	// The name of the vendor.
-	VendorName string `pulumi:"vendorName"`
+	SkuName             string `pulumi:"skuName"`
+	VendorName          string `pulumi:"vendorName"`
 }
 
 // Customer subscription which can use a sku.
 type LookupVendorSkuPreviewResult struct {
-	// The ARM ID of the resource.
-	Id string `pulumi:"id"`
-	// The preview subscription ID.
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// The type of the resource.
 	Type string `pulumi:"type"`
 }

@@ -11,44 +11,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Custom IP prefix resource.
 type CustomIPPrefix struct {
 	pulumi.CustomResourceState
 
-	// Authorization message for WAN validation.
-	AuthorizationMessage pulumi.StringPtrOutput `pulumi:"authorizationMessage"`
-	// The list of all Children for IPv6 /48 CustomIpPrefix.
+	AuthorizationMessage  pulumi.StringPtrOutput            `pulumi:"authorizationMessage"`
 	ChildCustomIpPrefixes CustomIpPrefixResponseArrayOutput `pulumi:"childCustomIpPrefixes"`
-	// The prefix range in CIDR notation. Should include the start address and the prefix length.
-	Cidr pulumi.StringPtrOutput `pulumi:"cidr"`
-	// The commissioned state of the Custom IP Prefix.
-	CommissionedState pulumi.StringPtrOutput `pulumi:"commissionedState"`
-	// The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
-	CustomIpPrefixParent CustomIpPrefixResponsePtrOutput `pulumi:"customIpPrefixParent"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The extended location of the custom IP prefix.
-	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
-	// The reason why resource is in failed state.
-	FailedReason pulumi.StringOutput `pulumi:"failedReason"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the custom IP prefix resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The list of all referenced PublicIpPrefixes.
-	PublicIpPrefixes SubResourceResponseArrayOutput `pulumi:"publicIpPrefixes"`
-	// The resource GUID property of the custom IP prefix resource.
-	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
-	// Signed message for WAN validation.
-	SignedMessage pulumi.StringPtrOutput `pulumi:"signedMessage"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// A list of availability zones denoting the IP allocated for the resource needs to come from.
-	Zones pulumi.StringArrayOutput `pulumi:"zones"`
+	Cidr                  pulumi.StringPtrOutput            `pulumi:"cidr"`
+	CommissionedState     pulumi.StringPtrOutput            `pulumi:"commissionedState"`
+	CustomIpPrefixParent  CustomIpPrefixResponsePtrOutput   `pulumi:"customIpPrefixParent"`
+	Etag                  pulumi.StringOutput               `pulumi:"etag"`
+	ExtendedLocation      ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
+	FailedReason          pulumi.StringOutput               `pulumi:"failedReason"`
+	Location              pulumi.StringPtrOutput            `pulumi:"location"`
+	Name                  pulumi.StringOutput               `pulumi:"name"`
+	ProvisioningState     pulumi.StringOutput               `pulumi:"provisioningState"`
+	PublicIpPrefixes      SubResourceResponseArrayOutput    `pulumi:"publicIpPrefixes"`
+	ResourceGuid          pulumi.StringOutput               `pulumi:"resourceGuid"`
+	SignedMessage         pulumi.StringPtrOutput            `pulumi:"signedMessage"`
+	Tags                  pulumi.StringMapOutput            `pulumi:"tags"`
+	Type                  pulumi.StringOutput               `pulumi:"type"`
+	Zones                 pulumi.StringArrayOutput          `pulumi:"zones"`
 }
 
 // NewCustomIPPrefix registers a new resource with the given unique name, arguments, and options.
@@ -135,58 +117,34 @@ func (CustomIPPrefixState) ElementType() reflect.Type {
 }
 
 type customIPPrefixArgs struct {
-	// Authorization message for WAN validation.
-	AuthorizationMessage *string `pulumi:"authorizationMessage"`
-	// The prefix range in CIDR notation. Should include the start address and the prefix length.
-	Cidr *string `pulumi:"cidr"`
-	// The commissioned state of the Custom IP Prefix.
-	CommissionedState *string `pulumi:"commissionedState"`
-	// The name of the custom IP prefix.
-	CustomIpPrefixName *string `pulumi:"customIpPrefixName"`
-	// The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
-	CustomIpPrefixParent *CustomIpPrefix `pulumi:"customIpPrefixParent"`
-	// The extended location of the custom IP prefix.
-	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Signed message for WAN validation.
-	SignedMessage *string `pulumi:"signedMessage"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// A list of availability zones denoting the IP allocated for the resource needs to come from.
-	Zones []string `pulumi:"zones"`
+	AuthorizationMessage *string           `pulumi:"authorizationMessage"`
+	Cidr                 *string           `pulumi:"cidr"`
+	CommissionedState    *string           `pulumi:"commissionedState"`
+	CustomIpPrefixName   *string           `pulumi:"customIpPrefixName"`
+	CustomIpPrefixParent *CustomIpPrefix   `pulumi:"customIpPrefixParent"`
+	ExtendedLocation     *ExtendedLocation `pulumi:"extendedLocation"`
+	Id                   *string           `pulumi:"id"`
+	Location             *string           `pulumi:"location"`
+	ResourceGroupName    string            `pulumi:"resourceGroupName"`
+	SignedMessage        *string           `pulumi:"signedMessage"`
+	Tags                 map[string]string `pulumi:"tags"`
+	Zones                []string          `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a CustomIPPrefix resource.
 type CustomIPPrefixArgs struct {
-	// Authorization message for WAN validation.
 	AuthorizationMessage pulumi.StringPtrInput
-	// The prefix range in CIDR notation. Should include the start address and the prefix length.
-	Cidr pulumi.StringPtrInput
-	// The commissioned state of the Custom IP Prefix.
-	CommissionedState pulumi.StringPtrInput
-	// The name of the custom IP prefix.
-	CustomIpPrefixName pulumi.StringPtrInput
-	// The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+	Cidr                 pulumi.StringPtrInput
+	CommissionedState    pulumi.StringPtrInput
+	CustomIpPrefixName   pulumi.StringPtrInput
 	CustomIpPrefixParent CustomIpPrefixPtrInput
-	// The extended location of the custom IP prefix.
-	ExtendedLocation ExtendedLocationPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Signed message for WAN validation.
-	SignedMessage pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// A list of availability zones denoting the IP allocated for the resource needs to come from.
-	Zones pulumi.StringArrayInput
+	ExtendedLocation     ExtendedLocationPtrInput
+	Id                   pulumi.StringPtrInput
+	Location             pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
+	SignedMessage        pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	Zones                pulumi.StringArrayInput
 }
 
 func (CustomIPPrefixArgs) ElementType() reflect.Type {
@@ -212,9 +170,7 @@ func (i *CustomIPPrefix) ToCustomIPPrefixOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CustomIPPrefixOutput)
 }
 
-type CustomIPPrefixOutput struct {
-	*pulumi.OutputState
-}
+type CustomIPPrefixOutput struct{ *pulumi.OutputState }
 
 func (CustomIPPrefixOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomIPPrefix)(nil))

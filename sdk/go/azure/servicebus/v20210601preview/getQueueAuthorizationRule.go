@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a namespace authorization rule.
 func LookupQueueAuthorizationRule(ctx *pulumi.Context, args *LookupQueueAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupQueueAuthorizationRuleResult, error) {
 	var rv LookupQueueAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:servicebus/v20210601preview:getQueueAuthorizationRule", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupQueueAuthorizationRule(ctx *pulumi.Context, args *LookupQueueAuthoriz
 }
 
 type LookupQueueAuthorizationRuleArgs struct {
-	// The authorization rule name.
 	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// The queue name.
-	QueueName string `pulumi:"queueName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	NamespaceName         string `pulumi:"namespaceName"`
+	QueueName             string `pulumi:"queueName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Description of a namespace authorization rule.
 type LookupQueueAuthorizationRuleResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-	// The system meta data relating to this resource.
+	Id         string             `pulumi:"id"`
+	Name       string             `pulumi:"name"`
+	Rights     []string           `pulumi:"rights"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

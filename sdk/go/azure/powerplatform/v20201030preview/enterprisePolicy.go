@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the EnterprisePolicy.
 type EnterprisePolicy struct {
 	pulumi.CustomResourceState
 
-	// The encryption settings for a configuration store.
-	Encryption PropertiesResponseEncryptionPtrOutput `pulumi:"encryption"`
-	// The identity of the EnterprisePolicy.
-	Identity EnterprisePolicyIdentityResponsePtrOutput `pulumi:"identity"`
-	// The kind (type) of Enterprise Policy.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Settings concerning lockbox.
-	Lockbox PropertiesResponseLockboxPtrOutput `pulumi:"lockbox"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Settings concerning network injection.
+	Encryption       PropertiesResponseEncryptionPtrOutput       `pulumi:"encryption"`
+	Identity         EnterprisePolicyIdentityResponsePtrOutput   `pulumi:"identity"`
+	Kind             pulumi.StringOutput                         `pulumi:"kind"`
+	Location         pulumi.StringOutput                         `pulumi:"location"`
+	Lockbox          PropertiesResponseLockboxPtrOutput          `pulumi:"lockbox"`
+	Name             pulumi.StringOutput                         `pulumi:"name"`
 	NetworkInjection PropertiesResponseNetworkInjectionPtrOutput `pulumi:"networkInjection"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData       SystemDataResponseOutput                    `pulumi:"systemData"`
+	Tags             pulumi.StringMapOutput                      `pulumi:"tags"`
+	Type             pulumi.StringOutput                         `pulumi:"type"`
 }
 
 // NewEnterprisePolicy registers a new resource with the given unique name, arguments, and options.
@@ -94,46 +83,28 @@ func (EnterprisePolicyState) ElementType() reflect.Type {
 }
 
 type enterprisePolicyArgs struct {
-	// The encryption settings for a configuration store.
-	Encryption *PropertiesEncryption `pulumi:"encryption"`
-	// Name of the EnterprisePolicy.
-	EnterprisePolicyName *string `pulumi:"enterprisePolicyName"`
-	// The identity of the EnterprisePolicy.
-	Identity *EnterprisePolicyIdentity `pulumi:"identity"`
-	// The kind (type) of Enterprise Policy.
-	Kind string `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Settings concerning lockbox.
-	Lockbox *PropertiesLockbox `pulumi:"lockbox"`
-	// Settings concerning network injection.
-	NetworkInjection *PropertiesNetworkInjection `pulumi:"networkInjection"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Encryption           *PropertiesEncryption       `pulumi:"encryption"`
+	EnterprisePolicyName *string                     `pulumi:"enterprisePolicyName"`
+	Identity             *EnterprisePolicyIdentity   `pulumi:"identity"`
+	Kind                 string                      `pulumi:"kind"`
+	Location             *string                     `pulumi:"location"`
+	Lockbox              *PropertiesLockbox          `pulumi:"lockbox"`
+	NetworkInjection     *PropertiesNetworkInjection `pulumi:"networkInjection"`
+	ResourceGroupName    string                      `pulumi:"resourceGroupName"`
+	Tags                 map[string]string           `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EnterprisePolicy resource.
 type EnterprisePolicyArgs struct {
-	// The encryption settings for a configuration store.
-	Encryption PropertiesEncryptionPtrInput
-	// Name of the EnterprisePolicy.
+	Encryption           PropertiesEncryptionPtrInput
 	EnterprisePolicyName pulumi.StringPtrInput
-	// The identity of the EnterprisePolicy.
-	Identity EnterprisePolicyIdentityPtrInput
-	// The kind (type) of Enterprise Policy.
-	Kind pulumi.StringInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Settings concerning lockbox.
-	Lockbox PropertiesLockboxPtrInput
-	// Settings concerning network injection.
-	NetworkInjection PropertiesNetworkInjectionPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Identity             EnterprisePolicyIdentityPtrInput
+	Kind                 pulumi.StringInput
+	Location             pulumi.StringPtrInput
+	Lockbox              PropertiesLockboxPtrInput
+	NetworkInjection     PropertiesNetworkInjectionPtrInput
+	ResourceGroupName    pulumi.StringInput
+	Tags                 pulumi.StringMapInput
 }
 
 func (EnterprisePolicyArgs) ElementType() reflect.Type {
@@ -159,9 +130,7 @@ func (i *EnterprisePolicy) ToEnterprisePolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyOutput)
 }
 
-type EnterprisePolicyOutput struct {
-	*pulumi.OutputState
-}
+type EnterprisePolicyOutput struct{ *pulumi.OutputState }
 
 func (EnterprisePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EnterprisePolicy)(nil))

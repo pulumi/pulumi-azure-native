@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Snapshot policy information
 type SnapshotPolicy struct {
 	pulumi.CustomResourceState
 
-	// Schedule for daily snapshots
-	DailySchedule DailyScheduleResponsePtrOutput `pulumi:"dailySchedule"`
-	// The property to decide policy is enabled or not
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Schedule for hourly snapshots
-	HourlySchedule HourlyScheduleResponsePtrOutput `pulumi:"hourlySchedule"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Schedule for monthly snapshots
-	MonthlySchedule MonthlyScheduleResponsePtrOutput `pulumi:"monthlySchedule"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Schedule for weekly snapshots
-	WeeklySchedule WeeklyScheduleResponsePtrOutput `pulumi:"weeklySchedule"`
+	DailySchedule     DailyScheduleResponsePtrOutput   `pulumi:"dailySchedule"`
+	Enabled           pulumi.BoolPtrOutput             `pulumi:"enabled"`
+	Etag              pulumi.StringOutput              `pulumi:"etag"`
+	HourlySchedule    HourlyScheduleResponsePtrOutput  `pulumi:"hourlySchedule"`
+	Location          pulumi.StringOutput              `pulumi:"location"`
+	MonthlySchedule   MonthlyScheduleResponsePtrOutput `pulumi:"monthlySchedule"`
+	Name              pulumi.StringOutput              `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput              `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput           `pulumi:"tags"`
+	Type              pulumi.StringOutput              `pulumi:"type"`
+	WeeklySchedule    WeeklyScheduleResponsePtrOutput  `pulumi:"weeklySchedule"`
 }
 
 // NewSnapshotPolicy registers a new resource with the given unique name, arguments, and options.
@@ -156,50 +144,30 @@ func (SnapshotPolicyState) ElementType() reflect.Type {
 }
 
 type snapshotPolicyArgs struct {
-	// The name of the NetApp account
-	AccountName string `pulumi:"accountName"`
-	// Schedule for daily snapshots
-	DailySchedule *DailySchedule `pulumi:"dailySchedule"`
-	// The property to decide policy is enabled or not
-	Enabled *bool `pulumi:"enabled"`
-	// Schedule for hourly snapshots
-	HourlySchedule *HourlySchedule `pulumi:"hourlySchedule"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Schedule for monthly snapshots
-	MonthlySchedule *MonthlySchedule `pulumi:"monthlySchedule"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the snapshot policy
-	SnapshotPolicyName *string `pulumi:"snapshotPolicyName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Schedule for weekly snapshots
-	WeeklySchedule *WeeklySchedule `pulumi:"weeklySchedule"`
+	AccountName        string            `pulumi:"accountName"`
+	DailySchedule      *DailySchedule    `pulumi:"dailySchedule"`
+	Enabled            *bool             `pulumi:"enabled"`
+	HourlySchedule     *HourlySchedule   `pulumi:"hourlySchedule"`
+	Location           *string           `pulumi:"location"`
+	MonthlySchedule    *MonthlySchedule  `pulumi:"monthlySchedule"`
+	ResourceGroupName  string            `pulumi:"resourceGroupName"`
+	SnapshotPolicyName *string           `pulumi:"snapshotPolicyName"`
+	Tags               map[string]string `pulumi:"tags"`
+	WeeklySchedule     *WeeklySchedule   `pulumi:"weeklySchedule"`
 }
 
 // The set of arguments for constructing a SnapshotPolicy resource.
 type SnapshotPolicyArgs struct {
-	// The name of the NetApp account
-	AccountName pulumi.StringInput
-	// Schedule for daily snapshots
-	DailySchedule DailySchedulePtrInput
-	// The property to decide policy is enabled or not
-	Enabled pulumi.BoolPtrInput
-	// Schedule for hourly snapshots
-	HourlySchedule HourlySchedulePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Schedule for monthly snapshots
-	MonthlySchedule MonthlySchedulePtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the snapshot policy
+	AccountName        pulumi.StringInput
+	DailySchedule      DailySchedulePtrInput
+	Enabled            pulumi.BoolPtrInput
+	HourlySchedule     HourlySchedulePtrInput
+	Location           pulumi.StringPtrInput
+	MonthlySchedule    MonthlySchedulePtrInput
+	ResourceGroupName  pulumi.StringInput
 	SnapshotPolicyName pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Schedule for weekly snapshots
-	WeeklySchedule WeeklySchedulePtrInput
+	Tags               pulumi.StringMapInput
+	WeeklySchedule     WeeklySchedulePtrInput
 }
 
 func (SnapshotPolicyArgs) ElementType() reflect.Type {
@@ -225,9 +193,7 @@ func (i *SnapshotPolicy) ToSnapshotPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyOutput)
 }
 
-type SnapshotPolicyOutput struct {
-	*pulumi.OutputState
-}
+type SnapshotPolicyOutput struct{ *pulumi.OutputState }
 
 func (SnapshotPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SnapshotPolicy)(nil))

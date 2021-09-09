@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The EngagementFabric channel
 type Channel struct {
 	pulumi.CustomResourceState
 
-	// The functions to be enabled for the channel
 	ChannelFunctions pulumi.StringArrayOutput `pulumi:"channelFunctions"`
-	// The channel type
-	ChannelType pulumi.StringOutput `pulumi:"channelType"`
-	// The channel credentials
-	Credentials pulumi.StringMapOutput `pulumi:"credentials"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The fully qualified type of the resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	ChannelType      pulumi.StringOutput      `pulumi:"channelType"`
+	Credentials      pulumi.StringMapOutput   `pulumi:"credentials"`
+	Name             pulumi.StringOutput      `pulumi:"name"`
+	Type             pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
@@ -87,33 +81,21 @@ func (ChannelState) ElementType() reflect.Type {
 }
 
 type channelArgs struct {
-	// Account Name
-	AccountName string `pulumi:"accountName"`
-	// The functions to be enabled for the channel
-	ChannelFunctions []string `pulumi:"channelFunctions"`
-	// Channel Name
-	ChannelName *string `pulumi:"channelName"`
-	// The channel type
-	ChannelType string `pulumi:"channelType"`
-	// The channel credentials
-	Credentials map[string]string `pulumi:"credentials"`
-	// Resource Group Name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName       string            `pulumi:"accountName"`
+	ChannelFunctions  []string          `pulumi:"channelFunctions"`
+	ChannelName       *string           `pulumi:"channelName"`
+	ChannelType       string            `pulumi:"channelType"`
+	Credentials       map[string]string `pulumi:"credentials"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Channel resource.
 type ChannelArgs struct {
-	// Account Name
-	AccountName pulumi.StringInput
-	// The functions to be enabled for the channel
-	ChannelFunctions pulumi.StringArrayInput
-	// Channel Name
-	ChannelName pulumi.StringPtrInput
-	// The channel type
-	ChannelType pulumi.StringInput
-	// The channel credentials
-	Credentials pulumi.StringMapInput
-	// Resource Group Name
+	AccountName       pulumi.StringInput
+	ChannelFunctions  pulumi.StringArrayInput
+	ChannelName       pulumi.StringPtrInput
+	ChannelType       pulumi.StringInput
+	Credentials       pulumi.StringMapInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -140,9 +122,7 @@ func (i *Channel) ToChannelOutputWithContext(ctx context.Context) ChannelOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutput)
 }
 
-type ChannelOutput struct {
-	*pulumi.OutputState
-}
+type ChannelOutput struct{ *pulumi.OutputState }
 
 func (ChannelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Channel)(nil))

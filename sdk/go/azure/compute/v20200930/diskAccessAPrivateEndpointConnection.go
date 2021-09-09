@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Private Endpoint Connection resource.
 type DiskAccessAPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// private endpoint connection name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
+	Name                              pulumi.StringOutput                             `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponsePtrOutput                `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseOutput `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// private endpoint connection type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringOutput                             `pulumi:"provisioningState"`
+	Type                              pulumi.StringOutput                             `pulumi:"type"`
 }
 
 // NewDiskAccessAPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -99,26 +93,18 @@ func (DiskAccessAPrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type diskAccessAPrivateEndpointConnectionArgs struct {
-	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	DiskAccessName string `pulumi:"diskAccessName"`
-	// The name of the private endpoint connection
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
+	DiskAccessName                    string                            `pulumi:"diskAccessName"`
+	PrivateEndpointConnectionName     *string                           `pulumi:"privateEndpointConnectionName"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName                 string                            `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a DiskAccessAPrivateEndpointConnection resource.
 type DiskAccessAPrivateEndpointConnectionArgs struct {
-	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	DiskAccessName pulumi.StringInput
-	// The name of the private endpoint connection
-	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
+	DiskAccessName                    pulumi.StringInput
+	PrivateEndpointConnectionName     pulumi.StringPtrInput
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName                 pulumi.StringInput
 }
 
 func (DiskAccessAPrivateEndpointConnectionArgs) ElementType() reflect.Type {
@@ -144,9 +130,7 @@ func (i *DiskAccessAPrivateEndpointConnection) ToDiskAccessAPrivateEndpointConne
 	return pulumi.ToOutputWithContext(ctx, i).(DiskAccessAPrivateEndpointConnectionOutput)
 }
 
-type DiskAccessAPrivateEndpointConnectionOutput struct {
-	*pulumi.OutputState
-}
+type DiskAccessAPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (DiskAccessAPrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiskAccessAPrivateEndpointConnection)(nil))

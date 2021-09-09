@@ -11,13 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of the EventHubConsumerGroupInfo object.
 type IotHubResourceEventHubConsumerGroup struct {
 	pulumi.CustomResourceState
 
-	// The Event Hub-compatible consumer group name.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -207,26 +204,18 @@ func (IotHubResourceEventHubConsumerGroupState) ElementType() reflect.Type {
 }
 
 type iotHubResourceEventHubConsumerGroupArgs struct {
-	// The name of the Event Hub-compatible endpoint in the IoT hub.
-	EventHubEndpointName string `pulumi:"eventHubEndpointName"`
-	// The name of the consumer group to add.
-	Name *string `pulumi:"name"`
-	// The name of the resource group that contains the IoT hub.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the IoT hub.
-	ResourceName string `pulumi:"resourceName"`
+	EventHubEndpointName string  `pulumi:"eventHubEndpointName"`
+	Name                 *string `pulumi:"name"`
+	ResourceGroupName    string  `pulumi:"resourceGroupName"`
+	ResourceName         string  `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a IotHubResourceEventHubConsumerGroup resource.
 type IotHubResourceEventHubConsumerGroupArgs struct {
-	// The name of the Event Hub-compatible endpoint in the IoT hub.
 	EventHubEndpointName pulumi.StringInput
-	// The name of the consumer group to add.
-	Name pulumi.StringPtrInput
-	// The name of the resource group that contains the IoT hub.
-	ResourceGroupName pulumi.StringInput
-	// The name of the IoT hub.
-	ResourceName pulumi.StringInput
+	Name                 pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
+	ResourceName         pulumi.StringInput
 }
 
 func (IotHubResourceEventHubConsumerGroupArgs) ElementType() reflect.Type {
@@ -252,9 +241,7 @@ func (i *IotHubResourceEventHubConsumerGroup) ToIotHubResourceEventHubConsumerGr
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubResourceEventHubConsumerGroupOutput)
 }
 
-type IotHubResourceEventHubConsumerGroupOutput struct {
-	*pulumi.OutputState
-}
+type IotHubResourceEventHubConsumerGroupOutput struct{ *pulumi.OutputState }
 
 func (IotHubResourceEventHubConsumerGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotHubResourceEventHubConsumerGroup)(nil))

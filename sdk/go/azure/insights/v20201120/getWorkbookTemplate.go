@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Application Insights workbook template definition.
 func LookupWorkbookTemplate(ctx *pulumi.Context, args *LookupWorkbookTemplateArgs, opts ...pulumi.InvokeOption) (*LookupWorkbookTemplateResult, error) {
 	var rv LookupWorkbookTemplateResult
 	err := ctx.Invoke("azure-native:insights/v20201120:getWorkbookTemplate", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupWorkbookTemplate(ctx *pulumi.Context, args *LookupWorkbookTemplateArg
 }
 
 type LookupWorkbookTemplateArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Application Insights component resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // An Application Insights workbook template definition.
 type LookupWorkbookTemplateResult struct {
-	// Information about the author of the workbook template.
-	Author *string `pulumi:"author"`
-	// Workbook galleries supported by the template.
-	Galleries []WorkbookTemplateGalleryResponse `pulumi:"galleries"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
-	Localized map[string][]WorkbookTemplateLocalizedGalleryResponse `pulumi:"localized"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name.
-	Name string `pulumi:"name"`
-	// Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
-	Priority *int `pulumi:"priority"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Valid JSON object containing workbook template payload.
-	TemplateData interface{} `pulumi:"templateData"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Author       *string                                               `pulumi:"author"`
+	Galleries    []WorkbookTemplateGalleryResponse                     `pulumi:"galleries"`
+	Id           string                                                `pulumi:"id"`
+	Localized    map[string][]WorkbookTemplateLocalizedGalleryResponse `pulumi:"localized"`
+	Location     string                                                `pulumi:"location"`
+	Name         string                                                `pulumi:"name"`
+	Priority     *int                                                  `pulumi:"priority"`
+	Tags         map[string]string                                     `pulumi:"tags"`
+	TemplateData interface{}                                           `pulumi:"templateData"`
+	Type         string                                                `pulumi:"type"`
 }

@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gateway details.
 type Gateway struct {
 	pulumi.CustomResourceState
 
-	// Gateway description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Gateway location.
+	Description  pulumi.StringPtrOutput                        `pulumi:"description"`
 	LocationData ResourceLocationDataContractResponsePtrOutput `pulumi:"locationData"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name         pulumi.StringOutput                           `pulumi:"name"`
+	Type         pulumi.StringOutput                           `pulumi:"type"`
 }
 
 // NewGateway registers a new resource with the given unique name, arguments, and options.
@@ -106,30 +101,20 @@ func (GatewayState) ElementType() reflect.Type {
 }
 
 type gatewayArgs struct {
-	// Gateway description
-	Description *string `pulumi:"description"`
-	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	GatewayId *string `pulumi:"gatewayId"`
-	// Gateway location.
-	LocationData *ResourceLocationDataContract `pulumi:"locationData"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	Description       *string                       `pulumi:"description"`
+	GatewayId         *string                       `pulumi:"gatewayId"`
+	LocationData      *ResourceLocationDataContract `pulumi:"locationData"`
+	ResourceGroupName string                        `pulumi:"resourceGroupName"`
+	ServiceName       string                        `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a Gateway resource.
 type GatewayArgs struct {
-	// Gateway description
-	Description pulumi.StringPtrInput
-	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	GatewayId pulumi.StringPtrInput
-	// Gateway location.
-	LocationData ResourceLocationDataContractPtrInput
-	// The name of the resource group.
+	Description       pulumi.StringPtrInput
+	GatewayId         pulumi.StringPtrInput
+	LocationData      ResourceLocationDataContractPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (GatewayArgs) ElementType() reflect.Type {
@@ -155,9 +140,7 @@ func (i *Gateway) ToGatewayOutputWithContext(ctx context.Context) GatewayOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayOutput)
 }
 
-type GatewayOutput struct {
-	*pulumi.OutputState
-}
+type GatewayOutput struct{ *pulumi.OutputState }
 
 func (GatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Gateway)(nil))

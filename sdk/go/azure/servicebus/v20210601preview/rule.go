@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of Rule Resource.
 type Rule struct {
 	pulumi.CustomResourceState
 
-	// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
-	Action ActionResponsePtrOutput `pulumi:"action"`
-	// Properties of correlationFilter
+	Action            ActionResponsePtrOutput            `pulumi:"action"`
 	CorrelationFilter CorrelationFilterResponsePtrOutput `pulumi:"correlationFilter"`
-	// Filter type that is evaluated against a BrokeredMessage.
-	FilterType pulumi.StringPtrOutput `pulumi:"filterType"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of sqlFilter
-	SqlFilter SqlFilterResponsePtrOutput `pulumi:"sqlFilter"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	FilterType        pulumi.StringPtrOutput             `pulumi:"filterType"`
+	Name              pulumi.StringOutput                `pulumi:"name"`
+	SqlFilter         SqlFilterResponsePtrOutput         `pulumi:"sqlFilter"`
+	SystemData        SystemDataResponseOutput           `pulumi:"systemData"`
+	Type              pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewRule registers a new resource with the given unique name, arguments, and options.
@@ -112,46 +104,28 @@ func (RuleState) ElementType() reflect.Type {
 }
 
 type ruleArgs struct {
-	// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
-	Action *Action `pulumi:"action"`
-	// Properties of correlationFilter
+	Action            *Action            `pulumi:"action"`
 	CorrelationFilter *CorrelationFilter `pulumi:"correlationFilter"`
-	// Filter type that is evaluated against a BrokeredMessage.
-	FilterType *string `pulumi:"filterType"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The rule name.
-	RuleName *string `pulumi:"ruleName"`
-	// Properties of sqlFilter
-	SqlFilter *SqlFilter `pulumi:"sqlFilter"`
-	// The subscription name.
-	SubscriptionName string `pulumi:"subscriptionName"`
-	// The topic name.
-	TopicName string `pulumi:"topicName"`
+	FilterType        *FilterType        `pulumi:"filterType"`
+	NamespaceName     string             `pulumi:"namespaceName"`
+	ResourceGroupName string             `pulumi:"resourceGroupName"`
+	RuleName          *string            `pulumi:"ruleName"`
+	SqlFilter         *SqlFilter         `pulumi:"sqlFilter"`
+	SubscriptionName  string             `pulumi:"subscriptionName"`
+	TopicName         string             `pulumi:"topicName"`
 }
 
 // The set of arguments for constructing a Rule resource.
 type RuleArgs struct {
-	// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
-	Action ActionPtrInput
-	// Properties of correlationFilter
+	Action            ActionPtrInput
 	CorrelationFilter CorrelationFilterPtrInput
-	// Filter type that is evaluated against a BrokeredMessage.
-	FilterType *FilterType
-	// The namespace name
-	NamespaceName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
+	FilterType        FilterTypePtrInput
+	NamespaceName     pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The rule name.
-	RuleName pulumi.StringPtrInput
-	// Properties of sqlFilter
-	SqlFilter SqlFilterPtrInput
-	// The subscription name.
-	SubscriptionName pulumi.StringInput
-	// The topic name.
-	TopicName pulumi.StringInput
+	RuleName          pulumi.StringPtrInput
+	SqlFilter         SqlFilterPtrInput
+	SubscriptionName  pulumi.StringInput
+	TopicName         pulumi.StringInput
 }
 
 func (RuleArgs) ElementType() reflect.Type {
@@ -177,9 +151,7 @@ func (i *Rule) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleOutput)
 }
 
-type RuleOutput struct {
-	*pulumi.OutputState
-}
+type RuleOutput struct{ *pulumi.OutputState }
 
 func (RuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Rule)(nil))

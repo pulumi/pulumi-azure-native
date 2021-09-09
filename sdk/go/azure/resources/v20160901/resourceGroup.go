@@ -10,20 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource group information.
 type ResourceGroup struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The ID of the resource that manages this resource group.
-	ManagedBy pulumi.StringPtrOutput `pulumi:"managedBy"`
-	// The name of the resource group.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The resource group properties.
+	Location   pulumi.StringOutput                   `pulumi:"location"`
+	ManagedBy  pulumi.StringPtrOutput                `pulumi:"managedBy"`
+	Name       pulumi.StringPtrOutput                `pulumi:"name"`
 	Properties ResourceGroupPropertiesResponseOutput `pulumi:"properties"`
-	// The tags attached to the resource group.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags       pulumi.StringMapOutput                `pulumi:"tags"`
 }
 
 // NewResourceGroup registers a new resource with the given unique name, arguments, and options.
@@ -179,30 +173,20 @@ func (ResourceGroupState) ElementType() reflect.Type {
 }
 
 type resourceGroupArgs struct {
-	// The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
-	Location *string `pulumi:"location"`
-	// The ID of the resource that manages this resource group.
-	ManagedBy *string `pulumi:"managedBy"`
-	// The name of the resource group.
-	Name *string `pulumi:"name"`
-	// The name of the resource group to create or update.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The tags attached to the resource group.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string           `pulumi:"location"`
+	ManagedBy         *string           `pulumi:"managedBy"`
+	Name              *string           `pulumi:"name"`
+	ResourceGroupName *string           `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceGroup resource.
 type ResourceGroupArgs struct {
-	// The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
-	Location pulumi.StringPtrInput
-	// The ID of the resource that manages this resource group.
-	ManagedBy pulumi.StringPtrInput
-	// The name of the resource group.
-	Name pulumi.StringPtrInput
-	// The name of the resource group to create or update.
+	Location          pulumi.StringPtrInput
+	ManagedBy         pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringPtrInput
-	// The tags attached to the resource group.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ResourceGroupArgs) ElementType() reflect.Type {
@@ -228,9 +212,7 @@ func (i *ResourceGroup) ToResourceGroupOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupOutput)
 }
 
-type ResourceGroupOutput struct {
-	*pulumi.OutputState
-}
+type ResourceGroupOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceGroup)(nil))

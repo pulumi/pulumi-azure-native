@@ -150,9 +150,7 @@ func (i *SecurityUserConfiguration) ToSecurityUserConfigurationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityUserConfigurationOutput)
 }
 
-type SecurityUserConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type SecurityUserConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SecurityUserConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityUserConfiguration)(nil))

@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NetApp account resource
 type Account struct {
 	pulumi.CustomResourceState
 
-	// Active Directories
 	ActiveDirectories ActiveDirectoryResponseArrayOutput `pulumi:"activeDirectories"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location          pulumi.StringOutput                `pulumi:"location"`
+	Name              pulumi.StringOutput                `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput             `pulumi:"tags"`
+	Type              pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -197,30 +190,20 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// The name of the NetApp account
-	AccountName *string `pulumi:"accountName"`
-	// Active Directories
+	AccountName       *string           `pulumi:"accountName"`
 	ActiveDirectories []ActiveDirectory `pulumi:"activeDirectories"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// The name of the NetApp account
-	AccountName pulumi.StringPtrInput
-	// Active Directories
+	AccountName       pulumi.StringPtrInput
 	ActiveDirectories ActiveDirectoryArrayInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {
@@ -246,9 +229,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
 }
 
-type AccountOutput struct {
-	*pulumi.OutputState
-}
+type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Account)(nil))

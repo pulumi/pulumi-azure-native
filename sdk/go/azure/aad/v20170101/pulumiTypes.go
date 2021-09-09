@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Domain Security Settings
 type DomainSecuritySettings struct {
-	// A flag to determine whether or not NtlmV1 is enabled or disabled.
-	NtlmV1 *string `pulumi:"ntlmV1"`
-	// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
+	NtlmV1            *string `pulumi:"ntlmV1"`
 	SyncNtlmPasswords *string `pulumi:"syncNtlmPasswords"`
-	// A flag to determine whether or not TlsV1 is enabled or disabled.
-	TlsV1 *string `pulumi:"tlsV1"`
+	TlsV1             *string `pulumi:"tlsV1"`
 }
 
 // DomainSecuritySettingsInput is an input type that accepts DomainSecuritySettingsArgs and DomainSecuritySettingsOutput values.
@@ -31,14 +27,10 @@ type DomainSecuritySettingsInput interface {
 	ToDomainSecuritySettingsOutputWithContext(context.Context) DomainSecuritySettingsOutput
 }
 
-// Domain Security Settings
 type DomainSecuritySettingsArgs struct {
-	// A flag to determine whether or not NtlmV1 is enabled or disabled.
-	NtlmV1 pulumi.StringPtrInput `pulumi:"ntlmV1"`
-	// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
+	NtlmV1            pulumi.StringPtrInput `pulumi:"ntlmV1"`
 	SyncNtlmPasswords pulumi.StringPtrInput `pulumi:"syncNtlmPasswords"`
-	// A flag to determine whether or not TlsV1 is enabled or disabled.
-	TlsV1 pulumi.StringPtrInput `pulumi:"tlsV1"`
+	TlsV1             pulumi.StringPtrInput `pulumi:"tlsV1"`
 }
 
 func (DomainSecuritySettingsArgs) ElementType() reflect.Type {
@@ -94,7 +86,6 @@ func (i *domainSecuritySettingsPtrType) ToDomainSecuritySettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSecuritySettingsPtrOutput)
 }
 
-// Domain Security Settings
 type DomainSecuritySettingsOutput struct{ *pulumi.OutputState }
 
 func (DomainSecuritySettingsOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o DomainSecuritySettingsOutput) ToDomainSecuritySettingsPtrOutput() Domain
 }
 
 func (o DomainSecuritySettingsOutput) ToDomainSecuritySettingsPtrOutputWithContext(ctx context.Context) DomainSecuritySettingsPtrOutput {
-	return o.ApplyT(func(v DomainSecuritySettings) *DomainSecuritySettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSecuritySettings) *DomainSecuritySettings {
 		return &v
 	}).(DomainSecuritySettingsPtrOutput)
 }
 
-// A flag to determine whether or not NtlmV1 is enabled or disabled.
 func (o DomainSecuritySettingsOutput) NtlmV1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSecuritySettings) *string { return v.NtlmV1 }).(pulumi.StringPtrOutput)
 }
 
-// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
 func (o DomainSecuritySettingsOutput) SyncNtlmPasswords() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSecuritySettings) *string { return v.SyncNtlmPasswords }).(pulumi.StringPtrOutput)
 }
 
-// A flag to determine whether or not TlsV1 is enabled or disabled.
 func (o DomainSecuritySettingsOutput) TlsV1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSecuritySettings) *string { return v.TlsV1 }).(pulumi.StringPtrOutput)
 }
@@ -149,10 +137,15 @@ func (o DomainSecuritySettingsPtrOutput) ToDomainSecuritySettingsPtrOutputWithCo
 }
 
 func (o DomainSecuritySettingsPtrOutput) Elem() DomainSecuritySettingsOutput {
-	return o.ApplyT(func(v *DomainSecuritySettings) DomainSecuritySettings { return *v }).(DomainSecuritySettingsOutput)
+	return o.ApplyT(func(v *DomainSecuritySettings) DomainSecuritySettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainSecuritySettings
+		return ret
+	}).(DomainSecuritySettingsOutput)
 }
 
-// A flag to determine whether or not NtlmV1 is enabled or disabled.
 func (o DomainSecuritySettingsPtrOutput) NtlmV1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSecuritySettings) *string {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o DomainSecuritySettingsPtrOutput) NtlmV1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
 func (o DomainSecuritySettingsPtrOutput) SyncNtlmPasswords() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSecuritySettings) *string {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o DomainSecuritySettingsPtrOutput) SyncNtlmPasswords() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag to determine whether or not TlsV1 is enabled or disabled.
 func (o DomainSecuritySettingsPtrOutput) TlsV1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSecuritySettings) *string {
 		if v == nil {
@@ -182,14 +173,10 @@ func (o DomainSecuritySettingsPtrOutput) TlsV1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Domain Security Settings
 type DomainSecuritySettingsResponse struct {
-	// A flag to determine whether or not NtlmV1 is enabled or disabled.
-	NtlmV1 *string `pulumi:"ntlmV1"`
-	// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
+	NtlmV1            *string `pulumi:"ntlmV1"`
 	SyncNtlmPasswords *string `pulumi:"syncNtlmPasswords"`
-	// A flag to determine whether or not TlsV1 is enabled or disabled.
-	TlsV1 *string `pulumi:"tlsV1"`
+	TlsV1             *string `pulumi:"tlsV1"`
 }
 
 // DomainSecuritySettingsResponseInput is an input type that accepts DomainSecuritySettingsResponseArgs and DomainSecuritySettingsResponseOutput values.
@@ -203,14 +190,10 @@ type DomainSecuritySettingsResponseInput interface {
 	ToDomainSecuritySettingsResponseOutputWithContext(context.Context) DomainSecuritySettingsResponseOutput
 }
 
-// Domain Security Settings
 type DomainSecuritySettingsResponseArgs struct {
-	// A flag to determine whether or not NtlmV1 is enabled or disabled.
-	NtlmV1 pulumi.StringPtrInput `pulumi:"ntlmV1"`
-	// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
+	NtlmV1            pulumi.StringPtrInput `pulumi:"ntlmV1"`
 	SyncNtlmPasswords pulumi.StringPtrInput `pulumi:"syncNtlmPasswords"`
-	// A flag to determine whether or not TlsV1 is enabled or disabled.
-	TlsV1 pulumi.StringPtrInput `pulumi:"tlsV1"`
+	TlsV1             pulumi.StringPtrInput `pulumi:"tlsV1"`
 }
 
 func (DomainSecuritySettingsResponseArgs) ElementType() reflect.Type {
@@ -266,7 +249,6 @@ func (i *domainSecuritySettingsResponsePtrType) ToDomainSecuritySettingsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSecuritySettingsResponsePtrOutput)
 }
 
-// Domain Security Settings
 type DomainSecuritySettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (DomainSecuritySettingsResponseOutput) ElementType() reflect.Type {
@@ -286,22 +268,19 @@ func (o DomainSecuritySettingsResponseOutput) ToDomainSecuritySettingsResponsePt
 }
 
 func (o DomainSecuritySettingsResponseOutput) ToDomainSecuritySettingsResponsePtrOutputWithContext(ctx context.Context) DomainSecuritySettingsResponsePtrOutput {
-	return o.ApplyT(func(v DomainSecuritySettingsResponse) *DomainSecuritySettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSecuritySettingsResponse) *DomainSecuritySettingsResponse {
 		return &v
 	}).(DomainSecuritySettingsResponsePtrOutput)
 }
 
-// A flag to determine whether or not NtlmV1 is enabled or disabled.
 func (o DomainSecuritySettingsResponseOutput) NtlmV1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSecuritySettingsResponse) *string { return v.NtlmV1 }).(pulumi.StringPtrOutput)
 }
 
-// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
 func (o DomainSecuritySettingsResponseOutput) SyncNtlmPasswords() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSecuritySettingsResponse) *string { return v.SyncNtlmPasswords }).(pulumi.StringPtrOutput)
 }
 
-// A flag to determine whether or not TlsV1 is enabled or disabled.
 func (o DomainSecuritySettingsResponseOutput) TlsV1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSecuritySettingsResponse) *string { return v.TlsV1 }).(pulumi.StringPtrOutput)
 }
@@ -321,10 +300,15 @@ func (o DomainSecuritySettingsResponsePtrOutput) ToDomainSecuritySettingsRespons
 }
 
 func (o DomainSecuritySettingsResponsePtrOutput) Elem() DomainSecuritySettingsResponseOutput {
-	return o.ApplyT(func(v *DomainSecuritySettingsResponse) DomainSecuritySettingsResponse { return *v }).(DomainSecuritySettingsResponseOutput)
+	return o.ApplyT(func(v *DomainSecuritySettingsResponse) DomainSecuritySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DomainSecuritySettingsResponse
+		return ret
+	}).(DomainSecuritySettingsResponseOutput)
 }
 
-// A flag to determine whether or not NtlmV1 is enabled or disabled.
 func (o DomainSecuritySettingsResponsePtrOutput) NtlmV1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSecuritySettingsResponse) *string {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o DomainSecuritySettingsResponsePtrOutput) NtlmV1() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
 func (o DomainSecuritySettingsResponsePtrOutput) SyncNtlmPasswords() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSecuritySettingsResponse) *string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o DomainSecuritySettingsResponsePtrOutput) SyncNtlmPasswords() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag to determine whether or not TlsV1 is enabled or disabled.
 func (o DomainSecuritySettingsResponsePtrOutput) TlsV1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSecuritySettingsResponse) *string {
 		if v == nil {
@@ -354,22 +336,14 @@ func (o DomainSecuritySettingsResponsePtrOutput) TlsV1() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Health Alert Description
 type HealthAlertResponse struct {
-	// Health Alert Id
-	Id string `pulumi:"id"`
-	// Health Alert Issue
-	Issue string `pulumi:"issue"`
-	// Health Alert Last Detected DateTime
-	LastDetected string `pulumi:"lastDetected"`
-	// Health Alert Name
-	Name string `pulumi:"name"`
-	// Health Alert Raised DateTime
-	Raised string `pulumi:"raised"`
-	// Health Alert TSG Link
+	Id            string `pulumi:"id"`
+	Issue         string `pulumi:"issue"`
+	LastDetected  string `pulumi:"lastDetected"`
+	Name          string `pulumi:"name"`
+	Raised        string `pulumi:"raised"`
 	ResolutionUri string `pulumi:"resolutionUri"`
-	// Health Alert Severity
-	Severity string `pulumi:"severity"`
+	Severity      string `pulumi:"severity"`
 }
 
 // HealthAlertResponseInput is an input type that accepts HealthAlertResponseArgs and HealthAlertResponseOutput values.
@@ -383,22 +357,14 @@ type HealthAlertResponseInput interface {
 	ToHealthAlertResponseOutputWithContext(context.Context) HealthAlertResponseOutput
 }
 
-// Health Alert Description
 type HealthAlertResponseArgs struct {
-	// Health Alert Id
-	Id pulumi.StringInput `pulumi:"id"`
-	// Health Alert Issue
-	Issue pulumi.StringInput `pulumi:"issue"`
-	// Health Alert Last Detected DateTime
-	LastDetected pulumi.StringInput `pulumi:"lastDetected"`
-	// Health Alert Name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Health Alert Raised DateTime
-	Raised pulumi.StringInput `pulumi:"raised"`
-	// Health Alert TSG Link
+	Id            pulumi.StringInput `pulumi:"id"`
+	Issue         pulumi.StringInput `pulumi:"issue"`
+	LastDetected  pulumi.StringInput `pulumi:"lastDetected"`
+	Name          pulumi.StringInput `pulumi:"name"`
+	Raised        pulumi.StringInput `pulumi:"raised"`
 	ResolutionUri pulumi.StringInput `pulumi:"resolutionUri"`
-	// Health Alert Severity
-	Severity pulumi.StringInput `pulumi:"severity"`
+	Severity      pulumi.StringInput `pulumi:"severity"`
 }
 
 func (HealthAlertResponseArgs) ElementType() reflect.Type {
@@ -438,7 +404,6 @@ func (i HealthAlertResponseArray) ToHealthAlertResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertResponseArrayOutput)
 }
 
-// Health Alert Description
 type HealthAlertResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthAlertResponseOutput) ElementType() reflect.Type {
@@ -453,37 +418,30 @@ func (o HealthAlertResponseOutput) ToHealthAlertResponseOutputWithContext(ctx co
 	return o
 }
 
-// Health Alert Id
 func (o HealthAlertResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthAlertResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Health Alert Issue
 func (o HealthAlertResponseOutput) Issue() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthAlertResponse) string { return v.Issue }).(pulumi.StringOutput)
 }
 
-// Health Alert Last Detected DateTime
 func (o HealthAlertResponseOutput) LastDetected() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthAlertResponse) string { return v.LastDetected }).(pulumi.StringOutput)
 }
 
-// Health Alert Name
 func (o HealthAlertResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthAlertResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Health Alert Raised DateTime
 func (o HealthAlertResponseOutput) Raised() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthAlertResponse) string { return v.Raised }).(pulumi.StringOutput)
 }
 
-// Health Alert TSG Link
 func (o HealthAlertResponseOutput) ResolutionUri() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthAlertResponse) string { return v.ResolutionUri }).(pulumi.StringOutput)
 }
 
-// Health Alert Severity
 func (o HealthAlertResponseOutput) Severity() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthAlertResponse) string { return v.Severity }).(pulumi.StringOutput)
 }
@@ -508,14 +466,10 @@ func (o HealthAlertResponseArrayOutput) Index(i pulumi.IntInput) HealthAlertResp
 	}).(HealthAlertResponseOutput)
 }
 
-// Health Monitor Description
 type HealthMonitorResponse struct {
-	// Health Monitor Details
 	Details string `pulumi:"details"`
-	// Health Monitor Id
-	Id string `pulumi:"id"`
-	// Health Monitor Name
-	Name string `pulumi:"name"`
+	Id      string `pulumi:"id"`
+	Name    string `pulumi:"name"`
 }
 
 // HealthMonitorResponseInput is an input type that accepts HealthMonitorResponseArgs and HealthMonitorResponseOutput values.
@@ -529,14 +483,10 @@ type HealthMonitorResponseInput interface {
 	ToHealthMonitorResponseOutputWithContext(context.Context) HealthMonitorResponseOutput
 }
 
-// Health Monitor Description
 type HealthMonitorResponseArgs struct {
-	// Health Monitor Details
 	Details pulumi.StringInput `pulumi:"details"`
-	// Health Monitor Id
-	Id pulumi.StringInput `pulumi:"id"`
-	// Health Monitor Name
-	Name pulumi.StringInput `pulumi:"name"`
+	Id      pulumi.StringInput `pulumi:"id"`
+	Name    pulumi.StringInput `pulumi:"name"`
 }
 
 func (HealthMonitorResponseArgs) ElementType() reflect.Type {
@@ -576,7 +526,6 @@ func (i HealthMonitorResponseArray) ToHealthMonitorResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(HealthMonitorResponseArrayOutput)
 }
 
-// Health Monitor Description
 type HealthMonitorResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthMonitorResponseOutput) ElementType() reflect.Type {
@@ -591,17 +540,14 @@ func (o HealthMonitorResponseOutput) ToHealthMonitorResponseOutputWithContext(ct
 	return o
 }
 
-// Health Monitor Details
 func (o HealthMonitorResponseOutput) Details() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthMonitorResponse) string { return v.Details }).(pulumi.StringOutput)
 }
 
-// Health Monitor Id
 func (o HealthMonitorResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthMonitorResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Health Monitor Name
 func (o HealthMonitorResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthMonitorResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -626,15 +572,10 @@ func (o HealthMonitorResponseArrayOutput) Index(i pulumi.IntInput) HealthMonitor
 	}).(HealthMonitorResponseOutput)
 }
 
-// Secure LDAP Settings
 type LdapsSettings struct {
-	// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
-	ExternalAccess *string `pulumi:"externalAccess"`
-	// A flag to determine whether or not Secure LDAP is enabled or disabled.
-	Ldaps *string `pulumi:"ldaps"`
-	// The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
-	PfxCertificate *string `pulumi:"pfxCertificate"`
-	// The password to decrypt the provided Secure LDAP certificate pfx file.
+	ExternalAccess         *string `pulumi:"externalAccess"`
+	Ldaps                  *string `pulumi:"ldaps"`
+	PfxCertificate         *string `pulumi:"pfxCertificate"`
 	PfxCertificatePassword *string `pulumi:"pfxCertificatePassword"`
 }
 
@@ -649,15 +590,10 @@ type LdapsSettingsInput interface {
 	ToLdapsSettingsOutputWithContext(context.Context) LdapsSettingsOutput
 }
 
-// Secure LDAP Settings
 type LdapsSettingsArgs struct {
-	// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
-	ExternalAccess pulumi.StringPtrInput `pulumi:"externalAccess"`
-	// A flag to determine whether or not Secure LDAP is enabled or disabled.
-	Ldaps pulumi.StringPtrInput `pulumi:"ldaps"`
-	// The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
-	PfxCertificate pulumi.StringPtrInput `pulumi:"pfxCertificate"`
-	// The password to decrypt the provided Secure LDAP certificate pfx file.
+	ExternalAccess         pulumi.StringPtrInput `pulumi:"externalAccess"`
+	Ldaps                  pulumi.StringPtrInput `pulumi:"ldaps"`
+	PfxCertificate         pulumi.StringPtrInput `pulumi:"pfxCertificate"`
 	PfxCertificatePassword pulumi.StringPtrInput `pulumi:"pfxCertificatePassword"`
 }
 
@@ -714,7 +650,6 @@ func (i *ldapsSettingsPtrType) ToLdapsSettingsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LdapsSettingsPtrOutput)
 }
 
-// Secure LDAP Settings
 type LdapsSettingsOutput struct{ *pulumi.OutputState }
 
 func (LdapsSettingsOutput) ElementType() reflect.Type {
@@ -734,27 +669,23 @@ func (o LdapsSettingsOutput) ToLdapsSettingsPtrOutput() LdapsSettingsPtrOutput {
 }
 
 func (o LdapsSettingsOutput) ToLdapsSettingsPtrOutputWithContext(ctx context.Context) LdapsSettingsPtrOutput {
-	return o.ApplyT(func(v LdapsSettings) *LdapsSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LdapsSettings) *LdapsSettings {
 		return &v
 	}).(LdapsSettingsPtrOutput)
 }
 
-// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
 func (o LdapsSettingsOutput) ExternalAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LdapsSettings) *string { return v.ExternalAccess }).(pulumi.StringPtrOutput)
 }
 
-// A flag to determine whether or not Secure LDAP is enabled or disabled.
 func (o LdapsSettingsOutput) Ldaps() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LdapsSettings) *string { return v.Ldaps }).(pulumi.StringPtrOutput)
 }
 
-// The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
 func (o LdapsSettingsOutput) PfxCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LdapsSettings) *string { return v.PfxCertificate }).(pulumi.StringPtrOutput)
 }
 
-// The password to decrypt the provided Secure LDAP certificate pfx file.
 func (o LdapsSettingsOutput) PfxCertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LdapsSettings) *string { return v.PfxCertificatePassword }).(pulumi.StringPtrOutput)
 }
@@ -774,10 +705,15 @@ func (o LdapsSettingsPtrOutput) ToLdapsSettingsPtrOutputWithContext(ctx context.
 }
 
 func (o LdapsSettingsPtrOutput) Elem() LdapsSettingsOutput {
-	return o.ApplyT(func(v *LdapsSettings) LdapsSettings { return *v }).(LdapsSettingsOutput)
+	return o.ApplyT(func(v *LdapsSettings) LdapsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret LdapsSettings
+		return ret
+	}).(LdapsSettingsOutput)
 }
 
-// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
 func (o LdapsSettingsPtrOutput) ExternalAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LdapsSettings) *string {
 		if v == nil {
@@ -787,7 +723,6 @@ func (o LdapsSettingsPtrOutput) ExternalAccess() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag to determine whether or not Secure LDAP is enabled or disabled.
 func (o LdapsSettingsPtrOutput) Ldaps() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LdapsSettings) *string {
 		if v == nil {
@@ -797,7 +732,6 @@ func (o LdapsSettingsPtrOutput) Ldaps() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
 func (o LdapsSettingsPtrOutput) PfxCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LdapsSettings) *string {
 		if v == nil {
@@ -807,7 +741,6 @@ func (o LdapsSettingsPtrOutput) PfxCertificate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password to decrypt the provided Secure LDAP certificate pfx file.
 func (o LdapsSettingsPtrOutput) PfxCertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LdapsSettings) *string {
 		if v == nil {
@@ -817,24 +750,15 @@ func (o LdapsSettingsPtrOutput) PfxCertificatePassword() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Secure LDAP Settings
 type LdapsSettingsResponse struct {
-	// NotAfter DateTime of configure ldaps certificate.
-	CertificateNotAfter string `pulumi:"certificateNotAfter"`
-	// Thumbprint of configure ldaps certificate.
-	CertificateThumbprint string `pulumi:"certificateThumbprint"`
-	// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
-	ExternalAccess *string `pulumi:"externalAccess"`
-	// External access ip address.
-	ExternalAccessIpAddress string `pulumi:"externalAccessIpAddress"`
-	// A flag to determine whether or not Secure LDAP is enabled or disabled.
-	Ldaps *string `pulumi:"ldaps"`
-	// The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
-	PfxCertificate *string `pulumi:"pfxCertificate"`
-	// The password to decrypt the provided Secure LDAP certificate pfx file.
-	PfxCertificatePassword *string `pulumi:"pfxCertificatePassword"`
-	// Public certificate used to configure secure ldap.
-	PublicCertificate string `pulumi:"publicCertificate"`
+	CertificateNotAfter     string  `pulumi:"certificateNotAfter"`
+	CertificateThumbprint   string  `pulumi:"certificateThumbprint"`
+	ExternalAccess          *string `pulumi:"externalAccess"`
+	ExternalAccessIpAddress string  `pulumi:"externalAccessIpAddress"`
+	Ldaps                   *string `pulumi:"ldaps"`
+	PfxCertificate          *string `pulumi:"pfxCertificate"`
+	PfxCertificatePassword  *string `pulumi:"pfxCertificatePassword"`
+	PublicCertificate       string  `pulumi:"publicCertificate"`
 }
 
 // LdapsSettingsResponseInput is an input type that accepts LdapsSettingsResponseArgs and LdapsSettingsResponseOutput values.
@@ -848,24 +772,15 @@ type LdapsSettingsResponseInput interface {
 	ToLdapsSettingsResponseOutputWithContext(context.Context) LdapsSettingsResponseOutput
 }
 
-// Secure LDAP Settings
 type LdapsSettingsResponseArgs struct {
-	// NotAfter DateTime of configure ldaps certificate.
-	CertificateNotAfter pulumi.StringInput `pulumi:"certificateNotAfter"`
-	// Thumbprint of configure ldaps certificate.
-	CertificateThumbprint pulumi.StringInput `pulumi:"certificateThumbprint"`
-	// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
-	ExternalAccess pulumi.StringPtrInput `pulumi:"externalAccess"`
-	// External access ip address.
-	ExternalAccessIpAddress pulumi.StringInput `pulumi:"externalAccessIpAddress"`
-	// A flag to determine whether or not Secure LDAP is enabled or disabled.
-	Ldaps pulumi.StringPtrInput `pulumi:"ldaps"`
-	// The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
-	PfxCertificate pulumi.StringPtrInput `pulumi:"pfxCertificate"`
-	// The password to decrypt the provided Secure LDAP certificate pfx file.
-	PfxCertificatePassword pulumi.StringPtrInput `pulumi:"pfxCertificatePassword"`
-	// Public certificate used to configure secure ldap.
-	PublicCertificate pulumi.StringInput `pulumi:"publicCertificate"`
+	CertificateNotAfter     pulumi.StringInput    `pulumi:"certificateNotAfter"`
+	CertificateThumbprint   pulumi.StringInput    `pulumi:"certificateThumbprint"`
+	ExternalAccess          pulumi.StringPtrInput `pulumi:"externalAccess"`
+	ExternalAccessIpAddress pulumi.StringInput    `pulumi:"externalAccessIpAddress"`
+	Ldaps                   pulumi.StringPtrInput `pulumi:"ldaps"`
+	PfxCertificate          pulumi.StringPtrInput `pulumi:"pfxCertificate"`
+	PfxCertificatePassword  pulumi.StringPtrInput `pulumi:"pfxCertificatePassword"`
+	PublicCertificate       pulumi.StringInput    `pulumi:"publicCertificate"`
 }
 
 func (LdapsSettingsResponseArgs) ElementType() reflect.Type {
@@ -921,7 +836,6 @@ func (i *ldapsSettingsResponsePtrType) ToLdapsSettingsResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(LdapsSettingsResponsePtrOutput)
 }
 
-// Secure LDAP Settings
 type LdapsSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (LdapsSettingsResponseOutput) ElementType() reflect.Type {
@@ -941,47 +855,39 @@ func (o LdapsSettingsResponseOutput) ToLdapsSettingsResponsePtrOutput() LdapsSet
 }
 
 func (o LdapsSettingsResponseOutput) ToLdapsSettingsResponsePtrOutputWithContext(ctx context.Context) LdapsSettingsResponsePtrOutput {
-	return o.ApplyT(func(v LdapsSettingsResponse) *LdapsSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LdapsSettingsResponse) *LdapsSettingsResponse {
 		return &v
 	}).(LdapsSettingsResponsePtrOutput)
 }
 
-// NotAfter DateTime of configure ldaps certificate.
 func (o LdapsSettingsResponseOutput) CertificateNotAfter() pulumi.StringOutput {
 	return o.ApplyT(func(v LdapsSettingsResponse) string { return v.CertificateNotAfter }).(pulumi.StringOutput)
 }
 
-// Thumbprint of configure ldaps certificate.
 func (o LdapsSettingsResponseOutput) CertificateThumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v LdapsSettingsResponse) string { return v.CertificateThumbprint }).(pulumi.StringOutput)
 }
 
-// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
 func (o LdapsSettingsResponseOutput) ExternalAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LdapsSettingsResponse) *string { return v.ExternalAccess }).(pulumi.StringPtrOutput)
 }
 
-// External access ip address.
 func (o LdapsSettingsResponseOutput) ExternalAccessIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LdapsSettingsResponse) string { return v.ExternalAccessIpAddress }).(pulumi.StringOutput)
 }
 
-// A flag to determine whether or not Secure LDAP is enabled or disabled.
 func (o LdapsSettingsResponseOutput) Ldaps() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LdapsSettingsResponse) *string { return v.Ldaps }).(pulumi.StringPtrOutput)
 }
 
-// The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
 func (o LdapsSettingsResponseOutput) PfxCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LdapsSettingsResponse) *string { return v.PfxCertificate }).(pulumi.StringPtrOutput)
 }
 
-// The password to decrypt the provided Secure LDAP certificate pfx file.
 func (o LdapsSettingsResponseOutput) PfxCertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LdapsSettingsResponse) *string { return v.PfxCertificatePassword }).(pulumi.StringPtrOutput)
 }
 
-// Public certificate used to configure secure ldap.
 func (o LdapsSettingsResponseOutput) PublicCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v LdapsSettingsResponse) string { return v.PublicCertificate }).(pulumi.StringOutput)
 }
@@ -1001,10 +907,15 @@ func (o LdapsSettingsResponsePtrOutput) ToLdapsSettingsResponsePtrOutputWithCont
 }
 
 func (o LdapsSettingsResponsePtrOutput) Elem() LdapsSettingsResponseOutput {
-	return o.ApplyT(func(v *LdapsSettingsResponse) LdapsSettingsResponse { return *v }).(LdapsSettingsResponseOutput)
+	return o.ApplyT(func(v *LdapsSettingsResponse) LdapsSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LdapsSettingsResponse
+		return ret
+	}).(LdapsSettingsResponseOutput)
 }
 
-// NotAfter DateTime of configure ldaps certificate.
 func (o LdapsSettingsResponsePtrOutput) CertificateNotAfter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LdapsSettingsResponse) *string {
 		if v == nil {
@@ -1014,7 +925,6 @@ func (o LdapsSettingsResponsePtrOutput) CertificateNotAfter() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Thumbprint of configure ldaps certificate.
 func (o LdapsSettingsResponsePtrOutput) CertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LdapsSettingsResponse) *string {
 		if v == nil {
@@ -1024,7 +934,6 @@ func (o LdapsSettingsResponsePtrOutput) CertificateThumbprint() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
 func (o LdapsSettingsResponsePtrOutput) ExternalAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LdapsSettingsResponse) *string {
 		if v == nil {
@@ -1034,7 +943,6 @@ func (o LdapsSettingsResponsePtrOutput) ExternalAccess() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// External access ip address.
 func (o LdapsSettingsResponsePtrOutput) ExternalAccessIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LdapsSettingsResponse) *string {
 		if v == nil {
@@ -1044,7 +952,6 @@ func (o LdapsSettingsResponsePtrOutput) ExternalAccessIpAddress() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag to determine whether or not Secure LDAP is enabled or disabled.
 func (o LdapsSettingsResponsePtrOutput) Ldaps() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LdapsSettingsResponse) *string {
 		if v == nil {
@@ -1054,7 +961,6 @@ func (o LdapsSettingsResponsePtrOutput) Ldaps() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
 func (o LdapsSettingsResponsePtrOutput) PfxCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LdapsSettingsResponse) *string {
 		if v == nil {
@@ -1064,7 +970,6 @@ func (o LdapsSettingsResponsePtrOutput) PfxCertificate() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password to decrypt the provided Secure LDAP certificate pfx file.
 func (o LdapsSettingsResponsePtrOutput) PfxCertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LdapsSettingsResponse) *string {
 		if v == nil {
@@ -1074,7 +979,6 @@ func (o LdapsSettingsResponsePtrOutput) PfxCertificatePassword() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Public certificate used to configure secure ldap.
 func (o LdapsSettingsResponsePtrOutput) PublicCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LdapsSettingsResponse) *string {
 		if v == nil {
@@ -1084,14 +988,10 @@ func (o LdapsSettingsResponsePtrOutput) PublicCertificate() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings for notification
 type NotificationSettings struct {
-	// The list of additional recipients
 	AdditionalRecipients []string `pulumi:"additionalRecipients"`
-	// Should domain controller admins be notified
-	NotifyDcAdmins *string `pulumi:"notifyDcAdmins"`
-	// Should global admins be notified
-	NotifyGlobalAdmins *string `pulumi:"notifyGlobalAdmins"`
+	NotifyDcAdmins       *string  `pulumi:"notifyDcAdmins"`
+	NotifyGlobalAdmins   *string  `pulumi:"notifyGlobalAdmins"`
 }
 
 // NotificationSettingsInput is an input type that accepts NotificationSettingsArgs and NotificationSettingsOutput values.
@@ -1105,14 +1005,10 @@ type NotificationSettingsInput interface {
 	ToNotificationSettingsOutputWithContext(context.Context) NotificationSettingsOutput
 }
 
-// Settings for notification
 type NotificationSettingsArgs struct {
-	// The list of additional recipients
 	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
-	// Should domain controller admins be notified
-	NotifyDcAdmins pulumi.StringPtrInput `pulumi:"notifyDcAdmins"`
-	// Should global admins be notified
-	NotifyGlobalAdmins pulumi.StringPtrInput `pulumi:"notifyGlobalAdmins"`
+	NotifyDcAdmins       pulumi.StringPtrInput   `pulumi:"notifyDcAdmins"`
+	NotifyGlobalAdmins   pulumi.StringPtrInput   `pulumi:"notifyGlobalAdmins"`
 }
 
 func (NotificationSettingsArgs) ElementType() reflect.Type {
@@ -1168,7 +1064,6 @@ func (i *notificationSettingsPtrType) ToNotificationSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsPtrOutput)
 }
 
-// Settings for notification
 type NotificationSettingsOutput struct{ *pulumi.OutputState }
 
 func (NotificationSettingsOutput) ElementType() reflect.Type {
@@ -1188,22 +1083,19 @@ func (o NotificationSettingsOutput) ToNotificationSettingsPtrOutput() Notificati
 }
 
 func (o NotificationSettingsOutput) ToNotificationSettingsPtrOutputWithContext(ctx context.Context) NotificationSettingsPtrOutput {
-	return o.ApplyT(func(v NotificationSettings) *NotificationSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationSettings) *NotificationSettings {
 		return &v
 	}).(NotificationSettingsPtrOutput)
 }
 
-// The list of additional recipients
 func (o NotificationSettingsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NotificationSettings) []string { return v.AdditionalRecipients }).(pulumi.StringArrayOutput)
 }
 
-// Should domain controller admins be notified
 func (o NotificationSettingsOutput) NotifyDcAdmins() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationSettings) *string { return v.NotifyDcAdmins }).(pulumi.StringPtrOutput)
 }
 
-// Should global admins be notified
 func (o NotificationSettingsOutput) NotifyGlobalAdmins() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationSettings) *string { return v.NotifyGlobalAdmins }).(pulumi.StringPtrOutput)
 }
@@ -1223,10 +1115,15 @@ func (o NotificationSettingsPtrOutput) ToNotificationSettingsPtrOutputWithContex
 }
 
 func (o NotificationSettingsPtrOutput) Elem() NotificationSettingsOutput {
-	return o.ApplyT(func(v *NotificationSettings) NotificationSettings { return *v }).(NotificationSettingsOutput)
+	return o.ApplyT(func(v *NotificationSettings) NotificationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationSettings
+		return ret
+	}).(NotificationSettingsOutput)
 }
 
-// The list of additional recipients
 func (o NotificationSettingsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NotificationSettings) []string {
 		if v == nil {
@@ -1236,7 +1133,6 @@ func (o NotificationSettingsPtrOutput) AdditionalRecipients() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// Should domain controller admins be notified
 func (o NotificationSettingsPtrOutput) NotifyDcAdmins() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationSettings) *string {
 		if v == nil {
@@ -1246,7 +1142,6 @@ func (o NotificationSettingsPtrOutput) NotifyDcAdmins() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should global admins be notified
 func (o NotificationSettingsPtrOutput) NotifyGlobalAdmins() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationSettings) *string {
 		if v == nil {
@@ -1256,14 +1151,10 @@ func (o NotificationSettingsPtrOutput) NotifyGlobalAdmins() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings for notification
 type NotificationSettingsResponse struct {
-	// The list of additional recipients
 	AdditionalRecipients []string `pulumi:"additionalRecipients"`
-	// Should domain controller admins be notified
-	NotifyDcAdmins *string `pulumi:"notifyDcAdmins"`
-	// Should global admins be notified
-	NotifyGlobalAdmins *string `pulumi:"notifyGlobalAdmins"`
+	NotifyDcAdmins       *string  `pulumi:"notifyDcAdmins"`
+	NotifyGlobalAdmins   *string  `pulumi:"notifyGlobalAdmins"`
 }
 
 // NotificationSettingsResponseInput is an input type that accepts NotificationSettingsResponseArgs and NotificationSettingsResponseOutput values.
@@ -1277,14 +1168,10 @@ type NotificationSettingsResponseInput interface {
 	ToNotificationSettingsResponseOutputWithContext(context.Context) NotificationSettingsResponseOutput
 }
 
-// Settings for notification
 type NotificationSettingsResponseArgs struct {
-	// The list of additional recipients
 	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
-	// Should domain controller admins be notified
-	NotifyDcAdmins pulumi.StringPtrInput `pulumi:"notifyDcAdmins"`
-	// Should global admins be notified
-	NotifyGlobalAdmins pulumi.StringPtrInput `pulumi:"notifyGlobalAdmins"`
+	NotifyDcAdmins       pulumi.StringPtrInput   `pulumi:"notifyDcAdmins"`
+	NotifyGlobalAdmins   pulumi.StringPtrInput   `pulumi:"notifyGlobalAdmins"`
 }
 
 func (NotificationSettingsResponseArgs) ElementType() reflect.Type {
@@ -1340,7 +1227,6 @@ func (i *notificationSettingsResponsePtrType) ToNotificationSettingsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsResponsePtrOutput)
 }
 
-// Settings for notification
 type NotificationSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (NotificationSettingsResponseOutput) ElementType() reflect.Type {
@@ -1360,22 +1246,19 @@ func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponsePtrOut
 }
 
 func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponsePtrOutputWithContext(ctx context.Context) NotificationSettingsResponsePtrOutput {
-	return o.ApplyT(func(v NotificationSettingsResponse) *NotificationSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationSettingsResponse) *NotificationSettingsResponse {
 		return &v
 	}).(NotificationSettingsResponsePtrOutput)
 }
 
-// The list of additional recipients
 func (o NotificationSettingsResponseOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NotificationSettingsResponse) []string { return v.AdditionalRecipients }).(pulumi.StringArrayOutput)
 }
 
-// Should domain controller admins be notified
 func (o NotificationSettingsResponseOutput) NotifyDcAdmins() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationSettingsResponse) *string { return v.NotifyDcAdmins }).(pulumi.StringPtrOutput)
 }
 
-// Should global admins be notified
 func (o NotificationSettingsResponseOutput) NotifyGlobalAdmins() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationSettingsResponse) *string { return v.NotifyGlobalAdmins }).(pulumi.StringPtrOutput)
 }
@@ -1395,10 +1278,15 @@ func (o NotificationSettingsResponsePtrOutput) ToNotificationSettingsResponsePtr
 }
 
 func (o NotificationSettingsResponsePtrOutput) Elem() NotificationSettingsResponseOutput {
-	return o.ApplyT(func(v *NotificationSettingsResponse) NotificationSettingsResponse { return *v }).(NotificationSettingsResponseOutput)
+	return o.ApplyT(func(v *NotificationSettingsResponse) NotificationSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationSettingsResponse
+		return ret
+	}).(NotificationSettingsResponseOutput)
 }
 
-// The list of additional recipients
 func (o NotificationSettingsResponsePtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NotificationSettingsResponse) []string {
 		if v == nil {
@@ -1408,7 +1296,6 @@ func (o NotificationSettingsResponsePtrOutput) AdditionalRecipients() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// Should domain controller admins be notified
 func (o NotificationSettingsResponsePtrOutput) NotifyDcAdmins() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationSettingsResponse) *string {
 		if v == nil {
@@ -1418,7 +1305,6 @@ func (o NotificationSettingsResponsePtrOutput) NotifyDcAdmins() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should global admins be notified
 func (o NotificationSettingsResponsePtrOutput) NotifyGlobalAdmins() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationSettingsResponse) *string {
 		if v == nil {

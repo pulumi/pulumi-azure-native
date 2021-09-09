@@ -11,10 +11,8 @@ import (
 )
 
 type ContentHash struct {
-	// Gets or sets the algorithm.
 	Algorithm *string `pulumi:"algorithm"`
-	// Gets or sets the value.
-	Value *string `pulumi:"value"`
+	Value     *string `pulumi:"value"`
 }
 
 // ContentHashInput is an input type that accepts ContentHashArgs and ContentHashOutput values.
@@ -29,10 +27,8 @@ type ContentHashInput interface {
 }
 
 type ContentHashArgs struct {
-	// Gets or sets the algorithm.
 	Algorithm pulumi.StringPtrInput `pulumi:"algorithm"`
-	// Gets or sets the value.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value     pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ContentHashArgs) ElementType() reflect.Type {
@@ -107,17 +103,15 @@ func (o ContentHashOutput) ToContentHashPtrOutput() ContentHashPtrOutput {
 }
 
 func (o ContentHashOutput) ToContentHashPtrOutputWithContext(ctx context.Context) ContentHashPtrOutput {
-	return o.ApplyT(func(v ContentHash) *ContentHash {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentHash) *ContentHash {
 		return &v
 	}).(ContentHashPtrOutput)
 }
 
-// Gets or sets the algorithm.
 func (o ContentHashOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentHash) *string { return v.Algorithm }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the value.
 func (o ContentHashOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentHash) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -137,10 +131,15 @@ func (o ContentHashPtrOutput) ToContentHashPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ContentHashPtrOutput) Elem() ContentHashOutput {
-	return o.ApplyT(func(v *ContentHash) ContentHash { return *v }).(ContentHashOutput)
+	return o.ApplyT(func(v *ContentHash) ContentHash {
+		if v != nil {
+			return *v
+		}
+		var ret ContentHash
+		return ret
+	}).(ContentHashOutput)
 }
 
-// Gets or sets the algorithm.
 func (o ContentHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHash) *string {
 		if v == nil {
@@ -150,7 +149,6 @@ func (o ContentHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the value.
 func (o ContentHashPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHash) *string {
 		if v == nil {
@@ -161,10 +159,8 @@ func (o ContentHashPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type ContentHashResponse struct {
-	// Gets or sets the algorithm.
 	Algorithm *string `pulumi:"algorithm"`
-	// Gets or sets the value.
-	Value *string `pulumi:"value"`
+	Value     *string `pulumi:"value"`
 }
 
 // ContentHashResponseInput is an input type that accepts ContentHashResponseArgs and ContentHashResponseOutput values.
@@ -179,10 +175,8 @@ type ContentHashResponseInput interface {
 }
 
 type ContentHashResponseArgs struct {
-	// Gets or sets the algorithm.
 	Algorithm pulumi.StringPtrInput `pulumi:"algorithm"`
-	// Gets or sets the value.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value     pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ContentHashResponseArgs) ElementType() reflect.Type {
@@ -257,17 +251,15 @@ func (o ContentHashResponseOutput) ToContentHashResponsePtrOutput() ContentHashR
 }
 
 func (o ContentHashResponseOutput) ToContentHashResponsePtrOutputWithContext(ctx context.Context) ContentHashResponsePtrOutput {
-	return o.ApplyT(func(v ContentHashResponse) *ContentHashResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentHashResponse) *ContentHashResponse {
 		return &v
 	}).(ContentHashResponsePtrOutput)
 }
 
-// Gets or sets the algorithm.
 func (o ContentHashResponseOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentHashResponse) *string { return v.Algorithm }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the value.
 func (o ContentHashResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentHashResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -287,10 +279,15 @@ func (o ContentHashResponsePtrOutput) ToContentHashResponsePtrOutputWithContext(
 }
 
 func (o ContentHashResponsePtrOutput) Elem() ContentHashResponseOutput {
-	return o.ApplyT(func(v *ContentHashResponse) ContentHashResponse { return *v }).(ContentHashResponseOutput)
+	return o.ApplyT(func(v *ContentHashResponse) ContentHashResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContentHashResponse
+		return ret
+	}).(ContentHashResponseOutput)
 }
 
-// Gets or sets the algorithm.
 func (o ContentHashResponsePtrOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHashResponse) *string {
 		if v == nil {
@@ -300,7 +297,6 @@ func (o ContentHashResponsePtrOutput) Algorithm() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the value.
 func (o ContentHashResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHashResponse) *string {
 		if v == nil {
@@ -311,16 +307,11 @@ func (o ContentHashResponsePtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type ContentLink struct {
-	// Gets or sets the content hash.
-	ContentHash *ContentHash `pulumi:"contentHash"`
-	// Gets or sets the content size.
-	ContentSize *float64 `pulumi:"contentSize"`
-	// Gets or sets the content version.
-	ContentVersion *string `pulumi:"contentVersion"`
-	// Gets or sets the metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// Gets or sets the content link URI.
-	Uri *string `pulumi:"uri"`
+	ContentHash    *ContentHash `pulumi:"contentHash"`
+	ContentSize    *float64     `pulumi:"contentSize"`
+	ContentVersion *string      `pulumi:"contentVersion"`
+	Metadata       interface{}  `pulumi:"metadata"`
+	Uri            *string      `pulumi:"uri"`
 }
 
 // ContentLinkInput is an input type that accepts ContentLinkArgs and ContentLinkOutput values.
@@ -335,16 +326,11 @@ type ContentLinkInput interface {
 }
 
 type ContentLinkArgs struct {
-	// Gets or sets the content hash.
-	ContentHash ContentHashPtrInput `pulumi:"contentHash"`
-	// Gets or sets the content size.
-	ContentSize pulumi.Float64PtrInput `pulumi:"contentSize"`
-	// Gets or sets the content version.
-	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
-	// Gets or sets the metadata.
-	Metadata pulumi.Input `pulumi:"metadata"`
-	// Gets or sets the content link URI.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	ContentHash    ContentHashPtrInput    `pulumi:"contentHash"`
+	ContentSize    pulumi.Float64PtrInput `pulumi:"contentSize"`
+	ContentVersion pulumi.StringPtrInput  `pulumi:"contentVersion"`
+	Metadata       pulumi.Input           `pulumi:"metadata"`
+	Uri            pulumi.StringPtrInput  `pulumi:"uri"`
 }
 
 func (ContentLinkArgs) ElementType() reflect.Type {
@@ -419,32 +405,27 @@ func (o ContentLinkOutput) ToContentLinkPtrOutput() ContentLinkPtrOutput {
 }
 
 func (o ContentLinkOutput) ToContentLinkPtrOutputWithContext(ctx context.Context) ContentLinkPtrOutput {
-	return o.ApplyT(func(v ContentLink) *ContentLink {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentLink) *ContentLink {
 		return &v
 	}).(ContentLinkPtrOutput)
 }
 
-// Gets or sets the content hash.
 func (o ContentLinkOutput) ContentHash() ContentHashPtrOutput {
 	return o.ApplyT(func(v ContentLink) *ContentHash { return v.ContentHash }).(ContentHashPtrOutput)
 }
 
-// Gets or sets the content size.
 func (o ContentLinkOutput) ContentSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ContentLink) *float64 { return v.ContentSize }).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets the content version.
 func (o ContentLinkOutput) ContentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLink) *string { return v.ContentVersion }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the metadata.
 func (o ContentLinkOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v ContentLink) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
-// Gets or sets the content link URI.
 func (o ContentLinkOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLink) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -464,10 +445,15 @@ func (o ContentLinkPtrOutput) ToContentLinkPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ContentLinkPtrOutput) Elem() ContentLinkOutput {
-	return o.ApplyT(func(v *ContentLink) ContentLink { return *v }).(ContentLinkOutput)
+	return o.ApplyT(func(v *ContentLink) ContentLink {
+		if v != nil {
+			return *v
+		}
+		var ret ContentLink
+		return ret
+	}).(ContentLinkOutput)
 }
 
-// Gets or sets the content hash.
 func (o ContentLinkPtrOutput) ContentHash() ContentHashPtrOutput {
 	return o.ApplyT(func(v *ContentLink) *ContentHash {
 		if v == nil {
@@ -477,7 +463,6 @@ func (o ContentLinkPtrOutput) ContentHash() ContentHashPtrOutput {
 	}).(ContentHashPtrOutput)
 }
 
-// Gets or sets the content size.
 func (o ContentLinkPtrOutput) ContentSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ContentLink) *float64 {
 		if v == nil {
@@ -487,7 +472,6 @@ func (o ContentLinkPtrOutput) ContentSize() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets the content version.
 func (o ContentLinkPtrOutput) ContentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLink) *string {
 		if v == nil {
@@ -497,7 +481,6 @@ func (o ContentLinkPtrOutput) ContentVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the metadata.
 func (o ContentLinkPtrOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ContentLink) interface{} {
 		if v == nil {
@@ -507,7 +490,6 @@ func (o ContentLinkPtrOutput) Metadata() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Gets or sets the content link URI.
 func (o ContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLink) *string {
 		if v == nil {
@@ -518,16 +500,11 @@ func (o ContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 }
 
 type ContentLinkResponse struct {
-	// Gets or sets the content hash.
-	ContentHash *ContentHashResponse `pulumi:"contentHash"`
-	// Gets or sets the content size.
-	ContentSize *float64 `pulumi:"contentSize"`
-	// Gets or sets the content version.
-	ContentVersion *string `pulumi:"contentVersion"`
-	// Gets or sets the metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// Gets or sets the content link URI.
-	Uri *string `pulumi:"uri"`
+	ContentHash    *ContentHashResponse `pulumi:"contentHash"`
+	ContentSize    *float64             `pulumi:"contentSize"`
+	ContentVersion *string              `pulumi:"contentVersion"`
+	Metadata       interface{}          `pulumi:"metadata"`
+	Uri            *string              `pulumi:"uri"`
 }
 
 // ContentLinkResponseInput is an input type that accepts ContentLinkResponseArgs and ContentLinkResponseOutput values.
@@ -542,16 +519,11 @@ type ContentLinkResponseInput interface {
 }
 
 type ContentLinkResponseArgs struct {
-	// Gets or sets the content hash.
-	ContentHash ContentHashResponsePtrInput `pulumi:"contentHash"`
-	// Gets or sets the content size.
-	ContentSize pulumi.Float64PtrInput `pulumi:"contentSize"`
-	// Gets or sets the content version.
-	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
-	// Gets or sets the metadata.
-	Metadata pulumi.Input `pulumi:"metadata"`
-	// Gets or sets the content link URI.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	ContentHash    ContentHashResponsePtrInput `pulumi:"contentHash"`
+	ContentSize    pulumi.Float64PtrInput      `pulumi:"contentSize"`
+	ContentVersion pulumi.StringPtrInput       `pulumi:"contentVersion"`
+	Metadata       pulumi.Input                `pulumi:"metadata"`
+	Uri            pulumi.StringPtrInput       `pulumi:"uri"`
 }
 
 func (ContentLinkResponseArgs) ElementType() reflect.Type {
@@ -626,32 +598,27 @@ func (o ContentLinkResponseOutput) ToContentLinkResponsePtrOutput() ContentLinkR
 }
 
 func (o ContentLinkResponseOutput) ToContentLinkResponsePtrOutputWithContext(ctx context.Context) ContentLinkResponsePtrOutput {
-	return o.ApplyT(func(v ContentLinkResponse) *ContentLinkResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentLinkResponse) *ContentLinkResponse {
 		return &v
 	}).(ContentLinkResponsePtrOutput)
 }
 
-// Gets or sets the content hash.
 func (o ContentLinkResponseOutput) ContentHash() ContentHashResponsePtrOutput {
 	return o.ApplyT(func(v ContentLinkResponse) *ContentHashResponse { return v.ContentHash }).(ContentHashResponsePtrOutput)
 }
 
-// Gets or sets the content size.
 func (o ContentLinkResponseOutput) ContentSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ContentLinkResponse) *float64 { return v.ContentSize }).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets the content version.
 func (o ContentLinkResponseOutput) ContentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLinkResponse) *string { return v.ContentVersion }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the metadata.
 func (o ContentLinkResponseOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v ContentLinkResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
-// Gets or sets the content link URI.
 func (o ContentLinkResponseOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLinkResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -671,10 +638,15 @@ func (o ContentLinkResponsePtrOutput) ToContentLinkResponsePtrOutputWithContext(
 }
 
 func (o ContentLinkResponsePtrOutput) Elem() ContentLinkResponseOutput {
-	return o.ApplyT(func(v *ContentLinkResponse) ContentLinkResponse { return *v }).(ContentLinkResponseOutput)
+	return o.ApplyT(func(v *ContentLinkResponse) ContentLinkResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContentLinkResponse
+		return ret
+	}).(ContentLinkResponseOutput)
 }
 
-// Gets or sets the content hash.
 func (o ContentLinkResponsePtrOutput) ContentHash() ContentHashResponsePtrOutput {
 	return o.ApplyT(func(v *ContentLinkResponse) *ContentHashResponse {
 		if v == nil {
@@ -684,7 +656,6 @@ func (o ContentLinkResponsePtrOutput) ContentHash() ContentHashResponsePtrOutput
 	}).(ContentHashResponsePtrOutput)
 }
 
-// Gets or sets the content size.
 func (o ContentLinkResponsePtrOutput) ContentSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ContentLinkResponse) *float64 {
 		if v == nil {
@@ -694,7 +665,6 @@ func (o ContentLinkResponsePtrOutput) ContentSize() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Gets or sets the content version.
 func (o ContentLinkResponsePtrOutput) ContentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLinkResponse) *string {
 		if v == nil {
@@ -704,7 +674,6 @@ func (o ContentLinkResponsePtrOutput) ContentVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the metadata.
 func (o ContentLinkResponsePtrOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ContentLinkResponse) interface{} {
 		if v == nil {
@@ -714,7 +683,6 @@ func (o ContentLinkResponsePtrOutput) Metadata() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Gets or sets the content link URI.
 func (o ContentLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLinkResponse) *string {
 		if v == nil {
@@ -725,7 +693,6 @@ func (o ContentLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 }
 
 type ResourceReference struct {
-	// Gets or sets the resource id.
 	Id *string `pulumi:"id"`
 }
 
@@ -741,7 +708,6 @@ type ResourceReferenceInput interface {
 }
 
 type ResourceReferenceArgs struct {
-	// Gets or sets the resource id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -817,12 +783,11 @@ func (o ResourceReferenceOutput) ToResourceReferencePtrOutput() ResourceReferenc
 }
 
 func (o ResourceReferenceOutput) ToResourceReferencePtrOutputWithContext(ctx context.Context) ResourceReferencePtrOutput {
-	return o.ApplyT(func(v ResourceReference) *ResourceReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceReference) *ResourceReference {
 		return &v
 	}).(ResourceReferencePtrOutput)
 }
 
-// Gets or sets the resource id.
 func (o ResourceReferenceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -842,10 +807,15 @@ func (o ResourceReferencePtrOutput) ToResourceReferencePtrOutputWithContext(ctx 
 }
 
 func (o ResourceReferencePtrOutput) Elem() ResourceReferenceOutput {
-	return o.ApplyT(func(v *ResourceReference) ResourceReference { return *v }).(ResourceReferenceOutput)
+	return o.ApplyT(func(v *ResourceReference) ResourceReference {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceReference
+		return ret
+	}).(ResourceReferenceOutput)
 }
 
-// Gets or sets the resource id.
 func (o ResourceReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceReference) *string {
 		if v == nil {
@@ -856,12 +826,9 @@ func (o ResourceReferencePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type ResourceReferenceResponse struct {
-	// Gets or sets the resource id.
-	Id *string `pulumi:"id"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
+	Type string  `pulumi:"type"`
 }
 
 // ResourceReferenceResponseInput is an input type that accepts ResourceReferenceResponseArgs and ResourceReferenceResponseOutput values.
@@ -876,12 +843,9 @@ type ResourceReferenceResponseInput interface {
 }
 
 type ResourceReferenceResponseArgs struct {
-	// Gets or sets the resource id.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets the resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets the resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Id   pulumi.StringPtrInput `pulumi:"id"`
+	Name pulumi.StringInput    `pulumi:"name"`
+	Type pulumi.StringInput    `pulumi:"type"`
 }
 
 func (ResourceReferenceResponseArgs) ElementType() reflect.Type {
@@ -956,22 +920,19 @@ func (o ResourceReferenceResponseOutput) ToResourceReferenceResponsePtrOutput() 
 }
 
 func (o ResourceReferenceResponseOutput) ToResourceReferenceResponsePtrOutputWithContext(ctx context.Context) ResourceReferenceResponsePtrOutput {
-	return o.ApplyT(func(v ResourceReferenceResponse) *ResourceReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceReferenceResponse) *ResourceReferenceResponse {
 		return &v
 	}).(ResourceReferenceResponsePtrOutput)
 }
 
-// Gets or sets the resource id.
 func (o ResourceReferenceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceReferenceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets the resource name.
 func (o ResourceReferenceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceReferenceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Gets the resource type.
 func (o ResourceReferenceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceReferenceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -991,10 +952,15 @@ func (o ResourceReferenceResponsePtrOutput) ToResourceReferenceResponsePtrOutput
 }
 
 func (o ResourceReferenceResponsePtrOutput) Elem() ResourceReferenceResponseOutput {
-	return o.ApplyT(func(v *ResourceReferenceResponse) ResourceReferenceResponse { return *v }).(ResourceReferenceResponseOutput)
+	return o.ApplyT(func(v *ResourceReferenceResponse) ResourceReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceReferenceResponse
+		return ret
+	}).(ResourceReferenceResponseOutput)
 }
 
-// Gets or sets the resource id.
 func (o ResourceReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceReferenceResponse) *string {
 		if v == nil {
@@ -1004,7 +970,6 @@ func (o ResourceReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the resource name.
 func (o ResourceReferenceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceReferenceResponse) *string {
 		if v == nil {
@@ -1014,7 +979,6 @@ func (o ResourceReferenceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the resource type.
 func (o ResourceReferenceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceReferenceResponse) *string {
 		if v == nil {
@@ -1025,9 +989,7 @@ func (o ResourceReferenceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type Sku struct {
-	// Gets or sets the name.
-	Name *string `pulumi:"name"`
-	// Gets or sets the reference to plan.
+	Name *SkuName           `pulumi:"name"`
 	Plan *ResourceReference `pulumi:"plan"`
 }
 
@@ -1043,9 +1005,7 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	// Gets or sets the name.
-	Name *SkuName `pulumi:"name"`
-	// Gets or sets the reference to plan.
+	Name SkuNamePtrInput           `pulumi:"name"`
 	Plan ResourceReferencePtrInput `pulumi:"plan"`
 }
 
@@ -1121,17 +1081,15 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// Gets or sets the name.
-func (o SkuOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o SkuOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v Sku) *SkuName { return v.Name }).(SkuNamePtrOutput)
 }
 
-// Gets or sets the reference to plan.
 func (o SkuOutput) Plan() ResourceReferencePtrOutput {
 	return o.ApplyT(func(v Sku) *ResourceReference { return v.Plan }).(ResourceReferencePtrOutput)
 }
@@ -1151,20 +1109,24 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// Gets or sets the name.
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
-// Gets or sets the reference to plan.
 func (o SkuPtrOutput) Plan() ResourceReferencePtrOutput {
 	return o.ApplyT(func(v *Sku) *ResourceReference {
 		if v == nil {
@@ -1175,9 +1137,7 @@ func (o SkuPtrOutput) Plan() ResourceReferencePtrOutput {
 }
 
 type SkuResponse struct {
-	// Gets or sets the name.
-	Name *string `pulumi:"name"`
-	// Gets or sets the reference to plan.
+	Name *string                    `pulumi:"name"`
 	Plan *ResourceReferenceResponse `pulumi:"plan"`
 }
 
@@ -1193,9 +1153,7 @@ type SkuResponseInput interface {
 }
 
 type SkuResponseArgs struct {
-	// Gets or sets the name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the reference to plan.
+	Name pulumi.StringPtrInput             `pulumi:"name"`
 	Plan ResourceReferenceResponsePtrInput `pulumi:"plan"`
 }
 
@@ -1271,17 +1229,15 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// Gets or sets the name.
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference to plan.
 func (o SkuResponseOutput) Plan() ResourceReferenceResponsePtrOutput {
 	return o.ApplyT(func(v SkuResponse) *ResourceReferenceResponse { return v.Plan }).(ResourceReferenceResponsePtrOutput)
 }
@@ -1301,10 +1257,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// Gets or sets the name.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1314,7 +1275,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the reference to plan.
 func (o SkuResponsePtrOutput) Plan() ResourceReferenceResponsePtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *ResourceReferenceResponse {
 		if v == nil {
@@ -1325,12 +1285,9 @@ func (o SkuResponsePtrOutput) Plan() ResourceReferenceResponsePtrOutput {
 }
 
 type WorkflowParameter struct {
-	// Gets or sets the metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// Gets or sets the type.
-	Type *string `pulumi:"type"`
-	// Gets or sets the value.
-	Value interface{} `pulumi:"value"`
+	Metadata interface{}    `pulumi:"metadata"`
+	Type     *ParameterType `pulumi:"type"`
+	Value    interface{}    `pulumi:"value"`
 }
 
 // WorkflowParameterInput is an input type that accepts WorkflowParameterArgs and WorkflowParameterOutput values.
@@ -1345,12 +1302,9 @@ type WorkflowParameterInput interface {
 }
 
 type WorkflowParameterArgs struct {
-	// Gets or sets the metadata.
-	Metadata pulumi.Input `pulumi:"metadata"`
-	// Gets or sets the type.
-	Type *ParameterType `pulumi:"type"`
-	// Gets or sets the value.
-	Value pulumi.Input `pulumi:"value"`
+	Metadata pulumi.Input          `pulumi:"metadata"`
+	Type     ParameterTypePtrInput `pulumi:"type"`
+	Value    pulumi.Input          `pulumi:"value"`
 }
 
 func (WorkflowParameterArgs) ElementType() reflect.Type {
@@ -1404,17 +1358,14 @@ func (o WorkflowParameterOutput) ToWorkflowParameterOutputWithContext(ctx contex
 	return o
 }
 
-// Gets or sets the metadata.
 func (o WorkflowParameterOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v WorkflowParameter) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
-// Gets or sets the type.
-func (o WorkflowParameterOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkflowParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o WorkflowParameterOutput) Type() ParameterTypePtrOutput {
+	return o.ApplyT(func(v WorkflowParameter) *ParameterType { return v.Type }).(ParameterTypePtrOutput)
 }
 
-// Gets or sets the value.
 func (o WorkflowParameterOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v WorkflowParameter) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
@@ -1440,12 +1391,9 @@ func (o WorkflowParameterMapOutput) MapIndex(k pulumi.StringInput) WorkflowParam
 }
 
 type WorkflowParameterResponse struct {
-	// Gets or sets the metadata.
 	Metadata interface{} `pulumi:"metadata"`
-	// Gets or sets the type.
-	Type *string `pulumi:"type"`
-	// Gets or sets the value.
-	Value interface{} `pulumi:"value"`
+	Type     *string     `pulumi:"type"`
+	Value    interface{} `pulumi:"value"`
 }
 
 // WorkflowParameterResponseInput is an input type that accepts WorkflowParameterResponseArgs and WorkflowParameterResponseOutput values.
@@ -1460,12 +1408,9 @@ type WorkflowParameterResponseInput interface {
 }
 
 type WorkflowParameterResponseArgs struct {
-	// Gets or sets the metadata.
-	Metadata pulumi.Input `pulumi:"metadata"`
-	// Gets or sets the type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Gets or sets the value.
-	Value pulumi.Input `pulumi:"value"`
+	Metadata pulumi.Input          `pulumi:"metadata"`
+	Type     pulumi.StringPtrInput `pulumi:"type"`
+	Value    pulumi.Input          `pulumi:"value"`
 }
 
 func (WorkflowParameterResponseArgs) ElementType() reflect.Type {
@@ -1519,17 +1464,14 @@ func (o WorkflowParameterResponseOutput) ToWorkflowParameterResponseOutputWithCo
 	return o
 }
 
-// Gets or sets the metadata.
 func (o WorkflowParameterResponseOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v WorkflowParameterResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
-// Gets or sets the type.
 func (o WorkflowParameterResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowParameterResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the value.
 func (o WorkflowParameterResponseOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v WorkflowParameterResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
 }

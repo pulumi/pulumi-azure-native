@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Instance of an Azure ML web service resource.
 type WebService struct {
 	pulumi.CustomResourceState
 
-	// Specifies the location of the resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Contains the property payload that describes the web service.
+	Location   pulumi.StringOutput                        `pulumi:"location"`
+	Name       pulumi.StringOutput                        `pulumi:"name"`
 	Properties WebServicePropertiesForGraphResponseOutput `pulumi:"properties"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type       pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewWebService registers a new resource with the given unique name, arguments, and options.
@@ -90,30 +84,20 @@ func (WebServiceState) ElementType() reflect.Type {
 }
 
 type webServiceArgs struct {
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Contains the property payload that describes the web service.
-	Properties WebServicePropertiesForGraph `pulumi:"properties"`
-	// Name of the resource group in which the web service is located.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the web service.
-	WebServiceName *string `pulumi:"webServiceName"`
+	Location          *string                      `pulumi:"location"`
+	Properties        WebServicePropertiesForGraph `pulumi:"properties"`
+	ResourceGroupName string                       `pulumi:"resourceGroupName"`
+	Tags              map[string]string            `pulumi:"tags"`
+	WebServiceName    *string                      `pulumi:"webServiceName"`
 }
 
 // The set of arguments for constructing a WebService resource.
 type WebServiceArgs struct {
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput
-	// Contains the property payload that describes the web service.
-	Properties WebServicePropertiesForGraphInput
-	// Name of the resource group in which the web service is located.
+	Location          pulumi.StringPtrInput
+	Properties        WebServicePropertiesForGraphInput
 	ResourceGroupName pulumi.StringInput
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput
-	// The name of the web service.
-	WebServiceName pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	WebServiceName    pulumi.StringPtrInput
 }
 
 func (WebServiceArgs) ElementType() reflect.Type {
@@ -139,9 +123,7 @@ func (i *WebService) ToWebServiceOutputWithContext(ctx context.Context) WebServi
 	return pulumi.ToOutputWithContext(ctx, i).(WebServiceOutput)
 }
 
-type WebServiceOutput struct {
-	*pulumi.OutputState
-}
+type WebServiceOutput struct{ *pulumi.OutputState }
 
 func (WebServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebService)(nil))

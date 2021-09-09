@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
 type Transform struct {
 	pulumi.CustomResourceState
 
-	// The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
-	Created pulumi.StringOutput `pulumi:"created"`
-	// An optional verbose description of the Transform.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// An array of one or more TransformOutputs that the Transform should generate.
-	Outputs TransformOutputResponseArrayOutput `pulumi:"outputs"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Created      pulumi.StringOutput                `pulumi:"created"`
+	Description  pulumi.StringPtrOutput             `pulumi:"description"`
+	LastModified pulumi.StringOutput                `pulumi:"lastModified"`
+	Name         pulumi.StringOutput                `pulumi:"name"`
+	Outputs      TransformOutputResponseArrayOutput `pulumi:"outputs"`
+	Type         pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewTransform registers a new resource with the given unique name, arguments, and options.
@@ -113,30 +106,20 @@ func (TransformState) ElementType() reflect.Type {
 }
 
 type transformArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// An optional verbose description of the Transform.
-	Description *string `pulumi:"description"`
-	// An array of one or more TransformOutputs that the Transform should generate.
-	Outputs []TransformOutputType `pulumi:"outputs"`
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Transform name.
-	TransformName *string `pulumi:"transformName"`
+	AccountName       string                `pulumi:"accountName"`
+	Description       *string               `pulumi:"description"`
+	Outputs           []TransformOutputType `pulumi:"outputs"`
+	ResourceGroupName string                `pulumi:"resourceGroupName"`
+	TransformName     *string               `pulumi:"transformName"`
 }
 
 // The set of arguments for constructing a Transform resource.
 type TransformArgs struct {
-	// The Media Services account name.
-	AccountName pulumi.StringInput
-	// An optional verbose description of the Transform.
-	Description pulumi.StringPtrInput
-	// An array of one or more TransformOutputs that the Transform should generate.
-	Outputs TransformOutputTypeArrayInput
-	// The name of the resource group within the Azure subscription.
+	AccountName       pulumi.StringInput
+	Description       pulumi.StringPtrInput
+	Outputs           TransformOutputTypeArrayInput
 	ResourceGroupName pulumi.StringInput
-	// The Transform name.
-	TransformName pulumi.StringPtrInput
+	TransformName     pulumi.StringPtrInput
 }
 
 func (TransformArgs) ElementType() reflect.Type {
@@ -162,9 +145,7 @@ func (i *Transform) ToTransformOutputWithContext(ctx context.Context) TransformO
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutput)
 }
 
-type TransformOutput struct {
-	*pulumi.OutputState
-}
+type TransformOutput struct{ *pulumi.OutputState }
 
 func (TransformOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Transform)(nil))

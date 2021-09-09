@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Machine Learning dataset object wrapped into ARM resource envelope.
 func LookupMachineLearningDataset(ctx *pulumi.Context, args *LookupMachineLearningDatasetArgs, opts ...pulumi.InvokeOption) (*LookupMachineLearningDatasetResult, error) {
 	var rv LookupMachineLearningDatasetResult
 	err := ctx.Invoke("azure-native:machinelearningservices/v20200501preview:getMachineLearningDataset", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupMachineLearningDataset(ctx *pulumi.Context, args *LookupMachineLearni
 }
 
 type LookupMachineLearningDatasetArgs struct {
-	// The Dataset name.
-	DatasetName string `pulumi:"datasetName"`
-	// Name of the resource group in which workspace is located.
+	DatasetName       string `pulumi:"datasetName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Machine Learning dataset object wrapped into ARM resource envelope.
 type LookupMachineLearningDatasetResult struct {
-	// Specifies the resource ID.
-	Id string `pulumi:"id"`
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// Dataset properties
-	Properties DatasetResponse `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
+	Id         string            `pulumi:"id"`
+	Identity   *IdentityResponse `pulumi:"identity"`
+	Location   *string           `pulumi:"location"`
+	Name       string            `pulumi:"name"`
+	Properties DatasetResponse   `pulumi:"properties"`
+	Sku        *SkuResponse      `pulumi:"sku"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

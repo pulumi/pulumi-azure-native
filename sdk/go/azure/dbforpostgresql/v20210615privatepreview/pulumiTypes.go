@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure active directory application.
 type AADApp struct {
 	AadSecret string `pulumi:"aadSecret"`
 	ClientId  string `pulumi:"clientId"`
@@ -28,7 +27,6 @@ type AADAppInput interface {
 	ToAADAppOutputWithContext(context.Context) AADAppOutput
 }
 
-// Azure active directory application.
 type AADAppArgs struct {
 	AadSecret pulumi.StringInput `pulumi:"aadSecret"`
 	ClientId  pulumi.StringInput `pulumi:"clientId"`
@@ -88,7 +86,6 @@ func (i *aadappPtrType) ToAADAppPtrOutputWithContext(ctx context.Context) AADApp
 	return pulumi.ToOutputWithContext(ctx, i).(AADAppPtrOutput)
 }
 
-// Azure active directory application.
 type AADAppOutput struct{ *pulumi.OutputState }
 
 func (AADAppOutput) ElementType() reflect.Type {
@@ -108,10 +105,11 @@ func (o AADAppOutput) ToAADAppPtrOutput() AADAppPtrOutput {
 }
 
 func (o AADAppOutput) ToAADAppPtrOutputWithContext(ctx context.Context) AADAppPtrOutput {
-	return o.ApplyT(func(v AADApp) *AADApp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AADApp) *AADApp {
 		return &v
 	}).(AADAppPtrOutput)
 }
+
 func (o AADAppOutput) AadSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v AADApp) string { return v.AadSecret }).(pulumi.StringOutput)
 }
@@ -139,7 +137,13 @@ func (o AADAppPtrOutput) ToAADAppPtrOutputWithContext(ctx context.Context) AADAp
 }
 
 func (o AADAppPtrOutput) Elem() AADAppOutput {
-	return o.ApplyT(func(v *AADApp) AADApp { return *v }).(AADAppOutput)
+	return o.ApplyT(func(v *AADApp) AADApp {
+		if v != nil {
+			return *v
+		}
+		var ret AADApp
+		return ret
+	}).(AADAppOutput)
 }
 
 func (o AADAppPtrOutput) AadSecret() pulumi.StringPtrOutput {
@@ -169,7 +173,6 @@ func (o AADAppPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure active directory application.
 type AADAppResponse struct {
 	ClientId string `pulumi:"clientId"`
 	TenantId string `pulumi:"tenantId"`
@@ -186,7 +189,6 @@ type AADAppResponseInput interface {
 	ToAADAppResponseOutputWithContext(context.Context) AADAppResponseOutput
 }
 
-// Azure active directory application.
 type AADAppResponseArgs struct {
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
@@ -245,7 +247,6 @@ func (i *aadappResponsePtrType) ToAADAppResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AADAppResponsePtrOutput)
 }
 
-// Azure active directory application.
 type AADAppResponseOutput struct{ *pulumi.OutputState }
 
 func (AADAppResponseOutput) ElementType() reflect.Type {
@@ -265,10 +266,11 @@ func (o AADAppResponseOutput) ToAADAppResponsePtrOutput() AADAppResponsePtrOutpu
 }
 
 func (o AADAppResponseOutput) ToAADAppResponsePtrOutputWithContext(ctx context.Context) AADAppResponsePtrOutput {
-	return o.ApplyT(func(v AADAppResponse) *AADAppResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AADAppResponse) *AADAppResponse {
 		return &v
 	}).(AADAppResponsePtrOutput)
 }
+
 func (o AADAppResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v AADAppResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
@@ -292,7 +294,13 @@ func (o AADAppResponsePtrOutput) ToAADAppResponsePtrOutputWithContext(ctx contex
 }
 
 func (o AADAppResponsePtrOutput) Elem() AADAppResponseOutput {
-	return o.ApplyT(func(v *AADAppResponse) AADAppResponse { return *v }).(AADAppResponseOutput)
+	return o.ApplyT(func(v *AADAppResponse) AADAppResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AADAppResponse
+		return ret
+	}).(AADAppResponseOutput)
 }
 
 func (o AADAppResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
@@ -313,7 +321,6 @@ func (o AADAppResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Server admin credentials.
 type AdminCredentials struct {
 	SourceServerPassword string `pulumi:"sourceServerPassword"`
 	TargetServerPassword string `pulumi:"targetServerPassword"`
@@ -330,7 +337,6 @@ type AdminCredentialsInput interface {
 	ToAdminCredentialsOutputWithContext(context.Context) AdminCredentialsOutput
 }
 
-// Server admin credentials.
 type AdminCredentialsArgs struct {
 	SourceServerPassword pulumi.StringInput `pulumi:"sourceServerPassword"`
 	TargetServerPassword pulumi.StringInput `pulumi:"targetServerPassword"`
@@ -389,7 +395,6 @@ func (i *adminCredentialsPtrType) ToAdminCredentialsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AdminCredentialsPtrOutput)
 }
 
-// Server admin credentials.
 type AdminCredentialsOutput struct{ *pulumi.OutputState }
 
 func (AdminCredentialsOutput) ElementType() reflect.Type {
@@ -409,10 +414,11 @@ func (o AdminCredentialsOutput) ToAdminCredentialsPtrOutput() AdminCredentialsPt
 }
 
 func (o AdminCredentialsOutput) ToAdminCredentialsPtrOutputWithContext(ctx context.Context) AdminCredentialsPtrOutput {
-	return o.ApplyT(func(v AdminCredentials) *AdminCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdminCredentials) *AdminCredentials {
 		return &v
 	}).(AdminCredentialsPtrOutput)
 }
+
 func (o AdminCredentialsOutput) SourceServerPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v AdminCredentials) string { return v.SourceServerPassword }).(pulumi.StringOutput)
 }
@@ -436,7 +442,13 @@ func (o AdminCredentialsPtrOutput) ToAdminCredentialsPtrOutputWithContext(ctx co
 }
 
 func (o AdminCredentialsPtrOutput) Elem() AdminCredentialsOutput {
-	return o.ApplyT(func(v *AdminCredentials) AdminCredentials { return *v }).(AdminCredentialsOutput)
+	return o.ApplyT(func(v *AdminCredentials) AdminCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret AdminCredentials
+		return ret
+	}).(AdminCredentialsOutput)
 }
 
 func (o AdminCredentialsPtrOutput) SourceServerPassword() pulumi.StringPtrOutput {
@@ -457,12 +469,9 @@ func (o AdminCredentialsPtrOutput) TargetServerPassword() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Backup properties of a server
 type Backup struct {
-	// Backup retention days for the server.
-	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// A value indicating whether Geo-Redundant backup is enabled on the server.
-	GeoRedundantBackup *string `pulumi:"geoRedundantBackup"`
+	BackupRetentionDays *int    `pulumi:"backupRetentionDays"`
+	GeoRedundantBackup  *string `pulumi:"geoRedundantBackup"`
 }
 
 // BackupInput is an input type that accepts BackupArgs and BackupOutput values.
@@ -476,12 +485,9 @@ type BackupInput interface {
 	ToBackupOutputWithContext(context.Context) BackupOutput
 }
 
-// Backup properties of a server
 type BackupArgs struct {
-	// Backup retention days for the server.
-	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
-	// A value indicating whether Geo-Redundant backup is enabled on the server.
-	GeoRedundantBackup pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
+	BackupRetentionDays pulumi.IntPtrInput    `pulumi:"backupRetentionDays"`
+	GeoRedundantBackup  pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
 }
 
 func (BackupArgs) ElementType() reflect.Type {
@@ -537,7 +543,6 @@ func (i *backupPtrType) ToBackupPtrOutputWithContext(ctx context.Context) Backup
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPtrOutput)
 }
 
-// Backup properties of a server
 type BackupOutput struct{ *pulumi.OutputState }
 
 func (BackupOutput) ElementType() reflect.Type {
@@ -557,17 +562,15 @@ func (o BackupOutput) ToBackupPtrOutput() BackupPtrOutput {
 }
 
 func (o BackupOutput) ToBackupPtrOutputWithContext(ctx context.Context) BackupPtrOutput {
-	return o.ApplyT(func(v Backup) *Backup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Backup) *Backup {
 		return &v
 	}).(BackupPtrOutput)
 }
 
-// Backup retention days for the server.
 func (o BackupOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Backup) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether Geo-Redundant backup is enabled on the server.
 func (o BackupOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Backup) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
 }
@@ -587,10 +590,15 @@ func (o BackupPtrOutput) ToBackupPtrOutputWithContext(ctx context.Context) Backu
 }
 
 func (o BackupPtrOutput) Elem() BackupOutput {
-	return o.ApplyT(func(v *Backup) Backup { return *v }).(BackupOutput)
+	return o.ApplyT(func(v *Backup) Backup {
+		if v != nil {
+			return *v
+		}
+		var ret Backup
+		return ret
+	}).(BackupOutput)
 }
 
-// Backup retention days for the server.
 func (o BackupPtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Backup) *int {
 		if v == nil {
@@ -600,7 +608,6 @@ func (o BackupPtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether Geo-Redundant backup is enabled on the server.
 func (o BackupPtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Backup) *string {
 		if v == nil {
@@ -610,14 +617,10 @@ func (o BackupPtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Backup properties of a server
 type BackupResponse struct {
-	// Backup retention days for the server.
-	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// The earliest restore point time (ISO8601 format) for server.
-	EarliestRestoreDate string `pulumi:"earliestRestoreDate"`
-	// A value indicating whether Geo-Redundant backup is enabled on the server.
-	GeoRedundantBackup *string `pulumi:"geoRedundantBackup"`
+	BackupRetentionDays *int    `pulumi:"backupRetentionDays"`
+	EarliestRestoreDate string  `pulumi:"earliestRestoreDate"`
+	GeoRedundantBackup  *string `pulumi:"geoRedundantBackup"`
 }
 
 // BackupResponseInput is an input type that accepts BackupResponseArgs and BackupResponseOutput values.
@@ -631,14 +634,10 @@ type BackupResponseInput interface {
 	ToBackupResponseOutputWithContext(context.Context) BackupResponseOutput
 }
 
-// Backup properties of a server
 type BackupResponseArgs struct {
-	// Backup retention days for the server.
-	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
-	// The earliest restore point time (ISO8601 format) for server.
-	EarliestRestoreDate pulumi.StringInput `pulumi:"earliestRestoreDate"`
-	// A value indicating whether Geo-Redundant backup is enabled on the server.
-	GeoRedundantBackup pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
+	BackupRetentionDays pulumi.IntPtrInput    `pulumi:"backupRetentionDays"`
+	EarliestRestoreDate pulumi.StringInput    `pulumi:"earliestRestoreDate"`
+	GeoRedundantBackup  pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
 }
 
 func (BackupResponseArgs) ElementType() reflect.Type {
@@ -694,7 +693,6 @@ func (i *backupResponsePtrType) ToBackupResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(BackupResponsePtrOutput)
 }
 
-// Backup properties of a server
 type BackupResponseOutput struct{ *pulumi.OutputState }
 
 func (BackupResponseOutput) ElementType() reflect.Type {
@@ -714,22 +712,19 @@ func (o BackupResponseOutput) ToBackupResponsePtrOutput() BackupResponsePtrOutpu
 }
 
 func (o BackupResponseOutput) ToBackupResponsePtrOutputWithContext(ctx context.Context) BackupResponsePtrOutput {
-	return o.ApplyT(func(v BackupResponse) *BackupResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupResponse) *BackupResponse {
 		return &v
 	}).(BackupResponsePtrOutput)
 }
 
-// Backup retention days for the server.
 func (o BackupResponseOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BackupResponse) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// The earliest restore point time (ISO8601 format) for server.
 func (o BackupResponseOutput) EarliestRestoreDate() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupResponse) string { return v.EarliestRestoreDate }).(pulumi.StringOutput)
 }
 
-// A value indicating whether Geo-Redundant backup is enabled on the server.
 func (o BackupResponseOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupResponse) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
 }
@@ -749,10 +744,15 @@ func (o BackupResponsePtrOutput) ToBackupResponsePtrOutputWithContext(ctx contex
 }
 
 func (o BackupResponsePtrOutput) Elem() BackupResponseOutput {
-	return o.ApplyT(func(v *BackupResponse) BackupResponse { return *v }).(BackupResponseOutput)
+	return o.ApplyT(func(v *BackupResponse) BackupResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BackupResponse
+		return ret
+	}).(BackupResponseOutput)
 }
 
-// Backup retention days for the server.
 func (o BackupResponsePtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BackupResponse) *int {
 		if v == nil {
@@ -762,7 +762,6 @@ func (o BackupResponsePtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The earliest restore point time (ISO8601 format) for server.
 func (o BackupResponsePtrOutput) EarliestRestoreDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupResponse) *string {
 		if v == nil {
@@ -772,7 +771,6 @@ func (o BackupResponsePtrOutput) EarliestRestoreDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether Geo-Redundant backup is enabled on the server.
 func (o BackupResponsePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupResponse) *string {
 		if v == nil {
@@ -782,10 +780,8 @@ func (o BackupResponsePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Database server metadata.
 type DBServerMetadataResponse struct {
-	Location *string `pulumi:"location"`
-	// Sku information related properties of a server.
+	Location  *string            `pulumi:"location"`
 	Sku       *ServerSkuResponse `pulumi:"sku"`
 	StorageMB *int               `pulumi:"storageMB"`
 	Version   *string            `pulumi:"version"`
@@ -802,10 +798,8 @@ type DBServerMetadataResponseInput interface {
 	ToDBServerMetadataResponseOutputWithContext(context.Context) DBServerMetadataResponseOutput
 }
 
-// Database server metadata.
 type DBServerMetadataResponseArgs struct {
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Sku information related properties of a server.
+	Location  pulumi.StringPtrInput     `pulumi:"location"`
 	Sku       ServerSkuResponsePtrInput `pulumi:"sku"`
 	StorageMB pulumi.IntPtrInput        `pulumi:"storageMB"`
 	Version   pulumi.StringPtrInput     `pulumi:"version"`
@@ -864,7 +858,6 @@ func (i *dbserverMetadataResponsePtrType) ToDBServerMetadataResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DBServerMetadataResponsePtrOutput)
 }
 
-// Database server metadata.
 type DBServerMetadataResponseOutput struct{ *pulumi.OutputState }
 
 func (DBServerMetadataResponseOutput) ElementType() reflect.Type {
@@ -884,15 +877,15 @@ func (o DBServerMetadataResponseOutput) ToDBServerMetadataResponsePtrOutput() DB
 }
 
 func (o DBServerMetadataResponseOutput) ToDBServerMetadataResponsePtrOutputWithContext(ctx context.Context) DBServerMetadataResponsePtrOutput {
-	return o.ApplyT(func(v DBServerMetadataResponse) *DBServerMetadataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBServerMetadataResponse) *DBServerMetadataResponse {
 		return &v
 	}).(DBServerMetadataResponsePtrOutput)
 }
+
 func (o DBServerMetadataResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBServerMetadataResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Sku information related properties of a server.
 func (o DBServerMetadataResponseOutput) Sku() ServerSkuResponsePtrOutput {
 	return o.ApplyT(func(v DBServerMetadataResponse) *ServerSkuResponse { return v.Sku }).(ServerSkuResponsePtrOutput)
 }
@@ -920,7 +913,13 @@ func (o DBServerMetadataResponsePtrOutput) ToDBServerMetadataResponsePtrOutputWi
 }
 
 func (o DBServerMetadataResponsePtrOutput) Elem() DBServerMetadataResponseOutput {
-	return o.ApplyT(func(v *DBServerMetadataResponse) DBServerMetadataResponse { return *v }).(DBServerMetadataResponseOutput)
+	return o.ApplyT(func(v *DBServerMetadataResponse) DBServerMetadataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DBServerMetadataResponse
+		return ret
+	}).(DBServerMetadataResponseOutput)
 }
 
 func (o DBServerMetadataResponsePtrOutput) Location() pulumi.StringPtrOutput {
@@ -932,7 +931,6 @@ func (o DBServerMetadataResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sku information related properties of a server.
 func (o DBServerMetadataResponsePtrOutput) Sku() ServerSkuResponsePtrOutput {
 	return o.ApplyT(func(v *DBServerMetadataResponse) *ServerSkuResponse {
 		if v == nil {
@@ -960,11 +958,8 @@ func (o DBServerMetadataResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// High availability properties of a server
 type HighAvailability struct {
-	// The HA mode for the server.
-	Mode *string `pulumi:"mode"`
-	// availability zone information of the standby.
+	Mode                    *string `pulumi:"mode"`
 	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
 }
 
@@ -979,11 +974,8 @@ type HighAvailabilityInput interface {
 	ToHighAvailabilityOutputWithContext(context.Context) HighAvailabilityOutput
 }
 
-// High availability properties of a server
 type HighAvailabilityArgs struct {
-	// The HA mode for the server.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// availability zone information of the standby.
+	Mode                    pulumi.StringPtrInput `pulumi:"mode"`
 	StandbyAvailabilityZone pulumi.StringPtrInput `pulumi:"standbyAvailabilityZone"`
 }
 
@@ -1040,7 +1032,6 @@ func (i *highAvailabilityPtrType) ToHighAvailabilityPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(HighAvailabilityPtrOutput)
 }
 
-// High availability properties of a server
 type HighAvailabilityOutput struct{ *pulumi.OutputState }
 
 func (HighAvailabilityOutput) ElementType() reflect.Type {
@@ -1060,17 +1051,15 @@ func (o HighAvailabilityOutput) ToHighAvailabilityPtrOutput() HighAvailabilityPt
 }
 
 func (o HighAvailabilityOutput) ToHighAvailabilityPtrOutputWithContext(ctx context.Context) HighAvailabilityPtrOutput {
-	return o.ApplyT(func(v HighAvailability) *HighAvailability {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HighAvailability) *HighAvailability {
 		return &v
 	}).(HighAvailabilityPtrOutput)
 }
 
-// The HA mode for the server.
 func (o HighAvailabilityOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HighAvailability) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// availability zone information of the standby.
 func (o HighAvailabilityOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HighAvailability) *string { return v.StandbyAvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -1090,10 +1079,15 @@ func (o HighAvailabilityPtrOutput) ToHighAvailabilityPtrOutputWithContext(ctx co
 }
 
 func (o HighAvailabilityPtrOutput) Elem() HighAvailabilityOutput {
-	return o.ApplyT(func(v *HighAvailability) HighAvailability { return *v }).(HighAvailabilityOutput)
+	return o.ApplyT(func(v *HighAvailability) HighAvailability {
+		if v != nil {
+			return *v
+		}
+		var ret HighAvailability
+		return ret
+	}).(HighAvailabilityOutput)
 }
 
-// The HA mode for the server.
 func (o HighAvailabilityPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HighAvailability) *string {
 		if v == nil {
@@ -1103,7 +1097,6 @@ func (o HighAvailabilityPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// availability zone information of the standby.
 func (o HighAvailabilityPtrOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HighAvailability) *string {
 		if v == nil {
@@ -1113,14 +1106,10 @@ func (o HighAvailabilityPtrOutput) StandbyAvailabilityZone() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// High availability properties of a server
 type HighAvailabilityResponse struct {
-	// The HA mode for the server.
-	Mode *string `pulumi:"mode"`
-	// availability zone information of the standby.
+	Mode                    *string `pulumi:"mode"`
 	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
-	// A state of a HA server that is visible to user.
-	State string `pulumi:"state"`
+	State                   string  `pulumi:"state"`
 }
 
 // HighAvailabilityResponseInput is an input type that accepts HighAvailabilityResponseArgs and HighAvailabilityResponseOutput values.
@@ -1134,14 +1123,10 @@ type HighAvailabilityResponseInput interface {
 	ToHighAvailabilityResponseOutputWithContext(context.Context) HighAvailabilityResponseOutput
 }
 
-// High availability properties of a server
 type HighAvailabilityResponseArgs struct {
-	// The HA mode for the server.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// availability zone information of the standby.
+	Mode                    pulumi.StringPtrInput `pulumi:"mode"`
 	StandbyAvailabilityZone pulumi.StringPtrInput `pulumi:"standbyAvailabilityZone"`
-	// A state of a HA server that is visible to user.
-	State pulumi.StringInput `pulumi:"state"`
+	State                   pulumi.StringInput    `pulumi:"state"`
 }
 
 func (HighAvailabilityResponseArgs) ElementType() reflect.Type {
@@ -1197,7 +1182,6 @@ func (i *highAvailabilityResponsePtrType) ToHighAvailabilityResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(HighAvailabilityResponsePtrOutput)
 }
 
-// High availability properties of a server
 type HighAvailabilityResponseOutput struct{ *pulumi.OutputState }
 
 func (HighAvailabilityResponseOutput) ElementType() reflect.Type {
@@ -1217,22 +1201,19 @@ func (o HighAvailabilityResponseOutput) ToHighAvailabilityResponsePtrOutput() Hi
 }
 
 func (o HighAvailabilityResponseOutput) ToHighAvailabilityResponsePtrOutputWithContext(ctx context.Context) HighAvailabilityResponsePtrOutput {
-	return o.ApplyT(func(v HighAvailabilityResponse) *HighAvailabilityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HighAvailabilityResponse) *HighAvailabilityResponse {
 		return &v
 	}).(HighAvailabilityResponsePtrOutput)
 }
 
-// The HA mode for the server.
 func (o HighAvailabilityResponseOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HighAvailabilityResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// availability zone information of the standby.
 func (o HighAvailabilityResponseOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HighAvailabilityResponse) *string { return v.StandbyAvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// A state of a HA server that is visible to user.
 func (o HighAvailabilityResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v HighAvailabilityResponse) string { return v.State }).(pulumi.StringOutput)
 }
@@ -1252,10 +1233,15 @@ func (o HighAvailabilityResponsePtrOutput) ToHighAvailabilityResponsePtrOutputWi
 }
 
 func (o HighAvailabilityResponsePtrOutput) Elem() HighAvailabilityResponseOutput {
-	return o.ApplyT(func(v *HighAvailabilityResponse) HighAvailabilityResponse { return *v }).(HighAvailabilityResponseOutput)
+	return o.ApplyT(func(v *HighAvailabilityResponse) HighAvailabilityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HighAvailabilityResponse
+		return ret
+	}).(HighAvailabilityResponseOutput)
 }
 
-// The HA mode for the server.
 func (o HighAvailabilityResponsePtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HighAvailabilityResponse) *string {
 		if v == nil {
@@ -1265,7 +1251,6 @@ func (o HighAvailabilityResponsePtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// availability zone information of the standby.
 func (o HighAvailabilityResponsePtrOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HighAvailabilityResponse) *string {
 		if v == nil {
@@ -1275,7 +1260,6 @@ func (o HighAvailabilityResponsePtrOutput) StandbyAvailabilityZone() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// A state of a HA server that is visible to user.
 func (o HighAvailabilityResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HighAvailabilityResponse) *string {
 		if v == nil {
@@ -1285,10 +1269,8 @@ func (o HighAvailabilityResponsePtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity for the resource.
 type Identity struct {
-	// The identity type.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -1302,10 +1284,8 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Identity for the resource.
 type IdentityArgs struct {
-	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -1361,7 +1341,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Identity for the resource.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -1381,14 +1360,13 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
-// The identity type.
-func (o IdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1406,27 +1384,28 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
-// The identity type.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponse struct {
-	// The principal ID of resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -1440,14 +1419,10 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Identity for the resource.
 type IdentityResponseArgs struct {
-	// The principal ID of resource identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -1503,7 +1478,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -1523,22 +1497,19 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
 func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1558,10 +1529,15 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -1571,7 +1547,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -1581,7 +1556,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -1591,16 +1565,11 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Maintenance window properties of a server.
 type MaintenanceWindow struct {
-	// indicates whether custom window is enabled or disabled
 	CustomWindow *string `pulumi:"customWindow"`
-	// day of week for maintenance window
-	DayOfWeek *int `pulumi:"dayOfWeek"`
-	// start hour for maintenance window
-	StartHour *int `pulumi:"startHour"`
-	// start minute for maintenance window
-	StartMinute *int `pulumi:"startMinute"`
+	DayOfWeek    *int    `pulumi:"dayOfWeek"`
+	StartHour    *int    `pulumi:"startHour"`
+	StartMinute  *int    `pulumi:"startMinute"`
 }
 
 // MaintenanceWindowInput is an input type that accepts MaintenanceWindowArgs and MaintenanceWindowOutput values.
@@ -1614,16 +1583,11 @@ type MaintenanceWindowInput interface {
 	ToMaintenanceWindowOutputWithContext(context.Context) MaintenanceWindowOutput
 }
 
-// Maintenance window properties of a server.
 type MaintenanceWindowArgs struct {
-	// indicates whether custom window is enabled or disabled
 	CustomWindow pulumi.StringPtrInput `pulumi:"customWindow"`
-	// day of week for maintenance window
-	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
-	// start hour for maintenance window
-	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
-	// start minute for maintenance window
-	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
+	DayOfWeek    pulumi.IntPtrInput    `pulumi:"dayOfWeek"`
+	StartHour    pulumi.IntPtrInput    `pulumi:"startHour"`
+	StartMinute  pulumi.IntPtrInput    `pulumi:"startMinute"`
 }
 
 func (MaintenanceWindowArgs) ElementType() reflect.Type {
@@ -1679,7 +1643,6 @@ func (i *maintenanceWindowPtrType) ToMaintenanceWindowPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowPtrOutput)
 }
 
-// Maintenance window properties of a server.
 type MaintenanceWindowOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowOutput) ElementType() reflect.Type {
@@ -1699,27 +1662,23 @@ func (o MaintenanceWindowOutput) ToMaintenanceWindowPtrOutput() MaintenanceWindo
 }
 
 func (o MaintenanceWindowOutput) ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput {
-	return o.ApplyT(func(v MaintenanceWindow) *MaintenanceWindow {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindow) *MaintenanceWindow {
 		return &v
 	}).(MaintenanceWindowPtrOutput)
 }
 
-// indicates whether custom window is enabled or disabled
 func (o MaintenanceWindowOutput) CustomWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindow) *string { return v.CustomWindow }).(pulumi.StringPtrOutput)
 }
 
-// day of week for maintenance window
 func (o MaintenanceWindowOutput) DayOfWeek() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindow) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
 }
 
-// start hour for maintenance window
 func (o MaintenanceWindowOutput) StartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindow) *int { return v.StartHour }).(pulumi.IntPtrOutput)
 }
 
-// start minute for maintenance window
 func (o MaintenanceWindowOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindow) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
 }
@@ -1739,10 +1698,15 @@ func (o MaintenanceWindowPtrOutput) ToMaintenanceWindowPtrOutputWithContext(ctx 
 }
 
 func (o MaintenanceWindowPtrOutput) Elem() MaintenanceWindowOutput {
-	return o.ApplyT(func(v *MaintenanceWindow) MaintenanceWindow { return *v }).(MaintenanceWindowOutput)
+	return o.ApplyT(func(v *MaintenanceWindow) MaintenanceWindow {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindow
+		return ret
+	}).(MaintenanceWindowOutput)
 }
 
-// indicates whether custom window is enabled or disabled
 func (o MaintenanceWindowPtrOutput) CustomWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) *string {
 		if v == nil {
@@ -1752,7 +1716,6 @@ func (o MaintenanceWindowPtrOutput) CustomWindow() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// day of week for maintenance window
 func (o MaintenanceWindowPtrOutput) DayOfWeek() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) *int {
 		if v == nil {
@@ -1762,7 +1725,6 @@ func (o MaintenanceWindowPtrOutput) DayOfWeek() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// start hour for maintenance window
 func (o MaintenanceWindowPtrOutput) StartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) *int {
 		if v == nil {
@@ -1772,7 +1734,6 @@ func (o MaintenanceWindowPtrOutput) StartHour() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// start minute for maintenance window
 func (o MaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) *int {
 		if v == nil {
@@ -1782,16 +1743,11 @@ func (o MaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maintenance window properties of a server.
 type MaintenanceWindowResponse struct {
-	// indicates whether custom window is enabled or disabled
 	CustomWindow *string `pulumi:"customWindow"`
-	// day of week for maintenance window
-	DayOfWeek *int `pulumi:"dayOfWeek"`
-	// start hour for maintenance window
-	StartHour *int `pulumi:"startHour"`
-	// start minute for maintenance window
-	StartMinute *int `pulumi:"startMinute"`
+	DayOfWeek    *int    `pulumi:"dayOfWeek"`
+	StartHour    *int    `pulumi:"startHour"`
+	StartMinute  *int    `pulumi:"startMinute"`
 }
 
 // MaintenanceWindowResponseInput is an input type that accepts MaintenanceWindowResponseArgs and MaintenanceWindowResponseOutput values.
@@ -1805,16 +1761,11 @@ type MaintenanceWindowResponseInput interface {
 	ToMaintenanceWindowResponseOutputWithContext(context.Context) MaintenanceWindowResponseOutput
 }
 
-// Maintenance window properties of a server.
 type MaintenanceWindowResponseArgs struct {
-	// indicates whether custom window is enabled or disabled
 	CustomWindow pulumi.StringPtrInput `pulumi:"customWindow"`
-	// day of week for maintenance window
-	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
-	// start hour for maintenance window
-	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
-	// start minute for maintenance window
-	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
+	DayOfWeek    pulumi.IntPtrInput    `pulumi:"dayOfWeek"`
+	StartHour    pulumi.IntPtrInput    `pulumi:"startHour"`
+	StartMinute  pulumi.IntPtrInput    `pulumi:"startMinute"`
 }
 
 func (MaintenanceWindowResponseArgs) ElementType() reflect.Type {
@@ -1870,7 +1821,6 @@ func (i *maintenanceWindowResponsePtrType) ToMaintenanceWindowResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowResponsePtrOutput)
 }
 
-// Maintenance window properties of a server.
 type MaintenanceWindowResponseOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowResponseOutput) ElementType() reflect.Type {
@@ -1890,27 +1840,23 @@ func (o MaintenanceWindowResponseOutput) ToMaintenanceWindowResponsePtrOutput() 
 }
 
 func (o MaintenanceWindowResponseOutput) ToMaintenanceWindowResponsePtrOutputWithContext(ctx context.Context) MaintenanceWindowResponsePtrOutput {
-	return o.ApplyT(func(v MaintenanceWindowResponse) *MaintenanceWindowResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowResponse) *MaintenanceWindowResponse {
 		return &v
 	}).(MaintenanceWindowResponsePtrOutput)
 }
 
-// indicates whether custom window is enabled or disabled
 func (o MaintenanceWindowResponseOutput) CustomWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowResponse) *string { return v.CustomWindow }).(pulumi.StringPtrOutput)
 }
 
-// day of week for maintenance window
 func (o MaintenanceWindowResponseOutput) DayOfWeek() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowResponse) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
 }
 
-// start hour for maintenance window
 func (o MaintenanceWindowResponseOutput) StartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowResponse) *int { return v.StartHour }).(pulumi.IntPtrOutput)
 }
 
-// start minute for maintenance window
 func (o MaintenanceWindowResponseOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowResponse) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
 }
@@ -1930,10 +1876,15 @@ func (o MaintenanceWindowResponsePtrOutput) ToMaintenanceWindowResponsePtrOutput
 }
 
 func (o MaintenanceWindowResponsePtrOutput) Elem() MaintenanceWindowResponseOutput {
-	return o.ApplyT(func(v *MaintenanceWindowResponse) MaintenanceWindowResponse { return *v }).(MaintenanceWindowResponseOutput)
+	return o.ApplyT(func(v *MaintenanceWindowResponse) MaintenanceWindowResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowResponse
+		return ret
+	}).(MaintenanceWindowResponseOutput)
 }
 
-// indicates whether custom window is enabled or disabled
 func (o MaintenanceWindowResponsePtrOutput) CustomWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowResponse) *string {
 		if v == nil {
@@ -1943,7 +1894,6 @@ func (o MaintenanceWindowResponsePtrOutput) CustomWindow() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// day of week for maintenance window
 func (o MaintenanceWindowResponsePtrOutput) DayOfWeek() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowResponse) *int {
 		if v == nil {
@@ -1953,7 +1903,6 @@ func (o MaintenanceWindowResponsePtrOutput) DayOfWeek() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// start hour for maintenance window
 func (o MaintenanceWindowResponsePtrOutput) StartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowResponse) *int {
 		if v == nil {
@@ -1963,7 +1912,6 @@ func (o MaintenanceWindowResponsePtrOutput) StartHour() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// start minute for maintenance window
 func (o MaintenanceWindowResponsePtrOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowResponse) *int {
 		if v == nil {
@@ -1973,7 +1921,6 @@ func (o MaintenanceWindowResponsePtrOutput) StartMinute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Migration resource group.
 type MigrationResourceGroup struct {
 	ResourceId       *string `pulumi:"resourceId"`
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
@@ -1990,7 +1937,6 @@ type MigrationResourceGroupInput interface {
 	ToMigrationResourceGroupOutputWithContext(context.Context) MigrationResourceGroupOutput
 }
 
-// Migration resource group.
 type MigrationResourceGroupArgs struct {
 	ResourceId       pulumi.StringPtrInput `pulumi:"resourceId"`
 	SubnetResourceId pulumi.StringPtrInput `pulumi:"subnetResourceId"`
@@ -2049,7 +1995,6 @@ func (i *migrationResourceGroupPtrType) ToMigrationResourceGroupPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationResourceGroupPtrOutput)
 }
 
-// Migration resource group.
 type MigrationResourceGroupOutput struct{ *pulumi.OutputState }
 
 func (MigrationResourceGroupOutput) ElementType() reflect.Type {
@@ -2069,10 +2014,11 @@ func (o MigrationResourceGroupOutput) ToMigrationResourceGroupPtrOutput() Migrat
 }
 
 func (o MigrationResourceGroupOutput) ToMigrationResourceGroupPtrOutputWithContext(ctx context.Context) MigrationResourceGroupPtrOutput {
-	return o.ApplyT(func(v MigrationResourceGroup) *MigrationResourceGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationResourceGroup) *MigrationResourceGroup {
 		return &v
 	}).(MigrationResourceGroupPtrOutput)
 }
+
 func (o MigrationResourceGroupOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrationResourceGroup) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -2096,7 +2042,13 @@ func (o MigrationResourceGroupPtrOutput) ToMigrationResourceGroupPtrOutputWithCo
 }
 
 func (o MigrationResourceGroupPtrOutput) Elem() MigrationResourceGroupOutput {
-	return o.ApplyT(func(v *MigrationResourceGroup) MigrationResourceGroup { return *v }).(MigrationResourceGroupOutput)
+	return o.ApplyT(func(v *MigrationResourceGroup) MigrationResourceGroup {
+		if v != nil {
+			return *v
+		}
+		var ret MigrationResourceGroup
+		return ret
+	}).(MigrationResourceGroupOutput)
 }
 
 func (o MigrationResourceGroupPtrOutput) ResourceId() pulumi.StringPtrOutput {
@@ -2117,7 +2069,6 @@ func (o MigrationResourceGroupPtrOutput) SubnetResourceId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Migration resource group.
 type MigrationResourceGroupResponse struct {
 	ResourceId       *string `pulumi:"resourceId"`
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
@@ -2134,7 +2085,6 @@ type MigrationResourceGroupResponseInput interface {
 	ToMigrationResourceGroupResponseOutputWithContext(context.Context) MigrationResourceGroupResponseOutput
 }
 
-// Migration resource group.
 type MigrationResourceGroupResponseArgs struct {
 	ResourceId       pulumi.StringPtrInput `pulumi:"resourceId"`
 	SubnetResourceId pulumi.StringPtrInput `pulumi:"subnetResourceId"`
@@ -2193,7 +2143,6 @@ func (i *migrationResourceGroupResponsePtrType) ToMigrationResourceGroupResponse
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationResourceGroupResponsePtrOutput)
 }
 
-// Migration resource group.
 type MigrationResourceGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrationResourceGroupResponseOutput) ElementType() reflect.Type {
@@ -2213,10 +2162,11 @@ func (o MigrationResourceGroupResponseOutput) ToMigrationResourceGroupResponsePt
 }
 
 func (o MigrationResourceGroupResponseOutput) ToMigrationResourceGroupResponsePtrOutputWithContext(ctx context.Context) MigrationResourceGroupResponsePtrOutput {
-	return o.ApplyT(func(v MigrationResourceGroupResponse) *MigrationResourceGroupResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationResourceGroupResponse) *MigrationResourceGroupResponse {
 		return &v
 	}).(MigrationResourceGroupResponsePtrOutput)
 }
+
 func (o MigrationResourceGroupResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrationResourceGroupResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -2240,7 +2190,13 @@ func (o MigrationResourceGroupResponsePtrOutput) ToMigrationResourceGroupRespons
 }
 
 func (o MigrationResourceGroupResponsePtrOutput) Elem() MigrationResourceGroupResponseOutput {
-	return o.ApplyT(func(v *MigrationResourceGroupResponse) MigrationResourceGroupResponse { return *v }).(MigrationResourceGroupResponseOutput)
+	return o.ApplyT(func(v *MigrationResourceGroupResponse) MigrationResourceGroupResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MigrationResourceGroupResponse
+		return ret
+	}).(MigrationResourceGroupResponseOutput)
 }
 
 func (o MigrationResourceGroupResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
@@ -2261,11 +2217,8 @@ func (o MigrationResourceGroupResponsePtrOutput) SubnetResourceId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Migration secret parameters.
 type MigrationSecretParameters struct {
-	// Azure active directory application.
-	AadApp AADApp `pulumi:"aadApp"`
-	// Server admin credentials.
+	AadApp           AADApp           `pulumi:"aadApp"`
 	AdminCredentials AdminCredentials `pulumi:"adminCredentials"`
 }
 
@@ -2280,11 +2233,8 @@ type MigrationSecretParametersInput interface {
 	ToMigrationSecretParametersOutputWithContext(context.Context) MigrationSecretParametersOutput
 }
 
-// Migration secret parameters.
 type MigrationSecretParametersArgs struct {
-	// Azure active directory application.
-	AadApp AADAppInput `pulumi:"aadApp"`
-	// Server admin credentials.
+	AadApp           AADAppInput           `pulumi:"aadApp"`
 	AdminCredentials AdminCredentialsInput `pulumi:"adminCredentials"`
 }
 
@@ -2341,7 +2291,6 @@ func (i *migrationSecretParametersPtrType) ToMigrationSecretParametersPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationSecretParametersPtrOutput)
 }
 
-// Migration secret parameters.
 type MigrationSecretParametersOutput struct{ *pulumi.OutputState }
 
 func (MigrationSecretParametersOutput) ElementType() reflect.Type {
@@ -2361,17 +2310,15 @@ func (o MigrationSecretParametersOutput) ToMigrationSecretParametersPtrOutput() 
 }
 
 func (o MigrationSecretParametersOutput) ToMigrationSecretParametersPtrOutputWithContext(ctx context.Context) MigrationSecretParametersPtrOutput {
-	return o.ApplyT(func(v MigrationSecretParameters) *MigrationSecretParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationSecretParameters) *MigrationSecretParameters {
 		return &v
 	}).(MigrationSecretParametersPtrOutput)
 }
 
-// Azure active directory application.
 func (o MigrationSecretParametersOutput) AadApp() AADAppOutput {
 	return o.ApplyT(func(v MigrationSecretParameters) AADApp { return v.AadApp }).(AADAppOutput)
 }
 
-// Server admin credentials.
 func (o MigrationSecretParametersOutput) AdminCredentials() AdminCredentialsOutput {
 	return o.ApplyT(func(v MigrationSecretParameters) AdminCredentials { return v.AdminCredentials }).(AdminCredentialsOutput)
 }
@@ -2391,10 +2338,15 @@ func (o MigrationSecretParametersPtrOutput) ToMigrationSecretParametersPtrOutput
 }
 
 func (o MigrationSecretParametersPtrOutput) Elem() MigrationSecretParametersOutput {
-	return o.ApplyT(func(v *MigrationSecretParameters) MigrationSecretParameters { return *v }).(MigrationSecretParametersOutput)
+	return o.ApplyT(func(v *MigrationSecretParameters) MigrationSecretParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MigrationSecretParameters
+		return ret
+	}).(MigrationSecretParametersOutput)
 }
 
-// Azure active directory application.
 func (o MigrationSecretParametersPtrOutput) AadApp() AADAppPtrOutput {
 	return o.ApplyT(func(v *MigrationSecretParameters) *AADApp {
 		if v == nil {
@@ -2404,7 +2356,6 @@ func (o MigrationSecretParametersPtrOutput) AadApp() AADAppPtrOutput {
 	}).(AADAppPtrOutput)
 }
 
-// Server admin credentials.
 func (o MigrationSecretParametersPtrOutput) AdminCredentials() AdminCredentialsPtrOutput {
 	return o.ApplyT(func(v *MigrationSecretParameters) *AdminCredentials {
 		if v == nil {
@@ -2414,9 +2365,7 @@ func (o MigrationSecretParametersPtrOutput) AdminCredentials() AdminCredentialsP
 	}).(AdminCredentialsPtrOutput)
 }
 
-// Migration secret parameters.
 type MigrationSecretParametersResponse struct {
-	// Azure active directory application.
 	AadApp AADAppResponse `pulumi:"aadApp"`
 }
 
@@ -2431,9 +2380,7 @@ type MigrationSecretParametersResponseInput interface {
 	ToMigrationSecretParametersResponseOutputWithContext(context.Context) MigrationSecretParametersResponseOutput
 }
 
-// Migration secret parameters.
 type MigrationSecretParametersResponseArgs struct {
-	// Azure active directory application.
 	AadApp AADAppResponseInput `pulumi:"aadApp"`
 }
 
@@ -2490,7 +2437,6 @@ func (i *migrationSecretParametersResponsePtrType) ToMigrationSecretParametersRe
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationSecretParametersResponsePtrOutput)
 }
 
-// Migration secret parameters.
 type MigrationSecretParametersResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrationSecretParametersResponseOutput) ElementType() reflect.Type {
@@ -2510,12 +2456,11 @@ func (o MigrationSecretParametersResponseOutput) ToMigrationSecretParametersResp
 }
 
 func (o MigrationSecretParametersResponseOutput) ToMigrationSecretParametersResponsePtrOutputWithContext(ctx context.Context) MigrationSecretParametersResponsePtrOutput {
-	return o.ApplyT(func(v MigrationSecretParametersResponse) *MigrationSecretParametersResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationSecretParametersResponse) *MigrationSecretParametersResponse {
 		return &v
 	}).(MigrationSecretParametersResponsePtrOutput)
 }
 
-// Azure active directory application.
 func (o MigrationSecretParametersResponseOutput) AadApp() AADAppResponseOutput {
 	return o.ApplyT(func(v MigrationSecretParametersResponse) AADAppResponse { return v.AadApp }).(AADAppResponseOutput)
 }
@@ -2535,10 +2480,15 @@ func (o MigrationSecretParametersResponsePtrOutput) ToMigrationSecretParametersR
 }
 
 func (o MigrationSecretParametersResponsePtrOutput) Elem() MigrationSecretParametersResponseOutput {
-	return o.ApplyT(func(v *MigrationSecretParametersResponse) MigrationSecretParametersResponse { return *v }).(MigrationSecretParametersResponseOutput)
+	return o.ApplyT(func(v *MigrationSecretParametersResponse) MigrationSecretParametersResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MigrationSecretParametersResponse
+		return ret
+	}).(MigrationSecretParametersResponseOutput)
 }
 
-// Azure active directory application.
 func (o MigrationSecretParametersResponsePtrOutput) AadApp() AADAppResponsePtrOutput {
 	return o.ApplyT(func(v *MigrationSecretParametersResponse) *AADAppResponse {
 		if v == nil {
@@ -2548,13 +2498,10 @@ func (o MigrationSecretParametersResponsePtrOutput) AadApp() AADAppResponsePtrOu
 	}).(AADAppResponsePtrOutput)
 }
 
-// Migration status.
 type MigrationStatusResponse struct {
-	// Migration sub state details.
 	CurrentSubStateDetails MigrationSubStateDetailsResponse `pulumi:"currentSubStateDetails"`
 	Error                  string                           `pulumi:"error"`
-	// Migration state.
-	State string `pulumi:"state"`
+	State                  string                           `pulumi:"state"`
 }
 
 // MigrationStatusResponseInput is an input type that accepts MigrationStatusResponseArgs and MigrationStatusResponseOutput values.
@@ -2568,13 +2515,10 @@ type MigrationStatusResponseInput interface {
 	ToMigrationStatusResponseOutputWithContext(context.Context) MigrationStatusResponseOutput
 }
 
-// Migration status.
 type MigrationStatusResponseArgs struct {
-	// Migration sub state details.
 	CurrentSubStateDetails MigrationSubStateDetailsResponseInput `pulumi:"currentSubStateDetails"`
 	Error                  pulumi.StringInput                    `pulumi:"error"`
-	// Migration state.
-	State pulumi.StringInput `pulumi:"state"`
+	State                  pulumi.StringInput                    `pulumi:"state"`
 }
 
 func (MigrationStatusResponseArgs) ElementType() reflect.Type {
@@ -2630,7 +2574,6 @@ func (i *migrationStatusResponsePtrType) ToMigrationStatusResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationStatusResponsePtrOutput)
 }
 
-// Migration status.
 type MigrationStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrationStatusResponseOutput) ElementType() reflect.Type {
@@ -2650,12 +2593,11 @@ func (o MigrationStatusResponseOutput) ToMigrationStatusResponsePtrOutput() Migr
 }
 
 func (o MigrationStatusResponseOutput) ToMigrationStatusResponsePtrOutputWithContext(ctx context.Context) MigrationStatusResponsePtrOutput {
-	return o.ApplyT(func(v MigrationStatusResponse) *MigrationStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationStatusResponse) *MigrationStatusResponse {
 		return &v
 	}).(MigrationStatusResponsePtrOutput)
 }
 
-// Migration sub state details.
 func (o MigrationStatusResponseOutput) CurrentSubStateDetails() MigrationSubStateDetailsResponseOutput {
 	return o.ApplyT(func(v MigrationStatusResponse) MigrationSubStateDetailsResponse { return v.CurrentSubStateDetails }).(MigrationSubStateDetailsResponseOutput)
 }
@@ -2664,7 +2606,6 @@ func (o MigrationStatusResponseOutput) Error() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrationStatusResponse) string { return v.Error }).(pulumi.StringOutput)
 }
 
-// Migration state.
 func (o MigrationStatusResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrationStatusResponse) string { return v.State }).(pulumi.StringOutput)
 }
@@ -2684,10 +2625,15 @@ func (o MigrationStatusResponsePtrOutput) ToMigrationStatusResponsePtrOutputWith
 }
 
 func (o MigrationStatusResponsePtrOutput) Elem() MigrationStatusResponseOutput {
-	return o.ApplyT(func(v *MigrationStatusResponse) MigrationStatusResponse { return *v }).(MigrationStatusResponseOutput)
+	return o.ApplyT(func(v *MigrationStatusResponse) MigrationStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MigrationStatusResponse
+		return ret
+	}).(MigrationStatusResponseOutput)
 }
 
-// Migration sub state details.
 func (o MigrationStatusResponsePtrOutput) CurrentSubStateDetails() MigrationSubStateDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *MigrationStatusResponse) *MigrationSubStateDetailsResponse {
 		if v == nil {
@@ -2706,7 +2652,6 @@ func (o MigrationStatusResponsePtrOutput) Error() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Migration state.
 func (o MigrationStatusResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationStatusResponse) *string {
 		if v == nil {
@@ -2716,9 +2661,7 @@ func (o MigrationStatusResponsePtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Migration sub state details.
 type MigrationSubStateDetailsResponse struct {
-	// Migration sub state.
 	CurrentSubState string `pulumi:"currentSubState"`
 }
 
@@ -2733,9 +2676,7 @@ type MigrationSubStateDetailsResponseInput interface {
 	ToMigrationSubStateDetailsResponseOutputWithContext(context.Context) MigrationSubStateDetailsResponseOutput
 }
 
-// Migration sub state details.
 type MigrationSubStateDetailsResponseArgs struct {
-	// Migration sub state.
 	CurrentSubState pulumi.StringInput `pulumi:"currentSubState"`
 }
 
@@ -2792,7 +2733,6 @@ func (i *migrationSubStateDetailsResponsePtrType) ToMigrationSubStateDetailsResp
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationSubStateDetailsResponsePtrOutput)
 }
 
-// Migration sub state details.
 type MigrationSubStateDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrationSubStateDetailsResponseOutput) ElementType() reflect.Type {
@@ -2812,12 +2752,11 @@ func (o MigrationSubStateDetailsResponseOutput) ToMigrationSubStateDetailsRespon
 }
 
 func (o MigrationSubStateDetailsResponseOutput) ToMigrationSubStateDetailsResponsePtrOutputWithContext(ctx context.Context) MigrationSubStateDetailsResponsePtrOutput {
-	return o.ApplyT(func(v MigrationSubStateDetailsResponse) *MigrationSubStateDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationSubStateDetailsResponse) *MigrationSubStateDetailsResponse {
 		return &v
 	}).(MigrationSubStateDetailsResponsePtrOutput)
 }
 
-// Migration sub state.
 func (o MigrationSubStateDetailsResponseOutput) CurrentSubState() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrationSubStateDetailsResponse) string { return v.CurrentSubState }).(pulumi.StringOutput)
 }
@@ -2837,10 +2776,15 @@ func (o MigrationSubStateDetailsResponsePtrOutput) ToMigrationSubStateDetailsRes
 }
 
 func (o MigrationSubStateDetailsResponsePtrOutput) Elem() MigrationSubStateDetailsResponseOutput {
-	return o.ApplyT(func(v *MigrationSubStateDetailsResponse) MigrationSubStateDetailsResponse { return *v }).(MigrationSubStateDetailsResponseOutput)
+	return o.ApplyT(func(v *MigrationSubStateDetailsResponse) MigrationSubStateDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MigrationSubStateDetailsResponse
+		return ret
+	}).(MigrationSubStateDetailsResponseOutput)
 }
 
-// Migration sub state.
 func (o MigrationSubStateDetailsResponsePtrOutput) CurrentSubState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationSubStateDetailsResponse) *string {
 		if v == nil {
@@ -2850,11 +2794,8 @@ func (o MigrationSubStateDetailsResponsePtrOutput) CurrentSubState() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network properties of a server
 type Network struct {
-	// delegated subnet arm resource id.
-	DelegatedSubnetResourceId *string `pulumi:"delegatedSubnetResourceId"`
-	// private dns zone arm resource id.
+	DelegatedSubnetResourceId   *string `pulumi:"delegatedSubnetResourceId"`
 	PrivateDnsZoneArmResourceId *string `pulumi:"privateDnsZoneArmResourceId"`
 }
 
@@ -2869,11 +2810,8 @@ type NetworkInput interface {
 	ToNetworkOutputWithContext(context.Context) NetworkOutput
 }
 
-// Network properties of a server
 type NetworkArgs struct {
-	// delegated subnet arm resource id.
-	DelegatedSubnetResourceId pulumi.StringPtrInput `pulumi:"delegatedSubnetResourceId"`
-	// private dns zone arm resource id.
+	DelegatedSubnetResourceId   pulumi.StringPtrInput `pulumi:"delegatedSubnetResourceId"`
 	PrivateDnsZoneArmResourceId pulumi.StringPtrInput `pulumi:"privateDnsZoneArmResourceId"`
 }
 
@@ -2930,7 +2868,6 @@ func (i *networkPtrType) ToNetworkPtrOutputWithContext(ctx context.Context) Netw
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPtrOutput)
 }
 
-// Network properties of a server
 type NetworkOutput struct{ *pulumi.OutputState }
 
 func (NetworkOutput) ElementType() reflect.Type {
@@ -2950,17 +2887,15 @@ func (o NetworkOutput) ToNetworkPtrOutput() NetworkPtrOutput {
 }
 
 func (o NetworkOutput) ToNetworkPtrOutputWithContext(ctx context.Context) NetworkPtrOutput {
-	return o.ApplyT(func(v Network) *Network {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Network) *Network {
 		return &v
 	}).(NetworkPtrOutput)
 }
 
-// delegated subnet arm resource id.
 func (o NetworkOutput) DelegatedSubnetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Network) *string { return v.DelegatedSubnetResourceId }).(pulumi.StringPtrOutput)
 }
 
-// private dns zone arm resource id.
 func (o NetworkOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Network) *string { return v.PrivateDnsZoneArmResourceId }).(pulumi.StringPtrOutput)
 }
@@ -2980,10 +2915,15 @@ func (o NetworkPtrOutput) ToNetworkPtrOutputWithContext(ctx context.Context) Net
 }
 
 func (o NetworkPtrOutput) Elem() NetworkOutput {
-	return o.ApplyT(func(v *Network) Network { return *v }).(NetworkOutput)
+	return o.ApplyT(func(v *Network) Network {
+		if v != nil {
+			return *v
+		}
+		var ret Network
+		return ret
+	}).(NetworkOutput)
 }
 
-// delegated subnet arm resource id.
 func (o NetworkPtrOutput) DelegatedSubnetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Network) *string {
 		if v == nil {
@@ -2993,7 +2933,6 @@ func (o NetworkPtrOutput) DelegatedSubnetResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// private dns zone arm resource id.
 func (o NetworkPtrOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Network) *string {
 		if v == nil {
@@ -3003,14 +2942,10 @@ func (o NetworkPtrOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network properties of a server
 type NetworkResponse struct {
-	// delegated subnet arm resource id.
-	DelegatedSubnetResourceId *string `pulumi:"delegatedSubnetResourceId"`
-	// private dns zone arm resource id.
+	DelegatedSubnetResourceId   *string `pulumi:"delegatedSubnetResourceId"`
 	PrivateDnsZoneArmResourceId *string `pulumi:"privateDnsZoneArmResourceId"`
-	// public network access is enabled or not
-	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
+	PublicNetworkAccess         string  `pulumi:"publicNetworkAccess"`
 }
 
 // NetworkResponseInput is an input type that accepts NetworkResponseArgs and NetworkResponseOutput values.
@@ -3024,14 +2959,10 @@ type NetworkResponseInput interface {
 	ToNetworkResponseOutputWithContext(context.Context) NetworkResponseOutput
 }
 
-// Network properties of a server
 type NetworkResponseArgs struct {
-	// delegated subnet arm resource id.
-	DelegatedSubnetResourceId pulumi.StringPtrInput `pulumi:"delegatedSubnetResourceId"`
-	// private dns zone arm resource id.
+	DelegatedSubnetResourceId   pulumi.StringPtrInput `pulumi:"delegatedSubnetResourceId"`
 	PrivateDnsZoneArmResourceId pulumi.StringPtrInput `pulumi:"privateDnsZoneArmResourceId"`
-	// public network access is enabled or not
-	PublicNetworkAccess pulumi.StringInput `pulumi:"publicNetworkAccess"`
+	PublicNetworkAccess         pulumi.StringInput    `pulumi:"publicNetworkAccess"`
 }
 
 func (NetworkResponseArgs) ElementType() reflect.Type {
@@ -3087,7 +3018,6 @@ func (i *networkResponsePtrType) ToNetworkResponsePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkResponsePtrOutput)
 }
 
-// Network properties of a server
 type NetworkResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkResponseOutput) ElementType() reflect.Type {
@@ -3107,22 +3037,19 @@ func (o NetworkResponseOutput) ToNetworkResponsePtrOutput() NetworkResponsePtrOu
 }
 
 func (o NetworkResponseOutput) ToNetworkResponsePtrOutputWithContext(ctx context.Context) NetworkResponsePtrOutput {
-	return o.ApplyT(func(v NetworkResponse) *NetworkResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkResponse) *NetworkResponse {
 		return &v
 	}).(NetworkResponsePtrOutput)
 }
 
-// delegated subnet arm resource id.
 func (o NetworkResponseOutput) DelegatedSubnetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkResponse) *string { return v.DelegatedSubnetResourceId }).(pulumi.StringPtrOutput)
 }
 
-// private dns zone arm resource id.
 func (o NetworkResponseOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkResponse) *string { return v.PrivateDnsZoneArmResourceId }).(pulumi.StringPtrOutput)
 }
 
-// public network access is enabled or not
 func (o NetworkResponseOutput) PublicNetworkAccess() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkResponse) string { return v.PublicNetworkAccess }).(pulumi.StringOutput)
 }
@@ -3142,10 +3069,15 @@ func (o NetworkResponsePtrOutput) ToNetworkResponsePtrOutputWithContext(ctx cont
 }
 
 func (o NetworkResponsePtrOutput) Elem() NetworkResponseOutput {
-	return o.ApplyT(func(v *NetworkResponse) NetworkResponse { return *v }).(NetworkResponseOutput)
+	return o.ApplyT(func(v *NetworkResponse) NetworkResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkResponse
+		return ret
+	}).(NetworkResponseOutput)
 }
 
-// delegated subnet arm resource id.
 func (o NetworkResponsePtrOutput) DelegatedSubnetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkResponse) *string {
 		if v == nil {
@@ -3155,7 +3087,6 @@ func (o NetworkResponsePtrOutput) DelegatedSubnetResourceId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// private dns zone arm resource id.
 func (o NetworkResponsePtrOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkResponse) *string {
 		if v == nil {
@@ -3165,7 +3096,6 @@ func (o NetworkResponsePtrOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// public network access is enabled or not
 func (o NetworkResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkResponse) *string {
 		if v == nil {
@@ -3175,11 +3105,8 @@ func (o NetworkResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sku information related properties of a server.
 type ServerSkuResponse struct {
-	// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
 	Name string `pulumi:"name"`
-	// The tier of the particular SKU, e.g. Burstable.
 	Tier string `pulumi:"tier"`
 }
 
@@ -3194,11 +3121,8 @@ type ServerSkuResponseInput interface {
 	ToServerSkuResponseOutputWithContext(context.Context) ServerSkuResponseOutput
 }
 
-// Sku information related properties of a server.
 type ServerSkuResponseArgs struct {
-	// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The tier of the particular SKU, e.g. Burstable.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -3255,7 +3179,6 @@ func (i *serverSkuResponsePtrType) ToServerSkuResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ServerSkuResponsePtrOutput)
 }
 
-// Sku information related properties of a server.
 type ServerSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerSkuResponseOutput) ElementType() reflect.Type {
@@ -3275,17 +3198,15 @@ func (o ServerSkuResponseOutput) ToServerSkuResponsePtrOutput() ServerSkuRespons
 }
 
 func (o ServerSkuResponseOutput) ToServerSkuResponsePtrOutputWithContext(ctx context.Context) ServerSkuResponsePtrOutput {
-	return o.ApplyT(func(v ServerSkuResponse) *ServerSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerSkuResponse) *ServerSkuResponse {
 		return &v
 	}).(ServerSkuResponsePtrOutput)
 }
 
-// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
 func (o ServerSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tier of the particular SKU, e.g. Burstable.
 func (o ServerSkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerSkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -3305,10 +3226,15 @@ func (o ServerSkuResponsePtrOutput) ToServerSkuResponsePtrOutputWithContext(ctx 
 }
 
 func (o ServerSkuResponsePtrOutput) Elem() ServerSkuResponseOutput {
-	return o.ApplyT(func(v *ServerSkuResponse) ServerSkuResponse { return *v }).(ServerSkuResponseOutput)
+	return o.ApplyT(func(v *ServerSkuResponse) ServerSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServerSkuResponse
+		return ret
+	}).(ServerSkuResponseOutput)
 }
 
-// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
 func (o ServerSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerSkuResponse) *string {
 		if v == nil {
@@ -3318,7 +3244,6 @@ func (o ServerSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of the particular SKU, e.g. Burstable.
 func (o ServerSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerSkuResponse) *string {
 		if v == nil {
@@ -3328,11 +3253,8 @@ func (o ServerSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sku information related properties of a server.
 type Sku struct {
-	// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
 	Name string `pulumi:"name"`
-	// The tier of the particular SKU, e.g. Burstable.
 	Tier string `pulumi:"tier"`
 }
 
@@ -3347,11 +3269,8 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Sku information related properties of a server.
 type SkuArgs struct {
-	// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The tier of the particular SKU, e.g. Burstable.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -3408,7 +3327,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Sku information related properties of a server.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -3428,17 +3346,15 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tier of the particular SKU, e.g. Burstable.
 func (o SkuOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -3458,10 +3374,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -3471,7 +3392,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of the particular SKU, e.g. Burstable.
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -3481,11 +3401,8 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sku information related properties of a server.
 type SkuResponse struct {
-	// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
 	Name string `pulumi:"name"`
-	// The tier of the particular SKU, e.g. Burstable.
 	Tier string `pulumi:"tier"`
 }
 
@@ -3500,11 +3417,8 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// Sku information related properties of a server.
 type SkuResponseArgs struct {
-	// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The tier of the particular SKU, e.g. Burstable.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -3561,7 +3475,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// Sku information related properties of a server.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -3581,17 +3494,15 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tier of the particular SKU, e.g. Burstable.
 func (o SkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -3611,10 +3522,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -3624,7 +3540,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of the particular SKU, e.g. Burstable.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -3634,9 +3549,7 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage properties of a server
 type Storage struct {
-	// Max storage allowed for a server.
 	StorageSizeGB *int `pulumi:"storageSizeGB"`
 }
 
@@ -3651,9 +3564,7 @@ type StorageInput interface {
 	ToStorageOutputWithContext(context.Context) StorageOutput
 }
 
-// Storage properties of a server
 type StorageArgs struct {
-	// Max storage allowed for a server.
 	StorageSizeGB pulumi.IntPtrInput `pulumi:"storageSizeGB"`
 }
 
@@ -3710,7 +3621,6 @@ func (i *storagePtrType) ToStoragePtrOutputWithContext(ctx context.Context) Stor
 	return pulumi.ToOutputWithContext(ctx, i).(StoragePtrOutput)
 }
 
-// Storage properties of a server
 type StorageOutput struct{ *pulumi.OutputState }
 
 func (StorageOutput) ElementType() reflect.Type {
@@ -3730,12 +3640,11 @@ func (o StorageOutput) ToStoragePtrOutput() StoragePtrOutput {
 }
 
 func (o StorageOutput) ToStoragePtrOutputWithContext(ctx context.Context) StoragePtrOutput {
-	return o.ApplyT(func(v Storage) *Storage {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Storage) *Storage {
 		return &v
 	}).(StoragePtrOutput)
 }
 
-// Max storage allowed for a server.
 func (o StorageOutput) StorageSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Storage) *int { return v.StorageSizeGB }).(pulumi.IntPtrOutput)
 }
@@ -3755,10 +3664,15 @@ func (o StoragePtrOutput) ToStoragePtrOutputWithContext(ctx context.Context) Sto
 }
 
 func (o StoragePtrOutput) Elem() StorageOutput {
-	return o.ApplyT(func(v *Storage) Storage { return *v }).(StorageOutput)
+	return o.ApplyT(func(v *Storage) Storage {
+		if v != nil {
+			return *v
+		}
+		var ret Storage
+		return ret
+	}).(StorageOutput)
 }
 
-// Max storage allowed for a server.
 func (o StoragePtrOutput) StorageSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Storage) *int {
 		if v == nil {
@@ -3768,9 +3682,7 @@ func (o StoragePtrOutput) StorageSizeGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Storage properties of a server
 type StorageResponse struct {
-	// Max storage allowed for a server.
 	StorageSizeGB *int `pulumi:"storageSizeGB"`
 }
 
@@ -3785,9 +3697,7 @@ type StorageResponseInput interface {
 	ToStorageResponseOutputWithContext(context.Context) StorageResponseOutput
 }
 
-// Storage properties of a server
 type StorageResponseArgs struct {
-	// Max storage allowed for a server.
 	StorageSizeGB pulumi.IntPtrInput `pulumi:"storageSizeGB"`
 }
 
@@ -3844,7 +3754,6 @@ func (i *storageResponsePtrType) ToStorageResponsePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(StorageResponsePtrOutput)
 }
 
-// Storage properties of a server
 type StorageResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageResponseOutput) ElementType() reflect.Type {
@@ -3864,12 +3773,11 @@ func (o StorageResponseOutput) ToStorageResponsePtrOutput() StorageResponsePtrOu
 }
 
 func (o StorageResponseOutput) ToStorageResponsePtrOutputWithContext(ctx context.Context) StorageResponsePtrOutput {
-	return o.ApplyT(func(v StorageResponse) *StorageResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageResponse) *StorageResponse {
 		return &v
 	}).(StorageResponsePtrOutput)
 }
 
-// Max storage allowed for a server.
 func (o StorageResponseOutput) StorageSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageResponse) *int { return v.StorageSizeGB }).(pulumi.IntPtrOutput)
 }
@@ -3889,10 +3797,15 @@ func (o StorageResponsePtrOutput) ToStorageResponsePtrOutputWithContext(ctx cont
 }
 
 func (o StorageResponsePtrOutput) Elem() StorageResponseOutput {
-	return o.ApplyT(func(v *StorageResponse) StorageResponse { return *v }).(StorageResponseOutput)
+	return o.ApplyT(func(v *StorageResponse) StorageResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageResponse
+		return ret
+	}).(StorageResponseOutput)
 }
 
-// Max storage allowed for a server.
 func (o StorageResponsePtrOutput) StorageSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageResponse) *int {
 		if v == nil {
@@ -3902,19 +3815,12 @@ func (o StorageResponsePtrOutput) StorageSizeGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -3929,19 +3835,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -3998,7 +3897,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -4018,37 +3916,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -4068,10 +3960,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4081,7 +3978,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4091,7 +3987,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4101,7 +3996,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4111,7 +4005,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4121,7 +4014,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomain struct {
-	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-	Name string `pulumi:"name"`
-	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
-	UseSubDomainName *bool `pulumi:"useSubDomainName"`
+	Name             string `pulumi:"name"`
+	UseSubDomainName *bool  `pulumi:"useSubDomainName"`
 }
 
 // CustomDomainInput is an input type that accepts CustomDomainArgs and CustomDomainOutput values.
@@ -29,11 +26,8 @@ type CustomDomainInput interface {
 	ToCustomDomainOutputWithContext(context.Context) CustomDomainOutput
 }
 
-// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomainArgs struct {
-	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+	Name             pulumi.StringInput  `pulumi:"name"`
 	UseSubDomainName pulumi.BoolPtrInput `pulumi:"useSubDomainName"`
 }
 
@@ -90,7 +84,6 @@ func (i *customDomainPtrType) ToCustomDomainPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPtrOutput)
 }
 
-// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomainOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o CustomDomainOutput) ToCustomDomainPtrOutput() CustomDomainPtrOutput {
 }
 
 func (o CustomDomainOutput) ToCustomDomainPtrOutputWithContext(ctx context.Context) CustomDomainPtrOutput {
-	return o.ApplyT(func(v CustomDomain) *CustomDomain {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomain) *CustomDomain {
 		return &v
 	}).(CustomDomainPtrOutput)
 }
 
-// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
 func (o CustomDomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomain) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
 func (o CustomDomainOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomain) *bool { return v.UseSubDomainName }).(pulumi.BoolPtrOutput)
 }
@@ -140,10 +131,15 @@ func (o CustomDomainPtrOutput) ToCustomDomainPtrOutputWithContext(ctx context.Co
 }
 
 func (o CustomDomainPtrOutput) Elem() CustomDomainOutput {
-	return o.ApplyT(func(v *CustomDomain) CustomDomain { return *v }).(CustomDomainOutput)
+	return o.ApplyT(func(v *CustomDomain) CustomDomain {
+		if v != nil {
+			return *v
+		}
+		var ret CustomDomain
+		return ret
+	}).(CustomDomainOutput)
 }
 
-// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
 func (o CustomDomainPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDomain) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o CustomDomainPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
 func (o CustomDomainPtrOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CustomDomain) *bool {
 		if v == nil {
@@ -163,12 +158,9 @@ func (o CustomDomainPtrOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomainResponse struct {
-	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-	Name string `pulumi:"name"`
-	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
-	UseSubDomainName *bool `pulumi:"useSubDomainName"`
+	Name             string `pulumi:"name"`
+	UseSubDomainName *bool  `pulumi:"useSubDomainName"`
 }
 
 // CustomDomainResponseInput is an input type that accepts CustomDomainResponseArgs and CustomDomainResponseOutput values.
@@ -182,11 +174,8 @@ type CustomDomainResponseInput interface {
 	ToCustomDomainResponseOutputWithContext(context.Context) CustomDomainResponseOutput
 }
 
-// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomainResponseArgs struct {
-	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+	Name             pulumi.StringInput  `pulumi:"name"`
 	UseSubDomainName pulumi.BoolPtrInput `pulumi:"useSubDomainName"`
 }
 
@@ -243,7 +232,6 @@ func (i *customDomainResponsePtrType) ToCustomDomainResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainResponsePtrOutput)
 }
 
-// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomainResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainResponseOutput) ElementType() reflect.Type {
@@ -263,17 +251,15 @@ func (o CustomDomainResponseOutput) ToCustomDomainResponsePtrOutput() CustomDoma
 }
 
 func (o CustomDomainResponseOutput) ToCustomDomainResponsePtrOutputWithContext(ctx context.Context) CustomDomainResponsePtrOutput {
-	return o.ApplyT(func(v CustomDomainResponse) *CustomDomainResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomainResponse) *CustomDomainResponse {
 		return &v
 	}).(CustomDomainResponsePtrOutput)
 }
 
-// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
 func (o CustomDomainResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
 func (o CustomDomainResponseOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainResponse) *bool { return v.UseSubDomainName }).(pulumi.BoolPtrOutput)
 }
@@ -293,10 +279,15 @@ func (o CustomDomainResponsePtrOutput) ToCustomDomainResponsePtrOutputWithContex
 }
 
 func (o CustomDomainResponsePtrOutput) Elem() CustomDomainResponseOutput {
-	return o.ApplyT(func(v *CustomDomainResponse) CustomDomainResponse { return *v }).(CustomDomainResponseOutput)
+	return o.ApplyT(func(v *CustomDomainResponse) CustomDomainResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CustomDomainResponse
+		return ret
+	}).(CustomDomainResponseOutput)
 }
 
-// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
 func (o CustomDomainResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDomainResponse) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o CustomDomainResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
 func (o CustomDomainResponsePtrOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CustomDomainResponse) *bool {
 		if v == nil {
@@ -316,14 +306,10 @@ func (o CustomDomainResponsePtrOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The encryption settings on the storage account.
 type Encryption struct {
-	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-	KeySource string `pulumi:"keySource"`
-	// Properties provided by key vault.
+	KeySource          string              `pulumi:"keySource"`
 	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
-	// List of services which support encryption.
-	Services *EncryptionServices `pulumi:"services"`
+	Services           *EncryptionServices `pulumi:"services"`
 }
 
 // EncryptionInput is an input type that accepts EncryptionArgs and EncryptionOutput values.
@@ -337,14 +323,10 @@ type EncryptionInput interface {
 	ToEncryptionOutputWithContext(context.Context) EncryptionOutput
 }
 
-// The encryption settings on the storage account.
 type EncryptionArgs struct {
-	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-	KeySource pulumi.StringInput `pulumi:"keySource"`
-	// Properties provided by key vault.
+	KeySource          pulumi.StringInput         `pulumi:"keySource"`
 	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
-	// List of services which support encryption.
-	Services EncryptionServicesPtrInput `pulumi:"services"`
+	Services           EncryptionServicesPtrInput `pulumi:"services"`
 }
 
 func (EncryptionArgs) ElementType() reflect.Type {
@@ -400,7 +382,6 @@ func (i *encryptionPtrType) ToEncryptionPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPtrOutput)
 }
 
-// The encryption settings on the storage account.
 type EncryptionOutput struct{ *pulumi.OutputState }
 
 func (EncryptionOutput) ElementType() reflect.Type {
@@ -420,22 +401,19 @@ func (o EncryptionOutput) ToEncryptionPtrOutput() EncryptionPtrOutput {
 }
 
 func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
-	return o.ApplyT(func(v Encryption) *Encryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Encryption) *Encryption {
 		return &v
 	}).(EncryptionPtrOutput)
 }
 
-// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 func (o EncryptionOutput) KeySource() pulumi.StringOutput {
 	return o.ApplyT(func(v Encryption) string { return v.KeySource }).(pulumi.StringOutput)
 }
 
-// Properties provided by key vault.
 func (o EncryptionOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v Encryption) *KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesPtrOutput)
 }
 
-// List of services which support encryption.
 func (o EncryptionOutput) Services() EncryptionServicesPtrOutput {
 	return o.ApplyT(func(v Encryption) *EncryptionServices { return v.Services }).(EncryptionServicesPtrOutput)
 }
@@ -455,10 +433,15 @@ func (o EncryptionPtrOutput) ToEncryptionPtrOutputWithContext(ctx context.Contex
 }
 
 func (o EncryptionPtrOutput) Elem() EncryptionOutput {
-	return o.ApplyT(func(v *Encryption) Encryption { return *v }).(EncryptionOutput)
+	return o.ApplyT(func(v *Encryption) Encryption {
+		if v != nil {
+			return *v
+		}
+		var ret Encryption
+		return ret
+	}).(EncryptionOutput)
 }
 
-// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 func (o EncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Encryption) *string {
 		if v == nil {
@@ -468,7 +451,6 @@ func (o EncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties provided by key vault.
 func (o EncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v *Encryption) *KeyVaultProperties {
 		if v == nil {
@@ -478,7 +460,6 @@ func (o EncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// List of services which support encryption.
 func (o EncryptionPtrOutput) Services() EncryptionServicesPtrOutput {
 	return o.ApplyT(func(v *Encryption) *EncryptionServices {
 		if v == nil {
@@ -488,14 +469,10 @@ func (o EncryptionPtrOutput) Services() EncryptionServicesPtrOutput {
 	}).(EncryptionServicesPtrOutput)
 }
 
-// The encryption settings on the storage account.
 type EncryptionResponse struct {
-	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-	KeySource string `pulumi:"keySource"`
-	// Properties provided by key vault.
+	KeySource          string                      `pulumi:"keySource"`
 	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
-	// List of services which support encryption.
-	Services *EncryptionServicesResponse `pulumi:"services"`
+	Services           *EncryptionServicesResponse `pulumi:"services"`
 }
 
 // EncryptionResponseInput is an input type that accepts EncryptionResponseArgs and EncryptionResponseOutput values.
@@ -509,14 +486,10 @@ type EncryptionResponseInput interface {
 	ToEncryptionResponseOutputWithContext(context.Context) EncryptionResponseOutput
 }
 
-// The encryption settings on the storage account.
 type EncryptionResponseArgs struct {
-	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-	KeySource pulumi.StringInput `pulumi:"keySource"`
-	// Properties provided by key vault.
+	KeySource          pulumi.StringInput                 `pulumi:"keySource"`
 	KeyVaultProperties KeyVaultPropertiesResponsePtrInput `pulumi:"keyVaultProperties"`
-	// List of services which support encryption.
-	Services EncryptionServicesResponsePtrInput `pulumi:"services"`
+	Services           EncryptionServicesResponsePtrInput `pulumi:"services"`
 }
 
 func (EncryptionResponseArgs) ElementType() reflect.Type {
@@ -572,7 +545,6 @@ func (i *encryptionResponsePtrType) ToEncryptionResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionResponsePtrOutput)
 }
 
-// The encryption settings on the storage account.
 type EncryptionResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionResponseOutput) ElementType() reflect.Type {
@@ -592,22 +564,19 @@ func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutput() EncryptionResp
 }
 
 func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutputWithContext(ctx context.Context) EncryptionResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionResponse) *EncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionResponse) *EncryptionResponse {
 		return &v
 	}).(EncryptionResponsePtrOutput)
 }
 
-// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 func (o EncryptionResponseOutput) KeySource() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionResponse) string { return v.KeySource }).(pulumi.StringOutput)
 }
 
-// Properties provided by key vault.
 func (o EncryptionResponseOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionResponse) *KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// List of services which support encryption.
 func (o EncryptionResponseOutput) Services() EncryptionServicesResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionResponse) *EncryptionServicesResponse { return v.Services }).(EncryptionServicesResponsePtrOutput)
 }
@@ -627,10 +596,15 @@ func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutputWithContext(ct
 }
 
 func (o EncryptionResponsePtrOutput) Elem() EncryptionResponseOutput {
-	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse { return *v }).(EncryptionResponseOutput)
+	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionResponse
+		return ret
+	}).(EncryptionResponseOutput)
 }
 
-// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 func (o EncryptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *string {
 		if v == nil {
@@ -640,7 +614,6 @@ func (o EncryptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties provided by key vault.
 func (o EncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *KeyVaultPropertiesResponse {
 		if v == nil {
@@ -650,7 +623,6 @@ func (o EncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResp
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// List of services which support encryption.
 func (o EncryptionResponsePtrOutput) Services() EncryptionServicesResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *EncryptionServicesResponse {
 		if v == nil {
@@ -660,9 +632,7 @@ func (o EncryptionResponsePtrOutput) Services() EncryptionServicesResponsePtrOut
 	}).(EncryptionServicesResponsePtrOutput)
 }
 
-// A service that allows server-side encryption to be used.
 type EncryptionService struct {
-	// A boolean indicating whether or not the service encrypts the data as it is stored.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -677,9 +647,7 @@ type EncryptionServiceInput interface {
 	ToEncryptionServiceOutputWithContext(context.Context) EncryptionServiceOutput
 }
 
-// A service that allows server-side encryption to be used.
 type EncryptionServiceArgs struct {
-	// A boolean indicating whether or not the service encrypts the data as it is stored.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -736,7 +704,6 @@ func (i *encryptionServicePtrType) ToEncryptionServicePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionServicePtrOutput)
 }
 
-// A service that allows server-side encryption to be used.
 type EncryptionServiceOutput struct{ *pulumi.OutputState }
 
 func (EncryptionServiceOutput) ElementType() reflect.Type {
@@ -756,12 +723,11 @@ func (o EncryptionServiceOutput) ToEncryptionServicePtrOutput() EncryptionServic
 }
 
 func (o EncryptionServiceOutput) ToEncryptionServicePtrOutputWithContext(ctx context.Context) EncryptionServicePtrOutput {
-	return o.ApplyT(func(v EncryptionService) *EncryptionService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionService) *EncryptionService {
 		return &v
 	}).(EncryptionServicePtrOutput)
 }
 
-// A boolean indicating whether or not the service encrypts the data as it is stored.
 func (o EncryptionServiceOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EncryptionService) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -781,10 +747,15 @@ func (o EncryptionServicePtrOutput) ToEncryptionServicePtrOutputWithContext(ctx 
 }
 
 func (o EncryptionServicePtrOutput) Elem() EncryptionServiceOutput {
-	return o.ApplyT(func(v *EncryptionService) EncryptionService { return *v }).(EncryptionServiceOutput)
+	return o.ApplyT(func(v *EncryptionService) EncryptionService {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionService
+		return ret
+	}).(EncryptionServiceOutput)
 }
 
-// A boolean indicating whether or not the service encrypts the data as it is stored.
 func (o EncryptionServicePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionService) *bool {
 		if v == nil {
@@ -794,11 +765,8 @@ func (o EncryptionServicePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A service that allows server-side encryption to be used.
 type EncryptionServiceResponse struct {
-	// A boolean indicating whether or not the service encrypts the data as it is stored.
-	Enabled *bool `pulumi:"enabled"`
-	// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
+	Enabled         *bool  `pulumi:"enabled"`
 	LastEnabledTime string `pulumi:"lastEnabledTime"`
 }
 
@@ -813,12 +781,9 @@ type EncryptionServiceResponseInput interface {
 	ToEncryptionServiceResponseOutputWithContext(context.Context) EncryptionServiceResponseOutput
 }
 
-// A service that allows server-side encryption to be used.
 type EncryptionServiceResponseArgs struct {
-	// A boolean indicating whether or not the service encrypts the data as it is stored.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
-	LastEnabledTime pulumi.StringInput `pulumi:"lastEnabledTime"`
+	Enabled         pulumi.BoolPtrInput `pulumi:"enabled"`
+	LastEnabledTime pulumi.StringInput  `pulumi:"lastEnabledTime"`
 }
 
 func (EncryptionServiceResponseArgs) ElementType() reflect.Type {
@@ -874,7 +839,6 @@ func (i *encryptionServiceResponsePtrType) ToEncryptionServiceResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionServiceResponsePtrOutput)
 }
 
-// A service that allows server-side encryption to be used.
 type EncryptionServiceResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionServiceResponseOutput) ElementType() reflect.Type {
@@ -894,17 +858,15 @@ func (o EncryptionServiceResponseOutput) ToEncryptionServiceResponsePtrOutput() 
 }
 
 func (o EncryptionServiceResponseOutput) ToEncryptionServiceResponsePtrOutputWithContext(ctx context.Context) EncryptionServiceResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionServiceResponse) *EncryptionServiceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionServiceResponse) *EncryptionServiceResponse {
 		return &v
 	}).(EncryptionServiceResponsePtrOutput)
 }
 
-// A boolean indicating whether or not the service encrypts the data as it is stored.
 func (o EncryptionServiceResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EncryptionServiceResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
 func (o EncryptionServiceResponseOutput) LastEnabledTime() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionServiceResponse) string { return v.LastEnabledTime }).(pulumi.StringOutput)
 }
@@ -924,10 +886,15 @@ func (o EncryptionServiceResponsePtrOutput) ToEncryptionServiceResponsePtrOutput
 }
 
 func (o EncryptionServiceResponsePtrOutput) Elem() EncryptionServiceResponseOutput {
-	return o.ApplyT(func(v *EncryptionServiceResponse) EncryptionServiceResponse { return *v }).(EncryptionServiceResponseOutput)
+	return o.ApplyT(func(v *EncryptionServiceResponse) EncryptionServiceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionServiceResponse
+		return ret
+	}).(EncryptionServiceResponseOutput)
 }
 
-// A boolean indicating whether or not the service encrypts the data as it is stored.
 func (o EncryptionServiceResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionServiceResponse) *bool {
 		if v == nil {
@@ -937,7 +904,6 @@ func (o EncryptionServiceResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
 func (o EncryptionServiceResponsePtrOutput) LastEnabledTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionServiceResponse) *string {
 		if v == nil {
@@ -947,11 +913,8 @@ func (o EncryptionServiceResponsePtrOutput) LastEnabledTime() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of services that support encryption.
 type EncryptionServices struct {
-	// The encryption function of the blob storage service.
 	Blob *EncryptionService `pulumi:"blob"`
-	// The encryption function of the file storage service.
 	File *EncryptionService `pulumi:"file"`
 }
 
@@ -966,11 +929,8 @@ type EncryptionServicesInput interface {
 	ToEncryptionServicesOutputWithContext(context.Context) EncryptionServicesOutput
 }
 
-// A list of services that support encryption.
 type EncryptionServicesArgs struct {
-	// The encryption function of the blob storage service.
 	Blob EncryptionServicePtrInput `pulumi:"blob"`
-	// The encryption function of the file storage service.
 	File EncryptionServicePtrInput `pulumi:"file"`
 }
 
@@ -1027,7 +987,6 @@ func (i *encryptionServicesPtrType) ToEncryptionServicesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionServicesPtrOutput)
 }
 
-// A list of services that support encryption.
 type EncryptionServicesOutput struct{ *pulumi.OutputState }
 
 func (EncryptionServicesOutput) ElementType() reflect.Type {
@@ -1047,17 +1006,15 @@ func (o EncryptionServicesOutput) ToEncryptionServicesPtrOutput() EncryptionServ
 }
 
 func (o EncryptionServicesOutput) ToEncryptionServicesPtrOutputWithContext(ctx context.Context) EncryptionServicesPtrOutput {
-	return o.ApplyT(func(v EncryptionServices) *EncryptionServices {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionServices) *EncryptionServices {
 		return &v
 	}).(EncryptionServicesPtrOutput)
 }
 
-// The encryption function of the blob storage service.
 func (o EncryptionServicesOutput) Blob() EncryptionServicePtrOutput {
 	return o.ApplyT(func(v EncryptionServices) *EncryptionService { return v.Blob }).(EncryptionServicePtrOutput)
 }
 
-// The encryption function of the file storage service.
 func (o EncryptionServicesOutput) File() EncryptionServicePtrOutput {
 	return o.ApplyT(func(v EncryptionServices) *EncryptionService { return v.File }).(EncryptionServicePtrOutput)
 }
@@ -1077,10 +1034,15 @@ func (o EncryptionServicesPtrOutput) ToEncryptionServicesPtrOutputWithContext(ct
 }
 
 func (o EncryptionServicesPtrOutput) Elem() EncryptionServicesOutput {
-	return o.ApplyT(func(v *EncryptionServices) EncryptionServices { return *v }).(EncryptionServicesOutput)
+	return o.ApplyT(func(v *EncryptionServices) EncryptionServices {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionServices
+		return ret
+	}).(EncryptionServicesOutput)
 }
 
-// The encryption function of the blob storage service.
 func (o EncryptionServicesPtrOutput) Blob() EncryptionServicePtrOutput {
 	return o.ApplyT(func(v *EncryptionServices) *EncryptionService {
 		if v == nil {
@@ -1090,7 +1052,6 @@ func (o EncryptionServicesPtrOutput) Blob() EncryptionServicePtrOutput {
 	}).(EncryptionServicePtrOutput)
 }
 
-// The encryption function of the file storage service.
 func (o EncryptionServicesPtrOutput) File() EncryptionServicePtrOutput {
 	return o.ApplyT(func(v *EncryptionServices) *EncryptionService {
 		if v == nil {
@@ -1100,16 +1061,11 @@ func (o EncryptionServicesPtrOutput) File() EncryptionServicePtrOutput {
 	}).(EncryptionServicePtrOutput)
 }
 
-// A list of services that support encryption.
 type EncryptionServicesResponse struct {
-	// The encryption function of the blob storage service.
-	Blob *EncryptionServiceResponse `pulumi:"blob"`
-	// The encryption function of the file storage service.
-	File *EncryptionServiceResponse `pulumi:"file"`
-	// The encryption function of the queue storage service.
-	Queue EncryptionServiceResponse `pulumi:"queue"`
-	// The encryption function of the table storage service.
-	Table EncryptionServiceResponse `pulumi:"table"`
+	Blob  *EncryptionServiceResponse `pulumi:"blob"`
+	File  *EncryptionServiceResponse `pulumi:"file"`
+	Queue EncryptionServiceResponse  `pulumi:"queue"`
+	Table EncryptionServiceResponse  `pulumi:"table"`
 }
 
 // EncryptionServicesResponseInput is an input type that accepts EncryptionServicesResponseArgs and EncryptionServicesResponseOutput values.
@@ -1123,16 +1079,11 @@ type EncryptionServicesResponseInput interface {
 	ToEncryptionServicesResponseOutputWithContext(context.Context) EncryptionServicesResponseOutput
 }
 
-// A list of services that support encryption.
 type EncryptionServicesResponseArgs struct {
-	// The encryption function of the blob storage service.
-	Blob EncryptionServiceResponsePtrInput `pulumi:"blob"`
-	// The encryption function of the file storage service.
-	File EncryptionServiceResponsePtrInput `pulumi:"file"`
-	// The encryption function of the queue storage service.
-	Queue EncryptionServiceResponseInput `pulumi:"queue"`
-	// The encryption function of the table storage service.
-	Table EncryptionServiceResponseInput `pulumi:"table"`
+	Blob  EncryptionServiceResponsePtrInput `pulumi:"blob"`
+	File  EncryptionServiceResponsePtrInput `pulumi:"file"`
+	Queue EncryptionServiceResponseInput    `pulumi:"queue"`
+	Table EncryptionServiceResponseInput    `pulumi:"table"`
 }
 
 func (EncryptionServicesResponseArgs) ElementType() reflect.Type {
@@ -1188,7 +1139,6 @@ func (i *encryptionServicesResponsePtrType) ToEncryptionServicesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionServicesResponsePtrOutput)
 }
 
-// A list of services that support encryption.
 type EncryptionServicesResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionServicesResponseOutput) ElementType() reflect.Type {
@@ -1208,27 +1158,23 @@ func (o EncryptionServicesResponseOutput) ToEncryptionServicesResponsePtrOutput(
 }
 
 func (o EncryptionServicesResponseOutput) ToEncryptionServicesResponsePtrOutputWithContext(ctx context.Context) EncryptionServicesResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionServicesResponse) *EncryptionServicesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionServicesResponse) *EncryptionServicesResponse {
 		return &v
 	}).(EncryptionServicesResponsePtrOutput)
 }
 
-// The encryption function of the blob storage service.
 func (o EncryptionServicesResponseOutput) Blob() EncryptionServiceResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionServicesResponse) *EncryptionServiceResponse { return v.Blob }).(EncryptionServiceResponsePtrOutput)
 }
 
-// The encryption function of the file storage service.
 func (o EncryptionServicesResponseOutput) File() EncryptionServiceResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionServicesResponse) *EncryptionServiceResponse { return v.File }).(EncryptionServiceResponsePtrOutput)
 }
 
-// The encryption function of the queue storage service.
 func (o EncryptionServicesResponseOutput) Queue() EncryptionServiceResponseOutput {
 	return o.ApplyT(func(v EncryptionServicesResponse) EncryptionServiceResponse { return v.Queue }).(EncryptionServiceResponseOutput)
 }
 
-// The encryption function of the table storage service.
 func (o EncryptionServicesResponseOutput) Table() EncryptionServiceResponseOutput {
 	return o.ApplyT(func(v EncryptionServicesResponse) EncryptionServiceResponse { return v.Table }).(EncryptionServiceResponseOutput)
 }
@@ -1248,10 +1194,15 @@ func (o EncryptionServicesResponsePtrOutput) ToEncryptionServicesResponsePtrOutp
 }
 
 func (o EncryptionServicesResponsePtrOutput) Elem() EncryptionServicesResponseOutput {
-	return o.ApplyT(func(v *EncryptionServicesResponse) EncryptionServicesResponse { return *v }).(EncryptionServicesResponseOutput)
+	return o.ApplyT(func(v *EncryptionServicesResponse) EncryptionServicesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionServicesResponse
+		return ret
+	}).(EncryptionServicesResponseOutput)
 }
 
-// The encryption function of the blob storage service.
 func (o EncryptionServicesResponsePtrOutput) Blob() EncryptionServiceResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionServicesResponse) *EncryptionServiceResponse {
 		if v == nil {
@@ -1261,7 +1212,6 @@ func (o EncryptionServicesResponsePtrOutput) Blob() EncryptionServiceResponsePtr
 	}).(EncryptionServiceResponsePtrOutput)
 }
 
-// The encryption function of the file storage service.
 func (o EncryptionServicesResponsePtrOutput) File() EncryptionServiceResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionServicesResponse) *EncryptionServiceResponse {
 		if v == nil {
@@ -1271,7 +1221,6 @@ func (o EncryptionServicesResponsePtrOutput) File() EncryptionServiceResponsePtr
 	}).(EncryptionServiceResponsePtrOutput)
 }
 
-// The encryption function of the queue storage service.
 func (o EncryptionServicesResponsePtrOutput) Queue() EncryptionServiceResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionServicesResponse) *EncryptionServiceResponse {
 		if v == nil {
@@ -1281,7 +1230,6 @@ func (o EncryptionServicesResponsePtrOutput) Queue() EncryptionServiceResponsePt
 	}).(EncryptionServiceResponsePtrOutput)
 }
 
-// The encryption function of the table storage service.
 func (o EncryptionServicesResponsePtrOutput) Table() EncryptionServiceResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionServicesResponse) *EncryptionServiceResponse {
 		if v == nil {
@@ -1291,20 +1239,13 @@ func (o EncryptionServicesResponsePtrOutput) Table() EncryptionServiceResponsePt
 	}).(EncryptionServiceResponsePtrOutput)
 }
 
-// The URIs that are used to perform a retrieval of a public blob, queue, table, web or dfs object.
 type EndpointsResponse struct {
-	// Gets the blob endpoint.
-	Blob string `pulumi:"blob"`
-	// Gets the dfs endpoint.
-	Dfs string `pulumi:"dfs"`
-	// Gets the file endpoint.
-	File string `pulumi:"file"`
-	// Gets the queue endpoint.
+	Blob  string `pulumi:"blob"`
+	Dfs   string `pulumi:"dfs"`
+	File  string `pulumi:"file"`
 	Queue string `pulumi:"queue"`
-	// Gets the table endpoint.
 	Table string `pulumi:"table"`
-	// Gets the web endpoint.
-	Web string `pulumi:"web"`
+	Web   string `pulumi:"web"`
 }
 
 // EndpointsResponseInput is an input type that accepts EndpointsResponseArgs and EndpointsResponseOutput values.
@@ -1318,20 +1259,13 @@ type EndpointsResponseInput interface {
 	ToEndpointsResponseOutputWithContext(context.Context) EndpointsResponseOutput
 }
 
-// The URIs that are used to perform a retrieval of a public blob, queue, table, web or dfs object.
 type EndpointsResponseArgs struct {
-	// Gets the blob endpoint.
-	Blob pulumi.StringInput `pulumi:"blob"`
-	// Gets the dfs endpoint.
-	Dfs pulumi.StringInput `pulumi:"dfs"`
-	// Gets the file endpoint.
-	File pulumi.StringInput `pulumi:"file"`
-	// Gets the queue endpoint.
+	Blob  pulumi.StringInput `pulumi:"blob"`
+	Dfs   pulumi.StringInput `pulumi:"dfs"`
+	File  pulumi.StringInput `pulumi:"file"`
 	Queue pulumi.StringInput `pulumi:"queue"`
-	// Gets the table endpoint.
 	Table pulumi.StringInput `pulumi:"table"`
-	// Gets the web endpoint.
-	Web pulumi.StringInput `pulumi:"web"`
+	Web   pulumi.StringInput `pulumi:"web"`
 }
 
 func (EndpointsResponseArgs) ElementType() reflect.Type {
@@ -1387,7 +1321,6 @@ func (i *endpointsResponsePtrType) ToEndpointsResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointsResponsePtrOutput)
 }
 
-// The URIs that are used to perform a retrieval of a public blob, queue, table, web or dfs object.
 type EndpointsResponseOutput struct{ *pulumi.OutputState }
 
 func (EndpointsResponseOutput) ElementType() reflect.Type {
@@ -1407,37 +1340,31 @@ func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutput() EndpointsRespons
 }
 
 func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutputWithContext(ctx context.Context) EndpointsResponsePtrOutput {
-	return o.ApplyT(func(v EndpointsResponse) *EndpointsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointsResponse) *EndpointsResponse {
 		return &v
 	}).(EndpointsResponsePtrOutput)
 }
 
-// Gets the blob endpoint.
 func (o EndpointsResponseOutput) Blob() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.Blob }).(pulumi.StringOutput)
 }
 
-// Gets the dfs endpoint.
 func (o EndpointsResponseOutput) Dfs() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.Dfs }).(pulumi.StringOutput)
 }
 
-// Gets the file endpoint.
 func (o EndpointsResponseOutput) File() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.File }).(pulumi.StringOutput)
 }
 
-// Gets the queue endpoint.
 func (o EndpointsResponseOutput) Queue() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.Queue }).(pulumi.StringOutput)
 }
 
-// Gets the table endpoint.
 func (o EndpointsResponseOutput) Table() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.Table }).(pulumi.StringOutput)
 }
 
-// Gets the web endpoint.
 func (o EndpointsResponseOutput) Web() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.Web }).(pulumi.StringOutput)
 }
@@ -1457,10 +1384,15 @@ func (o EndpointsResponsePtrOutput) ToEndpointsResponsePtrOutputWithContext(ctx 
 }
 
 func (o EndpointsResponsePtrOutput) Elem() EndpointsResponseOutput {
-	return o.ApplyT(func(v *EndpointsResponse) EndpointsResponse { return *v }).(EndpointsResponseOutput)
+	return o.ApplyT(func(v *EndpointsResponse) EndpointsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointsResponse
+		return ret
+	}).(EndpointsResponseOutput)
 }
 
-// Gets the blob endpoint.
 func (o EndpointsResponsePtrOutput) Blob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -1470,7 +1402,6 @@ func (o EndpointsResponsePtrOutput) Blob() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the dfs endpoint.
 func (o EndpointsResponsePtrOutput) Dfs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -1480,7 +1411,6 @@ func (o EndpointsResponsePtrOutput) Dfs() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the file endpoint.
 func (o EndpointsResponsePtrOutput) File() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -1490,7 +1420,6 @@ func (o EndpointsResponsePtrOutput) File() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the queue endpoint.
 func (o EndpointsResponsePtrOutput) Queue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -1500,7 +1429,6 @@ func (o EndpointsResponsePtrOutput) Queue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the table endpoint.
 func (o EndpointsResponsePtrOutput) Table() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -1510,7 +1438,6 @@ func (o EndpointsResponsePtrOutput) Table() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the web endpoint.
 func (o EndpointsResponsePtrOutput) Web() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -1520,12 +1447,9 @@ func (o EndpointsResponsePtrOutput) Web() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// IP rule with specific IP or IP range in CIDR format.
 type IPRule struct {
-	// The action of IP ACL rule.
-	Action *string `pulumi:"action"`
-	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-	IPAddressOrRange string `pulumi:"iPAddressOrRange"`
+	Action           *Action `pulumi:"action"`
+	IPAddressOrRange string  `pulumi:"iPAddressOrRange"`
 }
 
 // IPRuleInput is an input type that accepts IPRuleArgs and IPRuleOutput values.
@@ -1539,11 +1463,8 @@ type IPRuleInput interface {
 	ToIPRuleOutputWithContext(context.Context) IPRuleOutput
 }
 
-// IP rule with specific IP or IP range in CIDR format.
 type IPRuleArgs struct {
-	// The action of IP ACL rule.
-	Action *Action `pulumi:"action"`
-	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+	Action           ActionPtrInput     `pulumi:"action"`
 	IPAddressOrRange pulumi.StringInput `pulumi:"iPAddressOrRange"`
 }
 
@@ -1584,7 +1505,6 @@ func (i IPRuleArray) ToIPRuleArrayOutputWithContext(ctx context.Context) IPRuleA
 	return pulumi.ToOutputWithContext(ctx, i).(IPRuleArrayOutput)
 }
 
-// IP rule with specific IP or IP range in CIDR format.
 type IPRuleOutput struct{ *pulumi.OutputState }
 
 func (IPRuleOutput) ElementType() reflect.Type {
@@ -1599,12 +1519,10 @@ func (o IPRuleOutput) ToIPRuleOutputWithContext(ctx context.Context) IPRuleOutpu
 	return o
 }
 
-// The action of IP ACL rule.
-func (o IPRuleOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IPRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+func (o IPRuleOutput) Action() ActionPtrOutput {
+	return o.ApplyT(func(v IPRule) *Action { return v.Action }).(ActionPtrOutput)
 }
 
-// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 func (o IPRuleOutput) IPAddressOrRange() pulumi.StringOutput {
 	return o.ApplyT(func(v IPRule) string { return v.IPAddressOrRange }).(pulumi.StringOutput)
 }
@@ -1629,12 +1547,9 @@ func (o IPRuleArrayOutput) Index(i pulumi.IntInput) IPRuleOutput {
 	}).(IPRuleOutput)
 }
 
-// IP rule with specific IP or IP range in CIDR format.
 type IPRuleResponse struct {
-	// The action of IP ACL rule.
-	Action *string `pulumi:"action"`
-	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-	IPAddressOrRange string `pulumi:"iPAddressOrRange"`
+	Action           *string `pulumi:"action"`
+	IPAddressOrRange string  `pulumi:"iPAddressOrRange"`
 }
 
 // IPRuleResponseInput is an input type that accepts IPRuleResponseArgs and IPRuleResponseOutput values.
@@ -1648,12 +1563,9 @@ type IPRuleResponseInput interface {
 	ToIPRuleResponseOutputWithContext(context.Context) IPRuleResponseOutput
 }
 
-// IP rule with specific IP or IP range in CIDR format.
 type IPRuleResponseArgs struct {
-	// The action of IP ACL rule.
-	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-	IPAddressOrRange pulumi.StringInput `pulumi:"iPAddressOrRange"`
+	Action           pulumi.StringPtrInput `pulumi:"action"`
+	IPAddressOrRange pulumi.StringInput    `pulumi:"iPAddressOrRange"`
 }
 
 func (IPRuleResponseArgs) ElementType() reflect.Type {
@@ -1693,7 +1605,6 @@ func (i IPRuleResponseArray) ToIPRuleResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IPRuleResponseArrayOutput)
 }
 
-// IP rule with specific IP or IP range in CIDR format.
 type IPRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (IPRuleResponseOutput) ElementType() reflect.Type {
@@ -1708,12 +1619,10 @@ func (o IPRuleResponseOutput) ToIPRuleResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The action of IP ACL rule.
 func (o IPRuleResponseOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IPRuleResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 func (o IPRuleResponseOutput) IPAddressOrRange() pulumi.StringOutput {
 	return o.ApplyT(func(v IPRuleResponse) string { return v.IPAddressOrRange }).(pulumi.StringOutput)
 }
@@ -1738,10 +1647,8 @@ func (o IPRuleResponseArrayOutput) Index(i pulumi.IntInput) IPRuleResponseOutput
 	}).(IPRuleResponseOutput)
 }
 
-// Identity for the resource.
 type Identity struct {
-	// The identity type.
-	Type string `pulumi:"type"`
+	Type IdentityType `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -1755,10 +1662,8 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Identity for the resource.
 type IdentityArgs struct {
-	// The identity type.
-	Type IdentityType `pulumi:"type"`
+	Type IdentityTypeInput `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -1814,7 +1719,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Identity for the resource.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -1834,14 +1738,13 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
-// The identity type.
-func (o IdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
+func (o IdentityOutput) Type() IdentityTypeOutput {
+	return o.ApplyT(func(v Identity) IdentityType { return v.Type }).(IdentityTypeOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1859,27 +1762,28 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
-// The identity type.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *IdentityType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(IdentityTypePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponse struct {
-	// The principal ID of resource identity.
 	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type string `pulumi:"type"`
+	TenantId    string `pulumi:"tenantId"`
+	Type        string `pulumi:"type"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -1893,14 +1797,10 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Identity for the resource.
 type IdentityResponseArgs struct {
-	// The principal ID of resource identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringInput `pulumi:"type"`
+	TenantId    pulumi.StringInput `pulumi:"tenantId"`
+	Type        pulumi.StringInput `pulumi:"type"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -1956,7 +1856,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -1976,22 +1875,19 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
 func (o IdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2011,10 +1907,15 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -2024,7 +1925,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -2034,7 +1934,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -2044,16 +1943,11 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of an ImmutabilityPolicy of a blob container.
 type ImmutabilityPolicyPropertiesResponse struct {
-	// ImmutabilityPolicy Etag.
-	Etag string `pulumi:"etag"`
-	// The immutability period for the blobs in the container since the policy creation, in days.
-	ImmutabilityPeriodSinceCreationInDays int `pulumi:"immutabilityPeriodSinceCreationInDays"`
-	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-	State string `pulumi:"state"`
-	// The ImmutabilityPolicy update history of the blob container.
-	UpdateHistory []UpdateHistoryPropertyResponse `pulumi:"updateHistory"`
+	Etag                                  string                          `pulumi:"etag"`
+	ImmutabilityPeriodSinceCreationInDays int                             `pulumi:"immutabilityPeriodSinceCreationInDays"`
+	State                                 string                          `pulumi:"state"`
+	UpdateHistory                         []UpdateHistoryPropertyResponse `pulumi:"updateHistory"`
 }
 
 // ImmutabilityPolicyPropertiesResponseInput is an input type that accepts ImmutabilityPolicyPropertiesResponseArgs and ImmutabilityPolicyPropertiesResponseOutput values.
@@ -2067,16 +1961,11 @@ type ImmutabilityPolicyPropertiesResponseInput interface {
 	ToImmutabilityPolicyPropertiesResponseOutputWithContext(context.Context) ImmutabilityPolicyPropertiesResponseOutput
 }
 
-// The properties of an ImmutabilityPolicy of a blob container.
 type ImmutabilityPolicyPropertiesResponseArgs struct {
-	// ImmutabilityPolicy Etag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The immutability period for the blobs in the container since the policy creation, in days.
-	ImmutabilityPeriodSinceCreationInDays pulumi.IntInput `pulumi:"immutabilityPeriodSinceCreationInDays"`
-	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-	State pulumi.StringInput `pulumi:"state"`
-	// The ImmutabilityPolicy update history of the blob container.
-	UpdateHistory UpdateHistoryPropertyResponseArrayInput `pulumi:"updateHistory"`
+	Etag                                  pulumi.StringInput                      `pulumi:"etag"`
+	ImmutabilityPeriodSinceCreationInDays pulumi.IntInput                         `pulumi:"immutabilityPeriodSinceCreationInDays"`
+	State                                 pulumi.StringInput                      `pulumi:"state"`
+	UpdateHistory                         UpdateHistoryPropertyResponseArrayInput `pulumi:"updateHistory"`
 }
 
 func (ImmutabilityPolicyPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2132,7 +2021,6 @@ func (i *immutabilityPolicyPropertiesResponsePtrType) ToImmutabilityPolicyProper
 	return pulumi.ToOutputWithContext(ctx, i).(ImmutabilityPolicyPropertiesResponsePtrOutput)
 }
 
-// The properties of an ImmutabilityPolicy of a blob container.
 type ImmutabilityPolicyPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ImmutabilityPolicyPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2152,27 +2040,23 @@ func (o ImmutabilityPolicyPropertiesResponseOutput) ToImmutabilityPolicyProperti
 }
 
 func (o ImmutabilityPolicyPropertiesResponseOutput) ToImmutabilityPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ImmutabilityPolicyPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) *ImmutabilityPolicyPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImmutabilityPolicyPropertiesResponse) *ImmutabilityPolicyPropertiesResponse {
 		return &v
 	}).(ImmutabilityPolicyPropertiesResponsePtrOutput)
 }
 
-// ImmutabilityPolicy Etag.
 func (o ImmutabilityPolicyPropertiesResponseOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// The immutability period for the blobs in the container since the policy creation, in days.
 func (o ImmutabilityPolicyPropertiesResponseOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) int { return v.ImmutabilityPeriodSinceCreationInDays }).(pulumi.IntOutput)
 }
 
-// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
 func (o ImmutabilityPolicyPropertiesResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) string { return v.State }).(pulumi.StringOutput)
 }
 
-// The ImmutabilityPolicy update history of the blob container.
 func (o ImmutabilityPolicyPropertiesResponseOutput) UpdateHistory() UpdateHistoryPropertyResponseArrayOutput {
 	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) []UpdateHistoryPropertyResponse { return v.UpdateHistory }).(UpdateHistoryPropertyResponseArrayOutput)
 }
@@ -2192,10 +2076,15 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) ToImmutabilityPolicyPrope
 }
 
 func (o ImmutabilityPolicyPropertiesResponsePtrOutput) Elem() ImmutabilityPolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) ImmutabilityPolicyPropertiesResponse { return *v }).(ImmutabilityPolicyPropertiesResponseOutput)
+	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) ImmutabilityPolicyPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImmutabilityPolicyPropertiesResponse
+		return ret
+	}).(ImmutabilityPolicyPropertiesResponseOutput)
 }
 
-// ImmutabilityPolicy Etag.
 func (o ImmutabilityPolicyPropertiesResponsePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) *string {
 		if v == nil {
@@ -2205,7 +2094,6 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) Etag() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The immutability period for the blobs in the container since the policy creation, in days.
 func (o ImmutabilityPolicyPropertiesResponsePtrOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) *int {
 		if v == nil {
@@ -2215,7 +2103,6 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) ImmutabilityPeriodSinceCr
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
 func (o ImmutabilityPolicyPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) *string {
 		if v == nil {
@@ -2225,7 +2112,6 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) State() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ImmutabilityPolicy update history of the blob container.
 func (o ImmutabilityPolicyPropertiesResponsePtrOutput) UpdateHistory() UpdateHistoryPropertyResponseArrayOutput {
 	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) []UpdateHistoryPropertyResponse {
 		if v == nil {
@@ -2235,14 +2121,10 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) UpdateHistory() UpdateHis
 	}).(UpdateHistoryPropertyResponseArrayOutput)
 }
 
-// Properties of key vault.
 type KeyVaultProperties struct {
-	// The name of KeyVault key.
-	KeyName *string `pulumi:"keyName"`
-	// The Uri of KeyVault.
+	KeyName     *string `pulumi:"keyName"`
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
-	// The version of KeyVault key.
-	KeyVersion *string `pulumi:"keyVersion"`
+	KeyVersion  *string `pulumi:"keyVersion"`
 }
 
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
@@ -2256,14 +2138,10 @@ type KeyVaultPropertiesInput interface {
 	ToKeyVaultPropertiesOutputWithContext(context.Context) KeyVaultPropertiesOutput
 }
 
-// Properties of key vault.
 type KeyVaultPropertiesArgs struct {
-	// The name of KeyVault key.
-	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// The Uri of KeyVault.
+	KeyName     pulumi.StringPtrInput `pulumi:"keyName"`
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
-	// The version of KeyVault key.
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	KeyVersion  pulumi.StringPtrInput `pulumi:"keyVersion"`
 }
 
 func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
@@ -2319,7 +2197,6 @@ func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesPtrOutput)
 }
 
-// Properties of key vault.
 type KeyVaultPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesOutput) ElementType() reflect.Type {
@@ -2339,22 +2216,19 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultProper
 }
 
 func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
 		return &v
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// The name of KeyVault key.
 func (o KeyVaultPropertiesOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-// The Uri of KeyVault.
 func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
-// The version of KeyVault key.
 func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
@@ -2374,10 +2248,15 @@ func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ct
 }
 
 func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultProperties
+		return ret
+	}).(KeyVaultPropertiesOutput)
 }
 
-// The name of KeyVault key.
 func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -2387,7 +2266,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Uri of KeyVault.
 func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -2397,7 +2275,6 @@ func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of KeyVault key.
 func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -2407,14 +2284,10 @@ func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of key vault.
 type KeyVaultPropertiesResponse struct {
-	// The name of KeyVault key.
-	KeyName *string `pulumi:"keyName"`
-	// The Uri of KeyVault.
+	KeyName     *string `pulumi:"keyName"`
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
-	// The version of KeyVault key.
-	KeyVersion *string `pulumi:"keyVersion"`
+	KeyVersion  *string `pulumi:"keyVersion"`
 }
 
 // KeyVaultPropertiesResponseInput is an input type that accepts KeyVaultPropertiesResponseArgs and KeyVaultPropertiesResponseOutput values.
@@ -2428,14 +2301,10 @@ type KeyVaultPropertiesResponseInput interface {
 	ToKeyVaultPropertiesResponseOutputWithContext(context.Context) KeyVaultPropertiesResponseOutput
 }
 
-// Properties of key vault.
 type KeyVaultPropertiesResponseArgs struct {
-	// The name of KeyVault key.
-	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// The Uri of KeyVault.
+	KeyName     pulumi.StringPtrInput `pulumi:"keyName"`
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
-	// The version of KeyVault key.
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	KeyVersion  pulumi.StringPtrInput `pulumi:"keyVersion"`
 }
 
 func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2491,7 +2360,6 @@ func (i *keyVaultPropertiesResponsePtrType) ToKeyVaultPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// Properties of key vault.
 type KeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2511,22 +2379,19 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput(
 }
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
 		return &v
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// The name of KeyVault key.
 func (o KeyVaultPropertiesResponseOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-// The Uri of KeyVault.
 func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
-// The version of KeyVault key.
 func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
@@ -2546,10 +2411,15 @@ func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutp
 }
 
 func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultPropertiesResponse
+		return ret
+	}).(KeyVaultPropertiesResponseOutput)
 }
 
-// The name of KeyVault key.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -2559,7 +2429,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Uri of KeyVault.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -2569,7 +2438,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of KeyVault key.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -2579,12 +2447,9 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The LegalHold property of a blob container.
 type LegalHoldPropertiesResponse struct {
-	// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-	HasLegalHold bool `pulumi:"hasLegalHold"`
-	// The list of LegalHold tags of a blob container.
-	Tags []TagPropertyResponse `pulumi:"tags"`
+	HasLegalHold bool                  `pulumi:"hasLegalHold"`
+	Tags         []TagPropertyResponse `pulumi:"tags"`
 }
 
 // LegalHoldPropertiesResponseInput is an input type that accepts LegalHoldPropertiesResponseArgs and LegalHoldPropertiesResponseOutput values.
@@ -2598,12 +2463,9 @@ type LegalHoldPropertiesResponseInput interface {
 	ToLegalHoldPropertiesResponseOutputWithContext(context.Context) LegalHoldPropertiesResponseOutput
 }
 
-// The LegalHold property of a blob container.
 type LegalHoldPropertiesResponseArgs struct {
-	// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-	HasLegalHold pulumi.BoolInput `pulumi:"hasLegalHold"`
-	// The list of LegalHold tags of a blob container.
-	Tags TagPropertyResponseArrayInput `pulumi:"tags"`
+	HasLegalHold pulumi.BoolInput              `pulumi:"hasLegalHold"`
+	Tags         TagPropertyResponseArrayInput `pulumi:"tags"`
 }
 
 func (LegalHoldPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2659,7 +2521,6 @@ func (i *legalHoldPropertiesResponsePtrType) ToLegalHoldPropertiesResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(LegalHoldPropertiesResponsePtrOutput)
 }
 
-// The LegalHold property of a blob container.
 type LegalHoldPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (LegalHoldPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2679,17 +2540,15 @@ func (o LegalHoldPropertiesResponseOutput) ToLegalHoldPropertiesResponsePtrOutpu
 }
 
 func (o LegalHoldPropertiesResponseOutput) ToLegalHoldPropertiesResponsePtrOutputWithContext(ctx context.Context) LegalHoldPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LegalHoldPropertiesResponse) *LegalHoldPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LegalHoldPropertiesResponse) *LegalHoldPropertiesResponse {
 		return &v
 	}).(LegalHoldPropertiesResponsePtrOutput)
 }
 
-// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
 func (o LegalHoldPropertiesResponseOutput) HasLegalHold() pulumi.BoolOutput {
 	return o.ApplyT(func(v LegalHoldPropertiesResponse) bool { return v.HasLegalHold }).(pulumi.BoolOutput)
 }
 
-// The list of LegalHold tags of a blob container.
 func (o LegalHoldPropertiesResponseOutput) Tags() TagPropertyResponseArrayOutput {
 	return o.ApplyT(func(v LegalHoldPropertiesResponse) []TagPropertyResponse { return v.Tags }).(TagPropertyResponseArrayOutput)
 }
@@ -2709,10 +2568,15 @@ func (o LegalHoldPropertiesResponsePtrOutput) ToLegalHoldPropertiesResponsePtrOu
 }
 
 func (o LegalHoldPropertiesResponsePtrOutput) Elem() LegalHoldPropertiesResponseOutput {
-	return o.ApplyT(func(v *LegalHoldPropertiesResponse) LegalHoldPropertiesResponse { return *v }).(LegalHoldPropertiesResponseOutput)
+	return o.ApplyT(func(v *LegalHoldPropertiesResponse) LegalHoldPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LegalHoldPropertiesResponse
+		return ret
+	}).(LegalHoldPropertiesResponseOutput)
 }
 
-// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
 func (o LegalHoldPropertiesResponsePtrOutput) HasLegalHold() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LegalHoldPropertiesResponse) *bool {
 		if v == nil {
@@ -2722,7 +2586,6 @@ func (o LegalHoldPropertiesResponsePtrOutput) HasLegalHold() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The list of LegalHold tags of a blob container.
 func (o LegalHoldPropertiesResponsePtrOutput) Tags() TagPropertyResponseArrayOutput {
 	return o.ApplyT(func(v *LegalHoldPropertiesResponse) []TagPropertyResponse {
 		if v == nil {
@@ -2732,15 +2595,10 @@ func (o LegalHoldPropertiesResponsePtrOutput) Tags() TagPropertyResponseArrayOut
 	}).(TagPropertyResponseArrayOutput)
 }
 
-// Network rule set
 type NetworkRuleSet struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-	Bypass *string `pulumi:"bypass"`
-	// Specifies the default action of allow or deny when no other rules match.
-	DefaultAction string `pulumi:"defaultAction"`
-	// Sets the IP ACL rules
-	IpRules []IPRule `pulumi:"ipRules"`
-	// Sets the virtual network rules
+	Bypass              *string              `pulumi:"bypass"`
+	DefaultAction       DefaultAction        `pulumi:"defaultAction"`
+	IpRules             []IPRule             `pulumi:"ipRules"`
 	VirtualNetworkRules []VirtualNetworkRule `pulumi:"virtualNetworkRules"`
 }
 
@@ -2755,15 +2613,10 @@ type NetworkRuleSetInput interface {
 	ToNetworkRuleSetOutputWithContext(context.Context) NetworkRuleSetOutput
 }
 
-// Network rule set
 type NetworkRuleSetArgs struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
-	// Specifies the default action of allow or deny when no other rules match.
-	DefaultAction DefaultAction `pulumi:"defaultAction"`
-	// Sets the IP ACL rules
-	IpRules IPRuleArrayInput `pulumi:"ipRules"`
-	// Sets the virtual network rules
+	Bypass              pulumi.StringPtrInput        `pulumi:"bypass"`
+	DefaultAction       DefaultActionInput           `pulumi:"defaultAction"`
+	IpRules             IPRuleArrayInput             `pulumi:"ipRules"`
 	VirtualNetworkRules VirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
 }
 
@@ -2820,7 +2673,6 @@ func (i *networkRuleSetPtrType) ToNetworkRuleSetPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetPtrOutput)
 }
 
-// Network rule set
 type NetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetOutput) ElementType() reflect.Type {
@@ -2840,27 +2692,23 @@ func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutput() NetworkRuleSetPtrOutpu
 }
 
 func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutputWithContext(ctx context.Context) NetworkRuleSetPtrOutput {
-	return o.ApplyT(func(v NetworkRuleSet) *NetworkRuleSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSet) *NetworkRuleSet {
 		return &v
 	}).(NetworkRuleSetPtrOutput)
 }
 
-// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
 func (o NetworkRuleSetOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSet) *string { return v.Bypass }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the default action of allow or deny when no other rules match.
-func (o NetworkRuleSetOutput) DefaultAction() pulumi.StringOutput {
-	return o.ApplyT(func(v NetworkRuleSet) string { return v.DefaultAction }).(pulumi.StringOutput)
+func (o NetworkRuleSetOutput) DefaultAction() DefaultActionOutput {
+	return o.ApplyT(func(v NetworkRuleSet) DefaultAction { return v.DefaultAction }).(DefaultActionOutput)
 }
 
-// Sets the IP ACL rules
 func (o NetworkRuleSetOutput) IpRules() IPRuleArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSet) []IPRule { return v.IpRules }).(IPRuleArrayOutput)
 }
 
-// Sets the virtual network rules
 func (o NetworkRuleSetOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSet) []VirtualNetworkRule { return v.VirtualNetworkRules }).(VirtualNetworkRuleArrayOutput)
 }
@@ -2880,10 +2728,15 @@ func (o NetworkRuleSetPtrOutput) ToNetworkRuleSetPtrOutputWithContext(ctx contex
 }
 
 func (o NetworkRuleSetPtrOutput) Elem() NetworkRuleSetOutput {
-	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet { return *v }).(NetworkRuleSetOutput)
+	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSet
+		return ret
+	}).(NetworkRuleSetOutput)
 }
 
-// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
 func (o NetworkRuleSetPtrOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) *string {
 		if v == nil {
@@ -2893,17 +2746,15 @@ func (o NetworkRuleSetPtrOutput) Bypass() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the default action of allow or deny when no other rules match.
-func (o NetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetworkRuleSet) *string {
+func (o NetworkRuleSetPtrOutput) DefaultAction() DefaultActionPtrOutput {
+	return o.ApplyT(func(v *NetworkRuleSet) *DefaultAction {
 		if v == nil {
 			return nil
 		}
 		return &v.DefaultAction
-	}).(pulumi.StringPtrOutput)
+	}).(DefaultActionPtrOutput)
 }
 
-// Sets the IP ACL rules
 func (o NetworkRuleSetPtrOutput) IpRules() IPRuleArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) []IPRule {
 		if v == nil {
@@ -2913,7 +2764,6 @@ func (o NetworkRuleSetPtrOutput) IpRules() IPRuleArrayOutput {
 	}).(IPRuleArrayOutput)
 }
 
-// Sets the virtual network rules
 func (o NetworkRuleSetPtrOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) []VirtualNetworkRule {
 		if v == nil {
@@ -2923,15 +2773,10 @@ func (o NetworkRuleSetPtrOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOu
 	}).(VirtualNetworkRuleArrayOutput)
 }
 
-// Network rule set
 type NetworkRuleSetResponse struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-	Bypass *string `pulumi:"bypass"`
-	// Specifies the default action of allow or deny when no other rules match.
-	DefaultAction string `pulumi:"defaultAction"`
-	// Sets the IP ACL rules
-	IpRules []IPRuleResponse `pulumi:"ipRules"`
-	// Sets the virtual network rules
+	Bypass              *string                      `pulumi:"bypass"`
+	DefaultAction       string                       `pulumi:"defaultAction"`
+	IpRules             []IPRuleResponse             `pulumi:"ipRules"`
 	VirtualNetworkRules []VirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
 }
 
@@ -2946,15 +2791,10 @@ type NetworkRuleSetResponseInput interface {
 	ToNetworkRuleSetResponseOutputWithContext(context.Context) NetworkRuleSetResponseOutput
 }
 
-// Network rule set
 type NetworkRuleSetResponseArgs struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
-	// Specifies the default action of allow or deny when no other rules match.
-	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
-	// Sets the IP ACL rules
-	IpRules IPRuleResponseArrayInput `pulumi:"ipRules"`
-	// Sets the virtual network rules
+	Bypass              pulumi.StringPtrInput                `pulumi:"bypass"`
+	DefaultAction       pulumi.StringInput                   `pulumi:"defaultAction"`
+	IpRules             IPRuleResponseArrayInput             `pulumi:"ipRules"`
 	VirtualNetworkRules VirtualNetworkRuleResponseArrayInput `pulumi:"virtualNetworkRules"`
 }
 
@@ -3011,7 +2851,6 @@ func (i *networkRuleSetResponsePtrType) ToNetworkRuleSetResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetResponsePtrOutput)
 }
 
-// Network rule set
 type NetworkRuleSetResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetResponseOutput) ElementType() reflect.Type {
@@ -3031,27 +2870,23 @@ func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutput() Networ
 }
 
 func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutputWithContext(ctx context.Context) NetworkRuleSetResponsePtrOutput {
-	return o.ApplyT(func(v NetworkRuleSetResponse) *NetworkRuleSetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSetResponse) *NetworkRuleSetResponse {
 		return &v
 	}).(NetworkRuleSetResponsePtrOutput)
 }
 
-// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
 func (o NetworkRuleSetResponseOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) *string { return v.Bypass }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the default action of allow or deny when no other rules match.
 func (o NetworkRuleSetResponseOutput) DefaultAction() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
-// Sets the IP ACL rules
 func (o NetworkRuleSetResponseOutput) IpRules() IPRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) []IPRuleResponse { return v.IpRules }).(IPRuleResponseArrayOutput)
 }
 
-// Sets the virtual network rules
 func (o NetworkRuleSetResponseOutput) VirtualNetworkRules() VirtualNetworkRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) []VirtualNetworkRuleResponse { return v.VirtualNetworkRules }).(VirtualNetworkRuleResponseArrayOutput)
 }
@@ -3071,10 +2906,15 @@ func (o NetworkRuleSetResponsePtrOutput) ToNetworkRuleSetResponsePtrOutputWithCo
 }
 
 func (o NetworkRuleSetResponsePtrOutput) Elem() NetworkRuleSetResponseOutput {
-	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse { return *v }).(NetworkRuleSetResponseOutput)
+	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSetResponse
+		return ret
+	}).(NetworkRuleSetResponseOutput)
 }
 
-// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
 func (o NetworkRuleSetResponsePtrOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) *string {
 		if v == nil {
@@ -3084,7 +2924,6 @@ func (o NetworkRuleSetResponsePtrOutput) Bypass() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the default action of allow or deny when no other rules match.
 func (o NetworkRuleSetResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) *string {
 		if v == nil {
@@ -3094,7 +2933,6 @@ func (o NetworkRuleSetResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sets the IP ACL rules
 func (o NetworkRuleSetResponsePtrOutput) IpRules() IPRuleResponseArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) []IPRuleResponse {
 		if v == nil {
@@ -3104,7 +2942,6 @@ func (o NetworkRuleSetResponsePtrOutput) IpRules() IPRuleResponseArrayOutput {
 	}).(IPRuleResponseArrayOutput)
 }
 
-// Sets the virtual network rules
 func (o NetworkRuleSetResponsePtrOutput) VirtualNetworkRules() VirtualNetworkRuleResponseArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) []VirtualNetworkRuleResponse {
 		if v == nil {
@@ -3114,9 +2951,7 @@ func (o NetworkRuleSetResponsePtrOutput) VirtualNetworkRules() VirtualNetworkRul
 	}).(VirtualNetworkRuleResponseArrayOutput)
 }
 
-// The restriction because of which SKU cannot be used.
 type Restriction struct {
-	// The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
 	ReasonCode *string `pulumi:"reasonCode"`
 }
 
@@ -3131,9 +2966,7 @@ type RestrictionInput interface {
 	ToRestrictionOutputWithContext(context.Context) RestrictionOutput
 }
 
-// The restriction because of which SKU cannot be used.
 type RestrictionArgs struct {
-	// The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
 	ReasonCode pulumi.StringPtrInput `pulumi:"reasonCode"`
 }
 
@@ -3174,7 +3007,6 @@ func (i RestrictionArray) ToRestrictionArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RestrictionArrayOutput)
 }
 
-// The restriction because of which SKU cannot be used.
 type RestrictionOutput struct{ *pulumi.OutputState }
 
 func (RestrictionOutput) ElementType() reflect.Type {
@@ -3189,7 +3021,6 @@ func (o RestrictionOutput) ToRestrictionOutputWithContext(ctx context.Context) R
 	return o
 }
 
-// The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
 func (o RestrictionOutput) ReasonCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Restriction) *string { return v.ReasonCode }).(pulumi.StringPtrOutput)
 }
@@ -3214,14 +3045,10 @@ func (o RestrictionArrayOutput) Index(i pulumi.IntInput) RestrictionOutput {
 	}).(RestrictionOutput)
 }
 
-// The restriction because of which SKU cannot be used.
 type RestrictionResponse struct {
-	// The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
-	ReasonCode *string `pulumi:"reasonCode"`
-	// The type of restrictions. As of now only possible value for this is location.
-	Type string `pulumi:"type"`
-	// The value of restrictions. If the restriction type is set to location. This would be different locations where the SKU is restricted.
-	Values []string `pulumi:"values"`
+	ReasonCode *string  `pulumi:"reasonCode"`
+	Type       string   `pulumi:"type"`
+	Values     []string `pulumi:"values"`
 }
 
 // RestrictionResponseInput is an input type that accepts RestrictionResponseArgs and RestrictionResponseOutput values.
@@ -3235,14 +3062,10 @@ type RestrictionResponseInput interface {
 	ToRestrictionResponseOutputWithContext(context.Context) RestrictionResponseOutput
 }
 
-// The restriction because of which SKU cannot be used.
 type RestrictionResponseArgs struct {
-	// The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
-	ReasonCode pulumi.StringPtrInput `pulumi:"reasonCode"`
-	// The type of restrictions. As of now only possible value for this is location.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The value of restrictions. If the restriction type is set to location. This would be different locations where the SKU is restricted.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	ReasonCode pulumi.StringPtrInput   `pulumi:"reasonCode"`
+	Type       pulumi.StringInput      `pulumi:"type"`
+	Values     pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (RestrictionResponseArgs) ElementType() reflect.Type {
@@ -3282,7 +3105,6 @@ func (i RestrictionResponseArray) ToRestrictionResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RestrictionResponseArrayOutput)
 }
 
-// The restriction because of which SKU cannot be used.
 type RestrictionResponseOutput struct{ *pulumi.OutputState }
 
 func (RestrictionResponseOutput) ElementType() reflect.Type {
@@ -3297,17 +3119,14 @@ func (o RestrictionResponseOutput) ToRestrictionResponseOutputWithContext(ctx co
 	return o
 }
 
-// The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
 func (o RestrictionResponseOutput) ReasonCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RestrictionResponse) *string { return v.ReasonCode }).(pulumi.StringPtrOutput)
 }
 
-// The type of restrictions. As of now only possible value for this is location.
 func (o RestrictionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RestrictionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The value of restrictions. If the restriction type is set to location. This would be different locations where the SKU is restricted.
 func (o RestrictionResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RestrictionResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3332,11 +3151,8 @@ func (o RestrictionResponseArrayOutput) Index(i pulumi.IntInput) RestrictionResp
 	}).(RestrictionResponseOutput)
 }
 
-// The capability information in the specified sku, including file encryption, network acls, change notification, etc.
 type SKUCapabilityResponse struct {
-	// The name of capability, The capability information in the specified sku, including file encryption, network acls, change notification, etc.
-	Name string `pulumi:"name"`
-	// A string value to indicate states of given capability. Possibly 'true' or 'false'.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -3351,11 +3167,8 @@ type SKUCapabilityResponseInput interface {
 	ToSKUCapabilityResponseOutputWithContext(context.Context) SKUCapabilityResponseOutput
 }
 
-// The capability information in the specified sku, including file encryption, network acls, change notification, etc.
 type SKUCapabilityResponseArgs struct {
-	// The name of capability, The capability information in the specified sku, including file encryption, network acls, change notification, etc.
-	Name pulumi.StringInput `pulumi:"name"`
-	// A string value to indicate states of given capability. Possibly 'true' or 'false'.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3396,7 +3209,6 @@ func (i SKUCapabilityResponseArray) ToSKUCapabilityResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SKUCapabilityResponseArrayOutput)
 }
 
-// The capability information in the specified sku, including file encryption, network acls, change notification, etc.
 type SKUCapabilityResponseOutput struct{ *pulumi.OutputState }
 
 func (SKUCapabilityResponseOutput) ElementType() reflect.Type {
@@ -3411,12 +3223,10 @@ func (o SKUCapabilityResponseOutput) ToSKUCapabilityResponseOutputWithContext(ct
 	return o
 }
 
-// The name of capability, The capability information in the specified sku, including file encryption, network acls, change notification, etc.
 func (o SKUCapabilityResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SKUCapabilityResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A string value to indicate states of given capability. Possibly 'true' or 'false'.
 func (o SKUCapabilityResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SKUCapabilityResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3441,11 +3251,8 @@ func (o SKUCapabilityResponseArrayOutput) Index(i pulumi.IntInput) SKUCapability
 	}).(SKUCapabilityResponseOutput)
 }
 
-// The SKU of the storage account.
 type Sku struct {
-	// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-	Name string `pulumi:"name"`
-	// The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
+	Name         SkuName       `pulumi:"name"`
 	Restrictions []Restriction `pulumi:"restrictions"`
 }
 
@@ -3460,11 +3267,8 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU of the storage account.
 type SkuArgs struct {
-	// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-	Name SkuName `pulumi:"name"`
-	// The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
+	Name         SkuNameInput          `pulumi:"name"`
 	Restrictions RestrictionArrayInput `pulumi:"restrictions"`
 }
 
@@ -3521,7 +3325,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU of the storage account.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -3541,17 +3344,15 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+func (o SkuOutput) Name() SkuNameOutput {
+	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
-// The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
 func (o SkuOutput) Restrictions() RestrictionArrayOutput {
 	return o.ApplyT(func(v Sku) []Restriction { return v.Restrictions }).(RestrictionArrayOutput)
 }
@@ -3571,20 +3372,24 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
-// The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
 func (o SkuPtrOutput) Restrictions() RestrictionArrayOutput {
 	return o.ApplyT(func(v *Sku) []Restriction {
 		if v == nil {
@@ -3594,22 +3399,14 @@ func (o SkuPtrOutput) Restrictions() RestrictionArrayOutput {
 	}).(RestrictionArrayOutput)
 }
 
-// The SKU of the storage account.
 type SkuResponse struct {
-	// The capability information in the specified sku, including file encryption, network acls, change notification, etc.
 	Capabilities []SKUCapabilityResponse `pulumi:"capabilities"`
-	// Indicates the type of storage account.
-	Kind string `pulumi:"kind"`
-	// The set of locations that the SKU is available. This will be supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.).
-	Locations []string `pulumi:"locations"`
-	// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-	Name string `pulumi:"name"`
-	// The type of the resource, usually it is 'storageAccounts'.
-	ResourceType string `pulumi:"resourceType"`
-	// The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
-	Restrictions []RestrictionResponse `pulumi:"restrictions"`
-	// Gets the sku tier. This is based on the SKU name.
-	Tier string `pulumi:"tier"`
+	Kind         string                  `pulumi:"kind"`
+	Locations    []string                `pulumi:"locations"`
+	Name         string                  `pulumi:"name"`
+	ResourceType string                  `pulumi:"resourceType"`
+	Restrictions []RestrictionResponse   `pulumi:"restrictions"`
+	Tier         string                  `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -3623,22 +3420,14 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU of the storage account.
 type SkuResponseArgs struct {
-	// The capability information in the specified sku, including file encryption, network acls, change notification, etc.
 	Capabilities SKUCapabilityResponseArrayInput `pulumi:"capabilities"`
-	// Indicates the type of storage account.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// The set of locations that the SKU is available. This will be supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.).
-	Locations pulumi.StringArrayInput `pulumi:"locations"`
-	// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The type of the resource, usually it is 'storageAccounts'.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
-	Restrictions RestrictionResponseArrayInput `pulumi:"restrictions"`
-	// Gets the sku tier. This is based on the SKU name.
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Kind         pulumi.StringInput              `pulumi:"kind"`
+	Locations    pulumi.StringArrayInput         `pulumi:"locations"`
+	Name         pulumi.StringInput              `pulumi:"name"`
+	ResourceType pulumi.StringInput              `pulumi:"resourceType"`
+	Restrictions RestrictionResponseArrayInput   `pulumi:"restrictions"`
+	Tier         pulumi.StringInput              `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -3694,7 +3483,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU of the storage account.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -3714,42 +3502,35 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The capability information in the specified sku, including file encryption, network acls, change notification, etc.
 func (o SkuResponseOutput) Capabilities() SKUCapabilityResponseArrayOutput {
 	return o.ApplyT(func(v SkuResponse) []SKUCapabilityResponse { return v.Capabilities }).(SKUCapabilityResponseArrayOutput)
 }
 
-// Indicates the type of storage account.
 func (o SkuResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// The set of locations that the SKU is available. This will be supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.).
 func (o SkuResponseOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SkuResponse) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type of the resource, usually it is 'storageAccounts'.
 func (o SkuResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
 func (o SkuResponseOutput) Restrictions() RestrictionResponseArrayOutput {
 	return o.ApplyT(func(v SkuResponse) []RestrictionResponse { return v.Restrictions }).(RestrictionResponseArrayOutput)
 }
 
-// Gets the sku tier. This is based on the SKU name.
 func (o SkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -3769,10 +3550,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The capability information in the specified sku, including file encryption, network acls, change notification, etc.
 func (o SkuResponsePtrOutput) Capabilities() SKUCapabilityResponseArrayOutput {
 	return o.ApplyT(func(v *SkuResponse) []SKUCapabilityResponse {
 		if v == nil {
@@ -3782,7 +3568,6 @@ func (o SkuResponsePtrOutput) Capabilities() SKUCapabilityResponseArrayOutput {
 	}).(SKUCapabilityResponseArrayOutput)
 }
 
-// Indicates the type of storage account.
 func (o SkuResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -3792,7 +3577,6 @@ func (o SkuResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The set of locations that the SKU is available. This will be supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.).
 func (o SkuResponsePtrOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SkuResponse) []string {
 		if v == nil {
@@ -3802,7 +3586,6 @@ func (o SkuResponsePtrOutput) Locations() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -3812,7 +3595,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the resource, usually it is 'storageAccounts'.
 func (o SkuResponsePtrOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -3822,7 +3604,6 @@ func (o SkuResponsePtrOutput) ResourceType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
 func (o SkuResponsePtrOutput) Restrictions() RestrictionResponseArrayOutput {
 	return o.ApplyT(func(v *SkuResponse) []RestrictionResponse {
 		if v == nil {
@@ -3832,7 +3613,6 @@ func (o SkuResponsePtrOutput) Restrictions() RestrictionResponseArrayOutput {
 	}).(RestrictionResponseArrayOutput)
 }
 
-// Gets the sku tier. This is based on the SKU name.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -3842,14 +3622,10 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An access key for the storage account.
 type StorageAccountKeyResponse struct {
-	// Name of the key.
-	KeyName string `pulumi:"keyName"`
-	// Permissions for the key -- read-only or full permissions.
+	KeyName     string `pulumi:"keyName"`
 	Permissions string `pulumi:"permissions"`
-	// Base 64-encoded value of the key.
-	Value string `pulumi:"value"`
+	Value       string `pulumi:"value"`
 }
 
 // StorageAccountKeyResponseInput is an input type that accepts StorageAccountKeyResponseArgs and StorageAccountKeyResponseOutput values.
@@ -3863,14 +3639,10 @@ type StorageAccountKeyResponseInput interface {
 	ToStorageAccountKeyResponseOutputWithContext(context.Context) StorageAccountKeyResponseOutput
 }
 
-// An access key for the storage account.
 type StorageAccountKeyResponseArgs struct {
-	// Name of the key.
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// Permissions for the key -- read-only or full permissions.
+	KeyName     pulumi.StringInput `pulumi:"keyName"`
 	Permissions pulumi.StringInput `pulumi:"permissions"`
-	// Base 64-encoded value of the key.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value       pulumi.StringInput `pulumi:"value"`
 }
 
 func (StorageAccountKeyResponseArgs) ElementType() reflect.Type {
@@ -3910,7 +3682,6 @@ func (i StorageAccountKeyResponseArray) ToStorageAccountKeyResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountKeyResponseArrayOutput)
 }
 
-// An access key for the storage account.
 type StorageAccountKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountKeyResponseOutput) ElementType() reflect.Type {
@@ -3925,17 +3696,14 @@ func (o StorageAccountKeyResponseOutput) ToStorageAccountKeyResponseOutputWithCo
 	return o
 }
 
-// Name of the key.
 func (o StorageAccountKeyResponseOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// Permissions for the key -- read-only or full permissions.
 func (o StorageAccountKeyResponseOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.Permissions }).(pulumi.StringOutput)
 }
 
-// Base 64-encoded value of the key.
 func (o StorageAccountKeyResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3960,18 +3728,12 @@ func (o StorageAccountKeyResponseArrayOutput) Index(i pulumi.IntInput) StorageAc
 	}).(StorageAccountKeyResponseOutput)
 }
 
-// A tag of the LegalHold of a blob container.
 type TagPropertyResponse struct {
-	// Returns the Object ID of the user who added the tag.
 	ObjectIdentifier string `pulumi:"objectIdentifier"`
-	// The tag value.
-	Tag string `pulumi:"tag"`
-	// Returns the Tenant ID that issued the token for the user who added the tag.
-	TenantId string `pulumi:"tenantId"`
-	// Returns the date and time the tag was added.
-	Timestamp string `pulumi:"timestamp"`
-	// Returns the User Principal Name of the user who added the tag.
-	Upn string `pulumi:"upn"`
+	Tag              string `pulumi:"tag"`
+	TenantId         string `pulumi:"tenantId"`
+	Timestamp        string `pulumi:"timestamp"`
+	Upn              string `pulumi:"upn"`
 }
 
 // TagPropertyResponseInput is an input type that accepts TagPropertyResponseArgs and TagPropertyResponseOutput values.
@@ -3985,18 +3747,12 @@ type TagPropertyResponseInput interface {
 	ToTagPropertyResponseOutputWithContext(context.Context) TagPropertyResponseOutput
 }
 
-// A tag of the LegalHold of a blob container.
 type TagPropertyResponseArgs struct {
-	// Returns the Object ID of the user who added the tag.
 	ObjectIdentifier pulumi.StringInput `pulumi:"objectIdentifier"`
-	// The tag value.
-	Tag pulumi.StringInput `pulumi:"tag"`
-	// Returns the Tenant ID that issued the token for the user who added the tag.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// Returns the date and time the tag was added.
-	Timestamp pulumi.StringInput `pulumi:"timestamp"`
-	// Returns the User Principal Name of the user who added the tag.
-	Upn pulumi.StringInput `pulumi:"upn"`
+	Tag              pulumi.StringInput `pulumi:"tag"`
+	TenantId         pulumi.StringInput `pulumi:"tenantId"`
+	Timestamp        pulumi.StringInput `pulumi:"timestamp"`
+	Upn              pulumi.StringInput `pulumi:"upn"`
 }
 
 func (TagPropertyResponseArgs) ElementType() reflect.Type {
@@ -4036,7 +3792,6 @@ func (i TagPropertyResponseArray) ToTagPropertyResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TagPropertyResponseArrayOutput)
 }
 
-// A tag of the LegalHold of a blob container.
 type TagPropertyResponseOutput struct{ *pulumi.OutputState }
 
 func (TagPropertyResponseOutput) ElementType() reflect.Type {
@@ -4051,27 +3806,22 @@ func (o TagPropertyResponseOutput) ToTagPropertyResponseOutputWithContext(ctx co
 	return o
 }
 
-// Returns the Object ID of the user who added the tag.
 func (o TagPropertyResponseOutput) ObjectIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v TagPropertyResponse) string { return v.ObjectIdentifier }).(pulumi.StringOutput)
 }
 
-// The tag value.
 func (o TagPropertyResponseOutput) Tag() pulumi.StringOutput {
 	return o.ApplyT(func(v TagPropertyResponse) string { return v.Tag }).(pulumi.StringOutput)
 }
 
-// Returns the Tenant ID that issued the token for the user who added the tag.
 func (o TagPropertyResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v TagPropertyResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Returns the date and time the tag was added.
 func (o TagPropertyResponseOutput) Timestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v TagPropertyResponse) string { return v.Timestamp }).(pulumi.StringOutput)
 }
 
-// Returns the User Principal Name of the user who added the tag.
 func (o TagPropertyResponseOutput) Upn() pulumi.StringOutput {
 	return o.ApplyT(func(v TagPropertyResponse) string { return v.Upn }).(pulumi.StringOutput)
 }
@@ -4096,20 +3846,13 @@ func (o TagPropertyResponseArrayOutput) Index(i pulumi.IntInput) TagPropertyResp
 	}).(TagPropertyResponseOutput)
 }
 
-// An update history of the ImmutabilityPolicy of a blob container.
 type UpdateHistoryPropertyResponse struct {
-	// The immutability period for the blobs in the container since the policy creation, in days.
-	ImmutabilityPeriodSinceCreationInDays int `pulumi:"immutabilityPeriodSinceCreationInDays"`
-	// Returns the Object ID of the user who updated the ImmutabilityPolicy.
-	ObjectIdentifier string `pulumi:"objectIdentifier"`
-	// Returns the Tenant ID that issued the token for the user who updated the ImmutabilityPolicy.
-	TenantId string `pulumi:"tenantId"`
-	// Returns the date and time the ImmutabilityPolicy was updated.
-	Timestamp string `pulumi:"timestamp"`
-	// The ImmutabilityPolicy update type of a blob container, possible values include: put, lock and extend.
-	Update string `pulumi:"update"`
-	// Returns the User Principal Name of the user who updated the ImmutabilityPolicy.
-	Upn string `pulumi:"upn"`
+	ImmutabilityPeriodSinceCreationInDays int    `pulumi:"immutabilityPeriodSinceCreationInDays"`
+	ObjectIdentifier                      string `pulumi:"objectIdentifier"`
+	TenantId                              string `pulumi:"tenantId"`
+	Timestamp                             string `pulumi:"timestamp"`
+	Update                                string `pulumi:"update"`
+	Upn                                   string `pulumi:"upn"`
 }
 
 // UpdateHistoryPropertyResponseInput is an input type that accepts UpdateHistoryPropertyResponseArgs and UpdateHistoryPropertyResponseOutput values.
@@ -4123,20 +3866,13 @@ type UpdateHistoryPropertyResponseInput interface {
 	ToUpdateHistoryPropertyResponseOutputWithContext(context.Context) UpdateHistoryPropertyResponseOutput
 }
 
-// An update history of the ImmutabilityPolicy of a blob container.
 type UpdateHistoryPropertyResponseArgs struct {
-	// The immutability period for the blobs in the container since the policy creation, in days.
-	ImmutabilityPeriodSinceCreationInDays pulumi.IntInput `pulumi:"immutabilityPeriodSinceCreationInDays"`
-	// Returns the Object ID of the user who updated the ImmutabilityPolicy.
-	ObjectIdentifier pulumi.StringInput `pulumi:"objectIdentifier"`
-	// Returns the Tenant ID that issued the token for the user who updated the ImmutabilityPolicy.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// Returns the date and time the ImmutabilityPolicy was updated.
-	Timestamp pulumi.StringInput `pulumi:"timestamp"`
-	// The ImmutabilityPolicy update type of a blob container, possible values include: put, lock and extend.
-	Update pulumi.StringInput `pulumi:"update"`
-	// Returns the User Principal Name of the user who updated the ImmutabilityPolicy.
-	Upn pulumi.StringInput `pulumi:"upn"`
+	ImmutabilityPeriodSinceCreationInDays pulumi.IntInput    `pulumi:"immutabilityPeriodSinceCreationInDays"`
+	ObjectIdentifier                      pulumi.StringInput `pulumi:"objectIdentifier"`
+	TenantId                              pulumi.StringInput `pulumi:"tenantId"`
+	Timestamp                             pulumi.StringInput `pulumi:"timestamp"`
+	Update                                pulumi.StringInput `pulumi:"update"`
+	Upn                                   pulumi.StringInput `pulumi:"upn"`
 }
 
 func (UpdateHistoryPropertyResponseArgs) ElementType() reflect.Type {
@@ -4176,7 +3912,6 @@ func (i UpdateHistoryPropertyResponseArray) ToUpdateHistoryPropertyResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(UpdateHistoryPropertyResponseArrayOutput)
 }
 
-// An update history of the ImmutabilityPolicy of a blob container.
 type UpdateHistoryPropertyResponseOutput struct{ *pulumi.OutputState }
 
 func (UpdateHistoryPropertyResponseOutput) ElementType() reflect.Type {
@@ -4191,32 +3926,26 @@ func (o UpdateHistoryPropertyResponseOutput) ToUpdateHistoryPropertyResponseOutp
 	return o
 }
 
-// The immutability period for the blobs in the container since the policy creation, in days.
 func (o UpdateHistoryPropertyResponseOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v UpdateHistoryPropertyResponse) int { return v.ImmutabilityPeriodSinceCreationInDays }).(pulumi.IntOutput)
 }
 
-// Returns the Object ID of the user who updated the ImmutabilityPolicy.
 func (o UpdateHistoryPropertyResponseOutput) ObjectIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v UpdateHistoryPropertyResponse) string { return v.ObjectIdentifier }).(pulumi.StringOutput)
 }
 
-// Returns the Tenant ID that issued the token for the user who updated the ImmutabilityPolicy.
 func (o UpdateHistoryPropertyResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v UpdateHistoryPropertyResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Returns the date and time the ImmutabilityPolicy was updated.
 func (o UpdateHistoryPropertyResponseOutput) Timestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v UpdateHistoryPropertyResponse) string { return v.Timestamp }).(pulumi.StringOutput)
 }
 
-// The ImmutabilityPolicy update type of a blob container, possible values include: put, lock and extend.
 func (o UpdateHistoryPropertyResponseOutput) Update() pulumi.StringOutput {
 	return o.ApplyT(func(v UpdateHistoryPropertyResponse) string { return v.Update }).(pulumi.StringOutput)
 }
 
-// Returns the User Principal Name of the user who updated the ImmutabilityPolicy.
 func (o UpdateHistoryPropertyResponseOutput) Upn() pulumi.StringOutput {
 	return o.ApplyT(func(v UpdateHistoryPropertyResponse) string { return v.Upn }).(pulumi.StringOutput)
 }
@@ -4241,14 +3970,10 @@ func (o UpdateHistoryPropertyResponseArrayOutput) Index(i pulumi.IntInput) Updat
 	}).(UpdateHistoryPropertyResponseOutput)
 }
 
-// Virtual Network rule.
 type VirtualNetworkRule struct {
-	// The action of virtual network rule.
-	Action *string `pulumi:"action"`
-	// Gets the state of virtual network rule.
-	State *string `pulumi:"state"`
-	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-	VirtualNetworkResourceId string `pulumi:"virtualNetworkResourceId"`
+	Action                   *Action `pulumi:"action"`
+	State                    *State  `pulumi:"state"`
+	VirtualNetworkResourceId string  `pulumi:"virtualNetworkResourceId"`
 }
 
 // VirtualNetworkRuleInput is an input type that accepts VirtualNetworkRuleArgs and VirtualNetworkRuleOutput values.
@@ -4262,13 +3987,9 @@ type VirtualNetworkRuleInput interface {
 	ToVirtualNetworkRuleOutputWithContext(context.Context) VirtualNetworkRuleOutput
 }
 
-// Virtual Network rule.
 type VirtualNetworkRuleArgs struct {
-	// The action of virtual network rule.
-	Action *Action `pulumi:"action"`
-	// Gets the state of virtual network rule.
-	State *State `pulumi:"state"`
-	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+	Action                   ActionPtrInput     `pulumi:"action"`
+	State                    StatePtrInput      `pulumi:"state"`
 	VirtualNetworkResourceId pulumi.StringInput `pulumi:"virtualNetworkResourceId"`
 }
 
@@ -4309,7 +4030,6 @@ func (i VirtualNetworkRuleArray) ToVirtualNetworkRuleArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleArrayOutput)
 }
 
-// Virtual Network rule.
 type VirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleOutput) ElementType() reflect.Type {
@@ -4324,17 +4044,14 @@ func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx cont
 	return o
 }
 
-// The action of virtual network rule.
-func (o VirtualNetworkRuleOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+func (o VirtualNetworkRuleOutput) Action() ActionPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkRule) *Action { return v.Action }).(ActionPtrOutput)
 }
 
-// Gets the state of virtual network rule.
-func (o VirtualNetworkRuleOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkRule) *string { return v.State }).(pulumi.StringPtrOutput)
+func (o VirtualNetworkRuleOutput) State() StatePtrOutput {
+	return o.ApplyT(func(v VirtualNetworkRule) *State { return v.State }).(StatePtrOutput)
 }
 
-// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
 func (o VirtualNetworkRuleOutput) VirtualNetworkResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRule) string { return v.VirtualNetworkResourceId }).(pulumi.StringOutput)
 }
@@ -4359,14 +4076,10 @@ func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRu
 	}).(VirtualNetworkRuleOutput)
 }
 
-// Virtual Network rule.
 type VirtualNetworkRuleResponse struct {
-	// The action of virtual network rule.
-	Action *string `pulumi:"action"`
-	// Gets the state of virtual network rule.
-	State *string `pulumi:"state"`
-	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-	VirtualNetworkResourceId string `pulumi:"virtualNetworkResourceId"`
+	Action                   *string `pulumi:"action"`
+	State                    *string `pulumi:"state"`
+	VirtualNetworkResourceId string  `pulumi:"virtualNetworkResourceId"`
 }
 
 // VirtualNetworkRuleResponseInput is an input type that accepts VirtualNetworkRuleResponseArgs and VirtualNetworkRuleResponseOutput values.
@@ -4380,14 +4093,10 @@ type VirtualNetworkRuleResponseInput interface {
 	ToVirtualNetworkRuleResponseOutputWithContext(context.Context) VirtualNetworkRuleResponseOutput
 }
 
-// Virtual Network rule.
 type VirtualNetworkRuleResponseArgs struct {
-	// The action of virtual network rule.
-	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Gets the state of virtual network rule.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-	VirtualNetworkResourceId pulumi.StringInput `pulumi:"virtualNetworkResourceId"`
+	Action                   pulumi.StringPtrInput `pulumi:"action"`
+	State                    pulumi.StringPtrInput `pulumi:"state"`
+	VirtualNetworkResourceId pulumi.StringInput    `pulumi:"virtualNetworkResourceId"`
 }
 
 func (VirtualNetworkRuleResponseArgs) ElementType() reflect.Type {
@@ -4427,7 +4136,6 @@ func (i VirtualNetworkRuleResponseArray) ToVirtualNetworkRuleResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleResponseArrayOutput)
 }
 
-// Virtual Network rule.
 type VirtualNetworkRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleResponseOutput) ElementType() reflect.Type {
@@ -4442,17 +4150,14 @@ func (o VirtualNetworkRuleResponseOutput) ToVirtualNetworkRuleResponseOutputWith
 	return o
 }
 
-// The action of virtual network rule.
 func (o VirtualNetworkRuleResponseOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Gets the state of virtual network rule.
 func (o VirtualNetworkRuleResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
 func (o VirtualNetworkRuleResponseOutput) VirtualNetworkResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.VirtualNetworkResourceId }).(pulumi.StringOutput)
 }

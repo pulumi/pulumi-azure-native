@@ -11,43 +11,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a migration resource.
 type Migration struct {
 	pulumi.CustomResourceState
 
-	// Migration status.
-	CurrentStatus MigrationStatusResponseOutput `pulumi:"currentStatus"`
-	DBsToMigrate  pulumi.StringArrayOutput      `pulumi:"dBsToMigrate"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Migration details level.
-	MigrationDetailsLevel pulumi.StringOutput `pulumi:"migrationDetailsLevel"`
-	MigrationId           pulumi.StringOutput `pulumi:"migrationId"`
-	MigrationName         pulumi.StringOutput `pulumi:"migrationName"`
-	// Migration resource group.
-	MigrationResourceGroup        MigrationResourceGroupResponsePtrOutput `pulumi:"migrationResourceGroup"`
-	MigrationWindowStartTimeInUtc pulumi.StringPtrOutput                  `pulumi:"migrationWindowStartTimeInUtc"`
-	// The name of the resource
-	Name                 pulumi.StringOutput  `pulumi:"name"`
-	OverwriteDBsInTarget pulumi.BoolPtrOutput `pulumi:"overwriteDBsInTarget"`
-	// Migration secret parameters.
+	CurrentStatus                             MigrationStatusResponseOutput              `pulumi:"currentStatus"`
+	DBsToMigrate                              pulumi.StringArrayOutput                   `pulumi:"dBsToMigrate"`
+	Location                                  pulumi.StringOutput                        `pulumi:"location"`
+	MigrationDetailsLevel                     pulumi.StringOutput                        `pulumi:"migrationDetailsLevel"`
+	MigrationId                               pulumi.StringOutput                        `pulumi:"migrationId"`
+	MigrationName                             pulumi.StringOutput                        `pulumi:"migrationName"`
+	MigrationResourceGroup                    MigrationResourceGroupResponsePtrOutput    `pulumi:"migrationResourceGroup"`
+	MigrationWindowStartTimeInUtc             pulumi.StringPtrOutput                     `pulumi:"migrationWindowStartTimeInUtc"`
+	Name                                      pulumi.StringOutput                        `pulumi:"name"`
+	OverwriteDBsInTarget                      pulumi.BoolPtrOutput                       `pulumi:"overwriteDBsInTarget"`
 	SecretParameters                          MigrationSecretParametersResponsePtrOutput `pulumi:"secretParameters"`
 	SetupLogicalReplicationOnSourceDBIfNeeded pulumi.BoolPtrOutput                       `pulumi:"setupLogicalReplicationOnSourceDBIfNeeded"`
-	// Database server metadata.
-	SourceDBServerMetadata   DBServerMetadataResponseOutput `pulumi:"sourceDBServerMetadata"`
-	SourceDBServerResourceId pulumi.StringPtrOutput         `pulumi:"sourceDBServerResourceId"`
-	StartDataMigration       pulumi.BoolPtrOutput           `pulumi:"startDataMigration"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Database server metadata.
-	TargetDBServerMetadata   DBServerMetadataResponseOutput `pulumi:"targetDBServerMetadata"`
-	TargetDBServerResourceId pulumi.StringOutput            `pulumi:"targetDBServerResourceId"`
-	TriggerCutover           pulumi.BoolPtrOutput           `pulumi:"triggerCutover"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type                           pulumi.StringOutput    `pulumi:"type"`
-	UserAssignedIdentityResourceId pulumi.StringPtrOutput `pulumi:"userAssignedIdentityResourceId"`
+	SourceDBServerMetadata                    DBServerMetadataResponseOutput             `pulumi:"sourceDBServerMetadata"`
+	SourceDBServerResourceId                  pulumi.StringPtrOutput                     `pulumi:"sourceDBServerResourceId"`
+	StartDataMigration                        pulumi.BoolPtrOutput                       `pulumi:"startDataMigration"`
+	SystemData                                SystemDataResponseOutput                   `pulumi:"systemData"`
+	Tags                                      pulumi.StringMapOutput                     `pulumi:"tags"`
+	TargetDBServerMetadata                    DBServerMetadataResponseOutput             `pulumi:"targetDBServerMetadata"`
+	TargetDBServerResourceId                  pulumi.StringOutput                        `pulumi:"targetDBServerResourceId"`
+	TriggerCutover                            pulumi.BoolPtrOutput                       `pulumi:"triggerCutover"`
+	Type                                      pulumi.StringOutput                        `pulumi:"type"`
+	UserAssignedIdentityResourceId            pulumi.StringPtrOutput                     `pulumi:"userAssignedIdentityResourceId"`
 }
 
 // NewMigration registers a new resource with the given unique name, arguments, and options.
@@ -104,58 +92,42 @@ func (MigrationState) ElementType() reflect.Type {
 }
 
 type migrationArgs struct {
-	DBsToMigrate []string `pulumi:"dBsToMigrate"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the migration.
-	MigrationName *string `pulumi:"migrationName"`
-	// Migration resource group.
-	MigrationResourceGroup        *MigrationResourceGroup `pulumi:"migrationResourceGroup"`
-	MigrationWindowStartTimeInUtc *string                 `pulumi:"migrationWindowStartTimeInUtc"`
-	OverwriteDBsInTarget          *bool                   `pulumi:"overwriteDBsInTarget"`
-	// Migration secret parameters.
+	DBsToMigrate                              []string                   `pulumi:"dBsToMigrate"`
+	Location                                  *string                    `pulumi:"location"`
+	MigrationName                             *string                    `pulumi:"migrationName"`
+	MigrationResourceGroup                    *MigrationResourceGroup    `pulumi:"migrationResourceGroup"`
+	MigrationWindowStartTimeInUtc             *string                    `pulumi:"migrationWindowStartTimeInUtc"`
+	OverwriteDBsInTarget                      *bool                      `pulumi:"overwriteDBsInTarget"`
 	SecretParameters                          *MigrationSecretParameters `pulumi:"secretParameters"`
 	SetupLogicalReplicationOnSourceDBIfNeeded *bool                      `pulumi:"setupLogicalReplicationOnSourceDBIfNeeded"`
 	SourceDBServerResourceId                  *string                    `pulumi:"sourceDBServerResourceId"`
 	StartDataMigration                        *bool                      `pulumi:"startDataMigration"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the target database server.
-	TargetDBServerName string `pulumi:"targetDBServerName"`
-	// The resource group name of the target database server.
-	TargetDBServerResourceGroupName string `pulumi:"targetDBServerResourceGroupName"`
-	// The subscription ID of the target database server.
-	TargetDBServerSubscriptionId   string  `pulumi:"targetDBServerSubscriptionId"`
-	TriggerCutover                 *bool   `pulumi:"triggerCutover"`
-	UserAssignedIdentityResourceId *string `pulumi:"userAssignedIdentityResourceId"`
+	Tags                                      map[string]string          `pulumi:"tags"`
+	TargetDBServerName                        string                     `pulumi:"targetDBServerName"`
+	TargetDBServerResourceGroupName           string                     `pulumi:"targetDBServerResourceGroupName"`
+	TargetDBServerSubscriptionId              string                     `pulumi:"targetDBServerSubscriptionId"`
+	TriggerCutover                            *bool                      `pulumi:"triggerCutover"`
+	UserAssignedIdentityResourceId            *string                    `pulumi:"userAssignedIdentityResourceId"`
 }
 
 // The set of arguments for constructing a Migration resource.
 type MigrationArgs struct {
-	DBsToMigrate pulumi.StringArrayInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the migration.
-	MigrationName pulumi.StringPtrInput
-	// Migration resource group.
-	MigrationResourceGroup        MigrationResourceGroupPtrInput
-	MigrationWindowStartTimeInUtc pulumi.StringPtrInput
-	OverwriteDBsInTarget          pulumi.BoolPtrInput
-	// Migration secret parameters.
+	DBsToMigrate                              pulumi.StringArrayInput
+	Location                                  pulumi.StringPtrInput
+	MigrationName                             pulumi.StringPtrInput
+	MigrationResourceGroup                    MigrationResourceGroupPtrInput
+	MigrationWindowStartTimeInUtc             pulumi.StringPtrInput
+	OverwriteDBsInTarget                      pulumi.BoolPtrInput
 	SecretParameters                          MigrationSecretParametersPtrInput
 	SetupLogicalReplicationOnSourceDBIfNeeded pulumi.BoolPtrInput
 	SourceDBServerResourceId                  pulumi.StringPtrInput
 	StartDataMigration                        pulumi.BoolPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the target database server.
-	TargetDBServerName pulumi.StringInput
-	// The resource group name of the target database server.
-	TargetDBServerResourceGroupName pulumi.StringInput
-	// The subscription ID of the target database server.
-	TargetDBServerSubscriptionId   pulumi.StringInput
-	TriggerCutover                 pulumi.BoolPtrInput
-	UserAssignedIdentityResourceId pulumi.StringPtrInput
+	Tags                                      pulumi.StringMapInput
+	TargetDBServerName                        pulumi.StringInput
+	TargetDBServerResourceGroupName           pulumi.StringInput
+	TargetDBServerSubscriptionId              pulumi.StringInput
+	TriggerCutover                            pulumi.BoolPtrInput
+	UserAssignedIdentityResourceId            pulumi.StringPtrInput
 }
 
 func (MigrationArgs) ElementType() reflect.Type {
@@ -181,9 +153,7 @@ func (i *Migration) ToMigrationOutputWithContext(ctx context.Context) MigrationO
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationOutput)
 }
 
-type MigrationOutput struct {
-	*pulumi.OutputState
-}
+type MigrationOutput struct{ *pulumi.OutputState }
 
 func (MigrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Migration)(nil))

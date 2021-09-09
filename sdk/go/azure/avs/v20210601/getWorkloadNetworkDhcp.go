@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NSX DHCP
 func LookupWorkloadNetworkDhcp(ctx *pulumi.Context, args *LookupWorkloadNetworkDhcpArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkDhcpResult, error) {
 	var rv LookupWorkloadNetworkDhcpResult
 	err := ctx.Invoke("azure-native:avs/v20210601:getWorkloadNetworkDhcp", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupWorkloadNetworkDhcp(ctx *pulumi.Context, args *LookupWorkloadNetworkD
 }
 
 type LookupWorkloadNetworkDhcpArgs struct {
-	// NSX DHCP identifier. Generally the same as the DHCP display name
-	DhcpId string `pulumi:"dhcpId"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
+	DhcpId            string `pulumi:"dhcpId"`
+	PrivateCloudName  string `pulumi:"privateCloudName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // NSX DHCP
 type LookupWorkloadNetworkDhcpResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// DHCP properties.
+	Id         string      `pulumi:"id"`
+	Name       string      `pulumi:"name"`
 	Properties interface{} `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type       string      `pulumi:"type"`
 }

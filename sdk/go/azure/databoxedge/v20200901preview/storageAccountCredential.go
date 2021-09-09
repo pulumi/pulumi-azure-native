@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The storage account credential.
 type StorageAccountCredential struct {
 	pulumi.CustomResourceState
 
-	// Encrypted storage key.
-	AccountKey AsymmetricEncryptedSecretResponsePtrOutput `pulumi:"accountKey"`
-	// Type of storage accessed on the storage account.
-	AccountType pulumi.StringOutput `pulumi:"accountType"`
-	// Alias for the storage account.
-	Alias pulumi.StringOutput `pulumi:"alias"`
-	// Blob end point for private clouds.
-	BlobDomainName pulumi.StringPtrOutput `pulumi:"blobDomainName"`
-	// Connection string for the storage account. Use this string if username and account key are not specified.
-	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
-	// The object name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Signifies whether SSL needs to be enabled or not.
-	SslStatus pulumi.StringOutput `pulumi:"sslStatus"`
-	// Id of the storage account.
-	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
-	// StorageAccountCredential object
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Username for the storage account.
-	UserName pulumi.StringPtrOutput `pulumi:"userName"`
+	AccountKey       AsymmetricEncryptedSecretResponsePtrOutput `pulumi:"accountKey"`
+	AccountType      pulumi.StringOutput                        `pulumi:"accountType"`
+	Alias            pulumi.StringOutput                        `pulumi:"alias"`
+	BlobDomainName   pulumi.StringPtrOutput                     `pulumi:"blobDomainName"`
+	ConnectionString pulumi.StringPtrOutput                     `pulumi:"connectionString"`
+	Name             pulumi.StringOutput                        `pulumi:"name"`
+	SslStatus        pulumi.StringOutput                        `pulumi:"sslStatus"`
+	StorageAccountId pulumi.StringPtrOutput                     `pulumi:"storageAccountId"`
+	SystemData       SystemDataResponseOutput                   `pulumi:"systemData"`
+	Type             pulumi.StringOutput                        `pulumi:"type"`
+	UserName         pulumi.StringPtrOutput                     `pulumi:"userName"`
 }
 
 // NewStorageAccountCredential registers a new resource with the given unique name, arguments, and options.
@@ -153,54 +141,32 @@ func (StorageAccountCredentialState) ElementType() reflect.Type {
 }
 
 type storageAccountCredentialArgs struct {
-	// Encrypted storage key.
-	AccountKey *AsymmetricEncryptedSecret `pulumi:"accountKey"`
-	// Type of storage accessed on the storage account.
-	AccountType string `pulumi:"accountType"`
-	// Alias for the storage account.
-	Alias string `pulumi:"alias"`
-	// Blob end point for private clouds.
-	BlobDomainName *string `pulumi:"blobDomainName"`
-	// Connection string for the storage account. Use this string if username and account key are not specified.
-	ConnectionString *string `pulumi:"connectionString"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The storage account credential name.
-	Name *string `pulumi:"name"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Signifies whether SSL needs to be enabled or not.
-	SslStatus string `pulumi:"sslStatus"`
-	// Id of the storage account.
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// Username for the storage account.
-	UserName *string `pulumi:"userName"`
+	AccountKey        *AsymmetricEncryptedSecret `pulumi:"accountKey"`
+	AccountType       string                     `pulumi:"accountType"`
+	Alias             string                     `pulumi:"alias"`
+	BlobDomainName    *string                    `pulumi:"blobDomainName"`
+	ConnectionString  *string                    `pulumi:"connectionString"`
+	DeviceName        string                     `pulumi:"deviceName"`
+	Name              *string                    `pulumi:"name"`
+	ResourceGroupName string                     `pulumi:"resourceGroupName"`
+	SslStatus         string                     `pulumi:"sslStatus"`
+	StorageAccountId  *string                    `pulumi:"storageAccountId"`
+	UserName          *string                    `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a StorageAccountCredential resource.
 type StorageAccountCredentialArgs struct {
-	// Encrypted storage key.
-	AccountKey AsymmetricEncryptedSecretPtrInput
-	// Type of storage accessed on the storage account.
-	AccountType pulumi.StringInput
-	// Alias for the storage account.
-	Alias pulumi.StringInput
-	// Blob end point for private clouds.
-	BlobDomainName pulumi.StringPtrInput
-	// Connection string for the storage account. Use this string if username and account key are not specified.
-	ConnectionString pulumi.StringPtrInput
-	// The device name.
-	DeviceName pulumi.StringInput
-	// The storage account credential name.
-	Name pulumi.StringPtrInput
-	// The resource group name.
+	AccountKey        AsymmetricEncryptedSecretPtrInput
+	AccountType       pulumi.StringInput
+	Alias             pulumi.StringInput
+	BlobDomainName    pulumi.StringPtrInput
+	ConnectionString  pulumi.StringPtrInput
+	DeviceName        pulumi.StringInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Signifies whether SSL needs to be enabled or not.
-	SslStatus pulumi.StringInput
-	// Id of the storage account.
-	StorageAccountId pulumi.StringPtrInput
-	// Username for the storage account.
-	UserName pulumi.StringPtrInput
+	SslStatus         pulumi.StringInput
+	StorageAccountId  pulumi.StringPtrInput
+	UserName          pulumi.StringPtrInput
 }
 
 func (StorageAccountCredentialArgs) ElementType() reflect.Type {
@@ -226,9 +192,7 @@ func (i *StorageAccountCredential) ToStorageAccountCredentialOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialOutput)
 }
 
-type StorageAccountCredentialOutput struct {
-	*pulumi.OutputState
-}
+type StorageAccountCredentialOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountCredentialOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageAccountCredential)(nil))

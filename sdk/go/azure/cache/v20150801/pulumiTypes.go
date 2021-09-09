@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Redis cache access keys.
 type RedisAccessKeysResponse struct {
-	// The current primary key that clients can use to authenticate with Redis cache.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// The current secondary key that clients can use to authenticate with Redis cache.
+	PrimaryKey   *string `pulumi:"primaryKey"`
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }
 
@@ -29,11 +26,8 @@ type RedisAccessKeysResponseInput interface {
 	ToRedisAccessKeysResponseOutputWithContext(context.Context) RedisAccessKeysResponseOutput
 }
 
-// Redis cache access keys.
 type RedisAccessKeysResponseArgs struct {
-	// The current primary key that clients can use to authenticate with Redis cache.
-	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
-	// The current secondary key that clients can use to authenticate with Redis cache.
+	PrimaryKey   pulumi.StringPtrInput `pulumi:"primaryKey"`
 	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
 }
 
@@ -90,7 +84,6 @@ func (i *redisAccessKeysResponsePtrType) ToRedisAccessKeysResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(RedisAccessKeysResponsePtrOutput)
 }
 
-// Redis cache access keys.
 type RedisAccessKeysResponseOutput struct{ *pulumi.OutputState }
 
 func (RedisAccessKeysResponseOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o RedisAccessKeysResponseOutput) ToRedisAccessKeysResponsePtrOutput() Redi
 }
 
 func (o RedisAccessKeysResponseOutput) ToRedisAccessKeysResponsePtrOutputWithContext(ctx context.Context) RedisAccessKeysResponsePtrOutput {
-	return o.ApplyT(func(v RedisAccessKeysResponse) *RedisAccessKeysResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RedisAccessKeysResponse) *RedisAccessKeysResponse {
 		return &v
 	}).(RedisAccessKeysResponsePtrOutput)
 }
 
-// The current primary key that clients can use to authenticate with Redis cache.
 func (o RedisAccessKeysResponseOutput) PrimaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisAccessKeysResponse) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
 }
 
-// The current secondary key that clients can use to authenticate with Redis cache.
 func (o RedisAccessKeysResponseOutput) SecondaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisAccessKeysResponse) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
 }
@@ -140,10 +131,15 @@ func (o RedisAccessKeysResponsePtrOutput) ToRedisAccessKeysResponsePtrOutputWith
 }
 
 func (o RedisAccessKeysResponsePtrOutput) Elem() RedisAccessKeysResponseOutput {
-	return o.ApplyT(func(v *RedisAccessKeysResponse) RedisAccessKeysResponse { return *v }).(RedisAccessKeysResponseOutput)
+	return o.ApplyT(func(v *RedisAccessKeysResponse) RedisAccessKeysResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RedisAccessKeysResponse
+		return ret
+	}).(RedisAccessKeysResponseOutput)
 }
 
-// The current primary key that clients can use to authenticate with Redis cache.
 func (o RedisAccessKeysResponsePtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisAccessKeysResponse) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o RedisAccessKeysResponsePtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current secondary key that clients can use to authenticate with Redis cache.
 func (o RedisAccessKeysResponsePtrOutput) SecondaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisAccessKeysResponse) *string {
 		if v == nil {
@@ -163,14 +158,10 @@ func (o RedisAccessKeysResponsePtrOutput) SecondaryKey() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU parameters supplied to the create Redis operation.
 type Sku struct {
-	// What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
-	Capacity int `pulumi:"capacity"`
-	// Which family to use. Valid values: (C, P).
-	Family string `pulumi:"family"`
-	// What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
-	Name string `pulumi:"name"`
+	Capacity int    `pulumi:"capacity"`
+	Family   string `pulumi:"family"`
+	Name     string `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -184,14 +175,10 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// SKU parameters supplied to the create Redis operation.
 type SkuArgs struct {
-	// What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
-	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// Which family to use. Valid values: (C, P).
-	Family pulumi.StringInput `pulumi:"family"`
-	// What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
-	Name pulumi.StringInput `pulumi:"name"`
+	Capacity pulumi.IntInput    `pulumi:"capacity"`
+	Family   pulumi.StringInput `pulumi:"family"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -247,7 +234,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// SKU parameters supplied to the create Redis operation.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -267,22 +253,19 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
 func (o SkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v Sku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Which family to use. Valid values: (C, P).
 func (o SkuOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Family }).(pulumi.StringOutput)
 }
 
-// What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -302,10 +285,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -315,7 +303,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Which family to use. Valid values: (C, P).
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -325,7 +312,6 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -335,14 +321,10 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU parameters supplied to the create Redis operation.
 type SkuResponse struct {
-	// What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
-	Capacity int `pulumi:"capacity"`
-	// Which family to use. Valid values: (C, P).
-	Family string `pulumi:"family"`
-	// What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
-	Name string `pulumi:"name"`
+	Capacity int    `pulumi:"capacity"`
+	Family   string `pulumi:"family"`
+	Name     string `pulumi:"name"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -356,14 +338,10 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// SKU parameters supplied to the create Redis operation.
 type SkuResponseArgs struct {
-	// What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
-	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// Which family to use. Valid values: (C, P).
-	Family pulumi.StringInput `pulumi:"family"`
-	// What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
-	Name pulumi.StringInput `pulumi:"name"`
+	Capacity pulumi.IntInput    `pulumi:"capacity"`
+	Family   pulumi.StringInput `pulumi:"family"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -419,7 +397,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// SKU parameters supplied to the create Redis operation.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -439,22 +416,19 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
 func (o SkuResponseOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v SkuResponse) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Which family to use. Valid values: (C, P).
 func (o SkuResponseOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Family }).(pulumi.StringOutput)
 }
 
-// What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -474,10 +448,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -487,7 +466,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Which family to use. Valid values: (C, P).
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -497,7 +475,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

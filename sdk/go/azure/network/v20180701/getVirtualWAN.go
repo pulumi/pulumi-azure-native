@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VirtualWAN Resource.
 func LookupVirtualWAN(ctx *pulumi.Context, args *LookupVirtualWANArgs, opts ...pulumi.InvokeOption) (*LookupVirtualWANResult, error) {
 	var rv LookupVirtualWANResult
 	err := ctx.Invoke("azure-native:network/v20180701:getVirtualWAN", args, &rv, opts...)
@@ -18,31 +17,20 @@ func LookupVirtualWAN(ctx *pulumi.Context, args *LookupVirtualWANArgs, opts ...p
 }
 
 type LookupVirtualWANArgs struct {
-	// The resource group name of the VirtualWan.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the VirtualWAN being retrieved.
-	VirtualWANName string `pulumi:"virtualWANName"`
+	VirtualWANName    string `pulumi:"virtualWANName"`
 }
 
 // VirtualWAN Resource.
 type LookupVirtualWANResult struct {
-	// Vpn encryption to be disabled or not.
-	DisableVpnEncryption *bool `pulumi:"disableVpnEncryption"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// List of VirtualHubs in the VirtualWAN.
-	VirtualHubs []SubResourceResponse `pulumi:"virtualHubs"`
-	VpnSites    []SubResourceResponse `pulumi:"vpnSites"`
+	DisableVpnEncryption *bool                 `pulumi:"disableVpnEncryption"`
+	Etag                 string                `pulumi:"etag"`
+	Id                   *string               `pulumi:"id"`
+	Location             string                `pulumi:"location"`
+	Name                 string                `pulumi:"name"`
+	ProvisioningState    string                `pulumi:"provisioningState"`
+	Tags                 map[string]string     `pulumi:"tags"`
+	Type                 string                `pulumi:"type"`
+	VirtualHubs          []SubResourceResponse `pulumi:"virtualHubs"`
+	VpnSites             []SubResourceResponse `pulumi:"vpnSites"`
 }

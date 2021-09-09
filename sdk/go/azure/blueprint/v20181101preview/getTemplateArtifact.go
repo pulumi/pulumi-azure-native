@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Blueprint artifact that deploys a Resource Manager template.
 func LookupTemplateArtifact(ctx *pulumi.Context, args *LookupTemplateArtifactArgs, opts ...pulumi.InvokeOption) (*LookupTemplateArtifactResult, error) {
 	var rv LookupTemplateArtifactResult
 	err := ctx.Invoke("azure-native:blueprint/v20181101preview:getTemplateArtifact", args, &rv, opts...)
@@ -18,35 +17,21 @@ func LookupTemplateArtifact(ctx *pulumi.Context, args *LookupTemplateArtifactArg
 }
 
 type LookupTemplateArtifactArgs struct {
-	// Name of the blueprint artifact.
-	ArtifactName string `pulumi:"artifactName"`
-	// Name of the blueprint definition.
+	ArtifactName  string `pulumi:"artifactName"`
 	BlueprintName string `pulumi:"blueprintName"`
-	// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
 	ResourceScope string `pulumi:"resourceScope"`
 }
 
 // Blueprint artifact that deploys a Resource Manager template.
 type LookupTemplateArtifactResult struct {
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn []string `pulumi:"dependsOn"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// String Id used to locate any resource on Azure.
-	Id string `pulumi:"id"`
-	// Specifies the kind of blueprint artifact.
-	// Expected value is 'template'.
-	Kind string `pulumi:"kind"`
-	// Name of this resource.
-	Name string `pulumi:"name"`
-	// Resource Manager template blueprint artifact parameter values.
-	Parameters map[string]ParameterValueResponse `pulumi:"parameters"`
-	// If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The Resource Manager template blueprint artifact body.
-	Template interface{} `pulumi:"template"`
-	// Type of this resource.
-	Type string `pulumi:"type"`
+	DependsOn     []string                          `pulumi:"dependsOn"`
+	Description   *string                           `pulumi:"description"`
+	DisplayName   *string                           `pulumi:"displayName"`
+	Id            string                            `pulumi:"id"`
+	Kind          string                            `pulumi:"kind"`
+	Name          string                            `pulumi:"name"`
+	Parameters    map[string]ParameterValueResponse `pulumi:"parameters"`
+	ResourceGroup *string                           `pulumi:"resourceGroup"`
+	Template      interface{}                       `pulumi:"template"`
+	Type          string                            `pulumi:"type"`
 }

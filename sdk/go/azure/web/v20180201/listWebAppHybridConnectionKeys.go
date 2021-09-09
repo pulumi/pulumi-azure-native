@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
 func ListWebAppHybridConnectionKeys(ctx *pulumi.Context, args *ListWebAppHybridConnectionKeysArgs, opts ...pulumi.InvokeOption) (*ListWebAppHybridConnectionKeysResult, error) {
 	var rv ListWebAppHybridConnectionKeysResult
 	err := ctx.Invoke("azure-native:web/v20180201:listWebAppHybridConnectionKeys", args, &rv, opts...)
@@ -18,28 +17,18 @@ func ListWebAppHybridConnectionKeys(ctx *pulumi.Context, args *ListWebAppHybridC
 }
 
 type ListWebAppHybridConnectionKeysArgs struct {
-	// The name of the web app.
-	Name string `pulumi:"name"`
-	// The namespace for this hybrid connection.
-	NamespaceName string `pulumi:"namespaceName"`
-	// The relay name for this hybrid connection.
-	RelayName string `pulumi:"relayName"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
+	NamespaceName     string `pulumi:"namespaceName"`
+	RelayName         string `pulumi:"relayName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
 type ListWebAppHybridConnectionKeysResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// The name of the send key.
-	SendKeyName string `pulumi:"sendKeyName"`
-	// The value of the send key.
-	SendKeyValue string `pulumi:"sendKeyValue"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id           string  `pulumi:"id"`
+	Kind         *string `pulumi:"kind"`
+	Name         string  `pulumi:"name"`
+	SendKeyName  string  `pulumi:"sendKeyName"`
+	SendKeyValue string  `pulumi:"sendKeyValue"`
+	Type         string  `pulumi:"type"`
 }

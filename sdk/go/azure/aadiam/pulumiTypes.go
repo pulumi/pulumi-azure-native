@@ -103,7 +103,7 @@ func (o AzureADMetricsPropertiesFormatResponseOutput) ToAzureADMetricsProperties
 }
 
 func (o AzureADMetricsPropertiesFormatResponseOutput) ToAzureADMetricsPropertiesFormatResponsePtrOutputWithContext(ctx context.Context) AzureADMetricsPropertiesFormatResponsePtrOutput {
-	return o.ApplyT(func(v AzureADMetricsPropertiesFormatResponse) *AzureADMetricsPropertiesFormatResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureADMetricsPropertiesFormatResponse) *AzureADMetricsPropertiesFormatResponse {
 		return &v
 	}).(AzureADMetricsPropertiesFormatResponsePtrOutput)
 }
@@ -128,7 +128,13 @@ func (o AzureADMetricsPropertiesFormatResponsePtrOutput) ToAzureADMetricsPropert
 }
 
 func (o AzureADMetricsPropertiesFormatResponsePtrOutput) Elem() AzureADMetricsPropertiesFormatResponseOutput {
-	return o.ApplyT(func(v *AzureADMetricsPropertiesFormatResponse) AzureADMetricsPropertiesFormatResponse { return *v }).(AzureADMetricsPropertiesFormatResponseOutput)
+	return o.ApplyT(func(v *AzureADMetricsPropertiesFormatResponse) AzureADMetricsPropertiesFormatResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureADMetricsPropertiesFormatResponse
+		return ret
+	}).(AzureADMetricsPropertiesFormatResponseOutput)
 }
 
 // The provisioning state of the resource.
@@ -473,7 +479,7 @@ func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOu
 }
 
 func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpoint) *PrivateEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpoint) *PrivateEndpoint {
 		return &v
 	}).(PrivateEndpointPtrOutput)
 }
@@ -498,7 +504,13 @@ func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutputWithContext(ctx cont
 }
 
 func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
-	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
+	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpoint
+		return ret
+	}).(PrivateEndpointOutput)
 }
 
 // Full identifier of the private endpoint resource.
@@ -607,7 +619,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -632,7 +644,13 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
 // Full identifier of the private endpoint resource.
@@ -749,7 +767,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -784,7 +802,13 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
@@ -921,7 +945,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -957,7 +981,11 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -1091,7 +1119,7 @@ func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutput() RetentionPolicyPtrOu
 }
 
 func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutputWithContext(ctx context.Context) RetentionPolicyPtrOutput {
-	return o.ApplyT(func(v RetentionPolicy) *RetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPolicy) *RetentionPolicy {
 		return &v
 	}).(RetentionPolicyPtrOutput)
 }
@@ -1121,7 +1149,13 @@ func (o RetentionPolicyPtrOutput) ToRetentionPolicyPtrOutputWithContext(ctx cont
 }
 
 func (o RetentionPolicyPtrOutput) Elem() RetentionPolicyOutput {
-	return o.ApplyT(func(v *RetentionPolicy) RetentionPolicy { return *v }).(RetentionPolicyOutput)
+	return o.ApplyT(func(v *RetentionPolicy) RetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RetentionPolicy
+		return ret
+	}).(RetentionPolicyOutput)
 }
 
 // The number of days for the retention in days. A value of 0 will retain the events indefinitely.
@@ -1244,7 +1278,7 @@ func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutput() Rete
 }
 
 func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyResponsePtrOutput {
-	return o.ApplyT(func(v RetentionPolicyResponse) *RetentionPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPolicyResponse) *RetentionPolicyResponse {
 		return &v
 	}).(RetentionPolicyResponsePtrOutput)
 }
@@ -1274,7 +1308,13 @@ func (o RetentionPolicyResponsePtrOutput) ToRetentionPolicyResponsePtrOutputWith
 }
 
 func (o RetentionPolicyResponsePtrOutput) Elem() RetentionPolicyResponseOutput {
-	return o.ApplyT(func(v *RetentionPolicyResponse) RetentionPolicyResponse { return *v }).(RetentionPolicyResponseOutput)
+	return o.ApplyT(func(v *RetentionPolicyResponse) RetentionPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RetentionPolicyResponse
+		return ret
+	}).(RetentionPolicyResponseOutput)
 }
 
 // The number of days for the retention in days. A value of 0 will retain the events indefinitely.
@@ -1393,7 +1433,7 @@ func (o TagsResourceOutput) ToTagsResourcePtrOutput() TagsResourcePtrOutput {
 }
 
 func (o TagsResourceOutput) ToTagsResourcePtrOutputWithContext(ctx context.Context) TagsResourcePtrOutput {
-	return o.ApplyT(func(v TagsResource) *TagsResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagsResource) *TagsResource {
 		return &v
 	}).(TagsResourcePtrOutput)
 }
@@ -1418,7 +1458,13 @@ func (o TagsResourcePtrOutput) ToTagsResourcePtrOutputWithContext(ctx context.Co
 }
 
 func (o TagsResourcePtrOutput) Elem() TagsResourceOutput {
-	return o.ApplyT(func(v *TagsResource) TagsResource { return *v }).(TagsResourceOutput)
+	return o.ApplyT(func(v *TagsResource) TagsResource {
+		if v != nil {
+			return *v
+		}
+		var ret TagsResource
+		return ret
+	}).(TagsResourceOutput)
 }
 
 // Resource tags

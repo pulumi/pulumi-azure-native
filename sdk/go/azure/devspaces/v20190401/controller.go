@@ -14,26 +14,16 @@ import (
 type Controller struct {
 	pulumi.CustomResourceState
 
-	// DNS name for accessing DataPlane services
-	DataPlaneFqdn pulumi.StringOutput `pulumi:"dataPlaneFqdn"`
-	// DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
-	HostSuffix pulumi.StringOutput `pulumi:"hostSuffix"`
-	// Region where the Azure resource is located.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the Azure Dev Spaces Controller.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Model representing SKU for Azure Dev Spaces Controller.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// Tags for the Azure resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// DNS of the target container host's API server
-	TargetContainerHostApiServerFqdn pulumi.StringOutput `pulumi:"targetContainerHostApiServerFqdn"`
-	// Resource ID of the target container host
-	TargetContainerHostResourceId pulumi.StringOutput `pulumi:"targetContainerHostResourceId"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataPlaneFqdn                    pulumi.StringOutput    `pulumi:"dataPlaneFqdn"`
+	HostSuffix                       pulumi.StringOutput    `pulumi:"hostSuffix"`
+	Location                         pulumi.StringOutput    `pulumi:"location"`
+	Name                             pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState                pulumi.StringOutput    `pulumi:"provisioningState"`
+	Sku                              SkuResponseOutput      `pulumi:"sku"`
+	Tags                             pulumi.StringMapOutput `pulumi:"tags"`
+	TargetContainerHostApiServerFqdn pulumi.StringOutput    `pulumi:"targetContainerHostApiServerFqdn"`
+	TargetContainerHostResourceId    pulumi.StringOutput    `pulumi:"targetContainerHostResourceId"`
+	Type                             pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewController registers a new resource with the given unique name, arguments, and options.
@@ -99,38 +89,24 @@ func (ControllerState) ElementType() reflect.Type {
 }
 
 type controllerArgs struct {
-	// Region where the Azure resource is located.
-	Location *string `pulumi:"location"`
-	// Name of the resource.
-	Name *string `pulumi:"name"`
-	// Resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Model representing SKU for Azure Dev Spaces Controller.
-	Sku Sku `pulumi:"sku"`
-	// Tags for the Azure resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Credentials of the target container host (base64).
-	TargetContainerHostCredentialsBase64 string `pulumi:"targetContainerHostCredentialsBase64"`
-	// Resource ID of the target container host
-	TargetContainerHostResourceId string `pulumi:"targetContainerHostResourceId"`
+	Location                             *string           `pulumi:"location"`
+	Name                                 *string           `pulumi:"name"`
+	ResourceGroupName                    string            `pulumi:"resourceGroupName"`
+	Sku                                  Sku               `pulumi:"sku"`
+	Tags                                 map[string]string `pulumi:"tags"`
+	TargetContainerHostCredentialsBase64 string            `pulumi:"targetContainerHostCredentialsBase64"`
+	TargetContainerHostResourceId        string            `pulumi:"targetContainerHostResourceId"`
 }
 
 // The set of arguments for constructing a Controller resource.
 type ControllerArgs struct {
-	// Region where the Azure resource is located.
-	Location pulumi.StringPtrInput
-	// Name of the resource.
-	Name pulumi.StringPtrInput
-	// Resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
-	// Model representing SKU for Azure Dev Spaces Controller.
-	Sku SkuInput
-	// Tags for the Azure resource.
-	Tags pulumi.StringMapInput
-	// Credentials of the target container host (base64).
+	Location                             pulumi.StringPtrInput
+	Name                                 pulumi.StringPtrInput
+	ResourceGroupName                    pulumi.StringInput
+	Sku                                  SkuInput
+	Tags                                 pulumi.StringMapInput
 	TargetContainerHostCredentialsBase64 pulumi.StringInput
-	// Resource ID of the target container host
-	TargetContainerHostResourceId pulumi.StringInput
+	TargetContainerHostResourceId        pulumi.StringInput
 }
 
 func (ControllerArgs) ElementType() reflect.Type {
@@ -156,9 +132,7 @@ func (i *Controller) ToControllerOutputWithContext(ctx context.Context) Controll
 	return pulumi.ToOutputWithContext(ctx, i).(ControllerOutput)
 }
 
-type ControllerOutput struct {
-	*pulumi.OutputState
-}
+type ControllerOutput struct{ *pulumi.OutputState }
 
 func (ControllerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Controller)(nil))

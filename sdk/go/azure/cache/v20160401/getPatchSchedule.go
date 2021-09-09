@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response to put/get patch schedules for Redis cache.
 func LookupPatchSchedule(ctx *pulumi.Context, args *LookupPatchScheduleArgs, opts ...pulumi.InvokeOption) (*LookupPatchScheduleResult, error) {
 	var rv LookupPatchScheduleResult
 	err := ctx.Invoke("azure-native:cache/v20160401:getPatchSchedule", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupPatchSchedule(ctx *pulumi.Context, args *LookupPatchScheduleArgs, opt
 }
 
 type LookupPatchScheduleArgs struct {
-	// The name of the redis cache.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Response to put/get patch schedules for Redis cache.
 type LookupPatchScheduleResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// List of patch schedules for a Redis cache.
+	Id              string                  `pulumi:"id"`
+	Location        string                  `pulumi:"location"`
+	Name            string                  `pulumi:"name"`
 	ScheduleEntries []ScheduleEntryResponse `pulumi:"scheduleEntries"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type            string                  `pulumi:"type"`
 }

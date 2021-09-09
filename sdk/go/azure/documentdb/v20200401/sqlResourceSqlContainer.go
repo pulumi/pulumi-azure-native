@@ -11,20 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB container.
 type SqlResourceSqlContainer struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the ARM resource.
+	Location pulumi.StringPtrOutput                             `pulumi:"location"`
 	Name     pulumi.StringOutput                                `pulumi:"name"`
 	Options  SqlContainerGetPropertiesResponseOptionsPtrOutput  `pulumi:"options"`
 	Resource SqlContainerGetPropertiesResponseResourcePtrOutput `pulumi:"resource"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags     pulumi.StringMapOutput                             `pulumi:"tags"`
+	Type     pulumi.StringOutput                                `pulumi:"type"`
 }
 
 // NewSqlResourceSqlContainer registers a new resource with the given unique name, arguments, and options.
@@ -201,42 +196,26 @@ func (SqlResourceSqlContainerState) ElementType() reflect.Type {
 }
 
 type sqlResourceSqlContainerArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Cosmos DB container name.
-	ContainerName *string `pulumi:"containerName"`
-	// Cosmos DB database name.
-	DatabaseName string `pulumi:"databaseName"`
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options CreateUpdateOptions `pulumi:"options"`
-	// The standard JSON format of a container
-	Resource SqlContainerResource `pulumi:"resource"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       string               `pulumi:"accountName"`
+	ContainerName     *string              `pulumi:"containerName"`
+	DatabaseName      string               `pulumi:"databaseName"`
+	Location          *string              `pulumi:"location"`
+	Options           CreateUpdateOptions  `pulumi:"options"`
+	Resource          SqlContainerResource `pulumi:"resource"`
+	ResourceGroupName string               `pulumi:"resourceGroupName"`
+	Tags              map[string]string    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SqlResourceSqlContainer resource.
 type SqlResourceSqlContainerArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Cosmos DB container name.
-	ContainerName pulumi.StringPtrInput
-	// Cosmos DB database name.
-	DatabaseName pulumi.StringInput
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options CreateUpdateOptionsInput
-	// The standard JSON format of a container
-	Resource SqlContainerResourceInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	ContainerName     pulumi.StringPtrInput
+	DatabaseName      pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	Options           CreateUpdateOptionsInput
+	Resource          SqlContainerResourceInput
 	ResourceGroupName pulumi.StringInput
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (SqlResourceSqlContainerArgs) ElementType() reflect.Type {
@@ -262,9 +241,7 @@ func (i *SqlResourceSqlContainer) ToSqlResourceSqlContainerOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlContainerOutput)
 }
 
-type SqlResourceSqlContainerOutput struct {
-	*pulumi.OutputState
-}
+type SqlResourceSqlContainerOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlResourceSqlContainer)(nil))

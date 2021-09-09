@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NetworkSecurityGroup resource.
 func LookupNetworkSecurityGroup(ctx *pulumi.Context, args *LookupNetworkSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupNetworkSecurityGroupResult, error) {
 	var rv LookupNetworkSecurityGroupResult
 	err := ctx.Invoke("azure-native:network/v20180701:getNetworkSecurityGroup", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupNetworkSecurityGroup(ctx *pulumi.Context, args *LookupNetworkSecurity
 }
 
 type LookupNetworkSecurityGroupArgs struct {
-	// Expands referenced resources.
-	Expand *string `pulumi:"expand"`
-	// The name of the network security group.
-	NetworkSecurityGroupName string `pulumi:"networkSecurityGroupName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand                   *string `pulumi:"expand"`
+	NetworkSecurityGroupName string  `pulumi:"networkSecurityGroupName"`
+	ResourceGroupName        string  `pulumi:"resourceGroupName"`
 }
 
 // NetworkSecurityGroup resource.
 type LookupNetworkSecurityGroupResult struct {
-	// The default security rules of network security group.
-	DefaultSecurityRules []SecurityRuleResponse `pulumi:"defaultSecurityRules"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// A collection of references to network interfaces.
-	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
-	// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource GUID property of the network security group resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// A collection of security rules of the network security group.
-	SecurityRules []SecurityRuleResponse `pulumi:"securityRules"`
-	// A collection of references to subnets.
-	Subnets []SubnetResponse `pulumi:"subnets"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	DefaultSecurityRules []SecurityRuleResponse     `pulumi:"defaultSecurityRules"`
+	Etag                 *string                    `pulumi:"etag"`
+	Id                   *string                    `pulumi:"id"`
+	Location             *string                    `pulumi:"location"`
+	Name                 string                     `pulumi:"name"`
+	NetworkInterfaces    []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
+	ProvisioningState    *string                    `pulumi:"provisioningState"`
+	ResourceGuid         *string                    `pulumi:"resourceGuid"`
+	SecurityRules        []SecurityRuleResponse     `pulumi:"securityRules"`
+	Subnets              []SubnetResponse           `pulumi:"subnets"`
+	Tags                 map[string]string          `pulumi:"tags"`
+	Type                 string                     `pulumi:"type"`
 }

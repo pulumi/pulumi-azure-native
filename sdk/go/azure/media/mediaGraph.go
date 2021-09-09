@@ -156,9 +156,7 @@ func (i *MediaGraph) ToMediaGraphOutputWithContext(ctx context.Context) MediaGra
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphOutput)
 }
 
-type MediaGraphOutput struct {
-	*pulumi.OutputState
-}
+type MediaGraphOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MediaGraph)(nil))

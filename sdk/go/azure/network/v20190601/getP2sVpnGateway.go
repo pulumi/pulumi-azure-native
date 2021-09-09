@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// P2SVpnGateway Resource.
 func LookupP2sVpnGateway(ctx *pulumi.Context, args *LookupP2sVpnGatewayArgs, opts ...pulumi.InvokeOption) (*LookupP2sVpnGatewayResult, error) {
 	var rv LookupP2sVpnGatewayResult
 	err := ctx.Invoke("azure-native:network/v20190601:getP2sVpnGateway", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupP2sVpnGateway(ctx *pulumi.Context, args *LookupP2sVpnGatewayArgs, opt
 }
 
 type LookupP2sVpnGatewayArgs struct {
-	// The name of the gateway.
-	GatewayName string `pulumi:"gatewayName"`
-	// The resource group name of the P2SVpnGateway.
+	GatewayName       string `pulumi:"gatewayName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // P2SVpnGateway Resource.
 type LookupP2sVpnGatewayResult struct {
-	// The reference of the address space resource which represents the custom routes specified by the customer for P2SVpnGateway and P2S VpnClient.
-	CustomRoutes *AddressSpaceResponse `pulumi:"customRoutes"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
-	P2SVpnServerConfiguration *SubResourceResponse `pulumi:"p2SVpnServerConfiguration"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The VirtualHub to which the gateway belongs.
-	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
-	// The reference of the address space resource which represents Address space for P2S VpnClient.
-	VpnClientAddressPool *AddressSpaceResponse `pulumi:"vpnClientAddressPool"`
-	// All P2S VPN clients' connection health status.
+	CustomRoutes              *AddressSpaceResponse             `pulumi:"customRoutes"`
+	Etag                      string                            `pulumi:"etag"`
+	Id                        *string                           `pulumi:"id"`
+	Location                  string                            `pulumi:"location"`
+	Name                      string                            `pulumi:"name"`
+	P2SVpnServerConfiguration *SubResourceResponse              `pulumi:"p2SVpnServerConfiguration"`
+	ProvisioningState         string                            `pulumi:"provisioningState"`
+	Tags                      map[string]string                 `pulumi:"tags"`
+	Type                      string                            `pulumi:"type"`
+	VirtualHub                *SubResourceResponse              `pulumi:"virtualHub"`
+	VpnClientAddressPool      *AddressSpaceResponse             `pulumi:"vpnClientAddressPool"`
 	VpnClientConnectionHealth VpnClientConnectionHealthResponse `pulumi:"vpnClientConnectionHealth"`
-	// The scale unit for this p2s vpn gateway.
-	VpnGatewayScaleUnit *int `pulumi:"vpnGatewayScaleUnit"`
+	VpnGatewayScaleUnit       *int                              `pulumi:"vpnGatewayScaleUnit"`
 }

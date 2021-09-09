@@ -10,28 +10,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The subscription diagnostic setting resource.
 type SubscriptionDiagnosticSetting struct {
 	pulumi.CustomResourceState
 
-	// The resource Id for the event hub authorization rule.
-	EventHubAuthorizationRuleId pulumi.StringPtrOutput `pulumi:"eventHubAuthorizationRuleId"`
-	// The name of the event hub. If none is specified, the default event hub will be selected.
-	EventHubName pulumi.StringPtrOutput `pulumi:"eventHubName"`
-	// Location of the resource
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The list of logs settings.
-	Logs SubscriptionLogSettingsResponseArrayOutput `pulumi:"logs"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
-	ServiceBusRuleId pulumi.StringPtrOutput `pulumi:"serviceBusRuleId"`
-	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
-	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
-	WorkspaceId pulumi.StringPtrOutput `pulumi:"workspaceId"`
+	EventHubAuthorizationRuleId pulumi.StringPtrOutput                     `pulumi:"eventHubAuthorizationRuleId"`
+	EventHubName                pulumi.StringPtrOutput                     `pulumi:"eventHubName"`
+	Location                    pulumi.StringPtrOutput                     `pulumi:"location"`
+	Logs                        SubscriptionLogSettingsResponseArrayOutput `pulumi:"logs"`
+	Name                        pulumi.StringOutput                        `pulumi:"name"`
+	ServiceBusRuleId            pulumi.StringPtrOutput                     `pulumi:"serviceBusRuleId"`
+	StorageAccountId            pulumi.StringPtrOutput                     `pulumi:"storageAccountId"`
+	Type                        pulumi.StringOutput                        `pulumi:"type"`
+	WorkspaceId                 pulumi.StringPtrOutput                     `pulumi:"workspaceId"`
 }
 
 // NewSubscriptionDiagnosticSetting registers a new resource with the given unique name, arguments, and options.
@@ -91,42 +81,26 @@ func (SubscriptionDiagnosticSettingState) ElementType() reflect.Type {
 }
 
 type subscriptionDiagnosticSettingArgs struct {
-	// The resource Id for the event hub authorization rule.
-	EventHubAuthorizationRuleId *string `pulumi:"eventHubAuthorizationRuleId"`
-	// The name of the event hub. If none is specified, the default event hub will be selected.
-	EventHubName *string `pulumi:"eventHubName"`
-	// Location of the resource
-	Location *string `pulumi:"location"`
-	// The list of logs settings.
-	Logs []SubscriptionLogSettings `pulumi:"logs"`
-	// The name of the diagnostic setting.
-	Name *string `pulumi:"name"`
-	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
-	ServiceBusRuleId *string `pulumi:"serviceBusRuleId"`
-	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
-	WorkspaceId *string `pulumi:"workspaceId"`
+	EventHubAuthorizationRuleId *string                   `pulumi:"eventHubAuthorizationRuleId"`
+	EventHubName                *string                   `pulumi:"eventHubName"`
+	Location                    *string                   `pulumi:"location"`
+	Logs                        []SubscriptionLogSettings `pulumi:"logs"`
+	Name                        *string                   `pulumi:"name"`
+	ServiceBusRuleId            *string                   `pulumi:"serviceBusRuleId"`
+	StorageAccountId            *string                   `pulumi:"storageAccountId"`
+	WorkspaceId                 *string                   `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a SubscriptionDiagnosticSetting resource.
 type SubscriptionDiagnosticSettingArgs struct {
-	// The resource Id for the event hub authorization rule.
 	EventHubAuthorizationRuleId pulumi.StringPtrInput
-	// The name of the event hub. If none is specified, the default event hub will be selected.
-	EventHubName pulumi.StringPtrInput
-	// Location of the resource
-	Location pulumi.StringPtrInput
-	// The list of logs settings.
-	Logs SubscriptionLogSettingsArrayInput
-	// The name of the diagnostic setting.
-	Name pulumi.StringPtrInput
-	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
-	ServiceBusRuleId pulumi.StringPtrInput
-	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
-	StorageAccountId pulumi.StringPtrInput
-	// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
-	WorkspaceId pulumi.StringPtrInput
+	EventHubName                pulumi.StringPtrInput
+	Location                    pulumi.StringPtrInput
+	Logs                        SubscriptionLogSettingsArrayInput
+	Name                        pulumi.StringPtrInput
+	ServiceBusRuleId            pulumi.StringPtrInput
+	StorageAccountId            pulumi.StringPtrInput
+	WorkspaceId                 pulumi.StringPtrInput
 }
 
 func (SubscriptionDiagnosticSettingArgs) ElementType() reflect.Type {
@@ -152,9 +126,7 @@ func (i *SubscriptionDiagnosticSetting) ToSubscriptionDiagnosticSettingOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDiagnosticSettingOutput)
 }
 
-type SubscriptionDiagnosticSettingOutput struct {
-	*pulumi.OutputState
-}
+type SubscriptionDiagnosticSettingOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionDiagnosticSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubscriptionDiagnosticSetting)(nil))

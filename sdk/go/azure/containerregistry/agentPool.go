@@ -161,9 +161,7 @@ func (i *AgentPool) ToAgentPoolOutputWithContext(ctx context.Context) AgentPoolO
 	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolOutput)
 }
 
-type AgentPoolOutput struct {
-	*pulumi.OutputState
-}
+type AgentPoolOutput struct{ *pulumi.OutputState }
 
 func (AgentPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AgentPool)(nil))

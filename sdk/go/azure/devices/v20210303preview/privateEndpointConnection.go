@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The private endpoint connection of an IotHub
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of a private endpoint connection
+	Name       pulumi.StringOutput                               `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                               `pulumi:"type"`
 }
 
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -149,26 +145,18 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// The properties of a private endpoint connection
-	Properties PrivateEndpointConnectionProperties `pulumi:"properties"`
-	// The name of the resource group that contains the IoT hub.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the IoT hub.
-	ResourceName string `pulumi:"resourceName"`
+	PrivateEndpointConnectionName *string                             `pulumi:"privateEndpointConnectionName"`
+	Properties                    PrivateEndpointConnectionProperties `pulumi:"properties"`
+	ResourceGroupName             string                              `pulumi:"resourceGroupName"`
+	ResourceName                  string                              `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection
 	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// The properties of a private endpoint connection
-	Properties PrivateEndpointConnectionPropertiesInput
-	// The name of the resource group that contains the IoT hub.
-	ResourceGroupName pulumi.StringInput
-	// The name of the IoT hub.
-	ResourceName pulumi.StringInput
+	Properties                    PrivateEndpointConnectionPropertiesInput
+	ResourceGroupName             pulumi.StringInput
+	ResourceName                  pulumi.StringInput
 }
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {
@@ -194,9 +182,7 @@ func (i *PrivateEndpointConnection) ToPrivateEndpointConnectionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionOutput)
 }
 
-type PrivateEndpointConnectionOutput struct {
-	*pulumi.OutputState
-}
+type PrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpointConnection)(nil))

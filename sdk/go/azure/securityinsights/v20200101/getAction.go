@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Action for alert rule.
 func LookupAction(ctx *pulumi.Context, args *LookupActionArgs, opts ...pulumi.InvokeOption) (*LookupActionResult, error) {
 	var rv LookupActionResult
 	err := ctx.Invoke("azure-native:securityinsights/v20200101:getAction", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupAction(ctx *pulumi.Context, args *LookupActionArgs, opts ...pulumi.In
 }
 
 type LookupActionArgs struct {
-	// Action ID
-	ActionId string `pulumi:"actionId"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ActionId          string `pulumi:"actionId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Alert rule ID
-	RuleId string `pulumi:"ruleId"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	RuleId            string `pulumi:"ruleId"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Action for alert rule.
 type LookupActionResult struct {
-	// Etag of the action.
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
-	LogicAppResourceId string `pulumi:"logicAppResourceId"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-	// The name of the logic app's workflow.
-	WorkflowId *string `pulumi:"workflowId"`
+	Etag               *string `pulumi:"etag"`
+	Id                 string  `pulumi:"id"`
+	LogicAppResourceId string  `pulumi:"logicAppResourceId"`
+	Name               string  `pulumi:"name"`
+	Type               string  `pulumi:"type"`
+	WorkflowId         *string `pulumi:"workflowId"`
 }

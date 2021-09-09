@@ -185,9 +185,7 @@ func (i *SpatialAnchorsAccount) ToSpatialAnchorsAccountOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SpatialAnchorsAccountOutput)
 }
 
-type SpatialAnchorsAccountOutput struct {
-	*pulumi.OutputState
-}
+type SpatialAnchorsAccountOutput struct{ *pulumi.OutputState }
 
 func (SpatialAnchorsAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SpatialAnchorsAccount)(nil))

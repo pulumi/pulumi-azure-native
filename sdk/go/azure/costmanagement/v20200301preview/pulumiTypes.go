@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Target resources and allocation
 type CostAllocationProportion struct {
-	// Target resource for cost allocation
-	Name string `pulumi:"name"`
-	// Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
+	Name       string  `pulumi:"name"`
 	Percentage float64 `pulumi:"percentage"`
 }
 
@@ -29,11 +26,8 @@ type CostAllocationProportionInput interface {
 	ToCostAllocationProportionOutputWithContext(context.Context) CostAllocationProportionOutput
 }
 
-// Target resources and allocation
 type CostAllocationProportionArgs struct {
-	// Target resource for cost allocation
-	Name pulumi.StringInput `pulumi:"name"`
-	// Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
+	Name       pulumi.StringInput  `pulumi:"name"`
 	Percentage pulumi.Float64Input `pulumi:"percentage"`
 }
 
@@ -74,7 +68,6 @@ func (i CostAllocationProportionArray) ToCostAllocationProportionArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationProportionArrayOutput)
 }
 
-// Target resources and allocation
 type CostAllocationProportionOutput struct{ *pulumi.OutputState }
 
 func (CostAllocationProportionOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o CostAllocationProportionOutput) ToCostAllocationProportionOutputWithCont
 	return o
 }
 
-// Target resource for cost allocation
 func (o CostAllocationProportionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CostAllocationProportion) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
 func (o CostAllocationProportionOutput) Percentage() pulumi.Float64Output {
 	return o.ApplyT(func(v CostAllocationProportion) float64 { return v.Percentage }).(pulumi.Float64Output)
 }
@@ -119,11 +110,8 @@ func (o CostAllocationProportionArrayOutput) Index(i pulumi.IntInput) CostAlloca
 	}).(CostAllocationProportionOutput)
 }
 
-// Target resources and allocation
 type CostAllocationProportionResponse struct {
-	// Target resource for cost allocation
-	Name string `pulumi:"name"`
-	// Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
+	Name       string  `pulumi:"name"`
 	Percentage float64 `pulumi:"percentage"`
 }
 
@@ -138,11 +126,8 @@ type CostAllocationProportionResponseInput interface {
 	ToCostAllocationProportionResponseOutputWithContext(context.Context) CostAllocationProportionResponseOutput
 }
 
-// Target resources and allocation
 type CostAllocationProportionResponseArgs struct {
-	// Target resource for cost allocation
-	Name pulumi.StringInput `pulumi:"name"`
-	// Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
+	Name       pulumi.StringInput  `pulumi:"name"`
 	Percentage pulumi.Float64Input `pulumi:"percentage"`
 }
 
@@ -183,7 +168,6 @@ func (i CostAllocationProportionResponseArray) ToCostAllocationProportionRespons
 	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationProportionResponseArrayOutput)
 }
 
-// Target resources and allocation
 type CostAllocationProportionResponseOutput struct{ *pulumi.OutputState }
 
 func (CostAllocationProportionResponseOutput) ElementType() reflect.Type {
@@ -198,12 +182,10 @@ func (o CostAllocationProportionResponseOutput) ToCostAllocationProportionRespon
 	return o
 }
 
-// Target resource for cost allocation
 func (o CostAllocationProportionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CostAllocationProportionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
 func (o CostAllocationProportionResponseOutput) Percentage() pulumi.Float64Output {
 	return o.ApplyT(func(v CostAllocationProportionResponse) float64 { return v.Percentage }).(pulumi.Float64Output)
 }
@@ -228,11 +210,8 @@ func (o CostAllocationProportionResponseArrayOutput) Index(i pulumi.IntInput) Co
 	}).(CostAllocationProportionResponseOutput)
 }
 
-// Resource details of the cost allocation rule
 type CostAllocationRuleDetails struct {
-	// Source resources for cost allocation. At this time, this list can contain no more than one element.
 	SourceResources []SourceCostAllocationResource `pulumi:"sourceResources"`
-	// Target resources for cost allocation. At this time, this list can contain no more than one element.
 	TargetResources []TargetCostAllocationResource `pulumi:"targetResources"`
 }
 
@@ -247,11 +226,8 @@ type CostAllocationRuleDetailsInput interface {
 	ToCostAllocationRuleDetailsOutputWithContext(context.Context) CostAllocationRuleDetailsOutput
 }
 
-// Resource details of the cost allocation rule
 type CostAllocationRuleDetailsArgs struct {
-	// Source resources for cost allocation. At this time, this list can contain no more than one element.
 	SourceResources SourceCostAllocationResourceArrayInput `pulumi:"sourceResources"`
-	// Target resources for cost allocation. At this time, this list can contain no more than one element.
 	TargetResources TargetCostAllocationResourceArrayInput `pulumi:"targetResources"`
 }
 
@@ -308,7 +284,6 @@ func (i *costAllocationRuleDetailsPtrType) ToCostAllocationRuleDetailsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationRuleDetailsPtrOutput)
 }
 
-// Resource details of the cost allocation rule
 type CostAllocationRuleDetailsOutput struct{ *pulumi.OutputState }
 
 func (CostAllocationRuleDetailsOutput) ElementType() reflect.Type {
@@ -328,17 +303,15 @@ func (o CostAllocationRuleDetailsOutput) ToCostAllocationRuleDetailsPtrOutput() 
 }
 
 func (o CostAllocationRuleDetailsOutput) ToCostAllocationRuleDetailsPtrOutputWithContext(ctx context.Context) CostAllocationRuleDetailsPtrOutput {
-	return o.ApplyT(func(v CostAllocationRuleDetails) *CostAllocationRuleDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostAllocationRuleDetails) *CostAllocationRuleDetails {
 		return &v
 	}).(CostAllocationRuleDetailsPtrOutput)
 }
 
-// Source resources for cost allocation. At this time, this list can contain no more than one element.
 func (o CostAllocationRuleDetailsOutput) SourceResources() SourceCostAllocationResourceArrayOutput {
 	return o.ApplyT(func(v CostAllocationRuleDetails) []SourceCostAllocationResource { return v.SourceResources }).(SourceCostAllocationResourceArrayOutput)
 }
 
-// Target resources for cost allocation. At this time, this list can contain no more than one element.
 func (o CostAllocationRuleDetailsOutput) TargetResources() TargetCostAllocationResourceArrayOutput {
 	return o.ApplyT(func(v CostAllocationRuleDetails) []TargetCostAllocationResource { return v.TargetResources }).(TargetCostAllocationResourceArrayOutput)
 }
@@ -358,10 +331,15 @@ func (o CostAllocationRuleDetailsPtrOutput) ToCostAllocationRuleDetailsPtrOutput
 }
 
 func (o CostAllocationRuleDetailsPtrOutput) Elem() CostAllocationRuleDetailsOutput {
-	return o.ApplyT(func(v *CostAllocationRuleDetails) CostAllocationRuleDetails { return *v }).(CostAllocationRuleDetailsOutput)
+	return o.ApplyT(func(v *CostAllocationRuleDetails) CostAllocationRuleDetails {
+		if v != nil {
+			return *v
+		}
+		var ret CostAllocationRuleDetails
+		return ret
+	}).(CostAllocationRuleDetailsOutput)
 }
 
-// Source resources for cost allocation. At this time, this list can contain no more than one element.
 func (o CostAllocationRuleDetailsPtrOutput) SourceResources() SourceCostAllocationResourceArrayOutput {
 	return o.ApplyT(func(v *CostAllocationRuleDetails) []SourceCostAllocationResource {
 		if v == nil {
@@ -371,7 +349,6 @@ func (o CostAllocationRuleDetailsPtrOutput) SourceResources() SourceCostAllocati
 	}).(SourceCostAllocationResourceArrayOutput)
 }
 
-// Target resources for cost allocation. At this time, this list can contain no more than one element.
 func (o CostAllocationRuleDetailsPtrOutput) TargetResources() TargetCostAllocationResourceArrayOutput {
 	return o.ApplyT(func(v *CostAllocationRuleDetails) []TargetCostAllocationResource {
 		if v == nil {
@@ -381,11 +358,8 @@ func (o CostAllocationRuleDetailsPtrOutput) TargetResources() TargetCostAllocati
 	}).(TargetCostAllocationResourceArrayOutput)
 }
 
-// Resource details of the cost allocation rule
 type CostAllocationRuleDetailsResponse struct {
-	// Source resources for cost allocation. At this time, this list can contain no more than one element.
 	SourceResources []SourceCostAllocationResourceResponse `pulumi:"sourceResources"`
-	// Target resources for cost allocation. At this time, this list can contain no more than one element.
 	TargetResources []TargetCostAllocationResourceResponse `pulumi:"targetResources"`
 }
 
@@ -400,11 +374,8 @@ type CostAllocationRuleDetailsResponseInput interface {
 	ToCostAllocationRuleDetailsResponseOutputWithContext(context.Context) CostAllocationRuleDetailsResponseOutput
 }
 
-// Resource details of the cost allocation rule
 type CostAllocationRuleDetailsResponseArgs struct {
-	// Source resources for cost allocation. At this time, this list can contain no more than one element.
 	SourceResources SourceCostAllocationResourceResponseArrayInput `pulumi:"sourceResources"`
-	// Target resources for cost allocation. At this time, this list can contain no more than one element.
 	TargetResources TargetCostAllocationResourceResponseArrayInput `pulumi:"targetResources"`
 }
 
@@ -461,7 +432,6 @@ func (i *costAllocationRuleDetailsResponsePtrType) ToCostAllocationRuleDetailsRe
 	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationRuleDetailsResponsePtrOutput)
 }
 
-// Resource details of the cost allocation rule
 type CostAllocationRuleDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (CostAllocationRuleDetailsResponseOutput) ElementType() reflect.Type {
@@ -481,19 +451,17 @@ func (o CostAllocationRuleDetailsResponseOutput) ToCostAllocationRuleDetailsResp
 }
 
 func (o CostAllocationRuleDetailsResponseOutput) ToCostAllocationRuleDetailsResponsePtrOutputWithContext(ctx context.Context) CostAllocationRuleDetailsResponsePtrOutput {
-	return o.ApplyT(func(v CostAllocationRuleDetailsResponse) *CostAllocationRuleDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostAllocationRuleDetailsResponse) *CostAllocationRuleDetailsResponse {
 		return &v
 	}).(CostAllocationRuleDetailsResponsePtrOutput)
 }
 
-// Source resources for cost allocation. At this time, this list can contain no more than one element.
 func (o CostAllocationRuleDetailsResponseOutput) SourceResources() SourceCostAllocationResourceResponseArrayOutput {
 	return o.ApplyT(func(v CostAllocationRuleDetailsResponse) []SourceCostAllocationResourceResponse {
 		return v.SourceResources
 	}).(SourceCostAllocationResourceResponseArrayOutput)
 }
 
-// Target resources for cost allocation. At this time, this list can contain no more than one element.
 func (o CostAllocationRuleDetailsResponseOutput) TargetResources() TargetCostAllocationResourceResponseArrayOutput {
 	return o.ApplyT(func(v CostAllocationRuleDetailsResponse) []TargetCostAllocationResourceResponse {
 		return v.TargetResources
@@ -515,10 +483,15 @@ func (o CostAllocationRuleDetailsResponsePtrOutput) ToCostAllocationRuleDetailsR
 }
 
 func (o CostAllocationRuleDetailsResponsePtrOutput) Elem() CostAllocationRuleDetailsResponseOutput {
-	return o.ApplyT(func(v *CostAllocationRuleDetailsResponse) CostAllocationRuleDetailsResponse { return *v }).(CostAllocationRuleDetailsResponseOutput)
+	return o.ApplyT(func(v *CostAllocationRuleDetailsResponse) CostAllocationRuleDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CostAllocationRuleDetailsResponse
+		return ret
+	}).(CostAllocationRuleDetailsResponseOutput)
 }
 
-// Source resources for cost allocation. At this time, this list can contain no more than one element.
 func (o CostAllocationRuleDetailsResponsePtrOutput) SourceResources() SourceCostAllocationResourceResponseArrayOutput {
 	return o.ApplyT(func(v *CostAllocationRuleDetailsResponse) []SourceCostAllocationResourceResponse {
 		if v == nil {
@@ -528,7 +501,6 @@ func (o CostAllocationRuleDetailsResponsePtrOutput) SourceResources() SourceCost
 	}).(SourceCostAllocationResourceResponseArrayOutput)
 }
 
-// Target resources for cost allocation. At this time, this list can contain no more than one element.
 func (o CostAllocationRuleDetailsResponsePtrOutput) TargetResources() TargetCostAllocationResourceResponseArrayOutput {
 	return o.ApplyT(func(v *CostAllocationRuleDetailsResponse) []TargetCostAllocationResourceResponse {
 		if v == nil {
@@ -538,14 +510,10 @@ func (o CostAllocationRuleDetailsResponsePtrOutput) TargetResources() TargetCost
 	}).(TargetCostAllocationResourceResponseArrayOutput)
 }
 
-// The properties of a cost allocation rule
 type CostAllocationRuleProperties struct {
-	// Description of a cost allocation rule.
-	Description *string `pulumi:"description"`
-	// Resource information for the cost allocation rule
-	Details CostAllocationRuleDetails `pulumi:"details"`
-	// Status of the rule
-	Status string `pulumi:"status"`
+	Description *string                   `pulumi:"description"`
+	Details     CostAllocationRuleDetails `pulumi:"details"`
+	Status      string                    `pulumi:"status"`
 }
 
 // CostAllocationRulePropertiesInput is an input type that accepts CostAllocationRulePropertiesArgs and CostAllocationRulePropertiesOutput values.
@@ -559,14 +527,10 @@ type CostAllocationRulePropertiesInput interface {
 	ToCostAllocationRulePropertiesOutputWithContext(context.Context) CostAllocationRulePropertiesOutput
 }
 
-// The properties of a cost allocation rule
 type CostAllocationRulePropertiesArgs struct {
-	// Description of a cost allocation rule.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Resource information for the cost allocation rule
-	Details CostAllocationRuleDetailsInput `pulumi:"details"`
-	// Status of the rule
-	Status pulumi.StringInput `pulumi:"status"`
+	Description pulumi.StringPtrInput          `pulumi:"description"`
+	Details     CostAllocationRuleDetailsInput `pulumi:"details"`
+	Status      pulumi.StringInput             `pulumi:"status"`
 }
 
 func (CostAllocationRulePropertiesArgs) ElementType() reflect.Type {
@@ -622,7 +586,6 @@ func (i *costAllocationRulePropertiesPtrType) ToCostAllocationRulePropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationRulePropertiesPtrOutput)
 }
 
-// The properties of a cost allocation rule
 type CostAllocationRulePropertiesOutput struct{ *pulumi.OutputState }
 
 func (CostAllocationRulePropertiesOutput) ElementType() reflect.Type {
@@ -642,22 +605,19 @@ func (o CostAllocationRulePropertiesOutput) ToCostAllocationRulePropertiesPtrOut
 }
 
 func (o CostAllocationRulePropertiesOutput) ToCostAllocationRulePropertiesPtrOutputWithContext(ctx context.Context) CostAllocationRulePropertiesPtrOutput {
-	return o.ApplyT(func(v CostAllocationRuleProperties) *CostAllocationRuleProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostAllocationRuleProperties) *CostAllocationRuleProperties {
 		return &v
 	}).(CostAllocationRulePropertiesPtrOutput)
 }
 
-// Description of a cost allocation rule.
 func (o CostAllocationRulePropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CostAllocationRuleProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Resource information for the cost allocation rule
 func (o CostAllocationRulePropertiesOutput) Details() CostAllocationRuleDetailsOutput {
 	return o.ApplyT(func(v CostAllocationRuleProperties) CostAllocationRuleDetails { return v.Details }).(CostAllocationRuleDetailsOutput)
 }
 
-// Status of the rule
 func (o CostAllocationRulePropertiesOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v CostAllocationRuleProperties) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -677,10 +637,15 @@ func (o CostAllocationRulePropertiesPtrOutput) ToCostAllocationRulePropertiesPtr
 }
 
 func (o CostAllocationRulePropertiesPtrOutput) Elem() CostAllocationRulePropertiesOutput {
-	return o.ApplyT(func(v *CostAllocationRuleProperties) CostAllocationRuleProperties { return *v }).(CostAllocationRulePropertiesOutput)
+	return o.ApplyT(func(v *CostAllocationRuleProperties) CostAllocationRuleProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CostAllocationRuleProperties
+		return ret
+	}).(CostAllocationRulePropertiesOutput)
 }
 
-// Description of a cost allocation rule.
 func (o CostAllocationRulePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CostAllocationRuleProperties) *string {
 		if v == nil {
@@ -690,7 +655,6 @@ func (o CostAllocationRulePropertiesPtrOutput) Description() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource information for the cost allocation rule
 func (o CostAllocationRulePropertiesPtrOutput) Details() CostAllocationRuleDetailsPtrOutput {
 	return o.ApplyT(func(v *CostAllocationRuleProperties) *CostAllocationRuleDetails {
 		if v == nil {
@@ -700,7 +664,6 @@ func (o CostAllocationRulePropertiesPtrOutput) Details() CostAllocationRuleDetai
 	}).(CostAllocationRuleDetailsPtrOutput)
 }
 
-// Status of the rule
 func (o CostAllocationRulePropertiesPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CostAllocationRuleProperties) *string {
 		if v == nil {
@@ -710,18 +673,12 @@ func (o CostAllocationRulePropertiesPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a cost allocation rule
 type CostAllocationRulePropertiesResponse struct {
-	// Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.
-	CreatedDate string `pulumi:"createdDate"`
-	// Description of a cost allocation rule.
-	Description *string `pulumi:"description"`
-	// Resource information for the cost allocation rule
-	Details CostAllocationRuleDetailsResponse `pulumi:"details"`
-	// Status of the rule
-	Status string `pulumi:"status"`
-	// Time at which the rule was last updated.
-	UpdatedDate string `pulumi:"updatedDate"`
+	CreatedDate string                            `pulumi:"createdDate"`
+	Description *string                           `pulumi:"description"`
+	Details     CostAllocationRuleDetailsResponse `pulumi:"details"`
+	Status      string                            `pulumi:"status"`
+	UpdatedDate string                            `pulumi:"updatedDate"`
 }
 
 // CostAllocationRulePropertiesResponseInput is an input type that accepts CostAllocationRulePropertiesResponseArgs and CostAllocationRulePropertiesResponseOutput values.
@@ -735,18 +692,12 @@ type CostAllocationRulePropertiesResponseInput interface {
 	ToCostAllocationRulePropertiesResponseOutputWithContext(context.Context) CostAllocationRulePropertiesResponseOutput
 }
 
-// The properties of a cost allocation rule
 type CostAllocationRulePropertiesResponseArgs struct {
-	// Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.
-	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
-	// Description of a cost allocation rule.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Resource information for the cost allocation rule
-	Details CostAllocationRuleDetailsResponseInput `pulumi:"details"`
-	// Status of the rule
-	Status pulumi.StringInput `pulumi:"status"`
-	// Time at which the rule was last updated.
-	UpdatedDate pulumi.StringInput `pulumi:"updatedDate"`
+	CreatedDate pulumi.StringInput                     `pulumi:"createdDate"`
+	Description pulumi.StringPtrInput                  `pulumi:"description"`
+	Details     CostAllocationRuleDetailsResponseInput `pulumi:"details"`
+	Status      pulumi.StringInput                     `pulumi:"status"`
+	UpdatedDate pulumi.StringInput                     `pulumi:"updatedDate"`
 }
 
 func (CostAllocationRulePropertiesResponseArgs) ElementType() reflect.Type {
@@ -802,7 +753,6 @@ func (i *costAllocationRulePropertiesResponsePtrType) ToCostAllocationRuleProper
 	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationRulePropertiesResponsePtrOutput)
 }
 
-// The properties of a cost allocation rule
 type CostAllocationRulePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CostAllocationRulePropertiesResponseOutput) ElementType() reflect.Type {
@@ -822,32 +772,27 @@ func (o CostAllocationRulePropertiesResponseOutput) ToCostAllocationRuleProperti
 }
 
 func (o CostAllocationRulePropertiesResponseOutput) ToCostAllocationRulePropertiesResponsePtrOutputWithContext(ctx context.Context) CostAllocationRulePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CostAllocationRulePropertiesResponse) *CostAllocationRulePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostAllocationRulePropertiesResponse) *CostAllocationRulePropertiesResponse {
 		return &v
 	}).(CostAllocationRulePropertiesResponsePtrOutput)
 }
 
-// Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.
 func (o CostAllocationRulePropertiesResponseOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v CostAllocationRulePropertiesResponse) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// Description of a cost allocation rule.
 func (o CostAllocationRulePropertiesResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CostAllocationRulePropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Resource information for the cost allocation rule
 func (o CostAllocationRulePropertiesResponseOutput) Details() CostAllocationRuleDetailsResponseOutput {
 	return o.ApplyT(func(v CostAllocationRulePropertiesResponse) CostAllocationRuleDetailsResponse { return v.Details }).(CostAllocationRuleDetailsResponseOutput)
 }
 
-// Status of the rule
 func (o CostAllocationRulePropertiesResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v CostAllocationRulePropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Time at which the rule was last updated.
 func (o CostAllocationRulePropertiesResponseOutput) UpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v CostAllocationRulePropertiesResponse) string { return v.UpdatedDate }).(pulumi.StringOutput)
 }
@@ -867,10 +812,15 @@ func (o CostAllocationRulePropertiesResponsePtrOutput) ToCostAllocationRulePrope
 }
 
 func (o CostAllocationRulePropertiesResponsePtrOutput) Elem() CostAllocationRulePropertiesResponseOutput {
-	return o.ApplyT(func(v *CostAllocationRulePropertiesResponse) CostAllocationRulePropertiesResponse { return *v }).(CostAllocationRulePropertiesResponseOutput)
+	return o.ApplyT(func(v *CostAllocationRulePropertiesResponse) CostAllocationRulePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CostAllocationRulePropertiesResponse
+		return ret
+	}).(CostAllocationRulePropertiesResponseOutput)
 }
 
-// Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.
 func (o CostAllocationRulePropertiesResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CostAllocationRulePropertiesResponse) *string {
 		if v == nil {
@@ -880,7 +830,6 @@ func (o CostAllocationRulePropertiesResponsePtrOutput) CreatedDate() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a cost allocation rule.
 func (o CostAllocationRulePropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CostAllocationRulePropertiesResponse) *string {
 		if v == nil {
@@ -890,7 +839,6 @@ func (o CostAllocationRulePropertiesResponsePtrOutput) Description() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource information for the cost allocation rule
 func (o CostAllocationRulePropertiesResponsePtrOutput) Details() CostAllocationRuleDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *CostAllocationRulePropertiesResponse) *CostAllocationRuleDetailsResponse {
 		if v == nil {
@@ -900,7 +848,6 @@ func (o CostAllocationRulePropertiesResponsePtrOutput) Details() CostAllocationR
 	}).(CostAllocationRuleDetailsResponsePtrOutput)
 }
 
-// Status of the rule
 func (o CostAllocationRulePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CostAllocationRulePropertiesResponse) *string {
 		if v == nil {
@@ -910,7 +857,6 @@ func (o CostAllocationRulePropertiesResponsePtrOutput) Status() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time at which the rule was last updated.
 func (o CostAllocationRulePropertiesResponsePtrOutput) UpdatedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CostAllocationRulePropertiesResponse) *string {
 		if v == nil {
@@ -920,14 +866,10 @@ func (o CostAllocationRulePropertiesResponsePtrOutput) UpdatedDate() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Source resources for cost allocation
 type SourceCostAllocationResource struct {
-	// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
-	Name string `pulumi:"name"`
-	// Type of resources contained in this cost allocation rule
-	ResourceType string `pulumi:"resourceType"`
-	// Source Resources for cost allocation. This list cannot contain more than 25 values.
-	Values []string `pulumi:"values"`
+	Name         string   `pulumi:"name"`
+	ResourceType string   `pulumi:"resourceType"`
+	Values       []string `pulumi:"values"`
 }
 
 // SourceCostAllocationResourceInput is an input type that accepts SourceCostAllocationResourceArgs and SourceCostAllocationResourceOutput values.
@@ -941,14 +883,10 @@ type SourceCostAllocationResourceInput interface {
 	ToSourceCostAllocationResourceOutputWithContext(context.Context) SourceCostAllocationResourceOutput
 }
 
-// Source resources for cost allocation
 type SourceCostAllocationResourceArgs struct {
-	// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
-	Name pulumi.StringInput `pulumi:"name"`
-	// Type of resources contained in this cost allocation rule
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Source Resources for cost allocation. This list cannot contain more than 25 values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name         pulumi.StringInput      `pulumi:"name"`
+	ResourceType pulumi.StringInput      `pulumi:"resourceType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (SourceCostAllocationResourceArgs) ElementType() reflect.Type {
@@ -988,7 +926,6 @@ func (i SourceCostAllocationResourceArray) ToSourceCostAllocationResourceArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(SourceCostAllocationResourceArrayOutput)
 }
 
-// Source resources for cost allocation
 type SourceCostAllocationResourceOutput struct{ *pulumi.OutputState }
 
 func (SourceCostAllocationResourceOutput) ElementType() reflect.Type {
@@ -1003,17 +940,14 @@ func (o SourceCostAllocationResourceOutput) ToSourceCostAllocationResourceOutput
 	return o
 }
 
-// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
 func (o SourceCostAllocationResourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceCostAllocationResource) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Type of resources contained in this cost allocation rule
 func (o SourceCostAllocationResourceOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceCostAllocationResource) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Source Resources for cost allocation. This list cannot contain more than 25 values.
 func (o SourceCostAllocationResourceOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SourceCostAllocationResource) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1038,14 +972,10 @@ func (o SourceCostAllocationResourceArrayOutput) Index(i pulumi.IntInput) Source
 	}).(SourceCostAllocationResourceOutput)
 }
 
-// Source resources for cost allocation
 type SourceCostAllocationResourceResponse struct {
-	// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
-	Name string `pulumi:"name"`
-	// Type of resources contained in this cost allocation rule
-	ResourceType string `pulumi:"resourceType"`
-	// Source Resources for cost allocation. This list cannot contain more than 25 values.
-	Values []string `pulumi:"values"`
+	Name         string   `pulumi:"name"`
+	ResourceType string   `pulumi:"resourceType"`
+	Values       []string `pulumi:"values"`
 }
 
 // SourceCostAllocationResourceResponseInput is an input type that accepts SourceCostAllocationResourceResponseArgs and SourceCostAllocationResourceResponseOutput values.
@@ -1059,14 +989,10 @@ type SourceCostAllocationResourceResponseInput interface {
 	ToSourceCostAllocationResourceResponseOutputWithContext(context.Context) SourceCostAllocationResourceResponseOutput
 }
 
-// Source resources for cost allocation
 type SourceCostAllocationResourceResponseArgs struct {
-	// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
-	Name pulumi.StringInput `pulumi:"name"`
-	// Type of resources contained in this cost allocation rule
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Source Resources for cost allocation. This list cannot contain more than 25 values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name         pulumi.StringInput      `pulumi:"name"`
+	ResourceType pulumi.StringInput      `pulumi:"resourceType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (SourceCostAllocationResourceResponseArgs) ElementType() reflect.Type {
@@ -1106,7 +1032,6 @@ func (i SourceCostAllocationResourceResponseArray) ToSourceCostAllocationResourc
 	return pulumi.ToOutputWithContext(ctx, i).(SourceCostAllocationResourceResponseArrayOutput)
 }
 
-// Source resources for cost allocation
 type SourceCostAllocationResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceCostAllocationResourceResponseOutput) ElementType() reflect.Type {
@@ -1121,17 +1046,14 @@ func (o SourceCostAllocationResourceResponseOutput) ToSourceCostAllocationResour
 	return o
 }
 
-// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
 func (o SourceCostAllocationResourceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceCostAllocationResourceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Type of resources contained in this cost allocation rule
 func (o SourceCostAllocationResourceResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceCostAllocationResourceResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Source Resources for cost allocation. This list cannot contain more than 25 values.
 func (o SourceCostAllocationResourceResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SourceCostAllocationResourceResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1156,16 +1078,11 @@ func (o SourceCostAllocationResourceResponseArrayOutput) Index(i pulumi.IntInput
 	}).(SourceCostAllocationResourceResponseOutput)
 }
 
-// Target resources for cost allocation.
 type TargetCostAllocationResource struct {
-	// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
-	Name string `pulumi:"name"`
-	// Method of cost allocation for the rule
-	PolicyType string `pulumi:"policyType"`
-	// Type of resources contained in this cost allocation rule
-	ResourceType string `pulumi:"resourceType"`
-	// Target resources for cost allocation. This list cannot contain more than 25 values.
-	Values []CostAllocationProportion `pulumi:"values"`
+	Name         string                     `pulumi:"name"`
+	PolicyType   string                     `pulumi:"policyType"`
+	ResourceType string                     `pulumi:"resourceType"`
+	Values       []CostAllocationProportion `pulumi:"values"`
 }
 
 // TargetCostAllocationResourceInput is an input type that accepts TargetCostAllocationResourceArgs and TargetCostAllocationResourceOutput values.
@@ -1179,16 +1096,11 @@ type TargetCostAllocationResourceInput interface {
 	ToTargetCostAllocationResourceOutputWithContext(context.Context) TargetCostAllocationResourceOutput
 }
 
-// Target resources for cost allocation.
 type TargetCostAllocationResourceArgs struct {
-	// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
-	Name pulumi.StringInput `pulumi:"name"`
-	// Method of cost allocation for the rule
-	PolicyType pulumi.StringInput `pulumi:"policyType"`
-	// Type of resources contained in this cost allocation rule
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Target resources for cost allocation. This list cannot contain more than 25 values.
-	Values CostAllocationProportionArrayInput `pulumi:"values"`
+	Name         pulumi.StringInput                 `pulumi:"name"`
+	PolicyType   pulumi.StringInput                 `pulumi:"policyType"`
+	ResourceType pulumi.StringInput                 `pulumi:"resourceType"`
+	Values       CostAllocationProportionArrayInput `pulumi:"values"`
 }
 
 func (TargetCostAllocationResourceArgs) ElementType() reflect.Type {
@@ -1228,7 +1140,6 @@ func (i TargetCostAllocationResourceArray) ToTargetCostAllocationResourceArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(TargetCostAllocationResourceArrayOutput)
 }
 
-// Target resources for cost allocation.
 type TargetCostAllocationResourceOutput struct{ *pulumi.OutputState }
 
 func (TargetCostAllocationResourceOutput) ElementType() reflect.Type {
@@ -1243,22 +1154,18 @@ func (o TargetCostAllocationResourceOutput) ToTargetCostAllocationResourceOutput
 	return o
 }
 
-// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
 func (o TargetCostAllocationResourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetCostAllocationResource) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Method of cost allocation for the rule
 func (o TargetCostAllocationResourceOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetCostAllocationResource) string { return v.PolicyType }).(pulumi.StringOutput)
 }
 
-// Type of resources contained in this cost allocation rule
 func (o TargetCostAllocationResourceOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetCostAllocationResource) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Target resources for cost allocation. This list cannot contain more than 25 values.
 func (o TargetCostAllocationResourceOutput) Values() CostAllocationProportionArrayOutput {
 	return o.ApplyT(func(v TargetCostAllocationResource) []CostAllocationProportion { return v.Values }).(CostAllocationProportionArrayOutput)
 }
@@ -1283,16 +1190,11 @@ func (o TargetCostAllocationResourceArrayOutput) Index(i pulumi.IntInput) Target
 	}).(TargetCostAllocationResourceOutput)
 }
 
-// Target resources for cost allocation.
 type TargetCostAllocationResourceResponse struct {
-	// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
-	Name string `pulumi:"name"`
-	// Method of cost allocation for the rule
-	PolicyType string `pulumi:"policyType"`
-	// Type of resources contained in this cost allocation rule
-	ResourceType string `pulumi:"resourceType"`
-	// Target resources for cost allocation. This list cannot contain more than 25 values.
-	Values []CostAllocationProportionResponse `pulumi:"values"`
+	Name         string                             `pulumi:"name"`
+	PolicyType   string                             `pulumi:"policyType"`
+	ResourceType string                             `pulumi:"resourceType"`
+	Values       []CostAllocationProportionResponse `pulumi:"values"`
 }
 
 // TargetCostAllocationResourceResponseInput is an input type that accepts TargetCostAllocationResourceResponseArgs and TargetCostAllocationResourceResponseOutput values.
@@ -1306,16 +1208,11 @@ type TargetCostAllocationResourceResponseInput interface {
 	ToTargetCostAllocationResourceResponseOutputWithContext(context.Context) TargetCostAllocationResourceResponseOutput
 }
 
-// Target resources for cost allocation.
 type TargetCostAllocationResourceResponseArgs struct {
-	// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
-	Name pulumi.StringInput `pulumi:"name"`
-	// Method of cost allocation for the rule
-	PolicyType pulumi.StringInput `pulumi:"policyType"`
-	// Type of resources contained in this cost allocation rule
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Target resources for cost allocation. This list cannot contain more than 25 values.
-	Values CostAllocationProportionResponseArrayInput `pulumi:"values"`
+	Name         pulumi.StringInput                         `pulumi:"name"`
+	PolicyType   pulumi.StringInput                         `pulumi:"policyType"`
+	ResourceType pulumi.StringInput                         `pulumi:"resourceType"`
+	Values       CostAllocationProportionResponseArrayInput `pulumi:"values"`
 }
 
 func (TargetCostAllocationResourceResponseArgs) ElementType() reflect.Type {
@@ -1355,7 +1252,6 @@ func (i TargetCostAllocationResourceResponseArray) ToTargetCostAllocationResourc
 	return pulumi.ToOutputWithContext(ctx, i).(TargetCostAllocationResourceResponseArrayOutput)
 }
 
-// Target resources for cost allocation.
 type TargetCostAllocationResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (TargetCostAllocationResourceResponseOutput) ElementType() reflect.Type {
@@ -1370,22 +1266,18 @@ func (o TargetCostAllocationResourceResponseOutput) ToTargetCostAllocationResour
 	return o
 }
 
-// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
 func (o TargetCostAllocationResourceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetCostAllocationResourceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Method of cost allocation for the rule
 func (o TargetCostAllocationResourceResponseOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetCostAllocationResourceResponse) string { return v.PolicyType }).(pulumi.StringOutput)
 }
 
-// Type of resources contained in this cost allocation rule
 func (o TargetCostAllocationResourceResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetCostAllocationResourceResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Target resources for cost allocation. This list cannot contain more than 25 values.
 func (o TargetCostAllocationResourceResponseOutput) Values() CostAllocationProportionResponseArrayOutput {
 	return o.ApplyT(func(v TargetCostAllocationResourceResponse) []CostAllocationProportionResponse { return v.Values }).(CostAllocationProportionResponseArrayOutput)
 }

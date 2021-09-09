@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A datastore resource
 func LookupDatastore(ctx *pulumi.Context, args *LookupDatastoreArgs, opts ...pulumi.InvokeOption) (*LookupDatastoreResult, error) {
 	var rv LookupDatastoreResult
 	err := ctx.Invoke("azure-native:avs/v20210601:getDatastore", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupDatastore(ctx *pulumi.Context, args *LookupDatastoreArgs, opts ...pul
 }
 
 type LookupDatastoreArgs struct {
-	// Name of the cluster in the private cloud
-	ClusterName string `pulumi:"clusterName"`
-	// Name of the datastore in the private cloud cluster
-	DatastoreName string `pulumi:"datastoreName"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
+	ClusterName       string `pulumi:"clusterName"`
+	DatastoreName     string `pulumi:"datastoreName"`
+	PrivateCloudName  string `pulumi:"privateCloudName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A datastore resource
 type LookupDatastoreResult struct {
-	// An iSCSI volume
-	DiskPoolVolume *DiskPoolVolumeResponse `pulumi:"diskPoolVolume"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// An Azure NetApp Files volume
-	NetAppVolume *NetAppVolumeResponse `pulumi:"netAppVolume"`
-	// The state of the datastore provisioning
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	DiskPoolVolume    *DiskPoolVolumeResponse `pulumi:"diskPoolVolume"`
+	Id                string                  `pulumi:"id"`
+	Name              string                  `pulumi:"name"`
+	NetAppVolume      *NetAppVolumeResponse   `pulumi:"netAppVolume"`
+	ProvisioningState string                  `pulumi:"provisioningState"`
+	Type              string                  `pulumi:"type"`
 }

@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Maintenance window of a server group.
 type MaintenanceWindow struct {
-	// indicates whether custom window is enabled or disabled
 	CustomWindow *string `pulumi:"customWindow"`
-	// day of week for maintenance window
-	DayOfWeek *int `pulumi:"dayOfWeek"`
-	// start hour for maintenance window
-	StartHour *int `pulumi:"startHour"`
-	// start minute for maintenance window
-	StartMinute *int `pulumi:"startMinute"`
+	DayOfWeek    *int    `pulumi:"dayOfWeek"`
+	StartHour    *int    `pulumi:"startHour"`
+	StartMinute  *int    `pulumi:"startMinute"`
 }
 
 // MaintenanceWindowInput is an input type that accepts MaintenanceWindowArgs and MaintenanceWindowOutput values.
@@ -33,16 +28,11 @@ type MaintenanceWindowInput interface {
 	ToMaintenanceWindowOutputWithContext(context.Context) MaintenanceWindowOutput
 }
 
-// Maintenance window of a server group.
 type MaintenanceWindowArgs struct {
-	// indicates whether custom window is enabled or disabled
 	CustomWindow pulumi.StringPtrInput `pulumi:"customWindow"`
-	// day of week for maintenance window
-	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
-	// start hour for maintenance window
-	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
-	// start minute for maintenance window
-	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
+	DayOfWeek    pulumi.IntPtrInput    `pulumi:"dayOfWeek"`
+	StartHour    pulumi.IntPtrInput    `pulumi:"startHour"`
+	StartMinute  pulumi.IntPtrInput    `pulumi:"startMinute"`
 }
 
 func (MaintenanceWindowArgs) ElementType() reflect.Type {
@@ -98,7 +88,6 @@ func (i *maintenanceWindowPtrType) ToMaintenanceWindowPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowPtrOutput)
 }
 
-// Maintenance window of a server group.
 type MaintenanceWindowOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowOutput) ElementType() reflect.Type {
@@ -118,27 +107,23 @@ func (o MaintenanceWindowOutput) ToMaintenanceWindowPtrOutput() MaintenanceWindo
 }
 
 func (o MaintenanceWindowOutput) ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput {
-	return o.ApplyT(func(v MaintenanceWindow) *MaintenanceWindow {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindow) *MaintenanceWindow {
 		return &v
 	}).(MaintenanceWindowPtrOutput)
 }
 
-// indicates whether custom window is enabled or disabled
 func (o MaintenanceWindowOutput) CustomWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindow) *string { return v.CustomWindow }).(pulumi.StringPtrOutput)
 }
 
-// day of week for maintenance window
 func (o MaintenanceWindowOutput) DayOfWeek() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindow) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
 }
 
-// start hour for maintenance window
 func (o MaintenanceWindowOutput) StartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindow) *int { return v.StartHour }).(pulumi.IntPtrOutput)
 }
 
-// start minute for maintenance window
 func (o MaintenanceWindowOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindow) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
 }
@@ -158,10 +143,15 @@ func (o MaintenanceWindowPtrOutput) ToMaintenanceWindowPtrOutputWithContext(ctx 
 }
 
 func (o MaintenanceWindowPtrOutput) Elem() MaintenanceWindowOutput {
-	return o.ApplyT(func(v *MaintenanceWindow) MaintenanceWindow { return *v }).(MaintenanceWindowOutput)
+	return o.ApplyT(func(v *MaintenanceWindow) MaintenanceWindow {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindow
+		return ret
+	}).(MaintenanceWindowOutput)
 }
 
-// indicates whether custom window is enabled or disabled
 func (o MaintenanceWindowPtrOutput) CustomWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) *string {
 		if v == nil {
@@ -171,7 +161,6 @@ func (o MaintenanceWindowPtrOutput) CustomWindow() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// day of week for maintenance window
 func (o MaintenanceWindowPtrOutput) DayOfWeek() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) *int {
 		if v == nil {
@@ -181,7 +170,6 @@ func (o MaintenanceWindowPtrOutput) DayOfWeek() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// start hour for maintenance window
 func (o MaintenanceWindowPtrOutput) StartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) *int {
 		if v == nil {
@@ -191,7 +179,6 @@ func (o MaintenanceWindowPtrOutput) StartHour() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// start minute for maintenance window
 func (o MaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) *int {
 		if v == nil {
@@ -201,16 +188,11 @@ func (o MaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maintenance window of a server group.
 type MaintenanceWindowResponse struct {
-	// indicates whether custom window is enabled or disabled
 	CustomWindow *string `pulumi:"customWindow"`
-	// day of week for maintenance window
-	DayOfWeek *int `pulumi:"dayOfWeek"`
-	// start hour for maintenance window
-	StartHour *int `pulumi:"startHour"`
-	// start minute for maintenance window
-	StartMinute *int `pulumi:"startMinute"`
+	DayOfWeek    *int    `pulumi:"dayOfWeek"`
+	StartHour    *int    `pulumi:"startHour"`
+	StartMinute  *int    `pulumi:"startMinute"`
 }
 
 // MaintenanceWindowResponseInput is an input type that accepts MaintenanceWindowResponseArgs and MaintenanceWindowResponseOutput values.
@@ -224,16 +206,11 @@ type MaintenanceWindowResponseInput interface {
 	ToMaintenanceWindowResponseOutputWithContext(context.Context) MaintenanceWindowResponseOutput
 }
 
-// Maintenance window of a server group.
 type MaintenanceWindowResponseArgs struct {
-	// indicates whether custom window is enabled or disabled
 	CustomWindow pulumi.StringPtrInput `pulumi:"customWindow"`
-	// day of week for maintenance window
-	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
-	// start hour for maintenance window
-	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
-	// start minute for maintenance window
-	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
+	DayOfWeek    pulumi.IntPtrInput    `pulumi:"dayOfWeek"`
+	StartHour    pulumi.IntPtrInput    `pulumi:"startHour"`
+	StartMinute  pulumi.IntPtrInput    `pulumi:"startMinute"`
 }
 
 func (MaintenanceWindowResponseArgs) ElementType() reflect.Type {
@@ -289,7 +266,6 @@ func (i *maintenanceWindowResponsePtrType) ToMaintenanceWindowResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowResponsePtrOutput)
 }
 
-// Maintenance window of a server group.
 type MaintenanceWindowResponseOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowResponseOutput) ElementType() reflect.Type {
@@ -309,27 +285,23 @@ func (o MaintenanceWindowResponseOutput) ToMaintenanceWindowResponsePtrOutput() 
 }
 
 func (o MaintenanceWindowResponseOutput) ToMaintenanceWindowResponsePtrOutputWithContext(ctx context.Context) MaintenanceWindowResponsePtrOutput {
-	return o.ApplyT(func(v MaintenanceWindowResponse) *MaintenanceWindowResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowResponse) *MaintenanceWindowResponse {
 		return &v
 	}).(MaintenanceWindowResponsePtrOutput)
 }
 
-// indicates whether custom window is enabled or disabled
 func (o MaintenanceWindowResponseOutput) CustomWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowResponse) *string { return v.CustomWindow }).(pulumi.StringPtrOutput)
 }
 
-// day of week for maintenance window
 func (o MaintenanceWindowResponseOutput) DayOfWeek() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowResponse) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
 }
 
-// start hour for maintenance window
 func (o MaintenanceWindowResponseOutput) StartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowResponse) *int { return v.StartHour }).(pulumi.IntPtrOutput)
 }
 
-// start minute for maintenance window
 func (o MaintenanceWindowResponseOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowResponse) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
 }
@@ -349,10 +321,15 @@ func (o MaintenanceWindowResponsePtrOutput) ToMaintenanceWindowResponsePtrOutput
 }
 
 func (o MaintenanceWindowResponsePtrOutput) Elem() MaintenanceWindowResponseOutput {
-	return o.ApplyT(func(v *MaintenanceWindowResponse) MaintenanceWindowResponse { return *v }).(MaintenanceWindowResponseOutput)
+	return o.ApplyT(func(v *MaintenanceWindowResponse) MaintenanceWindowResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowResponse
+		return ret
+	}).(MaintenanceWindowResponseOutput)
 }
 
-// indicates whether custom window is enabled or disabled
 func (o MaintenanceWindowResponsePtrOutput) CustomWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowResponse) *string {
 		if v == nil {
@@ -362,7 +339,6 @@ func (o MaintenanceWindowResponsePtrOutput) CustomWindow() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// day of week for maintenance window
 func (o MaintenanceWindowResponsePtrOutput) DayOfWeek() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowResponse) *int {
 		if v == nil {
@@ -372,7 +348,6 @@ func (o MaintenanceWindowResponsePtrOutput) DayOfWeek() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// start hour for maintenance window
 func (o MaintenanceWindowResponsePtrOutput) StartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowResponse) *int {
 		if v == nil {
@@ -382,7 +357,6 @@ func (o MaintenanceWindowResponsePtrOutput) StartHour() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// start minute for maintenance window
 func (o MaintenanceWindowResponsePtrOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowResponse) *int {
 		if v == nil {
@@ -392,9 +366,7 @@ func (o MaintenanceWindowResponsePtrOutput) StartMinute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The delegated subnet arguments for a server group.
 type ServerGroupPropertiesDelegatedSubnetArguments struct {
-	// delegated subnet arm resource id.
 	SubnetArmResourceId *string `pulumi:"subnetArmResourceId"`
 }
 
@@ -409,9 +381,7 @@ type ServerGroupPropertiesDelegatedSubnetArgumentsInput interface {
 	ToServerGroupPropertiesDelegatedSubnetArgumentsOutputWithContext(context.Context) ServerGroupPropertiesDelegatedSubnetArgumentsOutput
 }
 
-// The delegated subnet arguments for a server group.
 type ServerGroupPropertiesDelegatedSubnetArgumentsArgs struct {
-	// delegated subnet arm resource id.
 	SubnetArmResourceId pulumi.StringPtrInput `pulumi:"subnetArmResourceId"`
 }
 
@@ -468,7 +438,6 @@ func (i *serverGroupPropertiesDelegatedSubnetArgumentsPtrType) ToServerGroupProp
 	return pulumi.ToOutputWithContext(ctx, i).(ServerGroupPropertiesDelegatedSubnetArgumentsPtrOutput)
 }
 
-// The delegated subnet arguments for a server group.
 type ServerGroupPropertiesDelegatedSubnetArgumentsOutput struct{ *pulumi.OutputState }
 
 func (ServerGroupPropertiesDelegatedSubnetArgumentsOutput) ElementType() reflect.Type {
@@ -488,12 +457,11 @@ func (o ServerGroupPropertiesDelegatedSubnetArgumentsOutput) ToServerGroupProper
 }
 
 func (o ServerGroupPropertiesDelegatedSubnetArgumentsOutput) ToServerGroupPropertiesDelegatedSubnetArgumentsPtrOutputWithContext(ctx context.Context) ServerGroupPropertiesDelegatedSubnetArgumentsPtrOutput {
-	return o.ApplyT(func(v ServerGroupPropertiesDelegatedSubnetArguments) *ServerGroupPropertiesDelegatedSubnetArguments {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerGroupPropertiesDelegatedSubnetArguments) *ServerGroupPropertiesDelegatedSubnetArguments {
 		return &v
 	}).(ServerGroupPropertiesDelegatedSubnetArgumentsPtrOutput)
 }
 
-// delegated subnet arm resource id.
 func (o ServerGroupPropertiesDelegatedSubnetArgumentsOutput) SubnetArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerGroupPropertiesDelegatedSubnetArguments) *string { return v.SubnetArmResourceId }).(pulumi.StringPtrOutput)
 }
@@ -514,11 +482,14 @@ func (o ServerGroupPropertiesDelegatedSubnetArgumentsPtrOutput) ToServerGroupPro
 
 func (o ServerGroupPropertiesDelegatedSubnetArgumentsPtrOutput) Elem() ServerGroupPropertiesDelegatedSubnetArgumentsOutput {
 	return o.ApplyT(func(v *ServerGroupPropertiesDelegatedSubnetArguments) ServerGroupPropertiesDelegatedSubnetArguments {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServerGroupPropertiesDelegatedSubnetArguments
+		return ret
 	}).(ServerGroupPropertiesDelegatedSubnetArgumentsOutput)
 }
 
-// delegated subnet arm resource id.
 func (o ServerGroupPropertiesDelegatedSubnetArgumentsPtrOutput) SubnetArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerGroupPropertiesDelegatedSubnetArguments) *string {
 		if v == nil {
@@ -528,9 +499,7 @@ func (o ServerGroupPropertiesDelegatedSubnetArgumentsPtrOutput) SubnetArmResourc
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private dns zone arguments for a server group.
 type ServerGroupPropertiesPrivateDnsZoneArguments struct {
-	// private dns zone arm resource id.
 	PrivateDnsZoneArmResourceId *string `pulumi:"privateDnsZoneArmResourceId"`
 }
 
@@ -545,9 +514,7 @@ type ServerGroupPropertiesPrivateDnsZoneArgumentsInput interface {
 	ToServerGroupPropertiesPrivateDnsZoneArgumentsOutputWithContext(context.Context) ServerGroupPropertiesPrivateDnsZoneArgumentsOutput
 }
 
-// The private dns zone arguments for a server group.
 type ServerGroupPropertiesPrivateDnsZoneArgumentsArgs struct {
-	// private dns zone arm resource id.
 	PrivateDnsZoneArmResourceId pulumi.StringPtrInput `pulumi:"privateDnsZoneArmResourceId"`
 }
 
@@ -604,7 +571,6 @@ func (i *serverGroupPropertiesPrivateDnsZoneArgumentsPtrType) ToServerGroupPrope
 	return pulumi.ToOutputWithContext(ctx, i).(ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput)
 }
 
-// The private dns zone arguments for a server group.
 type ServerGroupPropertiesPrivateDnsZoneArgumentsOutput struct{ *pulumi.OutputState }
 
 func (ServerGroupPropertiesPrivateDnsZoneArgumentsOutput) ElementType() reflect.Type {
@@ -624,12 +590,11 @@ func (o ServerGroupPropertiesPrivateDnsZoneArgumentsOutput) ToServerGroupPropert
 }
 
 func (o ServerGroupPropertiesPrivateDnsZoneArgumentsOutput) ToServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutputWithContext(ctx context.Context) ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput {
-	return o.ApplyT(func(v ServerGroupPropertiesPrivateDnsZoneArguments) *ServerGroupPropertiesPrivateDnsZoneArguments {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerGroupPropertiesPrivateDnsZoneArguments) *ServerGroupPropertiesPrivateDnsZoneArguments {
 		return &v
 	}).(ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput)
 }
 
-// private dns zone arm resource id.
 func (o ServerGroupPropertiesPrivateDnsZoneArgumentsOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerGroupPropertiesPrivateDnsZoneArguments) *string { return v.PrivateDnsZoneArmResourceId }).(pulumi.StringPtrOutput)
 }
@@ -650,11 +615,14 @@ func (o ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput) ToServerGroupProp
 
 func (o ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput) Elem() ServerGroupPropertiesPrivateDnsZoneArgumentsOutput {
 	return o.ApplyT(func(v *ServerGroupPropertiesPrivateDnsZoneArguments) ServerGroupPropertiesPrivateDnsZoneArguments {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServerGroupPropertiesPrivateDnsZoneArguments
+		return ret
 	}).(ServerGroupPropertiesPrivateDnsZoneArgumentsOutput)
 }
 
-// private dns zone arm resource id.
 func (o ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerGroupPropertiesPrivateDnsZoneArguments) *string {
 		if v == nil {
@@ -664,9 +632,7 @@ func (o ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput) PrivateDnsZoneArm
 	}).(pulumi.StringPtrOutput)
 }
 
-// The delegated subnet arguments for a server group.
 type ServerGroupPropertiesResponseDelegatedSubnetArguments struct {
-	// delegated subnet arm resource id.
 	SubnetArmResourceId *string `pulumi:"subnetArmResourceId"`
 }
 
@@ -681,9 +647,7 @@ type ServerGroupPropertiesResponseDelegatedSubnetArgumentsInput interface {
 	ToServerGroupPropertiesResponseDelegatedSubnetArgumentsOutputWithContext(context.Context) ServerGroupPropertiesResponseDelegatedSubnetArgumentsOutput
 }
 
-// The delegated subnet arguments for a server group.
 type ServerGroupPropertiesResponseDelegatedSubnetArgumentsArgs struct {
-	// delegated subnet arm resource id.
 	SubnetArmResourceId pulumi.StringPtrInput `pulumi:"subnetArmResourceId"`
 }
 
@@ -740,7 +704,6 @@ func (i *serverGroupPropertiesResponseDelegatedSubnetArgumentsPtrType) ToServerG
 	return pulumi.ToOutputWithContext(ctx, i).(ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput)
 }
 
-// The delegated subnet arguments for a server group.
 type ServerGroupPropertiesResponseDelegatedSubnetArgumentsOutput struct{ *pulumi.OutputState }
 
 func (ServerGroupPropertiesResponseDelegatedSubnetArgumentsOutput) ElementType() reflect.Type {
@@ -760,12 +723,11 @@ func (o ServerGroupPropertiesResponseDelegatedSubnetArgumentsOutput) ToServerGro
 }
 
 func (o ServerGroupPropertiesResponseDelegatedSubnetArgumentsOutput) ToServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutputWithContext(ctx context.Context) ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput {
-	return o.ApplyT(func(v ServerGroupPropertiesResponseDelegatedSubnetArguments) *ServerGroupPropertiesResponseDelegatedSubnetArguments {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerGroupPropertiesResponseDelegatedSubnetArguments) *ServerGroupPropertiesResponseDelegatedSubnetArguments {
 		return &v
 	}).(ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput)
 }
 
-// delegated subnet arm resource id.
 func (o ServerGroupPropertiesResponseDelegatedSubnetArgumentsOutput) SubnetArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerGroupPropertiesResponseDelegatedSubnetArguments) *string { return v.SubnetArmResourceId }).(pulumi.StringPtrOutput)
 }
@@ -786,11 +748,14 @@ func (o ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput) ToServer
 
 func (o ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput) Elem() ServerGroupPropertiesResponseDelegatedSubnetArgumentsOutput {
 	return o.ApplyT(func(v *ServerGroupPropertiesResponseDelegatedSubnetArguments) ServerGroupPropertiesResponseDelegatedSubnetArguments {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServerGroupPropertiesResponseDelegatedSubnetArguments
+		return ret
 	}).(ServerGroupPropertiesResponseDelegatedSubnetArgumentsOutput)
 }
 
-// delegated subnet arm resource id.
 func (o ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput) SubnetArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerGroupPropertiesResponseDelegatedSubnetArguments) *string {
 		if v == nil {
@@ -800,9 +765,7 @@ func (o ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput) SubnetAr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private dns zone arguments for a server group.
 type ServerGroupPropertiesResponsePrivateDnsZoneArguments struct {
-	// private dns zone arm resource id.
 	PrivateDnsZoneArmResourceId *string `pulumi:"privateDnsZoneArmResourceId"`
 }
 
@@ -817,9 +780,7 @@ type ServerGroupPropertiesResponsePrivateDnsZoneArgumentsInput interface {
 	ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutputWithContext(context.Context) ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput
 }
 
-// The private dns zone arguments for a server group.
 type ServerGroupPropertiesResponsePrivateDnsZoneArgumentsArgs struct {
-	// private dns zone arm resource id.
 	PrivateDnsZoneArmResourceId pulumi.StringPtrInput `pulumi:"privateDnsZoneArmResourceId"`
 }
 
@@ -876,7 +837,6 @@ func (i *serverGroupPropertiesResponsePrivateDnsZoneArgumentsPtrType) ToServerGr
 	return pulumi.ToOutputWithContext(ctx, i).(ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput)
 }
 
-// The private dns zone arguments for a server group.
 type ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput struct{ *pulumi.OutputState }
 
 func (ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput) ElementType() reflect.Type {
@@ -896,12 +856,11 @@ func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput) ToServerGrou
 }
 
 func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput) ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutputWithContext(ctx context.Context) ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput {
-	return o.ApplyT(func(v ServerGroupPropertiesResponsePrivateDnsZoneArguments) *ServerGroupPropertiesResponsePrivateDnsZoneArguments {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerGroupPropertiesResponsePrivateDnsZoneArguments) *ServerGroupPropertiesResponsePrivateDnsZoneArguments {
 		return &v
 	}).(ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput)
 }
 
-// private dns zone arm resource id.
 func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerGroupPropertiesResponsePrivateDnsZoneArguments) *string {
 		return v.PrivateDnsZoneArmResourceId
@@ -924,11 +883,14 @@ func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput) ToServerG
 
 func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput) Elem() ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput {
 	return o.ApplyT(func(v *ServerGroupPropertiesResponsePrivateDnsZoneArguments) ServerGroupPropertiesResponsePrivateDnsZoneArguments {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServerGroupPropertiesResponsePrivateDnsZoneArguments
+		return ret
 	}).(ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput)
 }
 
-// private dns zone arm resource id.
 func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerGroupPropertiesResponsePrivateDnsZoneArguments) *string {
 		if v == nil {
@@ -938,12 +900,9 @@ func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput) PrivateDn
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name object for a server.
 type ServerNameItemResponse struct {
-	// The fully qualified domain name of a server.
-	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
-	// The name of a server.
-	Name *string `pulumi:"name"`
+	FullyQualifiedDomainName string  `pulumi:"fullyQualifiedDomainName"`
+	Name                     *string `pulumi:"name"`
 }
 
 // ServerNameItemResponseInput is an input type that accepts ServerNameItemResponseArgs and ServerNameItemResponseOutput values.
@@ -957,12 +916,9 @@ type ServerNameItemResponseInput interface {
 	ToServerNameItemResponseOutputWithContext(context.Context) ServerNameItemResponseOutput
 }
 
-// The name object for a server.
 type ServerNameItemResponseArgs struct {
-	// The fully qualified domain name of a server.
-	FullyQualifiedDomainName pulumi.StringInput `pulumi:"fullyQualifiedDomainName"`
-	// The name of a server.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	FullyQualifiedDomainName pulumi.StringInput    `pulumi:"fullyQualifiedDomainName"`
+	Name                     pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (ServerNameItemResponseArgs) ElementType() reflect.Type {
@@ -1002,7 +958,6 @@ func (i ServerNameItemResponseArray) ToServerNameItemResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServerNameItemResponseArrayOutput)
 }
 
-// The name object for a server.
 type ServerNameItemResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerNameItemResponseOutput) ElementType() reflect.Type {
@@ -1017,12 +972,10 @@ func (o ServerNameItemResponseOutput) ToServerNameItemResponseOutputWithContext(
 	return o
 }
 
-// The fully qualified domain name of a server.
 func (o ServerNameItemResponseOutput) FullyQualifiedDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerNameItemResponse) string { return v.FullyQualifiedDomainName }).(pulumi.StringOutput)
 }
 
-// The name of a server.
 func (o ServerNameItemResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerNameItemResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1047,22 +1000,14 @@ func (o ServerNameItemResponseArrayOutput) Index(i pulumi.IntInput) ServerNameIt
 	}).(ServerNameItemResponseOutput)
 }
 
-// Represents a server role group.
 type ServerRoleGroup struct {
-	// If high availability is enabled or not for the server.
-	EnableHa *bool `pulumi:"enableHa"`
-	// The name of the server role group.
-	Name *string `pulumi:"name"`
-	// The role of servers in the server role group.
-	Role *string `pulumi:"role"`
-	// The number of servers in the server role group.
-	ServerCount *int `pulumi:"serverCount"`
-	// The edition of a server (default: GeneralPurpose).
-	ServerEdition *string `pulumi:"serverEdition"`
-	// The storage of a server in MB (max: 2097152 = 2TiB).
+	EnableHa         *bool    `pulumi:"enableHa"`
+	Name             *string  `pulumi:"name"`
+	Role             *string  `pulumi:"role"`
+	ServerCount      *int     `pulumi:"serverCount"`
+	ServerEdition    *string  `pulumi:"serverEdition"`
 	StorageQuotaInMb *float64 `pulumi:"storageQuotaInMb"`
-	// The vCores count of a server (max: 64).
-	VCores *float64 `pulumi:"vCores"`
+	VCores           *float64 `pulumi:"vCores"`
 }
 
 // ServerRoleGroupInput is an input type that accepts ServerRoleGroupArgs and ServerRoleGroupOutput values.
@@ -1076,22 +1021,14 @@ type ServerRoleGroupInput interface {
 	ToServerRoleGroupOutputWithContext(context.Context) ServerRoleGroupOutput
 }
 
-// Represents a server role group.
 type ServerRoleGroupArgs struct {
-	// If high availability is enabled or not for the server.
-	EnableHa pulumi.BoolPtrInput `pulumi:"enableHa"`
-	// The name of the server role group.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The role of servers in the server role group.
-	Role pulumi.StringPtrInput `pulumi:"role"`
-	// The number of servers in the server role group.
-	ServerCount pulumi.IntPtrInput `pulumi:"serverCount"`
-	// The edition of a server (default: GeneralPurpose).
-	ServerEdition pulumi.StringPtrInput `pulumi:"serverEdition"`
-	// The storage of a server in MB (max: 2097152 = 2TiB).
+	EnableHa         pulumi.BoolPtrInput    `pulumi:"enableHa"`
+	Name             pulumi.StringPtrInput  `pulumi:"name"`
+	Role             pulumi.StringPtrInput  `pulumi:"role"`
+	ServerCount      pulumi.IntPtrInput     `pulumi:"serverCount"`
+	ServerEdition    pulumi.StringPtrInput  `pulumi:"serverEdition"`
 	StorageQuotaInMb pulumi.Float64PtrInput `pulumi:"storageQuotaInMb"`
-	// The vCores count of a server (max: 64).
-	VCores pulumi.Float64PtrInput `pulumi:"vCores"`
+	VCores           pulumi.Float64PtrInput `pulumi:"vCores"`
 }
 
 func (ServerRoleGroupArgs) ElementType() reflect.Type {
@@ -1131,7 +1068,6 @@ func (i ServerRoleGroupArray) ToServerRoleGroupArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServerRoleGroupArrayOutput)
 }
 
-// Represents a server role group.
 type ServerRoleGroupOutput struct{ *pulumi.OutputState }
 
 func (ServerRoleGroupOutput) ElementType() reflect.Type {
@@ -1146,37 +1082,30 @@ func (o ServerRoleGroupOutput) ToServerRoleGroupOutputWithContext(ctx context.Co
 	return o
 }
 
-// If high availability is enabled or not for the server.
 func (o ServerRoleGroupOutput) EnableHa() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServerRoleGroup) *bool { return v.EnableHa }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the server role group.
 func (o ServerRoleGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerRoleGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The role of servers in the server role group.
 func (o ServerRoleGroupOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerRoleGroup) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// The number of servers in the server role group.
 func (o ServerRoleGroupOutput) ServerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServerRoleGroup) *int { return v.ServerCount }).(pulumi.IntPtrOutput)
 }
 
-// The edition of a server (default: GeneralPurpose).
 func (o ServerRoleGroupOutput) ServerEdition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerRoleGroup) *string { return v.ServerEdition }).(pulumi.StringPtrOutput)
 }
 
-// The storage of a server in MB (max: 2097152 = 2TiB).
 func (o ServerRoleGroupOutput) StorageQuotaInMb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ServerRoleGroup) *float64 { return v.StorageQuotaInMb }).(pulumi.Float64PtrOutput)
 }
 
-// The vCores count of a server (max: 64).
 func (o ServerRoleGroupOutput) VCores() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ServerRoleGroup) *float64 { return v.VCores }).(pulumi.Float64PtrOutput)
 }
@@ -1201,26 +1130,16 @@ func (o ServerRoleGroupArrayOutput) Index(i pulumi.IntInput) ServerRoleGroupOutp
 	}).(ServerRoleGroupOutput)
 }
 
-// Represents a server role group.
 type ServerRoleGroupResponse struct {
-	// If high availability is enabled or not for the server.
-	EnableHa *bool `pulumi:"enableHa"`
-	// If public IP is requested or not for a server.
-	EnablePublicIp bool `pulumi:"enablePublicIp"`
-	// The name of the server role group.
-	Name *string `pulumi:"name"`
-	// The role of servers in the server role group.
-	Role *string `pulumi:"role"`
-	// The number of servers in the server role group.
-	ServerCount *int `pulumi:"serverCount"`
-	// The edition of a server (default: GeneralPurpose).
-	ServerEdition *string `pulumi:"serverEdition"`
-	// The list of server names in the server role group.
-	ServerNames []ServerNameItemResponse `pulumi:"serverNames"`
-	// The storage of a server in MB (max: 2097152 = 2TiB).
-	StorageQuotaInMb *float64 `pulumi:"storageQuotaInMb"`
-	// The vCores count of a server (max: 64).
-	VCores *float64 `pulumi:"vCores"`
+	EnableHa         *bool                    `pulumi:"enableHa"`
+	EnablePublicIp   bool                     `pulumi:"enablePublicIp"`
+	Name             *string                  `pulumi:"name"`
+	Role             *string                  `pulumi:"role"`
+	ServerCount      *int                     `pulumi:"serverCount"`
+	ServerEdition    *string                  `pulumi:"serverEdition"`
+	ServerNames      []ServerNameItemResponse `pulumi:"serverNames"`
+	StorageQuotaInMb *float64                 `pulumi:"storageQuotaInMb"`
+	VCores           *float64                 `pulumi:"vCores"`
 }
 
 // ServerRoleGroupResponseInput is an input type that accepts ServerRoleGroupResponseArgs and ServerRoleGroupResponseOutput values.
@@ -1234,26 +1153,16 @@ type ServerRoleGroupResponseInput interface {
 	ToServerRoleGroupResponseOutputWithContext(context.Context) ServerRoleGroupResponseOutput
 }
 
-// Represents a server role group.
 type ServerRoleGroupResponseArgs struct {
-	// If high availability is enabled or not for the server.
-	EnableHa pulumi.BoolPtrInput `pulumi:"enableHa"`
-	// If public IP is requested or not for a server.
-	EnablePublicIp pulumi.BoolInput `pulumi:"enablePublicIp"`
-	// The name of the server role group.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The role of servers in the server role group.
-	Role pulumi.StringPtrInput `pulumi:"role"`
-	// The number of servers in the server role group.
-	ServerCount pulumi.IntPtrInput `pulumi:"serverCount"`
-	// The edition of a server (default: GeneralPurpose).
-	ServerEdition pulumi.StringPtrInput `pulumi:"serverEdition"`
-	// The list of server names in the server role group.
-	ServerNames ServerNameItemResponseArrayInput `pulumi:"serverNames"`
-	// The storage of a server in MB (max: 2097152 = 2TiB).
-	StorageQuotaInMb pulumi.Float64PtrInput `pulumi:"storageQuotaInMb"`
-	// The vCores count of a server (max: 64).
-	VCores pulumi.Float64PtrInput `pulumi:"vCores"`
+	EnableHa         pulumi.BoolPtrInput              `pulumi:"enableHa"`
+	EnablePublicIp   pulumi.BoolInput                 `pulumi:"enablePublicIp"`
+	Name             pulumi.StringPtrInput            `pulumi:"name"`
+	Role             pulumi.StringPtrInput            `pulumi:"role"`
+	ServerCount      pulumi.IntPtrInput               `pulumi:"serverCount"`
+	ServerEdition    pulumi.StringPtrInput            `pulumi:"serverEdition"`
+	ServerNames      ServerNameItemResponseArrayInput `pulumi:"serverNames"`
+	StorageQuotaInMb pulumi.Float64PtrInput           `pulumi:"storageQuotaInMb"`
+	VCores           pulumi.Float64PtrInput           `pulumi:"vCores"`
 }
 
 func (ServerRoleGroupResponseArgs) ElementType() reflect.Type {
@@ -1293,7 +1202,6 @@ func (i ServerRoleGroupResponseArray) ToServerRoleGroupResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServerRoleGroupResponseArrayOutput)
 }
 
-// Represents a server role group.
 type ServerRoleGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerRoleGroupResponseOutput) ElementType() reflect.Type {
@@ -1308,47 +1216,38 @@ func (o ServerRoleGroupResponseOutput) ToServerRoleGroupResponseOutputWithContex
 	return o
 }
 
-// If high availability is enabled or not for the server.
 func (o ServerRoleGroupResponseOutput) EnableHa() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServerRoleGroupResponse) *bool { return v.EnableHa }).(pulumi.BoolPtrOutput)
 }
 
-// If public IP is requested or not for a server.
 func (o ServerRoleGroupResponseOutput) EnablePublicIp() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServerRoleGroupResponse) bool { return v.EnablePublicIp }).(pulumi.BoolOutput)
 }
 
-// The name of the server role group.
 func (o ServerRoleGroupResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerRoleGroupResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The role of servers in the server role group.
 func (o ServerRoleGroupResponseOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerRoleGroupResponse) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// The number of servers in the server role group.
 func (o ServerRoleGroupResponseOutput) ServerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServerRoleGroupResponse) *int { return v.ServerCount }).(pulumi.IntPtrOutput)
 }
 
-// The edition of a server (default: GeneralPurpose).
 func (o ServerRoleGroupResponseOutput) ServerEdition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerRoleGroupResponse) *string { return v.ServerEdition }).(pulumi.StringPtrOutput)
 }
 
-// The list of server names in the server role group.
 func (o ServerRoleGroupResponseOutput) ServerNames() ServerNameItemResponseArrayOutput {
 	return o.ApplyT(func(v ServerRoleGroupResponse) []ServerNameItemResponse { return v.ServerNames }).(ServerNameItemResponseArrayOutput)
 }
 
-// The storage of a server in MB (max: 2097152 = 2TiB).
 func (o ServerRoleGroupResponseOutput) StorageQuotaInMb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ServerRoleGroupResponse) *float64 { return v.StorageQuotaInMb }).(pulumi.Float64PtrOutput)
 }
 
-// The vCores count of a server (max: 64).
 func (o ServerRoleGroupResponseOutput) VCores() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ServerRoleGroupResponse) *float64 { return v.VCores }).(pulumi.Float64PtrOutput)
 }
@@ -1373,19 +1272,12 @@ func (o ServerRoleGroupResponseArrayOutput) Index(i pulumi.IntInput) ServerRoleG
 	}).(ServerRoleGroupResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -1400,19 +1292,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1469,7 +1354,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1489,37 +1373,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1539,10 +1417,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1552,7 +1435,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1562,7 +1444,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1572,7 +1453,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1582,7 +1462,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1592,7 +1471,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

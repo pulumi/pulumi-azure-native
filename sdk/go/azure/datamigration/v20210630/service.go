@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Database Migration Service resource
 type Service struct {
 	pulumi.CustomResourceState
 
-	// HTTP strong entity tag value. Ignored if submitted
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The resource kind. Only 'vm' (the default) is supported.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource's provisioning state
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The public key of the service, used to encrypt secrets sent to the service
-	PublicKey pulumi.StringPtrOutput `pulumi:"publicKey"`
-	// Service SKU
-	Sku ServiceSkuResponsePtrOutput `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
-	VirtualNicId pulumi.StringPtrOutput `pulumi:"virtualNicId"`
-	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
-	VirtualSubnetId pulumi.StringOutput `pulumi:"virtualSubnetId"`
+	Etag              pulumi.StringPtrOutput      `pulumi:"etag"`
+	Kind              pulumi.StringPtrOutput      `pulumi:"kind"`
+	Location          pulumi.StringOutput         `pulumi:"location"`
+	Name              pulumi.StringOutput         `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput         `pulumi:"provisioningState"`
+	PublicKey         pulumi.StringPtrOutput      `pulumi:"publicKey"`
+	Sku               ServiceSkuResponsePtrOutput `pulumi:"sku"`
+	SystemData        SystemDataResponseOutput    `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput      `pulumi:"tags"`
+	Type              pulumi.StringOutput         `pulumi:"type"`
+	VirtualNicId      pulumi.StringPtrOutput      `pulumi:"virtualNicId"`
+	VirtualSubnetId   pulumi.StringOutput         `pulumi:"virtualSubnetId"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -128,49 +115,29 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// HTTP strong entity tag value. Ignored if submitted
-	Etag *string `pulumi:"etag"`
-	// Name of the resource group
-	GroupName string `pulumi:"groupName"`
-	// The resource kind. Only 'vm' (the default) is supported.
-	Kind *string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The public key of the service, used to encrypt secrets sent to the service
-	PublicKey *string `pulumi:"publicKey"`
-	// Name of the service
-	ServiceName *string `pulumi:"serviceName"`
-	// Service SKU
-	Sku *ServiceSku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
-	VirtualNicId *string `pulumi:"virtualNicId"`
-	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
-	VirtualSubnetId string `pulumi:"virtualSubnetId"`
+	Etag            *string           `pulumi:"etag"`
+	GroupName       string            `pulumi:"groupName"`
+	Kind            *string           `pulumi:"kind"`
+	Location        *string           `pulumi:"location"`
+	PublicKey       *string           `pulumi:"publicKey"`
+	ServiceName     *string           `pulumi:"serviceName"`
+	Sku             *ServiceSku       `pulumi:"sku"`
+	Tags            map[string]string `pulumi:"tags"`
+	VirtualNicId    *string           `pulumi:"virtualNicId"`
+	VirtualSubnetId string            `pulumi:"virtualSubnetId"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// HTTP strong entity tag value. Ignored if submitted
-	Etag pulumi.StringPtrInput
-	// Name of the resource group
-	GroupName pulumi.StringInput
-	// The resource kind. Only 'vm' (the default) is supported.
-	Kind pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The public key of the service, used to encrypt secrets sent to the service
-	PublicKey pulumi.StringPtrInput
-	// Name of the service
-	ServiceName pulumi.StringPtrInput
-	// Service SKU
-	Sku ServiceSkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
-	VirtualNicId pulumi.StringPtrInput
-	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
+	Etag            pulumi.StringPtrInput
+	GroupName       pulumi.StringInput
+	Kind            pulumi.StringPtrInput
+	Location        pulumi.StringPtrInput
+	PublicKey       pulumi.StringPtrInput
+	ServiceName     pulumi.StringPtrInput
+	Sku             ServiceSkuPtrInput
+	Tags            pulumi.StringMapInput
+	VirtualNicId    pulumi.StringPtrInput
 	VirtualSubnetId pulumi.StringInput
 }
 
@@ -197,9 +164,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
-type ServiceOutput struct {
-	*pulumi.OutputState
-}
+type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Service)(nil))

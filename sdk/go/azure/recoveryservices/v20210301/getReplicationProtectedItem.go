@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Replication protected item.
 func LookupReplicationProtectedItem(ctx *pulumi.Context, args *LookupReplicationProtectedItemArgs, opts ...pulumi.InvokeOption) (*LookupReplicationProtectedItemResult, error) {
 	var rv LookupReplicationProtectedItemResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20210301:getReplicationProtectedItem", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupReplicationProtectedItem(ctx *pulumi.Context, args *LookupReplication
 }
 
 type LookupReplicationProtectedItemArgs struct {
-	// Fabric unique name.
-	FabricName string `pulumi:"fabricName"`
-	// Protection container name.
-	ProtectionContainerName string `pulumi:"protectionContainerName"`
-	// Replication protected item name.
+	FabricName                  string `pulumi:"fabricName"`
+	ProtectionContainerName     string `pulumi:"protectionContainerName"`
 	ReplicatedProtectedItemName string `pulumi:"replicatedProtectedItemName"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceGroupName           string `pulumi:"resourceGroupName"`
+	ResourceName                string `pulumi:"resourceName"`
 }
 
 // Replication protected item.
 type LookupReplicationProtectedItemResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// The custom data.
+	Id         string                                     `pulumi:"id"`
+	Location   *string                                    `pulumi:"location"`
+	Name       string                                     `pulumi:"name"`
 	Properties ReplicationProtectedItemPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
+	Type       string                                     `pulumi:"type"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a webhook for a container registry.
 func LookupWebhook(ctx *pulumi.Context, args *LookupWebhookArgs, opts ...pulumi.InvokeOption) (*LookupWebhookResult, error) {
 	var rv LookupWebhookResult
 	err := ctx.Invoke("azure-native:containerregistry/v20170601preview:getWebhook", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupWebhook(ctx *pulumi.Context, args *LookupWebhookArgs, opts ...pulumi.
 }
 
 type LookupWebhookArgs struct {
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
+	RegistryName      string `pulumi:"registryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the webhook.
-	WebhookName string `pulumi:"webhookName"`
+	WebhookName       string `pulumi:"webhookName"`
 }
 
 // An object that represents a webhook for a container registry.
 type LookupWebhookResult struct {
-	// The list of actions that trigger the webhook to post notifications.
-	Actions []string `pulumi:"actions"`
-	// The resource ID.
-	Id string `pulumi:"id"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The provisioning state of the webhook at the time the operation was called.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
-	Scope *string `pulumi:"scope"`
-	// The status of the webhook at the time the operation was called.
-	Status *string `pulumi:"status"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Actions           []string          `pulumi:"actions"`
+	Id                string            `pulumi:"id"`
+	Location          string            `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	ProvisioningState string            `pulumi:"provisioningState"`
+	Scope             *string           `pulumi:"scope"`
+	Status            *string           `pulumi:"status"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              string            `pulumi:"type"`
 }

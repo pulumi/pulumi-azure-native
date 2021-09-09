@@ -11,42 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an environment instance
 type Environment struct {
 	pulumi.CustomResourceState
 
-	// The name or email address of the user who has claimed the environment
-	ClaimedByUserName pulumi.StringOutput `pulumi:"claimedByUserName"`
-	// The AAD object Id of the user who has claimed the environment
-	ClaimedByUserObjectId pulumi.StringOutput `pulumi:"claimedByUserObjectId"`
-	// The user principal Id of the user who has claimed the environment
-	ClaimedByUserPrincipalId pulumi.StringOutput `pulumi:"claimedByUserPrincipalId"`
-	// Is the environment claimed or not
-	IsClaimed pulumi.BoolOutput `pulumi:"isClaimed"`
-	// Last known power state of the environment
-	LastKnownPowerState pulumi.StringOutput `pulumi:"lastKnownPowerState"`
-	// The details of the latest operation. ex: status, error
-	LatestOperationResult LatestOperationResultResponseOutput `pulumi:"latestOperationResult"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Network details of the environment
-	NetworkInterface NetworkInterfaceResponseOutput `pulumi:"networkInterface"`
-	// When the password was last reset on the environment.
-	PasswordLastReset pulumi.StringOutput `pulumi:"passwordLastReset"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The set of a VM and the setting id it was created for
-	ResourceSets ResourceSetResponsePtrOutput `pulumi:"resourceSets"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// How long the environment has been used by a lab user
-	TotalUsage pulumi.StringOutput `pulumi:"totalUsage"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrOutput `pulumi:"uniqueIdentifier"`
+	ClaimedByUserName        pulumi.StringOutput                 `pulumi:"claimedByUserName"`
+	ClaimedByUserObjectId    pulumi.StringOutput                 `pulumi:"claimedByUserObjectId"`
+	ClaimedByUserPrincipalId pulumi.StringOutput                 `pulumi:"claimedByUserPrincipalId"`
+	IsClaimed                pulumi.BoolOutput                   `pulumi:"isClaimed"`
+	LastKnownPowerState      pulumi.StringOutput                 `pulumi:"lastKnownPowerState"`
+	LatestOperationResult    LatestOperationResultResponseOutput `pulumi:"latestOperationResult"`
+	Location                 pulumi.StringPtrOutput              `pulumi:"location"`
+	Name                     pulumi.StringOutput                 `pulumi:"name"`
+	NetworkInterface         NetworkInterfaceResponseOutput      `pulumi:"networkInterface"`
+	PasswordLastReset        pulumi.StringOutput                 `pulumi:"passwordLastReset"`
+	ProvisioningState        pulumi.StringPtrOutput              `pulumi:"provisioningState"`
+	ResourceSets             ResourceSetResponsePtrOutput        `pulumi:"resourceSets"`
+	Tags                     pulumi.StringMapOutput              `pulumi:"tags"`
+	TotalUsage               pulumi.StringOutput                 `pulumi:"totalUsage"`
+	Type                     pulumi.StringOutput                 `pulumi:"type"`
+	UniqueIdentifier         pulumi.StringPtrOutput              `pulumi:"uniqueIdentifier"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -112,50 +95,30 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
-	// The name of the environment.
-	EnvironmentName *string `pulumi:"environmentName"`
-	// The name of the environment Setting.
-	EnvironmentSettingName string `pulumi:"environmentSettingName"`
-	// The name of the lab Account.
-	LabAccountName string `pulumi:"labAccountName"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The set of a VM and the setting id it was created for
-	ResourceSets *ResourceSet `pulumi:"resourceSets"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	EnvironmentName        *string           `pulumi:"environmentName"`
+	EnvironmentSettingName string            `pulumi:"environmentSettingName"`
+	LabAccountName         string            `pulumi:"labAccountName"`
+	LabName                string            `pulumi:"labName"`
+	Location               *string           `pulumi:"location"`
+	ProvisioningState      *string           `pulumi:"provisioningState"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	ResourceSets           *ResourceSet      `pulumi:"resourceSets"`
+	Tags                   map[string]string `pulumi:"tags"`
+	UniqueIdentifier       *string           `pulumi:"uniqueIdentifier"`
 }
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
-	// The name of the environment.
-	EnvironmentName pulumi.StringPtrInput
-	// The name of the environment Setting.
+	EnvironmentName        pulumi.StringPtrInput
 	EnvironmentSettingName pulumi.StringInput
-	// The name of the lab Account.
-	LabAccountName pulumi.StringInput
-	// The name of the lab.
-	LabName pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The set of a VM and the setting id it was created for
-	ResourceSets ResourceSetPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
+	LabAccountName         pulumi.StringInput
+	LabName                pulumi.StringInput
+	Location               pulumi.StringPtrInput
+	ProvisioningState      pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	ResourceSets           ResourceSetPtrInput
+	Tags                   pulumi.StringMapInput
+	UniqueIdentifier       pulumi.StringPtrInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -181,9 +144,7 @@ func (i *Environment) ToEnvironmentOutputWithContext(ctx context.Context) Enviro
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentOutput)
 }
 
-type EnvironmentOutput struct {
-	*pulumi.OutputState
-}
+type EnvironmentOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Environment)(nil))

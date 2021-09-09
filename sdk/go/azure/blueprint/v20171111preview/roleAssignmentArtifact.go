@@ -11,29 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Blueprint artifact applies Azure role assignment.
 type RoleAssignmentArtifact struct {
 	pulumi.CustomResourceState
 
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn pulumi.StringArrayOutput `pulumi:"dependsOn"`
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Specifies the kind of Blueprint artifact.
-	// Expected value is 'roleAssignment'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of this resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Array of user or group identities in Azure Active Directory. The roleDefinition will apply to these identity.
-	PrincipalIds pulumi.AnyOutput `pulumi:"principalIds"`
-	// RoleAssignment will be scope to this resourceGroup, if left empty, it would scope to the subscription.
-	ResourceGroup pulumi.StringPtrOutput `pulumi:"resourceGroup"`
-	// Azure resource ID of the RoleDefinition.
-	RoleDefinitionId pulumi.StringOutput `pulumi:"roleDefinitionId"`
-	// Type of this resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DependsOn        pulumi.StringArrayOutput `pulumi:"dependsOn"`
+	Description      pulumi.StringPtrOutput   `pulumi:"description"`
+	DisplayName      pulumi.StringPtrOutput   `pulumi:"displayName"`
+	Kind             pulumi.StringOutput      `pulumi:"kind"`
+	Name             pulumi.StringOutput      `pulumi:"name"`
+	PrincipalIds     pulumi.AnyOutput         `pulumi:"principalIds"`
+	ResourceGroup    pulumi.StringPtrOutput   `pulumi:"resourceGroup"`
+	RoleDefinitionId pulumi.StringOutput      `pulumi:"roleDefinitionId"`
+	Type             pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewRoleAssignmentArtifact registers a new resource with the given unique name, arguments, and options.
@@ -97,52 +86,30 @@ func (RoleAssignmentArtifactState) ElementType() reflect.Type {
 }
 
 type roleAssignmentArtifactArgs struct {
-	// name of the artifact.
-	ArtifactName *string `pulumi:"artifactName"`
-	// name of the blueprint.
-	BlueprintName string `pulumi:"blueprintName"`
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn []string `pulumi:"dependsOn"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// Specifies the kind of Blueprint artifact.
-	// Expected value is 'roleAssignment'.
-	Kind string `pulumi:"kind"`
-	// ManagementGroup where blueprint stores.
-	ManagementGroupName string `pulumi:"managementGroupName"`
-	// Array of user or group identities in Azure Active Directory. The roleDefinition will apply to these identity.
-	PrincipalIds interface{} `pulumi:"principalIds"`
-	// RoleAssignment will be scope to this resourceGroup, if left empty, it would scope to the subscription.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Azure resource ID of the RoleDefinition.
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+	ArtifactName        *string     `pulumi:"artifactName"`
+	BlueprintName       string      `pulumi:"blueprintName"`
+	DependsOn           []string    `pulumi:"dependsOn"`
+	Description         *string     `pulumi:"description"`
+	DisplayName         *string     `pulumi:"displayName"`
+	Kind                string      `pulumi:"kind"`
+	ManagementGroupName string      `pulumi:"managementGroupName"`
+	PrincipalIds        interface{} `pulumi:"principalIds"`
+	ResourceGroup       *string     `pulumi:"resourceGroup"`
+	RoleDefinitionId    string      `pulumi:"roleDefinitionId"`
 }
 
 // The set of arguments for constructing a RoleAssignmentArtifact resource.
 type RoleAssignmentArtifactArgs struct {
-	// name of the artifact.
-	ArtifactName pulumi.StringPtrInput
-	// name of the blueprint.
-	BlueprintName pulumi.StringInput
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn pulumi.StringArrayInput
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrInput
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrInput
-	// Specifies the kind of Blueprint artifact.
-	// Expected value is 'roleAssignment'.
-	Kind pulumi.StringInput
-	// ManagementGroup where blueprint stores.
+	ArtifactName        pulumi.StringPtrInput
+	BlueprintName       pulumi.StringInput
+	DependsOn           pulumi.StringArrayInput
+	Description         pulumi.StringPtrInput
+	DisplayName         pulumi.StringPtrInput
+	Kind                pulumi.StringInput
 	ManagementGroupName pulumi.StringInput
-	// Array of user or group identities in Azure Active Directory. The roleDefinition will apply to these identity.
-	PrincipalIds pulumi.Input
-	// RoleAssignment will be scope to this resourceGroup, if left empty, it would scope to the subscription.
-	ResourceGroup pulumi.StringPtrInput
-	// Azure resource ID of the RoleDefinition.
-	RoleDefinitionId pulumi.StringInput
+	PrincipalIds        pulumi.Input
+	ResourceGroup       pulumi.StringPtrInput
+	RoleDefinitionId    pulumi.StringInput
 }
 
 func (RoleAssignmentArtifactArgs) ElementType() reflect.Type {
@@ -168,9 +135,7 @@ func (i *RoleAssignmentArtifact) ToRoleAssignmentArtifactOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentArtifactOutput)
 }
 
-type RoleAssignmentArtifactOutput struct {
-	*pulumi.OutputState
-}
+type RoleAssignmentArtifactOutput struct{ *pulumi.OutputState }
 
 func (RoleAssignmentArtifactOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleAssignmentArtifact)(nil))

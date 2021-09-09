@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// disk encryption set resource.
 func LookupDiskEncryptionSet(ctx *pulumi.Context, args *LookupDiskEncryptionSetArgs, opts ...pulumi.InvokeOption) (*LookupDiskEncryptionSetResult, error) {
 	var rv LookupDiskEncryptionSetResult
 	err := ctx.Invoke("azure-native:compute/v20200930:getDiskEncryptionSet", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupDiskEncryptionSet(ctx *pulumi.Context, args *LookupDiskEncryptionSetA
 }
 
 type LookupDiskEncryptionSetArgs struct {
-	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
 	DiskEncryptionSetName string `pulumi:"diskEncryptionSetName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // disk encryption set resource.
 type LookupDiskEncryptionSetResult struct {
-	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey *KeyForDiskEncryptionSetResponse `pulumi:"activeKey"`
-	// The type of key used to encrypt the data of the disk.
-	EncryptionType *string `pulumi:"encryptionType"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-	Identity *EncryptionSetIdentityResponse `pulumi:"identity"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
-	PreviousKeys []KeyForDiskEncryptionSetResponse `pulumi:"previousKeys"`
-	// The disk encryption set provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	ActiveKey         *KeyForDiskEncryptionSetResponse  `pulumi:"activeKey"`
+	EncryptionType    *string                           `pulumi:"encryptionType"`
+	Id                string                            `pulumi:"id"`
+	Identity          *EncryptionSetIdentityResponse    `pulumi:"identity"`
+	Location          string                            `pulumi:"location"`
+	Name              string                            `pulumi:"name"`
+	PreviousKeys      []KeyForDiskEncryptionSetResponse `pulumi:"previousKeys"`
+	ProvisioningState string                            `pulumi:"provisioningState"`
+	Tags              map[string]string                 `pulumi:"tags"`
+	Type              string                            `pulumi:"type"`
 }

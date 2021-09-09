@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
 type ConfigurationStore struct {
 	pulumi.CustomResourceState
 
-	// The creation date of configuration store.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// The DNS endpoint where the configuration store API will be available.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// The managed identity information, if configured.
-	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the configuration store.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The sku of the configuration store.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CreationDate      pulumi.StringOutput               `pulumi:"creationDate"`
+	Endpoint          pulumi.StringOutput               `pulumi:"endpoint"`
+	Identity          ResourceIdentityResponsePtrOutput `pulumi:"identity"`
+	Location          pulumi.StringOutput               `pulumi:"location"`
+	Name              pulumi.StringOutput               `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput               `pulumi:"provisioningState"`
+	Sku               SkuResponseOutput                 `pulumi:"sku"`
+	Tags              pulumi.StringMapOutput            `pulumi:"tags"`
+	Type              pulumi.StringOutput               `pulumi:"type"`
 }
 
 // NewConfigurationStore registers a new resource with the given unique name, arguments, and options.
@@ -122,34 +112,22 @@ func (ConfigurationStoreState) ElementType() reflect.Type {
 }
 
 type configurationStoreArgs struct {
-	// The name of the configuration store.
-	ConfigStoreName *string `pulumi:"configStoreName"`
-	// The managed identity information, if configured.
-	Identity *ResourceIdentity `pulumi:"identity"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku of the configuration store.
-	Sku Sku `pulumi:"sku"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
+	ConfigStoreName   *string           `pulumi:"configStoreName"`
+	Identity          *ResourceIdentity `pulumi:"identity"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               Sku               `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConfigurationStore resource.
 type ConfigurationStoreArgs struct {
-	// The name of the configuration store.
-	ConfigStoreName pulumi.StringPtrInput
-	// The managed identity information, if configured.
-	Identity ResourceIdentityPtrInput
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The name of the resource group to which the container registry belongs.
+	ConfigStoreName   pulumi.StringPtrInput
+	Identity          ResourceIdentityPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The sku of the configuration store.
-	Sku SkuInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
+	Sku               SkuInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ConfigurationStoreArgs) ElementType() reflect.Type {
@@ -175,9 +153,7 @@ func (i *ConfigurationStore) ToConfigurationStoreOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreOutput)
 }
 
-type ConfigurationStoreOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationStoreOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationStore)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a container on the  Data Box Edge/Gateway device.
 func LookupContainer(ctx *pulumi.Context, args *LookupContainerArgs, opts ...pulumi.InvokeOption) (*LookupContainerResult, error) {
 	var rv LookupContainerResult
 	err := ctx.Invoke("azure-native:databoxedge/v20190801:getContainer", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupContainer(ctx *pulumi.Context, args *LookupContainerArgs, opts ...pul
 }
 
 type LookupContainerArgs struct {
-	// The container Name
-	ContainerName string `pulumi:"containerName"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Storage Account Name
+	ContainerName      string `pulumi:"containerName"`
+	DeviceName         string `pulumi:"deviceName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	StorageAccountName string `pulumi:"storageAccountName"`
 }
 
 // Represents a container on the  Data Box Edge/Gateway device.
 type LookupContainerResult struct {
-	// Current status of the container.
-	ContainerStatus string `pulumi:"containerStatus"`
-	// The UTC time when container got created.
-	CreatedDateTime string `pulumi:"createdDateTime"`
-	// DataFormat for Container
-	DataFormat string `pulumi:"dataFormat"`
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// Details of the refresh job on this container.
-	RefreshDetails RefreshDetailsResponse `pulumi:"refreshDetails"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
+	ContainerStatus string                 `pulumi:"containerStatus"`
+	CreatedDateTime string                 `pulumi:"createdDateTime"`
+	DataFormat      string                 `pulumi:"dataFormat"`
+	Id              string                 `pulumi:"id"`
+	Name            string                 `pulumi:"name"`
+	RefreshDetails  RefreshDetailsResponse `pulumi:"refreshDetails"`
+	Type            string                 `pulumi:"type"`
 }

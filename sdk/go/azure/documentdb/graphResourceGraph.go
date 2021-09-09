@@ -151,9 +151,7 @@ func (i *GraphResourceGraph) ToGraphResourceGraphOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(GraphResourceGraphOutput)
 }
 
-type GraphResourceGraphOutput struct {
-	*pulumi.OutputState
-}
+type GraphResourceGraphOutput struct{ *pulumi.OutputState }
 
 func (GraphResourceGraphOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GraphResourceGraph)(nil))

@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Customer subscription which can use a sku.
 type VendorSkuPreview struct {
 	pulumi.CustomResourceState
 
-	// The preview subscription ID.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the PreviewSubscription resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewVendorSkuPreview registers a new resource with the given unique name, arguments, and options.
@@ -88,22 +83,16 @@ func (VendorSkuPreviewState) ElementType() reflect.Type {
 }
 
 type vendorSkuPreviewArgs struct {
-	// Preview subscription ID.
 	PreviewSubscription *string `pulumi:"previewSubscription"`
-	// The name of the vendor sku.
-	SkuName string `pulumi:"skuName"`
-	// The name of the vendor.
-	VendorName string `pulumi:"vendorName"`
+	SkuName             string  `pulumi:"skuName"`
+	VendorName          string  `pulumi:"vendorName"`
 }
 
 // The set of arguments for constructing a VendorSkuPreview resource.
 type VendorSkuPreviewArgs struct {
-	// Preview subscription ID.
 	PreviewSubscription pulumi.StringPtrInput
-	// The name of the vendor sku.
-	SkuName pulumi.StringInput
-	// The name of the vendor.
-	VendorName pulumi.StringInput
+	SkuName             pulumi.StringInput
+	VendorName          pulumi.StringInput
 }
 
 func (VendorSkuPreviewArgs) ElementType() reflect.Type {
@@ -129,9 +118,7 @@ func (i *VendorSkuPreview) ToVendorSkuPreviewOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(VendorSkuPreviewOutput)
 }
 
-type VendorSkuPreviewOutput struct {
-	*pulumi.OutputState
-}
+type VendorSkuPreviewOutput struct{ *pulumi.OutputState }
 
 func (VendorSkuPreviewOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VendorSkuPreview)(nil))

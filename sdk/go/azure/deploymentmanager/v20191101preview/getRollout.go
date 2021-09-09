@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines the PUT rollout request body.
 func LookupRollout(ctx *pulumi.Context, args *LookupRolloutArgs, opts ...pulumi.InvokeOption) (*LookupRolloutResult, error) {
 	var rv LookupRolloutResult
 	err := ctx.Invoke("azure-native:deploymentmanager/v20191101preview:getRollout", args, &rv, opts...)
@@ -18,42 +17,25 @@ func LookupRollout(ctx *pulumi.Context, args *LookupRolloutArgs, opts ...pulumi.
 }
 
 type LookupRolloutArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Rollout retry attempt ordinal to get the result of. If not specified, result of the latest attempt will be returned.
-	RetryAttempt *int `pulumi:"retryAttempt"`
-	// The rollout name.
-	RolloutName string `pulumi:"rolloutName"`
+	RetryAttempt      *int   `pulumi:"retryAttempt"`
+	RolloutName       string `pulumi:"rolloutName"`
 }
 
 // Defines the rollout.
 type LookupRolloutResult struct {
-	// The reference to the artifact source resource Id where the payload is located.
-	ArtifactSourceId *string `pulumi:"artifactSourceId"`
-	// The version of the build being deployed.
-	BuildVersion string `pulumi:"buildVersion"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Identity for the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Operational information of the rollout.
-	OperationInfo RolloutOperationInfoResponse `pulumi:"operationInfo"`
-	// The detailed information on the services being deployed.
-	Services []ServiceResponse `pulumi:"services"`
-	// The current status of the rollout.
-	Status string `pulumi:"status"`
-	// The list of step groups that define the orchestration.
-	StepGroups []StepGroupResponse `pulumi:"stepGroups"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
-	TargetServiceTopologyId string `pulumi:"targetServiceTopologyId"`
-	// The cardinal count of total number of retries performed on the rollout at a given time.
-	TotalRetryAttempts int `pulumi:"totalRetryAttempts"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	ArtifactSourceId        *string                      `pulumi:"artifactSourceId"`
+	BuildVersion            string                       `pulumi:"buildVersion"`
+	Id                      string                       `pulumi:"id"`
+	Identity                *IdentityResponse            `pulumi:"identity"`
+	Location                string                       `pulumi:"location"`
+	Name                    string                       `pulumi:"name"`
+	OperationInfo           RolloutOperationInfoResponse `pulumi:"operationInfo"`
+	Services                []ServiceResponse            `pulumi:"services"`
+	Status                  string                       `pulumi:"status"`
+	StepGroups              []StepGroupResponse          `pulumi:"stepGroups"`
+	Tags                    map[string]string            `pulumi:"tags"`
+	TargetServiceTopologyId string                       `pulumi:"targetServiceTopologyId"`
+	TotalRetryAttempts      int                          `pulumi:"totalRetryAttempts"`
+	Type                    string                       `pulumi:"type"`
 }

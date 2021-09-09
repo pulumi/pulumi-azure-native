@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// String list resource.
 func ListStaticSiteConfiguredRoles(ctx *pulumi.Context, args *ListStaticSiteConfiguredRolesArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteConfiguredRolesResult, error) {
 	var rv ListStaticSiteConfiguredRolesResult
 	err := ctx.Invoke("azure-native:web/v20210201:listStaticSiteConfiguredRoles", args, &rv, opts...)
@@ -18,22 +17,15 @@ func ListStaticSiteConfiguredRoles(ctx *pulumi.Context, args *ListStaticSiteConf
 }
 
 type ListStaticSiteConfiguredRolesArgs struct {
-	// Name of the static site.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // String list resource.
 type ListStaticSiteConfiguredRolesResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// List of string resources.
+	Id         string   `pulumi:"id"`
+	Kind       *string  `pulumi:"kind"`
+	Name       string   `pulumi:"name"`
 	Properties []string `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type       string   `pulumi:"type"`
 }

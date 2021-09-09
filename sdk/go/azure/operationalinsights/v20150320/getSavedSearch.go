@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Value object for saved search results.
 func LookupSavedSearch(ctx *pulumi.Context, args *LookupSavedSearchArgs, opts ...pulumi.InvokeOption) (*LookupSavedSearchResult, error) {
 	var rv LookupSavedSearchResult
 	err := ctx.Invoke("azure-native:operationalinsights/v20150320:getSavedSearch", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupSavedSearch(ctx *pulumi.Context, args *LookupSavedSearchArgs, opts ..
 }
 
 type LookupSavedSearchArgs struct {
-	// The Resource Group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The id of the saved search.
-	SavedSearchId string `pulumi:"savedSearchId"`
-	// The Log Analytics Workspace name.
-	WorkspaceName string `pulumi:"workspaceName"`
+	SavedSearchId     string `pulumi:"savedSearchId"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Value object for saved search results.
 type LookupSavedSearchResult struct {
-	// The category of the saved search. This helps the user to find a saved search faster.
-	Category string `pulumi:"category"`
-	// Saved search display name.
-	DisplayName string `pulumi:"displayName"`
-	// The ETag of the saved search.
-	ETag *string `pulumi:"eTag"`
-	// The id of the saved search.
-	Id string `pulumi:"id"`
-	// The name of the saved search.
-	Name string `pulumi:"name"`
-	// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
-	Query string `pulumi:"query"`
-	// The tags attached to the saved search.
-	Tags []TagResponse `pulumi:"tags"`
-	// The type of the saved search.
-	Type string `pulumi:"type"`
-	// The version number of the query language. The current version is 2 and is the default.
-	Version *float64 `pulumi:"version"`
+	Category    string        `pulumi:"category"`
+	DisplayName string        `pulumi:"displayName"`
+	ETag        *string       `pulumi:"eTag"`
+	Id          string        `pulumi:"id"`
+	Name        string        `pulumi:"name"`
+	Query       string        `pulumi:"query"`
+	Tags        []TagResponse `pulumi:"tags"`
+	Type        string        `pulumi:"type"`
+	Version     *float64      `pulumi:"version"`
 }

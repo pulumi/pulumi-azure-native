@@ -11,22 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB SQL database.
 type SqlResourceSqlDatabase struct {
 	pulumi.CustomResourceState
 
-	// Identity for the resource.
-	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the ARM resource.
+	Identity ManagedServiceIdentityResponsePtrOutput           `pulumi:"identity"`
+	Location pulumi.StringPtrOutput                            `pulumi:"location"`
 	Name     pulumi.StringOutput                               `pulumi:"name"`
 	Options  SqlDatabaseGetPropertiesResponseOptionsPtrOutput  `pulumi:"options"`
 	Resource SqlDatabaseGetPropertiesResponseResourcePtrOutput `pulumi:"resource"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags     pulumi.StringMapOutput                            `pulumi:"tags"`
+	Type     pulumi.StringOutput                               `pulumi:"type"`
 }
 
 // NewSqlResourceSqlDatabase registers a new resource with the given unique name, arguments, and options.
@@ -200,42 +194,26 @@ func (SqlResourceSqlDatabaseState) ElementType() reflect.Type {
 }
 
 type sqlResourceSqlDatabaseArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Cosmos DB database name.
-	DatabaseName *string `pulumi:"databaseName"`
-	// Identity for the resource.
-	Identity *ManagedServiceIdentity `pulumi:"identity"`
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options CreateUpdateOptions `pulumi:"options"`
-	// The standard JSON format of a SQL database
-	Resource SqlDatabaseResource `pulumi:"resource"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       string                  `pulumi:"accountName"`
+	DatabaseName      *string                 `pulumi:"databaseName"`
+	Identity          *ManagedServiceIdentity `pulumi:"identity"`
+	Location          *string                 `pulumi:"location"`
+	Options           CreateUpdateOptions     `pulumi:"options"`
+	Resource          SqlDatabaseResource     `pulumi:"resource"`
+	ResourceGroupName string                  `pulumi:"resourceGroupName"`
+	Tags              map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SqlResourceSqlDatabase resource.
 type SqlResourceSqlDatabaseArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Cosmos DB database name.
-	DatabaseName pulumi.StringPtrInput
-	// Identity for the resource.
-	Identity ManagedServiceIdentityPtrInput
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options CreateUpdateOptionsInput
-	// The standard JSON format of a SQL database
-	Resource SqlDatabaseResourceInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	DatabaseName      pulumi.StringPtrInput
+	Identity          ManagedServiceIdentityPtrInput
+	Location          pulumi.StringPtrInput
+	Options           CreateUpdateOptionsInput
+	Resource          SqlDatabaseResourceInput
 	ResourceGroupName pulumi.StringInput
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (SqlResourceSqlDatabaseArgs) ElementType() reflect.Type {
@@ -261,9 +239,7 @@ func (i *SqlResourceSqlDatabase) ToSqlResourceSqlDatabaseOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlDatabaseOutput)
 }
 
-type SqlResourceSqlDatabaseOutput struct {
-	*pulumi.OutputState
-}
+type SqlResourceSqlDatabaseOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlResourceSqlDatabase)(nil))

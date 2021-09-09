@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This type describes a volume resource.
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	var rv LookupVolumeResult
 	err := ctx.Invoke("azure-native:servicefabricmesh/v20180701preview:getVolume", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.In
 }
 
 type LookupVolumeArgs struct {
-	// Azure resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The identity of the volume.
-	VolumeName string `pulumi:"volumeName"`
+	VolumeName        string `pulumi:"volumeName"`
 }
 
 // This type describes a volume resource.
 type LookupVolumeResult struct {
-	// This type describes a volume provided by an Azure Files file share.
 	AzureFileParameters *VolumeProviderParametersAzureFileResponse `pulumi:"azureFileParameters"`
-	// User readable description of the volume.
-	Description *string `pulumi:"description"`
-	// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Provider of the volume.
-	Provider string `pulumi:"provider"`
-	// State of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
+	Description         *string                                    `pulumi:"description"`
+	Id                  string                                     `pulumi:"id"`
+	Location            string                                     `pulumi:"location"`
+	Name                string                                     `pulumi:"name"`
+	Provider            string                                     `pulumi:"provider"`
+	ProvisioningState   string                                     `pulumi:"provisioningState"`
+	Tags                map[string]string                          `pulumi:"tags"`
+	Type                string                                     `pulumi:"type"`
 }

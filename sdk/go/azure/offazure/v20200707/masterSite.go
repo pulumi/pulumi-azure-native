@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Site REST Resource.
 type MasterSite struct {
 	pulumi.CustomResourceState
 
-	// eTag for concurrency control.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Azure location in which Sites is created.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Name of the Master site.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Nested properties of Master site.
+	ETag       pulumi.StringPtrOutput             `pulumi:"eTag"`
+	Location   pulumi.StringPtrOutput             `pulumi:"location"`
+	Name       pulumi.StringPtrOutput             `pulumi:"name"`
 	Properties MasterSitePropertiesResponseOutput `pulumi:"properties"`
-	// Type of resource. Type = Microsoft.OffAzure/MasterSites.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewMasterSite registers a new resource with the given unique name, arguments, and options.
@@ -81,34 +75,22 @@ func (MasterSiteState) ElementType() reflect.Type {
 }
 
 type masterSiteArgs struct {
-	// eTag for concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Azure location in which Sites is created.
-	Location *string `pulumi:"location"`
-	// Name of the Master site.
-	Name *string `pulumi:"name"`
-	// Nested properties of Master site.
-	Properties *MasterSiteProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Site name.
-	SiteName *string `pulumi:"siteName"`
+	ETag              *string               `pulumi:"eTag"`
+	Location          *string               `pulumi:"location"`
+	Name              *string               `pulumi:"name"`
+	Properties        *MasterSiteProperties `pulumi:"properties"`
+	ResourceGroupName string                `pulumi:"resourceGroupName"`
+	SiteName          *string               `pulumi:"siteName"`
 }
 
 // The set of arguments for constructing a MasterSite resource.
 type MasterSiteArgs struct {
-	// eTag for concurrency control.
-	ETag pulumi.StringPtrInput
-	// Azure location in which Sites is created.
-	Location pulumi.StringPtrInput
-	// Name of the Master site.
-	Name pulumi.StringPtrInput
-	// Nested properties of Master site.
-	Properties MasterSitePropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
+	ETag              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	Properties        MasterSitePropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Site name.
-	SiteName pulumi.StringPtrInput
+	SiteName          pulumi.StringPtrInput
 }
 
 func (MasterSiteArgs) ElementType() reflect.Type {
@@ -134,9 +116,7 @@ func (i *MasterSite) ToMasterSiteOutputWithContext(ctx context.Context) MasterSi
 	return pulumi.ToOutputWithContext(ctx, i).(MasterSiteOutput)
 }
 
-type MasterSiteOutput struct {
-	*pulumi.OutputState
-}
+type MasterSiteOutput struct{ *pulumi.OutputState }
 
 func (MasterSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MasterSite)(nil))

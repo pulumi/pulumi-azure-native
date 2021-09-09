@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Role definition permissions.
 type Permission struct {
-	// Allowed actions.
-	Actions []string `pulumi:"actions"`
-	// Denied actions.
+	Actions    []string `pulumi:"actions"`
 	NotActions []string `pulumi:"notActions"`
 }
 
@@ -29,11 +26,8 @@ type PermissionInput interface {
 	ToPermissionOutputWithContext(context.Context) PermissionOutput
 }
 
-// Role definition permissions.
 type PermissionArgs struct {
-	// Allowed actions.
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// Denied actions.
+	Actions    pulumi.StringArrayInput `pulumi:"actions"`
 	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
 }
 
@@ -74,7 +68,6 @@ func (i PermissionArray) ToPermissionArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionArrayOutput)
 }
 
-// Role definition permissions.
 type PermissionOutput struct{ *pulumi.OutputState }
 
 func (PermissionOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) Per
 	return o
 }
 
-// Allowed actions.
 func (o PermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// Denied actions.
 func (o PermissionOutput) NotActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
 }
@@ -119,11 +110,8 @@ func (o PermissionArrayOutput) Index(i pulumi.IntInput) PermissionOutput {
 	}).(PermissionOutput)
 }
 
-// Role definition permissions.
 type PermissionResponse struct {
-	// Allowed actions.
-	Actions []string `pulumi:"actions"`
-	// Denied actions.
+	Actions    []string `pulumi:"actions"`
 	NotActions []string `pulumi:"notActions"`
 }
 
@@ -138,11 +126,8 @@ type PermissionResponseInput interface {
 	ToPermissionResponseOutputWithContext(context.Context) PermissionResponseOutput
 }
 
-// Role definition permissions.
 type PermissionResponseArgs struct {
-	// Allowed actions.
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// Denied actions.
+	Actions    pulumi.StringArrayInput `pulumi:"actions"`
 	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
 }
 
@@ -183,7 +168,6 @@ func (i PermissionResponseArray) ToPermissionResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionResponseArrayOutput)
 }
 
-// Role definition permissions.
 type PermissionResponseOutput struct{ *pulumi.OutputState }
 
 func (PermissionResponseOutput) ElementType() reflect.Type {
@@ -198,12 +182,10 @@ func (o PermissionResponseOutput) ToPermissionResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Allowed actions.
 func (o PermissionResponseOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionResponse) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// Denied actions.
 func (o PermissionResponseOutput) NotActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionResponse) []string { return v.NotActions }).(pulumi.StringArrayOutput)
 }
@@ -228,11 +210,8 @@ func (o PermissionResponseArrayOutput) Index(i pulumi.IntInput) PermissionRespon
 	}).(PermissionResponseOutput)
 }
 
-// Role assignment properties.
 type RoleAssignmentProperties struct {
-	// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-	PrincipalId string `pulumi:"principalId"`
-	// The role definition ID used in the role assignment.
+	PrincipalId      string `pulumi:"principalId"`
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 }
 
@@ -247,11 +226,8 @@ type RoleAssignmentPropertiesInput interface {
 	ToRoleAssignmentPropertiesOutputWithContext(context.Context) RoleAssignmentPropertiesOutput
 }
 
-// Role assignment properties.
 type RoleAssignmentPropertiesArgs struct {
-	// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The role definition ID used in the role assignment.
+	PrincipalId      pulumi.StringInput `pulumi:"principalId"`
 	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
 }
 
@@ -308,7 +284,6 @@ func (i *roleAssignmentPropertiesPtrType) ToRoleAssignmentPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesPtrOutput)
 }
 
-// Role assignment properties.
 type RoleAssignmentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (RoleAssignmentPropertiesOutput) ElementType() reflect.Type {
@@ -328,17 +303,15 @@ func (o RoleAssignmentPropertiesOutput) ToRoleAssignmentPropertiesPtrOutput() Ro
 }
 
 func (o RoleAssignmentPropertiesOutput) ToRoleAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesPtrOutput {
-	return o.ApplyT(func(v RoleAssignmentProperties) *RoleAssignmentProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleAssignmentProperties) *RoleAssignmentProperties {
 		return &v
 	}).(RoleAssignmentPropertiesPtrOutput)
 }
 
-// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
 func (o RoleAssignmentPropertiesOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleAssignmentProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The role definition ID used in the role assignment.
 func (o RoleAssignmentPropertiesOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleAssignmentProperties) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
@@ -358,10 +331,15 @@ func (o RoleAssignmentPropertiesPtrOutput) ToRoleAssignmentPropertiesPtrOutputWi
 }
 
 func (o RoleAssignmentPropertiesPtrOutput) Elem() RoleAssignmentPropertiesOutput {
-	return o.ApplyT(func(v *RoleAssignmentProperties) RoleAssignmentProperties { return *v }).(RoleAssignmentPropertiesOutput)
+	return o.ApplyT(func(v *RoleAssignmentProperties) RoleAssignmentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RoleAssignmentProperties
+		return ret
+	}).(RoleAssignmentPropertiesOutput)
 }
 
-// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
 func (o RoleAssignmentPropertiesPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleAssignmentProperties) *string {
 		if v == nil {
@@ -371,7 +349,6 @@ func (o RoleAssignmentPropertiesPtrOutput) PrincipalId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The role definition ID used in the role assignment.
 func (o RoleAssignmentPropertiesPtrOutput) RoleDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleAssignmentProperties) *string {
 		if v == nil {
@@ -381,14 +358,10 @@ func (o RoleAssignmentPropertiesPtrOutput) RoleDefinitionId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Role assignment properties with scope.
 type RoleAssignmentPropertiesWithScopeResponse struct {
-	// The principal ID.
-	PrincipalId *string `pulumi:"principalId"`
-	// The role definition ID.
+	PrincipalId      *string `pulumi:"principalId"`
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// The role assignment scope.
-	Scope *string `pulumi:"scope"`
+	Scope            *string `pulumi:"scope"`
 }
 
 // RoleAssignmentPropertiesWithScopeResponseInput is an input type that accepts RoleAssignmentPropertiesWithScopeResponseArgs and RoleAssignmentPropertiesWithScopeResponseOutput values.
@@ -402,14 +375,10 @@ type RoleAssignmentPropertiesWithScopeResponseInput interface {
 	ToRoleAssignmentPropertiesWithScopeResponseOutputWithContext(context.Context) RoleAssignmentPropertiesWithScopeResponseOutput
 }
 
-// Role assignment properties with scope.
 type RoleAssignmentPropertiesWithScopeResponseArgs struct {
-	// The principal ID.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The role definition ID.
+	PrincipalId      pulumi.StringPtrInput `pulumi:"principalId"`
 	RoleDefinitionId pulumi.StringPtrInput `pulumi:"roleDefinitionId"`
-	// The role assignment scope.
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope            pulumi.StringPtrInput `pulumi:"scope"`
 }
 
 func (RoleAssignmentPropertiesWithScopeResponseArgs) ElementType() reflect.Type {
@@ -465,7 +434,6 @@ func (i *roleAssignmentPropertiesWithScopeResponsePtrType) ToRoleAssignmentPrope
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesWithScopeResponsePtrOutput)
 }
 
-// Role assignment properties with scope.
 type RoleAssignmentPropertiesWithScopeResponseOutput struct{ *pulumi.OutputState }
 
 func (RoleAssignmentPropertiesWithScopeResponseOutput) ElementType() reflect.Type {
@@ -485,22 +453,19 @@ func (o RoleAssignmentPropertiesWithScopeResponseOutput) ToRoleAssignmentPropert
 }
 
 func (o RoleAssignmentPropertiesWithScopeResponseOutput) ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeResponse) *RoleAssignmentPropertiesWithScopeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleAssignmentPropertiesWithScopeResponse) *RoleAssignmentPropertiesWithScopeResponse {
 		return &v
 	}).(RoleAssignmentPropertiesWithScopeResponsePtrOutput)
 }
 
-// The principal ID.
 func (o RoleAssignmentPropertiesWithScopeResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The role definition ID.
 func (o RoleAssignmentPropertiesWithScopeResponseOutput) RoleDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeResponse) *string { return v.RoleDefinitionId }).(pulumi.StringPtrOutput)
 }
 
-// The role assignment scope.
 func (o RoleAssignmentPropertiesWithScopeResponseOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeResponse) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
@@ -521,11 +486,14 @@ func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) ToRoleAssignmentProp
 
 func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) Elem() RoleAssignmentPropertiesWithScopeResponseOutput {
 	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) RoleAssignmentPropertiesWithScopeResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RoleAssignmentPropertiesWithScopeResponse
+		return ret
 	}).(RoleAssignmentPropertiesWithScopeResponseOutput)
 }
 
-// The principal ID.
 func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) *string {
 		if v == nil {
@@ -535,7 +503,6 @@ func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) PrincipalId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The role definition ID.
 func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) RoleDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) *string {
 		if v == nil {
@@ -545,7 +512,6 @@ func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) RoleDefinitionId() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The role assignment scope.
 func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) *string {
 		if v == nil {

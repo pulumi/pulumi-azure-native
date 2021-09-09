@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomain struct {
-	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-	Name string `pulumi:"name"`
-	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
-	UseSubDomainName *bool `pulumi:"useSubDomainName"`
+	Name             string `pulumi:"name"`
+	UseSubDomainName *bool  `pulumi:"useSubDomainName"`
 }
 
 // CustomDomainInput is an input type that accepts CustomDomainArgs and CustomDomainOutput values.
@@ -29,11 +26,8 @@ type CustomDomainInput interface {
 	ToCustomDomainOutputWithContext(context.Context) CustomDomainOutput
 }
 
-// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomainArgs struct {
-	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+	Name             pulumi.StringInput  `pulumi:"name"`
 	UseSubDomainName pulumi.BoolPtrInput `pulumi:"useSubDomainName"`
 }
 
@@ -90,7 +84,6 @@ func (i *customDomainPtrType) ToCustomDomainPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPtrOutput)
 }
 
-// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomainOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o CustomDomainOutput) ToCustomDomainPtrOutput() CustomDomainPtrOutput {
 }
 
 func (o CustomDomainOutput) ToCustomDomainPtrOutputWithContext(ctx context.Context) CustomDomainPtrOutput {
-	return o.ApplyT(func(v CustomDomain) *CustomDomain {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomain) *CustomDomain {
 		return &v
 	}).(CustomDomainPtrOutput)
 }
 
-// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
 func (o CustomDomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomain) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
 func (o CustomDomainOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomain) *bool { return v.UseSubDomainName }).(pulumi.BoolPtrOutput)
 }
@@ -140,10 +131,15 @@ func (o CustomDomainPtrOutput) ToCustomDomainPtrOutputWithContext(ctx context.Co
 }
 
 func (o CustomDomainPtrOutput) Elem() CustomDomainOutput {
-	return o.ApplyT(func(v *CustomDomain) CustomDomain { return *v }).(CustomDomainOutput)
+	return o.ApplyT(func(v *CustomDomain) CustomDomain {
+		if v != nil {
+			return *v
+		}
+		var ret CustomDomain
+		return ret
+	}).(CustomDomainOutput)
 }
 
-// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
 func (o CustomDomainPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDomain) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o CustomDomainPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
 func (o CustomDomainPtrOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CustomDomain) *bool {
 		if v == nil {
@@ -163,12 +158,9 @@ func (o CustomDomainPtrOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomainResponse struct {
-	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-	Name string `pulumi:"name"`
-	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
-	UseSubDomainName *bool `pulumi:"useSubDomainName"`
+	Name             string `pulumi:"name"`
+	UseSubDomainName *bool  `pulumi:"useSubDomainName"`
 }
 
 // CustomDomainResponseInput is an input type that accepts CustomDomainResponseArgs and CustomDomainResponseOutput values.
@@ -182,11 +174,8 @@ type CustomDomainResponseInput interface {
 	ToCustomDomainResponseOutputWithContext(context.Context) CustomDomainResponseOutput
 }
 
-// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomainResponseArgs struct {
-	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+	Name             pulumi.StringInput  `pulumi:"name"`
 	UseSubDomainName pulumi.BoolPtrInput `pulumi:"useSubDomainName"`
 }
 
@@ -243,7 +232,6 @@ func (i *customDomainResponsePtrType) ToCustomDomainResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainResponsePtrOutput)
 }
 
-// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomainResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainResponseOutput) ElementType() reflect.Type {
@@ -263,17 +251,15 @@ func (o CustomDomainResponseOutput) ToCustomDomainResponsePtrOutput() CustomDoma
 }
 
 func (o CustomDomainResponseOutput) ToCustomDomainResponsePtrOutputWithContext(ctx context.Context) CustomDomainResponsePtrOutput {
-	return o.ApplyT(func(v CustomDomainResponse) *CustomDomainResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomainResponse) *CustomDomainResponse {
 		return &v
 	}).(CustomDomainResponsePtrOutput)
 }
 
-// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
 func (o CustomDomainResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
 func (o CustomDomainResponseOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainResponse) *bool { return v.UseSubDomainName }).(pulumi.BoolPtrOutput)
 }
@@ -293,10 +279,15 @@ func (o CustomDomainResponsePtrOutput) ToCustomDomainResponsePtrOutputWithContex
 }
 
 func (o CustomDomainResponsePtrOutput) Elem() CustomDomainResponseOutput {
-	return o.ApplyT(func(v *CustomDomainResponse) CustomDomainResponse { return *v }).(CustomDomainResponseOutput)
+	return o.ApplyT(func(v *CustomDomainResponse) CustomDomainResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CustomDomainResponse
+		return ret
+	}).(CustomDomainResponseOutput)
 }
 
-// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
 func (o CustomDomainResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDomainResponse) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o CustomDomainResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
 func (o CustomDomainResponsePtrOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CustomDomainResponse) *bool {
 		if v == nil {
@@ -316,12 +306,9 @@ func (o CustomDomainResponsePtrOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The encryption settings on the storage account.
 type Encryption struct {
-	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
-	KeySource string `pulumi:"keySource"`
-	// List of services which support encryption.
-	Services *EncryptionServices `pulumi:"services"`
+	KeySource string              `pulumi:"keySource"`
+	Services  *EncryptionServices `pulumi:"services"`
 }
 
 // EncryptionInput is an input type that accepts EncryptionArgs and EncryptionOutput values.
@@ -335,12 +322,9 @@ type EncryptionInput interface {
 	ToEncryptionOutputWithContext(context.Context) EncryptionOutput
 }
 
-// The encryption settings on the storage account.
 type EncryptionArgs struct {
-	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
-	KeySource pulumi.StringInput `pulumi:"keySource"`
-	// List of services which support encryption.
-	Services EncryptionServicesPtrInput `pulumi:"services"`
+	KeySource pulumi.StringInput         `pulumi:"keySource"`
+	Services  EncryptionServicesPtrInput `pulumi:"services"`
 }
 
 func (EncryptionArgs) ElementType() reflect.Type {
@@ -396,7 +380,6 @@ func (i *encryptionPtrType) ToEncryptionPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPtrOutput)
 }
 
-// The encryption settings on the storage account.
 type EncryptionOutput struct{ *pulumi.OutputState }
 
 func (EncryptionOutput) ElementType() reflect.Type {
@@ -416,17 +399,15 @@ func (o EncryptionOutput) ToEncryptionPtrOutput() EncryptionPtrOutput {
 }
 
 func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
-	return o.ApplyT(func(v Encryption) *Encryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Encryption) *Encryption {
 		return &v
 	}).(EncryptionPtrOutput)
 }
 
-// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
 func (o EncryptionOutput) KeySource() pulumi.StringOutput {
 	return o.ApplyT(func(v Encryption) string { return v.KeySource }).(pulumi.StringOutput)
 }
 
-// List of services which support encryption.
 func (o EncryptionOutput) Services() EncryptionServicesPtrOutput {
 	return o.ApplyT(func(v Encryption) *EncryptionServices { return v.Services }).(EncryptionServicesPtrOutput)
 }
@@ -446,10 +427,15 @@ func (o EncryptionPtrOutput) ToEncryptionPtrOutputWithContext(ctx context.Contex
 }
 
 func (o EncryptionPtrOutput) Elem() EncryptionOutput {
-	return o.ApplyT(func(v *Encryption) Encryption { return *v }).(EncryptionOutput)
+	return o.ApplyT(func(v *Encryption) Encryption {
+		if v != nil {
+			return *v
+		}
+		var ret Encryption
+		return ret
+	}).(EncryptionOutput)
 }
 
-// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
 func (o EncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Encryption) *string {
 		if v == nil {
@@ -459,7 +445,6 @@ func (o EncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of services which support encryption.
 func (o EncryptionPtrOutput) Services() EncryptionServicesPtrOutput {
 	return o.ApplyT(func(v *Encryption) *EncryptionServices {
 		if v == nil {
@@ -469,12 +454,9 @@ func (o EncryptionPtrOutput) Services() EncryptionServicesPtrOutput {
 	}).(EncryptionServicesPtrOutput)
 }
 
-// The encryption settings on the storage account.
 type EncryptionResponse struct {
-	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
-	KeySource string `pulumi:"keySource"`
-	// List of services which support encryption.
-	Services *EncryptionServicesResponse `pulumi:"services"`
+	KeySource string                      `pulumi:"keySource"`
+	Services  *EncryptionServicesResponse `pulumi:"services"`
 }
 
 // EncryptionResponseInput is an input type that accepts EncryptionResponseArgs and EncryptionResponseOutput values.
@@ -488,12 +470,9 @@ type EncryptionResponseInput interface {
 	ToEncryptionResponseOutputWithContext(context.Context) EncryptionResponseOutput
 }
 
-// The encryption settings on the storage account.
 type EncryptionResponseArgs struct {
-	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
-	KeySource pulumi.StringInput `pulumi:"keySource"`
-	// List of services which support encryption.
-	Services EncryptionServicesResponsePtrInput `pulumi:"services"`
+	KeySource pulumi.StringInput                 `pulumi:"keySource"`
+	Services  EncryptionServicesResponsePtrInput `pulumi:"services"`
 }
 
 func (EncryptionResponseArgs) ElementType() reflect.Type {
@@ -549,7 +528,6 @@ func (i *encryptionResponsePtrType) ToEncryptionResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionResponsePtrOutput)
 }
 
-// The encryption settings on the storage account.
 type EncryptionResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionResponseOutput) ElementType() reflect.Type {
@@ -569,17 +547,15 @@ func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutput() EncryptionResp
 }
 
 func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutputWithContext(ctx context.Context) EncryptionResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionResponse) *EncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionResponse) *EncryptionResponse {
 		return &v
 	}).(EncryptionResponsePtrOutput)
 }
 
-// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
 func (o EncryptionResponseOutput) KeySource() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionResponse) string { return v.KeySource }).(pulumi.StringOutput)
 }
 
-// List of services which support encryption.
 func (o EncryptionResponseOutput) Services() EncryptionServicesResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionResponse) *EncryptionServicesResponse { return v.Services }).(EncryptionServicesResponsePtrOutput)
 }
@@ -599,10 +575,15 @@ func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutputWithContext(ct
 }
 
 func (o EncryptionResponsePtrOutput) Elem() EncryptionResponseOutput {
-	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse { return *v }).(EncryptionResponseOutput)
+	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionResponse
+		return ret
+	}).(EncryptionResponseOutput)
 }
 
-// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
 func (o EncryptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *string {
 		if v == nil {
@@ -612,7 +593,6 @@ func (o EncryptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of services which support encryption.
 func (o EncryptionResponsePtrOutput) Services() EncryptionServicesResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *EncryptionServicesResponse {
 		if v == nil {
@@ -622,9 +602,7 @@ func (o EncryptionResponsePtrOutput) Services() EncryptionServicesResponsePtrOut
 	}).(EncryptionServicesResponsePtrOutput)
 }
 
-// A service that allows server-side encryption to be used.
 type EncryptionService struct {
-	// A boolean indicating whether or not the service encrypts the data as it is stored.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -639,9 +617,7 @@ type EncryptionServiceInput interface {
 	ToEncryptionServiceOutputWithContext(context.Context) EncryptionServiceOutput
 }
 
-// A service that allows server-side encryption to be used.
 type EncryptionServiceArgs struct {
-	// A boolean indicating whether or not the service encrypts the data as it is stored.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -698,7 +674,6 @@ func (i *encryptionServicePtrType) ToEncryptionServicePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionServicePtrOutput)
 }
 
-// A service that allows server-side encryption to be used.
 type EncryptionServiceOutput struct{ *pulumi.OutputState }
 
 func (EncryptionServiceOutput) ElementType() reflect.Type {
@@ -718,12 +693,11 @@ func (o EncryptionServiceOutput) ToEncryptionServicePtrOutput() EncryptionServic
 }
 
 func (o EncryptionServiceOutput) ToEncryptionServicePtrOutputWithContext(ctx context.Context) EncryptionServicePtrOutput {
-	return o.ApplyT(func(v EncryptionService) *EncryptionService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionService) *EncryptionService {
 		return &v
 	}).(EncryptionServicePtrOutput)
 }
 
-// A boolean indicating whether or not the service encrypts the data as it is stored.
 func (o EncryptionServiceOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EncryptionService) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -743,10 +717,15 @@ func (o EncryptionServicePtrOutput) ToEncryptionServicePtrOutputWithContext(ctx 
 }
 
 func (o EncryptionServicePtrOutput) Elem() EncryptionServiceOutput {
-	return o.ApplyT(func(v *EncryptionService) EncryptionService { return *v }).(EncryptionServiceOutput)
+	return o.ApplyT(func(v *EncryptionService) EncryptionService {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionService
+		return ret
+	}).(EncryptionServiceOutput)
 }
 
-// A boolean indicating whether or not the service encrypts the data as it is stored.
 func (o EncryptionServicePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionService) *bool {
 		if v == nil {
@@ -756,11 +735,8 @@ func (o EncryptionServicePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A service that allows server-side encryption to be used.
 type EncryptionServiceResponse struct {
-	// A boolean indicating whether or not the service encrypts the data as it is stored.
-	Enabled *bool `pulumi:"enabled"`
-	// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
+	Enabled         *bool  `pulumi:"enabled"`
 	LastEnabledTime string `pulumi:"lastEnabledTime"`
 }
 
@@ -775,12 +751,9 @@ type EncryptionServiceResponseInput interface {
 	ToEncryptionServiceResponseOutputWithContext(context.Context) EncryptionServiceResponseOutput
 }
 
-// A service that allows server-side encryption to be used.
 type EncryptionServiceResponseArgs struct {
-	// A boolean indicating whether or not the service encrypts the data as it is stored.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
-	LastEnabledTime pulumi.StringInput `pulumi:"lastEnabledTime"`
+	Enabled         pulumi.BoolPtrInput `pulumi:"enabled"`
+	LastEnabledTime pulumi.StringInput  `pulumi:"lastEnabledTime"`
 }
 
 func (EncryptionServiceResponseArgs) ElementType() reflect.Type {
@@ -836,7 +809,6 @@ func (i *encryptionServiceResponsePtrType) ToEncryptionServiceResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionServiceResponsePtrOutput)
 }
 
-// A service that allows server-side encryption to be used.
 type EncryptionServiceResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionServiceResponseOutput) ElementType() reflect.Type {
@@ -856,17 +828,15 @@ func (o EncryptionServiceResponseOutput) ToEncryptionServiceResponsePtrOutput() 
 }
 
 func (o EncryptionServiceResponseOutput) ToEncryptionServiceResponsePtrOutputWithContext(ctx context.Context) EncryptionServiceResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionServiceResponse) *EncryptionServiceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionServiceResponse) *EncryptionServiceResponse {
 		return &v
 	}).(EncryptionServiceResponsePtrOutput)
 }
 
-// A boolean indicating whether or not the service encrypts the data as it is stored.
 func (o EncryptionServiceResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EncryptionServiceResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
 func (o EncryptionServiceResponseOutput) LastEnabledTime() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionServiceResponse) string { return v.LastEnabledTime }).(pulumi.StringOutput)
 }
@@ -886,10 +856,15 @@ func (o EncryptionServiceResponsePtrOutput) ToEncryptionServiceResponsePtrOutput
 }
 
 func (o EncryptionServiceResponsePtrOutput) Elem() EncryptionServiceResponseOutput {
-	return o.ApplyT(func(v *EncryptionServiceResponse) EncryptionServiceResponse { return *v }).(EncryptionServiceResponseOutput)
+	return o.ApplyT(func(v *EncryptionServiceResponse) EncryptionServiceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionServiceResponse
+		return ret
+	}).(EncryptionServiceResponseOutput)
 }
 
-// A boolean indicating whether or not the service encrypts the data as it is stored.
 func (o EncryptionServiceResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionServiceResponse) *bool {
 		if v == nil {
@@ -899,7 +874,6 @@ func (o EncryptionServiceResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
 func (o EncryptionServiceResponsePtrOutput) LastEnabledTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionServiceResponse) *string {
 		if v == nil {
@@ -909,9 +883,7 @@ func (o EncryptionServiceResponsePtrOutput) LastEnabledTime() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of services that support encryption.
 type EncryptionServices struct {
-	// The encryption function of the blob storage service.
 	Blob *EncryptionService `pulumi:"blob"`
 }
 
@@ -926,9 +898,7 @@ type EncryptionServicesInput interface {
 	ToEncryptionServicesOutputWithContext(context.Context) EncryptionServicesOutput
 }
 
-// A list of services that support encryption.
 type EncryptionServicesArgs struct {
-	// The encryption function of the blob storage service.
 	Blob EncryptionServicePtrInput `pulumi:"blob"`
 }
 
@@ -985,7 +955,6 @@ func (i *encryptionServicesPtrType) ToEncryptionServicesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionServicesPtrOutput)
 }
 
-// A list of services that support encryption.
 type EncryptionServicesOutput struct{ *pulumi.OutputState }
 
 func (EncryptionServicesOutput) ElementType() reflect.Type {
@@ -1005,12 +974,11 @@ func (o EncryptionServicesOutput) ToEncryptionServicesPtrOutput() EncryptionServ
 }
 
 func (o EncryptionServicesOutput) ToEncryptionServicesPtrOutputWithContext(ctx context.Context) EncryptionServicesPtrOutput {
-	return o.ApplyT(func(v EncryptionServices) *EncryptionServices {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionServices) *EncryptionServices {
 		return &v
 	}).(EncryptionServicesPtrOutput)
 }
 
-// The encryption function of the blob storage service.
 func (o EncryptionServicesOutput) Blob() EncryptionServicePtrOutput {
 	return o.ApplyT(func(v EncryptionServices) *EncryptionService { return v.Blob }).(EncryptionServicePtrOutput)
 }
@@ -1030,10 +998,15 @@ func (o EncryptionServicesPtrOutput) ToEncryptionServicesPtrOutputWithContext(ct
 }
 
 func (o EncryptionServicesPtrOutput) Elem() EncryptionServicesOutput {
-	return o.ApplyT(func(v *EncryptionServices) EncryptionServices { return *v }).(EncryptionServicesOutput)
+	return o.ApplyT(func(v *EncryptionServices) EncryptionServices {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionServices
+		return ret
+	}).(EncryptionServicesOutput)
 }
 
-// The encryption function of the blob storage service.
 func (o EncryptionServicesPtrOutput) Blob() EncryptionServicePtrOutput {
 	return o.ApplyT(func(v *EncryptionServices) *EncryptionService {
 		if v == nil {
@@ -1043,9 +1016,7 @@ func (o EncryptionServicesPtrOutput) Blob() EncryptionServicePtrOutput {
 	}).(EncryptionServicePtrOutput)
 }
 
-// A list of services that support encryption.
 type EncryptionServicesResponse struct {
-	// The encryption function of the blob storage service.
 	Blob *EncryptionServiceResponse `pulumi:"blob"`
 }
 
@@ -1060,9 +1031,7 @@ type EncryptionServicesResponseInput interface {
 	ToEncryptionServicesResponseOutputWithContext(context.Context) EncryptionServicesResponseOutput
 }
 
-// A list of services that support encryption.
 type EncryptionServicesResponseArgs struct {
-	// The encryption function of the blob storage service.
 	Blob EncryptionServiceResponsePtrInput `pulumi:"blob"`
 }
 
@@ -1119,7 +1088,6 @@ func (i *encryptionServicesResponsePtrType) ToEncryptionServicesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionServicesResponsePtrOutput)
 }
 
-// A list of services that support encryption.
 type EncryptionServicesResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionServicesResponseOutput) ElementType() reflect.Type {
@@ -1139,12 +1107,11 @@ func (o EncryptionServicesResponseOutput) ToEncryptionServicesResponsePtrOutput(
 }
 
 func (o EncryptionServicesResponseOutput) ToEncryptionServicesResponsePtrOutputWithContext(ctx context.Context) EncryptionServicesResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionServicesResponse) *EncryptionServicesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionServicesResponse) *EncryptionServicesResponse {
 		return &v
 	}).(EncryptionServicesResponsePtrOutput)
 }
 
-// The encryption function of the blob storage service.
 func (o EncryptionServicesResponseOutput) Blob() EncryptionServiceResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionServicesResponse) *EncryptionServiceResponse { return v.Blob }).(EncryptionServiceResponsePtrOutput)
 }
@@ -1164,10 +1131,15 @@ func (o EncryptionServicesResponsePtrOutput) ToEncryptionServicesResponsePtrOutp
 }
 
 func (o EncryptionServicesResponsePtrOutput) Elem() EncryptionServicesResponseOutput {
-	return o.ApplyT(func(v *EncryptionServicesResponse) EncryptionServicesResponse { return *v }).(EncryptionServicesResponseOutput)
+	return o.ApplyT(func(v *EncryptionServicesResponse) EncryptionServicesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionServicesResponse
+		return ret
+	}).(EncryptionServicesResponseOutput)
 }
 
-// The encryption function of the blob storage service.
 func (o EncryptionServicesResponsePtrOutput) Blob() EncryptionServiceResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionServicesResponse) *EncryptionServiceResponse {
 		if v == nil {
@@ -1177,15 +1149,10 @@ func (o EncryptionServicesResponsePtrOutput) Blob() EncryptionServiceResponsePtr
 	}).(EncryptionServiceResponsePtrOutput)
 }
 
-// The URIs that are used to perform a retrieval of a public blob, queue, or table object.
 type EndpointsResponse struct {
-	// Gets the blob endpoint.
-	Blob string `pulumi:"blob"`
-	// Gets the file endpoint.
-	File string `pulumi:"file"`
-	// Gets the queue endpoint.
+	Blob  string `pulumi:"blob"`
+	File  string `pulumi:"file"`
 	Queue string `pulumi:"queue"`
-	// Gets the table endpoint.
 	Table string `pulumi:"table"`
 }
 
@@ -1200,15 +1167,10 @@ type EndpointsResponseInput interface {
 	ToEndpointsResponseOutputWithContext(context.Context) EndpointsResponseOutput
 }
 
-// The URIs that are used to perform a retrieval of a public blob, queue, or table object.
 type EndpointsResponseArgs struct {
-	// Gets the blob endpoint.
-	Blob pulumi.StringInput `pulumi:"blob"`
-	// Gets the file endpoint.
-	File pulumi.StringInput `pulumi:"file"`
-	// Gets the queue endpoint.
+	Blob  pulumi.StringInput `pulumi:"blob"`
+	File  pulumi.StringInput `pulumi:"file"`
 	Queue pulumi.StringInput `pulumi:"queue"`
-	// Gets the table endpoint.
 	Table pulumi.StringInput `pulumi:"table"`
 }
 
@@ -1265,7 +1227,6 @@ func (i *endpointsResponsePtrType) ToEndpointsResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointsResponsePtrOutput)
 }
 
-// The URIs that are used to perform a retrieval of a public blob, queue, or table object.
 type EndpointsResponseOutput struct{ *pulumi.OutputState }
 
 func (EndpointsResponseOutput) ElementType() reflect.Type {
@@ -1285,27 +1246,23 @@ func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutput() EndpointsRespons
 }
 
 func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutputWithContext(ctx context.Context) EndpointsResponsePtrOutput {
-	return o.ApplyT(func(v EndpointsResponse) *EndpointsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointsResponse) *EndpointsResponse {
 		return &v
 	}).(EndpointsResponsePtrOutput)
 }
 
-// Gets the blob endpoint.
 func (o EndpointsResponseOutput) Blob() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.Blob }).(pulumi.StringOutput)
 }
 
-// Gets the file endpoint.
 func (o EndpointsResponseOutput) File() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.File }).(pulumi.StringOutput)
 }
 
-// Gets the queue endpoint.
 func (o EndpointsResponseOutput) Queue() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.Queue }).(pulumi.StringOutput)
 }
 
-// Gets the table endpoint.
 func (o EndpointsResponseOutput) Table() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointsResponse) string { return v.Table }).(pulumi.StringOutput)
 }
@@ -1325,10 +1282,15 @@ func (o EndpointsResponsePtrOutput) ToEndpointsResponsePtrOutputWithContext(ctx 
 }
 
 func (o EndpointsResponsePtrOutput) Elem() EndpointsResponseOutput {
-	return o.ApplyT(func(v *EndpointsResponse) EndpointsResponse { return *v }).(EndpointsResponseOutput)
+	return o.ApplyT(func(v *EndpointsResponse) EndpointsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointsResponse
+		return ret
+	}).(EndpointsResponseOutput)
 }
 
-// Gets the blob endpoint.
 func (o EndpointsResponsePtrOutput) Blob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -1338,7 +1300,6 @@ func (o EndpointsResponsePtrOutput) Blob() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the file endpoint.
 func (o EndpointsResponsePtrOutput) File() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -1348,7 +1309,6 @@ func (o EndpointsResponsePtrOutput) File() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the queue endpoint.
 func (o EndpointsResponsePtrOutput) Queue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -1358,7 +1318,6 @@ func (o EndpointsResponsePtrOutput) Queue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the table endpoint.
 func (o EndpointsResponsePtrOutput) Table() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointsResponse) *string {
 		if v == nil {
@@ -1368,10 +1327,8 @@ func (o EndpointsResponsePtrOutput) Table() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the storage account.
 type Sku struct {
-	// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-	Name string `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -1385,10 +1342,8 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU of the storage account.
 type SkuArgs struct {
-	// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-	Name SkuName `pulumi:"name"`
+	Name SkuNameInput `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -1444,7 +1399,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU of the storage account.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -1464,14 +1418,13 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+func (o SkuOutput) Name() SkuNameOutput {
+	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -1489,24 +1442,26 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
-// The SKU of the storage account.
 type SkuResponse struct {
-	// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
 	Name string `pulumi:"name"`
-	// Gets the sku tier. This is based on the SKU name.
 	Tier string `pulumi:"tier"`
 }
 
@@ -1521,11 +1476,8 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU of the storage account.
 type SkuResponseArgs struct {
-	// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Gets the sku tier. This is based on the SKU name.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -1582,7 +1534,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU of the storage account.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -1602,17 +1553,15 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Gets the sku tier. This is based on the SKU name.
 func (o SkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -1632,10 +1581,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1645,7 +1599,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the sku tier. This is based on the SKU name.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1655,14 +1608,10 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An access key for the storage account.
 type StorageAccountKeyResponse struct {
-	// Name of the key.
-	KeyName string `pulumi:"keyName"`
-	// Permissions for the key -- read-only or full permissions.
+	KeyName     string `pulumi:"keyName"`
 	Permissions string `pulumi:"permissions"`
-	// Base 64-encoded value of the key.
-	Value string `pulumi:"value"`
+	Value       string `pulumi:"value"`
 }
 
 // StorageAccountKeyResponseInput is an input type that accepts StorageAccountKeyResponseArgs and StorageAccountKeyResponseOutput values.
@@ -1676,14 +1625,10 @@ type StorageAccountKeyResponseInput interface {
 	ToStorageAccountKeyResponseOutputWithContext(context.Context) StorageAccountKeyResponseOutput
 }
 
-// An access key for the storage account.
 type StorageAccountKeyResponseArgs struct {
-	// Name of the key.
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// Permissions for the key -- read-only or full permissions.
+	KeyName     pulumi.StringInput `pulumi:"keyName"`
 	Permissions pulumi.StringInput `pulumi:"permissions"`
-	// Base 64-encoded value of the key.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value       pulumi.StringInput `pulumi:"value"`
 }
 
 func (StorageAccountKeyResponseArgs) ElementType() reflect.Type {
@@ -1723,7 +1668,6 @@ func (i StorageAccountKeyResponseArray) ToStorageAccountKeyResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountKeyResponseArrayOutput)
 }
 
-// An access key for the storage account.
 type StorageAccountKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountKeyResponseOutput) ElementType() reflect.Type {
@@ -1738,17 +1682,14 @@ func (o StorageAccountKeyResponseOutput) ToStorageAccountKeyResponseOutputWithCo
 	return o
 }
 
-// Name of the key.
 func (o StorageAccountKeyResponseOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// Permissions for the key -- read-only or full permissions.
 func (o StorageAccountKeyResponseOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.Permissions }).(pulumi.StringOutput)
 }
 
-// Base 64-encoded value of the key.
 func (o StorageAccountKeyResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.Value }).(pulumi.StringOutput)
 }

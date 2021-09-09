@@ -10,12 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A machine reference with a hint of the machine's name and operating system.
 type MachineReferenceWithHints struct {
-	// Resource URI.
-	Id string `pulumi:"id"`
-	// Specifies the sub-class of the reference.
-	// Expected value is 'ref:machinewithhints'.
+	Id   string `pulumi:"id"`
 	Kind string `pulumi:"kind"`
 }
 
@@ -30,12 +26,8 @@ type MachineReferenceWithHintsInput interface {
 	ToMachineReferenceWithHintsOutputWithContext(context.Context) MachineReferenceWithHintsOutput
 }
 
-// A machine reference with a hint of the machine's name and operating system.
 type MachineReferenceWithHintsArgs struct {
-	// Resource URI.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Specifies the sub-class of the reference.
-	// Expected value is 'ref:machinewithhints'.
+	Id   pulumi.StringInput `pulumi:"id"`
 	Kind pulumi.StringInput `pulumi:"kind"`
 }
 
@@ -76,7 +68,6 @@ func (i MachineReferenceWithHintsArray) ToMachineReferenceWithHintsArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MachineReferenceWithHintsArrayOutput)
 }
 
-// A machine reference with a hint of the machine's name and operating system.
 type MachineReferenceWithHintsOutput struct{ *pulumi.OutputState }
 
 func (MachineReferenceWithHintsOutput) ElementType() reflect.Type {
@@ -91,13 +82,10 @@ func (o MachineReferenceWithHintsOutput) ToMachineReferenceWithHintsOutputWithCo
 	return o
 }
 
-// Resource URI.
 func (o MachineReferenceWithHintsOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHints) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Specifies the sub-class of the reference.
-// Expected value is 'ref:machinewithhints'.
 func (o MachineReferenceWithHintsOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHints) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -122,21 +110,13 @@ func (o MachineReferenceWithHintsArrayOutput) Index(i pulumi.IntInput) MachineRe
 	}).(MachineReferenceWithHintsOutput)
 }
 
-// A machine reference with a hint of the machine's name and operating system.
 type MachineReferenceWithHintsResponse struct {
-	// Last known display name.
 	DisplayNameHint string `pulumi:"displayNameHint"`
-	// Resource URI.
-	Id string `pulumi:"id"`
-	// Specifies the sub-class of the reference.
-	// Expected value is 'ref:machinewithhints'.
-	Kind string `pulumi:"kind"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Last known operating system family.
-	OsFamilyHint string `pulumi:"osFamilyHint"`
-	// Resource type qualifier.
-	Type string `pulumi:"type"`
+	Id              string `pulumi:"id"`
+	Kind            string `pulumi:"kind"`
+	Name            string `pulumi:"name"`
+	OsFamilyHint    string `pulumi:"osFamilyHint"`
+	Type            string `pulumi:"type"`
 }
 
 // MachineReferenceWithHintsResponseInput is an input type that accepts MachineReferenceWithHintsResponseArgs and MachineReferenceWithHintsResponseOutput values.
@@ -150,21 +130,13 @@ type MachineReferenceWithHintsResponseInput interface {
 	ToMachineReferenceWithHintsResponseOutputWithContext(context.Context) MachineReferenceWithHintsResponseOutput
 }
 
-// A machine reference with a hint of the machine's name and operating system.
 type MachineReferenceWithHintsResponseArgs struct {
-	// Last known display name.
 	DisplayNameHint pulumi.StringInput `pulumi:"displayNameHint"`
-	// Resource URI.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Specifies the sub-class of the reference.
-	// Expected value is 'ref:machinewithhints'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Last known operating system family.
-	OsFamilyHint pulumi.StringInput `pulumi:"osFamilyHint"`
-	// Resource type qualifier.
-	Type pulumi.StringInput `pulumi:"type"`
+	Id              pulumi.StringInput `pulumi:"id"`
+	Kind            pulumi.StringInput `pulumi:"kind"`
+	Name            pulumi.StringInput `pulumi:"name"`
+	OsFamilyHint    pulumi.StringInput `pulumi:"osFamilyHint"`
+	Type            pulumi.StringInput `pulumi:"type"`
 }
 
 func (MachineReferenceWithHintsResponseArgs) ElementType() reflect.Type {
@@ -204,7 +176,6 @@ func (i MachineReferenceWithHintsResponseArray) ToMachineReferenceWithHintsRespo
 	return pulumi.ToOutputWithContext(ctx, i).(MachineReferenceWithHintsResponseArrayOutput)
 }
 
-// A machine reference with a hint of the machine's name and operating system.
 type MachineReferenceWithHintsResponseOutput struct{ *pulumi.OutputState }
 
 func (MachineReferenceWithHintsResponseOutput) ElementType() reflect.Type {
@@ -219,33 +190,26 @@ func (o MachineReferenceWithHintsResponseOutput) ToMachineReferenceWithHintsResp
 	return o
 }
 
-// Last known display name.
 func (o MachineReferenceWithHintsResponseOutput) DisplayNameHint() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHintsResponse) string { return v.DisplayNameHint }).(pulumi.StringOutput)
 }
 
-// Resource URI.
 func (o MachineReferenceWithHintsResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHintsResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Specifies the sub-class of the reference.
-// Expected value is 'ref:machinewithhints'.
 func (o MachineReferenceWithHintsResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHintsResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Resource name.
 func (o MachineReferenceWithHintsResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHintsResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Last known operating system family.
 func (o MachineReferenceWithHintsResponseOutput) OsFamilyHint() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHintsResponse) string { return v.OsFamilyHint }).(pulumi.StringOutput)
 }
 
-// Resource type qualifier.
 func (o MachineReferenceWithHintsResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHintsResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -270,9 +234,7 @@ func (o MachineReferenceWithHintsResponseArrayOutput) Index(i pulumi.IntInput) M
 	}).(MachineReferenceWithHintsResponseOutput)
 }
 
-// The SKU (tier) of a workspace.
 type Sku struct {
-	// The name of the SKU.
 	Name string `pulumi:"name"`
 }
 
@@ -287,9 +249,7 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU (tier) of a workspace.
 type SkuArgs struct {
-	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -346,7 +306,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU (tier) of a workspace.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -366,12 +325,11 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The name of the SKU.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -391,10 +349,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The name of the SKU.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -404,9 +367,7 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU (tier) of a workspace.
 type SkuResponse struct {
-	// The name of the SKU.
 	Name string `pulumi:"name"`
 }
 
@@ -421,9 +382,7 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU (tier) of a workspace.
 type SkuResponseArgs struct {
-	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -480,7 +439,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU (tier) of a workspace.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -500,12 +458,11 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The name of the SKU.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -525,10 +482,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The name of the SKU.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The list of credential result response.
 func ListManagedClusterUserCredentials(ctx *pulumi.Context, args *ListManagedClusterUserCredentialsArgs, opts ...pulumi.InvokeOption) (*ListManagedClusterUserCredentialsResult, error) {
 	var rv ListManagedClusterUserCredentialsResult
 	err := ctx.Invoke("azure-native:containerservice/v20190801:listManagedClusterUserCredentials", args, &rv, opts...)
@@ -18,14 +17,11 @@ func ListManagedClusterUserCredentials(ctx *pulumi.Context, args *ListManagedClu
 }
 
 type ListManagedClusterUserCredentialsArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the managed cluster resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // The list of credential result response.
 type ListManagedClusterUserCredentialsResult struct {
-	// Base64-encoded Kubernetes configuration file.
 	Kubeconfigs []CredentialResultResponse `pulumi:"kubeconfigs"`
 }

@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A failover group.
 type FailoverGroup struct {
 	pulumi.CustomResourceState
 
-	// List of databases in the failover group.
-	Databases pulumi.StringArrayOutput `pulumi:"databases"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of partner server information for the failover group.
-	PartnerServers PartnerInfoResponseArrayOutput `pulumi:"partnerServers"`
-	// Read-only endpoint of the failover group instance.
-	ReadOnlyEndpoint FailoverGroupReadOnlyEndpointResponsePtrOutput `pulumi:"readOnlyEndpoint"`
-	// Read-write endpoint of the failover group instance.
-	ReadWriteEndpoint FailoverGroupReadWriteEndpointResponseOutput `pulumi:"readWriteEndpoint"`
-	// Local replication role of the failover group instance.
-	ReplicationRole pulumi.StringOutput `pulumi:"replicationRole"`
-	// Replication state of the failover group instance.
-	ReplicationState pulumi.StringOutput `pulumi:"replicationState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Databases         pulumi.StringArrayOutput                       `pulumi:"databases"`
+	Location          pulumi.StringOutput                            `pulumi:"location"`
+	Name              pulumi.StringOutput                            `pulumi:"name"`
+	PartnerServers    PartnerInfoResponseArrayOutput                 `pulumi:"partnerServers"`
+	ReadOnlyEndpoint  FailoverGroupReadOnlyEndpointResponsePtrOutput `pulumi:"readOnlyEndpoint"`
+	ReadWriteEndpoint FailoverGroupReadWriteEndpointResponseOutput   `pulumi:"readWriteEndpoint"`
+	ReplicationRole   pulumi.StringOutput                            `pulumi:"replicationRole"`
+	ReplicationState  pulumi.StringOutput                            `pulumi:"replicationState"`
+	Tags              pulumi.StringMapOutput                         `pulumi:"tags"`
+	Type              pulumi.StringOutput                            `pulumi:"type"`
 }
 
 // NewFailoverGroup registers a new resource with the given unique name, arguments, and options.
@@ -124,42 +113,26 @@ func (FailoverGroupState) ElementType() reflect.Type {
 }
 
 type failoverGroupArgs struct {
-	// List of databases in the failover group.
-	Databases []string `pulumi:"databases"`
-	// The name of the failover group.
-	FailoverGroupName *string `pulumi:"failoverGroupName"`
-	// List of partner server information for the failover group.
-	PartnerServers []PartnerInfo `pulumi:"partnerServers"`
-	// Read-only endpoint of the failover group instance.
-	ReadOnlyEndpoint *FailoverGroupReadOnlyEndpoint `pulumi:"readOnlyEndpoint"`
-	// Read-write endpoint of the failover group instance.
+	Databases         []string                       `pulumi:"databases"`
+	FailoverGroupName *string                        `pulumi:"failoverGroupName"`
+	PartnerServers    []PartnerInfo                  `pulumi:"partnerServers"`
+	ReadOnlyEndpoint  *FailoverGroupReadOnlyEndpoint `pulumi:"readOnlyEndpoint"`
 	ReadWriteEndpoint FailoverGroupReadWriteEndpoint `pulumi:"readWriteEndpoint"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server containing the failover group.
-	ServerName string `pulumi:"serverName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ResourceGroupName string                         `pulumi:"resourceGroupName"`
+	ServerName        string                         `pulumi:"serverName"`
+	Tags              map[string]string              `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FailoverGroup resource.
 type FailoverGroupArgs struct {
-	// List of databases in the failover group.
-	Databases pulumi.StringArrayInput
-	// The name of the failover group.
+	Databases         pulumi.StringArrayInput
 	FailoverGroupName pulumi.StringPtrInput
-	// List of partner server information for the failover group.
-	PartnerServers PartnerInfoArrayInput
-	// Read-only endpoint of the failover group instance.
-	ReadOnlyEndpoint FailoverGroupReadOnlyEndpointPtrInput
-	// Read-write endpoint of the failover group instance.
+	PartnerServers    PartnerInfoArrayInput
+	ReadOnlyEndpoint  FailoverGroupReadOnlyEndpointPtrInput
 	ReadWriteEndpoint FailoverGroupReadWriteEndpointInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
-	// The name of the server containing the failover group.
-	ServerName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ServerName        pulumi.StringInput
+	Tags              pulumi.StringMapInput
 }
 
 func (FailoverGroupArgs) ElementType() reflect.Type {
@@ -185,9 +158,7 @@ func (i *FailoverGroup) ToFailoverGroupOutputWithContext(ctx context.Context) Fa
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupOutput)
 }
 
-type FailoverGroupOutput struct {
-	*pulumi.OutputState
-}
+type FailoverGroupOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FailoverGroup)(nil))

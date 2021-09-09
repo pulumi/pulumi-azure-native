@@ -11,19 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in List or Get Consumer group operation
 type ConsumerGroup struct {
 	pulumi.CustomResourceState
 
-	// Exact time the message was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The exact time the message was updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+	CreatedAt    pulumi.StringOutput    `pulumi:"createdAt"`
+	Name         pulumi.StringOutput    `pulumi:"name"`
+	Type         pulumi.StringOutput    `pulumi:"type"`
+	UpdatedAt    pulumi.StringOutput    `pulumi:"updatedAt"`
 	UserMetadata pulumi.StringPtrOutput `pulumi:"userMetadata"`
 }
 
@@ -117,30 +111,20 @@ func (ConsumerGroupState) ElementType() reflect.Type {
 }
 
 type consumerGroupArgs struct {
-	// The consumer group name
 	ConsumerGroupName *string `pulumi:"consumerGroupName"`
-	// The Event Hub name
-	EventHubName string `pulumi:"eventHubName"`
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
-	UserMetadata *string `pulumi:"userMetadata"`
+	EventHubName      string  `pulumi:"eventHubName"`
+	NamespaceName     string  `pulumi:"namespaceName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	UserMetadata      *string `pulumi:"userMetadata"`
 }
 
 // The set of arguments for constructing a ConsumerGroup resource.
 type ConsumerGroupArgs struct {
-	// The consumer group name
 	ConsumerGroupName pulumi.StringPtrInput
-	// The Event Hub name
-	EventHubName pulumi.StringInput
-	// The Namespace name
-	NamespaceName pulumi.StringInput
-	// Name of the resource group within the azure subscription.
+	EventHubName      pulumi.StringInput
+	NamespaceName     pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
-	UserMetadata pulumi.StringPtrInput
+	UserMetadata      pulumi.StringPtrInput
 }
 
 func (ConsumerGroupArgs) ElementType() reflect.Type {
@@ -166,9 +150,7 @@ func (i *ConsumerGroup) ToConsumerGroupOutputWithContext(ctx context.Context) Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConsumerGroupOutput)
 }
 
-type ConsumerGroupOutput struct {
-	*pulumi.OutputState
-}
+type ConsumerGroupOutput struct{ *pulumi.OutputState }
 
 func (ConsumerGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConsumerGroup)(nil))

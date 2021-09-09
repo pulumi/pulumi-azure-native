@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Full endpoint url of an event subscription
 func GetPartnerTopicEventSubscriptionFullUrl(ctx *pulumi.Context, args *GetPartnerTopicEventSubscriptionFullUrlArgs, opts ...pulumi.InvokeOption) (*GetPartnerTopicEventSubscriptionFullUrlResult, error) {
 	var rv GetPartnerTopicEventSubscriptionFullUrlResult
 	err := ctx.Invoke("azure-native:eventgrid/v20210601preview:getPartnerTopicEventSubscriptionFullUrl", args, &rv, opts...)
@@ -18,16 +17,12 @@ func GetPartnerTopicEventSubscriptionFullUrl(ctx *pulumi.Context, args *GetPartn
 }
 
 type GetPartnerTopicEventSubscriptionFullUrlArgs struct {
-	// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
 	EventSubscriptionName string `pulumi:"eventSubscriptionName"`
-	// Name of the partner topic.
-	PartnerTopicName string `pulumi:"partnerTopicName"`
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PartnerTopicName      string `pulumi:"partnerTopicName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Full endpoint url of an event subscription
 type GetPartnerTopicEventSubscriptionFullUrlResult struct {
-	// The URL that represents the endpoint of the destination of an event subscription.
 	EndpointUrl *string `pulumi:"endpointUrl"`
 }

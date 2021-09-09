@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attestation service response message.
 type AttestationProvider struct {
 	pulumi.CustomResourceState
 
-	// Gets the uri of attestation service
-	AttestUri pulumi.StringPtrOutput `pulumi:"attestUri"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of private endpoint connections associated with the attestation provider.
+	AttestUri                  pulumi.StringPtrOutput                       `pulumi:"attestUri"`
+	Location                   pulumi.StringOutput                          `pulumi:"location"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
-	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
-	// Status of attestation service.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The system metadata relating to this resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Trust model for the attestation provider.
-	TrustModel pulumi.StringPtrOutput `pulumi:"trustModel"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	PublicNetworkAccess        pulumi.StringPtrOutput                       `pulumi:"publicNetworkAccess"`
+	Status                     pulumi.StringPtrOutput                       `pulumi:"status"`
+	SystemData                 SystemDataResponseOutput                     `pulumi:"systemData"`
+	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
+	TrustModel                 pulumi.StringPtrOutput                       `pulumi:"trustModel"`
+	Type                       pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewAttestationProvider registers a new resource with the given unique name, arguments, and options.
@@ -106,30 +95,20 @@ func (AttestationProviderState) ElementType() reflect.Type {
 }
 
 type attestationProviderArgs struct {
-	// The supported Azure location where the attestation provider should be created.
-	Location *string `pulumi:"location"`
-	// Properties of the attestation provider
-	Properties AttestationServiceCreationSpecificParams `pulumi:"properties"`
-	// Name of the attestation provider.
-	ProviderName *string `pulumi:"providerName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags that will be assigned to the attestation provider.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string                                  `pulumi:"location"`
+	Properties        AttestationServiceCreationSpecificParams `pulumi:"properties"`
+	ProviderName      *string                                  `pulumi:"providerName"`
+	ResourceGroupName string                                   `pulumi:"resourceGroupName"`
+	Tags              map[string]string                        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AttestationProvider resource.
 type AttestationProviderArgs struct {
-	// The supported Azure location where the attestation provider should be created.
-	Location pulumi.StringPtrInput
-	// Properties of the attestation provider
-	Properties AttestationServiceCreationSpecificParamsInput
-	// Name of the attestation provider.
-	ProviderName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	Location          pulumi.StringPtrInput
+	Properties        AttestationServiceCreationSpecificParamsInput
+	ProviderName      pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The tags that will be assigned to the attestation provider.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (AttestationProviderArgs) ElementType() reflect.Type {
@@ -155,9 +134,7 @@ func (i *AttestationProvider) ToAttestationProviderOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AttestationProviderOutput)
 }
 
-type AttestationProviderOutput struct {
-	*pulumi.OutputState
-}
+type AttestationProviderOutput struct{ *pulumi.OutputState }
 
 func (AttestationProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AttestationProvider)(nil))

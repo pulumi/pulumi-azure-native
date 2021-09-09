@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Part of Management Group diagnostic setting. Specifies the settings for a particular log.
 type ManagementGroupLogSettings struct {
-	// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
 	Category string `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
+	Enabled  bool   `pulumi:"enabled"`
 }
 
 // ManagementGroupLogSettingsInput is an input type that accepts ManagementGroupLogSettingsArgs and ManagementGroupLogSettingsOutput values.
@@ -29,12 +26,9 @@ type ManagementGroupLogSettingsInput interface {
 	ToManagementGroupLogSettingsOutputWithContext(context.Context) ManagementGroupLogSettingsOutput
 }
 
-// Part of Management Group diagnostic setting. Specifies the settings for a particular log.
 type ManagementGroupLogSettingsArgs struct {
-	// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
 	Category pulumi.StringInput `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled  pulumi.BoolInput   `pulumi:"enabled"`
 }
 
 func (ManagementGroupLogSettingsArgs) ElementType() reflect.Type {
@@ -74,7 +68,6 @@ func (i ManagementGroupLogSettingsArray) ToManagementGroupLogSettingsArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupLogSettingsArrayOutput)
 }
 
-// Part of Management Group diagnostic setting. Specifies the settings for a particular log.
 type ManagementGroupLogSettingsOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupLogSettingsOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o ManagementGroupLogSettingsOutput) ToManagementGroupLogSettingsOutputWith
 	return o
 }
 
-// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
 func (o ManagementGroupLogSettingsOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementGroupLogSettings) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// a value indicating whether this log is enabled.
 func (o ManagementGroupLogSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ManagementGroupLogSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -119,12 +110,9 @@ func (o ManagementGroupLogSettingsArrayOutput) Index(i pulumi.IntInput) Manageme
 	}).(ManagementGroupLogSettingsOutput)
 }
 
-// Part of Management Group diagnostic setting. Specifies the settings for a particular log.
 type ManagementGroupLogSettingsResponse struct {
-	// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
 	Category string `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
+	Enabled  bool   `pulumi:"enabled"`
 }
 
 // ManagementGroupLogSettingsResponseInput is an input type that accepts ManagementGroupLogSettingsResponseArgs and ManagementGroupLogSettingsResponseOutput values.
@@ -138,12 +126,9 @@ type ManagementGroupLogSettingsResponseInput interface {
 	ToManagementGroupLogSettingsResponseOutputWithContext(context.Context) ManagementGroupLogSettingsResponseOutput
 }
 
-// Part of Management Group diagnostic setting. Specifies the settings for a particular log.
 type ManagementGroupLogSettingsResponseArgs struct {
-	// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
 	Category pulumi.StringInput `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled  pulumi.BoolInput   `pulumi:"enabled"`
 }
 
 func (ManagementGroupLogSettingsResponseArgs) ElementType() reflect.Type {
@@ -183,7 +168,6 @@ func (i ManagementGroupLogSettingsResponseArray) ToManagementGroupLogSettingsRes
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupLogSettingsResponseArrayOutput)
 }
 
-// Part of Management Group diagnostic setting. Specifies the settings for a particular log.
 type ManagementGroupLogSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupLogSettingsResponseOutput) ElementType() reflect.Type {
@@ -198,12 +182,10 @@ func (o ManagementGroupLogSettingsResponseOutput) ToManagementGroupLogSettingsRe
 	return o
 }
 
-// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
 func (o ManagementGroupLogSettingsResponseOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementGroupLogSettingsResponse) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// a value indicating whether this log is enabled.
 func (o ManagementGroupLogSettingsResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ManagementGroupLogSettingsResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }

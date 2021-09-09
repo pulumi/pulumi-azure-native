@@ -11,51 +11,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// App Service Environment ARM resource.
 type AppServiceEnvironment struct {
 	pulumi.CustomResourceState
 
-	// Custom settings for changing the behavior of the App Service Environment.
-	ClusterSettings NameValuePairResponseArrayOutput `pulumi:"clusterSettings"`
-	// Dedicated Host Count
-	DedicatedHostCount pulumi.IntOutput `pulumi:"dedicatedHostCount"`
-	// DNS suffix of the App Service Environment.
-	DnsSuffix pulumi.StringPtrOutput `pulumi:"dnsSuffix"`
-	// Scale factor for front-ends.
-	FrontEndScaleFactor pulumi.IntPtrOutput `pulumi:"frontEndScaleFactor"`
-	// Flag that displays whether an ASE has linux workers or not
-	HasLinuxWorkers pulumi.BoolOutput `pulumi:"hasLinuxWorkers"`
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-	InternalLoadBalancingMode pulumi.StringPtrOutput `pulumi:"internalLoadBalancingMode"`
-	// Number of IP SSL addresses reserved for the App Service Environment.
-	IpsslAddressCount pulumi.IntPtrOutput `pulumi:"ipsslAddressCount"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Maximum number of VMs in the App Service Environment.
-	MaximumNumberOfMachines pulumi.IntOutput `pulumi:"maximumNumberOfMachines"`
-	// Number of front-end instances.
-	MultiRoleCount pulumi.IntOutput `pulumi:"multiRoleCount"`
-	// Front-end VM size, e.g. "Medium", "Large".
-	MultiSize pulumi.StringPtrOutput `pulumi:"multiSize"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the App Service Environment.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Current status of the App Service Environment.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
-	//  (most likely because NSG blocked the incoming traffic).
-	Suspended pulumi.BoolOutput `pulumi:"suspended"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// User added ip ranges to whitelist on ASE db
-	UserWhitelistedIpRanges pulumi.StringArrayOutput `pulumi:"userWhitelistedIpRanges"`
-	// Description of the Virtual Network.
-	VirtualNetwork VirtualNetworkProfileResponseOutput `pulumi:"virtualNetwork"`
+	ClusterSettings           NameValuePairResponseArrayOutput    `pulumi:"clusterSettings"`
+	DedicatedHostCount        pulumi.IntOutput                    `pulumi:"dedicatedHostCount"`
+	DnsSuffix                 pulumi.StringPtrOutput              `pulumi:"dnsSuffix"`
+	FrontEndScaleFactor       pulumi.IntPtrOutput                 `pulumi:"frontEndScaleFactor"`
+	HasLinuxWorkers           pulumi.BoolOutput                   `pulumi:"hasLinuxWorkers"`
+	InternalLoadBalancingMode pulumi.StringPtrOutput              `pulumi:"internalLoadBalancingMode"`
+	IpsslAddressCount         pulumi.IntPtrOutput                 `pulumi:"ipsslAddressCount"`
+	Kind                      pulumi.StringPtrOutput              `pulumi:"kind"`
+	Location                  pulumi.StringOutput                 `pulumi:"location"`
+	MaximumNumberOfMachines   pulumi.IntOutput                    `pulumi:"maximumNumberOfMachines"`
+	MultiRoleCount            pulumi.IntOutput                    `pulumi:"multiRoleCount"`
+	MultiSize                 pulumi.StringPtrOutput              `pulumi:"multiSize"`
+	Name                      pulumi.StringOutput                 `pulumi:"name"`
+	ProvisioningState         pulumi.StringOutput                 `pulumi:"provisioningState"`
+	Status                    pulumi.StringOutput                 `pulumi:"status"`
+	Suspended                 pulumi.BoolOutput                   `pulumi:"suspended"`
+	Tags                      pulumi.StringMapOutput              `pulumi:"tags"`
+	Type                      pulumi.StringOutput                 `pulumi:"type"`
+	UserWhitelistedIpRanges   pulumi.StringArrayOutput            `pulumi:"userWhitelistedIpRanges"`
+	VirtualNetwork            VirtualNetworkProfileResponseOutput `pulumi:"virtualNetwork"`
 }
 
 // NewAppServiceEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -175,62 +153,36 @@ func (AppServiceEnvironmentState) ElementType() reflect.Type {
 }
 
 type appServiceEnvironmentArgs struct {
-	// Custom settings for changing the behavior of the App Service Environment.
-	ClusterSettings []NameValuePair `pulumi:"clusterSettings"`
-	// DNS suffix of the App Service Environment.
-	DnsSuffix *string `pulumi:"dnsSuffix"`
-	// Scale factor for front-ends.
-	FrontEndScaleFactor *int `pulumi:"frontEndScaleFactor"`
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
-	// Number of IP SSL addresses reserved for the App Service Environment.
-	IpsslAddressCount *int `pulumi:"ipsslAddressCount"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Location.
-	Location *string `pulumi:"location"`
-	// Front-end VM size, e.g. "Medium", "Large".
-	MultiSize *string `pulumi:"multiSize"`
-	// Name of the App Service Environment.
-	Name *string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// User added ip ranges to whitelist on ASE db
-	UserWhitelistedIpRanges []string `pulumi:"userWhitelistedIpRanges"`
-	// Description of the Virtual Network.
-	VirtualNetwork VirtualNetworkProfile `pulumi:"virtualNetwork"`
+	ClusterSettings           []NameValuePair       `pulumi:"clusterSettings"`
+	DnsSuffix                 *string               `pulumi:"dnsSuffix"`
+	FrontEndScaleFactor       *int                  `pulumi:"frontEndScaleFactor"`
+	InternalLoadBalancingMode *string               `pulumi:"internalLoadBalancingMode"`
+	IpsslAddressCount         *int                  `pulumi:"ipsslAddressCount"`
+	Kind                      *string               `pulumi:"kind"`
+	Location                  *string               `pulumi:"location"`
+	MultiSize                 *string               `pulumi:"multiSize"`
+	Name                      *string               `pulumi:"name"`
+	ResourceGroupName         string                `pulumi:"resourceGroupName"`
+	Tags                      map[string]string     `pulumi:"tags"`
+	UserWhitelistedIpRanges   []string              `pulumi:"userWhitelistedIpRanges"`
+	VirtualNetwork            VirtualNetworkProfile `pulumi:"virtualNetwork"`
 }
 
 // The set of arguments for constructing a AppServiceEnvironment resource.
 type AppServiceEnvironmentArgs struct {
-	// Custom settings for changing the behavior of the App Service Environment.
-	ClusterSettings NameValuePairArrayInput
-	// DNS suffix of the App Service Environment.
-	DnsSuffix pulumi.StringPtrInput
-	// Scale factor for front-ends.
-	FrontEndScaleFactor pulumi.IntPtrInput
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+	ClusterSettings           NameValuePairArrayInput
+	DnsSuffix                 pulumi.StringPtrInput
+	FrontEndScaleFactor       pulumi.IntPtrInput
 	InternalLoadBalancingMode pulumi.StringPtrInput
-	// Number of IP SSL addresses reserved for the App Service Environment.
-	IpsslAddressCount pulumi.IntPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Location.
-	Location pulumi.StringPtrInput
-	// Front-end VM size, e.g. "Medium", "Large".
-	MultiSize pulumi.StringPtrInput
-	// Name of the App Service Environment.
-	Name pulumi.StringPtrInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// User added ip ranges to whitelist on ASE db
-	UserWhitelistedIpRanges pulumi.StringArrayInput
-	// Description of the Virtual Network.
-	VirtualNetwork VirtualNetworkProfileInput
+	IpsslAddressCount         pulumi.IntPtrInput
+	Kind                      pulumi.StringPtrInput
+	Location                  pulumi.StringPtrInput
+	MultiSize                 pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	ResourceGroupName         pulumi.StringInput
+	Tags                      pulumi.StringMapInput
+	UserWhitelistedIpRanges   pulumi.StringArrayInput
+	VirtualNetwork            VirtualNetworkProfileInput
 }
 
 func (AppServiceEnvironmentArgs) ElementType() reflect.Type {
@@ -256,9 +208,7 @@ func (i *AppServiceEnvironment) ToAppServiceEnvironmentOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceEnvironmentOutput)
 }
 
-type AppServiceEnvironmentOutput struct {
-	*pulumi.OutputState
-}
+type AppServiceEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (AppServiceEnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppServiceEnvironment)(nil))

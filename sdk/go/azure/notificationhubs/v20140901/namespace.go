@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a Namespace resource.
 type Namespace struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets datacenter location of the Namespace.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Gets or sets name of the Namespace.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Gets or sets properties of the Namespace.
+	Location   pulumi.StringPtrOutput            `pulumi:"location"`
+	Name       pulumi.StringPtrOutput            `pulumi:"name"`
 	Properties NamespacePropertiesResponseOutput `pulumi:"properties"`
-	// Gets or sets tags of the Namespace.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Gets or sets resource type of the Namespace.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput            `pulumi:"tags"`
+	Type       pulumi.StringPtrOutput            `pulumi:"type"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -96,30 +90,20 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
-	// Gets or sets Namespace data center location.
-	Location *string `pulumi:"location"`
-	// The namespace name.
-	NamespaceName *string `pulumi:"namespaceName"`
-	// Gets or sets properties of the Namespace.
-	Properties NamespaceProperties `pulumi:"properties"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets Namespace tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string             `pulumi:"location"`
+	NamespaceName     *string             `pulumi:"namespaceName"`
+	Properties        NamespaceProperties `pulumi:"properties"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	Tags              map[string]string   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
-	// Gets or sets Namespace data center location.
-	Location pulumi.StringPtrInput
-	// The namespace name.
-	NamespaceName pulumi.StringPtrInput
-	// Gets or sets properties of the Namespace.
-	Properties NamespacePropertiesInput
-	// The name of the resource group.
+	Location          pulumi.StringPtrInput
+	NamespaceName     pulumi.StringPtrInput
+	Properties        NamespacePropertiesInput
 	ResourceGroupName pulumi.StringInput
-	// Gets or sets Namespace tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {
@@ -145,9 +129,7 @@ func (i *Namespace) ToNamespaceOutputWithContext(ctx context.Context) NamespaceO
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceOutput)
 }
 
-type NamespaceOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceOutput struct{ *pulumi.OutputState }
 
 func (NamespaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Namespace)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Custom IP prefix resource.
 func LookupCustomIPPrefix(ctx *pulumi.Context, args *LookupCustomIPPrefixArgs, opts ...pulumi.InvokeOption) (*LookupCustomIPPrefixResult, error) {
 	var rv LookupCustomIPPrefixResult
 	err := ctx.Invoke("azure-native:network/v20210201:getCustomIPPrefix", args, &rv, opts...)
@@ -18,50 +17,29 @@ func LookupCustomIPPrefix(ctx *pulumi.Context, args *LookupCustomIPPrefixArgs, o
 }
 
 type LookupCustomIPPrefixArgs struct {
-	// The name of the custom IP prefix.
-	CustomIpPrefixName string `pulumi:"customIpPrefixName"`
-	// Expands referenced resources.
-	Expand *string `pulumi:"expand"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	CustomIpPrefixName string  `pulumi:"customIpPrefixName"`
+	Expand             *string `pulumi:"expand"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
 }
 
 // Custom IP prefix resource.
 type LookupCustomIPPrefixResult struct {
-	// Authorization message for WAN validation.
-	AuthorizationMessage *string `pulumi:"authorizationMessage"`
-	// The list of all Children for IPv6 /48 CustomIpPrefix.
-	ChildCustomIpPrefixes []CustomIpPrefixResponse `pulumi:"childCustomIpPrefixes"`
-	// The prefix range in CIDR notation. Should include the start address and the prefix length.
-	Cidr *string `pulumi:"cidr"`
-	// The commissioned state of the Custom IP Prefix.
-	CommissionedState *string `pulumi:"commissionedState"`
-	// The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
-	CustomIpPrefixParent *CustomIpPrefixResponse `pulumi:"customIpPrefixParent"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// The extended location of the custom IP prefix.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// The reason why resource is in failed state.
-	FailedReason string `pulumi:"failedReason"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the custom IP prefix resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The list of all referenced PublicIpPrefixes.
-	PublicIpPrefixes []SubResourceResponse `pulumi:"publicIpPrefixes"`
-	// The resource GUID property of the custom IP prefix resource.
-	ResourceGuid string `pulumi:"resourceGuid"`
-	// Signed message for WAN validation.
-	SignedMessage *string `pulumi:"signedMessage"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// A list of availability zones denoting the IP allocated for the resource needs to come from.
-	Zones []string `pulumi:"zones"`
+	AuthorizationMessage  *string                   `pulumi:"authorizationMessage"`
+	ChildCustomIpPrefixes []CustomIpPrefixResponse  `pulumi:"childCustomIpPrefixes"`
+	Cidr                  *string                   `pulumi:"cidr"`
+	CommissionedState     *string                   `pulumi:"commissionedState"`
+	CustomIpPrefixParent  *CustomIpPrefixResponse   `pulumi:"customIpPrefixParent"`
+	Etag                  string                    `pulumi:"etag"`
+	ExtendedLocation      *ExtendedLocationResponse `pulumi:"extendedLocation"`
+	FailedReason          string                    `pulumi:"failedReason"`
+	Id                    *string                   `pulumi:"id"`
+	Location              *string                   `pulumi:"location"`
+	Name                  string                    `pulumi:"name"`
+	ProvisioningState     string                    `pulumi:"provisioningState"`
+	PublicIpPrefixes      []SubResourceResponse     `pulumi:"publicIpPrefixes"`
+	ResourceGuid          string                    `pulumi:"resourceGuid"`
+	SignedMessage         *string                   `pulumi:"signedMessage"`
+	Tags                  map[string]string         `pulumi:"tags"`
+	Type                  string                    `pulumi:"type"`
+	Zones                 []string                  `pulumi:"zones"`
 }

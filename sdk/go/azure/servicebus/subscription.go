@@ -173,7 +173,7 @@ type subscriptionArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Enumerates the possible values for the status of a messaging entity.
-	Status *string `pulumi:"status"`
+	Status *EntityStatus `pulumi:"status"`
 	// The subscription name.
 	SubscriptionName *string `pulumi:"subscriptionName"`
 	// The topic name.
@@ -209,7 +209,7 @@ type SubscriptionArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of a messaging entity.
-	Status *EntityStatus
+	Status EntityStatusPtrInput
 	// The subscription name.
 	SubscriptionName pulumi.StringPtrInput
 	// The topic name.
@@ -239,9 +239,7 @@ func (i *Subscription) ToSubscriptionOutputWithContext(ctx context.Context) Subs
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionOutput)
 }
 
-type SubscriptionOutput struct {
-	*pulumi.OutputState
-}
+type SubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Subscription)(nil))

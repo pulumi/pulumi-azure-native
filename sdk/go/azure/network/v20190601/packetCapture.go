@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about packet capture session.
 type PacketCapture struct {
 	pulumi.CustomResourceState
 
-	// Number of bytes captured per packet, the remaining bytes are truncated.
-	BytesToCapturePerPacket pulumi.IntPtrOutput `pulumi:"bytesToCapturePerPacket"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// A list of packet capture filters.
-	Filters PacketCaptureFilterResponseArrayOutput `pulumi:"filters"`
-	// Name of the packet capture session.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the packet capture session.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Describes the storage location for a packet capture session.
-	StorageLocation PacketCaptureStorageLocationResponseOutput `pulumi:"storageLocation"`
-	// The ID of the targeted resource, only VM is currently supported.
-	Target pulumi.StringOutput `pulumi:"target"`
-	// Maximum duration of the capture session in seconds.
-	TimeLimitInSeconds pulumi.IntPtrOutput `pulumi:"timeLimitInSeconds"`
-	// Maximum size of the capture output.
-	TotalBytesPerSession pulumi.IntPtrOutput `pulumi:"totalBytesPerSession"`
+	BytesToCapturePerPacket pulumi.IntPtrOutput                        `pulumi:"bytesToCapturePerPacket"`
+	Etag                    pulumi.StringPtrOutput                     `pulumi:"etag"`
+	Filters                 PacketCaptureFilterResponseArrayOutput     `pulumi:"filters"`
+	Name                    pulumi.StringOutput                        `pulumi:"name"`
+	ProvisioningState       pulumi.StringOutput                        `pulumi:"provisioningState"`
+	StorageLocation         PacketCaptureStorageLocationResponseOutput `pulumi:"storageLocation"`
+	Target                  pulumi.StringOutput                        `pulumi:"target"`
+	TimeLimitInSeconds      pulumi.IntPtrOutput                        `pulumi:"timeLimitInSeconds"`
+	TotalBytesPerSession    pulumi.IntPtrOutput                        `pulumi:"totalBytesPerSession"`
 }
 
 // NewPacketCapture registers a new resource with the given unique name, arguments, and options.
@@ -305,46 +295,28 @@ func (PacketCaptureState) ElementType() reflect.Type {
 }
 
 type packetCaptureArgs struct {
-	// Number of bytes captured per packet, the remaining bytes are truncated.
-	BytesToCapturePerPacket *int `pulumi:"bytesToCapturePerPacket"`
-	// A list of packet capture filters.
-	Filters []PacketCaptureFilter `pulumi:"filters"`
-	// The name of the network watcher.
-	NetworkWatcherName string `pulumi:"networkWatcherName"`
-	// The name of the packet capture session.
-	PacketCaptureName *string `pulumi:"packetCaptureName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Describes the storage location for a packet capture session.
-	StorageLocation PacketCaptureStorageLocation `pulumi:"storageLocation"`
-	// The ID of the targeted resource, only VM is currently supported.
-	Target string `pulumi:"target"`
-	// Maximum duration of the capture session in seconds.
-	TimeLimitInSeconds *int `pulumi:"timeLimitInSeconds"`
-	// Maximum size of the capture output.
-	TotalBytesPerSession *int `pulumi:"totalBytesPerSession"`
+	BytesToCapturePerPacket *int                         `pulumi:"bytesToCapturePerPacket"`
+	Filters                 []PacketCaptureFilter        `pulumi:"filters"`
+	NetworkWatcherName      string                       `pulumi:"networkWatcherName"`
+	PacketCaptureName       *string                      `pulumi:"packetCaptureName"`
+	ResourceGroupName       string                       `pulumi:"resourceGroupName"`
+	StorageLocation         PacketCaptureStorageLocation `pulumi:"storageLocation"`
+	Target                  string                       `pulumi:"target"`
+	TimeLimitInSeconds      *int                         `pulumi:"timeLimitInSeconds"`
+	TotalBytesPerSession    *int                         `pulumi:"totalBytesPerSession"`
 }
 
 // The set of arguments for constructing a PacketCapture resource.
 type PacketCaptureArgs struct {
-	// Number of bytes captured per packet, the remaining bytes are truncated.
 	BytesToCapturePerPacket pulumi.IntPtrInput
-	// A list of packet capture filters.
-	Filters PacketCaptureFilterArrayInput
-	// The name of the network watcher.
-	NetworkWatcherName pulumi.StringInput
-	// The name of the packet capture session.
-	PacketCaptureName pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Describes the storage location for a packet capture session.
-	StorageLocation PacketCaptureStorageLocationInput
-	// The ID of the targeted resource, only VM is currently supported.
-	Target pulumi.StringInput
-	// Maximum duration of the capture session in seconds.
-	TimeLimitInSeconds pulumi.IntPtrInput
-	// Maximum size of the capture output.
-	TotalBytesPerSession pulumi.IntPtrInput
+	Filters                 PacketCaptureFilterArrayInput
+	NetworkWatcherName      pulumi.StringInput
+	PacketCaptureName       pulumi.StringPtrInput
+	ResourceGroupName       pulumi.StringInput
+	StorageLocation         PacketCaptureStorageLocationInput
+	Target                  pulumi.StringInput
+	TimeLimitInSeconds      pulumi.IntPtrInput
+	TotalBytesPerSession    pulumi.IntPtrInput
 }
 
 func (PacketCaptureArgs) ElementType() reflect.Type {
@@ -370,9 +342,7 @@ func (i *PacketCapture) ToPacketCaptureOutputWithContext(ctx context.Context) Pa
 	return pulumi.ToOutputWithContext(ctx, i).(PacketCaptureOutput)
 }
 
-type PacketCaptureOutput struct {
-	*pulumi.OutputState
-}
+type PacketCaptureOutput struct{ *pulumi.OutputState }
 
 func (PacketCaptureOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PacketCapture)(nil))

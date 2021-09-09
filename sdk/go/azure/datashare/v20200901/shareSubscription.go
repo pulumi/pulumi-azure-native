@@ -11,46 +11,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A share subscription data transfer object.
 type ShareSubscription struct {
 	pulumi.CustomResourceState
 
-	// Time at which the share subscription was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The expiration date of the share subscription.
-	ExpirationDate pulumi.StringPtrOutput `pulumi:"expirationDate"`
-	// The invitation id.
-	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Email of the provider who created the resource
-	ProviderEmail pulumi.StringOutput `pulumi:"providerEmail"`
-	// Name of the provider who created the resource
-	ProviderName pulumi.StringOutput `pulumi:"providerName"`
-	// Tenant name of the provider who created the resource
-	ProviderTenantName pulumi.StringOutput `pulumi:"providerTenantName"`
-	// Provisioning state of the share subscription
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Description of share
-	ShareDescription pulumi.StringOutput `pulumi:"shareDescription"`
-	// Kind of share
-	ShareKind pulumi.StringOutput `pulumi:"shareKind"`
-	// Name of the share
-	ShareName pulumi.StringOutput `pulumi:"shareName"`
-	// Gets the current status of share subscription.
-	ShareSubscriptionStatus pulumi.StringOutput `pulumi:"shareSubscriptionStatus"`
-	// Terms of a share
-	ShareTerms pulumi.StringOutput `pulumi:"shareTerms"`
-	// Source share location.
-	SourceShareLocation pulumi.StringOutput `pulumi:"sourceShareLocation"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Email of the user who created the resource
-	UserEmail pulumi.StringOutput `pulumi:"userEmail"`
-	// Name of the user who created the resource
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	CreatedAt               pulumi.StringOutput      `pulumi:"createdAt"`
+	ExpirationDate          pulumi.StringPtrOutput   `pulumi:"expirationDate"`
+	InvitationId            pulumi.StringOutput      `pulumi:"invitationId"`
+	Name                    pulumi.StringOutput      `pulumi:"name"`
+	ProviderEmail           pulumi.StringOutput      `pulumi:"providerEmail"`
+	ProviderName            pulumi.StringOutput      `pulumi:"providerName"`
+	ProviderTenantName      pulumi.StringOutput      `pulumi:"providerTenantName"`
+	ProvisioningState       pulumi.StringOutput      `pulumi:"provisioningState"`
+	ShareDescription        pulumi.StringOutput      `pulumi:"shareDescription"`
+	ShareKind               pulumi.StringOutput      `pulumi:"shareKind"`
+	ShareName               pulumi.StringOutput      `pulumi:"shareName"`
+	ShareSubscriptionStatus pulumi.StringOutput      `pulumi:"shareSubscriptionStatus"`
+	ShareTerms              pulumi.StringOutput      `pulumi:"shareTerms"`
+	SourceShareLocation     pulumi.StringOutput      `pulumi:"sourceShareLocation"`
+	SystemData              SystemDataResponseOutput `pulumi:"systemData"`
+	Type                    pulumi.StringOutput      `pulumi:"type"`
+	UserEmail               pulumi.StringOutput      `pulumi:"userEmail"`
+	UserName                pulumi.StringOutput      `pulumi:"userName"`
 }
 
 // NewShareSubscription registers a new resource with the given unique name, arguments, and options.
@@ -134,34 +115,22 @@ func (ShareSubscriptionState) ElementType() reflect.Type {
 }
 
 type shareSubscriptionArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The expiration date of the share subscription.
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// The invitation id.
-	InvitationId string `pulumi:"invitationId"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the shareSubscription.
+	AccountName           string  `pulumi:"accountName"`
+	ExpirationDate        *string `pulumi:"expirationDate"`
+	InvitationId          string  `pulumi:"invitationId"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
 	ShareSubscriptionName *string `pulumi:"shareSubscriptionName"`
-	// Source share location.
-	SourceShareLocation string `pulumi:"sourceShareLocation"`
+	SourceShareLocation   string  `pulumi:"sourceShareLocation"`
 }
 
 // The set of arguments for constructing a ShareSubscription resource.
 type ShareSubscriptionArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// The expiration date of the share subscription.
-	ExpirationDate pulumi.StringPtrInput
-	// The invitation id.
-	InvitationId pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the shareSubscription.
+	AccountName           pulumi.StringInput
+	ExpirationDate        pulumi.StringPtrInput
+	InvitationId          pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 	ShareSubscriptionName pulumi.StringPtrInput
-	// Source share location.
-	SourceShareLocation pulumi.StringInput
+	SourceShareLocation   pulumi.StringInput
 }
 
 func (ShareSubscriptionArgs) ElementType() reflect.Type {
@@ -187,9 +156,7 @@ func (i *ShareSubscription) ToShareSubscriptionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ShareSubscriptionOutput)
 }
 
-type ShareSubscriptionOutput struct {
-	*pulumi.OutputState
-}
+type ShareSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (ShareSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ShareSubscription)(nil))

@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Slot Config names azure resource.
 type WebAppSlotConfigurationNames struct {
 	pulumi.CustomResourceState
 
-	// List of application settings names.
-	AppSettingNames pulumi.StringArrayOutput `pulumi:"appSettingNames"`
-	// List of connection string names.
+	AppSettingNames       pulumi.StringArrayOutput `pulumi:"appSettingNames"`
 	ConnectionStringNames pulumi.StringArrayOutput `pulumi:"connectionStringNames"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Kind                  pulumi.StringPtrOutput   `pulumi:"kind"`
+	Name                  pulumi.StringOutput      `pulumi:"name"`
+	Type                  pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewWebAppSlotConfigurationNames registers a new resource with the given unique name, arguments, and options.
@@ -150,30 +144,20 @@ func (WebAppSlotConfigurationNamesState) ElementType() reflect.Type {
 }
 
 type webAppSlotConfigurationNamesArgs struct {
-	// List of application settings names.
-	AppSettingNames []string `pulumi:"appSettingNames"`
-	// List of connection string names.
+	AppSettingNames       []string `pulumi:"appSettingNames"`
 	ConnectionStringNames []string `pulumi:"connectionStringNames"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Kind                  *string  `pulumi:"kind"`
+	Name                  string   `pulumi:"name"`
+	ResourceGroupName     string   `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a WebAppSlotConfigurationNames resource.
 type WebAppSlotConfigurationNamesArgs struct {
-	// List of application settings names.
-	AppSettingNames pulumi.StringArrayInput
-	// List of connection string names.
+	AppSettingNames       pulumi.StringArrayInput
 	ConnectionStringNames pulumi.StringArrayInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the app.
-	Name pulumi.StringInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
+	Kind                  pulumi.StringPtrInput
+	Name                  pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 }
 
 func (WebAppSlotConfigurationNamesArgs) ElementType() reflect.Type {
@@ -199,9 +183,7 @@ func (i *WebAppSlotConfigurationNames) ToWebAppSlotConfigurationNamesOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSlotConfigurationNamesOutput)
 }
 
-type WebAppSlotConfigurationNamesOutput struct {
-	*pulumi.OutputState
-}
+type WebAppSlotConfigurationNamesOutput struct{ *pulumi.OutputState }
 
 func (WebAppSlotConfigurationNamesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppSlotConfigurationNames)(nil))

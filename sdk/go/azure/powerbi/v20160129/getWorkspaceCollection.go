@@ -17,23 +17,16 @@ func LookupWorkspaceCollection(ctx *pulumi.Context, args *LookupWorkspaceCollect
 }
 
 type LookupWorkspaceCollectionArgs struct {
-	// Azure resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Power BI Embedded Workspace Collection name
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
 	WorkspaceCollectionName string `pulumi:"workspaceCollectionName"`
 }
 
 type LookupWorkspaceCollectionResult struct {
-	// Resource id
-	Id *string `pulumi:"id"`
-	// Azure location
-	Location *string `pulumi:"location"`
-	// Workspace collection name
-	Name *string `pulumi:"name"`
-	// Properties
+	Id         *string           `pulumi:"id"`
+	Location   *string           `pulumi:"location"`
+	Name       *string           `pulumi:"name"`
 	Properties interface{}       `pulumi:"properties"`
 	Sku        *AzureSkuResponse `pulumi:"sku"`
 	Tags       map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Type       *string           `pulumi:"type"`
 }

@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SaaS REST API resource definition.
 type SaasSubscriptionLevel struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// saas properties
+	Name       pulumi.StringOutput                  `pulumi:"name"`
 	Properties SaasResourceResponsePropertiesOutput `pulumi:"properties"`
-	// the resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput               `pulumi:"tags"`
+	Type       pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewSaasSubscriptionLevel registers a new resource with the given unique name, arguments, and options.
@@ -79,34 +74,22 @@ func (SaasSubscriptionLevelState) ElementType() reflect.Type {
 }
 
 type saasSubscriptionLevelArgs struct {
-	// Resource location. Only value allowed for SaaS is 'global'
-	Location *string `pulumi:"location"`
-	// The resource name
-	Name *string `pulumi:"name"`
-	// Properties of the SaaS resource that are relevant for creation.
-	Properties *SaasCreationProperties `pulumi:"properties"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// the resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string                 `pulumi:"location"`
+	Name              *string                 `pulumi:"name"`
+	Properties        *SaasCreationProperties `pulumi:"properties"`
+	ResourceGroupName string                  `pulumi:"resourceGroupName"`
+	ResourceName      *string                 `pulumi:"resourceName"`
+	Tags              map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SaasSubscriptionLevel resource.
 type SaasSubscriptionLevelArgs struct {
-	// Resource location. Only value allowed for SaaS is 'global'
-	Location pulumi.StringPtrInput
-	// The resource name
-	Name pulumi.StringPtrInput
-	// Properties of the SaaS resource that are relevant for creation.
-	Properties SaasCreationPropertiesPtrInput
-	// The name of the resource group.
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	Properties        SaasCreationPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the resource.
-	ResourceName pulumi.StringPtrInput
-	// the resource tags.
-	Tags pulumi.StringMapInput
+	ResourceName      pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (SaasSubscriptionLevelArgs) ElementType() reflect.Type {
@@ -132,9 +115,7 @@ func (i *SaasSubscriptionLevel) ToSaasSubscriptionLevelOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SaasSubscriptionLevelOutput)
 }
 
-type SaasSubscriptionLevelOutput struct {
-	*pulumi.OutputState
-}
+type SaasSubscriptionLevelOutput struct{ *pulumi.OutputState }
 
 func (SaasSubscriptionLevelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SaasSubscriptionLevel)(nil))

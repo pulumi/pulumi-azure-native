@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VirtualWAN Resource.
 type VirtualWan struct {
 	pulumi.CustomResourceState
 
-	// True if branch to branch traffic is allowed.
-	AllowBranchToBranchTraffic pulumi.BoolPtrOutput `pulumi:"allowBranchToBranchTraffic"`
-	// True if Vnet to Vnet traffic is allowed.
-	AllowVnetToVnetTraffic pulumi.BoolPtrOutput `pulumi:"allowVnetToVnetTraffic"`
-	// Vpn encryption to be disabled or not.
-	DisableVpnEncryption pulumi.BoolPtrOutput `pulumi:"disableVpnEncryption"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The office local breakout category.
-	Office365LocalBreakoutCategory pulumi.StringOutput `pulumi:"office365LocalBreakoutCategory"`
-	// The provisioning state of the virtual WAN resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// List of VirtualHubs in the VirtualWAN.
-	VirtualHubs SubResourceResponseArrayOutput `pulumi:"virtualHubs"`
-	// List of VpnSites in the VirtualWAN.
-	VpnSites SubResourceResponseArrayOutput `pulumi:"vpnSites"`
+	AllowBranchToBranchTraffic     pulumi.BoolPtrOutput           `pulumi:"allowBranchToBranchTraffic"`
+	AllowVnetToVnetTraffic         pulumi.BoolPtrOutput           `pulumi:"allowVnetToVnetTraffic"`
+	DisableVpnEncryption           pulumi.BoolPtrOutput           `pulumi:"disableVpnEncryption"`
+	Etag                           pulumi.StringOutput            `pulumi:"etag"`
+	Location                       pulumi.StringOutput            `pulumi:"location"`
+	Name                           pulumi.StringOutput            `pulumi:"name"`
+	Office365LocalBreakoutCategory pulumi.StringOutput            `pulumi:"office365LocalBreakoutCategory"`
+	ProvisioningState              pulumi.StringOutput            `pulumi:"provisioningState"`
+	Tags                           pulumi.StringMapOutput         `pulumi:"tags"`
+	Type                           pulumi.StringOutput            `pulumi:"type"`
+	VirtualHubs                    SubResourceResponseArrayOutput `pulumi:"virtualHubs"`
+	VpnSites                       SubResourceResponseArrayOutput `pulumi:"vpnSites"`
 }
 
 // NewVirtualWan registers a new resource with the given unique name, arguments, and options.
@@ -233,46 +220,28 @@ func (VirtualWanState) ElementType() reflect.Type {
 }
 
 type virtualWanArgs struct {
-	// True if branch to branch traffic is allowed.
-	AllowBranchToBranchTraffic *bool `pulumi:"allowBranchToBranchTraffic"`
-	// True if Vnet to Vnet traffic is allowed.
-	AllowVnetToVnetTraffic *bool `pulumi:"allowVnetToVnetTraffic"`
-	// Vpn encryption to be disabled or not.
-	DisableVpnEncryption *bool `pulumi:"disableVpnEncryption"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The resource group name of the VirtualWan.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the VirtualWAN.
-	Type *string `pulumi:"type"`
-	// The name of the VirtualWAN being created or updated.
-	VirtualWANName *string `pulumi:"virtualWANName"`
+	AllowBranchToBranchTraffic *bool             `pulumi:"allowBranchToBranchTraffic"`
+	AllowVnetToVnetTraffic     *bool             `pulumi:"allowVnetToVnetTraffic"`
+	DisableVpnEncryption       *bool             `pulumi:"disableVpnEncryption"`
+	Id                         *string           `pulumi:"id"`
+	Location                   *string           `pulumi:"location"`
+	ResourceGroupName          string            `pulumi:"resourceGroupName"`
+	Tags                       map[string]string `pulumi:"tags"`
+	Type                       *string           `pulumi:"type"`
+	VirtualWANName             *string           `pulumi:"virtualWANName"`
 }
 
 // The set of arguments for constructing a VirtualWan resource.
 type VirtualWanArgs struct {
-	// True if branch to branch traffic is allowed.
 	AllowBranchToBranchTraffic pulumi.BoolPtrInput
-	// True if Vnet to Vnet traffic is allowed.
-	AllowVnetToVnetTraffic pulumi.BoolPtrInput
-	// Vpn encryption to be disabled or not.
-	DisableVpnEncryption pulumi.BoolPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The resource group name of the VirtualWan.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the VirtualWAN.
-	Type pulumi.StringPtrInput
-	// The name of the VirtualWAN being created or updated.
-	VirtualWANName pulumi.StringPtrInput
+	AllowVnetToVnetTraffic     pulumi.BoolPtrInput
+	DisableVpnEncryption       pulumi.BoolPtrInput
+	Id                         pulumi.StringPtrInput
+	Location                   pulumi.StringPtrInput
+	ResourceGroupName          pulumi.StringInput
+	Tags                       pulumi.StringMapInput
+	Type                       pulumi.StringPtrInput
+	VirtualWANName             pulumi.StringPtrInput
 }
 
 func (VirtualWanArgs) ElementType() reflect.Type {
@@ -298,9 +267,7 @@ func (i *VirtualWan) ToVirtualWanOutputWithContext(ctx context.Context) VirtualW
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualWanOutput)
 }
 
-type VirtualWanOutput struct {
-	*pulumi.OutputState
-}
+type VirtualWanOutput struct{ *pulumi.OutputState }
 
 func (VirtualWanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualWan)(nil))

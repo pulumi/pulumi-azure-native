@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A private link scoped resource
 func LookupPrivateLinkScopedResource(ctx *pulumi.Context, args *LookupPrivateLinkScopedResourceArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkScopedResourceResult, error) {
 	var rv LookupPrivateLinkScopedResourceResult
 	err := ctx.Invoke("azure-native:hybridcompute/v20200815preview:getPrivateLinkScopedResource", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupPrivateLinkScopedResource(ctx *pulumi.Context, args *LookupPrivateLin
 }
 
 type LookupPrivateLinkScopedResourceArgs struct {
-	// The name of the scoped resource object.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Azure Arc PrivateLinkScope resource.
-	ScopeName string `pulumi:"scopeName"`
+	ScopeName         string `pulumi:"scopeName"`
 }
 
 // A private link scoped resource
 type LookupPrivateLinkScopedResourceResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The resource id of the scoped Azure monitor resource.
-	LinkedResourceId *string `pulumi:"linkedResourceId"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// State of the private endpoint connection.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Id                string  `pulumi:"id"`
+	LinkedResourceId  *string `pulumi:"linkedResourceId"`
+	Name              string  `pulumi:"name"`
+	ProvisioningState string  `pulumi:"provisioningState"`
+	Type              string  `pulumi:"type"`
 }

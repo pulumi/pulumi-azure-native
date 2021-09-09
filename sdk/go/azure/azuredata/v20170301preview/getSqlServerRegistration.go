@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SQL server registration.
 func LookupSqlServerRegistration(ctx *pulumi.Context, args *LookupSqlServerRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupSqlServerRegistrationResult, error) {
 	var rv LookupSqlServerRegistrationResult
 	err := ctx.Invoke("azure-native:azuredata/v20170301preview:getSqlServerRegistration", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupSqlServerRegistration(ctx *pulumi.Context, args *LookupSqlServerRegis
 }
 
 type LookupSqlServerRegistrationArgs struct {
-	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the SQL Server registration.
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
 	SqlServerRegistrationName string `pulumi:"sqlServerRegistrationName"`
 }
 
 // A SQL server registration.
 type LookupSqlServerRegistrationResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Optional Properties as JSON string
-	PropertyBag *string `pulumi:"propertyBag"`
-	// Resource Group Name
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Subscription Id
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id             string            `pulumi:"id"`
+	Location       string            `pulumi:"location"`
+	Name           string            `pulumi:"name"`
+	PropertyBag    *string           `pulumi:"propertyBag"`
+	ResourceGroup  *string           `pulumi:"resourceGroup"`
+	SubscriptionId *string           `pulumi:"subscriptionId"`
+	Tags           map[string]string `pulumi:"tags"`
+	Type           string            `pulumi:"type"`
 }

@@ -14,36 +14,21 @@ import (
 type Workflow struct {
 	pulumi.CustomResourceState
 
-	// Gets the access endpoint.
-	AccessEndpoint pulumi.StringOutput `pulumi:"accessEndpoint"`
-	// Gets the changed time.
-	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
-	// Gets the created time.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// Gets or sets the definition.
-	Definition pulumi.AnyOutput `pulumi:"definition"`
-	// Gets or sets the link to definition.
-	DefinitionLink ContentLinkResponsePtrOutput `pulumi:"definitionLink"`
-	// Gets or sets the resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Gets or sets the parameters.
-	Parameters WorkflowParameterResponseMapOutput `pulumi:"parameters"`
-	// Gets or sets the link to parameters.
-	ParametersLink ContentLinkResponsePtrOutput `pulumi:"parametersLink"`
-	// Gets the provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Gets or sets the sku.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Gets or sets the state.
-	State pulumi.StringPtrOutput `pulumi:"state"`
-	// Gets or sets the resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// Gets the version.
-	Version pulumi.StringOutput `pulumi:"version"`
+	AccessEndpoint    pulumi.StringOutput                `pulumi:"accessEndpoint"`
+	ChangedTime       pulumi.StringOutput                `pulumi:"changedTime"`
+	CreatedTime       pulumi.StringOutput                `pulumi:"createdTime"`
+	Definition        pulumi.AnyOutput                   `pulumi:"definition"`
+	DefinitionLink    ContentLinkResponsePtrOutput       `pulumi:"definitionLink"`
+	Location          pulumi.StringPtrOutput             `pulumi:"location"`
+	Name              pulumi.StringPtrOutput             `pulumi:"name"`
+	Parameters        WorkflowParameterResponseMapOutput `pulumi:"parameters"`
+	ParametersLink    ContentLinkResponsePtrOutput       `pulumi:"parametersLink"`
+	ProvisioningState pulumi.StringOutput                `pulumi:"provisioningState"`
+	Sku               SkuResponsePtrOutput               `pulumi:"sku"`
+	State             pulumi.StringPtrOutput             `pulumi:"state"`
+	Tags              pulumi.StringMapOutput             `pulumi:"tags"`
+	Type              pulumi.StringPtrOutput             `pulumi:"type"`
+	Version           pulumi.StringOutput                `pulumi:"version"`
 }
 
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
@@ -118,62 +103,36 @@ func (WorkflowState) ElementType() reflect.Type {
 }
 
 type workflowArgs struct {
-	// Gets or sets the definition.
-	Definition interface{} `pulumi:"definition"`
-	// Gets or sets the link to definition.
-	DefinitionLink *ContentLink `pulumi:"definitionLink"`
-	// Gets or sets the resource id.
-	Id *string `pulumi:"id"`
-	// Gets or sets the resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name *string `pulumi:"name"`
-	// Gets or sets the parameters.
-	Parameters map[string]WorkflowParameter `pulumi:"parameters"`
-	// Gets or sets the link to parameters.
-	ParametersLink *ContentLink `pulumi:"parametersLink"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets the sku.
-	Sku *Sku `pulumi:"sku"`
-	// Gets or sets the state.
-	State *string `pulumi:"state"`
-	// Gets or sets the resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type *string `pulumi:"type"`
-	// The workflow name.
-	WorkflowName *string `pulumi:"workflowName"`
+	Definition        interface{}                  `pulumi:"definition"`
+	DefinitionLink    *ContentLink                 `pulumi:"definitionLink"`
+	Id                *string                      `pulumi:"id"`
+	Location          *string                      `pulumi:"location"`
+	Name              *string                      `pulumi:"name"`
+	Parameters        map[string]WorkflowParameter `pulumi:"parameters"`
+	ParametersLink    *ContentLink                 `pulumi:"parametersLink"`
+	ResourceGroupName string                       `pulumi:"resourceGroupName"`
+	Sku               *Sku                         `pulumi:"sku"`
+	State             *WorkflowStateEnum           `pulumi:"state"`
+	Tags              map[string]string            `pulumi:"tags"`
+	Type              *string                      `pulumi:"type"`
+	WorkflowName      *string                      `pulumi:"workflowName"`
 }
 
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
-	// Gets or sets the definition.
-	Definition pulumi.Input
-	// Gets or sets the link to definition.
-	DefinitionLink ContentLinkPtrInput
-	// Gets or sets the resource id.
-	Id pulumi.StringPtrInput
-	// Gets or sets the resource location.
-	Location pulumi.StringPtrInput
-	// Gets the resource name.
-	Name pulumi.StringPtrInput
-	// Gets or sets the parameters.
-	Parameters WorkflowParameterMapInput
-	// Gets or sets the link to parameters.
-	ParametersLink ContentLinkPtrInput
-	// The resource group name.
+	Definition        pulumi.Input
+	DefinitionLink    ContentLinkPtrInput
+	Id                pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	Parameters        WorkflowParameterMapInput
+	ParametersLink    ContentLinkPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Gets or sets the sku.
-	Sku SkuPtrInput
-	// Gets or sets the state.
-	State *WorkflowStateEnum
-	// Gets or sets the resource tags.
-	Tags pulumi.StringMapInput
-	// Gets the resource type.
-	Type pulumi.StringPtrInput
-	// The workflow name.
-	WorkflowName pulumi.StringPtrInput
+	Sku               SkuPtrInput
+	State             WorkflowStateEnumPtrInput
+	Tags              pulumi.StringMapInput
+	Type              pulumi.StringPtrInput
+	WorkflowName      pulumi.StringPtrInput
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {
@@ -199,9 +158,7 @@ func (i *Workflow) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOutput)
 }
 
-type WorkflowOutput struct {
-	*pulumi.OutputState
-}
+type WorkflowOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workflow)(nil))

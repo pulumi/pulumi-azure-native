@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// App Service Environment ARM resource.
 func LookupAppServiceEnvironment(ctx *pulumi.Context, args *LookupAppServiceEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceEnvironmentResult, error) {
 	var rv LookupAppServiceEnvironmentResult
 	err := ctx.Invoke("azure-native:web/v20210201:getAppServiceEnvironment", args, &rv, opts...)
@@ -18,57 +17,32 @@ func LookupAppServiceEnvironment(ctx *pulumi.Context, args *LookupAppServiceEnvi
 }
 
 type LookupAppServiceEnvironmentArgs struct {
-	// Name of the App Service Environment.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // App Service Environment ARM resource.
 type LookupAppServiceEnvironmentResult struct {
-	// Custom settings for changing the behavior of the App Service Environment.
-	ClusterSettings []NameValuePairResponse `pulumi:"clusterSettings"`
-	// Dedicated Host Count
-	DedicatedHostCount *int `pulumi:"dedicatedHostCount"`
-	// DNS suffix of the App Service Environment.
-	DnsSuffix *string `pulumi:"dnsSuffix"`
-	// Scale factor for front-ends.
-	FrontEndScaleFactor *int `pulumi:"frontEndScaleFactor"`
-	// Flag that displays whether an ASE has linux workers or not
-	HasLinuxWorkers bool `pulumi:"hasLinuxWorkers"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
-	// Number of IP SSL addresses reserved for the App Service Environment.
-	IpsslAddressCount *int `pulumi:"ipsslAddressCount"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Location.
-	Location string `pulumi:"location"`
-	// Maximum number of VMs in the App Service Environment.
-	MaximumNumberOfMachines int `pulumi:"maximumNumberOfMachines"`
-	// Number of front-end instances.
-	MultiRoleCount int `pulumi:"multiRoleCount"`
-	// Front-end VM size, e.g. "Medium", "Large".
-	MultiSize *string `pulumi:"multiSize"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Provisioning state of the App Service Environment.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Current status of the App Service Environment.
-	Status string `pulumi:"status"`
-	// <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
-	//  (most likely because NSG blocked the incoming traffic).
-	Suspended bool `pulumi:"suspended"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// User added ip ranges to whitelist on ASE db
-	UserWhitelistedIpRanges []string `pulumi:"userWhitelistedIpRanges"`
-	// Description of the Virtual Network.
-	VirtualNetwork VirtualNetworkProfileResponse `pulumi:"virtualNetwork"`
-	// Whether or not this App Service Environment is zone-redundant.
-	ZoneRedundant *bool `pulumi:"zoneRedundant"`
+	ClusterSettings           []NameValuePairResponse       `pulumi:"clusterSettings"`
+	DedicatedHostCount        *int                          `pulumi:"dedicatedHostCount"`
+	DnsSuffix                 *string                       `pulumi:"dnsSuffix"`
+	FrontEndScaleFactor       *int                          `pulumi:"frontEndScaleFactor"`
+	HasLinuxWorkers           bool                          `pulumi:"hasLinuxWorkers"`
+	Id                        string                        `pulumi:"id"`
+	InternalLoadBalancingMode *string                       `pulumi:"internalLoadBalancingMode"`
+	IpsslAddressCount         *int                          `pulumi:"ipsslAddressCount"`
+	Kind                      *string                       `pulumi:"kind"`
+	Location                  string                        `pulumi:"location"`
+	MaximumNumberOfMachines   int                           `pulumi:"maximumNumberOfMachines"`
+	MultiRoleCount            int                           `pulumi:"multiRoleCount"`
+	MultiSize                 *string                       `pulumi:"multiSize"`
+	Name                      string                        `pulumi:"name"`
+	ProvisioningState         string                        `pulumi:"provisioningState"`
+	Status                    string                        `pulumi:"status"`
+	Suspended                 bool                          `pulumi:"suspended"`
+	Tags                      map[string]string             `pulumi:"tags"`
+	Type                      string                        `pulumi:"type"`
+	UserWhitelistedIpRanges   []string                      `pulumi:"userWhitelistedIpRanges"`
+	VirtualNetwork            VirtualNetworkProfileResponse `pulumi:"virtualNetwork"`
+	ZoneRedundant             *bool                         `pulumi:"zoneRedundant"`
 }

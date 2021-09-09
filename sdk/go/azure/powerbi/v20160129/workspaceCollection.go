@@ -14,16 +14,12 @@ import (
 type WorkspaceCollection struct {
 	pulumi.CustomResourceState
 
-	// Azure location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Workspace collection name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Properties
+	Location   pulumi.StringPtrOutput    `pulumi:"location"`
+	Name       pulumi.StringPtrOutput    `pulumi:"name"`
 	Properties pulumi.AnyOutput          `pulumi:"properties"`
 	Sku        AzureSkuResponsePtrOutput `pulumi:"sku"`
 	Tags       pulumi.StringMapOutput    `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Type       pulumi.StringPtrOutput    `pulumi:"type"`
 }
 
 // NewWorkspaceCollection registers a new resource with the given unique name, arguments, and options.
@@ -80,25 +76,19 @@ func (WorkspaceCollectionState) ElementType() reflect.Type {
 }
 
 type workspaceCollectionArgs struct {
-	// Azure location
-	Location *string `pulumi:"location"`
-	// Azure resource group
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Sku               *AzureSku         `pulumi:"sku"`
-	Tags              map[string]string `pulumi:"tags"`
-	// Power BI Embedded Workspace Collection name
-	WorkspaceCollectionName *string `pulumi:"workspaceCollectionName"`
+	Location                *string           `pulumi:"location"`
+	ResourceGroupName       string            `pulumi:"resourceGroupName"`
+	Sku                     *AzureSku         `pulumi:"sku"`
+	Tags                    map[string]string `pulumi:"tags"`
+	WorkspaceCollectionName *string           `pulumi:"workspaceCollectionName"`
 }
 
 // The set of arguments for constructing a WorkspaceCollection resource.
 type WorkspaceCollectionArgs struct {
-	// Azure location
-	Location pulumi.StringPtrInput
-	// Azure resource group
-	ResourceGroupName pulumi.StringInput
-	Sku               AzureSkuPtrInput
-	Tags              pulumi.StringMapInput
-	// Power BI Embedded Workspace Collection name
+	Location                pulumi.StringPtrInput
+	ResourceGroupName       pulumi.StringInput
+	Sku                     AzureSkuPtrInput
+	Tags                    pulumi.StringMapInput
 	WorkspaceCollectionName pulumi.StringPtrInput
 }
 
@@ -125,9 +115,7 @@ func (i *WorkspaceCollection) ToWorkspaceCollectionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCollectionOutput)
 }
 
-type WorkspaceCollectionOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceCollectionOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkspaceCollection)(nil))

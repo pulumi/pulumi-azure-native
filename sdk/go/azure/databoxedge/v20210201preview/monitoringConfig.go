@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The metric setting details for the role
 type MonitoringConfig struct {
 	pulumi.CustomResourceState
 
-	// The metrics configuration details
 	MetricConfigurations MetricConfigurationResponseArrayOutput `pulumi:"metricConfigurations"`
-	// The object name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// MonitoringConfiguration on ASE device
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name                 pulumi.StringOutput                    `pulumi:"name"`
+	SystemData           SystemDataResponseOutput               `pulumi:"systemData"`
+	Type                 pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewMonitoringConfig registers a new resource with the given unique name, arguments, and options.
@@ -112,26 +107,18 @@ func (MonitoringConfigState) ElementType() reflect.Type {
 }
 
 type monitoringConfigArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The metrics configuration details
+	DeviceName           string                `pulumi:"deviceName"`
 	MetricConfigurations []MetricConfiguration `pulumi:"metricConfigurations"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The role name.
-	RoleName string `pulumi:"roleName"`
+	ResourceGroupName    string                `pulumi:"resourceGroupName"`
+	RoleName             string                `pulumi:"roleName"`
 }
 
 // The set of arguments for constructing a MonitoringConfig resource.
 type MonitoringConfigArgs struct {
-	// The device name.
-	DeviceName pulumi.StringInput
-	// The metrics configuration details
+	DeviceName           pulumi.StringInput
 	MetricConfigurations MetricConfigurationArrayInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The role name.
-	RoleName pulumi.StringInput
+	ResourceGroupName    pulumi.StringInput
+	RoleName             pulumi.StringInput
 }
 
 func (MonitoringConfigArgs) ElementType() reflect.Type {
@@ -157,9 +144,7 @@ func (i *MonitoringConfig) ToMonitoringConfigOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringConfigOutput)
 }
 
-type MonitoringConfigOutput struct {
-	*pulumi.OutputState
-}
+type MonitoringConfigOutput struct{ *pulumi.OutputState }
 
 func (MonitoringConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MonitoringConfig)(nil))

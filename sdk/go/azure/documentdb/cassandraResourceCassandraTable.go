@@ -260,9 +260,7 @@ func (i *CassandraResourceCassandraTable) ToCassandraResourceCassandraTableOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraResourceCassandraTableOutput)
 }
 
-type CassandraResourceCassandraTableOutput struct {
-	*pulumi.OutputState
-}
+type CassandraResourceCassandraTableOutput struct{ *pulumi.OutputState }
 
 func (CassandraResourceCassandraTableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CassandraResourceCassandraTable)(nil))

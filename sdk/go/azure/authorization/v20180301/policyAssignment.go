@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The policy assignment.
 type PolicyAssignment struct {
 	pulumi.CustomResourceState
 
-	// This message will be part of response in case of policy violation.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The display name of the policy assignment.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The policy assignment metadata.
-	Metadata pulumi.AnyOutput `pulumi:"metadata"`
-	// The name of the policy assignment.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The policy's excluded scopes.
-	NotScopes pulumi.StringArrayOutput `pulumi:"notScopes"`
-	// Required if a parameter is used in policy rule.
-	Parameters pulumi.AnyOutput `pulumi:"parameters"`
-	// The ID of the policy definition or policy set definition being assigned.
-	PolicyDefinitionId pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
-	// The scope for the policy assignment.
-	Scope pulumi.StringPtrOutput `pulumi:"scope"`
-	// The policy sku. This property is optional, obsolete, and will be ignored.
-	Sku PolicySkuResponsePtrOutput `pulumi:"sku"`
-	// The type of the policy assignment.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Description        pulumi.StringPtrOutput     `pulumi:"description"`
+	DisplayName        pulumi.StringPtrOutput     `pulumi:"displayName"`
+	Metadata           pulumi.AnyOutput           `pulumi:"metadata"`
+	Name               pulumi.StringOutput        `pulumi:"name"`
+	NotScopes          pulumi.StringArrayOutput   `pulumi:"notScopes"`
+	Parameters         pulumi.AnyOutput           `pulumi:"parameters"`
+	PolicyDefinitionId pulumi.StringPtrOutput     `pulumi:"policyDefinitionId"`
+	Scope              pulumi.StringPtrOutput     `pulumi:"scope"`
+	Sku                PolicySkuResponsePtrOutput `pulumi:"sku"`
+	Type               pulumi.StringOutput        `pulumi:"type"`
 }
 
 // NewPolicyAssignment registers a new resource with the given unique name, arguments, and options.
@@ -157,46 +146,28 @@ func (PolicyAssignmentState) ElementType() reflect.Type {
 }
 
 type policyAssignmentArgs struct {
-	// This message will be part of response in case of policy violation.
-	Description *string `pulumi:"description"`
-	// The display name of the policy assignment.
-	DisplayName *string `pulumi:"displayName"`
-	// The policy assignment metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The policy's excluded scopes.
-	NotScopes []string `pulumi:"notScopes"`
-	// Required if a parameter is used in policy rule.
-	Parameters interface{} `pulumi:"parameters"`
-	// The name of the policy assignment.
-	PolicyAssignmentName *string `pulumi:"policyAssignmentName"`
-	// The ID of the policy definition or policy set definition being assigned.
-	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
-	// The scope for the policy assignment.
-	Scope string `pulumi:"scope"`
-	// The policy sku. This property is optional, obsolete, and will be ignored.
-	Sku *PolicySku `pulumi:"sku"`
+	Description          *string     `pulumi:"description"`
+	DisplayName          *string     `pulumi:"displayName"`
+	Metadata             interface{} `pulumi:"metadata"`
+	NotScopes            []string    `pulumi:"notScopes"`
+	Parameters           interface{} `pulumi:"parameters"`
+	PolicyAssignmentName *string     `pulumi:"policyAssignmentName"`
+	PolicyDefinitionId   *string     `pulumi:"policyDefinitionId"`
+	Scope                string      `pulumi:"scope"`
+	Sku                  *PolicySku  `pulumi:"sku"`
 }
 
 // The set of arguments for constructing a PolicyAssignment resource.
 type PolicyAssignmentArgs struct {
-	// This message will be part of response in case of policy violation.
-	Description pulumi.StringPtrInput
-	// The display name of the policy assignment.
-	DisplayName pulumi.StringPtrInput
-	// The policy assignment metadata.
-	Metadata pulumi.Input
-	// The policy's excluded scopes.
-	NotScopes pulumi.StringArrayInput
-	// Required if a parameter is used in policy rule.
-	Parameters pulumi.Input
-	// The name of the policy assignment.
+	Description          pulumi.StringPtrInput
+	DisplayName          pulumi.StringPtrInput
+	Metadata             pulumi.Input
+	NotScopes            pulumi.StringArrayInput
+	Parameters           pulumi.Input
 	PolicyAssignmentName pulumi.StringPtrInput
-	// The ID of the policy definition or policy set definition being assigned.
-	PolicyDefinitionId pulumi.StringPtrInput
-	// The scope for the policy assignment.
-	Scope pulumi.StringInput
-	// The policy sku. This property is optional, obsolete, and will be ignored.
-	Sku PolicySkuPtrInput
+	PolicyDefinitionId   pulumi.StringPtrInput
+	Scope                pulumi.StringInput
+	Sku                  PolicySkuPtrInput
 }
 
 func (PolicyAssignmentArgs) ElementType() reflect.Type {
@@ -222,9 +193,7 @@ func (i *PolicyAssignment) ToPolicyAssignmentOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentOutput)
 }
 
-type PolicyAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type PolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (PolicyAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyAssignment)(nil))

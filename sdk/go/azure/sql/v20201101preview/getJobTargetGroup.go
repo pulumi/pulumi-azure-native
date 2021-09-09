@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A group of job targets.
 func LookupJobTargetGroup(ctx *pulumi.Context, args *LookupJobTargetGroupArgs, opts ...pulumi.InvokeOption) (*LookupJobTargetGroupResult, error) {
 	var rv LookupJobTargetGroupResult
 	err := ctx.Invoke("azure-native:sql/v20201101preview:getJobTargetGroup", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupJobTargetGroup(ctx *pulumi.Context, args *LookupJobTargetGroupArgs, o
 }
 
 type LookupJobTargetGroupArgs struct {
-	// The name of the job agent.
-	JobAgentName string `pulumi:"jobAgentName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	JobAgentName      string `pulumi:"jobAgentName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The name of the target group.
-	TargetGroupName string `pulumi:"targetGroupName"`
+	ServerName        string `pulumi:"serverName"`
+	TargetGroupName   string `pulumi:"targetGroupName"`
 }
 
 // A group of job targets.
 type LookupJobTargetGroupResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Members of the target group.
+	Id      string              `pulumi:"id"`
 	Members []JobTargetResponse `pulumi:"members"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Name    string              `pulumi:"name"`
+	Type    string              `pulumi:"type"`
 }

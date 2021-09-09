@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An ADLS Gen2 file system data set mapping.
 func LookupADLSGen2FileSystemDataSetMapping(ctx *pulumi.Context, args *LookupADLSGen2FileSystemDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupADLSGen2FileSystemDataSetMappingResult, error) {
 	var rv LookupADLSGen2FileSystemDataSetMappingResult
 	err := ctx.Invoke("azure-native:datashare/v20201001preview:getADLSGen2FileSystemDataSetMapping", args, &rv, opts...)
@@ -18,41 +17,24 @@ func LookupADLSGen2FileSystemDataSetMapping(ctx *pulumi.Context, args *LookupADL
 }
 
 type LookupADLSGen2FileSystemDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSetMapping.
-	DataSetMappingName string `pulumi:"dataSetMappingName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the shareSubscription.
+	AccountName           string `pulumi:"accountName"`
+	DataSetMappingName    string `pulumi:"dataSetMappingName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
 }
 
 // An ADLS Gen2 file system data set mapping.
 type LookupADLSGen2FileSystemDataSetMappingResult struct {
-	// The id of the source data set.
-	DataSetId string `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus string `pulumi:"dataSetMappingStatus"`
-	// The file system name.
-	FileSystem string `pulumi:"fileSystem"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set mapping.
-	// Expected value is 'AdlsGen2FileSystem'.
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource group of storage account.
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// Storage account name of the source data set.
-	StorageAccountName string `pulumi:"storageAccountName"`
-	// Subscription id of storage account.
-	SubscriptionId string `pulumi:"subscriptionId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	DataSetId            string             `pulumi:"dataSetId"`
+	DataSetMappingStatus string             `pulumi:"dataSetMappingStatus"`
+	FileSystem           string             `pulumi:"fileSystem"`
+	Id                   string             `pulumi:"id"`
+	Kind                 string             `pulumi:"kind"`
+	Name                 string             `pulumi:"name"`
+	ProvisioningState    string             `pulumi:"provisioningState"`
+	ResourceGroup        string             `pulumi:"resourceGroup"`
+	StorageAccountName   string             `pulumi:"storageAccountName"`
+	SubscriptionId       string             `pulumi:"subscriptionId"`
+	SystemData           SystemDataResponse `pulumi:"systemData"`
+	Type                 string             `pulumi:"type"`
 }

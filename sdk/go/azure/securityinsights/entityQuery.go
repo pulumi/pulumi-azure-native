@@ -146,9 +146,7 @@ func (i *EntityQuery) ToEntityQueryOutputWithContext(ctx context.Context) Entity
 	return pulumi.ToOutputWithContext(ctx, i).(EntityQueryOutput)
 }
 
-type EntityQueryOutput struct {
-	*pulumi.OutputState
-}
+type EntityQueryOutput struct{ *pulumi.OutputState }
 
 func (EntityQueryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EntityQuery)(nil))

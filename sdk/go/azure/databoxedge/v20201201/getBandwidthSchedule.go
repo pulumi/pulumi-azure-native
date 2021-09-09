@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The bandwidth schedule details.
 func LookupBandwidthSchedule(ctx *pulumi.Context, args *LookupBandwidthScheduleArgs, opts ...pulumi.InvokeOption) (*LookupBandwidthScheduleResult, error) {
 	var rv LookupBandwidthScheduleResult
 	err := ctx.Invoke("azure-native:databoxedge/v20201201:getBandwidthSchedule", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupBandwidthSchedule(ctx *pulumi.Context, args *LookupBandwidthScheduleA
 }
 
 type LookupBandwidthScheduleArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The bandwidth schedule name.
-	Name string `pulumi:"name"`
-	// The resource group name.
+	DeviceName        string `pulumi:"deviceName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The bandwidth schedule details.
 type LookupBandwidthScheduleResult struct {
-	// The days of the week when this schedule is applicable.
-	Days []string `pulumi:"days"`
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// The bandwidth rate in Mbps.
-	RateInMbps int `pulumi:"rateInMbps"`
-	// The start time of the schedule in UTC.
-	Start string `pulumi:"start"`
-	// The stop time of the schedule in UTC.
-	Stop string `pulumi:"stop"`
-	// Bandwidth object related to ASE resource
+	Days       []string           `pulumi:"days"`
+	Id         string             `pulumi:"id"`
+	Name       string             `pulumi:"name"`
+	RateInMbps int                `pulumi:"rateInMbps"`
+	Start      string             `pulumi:"start"`
+	Stop       string             `pulumi:"stop"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

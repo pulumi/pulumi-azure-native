@@ -150,9 +150,7 @@ func (i *PipelineRun) ToPipelineRunOutputWithContext(ctx context.Context) Pipeli
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunOutput)
 }
 
-type PipelineRunOutput struct {
-	*pulumi.OutputState
-}
+type PipelineRunOutput struct{ *pulumi.OutputState }
 
 func (PipelineRunOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineRun)(nil))

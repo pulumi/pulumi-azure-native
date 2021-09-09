@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in List or Get Consumer group operation
 func LookupConsumerGroup(ctx *pulumi.Context, args *LookupConsumerGroupArgs, opts ...pulumi.InvokeOption) (*LookupConsumerGroupResult, error) {
 	var rv LookupConsumerGroupResult
 	err := ctx.Invoke("azure-native:eventhub/v20140901:getConsumerGroup", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupConsumerGroup(ctx *pulumi.Context, args *LookupConsumerGroupArgs, opt
 }
 
 type LookupConsumerGroupArgs struct {
-	// The consumer group name
 	ConsumerGroupName string `pulumi:"consumerGroupName"`
-	// The Event Hub name
-	EventHubName string `pulumi:"eventHubName"`
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the resource group within the azure subscription.
+	EventHubName      string `pulumi:"eventHubName"`
+	NamespaceName     string `pulumi:"namespaceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Single item in List or Get Consumer group operation
 type LookupConsumerGroupResult struct {
-	// Exact time the message was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// The path of the Event Hub.
-	EventHubPath string `pulumi:"eventHubPath"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// The exact time the message was updated.
-	UpdatedAt string `pulumi:"updatedAt"`
-	// The user metadata.
+	CreatedAt    string  `pulumi:"createdAt"`
+	EventHubPath string  `pulumi:"eventHubPath"`
+	Id           string  `pulumi:"id"`
+	Location     *string `pulumi:"location"`
+	Name         string  `pulumi:"name"`
+	Type         string  `pulumi:"type"`
+	UpdatedAt    string  `pulumi:"updatedAt"`
 	UserMetadata *string `pulumi:"userMetadata"`
 }

@@ -146,9 +146,7 @@ func (i *JobCollection) ToJobCollectionOutputWithContext(ctx context.Context) Jo
 	return pulumi.ToOutputWithContext(ctx, i).(JobCollectionOutput)
 }
 
-type JobCollectionOutput struct {
-	*pulumi.OutputState
-}
+type JobCollectionOutput struct{ *pulumi.OutputState }
 
 func (JobCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobCollection)(nil))

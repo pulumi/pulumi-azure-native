@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource information with extended details.
 func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.InvokeOption) (*LookupVaultResult, error) {
 	var rv LookupVaultResult
 	err := ctx.Invoke("azure-native:keyvault/v20161001:getVault", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.Invo
 }
 
 type LookupVaultArgs struct {
-	// The name of the Resource Group to which the vault belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the vault.
-	VaultName string `pulumi:"vaultName"`
+	VaultName         string `pulumi:"vaultName"`
 }
 
 // Resource information with extended details.
 type LookupVaultResult struct {
-	// The Azure Resource Manager resource ID for the key vault.
-	Id string `pulumi:"id"`
-	// The supported Azure location where the key vault should be created.
-	Location string `pulumi:"location"`
-	// The name of the key vault.
-	Name string `pulumi:"name"`
-	// Properties of the vault
+	Id         string                  `pulumi:"id"`
+	Location   string                  `pulumi:"location"`
+	Name       string                  `pulumi:"name"`
 	Properties VaultPropertiesResponse `pulumi:"properties"`
-	// The tags that will be assigned to the key vault.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type of the key vault.
-	Type string `pulumi:"type"`
+	Tags       map[string]string       `pulumi:"tags"`
+	Type       string                  `pulumi:"type"`
 }

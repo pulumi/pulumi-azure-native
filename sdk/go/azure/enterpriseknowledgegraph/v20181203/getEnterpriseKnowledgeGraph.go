@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// EnterpriseKnowledgeGraph resource definition
 func LookupEnterpriseKnowledgeGraph(ctx *pulumi.Context, args *LookupEnterpriseKnowledgeGraphArgs, opts ...pulumi.InvokeOption) (*LookupEnterpriseKnowledgeGraphResult, error) {
 	var rv LookupEnterpriseKnowledgeGraphResult
 	err := ctx.Invoke("azure-native:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupEnterpriseKnowledgeGraph(ctx *pulumi.Context, args *LookupEnterpriseK
 }
 
 type LookupEnterpriseKnowledgeGraphArgs struct {
-	// The name of the EnterpriseKnowledgeGraph resource group in the user subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the EnterpriseKnowledgeGraph resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // EnterpriseKnowledgeGraph resource definition
 type LookupEnterpriseKnowledgeGraphResult struct {
-	// Specifies the resource ID.
-	Id string `pulumi:"id"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// The set of properties specific to EnterpriseKnowledgeGraph resource
+	Id         string                                     `pulumi:"id"`
+	Location   *string                                    `pulumi:"location"`
+	Name       string                                     `pulumi:"name"`
 	Properties EnterpriseKnowledgeGraphPropertiesResponse `pulumi:"properties"`
-	// Gets or sets the SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
+	Sku        *SkuResponse                               `pulumi:"sku"`
+	Tags       map[string]string                          `pulumi:"tags"`
+	Type       string                                     `pulumi:"type"`
 }

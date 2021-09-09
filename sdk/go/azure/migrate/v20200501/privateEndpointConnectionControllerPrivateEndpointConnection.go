@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// REST model used to encapsulate the user visible state of a PrivateEndpoint.
 type PrivateEndpointConnectionControllerPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Gets the tag for optimistic concurrency control.
-	ETag pulumi.StringOutput `pulumi:"eTag"`
-	// Gets the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets the properties of the object.
+	ETag       pulumi.StringOutput                               `pulumi:"eTag"`
+	Name       pulumi.StringOutput                               `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Gets the resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput                          `pulumi:"systemData"`
+	Type       pulumi.StringOutput                               `pulumi:"type"`
 }
 
 // NewPrivateEndpointConnectionControllerPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -78,30 +72,20 @@ func (PrivateEndpointConnectionControllerPrivateEndpointConnectionState) Element
 }
 
 type privateEndpointConnectionControllerPrivateEndpointConnectionArgs struct {
-	// Gets the tag for optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Migrate project name.
-	MigrateProjectName string `pulumi:"migrateProjectName"`
-	// Private endpoint connection name.
-	PeConnectionName *string `pulumi:"peConnectionName"`
-	// Properties of Connection state request.
-	Properties *ConnectionStateRequestBodyProperties `pulumi:"properties"`
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ETag               *string                               `pulumi:"eTag"`
+	MigrateProjectName string                                `pulumi:"migrateProjectName"`
+	PeConnectionName   *string                               `pulumi:"peConnectionName"`
+	Properties         *ConnectionStateRequestBodyProperties `pulumi:"properties"`
+	ResourceGroupName  string                                `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnectionControllerPrivateEndpointConnection resource.
 type PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs struct {
-	// Gets the tag for optimistic concurrency control.
-	ETag pulumi.StringPtrInput
-	// Migrate project name.
+	ETag               pulumi.StringPtrInput
 	MigrateProjectName pulumi.StringInput
-	// Private endpoint connection name.
-	PeConnectionName pulumi.StringPtrInput
-	// Properties of Connection state request.
-	Properties ConnectionStateRequestBodyPropertiesPtrInput
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName pulumi.StringInput
+	PeConnectionName   pulumi.StringPtrInput
+	Properties         ConnectionStateRequestBodyPropertiesPtrInput
+	ResourceGroupName  pulumi.StringInput
 }
 
 func (PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs) ElementType() reflect.Type {
@@ -127,9 +111,7 @@ func (i *PrivateEndpointConnectionControllerPrivateEndpointConnection) ToPrivate
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionControllerPrivateEndpointConnectionOutput)
 }
 
-type PrivateEndpointConnectionControllerPrivateEndpointConnectionOutput struct {
-	*pulumi.OutputState
-}
+type PrivateEndpointConnectionControllerPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionControllerPrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpointConnectionControllerPrivateEndpointConnection)(nil))

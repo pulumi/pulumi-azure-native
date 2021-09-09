@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the dsc node configuration.
 type DscNodeConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets the configuration of the node.
-	Configuration DscConfigurationAssociationPropertyResponsePtrOutput `pulumi:"configuration"`
-	// Gets or sets creation time.
-	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
-	// If a new build version of NodeConfiguration is required.
-	IncrementNodeConfigurationBuild pulumi.BoolPtrOutput `pulumi:"incrementNodeConfigurationBuild"`
-	// Gets or sets the last modified time.
-	LastModifiedTime pulumi.StringPtrOutput `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Number of nodes with this node configuration assigned
-	NodeCount pulumi.Float64PtrOutput `pulumi:"nodeCount"`
-	// Source of node configuration.
-	Source pulumi.StringPtrOutput `pulumi:"source"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Configuration                   DscConfigurationAssociationPropertyResponsePtrOutput `pulumi:"configuration"`
+	CreationTime                    pulumi.StringPtrOutput                               `pulumi:"creationTime"`
+	IncrementNodeConfigurationBuild pulumi.BoolPtrOutput                                 `pulumi:"incrementNodeConfigurationBuild"`
+	LastModifiedTime                pulumi.StringPtrOutput                               `pulumi:"lastModifiedTime"`
+	Name                            pulumi.StringOutput                                  `pulumi:"name"`
+	NodeCount                       pulumi.Float64PtrOutput                              `pulumi:"nodeCount"`
+	Source                          pulumi.StringPtrOutput                               `pulumi:"source"`
+	Type                            pulumi.StringOutput                                  `pulumi:"type"`
 }
 
 // NewDscNodeConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -114,42 +105,26 @@ func (DscNodeConfigurationState) ElementType() reflect.Type {
 }
 
 type dscNodeConfigurationArgs struct {
-	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Gets or sets the configuration of the node.
-	Configuration DscConfigurationAssociationProperty `pulumi:"configuration"`
-	// If a new build version of NodeConfiguration is required.
-	IncrementNodeConfigurationBuild *bool `pulumi:"incrementNodeConfigurationBuild"`
-	// Name of the node configuration.
-	Name *string `pulumi:"name"`
-	// The Dsc node configuration name.
-	NodeConfigurationName *string `pulumi:"nodeConfigurationName"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets the source.
-	Source ContentSource `pulumi:"source"`
-	// Gets or sets the tags attached to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	AutomationAccountName           string                              `pulumi:"automationAccountName"`
+	Configuration                   DscConfigurationAssociationProperty `pulumi:"configuration"`
+	IncrementNodeConfigurationBuild *bool                               `pulumi:"incrementNodeConfigurationBuild"`
+	Name                            *string                             `pulumi:"name"`
+	NodeConfigurationName           *string                             `pulumi:"nodeConfigurationName"`
+	ResourceGroupName               string                              `pulumi:"resourceGroupName"`
+	Source                          ContentSource                       `pulumi:"source"`
+	Tags                            map[string]string                   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DscNodeConfiguration resource.
 type DscNodeConfigurationArgs struct {
-	// The name of the automation account.
-	AutomationAccountName pulumi.StringInput
-	// Gets or sets the configuration of the node.
-	Configuration DscConfigurationAssociationPropertyInput
-	// If a new build version of NodeConfiguration is required.
+	AutomationAccountName           pulumi.StringInput
+	Configuration                   DscConfigurationAssociationPropertyInput
 	IncrementNodeConfigurationBuild pulumi.BoolPtrInput
-	// Name of the node configuration.
-	Name pulumi.StringPtrInput
-	// The Dsc node configuration name.
-	NodeConfigurationName pulumi.StringPtrInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets the source.
-	Source ContentSourceInput
-	// Gets or sets the tags attached to the resource.
-	Tags pulumi.StringMapInput
+	Name                            pulumi.StringPtrInput
+	NodeConfigurationName           pulumi.StringPtrInput
+	ResourceGroupName               pulumi.StringInput
+	Source                          ContentSourceInput
+	Tags                            pulumi.StringMapInput
 }
 
 func (DscNodeConfigurationArgs) ElementType() reflect.Type {
@@ -175,9 +150,7 @@ func (i *DscNodeConfiguration) ToDscNodeConfigurationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DscNodeConfigurationOutput)
 }
 
-type DscNodeConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type DscNodeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DscNodeConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DscNodeConfiguration)(nil))

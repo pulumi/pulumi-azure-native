@@ -11,29 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SQL DB table data set.
 type SqlDBTableDataSet struct {
 	pulumi.CustomResourceState
 
-	// Unique id for identifying a data set resource
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// Database name of the source data set
-	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// Kind of data set.
-	// Expected value is 'SqlDBTable'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Schema of the table. Default value is dbo.
-	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
-	// Resource id of SQL server
-	SqlServerResourceId pulumi.StringOutput `pulumi:"sqlServerResourceId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// SQL DB table name.
-	TableName pulumi.StringOutput `pulumi:"tableName"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataSetId           pulumi.StringOutput      `pulumi:"dataSetId"`
+	DatabaseName        pulumi.StringOutput      `pulumi:"databaseName"`
+	Kind                pulumi.StringOutput      `pulumi:"kind"`
+	Name                pulumi.StringOutput      `pulumi:"name"`
+	SchemaName          pulumi.StringOutput      `pulumi:"schemaName"`
+	SqlServerResourceId pulumi.StringOutput      `pulumi:"sqlServerResourceId"`
+	SystemData          SystemDataResponseOutput `pulumi:"systemData"`
+	TableName           pulumi.StringOutput      `pulumi:"tableName"`
+	Type                pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewSqlDBTableDataSet registers a new resource with the given unique name, arguments, and options.
@@ -130,48 +119,28 @@ func (SqlDBTableDataSetState) ElementType() reflect.Type {
 }
 
 type sqlDBTableDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName *string `pulumi:"dataSetName"`
-	// Database name of the source data set
-	DatabaseName string `pulumi:"databaseName"`
-	// Kind of data set.
-	// Expected value is 'SqlDBTable'.
-	Kind string `pulumi:"kind"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Schema of the table. Default value is dbo.
-	SchemaName string `pulumi:"schemaName"`
-	// The name of the share to add the data set to.
-	ShareName string `pulumi:"shareName"`
-	// Resource id of SQL server
-	SqlServerResourceId string `pulumi:"sqlServerResourceId"`
-	// SQL DB table name.
-	TableName string `pulumi:"tableName"`
+	AccountName         string  `pulumi:"accountName"`
+	DataSetName         *string `pulumi:"dataSetName"`
+	DatabaseName        string  `pulumi:"databaseName"`
+	Kind                string  `pulumi:"kind"`
+	ResourceGroupName   string  `pulumi:"resourceGroupName"`
+	SchemaName          string  `pulumi:"schemaName"`
+	ShareName           string  `pulumi:"shareName"`
+	SqlServerResourceId string  `pulumi:"sqlServerResourceId"`
+	TableName           string  `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a SqlDBTableDataSet resource.
 type SqlDBTableDataSetArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// The name of the dataSet.
-	DataSetName pulumi.StringPtrInput
-	// Database name of the source data set
-	DatabaseName pulumi.StringInput
-	// Kind of data set.
-	// Expected value is 'SqlDBTable'.
-	Kind pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// Schema of the table. Default value is dbo.
-	SchemaName pulumi.StringInput
-	// The name of the share to add the data set to.
-	ShareName pulumi.StringInput
-	// Resource id of SQL server
+	AccountName         pulumi.StringInput
+	DataSetName         pulumi.StringPtrInput
+	DatabaseName        pulumi.StringInput
+	Kind                pulumi.StringInput
+	ResourceGroupName   pulumi.StringInput
+	SchemaName          pulumi.StringInput
+	ShareName           pulumi.StringInput
 	SqlServerResourceId pulumi.StringInput
-	// SQL DB table name.
-	TableName pulumi.StringInput
+	TableName           pulumi.StringInput
 }
 
 func (SqlDBTableDataSetArgs) ElementType() reflect.Type {
@@ -197,9 +166,7 @@ func (i *SqlDBTableDataSet) ToSqlDBTableDataSetOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDBTableDataSetOutput)
 }
 
-type SqlDBTableDataSetOutput struct {
-	*pulumi.OutputState
-}
+type SqlDBTableDataSetOutput struct{ *pulumi.OutputState }
 
 func (SqlDBTableDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlDBTableDataSet)(nil))

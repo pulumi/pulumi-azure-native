@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Blueprint artifact deploys Azure resource manager template.
 func LookupTemplateArtifact(ctx *pulumi.Context, args *LookupTemplateArtifactArgs, opts ...pulumi.InvokeOption) (*LookupTemplateArtifactResult, error) {
 	var rv LookupTemplateArtifactResult
 	err := ctx.Invoke("azure-native:blueprint/v20171111preview:getTemplateArtifact", args, &rv, opts...)
@@ -18,35 +17,21 @@ func LookupTemplateArtifact(ctx *pulumi.Context, args *LookupTemplateArtifactArg
 }
 
 type LookupTemplateArtifactArgs struct {
-	// name of the artifact.
-	ArtifactName string `pulumi:"artifactName"`
-	// name of the blueprint.
-	BlueprintName string `pulumi:"blueprintName"`
-	// ManagementGroup where blueprint stores.
+	ArtifactName        string `pulumi:"artifactName"`
+	BlueprintName       string `pulumi:"blueprintName"`
 	ManagementGroupName string `pulumi:"managementGroupName"`
 }
 
 // Blueprint artifact deploys Azure resource manager template.
 type LookupTemplateArtifactResult struct {
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn []string `pulumi:"dependsOn"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// String Id used to locate any resource on Azure.
-	Id string `pulumi:"id"`
-	// Specifies the kind of Blueprint artifact.
-	// Expected value is 'template'.
-	Kind string `pulumi:"kind"`
-	// Name of this resource.
-	Name string `pulumi:"name"`
-	// Template parameter values.
-	Parameters map[string]ParameterValueBaseResponse `pulumi:"parameters"`
-	// If applicable, the name of the resource group placeholder to which the template will be deployed.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The Azure Resource Manager template body.
-	Template interface{} `pulumi:"template"`
-	// Type of this resource.
-	Type string `pulumi:"type"`
+	DependsOn     []string                              `pulumi:"dependsOn"`
+	Description   *string                               `pulumi:"description"`
+	DisplayName   *string                               `pulumi:"displayName"`
+	Id            string                                `pulumi:"id"`
+	Kind          string                                `pulumi:"kind"`
+	Name          string                                `pulumi:"name"`
+	Parameters    map[string]ParameterValueBaseResponse `pulumi:"parameters"`
+	ResourceGroup *string                               `pulumi:"resourceGroup"`
+	Template      interface{}                           `pulumi:"template"`
+	Type          string                                `pulumi:"type"`
 }

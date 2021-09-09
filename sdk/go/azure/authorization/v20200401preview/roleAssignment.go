@@ -11,40 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Role Assignments
 type RoleAssignment struct {
 	pulumi.CustomResourceState
 
-	// The Delegation flag for the role assignment
-	CanDelegate pulumi.BoolPtrOutput `pulumi:"canDelegate"`
-	// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
-	Condition pulumi.StringPtrOutput `pulumi:"condition"`
-	// Version of the condition. Currently accepted value is '2.0'
-	ConditionVersion pulumi.StringPtrOutput `pulumi:"conditionVersion"`
-	// Id of the user who created the assignment
-	CreatedBy pulumi.StringPtrOutput `pulumi:"createdBy"`
-	// Time it was created
-	CreatedOn pulumi.StringPtrOutput `pulumi:"createdOn"`
-	// Id of the delegated managed identity resource
+	CanDelegate                        pulumi.BoolPtrOutput   `pulumi:"canDelegate"`
+	Condition                          pulumi.StringPtrOutput `pulumi:"condition"`
+	ConditionVersion                   pulumi.StringPtrOutput `pulumi:"conditionVersion"`
+	CreatedBy                          pulumi.StringPtrOutput `pulumi:"createdBy"`
+	CreatedOn                          pulumi.StringPtrOutput `pulumi:"createdOn"`
 	DelegatedManagedIdentityResourceId pulumi.StringPtrOutput `pulumi:"delegatedManagedIdentityResourceId"`
-	// Description of role assignment
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The role assignment name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The principal ID.
-	PrincipalId pulumi.StringPtrOutput `pulumi:"principalId"`
-	// The principal type of the assigned principal ID.
-	PrincipalType pulumi.StringPtrOutput `pulumi:"principalType"`
-	// The role definition ID.
-	RoleDefinitionId pulumi.StringPtrOutput `pulumi:"roleDefinitionId"`
-	// The role assignment scope.
-	Scope pulumi.StringPtrOutput `pulumi:"scope"`
-	// The role assignment type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Id of the user who updated the assignment
-	UpdatedBy pulumi.StringPtrOutput `pulumi:"updatedBy"`
-	// Time it was updated
-	UpdatedOn pulumi.StringPtrOutput `pulumi:"updatedOn"`
+	Description                        pulumi.StringPtrOutput `pulumi:"description"`
+	Name                               pulumi.StringOutput    `pulumi:"name"`
+	PrincipalId                        pulumi.StringPtrOutput `pulumi:"principalId"`
+	PrincipalType                      pulumi.StringPtrOutput `pulumi:"principalType"`
+	RoleDefinitionId                   pulumi.StringPtrOutput `pulumi:"roleDefinitionId"`
+	Scope                              pulumi.StringPtrOutput `pulumi:"scope"`
+	Type                               pulumi.StringOutput    `pulumi:"type"`
+	UpdatedBy                          pulumi.StringPtrOutput `pulumi:"updatedBy"`
+	UpdatedOn                          pulumi.StringPtrOutput `pulumi:"updatedOn"`
 }
 
 // NewRoleAssignment registers a new resource with the given unique name, arguments, and options.
@@ -152,50 +136,30 @@ func (RoleAssignmentState) ElementType() reflect.Type {
 }
 
 type roleAssignmentArgs struct {
-	// The delegation flag used for creating a role assignment
-	CanDelegate *bool `pulumi:"canDelegate"`
-	// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
-	Condition *string `pulumi:"condition"`
-	// Version of the condition. Currently accepted value is '2.0'
-	ConditionVersion *string `pulumi:"conditionVersion"`
-	// Id of the delegated managed identity resource
+	CanDelegate                        *bool   `pulumi:"canDelegate"`
+	Condition                          *string `pulumi:"condition"`
+	ConditionVersion                   *string `pulumi:"conditionVersion"`
 	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
-	// Description of role assignment
-	Description *string `pulumi:"description"`
-	// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-	PrincipalId string `pulumi:"principalId"`
-	// The principal type of the assigned principal ID.
-	PrincipalType *string `pulumi:"principalType"`
-	// The name of the role assignment to create. It can be any valid GUID.
-	RoleAssignmentName *string `pulumi:"roleAssignmentName"`
-	// The role definition ID used in the role assignment.
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
-	// The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
-	Scope string `pulumi:"scope"`
+	Description                        *string `pulumi:"description"`
+	PrincipalId                        string  `pulumi:"principalId"`
+	PrincipalType                      *string `pulumi:"principalType"`
+	RoleAssignmentName                 *string `pulumi:"roleAssignmentName"`
+	RoleDefinitionId                   string  `pulumi:"roleDefinitionId"`
+	Scope                              string  `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a RoleAssignment resource.
 type RoleAssignmentArgs struct {
-	// The delegation flag used for creating a role assignment
-	CanDelegate pulumi.BoolPtrInput
-	// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
-	Condition pulumi.StringPtrInput
-	// Version of the condition. Currently accepted value is '2.0'
-	ConditionVersion pulumi.StringPtrInput
-	// Id of the delegated managed identity resource
+	CanDelegate                        pulumi.BoolPtrInput
+	Condition                          pulumi.StringPtrInput
+	ConditionVersion                   pulumi.StringPtrInput
 	DelegatedManagedIdentityResourceId pulumi.StringPtrInput
-	// Description of role assignment
-	Description pulumi.StringPtrInput
-	// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-	PrincipalId pulumi.StringInput
-	// The principal type of the assigned principal ID.
-	PrincipalType pulumi.StringPtrInput
-	// The name of the role assignment to create. It can be any valid GUID.
-	RoleAssignmentName pulumi.StringPtrInput
-	// The role definition ID used in the role assignment.
-	RoleDefinitionId pulumi.StringInput
-	// The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
-	Scope pulumi.StringInput
+	Description                        pulumi.StringPtrInput
+	PrincipalId                        pulumi.StringInput
+	PrincipalType                      pulumi.StringPtrInput
+	RoleAssignmentName                 pulumi.StringPtrInput
+	RoleDefinitionId                   pulumi.StringInput
+	Scope                              pulumi.StringInput
 }
 
 func (RoleAssignmentArgs) ElementType() reflect.Type {
@@ -221,9 +185,7 @@ func (i *RoleAssignment) ToRoleAssignmentOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentOutput)
 }
 
-type RoleAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type RoleAssignmentOutput struct{ *pulumi.OutputState }
 
 func (RoleAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleAssignment)(nil))

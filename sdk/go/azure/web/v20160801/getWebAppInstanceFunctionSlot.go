@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Web Job Information.
 func LookupWebAppInstanceFunctionSlot(ctx *pulumi.Context, args *LookupWebAppInstanceFunctionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppInstanceFunctionSlotResult, error) {
 	var rv LookupWebAppInstanceFunctionSlotResult
 	err := ctx.Invoke("azure-native:web/v20160801:getWebAppInstanceFunctionSlot", args, &rv, opts...)
@@ -18,42 +17,25 @@ func LookupWebAppInstanceFunctionSlot(ctx *pulumi.Context, args *LookupWebAppIns
 }
 
 type LookupWebAppInstanceFunctionSlotArgs struct {
-	// Function name.
-	FunctionName string `pulumi:"functionName"`
-	// Site name.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	FunctionName      string `pulumi:"functionName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API deletes a deployment for the production slot.
-	Slot string `pulumi:"slot"`
+	Slot              string `pulumi:"slot"`
 }
 
 // Web Job Information.
 type LookupWebAppInstanceFunctionSlotResult struct {
-	// Config information.
-	Config interface{} `pulumi:"config"`
-	// Config URI.
-	ConfigHref *string `pulumi:"configHref"`
-	// File list.
-	Files map[string]string `pulumi:"files"`
-	// Function App ID.
-	FunctionAppId string `pulumi:"functionAppId"`
-	// Function URI.
-	Href *string `pulumi:"href"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Script URI.
-	ScriptHref *string `pulumi:"scriptHref"`
-	// Script root path URI.
-	ScriptRootPathHref *string `pulumi:"scriptRootPathHref"`
-	// Secrets file URI.
-	SecretsFileHref *string `pulumi:"secretsFileHref"`
-	// Test data used when testing via the Azure Portal.
-	TestData *string `pulumi:"testData"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Config             interface{}       `pulumi:"config"`
+	ConfigHref         *string           `pulumi:"configHref"`
+	Files              map[string]string `pulumi:"files"`
+	FunctionAppId      string            `pulumi:"functionAppId"`
+	Href               *string           `pulumi:"href"`
+	Id                 string            `pulumi:"id"`
+	Kind               *string           `pulumi:"kind"`
+	Name               string            `pulumi:"name"`
+	ScriptHref         *string           `pulumi:"scriptHref"`
+	ScriptRootPathHref *string           `pulumi:"scriptRootPathHref"`
+	SecretsFileHref    *string           `pulumi:"secretsFileHref"`
+	TestData           *string           `pulumi:"testData"`
+	Type               string            `pulumi:"type"`
 }

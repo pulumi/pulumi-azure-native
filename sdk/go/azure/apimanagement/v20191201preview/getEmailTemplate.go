@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Email Template details.
 func LookupEmailTemplate(ctx *pulumi.Context, args *LookupEmailTemplateArgs, opts ...pulumi.InvokeOption) (*LookupEmailTemplateResult, error) {
 	var rv LookupEmailTemplateResult
 	err := ctx.Invoke("azure-native:apimanagement/v20191201preview:getEmailTemplate", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupEmailTemplate(ctx *pulumi.Context, args *LookupEmailTemplateArgs, opt
 }
 
 type LookupEmailTemplateArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Email Template Name Identifier.
-	TemplateName string `pulumi:"templateName"`
+	ServiceName       string `pulumi:"serviceName"`
+	TemplateName      string `pulumi:"templateName"`
 }
 
 // Email Template details.
 type LookupEmailTemplateResult struct {
-	// Email Template Body. This should be a valid XDocument
-	Body string `pulumi:"body"`
-	// Description of the Email Template.
-	Description *string `pulumi:"description"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Whether the template is the default template provided by Api Management or has been edited.
-	IsDefault bool `pulumi:"isDefault"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Email Template Parameter values.
-	Parameters []EmailTemplateParametersContractPropertiesResponse `pulumi:"parameters"`
-	// Subject of the Template.
-	Subject string `pulumi:"subject"`
-	// Title of the Template.
-	Title *string `pulumi:"title"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
+	Body        string                                              `pulumi:"body"`
+	Description *string                                             `pulumi:"description"`
+	Id          string                                              `pulumi:"id"`
+	IsDefault   bool                                                `pulumi:"isDefault"`
+	Name        string                                              `pulumi:"name"`
+	Parameters  []EmailTemplateParametersContractPropertiesResponse `pulumi:"parameters"`
+	Subject     string                                              `pulumi:"subject"`
+	Title       *string                                             `pulumi:"title"`
+	Type        string                                              `pulumi:"type"`
 }

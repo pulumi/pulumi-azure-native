@@ -11,29 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Push settings for the App.
 type WebAppSitePushSettingsSlot struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
-	DynamicTagsJson pulumi.StringPtrOutput `pulumi:"dynamicTagsJson"`
-	// Gets or sets a flag indicating whether the Push endpoint is enabled.
-	IsPushEnabled pulumi.BoolOutput `pulumi:"isPushEnabled"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
-	TagWhitelistJson pulumi.StringPtrOutput `pulumi:"tagWhitelistJson"`
-	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-	// Tags can consist of alphanumeric characters and the following:
-	// '_', '@', '#', '.', ':', '-'.
-	// Validation should be performed at the PushRequestHandler.
-	TagsRequiringAuth pulumi.StringPtrOutput `pulumi:"tagsRequiringAuth"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DynamicTagsJson   pulumi.StringPtrOutput   `pulumi:"dynamicTagsJson"`
+	IsPushEnabled     pulumi.BoolOutput        `pulumi:"isPushEnabled"`
+	Kind              pulumi.StringPtrOutput   `pulumi:"kind"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
+	TagWhitelistJson  pulumi.StringPtrOutput   `pulumi:"tagWhitelistJson"`
+	TagsRequiringAuth pulumi.StringPtrOutput   `pulumi:"tagsRequiringAuth"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewWebAppSitePushSettingsSlot registers a new resource with the given unique name, arguments, and options.
@@ -159,47 +147,25 @@ func (WebAppSitePushSettingsSlotState) ElementType() reflect.Type {
 }
 
 type webAppSitePushSettingsSlotArgs struct {
-	// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
-	DynamicTagsJson *string `pulumi:"dynamicTagsJson"`
-	// Gets or sets a flag indicating whether the Push endpoint is enabled.
-	IsPushEnabled bool `pulumi:"isPushEnabled"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of web app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of web app slot. If not specified then will default to production slot.
-	Slot string `pulumi:"slot"`
-	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
-	TagWhitelistJson *string `pulumi:"tagWhitelistJson"`
-	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-	// Tags can consist of alphanumeric characters and the following:
-	// '_', '@', '#', '.', ':', '-'.
-	// Validation should be performed at the PushRequestHandler.
+	DynamicTagsJson   *string `pulumi:"dynamicTagsJson"`
+	IsPushEnabled     bool    `pulumi:"isPushEnabled"`
+	Kind              *string `pulumi:"kind"`
+	Name              string  `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	Slot              string  `pulumi:"slot"`
+	TagWhitelistJson  *string `pulumi:"tagWhitelistJson"`
 	TagsRequiringAuth *string `pulumi:"tagsRequiringAuth"`
 }
 
 // The set of arguments for constructing a WebAppSitePushSettingsSlot resource.
 type WebAppSitePushSettingsSlotArgs struct {
-	// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
-	DynamicTagsJson pulumi.StringPtrInput
-	// Gets or sets a flag indicating whether the Push endpoint is enabled.
-	IsPushEnabled pulumi.BoolInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of web app.
-	Name pulumi.StringInput
-	// Name of the resource group to which the resource belongs.
+	DynamicTagsJson   pulumi.StringPtrInput
+	IsPushEnabled     pulumi.BoolInput
+	Kind              pulumi.StringPtrInput
+	Name              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// Name of web app slot. If not specified then will default to production slot.
-	Slot pulumi.StringInput
-	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
-	TagWhitelistJson pulumi.StringPtrInput
-	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-	// Tags can consist of alphanumeric characters and the following:
-	// '_', '@', '#', '.', ':', '-'.
-	// Validation should be performed at the PushRequestHandler.
+	Slot              pulumi.StringInput
+	TagWhitelistJson  pulumi.StringPtrInput
 	TagsRequiringAuth pulumi.StringPtrInput
 }
 
@@ -226,9 +192,7 @@ func (i *WebAppSitePushSettingsSlot) ToWebAppSitePushSettingsSlotOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSitePushSettingsSlotOutput)
 }
 
-type WebAppSitePushSettingsSlotOutput struct {
-	*pulumi.OutputState
-}
+type WebAppSitePushSettingsSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppSitePushSettingsSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppSitePushSettingsSlot)(nil))

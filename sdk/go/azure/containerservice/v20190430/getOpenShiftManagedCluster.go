@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// OpenShift Managed cluster.
 func LookupOpenShiftManagedCluster(ctx *pulumi.Context, args *LookupOpenShiftManagedClusterArgs, opts ...pulumi.InvokeOption) (*LookupOpenShiftManagedClusterResult, error) {
 	var rv LookupOpenShiftManagedClusterResult
 	err := ctx.Invoke("azure-native:containerservice/v20190430:getOpenShiftManagedCluster", args, &rv, opts...)
@@ -18,44 +17,26 @@ func LookupOpenShiftManagedCluster(ctx *pulumi.Context, args *LookupOpenShiftMan
 }
 
 type LookupOpenShiftManagedClusterArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the OpenShift managed cluster resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // OpenShift Managed cluster.
 type LookupOpenShiftManagedClusterResult struct {
-	// Configuration of OpenShift cluster VMs.
 	AgentPoolProfiles []OpenShiftManagedClusterAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
-	// Configures OpenShift authentication.
-	AuthProfile *OpenShiftManagedClusterAuthProfileResponse `pulumi:"authProfile"`
-	// Version of OpenShift specified when creating the cluster.
-	ClusterVersion string `pulumi:"clusterVersion"`
-	// Service generated FQDN for OpenShift API server loadbalancer internal hostname.
-	Fqdn string `pulumi:"fqdn"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Configuration for OpenShift master VMs.
+	AuthProfile       *OpenShiftManagedClusterAuthProfileResponse       `pulumi:"authProfile"`
+	ClusterVersion    string                                            `pulumi:"clusterVersion"`
+	Fqdn              string                                            `pulumi:"fqdn"`
+	Id                string                                            `pulumi:"id"`
+	Location          string                                            `pulumi:"location"`
 	MasterPoolProfile *OpenShiftManagedClusterMasterPoolProfileResponse `pulumi:"masterPoolProfile"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Configuration for OpenShift networking.
-	NetworkProfile *NetworkProfileResponse `pulumi:"networkProfile"`
-	// Version of OpenShift specified when creating the cluster.
-	OpenShiftVersion string `pulumi:"openShiftVersion"`
-	// Define the resource plan as required by ARM for billing purposes
-	Plan *PurchasePlanResponse `pulumi:"plan"`
-	// The current deployment or provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Service generated FQDN for OpenShift API server.
-	PublicHostname string `pulumi:"publicHostname"`
-	// Configuration for OpenShift router(s).
-	RouterProfiles []OpenShiftRouterProfileResponse `pulumi:"routerProfiles"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Name              string                                            `pulumi:"name"`
+	NetworkProfile    *NetworkProfileResponse                           `pulumi:"networkProfile"`
+	OpenShiftVersion  string                                            `pulumi:"openShiftVersion"`
+	Plan              *PurchasePlanResponse                             `pulumi:"plan"`
+	ProvisioningState string                                            `pulumi:"provisioningState"`
+	PublicHostname    string                                            `pulumi:"publicHostname"`
+	RouterProfiles    []OpenShiftRouterProfileResponse                  `pulumi:"routerProfiles"`
+	Tags              map[string]string                                 `pulumi:"tags"`
+	Type              string                                            `pulumi:"type"`
 }

@@ -11,7 +11,6 @@ import (
 )
 
 type Plan struct {
-	// Plan accessibility
 	Accessibility *string `pulumi:"accessibility"`
 }
 
@@ -27,7 +26,6 @@ type PlanInput interface {
 }
 
 type PlanArgs struct {
-	// Plan accessibility
 	Accessibility pulumi.StringPtrInput `pulumi:"accessibility"`
 }
 
@@ -82,7 +80,6 @@ func (o PlanOutput) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 	return o
 }
 
-// Plan accessibility
 func (o PlanOutput) Accessibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Plan) *string { return v.Accessibility }).(pulumi.StringPtrOutput)
 }
@@ -108,18 +105,12 @@ func (o PlanArrayOutput) Index(i pulumi.IntInput) PlanOutput {
 }
 
 type PlanResponse struct {
-	// Plan accessibility
-	Accessibility *string `pulumi:"accessibility"`
-	// Alternative stack type
-	AltStackReference string `pulumi:"altStackReference"`
-	// Friendly name for the plan for display in the marketplace
-	PlanDisplayName string `pulumi:"planDisplayName"`
-	// Text identifier for this plan
-	PlanId string `pulumi:"planId"`
-	// Identifier for this plan
-	SkuId string `pulumi:"skuId"`
-	// Stack type (classic or arm)
-	StackType string `pulumi:"stackType"`
+	Accessibility     *string `pulumi:"accessibility"`
+	AltStackReference string  `pulumi:"altStackReference"`
+	PlanDisplayName   string  `pulumi:"planDisplayName"`
+	PlanId            string  `pulumi:"planId"`
+	SkuId             string  `pulumi:"skuId"`
+	StackType         string  `pulumi:"stackType"`
 }
 
 // PlanResponseInput is an input type that accepts PlanResponseArgs and PlanResponseOutput values.
@@ -134,18 +125,12 @@ type PlanResponseInput interface {
 }
 
 type PlanResponseArgs struct {
-	// Plan accessibility
-	Accessibility pulumi.StringPtrInput `pulumi:"accessibility"`
-	// Alternative stack type
-	AltStackReference pulumi.StringInput `pulumi:"altStackReference"`
-	// Friendly name for the plan for display in the marketplace
-	PlanDisplayName pulumi.StringInput `pulumi:"planDisplayName"`
-	// Text identifier for this plan
-	PlanId pulumi.StringInput `pulumi:"planId"`
-	// Identifier for this plan
-	SkuId pulumi.StringInput `pulumi:"skuId"`
-	// Stack type (classic or arm)
-	StackType pulumi.StringInput `pulumi:"stackType"`
+	Accessibility     pulumi.StringPtrInput `pulumi:"accessibility"`
+	AltStackReference pulumi.StringInput    `pulumi:"altStackReference"`
+	PlanDisplayName   pulumi.StringInput    `pulumi:"planDisplayName"`
+	PlanId            pulumi.StringInput    `pulumi:"planId"`
+	SkuId             pulumi.StringInput    `pulumi:"skuId"`
+	StackType         pulumi.StringInput    `pulumi:"stackType"`
 }
 
 func (PlanResponseArgs) ElementType() reflect.Type {
@@ -199,32 +184,26 @@ func (o PlanResponseOutput) ToPlanResponseOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Plan accessibility
 func (o PlanResponseOutput) Accessibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanResponse) *string { return v.Accessibility }).(pulumi.StringPtrOutput)
 }
 
-// Alternative stack type
 func (o PlanResponseOutput) AltStackReference() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.AltStackReference }).(pulumi.StringOutput)
 }
 
-// Friendly name for the plan for display in the marketplace
 func (o PlanResponseOutput) PlanDisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.PlanDisplayName }).(pulumi.StringOutput)
 }
 
-// Text identifier for this plan
 func (o PlanResponseOutput) PlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.PlanId }).(pulumi.StringOutput)
 }
 
-// Identifier for this plan
 func (o PlanResponseOutput) SkuId() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.SkuId }).(pulumi.StringOutput)
 }
 
-// Stack type (classic or arm)
 func (o PlanResponseOutput) StackType() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.StackType }).(pulumi.StringOutput)
 }

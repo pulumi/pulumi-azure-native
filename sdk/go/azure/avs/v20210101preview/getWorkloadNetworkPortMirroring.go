@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NSX Port Mirroring
 func LookupWorkloadNetworkPortMirroring(ctx *pulumi.Context, args *LookupWorkloadNetworkPortMirroringArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkPortMirroringResult, error) {
 	var rv LookupWorkloadNetworkPortMirroringResult
 	err := ctx.Invoke("azure-native:avs/v20210101preview:getWorkloadNetworkPortMirroring", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupWorkloadNetworkPortMirroring(ctx *pulumi.Context, args *LookupWorkloa
 }
 
 type LookupWorkloadNetworkPortMirroringArgs struct {
-	// NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
-	PortMirroringId string `pulumi:"portMirroringId"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
+	PortMirroringId   string `pulumi:"portMirroringId"`
+	PrivateCloudName  string `pulumi:"privateCloudName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // NSX Port Mirroring
 type LookupWorkloadNetworkPortMirroringResult struct {
-	// Destination VM Group.
-	Destination *string `pulumi:"destination"`
-	// Direction of port mirroring profile.
-	Direction *string `pulumi:"direction"`
-	// Display name of the port mirroring profile.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state
-	ProvisioningState string `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// Source VM Group.
-	Source *string `pulumi:"source"`
-	// Port Mirroring Status.
-	Status string `pulumi:"status"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Destination       *string  `pulumi:"destination"`
+	Direction         *string  `pulumi:"direction"`
+	DisplayName       *string  `pulumi:"displayName"`
+	Id                string   `pulumi:"id"`
+	Name              string   `pulumi:"name"`
+	ProvisioningState string   `pulumi:"provisioningState"`
+	Revision          *float64 `pulumi:"revision"`
+	Source            *string  `pulumi:"source"`
+	Status            string   `pulumi:"status"`
+	Type              string   `pulumi:"type"`
 }

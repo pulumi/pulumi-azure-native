@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An export resource.
 func LookupExport(ctx *pulumi.Context, args *LookupExportArgs, opts ...pulumi.InvokeOption) (*LookupExportResult, error) {
 	var rv LookupExportResult
 	err := ctx.Invoke("azure-native:costmanagement/v20200601:getExport", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupExport(ctx *pulumi.Context, args *LookupExportArgs, opts ...pulumi.In
 }
 
 type LookupExportArgs struct {
-	// May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 executions of the export.
-	Expand *string `pulumi:"expand"`
-	// Export Name.
-	ExportName string `pulumi:"exportName"`
-	// The scope associated with export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
-	Scope string `pulumi:"scope"`
+	Expand     *string `pulumi:"expand"`
+	ExportName string  `pulumi:"exportName"`
+	Scope      string  `pulumi:"scope"`
 }
 
 // An export resource.
 type LookupExportResult struct {
-	// Has the definition for the export.
-	Definition ExportDefinitionResponse `pulumi:"definition"`
-	// Has delivery information for the export.
-	DeliveryInfo ExportDeliveryInfoResponse `pulumi:"deliveryInfo"`
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag *string `pulumi:"eTag"`
-	// The format of the export being delivered. Currently only 'Csv' is supported.
-	Format *string `pulumi:"format"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// If the export has an active schedule, provides an estimate of the next execution time.
-	NextRunTimeEstimate string `pulumi:"nextRunTimeEstimate"`
-	// If requested, has the most recent execution history for the export.
-	RunHistory *ExportExecutionListResultResponse `pulumi:"runHistory"`
-	// Has schedule information for the export.
-	Schedule *ExportScheduleResponse `pulumi:"schedule"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Definition          ExportDefinitionResponse           `pulumi:"definition"`
+	DeliveryInfo        ExportDeliveryInfoResponse         `pulumi:"deliveryInfo"`
+	ETag                *string                            `pulumi:"eTag"`
+	Format              *string                            `pulumi:"format"`
+	Id                  string                             `pulumi:"id"`
+	Name                string                             `pulumi:"name"`
+	NextRunTimeEstimate string                             `pulumi:"nextRunTimeEstimate"`
+	RunHistory          *ExportExecutionListResultResponse `pulumi:"runHistory"`
+	Schedule            *ExportScheduleResponse            `pulumi:"schedule"`
+	Type                string                             `pulumi:"type"`
 }

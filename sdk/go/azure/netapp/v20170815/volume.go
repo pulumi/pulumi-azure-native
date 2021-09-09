@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Volume resource
 type Volume struct {
 	pulumi.CustomResourceState
 
-	// A unique file path for the volume. Used when creating mount targets
-	CreationToken pulumi.StringOutput `pulumi:"creationToken"`
-	// Export policy rule
-	ExportPolicy VolumePropertiesResponseExportPolicyPtrOutput `pulumi:"exportPolicy"`
-	// Unique FileSystem Identifier.
-	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The service level of the file system
-	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
-	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	// Resource tags
-	Tags pulumi.AnyOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
-	UsageThreshold pulumi.Float64PtrOutput `pulumi:"usageThreshold"`
+	CreationToken     pulumi.StringOutput                           `pulumi:"creationToken"`
+	ExportPolicy      VolumePropertiesResponseExportPolicyPtrOutput `pulumi:"exportPolicy"`
+	FileSystemId      pulumi.StringOutput                           `pulumi:"fileSystemId"`
+	Location          pulumi.StringOutput                           `pulumi:"location"`
+	Name              pulumi.StringOutput                           `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                           `pulumi:"provisioningState"`
+	ServiceLevel      pulumi.StringOutput                           `pulumi:"serviceLevel"`
+	SubnetId          pulumi.StringPtrOutput                        `pulumi:"subnetId"`
+	Tags              pulumi.AnyOutput                              `pulumi:"tags"`
+	Type              pulumi.StringOutput                           `pulumi:"type"`
+	UsageThreshold    pulumi.Float64PtrOutput                       `pulumi:"usageThreshold"`
 }
 
 // NewVolume registers a new resource with the given unique name, arguments, and options.
@@ -57,9 +45,6 @@ func NewVolume(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.ServiceLevel == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceLevel'")
 	}
 	if args.ServiceLevel == nil {
 		args.ServiceLevel = pulumi.String("Premium")
@@ -225,54 +210,32 @@ func (VolumeState) ElementType() reflect.Type {
 }
 
 type volumeArgs struct {
-	// The name of the NetApp account
-	AccountName string `pulumi:"accountName"`
-	// A unique file path for the volume. Used when creating mount targets
-	CreationToken string `pulumi:"creationToken"`
-	// Export policy rule
-	ExportPolicy *VolumePropertiesExportPolicy `pulumi:"exportPolicy"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the capacity pool
-	PoolName string `pulumi:"poolName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The service level of the file system
-	ServiceLevel string `pulumi:"serviceLevel"`
-	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-	SubnetId *string `pulumi:"subnetId"`
-	// Resource tags
-	Tags interface{} `pulumi:"tags"`
-	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
-	UsageThreshold *float64 `pulumi:"usageThreshold"`
-	// The name of the volume
-	VolumeName *string `pulumi:"volumeName"`
+	AccountName       string                        `pulumi:"accountName"`
+	CreationToken     string                        `pulumi:"creationToken"`
+	ExportPolicy      *VolumePropertiesExportPolicy `pulumi:"exportPolicy"`
+	Location          *string                       `pulumi:"location"`
+	PoolName          string                        `pulumi:"poolName"`
+	ResourceGroupName string                        `pulumi:"resourceGroupName"`
+	ServiceLevel      string                        `pulumi:"serviceLevel"`
+	SubnetId          *string                       `pulumi:"subnetId"`
+	Tags              interface{}                   `pulumi:"tags"`
+	UsageThreshold    *float64                      `pulumi:"usageThreshold"`
+	VolumeName        *string                       `pulumi:"volumeName"`
 }
 
 // The set of arguments for constructing a Volume resource.
 type VolumeArgs struct {
-	// The name of the NetApp account
-	AccountName pulumi.StringInput
-	// A unique file path for the volume. Used when creating mount targets
-	CreationToken pulumi.StringInput
-	// Export policy rule
-	ExportPolicy VolumePropertiesExportPolicyPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the capacity pool
-	PoolName pulumi.StringInput
-	// The name of the resource group.
+	AccountName       pulumi.StringInput
+	CreationToken     pulumi.StringInput
+	ExportPolicy      VolumePropertiesExportPolicyPtrInput
+	Location          pulumi.StringPtrInput
+	PoolName          pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The service level of the file system
-	ServiceLevel pulumi.StringInput
-	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-	SubnetId pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.Input
-	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
-	UsageThreshold pulumi.Float64PtrInput
-	// The name of the volume
-	VolumeName pulumi.StringPtrInput
+	ServiceLevel      pulumi.StringInput
+	SubnetId          pulumi.StringPtrInput
+	Tags              pulumi.Input
+	UsageThreshold    pulumi.Float64PtrInput
+	VolumeName        pulumi.StringPtrInput
 }
 
 func (VolumeArgs) ElementType() reflect.Type {
@@ -298,9 +261,7 @@ func (i *Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOutput)
 }
 
-type VolumeOutput struct {
-	*pulumi.OutputState
-}
+type VolumeOutput struct{ *pulumi.OutputState }
 
 func (VolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Volume)(nil))

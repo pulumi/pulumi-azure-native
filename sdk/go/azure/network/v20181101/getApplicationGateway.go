@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Application gateway resource
 func LookupApplicationGateway(ctx *pulumi.Context, args *LookupApplicationGatewayArgs, opts ...pulumi.InvokeOption) (*LookupApplicationGatewayResult, error) {
 	var rv LookupApplicationGatewayResult
 	err := ctx.Invoke("azure-native:network/v20181101:getApplicationGateway", args, &rv, opts...)
@@ -18,76 +17,42 @@ func LookupApplicationGateway(ctx *pulumi.Context, args *LookupApplicationGatewa
 }
 
 type LookupApplicationGatewayArgs struct {
-	// The name of the application gateway.
 	ApplicationGatewayName string `pulumi:"applicationGatewayName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 // Application gateway resource
 type LookupApplicationGatewayResult struct {
-	// Authentication certificates of the application gateway resource.
-	AuthenticationCertificates []ApplicationGatewayAuthenticationCertificateResponse `pulumi:"authenticationCertificates"`
-	// Autoscale Configuration.
-	AutoscaleConfiguration *ApplicationGatewayAutoscaleConfigurationResponse `pulumi:"autoscaleConfiguration"`
-	// Backend address pool of the application gateway resource.
-	BackendAddressPools []ApplicationGatewayBackendAddressPoolResponse `pulumi:"backendAddressPools"`
-	// Backend http settings of the application gateway resource.
-	BackendHttpSettingsCollection []ApplicationGatewayBackendHttpSettingsResponse `pulumi:"backendHttpSettingsCollection"`
-	// Custom error configurations of the application gateway resource.
-	CustomErrorConfigurations []ApplicationGatewayCustomErrorResponse `pulumi:"customErrorConfigurations"`
-	// Whether FIPS is enabled on the application gateway resource.
-	EnableFips *bool `pulumi:"enableFips"`
-	// Whether HTTP2 is enabled on the application gateway resource.
-	EnableHttp2 *bool `pulumi:"enableHttp2"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Frontend IP addresses of the application gateway resource.
-	FrontendIPConfigurations []ApplicationGatewayFrontendIPConfigurationResponse `pulumi:"frontendIPConfigurations"`
-	// Frontend ports of the application gateway resource.
-	FrontendPorts []ApplicationGatewayFrontendPortResponse `pulumi:"frontendPorts"`
-	// Subnets of application the gateway resource.
-	GatewayIPConfigurations []ApplicationGatewayIPConfigurationResponse `pulumi:"gatewayIPConfigurations"`
-	// Http listeners of the application gateway resource.
-	HttpListeners []ApplicationGatewayHttpListenerResponse `pulumi:"httpListeners"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The identity of the application gateway, if configured.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Operational state of the application gateway resource.
-	OperationalState string `pulumi:"operationalState"`
-	// Probes of the application gateway resource.
-	Probes []ApplicationGatewayProbeResponse `pulumi:"probes"`
-	// Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Redirect configurations of the application gateway resource.
-	RedirectConfigurations []ApplicationGatewayRedirectConfigurationResponse `pulumi:"redirectConfigurations"`
-	// Request routing rules of the application gateway resource.
-	RequestRoutingRules []ApplicationGatewayRequestRoutingRuleResponse `pulumi:"requestRoutingRules"`
-	// Resource GUID property of the application gateway resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Rewrite rules for the application gateway resource.
-	RewriteRuleSets []ApplicationGatewayRewriteRuleSetResponse `pulumi:"rewriteRuleSets"`
-	// SKU of the application gateway resource.
-	Sku *ApplicationGatewaySkuResponse `pulumi:"sku"`
-	// SSL certificates of the application gateway resource.
-	SslCertificates []ApplicationGatewaySslCertificateResponse `pulumi:"sslCertificates"`
-	// SSL policy of the application gateway resource.
-	SslPolicy *ApplicationGatewaySslPolicyResponse `pulumi:"sslPolicy"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Trusted Root certificates of the application gateway resource.
-	TrustedRootCertificates []ApplicationGatewayTrustedRootCertificateResponse `pulumi:"trustedRootCertificates"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// URL path map of the application gateway resource.
-	UrlPathMaps []ApplicationGatewayUrlPathMapResponse `pulumi:"urlPathMaps"`
-	// Web application firewall configuration.
+	AuthenticationCertificates          []ApplicationGatewayAuthenticationCertificateResponse          `pulumi:"authenticationCertificates"`
+	AutoscaleConfiguration              *ApplicationGatewayAutoscaleConfigurationResponse              `pulumi:"autoscaleConfiguration"`
+	BackendAddressPools                 []ApplicationGatewayBackendAddressPoolResponse                 `pulumi:"backendAddressPools"`
+	BackendHttpSettingsCollection       []ApplicationGatewayBackendHttpSettingsResponse                `pulumi:"backendHttpSettingsCollection"`
+	CustomErrorConfigurations           []ApplicationGatewayCustomErrorResponse                        `pulumi:"customErrorConfigurations"`
+	EnableFips                          *bool                                                          `pulumi:"enableFips"`
+	EnableHttp2                         *bool                                                          `pulumi:"enableHttp2"`
+	Etag                                *string                                                        `pulumi:"etag"`
+	FrontendIPConfigurations            []ApplicationGatewayFrontendIPConfigurationResponse            `pulumi:"frontendIPConfigurations"`
+	FrontendPorts                       []ApplicationGatewayFrontendPortResponse                       `pulumi:"frontendPorts"`
+	GatewayIPConfigurations             []ApplicationGatewayIPConfigurationResponse                    `pulumi:"gatewayIPConfigurations"`
+	HttpListeners                       []ApplicationGatewayHttpListenerResponse                       `pulumi:"httpListeners"`
+	Id                                  *string                                                        `pulumi:"id"`
+	Identity                            *ManagedServiceIdentityResponse                                `pulumi:"identity"`
+	Location                            *string                                                        `pulumi:"location"`
+	Name                                string                                                         `pulumi:"name"`
+	OperationalState                    string                                                         `pulumi:"operationalState"`
+	Probes                              []ApplicationGatewayProbeResponse                              `pulumi:"probes"`
+	ProvisioningState                   *string                                                        `pulumi:"provisioningState"`
+	RedirectConfigurations              []ApplicationGatewayRedirectConfigurationResponse              `pulumi:"redirectConfigurations"`
+	RequestRoutingRules                 []ApplicationGatewayRequestRoutingRuleResponse                 `pulumi:"requestRoutingRules"`
+	ResourceGuid                        *string                                                        `pulumi:"resourceGuid"`
+	RewriteRuleSets                     []ApplicationGatewayRewriteRuleSetResponse                     `pulumi:"rewriteRuleSets"`
+	Sku                                 *ApplicationGatewaySkuResponse                                 `pulumi:"sku"`
+	SslCertificates                     []ApplicationGatewaySslCertificateResponse                     `pulumi:"sslCertificates"`
+	SslPolicy                           *ApplicationGatewaySslPolicyResponse                           `pulumi:"sslPolicy"`
+	Tags                                map[string]string                                              `pulumi:"tags"`
+	TrustedRootCertificates             []ApplicationGatewayTrustedRootCertificateResponse             `pulumi:"trustedRootCertificates"`
+	Type                                string                                                         `pulumi:"type"`
+	UrlPathMaps                         []ApplicationGatewayUrlPathMapResponse                         `pulumi:"urlPathMaps"`
 	WebApplicationFirewallConfiguration *ApplicationGatewayWebApplicationFirewallConfigurationResponse `pulumi:"webApplicationFirewallConfiguration"`
-	// A list of availability zones denoting where the resource needs to come from.
-	Zones []string `pulumi:"zones"`
+	Zones                               []string                                                       `pulumi:"zones"`
 }

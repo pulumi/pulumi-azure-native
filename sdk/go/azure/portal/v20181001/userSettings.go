@@ -11,11 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response to get user settings
 type UserSettings struct {
 	pulumi.CustomResourceState
 
-	// The cloud shell user settings properties.
 	Properties UserPropertiesResponseOutput `pulumi:"properties"`
 }
 
@@ -73,17 +71,13 @@ func (UserSettingsState) ElementType() reflect.Type {
 }
 
 type userSettingsArgs struct {
-	// The cloud shell user settings properties.
-	Properties UserProperties `pulumi:"properties"`
-	// The name of the user settings
-	UserSettingsName *string `pulumi:"userSettingsName"`
+	Properties       UserProperties `pulumi:"properties"`
+	UserSettingsName *string        `pulumi:"userSettingsName"`
 }
 
 // The set of arguments for constructing a UserSettings resource.
 type UserSettingsArgs struct {
-	// The cloud shell user settings properties.
-	Properties UserPropertiesInput
-	// The name of the user settings
+	Properties       UserPropertiesInput
 	UserSettingsName pulumi.StringPtrInput
 }
 
@@ -110,9 +104,7 @@ func (i *UserSettings) ToUserSettingsOutputWithContext(ctx context.Context) User
 	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsOutput)
 }
 
-type UserSettingsOutput struct {
-	*pulumi.OutputState
-}
+type UserSettingsOutput struct{ *pulumi.OutputState }
 
 func (UserSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserSettings)(nil))

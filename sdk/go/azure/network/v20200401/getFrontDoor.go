@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
 func LookupFrontDoor(ctx *pulumi.Context, args *LookupFrontDoorArgs, opts ...pulumi.InvokeOption) (*LookupFrontDoorResult, error) {
 	var rv LookupFrontDoorResult
 	err := ctx.Invoke("azure-native:network/v20200401:getFrontDoor", args, &rv, opts...)
@@ -18,48 +17,28 @@ func LookupFrontDoor(ctx *pulumi.Context, args *LookupFrontDoorArgs, opts ...pul
 }
 
 type LookupFrontDoorArgs struct {
-	// Name of the Front Door which is globally unique.
-	FrontDoorName string `pulumi:"frontDoorName"`
-	// Name of the Resource group within the Azure subscription.
+	FrontDoorName     string `pulumi:"frontDoorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
 type LookupFrontDoorResult struct {
-	// Backend pools available to routing rules.
-	BackendPools []BackendPoolResponse `pulumi:"backendPools"`
-	// Settings for all backendPools
-	BackendPoolsSettings *BackendPoolsSettingsResponse `pulumi:"backendPoolsSettings"`
-	// The host that each frontendEndpoint must CNAME to.
-	Cname string `pulumi:"cname"`
-	// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState *string `pulumi:"enabledState"`
-	// A friendly name for the frontDoor
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The Id of the frontdoor.
-	FrontdoorId string `pulumi:"frontdoorId"`
-	// Frontend endpoints available to routing rules.
-	FrontendEndpoints []FrontendEndpointResponse `pulumi:"frontendEndpoints"`
-	// Health probe settings associated with this Front Door instance.
-	HealthProbeSettings []HealthProbeSettingsModelResponse `pulumi:"healthProbeSettings"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Load balancing settings associated with this Front Door instance.
+	BackendPools          []BackendPoolResponse                `pulumi:"backendPools"`
+	BackendPoolsSettings  *BackendPoolsSettingsResponse        `pulumi:"backendPoolsSettings"`
+	Cname                 string                               `pulumi:"cname"`
+	EnabledState          *string                              `pulumi:"enabledState"`
+	FriendlyName          *string                              `pulumi:"friendlyName"`
+	FrontdoorId           string                               `pulumi:"frontdoorId"`
+	FrontendEndpoints     []FrontendEndpointResponse           `pulumi:"frontendEndpoints"`
+	HealthProbeSettings   []HealthProbeSettingsModelResponse   `pulumi:"healthProbeSettings"`
+	Id                    string                               `pulumi:"id"`
 	LoadBalancingSettings []LoadBalancingSettingsModelResponse `pulumi:"loadBalancingSettings"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Provisioning state of the Front Door.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource status of the Front Door.
-	ResourceState string `pulumi:"resourceState"`
-	// Routing rules associated with this Front Door.
-	RoutingRules []RoutingRuleResponse `pulumi:"routingRules"`
-	// Rules Engine Configurations available to routing rules.
-	RulesEngines []RulesEngineResponse `pulumi:"rulesEngines"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Location              *string                              `pulumi:"location"`
+	Name                  string                               `pulumi:"name"`
+	ProvisioningState     string                               `pulumi:"provisioningState"`
+	ResourceState         string                               `pulumi:"resourceState"`
+	RoutingRules          []RoutingRuleResponse                `pulumi:"routingRules"`
+	RulesEngines          []RulesEngineResponse                `pulumi:"rulesEngines"`
+	Tags                  map[string]string                    `pulumi:"tags"`
+	Type                  string                               `pulumi:"type"`
 }

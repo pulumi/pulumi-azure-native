@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NSX DHCP
 type WorkloadNetworkDhcp struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// DHCP properties.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	Properties pulumi.AnyOutput    `pulumi:"properties"`
+	Type       pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewWorkloadNetworkDhcp registers a new resource with the given unique name, arguments, and options.
@@ -92,25 +88,17 @@ func (WorkloadNetworkDhcpState) ElementType() reflect.Type {
 }
 
 type workloadNetworkDhcpArgs struct {
-	// NSX DHCP identifier. Generally the same as the DHCP display name
-	DhcpId *string `pulumi:"dhcpId"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// DHCP properties.
-	Properties interface{} `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	DhcpId            *string     `pulumi:"dhcpId"`
+	PrivateCloudName  string      `pulumi:"privateCloudName"`
+	Properties        interface{} `pulumi:"properties"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a WorkloadNetworkDhcp resource.
 type WorkloadNetworkDhcpArgs struct {
-	// NSX DHCP identifier. Generally the same as the DHCP display name
-	DhcpId pulumi.StringPtrInput
-	// Name of the private cloud
-	PrivateCloudName pulumi.StringInput
-	// DHCP properties.
-	Properties pulumi.Input
-	// The name of the resource group. The name is case insensitive.
+	DhcpId            pulumi.StringPtrInput
+	PrivateCloudName  pulumi.StringInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -137,9 +125,7 @@ func (i *WorkloadNetworkDhcp) ToWorkloadNetworkDhcpOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkDhcpOutput)
 }
 
-type WorkloadNetworkDhcpOutput struct {
-	*pulumi.OutputState
-}
+type WorkloadNetworkDhcpOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkDhcpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkDhcp)(nil))

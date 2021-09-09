@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The registration definition.
 func LookupRegistrationDefinition(ctx *pulumi.Context, args *LookupRegistrationDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupRegistrationDefinitionResult, error) {
 	var rv LookupRegistrationDefinitionResult
 	err := ctx.Invoke("azure-native:managedservices/v20200201preview:getRegistrationDefinition", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupRegistrationDefinition(ctx *pulumi.Context, args *LookupRegistrationD
 }
 
 type LookupRegistrationDefinitionArgs struct {
-	// The GUID of the registration definition.
 	RegistrationDefinitionId string `pulumi:"registrationDefinitionId"`
-	// The scope of the resource.
-	Scope string `pulumi:"scope"`
+	Scope                    string `pulumi:"scope"`
 }
 
 // The registration definition.
 type LookupRegistrationDefinitionResult struct {
-	// The fully qualified path of the registration definition.
-	Id string `pulumi:"id"`
-	// The name of the registration definition.
-	Name string `pulumi:"name"`
-	// The details for the Managed Services offer’s plan in Azure Marketplace.
-	Plan *PlanResponse `pulumi:"plan"`
-	// The properties of a registration definition.
+	Id         string                                   `pulumi:"id"`
+	Name       string                                   `pulumi:"name"`
+	Plan       *PlanResponse                            `pulumi:"plan"`
 	Properties RegistrationDefinitionPropertiesResponse `pulumi:"properties"`
-	// The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
-	Type string `pulumi:"type"`
+	Type       string                                   `pulumi:"type"`
 }

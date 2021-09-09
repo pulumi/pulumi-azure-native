@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The volume.
 type Volume struct {
 	pulumi.CustomResourceState
 
-	// The IDs of the access control records, associated with the volume.
 	AccessControlRecordIds pulumi.StringArrayOutput `pulumi:"accessControlRecordIds"`
-	// The IDs of the backup policies, in which this volume is part of.
-	BackupPolicyIds pulumi.StringArrayOutput `pulumi:"backupPolicyIds"`
-	// The backup status of the volume.
-	BackupStatus pulumi.StringOutput `pulumi:"backupStatus"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The monitoring status of the volume.
-	MonitoringStatus pulumi.StringOutput `pulumi:"monitoringStatus"`
-	// The name of the object.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The operation status on the volume.
-	OperationStatus pulumi.StringOutput `pulumi:"operationStatus"`
-	// The size of the volume in bytes.
-	SizeInBytes pulumi.Float64Output `pulumi:"sizeInBytes"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The ID of the volume container, in which this volume is created.
-	VolumeContainerId pulumi.StringOutput `pulumi:"volumeContainerId"`
-	// The volume status.
-	VolumeStatus pulumi.StringOutput `pulumi:"volumeStatus"`
-	// The type of the volume.
-	VolumeType pulumi.StringOutput `pulumi:"volumeType"`
+	BackupPolicyIds        pulumi.StringArrayOutput `pulumi:"backupPolicyIds"`
+	BackupStatus           pulumi.StringOutput      `pulumi:"backupStatus"`
+	Kind                   pulumi.StringPtrOutput   `pulumi:"kind"`
+	MonitoringStatus       pulumi.StringOutput      `pulumi:"monitoringStatus"`
+	Name                   pulumi.StringOutput      `pulumi:"name"`
+	OperationStatus        pulumi.StringOutput      `pulumi:"operationStatus"`
+	SizeInBytes            pulumi.Float64Output     `pulumi:"sizeInBytes"`
+	Type                   pulumi.StringOutput      `pulumi:"type"`
+	VolumeContainerId      pulumi.StringOutput      `pulumi:"volumeContainerId"`
+	VolumeStatus           pulumi.StringOutput      `pulumi:"volumeStatus"`
+	VolumeType             pulumi.StringOutput      `pulumi:"volumeType"`
 }
 
 // NewVolume registers a new resource with the given unique name, arguments, and options.
@@ -57,6 +44,9 @@ func NewVolume(ctx *pulumi.Context,
 	if args.ManagerName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagerName'")
 	}
+	if args.MonitoringStatus == nil {
+		return nil, errors.New("invalid value for required argument 'MonitoringStatus'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -65,6 +55,12 @@ func NewVolume(ctx *pulumi.Context,
 	}
 	if args.VolumeContainerName == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeContainerName'")
+	}
+	if args.VolumeStatus == nil {
+		return nil, errors.New("invalid value for required argument 'VolumeStatus'")
+	}
+	if args.VolumeType == nil {
+		return nil, errors.New("invalid value for required argument 'VolumeType'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -110,54 +106,32 @@ func (VolumeState) ElementType() reflect.Type {
 }
 
 type volumeArgs struct {
-	// The IDs of the access control records, associated with the volume.
-	AccessControlRecordIds []string `pulumi:"accessControlRecordIds"`
-	// The device name
-	DeviceName string `pulumi:"deviceName"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The monitoring status of the volume.
-	MonitoringStatus string `pulumi:"monitoringStatus"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The size of the volume in bytes.
-	SizeInBytes float64 `pulumi:"sizeInBytes"`
-	// The volume container name.
-	VolumeContainerName string `pulumi:"volumeContainerName"`
-	// The volume name.
-	VolumeName *string `pulumi:"volumeName"`
-	// The volume status.
-	VolumeStatus string `pulumi:"volumeStatus"`
-	// The type of the volume.
-	VolumeType string `pulumi:"volumeType"`
+	AccessControlRecordIds []string         `pulumi:"accessControlRecordIds"`
+	DeviceName             string           `pulumi:"deviceName"`
+	Kind                   *Kind            `pulumi:"kind"`
+	ManagerName            string           `pulumi:"managerName"`
+	MonitoringStatus       MonitoringStatus `pulumi:"monitoringStatus"`
+	ResourceGroupName      string           `pulumi:"resourceGroupName"`
+	SizeInBytes            float64          `pulumi:"sizeInBytes"`
+	VolumeContainerName    string           `pulumi:"volumeContainerName"`
+	VolumeName             *string          `pulumi:"volumeName"`
+	VolumeStatus           VolumeStatus     `pulumi:"volumeStatus"`
+	VolumeType             VolumeType       `pulumi:"volumeType"`
 }
 
 // The set of arguments for constructing a Volume resource.
 type VolumeArgs struct {
-	// The IDs of the access control records, associated with the volume.
 	AccessControlRecordIds pulumi.StringArrayInput
-	// The device name
-	DeviceName pulumi.StringInput
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *Kind
-	// The manager name
-	ManagerName pulumi.StringInput
-	// The monitoring status of the volume.
-	MonitoringStatus MonitoringStatus
-	// The resource group name
-	ResourceGroupName pulumi.StringInput
-	// The size of the volume in bytes.
-	SizeInBytes pulumi.Float64Input
-	// The volume container name.
-	VolumeContainerName pulumi.StringInput
-	// The volume name.
-	VolumeName pulumi.StringPtrInput
-	// The volume status.
-	VolumeStatus VolumeStatus
-	// The type of the volume.
-	VolumeType VolumeType
+	DeviceName             pulumi.StringInput
+	Kind                   KindPtrInput
+	ManagerName            pulumi.StringInput
+	MonitoringStatus       MonitoringStatusInput
+	ResourceGroupName      pulumi.StringInput
+	SizeInBytes            pulumi.Float64Input
+	VolumeContainerName    pulumi.StringInput
+	VolumeName             pulumi.StringPtrInput
+	VolumeStatus           VolumeStatusInput
+	VolumeType             VolumeTypeInput
 }
 
 func (VolumeArgs) ElementType() reflect.Type {
@@ -183,9 +157,7 @@ func (i *Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOutput)
 }
 
-type VolumeOutput struct {
-	*pulumi.OutputState
-}
+type VolumeOutput struct{ *pulumi.OutputState }
 
 func (VolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Volume)(nil))

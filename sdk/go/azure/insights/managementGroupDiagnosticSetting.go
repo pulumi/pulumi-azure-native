@@ -161,9 +161,7 @@ func (i *ManagementGroupDiagnosticSetting) ToManagementGroupDiagnosticSettingOut
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupDiagnosticSettingOutput)
 }
 
-type ManagementGroupDiagnosticSettingOutput struct {
-	*pulumi.OutputState
-}
+type ManagementGroupDiagnosticSettingOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupDiagnosticSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementGroupDiagnosticSetting)(nil))

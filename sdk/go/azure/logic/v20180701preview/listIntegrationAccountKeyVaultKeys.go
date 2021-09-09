@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Collection of key vault keys.
 func ListIntegrationAccountKeyVaultKeys(ctx *pulumi.Context, args *ListIntegrationAccountKeyVaultKeysArgs, opts ...pulumi.InvokeOption) (*ListIntegrationAccountKeyVaultKeysResult, error) {
 	var rv ListIntegrationAccountKeyVaultKeysResult
 	err := ctx.Invoke("azure-native:logic/v20180701preview:listIntegrationAccountKeyVaultKeys", args, &rv, opts...)
@@ -18,20 +17,14 @@ func ListIntegrationAccountKeyVaultKeys(ctx *pulumi.Context, args *ListIntegrati
 }
 
 type ListIntegrationAccountKeyVaultKeysArgs struct {
-	// The integration account name.
-	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The key vault reference.
-	KeyVault KeyVaultReference `pulumi:"keyVault"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The skip token.
-	SkipToken *string `pulumi:"skipToken"`
+	IntegrationAccountName string            `pulumi:"integrationAccountName"`
+	KeyVault               KeyVaultReference `pulumi:"keyVault"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	SkipToken              *string           `pulumi:"skipToken"`
 }
 
 // Collection of key vault keys.
 type ListIntegrationAccountKeyVaultKeysResult struct {
-	// The skip token.
-	SkipToken *string `pulumi:"skipToken"`
-	// The key vault keys.
-	Value []KeyVaultKeyResponse `pulumi:"value"`
+	SkipToken *string               `pulumi:"skipToken"`
+	Value     []KeyVaultKeyResponse `pulumi:"value"`
 }

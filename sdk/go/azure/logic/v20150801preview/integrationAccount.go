@@ -14,16 +14,11 @@ import (
 type IntegrationAccount struct {
 	pulumi.CustomResourceState
 
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The sku.
-	Sku IntegrationAccountSkuResponsePtrOutput `pulumi:"sku"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Location pulumi.StringPtrOutput                 `pulumi:"location"`
+	Name     pulumi.StringPtrOutput                 `pulumi:"name"`
+	Sku      IntegrationAccountSkuResponsePtrOutput `pulumi:"sku"`
+	Tags     pulumi.StringMapOutput                 `pulumi:"tags"`
+	Type     pulumi.StringPtrOutput                 `pulumi:"type"`
 }
 
 // NewIntegrationAccount registers a new resource with the given unique name, arguments, and options.
@@ -98,42 +93,26 @@ func (IntegrationAccountState) ElementType() reflect.Type {
 }
 
 type integrationAccountArgs struct {
-	// The resource id.
-	Id *string `pulumi:"id"`
-	// The integration account name.
-	IntegrationAccountName *string `pulumi:"integrationAccountName"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku.
-	Sku *IntegrationAccountSku `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
+	Id                     *string                `pulumi:"id"`
+	IntegrationAccountName *string                `pulumi:"integrationAccountName"`
+	Location               *string                `pulumi:"location"`
+	Name                   *string                `pulumi:"name"`
+	ResourceGroupName      string                 `pulumi:"resourceGroupName"`
+	Sku                    *IntegrationAccountSku `pulumi:"sku"`
+	Tags                   map[string]string      `pulumi:"tags"`
+	Type                   *string                `pulumi:"type"`
 }
 
 // The set of arguments for constructing a IntegrationAccount resource.
 type IntegrationAccountArgs struct {
-	// The resource id.
-	Id pulumi.StringPtrInput
-	// The integration account name.
+	Id                     pulumi.StringPtrInput
 	IntegrationAccountName pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The sku.
-	Sku IntegrationAccountSkuPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
+	Location               pulumi.StringPtrInput
+	Name                   pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	Sku                    IntegrationAccountSkuPtrInput
+	Tags                   pulumi.StringMapInput
+	Type                   pulumi.StringPtrInput
 }
 
 func (IntegrationAccountArgs) ElementType() reflect.Type {
@@ -159,9 +138,7 @@ func (i *IntegrationAccount) ToIntegrationAccountOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountOutput)
 }
 
-type IntegrationAccountOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccount)(nil))

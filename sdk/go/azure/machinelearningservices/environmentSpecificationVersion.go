@@ -138,9 +138,7 @@ func (i *EnvironmentSpecificationVersion) ToEnvironmentSpecificationVersionOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSpecificationVersionOutput)
 }
 
-type EnvironmentSpecificationVersionOutput struct {
-	*pulumi.OutputState
-}
+type EnvironmentSpecificationVersionOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentSpecificationVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EnvironmentSpecificationVersion)(nil))

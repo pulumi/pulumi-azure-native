@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NSX DHCP
 type WorkloadNetworkDhcp struct {
 	pulumi.CustomResourceState
 
-	// Type of DHCP: SERVER or RELAY.
-	DhcpType pulumi.StringOutput `pulumi:"dhcpType"`
-	// Display name of the DHCP entity.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision pulumi.Float64PtrOutput `pulumi:"revision"`
-	// NSX Segments consuming DHCP.
-	Segments pulumi.StringArrayOutput `pulumi:"segments"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DhcpType          pulumi.StringOutput      `pulumi:"dhcpType"`
+	DisplayName       pulumi.StringPtrOutput   `pulumi:"displayName"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	Revision          pulumi.Float64PtrOutput  `pulumi:"revision"`
+	Segments          pulumi.StringArrayOutput `pulumi:"segments"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewWorkloadNetworkDhcp registers a new resource with the given unique name, arguments, and options.
@@ -103,34 +95,22 @@ func (WorkloadNetworkDhcpState) ElementType() reflect.Type {
 }
 
 type workloadNetworkDhcpArgs struct {
-	// NSX DHCP identifier. Generally the same as the DHCP display name
-	DhcpId *string `pulumi:"dhcpId"`
-	// Type of DHCP: SERVER or RELAY.
-	DhcpType string `pulumi:"dhcpType"`
-	// Display name of the DHCP entity.
-	DisplayName *string `pulumi:"displayName"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
+	DhcpId            *string  `pulumi:"dhcpId"`
+	DhcpType          string   `pulumi:"dhcpType"`
+	DisplayName       *string  `pulumi:"displayName"`
+	PrivateCloudName  string   `pulumi:"privateCloudName"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
+	Revision          *float64 `pulumi:"revision"`
 }
 
 // The set of arguments for constructing a WorkloadNetworkDhcp resource.
 type WorkloadNetworkDhcpArgs struct {
-	// NSX DHCP identifier. Generally the same as the DHCP display name
-	DhcpId pulumi.StringPtrInput
-	// Type of DHCP: SERVER or RELAY.
-	DhcpType pulumi.StringInput
-	// Display name of the DHCP entity.
-	DisplayName pulumi.StringPtrInput
-	// Name of the private cloud
-	PrivateCloudName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
+	DhcpId            pulumi.StringPtrInput
+	DhcpType          pulumi.StringInput
+	DisplayName       pulumi.StringPtrInput
+	PrivateCloudName  pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// NSX revision number.
-	Revision pulumi.Float64PtrInput
+	Revision          pulumi.Float64PtrInput
 }
 
 func (WorkloadNetworkDhcpArgs) ElementType() reflect.Type {
@@ -156,9 +136,7 @@ func (i *WorkloadNetworkDhcp) ToWorkloadNetworkDhcpOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkDhcpOutput)
 }
 
-type WorkloadNetworkDhcpOutput struct {
-	*pulumi.OutputState
-}
+type WorkloadNetworkDhcpOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkDhcpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkDhcp)(nil))

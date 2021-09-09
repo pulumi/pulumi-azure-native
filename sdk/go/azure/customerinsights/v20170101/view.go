@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The view resource format.
 type View struct {
 	pulumi.CustomResourceState
 
-	// Date time when view was last modified.
-	Changed pulumi.StringOutput `pulumi:"changed"`
-	// Date time when view was created.
-	Created pulumi.StringOutput `pulumi:"created"`
-	// View definition.
-	Definition pulumi.StringOutput `pulumi:"definition"`
-	// Localized display name for the view.
+	Changed     pulumi.StringOutput    `pulumi:"changed"`
+	Created     pulumi.StringOutput    `pulumi:"created"`
+	Definition  pulumi.StringOutput    `pulumi:"definition"`
 	DisplayName pulumi.StringMapOutput `pulumi:"displayName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// the hub name.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// the user ID.
-	UserId pulumi.StringPtrOutput `pulumi:"userId"`
-	// Name of the view.
-	ViewName pulumi.StringOutput `pulumi:"viewName"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	TenantId    pulumi.StringOutput    `pulumi:"tenantId"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
+	UserId      pulumi.StringPtrOutput `pulumi:"userId"`
+	ViewName    pulumi.StringOutput    `pulumi:"viewName"`
 }
 
 // NewView registers a new resource with the given unique name, arguments, and options.
@@ -101,34 +91,22 @@ func (ViewState) ElementType() reflect.Type {
 }
 
 type viewArgs struct {
-	// View definition.
-	Definition string `pulumi:"definition"`
-	// Localized display name for the view.
-	DisplayName map[string]string `pulumi:"displayName"`
-	// The name of the hub.
-	HubName string `pulumi:"hubName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// the user ID.
-	UserId *string `pulumi:"userId"`
-	// The name of the view.
-	ViewName *string `pulumi:"viewName"`
+	Definition        string            `pulumi:"definition"`
+	DisplayName       map[string]string `pulumi:"displayName"`
+	HubName           string            `pulumi:"hubName"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	UserId            *string           `pulumi:"userId"`
+	ViewName          *string           `pulumi:"viewName"`
 }
 
 // The set of arguments for constructing a View resource.
 type ViewArgs struct {
-	// View definition.
-	Definition pulumi.StringInput
-	// Localized display name for the view.
-	DisplayName pulumi.StringMapInput
-	// The name of the hub.
-	HubName pulumi.StringInput
-	// The name of the resource group.
+	Definition        pulumi.StringInput
+	DisplayName       pulumi.StringMapInput
+	HubName           pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// the user ID.
-	UserId pulumi.StringPtrInput
-	// The name of the view.
-	ViewName pulumi.StringPtrInput
+	UserId            pulumi.StringPtrInput
+	ViewName          pulumi.StringPtrInput
 }
 
 func (ViewArgs) ElementType() reflect.Type {
@@ -154,9 +132,7 @@ func (i *View) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ViewOutput)
 }
 
-type ViewOutput struct {
-	*pulumi.OutputState
-}
+type ViewOutput struct{ *pulumi.OutputState }
 
 func (ViewOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*View)(nil))

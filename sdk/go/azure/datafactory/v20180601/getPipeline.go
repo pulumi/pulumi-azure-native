@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Pipeline resource type.
 func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulumi.InvokeOption) (*LookupPipelineResult, error) {
 	var rv LookupPipelineResult
 	err := ctx.Invoke("azure-native:datafactory/v20180601:getPipeline", args, &rv, opts...)
@@ -18,40 +17,24 @@ func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulum
 }
 
 type LookupPipelineArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The pipeline name.
-	PipelineName string `pulumi:"pipelineName"`
-	// The resource group name.
+	FactoryName       string `pulumi:"factoryName"`
+	PipelineName      string `pulumi:"pipelineName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Pipeline resource type.
 type LookupPipelineResult struct {
-	// List of activities in pipeline.
-	Activities []interface{} `pulumi:"activities"`
-	// List of tags that can be used for describing the Pipeline.
-	Annotations []interface{} `pulumi:"annotations"`
-	// The max number of concurrent runs for the pipeline.
-	Concurrency *int `pulumi:"concurrency"`
-	// The description of the pipeline.
-	Description *string `pulumi:"description"`
-	// Etag identifies change in the resource.
-	Etag string `pulumi:"etag"`
-	// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-	Folder *PipelineResponseFolder `pulumi:"folder"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// List of parameters for pipeline.
-	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
-	// Pipeline Policy.
-	Policy *PipelinePolicyResponse `pulumi:"policy"`
-	// Dimensions emitted by Pipeline.
-	RunDimensions map[string]interface{} `pulumi:"runDimensions"`
-	// The resource type.
-	Type string `pulumi:"type"`
-	// List of variables for pipeline.
-	Variables map[string]VariableSpecificationResponse `pulumi:"variables"`
+	Activities    []interface{}                             `pulumi:"activities"`
+	Annotations   []interface{}                             `pulumi:"annotations"`
+	Concurrency   *int                                      `pulumi:"concurrency"`
+	Description   *string                                   `pulumi:"description"`
+	Etag          string                                    `pulumi:"etag"`
+	Folder        *PipelineResponseFolder                   `pulumi:"folder"`
+	Id            string                                    `pulumi:"id"`
+	Name          string                                    `pulumi:"name"`
+	Parameters    map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	Policy        *PipelinePolicyResponse                   `pulumi:"policy"`
+	RunDimensions map[string]interface{}                    `pulumi:"runDimensions"`
+	Type          string                                    `pulumi:"type"`
+	Variables     map[string]VariableSpecificationResponse  `pulumi:"variables"`
 }

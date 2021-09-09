@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Azure Active Directory principal identifier and Azure built-in role that describes the access the principal will receive on the delegated resource in the managed tenant.
 type Authorization struct {
-	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other principals.
 	DelegatedRoleDefinitionIds []string `pulumi:"delegatedRoleDefinitionIds"`
-	// The identifier of the Azure Active Directory principal.
-	PrincipalId string `pulumi:"principalId"`
-	// The display name of the Azure Active Directory principal.
-	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
-	// The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+	PrincipalId                string   `pulumi:"principalId"`
+	PrincipalIdDisplayName     *string  `pulumi:"principalIdDisplayName"`
+	RoleDefinitionId           string   `pulumi:"roleDefinitionId"`
 }
 
 // AuthorizationInput is an input type that accepts AuthorizationArgs and AuthorizationOutput values.
@@ -33,16 +28,11 @@ type AuthorizationInput interface {
 	ToAuthorizationOutputWithContext(context.Context) AuthorizationOutput
 }
 
-// The Azure Active Directory principal identifier and Azure built-in role that describes the access the principal will receive on the delegated resource in the managed tenant.
 type AuthorizationArgs struct {
-	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other principals.
 	DelegatedRoleDefinitionIds pulumi.StringArrayInput `pulumi:"delegatedRoleDefinitionIds"`
-	// The identifier of the Azure Active Directory principal.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The display name of the Azure Active Directory principal.
-	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
-	// The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
-	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+	PrincipalId                pulumi.StringInput      `pulumi:"principalId"`
+	PrincipalIdDisplayName     pulumi.StringPtrInput   `pulumi:"principalIdDisplayName"`
+	RoleDefinitionId           pulumi.StringInput      `pulumi:"roleDefinitionId"`
 }
 
 func (AuthorizationArgs) ElementType() reflect.Type {
@@ -82,7 +72,6 @@ func (i AuthorizationArray) ToAuthorizationArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationArrayOutput)
 }
 
-// The Azure Active Directory principal identifier and Azure built-in role that describes the access the principal will receive on the delegated resource in the managed tenant.
 type AuthorizationOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationOutput) ElementType() reflect.Type {
@@ -97,22 +86,18 @@ func (o AuthorizationOutput) ToAuthorizationOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other principals.
 func (o AuthorizationOutput) DelegatedRoleDefinitionIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Authorization) []string { return v.DelegatedRoleDefinitionIds }).(pulumi.StringArrayOutput)
 }
 
-// The identifier of the Azure Active Directory principal.
 func (o AuthorizationOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v Authorization) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The display name of the Azure Active Directory principal.
 func (o AuthorizationOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Authorization) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
 func (o AuthorizationOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v Authorization) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
@@ -137,16 +122,11 @@ func (o AuthorizationArrayOutput) Index(i pulumi.IntInput) AuthorizationOutput {
 	}).(AuthorizationOutput)
 }
 
-// The Azure Active Directory principal identifier and Azure built-in role that describes the access the principal will receive on the delegated resource in the managed tenant.
 type AuthorizationResponse struct {
-	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other principals.
 	DelegatedRoleDefinitionIds []string `pulumi:"delegatedRoleDefinitionIds"`
-	// The identifier of the Azure Active Directory principal.
-	PrincipalId string `pulumi:"principalId"`
-	// The display name of the Azure Active Directory principal.
-	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
-	// The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+	PrincipalId                string   `pulumi:"principalId"`
+	PrincipalIdDisplayName     *string  `pulumi:"principalIdDisplayName"`
+	RoleDefinitionId           string   `pulumi:"roleDefinitionId"`
 }
 
 // AuthorizationResponseInput is an input type that accepts AuthorizationResponseArgs and AuthorizationResponseOutput values.
@@ -160,16 +140,11 @@ type AuthorizationResponseInput interface {
 	ToAuthorizationResponseOutputWithContext(context.Context) AuthorizationResponseOutput
 }
 
-// The Azure Active Directory principal identifier and Azure built-in role that describes the access the principal will receive on the delegated resource in the managed tenant.
 type AuthorizationResponseArgs struct {
-	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other principals.
 	DelegatedRoleDefinitionIds pulumi.StringArrayInput `pulumi:"delegatedRoleDefinitionIds"`
-	// The identifier of the Azure Active Directory principal.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The display name of the Azure Active Directory principal.
-	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
-	// The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
-	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+	PrincipalId                pulumi.StringInput      `pulumi:"principalId"`
+	PrincipalIdDisplayName     pulumi.StringPtrInput   `pulumi:"principalIdDisplayName"`
+	RoleDefinitionId           pulumi.StringInput      `pulumi:"roleDefinitionId"`
 }
 
 func (AuthorizationResponseArgs) ElementType() reflect.Type {
@@ -209,7 +184,6 @@ func (i AuthorizationResponseArray) ToAuthorizationResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationResponseArrayOutput)
 }
 
-// The Azure Active Directory principal identifier and Azure built-in role that describes the access the principal will receive on the delegated resource in the managed tenant.
 type AuthorizationResponseOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationResponseOutput) ElementType() reflect.Type {
@@ -224,22 +198,18 @@ func (o AuthorizationResponseOutput) ToAuthorizationResponseOutputWithContext(ct
 	return o
 }
 
-// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other principals.
 func (o AuthorizationResponseOutput) DelegatedRoleDefinitionIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AuthorizationResponse) []string { return v.DelegatedRoleDefinitionIds }).(pulumi.StringArrayOutput)
 }
 
-// The identifier of the Azure Active Directory principal.
 func (o AuthorizationResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthorizationResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The display name of the Azure Active Directory principal.
 func (o AuthorizationResponseOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthorizationResponse) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
 func (o AuthorizationResponseOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthorizationResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
@@ -264,11 +234,8 @@ func (o AuthorizationResponseArrayOutput) Index(i pulumi.IntInput) Authorization
 	}).(AuthorizationResponseOutput)
 }
 
-// Defines the Azure Active Directory principal that can approve any just-in-time access requests by the principal defined in the EligibleAuthorization.
 type EligibleApprover struct {
-	// The identifier of the Azure Active Directory principal.
-	PrincipalId string `pulumi:"principalId"`
-	// The display name of the Azure Active Directory principal.
+	PrincipalId            string  `pulumi:"principalId"`
 	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
 }
 
@@ -283,11 +250,8 @@ type EligibleApproverInput interface {
 	ToEligibleApproverOutputWithContext(context.Context) EligibleApproverOutput
 }
 
-// Defines the Azure Active Directory principal that can approve any just-in-time access requests by the principal defined in the EligibleAuthorization.
 type EligibleApproverArgs struct {
-	// The identifier of the Azure Active Directory principal.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The display name of the Azure Active Directory principal.
+	PrincipalId            pulumi.StringInput    `pulumi:"principalId"`
 	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
 }
 
@@ -328,7 +292,6 @@ func (i EligibleApproverArray) ToEligibleApproverArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EligibleApproverArrayOutput)
 }
 
-// Defines the Azure Active Directory principal that can approve any just-in-time access requests by the principal defined in the EligibleAuthorization.
 type EligibleApproverOutput struct{ *pulumi.OutputState }
 
 func (EligibleApproverOutput) ElementType() reflect.Type {
@@ -343,12 +306,10 @@ func (o EligibleApproverOutput) ToEligibleApproverOutputWithContext(ctx context.
 	return o
 }
 
-// The identifier of the Azure Active Directory principal.
 func (o EligibleApproverOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v EligibleApprover) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The display name of the Azure Active Directory principal.
 func (o EligibleApproverOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EligibleApprover) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
 }
@@ -373,11 +334,8 @@ func (o EligibleApproverArrayOutput) Index(i pulumi.IntInput) EligibleApproverOu
 	}).(EligibleApproverOutput)
 }
 
-// Defines the Azure Active Directory principal that can approve any just-in-time access requests by the principal defined in the EligibleAuthorization.
 type EligibleApproverResponse struct {
-	// The identifier of the Azure Active Directory principal.
-	PrincipalId string `pulumi:"principalId"`
-	// The display name of the Azure Active Directory principal.
+	PrincipalId            string  `pulumi:"principalId"`
 	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
 }
 
@@ -392,11 +350,8 @@ type EligibleApproverResponseInput interface {
 	ToEligibleApproverResponseOutputWithContext(context.Context) EligibleApproverResponseOutput
 }
 
-// Defines the Azure Active Directory principal that can approve any just-in-time access requests by the principal defined in the EligibleAuthorization.
 type EligibleApproverResponseArgs struct {
-	// The identifier of the Azure Active Directory principal.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The display name of the Azure Active Directory principal.
+	PrincipalId            pulumi.StringInput    `pulumi:"principalId"`
 	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
 }
 
@@ -437,7 +392,6 @@ func (i EligibleApproverResponseArray) ToEligibleApproverResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EligibleApproverResponseArrayOutput)
 }
 
-// Defines the Azure Active Directory principal that can approve any just-in-time access requests by the principal defined in the EligibleAuthorization.
 type EligibleApproverResponseOutput struct{ *pulumi.OutputState }
 
 func (EligibleApproverResponseOutput) ElementType() reflect.Type {
@@ -452,12 +406,10 @@ func (o EligibleApproverResponseOutput) ToEligibleApproverResponseOutputWithCont
 	return o
 }
 
-// The identifier of the Azure Active Directory principal.
 func (o EligibleApproverResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v EligibleApproverResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The display name of the Azure Active Directory principal.
 func (o EligibleApproverResponseOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EligibleApproverResponse) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
 }
@@ -482,16 +434,11 @@ func (o EligibleApproverResponseArrayOutput) Index(i pulumi.IntInput) EligibleAp
 	}).(EligibleApproverResponseOutput)
 }
 
-// The Azure Active Directory principal identifier, Azure built-in role, and just-in-time access policy that describes the just-in-time access the principal will receive on the delegated resource in the managed tenant.
 type EligibleAuthorization struct {
-	// The just-in-time access policy setting.
 	JustInTimeAccessPolicy *JustInTimeAccessPolicy `pulumi:"justInTimeAccessPolicy"`
-	// The identifier of the Azure Active Directory principal.
-	PrincipalId string `pulumi:"principalId"`
-	// The display name of the Azure Active Directory principal.
-	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
-	// The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+	PrincipalId            string                  `pulumi:"principalId"`
+	PrincipalIdDisplayName *string                 `pulumi:"principalIdDisplayName"`
+	RoleDefinitionId       string                  `pulumi:"roleDefinitionId"`
 }
 
 // EligibleAuthorizationInput is an input type that accepts EligibleAuthorizationArgs and EligibleAuthorizationOutput values.
@@ -505,16 +452,11 @@ type EligibleAuthorizationInput interface {
 	ToEligibleAuthorizationOutputWithContext(context.Context) EligibleAuthorizationOutput
 }
 
-// The Azure Active Directory principal identifier, Azure built-in role, and just-in-time access policy that describes the just-in-time access the principal will receive on the delegated resource in the managed tenant.
 type EligibleAuthorizationArgs struct {
-	// The just-in-time access policy setting.
 	JustInTimeAccessPolicy JustInTimeAccessPolicyPtrInput `pulumi:"justInTimeAccessPolicy"`
-	// The identifier of the Azure Active Directory principal.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The display name of the Azure Active Directory principal.
-	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
-	// The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
-	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+	PrincipalId            pulumi.StringInput             `pulumi:"principalId"`
+	PrincipalIdDisplayName pulumi.StringPtrInput          `pulumi:"principalIdDisplayName"`
+	RoleDefinitionId       pulumi.StringInput             `pulumi:"roleDefinitionId"`
 }
 
 func (EligibleAuthorizationArgs) ElementType() reflect.Type {
@@ -554,7 +496,6 @@ func (i EligibleAuthorizationArray) ToEligibleAuthorizationArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EligibleAuthorizationArrayOutput)
 }
 
-// The Azure Active Directory principal identifier, Azure built-in role, and just-in-time access policy that describes the just-in-time access the principal will receive on the delegated resource in the managed tenant.
 type EligibleAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (EligibleAuthorizationOutput) ElementType() reflect.Type {
@@ -569,22 +510,18 @@ func (o EligibleAuthorizationOutput) ToEligibleAuthorizationOutputWithContext(ct
 	return o
 }
 
-// The just-in-time access policy setting.
 func (o EligibleAuthorizationOutput) JustInTimeAccessPolicy() JustInTimeAccessPolicyPtrOutput {
 	return o.ApplyT(func(v EligibleAuthorization) *JustInTimeAccessPolicy { return v.JustInTimeAccessPolicy }).(JustInTimeAccessPolicyPtrOutput)
 }
 
-// The identifier of the Azure Active Directory principal.
 func (o EligibleAuthorizationOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v EligibleAuthorization) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The display name of the Azure Active Directory principal.
 func (o EligibleAuthorizationOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EligibleAuthorization) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
 func (o EligibleAuthorizationOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v EligibleAuthorization) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
@@ -609,16 +546,11 @@ func (o EligibleAuthorizationArrayOutput) Index(i pulumi.IntInput) EligibleAutho
 	}).(EligibleAuthorizationOutput)
 }
 
-// The Azure Active Directory principal identifier, Azure built-in role, and just-in-time access policy that describes the just-in-time access the principal will receive on the delegated resource in the managed tenant.
 type EligibleAuthorizationResponse struct {
-	// The just-in-time access policy setting.
 	JustInTimeAccessPolicy *JustInTimeAccessPolicyResponse `pulumi:"justInTimeAccessPolicy"`
-	// The identifier of the Azure Active Directory principal.
-	PrincipalId string `pulumi:"principalId"`
-	// The display name of the Azure Active Directory principal.
-	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
-	// The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+	PrincipalId            string                          `pulumi:"principalId"`
+	PrincipalIdDisplayName *string                         `pulumi:"principalIdDisplayName"`
+	RoleDefinitionId       string                          `pulumi:"roleDefinitionId"`
 }
 
 // EligibleAuthorizationResponseInput is an input type that accepts EligibleAuthorizationResponseArgs and EligibleAuthorizationResponseOutput values.
@@ -632,16 +564,11 @@ type EligibleAuthorizationResponseInput interface {
 	ToEligibleAuthorizationResponseOutputWithContext(context.Context) EligibleAuthorizationResponseOutput
 }
 
-// The Azure Active Directory principal identifier, Azure built-in role, and just-in-time access policy that describes the just-in-time access the principal will receive on the delegated resource in the managed tenant.
 type EligibleAuthorizationResponseArgs struct {
-	// The just-in-time access policy setting.
 	JustInTimeAccessPolicy JustInTimeAccessPolicyResponsePtrInput `pulumi:"justInTimeAccessPolicy"`
-	// The identifier of the Azure Active Directory principal.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The display name of the Azure Active Directory principal.
-	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
-	// The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
-	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+	PrincipalId            pulumi.StringInput                     `pulumi:"principalId"`
+	PrincipalIdDisplayName pulumi.StringPtrInput                  `pulumi:"principalIdDisplayName"`
+	RoleDefinitionId       pulumi.StringInput                     `pulumi:"roleDefinitionId"`
 }
 
 func (EligibleAuthorizationResponseArgs) ElementType() reflect.Type {
@@ -681,7 +608,6 @@ func (i EligibleAuthorizationResponseArray) ToEligibleAuthorizationResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(EligibleAuthorizationResponseArrayOutput)
 }
 
-// The Azure Active Directory principal identifier, Azure built-in role, and just-in-time access policy that describes the just-in-time access the principal will receive on the delegated resource in the managed tenant.
 type EligibleAuthorizationResponseOutput struct{ *pulumi.OutputState }
 
 func (EligibleAuthorizationResponseOutput) ElementType() reflect.Type {
@@ -696,22 +622,18 @@ func (o EligibleAuthorizationResponseOutput) ToEligibleAuthorizationResponseOutp
 	return o
 }
 
-// The just-in-time access policy setting.
 func (o EligibleAuthorizationResponseOutput) JustInTimeAccessPolicy() JustInTimeAccessPolicyResponsePtrOutput {
 	return o.ApplyT(func(v EligibleAuthorizationResponse) *JustInTimeAccessPolicyResponse { return v.JustInTimeAccessPolicy }).(JustInTimeAccessPolicyResponsePtrOutput)
 }
 
-// The identifier of the Azure Active Directory principal.
 func (o EligibleAuthorizationResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v EligibleAuthorizationResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The display name of the Azure Active Directory principal.
 func (o EligibleAuthorizationResponseOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EligibleAuthorizationResponse) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
 func (o EligibleAuthorizationResponseOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v EligibleAuthorizationResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
@@ -736,14 +658,10 @@ func (o EligibleAuthorizationResponseArrayOutput) Index(i pulumi.IntInput) Eligi
 	}).(EligibleAuthorizationResponseOutput)
 }
 
-// Just-in-time access policy setting.
 type JustInTimeAccessPolicy struct {
-	// The list of managedByTenant approvers for the eligible authorization.
-	ManagedByTenantApprovers []EligibleApprover `pulumi:"managedByTenantApprovers"`
-	// The maximum access duration in ISO 8601 format for just-in-time access requests.
-	MaximumActivationDuration *string `pulumi:"maximumActivationDuration"`
-	// The multi-factor authorization provider to be used for just-in-time access requests.
-	MultiFactorAuthProvider string `pulumi:"multiFactorAuthProvider"`
+	ManagedByTenantApprovers  []EligibleApprover `pulumi:"managedByTenantApprovers"`
+	MaximumActivationDuration *string            `pulumi:"maximumActivationDuration"`
+	MultiFactorAuthProvider   string             `pulumi:"multiFactorAuthProvider"`
 }
 
 // JustInTimeAccessPolicyInput is an input type that accepts JustInTimeAccessPolicyArgs and JustInTimeAccessPolicyOutput values.
@@ -757,14 +675,10 @@ type JustInTimeAccessPolicyInput interface {
 	ToJustInTimeAccessPolicyOutputWithContext(context.Context) JustInTimeAccessPolicyOutput
 }
 
-// Just-in-time access policy setting.
 type JustInTimeAccessPolicyArgs struct {
-	// The list of managedByTenant approvers for the eligible authorization.
-	ManagedByTenantApprovers EligibleApproverArrayInput `pulumi:"managedByTenantApprovers"`
-	// The maximum access duration in ISO 8601 format for just-in-time access requests.
-	MaximumActivationDuration pulumi.StringPtrInput `pulumi:"maximumActivationDuration"`
-	// The multi-factor authorization provider to be used for just-in-time access requests.
-	MultiFactorAuthProvider pulumi.StringInput `pulumi:"multiFactorAuthProvider"`
+	ManagedByTenantApprovers  EligibleApproverArrayInput `pulumi:"managedByTenantApprovers"`
+	MaximumActivationDuration pulumi.StringPtrInput      `pulumi:"maximumActivationDuration"`
+	MultiFactorAuthProvider   pulumi.StringInput         `pulumi:"multiFactorAuthProvider"`
 }
 
 func (JustInTimeAccessPolicyArgs) ElementType() reflect.Type {
@@ -820,7 +734,6 @@ func (i *justInTimeAccessPolicyPtrType) ToJustInTimeAccessPolicyPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(JustInTimeAccessPolicyPtrOutput)
 }
 
-// Just-in-time access policy setting.
 type JustInTimeAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (JustInTimeAccessPolicyOutput) ElementType() reflect.Type {
@@ -840,22 +753,19 @@ func (o JustInTimeAccessPolicyOutput) ToJustInTimeAccessPolicyPtrOutput() JustIn
 }
 
 func (o JustInTimeAccessPolicyOutput) ToJustInTimeAccessPolicyPtrOutputWithContext(ctx context.Context) JustInTimeAccessPolicyPtrOutput {
-	return o.ApplyT(func(v JustInTimeAccessPolicy) *JustInTimeAccessPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JustInTimeAccessPolicy) *JustInTimeAccessPolicy {
 		return &v
 	}).(JustInTimeAccessPolicyPtrOutput)
 }
 
-// The list of managedByTenant approvers for the eligible authorization.
 func (o JustInTimeAccessPolicyOutput) ManagedByTenantApprovers() EligibleApproverArrayOutput {
 	return o.ApplyT(func(v JustInTimeAccessPolicy) []EligibleApprover { return v.ManagedByTenantApprovers }).(EligibleApproverArrayOutput)
 }
 
-// The maximum access duration in ISO 8601 format for just-in-time access requests.
 func (o JustInTimeAccessPolicyOutput) MaximumActivationDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JustInTimeAccessPolicy) *string { return v.MaximumActivationDuration }).(pulumi.StringPtrOutput)
 }
 
-// The multi-factor authorization provider to be used for just-in-time access requests.
 func (o JustInTimeAccessPolicyOutput) MultiFactorAuthProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v JustInTimeAccessPolicy) string { return v.MultiFactorAuthProvider }).(pulumi.StringOutput)
 }
@@ -875,10 +785,15 @@ func (o JustInTimeAccessPolicyPtrOutput) ToJustInTimeAccessPolicyPtrOutputWithCo
 }
 
 func (o JustInTimeAccessPolicyPtrOutput) Elem() JustInTimeAccessPolicyOutput {
-	return o.ApplyT(func(v *JustInTimeAccessPolicy) JustInTimeAccessPolicy { return *v }).(JustInTimeAccessPolicyOutput)
+	return o.ApplyT(func(v *JustInTimeAccessPolicy) JustInTimeAccessPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret JustInTimeAccessPolicy
+		return ret
+	}).(JustInTimeAccessPolicyOutput)
 }
 
-// The list of managedByTenant approvers for the eligible authorization.
 func (o JustInTimeAccessPolicyPtrOutput) ManagedByTenantApprovers() EligibleApproverArrayOutput {
 	return o.ApplyT(func(v *JustInTimeAccessPolicy) []EligibleApprover {
 		if v == nil {
@@ -888,7 +803,6 @@ func (o JustInTimeAccessPolicyPtrOutput) ManagedByTenantApprovers() EligibleAppr
 	}).(EligibleApproverArrayOutput)
 }
 
-// The maximum access duration in ISO 8601 format for just-in-time access requests.
 func (o JustInTimeAccessPolicyPtrOutput) MaximumActivationDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JustInTimeAccessPolicy) *string {
 		if v == nil {
@@ -898,7 +812,6 @@ func (o JustInTimeAccessPolicyPtrOutput) MaximumActivationDuration() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The multi-factor authorization provider to be used for just-in-time access requests.
 func (o JustInTimeAccessPolicyPtrOutput) MultiFactorAuthProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JustInTimeAccessPolicy) *string {
 		if v == nil {
@@ -908,14 +821,10 @@ func (o JustInTimeAccessPolicyPtrOutput) MultiFactorAuthProvider() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Just-in-time access policy setting.
 type JustInTimeAccessPolicyResponse struct {
-	// The list of managedByTenant approvers for the eligible authorization.
-	ManagedByTenantApprovers []EligibleApproverResponse `pulumi:"managedByTenantApprovers"`
-	// The maximum access duration in ISO 8601 format for just-in-time access requests.
-	MaximumActivationDuration *string `pulumi:"maximumActivationDuration"`
-	// The multi-factor authorization provider to be used for just-in-time access requests.
-	MultiFactorAuthProvider string `pulumi:"multiFactorAuthProvider"`
+	ManagedByTenantApprovers  []EligibleApproverResponse `pulumi:"managedByTenantApprovers"`
+	MaximumActivationDuration *string                    `pulumi:"maximumActivationDuration"`
+	MultiFactorAuthProvider   string                     `pulumi:"multiFactorAuthProvider"`
 }
 
 // JustInTimeAccessPolicyResponseInput is an input type that accepts JustInTimeAccessPolicyResponseArgs and JustInTimeAccessPolicyResponseOutput values.
@@ -929,14 +838,10 @@ type JustInTimeAccessPolicyResponseInput interface {
 	ToJustInTimeAccessPolicyResponseOutputWithContext(context.Context) JustInTimeAccessPolicyResponseOutput
 }
 
-// Just-in-time access policy setting.
 type JustInTimeAccessPolicyResponseArgs struct {
-	// The list of managedByTenant approvers for the eligible authorization.
-	ManagedByTenantApprovers EligibleApproverResponseArrayInput `pulumi:"managedByTenantApprovers"`
-	// The maximum access duration in ISO 8601 format for just-in-time access requests.
-	MaximumActivationDuration pulumi.StringPtrInput `pulumi:"maximumActivationDuration"`
-	// The multi-factor authorization provider to be used for just-in-time access requests.
-	MultiFactorAuthProvider pulumi.StringInput `pulumi:"multiFactorAuthProvider"`
+	ManagedByTenantApprovers  EligibleApproverResponseArrayInput `pulumi:"managedByTenantApprovers"`
+	MaximumActivationDuration pulumi.StringPtrInput              `pulumi:"maximumActivationDuration"`
+	MultiFactorAuthProvider   pulumi.StringInput                 `pulumi:"multiFactorAuthProvider"`
 }
 
 func (JustInTimeAccessPolicyResponseArgs) ElementType() reflect.Type {
@@ -992,7 +897,6 @@ func (i *justInTimeAccessPolicyResponsePtrType) ToJustInTimeAccessPolicyResponse
 	return pulumi.ToOutputWithContext(ctx, i).(JustInTimeAccessPolicyResponsePtrOutput)
 }
 
-// Just-in-time access policy setting.
 type JustInTimeAccessPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (JustInTimeAccessPolicyResponseOutput) ElementType() reflect.Type {
@@ -1012,22 +916,19 @@ func (o JustInTimeAccessPolicyResponseOutput) ToJustInTimeAccessPolicyResponsePt
 }
 
 func (o JustInTimeAccessPolicyResponseOutput) ToJustInTimeAccessPolicyResponsePtrOutputWithContext(ctx context.Context) JustInTimeAccessPolicyResponsePtrOutput {
-	return o.ApplyT(func(v JustInTimeAccessPolicyResponse) *JustInTimeAccessPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JustInTimeAccessPolicyResponse) *JustInTimeAccessPolicyResponse {
 		return &v
 	}).(JustInTimeAccessPolicyResponsePtrOutput)
 }
 
-// The list of managedByTenant approvers for the eligible authorization.
 func (o JustInTimeAccessPolicyResponseOutput) ManagedByTenantApprovers() EligibleApproverResponseArrayOutput {
 	return o.ApplyT(func(v JustInTimeAccessPolicyResponse) []EligibleApproverResponse { return v.ManagedByTenantApprovers }).(EligibleApproverResponseArrayOutput)
 }
 
-// The maximum access duration in ISO 8601 format for just-in-time access requests.
 func (o JustInTimeAccessPolicyResponseOutput) MaximumActivationDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JustInTimeAccessPolicyResponse) *string { return v.MaximumActivationDuration }).(pulumi.StringPtrOutput)
 }
 
-// The multi-factor authorization provider to be used for just-in-time access requests.
 func (o JustInTimeAccessPolicyResponseOutput) MultiFactorAuthProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v JustInTimeAccessPolicyResponse) string { return v.MultiFactorAuthProvider }).(pulumi.StringOutput)
 }
@@ -1047,10 +948,15 @@ func (o JustInTimeAccessPolicyResponsePtrOutput) ToJustInTimeAccessPolicyRespons
 }
 
 func (o JustInTimeAccessPolicyResponsePtrOutput) Elem() JustInTimeAccessPolicyResponseOutput {
-	return o.ApplyT(func(v *JustInTimeAccessPolicyResponse) JustInTimeAccessPolicyResponse { return *v }).(JustInTimeAccessPolicyResponseOutput)
+	return o.ApplyT(func(v *JustInTimeAccessPolicyResponse) JustInTimeAccessPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JustInTimeAccessPolicyResponse
+		return ret
+	}).(JustInTimeAccessPolicyResponseOutput)
 }
 
-// The list of managedByTenant approvers for the eligible authorization.
 func (o JustInTimeAccessPolicyResponsePtrOutput) ManagedByTenantApprovers() EligibleApproverResponseArrayOutput {
 	return o.ApplyT(func(v *JustInTimeAccessPolicyResponse) []EligibleApproverResponse {
 		if v == nil {
@@ -1060,7 +966,6 @@ func (o JustInTimeAccessPolicyResponsePtrOutput) ManagedByTenantApprovers() Elig
 	}).(EligibleApproverResponseArrayOutput)
 }
 
-// The maximum access duration in ISO 8601 format for just-in-time access requests.
 func (o JustInTimeAccessPolicyResponsePtrOutput) MaximumActivationDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JustInTimeAccessPolicyResponse) *string {
 		if v == nil {
@@ -1070,7 +975,6 @@ func (o JustInTimeAccessPolicyResponsePtrOutput) MaximumActivationDuration() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The multi-factor authorization provider to be used for just-in-time access requests.
 func (o JustInTimeAccessPolicyResponsePtrOutput) MultiFactorAuthProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JustInTimeAccessPolicyResponse) *string {
 		if v == nil {
@@ -1080,16 +984,11 @@ func (o JustInTimeAccessPolicyResponsePtrOutput) MultiFactorAuthProvider() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The details for the Managed Services offer’s plan in Azure Marketplace.
 type Plan struct {
-	// Azure Marketplace plan name.
-	Name string `pulumi:"name"`
-	// Azure Marketplace product code.
-	Product string `pulumi:"product"`
-	// Azure Marketplace publisher ID.
+	Name      string `pulumi:"name"`
+	Product   string `pulumi:"product"`
 	Publisher string `pulumi:"publisher"`
-	// Azure Marketplace plan's version.
-	Version string `pulumi:"version"`
+	Version   string `pulumi:"version"`
 }
 
 // PlanInput is an input type that accepts PlanArgs and PlanOutput values.
@@ -1103,16 +1002,11 @@ type PlanInput interface {
 	ToPlanOutputWithContext(context.Context) PlanOutput
 }
 
-// The details for the Managed Services offer’s plan in Azure Marketplace.
 type PlanArgs struct {
-	// Azure Marketplace plan name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Azure Marketplace product code.
-	Product pulumi.StringInput `pulumi:"product"`
-	// Azure Marketplace publisher ID.
+	Name      pulumi.StringInput `pulumi:"name"`
+	Product   pulumi.StringInput `pulumi:"product"`
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// Azure Marketplace plan's version.
-	Version pulumi.StringInput `pulumi:"version"`
+	Version   pulumi.StringInput `pulumi:"version"`
 }
 
 func (PlanArgs) ElementType() reflect.Type {
@@ -1168,7 +1062,6 @@ func (i *planPtrType) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PlanPtrOutput)
 }
 
-// The details for the Managed Services offer’s plan in Azure Marketplace.
 type PlanOutput struct{ *pulumi.OutputState }
 
 func (PlanOutput) ElementType() reflect.Type {
@@ -1188,27 +1081,23 @@ func (o PlanOutput) ToPlanPtrOutput() PlanPtrOutput {
 }
 
 func (o PlanOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput {
-	return o.ApplyT(func(v Plan) *Plan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Plan) *Plan {
 		return &v
 	}).(PlanPtrOutput)
 }
 
-// Azure Marketplace plan name.
 func (o PlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Plan) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Azure Marketplace product code.
 func (o PlanOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v Plan) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// Azure Marketplace publisher ID.
 func (o PlanOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v Plan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// Azure Marketplace plan's version.
 func (o PlanOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v Plan) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -1228,10 +1117,15 @@ func (o PlanPtrOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOu
 }
 
 func (o PlanPtrOutput) Elem() PlanOutput {
-	return o.ApplyT(func(v *Plan) Plan { return *v }).(PlanOutput)
+	return o.ApplyT(func(v *Plan) Plan {
+		if v != nil {
+			return *v
+		}
+		var ret Plan
+		return ret
+	}).(PlanOutput)
 }
 
-// Azure Marketplace plan name.
 func (o PlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -1241,7 +1135,6 @@ func (o PlanPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Marketplace product code.
 func (o PlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -1251,7 +1144,6 @@ func (o PlanPtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Marketplace publisher ID.
 func (o PlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -1261,7 +1153,6 @@ func (o PlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Marketplace plan's version.
 func (o PlanPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -1271,16 +1162,11 @@ func (o PlanPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The details for the Managed Services offer’s plan in Azure Marketplace.
 type PlanResponse struct {
-	// Azure Marketplace plan name.
-	Name string `pulumi:"name"`
-	// Azure Marketplace product code.
-	Product string `pulumi:"product"`
-	// Azure Marketplace publisher ID.
+	Name      string `pulumi:"name"`
+	Product   string `pulumi:"product"`
 	Publisher string `pulumi:"publisher"`
-	// Azure Marketplace plan's version.
-	Version string `pulumi:"version"`
+	Version   string `pulumi:"version"`
 }
 
 // PlanResponseInput is an input type that accepts PlanResponseArgs and PlanResponseOutput values.
@@ -1294,16 +1180,11 @@ type PlanResponseInput interface {
 	ToPlanResponseOutputWithContext(context.Context) PlanResponseOutput
 }
 
-// The details for the Managed Services offer’s plan in Azure Marketplace.
 type PlanResponseArgs struct {
-	// Azure Marketplace plan name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Azure Marketplace product code.
-	Product pulumi.StringInput `pulumi:"product"`
-	// Azure Marketplace publisher ID.
+	Name      pulumi.StringInput `pulumi:"name"`
+	Product   pulumi.StringInput `pulumi:"product"`
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// Azure Marketplace plan's version.
-	Version pulumi.StringInput `pulumi:"version"`
+	Version   pulumi.StringInput `pulumi:"version"`
 }
 
 func (PlanResponseArgs) ElementType() reflect.Type {
@@ -1359,7 +1240,6 @@ func (i *planResponsePtrType) ToPlanResponsePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PlanResponsePtrOutput)
 }
 
-// The details for the Managed Services offer’s plan in Azure Marketplace.
 type PlanResponseOutput struct{ *pulumi.OutputState }
 
 func (PlanResponseOutput) ElementType() reflect.Type {
@@ -1379,27 +1259,23 @@ func (o PlanResponseOutput) ToPlanResponsePtrOutput() PlanResponsePtrOutput {
 }
 
 func (o PlanResponseOutput) ToPlanResponsePtrOutputWithContext(ctx context.Context) PlanResponsePtrOutput {
-	return o.ApplyT(func(v PlanResponse) *PlanResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanResponse) *PlanResponse {
 		return &v
 	}).(PlanResponsePtrOutput)
 }
 
-// Azure Marketplace plan name.
 func (o PlanResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Azure Marketplace product code.
 func (o PlanResponseOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// Azure Marketplace publisher ID.
 func (o PlanResponseOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// Azure Marketplace plan's version.
 func (o PlanResponseOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanResponse) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -1419,10 +1295,15 @@ func (o PlanResponsePtrOutput) ToPlanResponsePtrOutputWithContext(ctx context.Co
 }
 
 func (o PlanResponsePtrOutput) Elem() PlanResponseOutput {
-	return o.ApplyT(func(v *PlanResponse) PlanResponse { return *v }).(PlanResponseOutput)
+	return o.ApplyT(func(v *PlanResponse) PlanResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PlanResponse
+		return ret
+	}).(PlanResponseOutput)
 }
 
-// Azure Marketplace plan name.
 func (o PlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -1432,7 +1313,6 @@ func (o PlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Marketplace product code.
 func (o PlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -1442,7 +1322,6 @@ func (o PlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Marketplace publisher ID.
 func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -1452,7 +1331,6 @@ func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Marketplace plan's version.
 func (o PlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -1462,9 +1340,7 @@ func (o PlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the registration assignment.
 type RegistrationAssignmentProperties struct {
-	// The fully qualified path of the registration definition.
 	RegistrationDefinitionId string `pulumi:"registrationDefinitionId"`
 }
 
@@ -1479,9 +1355,7 @@ type RegistrationAssignmentPropertiesInput interface {
 	ToRegistrationAssignmentPropertiesOutputWithContext(context.Context) RegistrationAssignmentPropertiesOutput
 }
 
-// The properties of the registration assignment.
 type RegistrationAssignmentPropertiesArgs struct {
-	// The fully qualified path of the registration definition.
 	RegistrationDefinitionId pulumi.StringInput `pulumi:"registrationDefinitionId"`
 }
 
@@ -1538,7 +1412,6 @@ func (i *registrationAssignmentPropertiesPtrType) ToRegistrationAssignmentProper
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesPtrOutput)
 }
 
-// The properties of the registration assignment.
 type RegistrationAssignmentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentPropertiesOutput) ElementType() reflect.Type {
@@ -1558,12 +1431,11 @@ func (o RegistrationAssignmentPropertiesOutput) ToRegistrationAssignmentProperti
 }
 
 func (o RegistrationAssignmentPropertiesOutput) ToRegistrationAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesPtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentProperties) *RegistrationAssignmentProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationAssignmentProperties) *RegistrationAssignmentProperties {
 		return &v
 	}).(RegistrationAssignmentPropertiesPtrOutput)
 }
 
-// The fully qualified path of the registration definition.
 func (o RegistrationAssignmentPropertiesOutput) RegistrationDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationAssignmentProperties) string { return v.RegistrationDefinitionId }).(pulumi.StringOutput)
 }
@@ -1583,10 +1455,15 @@ func (o RegistrationAssignmentPropertiesPtrOutput) ToRegistrationAssignmentPrope
 }
 
 func (o RegistrationAssignmentPropertiesPtrOutput) Elem() RegistrationAssignmentPropertiesOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentProperties) RegistrationAssignmentProperties { return *v }).(RegistrationAssignmentPropertiesOutput)
+	return o.ApplyT(func(v *RegistrationAssignmentProperties) RegistrationAssignmentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationAssignmentProperties
+		return ret
+	}).(RegistrationAssignmentPropertiesOutput)
 }
 
-// The fully qualified path of the registration definition.
 func (o RegistrationAssignmentPropertiesPtrOutput) RegistrationDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentProperties) *string {
 		if v == nil {
@@ -1596,14 +1473,10 @@ func (o RegistrationAssignmentPropertiesPtrOutput) RegistrationDefinitionId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the registration assignment.
 type RegistrationAssignmentPropertiesResponse struct {
-	// The current provisioning state of the registration assignment.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The registration definition associated with the registration assignment.
-	RegistrationDefinition RegistrationAssignmentPropertiesResponseRegistrationDefinition `pulumi:"registrationDefinition"`
-	// The fully qualified path of the registration definition.
-	RegistrationDefinitionId string `pulumi:"registrationDefinitionId"`
+	ProvisioningState        string                                                         `pulumi:"provisioningState"`
+	RegistrationDefinition   RegistrationAssignmentPropertiesResponseRegistrationDefinition `pulumi:"registrationDefinition"`
+	RegistrationDefinitionId string                                                         `pulumi:"registrationDefinitionId"`
 }
 
 // RegistrationAssignmentPropertiesResponseInput is an input type that accepts RegistrationAssignmentPropertiesResponseArgs and RegistrationAssignmentPropertiesResponseOutput values.
@@ -1617,14 +1490,10 @@ type RegistrationAssignmentPropertiesResponseInput interface {
 	ToRegistrationAssignmentPropertiesResponseOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponseOutput
 }
 
-// The properties of the registration assignment.
 type RegistrationAssignmentPropertiesResponseArgs struct {
-	// The current provisioning state of the registration assignment.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The registration definition associated with the registration assignment.
-	RegistrationDefinition RegistrationAssignmentPropertiesResponseRegistrationDefinitionInput `pulumi:"registrationDefinition"`
-	// The fully qualified path of the registration definition.
-	RegistrationDefinitionId pulumi.StringInput `pulumi:"registrationDefinitionId"`
+	ProvisioningState        pulumi.StringInput                                                  `pulumi:"provisioningState"`
+	RegistrationDefinition   RegistrationAssignmentPropertiesResponseRegistrationDefinitionInput `pulumi:"registrationDefinition"`
+	RegistrationDefinitionId pulumi.StringInput                                                  `pulumi:"registrationDefinitionId"`
 }
 
 func (RegistrationAssignmentPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1680,7 +1549,6 @@ func (i *registrationAssignmentPropertiesResponsePtrType) ToRegistrationAssignme
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponsePtrOutput)
 }
 
-// The properties of the registration assignment.
 type RegistrationAssignmentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1700,24 +1568,21 @@ func (o RegistrationAssignmentPropertiesResponseOutput) ToRegistrationAssignment
 }
 
 func (o RegistrationAssignmentPropertiesResponseOutput) ToRegistrationAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponse) *RegistrationAssignmentPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationAssignmentPropertiesResponse) *RegistrationAssignmentPropertiesResponse {
 		return &v
 	}).(RegistrationAssignmentPropertiesResponsePtrOutput)
 }
 
-// The current provisioning state of the registration assignment.
 func (o RegistrationAssignmentPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The registration definition associated with the registration assignment.
 func (o RegistrationAssignmentPropertiesResponseOutput) RegistrationDefinition() RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponse) RegistrationAssignmentPropertiesResponseRegistrationDefinition {
 		return v.RegistrationDefinition
 	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput)
 }
 
-// The fully qualified path of the registration definition.
 func (o RegistrationAssignmentPropertiesResponseOutput) RegistrationDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponse) string { return v.RegistrationDefinitionId }).(pulumi.StringOutput)
 }
@@ -1737,10 +1602,15 @@ func (o RegistrationAssignmentPropertiesResponsePtrOutput) ToRegistrationAssignm
 }
 
 func (o RegistrationAssignmentPropertiesResponsePtrOutput) Elem() RegistrationAssignmentPropertiesResponseOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) RegistrationAssignmentPropertiesResponse { return *v }).(RegistrationAssignmentPropertiesResponseOutput)
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) RegistrationAssignmentPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationAssignmentPropertiesResponse
+		return ret
+	}).(RegistrationAssignmentPropertiesResponseOutput)
 }
 
-// The current provisioning state of the registration assignment.
 func (o RegistrationAssignmentPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -1750,7 +1620,6 @@ func (o RegistrationAssignmentPropertiesResponsePtrOutput) ProvisioningState() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The registration definition associated with the registration assignment.
 func (o RegistrationAssignmentPropertiesResponsePtrOutput) RegistrationDefinition() RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) *RegistrationAssignmentPropertiesResponseRegistrationDefinition {
 		if v == nil {
@@ -1760,7 +1629,6 @@ func (o RegistrationAssignmentPropertiesResponsePtrOutput) RegistrationDefinitio
 	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 }
 
-// The fully qualified path of the registration definition.
 func (o RegistrationAssignmentPropertiesResponsePtrOutput) RegistrationDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -1770,26 +1638,16 @@ func (o RegistrationAssignmentPropertiesResponsePtrOutput) RegistrationDefinitio
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the registration definition associated with the registration assignment.
 type RegistrationAssignmentPropertiesResponseProperties struct {
-	// The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
-	Authorizations []AuthorizationResponse `pulumi:"authorizations"`
-	// The description of the registration definition.
-	Description *string `pulumi:"description"`
-	// The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
-	EligibleAuthorizations []EligibleAuthorizationResponse `pulumi:"eligibleAuthorizations"`
-	// The identifier of the managedBy tenant.
-	ManagedByTenantId *string `pulumi:"managedByTenantId"`
-	// The name of the managedBy tenant.
-	ManagedByTenantName *string `pulumi:"managedByTenantName"`
-	// The identifier of the managed tenant.
-	ManageeTenantId *string `pulumi:"manageeTenantId"`
-	// The name of the managed tenant.
-	ManageeTenantName *string `pulumi:"manageeTenantName"`
-	// The current provisioning state of the registration definition.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the registration definition.
-	RegistrationDefinitionName *string `pulumi:"registrationDefinitionName"`
+	Authorizations             []AuthorizationResponse         `pulumi:"authorizations"`
+	Description                *string                         `pulumi:"description"`
+	EligibleAuthorizations     []EligibleAuthorizationResponse `pulumi:"eligibleAuthorizations"`
+	ManagedByTenantId          *string                         `pulumi:"managedByTenantId"`
+	ManagedByTenantName        *string                         `pulumi:"managedByTenantName"`
+	ManageeTenantId            *string                         `pulumi:"manageeTenantId"`
+	ManageeTenantName          *string                         `pulumi:"manageeTenantName"`
+	ProvisioningState          *string                         `pulumi:"provisioningState"`
+	RegistrationDefinitionName *string                         `pulumi:"registrationDefinitionName"`
 }
 
 // RegistrationAssignmentPropertiesResponsePropertiesInput is an input type that accepts RegistrationAssignmentPropertiesResponsePropertiesArgs and RegistrationAssignmentPropertiesResponsePropertiesOutput values.
@@ -1803,26 +1661,16 @@ type RegistrationAssignmentPropertiesResponsePropertiesInput interface {
 	ToRegistrationAssignmentPropertiesResponsePropertiesOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponsePropertiesOutput
 }
 
-// The properties of the registration definition associated with the registration assignment.
 type RegistrationAssignmentPropertiesResponsePropertiesArgs struct {
-	// The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
-	Authorizations AuthorizationResponseArrayInput `pulumi:"authorizations"`
-	// The description of the registration definition.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
-	EligibleAuthorizations EligibleAuthorizationResponseArrayInput `pulumi:"eligibleAuthorizations"`
-	// The identifier of the managedBy tenant.
-	ManagedByTenantId pulumi.StringPtrInput `pulumi:"managedByTenantId"`
-	// The name of the managedBy tenant.
-	ManagedByTenantName pulumi.StringPtrInput `pulumi:"managedByTenantName"`
-	// The identifier of the managed tenant.
-	ManageeTenantId pulumi.StringPtrInput `pulumi:"manageeTenantId"`
-	// The name of the managed tenant.
-	ManageeTenantName pulumi.StringPtrInput `pulumi:"manageeTenantName"`
-	// The current provisioning state of the registration definition.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The name of the registration definition.
-	RegistrationDefinitionName pulumi.StringPtrInput `pulumi:"registrationDefinitionName"`
+	Authorizations             AuthorizationResponseArrayInput         `pulumi:"authorizations"`
+	Description                pulumi.StringPtrInput                   `pulumi:"description"`
+	EligibleAuthorizations     EligibleAuthorizationResponseArrayInput `pulumi:"eligibleAuthorizations"`
+	ManagedByTenantId          pulumi.StringPtrInput                   `pulumi:"managedByTenantId"`
+	ManagedByTenantName        pulumi.StringPtrInput                   `pulumi:"managedByTenantName"`
+	ManageeTenantId            pulumi.StringPtrInput                   `pulumi:"manageeTenantId"`
+	ManageeTenantName          pulumi.StringPtrInput                   `pulumi:"manageeTenantName"`
+	ProvisioningState          pulumi.StringPtrInput                   `pulumi:"provisioningState"`
+	RegistrationDefinitionName pulumi.StringPtrInput                   `pulumi:"registrationDefinitionName"`
 }
 
 func (RegistrationAssignmentPropertiesResponsePropertiesArgs) ElementType() reflect.Type {
@@ -1878,7 +1726,6 @@ func (i *registrationAssignmentPropertiesResponsePropertiesPtrType) ToRegistrati
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
 }
 
-// The properties of the registration definition associated with the registration assignment.
 type RegistrationAssignmentPropertiesResponsePropertiesOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentPropertiesResponsePropertiesOutput) ElementType() reflect.Type {
@@ -1898,56 +1745,47 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ToRegistration
 }
 
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ToRegistrationAssignmentPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *RegistrationAssignmentPropertiesResponseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationAssignmentPropertiesResponseProperties) *RegistrationAssignmentPropertiesResponseProperties {
 		return &v
 	}).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
 }
 
-// The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) Authorizations() AuthorizationResponseArrayOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) []AuthorizationResponse {
 		return v.Authorizations
 	}).(AuthorizationResponseArrayOutput)
 }
 
-// The description of the registration definition.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) EligibleAuthorizations() EligibleAuthorizationResponseArrayOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) []EligibleAuthorizationResponse {
 		return v.EligibleAuthorizations
 	}).(EligibleAuthorizationResponseArrayOutput)
 }
 
-// The identifier of the managedBy tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ManagedByTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.ManagedByTenantId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the managedBy tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ManagedByTenantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.ManagedByTenantName }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the managed tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ManageeTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.ManageeTenantId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the managed tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ManageeTenantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.ManageeTenantName }).(pulumi.StringPtrOutput)
 }
 
-// The current provisioning state of the registration definition.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// The name of the registration definition.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string {
 		return v.RegistrationDefinitionName
@@ -1970,11 +1808,14 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ToRegistrat
 
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Elem() RegistrationAssignmentPropertiesResponsePropertiesOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) RegistrationAssignmentPropertiesResponseProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationAssignmentPropertiesResponseProperties
+		return ret
 	}).(RegistrationAssignmentPropertiesResponsePropertiesOutput)
 }
 
-// The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Authorizations() AuthorizationResponseArrayOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) []AuthorizationResponse {
 		if v == nil {
@@ -1984,7 +1825,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Authorizati
 	}).(AuthorizationResponseArrayOutput)
 }
 
-// The description of the registration definition.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
 		if v == nil {
@@ -1994,7 +1834,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Description
 	}).(pulumi.StringPtrOutput)
 }
 
-// The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) EligibleAuthorizations() EligibleAuthorizationResponseArrayOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) []EligibleAuthorizationResponse {
 		if v == nil {
@@ -2004,7 +1843,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) EligibleAut
 	}).(EligibleAuthorizationResponseArrayOutput)
 }
 
-// The identifier of the managedBy tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManagedByTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
 		if v == nil {
@@ -2014,7 +1852,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManagedByTe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the managedBy tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManagedByTenantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
 		if v == nil {
@@ -2024,7 +1861,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManagedByTe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the managed tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManageeTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
 		if v == nil {
@@ -2034,7 +1870,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManageeTena
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the managed tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManageeTenantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
 		if v == nil {
@@ -2044,7 +1879,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManageeTena
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current provisioning state of the registration definition.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
 		if v == nil {
@@ -2054,7 +1888,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Provisionin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the registration definition.
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
 		if v == nil {
@@ -2064,18 +1897,12 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Registratio
 	}).(pulumi.StringPtrOutput)
 }
 
-// The registration definition associated with the registration assignment.
 type RegistrationAssignmentPropertiesResponseRegistrationDefinition struct {
-	// The fully qualified path of the registration definition.
-	Id string `pulumi:"id"`
-	// The name of the registration definition.
-	Name string `pulumi:"name"`
-	// The details for the Managed Services offer’s plan in Azure Marketplace.
-	Plan *PlanResponse `pulumi:"plan"`
-	// The properties of the registration definition associated with the registration assignment.
+	Id         string                                              `pulumi:"id"`
+	Name       string                                              `pulumi:"name"`
+	Plan       *PlanResponse                                       `pulumi:"plan"`
 	Properties *RegistrationAssignmentPropertiesResponseProperties `pulumi:"properties"`
-	// The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
-	Type string `pulumi:"type"`
+	Type       string                                              `pulumi:"type"`
 }
 
 // RegistrationAssignmentPropertiesResponseRegistrationDefinitionInput is an input type that accepts RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs and RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput values.
@@ -2089,18 +1916,12 @@ type RegistrationAssignmentPropertiesResponseRegistrationDefinitionInput interfa
 	ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput
 }
 
-// The registration definition associated with the registration assignment.
 type RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs struct {
-	// The fully qualified path of the registration definition.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the registration definition.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The details for the Managed Services offer’s plan in Azure Marketplace.
-	Plan PlanResponsePtrInput `pulumi:"plan"`
-	// The properties of the registration definition associated with the registration assignment.
+	Id         pulumi.StringInput                                         `pulumi:"id"`
+	Name       pulumi.StringInput                                         `pulumi:"name"`
+	Plan       PlanResponsePtrInput                                       `pulumi:"plan"`
 	Properties RegistrationAssignmentPropertiesResponsePropertiesPtrInput `pulumi:"properties"`
-	// The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                                         `pulumi:"type"`
 }
 
 func (RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs) ElementType() reflect.Type {
@@ -2156,7 +1977,6 @@ func (i *registrationAssignmentPropertiesResponseRegistrationDefinitionPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 }
 
-// The registration definition associated with the registration assignment.
 type RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) ElementType() reflect.Type {
@@ -2176,34 +1996,29 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) To
 }
 
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) *RegistrationAssignmentPropertiesResponseRegistrationDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationAssignmentPropertiesResponseRegistrationDefinition) *RegistrationAssignmentPropertiesResponseRegistrationDefinition {
 		return &v
 	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 }
 
-// The fully qualified path of the registration definition.
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the registration definition.
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The details for the Managed Services offer’s plan in Azure Marketplace.
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Plan() PlanResponsePtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) *PlanResponse { return v.Plan }).(PlanResponsePtrOutput)
 }
 
-// The properties of the registration definition associated with the registration assignment.
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Properties() RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) *RegistrationAssignmentPropertiesResponseProperties {
 		return v.Properties
 	}).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
 }
 
-// The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2224,11 +2039,14 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Elem() RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) RegistrationAssignmentPropertiesResponseRegistrationDefinition {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationAssignmentPropertiesResponseRegistrationDefinition
+		return ret
 	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput)
 }
 
-// The fully qualified path of the registration definition.
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *string {
 		if v == nil {
@@ -2238,7 +2056,6 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the registration definition.
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *string {
 		if v == nil {
@@ -2248,7 +2065,6 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The details for the Managed Services offer’s plan in Azure Marketplace.
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Plan() PlanResponsePtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *PlanResponse {
 		if v == nil {
@@ -2258,7 +2074,6 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 	}).(PlanResponsePtrOutput)
 }
 
-// The properties of the registration definition associated with the registration assignment.
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Properties() RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *RegistrationAssignmentPropertiesResponseProperties {
 		if v == nil {
@@ -2268,7 +2083,6 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 	}).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
 }
 
-// The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *string {
 		if v == nil {
@@ -2278,18 +2092,12 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a registration definition.
 type RegistrationDefinitionProperties struct {
-	// The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
-	Authorizations []Authorization `pulumi:"authorizations"`
-	// The description of the registration definition.
-	Description *string `pulumi:"description"`
-	// The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
-	EligibleAuthorizations []EligibleAuthorization `pulumi:"eligibleAuthorizations"`
-	// The identifier of the managedBy tenant.
-	ManagedByTenantId string `pulumi:"managedByTenantId"`
-	// The name of the registration definition.
-	RegistrationDefinitionName *string `pulumi:"registrationDefinitionName"`
+	Authorizations             []Authorization         `pulumi:"authorizations"`
+	Description                *string                 `pulumi:"description"`
+	EligibleAuthorizations     []EligibleAuthorization `pulumi:"eligibleAuthorizations"`
+	ManagedByTenantId          string                  `pulumi:"managedByTenantId"`
+	RegistrationDefinitionName *string                 `pulumi:"registrationDefinitionName"`
 }
 
 // RegistrationDefinitionPropertiesInput is an input type that accepts RegistrationDefinitionPropertiesArgs and RegistrationDefinitionPropertiesOutput values.
@@ -2303,18 +2111,12 @@ type RegistrationDefinitionPropertiesInput interface {
 	ToRegistrationDefinitionPropertiesOutputWithContext(context.Context) RegistrationDefinitionPropertiesOutput
 }
 
-// The properties of a registration definition.
 type RegistrationDefinitionPropertiesArgs struct {
-	// The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
-	Authorizations AuthorizationArrayInput `pulumi:"authorizations"`
-	// The description of the registration definition.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
-	EligibleAuthorizations EligibleAuthorizationArrayInput `pulumi:"eligibleAuthorizations"`
-	// The identifier of the managedBy tenant.
-	ManagedByTenantId pulumi.StringInput `pulumi:"managedByTenantId"`
-	// The name of the registration definition.
-	RegistrationDefinitionName pulumi.StringPtrInput `pulumi:"registrationDefinitionName"`
+	Authorizations             AuthorizationArrayInput         `pulumi:"authorizations"`
+	Description                pulumi.StringPtrInput           `pulumi:"description"`
+	EligibleAuthorizations     EligibleAuthorizationArrayInput `pulumi:"eligibleAuthorizations"`
+	ManagedByTenantId          pulumi.StringInput              `pulumi:"managedByTenantId"`
+	RegistrationDefinitionName pulumi.StringPtrInput           `pulumi:"registrationDefinitionName"`
 }
 
 func (RegistrationDefinitionPropertiesArgs) ElementType() reflect.Type {
@@ -2370,7 +2172,6 @@ func (i *registrationDefinitionPropertiesPtrType) ToRegistrationDefinitionProper
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationDefinitionPropertiesPtrOutput)
 }
 
-// The properties of a registration definition.
 type RegistrationDefinitionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (RegistrationDefinitionPropertiesOutput) ElementType() reflect.Type {
@@ -2390,32 +2191,27 @@ func (o RegistrationDefinitionPropertiesOutput) ToRegistrationDefinitionProperti
 }
 
 func (o RegistrationDefinitionPropertiesOutput) ToRegistrationDefinitionPropertiesPtrOutputWithContext(ctx context.Context) RegistrationDefinitionPropertiesPtrOutput {
-	return o.ApplyT(func(v RegistrationDefinitionProperties) *RegistrationDefinitionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationDefinitionProperties) *RegistrationDefinitionProperties {
 		return &v
 	}).(RegistrationDefinitionPropertiesPtrOutput)
 }
 
-// The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
 func (o RegistrationDefinitionPropertiesOutput) Authorizations() AuthorizationArrayOutput {
 	return o.ApplyT(func(v RegistrationDefinitionProperties) []Authorization { return v.Authorizations }).(AuthorizationArrayOutput)
 }
 
-// The description of the registration definition.
 func (o RegistrationDefinitionPropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationDefinitionProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
 func (o RegistrationDefinitionPropertiesOutput) EligibleAuthorizations() EligibleAuthorizationArrayOutput {
 	return o.ApplyT(func(v RegistrationDefinitionProperties) []EligibleAuthorization { return v.EligibleAuthorizations }).(EligibleAuthorizationArrayOutput)
 }
 
-// The identifier of the managedBy tenant.
 func (o RegistrationDefinitionPropertiesOutput) ManagedByTenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationDefinitionProperties) string { return v.ManagedByTenantId }).(pulumi.StringOutput)
 }
 
-// The name of the registration definition.
 func (o RegistrationDefinitionPropertiesOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationDefinitionProperties) *string { return v.RegistrationDefinitionName }).(pulumi.StringPtrOutput)
 }
@@ -2435,10 +2231,15 @@ func (o RegistrationDefinitionPropertiesPtrOutput) ToRegistrationDefinitionPrope
 }
 
 func (o RegistrationDefinitionPropertiesPtrOutput) Elem() RegistrationDefinitionPropertiesOutput {
-	return o.ApplyT(func(v *RegistrationDefinitionProperties) RegistrationDefinitionProperties { return *v }).(RegistrationDefinitionPropertiesOutput)
+	return o.ApplyT(func(v *RegistrationDefinitionProperties) RegistrationDefinitionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationDefinitionProperties
+		return ret
+	}).(RegistrationDefinitionPropertiesOutput)
 }
 
-// The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
 func (o RegistrationDefinitionPropertiesPtrOutput) Authorizations() AuthorizationArrayOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionProperties) []Authorization {
 		if v == nil {
@@ -2448,7 +2249,6 @@ func (o RegistrationDefinitionPropertiesPtrOutput) Authorizations() Authorizatio
 	}).(AuthorizationArrayOutput)
 }
 
-// The description of the registration definition.
 func (o RegistrationDefinitionPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionProperties) *string {
 		if v == nil {
@@ -2458,7 +2258,6 @@ func (o RegistrationDefinitionPropertiesPtrOutput) Description() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
 func (o RegistrationDefinitionPropertiesPtrOutput) EligibleAuthorizations() EligibleAuthorizationArrayOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionProperties) []EligibleAuthorization {
 		if v == nil {
@@ -2468,7 +2267,6 @@ func (o RegistrationDefinitionPropertiesPtrOutput) EligibleAuthorizations() Elig
 	}).(EligibleAuthorizationArrayOutput)
 }
 
-// The identifier of the managedBy tenant.
 func (o RegistrationDefinitionPropertiesPtrOutput) ManagedByTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionProperties) *string {
 		if v == nil {
@@ -2478,7 +2276,6 @@ func (o RegistrationDefinitionPropertiesPtrOutput) ManagedByTenantId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the registration definition.
 func (o RegistrationDefinitionPropertiesPtrOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionProperties) *string {
 		if v == nil {
@@ -2488,22 +2285,14 @@ func (o RegistrationDefinitionPropertiesPtrOutput) RegistrationDefinitionName() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a registration definition.
 type RegistrationDefinitionPropertiesResponse struct {
-	// The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
-	Authorizations []AuthorizationResponse `pulumi:"authorizations"`
-	// The description of the registration definition.
-	Description *string `pulumi:"description"`
-	// The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
-	EligibleAuthorizations []EligibleAuthorizationResponse `pulumi:"eligibleAuthorizations"`
-	// The identifier of the managedBy tenant.
-	ManagedByTenantId string `pulumi:"managedByTenantId"`
-	// The name of the managedBy tenant.
-	ManagedByTenantName string `pulumi:"managedByTenantName"`
-	// The current provisioning state of the registration definition.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The name of the registration definition.
-	RegistrationDefinitionName *string `pulumi:"registrationDefinitionName"`
+	Authorizations             []AuthorizationResponse         `pulumi:"authorizations"`
+	Description                *string                         `pulumi:"description"`
+	EligibleAuthorizations     []EligibleAuthorizationResponse `pulumi:"eligibleAuthorizations"`
+	ManagedByTenantId          string                          `pulumi:"managedByTenantId"`
+	ManagedByTenantName        string                          `pulumi:"managedByTenantName"`
+	ProvisioningState          string                          `pulumi:"provisioningState"`
+	RegistrationDefinitionName *string                         `pulumi:"registrationDefinitionName"`
 }
 
 // RegistrationDefinitionPropertiesResponseInput is an input type that accepts RegistrationDefinitionPropertiesResponseArgs and RegistrationDefinitionPropertiesResponseOutput values.
@@ -2517,22 +2306,14 @@ type RegistrationDefinitionPropertiesResponseInput interface {
 	ToRegistrationDefinitionPropertiesResponseOutputWithContext(context.Context) RegistrationDefinitionPropertiesResponseOutput
 }
 
-// The properties of a registration definition.
 type RegistrationDefinitionPropertiesResponseArgs struct {
-	// The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
-	Authorizations AuthorizationResponseArrayInput `pulumi:"authorizations"`
-	// The description of the registration definition.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
-	EligibleAuthorizations EligibleAuthorizationResponseArrayInput `pulumi:"eligibleAuthorizations"`
-	// The identifier of the managedBy tenant.
-	ManagedByTenantId pulumi.StringInput `pulumi:"managedByTenantId"`
-	// The name of the managedBy tenant.
-	ManagedByTenantName pulumi.StringInput `pulumi:"managedByTenantName"`
-	// The current provisioning state of the registration definition.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The name of the registration definition.
-	RegistrationDefinitionName pulumi.StringPtrInput `pulumi:"registrationDefinitionName"`
+	Authorizations             AuthorizationResponseArrayInput         `pulumi:"authorizations"`
+	Description                pulumi.StringPtrInput                   `pulumi:"description"`
+	EligibleAuthorizations     EligibleAuthorizationResponseArrayInput `pulumi:"eligibleAuthorizations"`
+	ManagedByTenantId          pulumi.StringInput                      `pulumi:"managedByTenantId"`
+	ManagedByTenantName        pulumi.StringInput                      `pulumi:"managedByTenantName"`
+	ProvisioningState          pulumi.StringInput                      `pulumi:"provisioningState"`
+	RegistrationDefinitionName pulumi.StringPtrInput                   `pulumi:"registrationDefinitionName"`
 }
 
 func (RegistrationDefinitionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2588,7 +2369,6 @@ func (i *registrationDefinitionPropertiesResponsePtrType) ToRegistrationDefiniti
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationDefinitionPropertiesResponsePtrOutput)
 }
 
-// The properties of a registration definition.
 type RegistrationDefinitionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RegistrationDefinitionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2608,44 +2388,37 @@ func (o RegistrationDefinitionPropertiesResponseOutput) ToRegistrationDefinition
 }
 
 func (o RegistrationDefinitionPropertiesResponseOutput) ToRegistrationDefinitionPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistrationDefinitionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) *RegistrationDefinitionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationDefinitionPropertiesResponse) *RegistrationDefinitionPropertiesResponse {
 		return &v
 	}).(RegistrationDefinitionPropertiesResponsePtrOutput)
 }
 
-// The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
 func (o RegistrationDefinitionPropertiesResponseOutput) Authorizations() AuthorizationResponseArrayOutput {
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) []AuthorizationResponse { return v.Authorizations }).(AuthorizationResponseArrayOutput)
 }
 
-// The description of the registration definition.
 func (o RegistrationDefinitionPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
 func (o RegistrationDefinitionPropertiesResponseOutput) EligibleAuthorizations() EligibleAuthorizationResponseArrayOutput {
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) []EligibleAuthorizationResponse {
 		return v.EligibleAuthorizations
 	}).(EligibleAuthorizationResponseArrayOutput)
 }
 
-// The identifier of the managedBy tenant.
 func (o RegistrationDefinitionPropertiesResponseOutput) ManagedByTenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) string { return v.ManagedByTenantId }).(pulumi.StringOutput)
 }
 
-// The name of the managedBy tenant.
 func (o RegistrationDefinitionPropertiesResponseOutput) ManagedByTenantName() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) string { return v.ManagedByTenantName }).(pulumi.StringOutput)
 }
 
-// The current provisioning state of the registration definition.
 func (o RegistrationDefinitionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The name of the registration definition.
 func (o RegistrationDefinitionPropertiesResponseOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) *string { return v.RegistrationDefinitionName }).(pulumi.StringPtrOutput)
 }
@@ -2665,10 +2438,15 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) ToRegistrationDefinit
 }
 
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) Elem() RegistrationDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) RegistrationDefinitionPropertiesResponse { return *v }).(RegistrationDefinitionPropertiesResponseOutput)
+	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) RegistrationDefinitionPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationDefinitionPropertiesResponse
+		return ret
+	}).(RegistrationDefinitionPropertiesResponseOutput)
 }
 
-// The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) Authorizations() AuthorizationResponseArrayOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) []AuthorizationResponse {
 		if v == nil {
@@ -2678,7 +2456,6 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) Authorizations() Auth
 	}).(AuthorizationResponseArrayOutput)
 }
 
-// The description of the registration definition.
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
 		if v == nil {
@@ -2688,7 +2465,6 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) Description() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) EligibleAuthorizations() EligibleAuthorizationResponseArrayOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) []EligibleAuthorizationResponse {
 		if v == nil {
@@ -2698,7 +2474,6 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) EligibleAuthorization
 	}).(EligibleAuthorizationResponseArrayOutput)
 }
 
-// The identifier of the managedBy tenant.
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) ManagedByTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
 		if v == nil {
@@ -2708,7 +2483,6 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) ManagedByTenantId() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the managedBy tenant.
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) ManagedByTenantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
 		if v == nil {
@@ -2718,7 +2492,6 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) ManagedByTenantName()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current provisioning state of the registration definition.
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
 		if v == nil {
@@ -2728,7 +2501,6 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) ProvisioningState() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the registration definition.
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
 		if v == nil {

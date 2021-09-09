@@ -224,9 +224,7 @@ func (i *BlobDataSetMapping) ToBlobDataSetMappingOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BlobDataSetMappingOutput)
 }
 
-type BlobDataSetMappingOutput struct {
-	*pulumi.OutputState
-}
+type BlobDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (BlobDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BlobDataSetMapping)(nil))

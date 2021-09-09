@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a Shared Private Link Resource
 func LookupWebPubSubSharedPrivateLinkResource(ctx *pulumi.Context, args *LookupWebPubSubSharedPrivateLinkResourceArgs, opts ...pulumi.InvokeOption) (*LookupWebPubSubSharedPrivateLinkResourceResult, error) {
 	var rv LookupWebPubSubSharedPrivateLinkResourceResult
 	err := ctx.Invoke("azure-native:webpubsub/v20210901preview:getWebPubSubSharedPrivateLinkResource", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupWebPubSubSharedPrivateLinkResource(ctx *pulumi.Context, args *LookupW
 }
 
 type LookupWebPubSubSharedPrivateLinkResourceArgs struct {
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource.
-	ResourceName string `pulumi:"resourceName"`
-	// The name of the shared private link resource
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
+	ResourceName                  string `pulumi:"resourceName"`
 	SharedPrivateLinkResourceName string `pulumi:"sharedPrivateLinkResourceName"`
 }
 
 // Describes a Shared Private Link Resource
 type LookupWebPubSubSharedPrivateLinkResourceResult struct {
-	// The group id from the provider of resource the shared private link resource is for
-	GroupId string `pulumi:"groupId"`
-	// Fully qualified resource Id for the resource.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The resource id of the resource the shared private link resource is for
-	PrivateLinkResourceId string `pulumi:"privateLinkResourceId"`
-	// Provisioning state of the shared private link resource
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The request message for requesting approval of the shared private link resource
-	RequestMessage *string `pulumi:"requestMessage"`
-	// Status of the shared private link resource
-	Status string `pulumi:"status"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type string `pulumi:"type"`
+	GroupId               string             `pulumi:"groupId"`
+	Id                    string             `pulumi:"id"`
+	Name                  string             `pulumi:"name"`
+	PrivateLinkResourceId string             `pulumi:"privateLinkResourceId"`
+	ProvisioningState     string             `pulumi:"provisioningState"`
+	RequestMessage        *string            `pulumi:"requestMessage"`
+	Status                string             `pulumi:"status"`
+	SystemData            SystemDataResponse `pulumi:"systemData"`
+	Type                  string             `pulumi:"type"`
 }

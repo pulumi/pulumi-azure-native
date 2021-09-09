@@ -232,9 +232,7 @@ func (i *WebAppVnetConnectionSlot) ToWebAppVnetConnectionSlotOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppVnetConnectionSlotOutput)
 }
 
-type WebAppVnetConnectionSlotOutput struct {
-	*pulumi.OutputState
-}
+type WebAppVnetConnectionSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppVnetConnectionSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppVnetConnectionSlot)(nil))

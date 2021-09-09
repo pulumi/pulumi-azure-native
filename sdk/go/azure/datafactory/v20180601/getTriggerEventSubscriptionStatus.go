@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines the response of a trigger subscription operation.
 func GetTriggerEventSubscriptionStatus(ctx *pulumi.Context, args *GetTriggerEventSubscriptionStatusArgs, opts ...pulumi.InvokeOption) (*GetTriggerEventSubscriptionStatusResult, error) {
 	var rv GetTriggerEventSubscriptionStatusResult
 	err := ctx.Invoke("azure-native:datafactory/v20180601:getTriggerEventSubscriptionStatus", args, &rv, opts...)
@@ -18,18 +17,13 @@ func GetTriggerEventSubscriptionStatus(ctx *pulumi.Context, args *GetTriggerEven
 }
 
 type GetTriggerEventSubscriptionStatusArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The resource group name.
+	FactoryName       string `pulumi:"factoryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The trigger name.
-	TriggerName string `pulumi:"triggerName"`
+	TriggerName       string `pulumi:"triggerName"`
 }
 
 // Defines the response of a trigger subscription operation.
 type GetTriggerEventSubscriptionStatusResult struct {
-	// Event Subscription Status.
-	Status string `pulumi:"status"`
-	// Trigger name.
+	Status      string `pulumi:"status"`
 	TriggerName string `pulumi:"triggerName"`
 }

@@ -11,56 +11,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a HostPool definition.
 type HostPool struct {
 	pulumi.CustomResourceState
 
-	// List of applicationGroup links.
-	ApplicationGroupReferences pulumi.StringArrayOutput `pulumi:"applicationGroupReferences"`
-	// Custom rdp property of HostPool.
-	CustomRdpProperty pulumi.StringPtrOutput `pulumi:"customRdpProperty"`
-	// Description of HostPool.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Friendly name of HostPool.
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// HostPool type for desktop.
-	HostPoolType pulumi.StringOutput `pulumi:"hostPoolType"`
-	// The type of the load balancer.
-	LoadBalancerType pulumi.StringOutput `pulumi:"loadBalancerType"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The max session limit of HostPool.
-	MaxSessionLimit pulumi.IntPtrOutput `pulumi:"maxSessionLimit"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// PersonalDesktopAssignment type for HostPool.
-	PersonalDesktopAssignmentType pulumi.StringPtrOutput `pulumi:"personalDesktopAssignmentType"`
-	// The type of preferred application group type, default to Desktop Application Group
-	PreferredAppGroupType pulumi.StringOutput `pulumi:"preferredAppGroupType"`
-	// The registration info of HostPool.
-	RegistrationInfo RegistrationInfoResponsePtrOutput `pulumi:"registrationInfo"`
-	// The ring number of HostPool.
-	Ring pulumi.IntPtrOutput `pulumi:"ring"`
-	// ClientId for the registered Relying Party used to issue WVD SSO certificates.
-	SsoClientId pulumi.StringPtrOutput `pulumi:"ssoClientId"`
-	// Path to Azure KeyVault storing the secret used for communication to ADFS.
-	SsoClientSecretKeyVaultPath pulumi.StringPtrOutput `pulumi:"ssoClientSecretKeyVaultPath"`
-	// Path to keyvault containing ssoContext secret.
-	SsoContext pulumi.StringPtrOutput `pulumi:"ssoContext"`
-	// The type of single sign on Secret Type.
-	SsoSecretType pulumi.StringPtrOutput `pulumi:"ssoSecretType"`
-	// URL to customer ADFS server for signing WVD SSO certificates.
-	SsoadfsAuthority pulumi.StringPtrOutput `pulumi:"ssoadfsAuthority"`
-	// The flag to turn on/off StartVMOnConnect feature.
-	StartVMOnConnect pulumi.BoolPtrOutput `pulumi:"startVMOnConnect"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Is validation environment.
-	ValidationEnvironment pulumi.BoolPtrOutput `pulumi:"validationEnvironment"`
-	// VM template for sessionhosts configuration within hostpool.
-	VmTemplate pulumi.StringPtrOutput `pulumi:"vmTemplate"`
+	ApplicationGroupReferences    pulumi.StringArrayOutput          `pulumi:"applicationGroupReferences"`
+	CustomRdpProperty             pulumi.StringPtrOutput            `pulumi:"customRdpProperty"`
+	Description                   pulumi.StringPtrOutput            `pulumi:"description"`
+	FriendlyName                  pulumi.StringPtrOutput            `pulumi:"friendlyName"`
+	HostPoolType                  pulumi.StringOutput               `pulumi:"hostPoolType"`
+	LoadBalancerType              pulumi.StringOutput               `pulumi:"loadBalancerType"`
+	Location                      pulumi.StringOutput               `pulumi:"location"`
+	MaxSessionLimit               pulumi.IntPtrOutput               `pulumi:"maxSessionLimit"`
+	Name                          pulumi.StringOutput               `pulumi:"name"`
+	PersonalDesktopAssignmentType pulumi.StringPtrOutput            `pulumi:"personalDesktopAssignmentType"`
+	PreferredAppGroupType         pulumi.StringOutput               `pulumi:"preferredAppGroupType"`
+	RegistrationInfo              RegistrationInfoResponsePtrOutput `pulumi:"registrationInfo"`
+	Ring                          pulumi.IntPtrOutput               `pulumi:"ring"`
+	SsoClientId                   pulumi.StringPtrOutput            `pulumi:"ssoClientId"`
+	SsoClientSecretKeyVaultPath   pulumi.StringPtrOutput            `pulumi:"ssoClientSecretKeyVaultPath"`
+	SsoContext                    pulumi.StringPtrOutput            `pulumi:"ssoContext"`
+	SsoSecretType                 pulumi.StringPtrOutput            `pulumi:"ssoSecretType"`
+	SsoadfsAuthority              pulumi.StringPtrOutput            `pulumi:"ssoadfsAuthority"`
+	StartVMOnConnect              pulumi.BoolPtrOutput              `pulumi:"startVMOnConnect"`
+	Tags                          pulumi.StringMapOutput            `pulumi:"tags"`
+	Type                          pulumi.StringOutput               `pulumi:"type"`
+	ValidationEnvironment         pulumi.BoolPtrOutput              `pulumi:"validationEnvironment"`
+	VmTemplate                    pulumi.StringPtrOutput            `pulumi:"vmTemplate"`
 }
 
 // NewHostPool registers a new resource with the given unique name, arguments, and options.
@@ -192,98 +168,54 @@ func (HostPoolState) ElementType() reflect.Type {
 }
 
 type hostPoolArgs struct {
-	// Custom rdp property of HostPool.
-	CustomRdpProperty *string `pulumi:"customRdpProperty"`
-	// Description of HostPool.
-	Description *string `pulumi:"description"`
-	// Friendly name of HostPool.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The name of the host pool within the specified resource group
-	HostPoolName *string `pulumi:"hostPoolName"`
-	// HostPool type for desktop.
-	HostPoolType string `pulumi:"hostPoolType"`
-	// The type of the load balancer.
-	LoadBalancerType string `pulumi:"loadBalancerType"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The max session limit of HostPool.
-	MaxSessionLimit *int `pulumi:"maxSessionLimit"`
-	// PersonalDesktopAssignment type for HostPool.
-	PersonalDesktopAssignmentType *string `pulumi:"personalDesktopAssignmentType"`
-	// The type of preferred application group type, default to Desktop Application Group
-	PreferredAppGroupType string `pulumi:"preferredAppGroupType"`
-	// The registration info of HostPool.
-	RegistrationInfo *RegistrationInfo `pulumi:"registrationInfo"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The ring number of HostPool.
-	Ring *int `pulumi:"ring"`
-	// ClientId for the registered Relying Party used to issue WVD SSO certificates.
-	SsoClientId *string `pulumi:"ssoClientId"`
-	// Path to Azure KeyVault storing the secret used for communication to ADFS.
-	SsoClientSecretKeyVaultPath *string `pulumi:"ssoClientSecretKeyVaultPath"`
-	// Path to keyvault containing ssoContext secret.
-	SsoContext *string `pulumi:"ssoContext"`
-	// The type of single sign on Secret Type.
-	SsoSecretType *string `pulumi:"ssoSecretType"`
-	// URL to customer ADFS server for signing WVD SSO certificates.
-	SsoadfsAuthority *string `pulumi:"ssoadfsAuthority"`
-	// The flag to turn on/off StartVMOnConnect feature.
-	StartVMOnConnect *bool `pulumi:"startVMOnConnect"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Is validation environment.
-	ValidationEnvironment *bool `pulumi:"validationEnvironment"`
-	// VM template for sessionhosts configuration within hostpool.
-	VmTemplate *string `pulumi:"vmTemplate"`
+	CustomRdpProperty             *string           `pulumi:"customRdpProperty"`
+	Description                   *string           `pulumi:"description"`
+	FriendlyName                  *string           `pulumi:"friendlyName"`
+	HostPoolName                  *string           `pulumi:"hostPoolName"`
+	HostPoolType                  string            `pulumi:"hostPoolType"`
+	LoadBalancerType              string            `pulumi:"loadBalancerType"`
+	Location                      *string           `pulumi:"location"`
+	MaxSessionLimit               *int              `pulumi:"maxSessionLimit"`
+	PersonalDesktopAssignmentType *string           `pulumi:"personalDesktopAssignmentType"`
+	PreferredAppGroupType         string            `pulumi:"preferredAppGroupType"`
+	RegistrationInfo              *RegistrationInfo `pulumi:"registrationInfo"`
+	ResourceGroupName             string            `pulumi:"resourceGroupName"`
+	Ring                          *int              `pulumi:"ring"`
+	SsoClientId                   *string           `pulumi:"ssoClientId"`
+	SsoClientSecretKeyVaultPath   *string           `pulumi:"ssoClientSecretKeyVaultPath"`
+	SsoContext                    *string           `pulumi:"ssoContext"`
+	SsoSecretType                 *string           `pulumi:"ssoSecretType"`
+	SsoadfsAuthority              *string           `pulumi:"ssoadfsAuthority"`
+	StartVMOnConnect              *bool             `pulumi:"startVMOnConnect"`
+	Tags                          map[string]string `pulumi:"tags"`
+	ValidationEnvironment         *bool             `pulumi:"validationEnvironment"`
+	VmTemplate                    *string           `pulumi:"vmTemplate"`
 }
 
 // The set of arguments for constructing a HostPool resource.
 type HostPoolArgs struct {
-	// Custom rdp property of HostPool.
-	CustomRdpProperty pulumi.StringPtrInput
-	// Description of HostPool.
-	Description pulumi.StringPtrInput
-	// Friendly name of HostPool.
-	FriendlyName pulumi.StringPtrInput
-	// The name of the host pool within the specified resource group
-	HostPoolName pulumi.StringPtrInput
-	// HostPool type for desktop.
-	HostPoolType pulumi.StringInput
-	// The type of the load balancer.
-	LoadBalancerType pulumi.StringInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The max session limit of HostPool.
-	MaxSessionLimit pulumi.IntPtrInput
-	// PersonalDesktopAssignment type for HostPool.
+	CustomRdpProperty             pulumi.StringPtrInput
+	Description                   pulumi.StringPtrInput
+	FriendlyName                  pulumi.StringPtrInput
+	HostPoolName                  pulumi.StringPtrInput
+	HostPoolType                  pulumi.StringInput
+	LoadBalancerType              pulumi.StringInput
+	Location                      pulumi.StringPtrInput
+	MaxSessionLimit               pulumi.IntPtrInput
 	PersonalDesktopAssignmentType pulumi.StringPtrInput
-	// The type of preferred application group type, default to Desktop Application Group
-	PreferredAppGroupType pulumi.StringInput
-	// The registration info of HostPool.
-	RegistrationInfo RegistrationInfoPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The ring number of HostPool.
-	Ring pulumi.IntPtrInput
-	// ClientId for the registered Relying Party used to issue WVD SSO certificates.
-	SsoClientId pulumi.StringPtrInput
-	// Path to Azure KeyVault storing the secret used for communication to ADFS.
-	SsoClientSecretKeyVaultPath pulumi.StringPtrInput
-	// Path to keyvault containing ssoContext secret.
-	SsoContext pulumi.StringPtrInput
-	// The type of single sign on Secret Type.
-	SsoSecretType pulumi.StringPtrInput
-	// URL to customer ADFS server for signing WVD SSO certificates.
-	SsoadfsAuthority pulumi.StringPtrInput
-	// The flag to turn on/off StartVMOnConnect feature.
-	StartVMOnConnect pulumi.BoolPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Is validation environment.
-	ValidationEnvironment pulumi.BoolPtrInput
-	// VM template for sessionhosts configuration within hostpool.
-	VmTemplate pulumi.StringPtrInput
+	PreferredAppGroupType         pulumi.StringInput
+	RegistrationInfo              RegistrationInfoPtrInput
+	ResourceGroupName             pulumi.StringInput
+	Ring                          pulumi.IntPtrInput
+	SsoClientId                   pulumi.StringPtrInput
+	SsoClientSecretKeyVaultPath   pulumi.StringPtrInput
+	SsoContext                    pulumi.StringPtrInput
+	SsoSecretType                 pulumi.StringPtrInput
+	SsoadfsAuthority              pulumi.StringPtrInput
+	StartVMOnConnect              pulumi.BoolPtrInput
+	Tags                          pulumi.StringMapInput
+	ValidationEnvironment         pulumi.BoolPtrInput
+	VmTemplate                    pulumi.StringPtrInput
 }
 
 func (HostPoolArgs) ElementType() reflect.Type {
@@ -309,9 +241,7 @@ func (i *HostPool) ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutp
 	return pulumi.ToOutputWithContext(ctx, i).(HostPoolOutput)
 }
 
-type HostPoolOutput struct {
-	*pulumi.OutputState
-}
+type HostPoolOutput struct{ *pulumi.OutputState }
 
 func (HostPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HostPool)(nil))

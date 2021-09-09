@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Server Endpoint object.
 type ServerEndpoint struct {
 	pulumi.CustomResourceState
 
-	// Cloud Tiering.
-	CloudTiering pulumi.StringPtrOutput `pulumi:"cloudTiering"`
-	// Friendly Name
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// Resource Last Operation Name
-	LastOperationName pulumi.StringPtrOutput `pulumi:"lastOperationName"`
-	// ServerEndpoint lastWorkflowId
-	LastWorkflowId pulumi.StringPtrOutput `pulumi:"lastWorkflowId"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// ServerEndpoint Provisioning State
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Server Local path.
-	ServerLocalPath pulumi.StringPtrOutput `pulumi:"serverLocalPath"`
-	// Server Resource Id.
-	ServerResourceId pulumi.StringPtrOutput `pulumi:"serverResourceId"`
-	// Sync Health Status
-	SyncStatus pulumi.AnyOutput `pulumi:"syncStatus"`
-	// Tier files older than days.
-	TierFilesOlderThanDays pulumi.IntPtrOutput `pulumi:"tierFilesOlderThanDays"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Level of free space to be maintained by Cloud Tiering if it is enabled.
-	VolumeFreeSpacePercent pulumi.IntPtrOutput `pulumi:"volumeFreeSpacePercent"`
+	CloudTiering           pulumi.StringPtrOutput `pulumi:"cloudTiering"`
+	FriendlyName           pulumi.StringPtrOutput `pulumi:"friendlyName"`
+	LastOperationName      pulumi.StringPtrOutput `pulumi:"lastOperationName"`
+	LastWorkflowId         pulumi.StringPtrOutput `pulumi:"lastWorkflowId"`
+	Name                   pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState      pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ServerLocalPath        pulumi.StringPtrOutput `pulumi:"serverLocalPath"`
+	ServerResourceId       pulumi.StringPtrOutput `pulumi:"serverResourceId"`
+	SyncStatus             pulumi.AnyOutput       `pulumi:"syncStatus"`
+	TierFilesOlderThanDays pulumi.IntPtrOutput    `pulumi:"tierFilesOlderThanDays"`
+	Type                   pulumi.StringOutput    `pulumi:"type"`
+	VolumeFreeSpacePercent pulumi.IntPtrOutput    `pulumi:"volumeFreeSpacePercent"`
 }
 
 // NewServerEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -155,49 +142,29 @@ func (ServerEndpointState) ElementType() reflect.Type {
 }
 
 type serverEndpointArgs struct {
-	// Cloud Tiering.
-	CloudTiering *string `pulumi:"cloudTiering"`
-	// Friendly Name
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Server Endpoint object.
-	ServerEndpointName *string `pulumi:"serverEndpointName"`
-	// Server Local path.
-	ServerLocalPath *string `pulumi:"serverLocalPath"`
-	// Server Resource Id.
-	ServerResourceId *string `pulumi:"serverResourceId"`
-	// Name of Storage Sync Service resource.
-	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
-	// Name of Sync Group resource.
-	SyncGroupName string `pulumi:"syncGroupName"`
-	// Tier files older than days.
-	TierFilesOlderThanDays *int `pulumi:"tierFilesOlderThanDays"`
-	// Level of free space to be maintained by Cloud Tiering if it is enabled.
-	VolumeFreeSpacePercent *int `pulumi:"volumeFreeSpacePercent"`
+	CloudTiering           *string `pulumi:"cloudTiering"`
+	FriendlyName           *string `pulumi:"friendlyName"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
+	ServerEndpointName     *string `pulumi:"serverEndpointName"`
+	ServerLocalPath        *string `pulumi:"serverLocalPath"`
+	ServerResourceId       *string `pulumi:"serverResourceId"`
+	StorageSyncServiceName string  `pulumi:"storageSyncServiceName"`
+	SyncGroupName          string  `pulumi:"syncGroupName"`
+	TierFilesOlderThanDays *int    `pulumi:"tierFilesOlderThanDays"`
+	VolumeFreeSpacePercent *int    `pulumi:"volumeFreeSpacePercent"`
 }
 
 // The set of arguments for constructing a ServerEndpoint resource.
 type ServerEndpointArgs struct {
-	// Cloud Tiering.
-	CloudTiering pulumi.StringPtrInput
-	// Friendly Name
-	FriendlyName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Name of Server Endpoint object.
-	ServerEndpointName pulumi.StringPtrInput
-	// Server Local path.
-	ServerLocalPath pulumi.StringPtrInput
-	// Server Resource Id.
-	ServerResourceId pulumi.StringPtrInput
-	// Name of Storage Sync Service resource.
+	CloudTiering           pulumi.StringPtrInput
+	FriendlyName           pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	ServerEndpointName     pulumi.StringPtrInput
+	ServerLocalPath        pulumi.StringPtrInput
+	ServerResourceId       pulumi.StringPtrInput
 	StorageSyncServiceName pulumi.StringInput
-	// Name of Sync Group resource.
-	SyncGroupName pulumi.StringInput
-	// Tier files older than days.
+	SyncGroupName          pulumi.StringInput
 	TierFilesOlderThanDays pulumi.IntPtrInput
-	// Level of free space to be maintained by Cloud Tiering if it is enabled.
 	VolumeFreeSpacePercent pulumi.IntPtrInput
 }
 
@@ -224,9 +191,7 @@ func (i *ServerEndpoint) ToServerEndpointOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointOutput)
 }
 
-type ServerEndpointOutput struct {
-	*pulumi.OutputState
-}
+type ServerEndpointOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerEndpoint)(nil))

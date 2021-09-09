@@ -177,9 +177,7 @@ func (i *NotificationRecipientUser) ToNotificationRecipientUserOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRecipientUserOutput)
 }
 
-type NotificationRecipientUserOutput struct {
-	*pulumi.OutputState
-}
+type NotificationRecipientUserOutput struct{ *pulumi.OutputState }
 
 func (NotificationRecipientUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotificationRecipientUser)(nil))

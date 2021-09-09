@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Policy Contract details.
 func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupPolicyResult, error) {
 	var rv LookupPolicyResult
 	err := ctx.Invoke("azure-native:apimanagement/v20170301:getPolicy", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.In
 }
 
 type LookupPolicyArgs struct {
-	// The identifier of the Policy.
-	PolicyId string `pulumi:"policyId"`
-	// The name of the resource group.
+	PolicyId          string `pulumi:"policyId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Policy Contract details.
 type LookupPolicyResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Json escaped Xml Encoded contents of the Policy.
+	Id            string `pulumi:"id"`
+	Name          string `pulumi:"name"`
 	PolicyContent string `pulumi:"policyContent"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
+	Type          string `pulumi:"type"`
 }

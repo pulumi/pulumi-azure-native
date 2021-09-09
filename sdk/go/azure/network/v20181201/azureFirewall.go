@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Firewall resource
 type AzureFirewall struct {
 	pulumi.CustomResourceState
 
-	// Collection of application rule collections used by Azure Firewall.
 	ApplicationRuleCollections AzureFirewallApplicationRuleCollectionResponseArrayOutput `pulumi:"applicationRuleCollections"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// IP configuration of the Azure Firewall resource.
-	IpConfigurations AzureFirewallIPConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Collection of NAT rule collections used by Azure Firewall.
-	NatRuleCollections AzureFirewallNatRuleCollectionResponseArrayOutput `pulumi:"natRuleCollections"`
-	// Collection of network rule collections used by Azure Firewall.
-	NetworkRuleCollections AzureFirewallNetworkRuleCollectionResponseArrayOutput `pulumi:"networkRuleCollections"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The operation mode for Threat Intelligence.
-	ThreatIntelMode pulumi.StringPtrOutput `pulumi:"threatIntelMode"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag                       pulumi.StringOutput                                       `pulumi:"etag"`
+	IpConfigurations           AzureFirewallIPConfigurationResponseArrayOutput           `pulumi:"ipConfigurations"`
+	Location                   pulumi.StringPtrOutput                                    `pulumi:"location"`
+	Name                       pulumi.StringOutput                                       `pulumi:"name"`
+	NatRuleCollections         AzureFirewallNatRuleCollectionResponseArrayOutput         `pulumi:"natRuleCollections"`
+	NetworkRuleCollections     AzureFirewallNetworkRuleCollectionResponseArrayOutput     `pulumi:"networkRuleCollections"`
+	ProvisioningState          pulumi.StringOutput                                       `pulumi:"provisioningState"`
+	Tags                       pulumi.StringMapOutput                                    `pulumi:"tags"`
+	ThreatIntelMode            pulumi.StringPtrOutput                                    `pulumi:"threatIntelMode"`
+	Type                       pulumi.StringOutput                                       `pulumi:"type"`
 }
 
 // NewAzureFirewall registers a new resource with the given unique name, arguments, and options.
@@ -231,50 +219,30 @@ func (AzureFirewallState) ElementType() reflect.Type {
 }
 
 type azureFirewallArgs struct {
-	// Collection of application rule collections used by Azure Firewall.
 	ApplicationRuleCollections []AzureFirewallApplicationRuleCollection `pulumi:"applicationRuleCollections"`
-	// The name of the Azure Firewall.
-	AzureFirewallName *string `pulumi:"azureFirewallName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// IP configuration of the Azure Firewall resource.
-	IpConfigurations []AzureFirewallIPConfiguration `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Collection of NAT rule collections used by Azure Firewall.
-	NatRuleCollections []AzureFirewallNatRuleCollection `pulumi:"natRuleCollections"`
-	// Collection of network rule collections used by Azure Firewall.
-	NetworkRuleCollections []AzureFirewallNetworkRuleCollection `pulumi:"networkRuleCollections"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The operation mode for Threat Intelligence.
-	ThreatIntelMode *string `pulumi:"threatIntelMode"`
+	AzureFirewallName          *string                                  `pulumi:"azureFirewallName"`
+	Id                         *string                                  `pulumi:"id"`
+	IpConfigurations           []AzureFirewallIPConfiguration           `pulumi:"ipConfigurations"`
+	Location                   *string                                  `pulumi:"location"`
+	NatRuleCollections         []AzureFirewallNatRuleCollection         `pulumi:"natRuleCollections"`
+	NetworkRuleCollections     []AzureFirewallNetworkRuleCollection     `pulumi:"networkRuleCollections"`
+	ResourceGroupName          string                                   `pulumi:"resourceGroupName"`
+	Tags                       map[string]string                        `pulumi:"tags"`
+	ThreatIntelMode            *string                                  `pulumi:"threatIntelMode"`
 }
 
 // The set of arguments for constructing a AzureFirewall resource.
 type AzureFirewallArgs struct {
-	// Collection of application rule collections used by Azure Firewall.
 	ApplicationRuleCollections AzureFirewallApplicationRuleCollectionArrayInput
-	// The name of the Azure Firewall.
-	AzureFirewallName pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// IP configuration of the Azure Firewall resource.
-	IpConfigurations AzureFirewallIPConfigurationArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Collection of NAT rule collections used by Azure Firewall.
-	NatRuleCollections AzureFirewallNatRuleCollectionArrayInput
-	// Collection of network rule collections used by Azure Firewall.
-	NetworkRuleCollections AzureFirewallNetworkRuleCollectionArrayInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The operation mode for Threat Intelligence.
-	ThreatIntelMode pulumi.StringPtrInput
+	AzureFirewallName          pulumi.StringPtrInput
+	Id                         pulumi.StringPtrInput
+	IpConfigurations           AzureFirewallIPConfigurationArrayInput
+	Location                   pulumi.StringPtrInput
+	NatRuleCollections         AzureFirewallNatRuleCollectionArrayInput
+	NetworkRuleCollections     AzureFirewallNetworkRuleCollectionArrayInput
+	ResourceGroupName          pulumi.StringInput
+	Tags                       pulumi.StringMapInput
+	ThreatIntelMode            pulumi.StringPtrInput
 }
 
 func (AzureFirewallArgs) ElementType() reflect.Type {
@@ -300,9 +268,7 @@ func (i *AzureFirewall) ToAzureFirewallOutputWithContext(ctx context.Context) Az
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFirewallOutput)
 }
 
-type AzureFirewallOutput struct {
-	*pulumi.OutputState
-}
+type AzureFirewallOutput struct{ *pulumi.OutputState }
 
 func (AzureFirewallOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AzureFirewall)(nil))

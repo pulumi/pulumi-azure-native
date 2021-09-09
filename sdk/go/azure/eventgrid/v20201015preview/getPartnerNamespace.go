@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// EventGrid Partner Namespace.
 func LookupPartnerNamespace(ctx *pulumi.Context, args *LookupPartnerNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupPartnerNamespaceResult, error) {
 	var rv LookupPartnerNamespaceResult
 	err := ctx.Invoke("azure-native:eventgrid/v20201015preview:getPartnerNamespace", args, &rv, opts...)
@@ -18,31 +17,19 @@ func LookupPartnerNamespace(ctx *pulumi.Context, args *LookupPartnerNamespaceArg
 }
 
 type LookupPartnerNamespaceArgs struct {
-	// Name of the partner namespace.
 	PartnerNamespaceName string `pulumi:"partnerNamespaceName"`
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
 }
 
 // EventGrid Partner Namespace.
 type LookupPartnerNamespaceResult struct {
-	// Endpoint for the partner namespace.
-	Endpoint string `pulumi:"endpoint"`
-	// Fully qualified identifier of the resource.
-	Id string `pulumi:"id"`
-	// Location of the resource.
-	Location string `pulumi:"location"`
-	// Name of the resource.
-	Name string `pulumi:"name"`
-	// The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
-	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
-	PartnerRegistrationFullyQualifiedId *string `pulumi:"partnerRegistrationFullyQualifiedId"`
-	// Provisioning state of the partner namespace.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The system metadata relating to Partner Namespace resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource.
-	Type string `pulumi:"type"`
+	Endpoint                            string             `pulumi:"endpoint"`
+	Id                                  string             `pulumi:"id"`
+	Location                            string             `pulumi:"location"`
+	Name                                string             `pulumi:"name"`
+	PartnerRegistrationFullyQualifiedId *string            `pulumi:"partnerRegistrationFullyQualifiedId"`
+	ProvisioningState                   string             `pulumi:"provisioningState"`
+	SystemData                          SystemDataResponse `pulumi:"systemData"`
+	Tags                                map[string]string  `pulumi:"tags"`
+	Type                                string             `pulumi:"type"`
 }

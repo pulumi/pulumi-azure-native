@@ -138,9 +138,7 @@ func (i *DataVersion) ToDataVersionOutputWithContext(ctx context.Context) DataVe
 	return pulumi.ToOutputWithContext(ctx, i).(DataVersionOutput)
 }
 
-type DataVersionOutput struct {
-	*pulumi.OutputState
-}
+type DataVersionOutput struct{ *pulumi.OutputState }
 
 func (DataVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataVersion)(nil))

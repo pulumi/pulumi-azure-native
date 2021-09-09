@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
 type Profile struct {
 	pulumi.CustomResourceState
 
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning status of the profile.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource status of the profile.
-	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location          pulumi.StringOutput    `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	ResourceState     pulumi.StringOutput    `pulumi:"resourceState"`
+	Sku               SkuResponseOutput      `pulumi:"sku"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewProfile registers a new resource with the given unique name, arguments, and options.
@@ -154,30 +146,20 @@ func (ProfileState) ElementType() reflect.Type {
 }
 
 type profileArgs struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName *string `pulumi:"profileName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
-	Sku Sku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string           `pulumi:"location"`
+	ProfileName       *string           `pulumi:"profileName"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               Sku               `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName pulumi.StringPtrInput
-	// Name of the Resource group within the Azure subscription.
+	Location          pulumi.StringPtrInput
+	ProfileName       pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
-	Sku SkuInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Sku               SkuInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ProfileArgs) ElementType() reflect.Type {
@@ -203,9 +185,7 @@ func (i *Profile) ToProfileOutputWithContext(ctx context.Context) ProfileOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileOutput)
 }
 
-type ProfileOutput struct {
-	*pulumi.OutputState
-}
+type ProfileOutput struct{ *pulumi.OutputState }
 
 func (ProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Profile)(nil))

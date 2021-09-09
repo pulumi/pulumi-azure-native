@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A dashboard lens.
 type DashboardLens struct {
-	// The dashboard len's metadata.
 	Metadata map[string]interface{} `pulumi:"metadata"`
-	// The lens order.
-	Order int `pulumi:"order"`
-	// The dashboard parts.
-	Parts []DashboardParts `pulumi:"parts"`
+	Order    int                    `pulumi:"order"`
+	Parts    []DashboardParts       `pulumi:"parts"`
 }
 
 // DashboardLensInput is an input type that accepts DashboardLensArgs and DashboardLensOutput values.
@@ -31,14 +27,10 @@ type DashboardLensInput interface {
 	ToDashboardLensOutputWithContext(context.Context) DashboardLensOutput
 }
 
-// A dashboard lens.
 type DashboardLensArgs struct {
-	// The dashboard len's metadata.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
-	// The lens order.
-	Order pulumi.IntInput `pulumi:"order"`
-	// The dashboard parts.
-	Parts DashboardPartsArrayInput `pulumi:"parts"`
+	Metadata pulumi.MapInput          `pulumi:"metadata"`
+	Order    pulumi.IntInput          `pulumi:"order"`
+	Parts    DashboardPartsArrayInput `pulumi:"parts"`
 }
 
 func (DashboardLensArgs) ElementType() reflect.Type {
@@ -78,7 +70,6 @@ func (i DashboardLensArray) ToDashboardLensArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardLensArrayOutput)
 }
 
-// A dashboard lens.
 type DashboardLensOutput struct{ *pulumi.OutputState }
 
 func (DashboardLensOutput) ElementType() reflect.Type {
@@ -93,17 +84,14 @@ func (o DashboardLensOutput) ToDashboardLensOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The dashboard len's metadata.
 func (o DashboardLensOutput) Metadata() pulumi.MapOutput {
 	return o.ApplyT(func(v DashboardLens) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
-// The lens order.
 func (o DashboardLensOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardLens) int { return v.Order }).(pulumi.IntOutput)
 }
 
-// The dashboard parts.
 func (o DashboardLensOutput) Parts() DashboardPartsArrayOutput {
 	return o.ApplyT(func(v DashboardLens) []DashboardParts { return v.Parts }).(DashboardPartsArrayOutput)
 }
@@ -128,14 +116,10 @@ func (o DashboardLensArrayOutput) Index(i pulumi.IntInput) DashboardLensOutput {
 	}).(DashboardLensOutput)
 }
 
-// A dashboard lens.
 type DashboardLensResponse struct {
-	// The dashboard len's metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
-	// The lens order.
-	Order int `pulumi:"order"`
-	// The dashboard parts.
-	Parts []DashboardPartsResponse `pulumi:"parts"`
+	Metadata map[string]interface{}   `pulumi:"metadata"`
+	Order    int                      `pulumi:"order"`
+	Parts    []DashboardPartsResponse `pulumi:"parts"`
 }
 
 // DashboardLensResponseInput is an input type that accepts DashboardLensResponseArgs and DashboardLensResponseOutput values.
@@ -149,14 +133,10 @@ type DashboardLensResponseInput interface {
 	ToDashboardLensResponseOutputWithContext(context.Context) DashboardLensResponseOutput
 }
 
-// A dashboard lens.
 type DashboardLensResponseArgs struct {
-	// The dashboard len's metadata.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
-	// The lens order.
-	Order pulumi.IntInput `pulumi:"order"`
-	// The dashboard parts.
-	Parts DashboardPartsResponseArrayInput `pulumi:"parts"`
+	Metadata pulumi.MapInput                  `pulumi:"metadata"`
+	Order    pulumi.IntInput                  `pulumi:"order"`
+	Parts    DashboardPartsResponseArrayInput `pulumi:"parts"`
 }
 
 func (DashboardLensResponseArgs) ElementType() reflect.Type {
@@ -196,7 +176,6 @@ func (i DashboardLensResponseArray) ToDashboardLensResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardLensResponseArrayOutput)
 }
 
-// A dashboard lens.
 type DashboardLensResponseOutput struct{ *pulumi.OutputState }
 
 func (DashboardLensResponseOutput) ElementType() reflect.Type {
@@ -211,17 +190,14 @@ func (o DashboardLensResponseOutput) ToDashboardLensResponseOutputWithContext(ct
 	return o
 }
 
-// The dashboard len's metadata.
 func (o DashboardLensResponseOutput) Metadata() pulumi.MapOutput {
 	return o.ApplyT(func(v DashboardLensResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
-// The lens order.
 func (o DashboardLensResponseOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardLensResponse) int { return v.Order }).(pulumi.IntOutput)
 }
 
-// The dashboard parts.
 func (o DashboardLensResponseOutput) Parts() DashboardPartsResponseArrayOutput {
 	return o.ApplyT(func(v DashboardLensResponse) []DashboardPartsResponse { return v.Parts }).(DashboardPartsResponseArrayOutput)
 }
@@ -246,11 +222,8 @@ func (o DashboardLensResponseArrayOutput) Index(i pulumi.IntInput) DashboardLens
 	}).(DashboardLensResponseOutput)
 }
 
-// A dashboard part.
 type DashboardParts struct {
-	// The dashboard part's metadata.
-	Metadata *MarkdownPartMetadata `pulumi:"metadata"`
-	// The dashboard's part position.
+	Metadata *MarkdownPartMetadata  `pulumi:"metadata"`
 	Position DashboardPartsPosition `pulumi:"position"`
 }
 
@@ -265,12 +238,9 @@ type DashboardPartsInput interface {
 	ToDashboardPartsOutputWithContext(context.Context) DashboardPartsOutput
 }
 
-// A dashboard part.
 type DashboardPartsArgs struct {
-	// The dashboard part's metadata.
 	Metadata MarkdownPartMetadataPtrInput `pulumi:"metadata"`
-	// The dashboard's part position.
-	Position DashboardPartsPositionInput `pulumi:"position"`
+	Position DashboardPartsPositionInput  `pulumi:"position"`
 }
 
 func (DashboardPartsArgs) ElementType() reflect.Type {
@@ -310,7 +280,6 @@ func (i DashboardPartsArray) ToDashboardPartsArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsArrayOutput)
 }
 
-// A dashboard part.
 type DashboardPartsOutput struct{ *pulumi.OutputState }
 
 func (DashboardPartsOutput) ElementType() reflect.Type {
@@ -325,12 +294,10 @@ func (o DashboardPartsOutput) ToDashboardPartsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The dashboard part's metadata.
 func (o DashboardPartsOutput) Metadata() MarkdownPartMetadataPtrOutput {
 	return o.ApplyT(func(v DashboardParts) *MarkdownPartMetadata { return v.Metadata }).(MarkdownPartMetadataPtrOutput)
 }
 
-// The dashboard's part position.
 func (o DashboardPartsOutput) Position() DashboardPartsPositionOutput {
 	return o.ApplyT(func(v DashboardParts) DashboardPartsPosition { return v.Position }).(DashboardPartsPositionOutput)
 }
@@ -355,18 +322,12 @@ func (o DashboardPartsArrayOutput) Index(i pulumi.IntInput) DashboardPartsOutput
 	}).(DashboardPartsOutput)
 }
 
-// The dashboard's part position.
 type DashboardPartsPosition struct {
-	// The dashboard's part column span.
-	ColSpan int `pulumi:"colSpan"`
-	// The dashboard part's metadata.
+	ColSpan  int                    `pulumi:"colSpan"`
 	Metadata map[string]interface{} `pulumi:"metadata"`
-	// The dashboard's part row span.
-	RowSpan int `pulumi:"rowSpan"`
-	// The dashboard's part x coordinate.
-	X int `pulumi:"x"`
-	// The dashboard's part y coordinate.
-	Y int `pulumi:"y"`
+	RowSpan  int                    `pulumi:"rowSpan"`
+	X        int                    `pulumi:"x"`
+	Y        int                    `pulumi:"y"`
 }
 
 // DashboardPartsPositionInput is an input type that accepts DashboardPartsPositionArgs and DashboardPartsPositionOutput values.
@@ -380,18 +341,12 @@ type DashboardPartsPositionInput interface {
 	ToDashboardPartsPositionOutputWithContext(context.Context) DashboardPartsPositionOutput
 }
 
-// The dashboard's part position.
 type DashboardPartsPositionArgs struct {
-	// The dashboard's part column span.
-	ColSpan pulumi.IntInput `pulumi:"colSpan"`
-	// The dashboard part's metadata.
+	ColSpan  pulumi.IntInput `pulumi:"colSpan"`
 	Metadata pulumi.MapInput `pulumi:"metadata"`
-	// The dashboard's part row span.
-	RowSpan pulumi.IntInput `pulumi:"rowSpan"`
-	// The dashboard's part x coordinate.
-	X pulumi.IntInput `pulumi:"x"`
-	// The dashboard's part y coordinate.
-	Y pulumi.IntInput `pulumi:"y"`
+	RowSpan  pulumi.IntInput `pulumi:"rowSpan"`
+	X        pulumi.IntInput `pulumi:"x"`
+	Y        pulumi.IntInput `pulumi:"y"`
 }
 
 func (DashboardPartsPositionArgs) ElementType() reflect.Type {
@@ -406,7 +361,6 @@ func (i DashboardPartsPositionArgs) ToDashboardPartsPositionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsPositionOutput)
 }
 
-// The dashboard's part position.
 type DashboardPartsPositionOutput struct{ *pulumi.OutputState }
 
 func (DashboardPartsPositionOutput) ElementType() reflect.Type {
@@ -421,36 +375,28 @@ func (o DashboardPartsPositionOutput) ToDashboardPartsPositionOutputWithContext(
 	return o
 }
 
-// The dashboard's part column span.
 func (o DashboardPartsPositionOutput) ColSpan() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsPosition) int { return v.ColSpan }).(pulumi.IntOutput)
 }
 
-// The dashboard part's metadata.
 func (o DashboardPartsPositionOutput) Metadata() pulumi.MapOutput {
 	return o.ApplyT(func(v DashboardPartsPosition) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
-// The dashboard's part row span.
 func (o DashboardPartsPositionOutput) RowSpan() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsPosition) int { return v.RowSpan }).(pulumi.IntOutput)
 }
 
-// The dashboard's part x coordinate.
 func (o DashboardPartsPositionOutput) X() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsPosition) int { return v.X }).(pulumi.IntOutput)
 }
 
-// The dashboard's part y coordinate.
 func (o DashboardPartsPositionOutput) Y() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsPosition) int { return v.Y }).(pulumi.IntOutput)
 }
 
-// A dashboard part.
 type DashboardPartsResponse struct {
-	// The dashboard part's metadata.
-	Metadata *MarkdownPartMetadataResponse `pulumi:"metadata"`
-	// The dashboard's part position.
+	Metadata *MarkdownPartMetadataResponse  `pulumi:"metadata"`
 	Position DashboardPartsResponsePosition `pulumi:"position"`
 }
 
@@ -465,12 +411,9 @@ type DashboardPartsResponseInput interface {
 	ToDashboardPartsResponseOutputWithContext(context.Context) DashboardPartsResponseOutput
 }
 
-// A dashboard part.
 type DashboardPartsResponseArgs struct {
-	// The dashboard part's metadata.
 	Metadata MarkdownPartMetadataResponsePtrInput `pulumi:"metadata"`
-	// The dashboard's part position.
-	Position DashboardPartsResponsePositionInput `pulumi:"position"`
+	Position DashboardPartsResponsePositionInput  `pulumi:"position"`
 }
 
 func (DashboardPartsResponseArgs) ElementType() reflect.Type {
@@ -510,7 +453,6 @@ func (i DashboardPartsResponseArray) ToDashboardPartsResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsResponseArrayOutput)
 }
 
-// A dashboard part.
 type DashboardPartsResponseOutput struct{ *pulumi.OutputState }
 
 func (DashboardPartsResponseOutput) ElementType() reflect.Type {
@@ -525,12 +467,10 @@ func (o DashboardPartsResponseOutput) ToDashboardPartsResponseOutputWithContext(
 	return o
 }
 
-// The dashboard part's metadata.
 func (o DashboardPartsResponseOutput) Metadata() MarkdownPartMetadataResponsePtrOutput {
 	return o.ApplyT(func(v DashboardPartsResponse) *MarkdownPartMetadataResponse { return v.Metadata }).(MarkdownPartMetadataResponsePtrOutput)
 }
 
-// The dashboard's part position.
 func (o DashboardPartsResponseOutput) Position() DashboardPartsResponsePositionOutput {
 	return o.ApplyT(func(v DashboardPartsResponse) DashboardPartsResponsePosition { return v.Position }).(DashboardPartsResponsePositionOutput)
 }
@@ -555,18 +495,12 @@ func (o DashboardPartsResponseArrayOutput) Index(i pulumi.IntInput) DashboardPar
 	}).(DashboardPartsResponseOutput)
 }
 
-// The dashboard's part position.
 type DashboardPartsResponsePosition struct {
-	// The dashboard's part column span.
-	ColSpan int `pulumi:"colSpan"`
-	// The dashboard part's metadata.
+	ColSpan  int                    `pulumi:"colSpan"`
 	Metadata map[string]interface{} `pulumi:"metadata"`
-	// The dashboard's part row span.
-	RowSpan int `pulumi:"rowSpan"`
-	// The dashboard's part x coordinate.
-	X int `pulumi:"x"`
-	// The dashboard's part y coordinate.
-	Y int `pulumi:"y"`
+	RowSpan  int                    `pulumi:"rowSpan"`
+	X        int                    `pulumi:"x"`
+	Y        int                    `pulumi:"y"`
 }
 
 // DashboardPartsResponsePositionInput is an input type that accepts DashboardPartsResponsePositionArgs and DashboardPartsResponsePositionOutput values.
@@ -580,18 +514,12 @@ type DashboardPartsResponsePositionInput interface {
 	ToDashboardPartsResponsePositionOutputWithContext(context.Context) DashboardPartsResponsePositionOutput
 }
 
-// The dashboard's part position.
 type DashboardPartsResponsePositionArgs struct {
-	// The dashboard's part column span.
-	ColSpan pulumi.IntInput `pulumi:"colSpan"`
-	// The dashboard part's metadata.
+	ColSpan  pulumi.IntInput `pulumi:"colSpan"`
 	Metadata pulumi.MapInput `pulumi:"metadata"`
-	// The dashboard's part row span.
-	RowSpan pulumi.IntInput `pulumi:"rowSpan"`
-	// The dashboard's part x coordinate.
-	X pulumi.IntInput `pulumi:"x"`
-	// The dashboard's part y coordinate.
-	Y pulumi.IntInput `pulumi:"y"`
+	RowSpan  pulumi.IntInput `pulumi:"rowSpan"`
+	X        pulumi.IntInput `pulumi:"x"`
+	Y        pulumi.IntInput `pulumi:"y"`
 }
 
 func (DashboardPartsResponsePositionArgs) ElementType() reflect.Type {
@@ -606,7 +534,6 @@ func (i DashboardPartsResponsePositionArgs) ToDashboardPartsResponsePositionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsResponsePositionOutput)
 }
 
-// The dashboard's part position.
 type DashboardPartsResponsePositionOutput struct{ *pulumi.OutputState }
 
 func (DashboardPartsResponsePositionOutput) ElementType() reflect.Type {
@@ -621,40 +548,30 @@ func (o DashboardPartsResponsePositionOutput) ToDashboardPartsResponsePositionOu
 	return o
 }
 
-// The dashboard's part column span.
 func (o DashboardPartsResponsePositionOutput) ColSpan() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsResponsePosition) int { return v.ColSpan }).(pulumi.IntOutput)
 }
 
-// The dashboard part's metadata.
 func (o DashboardPartsResponsePositionOutput) Metadata() pulumi.MapOutput {
 	return o.ApplyT(func(v DashboardPartsResponsePosition) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
-// The dashboard's part row span.
 func (o DashboardPartsResponsePositionOutput) RowSpan() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsResponsePosition) int { return v.RowSpan }).(pulumi.IntOutput)
 }
 
-// The dashboard's part x coordinate.
 func (o DashboardPartsResponsePositionOutput) X() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsResponsePosition) int { return v.X }).(pulumi.IntOutput)
 }
 
-// The dashboard's part y coordinate.
 func (o DashboardPartsResponsePositionOutput) Y() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPartsResponsePosition) int { return v.Y }).(pulumi.IntOutput)
 }
 
-// Markdown part metadata.
 type MarkdownPartMetadata struct {
-	// Input to dashboard part.
-	Inputs []interface{} `pulumi:"inputs"`
-	// Markdown part settings.
+	Inputs   []interface{}                 `pulumi:"inputs"`
 	Settings *MarkdownPartMetadataSettings `pulumi:"settings"`
-	// The type of dashboard part.
-	// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
-	Type string `pulumi:"type"`
+	Type     string                        `pulumi:"type"`
 }
 
 // MarkdownPartMetadataInput is an input type that accepts MarkdownPartMetadataArgs and MarkdownPartMetadataOutput values.
@@ -668,15 +585,10 @@ type MarkdownPartMetadataInput interface {
 	ToMarkdownPartMetadataOutputWithContext(context.Context) MarkdownPartMetadataOutput
 }
 
-// Markdown part metadata.
 type MarkdownPartMetadataArgs struct {
-	// Input to dashboard part.
-	Inputs pulumi.ArrayInput `pulumi:"inputs"`
-	// Markdown part settings.
+	Inputs   pulumi.ArrayInput                    `pulumi:"inputs"`
 	Settings MarkdownPartMetadataSettingsPtrInput `pulumi:"settings"`
-	// The type of dashboard part.
-	// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type     pulumi.StringInput                   `pulumi:"type"`
 }
 
 func (MarkdownPartMetadataArgs) ElementType() reflect.Type {
@@ -732,7 +644,6 @@ func (i *markdownPartMetadataPtrType) ToMarkdownPartMetadataPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataPtrOutput)
 }
 
-// Markdown part metadata.
 type MarkdownPartMetadataOutput struct{ *pulumi.OutputState }
 
 func (MarkdownPartMetadataOutput) ElementType() reflect.Type {
@@ -752,23 +663,19 @@ func (o MarkdownPartMetadataOutput) ToMarkdownPartMetadataPtrOutput() MarkdownPa
 }
 
 func (o MarkdownPartMetadataOutput) ToMarkdownPartMetadataPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataPtrOutput {
-	return o.ApplyT(func(v MarkdownPartMetadata) *MarkdownPartMetadata {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarkdownPartMetadata) *MarkdownPartMetadata {
 		return &v
 	}).(MarkdownPartMetadataPtrOutput)
 }
 
-// Input to dashboard part.
 func (o MarkdownPartMetadataOutput) Inputs() pulumi.ArrayOutput {
 	return o.ApplyT(func(v MarkdownPartMetadata) []interface{} { return v.Inputs }).(pulumi.ArrayOutput)
 }
 
-// Markdown part settings.
 func (o MarkdownPartMetadataOutput) Settings() MarkdownPartMetadataSettingsPtrOutput {
 	return o.ApplyT(func(v MarkdownPartMetadata) *MarkdownPartMetadataSettings { return v.Settings }).(MarkdownPartMetadataSettingsPtrOutput)
 }
 
-// The type of dashboard part.
-// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
 func (o MarkdownPartMetadataOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MarkdownPartMetadata) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -788,10 +695,15 @@ func (o MarkdownPartMetadataPtrOutput) ToMarkdownPartMetadataPtrOutputWithContex
 }
 
 func (o MarkdownPartMetadataPtrOutput) Elem() MarkdownPartMetadataOutput {
-	return o.ApplyT(func(v *MarkdownPartMetadata) MarkdownPartMetadata { return *v }).(MarkdownPartMetadataOutput)
+	return o.ApplyT(func(v *MarkdownPartMetadata) MarkdownPartMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret MarkdownPartMetadata
+		return ret
+	}).(MarkdownPartMetadataOutput)
 }
 
-// Input to dashboard part.
 func (o MarkdownPartMetadataPtrOutput) Inputs() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadata) []interface{} {
 		if v == nil {
@@ -801,7 +713,6 @@ func (o MarkdownPartMetadataPtrOutput) Inputs() pulumi.ArrayOutput {
 	}).(pulumi.ArrayOutput)
 }
 
-// Markdown part settings.
 func (o MarkdownPartMetadataPtrOutput) Settings() MarkdownPartMetadataSettingsPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadata) *MarkdownPartMetadataSettings {
 		if v == nil {
@@ -811,8 +722,6 @@ func (o MarkdownPartMetadataPtrOutput) Settings() MarkdownPartMetadataSettingsPt
 	}).(MarkdownPartMetadataSettingsPtrOutput)
 }
 
-// The type of dashboard part.
-// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
 func (o MarkdownPartMetadataPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadata) *string {
 		if v == nil {
@@ -822,9 +731,7 @@ func (o MarkdownPartMetadataPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content of markdown part.
 type MarkdownPartMetadataContent struct {
-	// The setting of the content of markdown part.
 	Settings *MarkdownPartMetadataSettingsSettings `pulumi:"settings"`
 }
 
@@ -839,9 +746,7 @@ type MarkdownPartMetadataContentInput interface {
 	ToMarkdownPartMetadataContentOutputWithContext(context.Context) MarkdownPartMetadataContentOutput
 }
 
-// The content of markdown part.
 type MarkdownPartMetadataContentArgs struct {
-	// The setting of the content of markdown part.
 	Settings MarkdownPartMetadataSettingsSettingsPtrInput `pulumi:"settings"`
 }
 
@@ -898,7 +803,6 @@ func (i *markdownPartMetadataContentPtrType) ToMarkdownPartMetadataContentPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataContentPtrOutput)
 }
 
-// The content of markdown part.
 type MarkdownPartMetadataContentOutput struct{ *pulumi.OutputState }
 
 func (MarkdownPartMetadataContentOutput) ElementType() reflect.Type {
@@ -918,12 +822,11 @@ func (o MarkdownPartMetadataContentOutput) ToMarkdownPartMetadataContentPtrOutpu
 }
 
 func (o MarkdownPartMetadataContentOutput) ToMarkdownPartMetadataContentPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataContentPtrOutput {
-	return o.ApplyT(func(v MarkdownPartMetadataContent) *MarkdownPartMetadataContent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarkdownPartMetadataContent) *MarkdownPartMetadataContent {
 		return &v
 	}).(MarkdownPartMetadataContentPtrOutput)
 }
 
-// The setting of the content of markdown part.
 func (o MarkdownPartMetadataContentOutput) Settings() MarkdownPartMetadataSettingsSettingsPtrOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataContent) *MarkdownPartMetadataSettingsSettings { return v.Settings }).(MarkdownPartMetadataSettingsSettingsPtrOutput)
 }
@@ -943,10 +846,15 @@ func (o MarkdownPartMetadataContentPtrOutput) ToMarkdownPartMetadataContentPtrOu
 }
 
 func (o MarkdownPartMetadataContentPtrOutput) Elem() MarkdownPartMetadataContentOutput {
-	return o.ApplyT(func(v *MarkdownPartMetadataContent) MarkdownPartMetadataContent { return *v }).(MarkdownPartMetadataContentOutput)
+	return o.ApplyT(func(v *MarkdownPartMetadataContent) MarkdownPartMetadataContent {
+		if v != nil {
+			return *v
+		}
+		var ret MarkdownPartMetadataContent
+		return ret
+	}).(MarkdownPartMetadataContentOutput)
 }
 
-// The setting of the content of markdown part.
 func (o MarkdownPartMetadataContentPtrOutput) Settings() MarkdownPartMetadataSettingsSettingsPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataContent) *MarkdownPartMetadataSettingsSettings {
 		if v == nil {
@@ -956,15 +864,10 @@ func (o MarkdownPartMetadataContentPtrOutput) Settings() MarkdownPartMetadataSet
 	}).(MarkdownPartMetadataSettingsSettingsPtrOutput)
 }
 
-// Markdown part metadata.
 type MarkdownPartMetadataResponse struct {
-	// Input to dashboard part.
-	Inputs []interface{} `pulumi:"inputs"`
-	// Markdown part settings.
+	Inputs   []interface{}                         `pulumi:"inputs"`
 	Settings *MarkdownPartMetadataResponseSettings `pulumi:"settings"`
-	// The type of dashboard part.
-	// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
-	Type string `pulumi:"type"`
+	Type     string                                `pulumi:"type"`
 }
 
 // MarkdownPartMetadataResponseInput is an input type that accepts MarkdownPartMetadataResponseArgs and MarkdownPartMetadataResponseOutput values.
@@ -978,15 +881,10 @@ type MarkdownPartMetadataResponseInput interface {
 	ToMarkdownPartMetadataResponseOutputWithContext(context.Context) MarkdownPartMetadataResponseOutput
 }
 
-// Markdown part metadata.
 type MarkdownPartMetadataResponseArgs struct {
-	// Input to dashboard part.
-	Inputs pulumi.ArrayInput `pulumi:"inputs"`
-	// Markdown part settings.
+	Inputs   pulumi.ArrayInput                            `pulumi:"inputs"`
 	Settings MarkdownPartMetadataResponseSettingsPtrInput `pulumi:"settings"`
-	// The type of dashboard part.
-	// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type     pulumi.StringInput                           `pulumi:"type"`
 }
 
 func (MarkdownPartMetadataResponseArgs) ElementType() reflect.Type {
@@ -1042,7 +940,6 @@ func (i *markdownPartMetadataResponsePtrType) ToMarkdownPartMetadataResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataResponsePtrOutput)
 }
 
-// Markdown part metadata.
 type MarkdownPartMetadataResponseOutput struct{ *pulumi.OutputState }
 
 func (MarkdownPartMetadataResponseOutput) ElementType() reflect.Type {
@@ -1062,23 +959,19 @@ func (o MarkdownPartMetadataResponseOutput) ToMarkdownPartMetadataResponsePtrOut
 }
 
 func (o MarkdownPartMetadataResponseOutput) ToMarkdownPartMetadataResponsePtrOutputWithContext(ctx context.Context) MarkdownPartMetadataResponsePtrOutput {
-	return o.ApplyT(func(v MarkdownPartMetadataResponse) *MarkdownPartMetadataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarkdownPartMetadataResponse) *MarkdownPartMetadataResponse {
 		return &v
 	}).(MarkdownPartMetadataResponsePtrOutput)
 }
 
-// Input to dashboard part.
 func (o MarkdownPartMetadataResponseOutput) Inputs() pulumi.ArrayOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataResponse) []interface{} { return v.Inputs }).(pulumi.ArrayOutput)
 }
 
-// Markdown part settings.
 func (o MarkdownPartMetadataResponseOutput) Settings() MarkdownPartMetadataResponseSettingsPtrOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataResponse) *MarkdownPartMetadataResponseSettings { return v.Settings }).(MarkdownPartMetadataResponseSettingsPtrOutput)
 }
 
-// The type of dashboard part.
-// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
 func (o MarkdownPartMetadataResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1098,10 +991,15 @@ func (o MarkdownPartMetadataResponsePtrOutput) ToMarkdownPartMetadataResponsePtr
 }
 
 func (o MarkdownPartMetadataResponsePtrOutput) Elem() MarkdownPartMetadataResponseOutput {
-	return o.ApplyT(func(v *MarkdownPartMetadataResponse) MarkdownPartMetadataResponse { return *v }).(MarkdownPartMetadataResponseOutput)
+	return o.ApplyT(func(v *MarkdownPartMetadataResponse) MarkdownPartMetadataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MarkdownPartMetadataResponse
+		return ret
+	}).(MarkdownPartMetadataResponseOutput)
 }
 
-// Input to dashboard part.
 func (o MarkdownPartMetadataResponsePtrOutput) Inputs() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataResponse) []interface{} {
 		if v == nil {
@@ -1111,7 +1009,6 @@ func (o MarkdownPartMetadataResponsePtrOutput) Inputs() pulumi.ArrayOutput {
 	}).(pulumi.ArrayOutput)
 }
 
-// Markdown part settings.
 func (o MarkdownPartMetadataResponsePtrOutput) Settings() MarkdownPartMetadataResponseSettingsPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataResponse) *MarkdownPartMetadataResponseSettings {
 		if v == nil {
@@ -1121,8 +1018,6 @@ func (o MarkdownPartMetadataResponsePtrOutput) Settings() MarkdownPartMetadataRe
 	}).(MarkdownPartMetadataResponseSettingsPtrOutput)
 }
 
-// The type of dashboard part.
-// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
 func (o MarkdownPartMetadataResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataResponse) *string {
 		if v == nil {
@@ -1132,9 +1027,7 @@ func (o MarkdownPartMetadataResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content of markdown part.
 type MarkdownPartMetadataResponseContent struct {
-	// The setting of the content of markdown part.
 	Settings *MarkdownPartMetadataResponseSettingsSettings `pulumi:"settings"`
 }
 
@@ -1149,9 +1042,7 @@ type MarkdownPartMetadataResponseContentInput interface {
 	ToMarkdownPartMetadataResponseContentOutputWithContext(context.Context) MarkdownPartMetadataResponseContentOutput
 }
 
-// The content of markdown part.
 type MarkdownPartMetadataResponseContentArgs struct {
-	// The setting of the content of markdown part.
 	Settings MarkdownPartMetadataResponseSettingsSettingsPtrInput `pulumi:"settings"`
 }
 
@@ -1208,7 +1099,6 @@ func (i *markdownPartMetadataResponseContentPtrType) ToMarkdownPartMetadataRespo
 	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataResponseContentPtrOutput)
 }
 
-// The content of markdown part.
 type MarkdownPartMetadataResponseContentOutput struct{ *pulumi.OutputState }
 
 func (MarkdownPartMetadataResponseContentOutput) ElementType() reflect.Type {
@@ -1228,12 +1118,11 @@ func (o MarkdownPartMetadataResponseContentOutput) ToMarkdownPartMetadataRespons
 }
 
 func (o MarkdownPartMetadataResponseContentOutput) ToMarkdownPartMetadataResponseContentPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataResponseContentPtrOutput {
-	return o.ApplyT(func(v MarkdownPartMetadataResponseContent) *MarkdownPartMetadataResponseContent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarkdownPartMetadataResponseContent) *MarkdownPartMetadataResponseContent {
 		return &v
 	}).(MarkdownPartMetadataResponseContentPtrOutput)
 }
 
-// The setting of the content of markdown part.
 func (o MarkdownPartMetadataResponseContentOutput) Settings() MarkdownPartMetadataResponseSettingsSettingsPtrOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataResponseContent) *MarkdownPartMetadataResponseSettingsSettings {
 		return v.Settings
@@ -1255,10 +1144,15 @@ func (o MarkdownPartMetadataResponseContentPtrOutput) ToMarkdownPartMetadataResp
 }
 
 func (o MarkdownPartMetadataResponseContentPtrOutput) Elem() MarkdownPartMetadataResponseContentOutput {
-	return o.ApplyT(func(v *MarkdownPartMetadataResponseContent) MarkdownPartMetadataResponseContent { return *v }).(MarkdownPartMetadataResponseContentOutput)
+	return o.ApplyT(func(v *MarkdownPartMetadataResponseContent) MarkdownPartMetadataResponseContent {
+		if v != nil {
+			return *v
+		}
+		var ret MarkdownPartMetadataResponseContent
+		return ret
+	}).(MarkdownPartMetadataResponseContentOutput)
 }
 
-// The setting of the content of markdown part.
 func (o MarkdownPartMetadataResponseContentPtrOutput) Settings() MarkdownPartMetadataResponseSettingsSettingsPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataResponseContent) *MarkdownPartMetadataResponseSettingsSettings {
 		if v == nil {
@@ -1268,9 +1162,7 @@ func (o MarkdownPartMetadataResponseContentPtrOutput) Settings() MarkdownPartMet
 	}).(MarkdownPartMetadataResponseSettingsSettingsPtrOutput)
 }
 
-// Markdown part settings.
 type MarkdownPartMetadataResponseSettings struct {
-	// The content of markdown part.
 	Content *MarkdownPartMetadataResponseContent `pulumi:"content"`
 }
 
@@ -1285,9 +1177,7 @@ type MarkdownPartMetadataResponseSettingsInput interface {
 	ToMarkdownPartMetadataResponseSettingsOutputWithContext(context.Context) MarkdownPartMetadataResponseSettingsOutput
 }
 
-// Markdown part settings.
 type MarkdownPartMetadataResponseSettingsArgs struct {
-	// The content of markdown part.
 	Content MarkdownPartMetadataResponseContentPtrInput `pulumi:"content"`
 }
 
@@ -1344,7 +1234,6 @@ func (i *markdownPartMetadataResponseSettingsPtrType) ToMarkdownPartMetadataResp
 	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataResponseSettingsPtrOutput)
 }
 
-// Markdown part settings.
 type MarkdownPartMetadataResponseSettingsOutput struct{ *pulumi.OutputState }
 
 func (MarkdownPartMetadataResponseSettingsOutput) ElementType() reflect.Type {
@@ -1364,12 +1253,11 @@ func (o MarkdownPartMetadataResponseSettingsOutput) ToMarkdownPartMetadataRespon
 }
 
 func (o MarkdownPartMetadataResponseSettingsOutput) ToMarkdownPartMetadataResponseSettingsPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataResponseSettingsPtrOutput {
-	return o.ApplyT(func(v MarkdownPartMetadataResponseSettings) *MarkdownPartMetadataResponseSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarkdownPartMetadataResponseSettings) *MarkdownPartMetadataResponseSettings {
 		return &v
 	}).(MarkdownPartMetadataResponseSettingsPtrOutput)
 }
 
-// The content of markdown part.
 func (o MarkdownPartMetadataResponseSettingsOutput) Content() MarkdownPartMetadataResponseContentPtrOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataResponseSettings) *MarkdownPartMetadataResponseContent { return v.Content }).(MarkdownPartMetadataResponseContentPtrOutput)
 }
@@ -1389,10 +1277,15 @@ func (o MarkdownPartMetadataResponseSettingsPtrOutput) ToMarkdownPartMetadataRes
 }
 
 func (o MarkdownPartMetadataResponseSettingsPtrOutput) Elem() MarkdownPartMetadataResponseSettingsOutput {
-	return o.ApplyT(func(v *MarkdownPartMetadataResponseSettings) MarkdownPartMetadataResponseSettings { return *v }).(MarkdownPartMetadataResponseSettingsOutput)
+	return o.ApplyT(func(v *MarkdownPartMetadataResponseSettings) MarkdownPartMetadataResponseSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MarkdownPartMetadataResponseSettings
+		return ret
+	}).(MarkdownPartMetadataResponseSettingsOutput)
 }
 
-// The content of markdown part.
 func (o MarkdownPartMetadataResponseSettingsPtrOutput) Content() MarkdownPartMetadataResponseContentPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataResponseSettings) *MarkdownPartMetadataResponseContent {
 		if v == nil {
@@ -1402,18 +1295,12 @@ func (o MarkdownPartMetadataResponseSettingsPtrOutput) Content() MarkdownPartMet
 	}).(MarkdownPartMetadataResponseContentPtrOutput)
 }
 
-// The setting of the content of markdown part.
 type MarkdownPartMetadataResponseSettingsSettings struct {
-	// The content of the markdown part.
-	Content *string `pulumi:"content"`
-	// The source of the content of the markdown part.
-	MarkdownSource *int `pulumi:"markdownSource"`
-	// The uri of markdown content.
-	MarkdownUri *string `pulumi:"markdownUri"`
-	// The subtitle of the markdown part.
-	Subtitle *string `pulumi:"subtitle"`
-	// The title of the markdown part.
-	Title *string `pulumi:"title"`
+	Content        *string `pulumi:"content"`
+	MarkdownSource *int    `pulumi:"markdownSource"`
+	MarkdownUri    *string `pulumi:"markdownUri"`
+	Subtitle       *string `pulumi:"subtitle"`
+	Title          *string `pulumi:"title"`
 }
 
 // MarkdownPartMetadataResponseSettingsSettingsInput is an input type that accepts MarkdownPartMetadataResponseSettingsSettingsArgs and MarkdownPartMetadataResponseSettingsSettingsOutput values.
@@ -1427,18 +1314,12 @@ type MarkdownPartMetadataResponseSettingsSettingsInput interface {
 	ToMarkdownPartMetadataResponseSettingsSettingsOutputWithContext(context.Context) MarkdownPartMetadataResponseSettingsSettingsOutput
 }
 
-// The setting of the content of markdown part.
 type MarkdownPartMetadataResponseSettingsSettingsArgs struct {
-	// The content of the markdown part.
-	Content pulumi.StringPtrInput `pulumi:"content"`
-	// The source of the content of the markdown part.
-	MarkdownSource pulumi.IntPtrInput `pulumi:"markdownSource"`
-	// The uri of markdown content.
-	MarkdownUri pulumi.StringPtrInput `pulumi:"markdownUri"`
-	// The subtitle of the markdown part.
-	Subtitle pulumi.StringPtrInput `pulumi:"subtitle"`
-	// The title of the markdown part.
-	Title pulumi.StringPtrInput `pulumi:"title"`
+	Content        pulumi.StringPtrInput `pulumi:"content"`
+	MarkdownSource pulumi.IntPtrInput    `pulumi:"markdownSource"`
+	MarkdownUri    pulumi.StringPtrInput `pulumi:"markdownUri"`
+	Subtitle       pulumi.StringPtrInput `pulumi:"subtitle"`
+	Title          pulumi.StringPtrInput `pulumi:"title"`
 }
 
 func (MarkdownPartMetadataResponseSettingsSettingsArgs) ElementType() reflect.Type {
@@ -1494,7 +1375,6 @@ func (i *markdownPartMetadataResponseSettingsSettingsPtrType) ToMarkdownPartMeta
 	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataResponseSettingsSettingsPtrOutput)
 }
 
-// The setting of the content of markdown part.
 type MarkdownPartMetadataResponseSettingsSettingsOutput struct{ *pulumi.OutputState }
 
 func (MarkdownPartMetadataResponseSettingsSettingsOutput) ElementType() reflect.Type {
@@ -1514,32 +1394,27 @@ func (o MarkdownPartMetadataResponseSettingsSettingsOutput) ToMarkdownPartMetada
 }
 
 func (o MarkdownPartMetadataResponseSettingsSettingsOutput) ToMarkdownPartMetadataResponseSettingsSettingsPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataResponseSettingsSettingsPtrOutput {
-	return o.ApplyT(func(v MarkdownPartMetadataResponseSettingsSettings) *MarkdownPartMetadataResponseSettingsSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarkdownPartMetadataResponseSettingsSettings) *MarkdownPartMetadataResponseSettingsSettings {
 		return &v
 	}).(MarkdownPartMetadataResponseSettingsSettingsPtrOutput)
 }
 
-// The content of the markdown part.
 func (o MarkdownPartMetadataResponseSettingsSettingsOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataResponseSettingsSettings) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
-// The source of the content of the markdown part.
 func (o MarkdownPartMetadataResponseSettingsSettingsOutput) MarkdownSource() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataResponseSettingsSettings) *int { return v.MarkdownSource }).(pulumi.IntPtrOutput)
 }
 
-// The uri of markdown content.
 func (o MarkdownPartMetadataResponseSettingsSettingsOutput) MarkdownUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataResponseSettingsSettings) *string { return v.MarkdownUri }).(pulumi.StringPtrOutput)
 }
 
-// The subtitle of the markdown part.
 func (o MarkdownPartMetadataResponseSettingsSettingsOutput) Subtitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataResponseSettingsSettings) *string { return v.Subtitle }).(pulumi.StringPtrOutput)
 }
 
-// The title of the markdown part.
 func (o MarkdownPartMetadataResponseSettingsSettingsOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataResponseSettingsSettings) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
@@ -1560,11 +1435,14 @@ func (o MarkdownPartMetadataResponseSettingsSettingsPtrOutput) ToMarkdownPartMet
 
 func (o MarkdownPartMetadataResponseSettingsSettingsPtrOutput) Elem() MarkdownPartMetadataResponseSettingsSettingsOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataResponseSettingsSettings) MarkdownPartMetadataResponseSettingsSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MarkdownPartMetadataResponseSettingsSettings
+		return ret
 	}).(MarkdownPartMetadataResponseSettingsSettingsOutput)
 }
 
-// The content of the markdown part.
 func (o MarkdownPartMetadataResponseSettingsSettingsPtrOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataResponseSettingsSettings) *string {
 		if v == nil {
@@ -1574,7 +1452,6 @@ func (o MarkdownPartMetadataResponseSettingsSettingsPtrOutput) Content() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The source of the content of the markdown part.
 func (o MarkdownPartMetadataResponseSettingsSettingsPtrOutput) MarkdownSource() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataResponseSettingsSettings) *int {
 		if v == nil {
@@ -1584,7 +1461,6 @@ func (o MarkdownPartMetadataResponseSettingsSettingsPtrOutput) MarkdownSource() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The uri of markdown content.
 func (o MarkdownPartMetadataResponseSettingsSettingsPtrOutput) MarkdownUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataResponseSettingsSettings) *string {
 		if v == nil {
@@ -1594,7 +1470,6 @@ func (o MarkdownPartMetadataResponseSettingsSettingsPtrOutput) MarkdownUri() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subtitle of the markdown part.
 func (o MarkdownPartMetadataResponseSettingsSettingsPtrOutput) Subtitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataResponseSettingsSettings) *string {
 		if v == nil {
@@ -1604,7 +1479,6 @@ func (o MarkdownPartMetadataResponseSettingsSettingsPtrOutput) Subtitle() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The title of the markdown part.
 func (o MarkdownPartMetadataResponseSettingsSettingsPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataResponseSettingsSettings) *string {
 		if v == nil {
@@ -1614,9 +1488,7 @@ func (o MarkdownPartMetadataResponseSettingsSettingsPtrOutput) Title() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Markdown part settings.
 type MarkdownPartMetadataSettings struct {
-	// The content of markdown part.
 	Content *MarkdownPartMetadataContent `pulumi:"content"`
 }
 
@@ -1631,9 +1503,7 @@ type MarkdownPartMetadataSettingsInput interface {
 	ToMarkdownPartMetadataSettingsOutputWithContext(context.Context) MarkdownPartMetadataSettingsOutput
 }
 
-// Markdown part settings.
 type MarkdownPartMetadataSettingsArgs struct {
-	// The content of markdown part.
 	Content MarkdownPartMetadataContentPtrInput `pulumi:"content"`
 }
 
@@ -1690,7 +1560,6 @@ func (i *markdownPartMetadataSettingsPtrType) ToMarkdownPartMetadataSettingsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataSettingsPtrOutput)
 }
 
-// Markdown part settings.
 type MarkdownPartMetadataSettingsOutput struct{ *pulumi.OutputState }
 
 func (MarkdownPartMetadataSettingsOutput) ElementType() reflect.Type {
@@ -1710,12 +1579,11 @@ func (o MarkdownPartMetadataSettingsOutput) ToMarkdownPartMetadataSettingsPtrOut
 }
 
 func (o MarkdownPartMetadataSettingsOutput) ToMarkdownPartMetadataSettingsPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataSettingsPtrOutput {
-	return o.ApplyT(func(v MarkdownPartMetadataSettings) *MarkdownPartMetadataSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarkdownPartMetadataSettings) *MarkdownPartMetadataSettings {
 		return &v
 	}).(MarkdownPartMetadataSettingsPtrOutput)
 }
 
-// The content of markdown part.
 func (o MarkdownPartMetadataSettingsOutput) Content() MarkdownPartMetadataContentPtrOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataSettings) *MarkdownPartMetadataContent { return v.Content }).(MarkdownPartMetadataContentPtrOutput)
 }
@@ -1735,10 +1603,15 @@ func (o MarkdownPartMetadataSettingsPtrOutput) ToMarkdownPartMetadataSettingsPtr
 }
 
 func (o MarkdownPartMetadataSettingsPtrOutput) Elem() MarkdownPartMetadataSettingsOutput {
-	return o.ApplyT(func(v *MarkdownPartMetadataSettings) MarkdownPartMetadataSettings { return *v }).(MarkdownPartMetadataSettingsOutput)
+	return o.ApplyT(func(v *MarkdownPartMetadataSettings) MarkdownPartMetadataSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MarkdownPartMetadataSettings
+		return ret
+	}).(MarkdownPartMetadataSettingsOutput)
 }
 
-// The content of markdown part.
 func (o MarkdownPartMetadataSettingsPtrOutput) Content() MarkdownPartMetadataContentPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataSettings) *MarkdownPartMetadataContent {
 		if v == nil {
@@ -1748,18 +1621,12 @@ func (o MarkdownPartMetadataSettingsPtrOutput) Content() MarkdownPartMetadataCon
 	}).(MarkdownPartMetadataContentPtrOutput)
 }
 
-// The setting of the content of markdown part.
 type MarkdownPartMetadataSettingsSettings struct {
-	// The content of the markdown part.
-	Content *string `pulumi:"content"`
-	// The source of the content of the markdown part.
-	MarkdownSource *int `pulumi:"markdownSource"`
-	// The uri of markdown content.
-	MarkdownUri *string `pulumi:"markdownUri"`
-	// The subtitle of the markdown part.
-	Subtitle *string `pulumi:"subtitle"`
-	// The title of the markdown part.
-	Title *string `pulumi:"title"`
+	Content        *string `pulumi:"content"`
+	MarkdownSource *int    `pulumi:"markdownSource"`
+	MarkdownUri    *string `pulumi:"markdownUri"`
+	Subtitle       *string `pulumi:"subtitle"`
+	Title          *string `pulumi:"title"`
 }
 
 // MarkdownPartMetadataSettingsSettingsInput is an input type that accepts MarkdownPartMetadataSettingsSettingsArgs and MarkdownPartMetadataSettingsSettingsOutput values.
@@ -1773,18 +1640,12 @@ type MarkdownPartMetadataSettingsSettingsInput interface {
 	ToMarkdownPartMetadataSettingsSettingsOutputWithContext(context.Context) MarkdownPartMetadataSettingsSettingsOutput
 }
 
-// The setting of the content of markdown part.
 type MarkdownPartMetadataSettingsSettingsArgs struct {
-	// The content of the markdown part.
-	Content pulumi.StringPtrInput `pulumi:"content"`
-	// The source of the content of the markdown part.
-	MarkdownSource pulumi.IntPtrInput `pulumi:"markdownSource"`
-	// The uri of markdown content.
-	MarkdownUri pulumi.StringPtrInput `pulumi:"markdownUri"`
-	// The subtitle of the markdown part.
-	Subtitle pulumi.StringPtrInput `pulumi:"subtitle"`
-	// The title of the markdown part.
-	Title pulumi.StringPtrInput `pulumi:"title"`
+	Content        pulumi.StringPtrInput `pulumi:"content"`
+	MarkdownSource pulumi.IntPtrInput    `pulumi:"markdownSource"`
+	MarkdownUri    pulumi.StringPtrInput `pulumi:"markdownUri"`
+	Subtitle       pulumi.StringPtrInput `pulumi:"subtitle"`
+	Title          pulumi.StringPtrInput `pulumi:"title"`
 }
 
 func (MarkdownPartMetadataSettingsSettingsArgs) ElementType() reflect.Type {
@@ -1840,7 +1701,6 @@ func (i *markdownPartMetadataSettingsSettingsPtrType) ToMarkdownPartMetadataSett
 	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataSettingsSettingsPtrOutput)
 }
 
-// The setting of the content of markdown part.
 type MarkdownPartMetadataSettingsSettingsOutput struct{ *pulumi.OutputState }
 
 func (MarkdownPartMetadataSettingsSettingsOutput) ElementType() reflect.Type {
@@ -1860,32 +1720,27 @@ func (o MarkdownPartMetadataSettingsSettingsOutput) ToMarkdownPartMetadataSettin
 }
 
 func (o MarkdownPartMetadataSettingsSettingsOutput) ToMarkdownPartMetadataSettingsSettingsPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataSettingsSettingsPtrOutput {
-	return o.ApplyT(func(v MarkdownPartMetadataSettingsSettings) *MarkdownPartMetadataSettingsSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarkdownPartMetadataSettingsSettings) *MarkdownPartMetadataSettingsSettings {
 		return &v
 	}).(MarkdownPartMetadataSettingsSettingsPtrOutput)
 }
 
-// The content of the markdown part.
 func (o MarkdownPartMetadataSettingsSettingsOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataSettingsSettings) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
-// The source of the content of the markdown part.
 func (o MarkdownPartMetadataSettingsSettingsOutput) MarkdownSource() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataSettingsSettings) *int { return v.MarkdownSource }).(pulumi.IntPtrOutput)
 }
 
-// The uri of markdown content.
 func (o MarkdownPartMetadataSettingsSettingsOutput) MarkdownUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataSettingsSettings) *string { return v.MarkdownUri }).(pulumi.StringPtrOutput)
 }
 
-// The subtitle of the markdown part.
 func (o MarkdownPartMetadataSettingsSettingsOutput) Subtitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataSettingsSettings) *string { return v.Subtitle }).(pulumi.StringPtrOutput)
 }
 
-// The title of the markdown part.
 func (o MarkdownPartMetadataSettingsSettingsOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataSettingsSettings) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
@@ -1905,10 +1760,15 @@ func (o MarkdownPartMetadataSettingsSettingsPtrOutput) ToMarkdownPartMetadataSet
 }
 
 func (o MarkdownPartMetadataSettingsSettingsPtrOutput) Elem() MarkdownPartMetadataSettingsSettingsOutput {
-	return o.ApplyT(func(v *MarkdownPartMetadataSettingsSettings) MarkdownPartMetadataSettingsSettings { return *v }).(MarkdownPartMetadataSettingsSettingsOutput)
+	return o.ApplyT(func(v *MarkdownPartMetadataSettingsSettings) MarkdownPartMetadataSettingsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MarkdownPartMetadataSettingsSettings
+		return ret
+	}).(MarkdownPartMetadataSettingsSettingsOutput)
 }
 
-// The content of the markdown part.
 func (o MarkdownPartMetadataSettingsSettingsPtrOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataSettingsSettings) *string {
 		if v == nil {
@@ -1918,7 +1778,6 @@ func (o MarkdownPartMetadataSettingsSettingsPtrOutput) Content() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The source of the content of the markdown part.
 func (o MarkdownPartMetadataSettingsSettingsPtrOutput) MarkdownSource() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataSettingsSettings) *int {
 		if v == nil {
@@ -1928,7 +1787,6 @@ func (o MarkdownPartMetadataSettingsSettingsPtrOutput) MarkdownSource() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// The uri of markdown content.
 func (o MarkdownPartMetadataSettingsSettingsPtrOutput) MarkdownUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataSettingsSettings) *string {
 		if v == nil {
@@ -1938,7 +1796,6 @@ func (o MarkdownPartMetadataSettingsSettingsPtrOutput) MarkdownUri() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subtitle of the markdown part.
 func (o MarkdownPartMetadataSettingsSettingsPtrOutput) Subtitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataSettingsSettings) *string {
 		if v == nil {
@@ -1948,7 +1805,6 @@ func (o MarkdownPartMetadataSettingsSettingsPtrOutput) Subtitle() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The title of the markdown part.
 func (o MarkdownPartMetadataSettingsSettingsPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataSettingsSettings) *string {
 		if v == nil {
@@ -1958,14 +1814,10 @@ func (o MarkdownPartMetadataSettingsSettingsPtrOutput) Title() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Violation information.
 type ViolationResponse struct {
-	// Error message.
 	ErrorMessage string `pulumi:"errorMessage"`
-	// Id of the item that violates tenant configuration.
-	Id string `pulumi:"id"`
-	// Id of the user who owns violated item.
-	UserId string `pulumi:"userId"`
+	Id           string `pulumi:"id"`
+	UserId       string `pulumi:"userId"`
 }
 
 // ViolationResponseInput is an input type that accepts ViolationResponseArgs and ViolationResponseOutput values.
@@ -1979,14 +1831,10 @@ type ViolationResponseInput interface {
 	ToViolationResponseOutputWithContext(context.Context) ViolationResponseOutput
 }
 
-// Violation information.
 type ViolationResponseArgs struct {
-	// Error message.
 	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
-	// Id of the item that violates tenant configuration.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Id of the user who owns violated item.
-	UserId pulumi.StringInput `pulumi:"userId"`
+	Id           pulumi.StringInput `pulumi:"id"`
+	UserId       pulumi.StringInput `pulumi:"userId"`
 }
 
 func (ViolationResponseArgs) ElementType() reflect.Type {
@@ -2026,7 +1874,6 @@ func (i ViolationResponseArray) ToViolationResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ViolationResponseArrayOutput)
 }
 
-// Violation information.
 type ViolationResponseOutput struct{ *pulumi.OutputState }
 
 func (ViolationResponseOutput) ElementType() reflect.Type {
@@ -2041,17 +1888,14 @@ func (o ViolationResponseOutput) ToViolationResponseOutputWithContext(ctx contex
 	return o
 }
 
-// Error message.
 func (o ViolationResponseOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v ViolationResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
-// Id of the item that violates tenant configuration.
 func (o ViolationResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ViolationResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Id of the user who owns violated item.
 func (o ViolationResponseOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v ViolationResponse) string { return v.UserId }).(pulumi.StringOutput)
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration account.
 func LookupIntegrationAccount(ctx *pulumi.Context, args *LookupIntegrationAccountArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountResult, error) {
 	var rv LookupIntegrationAccountResult
 	err := ctx.Invoke("azure-native:logic/v20180701preview:getIntegrationAccount", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupIntegrationAccount(ctx *pulumi.Context, args *LookupIntegrationAccoun
 }
 
 type LookupIntegrationAccountArgs struct {
-	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 // The integration account.
 type LookupIntegrationAccountResult struct {
-	// The resource id.
-	Id string `pulumi:"id"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The sku.
-	Sku *IntegrationAccountSkuResponse `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
+	Id       string                         `pulumi:"id"`
+	Location *string                        `pulumi:"location"`
+	Name     string                         `pulumi:"name"`
+	Sku      *IntegrationAccountSkuResponse `pulumi:"sku"`
+	Tags     map[string]string              `pulumi:"tags"`
+	Type     string                         `pulumi:"type"`
 }

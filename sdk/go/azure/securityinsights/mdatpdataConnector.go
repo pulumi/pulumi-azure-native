@@ -163,9 +163,7 @@ func (i *MDATPDataConnector) ToMDATPDataConnectorOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(MDATPDataConnectorOutput)
 }
 
-type MDATPDataConnectorOutput struct {
-	*pulumi.OutputState
-}
+type MDATPDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (MDATPDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MDATPDataConnector)(nil))

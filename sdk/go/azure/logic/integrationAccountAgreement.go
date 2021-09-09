@@ -51,6 +51,9 @@ func NewIntegrationAccountAgreement(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AgreementType == nil {
+		return nil, errors.New("invalid value for required argument 'AgreementType'")
+	}
 	if args.Content == nil {
 		return nil, errors.New("invalid value for required argument 'Content'")
 	}
@@ -137,7 +140,7 @@ type integrationAccountAgreementArgs struct {
 	// The integration account agreement name.
 	AgreementName *string `pulumi:"agreementName"`
 	// The agreement type.
-	AgreementType string `pulumi:"agreementType"`
+	AgreementType AgreementType `pulumi:"agreementType"`
 	// The agreement content.
 	Content AgreementContent `pulumi:"content"`
 	// The business identity of the guest partner.
@@ -165,7 +168,7 @@ type IntegrationAccountAgreementArgs struct {
 	// The integration account agreement name.
 	AgreementName pulumi.StringPtrInput
 	// The agreement type.
-	AgreementType AgreementType
+	AgreementType AgreementTypeInput
 	// The agreement content.
 	Content AgreementContentInput
 	// The business identity of the guest partner.
@@ -211,9 +214,7 @@ func (i *IntegrationAccountAgreement) ToIntegrationAccountAgreementOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementOutput)
 }
 
-type IntegrationAccountAgreementOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountAgreementOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAgreementOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountAgreement)(nil))

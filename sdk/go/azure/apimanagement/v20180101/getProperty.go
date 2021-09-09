@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Property details.
 func LookupProperty(ctx *pulumi.Context, args *LookupPropertyArgs, opts ...pulumi.InvokeOption) (*LookupPropertyResult, error) {
 	var rv LookupPropertyResult
 	err := ctx.Invoke("azure-native:apimanagement/v20180101:getProperty", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupProperty(ctx *pulumi.Context, args *LookupPropertyArgs, opts ...pulum
 }
 
 type LookupPropertyArgs struct {
-	// Identifier of the property.
-	PropId string `pulumi:"propId"`
-	// The name of the resource group.
+	PropId            string `pulumi:"propId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Property details.
 type LookupPropertyResult struct {
-	// Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
-	DisplayName string `pulumi:"displayName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
-	Secret *bool `pulumi:"secret"`
-	// Optional tags that when provided can be used to filter the property list.
-	Tags []string `pulumi:"tags"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-	// Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
-	Value string `pulumi:"value"`
+	DisplayName string   `pulumi:"displayName"`
+	Id          string   `pulumi:"id"`
+	Name        string   `pulumi:"name"`
+	Secret      *bool    `pulumi:"secret"`
+	Tags        []string `pulumi:"tags"`
+	Type        string   `pulumi:"type"`
+	Value       string   `pulumi:"value"`
 }

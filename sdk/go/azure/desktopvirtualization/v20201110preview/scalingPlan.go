@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a scaling plan definition.
 type ScalingPlan struct {
 	pulumi.CustomResourceState
 
-	// Description of scaling plan.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Exclusion tag for scaling plan.
-	ExclusionTag pulumi.StringPtrOutput `pulumi:"exclusionTag"`
-	// User friendly name of scaling plan.
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// List of ScalingHostPoolReference definitions.
+	Description        pulumi.StringPtrOutput                      `pulumi:"description"`
+	ExclusionTag       pulumi.StringPtrOutput                      `pulumi:"exclusionTag"`
+	FriendlyName       pulumi.StringPtrOutput                      `pulumi:"friendlyName"`
 	HostPoolReferences ScalingHostPoolReferenceResponseArrayOutput `pulumi:"hostPoolReferences"`
-	// HostPool type for scaling plan.
-	HostPoolType pulumi.StringPtrOutput `pulumi:"hostPoolType"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of ScalingSchedule definitions.
-	Schedules ScalingScheduleResponseArrayOutput `pulumi:"schedules"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Timezone of the scaling plan.
-	TimeZone pulumi.StringPtrOutput `pulumi:"timeZone"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	HostPoolType       pulumi.StringPtrOutput                      `pulumi:"hostPoolType"`
+	Location           pulumi.StringOutput                         `pulumi:"location"`
+	Name               pulumi.StringOutput                         `pulumi:"name"`
+	Schedules          ScalingScheduleResponseArrayOutput          `pulumi:"schedules"`
+	Tags               pulumi.StringMapOutput                      `pulumi:"tags"`
+	TimeZone           pulumi.StringPtrOutput                      `pulumi:"timeZone"`
+	Type               pulumi.StringOutput                         `pulumi:"type"`
 }
 
 // NewScalingPlan registers a new resource with the given unique name, arguments, and options.
@@ -123,54 +111,32 @@ func (ScalingPlanState) ElementType() reflect.Type {
 }
 
 type scalingPlanArgs struct {
-	// Description of scaling plan.
-	Description *string `pulumi:"description"`
-	// Exclusion tag for scaling plan.
-	ExclusionTag *string `pulumi:"exclusionTag"`
-	// User friendly name of scaling plan.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// List of ScalingHostPoolReference definitions.
+	Description        *string                    `pulumi:"description"`
+	ExclusionTag       *string                    `pulumi:"exclusionTag"`
+	FriendlyName       *string                    `pulumi:"friendlyName"`
 	HostPoolReferences []ScalingHostPoolReference `pulumi:"hostPoolReferences"`
-	// HostPool type for scaling plan.
-	HostPoolType *string `pulumi:"hostPoolType"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the scaling plan.
-	ScalingPlanName *string `pulumi:"scalingPlanName"`
-	// List of ScalingSchedule definitions.
-	Schedules []ScalingSchedule `pulumi:"schedules"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Timezone of the scaling plan.
-	TimeZone *string `pulumi:"timeZone"`
+	HostPoolType       *string                    `pulumi:"hostPoolType"`
+	Location           *string                    `pulumi:"location"`
+	ResourceGroupName  string                     `pulumi:"resourceGroupName"`
+	ScalingPlanName    *string                    `pulumi:"scalingPlanName"`
+	Schedules          []ScalingSchedule          `pulumi:"schedules"`
+	Tags               map[string]string          `pulumi:"tags"`
+	TimeZone           *string                    `pulumi:"timeZone"`
 }
 
 // The set of arguments for constructing a ScalingPlan resource.
 type ScalingPlanArgs struct {
-	// Description of scaling plan.
-	Description pulumi.StringPtrInput
-	// Exclusion tag for scaling plan.
-	ExclusionTag pulumi.StringPtrInput
-	// User friendly name of scaling plan.
-	FriendlyName pulumi.StringPtrInput
-	// List of ScalingHostPoolReference definitions.
+	Description        pulumi.StringPtrInput
+	ExclusionTag       pulumi.StringPtrInput
+	FriendlyName       pulumi.StringPtrInput
 	HostPoolReferences ScalingHostPoolReferenceArrayInput
-	// HostPool type for scaling plan.
-	HostPoolType pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the scaling plan.
-	ScalingPlanName pulumi.StringPtrInput
-	// List of ScalingSchedule definitions.
-	Schedules ScalingScheduleArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Timezone of the scaling plan.
-	TimeZone pulumi.StringPtrInput
+	HostPoolType       pulumi.StringPtrInput
+	Location           pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	ScalingPlanName    pulumi.StringPtrInput
+	Schedules          ScalingScheduleArrayInput
+	Tags               pulumi.StringMapInput
+	TimeZone           pulumi.StringPtrInput
 }
 
 func (ScalingPlanArgs) ElementType() reflect.Type {
@@ -196,9 +162,7 @@ func (i *ScalingPlan) ToScalingPlanOutputWithContext(ctx context.Context) Scalin
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanOutput)
 }
 
-type ScalingPlanOutput struct {
-	*pulumi.OutputState
-}
+type ScalingPlanOutput struct{ *pulumi.OutputState }
 
 func (ScalingPlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScalingPlan)(nil))

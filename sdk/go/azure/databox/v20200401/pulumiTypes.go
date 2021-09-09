@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Credential details of the account.
 type AccountCredentialDetailsResponse struct {
-	// Connection string of the account endpoint to use the account as a storage endpoint on the device.
-	AccountConnectionString string `pulumi:"accountConnectionString"`
-	// Name of the account.
-	AccountName string `pulumi:"accountName"`
-	// Type of the account.
-	DataAccountType string `pulumi:"dataAccountType"`
-	// Per share level unencrypted access credentials.
-	ShareCredentialDetails []ShareCredentialDetailsResponse `pulumi:"shareCredentialDetails"`
+	AccountConnectionString string                           `pulumi:"accountConnectionString"`
+	AccountName             string                           `pulumi:"accountName"`
+	DataAccountType         string                           `pulumi:"dataAccountType"`
+	ShareCredentialDetails  []ShareCredentialDetailsResponse `pulumi:"shareCredentialDetails"`
 }
 
 // AccountCredentialDetailsResponseInput is an input type that accepts AccountCredentialDetailsResponseArgs and AccountCredentialDetailsResponseOutput values.
@@ -33,16 +28,11 @@ type AccountCredentialDetailsResponseInput interface {
 	ToAccountCredentialDetailsResponseOutputWithContext(context.Context) AccountCredentialDetailsResponseOutput
 }
 
-// Credential details of the account.
 type AccountCredentialDetailsResponseArgs struct {
-	// Connection string of the account endpoint to use the account as a storage endpoint on the device.
-	AccountConnectionString pulumi.StringInput `pulumi:"accountConnectionString"`
-	// Name of the account.
-	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// Type of the account.
-	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
-	// Per share level unencrypted access credentials.
-	ShareCredentialDetails ShareCredentialDetailsResponseArrayInput `pulumi:"shareCredentialDetails"`
+	AccountConnectionString pulumi.StringInput                       `pulumi:"accountConnectionString"`
+	AccountName             pulumi.StringInput                       `pulumi:"accountName"`
+	DataAccountType         pulumi.StringInput                       `pulumi:"dataAccountType"`
+	ShareCredentialDetails  ShareCredentialDetailsResponseArrayInput `pulumi:"shareCredentialDetails"`
 }
 
 func (AccountCredentialDetailsResponseArgs) ElementType() reflect.Type {
@@ -82,7 +72,6 @@ func (i AccountCredentialDetailsResponseArray) ToAccountCredentialDetailsRespons
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCredentialDetailsResponseArrayOutput)
 }
 
-// Credential details of the account.
 type AccountCredentialDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (AccountCredentialDetailsResponseOutput) ElementType() reflect.Type {
@@ -97,22 +86,18 @@ func (o AccountCredentialDetailsResponseOutput) ToAccountCredentialDetailsRespon
 	return o
 }
 
-// Connection string of the account endpoint to use the account as a storage endpoint on the device.
 func (o AccountCredentialDetailsResponseOutput) AccountConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountCredentialDetailsResponse) string { return v.AccountConnectionString }).(pulumi.StringOutput)
 }
 
-// Name of the account.
 func (o AccountCredentialDetailsResponseOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountCredentialDetailsResponse) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// Type of the account.
 func (o AccountCredentialDetailsResponseOutput) DataAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountCredentialDetailsResponse) string { return v.DataAccountType }).(pulumi.StringOutput)
 }
 
-// Per share level unencrypted access credentials.
 func (o AccountCredentialDetailsResponseOutput) ShareCredentialDetails() ShareCredentialDetailsResponseArrayOutput {
 	return o.ApplyT(func(v AccountCredentialDetailsResponse) []ShareCredentialDetailsResponse {
 		return v.ShareCredentialDetails
@@ -139,12 +124,9 @@ func (o AccountCredentialDetailsResponseArrayOutput) Index(i pulumi.IntInput) Ac
 	}).(AccountCredentialDetailsResponseOutput)
 }
 
-// Additional error info.
 type AdditionalErrorInfoResponse struct {
-	// Additional error info.
 	Info interface{} `pulumi:"info"`
-	// Additional error type.
-	Type *string `pulumi:"type"`
+	Type *string     `pulumi:"type"`
 }
 
 // AdditionalErrorInfoResponseInput is an input type that accepts AdditionalErrorInfoResponseArgs and AdditionalErrorInfoResponseOutput values.
@@ -158,11 +140,8 @@ type AdditionalErrorInfoResponseInput interface {
 	ToAdditionalErrorInfoResponseOutputWithContext(context.Context) AdditionalErrorInfoResponseOutput
 }
 
-// Additional error info.
 type AdditionalErrorInfoResponseArgs struct {
-	// Additional error info.
-	Info pulumi.Input `pulumi:"info"`
-	// Additional error type.
+	Info pulumi.Input          `pulumi:"info"`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -203,7 +182,6 @@ func (i AdditionalErrorInfoResponseArray) ToAdditionalErrorInfoResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AdditionalErrorInfoResponseArrayOutput)
 }
 
-// Additional error info.
 type AdditionalErrorInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AdditionalErrorInfoResponseOutput) ElementType() reflect.Type {
@@ -218,12 +196,10 @@ func (o AdditionalErrorInfoResponseOutput) ToAdditionalErrorInfoResponseOutputWi
 	return o
 }
 
-// Additional error info.
 func (o AdditionalErrorInfoResponseOutput) Info() pulumi.AnyOutput {
 	return o.ApplyT(func(v AdditionalErrorInfoResponse) interface{} { return v.Info }).(pulumi.AnyOutput)
 }
 
-// Additional error type.
 func (o AdditionalErrorInfoResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AdditionalErrorInfoResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -248,12 +224,9 @@ func (o AdditionalErrorInfoResponseArrayOutput) Index(i pulumi.IntInput) Additio
 	}).(AdditionalErrorInfoResponseOutput)
 }
 
-// The Network Adapter configuration of a DataBox.
 type ApplianceNetworkConfigurationResponse struct {
-	// Mac Address.
 	MacAddress string `pulumi:"macAddress"`
-	// Name of the network.
-	Name string `pulumi:"name"`
+	Name       string `pulumi:"name"`
 }
 
 // ApplianceNetworkConfigurationResponseInput is an input type that accepts ApplianceNetworkConfigurationResponseArgs and ApplianceNetworkConfigurationResponseOutput values.
@@ -267,12 +240,9 @@ type ApplianceNetworkConfigurationResponseInput interface {
 	ToApplianceNetworkConfigurationResponseOutputWithContext(context.Context) ApplianceNetworkConfigurationResponseOutput
 }
 
-// The Network Adapter configuration of a DataBox.
 type ApplianceNetworkConfigurationResponseArgs struct {
-	// Mac Address.
 	MacAddress pulumi.StringInput `pulumi:"macAddress"`
-	// Name of the network.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name       pulumi.StringInput `pulumi:"name"`
 }
 
 func (ApplianceNetworkConfigurationResponseArgs) ElementType() reflect.Type {
@@ -312,7 +282,6 @@ func (i ApplianceNetworkConfigurationResponseArray) ToApplianceNetworkConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(ApplianceNetworkConfigurationResponseArrayOutput)
 }
 
-// The Network Adapter configuration of a DataBox.
 type ApplianceNetworkConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplianceNetworkConfigurationResponseOutput) ElementType() reflect.Type {
@@ -327,12 +296,10 @@ func (o ApplianceNetworkConfigurationResponseOutput) ToApplianceNetworkConfigura
 	return o
 }
 
-// Mac Address.
 func (o ApplianceNetworkConfigurationResponseOutput) MacAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplianceNetworkConfigurationResponse) string { return v.MacAddress }).(pulumi.StringOutput)
 }
 
-// Name of the network.
 func (o ApplianceNetworkConfigurationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplianceNetworkConfigurationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -357,14 +324,10 @@ func (o ApplianceNetworkConfigurationResponseArrayOutput) Index(i pulumi.IntInpu
 	}).(ApplianceNetworkConfigurationResponseOutput)
 }
 
-// Filter details to transfer Azure files
 type AzureFileFilterDetails struct {
-	// List of full path of the files to be transferred.
-	FilePathList []string `pulumi:"filePathList"`
-	// Prefix list of the Azure files to be transferred.
+	FilePathList   []string `pulumi:"filePathList"`
 	FilePrefixList []string `pulumi:"filePrefixList"`
-	// List of file shares to be transferred.
-	FileShareList []string `pulumi:"fileShareList"`
+	FileShareList  []string `pulumi:"fileShareList"`
 }
 
 // AzureFileFilterDetailsInput is an input type that accepts AzureFileFilterDetailsArgs and AzureFileFilterDetailsOutput values.
@@ -378,14 +341,10 @@ type AzureFileFilterDetailsInput interface {
 	ToAzureFileFilterDetailsOutputWithContext(context.Context) AzureFileFilterDetailsOutput
 }
 
-// Filter details to transfer Azure files
 type AzureFileFilterDetailsArgs struct {
-	// List of full path of the files to be transferred.
-	FilePathList pulumi.StringArrayInput `pulumi:"filePathList"`
-	// Prefix list of the Azure files to be transferred.
+	FilePathList   pulumi.StringArrayInput `pulumi:"filePathList"`
 	FilePrefixList pulumi.StringArrayInput `pulumi:"filePrefixList"`
-	// List of file shares to be transferred.
-	FileShareList pulumi.StringArrayInput `pulumi:"fileShareList"`
+	FileShareList  pulumi.StringArrayInput `pulumi:"fileShareList"`
 }
 
 func (AzureFileFilterDetailsArgs) ElementType() reflect.Type {
@@ -441,7 +400,6 @@ func (i *azureFileFilterDetailsPtrType) ToAzureFileFilterDetailsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFileFilterDetailsPtrOutput)
 }
 
-// Filter details to transfer Azure files
 type AzureFileFilterDetailsOutput struct{ *pulumi.OutputState }
 
 func (AzureFileFilterDetailsOutput) ElementType() reflect.Type {
@@ -461,22 +419,19 @@ func (o AzureFileFilterDetailsOutput) ToAzureFileFilterDetailsPtrOutput() AzureF
 }
 
 func (o AzureFileFilterDetailsOutput) ToAzureFileFilterDetailsPtrOutputWithContext(ctx context.Context) AzureFileFilterDetailsPtrOutput {
-	return o.ApplyT(func(v AzureFileFilterDetails) *AzureFileFilterDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureFileFilterDetails) *AzureFileFilterDetails {
 		return &v
 	}).(AzureFileFilterDetailsPtrOutput)
 }
 
-// List of full path of the files to be transferred.
 func (o AzureFileFilterDetailsOutput) FilePathList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureFileFilterDetails) []string { return v.FilePathList }).(pulumi.StringArrayOutput)
 }
 
-// Prefix list of the Azure files to be transferred.
 func (o AzureFileFilterDetailsOutput) FilePrefixList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureFileFilterDetails) []string { return v.FilePrefixList }).(pulumi.StringArrayOutput)
 }
 
-// List of file shares to be transferred.
 func (o AzureFileFilterDetailsOutput) FileShareList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureFileFilterDetails) []string { return v.FileShareList }).(pulumi.StringArrayOutput)
 }
@@ -496,10 +451,15 @@ func (o AzureFileFilterDetailsPtrOutput) ToAzureFileFilterDetailsPtrOutputWithCo
 }
 
 func (o AzureFileFilterDetailsPtrOutput) Elem() AzureFileFilterDetailsOutput {
-	return o.ApplyT(func(v *AzureFileFilterDetails) AzureFileFilterDetails { return *v }).(AzureFileFilterDetailsOutput)
+	return o.ApplyT(func(v *AzureFileFilterDetails) AzureFileFilterDetails {
+		if v != nil {
+			return *v
+		}
+		var ret AzureFileFilterDetails
+		return ret
+	}).(AzureFileFilterDetailsOutput)
 }
 
-// List of full path of the files to be transferred.
 func (o AzureFileFilterDetailsPtrOutput) FilePathList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AzureFileFilterDetails) []string {
 		if v == nil {
@@ -509,7 +469,6 @@ func (o AzureFileFilterDetailsPtrOutput) FilePathList() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// Prefix list of the Azure files to be transferred.
 func (o AzureFileFilterDetailsPtrOutput) FilePrefixList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AzureFileFilterDetails) []string {
 		if v == nil {
@@ -519,7 +478,6 @@ func (o AzureFileFilterDetailsPtrOutput) FilePrefixList() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of file shares to be transferred.
 func (o AzureFileFilterDetailsPtrOutput) FileShareList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AzureFileFilterDetails) []string {
 		if v == nil {
@@ -529,14 +487,10 @@ func (o AzureFileFilterDetailsPtrOutput) FileShareList() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Filter details to transfer Azure files
 type AzureFileFilterDetailsResponse struct {
-	// List of full path of the files to be transferred.
-	FilePathList []string `pulumi:"filePathList"`
-	// Prefix list of the Azure files to be transferred.
+	FilePathList   []string `pulumi:"filePathList"`
 	FilePrefixList []string `pulumi:"filePrefixList"`
-	// List of file shares to be transferred.
-	FileShareList []string `pulumi:"fileShareList"`
+	FileShareList  []string `pulumi:"fileShareList"`
 }
 
 // AzureFileFilterDetailsResponseInput is an input type that accepts AzureFileFilterDetailsResponseArgs and AzureFileFilterDetailsResponseOutput values.
@@ -550,14 +504,10 @@ type AzureFileFilterDetailsResponseInput interface {
 	ToAzureFileFilterDetailsResponseOutputWithContext(context.Context) AzureFileFilterDetailsResponseOutput
 }
 
-// Filter details to transfer Azure files
 type AzureFileFilterDetailsResponseArgs struct {
-	// List of full path of the files to be transferred.
-	FilePathList pulumi.StringArrayInput `pulumi:"filePathList"`
-	// Prefix list of the Azure files to be transferred.
+	FilePathList   pulumi.StringArrayInput `pulumi:"filePathList"`
 	FilePrefixList pulumi.StringArrayInput `pulumi:"filePrefixList"`
-	// List of file shares to be transferred.
-	FileShareList pulumi.StringArrayInput `pulumi:"fileShareList"`
+	FileShareList  pulumi.StringArrayInput `pulumi:"fileShareList"`
 }
 
 func (AzureFileFilterDetailsResponseArgs) ElementType() reflect.Type {
@@ -613,7 +563,6 @@ func (i *azureFileFilterDetailsResponsePtrType) ToAzureFileFilterDetailsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFileFilterDetailsResponsePtrOutput)
 }
 
-// Filter details to transfer Azure files
 type AzureFileFilterDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureFileFilterDetailsResponseOutput) ElementType() reflect.Type {
@@ -633,22 +582,19 @@ func (o AzureFileFilterDetailsResponseOutput) ToAzureFileFilterDetailsResponsePt
 }
 
 func (o AzureFileFilterDetailsResponseOutput) ToAzureFileFilterDetailsResponsePtrOutputWithContext(ctx context.Context) AzureFileFilterDetailsResponsePtrOutput {
-	return o.ApplyT(func(v AzureFileFilterDetailsResponse) *AzureFileFilterDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureFileFilterDetailsResponse) *AzureFileFilterDetailsResponse {
 		return &v
 	}).(AzureFileFilterDetailsResponsePtrOutput)
 }
 
-// List of full path of the files to be transferred.
 func (o AzureFileFilterDetailsResponseOutput) FilePathList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureFileFilterDetailsResponse) []string { return v.FilePathList }).(pulumi.StringArrayOutput)
 }
 
-// Prefix list of the Azure files to be transferred.
 func (o AzureFileFilterDetailsResponseOutput) FilePrefixList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureFileFilterDetailsResponse) []string { return v.FilePrefixList }).(pulumi.StringArrayOutput)
 }
 
-// List of file shares to be transferred.
 func (o AzureFileFilterDetailsResponseOutput) FileShareList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureFileFilterDetailsResponse) []string { return v.FileShareList }).(pulumi.StringArrayOutput)
 }
@@ -668,10 +614,15 @@ func (o AzureFileFilterDetailsResponsePtrOutput) ToAzureFileFilterDetailsRespons
 }
 
 func (o AzureFileFilterDetailsResponsePtrOutput) Elem() AzureFileFilterDetailsResponseOutput {
-	return o.ApplyT(func(v *AzureFileFilterDetailsResponse) AzureFileFilterDetailsResponse { return *v }).(AzureFileFilterDetailsResponseOutput)
+	return o.ApplyT(func(v *AzureFileFilterDetailsResponse) AzureFileFilterDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureFileFilterDetailsResponse
+		return ret
+	}).(AzureFileFilterDetailsResponseOutput)
 }
 
-// List of full path of the files to be transferred.
 func (o AzureFileFilterDetailsResponsePtrOutput) FilePathList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AzureFileFilterDetailsResponse) []string {
 		if v == nil {
@@ -681,7 +632,6 @@ func (o AzureFileFilterDetailsResponsePtrOutput) FilePathList() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Prefix list of the Azure files to be transferred.
 func (o AzureFileFilterDetailsResponsePtrOutput) FilePrefixList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AzureFileFilterDetailsResponse) []string {
 		if v == nil {
@@ -691,7 +641,6 @@ func (o AzureFileFilterDetailsResponsePtrOutput) FilePrefixList() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of file shares to be transferred.
 func (o AzureFileFilterDetailsResponsePtrOutput) FileShareList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AzureFileFilterDetailsResponse) []string {
 		if v == nil {
@@ -701,14 +650,10 @@ func (o AzureFileFilterDetailsResponsePtrOutput) FileShareList() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Filter details to transfer Azure Blobs
 type BlobFilterDetails struct {
-	// List of full path of the blobs to be transferred.
-	BlobPathList []string `pulumi:"blobPathList"`
-	// Prefix list of the Azure blobs to be transferred.
+	BlobPathList   []string `pulumi:"blobPathList"`
 	BlobPrefixList []string `pulumi:"blobPrefixList"`
-	// List of blob containers to be transferred.
-	ContainerList []string `pulumi:"containerList"`
+	ContainerList  []string `pulumi:"containerList"`
 }
 
 // BlobFilterDetailsInput is an input type that accepts BlobFilterDetailsArgs and BlobFilterDetailsOutput values.
@@ -722,14 +667,10 @@ type BlobFilterDetailsInput interface {
 	ToBlobFilterDetailsOutputWithContext(context.Context) BlobFilterDetailsOutput
 }
 
-// Filter details to transfer Azure Blobs
 type BlobFilterDetailsArgs struct {
-	// List of full path of the blobs to be transferred.
-	BlobPathList pulumi.StringArrayInput `pulumi:"blobPathList"`
-	// Prefix list of the Azure blobs to be transferred.
+	BlobPathList   pulumi.StringArrayInput `pulumi:"blobPathList"`
 	BlobPrefixList pulumi.StringArrayInput `pulumi:"blobPrefixList"`
-	// List of blob containers to be transferred.
-	ContainerList pulumi.StringArrayInput `pulumi:"containerList"`
+	ContainerList  pulumi.StringArrayInput `pulumi:"containerList"`
 }
 
 func (BlobFilterDetailsArgs) ElementType() reflect.Type {
@@ -785,7 +726,6 @@ func (i *blobFilterDetailsPtrType) ToBlobFilterDetailsPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(BlobFilterDetailsPtrOutput)
 }
 
-// Filter details to transfer Azure Blobs
 type BlobFilterDetailsOutput struct{ *pulumi.OutputState }
 
 func (BlobFilterDetailsOutput) ElementType() reflect.Type {
@@ -805,22 +745,19 @@ func (o BlobFilterDetailsOutput) ToBlobFilterDetailsPtrOutput() BlobFilterDetail
 }
 
 func (o BlobFilterDetailsOutput) ToBlobFilterDetailsPtrOutputWithContext(ctx context.Context) BlobFilterDetailsPtrOutput {
-	return o.ApplyT(func(v BlobFilterDetails) *BlobFilterDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobFilterDetails) *BlobFilterDetails {
 		return &v
 	}).(BlobFilterDetailsPtrOutput)
 }
 
-// List of full path of the blobs to be transferred.
 func (o BlobFilterDetailsOutput) BlobPathList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobFilterDetails) []string { return v.BlobPathList }).(pulumi.StringArrayOutput)
 }
 
-// Prefix list of the Azure blobs to be transferred.
 func (o BlobFilterDetailsOutput) BlobPrefixList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobFilterDetails) []string { return v.BlobPrefixList }).(pulumi.StringArrayOutput)
 }
 
-// List of blob containers to be transferred.
 func (o BlobFilterDetailsOutput) ContainerList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobFilterDetails) []string { return v.ContainerList }).(pulumi.StringArrayOutput)
 }
@@ -840,10 +777,15 @@ func (o BlobFilterDetailsPtrOutput) ToBlobFilterDetailsPtrOutputWithContext(ctx 
 }
 
 func (o BlobFilterDetailsPtrOutput) Elem() BlobFilterDetailsOutput {
-	return o.ApplyT(func(v *BlobFilterDetails) BlobFilterDetails { return *v }).(BlobFilterDetailsOutput)
+	return o.ApplyT(func(v *BlobFilterDetails) BlobFilterDetails {
+		if v != nil {
+			return *v
+		}
+		var ret BlobFilterDetails
+		return ret
+	}).(BlobFilterDetailsOutput)
 }
 
-// List of full path of the blobs to be transferred.
 func (o BlobFilterDetailsPtrOutput) BlobPathList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BlobFilterDetails) []string {
 		if v == nil {
@@ -853,7 +795,6 @@ func (o BlobFilterDetailsPtrOutput) BlobPathList() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Prefix list of the Azure blobs to be transferred.
 func (o BlobFilterDetailsPtrOutput) BlobPrefixList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BlobFilterDetails) []string {
 		if v == nil {
@@ -863,7 +804,6 @@ func (o BlobFilterDetailsPtrOutput) BlobPrefixList() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of blob containers to be transferred.
 func (o BlobFilterDetailsPtrOutput) ContainerList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BlobFilterDetails) []string {
 		if v == nil {
@@ -873,14 +813,10 @@ func (o BlobFilterDetailsPtrOutput) ContainerList() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Filter details to transfer Azure Blobs
 type BlobFilterDetailsResponse struct {
-	// List of full path of the blobs to be transferred.
-	BlobPathList []string `pulumi:"blobPathList"`
-	// Prefix list of the Azure blobs to be transferred.
+	BlobPathList   []string `pulumi:"blobPathList"`
 	BlobPrefixList []string `pulumi:"blobPrefixList"`
-	// List of blob containers to be transferred.
-	ContainerList []string `pulumi:"containerList"`
+	ContainerList  []string `pulumi:"containerList"`
 }
 
 // BlobFilterDetailsResponseInput is an input type that accepts BlobFilterDetailsResponseArgs and BlobFilterDetailsResponseOutput values.
@@ -894,14 +830,10 @@ type BlobFilterDetailsResponseInput interface {
 	ToBlobFilterDetailsResponseOutputWithContext(context.Context) BlobFilterDetailsResponseOutput
 }
 
-// Filter details to transfer Azure Blobs
 type BlobFilterDetailsResponseArgs struct {
-	// List of full path of the blobs to be transferred.
-	BlobPathList pulumi.StringArrayInput `pulumi:"blobPathList"`
-	// Prefix list of the Azure blobs to be transferred.
+	BlobPathList   pulumi.StringArrayInput `pulumi:"blobPathList"`
 	BlobPrefixList pulumi.StringArrayInput `pulumi:"blobPrefixList"`
-	// List of blob containers to be transferred.
-	ContainerList pulumi.StringArrayInput `pulumi:"containerList"`
+	ContainerList  pulumi.StringArrayInput `pulumi:"containerList"`
 }
 
 func (BlobFilterDetailsResponseArgs) ElementType() reflect.Type {
@@ -957,7 +889,6 @@ func (i *blobFilterDetailsResponsePtrType) ToBlobFilterDetailsResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BlobFilterDetailsResponsePtrOutput)
 }
 
-// Filter details to transfer Azure Blobs
 type BlobFilterDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (BlobFilterDetailsResponseOutput) ElementType() reflect.Type {
@@ -977,22 +908,19 @@ func (o BlobFilterDetailsResponseOutput) ToBlobFilterDetailsResponsePtrOutput() 
 }
 
 func (o BlobFilterDetailsResponseOutput) ToBlobFilterDetailsResponsePtrOutputWithContext(ctx context.Context) BlobFilterDetailsResponsePtrOutput {
-	return o.ApplyT(func(v BlobFilterDetailsResponse) *BlobFilterDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobFilterDetailsResponse) *BlobFilterDetailsResponse {
 		return &v
 	}).(BlobFilterDetailsResponsePtrOutput)
 }
 
-// List of full path of the blobs to be transferred.
 func (o BlobFilterDetailsResponseOutput) BlobPathList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobFilterDetailsResponse) []string { return v.BlobPathList }).(pulumi.StringArrayOutput)
 }
 
-// Prefix list of the Azure blobs to be transferred.
 func (o BlobFilterDetailsResponseOutput) BlobPrefixList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobFilterDetailsResponse) []string { return v.BlobPrefixList }).(pulumi.StringArrayOutput)
 }
 
-// List of blob containers to be transferred.
 func (o BlobFilterDetailsResponseOutput) ContainerList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobFilterDetailsResponse) []string { return v.ContainerList }).(pulumi.StringArrayOutput)
 }
@@ -1012,10 +940,15 @@ func (o BlobFilterDetailsResponsePtrOutput) ToBlobFilterDetailsResponsePtrOutput
 }
 
 func (o BlobFilterDetailsResponsePtrOutput) Elem() BlobFilterDetailsResponseOutput {
-	return o.ApplyT(func(v *BlobFilterDetailsResponse) BlobFilterDetailsResponse { return *v }).(BlobFilterDetailsResponseOutput)
+	return o.ApplyT(func(v *BlobFilterDetailsResponse) BlobFilterDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BlobFilterDetailsResponse
+		return ret
+	}).(BlobFilterDetailsResponseOutput)
 }
 
-// List of full path of the blobs to be transferred.
 func (o BlobFilterDetailsResponsePtrOutput) BlobPathList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BlobFilterDetailsResponse) []string {
 		if v == nil {
@@ -1025,7 +958,6 @@ func (o BlobFilterDetailsResponsePtrOutput) BlobPathList() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Prefix list of the Azure blobs to be transferred.
 func (o BlobFilterDetailsResponsePtrOutput) BlobPrefixList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BlobFilterDetailsResponse) []string {
 		if v == nil {
@@ -1035,7 +967,6 @@ func (o BlobFilterDetailsResponsePtrOutput) BlobPrefixList() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of blob containers to be transferred.
 func (o BlobFilterDetailsResponsePtrOutput) ContainerList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BlobFilterDetailsResponse) []string {
 		if v == nil {
@@ -1045,18 +976,12 @@ func (o BlobFilterDetailsResponsePtrOutput) ContainerList() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Cloud error.
 type CloudErrorResponse struct {
-	// Cloud error additional info.
 	AdditionalInfo []AdditionalErrorInfoResponse `pulumi:"additionalInfo"`
-	// Cloud error code.
-	Code *string `pulumi:"code"`
-	// Cloud error details.
-	Details []CloudErrorResponse `pulumi:"details"`
-	// Cloud error message.
-	Message *string `pulumi:"message"`
-	// Cloud error target.
-	Target *string `pulumi:"target"`
+	Code           *string                       `pulumi:"code"`
+	Details        []CloudErrorResponse          `pulumi:"details"`
+	Message        *string                       `pulumi:"message"`
+	Target         *string                       `pulumi:"target"`
 }
 
 // CloudErrorResponseInput is an input type that accepts CloudErrorResponseArgs and CloudErrorResponseOutput values.
@@ -1070,18 +995,12 @@ type CloudErrorResponseInput interface {
 	ToCloudErrorResponseOutputWithContext(context.Context) CloudErrorResponseOutput
 }
 
-// Cloud error.
 type CloudErrorResponseArgs struct {
-	// Cloud error additional info.
 	AdditionalInfo AdditionalErrorInfoResponseArrayInput `pulumi:"additionalInfo"`
-	// Cloud error code.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Cloud error details.
-	Details CloudErrorResponseArrayInput `pulumi:"details"`
-	// Cloud error message.
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// Cloud error target.
-	Target pulumi.StringPtrInput `pulumi:"target"`
+	Code           pulumi.StringPtrInput                 `pulumi:"code"`
+	Details        CloudErrorResponseArrayInput          `pulumi:"details"`
+	Message        pulumi.StringPtrInput                 `pulumi:"message"`
+	Target         pulumi.StringPtrInput                 `pulumi:"target"`
 }
 
 func (CloudErrorResponseArgs) ElementType() reflect.Type {
@@ -1162,7 +1081,6 @@ func (i CloudErrorResponseArray) ToCloudErrorResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorResponseArrayOutput)
 }
 
-// Cloud error.
 type CloudErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudErrorResponseOutput) ElementType() reflect.Type {
@@ -1182,32 +1100,27 @@ func (o CloudErrorResponseOutput) ToCloudErrorResponsePtrOutput() CloudErrorResp
 }
 
 func (o CloudErrorResponseOutput) ToCloudErrorResponsePtrOutputWithContext(ctx context.Context) CloudErrorResponsePtrOutput {
-	return o.ApplyT(func(v CloudErrorResponse) *CloudErrorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudErrorResponse) *CloudErrorResponse {
 		return &v
 	}).(CloudErrorResponsePtrOutput)
 }
 
-// Cloud error additional info.
 func (o CloudErrorResponseOutput) AdditionalInfo() AdditionalErrorInfoResponseArrayOutput {
 	return o.ApplyT(func(v CloudErrorResponse) []AdditionalErrorInfoResponse { return v.AdditionalInfo }).(AdditionalErrorInfoResponseArrayOutput)
 }
 
-// Cloud error code.
 func (o CloudErrorResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudErrorResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Cloud error details.
 func (o CloudErrorResponseOutput) Details() CloudErrorResponseArrayOutput {
 	return o.ApplyT(func(v CloudErrorResponse) []CloudErrorResponse { return v.Details }).(CloudErrorResponseArrayOutput)
 }
 
-// Cloud error message.
 func (o CloudErrorResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudErrorResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// Cloud error target.
 func (o CloudErrorResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudErrorResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -1227,10 +1140,15 @@ func (o CloudErrorResponsePtrOutput) ToCloudErrorResponsePtrOutputWithContext(ct
 }
 
 func (o CloudErrorResponsePtrOutput) Elem() CloudErrorResponseOutput {
-	return o.ApplyT(func(v *CloudErrorResponse) CloudErrorResponse { return *v }).(CloudErrorResponseOutput)
+	return o.ApplyT(func(v *CloudErrorResponse) CloudErrorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CloudErrorResponse
+		return ret
+	}).(CloudErrorResponseOutput)
 }
 
-// Cloud error additional info.
 func (o CloudErrorResponsePtrOutput) AdditionalInfo() AdditionalErrorInfoResponseArrayOutput {
 	return o.ApplyT(func(v *CloudErrorResponse) []AdditionalErrorInfoResponse {
 		if v == nil {
@@ -1240,7 +1158,6 @@ func (o CloudErrorResponsePtrOutput) AdditionalInfo() AdditionalErrorInfoRespons
 	}).(AdditionalErrorInfoResponseArrayOutput)
 }
 
-// Cloud error code.
 func (o CloudErrorResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudErrorResponse) *string {
 		if v == nil {
@@ -1250,7 +1167,6 @@ func (o CloudErrorResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cloud error details.
 func (o CloudErrorResponsePtrOutput) Details() CloudErrorResponseArrayOutput {
 	return o.ApplyT(func(v *CloudErrorResponse) []CloudErrorResponse {
 		if v == nil {
@@ -1260,7 +1176,6 @@ func (o CloudErrorResponsePtrOutput) Details() CloudErrorResponseArrayOutput {
 	}).(CloudErrorResponseArrayOutput)
 }
 
-// Cloud error message.
 func (o CloudErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudErrorResponse) *string {
 		if v == nil {
@@ -1270,7 +1185,6 @@ func (o CloudErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cloud error target.
 func (o CloudErrorResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudErrorResponse) *string {
 		if v == nil {
@@ -1300,20 +1214,13 @@ func (o CloudErrorResponseArrayOutput) Index(i pulumi.IntInput) CloudErrorRespon
 	}).(CloudErrorResponseOutput)
 }
 
-// Contact Details.
 type ContactDetails struct {
-	// Contact name of the person.
-	ContactName string `pulumi:"contactName"`
-	// List of Email-ids to be notified about job progress.
-	EmailList []string `pulumi:"emailList"`
-	// Mobile number of the contact person.
-	Mobile *string `pulumi:"mobile"`
-	// Notification preference for a job stage.
+	ContactName            string                   `pulumi:"contactName"`
+	EmailList              []string                 `pulumi:"emailList"`
+	Mobile                 *string                  `pulumi:"mobile"`
 	NotificationPreference []NotificationPreference `pulumi:"notificationPreference"`
-	// Phone number of the contact person.
-	Phone string `pulumi:"phone"`
-	// Phone extension number of the contact person.
-	PhoneExtension *string `pulumi:"phoneExtension"`
+	Phone                  string                   `pulumi:"phone"`
+	PhoneExtension         *string                  `pulumi:"phoneExtension"`
 }
 
 // ContactDetailsInput is an input type that accepts ContactDetailsArgs and ContactDetailsOutput values.
@@ -1327,20 +1234,13 @@ type ContactDetailsInput interface {
 	ToContactDetailsOutputWithContext(context.Context) ContactDetailsOutput
 }
 
-// Contact Details.
 type ContactDetailsArgs struct {
-	// Contact name of the person.
-	ContactName pulumi.StringInput `pulumi:"contactName"`
-	// List of Email-ids to be notified about job progress.
-	EmailList pulumi.StringArrayInput `pulumi:"emailList"`
-	// Mobile number of the contact person.
-	Mobile pulumi.StringPtrInput `pulumi:"mobile"`
-	// Notification preference for a job stage.
+	ContactName            pulumi.StringInput               `pulumi:"contactName"`
+	EmailList              pulumi.StringArrayInput          `pulumi:"emailList"`
+	Mobile                 pulumi.StringPtrInput            `pulumi:"mobile"`
 	NotificationPreference NotificationPreferenceArrayInput `pulumi:"notificationPreference"`
-	// Phone number of the contact person.
-	Phone pulumi.StringInput `pulumi:"phone"`
-	// Phone extension number of the contact person.
-	PhoneExtension pulumi.StringPtrInput `pulumi:"phoneExtension"`
+	Phone                  pulumi.StringInput               `pulumi:"phone"`
+	PhoneExtension         pulumi.StringPtrInput            `pulumi:"phoneExtension"`
 }
 
 func (ContactDetailsArgs) ElementType() reflect.Type {
@@ -1355,7 +1255,6 @@ func (i ContactDetailsArgs) ToContactDetailsOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ContactDetailsOutput)
 }
 
-// Contact Details.
 type ContactDetailsOutput struct{ *pulumi.OutputState }
 
 func (ContactDetailsOutput) ElementType() reflect.Type {
@@ -1370,50 +1269,37 @@ func (o ContactDetailsOutput) ToContactDetailsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Contact name of the person.
 func (o ContactDetailsOutput) ContactName() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactDetails) string { return v.ContactName }).(pulumi.StringOutput)
 }
 
-// List of Email-ids to be notified about job progress.
 func (o ContactDetailsOutput) EmailList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ContactDetails) []string { return v.EmailList }).(pulumi.StringArrayOutput)
 }
 
-// Mobile number of the contact person.
 func (o ContactDetailsOutput) Mobile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactDetails) *string { return v.Mobile }).(pulumi.StringPtrOutput)
 }
 
-// Notification preference for a job stage.
 func (o ContactDetailsOutput) NotificationPreference() NotificationPreferenceArrayOutput {
 	return o.ApplyT(func(v ContactDetails) []NotificationPreference { return v.NotificationPreference }).(NotificationPreferenceArrayOutput)
 }
 
-// Phone number of the contact person.
 func (o ContactDetailsOutput) Phone() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactDetails) string { return v.Phone }).(pulumi.StringOutput)
 }
 
-// Phone extension number of the contact person.
 func (o ContactDetailsOutput) PhoneExtension() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactDetails) *string { return v.PhoneExtension }).(pulumi.StringPtrOutput)
 }
 
-// Contact Details.
 type ContactDetailsResponse struct {
-	// Contact name of the person.
-	ContactName string `pulumi:"contactName"`
-	// List of Email-ids to be notified about job progress.
-	EmailList []string `pulumi:"emailList"`
-	// Mobile number of the contact person.
-	Mobile *string `pulumi:"mobile"`
-	// Notification preference for a job stage.
+	ContactName            string                           `pulumi:"contactName"`
+	EmailList              []string                         `pulumi:"emailList"`
+	Mobile                 *string                          `pulumi:"mobile"`
 	NotificationPreference []NotificationPreferenceResponse `pulumi:"notificationPreference"`
-	// Phone number of the contact person.
-	Phone string `pulumi:"phone"`
-	// Phone extension number of the contact person.
-	PhoneExtension *string `pulumi:"phoneExtension"`
+	Phone                  string                           `pulumi:"phone"`
+	PhoneExtension         *string                          `pulumi:"phoneExtension"`
 }
 
 // ContactDetailsResponseInput is an input type that accepts ContactDetailsResponseArgs and ContactDetailsResponseOutput values.
@@ -1427,20 +1313,13 @@ type ContactDetailsResponseInput interface {
 	ToContactDetailsResponseOutputWithContext(context.Context) ContactDetailsResponseOutput
 }
 
-// Contact Details.
 type ContactDetailsResponseArgs struct {
-	// Contact name of the person.
-	ContactName pulumi.StringInput `pulumi:"contactName"`
-	// List of Email-ids to be notified about job progress.
-	EmailList pulumi.StringArrayInput `pulumi:"emailList"`
-	// Mobile number of the contact person.
-	Mobile pulumi.StringPtrInput `pulumi:"mobile"`
-	// Notification preference for a job stage.
+	ContactName            pulumi.StringInput                       `pulumi:"contactName"`
+	EmailList              pulumi.StringArrayInput                  `pulumi:"emailList"`
+	Mobile                 pulumi.StringPtrInput                    `pulumi:"mobile"`
 	NotificationPreference NotificationPreferenceResponseArrayInput `pulumi:"notificationPreference"`
-	// Phone number of the contact person.
-	Phone pulumi.StringInput `pulumi:"phone"`
-	// Phone extension number of the contact person.
-	PhoneExtension pulumi.StringPtrInput `pulumi:"phoneExtension"`
+	Phone                  pulumi.StringInput                       `pulumi:"phone"`
+	PhoneExtension         pulumi.StringPtrInput                    `pulumi:"phoneExtension"`
 }
 
 func (ContactDetailsResponseArgs) ElementType() reflect.Type {
@@ -1455,7 +1334,6 @@ func (i ContactDetailsResponseArgs) ToContactDetailsResponseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ContactDetailsResponseOutput)
 }
 
-// Contact Details.
 type ContactDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ContactDetailsResponseOutput) ElementType() reflect.Type {
@@ -1470,69 +1348,46 @@ func (o ContactDetailsResponseOutput) ToContactDetailsResponseOutputWithContext(
 	return o
 }
 
-// Contact name of the person.
 func (o ContactDetailsResponseOutput) ContactName() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactDetailsResponse) string { return v.ContactName }).(pulumi.StringOutput)
 }
 
-// List of Email-ids to be notified about job progress.
 func (o ContactDetailsResponseOutput) EmailList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ContactDetailsResponse) []string { return v.EmailList }).(pulumi.StringArrayOutput)
 }
 
-// Mobile number of the contact person.
 func (o ContactDetailsResponseOutput) Mobile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactDetailsResponse) *string { return v.Mobile }).(pulumi.StringPtrOutput)
 }
 
-// Notification preference for a job stage.
 func (o ContactDetailsResponseOutput) NotificationPreference() NotificationPreferenceResponseArrayOutput {
 	return o.ApplyT(func(v ContactDetailsResponse) []NotificationPreferenceResponse { return v.NotificationPreference }).(NotificationPreferenceResponseArrayOutput)
 }
 
-// Phone number of the contact person.
 func (o ContactDetailsResponseOutput) Phone() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactDetailsResponse) string { return v.Phone }).(pulumi.StringOutput)
 }
 
-// Phone extension number of the contact person.
 func (o ContactDetailsResponseOutput) PhoneExtension() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactDetailsResponse) *string { return v.PhoneExtension }).(pulumi.StringPtrOutput)
 }
 
-// Copy progress.
 type CopyProgressResponse struct {
-	// Id of the account where the data needs to be uploaded.
-	AccountId string `pulumi:"accountId"`
-	// To indicate bytes transferred.
-	BytesProcessed float64 `pulumi:"bytesProcessed"`
-	// Data Account Type.
-	DataAccountType string `pulumi:"dataAccountType"`
-	// To indicate directories errored out in the job.
-	DirectoriesErroredOut float64 `pulumi:"directoriesErroredOut"`
-	// Number of files which could not be copied
-	FilesErroredOut float64 `pulumi:"filesErroredOut"`
-	// Number of files processed
-	FilesProcessed float64 `pulumi:"filesProcessed"`
-	// To indicate directories renamed
+	AccountId                   string  `pulumi:"accountId"`
+	BytesProcessed              float64 `pulumi:"bytesProcessed"`
+	DataAccountType             string  `pulumi:"dataAccountType"`
+	DirectoriesErroredOut       float64 `pulumi:"directoriesErroredOut"`
+	FilesErroredOut             float64 `pulumi:"filesErroredOut"`
+	FilesProcessed              float64 `pulumi:"filesProcessed"`
 	InvalidDirectoriesProcessed float64 `pulumi:"invalidDirectoriesProcessed"`
-	// Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
-	InvalidFileBytesUploaded float64 `pulumi:"invalidFileBytesUploaded"`
-	// Number of files not adhering to azure naming conventions which were processed by automatic renaming
-	InvalidFilesProcessed float64 `pulumi:"invalidFilesProcessed"`
-	// To indicate if enumeration of data is in progress.
-	// Until this is true, the TotalBytesToProcess may not be valid.
-	IsEnumerationInProgress bool `pulumi:"isEnumerationInProgress"`
-	// Number of folders not adhering to azure naming conventions which were processed by automatic renaming
-	RenamedContainerCount float64 `pulumi:"renamedContainerCount"`
-	// Name of the storage account. This will be empty for data account types other than storage account.
-	StorageAccountName string `pulumi:"storageAccountName"`
-	// Total amount of data to be processed by the job.
-	TotalBytesToProcess float64 `pulumi:"totalBytesToProcess"`
-	// Total files to process
-	TotalFilesToProcess float64 `pulumi:"totalFilesToProcess"`
-	// Transfer type of data
-	TransferType string `pulumi:"transferType"`
+	InvalidFileBytesUploaded    float64 `pulumi:"invalidFileBytesUploaded"`
+	InvalidFilesProcessed       float64 `pulumi:"invalidFilesProcessed"`
+	IsEnumerationInProgress     bool    `pulumi:"isEnumerationInProgress"`
+	RenamedContainerCount       float64 `pulumi:"renamedContainerCount"`
+	StorageAccountName          string  `pulumi:"storageAccountName"`
+	TotalBytesToProcess         float64 `pulumi:"totalBytesToProcess"`
+	TotalFilesToProcess         float64 `pulumi:"totalFilesToProcess"`
+	TransferType                string  `pulumi:"transferType"`
 }
 
 // CopyProgressResponseInput is an input type that accepts CopyProgressResponseArgs and CopyProgressResponseOutput values.
@@ -1546,39 +1401,22 @@ type CopyProgressResponseInput interface {
 	ToCopyProgressResponseOutputWithContext(context.Context) CopyProgressResponseOutput
 }
 
-// Copy progress.
 type CopyProgressResponseArgs struct {
-	// Id of the account where the data needs to be uploaded.
-	AccountId pulumi.StringInput `pulumi:"accountId"`
-	// To indicate bytes transferred.
-	BytesProcessed pulumi.Float64Input `pulumi:"bytesProcessed"`
-	// Data Account Type.
-	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
-	// To indicate directories errored out in the job.
-	DirectoriesErroredOut pulumi.Float64Input `pulumi:"directoriesErroredOut"`
-	// Number of files which could not be copied
-	FilesErroredOut pulumi.Float64Input `pulumi:"filesErroredOut"`
-	// Number of files processed
-	FilesProcessed pulumi.Float64Input `pulumi:"filesProcessed"`
-	// To indicate directories renamed
+	AccountId                   pulumi.StringInput  `pulumi:"accountId"`
+	BytesProcessed              pulumi.Float64Input `pulumi:"bytesProcessed"`
+	DataAccountType             pulumi.StringInput  `pulumi:"dataAccountType"`
+	DirectoriesErroredOut       pulumi.Float64Input `pulumi:"directoriesErroredOut"`
+	FilesErroredOut             pulumi.Float64Input `pulumi:"filesErroredOut"`
+	FilesProcessed              pulumi.Float64Input `pulumi:"filesProcessed"`
 	InvalidDirectoriesProcessed pulumi.Float64Input `pulumi:"invalidDirectoriesProcessed"`
-	// Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
-	InvalidFileBytesUploaded pulumi.Float64Input `pulumi:"invalidFileBytesUploaded"`
-	// Number of files not adhering to azure naming conventions which were processed by automatic renaming
-	InvalidFilesProcessed pulumi.Float64Input `pulumi:"invalidFilesProcessed"`
-	// To indicate if enumeration of data is in progress.
-	// Until this is true, the TotalBytesToProcess may not be valid.
-	IsEnumerationInProgress pulumi.BoolInput `pulumi:"isEnumerationInProgress"`
-	// Number of folders not adhering to azure naming conventions which were processed by automatic renaming
-	RenamedContainerCount pulumi.Float64Input `pulumi:"renamedContainerCount"`
-	// Name of the storage account. This will be empty for data account types other than storage account.
-	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
-	// Total amount of data to be processed by the job.
-	TotalBytesToProcess pulumi.Float64Input `pulumi:"totalBytesToProcess"`
-	// Total files to process
-	TotalFilesToProcess pulumi.Float64Input `pulumi:"totalFilesToProcess"`
-	// Transfer type of data
-	TransferType pulumi.StringInput `pulumi:"transferType"`
+	InvalidFileBytesUploaded    pulumi.Float64Input `pulumi:"invalidFileBytesUploaded"`
+	InvalidFilesProcessed       pulumi.Float64Input `pulumi:"invalidFilesProcessed"`
+	IsEnumerationInProgress     pulumi.BoolInput    `pulumi:"isEnumerationInProgress"`
+	RenamedContainerCount       pulumi.Float64Input `pulumi:"renamedContainerCount"`
+	StorageAccountName          pulumi.StringInput  `pulumi:"storageAccountName"`
+	TotalBytesToProcess         pulumi.Float64Input `pulumi:"totalBytesToProcess"`
+	TotalFilesToProcess         pulumi.Float64Input `pulumi:"totalFilesToProcess"`
+	TransferType                pulumi.StringInput  `pulumi:"transferType"`
 }
 
 func (CopyProgressResponseArgs) ElementType() reflect.Type {
@@ -1618,7 +1456,6 @@ func (i CopyProgressResponseArray) ToCopyProgressResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CopyProgressResponseArrayOutput)
 }
 
-// Copy progress.
 type CopyProgressResponseOutput struct{ *pulumi.OutputState }
 
 func (CopyProgressResponseOutput) ElementType() reflect.Type {
@@ -1633,78 +1470,62 @@ func (o CopyProgressResponseOutput) ToCopyProgressResponseOutputWithContext(ctx 
 	return o
 }
 
-// Id of the account where the data needs to be uploaded.
 func (o CopyProgressResponseOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyProgressResponse) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// To indicate bytes transferred.
 func (o CopyProgressResponseOutput) BytesProcessed() pulumi.Float64Output {
 	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.BytesProcessed }).(pulumi.Float64Output)
 }
 
-// Data Account Type.
 func (o CopyProgressResponseOutput) DataAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyProgressResponse) string { return v.DataAccountType }).(pulumi.StringOutput)
 }
 
-// To indicate directories errored out in the job.
 func (o CopyProgressResponseOutput) DirectoriesErroredOut() pulumi.Float64Output {
 	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.DirectoriesErroredOut }).(pulumi.Float64Output)
 }
 
-// Number of files which could not be copied
 func (o CopyProgressResponseOutput) FilesErroredOut() pulumi.Float64Output {
 	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.FilesErroredOut }).(pulumi.Float64Output)
 }
 
-// Number of files processed
 func (o CopyProgressResponseOutput) FilesProcessed() pulumi.Float64Output {
 	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.FilesProcessed }).(pulumi.Float64Output)
 }
 
-// To indicate directories renamed
 func (o CopyProgressResponseOutput) InvalidDirectoriesProcessed() pulumi.Float64Output {
 	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.InvalidDirectoriesProcessed }).(pulumi.Float64Output)
 }
 
-// Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
 func (o CopyProgressResponseOutput) InvalidFileBytesUploaded() pulumi.Float64Output {
 	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.InvalidFileBytesUploaded }).(pulumi.Float64Output)
 }
 
-// Number of files not adhering to azure naming conventions which were processed by automatic renaming
 func (o CopyProgressResponseOutput) InvalidFilesProcessed() pulumi.Float64Output {
 	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.InvalidFilesProcessed }).(pulumi.Float64Output)
 }
 
-// To indicate if enumeration of data is in progress.
-// Until this is true, the TotalBytesToProcess may not be valid.
 func (o CopyProgressResponseOutput) IsEnumerationInProgress() pulumi.BoolOutput {
 	return o.ApplyT(func(v CopyProgressResponse) bool { return v.IsEnumerationInProgress }).(pulumi.BoolOutput)
 }
 
-// Number of folders not adhering to azure naming conventions which were processed by automatic renaming
 func (o CopyProgressResponseOutput) RenamedContainerCount() pulumi.Float64Output {
 	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.RenamedContainerCount }).(pulumi.Float64Output)
 }
 
-// Name of the storage account. This will be empty for data account types other than storage account.
 func (o CopyProgressResponseOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyProgressResponse) string { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
-// Total amount of data to be processed by the job.
 func (o CopyProgressResponseOutput) TotalBytesToProcess() pulumi.Float64Output {
 	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.TotalBytesToProcess }).(pulumi.Float64Output)
 }
 
-// Total files to process
 func (o CopyProgressResponseOutput) TotalFilesToProcess() pulumi.Float64Output {
 	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.TotalFilesToProcess }).(pulumi.Float64Output)
 }
 
-// Transfer type of data
 func (o CopyProgressResponseOutput) TransferType() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyProgressResponse) string { return v.TransferType }).(pulumi.StringOutput)
 }
@@ -1729,16 +1550,10 @@ func (o CopyProgressResponseArrayOutput) Index(i pulumi.IntInput) CopyProgressRe
 	}).(CopyProgressResponseOutput)
 }
 
-// Copy log details for a storage account of a DataBox job
 type DataBoxAccountCopyLogDetailsResponse struct {
-	// Account name.
-	AccountName string `pulumi:"accountName"`
-	// Indicates the type of job details.
-	// Expected value is 'DataBox'.
+	AccountName        string `pulumi:"accountName"`
 	CopyLogDetailsType string `pulumi:"copyLogDetailsType"`
-	// Link for copy logs.
-	CopyLogLink string `pulumi:"copyLogLink"`
-	// Link for copy verbose logs. This will be set only when LogCollectionLevel is set to Verbose.
+	CopyLogLink        string `pulumi:"copyLogLink"`
 	CopyVerboseLogLink string `pulumi:"copyVerboseLogLink"`
 }
 
@@ -1753,16 +1568,10 @@ type DataBoxAccountCopyLogDetailsResponseInput interface {
 	ToDataBoxAccountCopyLogDetailsResponseOutputWithContext(context.Context) DataBoxAccountCopyLogDetailsResponseOutput
 }
 
-// Copy log details for a storage account of a DataBox job
 type DataBoxAccountCopyLogDetailsResponseArgs struct {
-	// Account name.
-	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// Indicates the type of job details.
-	// Expected value is 'DataBox'.
+	AccountName        pulumi.StringInput `pulumi:"accountName"`
 	CopyLogDetailsType pulumi.StringInput `pulumi:"copyLogDetailsType"`
-	// Link for copy logs.
-	CopyLogLink pulumi.StringInput `pulumi:"copyLogLink"`
-	// Link for copy verbose logs. This will be set only when LogCollectionLevel is set to Verbose.
+	CopyLogLink        pulumi.StringInput `pulumi:"copyLogLink"`
 	CopyVerboseLogLink pulumi.StringInput `pulumi:"copyVerboseLogLink"`
 }
 
@@ -1778,7 +1587,6 @@ func (i DataBoxAccountCopyLogDetailsResponseArgs) ToDataBoxAccountCopyLogDetails
 	return pulumi.ToOutputWithContext(ctx, i).(DataBoxAccountCopyLogDetailsResponseOutput)
 }
 
-// Copy log details for a storage account of a DataBox job
 type DataBoxAccountCopyLogDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (DataBoxAccountCopyLogDetailsResponseOutput) ElementType() reflect.Type {
@@ -1793,38 +1601,27 @@ func (o DataBoxAccountCopyLogDetailsResponseOutput) ToDataBoxAccountCopyLogDetai
 	return o
 }
 
-// Account name.
 func (o DataBoxAccountCopyLogDetailsResponseOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxAccountCopyLogDetailsResponse) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// Indicates the type of job details.
-// Expected value is 'DataBox'.
 func (o DataBoxAccountCopyLogDetailsResponseOutput) CopyLogDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxAccountCopyLogDetailsResponse) string { return v.CopyLogDetailsType }).(pulumi.StringOutput)
 }
 
-// Link for copy logs.
 func (o DataBoxAccountCopyLogDetailsResponseOutput) CopyLogLink() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxAccountCopyLogDetailsResponse) string { return v.CopyLogLink }).(pulumi.StringOutput)
 }
 
-// Link for copy verbose logs. This will be set only when LogCollectionLevel is set to Verbose.
 func (o DataBoxAccountCopyLogDetailsResponseOutput) CopyVerboseLogLink() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxAccountCopyLogDetailsResponse) string { return v.CopyVerboseLogLink }).(pulumi.StringOutput)
 }
 
-// Copy Log Details for a disk
 type DataBoxDiskCopyLogDetailsResponse struct {
-	// Indicates the type of job details.
-	// Expected value is 'DataBoxDisk'.
 	CopyLogDetailsType string `pulumi:"copyLogDetailsType"`
-	// Disk Serial Number.
-	DiskSerialNumber string `pulumi:"diskSerialNumber"`
-	// Link for copy error logs.
-	ErrorLogLink string `pulumi:"errorLogLink"`
-	// Link for copy verbose logs.
-	VerboseLogLink string `pulumi:"verboseLogLink"`
+	DiskSerialNumber   string `pulumi:"diskSerialNumber"`
+	ErrorLogLink       string `pulumi:"errorLogLink"`
+	VerboseLogLink     string `pulumi:"verboseLogLink"`
 }
 
 // DataBoxDiskCopyLogDetailsResponseInput is an input type that accepts DataBoxDiskCopyLogDetailsResponseArgs and DataBoxDiskCopyLogDetailsResponseOutput values.
@@ -1838,17 +1635,11 @@ type DataBoxDiskCopyLogDetailsResponseInput interface {
 	ToDataBoxDiskCopyLogDetailsResponseOutputWithContext(context.Context) DataBoxDiskCopyLogDetailsResponseOutput
 }
 
-// Copy Log Details for a disk
 type DataBoxDiskCopyLogDetailsResponseArgs struct {
-	// Indicates the type of job details.
-	// Expected value is 'DataBoxDisk'.
 	CopyLogDetailsType pulumi.StringInput `pulumi:"copyLogDetailsType"`
-	// Disk Serial Number.
-	DiskSerialNumber pulumi.StringInput `pulumi:"diskSerialNumber"`
-	// Link for copy error logs.
-	ErrorLogLink pulumi.StringInput `pulumi:"errorLogLink"`
-	// Link for copy verbose logs.
-	VerboseLogLink pulumi.StringInput `pulumi:"verboseLogLink"`
+	DiskSerialNumber   pulumi.StringInput `pulumi:"diskSerialNumber"`
+	ErrorLogLink       pulumi.StringInput `pulumi:"errorLogLink"`
+	VerboseLogLink     pulumi.StringInput `pulumi:"verboseLogLink"`
 }
 
 func (DataBoxDiskCopyLogDetailsResponseArgs) ElementType() reflect.Type {
@@ -1863,7 +1654,6 @@ func (i DataBoxDiskCopyLogDetailsResponseArgs) ToDataBoxDiskCopyLogDetailsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(DataBoxDiskCopyLogDetailsResponseOutput)
 }
 
-// Copy Log Details for a disk
 type DataBoxDiskCopyLogDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (DataBoxDiskCopyLogDetailsResponseOutput) ElementType() reflect.Type {
@@ -1878,37 +1668,27 @@ func (o DataBoxDiskCopyLogDetailsResponseOutput) ToDataBoxDiskCopyLogDetailsResp
 	return o
 }
 
-// Indicates the type of job details.
-// Expected value is 'DataBoxDisk'.
 func (o DataBoxDiskCopyLogDetailsResponseOutput) CopyLogDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskCopyLogDetailsResponse) string { return v.CopyLogDetailsType }).(pulumi.StringOutput)
 }
 
-// Disk Serial Number.
 func (o DataBoxDiskCopyLogDetailsResponseOutput) DiskSerialNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskCopyLogDetailsResponse) string { return v.DiskSerialNumber }).(pulumi.StringOutput)
 }
 
-// Link for copy error logs.
 func (o DataBoxDiskCopyLogDetailsResponseOutput) ErrorLogLink() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskCopyLogDetailsResponse) string { return v.ErrorLogLink }).(pulumi.StringOutput)
 }
 
-// Link for copy verbose logs.
 func (o DataBoxDiskCopyLogDetailsResponseOutput) VerboseLogLink() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskCopyLogDetailsResponse) string { return v.VerboseLogLink }).(pulumi.StringOutput)
 }
 
-// DataBox Disk Copy Progress
 type DataBoxDiskCopyProgressResponse struct {
-	// Bytes copied during the copy of disk.
-	BytesCopied float64 `pulumi:"bytesCopied"`
-	// Indicates the percentage completed for the copy of the disk.
-	PercentComplete int `pulumi:"percentComplete"`
-	// The serial number of the disk
-	SerialNumber string `pulumi:"serialNumber"`
-	// The Status of the copy
-	Status string `pulumi:"status"`
+	BytesCopied     float64 `pulumi:"bytesCopied"`
+	PercentComplete int     `pulumi:"percentComplete"`
+	SerialNumber    string  `pulumi:"serialNumber"`
+	Status          string  `pulumi:"status"`
 }
 
 // DataBoxDiskCopyProgressResponseInput is an input type that accepts DataBoxDiskCopyProgressResponseArgs and DataBoxDiskCopyProgressResponseOutput values.
@@ -1922,16 +1702,11 @@ type DataBoxDiskCopyProgressResponseInput interface {
 	ToDataBoxDiskCopyProgressResponseOutputWithContext(context.Context) DataBoxDiskCopyProgressResponseOutput
 }
 
-// DataBox Disk Copy Progress
 type DataBoxDiskCopyProgressResponseArgs struct {
-	// Bytes copied during the copy of disk.
-	BytesCopied pulumi.Float64Input `pulumi:"bytesCopied"`
-	// Indicates the percentage completed for the copy of the disk.
-	PercentComplete pulumi.IntInput `pulumi:"percentComplete"`
-	// The serial number of the disk
-	SerialNumber pulumi.StringInput `pulumi:"serialNumber"`
-	// The Status of the copy
-	Status pulumi.StringInput `pulumi:"status"`
+	BytesCopied     pulumi.Float64Input `pulumi:"bytesCopied"`
+	PercentComplete pulumi.IntInput     `pulumi:"percentComplete"`
+	SerialNumber    pulumi.StringInput  `pulumi:"serialNumber"`
+	Status          pulumi.StringInput  `pulumi:"status"`
 }
 
 func (DataBoxDiskCopyProgressResponseArgs) ElementType() reflect.Type {
@@ -1971,7 +1746,6 @@ func (i DataBoxDiskCopyProgressResponseArray) ToDataBoxDiskCopyProgressResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(DataBoxDiskCopyProgressResponseArrayOutput)
 }
 
-// DataBox Disk Copy Progress
 type DataBoxDiskCopyProgressResponseOutput struct{ *pulumi.OutputState }
 
 func (DataBoxDiskCopyProgressResponseOutput) ElementType() reflect.Type {
@@ -1986,22 +1760,18 @@ func (o DataBoxDiskCopyProgressResponseOutput) ToDataBoxDiskCopyProgressResponse
 	return o
 }
 
-// Bytes copied during the copy of disk.
 func (o DataBoxDiskCopyProgressResponseOutput) BytesCopied() pulumi.Float64Output {
 	return o.ApplyT(func(v DataBoxDiskCopyProgressResponse) float64 { return v.BytesCopied }).(pulumi.Float64Output)
 }
 
-// Indicates the percentage completed for the copy of the disk.
 func (o DataBoxDiskCopyProgressResponseOutput) PercentComplete() pulumi.IntOutput {
 	return o.ApplyT(func(v DataBoxDiskCopyProgressResponse) int { return v.PercentComplete }).(pulumi.IntOutput)
 }
 
-// The serial number of the disk
 func (o DataBoxDiskCopyProgressResponseOutput) SerialNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskCopyProgressResponse) string { return v.SerialNumber }).(pulumi.StringOutput)
 }
 
-// The Status of the copy
 func (o DataBoxDiskCopyProgressResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskCopyProgressResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -2026,27 +1796,16 @@ func (o DataBoxDiskCopyProgressResponseArrayOutput) Index(i pulumi.IntInput) Dat
 	}).(DataBoxDiskCopyProgressResponseOutput)
 }
 
-// DataBox Disk Job Details.
 type DataBoxDiskJobDetails struct {
-	// Contact details for notification and shipping.
-	ContactDetails ContactDetails `pulumi:"contactDetails"`
-	// Details of the data to be exported from azure.
-	DataExportDetails []DataExportDetails `pulumi:"dataExportDetails"`
-	// Details of the data to be imported into azure.
-	DataImportDetails []DataImportDetails `pulumi:"dataImportDetails"`
-	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
-	// Indicates the type of job details.
-	// Expected value is 'DataBoxDisk'.
-	JobDetailsType string `pulumi:"jobDetailsType"`
-	// User entered passkey for DataBox Disk job.
-	Passkey *string `pulumi:"passkey"`
-	// Preferences for the order.
-	Preferences *Preferences `pulumi:"preferences"`
-	// User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
-	PreferredDisks map[string]int `pulumi:"preferredDisks"`
-	// Shipping address of the customer.
-	ShippingAddress *ShippingAddress `pulumi:"shippingAddress"`
+	ContactDetails              ContactDetails      `pulumi:"contactDetails"`
+	DataExportDetails           []DataExportDetails `pulumi:"dataExportDetails"`
+	DataImportDetails           []DataImportDetails `pulumi:"dataImportDetails"`
+	ExpectedDataSizeInTeraBytes *int                `pulumi:"expectedDataSizeInTeraBytes"`
+	JobDetailsType              string              `pulumi:"jobDetailsType"`
+	Passkey                     *string             `pulumi:"passkey"`
+	Preferences                 *Preferences        `pulumi:"preferences"`
+	PreferredDisks              map[string]int      `pulumi:"preferredDisks"`
+	ShippingAddress             *ShippingAddress    `pulumi:"shippingAddress"`
 }
 
 // DataBoxDiskJobDetailsInput is an input type that accepts DataBoxDiskJobDetailsArgs and DataBoxDiskJobDetailsOutput values.
@@ -2060,27 +1819,16 @@ type DataBoxDiskJobDetailsInput interface {
 	ToDataBoxDiskJobDetailsOutputWithContext(context.Context) DataBoxDiskJobDetailsOutput
 }
 
-// DataBox Disk Job Details.
 type DataBoxDiskJobDetailsArgs struct {
-	// Contact details for notification and shipping.
-	ContactDetails ContactDetailsInput `pulumi:"contactDetails"`
-	// Details of the data to be exported from azure.
-	DataExportDetails DataExportDetailsArrayInput `pulumi:"dataExportDetails"`
-	// Details of the data to be imported into azure.
-	DataImportDetails DataImportDetailsArrayInput `pulumi:"dataImportDetails"`
-	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
-	// Indicates the type of job details.
-	// Expected value is 'DataBoxDisk'.
-	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
-	// User entered passkey for DataBox Disk job.
-	Passkey pulumi.StringPtrInput `pulumi:"passkey"`
-	// Preferences for the order.
-	Preferences PreferencesPtrInput `pulumi:"preferences"`
-	// User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
-	PreferredDisks pulumi.IntMapInput `pulumi:"preferredDisks"`
-	// Shipping address of the customer.
-	ShippingAddress ShippingAddressPtrInput `pulumi:"shippingAddress"`
+	ContactDetails              ContactDetailsInput         `pulumi:"contactDetails"`
+	DataExportDetails           DataExportDetailsArrayInput `pulumi:"dataExportDetails"`
+	DataImportDetails           DataImportDetailsArrayInput `pulumi:"dataImportDetails"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput          `pulumi:"expectedDataSizeInTeraBytes"`
+	JobDetailsType              pulumi.StringInput          `pulumi:"jobDetailsType"`
+	Passkey                     pulumi.StringPtrInput       `pulumi:"passkey"`
+	Preferences                 PreferencesPtrInput         `pulumi:"preferences"`
+	PreferredDisks              pulumi.IntMapInput          `pulumi:"preferredDisks"`
+	ShippingAddress             ShippingAddressPtrInput     `pulumi:"shippingAddress"`
 }
 
 func (DataBoxDiskJobDetailsArgs) ElementType() reflect.Type {
@@ -2095,7 +1843,6 @@ func (i DataBoxDiskJobDetailsArgs) ToDataBoxDiskJobDetailsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DataBoxDiskJobDetailsOutput)
 }
 
-// DataBox Disk Job Details.
 type DataBoxDiskJobDetailsOutput struct{ *pulumi.OutputState }
 
 func (DataBoxDiskJobDetailsOutput) ElementType() reflect.Type {
@@ -2110,91 +1857,61 @@ func (o DataBoxDiskJobDetailsOutput) ToDataBoxDiskJobDetailsOutputWithContext(ct
 	return o
 }
 
-// Contact details for notification and shipping.
 func (o DataBoxDiskJobDetailsOutput) ContactDetails() ContactDetailsOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetails) ContactDetails { return v.ContactDetails }).(ContactDetailsOutput)
 }
 
-// Details of the data to be exported from azure.
 func (o DataBoxDiskJobDetailsOutput) DataExportDetails() DataExportDetailsArrayOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetails) []DataExportDetails { return v.DataExportDetails }).(DataExportDetailsArrayOutput)
 }
 
-// Details of the data to be imported into azure.
 func (o DataBoxDiskJobDetailsOutput) DataImportDetails() DataImportDetailsArrayOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetails) []DataImportDetails { return v.DataImportDetails }).(DataImportDetailsArrayOutput)
 }
 
-// The expected size of the data, which needs to be transferred in this job, in terabytes.
 func (o DataBoxDiskJobDetailsOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetails) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
-// Indicates the type of job details.
-// Expected value is 'DataBoxDisk'.
 func (o DataBoxDiskJobDetailsOutput) JobDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetails) string { return v.JobDetailsType }).(pulumi.StringOutput)
 }
 
-// User entered passkey for DataBox Disk job.
 func (o DataBoxDiskJobDetailsOutput) Passkey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetails) *string { return v.Passkey }).(pulumi.StringPtrOutput)
 }
 
-// Preferences for the order.
 func (o DataBoxDiskJobDetailsOutput) Preferences() PreferencesPtrOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetails) *Preferences { return v.Preferences }).(PreferencesPtrOutput)
 }
 
-// User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
 func (o DataBoxDiskJobDetailsOutput) PreferredDisks() pulumi.IntMapOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetails) map[string]int { return v.PreferredDisks }).(pulumi.IntMapOutput)
 }
 
-// Shipping address of the customer.
 func (o DataBoxDiskJobDetailsOutput) ShippingAddress() ShippingAddressPtrOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetails) *ShippingAddress { return v.ShippingAddress }).(ShippingAddressPtrOutput)
 }
 
-// DataBox Disk Job Details.
 type DataBoxDiskJobDetailsResponse struct {
-	// Shared access key to download the chain of custody logs
-	ChainOfCustodySasKey string `pulumi:"chainOfCustodySasKey"`
-	// Contact details for notification and shipping.
-	ContactDetails ContactDetailsResponse `pulumi:"contactDetails"`
-	// List of copy log details.
-	CopyLogDetails []interface{} `pulumi:"copyLogDetails"`
-	// Copy progress per disk.
-	CopyProgress []DataBoxDiskCopyProgressResponse `pulumi:"copyProgress"`
-	// Details of the data to be exported from azure.
-	DataExportDetails []DataExportDetailsResponse `pulumi:"dataExportDetails"`
-	// Details of the data to be imported into azure.
-	DataImportDetails []DataImportDetailsResponse `pulumi:"dataImportDetails"`
-	// Delivery package shipping details.
-	DeliveryPackage PackageShippingDetailsResponse `pulumi:"deliveryPackage"`
-	// Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
-	DisksAndSizeDetails map[string]int `pulumi:"disksAndSizeDetails"`
-	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
-	// Indicates the type of job details.
-	// Expected value is 'DataBoxDisk'.
-	JobDetailsType string `pulumi:"jobDetailsType"`
-	// List of stages that run in the job.
-	JobStages []JobStagesResponse `pulumi:"jobStages"`
-	// Details about which key encryption type is being used.
-	KeyEncryptionKey KeyEncryptionKeyResponse `pulumi:"keyEncryptionKey"`
-	// User entered passkey for DataBox Disk job.
-	Passkey *string `pulumi:"passkey"`
-	// Preferences for the order.
-	Preferences *PreferencesResponse `pulumi:"preferences"`
-	// User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
-	PreferredDisks map[string]int `pulumi:"preferredDisks"`
-	// Return package shipping details.
-	ReturnPackage PackageShippingDetailsResponse `pulumi:"returnPackage"`
-	// Shared access key to download the return shipment label
-	ReverseShipmentLabelSasKey string `pulumi:"reverseShipmentLabelSasKey"`
-	// Shipping address of the customer.
-	ShippingAddress *ShippingAddressResponse `pulumi:"shippingAddress"`
+	ChainOfCustodySasKey        string                            `pulumi:"chainOfCustodySasKey"`
+	ContactDetails              ContactDetailsResponse            `pulumi:"contactDetails"`
+	CopyLogDetails              []interface{}                     `pulumi:"copyLogDetails"`
+	CopyProgress                []DataBoxDiskCopyProgressResponse `pulumi:"copyProgress"`
+	DataExportDetails           []DataExportDetailsResponse       `pulumi:"dataExportDetails"`
+	DataImportDetails           []DataImportDetailsResponse       `pulumi:"dataImportDetails"`
+	DeliveryPackage             PackageShippingDetailsResponse    `pulumi:"deliveryPackage"`
+	DisksAndSizeDetails         map[string]int                    `pulumi:"disksAndSizeDetails"`
+	ExpectedDataSizeInTeraBytes *int                              `pulumi:"expectedDataSizeInTeraBytes"`
+	JobDetailsType              string                            `pulumi:"jobDetailsType"`
+	JobStages                   []JobStagesResponse               `pulumi:"jobStages"`
+	KeyEncryptionKey            KeyEncryptionKeyResponse          `pulumi:"keyEncryptionKey"`
+	Passkey                     *string                           `pulumi:"passkey"`
+	Preferences                 *PreferencesResponse              `pulumi:"preferences"`
+	PreferredDisks              map[string]int                    `pulumi:"preferredDisks"`
+	ReturnPackage               PackageShippingDetailsResponse    `pulumi:"returnPackage"`
+	ReverseShipmentLabelSasKey  string                            `pulumi:"reverseShipmentLabelSasKey"`
+	ShippingAddress             *ShippingAddressResponse          `pulumi:"shippingAddress"`
 }
 
 // DataBoxDiskJobDetailsResponseInput is an input type that accepts DataBoxDiskJobDetailsResponseArgs and DataBoxDiskJobDetailsResponseOutput values.
@@ -2208,45 +1925,25 @@ type DataBoxDiskJobDetailsResponseInput interface {
 	ToDataBoxDiskJobDetailsResponseOutputWithContext(context.Context) DataBoxDiskJobDetailsResponseOutput
 }
 
-// DataBox Disk Job Details.
 type DataBoxDiskJobDetailsResponseArgs struct {
-	// Shared access key to download the chain of custody logs
-	ChainOfCustodySasKey pulumi.StringInput `pulumi:"chainOfCustodySasKey"`
-	// Contact details for notification and shipping.
-	ContactDetails ContactDetailsResponseInput `pulumi:"contactDetails"`
-	// List of copy log details.
-	CopyLogDetails pulumi.ArrayInput `pulumi:"copyLogDetails"`
-	// Copy progress per disk.
-	CopyProgress DataBoxDiskCopyProgressResponseArrayInput `pulumi:"copyProgress"`
-	// Details of the data to be exported from azure.
-	DataExportDetails DataExportDetailsResponseArrayInput `pulumi:"dataExportDetails"`
-	// Details of the data to be imported into azure.
-	DataImportDetails DataImportDetailsResponseArrayInput `pulumi:"dataImportDetails"`
-	// Delivery package shipping details.
-	DeliveryPackage PackageShippingDetailsResponseInput `pulumi:"deliveryPackage"`
-	// Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
-	DisksAndSizeDetails pulumi.IntMapInput `pulumi:"disksAndSizeDetails"`
-	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
-	// Indicates the type of job details.
-	// Expected value is 'DataBoxDisk'.
-	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
-	// List of stages that run in the job.
-	JobStages JobStagesResponseArrayInput `pulumi:"jobStages"`
-	// Details about which key encryption type is being used.
-	KeyEncryptionKey KeyEncryptionKeyResponseInput `pulumi:"keyEncryptionKey"`
-	// User entered passkey for DataBox Disk job.
-	Passkey pulumi.StringPtrInput `pulumi:"passkey"`
-	// Preferences for the order.
-	Preferences PreferencesResponsePtrInput `pulumi:"preferences"`
-	// User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
-	PreferredDisks pulumi.IntMapInput `pulumi:"preferredDisks"`
-	// Return package shipping details.
-	ReturnPackage PackageShippingDetailsResponseInput `pulumi:"returnPackage"`
-	// Shared access key to download the return shipment label
-	ReverseShipmentLabelSasKey pulumi.StringInput `pulumi:"reverseShipmentLabelSasKey"`
-	// Shipping address of the customer.
-	ShippingAddress ShippingAddressResponsePtrInput `pulumi:"shippingAddress"`
+	ChainOfCustodySasKey        pulumi.StringInput                        `pulumi:"chainOfCustodySasKey"`
+	ContactDetails              ContactDetailsResponseInput               `pulumi:"contactDetails"`
+	CopyLogDetails              pulumi.ArrayInput                         `pulumi:"copyLogDetails"`
+	CopyProgress                DataBoxDiskCopyProgressResponseArrayInput `pulumi:"copyProgress"`
+	DataExportDetails           DataExportDetailsResponseArrayInput       `pulumi:"dataExportDetails"`
+	DataImportDetails           DataImportDetailsResponseArrayInput       `pulumi:"dataImportDetails"`
+	DeliveryPackage             PackageShippingDetailsResponseInput       `pulumi:"deliveryPackage"`
+	DisksAndSizeDetails         pulumi.IntMapInput                        `pulumi:"disksAndSizeDetails"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput                        `pulumi:"expectedDataSizeInTeraBytes"`
+	JobDetailsType              pulumi.StringInput                        `pulumi:"jobDetailsType"`
+	JobStages                   JobStagesResponseArrayInput               `pulumi:"jobStages"`
+	KeyEncryptionKey            KeyEncryptionKeyResponseInput             `pulumi:"keyEncryptionKey"`
+	Passkey                     pulumi.StringPtrInput                     `pulumi:"passkey"`
+	Preferences                 PreferencesResponsePtrInput               `pulumi:"preferences"`
+	PreferredDisks              pulumi.IntMapInput                        `pulumi:"preferredDisks"`
+	ReturnPackage               PackageShippingDetailsResponseInput       `pulumi:"returnPackage"`
+	ReverseShipmentLabelSasKey  pulumi.StringInput                        `pulumi:"reverseShipmentLabelSasKey"`
+	ShippingAddress             ShippingAddressResponsePtrInput           `pulumi:"shippingAddress"`
 }
 
 func (DataBoxDiskJobDetailsResponseArgs) ElementType() reflect.Type {
@@ -2261,7 +1958,6 @@ func (i DataBoxDiskJobDetailsResponseArgs) ToDataBoxDiskJobDetailsResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DataBoxDiskJobDetailsResponseOutput)
 }
 
-// DataBox Disk Job Details.
 type DataBoxDiskJobDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (DataBoxDiskJobDetailsResponseOutput) ElementType() reflect.Type {
@@ -2276,112 +1972,85 @@ func (o DataBoxDiskJobDetailsResponseOutput) ToDataBoxDiskJobDetailsResponseOutp
 	return o
 }
 
-// Shared access key to download the chain of custody logs
 func (o DataBoxDiskJobDetailsResponseOutput) ChainOfCustodySasKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) string { return v.ChainOfCustodySasKey }).(pulumi.StringOutput)
 }
 
-// Contact details for notification and shipping.
 func (o DataBoxDiskJobDetailsResponseOutput) ContactDetails() ContactDetailsResponseOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) ContactDetailsResponse { return v.ContactDetails }).(ContactDetailsResponseOutput)
 }
 
-// List of copy log details.
 func (o DataBoxDiskJobDetailsResponseOutput) CopyLogDetails() pulumi.ArrayOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) []interface{} { return v.CopyLogDetails }).(pulumi.ArrayOutput)
 }
 
-// Copy progress per disk.
 func (o DataBoxDiskJobDetailsResponseOutput) CopyProgress() DataBoxDiskCopyProgressResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) []DataBoxDiskCopyProgressResponse { return v.CopyProgress }).(DataBoxDiskCopyProgressResponseArrayOutput)
 }
 
-// Details of the data to be exported from azure.
 func (o DataBoxDiskJobDetailsResponseOutput) DataExportDetails() DataExportDetailsResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) []DataExportDetailsResponse { return v.DataExportDetails }).(DataExportDetailsResponseArrayOutput)
 }
 
-// Details of the data to be imported into azure.
 func (o DataBoxDiskJobDetailsResponseOutput) DataImportDetails() DataImportDetailsResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) []DataImportDetailsResponse { return v.DataImportDetails }).(DataImportDetailsResponseArrayOutput)
 }
 
-// Delivery package shipping details.
 func (o DataBoxDiskJobDetailsResponseOutput) DeliveryPackage() PackageShippingDetailsResponseOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) PackageShippingDetailsResponse { return v.DeliveryPackage }).(PackageShippingDetailsResponseOutput)
 }
 
-// Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
 func (o DataBoxDiskJobDetailsResponseOutput) DisksAndSizeDetails() pulumi.IntMapOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) map[string]int { return v.DisksAndSizeDetails }).(pulumi.IntMapOutput)
 }
 
-// The expected size of the data, which needs to be transferred in this job, in terabytes.
 func (o DataBoxDiskJobDetailsResponseOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
-// Indicates the type of job details.
-// Expected value is 'DataBoxDisk'.
 func (o DataBoxDiskJobDetailsResponseOutput) JobDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) string { return v.JobDetailsType }).(pulumi.StringOutput)
 }
 
-// List of stages that run in the job.
 func (o DataBoxDiskJobDetailsResponseOutput) JobStages() JobStagesResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) []JobStagesResponse { return v.JobStages }).(JobStagesResponseArrayOutput)
 }
 
-// Details about which key encryption type is being used.
 func (o DataBoxDiskJobDetailsResponseOutput) KeyEncryptionKey() KeyEncryptionKeyResponseOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) KeyEncryptionKeyResponse { return v.KeyEncryptionKey }).(KeyEncryptionKeyResponseOutput)
 }
 
-// User entered passkey for DataBox Disk job.
 func (o DataBoxDiskJobDetailsResponseOutput) Passkey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) *string { return v.Passkey }).(pulumi.StringPtrOutput)
 }
 
-// Preferences for the order.
 func (o DataBoxDiskJobDetailsResponseOutput) Preferences() PreferencesResponsePtrOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) *PreferencesResponse { return v.Preferences }).(PreferencesResponsePtrOutput)
 }
 
-// User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
 func (o DataBoxDiskJobDetailsResponseOutput) PreferredDisks() pulumi.IntMapOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) map[string]int { return v.PreferredDisks }).(pulumi.IntMapOutput)
 }
 
-// Return package shipping details.
 func (o DataBoxDiskJobDetailsResponseOutput) ReturnPackage() PackageShippingDetailsResponseOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) PackageShippingDetailsResponse { return v.ReturnPackage }).(PackageShippingDetailsResponseOutput)
 }
 
-// Shared access key to download the return shipment label
 func (o DataBoxDiskJobDetailsResponseOutput) ReverseShipmentLabelSasKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) string { return v.ReverseShipmentLabelSasKey }).(pulumi.StringOutput)
 }
 
-// Shipping address of the customer.
 func (o DataBoxDiskJobDetailsResponseOutput) ShippingAddress() ShippingAddressResponsePtrOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) *ShippingAddressResponse { return v.ShippingAddress }).(ShippingAddressResponsePtrOutput)
 }
 
-// The secrets related to disk job.
 type DataBoxDiskJobSecretsResponse struct {
-	// Dc Access Security Code for Customer Managed Shipping
 	DcAccessSecurityCode DcAccessSecurityCodeResponse `pulumi:"dcAccessSecurityCode"`
-	// Contains the list of secrets object for that device.
-	DiskSecrets []DiskSecretResponse `pulumi:"diskSecrets"`
-	// Error while fetching the secrets.
-	Error CloudErrorResponse `pulumi:"error"`
-	// Whether passkey was provided by user.
-	IsPasskeyUserDefined bool `pulumi:"isPasskeyUserDefined"`
-	// Used to indicate what type of job secrets object.
-	// Expected value is 'DataBoxDisk'.
-	JobSecretsType string `pulumi:"jobSecretsType"`
-	// PassKey for the disk Job.
-	PassKey string `pulumi:"passKey"`
+	DiskSecrets          []DiskSecretResponse         `pulumi:"diskSecrets"`
+	Error                CloudErrorResponse           `pulumi:"error"`
+	IsPasskeyUserDefined bool                         `pulumi:"isPasskeyUserDefined"`
+	JobSecretsType       string                       `pulumi:"jobSecretsType"`
+	PassKey              string                       `pulumi:"passKey"`
 }
 
 // DataBoxDiskJobSecretsResponseInput is an input type that accepts DataBoxDiskJobSecretsResponseArgs and DataBoxDiskJobSecretsResponseOutput values.
@@ -2395,21 +2064,13 @@ type DataBoxDiskJobSecretsResponseInput interface {
 	ToDataBoxDiskJobSecretsResponseOutputWithContext(context.Context) DataBoxDiskJobSecretsResponseOutput
 }
 
-// The secrets related to disk job.
 type DataBoxDiskJobSecretsResponseArgs struct {
-	// Dc Access Security Code for Customer Managed Shipping
 	DcAccessSecurityCode DcAccessSecurityCodeResponseInput `pulumi:"dcAccessSecurityCode"`
-	// Contains the list of secrets object for that device.
-	DiskSecrets DiskSecretResponseArrayInput `pulumi:"diskSecrets"`
-	// Error while fetching the secrets.
-	Error CloudErrorResponseInput `pulumi:"error"`
-	// Whether passkey was provided by user.
-	IsPasskeyUserDefined pulumi.BoolInput `pulumi:"isPasskeyUserDefined"`
-	// Used to indicate what type of job secrets object.
-	// Expected value is 'DataBoxDisk'.
-	JobSecretsType pulumi.StringInput `pulumi:"jobSecretsType"`
-	// PassKey for the disk Job.
-	PassKey pulumi.StringInput `pulumi:"passKey"`
+	DiskSecrets          DiskSecretResponseArrayInput      `pulumi:"diskSecrets"`
+	Error                CloudErrorResponseInput           `pulumi:"error"`
+	IsPasskeyUserDefined pulumi.BoolInput                  `pulumi:"isPasskeyUserDefined"`
+	JobSecretsType       pulumi.StringInput                `pulumi:"jobSecretsType"`
+	PassKey              pulumi.StringInput                `pulumi:"passKey"`
 }
 
 func (DataBoxDiskJobSecretsResponseArgs) ElementType() reflect.Type {
@@ -2424,7 +2085,6 @@ func (i DataBoxDiskJobSecretsResponseArgs) ToDataBoxDiskJobSecretsResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DataBoxDiskJobSecretsResponseOutput)
 }
 
-// The secrets related to disk job.
 type DataBoxDiskJobSecretsResponseOutput struct{ *pulumi.OutputState }
 
 func (DataBoxDiskJobSecretsResponseOutput) ElementType() reflect.Type {
@@ -2439,47 +2099,34 @@ func (o DataBoxDiskJobSecretsResponseOutput) ToDataBoxDiskJobSecretsResponseOutp
 	return o
 }
 
-// Dc Access Security Code for Customer Managed Shipping
 func (o DataBoxDiskJobSecretsResponseOutput) DcAccessSecurityCode() DcAccessSecurityCodeResponseOutput {
 	return o.ApplyT(func(v DataBoxDiskJobSecretsResponse) DcAccessSecurityCodeResponse { return v.DcAccessSecurityCode }).(DcAccessSecurityCodeResponseOutput)
 }
 
-// Contains the list of secrets object for that device.
 func (o DataBoxDiskJobSecretsResponseOutput) DiskSecrets() DiskSecretResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxDiskJobSecretsResponse) []DiskSecretResponse { return v.DiskSecrets }).(DiskSecretResponseArrayOutput)
 }
 
-// Error while fetching the secrets.
 func (o DataBoxDiskJobSecretsResponseOutput) Error() CloudErrorResponseOutput {
 	return o.ApplyT(func(v DataBoxDiskJobSecretsResponse) CloudErrorResponse { return v.Error }).(CloudErrorResponseOutput)
 }
 
-// Whether passkey was provided by user.
 func (o DataBoxDiskJobSecretsResponseOutput) IsPasskeyUserDefined() pulumi.BoolOutput {
 	return o.ApplyT(func(v DataBoxDiskJobSecretsResponse) bool { return v.IsPasskeyUserDefined }).(pulumi.BoolOutput)
 }
 
-// Used to indicate what type of job secrets object.
-// Expected value is 'DataBoxDisk'.
 func (o DataBoxDiskJobSecretsResponseOutput) JobSecretsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskJobSecretsResponse) string { return v.JobSecretsType }).(pulumi.StringOutput)
 }
 
-// PassKey for the disk Job.
 func (o DataBoxDiskJobSecretsResponseOutput) PassKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskJobSecretsResponse) string { return v.PassKey }).(pulumi.StringOutput)
 }
 
-// Copy log details for a storage account for Databox heavy
 type DataBoxHeavyAccountCopyLogDetailsResponse struct {
-	// Account name.
-	AccountName string `pulumi:"accountName"`
-	// Indicates the type of job details.
-	// Expected value is 'DataBoxHeavy'.
-	CopyLogDetailsType string `pulumi:"copyLogDetailsType"`
-	// Link for copy logs.
-	CopyLogLink []string `pulumi:"copyLogLink"`
-	// Link for copy verbose logs. This will be set only when the LogCollectionLevel is set to verbose.
+	AccountName        string   `pulumi:"accountName"`
+	CopyLogDetailsType string   `pulumi:"copyLogDetailsType"`
+	CopyLogLink        []string `pulumi:"copyLogLink"`
 	CopyVerboseLogLink []string `pulumi:"copyVerboseLogLink"`
 }
 
@@ -2494,16 +2141,10 @@ type DataBoxHeavyAccountCopyLogDetailsResponseInput interface {
 	ToDataBoxHeavyAccountCopyLogDetailsResponseOutputWithContext(context.Context) DataBoxHeavyAccountCopyLogDetailsResponseOutput
 }
 
-// Copy log details for a storage account for Databox heavy
 type DataBoxHeavyAccountCopyLogDetailsResponseArgs struct {
-	// Account name.
-	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// Indicates the type of job details.
-	// Expected value is 'DataBoxHeavy'.
-	CopyLogDetailsType pulumi.StringInput `pulumi:"copyLogDetailsType"`
-	// Link for copy logs.
-	CopyLogLink pulumi.StringArrayInput `pulumi:"copyLogLink"`
-	// Link for copy verbose logs. This will be set only when the LogCollectionLevel is set to verbose.
+	AccountName        pulumi.StringInput      `pulumi:"accountName"`
+	CopyLogDetailsType pulumi.StringInput      `pulumi:"copyLogDetailsType"`
+	CopyLogLink        pulumi.StringArrayInput `pulumi:"copyLogLink"`
 	CopyVerboseLogLink pulumi.StringArrayInput `pulumi:"copyVerboseLogLink"`
 }
 
@@ -2519,7 +2160,6 @@ func (i DataBoxHeavyAccountCopyLogDetailsResponseArgs) ToDataBoxHeavyAccountCopy
 	return pulumi.ToOutputWithContext(ctx, i).(DataBoxHeavyAccountCopyLogDetailsResponseOutput)
 }
 
-// Copy log details for a storage account for Databox heavy
 type DataBoxHeavyAccountCopyLogDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (DataBoxHeavyAccountCopyLogDetailsResponseOutput) ElementType() reflect.Type {
@@ -2534,46 +2174,31 @@ func (o DataBoxHeavyAccountCopyLogDetailsResponseOutput) ToDataBoxHeavyAccountCo
 	return o
 }
 
-// Account name.
 func (o DataBoxHeavyAccountCopyLogDetailsResponseOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxHeavyAccountCopyLogDetailsResponse) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// Indicates the type of job details.
-// Expected value is 'DataBoxHeavy'.
 func (o DataBoxHeavyAccountCopyLogDetailsResponseOutput) CopyLogDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxHeavyAccountCopyLogDetailsResponse) string { return v.CopyLogDetailsType }).(pulumi.StringOutput)
 }
 
-// Link for copy logs.
 func (o DataBoxHeavyAccountCopyLogDetailsResponseOutput) CopyLogLink() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataBoxHeavyAccountCopyLogDetailsResponse) []string { return v.CopyLogLink }).(pulumi.StringArrayOutput)
 }
 
-// Link for copy verbose logs. This will be set only when the LogCollectionLevel is set to verbose.
 func (o DataBoxHeavyAccountCopyLogDetailsResponseOutput) CopyVerboseLogLink() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataBoxHeavyAccountCopyLogDetailsResponse) []string { return v.CopyVerboseLogLink }).(pulumi.StringArrayOutput)
 }
 
-// Databox Heavy Device Job Details
 type DataBoxHeavyJobDetails struct {
-	// Contact details for notification and shipping.
-	ContactDetails ContactDetails `pulumi:"contactDetails"`
-	// Details of the data to be exported from azure.
-	DataExportDetails []DataExportDetails `pulumi:"dataExportDetails"`
-	// Details of the data to be imported into azure.
-	DataImportDetails []DataImportDetails `pulumi:"dataImportDetails"`
-	// Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-	DevicePassword *string `pulumi:"devicePassword"`
-	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
-	// Indicates the type of job details.
-	// Expected value is 'DataBoxHeavy'.
-	JobDetailsType string `pulumi:"jobDetailsType"`
-	// Preferences for the order.
-	Preferences *Preferences `pulumi:"preferences"`
-	// Shipping address of the customer.
-	ShippingAddress *ShippingAddress `pulumi:"shippingAddress"`
+	ContactDetails              ContactDetails      `pulumi:"contactDetails"`
+	DataExportDetails           []DataExportDetails `pulumi:"dataExportDetails"`
+	DataImportDetails           []DataImportDetails `pulumi:"dataImportDetails"`
+	DevicePassword              *string             `pulumi:"devicePassword"`
+	ExpectedDataSizeInTeraBytes *int                `pulumi:"expectedDataSizeInTeraBytes"`
+	JobDetailsType              string              `pulumi:"jobDetailsType"`
+	Preferences                 *Preferences        `pulumi:"preferences"`
+	ShippingAddress             *ShippingAddress    `pulumi:"shippingAddress"`
 }
 
 // DataBoxHeavyJobDetailsInput is an input type that accepts DataBoxHeavyJobDetailsArgs and DataBoxHeavyJobDetailsOutput values.
@@ -2587,25 +2212,15 @@ type DataBoxHeavyJobDetailsInput interface {
 	ToDataBoxHeavyJobDetailsOutputWithContext(context.Context) DataBoxHeavyJobDetailsOutput
 }
 
-// Databox Heavy Device Job Details
 type DataBoxHeavyJobDetailsArgs struct {
-	// Contact details for notification and shipping.
-	ContactDetails ContactDetailsInput `pulumi:"contactDetails"`
-	// Details of the data to be exported from azure.
-	DataExportDetails DataExportDetailsArrayInput `pulumi:"dataExportDetails"`
-	// Details of the data to be imported into azure.
-	DataImportDetails DataImportDetailsArrayInput `pulumi:"dataImportDetails"`
-	// Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-	DevicePassword pulumi.StringPtrInput `pulumi:"devicePassword"`
-	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
-	// Indicates the type of job details.
-	// Expected value is 'DataBoxHeavy'.
-	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
-	// Preferences for the order.
-	Preferences PreferencesPtrInput `pulumi:"preferences"`
-	// Shipping address of the customer.
-	ShippingAddress ShippingAddressPtrInput `pulumi:"shippingAddress"`
+	ContactDetails              ContactDetailsInput         `pulumi:"contactDetails"`
+	DataExportDetails           DataExportDetailsArrayInput `pulumi:"dataExportDetails"`
+	DataImportDetails           DataImportDetailsArrayInput `pulumi:"dataImportDetails"`
+	DevicePassword              pulumi.StringPtrInput       `pulumi:"devicePassword"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput          `pulumi:"expectedDataSizeInTeraBytes"`
+	JobDetailsType              pulumi.StringInput          `pulumi:"jobDetailsType"`
+	Preferences                 PreferencesPtrInput         `pulumi:"preferences"`
+	ShippingAddress             ShippingAddressPtrInput     `pulumi:"shippingAddress"`
 }
 
 func (DataBoxHeavyJobDetailsArgs) ElementType() reflect.Type {
@@ -2620,7 +2235,6 @@ func (i DataBoxHeavyJobDetailsArgs) ToDataBoxHeavyJobDetailsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DataBoxHeavyJobDetailsOutput)
 }
 
-// Databox Heavy Device Job Details
 type DataBoxHeavyJobDetailsOutput struct{ *pulumi.OutputState }
 
 func (DataBoxHeavyJobDetailsOutput) ElementType() reflect.Type {
@@ -2635,82 +2249,55 @@ func (o DataBoxHeavyJobDetailsOutput) ToDataBoxHeavyJobDetailsOutputWithContext(
 	return o
 }
 
-// Contact details for notification and shipping.
 func (o DataBoxHeavyJobDetailsOutput) ContactDetails() ContactDetailsOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetails) ContactDetails { return v.ContactDetails }).(ContactDetailsOutput)
 }
 
-// Details of the data to be exported from azure.
 func (o DataBoxHeavyJobDetailsOutput) DataExportDetails() DataExportDetailsArrayOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetails) []DataExportDetails { return v.DataExportDetails }).(DataExportDetailsArrayOutput)
 }
 
-// Details of the data to be imported into azure.
 func (o DataBoxHeavyJobDetailsOutput) DataImportDetails() DataImportDetailsArrayOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetails) []DataImportDetails { return v.DataImportDetails }).(DataImportDetailsArrayOutput)
 }
 
-// Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 func (o DataBoxHeavyJobDetailsOutput) DevicePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetails) *string { return v.DevicePassword }).(pulumi.StringPtrOutput)
 }
 
-// The expected size of the data, which needs to be transferred in this job, in terabytes.
 func (o DataBoxHeavyJobDetailsOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetails) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
-// Indicates the type of job details.
-// Expected value is 'DataBoxHeavy'.
 func (o DataBoxHeavyJobDetailsOutput) JobDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetails) string { return v.JobDetailsType }).(pulumi.StringOutput)
 }
 
-// Preferences for the order.
 func (o DataBoxHeavyJobDetailsOutput) Preferences() PreferencesPtrOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetails) *Preferences { return v.Preferences }).(PreferencesPtrOutput)
 }
 
-// Shipping address of the customer.
 func (o DataBoxHeavyJobDetailsOutput) ShippingAddress() ShippingAddressPtrOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetails) *ShippingAddress { return v.ShippingAddress }).(ShippingAddressPtrOutput)
 }
 
-// Databox Heavy Device Job Details
 type DataBoxHeavyJobDetailsResponse struct {
-	// Shared access key to download the chain of custody logs
-	ChainOfCustodySasKey string `pulumi:"chainOfCustodySasKey"`
-	// Contact details for notification and shipping.
-	ContactDetails ContactDetailsResponse `pulumi:"contactDetails"`
-	// List of copy log details.
-	CopyLogDetails []interface{} `pulumi:"copyLogDetails"`
-	// Copy progress per account.
-	CopyProgress []CopyProgressResponse `pulumi:"copyProgress"`
-	// Details of the data to be exported from azure.
-	DataExportDetails []DataExportDetailsResponse `pulumi:"dataExportDetails"`
-	// Details of the data to be imported into azure.
-	DataImportDetails []DataImportDetailsResponse `pulumi:"dataImportDetails"`
-	// Delivery package shipping details.
-	DeliveryPackage PackageShippingDetailsResponse `pulumi:"deliveryPackage"`
-	// Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-	DevicePassword *string `pulumi:"devicePassword"`
-	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
-	// Indicates the type of job details.
-	// Expected value is 'DataBoxHeavy'.
-	JobDetailsType string `pulumi:"jobDetailsType"`
-	// List of stages that run in the job.
-	JobStages []JobStagesResponse `pulumi:"jobStages"`
-	// Details about which key encryption type is being used.
-	KeyEncryptionKey KeyEncryptionKeyResponse `pulumi:"keyEncryptionKey"`
-	// Preferences for the order.
-	Preferences *PreferencesResponse `pulumi:"preferences"`
-	// Return package shipping details.
-	ReturnPackage PackageShippingDetailsResponse `pulumi:"returnPackage"`
-	// Shared access key to download the return shipment label
-	ReverseShipmentLabelSasKey string `pulumi:"reverseShipmentLabelSasKey"`
-	// Shipping address of the customer.
-	ShippingAddress *ShippingAddressResponse `pulumi:"shippingAddress"`
+	ChainOfCustodySasKey        string                         `pulumi:"chainOfCustodySasKey"`
+	ContactDetails              ContactDetailsResponse         `pulumi:"contactDetails"`
+	CopyLogDetails              []interface{}                  `pulumi:"copyLogDetails"`
+	CopyProgress                []CopyProgressResponse         `pulumi:"copyProgress"`
+	DataExportDetails           []DataExportDetailsResponse    `pulumi:"dataExportDetails"`
+	DataImportDetails           []DataImportDetailsResponse    `pulumi:"dataImportDetails"`
+	DeliveryPackage             PackageShippingDetailsResponse `pulumi:"deliveryPackage"`
+	DevicePassword              *string                        `pulumi:"devicePassword"`
+	ExpectedDataSizeInTeraBytes *int                           `pulumi:"expectedDataSizeInTeraBytes"`
+	JobDetailsType              string                         `pulumi:"jobDetailsType"`
+	JobStages                   []JobStagesResponse            `pulumi:"jobStages"`
+	KeyEncryptionKey            KeyEncryptionKeyResponse       `pulumi:"keyEncryptionKey"`
+	Preferences                 *PreferencesResponse           `pulumi:"preferences"`
+	ReturnPackage               PackageShippingDetailsResponse `pulumi:"returnPackage"`
+	ReverseShipmentLabelSasKey  string                         `pulumi:"reverseShipmentLabelSasKey"`
+	ShippingAddress             *ShippingAddressResponse       `pulumi:"shippingAddress"`
 }
 
 // DataBoxHeavyJobDetailsResponseInput is an input type that accepts DataBoxHeavyJobDetailsResponseArgs and DataBoxHeavyJobDetailsResponseOutput values.
@@ -2724,41 +2311,23 @@ type DataBoxHeavyJobDetailsResponseInput interface {
 	ToDataBoxHeavyJobDetailsResponseOutputWithContext(context.Context) DataBoxHeavyJobDetailsResponseOutput
 }
 
-// Databox Heavy Device Job Details
 type DataBoxHeavyJobDetailsResponseArgs struct {
-	// Shared access key to download the chain of custody logs
-	ChainOfCustodySasKey pulumi.StringInput `pulumi:"chainOfCustodySasKey"`
-	// Contact details for notification and shipping.
-	ContactDetails ContactDetailsResponseInput `pulumi:"contactDetails"`
-	// List of copy log details.
-	CopyLogDetails pulumi.ArrayInput `pulumi:"copyLogDetails"`
-	// Copy progress per account.
-	CopyProgress CopyProgressResponseArrayInput `pulumi:"copyProgress"`
-	// Details of the data to be exported from azure.
-	DataExportDetails DataExportDetailsResponseArrayInput `pulumi:"dataExportDetails"`
-	// Details of the data to be imported into azure.
-	DataImportDetails DataImportDetailsResponseArrayInput `pulumi:"dataImportDetails"`
-	// Delivery package shipping details.
-	DeliveryPackage PackageShippingDetailsResponseInput `pulumi:"deliveryPackage"`
-	// Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-	DevicePassword pulumi.StringPtrInput `pulumi:"devicePassword"`
-	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
-	// Indicates the type of job details.
-	// Expected value is 'DataBoxHeavy'.
-	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
-	// List of stages that run in the job.
-	JobStages JobStagesResponseArrayInput `pulumi:"jobStages"`
-	// Details about which key encryption type is being used.
-	KeyEncryptionKey KeyEncryptionKeyResponseInput `pulumi:"keyEncryptionKey"`
-	// Preferences for the order.
-	Preferences PreferencesResponsePtrInput `pulumi:"preferences"`
-	// Return package shipping details.
-	ReturnPackage PackageShippingDetailsResponseInput `pulumi:"returnPackage"`
-	// Shared access key to download the return shipment label
-	ReverseShipmentLabelSasKey pulumi.StringInput `pulumi:"reverseShipmentLabelSasKey"`
-	// Shipping address of the customer.
-	ShippingAddress ShippingAddressResponsePtrInput `pulumi:"shippingAddress"`
+	ChainOfCustodySasKey        pulumi.StringInput                  `pulumi:"chainOfCustodySasKey"`
+	ContactDetails              ContactDetailsResponseInput         `pulumi:"contactDetails"`
+	CopyLogDetails              pulumi.ArrayInput                   `pulumi:"copyLogDetails"`
+	CopyProgress                CopyProgressResponseArrayInput      `pulumi:"copyProgress"`
+	DataExportDetails           DataExportDetailsResponseArrayInput `pulumi:"dataExportDetails"`
+	DataImportDetails           DataImportDetailsResponseArrayInput `pulumi:"dataImportDetails"`
+	DeliveryPackage             PackageShippingDetailsResponseInput `pulumi:"deliveryPackage"`
+	DevicePassword              pulumi.StringPtrInput               `pulumi:"devicePassword"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput                  `pulumi:"expectedDataSizeInTeraBytes"`
+	JobDetailsType              pulumi.StringInput                  `pulumi:"jobDetailsType"`
+	JobStages                   JobStagesResponseArrayInput         `pulumi:"jobStages"`
+	KeyEncryptionKey            KeyEncryptionKeyResponseInput       `pulumi:"keyEncryptionKey"`
+	Preferences                 PreferencesResponsePtrInput         `pulumi:"preferences"`
+	ReturnPackage               PackageShippingDetailsResponseInput `pulumi:"returnPackage"`
+	ReverseShipmentLabelSasKey  pulumi.StringInput                  `pulumi:"reverseShipmentLabelSasKey"`
+	ShippingAddress             ShippingAddressResponsePtrInput     `pulumi:"shippingAddress"`
 }
 
 func (DataBoxHeavyJobDetailsResponseArgs) ElementType() reflect.Type {
@@ -2773,7 +2342,6 @@ func (i DataBoxHeavyJobDetailsResponseArgs) ToDataBoxHeavyJobDetailsResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DataBoxHeavyJobDetailsResponseOutput)
 }
 
-// Databox Heavy Device Job Details
 type DataBoxHeavyJobDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (DataBoxHeavyJobDetailsResponseOutput) ElementType() reflect.Type {
@@ -2788,98 +2356,75 @@ func (o DataBoxHeavyJobDetailsResponseOutput) ToDataBoxHeavyJobDetailsResponseOu
 	return o
 }
 
-// Shared access key to download the chain of custody logs
 func (o DataBoxHeavyJobDetailsResponseOutput) ChainOfCustodySasKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) string { return v.ChainOfCustodySasKey }).(pulumi.StringOutput)
 }
 
-// Contact details for notification and shipping.
 func (o DataBoxHeavyJobDetailsResponseOutput) ContactDetails() ContactDetailsResponseOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) ContactDetailsResponse { return v.ContactDetails }).(ContactDetailsResponseOutput)
 }
 
-// List of copy log details.
 func (o DataBoxHeavyJobDetailsResponseOutput) CopyLogDetails() pulumi.ArrayOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) []interface{} { return v.CopyLogDetails }).(pulumi.ArrayOutput)
 }
 
-// Copy progress per account.
 func (o DataBoxHeavyJobDetailsResponseOutput) CopyProgress() CopyProgressResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) []CopyProgressResponse { return v.CopyProgress }).(CopyProgressResponseArrayOutput)
 }
 
-// Details of the data to be exported from azure.
 func (o DataBoxHeavyJobDetailsResponseOutput) DataExportDetails() DataExportDetailsResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) []DataExportDetailsResponse { return v.DataExportDetails }).(DataExportDetailsResponseArrayOutput)
 }
 
-// Details of the data to be imported into azure.
 func (o DataBoxHeavyJobDetailsResponseOutput) DataImportDetails() DataImportDetailsResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) []DataImportDetailsResponse { return v.DataImportDetails }).(DataImportDetailsResponseArrayOutput)
 }
 
-// Delivery package shipping details.
 func (o DataBoxHeavyJobDetailsResponseOutput) DeliveryPackage() PackageShippingDetailsResponseOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) PackageShippingDetailsResponse { return v.DeliveryPackage }).(PackageShippingDetailsResponseOutput)
 }
 
-// Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 func (o DataBoxHeavyJobDetailsResponseOutput) DevicePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) *string { return v.DevicePassword }).(pulumi.StringPtrOutput)
 }
 
-// The expected size of the data, which needs to be transferred in this job, in terabytes.
 func (o DataBoxHeavyJobDetailsResponseOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
-// Indicates the type of job details.
-// Expected value is 'DataBoxHeavy'.
 func (o DataBoxHeavyJobDetailsResponseOutput) JobDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) string { return v.JobDetailsType }).(pulumi.StringOutput)
 }
 
-// List of stages that run in the job.
 func (o DataBoxHeavyJobDetailsResponseOutput) JobStages() JobStagesResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) []JobStagesResponse { return v.JobStages }).(JobStagesResponseArrayOutput)
 }
 
-// Details about which key encryption type is being used.
 func (o DataBoxHeavyJobDetailsResponseOutput) KeyEncryptionKey() KeyEncryptionKeyResponseOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) KeyEncryptionKeyResponse { return v.KeyEncryptionKey }).(KeyEncryptionKeyResponseOutput)
 }
 
-// Preferences for the order.
 func (o DataBoxHeavyJobDetailsResponseOutput) Preferences() PreferencesResponsePtrOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) *PreferencesResponse { return v.Preferences }).(PreferencesResponsePtrOutput)
 }
 
-// Return package shipping details.
 func (o DataBoxHeavyJobDetailsResponseOutput) ReturnPackage() PackageShippingDetailsResponseOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) PackageShippingDetailsResponse { return v.ReturnPackage }).(PackageShippingDetailsResponseOutput)
 }
 
-// Shared access key to download the return shipment label
 func (o DataBoxHeavyJobDetailsResponseOutput) ReverseShipmentLabelSasKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) string { return v.ReverseShipmentLabelSasKey }).(pulumi.StringOutput)
 }
 
-// Shipping address of the customer.
 func (o DataBoxHeavyJobDetailsResponseOutput) ShippingAddress() ShippingAddressResponsePtrOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) *ShippingAddressResponse { return v.ShippingAddress }).(ShippingAddressResponsePtrOutput)
 }
 
-// The secrets related to a databox heavy job.
 type DataBoxHeavyJobSecretsResponse struct {
-	// Contains the list of secret objects for a databox heavy job.
-	CabinetPodSecrets []DataBoxHeavySecretResponse `pulumi:"cabinetPodSecrets"`
-	// Dc Access Security Code for Customer Managed Shipping
+	CabinetPodSecrets    []DataBoxHeavySecretResponse `pulumi:"cabinetPodSecrets"`
 	DcAccessSecurityCode DcAccessSecurityCodeResponse `pulumi:"dcAccessSecurityCode"`
-	// Error while fetching the secrets.
-	Error CloudErrorResponse `pulumi:"error"`
-	// Used to indicate what type of job secrets object.
-	// Expected value is 'DataBoxHeavy'.
-	JobSecretsType string `pulumi:"jobSecretsType"`
+	Error                CloudErrorResponse           `pulumi:"error"`
+	JobSecretsType       string                       `pulumi:"jobSecretsType"`
 }
 
 // DataBoxHeavyJobSecretsResponseInput is an input type that accepts DataBoxHeavyJobSecretsResponseArgs and DataBoxHeavyJobSecretsResponseOutput values.
@@ -2893,17 +2438,11 @@ type DataBoxHeavyJobSecretsResponseInput interface {
 	ToDataBoxHeavyJobSecretsResponseOutputWithContext(context.Context) DataBoxHeavyJobSecretsResponseOutput
 }
 
-// The secrets related to a databox heavy job.
 type DataBoxHeavyJobSecretsResponseArgs struct {
-	// Contains the list of secret objects for a databox heavy job.
-	CabinetPodSecrets DataBoxHeavySecretResponseArrayInput `pulumi:"cabinetPodSecrets"`
-	// Dc Access Security Code for Customer Managed Shipping
-	DcAccessSecurityCode DcAccessSecurityCodeResponseInput `pulumi:"dcAccessSecurityCode"`
-	// Error while fetching the secrets.
-	Error CloudErrorResponseInput `pulumi:"error"`
-	// Used to indicate what type of job secrets object.
-	// Expected value is 'DataBoxHeavy'.
-	JobSecretsType pulumi.StringInput `pulumi:"jobSecretsType"`
+	CabinetPodSecrets    DataBoxHeavySecretResponseArrayInput `pulumi:"cabinetPodSecrets"`
+	DcAccessSecurityCode DcAccessSecurityCodeResponseInput    `pulumi:"dcAccessSecurityCode"`
+	Error                CloudErrorResponseInput              `pulumi:"error"`
+	JobSecretsType       pulumi.StringInput                   `pulumi:"jobSecretsType"`
 }
 
 func (DataBoxHeavyJobSecretsResponseArgs) ElementType() reflect.Type {
@@ -2918,7 +2457,6 @@ func (i DataBoxHeavyJobSecretsResponseArgs) ToDataBoxHeavyJobSecretsResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DataBoxHeavyJobSecretsResponseOutput)
 }
 
-// The secrets related to a databox heavy job.
 type DataBoxHeavyJobSecretsResponseOutput struct{ *pulumi.OutputState }
 
 func (DataBoxHeavyJobSecretsResponseOutput) ElementType() reflect.Type {
@@ -2933,39 +2471,28 @@ func (o DataBoxHeavyJobSecretsResponseOutput) ToDataBoxHeavyJobSecretsResponseOu
 	return o
 }
 
-// Contains the list of secret objects for a databox heavy job.
 func (o DataBoxHeavyJobSecretsResponseOutput) CabinetPodSecrets() DataBoxHeavySecretResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobSecretsResponse) []DataBoxHeavySecretResponse { return v.CabinetPodSecrets }).(DataBoxHeavySecretResponseArrayOutput)
 }
 
-// Dc Access Security Code for Customer Managed Shipping
 func (o DataBoxHeavyJobSecretsResponseOutput) DcAccessSecurityCode() DcAccessSecurityCodeResponseOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobSecretsResponse) DcAccessSecurityCodeResponse { return v.DcAccessSecurityCode }).(DcAccessSecurityCodeResponseOutput)
 }
 
-// Error while fetching the secrets.
 func (o DataBoxHeavyJobSecretsResponseOutput) Error() CloudErrorResponseOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobSecretsResponse) CloudErrorResponse { return v.Error }).(CloudErrorResponseOutput)
 }
 
-// Used to indicate what type of job secrets object.
-// Expected value is 'DataBoxHeavy'.
 func (o DataBoxHeavyJobSecretsResponseOutput) JobSecretsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobSecretsResponse) string { return v.JobSecretsType }).(pulumi.StringOutput)
 }
 
-// The secrets related to a databox heavy.
 type DataBoxHeavySecretResponse struct {
-	// Per account level access credentials.
-	AccountCredentialDetails []AccountCredentialDetailsResponse `pulumi:"accountCredentialDetails"`
-	// Password for out of the box experience on device.
-	DevicePassword string `pulumi:"devicePassword"`
-	// Serial number of the assigned device.
-	DeviceSerialNumber string `pulumi:"deviceSerialNumber"`
-	// The base 64 encoded public key to authenticate with the device
-	EncodedValidationCertPubKey string `pulumi:"encodedValidationCertPubKey"`
-	// Network configuration of the appliance.
-	NetworkConfigurations []ApplianceNetworkConfigurationResponse `pulumi:"networkConfigurations"`
+	AccountCredentialDetails    []AccountCredentialDetailsResponse      `pulumi:"accountCredentialDetails"`
+	DevicePassword              string                                  `pulumi:"devicePassword"`
+	DeviceSerialNumber          string                                  `pulumi:"deviceSerialNumber"`
+	EncodedValidationCertPubKey string                                  `pulumi:"encodedValidationCertPubKey"`
+	NetworkConfigurations       []ApplianceNetworkConfigurationResponse `pulumi:"networkConfigurations"`
 }
 
 // DataBoxHeavySecretResponseInput is an input type that accepts DataBoxHeavySecretResponseArgs and DataBoxHeavySecretResponseOutput values.
@@ -2979,18 +2506,12 @@ type DataBoxHeavySecretResponseInput interface {
 	ToDataBoxHeavySecretResponseOutputWithContext(context.Context) DataBoxHeavySecretResponseOutput
 }
 
-// The secrets related to a databox heavy.
 type DataBoxHeavySecretResponseArgs struct {
-	// Per account level access credentials.
-	AccountCredentialDetails AccountCredentialDetailsResponseArrayInput `pulumi:"accountCredentialDetails"`
-	// Password for out of the box experience on device.
-	DevicePassword pulumi.StringInput `pulumi:"devicePassword"`
-	// Serial number of the assigned device.
-	DeviceSerialNumber pulumi.StringInput `pulumi:"deviceSerialNumber"`
-	// The base 64 encoded public key to authenticate with the device
-	EncodedValidationCertPubKey pulumi.StringInput `pulumi:"encodedValidationCertPubKey"`
-	// Network configuration of the appliance.
-	NetworkConfigurations ApplianceNetworkConfigurationResponseArrayInput `pulumi:"networkConfigurations"`
+	AccountCredentialDetails    AccountCredentialDetailsResponseArrayInput      `pulumi:"accountCredentialDetails"`
+	DevicePassword              pulumi.StringInput                              `pulumi:"devicePassword"`
+	DeviceSerialNumber          pulumi.StringInput                              `pulumi:"deviceSerialNumber"`
+	EncodedValidationCertPubKey pulumi.StringInput                              `pulumi:"encodedValidationCertPubKey"`
+	NetworkConfigurations       ApplianceNetworkConfigurationResponseArrayInput `pulumi:"networkConfigurations"`
 }
 
 func (DataBoxHeavySecretResponseArgs) ElementType() reflect.Type {
@@ -3030,7 +2551,6 @@ func (i DataBoxHeavySecretResponseArray) ToDataBoxHeavySecretResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DataBoxHeavySecretResponseArrayOutput)
 }
 
-// The secrets related to a databox heavy.
 type DataBoxHeavySecretResponseOutput struct{ *pulumi.OutputState }
 
 func (DataBoxHeavySecretResponseOutput) ElementType() reflect.Type {
@@ -3045,29 +2565,24 @@ func (o DataBoxHeavySecretResponseOutput) ToDataBoxHeavySecretResponseOutputWith
 	return o
 }
 
-// Per account level access credentials.
 func (o DataBoxHeavySecretResponseOutput) AccountCredentialDetails() AccountCredentialDetailsResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxHeavySecretResponse) []AccountCredentialDetailsResponse {
 		return v.AccountCredentialDetails
 	}).(AccountCredentialDetailsResponseArrayOutput)
 }
 
-// Password for out of the box experience on device.
 func (o DataBoxHeavySecretResponseOutput) DevicePassword() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxHeavySecretResponse) string { return v.DevicePassword }).(pulumi.StringOutput)
 }
 
-// Serial number of the assigned device.
 func (o DataBoxHeavySecretResponseOutput) DeviceSerialNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxHeavySecretResponse) string { return v.DeviceSerialNumber }).(pulumi.StringOutput)
 }
 
-// The base 64 encoded public key to authenticate with the device
 func (o DataBoxHeavySecretResponseOutput) EncodedValidationCertPubKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxHeavySecretResponse) string { return v.EncodedValidationCertPubKey }).(pulumi.StringOutput)
 }
 
-// Network configuration of the appliance.
 func (o DataBoxHeavySecretResponseOutput) NetworkConfigurations() ApplianceNetworkConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxHeavySecretResponse) []ApplianceNetworkConfigurationResponse {
 		return v.NetworkConfigurations
@@ -3094,25 +2609,15 @@ func (o DataBoxHeavySecretResponseArrayOutput) Index(i pulumi.IntInput) DataBoxH
 	}).(DataBoxHeavySecretResponseOutput)
 }
 
-// Databox Job Details
 type DataBoxJobDetails struct {
-	// Contact details for notification and shipping.
-	ContactDetails ContactDetails `pulumi:"contactDetails"`
-	// Details of the data to be exported from azure.
-	DataExportDetails []DataExportDetails `pulumi:"dataExportDetails"`
-	// Details of the data to be imported into azure.
-	DataImportDetails []DataImportDetails `pulumi:"dataImportDetails"`
-	// Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-	DevicePassword *string `pulumi:"devicePassword"`
-	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
-	// Indicates the type of job details.
-	// Expected value is 'DataBox'.
-	JobDetailsType string `pulumi:"jobDetailsType"`
-	// Preferences for the order.
-	Preferences *Preferences `pulumi:"preferences"`
-	// Shipping address of the customer.
-	ShippingAddress *ShippingAddress `pulumi:"shippingAddress"`
+	ContactDetails              ContactDetails      `pulumi:"contactDetails"`
+	DataExportDetails           []DataExportDetails `pulumi:"dataExportDetails"`
+	DataImportDetails           []DataImportDetails `pulumi:"dataImportDetails"`
+	DevicePassword              *string             `pulumi:"devicePassword"`
+	ExpectedDataSizeInTeraBytes *int                `pulumi:"expectedDataSizeInTeraBytes"`
+	JobDetailsType              string              `pulumi:"jobDetailsType"`
+	Preferences                 *Preferences        `pulumi:"preferences"`
+	ShippingAddress             *ShippingAddress    `pulumi:"shippingAddress"`
 }
 
 // DataBoxJobDetailsInput is an input type that accepts DataBoxJobDetailsArgs and DataBoxJobDetailsOutput values.
@@ -3126,25 +2631,15 @@ type DataBoxJobDetailsInput interface {
 	ToDataBoxJobDetailsOutputWithContext(context.Context) DataBoxJobDetailsOutput
 }
 
-// Databox Job Details
 type DataBoxJobDetailsArgs struct {
-	// Contact details for notification and shipping.
-	ContactDetails ContactDetailsInput `pulumi:"contactDetails"`
-	// Details of the data to be exported from azure.
-	DataExportDetails DataExportDetailsArrayInput `pulumi:"dataExportDetails"`
-	// Details of the data to be imported into azure.
-	DataImportDetails DataImportDetailsArrayInput `pulumi:"dataImportDetails"`
-	// Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-	DevicePassword pulumi.StringPtrInput `pulumi:"devicePassword"`
-	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
-	// Indicates the type of job details.
-	// Expected value is 'DataBox'.
-	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
-	// Preferences for the order.
-	Preferences PreferencesPtrInput `pulumi:"preferences"`
-	// Shipping address of the customer.
-	ShippingAddress ShippingAddressPtrInput `pulumi:"shippingAddress"`
+	ContactDetails              ContactDetailsInput         `pulumi:"contactDetails"`
+	DataExportDetails           DataExportDetailsArrayInput `pulumi:"dataExportDetails"`
+	DataImportDetails           DataImportDetailsArrayInput `pulumi:"dataImportDetails"`
+	DevicePassword              pulumi.StringPtrInput       `pulumi:"devicePassword"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput          `pulumi:"expectedDataSizeInTeraBytes"`
+	JobDetailsType              pulumi.StringInput          `pulumi:"jobDetailsType"`
+	Preferences                 PreferencesPtrInput         `pulumi:"preferences"`
+	ShippingAddress             ShippingAddressPtrInput     `pulumi:"shippingAddress"`
 }
 
 func (DataBoxJobDetailsArgs) ElementType() reflect.Type {
@@ -3159,7 +2654,6 @@ func (i DataBoxJobDetailsArgs) ToDataBoxJobDetailsOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DataBoxJobDetailsOutput)
 }
 
-// Databox Job Details
 type DataBoxJobDetailsOutput struct{ *pulumi.OutputState }
 
 func (DataBoxJobDetailsOutput) ElementType() reflect.Type {
@@ -3174,82 +2668,55 @@ func (o DataBoxJobDetailsOutput) ToDataBoxJobDetailsOutputWithContext(ctx contex
 	return o
 }
 
-// Contact details for notification and shipping.
 func (o DataBoxJobDetailsOutput) ContactDetails() ContactDetailsOutput {
 	return o.ApplyT(func(v DataBoxJobDetails) ContactDetails { return v.ContactDetails }).(ContactDetailsOutput)
 }
 
-// Details of the data to be exported from azure.
 func (o DataBoxJobDetailsOutput) DataExportDetails() DataExportDetailsArrayOutput {
 	return o.ApplyT(func(v DataBoxJobDetails) []DataExportDetails { return v.DataExportDetails }).(DataExportDetailsArrayOutput)
 }
 
-// Details of the data to be imported into azure.
 func (o DataBoxJobDetailsOutput) DataImportDetails() DataImportDetailsArrayOutput {
 	return o.ApplyT(func(v DataBoxJobDetails) []DataImportDetails { return v.DataImportDetails }).(DataImportDetailsArrayOutput)
 }
 
-// Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 func (o DataBoxJobDetailsOutput) DevicePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataBoxJobDetails) *string { return v.DevicePassword }).(pulumi.StringPtrOutput)
 }
 
-// The expected size of the data, which needs to be transferred in this job, in terabytes.
 func (o DataBoxJobDetailsOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataBoxJobDetails) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
-// Indicates the type of job details.
-// Expected value is 'DataBox'.
 func (o DataBoxJobDetailsOutput) JobDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxJobDetails) string { return v.JobDetailsType }).(pulumi.StringOutput)
 }
 
-// Preferences for the order.
 func (o DataBoxJobDetailsOutput) Preferences() PreferencesPtrOutput {
 	return o.ApplyT(func(v DataBoxJobDetails) *Preferences { return v.Preferences }).(PreferencesPtrOutput)
 }
 
-// Shipping address of the customer.
 func (o DataBoxJobDetailsOutput) ShippingAddress() ShippingAddressPtrOutput {
 	return o.ApplyT(func(v DataBoxJobDetails) *ShippingAddress { return v.ShippingAddress }).(ShippingAddressPtrOutput)
 }
 
-// Databox Job Details
 type DataBoxJobDetailsResponse struct {
-	// Shared access key to download the chain of custody logs
-	ChainOfCustodySasKey string `pulumi:"chainOfCustodySasKey"`
-	// Contact details for notification and shipping.
-	ContactDetails ContactDetailsResponse `pulumi:"contactDetails"`
-	// List of copy log details.
-	CopyLogDetails []interface{} `pulumi:"copyLogDetails"`
-	// Copy progress per storage account.
-	CopyProgress []CopyProgressResponse `pulumi:"copyProgress"`
-	// Details of the data to be exported from azure.
-	DataExportDetails []DataExportDetailsResponse `pulumi:"dataExportDetails"`
-	// Details of the data to be imported into azure.
-	DataImportDetails []DataImportDetailsResponse `pulumi:"dataImportDetails"`
-	// Delivery package shipping details.
-	DeliveryPackage PackageShippingDetailsResponse `pulumi:"deliveryPackage"`
-	// Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-	DevicePassword *string `pulumi:"devicePassword"`
-	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
-	// Indicates the type of job details.
-	// Expected value is 'DataBox'.
-	JobDetailsType string `pulumi:"jobDetailsType"`
-	// List of stages that run in the job.
-	JobStages []JobStagesResponse `pulumi:"jobStages"`
-	// Details about which key encryption type is being used.
-	KeyEncryptionKey KeyEncryptionKeyResponse `pulumi:"keyEncryptionKey"`
-	// Preferences for the order.
-	Preferences *PreferencesResponse `pulumi:"preferences"`
-	// Return package shipping details.
-	ReturnPackage PackageShippingDetailsResponse `pulumi:"returnPackage"`
-	// Shared access key to download the return shipment label
-	ReverseShipmentLabelSasKey string `pulumi:"reverseShipmentLabelSasKey"`
-	// Shipping address of the customer.
-	ShippingAddress *ShippingAddressResponse `pulumi:"shippingAddress"`
+	ChainOfCustodySasKey        string                         `pulumi:"chainOfCustodySasKey"`
+	ContactDetails              ContactDetailsResponse         `pulumi:"contactDetails"`
+	CopyLogDetails              []interface{}                  `pulumi:"copyLogDetails"`
+	CopyProgress                []CopyProgressResponse         `pulumi:"copyProgress"`
+	DataExportDetails           []DataExportDetailsResponse    `pulumi:"dataExportDetails"`
+	DataImportDetails           []DataImportDetailsResponse    `pulumi:"dataImportDetails"`
+	DeliveryPackage             PackageShippingDetailsResponse `pulumi:"deliveryPackage"`
+	DevicePassword              *string                        `pulumi:"devicePassword"`
+	ExpectedDataSizeInTeraBytes *int                           `pulumi:"expectedDataSizeInTeraBytes"`
+	JobDetailsType              string                         `pulumi:"jobDetailsType"`
+	JobStages                   []JobStagesResponse            `pulumi:"jobStages"`
+	KeyEncryptionKey            KeyEncryptionKeyResponse       `pulumi:"keyEncryptionKey"`
+	Preferences                 *PreferencesResponse           `pulumi:"preferences"`
+	ReturnPackage               PackageShippingDetailsResponse `pulumi:"returnPackage"`
+	ReverseShipmentLabelSasKey  string                         `pulumi:"reverseShipmentLabelSasKey"`
+	ShippingAddress             *ShippingAddressResponse       `pulumi:"shippingAddress"`
 }
 
 // DataBoxJobDetailsResponseInput is an input type that accepts DataBoxJobDetailsResponseArgs and DataBoxJobDetailsResponseOutput values.
@@ -3263,41 +2730,23 @@ type DataBoxJobDetailsResponseInput interface {
 	ToDataBoxJobDetailsResponseOutputWithContext(context.Context) DataBoxJobDetailsResponseOutput
 }
 
-// Databox Job Details
 type DataBoxJobDetailsResponseArgs struct {
-	// Shared access key to download the chain of custody logs
-	ChainOfCustodySasKey pulumi.StringInput `pulumi:"chainOfCustodySasKey"`
-	// Contact details for notification and shipping.
-	ContactDetails ContactDetailsResponseInput `pulumi:"contactDetails"`
-	// List of copy log details.
-	CopyLogDetails pulumi.ArrayInput `pulumi:"copyLogDetails"`
-	// Copy progress per storage account.
-	CopyProgress CopyProgressResponseArrayInput `pulumi:"copyProgress"`
-	// Details of the data to be exported from azure.
-	DataExportDetails DataExportDetailsResponseArrayInput `pulumi:"dataExportDetails"`
-	// Details of the data to be imported into azure.
-	DataImportDetails DataImportDetailsResponseArrayInput `pulumi:"dataImportDetails"`
-	// Delivery package shipping details.
-	DeliveryPackage PackageShippingDetailsResponseInput `pulumi:"deliveryPackage"`
-	// Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-	DevicePassword pulumi.StringPtrInput `pulumi:"devicePassword"`
-	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
-	// Indicates the type of job details.
-	// Expected value is 'DataBox'.
-	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
-	// List of stages that run in the job.
-	JobStages JobStagesResponseArrayInput `pulumi:"jobStages"`
-	// Details about which key encryption type is being used.
-	KeyEncryptionKey KeyEncryptionKeyResponseInput `pulumi:"keyEncryptionKey"`
-	// Preferences for the order.
-	Preferences PreferencesResponsePtrInput `pulumi:"preferences"`
-	// Return package shipping details.
-	ReturnPackage PackageShippingDetailsResponseInput `pulumi:"returnPackage"`
-	// Shared access key to download the return shipment label
-	ReverseShipmentLabelSasKey pulumi.StringInput `pulumi:"reverseShipmentLabelSasKey"`
-	// Shipping address of the customer.
-	ShippingAddress ShippingAddressResponsePtrInput `pulumi:"shippingAddress"`
+	ChainOfCustodySasKey        pulumi.StringInput                  `pulumi:"chainOfCustodySasKey"`
+	ContactDetails              ContactDetailsResponseInput         `pulumi:"contactDetails"`
+	CopyLogDetails              pulumi.ArrayInput                   `pulumi:"copyLogDetails"`
+	CopyProgress                CopyProgressResponseArrayInput      `pulumi:"copyProgress"`
+	DataExportDetails           DataExportDetailsResponseArrayInput `pulumi:"dataExportDetails"`
+	DataImportDetails           DataImportDetailsResponseArrayInput `pulumi:"dataImportDetails"`
+	DeliveryPackage             PackageShippingDetailsResponseInput `pulumi:"deliveryPackage"`
+	DevicePassword              pulumi.StringPtrInput               `pulumi:"devicePassword"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput                  `pulumi:"expectedDataSizeInTeraBytes"`
+	JobDetailsType              pulumi.StringInput                  `pulumi:"jobDetailsType"`
+	JobStages                   JobStagesResponseArrayInput         `pulumi:"jobStages"`
+	KeyEncryptionKey            KeyEncryptionKeyResponseInput       `pulumi:"keyEncryptionKey"`
+	Preferences                 PreferencesResponsePtrInput         `pulumi:"preferences"`
+	ReturnPackage               PackageShippingDetailsResponseInput `pulumi:"returnPackage"`
+	ReverseShipmentLabelSasKey  pulumi.StringInput                  `pulumi:"reverseShipmentLabelSasKey"`
+	ShippingAddress             ShippingAddressResponsePtrInput     `pulumi:"shippingAddress"`
 }
 
 func (DataBoxJobDetailsResponseArgs) ElementType() reflect.Type {
@@ -3312,7 +2761,6 @@ func (i DataBoxJobDetailsResponseArgs) ToDataBoxJobDetailsResponseOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DataBoxJobDetailsResponseOutput)
 }
 
-// Databox Job Details
 type DataBoxJobDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (DataBoxJobDetailsResponseOutput) ElementType() reflect.Type {
@@ -3327,99 +2775,76 @@ func (o DataBoxJobDetailsResponseOutput) ToDataBoxJobDetailsResponseOutputWithCo
 	return o
 }
 
-// Shared access key to download the chain of custody logs
 func (o DataBoxJobDetailsResponseOutput) ChainOfCustodySasKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) string { return v.ChainOfCustodySasKey }).(pulumi.StringOutput)
 }
 
-// Contact details for notification and shipping.
 func (o DataBoxJobDetailsResponseOutput) ContactDetails() ContactDetailsResponseOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) ContactDetailsResponse { return v.ContactDetails }).(ContactDetailsResponseOutput)
 }
 
-// List of copy log details.
 func (o DataBoxJobDetailsResponseOutput) CopyLogDetails() pulumi.ArrayOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) []interface{} { return v.CopyLogDetails }).(pulumi.ArrayOutput)
 }
 
-// Copy progress per storage account.
 func (o DataBoxJobDetailsResponseOutput) CopyProgress() CopyProgressResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) []CopyProgressResponse { return v.CopyProgress }).(CopyProgressResponseArrayOutput)
 }
 
-// Details of the data to be exported from azure.
 func (o DataBoxJobDetailsResponseOutput) DataExportDetails() DataExportDetailsResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) []DataExportDetailsResponse { return v.DataExportDetails }).(DataExportDetailsResponseArrayOutput)
 }
 
-// Details of the data to be imported into azure.
 func (o DataBoxJobDetailsResponseOutput) DataImportDetails() DataImportDetailsResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) []DataImportDetailsResponse { return v.DataImportDetails }).(DataImportDetailsResponseArrayOutput)
 }
 
-// Delivery package shipping details.
 func (o DataBoxJobDetailsResponseOutput) DeliveryPackage() PackageShippingDetailsResponseOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) PackageShippingDetailsResponse { return v.DeliveryPackage }).(PackageShippingDetailsResponseOutput)
 }
 
-// Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 func (o DataBoxJobDetailsResponseOutput) DevicePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) *string { return v.DevicePassword }).(pulumi.StringPtrOutput)
 }
 
-// The expected size of the data, which needs to be transferred in this job, in terabytes.
 func (o DataBoxJobDetailsResponseOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
-// Indicates the type of job details.
-// Expected value is 'DataBox'.
 func (o DataBoxJobDetailsResponseOutput) JobDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) string { return v.JobDetailsType }).(pulumi.StringOutput)
 }
 
-// List of stages that run in the job.
 func (o DataBoxJobDetailsResponseOutput) JobStages() JobStagesResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) []JobStagesResponse { return v.JobStages }).(JobStagesResponseArrayOutput)
 }
 
-// Details about which key encryption type is being used.
 func (o DataBoxJobDetailsResponseOutput) KeyEncryptionKey() KeyEncryptionKeyResponseOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) KeyEncryptionKeyResponse { return v.KeyEncryptionKey }).(KeyEncryptionKeyResponseOutput)
 }
 
-// Preferences for the order.
 func (o DataBoxJobDetailsResponseOutput) Preferences() PreferencesResponsePtrOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) *PreferencesResponse { return v.Preferences }).(PreferencesResponsePtrOutput)
 }
 
-// Return package shipping details.
 func (o DataBoxJobDetailsResponseOutput) ReturnPackage() PackageShippingDetailsResponseOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) PackageShippingDetailsResponse { return v.ReturnPackage }).(PackageShippingDetailsResponseOutput)
 }
 
-// Shared access key to download the return shipment label
 func (o DataBoxJobDetailsResponseOutput) ReverseShipmentLabelSasKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) string { return v.ReverseShipmentLabelSasKey }).(pulumi.StringOutput)
 }
 
-// Shipping address of the customer.
 func (o DataBoxJobDetailsResponseOutput) ShippingAddress() ShippingAddressResponsePtrOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) *ShippingAddressResponse { return v.ShippingAddress }).(ShippingAddressResponsePtrOutput)
 }
 
-// The secrets related to a DataBox.
 type DataBoxSecretResponse struct {
-	// Per account level access credentials.
-	AccountCredentialDetails []AccountCredentialDetailsResponse `pulumi:"accountCredentialDetails"`
-	// Password for out of the box experience on device.
-	DevicePassword string `pulumi:"devicePassword"`
-	// Serial number of the assigned device.
-	DeviceSerialNumber string `pulumi:"deviceSerialNumber"`
-	// The base 64 encoded public key to authenticate with the device
-	EncodedValidationCertPubKey string `pulumi:"encodedValidationCertPubKey"`
-	// Network configuration of the appliance.
-	NetworkConfigurations []ApplianceNetworkConfigurationResponse `pulumi:"networkConfigurations"`
+	AccountCredentialDetails    []AccountCredentialDetailsResponse      `pulumi:"accountCredentialDetails"`
+	DevicePassword              string                                  `pulumi:"devicePassword"`
+	DeviceSerialNumber          string                                  `pulumi:"deviceSerialNumber"`
+	EncodedValidationCertPubKey string                                  `pulumi:"encodedValidationCertPubKey"`
+	NetworkConfigurations       []ApplianceNetworkConfigurationResponse `pulumi:"networkConfigurations"`
 }
 
 // DataBoxSecretResponseInput is an input type that accepts DataBoxSecretResponseArgs and DataBoxSecretResponseOutput values.
@@ -3433,18 +2858,12 @@ type DataBoxSecretResponseInput interface {
 	ToDataBoxSecretResponseOutputWithContext(context.Context) DataBoxSecretResponseOutput
 }
 
-// The secrets related to a DataBox.
 type DataBoxSecretResponseArgs struct {
-	// Per account level access credentials.
-	AccountCredentialDetails AccountCredentialDetailsResponseArrayInput `pulumi:"accountCredentialDetails"`
-	// Password for out of the box experience on device.
-	DevicePassword pulumi.StringInput `pulumi:"devicePassword"`
-	// Serial number of the assigned device.
-	DeviceSerialNumber pulumi.StringInput `pulumi:"deviceSerialNumber"`
-	// The base 64 encoded public key to authenticate with the device
-	EncodedValidationCertPubKey pulumi.StringInput `pulumi:"encodedValidationCertPubKey"`
-	// Network configuration of the appliance.
-	NetworkConfigurations ApplianceNetworkConfigurationResponseArrayInput `pulumi:"networkConfigurations"`
+	AccountCredentialDetails    AccountCredentialDetailsResponseArrayInput      `pulumi:"accountCredentialDetails"`
+	DevicePassword              pulumi.StringInput                              `pulumi:"devicePassword"`
+	DeviceSerialNumber          pulumi.StringInput                              `pulumi:"deviceSerialNumber"`
+	EncodedValidationCertPubKey pulumi.StringInput                              `pulumi:"encodedValidationCertPubKey"`
+	NetworkConfigurations       ApplianceNetworkConfigurationResponseArrayInput `pulumi:"networkConfigurations"`
 }
 
 func (DataBoxSecretResponseArgs) ElementType() reflect.Type {
@@ -3484,7 +2903,6 @@ func (i DataBoxSecretResponseArray) ToDataBoxSecretResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DataBoxSecretResponseArrayOutput)
 }
 
-// The secrets related to a DataBox.
 type DataBoxSecretResponseOutput struct{ *pulumi.OutputState }
 
 func (DataBoxSecretResponseOutput) ElementType() reflect.Type {
@@ -3499,27 +2917,22 @@ func (o DataBoxSecretResponseOutput) ToDataBoxSecretResponseOutputWithContext(ct
 	return o
 }
 
-// Per account level access credentials.
 func (o DataBoxSecretResponseOutput) AccountCredentialDetails() AccountCredentialDetailsResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxSecretResponse) []AccountCredentialDetailsResponse { return v.AccountCredentialDetails }).(AccountCredentialDetailsResponseArrayOutput)
 }
 
-// Password for out of the box experience on device.
 func (o DataBoxSecretResponseOutput) DevicePassword() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxSecretResponse) string { return v.DevicePassword }).(pulumi.StringOutput)
 }
 
-// Serial number of the assigned device.
 func (o DataBoxSecretResponseOutput) DeviceSerialNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxSecretResponse) string { return v.DeviceSerialNumber }).(pulumi.StringOutput)
 }
 
-// The base 64 encoded public key to authenticate with the device
 func (o DataBoxSecretResponseOutput) EncodedValidationCertPubKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxSecretResponse) string { return v.EncodedValidationCertPubKey }).(pulumi.StringOutput)
 }
 
-// Network configuration of the appliance.
 func (o DataBoxSecretResponseOutput) NetworkConfigurations() ApplianceNetworkConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v DataBoxSecretResponse) []ApplianceNetworkConfigurationResponse { return v.NetworkConfigurations }).(ApplianceNetworkConfigurationResponseArrayOutput)
 }
@@ -3544,13 +2957,9 @@ func (o DataBoxSecretResponseArrayOutput) Index(i pulumi.IntInput) DataBoxSecret
 	}).(DataBoxSecretResponseOutput)
 }
 
-// Details of the data to be used for exporting data from azure.
 type DataExportDetails struct {
-	// Account details of the data to be transferred
-	AccountDetails interface{} `pulumi:"accountDetails"`
-	// Level of the logs to be collected.
-	LogCollectionLevel *string `pulumi:"logCollectionLevel"`
-	// Configuration for the data transfer.
+	AccountDetails        interface{}           `pulumi:"accountDetails"`
+	LogCollectionLevel    *string               `pulumi:"logCollectionLevel"`
 	TransferConfiguration TransferConfiguration `pulumi:"transferConfiguration"`
 }
 
@@ -3565,13 +2974,9 @@ type DataExportDetailsInput interface {
 	ToDataExportDetailsOutputWithContext(context.Context) DataExportDetailsOutput
 }
 
-// Details of the data to be used for exporting data from azure.
 type DataExportDetailsArgs struct {
-	// Account details of the data to be transferred
-	AccountDetails pulumi.Input `pulumi:"accountDetails"`
-	// Level of the logs to be collected.
-	LogCollectionLevel pulumi.StringPtrInput `pulumi:"logCollectionLevel"`
-	// Configuration for the data transfer.
+	AccountDetails        pulumi.Input               `pulumi:"accountDetails"`
+	LogCollectionLevel    pulumi.StringPtrInput      `pulumi:"logCollectionLevel"`
 	TransferConfiguration TransferConfigurationInput `pulumi:"transferConfiguration"`
 }
 
@@ -3612,7 +3017,6 @@ func (i DataExportDetailsArray) ToDataExportDetailsArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DataExportDetailsArrayOutput)
 }
 
-// Details of the data to be used for exporting data from azure.
 type DataExportDetailsOutput struct{ *pulumi.OutputState }
 
 func (DataExportDetailsOutput) ElementType() reflect.Type {
@@ -3627,17 +3031,14 @@ func (o DataExportDetailsOutput) ToDataExportDetailsOutputWithContext(ctx contex
 	return o
 }
 
-// Account details of the data to be transferred
 func (o DataExportDetailsOutput) AccountDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v DataExportDetails) interface{} { return v.AccountDetails }).(pulumi.AnyOutput)
 }
 
-// Level of the logs to be collected.
 func (o DataExportDetailsOutput) LogCollectionLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataExportDetails) *string { return v.LogCollectionLevel }).(pulumi.StringPtrOutput)
 }
 
-// Configuration for the data transfer.
 func (o DataExportDetailsOutput) TransferConfiguration() TransferConfigurationOutput {
 	return o.ApplyT(func(v DataExportDetails) TransferConfiguration { return v.TransferConfiguration }).(TransferConfigurationOutput)
 }
@@ -3662,13 +3063,9 @@ func (o DataExportDetailsArrayOutput) Index(i pulumi.IntInput) DataExportDetails
 	}).(DataExportDetailsOutput)
 }
 
-// Details of the data to be used for exporting data from azure.
 type DataExportDetailsResponse struct {
-	// Account details of the data to be transferred
-	AccountDetails interface{} `pulumi:"accountDetails"`
-	// Level of the logs to be collected.
-	LogCollectionLevel *string `pulumi:"logCollectionLevel"`
-	// Configuration for the data transfer.
+	AccountDetails        interface{}                   `pulumi:"accountDetails"`
+	LogCollectionLevel    *string                       `pulumi:"logCollectionLevel"`
 	TransferConfiguration TransferConfigurationResponse `pulumi:"transferConfiguration"`
 }
 
@@ -3683,13 +3080,9 @@ type DataExportDetailsResponseInput interface {
 	ToDataExportDetailsResponseOutputWithContext(context.Context) DataExportDetailsResponseOutput
 }
 
-// Details of the data to be used for exporting data from azure.
 type DataExportDetailsResponseArgs struct {
-	// Account details of the data to be transferred
-	AccountDetails pulumi.Input `pulumi:"accountDetails"`
-	// Level of the logs to be collected.
-	LogCollectionLevel pulumi.StringPtrInput `pulumi:"logCollectionLevel"`
-	// Configuration for the data transfer.
+	AccountDetails        pulumi.Input                       `pulumi:"accountDetails"`
+	LogCollectionLevel    pulumi.StringPtrInput              `pulumi:"logCollectionLevel"`
 	TransferConfiguration TransferConfigurationResponseInput `pulumi:"transferConfiguration"`
 }
 
@@ -3730,7 +3123,6 @@ func (i DataExportDetailsResponseArray) ToDataExportDetailsResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DataExportDetailsResponseArrayOutput)
 }
 
-// Details of the data to be used for exporting data from azure.
 type DataExportDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (DataExportDetailsResponseOutput) ElementType() reflect.Type {
@@ -3745,17 +3137,14 @@ func (o DataExportDetailsResponseOutput) ToDataExportDetailsResponseOutputWithCo
 	return o
 }
 
-// Account details of the data to be transferred
 func (o DataExportDetailsResponseOutput) AccountDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v DataExportDetailsResponse) interface{} { return v.AccountDetails }).(pulumi.AnyOutput)
 }
 
-// Level of the logs to be collected.
 func (o DataExportDetailsResponseOutput) LogCollectionLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataExportDetailsResponse) *string { return v.LogCollectionLevel }).(pulumi.StringPtrOutput)
 }
 
-// Configuration for the data transfer.
 func (o DataExportDetailsResponseOutput) TransferConfiguration() TransferConfigurationResponseOutput {
 	return o.ApplyT(func(v DataExportDetailsResponse) TransferConfigurationResponse { return v.TransferConfiguration }).(TransferConfigurationResponseOutput)
 }
@@ -3780,9 +3169,7 @@ func (o DataExportDetailsResponseArrayOutput) Index(i pulumi.IntInput) DataExpor
 	}).(DataExportDetailsResponseOutput)
 }
 
-// Details of the data to be used for importing data to azure.
 type DataImportDetails struct {
-	// Account details of the data to be transferred
 	AccountDetails interface{} `pulumi:"accountDetails"`
 }
 
@@ -3797,9 +3184,7 @@ type DataImportDetailsInput interface {
 	ToDataImportDetailsOutputWithContext(context.Context) DataImportDetailsOutput
 }
 
-// Details of the data to be used for importing data to azure.
 type DataImportDetailsArgs struct {
-	// Account details of the data to be transferred
 	AccountDetails pulumi.Input `pulumi:"accountDetails"`
 }
 
@@ -3840,7 +3225,6 @@ func (i DataImportDetailsArray) ToDataImportDetailsArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DataImportDetailsArrayOutput)
 }
 
-// Details of the data to be used for importing data to azure.
 type DataImportDetailsOutput struct{ *pulumi.OutputState }
 
 func (DataImportDetailsOutput) ElementType() reflect.Type {
@@ -3855,7 +3239,6 @@ func (o DataImportDetailsOutput) ToDataImportDetailsOutputWithContext(ctx contex
 	return o
 }
 
-// Account details of the data to be transferred
 func (o DataImportDetailsOutput) AccountDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v DataImportDetails) interface{} { return v.AccountDetails }).(pulumi.AnyOutput)
 }
@@ -3880,9 +3263,7 @@ func (o DataImportDetailsArrayOutput) Index(i pulumi.IntInput) DataImportDetails
 	}).(DataImportDetailsOutput)
 }
 
-// Details of the data to be used for importing data to azure.
 type DataImportDetailsResponse struct {
-	// Account details of the data to be transferred
 	AccountDetails interface{} `pulumi:"accountDetails"`
 }
 
@@ -3897,9 +3278,7 @@ type DataImportDetailsResponseInput interface {
 	ToDataImportDetailsResponseOutputWithContext(context.Context) DataImportDetailsResponseOutput
 }
 
-// Details of the data to be used for importing data to azure.
 type DataImportDetailsResponseArgs struct {
-	// Account details of the data to be transferred
 	AccountDetails pulumi.Input `pulumi:"accountDetails"`
 }
 
@@ -3940,7 +3319,6 @@ func (i DataImportDetailsResponseArray) ToDataImportDetailsResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DataImportDetailsResponseArrayOutput)
 }
 
-// Details of the data to be used for importing data to azure.
 type DataImportDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (DataImportDetailsResponseOutput) ElementType() reflect.Type {
@@ -3955,7 +3333,6 @@ func (o DataImportDetailsResponseOutput) ToDataImportDetailsResponseOutputWithCo
 	return o
 }
 
-// Account details of the data to be transferred
 func (o DataImportDetailsResponseOutput) AccountDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v DataImportDetailsResponse) interface{} { return v.AccountDetails }).(pulumi.AnyOutput)
 }
@@ -3980,17 +3357,11 @@ func (o DataImportDetailsResponseArrayOutput) Index(i pulumi.IntInput) DataImpor
 	}).(DataImportDetailsResponseOutput)
 }
 
-// The secrets related to a databox job.
 type DataboxJobSecretsResponse struct {
-	// Dc Access Security Code for Customer Managed Shipping
 	DcAccessSecurityCode DcAccessSecurityCodeResponse `pulumi:"dcAccessSecurityCode"`
-	// Error while fetching the secrets.
-	Error CloudErrorResponse `pulumi:"error"`
-	// Used to indicate what type of job secrets object.
-	// Expected value is 'DataBox'.
-	JobSecretsType string `pulumi:"jobSecretsType"`
-	// Contains the list of secret objects for a job.
-	PodSecrets []DataBoxSecretResponse `pulumi:"podSecrets"`
+	Error                CloudErrorResponse           `pulumi:"error"`
+	JobSecretsType       string                       `pulumi:"jobSecretsType"`
+	PodSecrets           []DataBoxSecretResponse      `pulumi:"podSecrets"`
 }
 
 // DataboxJobSecretsResponseInput is an input type that accepts DataboxJobSecretsResponseArgs and DataboxJobSecretsResponseOutput values.
@@ -4004,17 +3375,11 @@ type DataboxJobSecretsResponseInput interface {
 	ToDataboxJobSecretsResponseOutputWithContext(context.Context) DataboxJobSecretsResponseOutput
 }
 
-// The secrets related to a databox job.
 type DataboxJobSecretsResponseArgs struct {
-	// Dc Access Security Code for Customer Managed Shipping
 	DcAccessSecurityCode DcAccessSecurityCodeResponseInput `pulumi:"dcAccessSecurityCode"`
-	// Error while fetching the secrets.
-	Error CloudErrorResponseInput `pulumi:"error"`
-	// Used to indicate what type of job secrets object.
-	// Expected value is 'DataBox'.
-	JobSecretsType pulumi.StringInput `pulumi:"jobSecretsType"`
-	// Contains the list of secret objects for a job.
-	PodSecrets DataBoxSecretResponseArrayInput `pulumi:"podSecrets"`
+	Error                CloudErrorResponseInput           `pulumi:"error"`
+	JobSecretsType       pulumi.StringInput                `pulumi:"jobSecretsType"`
+	PodSecrets           DataBoxSecretResponseArrayInput   `pulumi:"podSecrets"`
 }
 
 func (DataboxJobSecretsResponseArgs) ElementType() reflect.Type {
@@ -4029,7 +3394,6 @@ func (i DataboxJobSecretsResponseArgs) ToDataboxJobSecretsResponseOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DataboxJobSecretsResponseOutput)
 }
 
-// The secrets related to a databox job.
 type DataboxJobSecretsResponseOutput struct{ *pulumi.OutputState }
 
 func (DataboxJobSecretsResponseOutput) ElementType() reflect.Type {
@@ -4044,32 +3408,24 @@ func (o DataboxJobSecretsResponseOutput) ToDataboxJobSecretsResponseOutputWithCo
 	return o
 }
 
-// Dc Access Security Code for Customer Managed Shipping
 func (o DataboxJobSecretsResponseOutput) DcAccessSecurityCode() DcAccessSecurityCodeResponseOutput {
 	return o.ApplyT(func(v DataboxJobSecretsResponse) DcAccessSecurityCodeResponse { return v.DcAccessSecurityCode }).(DcAccessSecurityCodeResponseOutput)
 }
 
-// Error while fetching the secrets.
 func (o DataboxJobSecretsResponseOutput) Error() CloudErrorResponseOutput {
 	return o.ApplyT(func(v DataboxJobSecretsResponse) CloudErrorResponse { return v.Error }).(CloudErrorResponseOutput)
 }
 
-// Used to indicate what type of job secrets object.
-// Expected value is 'DataBox'.
 func (o DataboxJobSecretsResponseOutput) JobSecretsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataboxJobSecretsResponse) string { return v.JobSecretsType }).(pulumi.StringOutput)
 }
 
-// Contains the list of secret objects for a job.
 func (o DataboxJobSecretsResponseOutput) PodSecrets() DataBoxSecretResponseArrayOutput {
 	return o.ApplyT(func(v DataboxJobSecretsResponse) []DataBoxSecretResponse { return v.PodSecrets }).(DataBoxSecretResponseArrayOutput)
 }
 
-// Dc access security code
 type DcAccessSecurityCodeResponse struct {
-	// Forward Dc access security code.
 	ForwardDCAccessCode *string `pulumi:"forwardDCAccessCode"`
-	// Reverse Dc access security code.
 	ReverseDCAccessCode *string `pulumi:"reverseDCAccessCode"`
 }
 
@@ -4084,11 +3440,8 @@ type DcAccessSecurityCodeResponseInput interface {
 	ToDcAccessSecurityCodeResponseOutputWithContext(context.Context) DcAccessSecurityCodeResponseOutput
 }
 
-// Dc access security code
 type DcAccessSecurityCodeResponseArgs struct {
-	// Forward Dc access security code.
 	ForwardDCAccessCode pulumi.StringPtrInput `pulumi:"forwardDCAccessCode"`
-	// Reverse Dc access security code.
 	ReverseDCAccessCode pulumi.StringPtrInput `pulumi:"reverseDCAccessCode"`
 }
 
@@ -4104,7 +3457,6 @@ func (i DcAccessSecurityCodeResponseArgs) ToDcAccessSecurityCodeResponseOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DcAccessSecurityCodeResponseOutput)
 }
 
-// Dc access security code
 type DcAccessSecurityCodeResponseOutput struct{ *pulumi.OutputState }
 
 func (DcAccessSecurityCodeResponseOutput) ElementType() reflect.Type {
@@ -4119,21 +3471,16 @@ func (o DcAccessSecurityCodeResponseOutput) ToDcAccessSecurityCodeResponseOutput
 	return o
 }
 
-// Forward Dc access security code.
 func (o DcAccessSecurityCodeResponseOutput) ForwardDCAccessCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DcAccessSecurityCodeResponse) *string { return v.ForwardDCAccessCode }).(pulumi.StringPtrOutput)
 }
 
-// Reverse Dc access security code.
 func (o DcAccessSecurityCodeResponseOutput) ReverseDCAccessCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DcAccessSecurityCodeResponse) *string { return v.ReverseDCAccessCode }).(pulumi.StringPtrOutput)
 }
 
-// Contains all the secrets of a Disk.
 type DiskSecretResponse struct {
-	// Bit Locker key of the disk which can be used to unlock the disk to copy data.
-	BitLockerKey string `pulumi:"bitLockerKey"`
-	// Serial number of the assigned disk.
+	BitLockerKey     string `pulumi:"bitLockerKey"`
 	DiskSerialNumber string `pulumi:"diskSerialNumber"`
 }
 
@@ -4148,11 +3495,8 @@ type DiskSecretResponseInput interface {
 	ToDiskSecretResponseOutputWithContext(context.Context) DiskSecretResponseOutput
 }
 
-// Contains all the secrets of a Disk.
 type DiskSecretResponseArgs struct {
-	// Bit Locker key of the disk which can be used to unlock the disk to copy data.
-	BitLockerKey pulumi.StringInput `pulumi:"bitLockerKey"`
-	// Serial number of the assigned disk.
+	BitLockerKey     pulumi.StringInput `pulumi:"bitLockerKey"`
 	DiskSerialNumber pulumi.StringInput `pulumi:"diskSerialNumber"`
 }
 
@@ -4193,7 +3537,6 @@ func (i DiskSecretResponseArray) ToDiskSecretResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DiskSecretResponseArrayOutput)
 }
 
-// Contains all the secrets of a Disk.
 type DiskSecretResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskSecretResponseOutput) ElementType() reflect.Type {
@@ -4208,12 +3551,10 @@ func (o DiskSecretResponseOutput) ToDiskSecretResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Bit Locker key of the disk which can be used to unlock the disk to copy data.
 func (o DiskSecretResponseOutput) BitLockerKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskSecretResponse) string { return v.BitLockerKey }).(pulumi.StringOutput)
 }
 
-// Serial number of the assigned disk.
 func (o DiskSecretResponseOutput) DiskSerialNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskSecretResponse) string { return v.DiskSerialNumber }).(pulumi.StringOutput)
 }
@@ -4238,11 +3579,8 @@ func (o DiskSecretResponseArrayOutput) Index(i pulumi.IntInput) DiskSecretRespon
 	}).(DiskSecretResponseOutput)
 }
 
-// Details of the filter files to be used for data transfer.
 type FilterFileDetails struct {
-	// Path of the file that contains the details of all items to transfer.
 	FilterFilePath string `pulumi:"filterFilePath"`
-	// Type of the filter file.
 	FilterFileType string `pulumi:"filterFileType"`
 }
 
@@ -4257,11 +3595,8 @@ type FilterFileDetailsInput interface {
 	ToFilterFileDetailsOutputWithContext(context.Context) FilterFileDetailsOutput
 }
 
-// Details of the filter files to be used for data transfer.
 type FilterFileDetailsArgs struct {
-	// Path of the file that contains the details of all items to transfer.
 	FilterFilePath pulumi.StringInput `pulumi:"filterFilePath"`
-	// Type of the filter file.
 	FilterFileType pulumi.StringInput `pulumi:"filterFileType"`
 }
 
@@ -4302,7 +3637,6 @@ func (i FilterFileDetailsArray) ToFilterFileDetailsArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FilterFileDetailsArrayOutput)
 }
 
-// Details of the filter files to be used for data transfer.
 type FilterFileDetailsOutput struct{ *pulumi.OutputState }
 
 func (FilterFileDetailsOutput) ElementType() reflect.Type {
@@ -4317,12 +3651,10 @@ func (o FilterFileDetailsOutput) ToFilterFileDetailsOutputWithContext(ctx contex
 	return o
 }
 
-// Path of the file that contains the details of all items to transfer.
 func (o FilterFileDetailsOutput) FilterFilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFileDetails) string { return v.FilterFilePath }).(pulumi.StringOutput)
 }
 
-// Type of the filter file.
 func (o FilterFileDetailsOutput) FilterFileType() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFileDetails) string { return v.FilterFileType }).(pulumi.StringOutput)
 }
@@ -4347,11 +3679,8 @@ func (o FilterFileDetailsArrayOutput) Index(i pulumi.IntInput) FilterFileDetails
 	}).(FilterFileDetailsOutput)
 }
 
-// Details of the filter files to be used for data transfer.
 type FilterFileDetailsResponse struct {
-	// Path of the file that contains the details of all items to transfer.
 	FilterFilePath string `pulumi:"filterFilePath"`
-	// Type of the filter file.
 	FilterFileType string `pulumi:"filterFileType"`
 }
 
@@ -4366,11 +3695,8 @@ type FilterFileDetailsResponseInput interface {
 	ToFilterFileDetailsResponseOutputWithContext(context.Context) FilterFileDetailsResponseOutput
 }
 
-// Details of the filter files to be used for data transfer.
 type FilterFileDetailsResponseArgs struct {
-	// Path of the file that contains the details of all items to transfer.
 	FilterFilePath pulumi.StringInput `pulumi:"filterFilePath"`
-	// Type of the filter file.
 	FilterFileType pulumi.StringInput `pulumi:"filterFileType"`
 }
 
@@ -4411,7 +3737,6 @@ func (i FilterFileDetailsResponseArray) ToFilterFileDetailsResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FilterFileDetailsResponseArrayOutput)
 }
 
-// Details of the filter files to be used for data transfer.
 type FilterFileDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (FilterFileDetailsResponseOutput) ElementType() reflect.Type {
@@ -4426,12 +3751,10 @@ func (o FilterFileDetailsResponseOutput) ToFilterFileDetailsResponseOutputWithCo
 	return o
 }
 
-// Path of the file that contains the details of all items to transfer.
 func (o FilterFileDetailsResponseOutput) FilterFilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFileDetailsResponse) string { return v.FilterFilePath }).(pulumi.StringOutput)
 }
 
-// Type of the filter file.
 func (o FilterFileDetailsResponseOutput) FilterFileType() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFileDetailsResponse) string { return v.FilterFileType }).(pulumi.StringOutput)
 }
@@ -4456,9 +3779,7 @@ func (o FilterFileDetailsResponseArrayOutput) Index(i pulumi.IntInput) FilterFil
 	}).(FilterFileDetailsResponseOutput)
 }
 
-// Additional delivery info.
 type JobDeliveryInfo struct {
-	// Scheduled date time.
 	ScheduledDateTime *string `pulumi:"scheduledDateTime"`
 }
 
@@ -4473,9 +3794,7 @@ type JobDeliveryInfoInput interface {
 	ToJobDeliveryInfoOutputWithContext(context.Context) JobDeliveryInfoOutput
 }
 
-// Additional delivery info.
 type JobDeliveryInfoArgs struct {
-	// Scheduled date time.
 	ScheduledDateTime pulumi.StringPtrInput `pulumi:"scheduledDateTime"`
 }
 
@@ -4532,7 +3851,6 @@ func (i *jobDeliveryInfoPtrType) ToJobDeliveryInfoPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(JobDeliveryInfoPtrOutput)
 }
 
-// Additional delivery info.
 type JobDeliveryInfoOutput struct{ *pulumi.OutputState }
 
 func (JobDeliveryInfoOutput) ElementType() reflect.Type {
@@ -4552,12 +3870,11 @@ func (o JobDeliveryInfoOutput) ToJobDeliveryInfoPtrOutput() JobDeliveryInfoPtrOu
 }
 
 func (o JobDeliveryInfoOutput) ToJobDeliveryInfoPtrOutputWithContext(ctx context.Context) JobDeliveryInfoPtrOutput {
-	return o.ApplyT(func(v JobDeliveryInfo) *JobDeliveryInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDeliveryInfo) *JobDeliveryInfo {
 		return &v
 	}).(JobDeliveryInfoPtrOutput)
 }
 
-// Scheduled date time.
 func (o JobDeliveryInfoOutput) ScheduledDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDeliveryInfo) *string { return v.ScheduledDateTime }).(pulumi.StringPtrOutput)
 }
@@ -4577,10 +3894,15 @@ func (o JobDeliveryInfoPtrOutput) ToJobDeliveryInfoPtrOutputWithContext(ctx cont
 }
 
 func (o JobDeliveryInfoPtrOutput) Elem() JobDeliveryInfoOutput {
-	return o.ApplyT(func(v *JobDeliveryInfo) JobDeliveryInfo { return *v }).(JobDeliveryInfoOutput)
+	return o.ApplyT(func(v *JobDeliveryInfo) JobDeliveryInfo {
+		if v != nil {
+			return *v
+		}
+		var ret JobDeliveryInfo
+		return ret
+	}).(JobDeliveryInfoOutput)
 }
 
-// Scheduled date time.
 func (o JobDeliveryInfoPtrOutput) ScheduledDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDeliveryInfo) *string {
 		if v == nil {
@@ -4590,9 +3912,7 @@ func (o JobDeliveryInfoPtrOutput) ScheduledDateTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Additional delivery info.
 type JobDeliveryInfoResponse struct {
-	// Scheduled date time.
 	ScheduledDateTime *string `pulumi:"scheduledDateTime"`
 }
 
@@ -4607,9 +3927,7 @@ type JobDeliveryInfoResponseInput interface {
 	ToJobDeliveryInfoResponseOutputWithContext(context.Context) JobDeliveryInfoResponseOutput
 }
 
-// Additional delivery info.
 type JobDeliveryInfoResponseArgs struct {
-	// Scheduled date time.
 	ScheduledDateTime pulumi.StringPtrInput `pulumi:"scheduledDateTime"`
 }
 
@@ -4666,7 +3984,6 @@ func (i *jobDeliveryInfoResponsePtrType) ToJobDeliveryInfoResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(JobDeliveryInfoResponsePtrOutput)
 }
 
-// Additional delivery info.
 type JobDeliveryInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (JobDeliveryInfoResponseOutput) ElementType() reflect.Type {
@@ -4686,12 +4003,11 @@ func (o JobDeliveryInfoResponseOutput) ToJobDeliveryInfoResponsePtrOutput() JobD
 }
 
 func (o JobDeliveryInfoResponseOutput) ToJobDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) JobDeliveryInfoResponsePtrOutput {
-	return o.ApplyT(func(v JobDeliveryInfoResponse) *JobDeliveryInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDeliveryInfoResponse) *JobDeliveryInfoResponse {
 		return &v
 	}).(JobDeliveryInfoResponsePtrOutput)
 }
 
-// Scheduled date time.
 func (o JobDeliveryInfoResponseOutput) ScheduledDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDeliveryInfoResponse) *string { return v.ScheduledDateTime }).(pulumi.StringPtrOutput)
 }
@@ -4711,10 +4027,15 @@ func (o JobDeliveryInfoResponsePtrOutput) ToJobDeliveryInfoResponsePtrOutputWith
 }
 
 func (o JobDeliveryInfoResponsePtrOutput) Elem() JobDeliveryInfoResponseOutput {
-	return o.ApplyT(func(v *JobDeliveryInfoResponse) JobDeliveryInfoResponse { return *v }).(JobDeliveryInfoResponseOutput)
+	return o.ApplyT(func(v *JobDeliveryInfoResponse) JobDeliveryInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JobDeliveryInfoResponse
+		return ret
+	}).(JobDeliveryInfoResponseOutput)
 }
 
-// Scheduled date time.
 func (o JobDeliveryInfoResponsePtrOutput) ScheduledDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDeliveryInfoResponse) *string {
 		if v == nil {
@@ -4724,18 +4045,12 @@ func (o JobDeliveryInfoResponsePtrOutput) ScheduledDateTime() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Job stages.
 type JobStagesResponse struct {
-	// Display name of the job stage.
-	DisplayName string `pulumi:"displayName"`
-	// Job Stage Details
+	DisplayName     string      `pulumi:"displayName"`
 	JobStageDetails interface{} `pulumi:"jobStageDetails"`
-	// Name of the job stage.
-	StageName string `pulumi:"stageName"`
-	// Status of the job stage.
-	StageStatus string `pulumi:"stageStatus"`
-	// Time for the job stage in UTC ISO 8601 format.
-	StageTime string `pulumi:"stageTime"`
+	StageName       string      `pulumi:"stageName"`
+	StageStatus     string      `pulumi:"stageStatus"`
+	StageTime       string      `pulumi:"stageTime"`
 }
 
 // JobStagesResponseInput is an input type that accepts JobStagesResponseArgs and JobStagesResponseOutput values.
@@ -4749,18 +4064,12 @@ type JobStagesResponseInput interface {
 	ToJobStagesResponseOutputWithContext(context.Context) JobStagesResponseOutput
 }
 
-// Job stages.
 type JobStagesResponseArgs struct {
-	// Display name of the job stage.
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// Job Stage Details
-	JobStageDetails pulumi.Input `pulumi:"jobStageDetails"`
-	// Name of the job stage.
-	StageName pulumi.StringInput `pulumi:"stageName"`
-	// Status of the job stage.
-	StageStatus pulumi.StringInput `pulumi:"stageStatus"`
-	// Time for the job stage in UTC ISO 8601 format.
-	StageTime pulumi.StringInput `pulumi:"stageTime"`
+	DisplayName     pulumi.StringInput `pulumi:"displayName"`
+	JobStageDetails pulumi.Input       `pulumi:"jobStageDetails"`
+	StageName       pulumi.StringInput `pulumi:"stageName"`
+	StageStatus     pulumi.StringInput `pulumi:"stageStatus"`
+	StageTime       pulumi.StringInput `pulumi:"stageTime"`
 }
 
 func (JobStagesResponseArgs) ElementType() reflect.Type {
@@ -4800,7 +4109,6 @@ func (i JobStagesResponseArray) ToJobStagesResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(JobStagesResponseArrayOutput)
 }
 
-// Job stages.
 type JobStagesResponseOutput struct{ *pulumi.OutputState }
 
 func (JobStagesResponseOutput) ElementType() reflect.Type {
@@ -4815,27 +4123,22 @@ func (o JobStagesResponseOutput) ToJobStagesResponseOutputWithContext(ctx contex
 	return o
 }
 
-// Display name of the job stage.
 func (o JobStagesResponseOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStagesResponse) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Job Stage Details
 func (o JobStagesResponseOutput) JobStageDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v JobStagesResponse) interface{} { return v.JobStageDetails }).(pulumi.AnyOutput)
 }
 
-// Name of the job stage.
 func (o JobStagesResponseOutput) StageName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStagesResponse) string { return v.StageName }).(pulumi.StringOutput)
 }
 
-// Status of the job stage.
 func (o JobStagesResponseOutput) StageStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStagesResponse) string { return v.StageStatus }).(pulumi.StringOutput)
 }
 
-// Time for the job stage in UTC ISO 8601 format.
 func (o JobStagesResponseOutput) StageTime() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStagesResponse) string { return v.StageTime }).(pulumi.StringOutput)
 }
@@ -4860,13 +4163,9 @@ func (o JobStagesResponseArrayOutput) Index(i pulumi.IntInput) JobStagesResponse
 	}).(JobStagesResponseOutput)
 }
 
-// Encryption key containing details about key to encrypt different keys.
 type KeyEncryptionKeyResponse struct {
-	// Type of encryption key used for key encryption.
-	KekType string `pulumi:"kekType"`
-	// Key encryption key. It is required in case of Customer managed KekType.
-	KekUrl *string `pulumi:"kekUrl"`
-	// Kek vault resource id. It is required in case of Customer managed KekType.
+	KekType            string  `pulumi:"kekType"`
+	KekUrl             *string `pulumi:"kekUrl"`
 	KekVaultResourceID *string `pulumi:"kekVaultResourceID"`
 }
 
@@ -4881,13 +4180,9 @@ type KeyEncryptionKeyResponseInput interface {
 	ToKeyEncryptionKeyResponseOutputWithContext(context.Context) KeyEncryptionKeyResponseOutput
 }
 
-// Encryption key containing details about key to encrypt different keys.
 type KeyEncryptionKeyResponseArgs struct {
-	// Type of encryption key used for key encryption.
-	KekType pulumi.StringInput `pulumi:"kekType"`
-	// Key encryption key. It is required in case of Customer managed KekType.
-	KekUrl pulumi.StringPtrInput `pulumi:"kekUrl"`
-	// Kek vault resource id. It is required in case of Customer managed KekType.
+	KekType            pulumi.StringInput    `pulumi:"kekType"`
+	KekUrl             pulumi.StringPtrInput `pulumi:"kekUrl"`
 	KekVaultResourceID pulumi.StringPtrInput `pulumi:"kekVaultResourceID"`
 }
 
@@ -4903,7 +4198,6 @@ func (i KeyEncryptionKeyResponseArgs) ToKeyEncryptionKeyResponseOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(KeyEncryptionKeyResponseOutput)
 }
 
-// Encryption key containing details about key to encrypt different keys.
 type KeyEncryptionKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyEncryptionKeyResponseOutput) ElementType() reflect.Type {
@@ -4918,32 +4212,23 @@ func (o KeyEncryptionKeyResponseOutput) ToKeyEncryptionKeyResponseOutputWithCont
 	return o
 }
 
-// Type of encryption key used for key encryption.
 func (o KeyEncryptionKeyResponseOutput) KekType() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyEncryptionKeyResponse) string { return v.KekType }).(pulumi.StringOutput)
 }
 
-// Key encryption key. It is required in case of Customer managed KekType.
 func (o KeyEncryptionKeyResponseOutput) KekUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyEncryptionKeyResponse) *string { return v.KekUrl }).(pulumi.StringPtrOutput)
 }
 
-// Kek vault resource id. It is required in case of Customer managed KekType.
 func (o KeyEncryptionKeyResponseOutput) KekVaultResourceID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyEncryptionKeyResponse) *string { return v.KekVaultResourceID }).(pulumi.StringPtrOutput)
 }
 
-// Details of the managed disks.
 type ManagedDiskDetails struct {
-	// Account Type of the data to be transferred.
-	// Expected value is 'ManagedDisk'.
-	DataAccountType string `pulumi:"dataAccountType"`
-	// Resource Group Id of the compute disks.
-	ResourceGroupId string `pulumi:"resourceGroupId"`
-	// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-	SharePassword *string `pulumi:"sharePassword"`
-	// Resource Id of the storage account that can be used to copy the vhd for staging.
-	StagingStorageAccountId string `pulumi:"stagingStorageAccountId"`
+	DataAccountType         string  `pulumi:"dataAccountType"`
+	ResourceGroupId         string  `pulumi:"resourceGroupId"`
+	SharePassword           *string `pulumi:"sharePassword"`
+	StagingStorageAccountId string  `pulumi:"stagingStorageAccountId"`
 }
 
 // ManagedDiskDetailsInput is an input type that accepts ManagedDiskDetailsArgs and ManagedDiskDetailsOutput values.
@@ -4957,17 +4242,11 @@ type ManagedDiskDetailsInput interface {
 	ToManagedDiskDetailsOutputWithContext(context.Context) ManagedDiskDetailsOutput
 }
 
-// Details of the managed disks.
 type ManagedDiskDetailsArgs struct {
-	// Account Type of the data to be transferred.
-	// Expected value is 'ManagedDisk'.
-	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
-	// Resource Group Id of the compute disks.
-	ResourceGroupId pulumi.StringInput `pulumi:"resourceGroupId"`
-	// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-	SharePassword pulumi.StringPtrInput `pulumi:"sharePassword"`
-	// Resource Id of the storage account that can be used to copy the vhd for staging.
-	StagingStorageAccountId pulumi.StringInput `pulumi:"stagingStorageAccountId"`
+	DataAccountType         pulumi.StringInput    `pulumi:"dataAccountType"`
+	ResourceGroupId         pulumi.StringInput    `pulumi:"resourceGroupId"`
+	SharePassword           pulumi.StringPtrInput `pulumi:"sharePassword"`
+	StagingStorageAccountId pulumi.StringInput    `pulumi:"stagingStorageAccountId"`
 }
 
 func (ManagedDiskDetailsArgs) ElementType() reflect.Type {
@@ -4982,7 +4261,6 @@ func (i ManagedDiskDetailsArgs) ToManagedDiskDetailsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskDetailsOutput)
 }
 
-// Details of the managed disks.
 type ManagedDiskDetailsOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskDetailsOutput) ElementType() reflect.Type {
@@ -4997,35 +4275,25 @@ func (o ManagedDiskDetailsOutput) ToManagedDiskDetailsOutputWithContext(ctx cont
 	return o
 }
 
-// Account Type of the data to be transferred.
-// Expected value is 'ManagedDisk'.
 func (o ManagedDiskDetailsOutput) DataAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedDiskDetails) string { return v.DataAccountType }).(pulumi.StringOutput)
 }
 
-// Resource Group Id of the compute disks.
 func (o ManagedDiskDetailsOutput) ResourceGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedDiskDetails) string { return v.ResourceGroupId }).(pulumi.StringOutput)
 }
 
-// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 func (o ManagedDiskDetailsOutput) SharePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedDiskDetails) *string { return v.SharePassword }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id of the storage account that can be used to copy the vhd for staging.
 func (o ManagedDiskDetailsOutput) StagingStorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedDiskDetails) string { return v.StagingStorageAccountId }).(pulumi.StringOutput)
 }
 
-// Details of the managed disks.
 type ManagedDiskDetailsResponse struct {
-	// Account Type of the data to be transferred.
-	// Expected value is 'ManagedDisk'.
-	DataAccountType string `pulumi:"dataAccountType"`
-	// Resource Group Id of the compute disks.
-	ResourceGroupId string `pulumi:"resourceGroupId"`
-	// Resource Id of the storage account that can be used to copy the vhd for staging.
+	DataAccountType         string `pulumi:"dataAccountType"`
+	ResourceGroupId         string `pulumi:"resourceGroupId"`
 	StagingStorageAccountId string `pulumi:"stagingStorageAccountId"`
 }
 
@@ -5040,14 +4308,9 @@ type ManagedDiskDetailsResponseInput interface {
 	ToManagedDiskDetailsResponseOutputWithContext(context.Context) ManagedDiskDetailsResponseOutput
 }
 
-// Details of the managed disks.
 type ManagedDiskDetailsResponseArgs struct {
-	// Account Type of the data to be transferred.
-	// Expected value is 'ManagedDisk'.
-	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
-	// Resource Group Id of the compute disks.
-	ResourceGroupId pulumi.StringInput `pulumi:"resourceGroupId"`
-	// Resource Id of the storage account that can be used to copy the vhd for staging.
+	DataAccountType         pulumi.StringInput `pulumi:"dataAccountType"`
+	ResourceGroupId         pulumi.StringInput `pulumi:"resourceGroupId"`
 	StagingStorageAccountId pulumi.StringInput `pulumi:"stagingStorageAccountId"`
 }
 
@@ -5063,7 +4326,6 @@ func (i ManagedDiskDetailsResponseArgs) ToManagedDiskDetailsResponseOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskDetailsResponseOutput)
 }
 
-// Details of the managed disks.
 type ManagedDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -5078,28 +4340,21 @@ func (o ManagedDiskDetailsResponseOutput) ToManagedDiskDetailsResponseOutputWith
 	return o
 }
 
-// Account Type of the data to be transferred.
-// Expected value is 'ManagedDisk'.
 func (o ManagedDiskDetailsResponseOutput) DataAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedDiskDetailsResponse) string { return v.DataAccountType }).(pulumi.StringOutput)
 }
 
-// Resource Group Id of the compute disks.
 func (o ManagedDiskDetailsResponseOutput) ResourceGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedDiskDetailsResponse) string { return v.ResourceGroupId }).(pulumi.StringOutput)
 }
 
-// Resource Id of the storage account that can be used to copy the vhd for staging.
 func (o ManagedDiskDetailsResponseOutput) StagingStorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedDiskDetailsResponse) string { return v.StagingStorageAccountId }).(pulumi.StringOutput)
 }
 
-// Notification preference for a job stage.
 type NotificationPreference struct {
-	// Notification is required or not.
-	SendNotification bool `pulumi:"sendNotification"`
-	// Name of the stage.
-	StageName string `pulumi:"stageName"`
+	SendNotification bool   `pulumi:"sendNotification"`
+	StageName        string `pulumi:"stageName"`
 }
 
 // NotificationPreferenceInput is an input type that accepts NotificationPreferenceArgs and NotificationPreferenceOutput values.
@@ -5113,12 +4368,9 @@ type NotificationPreferenceInput interface {
 	ToNotificationPreferenceOutputWithContext(context.Context) NotificationPreferenceOutput
 }
 
-// Notification preference for a job stage.
 type NotificationPreferenceArgs struct {
-	// Notification is required or not.
-	SendNotification pulumi.BoolInput `pulumi:"sendNotification"`
-	// Name of the stage.
-	StageName pulumi.StringInput `pulumi:"stageName"`
+	SendNotification pulumi.BoolInput   `pulumi:"sendNotification"`
+	StageName        pulumi.StringInput `pulumi:"stageName"`
 }
 
 func (NotificationPreferenceArgs) ElementType() reflect.Type {
@@ -5158,7 +4410,6 @@ func (i NotificationPreferenceArray) ToNotificationPreferenceArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPreferenceArrayOutput)
 }
 
-// Notification preference for a job stage.
 type NotificationPreferenceOutput struct{ *pulumi.OutputState }
 
 func (NotificationPreferenceOutput) ElementType() reflect.Type {
@@ -5173,12 +4424,10 @@ func (o NotificationPreferenceOutput) ToNotificationPreferenceOutputWithContext(
 	return o
 }
 
-// Notification is required or not.
 func (o NotificationPreferenceOutput) SendNotification() pulumi.BoolOutput {
 	return o.ApplyT(func(v NotificationPreference) bool { return v.SendNotification }).(pulumi.BoolOutput)
 }
 
-// Name of the stage.
 func (o NotificationPreferenceOutput) StageName() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationPreference) string { return v.StageName }).(pulumi.StringOutput)
 }
@@ -5203,12 +4452,9 @@ func (o NotificationPreferenceArrayOutput) Index(i pulumi.IntInput) Notification
 	}).(NotificationPreferenceOutput)
 }
 
-// Notification preference for a job stage.
 type NotificationPreferenceResponse struct {
-	// Notification is required or not.
-	SendNotification bool `pulumi:"sendNotification"`
-	// Name of the stage.
-	StageName string `pulumi:"stageName"`
+	SendNotification bool   `pulumi:"sendNotification"`
+	StageName        string `pulumi:"stageName"`
 }
 
 // NotificationPreferenceResponseInput is an input type that accepts NotificationPreferenceResponseArgs and NotificationPreferenceResponseOutput values.
@@ -5222,12 +4468,9 @@ type NotificationPreferenceResponseInput interface {
 	ToNotificationPreferenceResponseOutputWithContext(context.Context) NotificationPreferenceResponseOutput
 }
 
-// Notification preference for a job stage.
 type NotificationPreferenceResponseArgs struct {
-	// Notification is required or not.
-	SendNotification pulumi.BoolInput `pulumi:"sendNotification"`
-	// Name of the stage.
-	StageName pulumi.StringInput `pulumi:"stageName"`
+	SendNotification pulumi.BoolInput   `pulumi:"sendNotification"`
+	StageName        pulumi.StringInput `pulumi:"stageName"`
 }
 
 func (NotificationPreferenceResponseArgs) ElementType() reflect.Type {
@@ -5267,7 +4510,6 @@ func (i NotificationPreferenceResponseArray) ToNotificationPreferenceResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPreferenceResponseArrayOutput)
 }
 
-// Notification preference for a job stage.
 type NotificationPreferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (NotificationPreferenceResponseOutput) ElementType() reflect.Type {
@@ -5282,12 +4524,10 @@ func (o NotificationPreferenceResponseOutput) ToNotificationPreferenceResponseOu
 	return o
 }
 
-// Notification is required or not.
 func (o NotificationPreferenceResponseOutput) SendNotification() pulumi.BoolOutput {
 	return o.ApplyT(func(v NotificationPreferenceResponse) bool { return v.SendNotification }).(pulumi.BoolOutput)
 }
 
-// Name of the stage.
 func (o NotificationPreferenceResponseOutput) StageName() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationPreferenceResponse) string { return v.StageName }).(pulumi.StringOutput)
 }
@@ -5312,13 +4552,9 @@ func (o NotificationPreferenceResponseArrayOutput) Index(i pulumi.IntInput) Noti
 	}).(NotificationPreferenceResponseOutput)
 }
 
-// Shipping details.
 type PackageShippingDetailsResponse struct {
-	// Name of the carrier.
 	CarrierName string `pulumi:"carrierName"`
-	// Tracking Id of shipment.
-	TrackingId string `pulumi:"trackingId"`
-	// Url where shipment can be tracked.
+	TrackingId  string `pulumi:"trackingId"`
 	TrackingUrl string `pulumi:"trackingUrl"`
 }
 
@@ -5333,13 +4569,9 @@ type PackageShippingDetailsResponseInput interface {
 	ToPackageShippingDetailsResponseOutputWithContext(context.Context) PackageShippingDetailsResponseOutput
 }
 
-// Shipping details.
 type PackageShippingDetailsResponseArgs struct {
-	// Name of the carrier.
 	CarrierName pulumi.StringInput `pulumi:"carrierName"`
-	// Tracking Id of shipment.
-	TrackingId pulumi.StringInput `pulumi:"trackingId"`
-	// Url where shipment can be tracked.
+	TrackingId  pulumi.StringInput `pulumi:"trackingId"`
 	TrackingUrl pulumi.StringInput `pulumi:"trackingUrl"`
 }
 
@@ -5355,7 +4587,6 @@ func (i PackageShippingDetailsResponseArgs) ToPackageShippingDetailsResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PackageShippingDetailsResponseOutput)
 }
 
-// Shipping details.
 type PackageShippingDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (PackageShippingDetailsResponseOutput) ElementType() reflect.Type {
@@ -5370,27 +4601,21 @@ func (o PackageShippingDetailsResponseOutput) ToPackageShippingDetailsResponseOu
 	return o
 }
 
-// Name of the carrier.
 func (o PackageShippingDetailsResponseOutput) CarrierName() pulumi.StringOutput {
 	return o.ApplyT(func(v PackageShippingDetailsResponse) string { return v.CarrierName }).(pulumi.StringOutput)
 }
 
-// Tracking Id of shipment.
 func (o PackageShippingDetailsResponseOutput) TrackingId() pulumi.StringOutput {
 	return o.ApplyT(func(v PackageShippingDetailsResponse) string { return v.TrackingId }).(pulumi.StringOutput)
 }
 
-// Url where shipment can be tracked.
 func (o PackageShippingDetailsResponseOutput) TrackingUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v PackageShippingDetailsResponse) string { return v.TrackingUrl }).(pulumi.StringOutput)
 }
 
-// Preferences related to the order
 type Preferences struct {
-	// Preferred data center region.
-	PreferredDataCenterRegion []string `pulumi:"preferredDataCenterRegion"`
-	// Preferences related to the shipment logistics of the sku.
-	TransportPreferences *TransportPreferences `pulumi:"transportPreferences"`
+	PreferredDataCenterRegion []string              `pulumi:"preferredDataCenterRegion"`
+	TransportPreferences      *TransportPreferences `pulumi:"transportPreferences"`
 }
 
 // PreferencesInput is an input type that accepts PreferencesArgs and PreferencesOutput values.
@@ -5404,12 +4629,9 @@ type PreferencesInput interface {
 	ToPreferencesOutputWithContext(context.Context) PreferencesOutput
 }
 
-// Preferences related to the order
 type PreferencesArgs struct {
-	// Preferred data center region.
-	PreferredDataCenterRegion pulumi.StringArrayInput `pulumi:"preferredDataCenterRegion"`
-	// Preferences related to the shipment logistics of the sku.
-	TransportPreferences TransportPreferencesPtrInput `pulumi:"transportPreferences"`
+	PreferredDataCenterRegion pulumi.StringArrayInput      `pulumi:"preferredDataCenterRegion"`
+	TransportPreferences      TransportPreferencesPtrInput `pulumi:"transportPreferences"`
 }
 
 func (PreferencesArgs) ElementType() reflect.Type {
@@ -5465,7 +4687,6 @@ func (i *preferencesPtrType) ToPreferencesPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PreferencesPtrOutput)
 }
 
-// Preferences related to the order
 type PreferencesOutput struct{ *pulumi.OutputState }
 
 func (PreferencesOutput) ElementType() reflect.Type {
@@ -5485,17 +4706,15 @@ func (o PreferencesOutput) ToPreferencesPtrOutput() PreferencesPtrOutput {
 }
 
 func (o PreferencesOutput) ToPreferencesPtrOutputWithContext(ctx context.Context) PreferencesPtrOutput {
-	return o.ApplyT(func(v Preferences) *Preferences {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Preferences) *Preferences {
 		return &v
 	}).(PreferencesPtrOutput)
 }
 
-// Preferred data center region.
 func (o PreferencesOutput) PreferredDataCenterRegion() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Preferences) []string { return v.PreferredDataCenterRegion }).(pulumi.StringArrayOutput)
 }
 
-// Preferences related to the shipment logistics of the sku.
 func (o PreferencesOutput) TransportPreferences() TransportPreferencesPtrOutput {
 	return o.ApplyT(func(v Preferences) *TransportPreferences { return v.TransportPreferences }).(TransportPreferencesPtrOutput)
 }
@@ -5515,10 +4734,15 @@ func (o PreferencesPtrOutput) ToPreferencesPtrOutputWithContext(ctx context.Cont
 }
 
 func (o PreferencesPtrOutput) Elem() PreferencesOutput {
-	return o.ApplyT(func(v *Preferences) Preferences { return *v }).(PreferencesOutput)
+	return o.ApplyT(func(v *Preferences) Preferences {
+		if v != nil {
+			return *v
+		}
+		var ret Preferences
+		return ret
+	}).(PreferencesOutput)
 }
 
-// Preferred data center region.
 func (o PreferencesPtrOutput) PreferredDataCenterRegion() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Preferences) []string {
 		if v == nil {
@@ -5528,7 +4752,6 @@ func (o PreferencesPtrOutput) PreferredDataCenterRegion() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// Preferences related to the shipment logistics of the sku.
 func (o PreferencesPtrOutput) TransportPreferences() TransportPreferencesPtrOutput {
 	return o.ApplyT(func(v *Preferences) *TransportPreferences {
 		if v == nil {
@@ -5538,12 +4761,9 @@ func (o PreferencesPtrOutput) TransportPreferences() TransportPreferencesPtrOutp
 	}).(TransportPreferencesPtrOutput)
 }
 
-// Preferences related to the order
 type PreferencesResponse struct {
-	// Preferred data center region.
-	PreferredDataCenterRegion []string `pulumi:"preferredDataCenterRegion"`
-	// Preferences related to the shipment logistics of the sku.
-	TransportPreferences *TransportPreferencesResponse `pulumi:"transportPreferences"`
+	PreferredDataCenterRegion []string                      `pulumi:"preferredDataCenterRegion"`
+	TransportPreferences      *TransportPreferencesResponse `pulumi:"transportPreferences"`
 }
 
 // PreferencesResponseInput is an input type that accepts PreferencesResponseArgs and PreferencesResponseOutput values.
@@ -5557,12 +4777,9 @@ type PreferencesResponseInput interface {
 	ToPreferencesResponseOutputWithContext(context.Context) PreferencesResponseOutput
 }
 
-// Preferences related to the order
 type PreferencesResponseArgs struct {
-	// Preferred data center region.
-	PreferredDataCenterRegion pulumi.StringArrayInput `pulumi:"preferredDataCenterRegion"`
-	// Preferences related to the shipment logistics of the sku.
-	TransportPreferences TransportPreferencesResponsePtrInput `pulumi:"transportPreferences"`
+	PreferredDataCenterRegion pulumi.StringArrayInput              `pulumi:"preferredDataCenterRegion"`
+	TransportPreferences      TransportPreferencesResponsePtrInput `pulumi:"transportPreferences"`
 }
 
 func (PreferencesResponseArgs) ElementType() reflect.Type {
@@ -5618,7 +4835,6 @@ func (i *preferencesResponsePtrType) ToPreferencesResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PreferencesResponsePtrOutput)
 }
 
-// Preferences related to the order
 type PreferencesResponseOutput struct{ *pulumi.OutputState }
 
 func (PreferencesResponseOutput) ElementType() reflect.Type {
@@ -5638,17 +4854,15 @@ func (o PreferencesResponseOutput) ToPreferencesResponsePtrOutput() PreferencesR
 }
 
 func (o PreferencesResponseOutput) ToPreferencesResponsePtrOutputWithContext(ctx context.Context) PreferencesResponsePtrOutput {
-	return o.ApplyT(func(v PreferencesResponse) *PreferencesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PreferencesResponse) *PreferencesResponse {
 		return &v
 	}).(PreferencesResponsePtrOutput)
 }
 
-// Preferred data center region.
 func (o PreferencesResponseOutput) PreferredDataCenterRegion() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PreferencesResponse) []string { return v.PreferredDataCenterRegion }).(pulumi.StringArrayOutput)
 }
 
-// Preferences related to the shipment logistics of the sku.
 func (o PreferencesResponseOutput) TransportPreferences() TransportPreferencesResponsePtrOutput {
 	return o.ApplyT(func(v PreferencesResponse) *TransportPreferencesResponse { return v.TransportPreferences }).(TransportPreferencesResponsePtrOutput)
 }
@@ -5668,10 +4882,15 @@ func (o PreferencesResponsePtrOutput) ToPreferencesResponsePtrOutputWithContext(
 }
 
 func (o PreferencesResponsePtrOutput) Elem() PreferencesResponseOutput {
-	return o.ApplyT(func(v *PreferencesResponse) PreferencesResponse { return *v }).(PreferencesResponseOutput)
+	return o.ApplyT(func(v *PreferencesResponse) PreferencesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PreferencesResponse
+		return ret
+	}).(PreferencesResponseOutput)
 }
 
-// Preferred data center region.
 func (o PreferencesResponsePtrOutput) PreferredDataCenterRegion() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PreferencesResponse) []string {
 		if v == nil {
@@ -5681,7 +4900,6 @@ func (o PreferencesResponsePtrOutput) PreferredDataCenterRegion() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// Preferences related to the shipment logistics of the sku.
 func (o PreferencesResponsePtrOutput) TransportPreferences() TransportPreferencesResponsePtrOutput {
 	return o.ApplyT(func(v *PreferencesResponse) *TransportPreferencesResponse {
 		if v == nil {
@@ -5691,9 +4909,7 @@ func (o PreferencesResponsePtrOutput) TransportPreferences() TransportPreference
 	}).(TransportPreferencesResponsePtrOutput)
 }
 
-// Msi identity details of the resource
 type ResourceIdentity struct {
-	// Identity type
 	Type *string `pulumi:"type"`
 }
 
@@ -5708,9 +4924,7 @@ type ResourceIdentityInput interface {
 	ToResourceIdentityOutputWithContext(context.Context) ResourceIdentityOutput
 }
 
-// Msi identity details of the resource
 type ResourceIdentityArgs struct {
-	// Identity type
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -5767,7 +4981,6 @@ func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityPtrOutput)
 }
 
-// Msi identity details of the resource
 type ResourceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityOutput) ElementType() reflect.Type {
@@ -5787,12 +5000,11 @@ func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPt
 }
 
 func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return o.ApplyT(func(v ResourceIdentity) *ResourceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentity) *ResourceIdentity {
 		return &v
 	}).(ResourceIdentityPtrOutput)
 }
 
-// Identity type
 func (o ResourceIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -5812,10 +5024,15 @@ func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx co
 }
 
 func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
-	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity { return *v }).(ResourceIdentityOutput)
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentity
+		return ret
+	}).(ResourceIdentityOutput)
 }
 
-// Identity type
 func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentity) *string {
 		if v == nil {
@@ -5825,14 +5042,10 @@ func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Msi identity details of the resource
 type ResourceIdentityResponse struct {
-	// Service Principal Id backing the Msi
-	PrincipalId string `pulumi:"principalId"`
-	// Home Tenant Id
-	TenantId string `pulumi:"tenantId"`
-	// Identity type
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // ResourceIdentityResponseInput is an input type that accepts ResourceIdentityResponseArgs and ResourceIdentityResponseOutput values.
@@ -5846,14 +5059,10 @@ type ResourceIdentityResponseInput interface {
 	ToResourceIdentityResponseOutputWithContext(context.Context) ResourceIdentityResponseOutput
 }
 
-// Msi identity details of the resource
 type ResourceIdentityResponseArgs struct {
-	// Service Principal Id backing the Msi
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Home Tenant Id
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// Identity type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ResourceIdentityResponseArgs) ElementType() reflect.Type {
@@ -5909,7 +5118,6 @@ func (i *resourceIdentityResponsePtrType) ToResourceIdentityResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponsePtrOutput)
 }
 
-// Msi identity details of the resource
 type ResourceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityResponseOutput) ElementType() reflect.Type {
@@ -5929,22 +5137,19 @@ func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutput() Re
 }
 
 func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ResourceIdentityResponse) *ResourceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityResponse) *ResourceIdentityResponse {
 		return &v
 	}).(ResourceIdentityResponsePtrOutput)
 }
 
-// Service Principal Id backing the Msi
 func (o ResourceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Home Tenant Id
 func (o ResourceIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Identity type
 func (o ResourceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -5964,10 +5169,15 @@ func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWi
 }
 
 func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse { return *v }).(ResourceIdentityResponseOutput)
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentityResponse
+		return ret
+	}).(ResourceIdentityResponseOutput)
 }
 
-// Service Principal Id backing the Msi
 func (o ResourceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
@@ -5977,7 +5187,6 @@ func (o ResourceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Home Tenant Id
 func (o ResourceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
@@ -5987,7 +5196,6 @@ func (o ResourceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity type
 func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
@@ -5997,18 +5205,12 @@ func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Credential details of the shares in account.
 type ShareCredentialDetailsResponse struct {
-	// Password for the share.
-	Password string `pulumi:"password"`
-	// Name of the share.
-	ShareName string `pulumi:"shareName"`
-	// Type of the share.
-	ShareType string `pulumi:"shareType"`
-	// Access protocols supported on the device.
+	Password                 string   `pulumi:"password"`
+	ShareName                string   `pulumi:"shareName"`
+	ShareType                string   `pulumi:"shareType"`
 	SupportedAccessProtocols []string `pulumi:"supportedAccessProtocols"`
-	// User name for the share.
-	UserName string `pulumi:"userName"`
+	UserName                 string   `pulumi:"userName"`
 }
 
 // ShareCredentialDetailsResponseInput is an input type that accepts ShareCredentialDetailsResponseArgs and ShareCredentialDetailsResponseOutput values.
@@ -6022,18 +5224,12 @@ type ShareCredentialDetailsResponseInput interface {
 	ToShareCredentialDetailsResponseOutputWithContext(context.Context) ShareCredentialDetailsResponseOutput
 }
 
-// Credential details of the shares in account.
 type ShareCredentialDetailsResponseArgs struct {
-	// Password for the share.
-	Password pulumi.StringInput `pulumi:"password"`
-	// Name of the share.
-	ShareName pulumi.StringInput `pulumi:"shareName"`
-	// Type of the share.
-	ShareType pulumi.StringInput `pulumi:"shareType"`
-	// Access protocols supported on the device.
+	Password                 pulumi.StringInput      `pulumi:"password"`
+	ShareName                pulumi.StringInput      `pulumi:"shareName"`
+	ShareType                pulumi.StringInput      `pulumi:"shareType"`
 	SupportedAccessProtocols pulumi.StringArrayInput `pulumi:"supportedAccessProtocols"`
-	// User name for the share.
-	UserName pulumi.StringInput `pulumi:"userName"`
+	UserName                 pulumi.StringInput      `pulumi:"userName"`
 }
 
 func (ShareCredentialDetailsResponseArgs) ElementType() reflect.Type {
@@ -6073,7 +5269,6 @@ func (i ShareCredentialDetailsResponseArray) ToShareCredentialDetailsResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(ShareCredentialDetailsResponseArrayOutput)
 }
 
-// Credential details of the shares in account.
 type ShareCredentialDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ShareCredentialDetailsResponseOutput) ElementType() reflect.Type {
@@ -6088,27 +5283,22 @@ func (o ShareCredentialDetailsResponseOutput) ToShareCredentialDetailsResponseOu
 	return o
 }
 
-// Password for the share.
 func (o ShareCredentialDetailsResponseOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareCredentialDetailsResponse) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Name of the share.
 func (o ShareCredentialDetailsResponseOutput) ShareName() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareCredentialDetailsResponse) string { return v.ShareName }).(pulumi.StringOutput)
 }
 
-// Type of the share.
 func (o ShareCredentialDetailsResponseOutput) ShareType() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareCredentialDetailsResponse) string { return v.ShareType }).(pulumi.StringOutput)
 }
 
-// Access protocols supported on the device.
 func (o ShareCredentialDetailsResponseOutput) SupportedAccessProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ShareCredentialDetailsResponse) []string { return v.SupportedAccessProtocols }).(pulumi.StringArrayOutput)
 }
 
-// User name for the share.
 func (o ShareCredentialDetailsResponseOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareCredentialDetailsResponse) string { return v.UserName }).(pulumi.StringOutput)
 }
@@ -6133,27 +5323,16 @@ func (o ShareCredentialDetailsResponseArrayOutput) Index(i pulumi.IntInput) Shar
 	}).(ShareCredentialDetailsResponseOutput)
 }
 
-// Shipping address where customer wishes to receive the device.
 type ShippingAddress struct {
-	// Type of address.
-	AddressType *string `pulumi:"addressType"`
-	// Name of the City.
-	City *string `pulumi:"city"`
-	// Name of the company.
-	CompanyName *string `pulumi:"companyName"`
-	// Name of the Country.
-	Country string `pulumi:"country"`
-	// Postal code.
-	PostalCode string `pulumi:"postalCode"`
-	// Name of the State or Province.
+	AddressType     *string `pulumi:"addressType"`
+	City            *string `pulumi:"city"`
+	CompanyName     *string `pulumi:"companyName"`
+	Country         string  `pulumi:"country"`
+	PostalCode      string  `pulumi:"postalCode"`
 	StateOrProvince *string `pulumi:"stateOrProvince"`
-	// Street Address line 1.
-	StreetAddress1 string `pulumi:"streetAddress1"`
-	// Street Address line 2.
-	StreetAddress2 *string `pulumi:"streetAddress2"`
-	// Street Address line 3.
-	StreetAddress3 *string `pulumi:"streetAddress3"`
-	// Extended Zip Code.
+	StreetAddress1  string  `pulumi:"streetAddress1"`
+	StreetAddress2  *string `pulumi:"streetAddress2"`
+	StreetAddress3  *string `pulumi:"streetAddress3"`
 	ZipExtendedCode *string `pulumi:"zipExtendedCode"`
 }
 
@@ -6168,27 +5347,16 @@ type ShippingAddressInput interface {
 	ToShippingAddressOutputWithContext(context.Context) ShippingAddressOutput
 }
 
-// Shipping address where customer wishes to receive the device.
 type ShippingAddressArgs struct {
-	// Type of address.
-	AddressType pulumi.StringPtrInput `pulumi:"addressType"`
-	// Name of the City.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// Name of the company.
-	CompanyName pulumi.StringPtrInput `pulumi:"companyName"`
-	// Name of the Country.
-	Country pulumi.StringInput `pulumi:"country"`
-	// Postal code.
-	PostalCode pulumi.StringInput `pulumi:"postalCode"`
-	// Name of the State or Province.
+	AddressType     pulumi.StringPtrInput `pulumi:"addressType"`
+	City            pulumi.StringPtrInput `pulumi:"city"`
+	CompanyName     pulumi.StringPtrInput `pulumi:"companyName"`
+	Country         pulumi.StringInput    `pulumi:"country"`
+	PostalCode      pulumi.StringInput    `pulumi:"postalCode"`
 	StateOrProvince pulumi.StringPtrInput `pulumi:"stateOrProvince"`
-	// Street Address line 1.
-	StreetAddress1 pulumi.StringInput `pulumi:"streetAddress1"`
-	// Street Address line 2.
-	StreetAddress2 pulumi.StringPtrInput `pulumi:"streetAddress2"`
-	// Street Address line 3.
-	StreetAddress3 pulumi.StringPtrInput `pulumi:"streetAddress3"`
-	// Extended Zip Code.
+	StreetAddress1  pulumi.StringInput    `pulumi:"streetAddress1"`
+	StreetAddress2  pulumi.StringPtrInput `pulumi:"streetAddress2"`
+	StreetAddress3  pulumi.StringPtrInput `pulumi:"streetAddress3"`
 	ZipExtendedCode pulumi.StringPtrInput `pulumi:"zipExtendedCode"`
 }
 
@@ -6245,7 +5413,6 @@ func (i *shippingAddressPtrType) ToShippingAddressPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ShippingAddressPtrOutput)
 }
 
-// Shipping address where customer wishes to receive the device.
 type ShippingAddressOutput struct{ *pulumi.OutputState }
 
 func (ShippingAddressOutput) ElementType() reflect.Type {
@@ -6265,57 +5432,47 @@ func (o ShippingAddressOutput) ToShippingAddressPtrOutput() ShippingAddressPtrOu
 }
 
 func (o ShippingAddressOutput) ToShippingAddressPtrOutputWithContext(ctx context.Context) ShippingAddressPtrOutput {
-	return o.ApplyT(func(v ShippingAddress) *ShippingAddress {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShippingAddress) *ShippingAddress {
 		return &v
 	}).(ShippingAddressPtrOutput)
 }
 
-// Type of address.
 func (o ShippingAddressOutput) AddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingAddress) *string { return v.AddressType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the City.
 func (o ShippingAddressOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingAddress) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// Name of the company.
 func (o ShippingAddressOutput) CompanyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingAddress) *string { return v.CompanyName }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Country.
 func (o ShippingAddressOutput) Country() pulumi.StringOutput {
 	return o.ApplyT(func(v ShippingAddress) string { return v.Country }).(pulumi.StringOutput)
 }
 
-// Postal code.
 func (o ShippingAddressOutput) PostalCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ShippingAddress) string { return v.PostalCode }).(pulumi.StringOutput)
 }
 
-// Name of the State or Province.
 func (o ShippingAddressOutput) StateOrProvince() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingAddress) *string { return v.StateOrProvince }).(pulumi.StringPtrOutput)
 }
 
-// Street Address line 1.
 func (o ShippingAddressOutput) StreetAddress1() pulumi.StringOutput {
 	return o.ApplyT(func(v ShippingAddress) string { return v.StreetAddress1 }).(pulumi.StringOutput)
 }
 
-// Street Address line 2.
 func (o ShippingAddressOutput) StreetAddress2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingAddress) *string { return v.StreetAddress2 }).(pulumi.StringPtrOutput)
 }
 
-// Street Address line 3.
 func (o ShippingAddressOutput) StreetAddress3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingAddress) *string { return v.StreetAddress3 }).(pulumi.StringPtrOutput)
 }
 
-// Extended Zip Code.
 func (o ShippingAddressOutput) ZipExtendedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingAddress) *string { return v.ZipExtendedCode }).(pulumi.StringPtrOutput)
 }
@@ -6335,10 +5492,15 @@ func (o ShippingAddressPtrOutput) ToShippingAddressPtrOutputWithContext(ctx cont
 }
 
 func (o ShippingAddressPtrOutput) Elem() ShippingAddressOutput {
-	return o.ApplyT(func(v *ShippingAddress) ShippingAddress { return *v }).(ShippingAddressOutput)
+	return o.ApplyT(func(v *ShippingAddress) ShippingAddress {
+		if v != nil {
+			return *v
+		}
+		var ret ShippingAddress
+		return ret
+	}).(ShippingAddressOutput)
 }
 
-// Type of address.
 func (o ShippingAddressPtrOutput) AddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddress) *string {
 		if v == nil {
@@ -6348,7 +5510,6 @@ func (o ShippingAddressPtrOutput) AddressType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the City.
 func (o ShippingAddressPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddress) *string {
 		if v == nil {
@@ -6358,7 +5519,6 @@ func (o ShippingAddressPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the company.
 func (o ShippingAddressPtrOutput) CompanyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddress) *string {
 		if v == nil {
@@ -6368,7 +5528,6 @@ func (o ShippingAddressPtrOutput) CompanyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Country.
 func (o ShippingAddressPtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddress) *string {
 		if v == nil {
@@ -6378,7 +5537,6 @@ func (o ShippingAddressPtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Postal code.
 func (o ShippingAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddress) *string {
 		if v == nil {
@@ -6388,7 +5546,6 @@ func (o ShippingAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the State or Province.
 func (o ShippingAddressPtrOutput) StateOrProvince() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddress) *string {
 		if v == nil {
@@ -6398,7 +5555,6 @@ func (o ShippingAddressPtrOutput) StateOrProvince() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Street Address line 1.
 func (o ShippingAddressPtrOutput) StreetAddress1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddress) *string {
 		if v == nil {
@@ -6408,7 +5564,6 @@ func (o ShippingAddressPtrOutput) StreetAddress1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Street Address line 2.
 func (o ShippingAddressPtrOutput) StreetAddress2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddress) *string {
 		if v == nil {
@@ -6418,7 +5573,6 @@ func (o ShippingAddressPtrOutput) StreetAddress2() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Street Address line 3.
 func (o ShippingAddressPtrOutput) StreetAddress3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddress) *string {
 		if v == nil {
@@ -6428,7 +5582,6 @@ func (o ShippingAddressPtrOutput) StreetAddress3() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Extended Zip Code.
 func (o ShippingAddressPtrOutput) ZipExtendedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddress) *string {
 		if v == nil {
@@ -6438,27 +5591,16 @@ func (o ShippingAddressPtrOutput) ZipExtendedCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Shipping address where customer wishes to receive the device.
 type ShippingAddressResponse struct {
-	// Type of address.
-	AddressType *string `pulumi:"addressType"`
-	// Name of the City.
-	City *string `pulumi:"city"`
-	// Name of the company.
-	CompanyName *string `pulumi:"companyName"`
-	// Name of the Country.
-	Country string `pulumi:"country"`
-	// Postal code.
-	PostalCode string `pulumi:"postalCode"`
-	// Name of the State or Province.
+	AddressType     *string `pulumi:"addressType"`
+	City            *string `pulumi:"city"`
+	CompanyName     *string `pulumi:"companyName"`
+	Country         string  `pulumi:"country"`
+	PostalCode      string  `pulumi:"postalCode"`
 	StateOrProvince *string `pulumi:"stateOrProvince"`
-	// Street Address line 1.
-	StreetAddress1 string `pulumi:"streetAddress1"`
-	// Street Address line 2.
-	StreetAddress2 *string `pulumi:"streetAddress2"`
-	// Street Address line 3.
-	StreetAddress3 *string `pulumi:"streetAddress3"`
-	// Extended Zip Code.
+	StreetAddress1  string  `pulumi:"streetAddress1"`
+	StreetAddress2  *string `pulumi:"streetAddress2"`
+	StreetAddress3  *string `pulumi:"streetAddress3"`
 	ZipExtendedCode *string `pulumi:"zipExtendedCode"`
 }
 
@@ -6473,27 +5615,16 @@ type ShippingAddressResponseInput interface {
 	ToShippingAddressResponseOutputWithContext(context.Context) ShippingAddressResponseOutput
 }
 
-// Shipping address where customer wishes to receive the device.
 type ShippingAddressResponseArgs struct {
-	// Type of address.
-	AddressType pulumi.StringPtrInput `pulumi:"addressType"`
-	// Name of the City.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// Name of the company.
-	CompanyName pulumi.StringPtrInput `pulumi:"companyName"`
-	// Name of the Country.
-	Country pulumi.StringInput `pulumi:"country"`
-	// Postal code.
-	PostalCode pulumi.StringInput `pulumi:"postalCode"`
-	// Name of the State or Province.
+	AddressType     pulumi.StringPtrInput `pulumi:"addressType"`
+	City            pulumi.StringPtrInput `pulumi:"city"`
+	CompanyName     pulumi.StringPtrInput `pulumi:"companyName"`
+	Country         pulumi.StringInput    `pulumi:"country"`
+	PostalCode      pulumi.StringInput    `pulumi:"postalCode"`
 	StateOrProvince pulumi.StringPtrInput `pulumi:"stateOrProvince"`
-	// Street Address line 1.
-	StreetAddress1 pulumi.StringInput `pulumi:"streetAddress1"`
-	// Street Address line 2.
-	StreetAddress2 pulumi.StringPtrInput `pulumi:"streetAddress2"`
-	// Street Address line 3.
-	StreetAddress3 pulumi.StringPtrInput `pulumi:"streetAddress3"`
-	// Extended Zip Code.
+	StreetAddress1  pulumi.StringInput    `pulumi:"streetAddress1"`
+	StreetAddress2  pulumi.StringPtrInput `pulumi:"streetAddress2"`
+	StreetAddress3  pulumi.StringPtrInput `pulumi:"streetAddress3"`
 	ZipExtendedCode pulumi.StringPtrInput `pulumi:"zipExtendedCode"`
 }
 
@@ -6550,7 +5681,6 @@ func (i *shippingAddressResponsePtrType) ToShippingAddressResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ShippingAddressResponsePtrOutput)
 }
 
-// Shipping address where customer wishes to receive the device.
 type ShippingAddressResponseOutput struct{ *pulumi.OutputState }
 
 func (ShippingAddressResponseOutput) ElementType() reflect.Type {
@@ -6570,57 +5700,47 @@ func (o ShippingAddressResponseOutput) ToShippingAddressResponsePtrOutput() Ship
 }
 
 func (o ShippingAddressResponseOutput) ToShippingAddressResponsePtrOutputWithContext(ctx context.Context) ShippingAddressResponsePtrOutput {
-	return o.ApplyT(func(v ShippingAddressResponse) *ShippingAddressResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShippingAddressResponse) *ShippingAddressResponse {
 		return &v
 	}).(ShippingAddressResponsePtrOutput)
 }
 
-// Type of address.
 func (o ShippingAddressResponseOutput) AddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingAddressResponse) *string { return v.AddressType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the City.
 func (o ShippingAddressResponseOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingAddressResponse) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// Name of the company.
 func (o ShippingAddressResponseOutput) CompanyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingAddressResponse) *string { return v.CompanyName }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Country.
 func (o ShippingAddressResponseOutput) Country() pulumi.StringOutput {
 	return o.ApplyT(func(v ShippingAddressResponse) string { return v.Country }).(pulumi.StringOutput)
 }
 
-// Postal code.
 func (o ShippingAddressResponseOutput) PostalCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ShippingAddressResponse) string { return v.PostalCode }).(pulumi.StringOutput)
 }
 
-// Name of the State or Province.
 func (o ShippingAddressResponseOutput) StateOrProvince() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingAddressResponse) *string { return v.StateOrProvince }).(pulumi.StringPtrOutput)
 }
 
-// Street Address line 1.
 func (o ShippingAddressResponseOutput) StreetAddress1() pulumi.StringOutput {
 	return o.ApplyT(func(v ShippingAddressResponse) string { return v.StreetAddress1 }).(pulumi.StringOutput)
 }
 
-// Street Address line 2.
 func (o ShippingAddressResponseOutput) StreetAddress2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingAddressResponse) *string { return v.StreetAddress2 }).(pulumi.StringPtrOutput)
 }
 
-// Street Address line 3.
 func (o ShippingAddressResponseOutput) StreetAddress3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingAddressResponse) *string { return v.StreetAddress3 }).(pulumi.StringPtrOutput)
 }
 
-// Extended Zip Code.
 func (o ShippingAddressResponseOutput) ZipExtendedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingAddressResponse) *string { return v.ZipExtendedCode }).(pulumi.StringPtrOutput)
 }
@@ -6640,10 +5760,15 @@ func (o ShippingAddressResponsePtrOutput) ToShippingAddressResponsePtrOutputWith
 }
 
 func (o ShippingAddressResponsePtrOutput) Elem() ShippingAddressResponseOutput {
-	return o.ApplyT(func(v *ShippingAddressResponse) ShippingAddressResponse { return *v }).(ShippingAddressResponseOutput)
+	return o.ApplyT(func(v *ShippingAddressResponse) ShippingAddressResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ShippingAddressResponse
+		return ret
+	}).(ShippingAddressResponseOutput)
 }
 
-// Type of address.
 func (o ShippingAddressResponsePtrOutput) AddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddressResponse) *string {
 		if v == nil {
@@ -6653,7 +5778,6 @@ func (o ShippingAddressResponsePtrOutput) AddressType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the City.
 func (o ShippingAddressResponsePtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddressResponse) *string {
 		if v == nil {
@@ -6663,7 +5787,6 @@ func (o ShippingAddressResponsePtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the company.
 func (o ShippingAddressResponsePtrOutput) CompanyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddressResponse) *string {
 		if v == nil {
@@ -6673,7 +5796,6 @@ func (o ShippingAddressResponsePtrOutput) CompanyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Country.
 func (o ShippingAddressResponsePtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddressResponse) *string {
 		if v == nil {
@@ -6683,7 +5805,6 @@ func (o ShippingAddressResponsePtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Postal code.
 func (o ShippingAddressResponsePtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddressResponse) *string {
 		if v == nil {
@@ -6693,7 +5814,6 @@ func (o ShippingAddressResponsePtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the State or Province.
 func (o ShippingAddressResponsePtrOutput) StateOrProvince() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddressResponse) *string {
 		if v == nil {
@@ -6703,7 +5823,6 @@ func (o ShippingAddressResponsePtrOutput) StateOrProvince() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Street Address line 1.
 func (o ShippingAddressResponsePtrOutput) StreetAddress1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddressResponse) *string {
 		if v == nil {
@@ -6713,7 +5832,6 @@ func (o ShippingAddressResponsePtrOutput) StreetAddress1() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Street Address line 2.
 func (o ShippingAddressResponsePtrOutput) StreetAddress2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddressResponse) *string {
 		if v == nil {
@@ -6723,7 +5841,6 @@ func (o ShippingAddressResponsePtrOutput) StreetAddress2() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Street Address line 3.
 func (o ShippingAddressResponsePtrOutput) StreetAddress3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddressResponse) *string {
 		if v == nil {
@@ -6733,7 +5850,6 @@ func (o ShippingAddressResponsePtrOutput) StreetAddress3() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Extended Zip Code.
 func (o ShippingAddressResponsePtrOutput) ZipExtendedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddressResponse) *string {
 		if v == nil {
@@ -6743,14 +5859,10 @@ func (o ShippingAddressResponsePtrOutput) ZipExtendedCode() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Sku.
 type Sku struct {
-	// The display name of the sku.
 	DisplayName *string `pulumi:"displayName"`
-	// The sku family.
-	Family *string `pulumi:"family"`
-	// The sku name.
-	Name string `pulumi:"name"`
+	Family      *string `pulumi:"family"`
+	Name        string  `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -6764,14 +5876,10 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The Sku.
 type SkuArgs struct {
-	// The display name of the sku.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The sku family.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The sku name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Family      pulumi.StringPtrInput `pulumi:"family"`
+	Name        pulumi.StringInput    `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -6827,7 +5935,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The Sku.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -6847,22 +5954,19 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The display name of the sku.
 func (o SkuOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The sku family.
 func (o SkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The sku name.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6882,10 +5986,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The display name of the sku.
 func (o SkuPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -6895,7 +6004,6 @@ func (o SkuPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sku family.
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -6905,7 +6013,6 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sku name.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -6915,14 +6022,10 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Sku.
 type SkuResponse struct {
-	// The display name of the sku.
 	DisplayName *string `pulumi:"displayName"`
-	// The sku family.
-	Family *string `pulumi:"family"`
-	// The sku name.
-	Name string `pulumi:"name"`
+	Family      *string `pulumi:"family"`
+	Name        string  `pulumi:"name"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -6936,14 +6039,10 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The Sku.
 type SkuResponseArgs struct {
-	// The display name of the sku.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The sku family.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The sku name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Family      pulumi.StringPtrInput `pulumi:"family"`
+	Name        pulumi.StringInput    `pulumi:"name"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -6999,7 +6098,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The Sku.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -7019,22 +6117,19 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The display name of the sku.
 func (o SkuResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The sku family.
 func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The sku name.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7054,10 +6149,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The display name of the sku.
 func (o SkuResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -7067,7 +6167,6 @@ func (o SkuResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sku family.
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -7077,7 +6176,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sku name.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -7087,15 +6185,10 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details for the storage account.
 type StorageAccountDetails struct {
-	// Account Type of the data to be transferred.
-	// Expected value is 'StorageAccount'.
-	DataAccountType string `pulumi:"dataAccountType"`
-	// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-	SharePassword *string `pulumi:"sharePassword"`
-	// Storage Account Resource Id.
-	StorageAccountId string `pulumi:"storageAccountId"`
+	DataAccountType  string  `pulumi:"dataAccountType"`
+	SharePassword    *string `pulumi:"sharePassword"`
+	StorageAccountId string  `pulumi:"storageAccountId"`
 }
 
 // StorageAccountDetailsInput is an input type that accepts StorageAccountDetailsArgs and StorageAccountDetailsOutput values.
@@ -7109,15 +6202,10 @@ type StorageAccountDetailsInput interface {
 	ToStorageAccountDetailsOutputWithContext(context.Context) StorageAccountDetailsOutput
 }
 
-// Details for the storage account.
 type StorageAccountDetailsArgs struct {
-	// Account Type of the data to be transferred.
-	// Expected value is 'StorageAccount'.
-	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
-	// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-	SharePassword pulumi.StringPtrInput `pulumi:"sharePassword"`
-	// Storage Account Resource Id.
-	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+	DataAccountType  pulumi.StringInput    `pulumi:"dataAccountType"`
+	SharePassword    pulumi.StringPtrInput `pulumi:"sharePassword"`
+	StorageAccountId pulumi.StringInput    `pulumi:"storageAccountId"`
 }
 
 func (StorageAccountDetailsArgs) ElementType() reflect.Type {
@@ -7132,7 +6220,6 @@ func (i StorageAccountDetailsArgs) ToStorageAccountDetailsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountDetailsOutput)
 }
 
-// Details for the storage account.
 type StorageAccountDetailsOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountDetailsOutput) ElementType() reflect.Type {
@@ -7147,28 +6234,20 @@ func (o StorageAccountDetailsOutput) ToStorageAccountDetailsOutputWithContext(ct
 	return o
 }
 
-// Account Type of the data to be transferred.
-// Expected value is 'StorageAccount'.
 func (o StorageAccountDetailsOutput) DataAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountDetails) string { return v.DataAccountType }).(pulumi.StringOutput)
 }
 
-// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 func (o StorageAccountDetailsOutput) SharePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccountDetails) *string { return v.SharePassword }).(pulumi.StringPtrOutput)
 }
 
-// Storage Account Resource Id.
 func (o StorageAccountDetailsOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountDetails) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
-// Details for the storage account.
 type StorageAccountDetailsResponse struct {
-	// Account Type of the data to be transferred.
-	// Expected value is 'StorageAccount'.
-	DataAccountType string `pulumi:"dataAccountType"`
-	// Storage Account Resource Id.
+	DataAccountType  string `pulumi:"dataAccountType"`
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -7183,12 +6262,8 @@ type StorageAccountDetailsResponseInput interface {
 	ToStorageAccountDetailsResponseOutputWithContext(context.Context) StorageAccountDetailsResponseOutput
 }
 
-// Details for the storage account.
 type StorageAccountDetailsResponseArgs struct {
-	// Account Type of the data to be transferred.
-	// Expected value is 'StorageAccount'.
-	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
-	// Storage Account Resource Id.
+	DataAccountType  pulumi.StringInput `pulumi:"dataAccountType"`
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
@@ -7204,7 +6279,6 @@ func (i StorageAccountDetailsResponseArgs) ToStorageAccountDetailsResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountDetailsResponseOutput)
 }
 
-// Details for the storage account.
 type StorageAccountDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountDetailsResponseOutput) ElementType() reflect.Type {
@@ -7219,25 +6293,18 @@ func (o StorageAccountDetailsResponseOutput) ToStorageAccountDetailsResponseOutp
 	return o
 }
 
-// Account Type of the data to be transferred.
-// Expected value is 'StorageAccount'.
 func (o StorageAccountDetailsResponseOutput) DataAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountDetailsResponse) string { return v.DataAccountType }).(pulumi.StringOutput)
 }
 
-// Storage Account Resource Id.
 func (o StorageAccountDetailsResponseOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountDetailsResponse) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
-// Details to transfer all data.
 type TransferAllDetails struct {
-	// Type of the account of data
-	DataAccountType string `pulumi:"dataAccountType"`
-	// To indicate if all Azure blobs have to be transferred
-	TransferAllBlobs *bool `pulumi:"transferAllBlobs"`
-	// To indicate if all Azure Files have to be transferred
-	TransferAllFiles *bool `pulumi:"transferAllFiles"`
+	DataAccountType  string `pulumi:"dataAccountType"`
+	TransferAllBlobs *bool  `pulumi:"transferAllBlobs"`
+	TransferAllFiles *bool  `pulumi:"transferAllFiles"`
 }
 
 // TransferAllDetailsInput is an input type that accepts TransferAllDetailsArgs and TransferAllDetailsOutput values.
@@ -7251,13 +6318,9 @@ type TransferAllDetailsInput interface {
 	ToTransferAllDetailsOutputWithContext(context.Context) TransferAllDetailsOutput
 }
 
-// Details to transfer all data.
 type TransferAllDetailsArgs struct {
-	// Type of the account of data
-	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
-	// To indicate if all Azure blobs have to be transferred
+	DataAccountType  pulumi.StringInput  `pulumi:"dataAccountType"`
 	TransferAllBlobs pulumi.BoolPtrInput `pulumi:"transferAllBlobs"`
-	// To indicate if all Azure Files have to be transferred
 	TransferAllFiles pulumi.BoolPtrInput `pulumi:"transferAllFiles"`
 }
 
@@ -7314,7 +6377,6 @@ func (i *transferAllDetailsPtrType) ToTransferAllDetailsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(TransferAllDetailsPtrOutput)
 }
 
-// Details to transfer all data.
 type TransferAllDetailsOutput struct{ *pulumi.OutputState }
 
 func (TransferAllDetailsOutput) ElementType() reflect.Type {
@@ -7334,22 +6396,19 @@ func (o TransferAllDetailsOutput) ToTransferAllDetailsPtrOutput() TransferAllDet
 }
 
 func (o TransferAllDetailsOutput) ToTransferAllDetailsPtrOutputWithContext(ctx context.Context) TransferAllDetailsPtrOutput {
-	return o.ApplyT(func(v TransferAllDetails) *TransferAllDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferAllDetails) *TransferAllDetails {
 		return &v
 	}).(TransferAllDetailsPtrOutput)
 }
 
-// Type of the account of data
 func (o TransferAllDetailsOutput) DataAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v TransferAllDetails) string { return v.DataAccountType }).(pulumi.StringOutput)
 }
 
-// To indicate if all Azure blobs have to be transferred
 func (o TransferAllDetailsOutput) TransferAllBlobs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TransferAllDetails) *bool { return v.TransferAllBlobs }).(pulumi.BoolPtrOutput)
 }
 
-// To indicate if all Azure Files have to be transferred
 func (o TransferAllDetailsOutput) TransferAllFiles() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TransferAllDetails) *bool { return v.TransferAllFiles }).(pulumi.BoolPtrOutput)
 }
@@ -7369,10 +6428,15 @@ func (o TransferAllDetailsPtrOutput) ToTransferAllDetailsPtrOutputWithContext(ct
 }
 
 func (o TransferAllDetailsPtrOutput) Elem() TransferAllDetailsOutput {
-	return o.ApplyT(func(v *TransferAllDetails) TransferAllDetails { return *v }).(TransferAllDetailsOutput)
+	return o.ApplyT(func(v *TransferAllDetails) TransferAllDetails {
+		if v != nil {
+			return *v
+		}
+		var ret TransferAllDetails
+		return ret
+	}).(TransferAllDetailsOutput)
 }
 
-// Type of the account of data
 func (o TransferAllDetailsPtrOutput) DataAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransferAllDetails) *string {
 		if v == nil {
@@ -7382,7 +6446,6 @@ func (o TransferAllDetailsPtrOutput) DataAccountType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// To indicate if all Azure blobs have to be transferred
 func (o TransferAllDetailsPtrOutput) TransferAllBlobs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TransferAllDetails) *bool {
 		if v == nil {
@@ -7392,7 +6455,6 @@ func (o TransferAllDetailsPtrOutput) TransferAllBlobs() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// To indicate if all Azure Files have to be transferred
 func (o TransferAllDetailsPtrOutput) TransferAllFiles() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TransferAllDetails) *bool {
 		if v == nil {
@@ -7402,14 +6464,10 @@ func (o TransferAllDetailsPtrOutput) TransferAllFiles() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Details to transfer all data.
 type TransferAllDetailsResponse struct {
-	// Type of the account of data
-	DataAccountType string `pulumi:"dataAccountType"`
-	// To indicate if all Azure blobs have to be transferred
-	TransferAllBlobs *bool `pulumi:"transferAllBlobs"`
-	// To indicate if all Azure Files have to be transferred
-	TransferAllFiles *bool `pulumi:"transferAllFiles"`
+	DataAccountType  string `pulumi:"dataAccountType"`
+	TransferAllBlobs *bool  `pulumi:"transferAllBlobs"`
+	TransferAllFiles *bool  `pulumi:"transferAllFiles"`
 }
 
 // TransferAllDetailsResponseInput is an input type that accepts TransferAllDetailsResponseArgs and TransferAllDetailsResponseOutput values.
@@ -7423,13 +6481,9 @@ type TransferAllDetailsResponseInput interface {
 	ToTransferAllDetailsResponseOutputWithContext(context.Context) TransferAllDetailsResponseOutput
 }
 
-// Details to transfer all data.
 type TransferAllDetailsResponseArgs struct {
-	// Type of the account of data
-	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
-	// To indicate if all Azure blobs have to be transferred
+	DataAccountType  pulumi.StringInput  `pulumi:"dataAccountType"`
 	TransferAllBlobs pulumi.BoolPtrInput `pulumi:"transferAllBlobs"`
-	// To indicate if all Azure Files have to be transferred
 	TransferAllFiles pulumi.BoolPtrInput `pulumi:"transferAllFiles"`
 }
 
@@ -7486,7 +6540,6 @@ func (i *transferAllDetailsResponsePtrType) ToTransferAllDetailsResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TransferAllDetailsResponsePtrOutput)
 }
 
-// Details to transfer all data.
 type TransferAllDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (TransferAllDetailsResponseOutput) ElementType() reflect.Type {
@@ -7506,22 +6559,19 @@ func (o TransferAllDetailsResponseOutput) ToTransferAllDetailsResponsePtrOutput(
 }
 
 func (o TransferAllDetailsResponseOutput) ToTransferAllDetailsResponsePtrOutputWithContext(ctx context.Context) TransferAllDetailsResponsePtrOutput {
-	return o.ApplyT(func(v TransferAllDetailsResponse) *TransferAllDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferAllDetailsResponse) *TransferAllDetailsResponse {
 		return &v
 	}).(TransferAllDetailsResponsePtrOutput)
 }
 
-// Type of the account of data
 func (o TransferAllDetailsResponseOutput) DataAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v TransferAllDetailsResponse) string { return v.DataAccountType }).(pulumi.StringOutput)
 }
 
-// To indicate if all Azure blobs have to be transferred
 func (o TransferAllDetailsResponseOutput) TransferAllBlobs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TransferAllDetailsResponse) *bool { return v.TransferAllBlobs }).(pulumi.BoolPtrOutput)
 }
 
-// To indicate if all Azure Files have to be transferred
 func (o TransferAllDetailsResponseOutput) TransferAllFiles() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TransferAllDetailsResponse) *bool { return v.TransferAllFiles }).(pulumi.BoolPtrOutput)
 }
@@ -7541,10 +6591,15 @@ func (o TransferAllDetailsResponsePtrOutput) ToTransferAllDetailsResponsePtrOutp
 }
 
 func (o TransferAllDetailsResponsePtrOutput) Elem() TransferAllDetailsResponseOutput {
-	return o.ApplyT(func(v *TransferAllDetailsResponse) TransferAllDetailsResponse { return *v }).(TransferAllDetailsResponseOutput)
+	return o.ApplyT(func(v *TransferAllDetailsResponse) TransferAllDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TransferAllDetailsResponse
+		return ret
+	}).(TransferAllDetailsResponseOutput)
 }
 
-// Type of the account of data
 func (o TransferAllDetailsResponsePtrOutput) DataAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransferAllDetailsResponse) *string {
 		if v == nil {
@@ -7554,7 +6609,6 @@ func (o TransferAllDetailsResponsePtrOutput) DataAccountType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// To indicate if all Azure blobs have to be transferred
 func (o TransferAllDetailsResponsePtrOutput) TransferAllBlobs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TransferAllDetailsResponse) *bool {
 		if v == nil {
@@ -7564,7 +6618,6 @@ func (o TransferAllDetailsResponsePtrOutput) TransferAllBlobs() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// To indicate if all Azure Files have to be transferred
 func (o TransferAllDetailsResponsePtrOutput) TransferAllFiles() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TransferAllDetailsResponse) *bool {
 		if v == nil {
@@ -7574,14 +6627,10 @@ func (o TransferAllDetailsResponsePtrOutput) TransferAllFiles() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Configuration for defining the transfer of data.
 type TransferConfiguration struct {
-	// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
-	TransferAllDetails *TransferConfigurationTransferAllDetails `pulumi:"transferAllDetails"`
-	// Type of the configuration for transfer.
-	TransferConfigurationType string `pulumi:"transferConfigurationType"`
-	// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
-	TransferFilterDetails *TransferConfigurationTransferFilterDetails `pulumi:"transferFilterDetails"`
+	TransferAllDetails        *TransferConfigurationTransferAllDetails    `pulumi:"transferAllDetails"`
+	TransferConfigurationType string                                      `pulumi:"transferConfigurationType"`
+	TransferFilterDetails     *TransferConfigurationTransferFilterDetails `pulumi:"transferFilterDetails"`
 }
 
 // TransferConfigurationInput is an input type that accepts TransferConfigurationArgs and TransferConfigurationOutput values.
@@ -7595,14 +6644,10 @@ type TransferConfigurationInput interface {
 	ToTransferConfigurationOutputWithContext(context.Context) TransferConfigurationOutput
 }
 
-// Configuration for defining the transfer of data.
 type TransferConfigurationArgs struct {
-	// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
-	TransferAllDetails TransferConfigurationTransferAllDetailsPtrInput `pulumi:"transferAllDetails"`
-	// Type of the configuration for transfer.
-	TransferConfigurationType pulumi.StringInput `pulumi:"transferConfigurationType"`
-	// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
-	TransferFilterDetails TransferConfigurationTransferFilterDetailsPtrInput `pulumi:"transferFilterDetails"`
+	TransferAllDetails        TransferConfigurationTransferAllDetailsPtrInput    `pulumi:"transferAllDetails"`
+	TransferConfigurationType pulumi.StringInput                                 `pulumi:"transferConfigurationType"`
+	TransferFilterDetails     TransferConfigurationTransferFilterDetailsPtrInput `pulumi:"transferFilterDetails"`
 }
 
 func (TransferConfigurationArgs) ElementType() reflect.Type {
@@ -7617,7 +6662,6 @@ func (i TransferConfigurationArgs) ToTransferConfigurationOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TransferConfigurationOutput)
 }
 
-// Configuration for defining the transfer of data.
 type TransferConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TransferConfigurationOutput) ElementType() reflect.Type {
@@ -7632,31 +6676,24 @@ func (o TransferConfigurationOutput) ToTransferConfigurationOutputWithContext(ct
 	return o
 }
 
-// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
 func (o TransferConfigurationOutput) TransferAllDetails() TransferConfigurationTransferAllDetailsPtrOutput {
 	return o.ApplyT(func(v TransferConfiguration) *TransferConfigurationTransferAllDetails { return v.TransferAllDetails }).(TransferConfigurationTransferAllDetailsPtrOutput)
 }
 
-// Type of the configuration for transfer.
 func (o TransferConfigurationOutput) TransferConfigurationType() pulumi.StringOutput {
 	return o.ApplyT(func(v TransferConfiguration) string { return v.TransferConfigurationType }).(pulumi.StringOutput)
 }
 
-// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
 func (o TransferConfigurationOutput) TransferFilterDetails() TransferConfigurationTransferFilterDetailsPtrOutput {
 	return o.ApplyT(func(v TransferConfiguration) *TransferConfigurationTransferFilterDetails {
 		return v.TransferFilterDetails
 	}).(TransferConfigurationTransferFilterDetailsPtrOutput)
 }
 
-// Configuration for defining the transfer of data.
 type TransferConfigurationResponse struct {
-	// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
-	TransferAllDetails *TransferConfigurationResponseTransferAllDetails `pulumi:"transferAllDetails"`
-	// Type of the configuration for transfer.
-	TransferConfigurationType string `pulumi:"transferConfigurationType"`
-	// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
-	TransferFilterDetails *TransferConfigurationResponseTransferFilterDetails `pulumi:"transferFilterDetails"`
+	TransferAllDetails        *TransferConfigurationResponseTransferAllDetails    `pulumi:"transferAllDetails"`
+	TransferConfigurationType string                                              `pulumi:"transferConfigurationType"`
+	TransferFilterDetails     *TransferConfigurationResponseTransferFilterDetails `pulumi:"transferFilterDetails"`
 }
 
 // TransferConfigurationResponseInput is an input type that accepts TransferConfigurationResponseArgs and TransferConfigurationResponseOutput values.
@@ -7670,14 +6707,10 @@ type TransferConfigurationResponseInput interface {
 	ToTransferConfigurationResponseOutputWithContext(context.Context) TransferConfigurationResponseOutput
 }
 
-// Configuration for defining the transfer of data.
 type TransferConfigurationResponseArgs struct {
-	// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
-	TransferAllDetails TransferConfigurationResponseTransferAllDetailsPtrInput `pulumi:"transferAllDetails"`
-	// Type of the configuration for transfer.
-	TransferConfigurationType pulumi.StringInput `pulumi:"transferConfigurationType"`
-	// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
-	TransferFilterDetails TransferConfigurationResponseTransferFilterDetailsPtrInput `pulumi:"transferFilterDetails"`
+	TransferAllDetails        TransferConfigurationResponseTransferAllDetailsPtrInput    `pulumi:"transferAllDetails"`
+	TransferConfigurationType pulumi.StringInput                                         `pulumi:"transferConfigurationType"`
+	TransferFilterDetails     TransferConfigurationResponseTransferFilterDetailsPtrInput `pulumi:"transferFilterDetails"`
 }
 
 func (TransferConfigurationResponseArgs) ElementType() reflect.Type {
@@ -7692,7 +6725,6 @@ func (i TransferConfigurationResponseArgs) ToTransferConfigurationResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TransferConfigurationResponseOutput)
 }
 
-// Configuration for defining the transfer of data.
 type TransferConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (TransferConfigurationResponseOutput) ElementType() reflect.Type {
@@ -7707,28 +6739,23 @@ func (o TransferConfigurationResponseOutput) ToTransferConfigurationResponseOutp
 	return o
 }
 
-// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
 func (o TransferConfigurationResponseOutput) TransferAllDetails() TransferConfigurationResponseTransferAllDetailsPtrOutput {
 	return o.ApplyT(func(v TransferConfigurationResponse) *TransferConfigurationResponseTransferAllDetails {
 		return v.TransferAllDetails
 	}).(TransferConfigurationResponseTransferAllDetailsPtrOutput)
 }
 
-// Type of the configuration for transfer.
 func (o TransferConfigurationResponseOutput) TransferConfigurationType() pulumi.StringOutput {
 	return o.ApplyT(func(v TransferConfigurationResponse) string { return v.TransferConfigurationType }).(pulumi.StringOutput)
 }
 
-// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
 func (o TransferConfigurationResponseOutput) TransferFilterDetails() TransferConfigurationResponseTransferFilterDetailsPtrOutput {
 	return o.ApplyT(func(v TransferConfigurationResponse) *TransferConfigurationResponseTransferFilterDetails {
 		return v.TransferFilterDetails
 	}).(TransferConfigurationResponseTransferFilterDetailsPtrOutput)
 }
 
-// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
 type TransferConfigurationResponseTransferAllDetails struct {
-	// Details to transfer all data.
 	Include *TransferAllDetailsResponse `pulumi:"include"`
 }
 
@@ -7743,9 +6770,7 @@ type TransferConfigurationResponseTransferAllDetailsInput interface {
 	ToTransferConfigurationResponseTransferAllDetailsOutputWithContext(context.Context) TransferConfigurationResponseTransferAllDetailsOutput
 }
 
-// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
 type TransferConfigurationResponseTransferAllDetailsArgs struct {
-	// Details to transfer all data.
 	Include TransferAllDetailsResponsePtrInput `pulumi:"include"`
 }
 
@@ -7802,7 +6827,6 @@ func (i *transferConfigurationResponseTransferAllDetailsPtrType) ToTransferConfi
 	return pulumi.ToOutputWithContext(ctx, i).(TransferConfigurationResponseTransferAllDetailsPtrOutput)
 }
 
-// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
 type TransferConfigurationResponseTransferAllDetailsOutput struct{ *pulumi.OutputState }
 
 func (TransferConfigurationResponseTransferAllDetailsOutput) ElementType() reflect.Type {
@@ -7822,12 +6846,11 @@ func (o TransferConfigurationResponseTransferAllDetailsOutput) ToTransferConfigu
 }
 
 func (o TransferConfigurationResponseTransferAllDetailsOutput) ToTransferConfigurationResponseTransferAllDetailsPtrOutputWithContext(ctx context.Context) TransferConfigurationResponseTransferAllDetailsPtrOutput {
-	return o.ApplyT(func(v TransferConfigurationResponseTransferAllDetails) *TransferConfigurationResponseTransferAllDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferConfigurationResponseTransferAllDetails) *TransferConfigurationResponseTransferAllDetails {
 		return &v
 	}).(TransferConfigurationResponseTransferAllDetailsPtrOutput)
 }
 
-// Details to transfer all data.
 func (o TransferConfigurationResponseTransferAllDetailsOutput) Include() TransferAllDetailsResponsePtrOutput {
 	return o.ApplyT(func(v TransferConfigurationResponseTransferAllDetails) *TransferAllDetailsResponse { return v.Include }).(TransferAllDetailsResponsePtrOutput)
 }
@@ -7848,11 +6871,14 @@ func (o TransferConfigurationResponseTransferAllDetailsPtrOutput) ToTransferConf
 
 func (o TransferConfigurationResponseTransferAllDetailsPtrOutput) Elem() TransferConfigurationResponseTransferAllDetailsOutput {
 	return o.ApplyT(func(v *TransferConfigurationResponseTransferAllDetails) TransferConfigurationResponseTransferAllDetails {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret TransferConfigurationResponseTransferAllDetails
+		return ret
 	}).(TransferConfigurationResponseTransferAllDetailsOutput)
 }
 
-// Details to transfer all data.
 func (o TransferConfigurationResponseTransferAllDetailsPtrOutput) Include() TransferAllDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *TransferConfigurationResponseTransferAllDetails) *TransferAllDetailsResponse {
 		if v == nil {
@@ -7862,9 +6888,7 @@ func (o TransferConfigurationResponseTransferAllDetailsPtrOutput) Include() Tran
 	}).(TransferAllDetailsResponsePtrOutput)
 }
 
-// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
 type TransferConfigurationResponseTransferFilterDetails struct {
-	// Details of the filtering the transfer of data.
 	Include *TransferFilterDetailsResponse `pulumi:"include"`
 }
 
@@ -7879,9 +6903,7 @@ type TransferConfigurationResponseTransferFilterDetailsInput interface {
 	ToTransferConfigurationResponseTransferFilterDetailsOutputWithContext(context.Context) TransferConfigurationResponseTransferFilterDetailsOutput
 }
 
-// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
 type TransferConfigurationResponseTransferFilterDetailsArgs struct {
-	// Details of the filtering the transfer of data.
 	Include TransferFilterDetailsResponsePtrInput `pulumi:"include"`
 }
 
@@ -7938,7 +6960,6 @@ func (i *transferConfigurationResponseTransferFilterDetailsPtrType) ToTransferCo
 	return pulumi.ToOutputWithContext(ctx, i).(TransferConfigurationResponseTransferFilterDetailsPtrOutput)
 }
 
-// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
 type TransferConfigurationResponseTransferFilterDetailsOutput struct{ *pulumi.OutputState }
 
 func (TransferConfigurationResponseTransferFilterDetailsOutput) ElementType() reflect.Type {
@@ -7958,12 +6979,11 @@ func (o TransferConfigurationResponseTransferFilterDetailsOutput) ToTransferConf
 }
 
 func (o TransferConfigurationResponseTransferFilterDetailsOutput) ToTransferConfigurationResponseTransferFilterDetailsPtrOutputWithContext(ctx context.Context) TransferConfigurationResponseTransferFilterDetailsPtrOutput {
-	return o.ApplyT(func(v TransferConfigurationResponseTransferFilterDetails) *TransferConfigurationResponseTransferFilterDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferConfigurationResponseTransferFilterDetails) *TransferConfigurationResponseTransferFilterDetails {
 		return &v
 	}).(TransferConfigurationResponseTransferFilterDetailsPtrOutput)
 }
 
-// Details of the filtering the transfer of data.
 func (o TransferConfigurationResponseTransferFilterDetailsOutput) Include() TransferFilterDetailsResponsePtrOutput {
 	return o.ApplyT(func(v TransferConfigurationResponseTransferFilterDetails) *TransferFilterDetailsResponse {
 		return v.Include
@@ -7986,11 +7006,14 @@ func (o TransferConfigurationResponseTransferFilterDetailsPtrOutput) ToTransferC
 
 func (o TransferConfigurationResponseTransferFilterDetailsPtrOutput) Elem() TransferConfigurationResponseTransferFilterDetailsOutput {
 	return o.ApplyT(func(v *TransferConfigurationResponseTransferFilterDetails) TransferConfigurationResponseTransferFilterDetails {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret TransferConfigurationResponseTransferFilterDetails
+		return ret
 	}).(TransferConfigurationResponseTransferFilterDetailsOutput)
 }
 
-// Details of the filtering the transfer of data.
 func (o TransferConfigurationResponseTransferFilterDetailsPtrOutput) Include() TransferFilterDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *TransferConfigurationResponseTransferFilterDetails) *TransferFilterDetailsResponse {
 		if v == nil {
@@ -8000,9 +7023,7 @@ func (o TransferConfigurationResponseTransferFilterDetailsPtrOutput) Include() T
 	}).(TransferFilterDetailsResponsePtrOutput)
 }
 
-// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
 type TransferConfigurationTransferAllDetails struct {
-	// Details to transfer all data.
 	Include *TransferAllDetails `pulumi:"include"`
 }
 
@@ -8017,9 +7038,7 @@ type TransferConfigurationTransferAllDetailsInput interface {
 	ToTransferConfigurationTransferAllDetailsOutputWithContext(context.Context) TransferConfigurationTransferAllDetailsOutput
 }
 
-// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
 type TransferConfigurationTransferAllDetailsArgs struct {
-	// Details to transfer all data.
 	Include TransferAllDetailsPtrInput `pulumi:"include"`
 }
 
@@ -8076,7 +7095,6 @@ func (i *transferConfigurationTransferAllDetailsPtrType) ToTransferConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(TransferConfigurationTransferAllDetailsPtrOutput)
 }
 
-// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
 type TransferConfigurationTransferAllDetailsOutput struct{ *pulumi.OutputState }
 
 func (TransferConfigurationTransferAllDetailsOutput) ElementType() reflect.Type {
@@ -8096,12 +7114,11 @@ func (o TransferConfigurationTransferAllDetailsOutput) ToTransferConfigurationTr
 }
 
 func (o TransferConfigurationTransferAllDetailsOutput) ToTransferConfigurationTransferAllDetailsPtrOutputWithContext(ctx context.Context) TransferConfigurationTransferAllDetailsPtrOutput {
-	return o.ApplyT(func(v TransferConfigurationTransferAllDetails) *TransferConfigurationTransferAllDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferConfigurationTransferAllDetails) *TransferConfigurationTransferAllDetails {
 		return &v
 	}).(TransferConfigurationTransferAllDetailsPtrOutput)
 }
 
-// Details to transfer all data.
 func (o TransferConfigurationTransferAllDetailsOutput) Include() TransferAllDetailsPtrOutput {
 	return o.ApplyT(func(v TransferConfigurationTransferAllDetails) *TransferAllDetails { return v.Include }).(TransferAllDetailsPtrOutput)
 }
@@ -8121,10 +7138,15 @@ func (o TransferConfigurationTransferAllDetailsPtrOutput) ToTransferConfiguratio
 }
 
 func (o TransferConfigurationTransferAllDetailsPtrOutput) Elem() TransferConfigurationTransferAllDetailsOutput {
-	return o.ApplyT(func(v *TransferConfigurationTransferAllDetails) TransferConfigurationTransferAllDetails { return *v }).(TransferConfigurationTransferAllDetailsOutput)
+	return o.ApplyT(func(v *TransferConfigurationTransferAllDetails) TransferConfigurationTransferAllDetails {
+		if v != nil {
+			return *v
+		}
+		var ret TransferConfigurationTransferAllDetails
+		return ret
+	}).(TransferConfigurationTransferAllDetailsOutput)
 }
 
-// Details to transfer all data.
 func (o TransferConfigurationTransferAllDetailsPtrOutput) Include() TransferAllDetailsPtrOutput {
 	return o.ApplyT(func(v *TransferConfigurationTransferAllDetails) *TransferAllDetails {
 		if v == nil {
@@ -8134,9 +7156,7 @@ func (o TransferConfigurationTransferAllDetailsPtrOutput) Include() TransferAllD
 	}).(TransferAllDetailsPtrOutput)
 }
 
-// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
 type TransferConfigurationTransferFilterDetails struct {
-	// Details of the filtering the transfer of data.
 	Include *TransferFilterDetails `pulumi:"include"`
 }
 
@@ -8151,9 +7171,7 @@ type TransferConfigurationTransferFilterDetailsInput interface {
 	ToTransferConfigurationTransferFilterDetailsOutputWithContext(context.Context) TransferConfigurationTransferFilterDetailsOutput
 }
 
-// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
 type TransferConfigurationTransferFilterDetailsArgs struct {
-	// Details of the filtering the transfer of data.
 	Include TransferFilterDetailsPtrInput `pulumi:"include"`
 }
 
@@ -8210,7 +7228,6 @@ func (i *transferConfigurationTransferFilterDetailsPtrType) ToTransferConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(TransferConfigurationTransferFilterDetailsPtrOutput)
 }
 
-// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
 type TransferConfigurationTransferFilterDetailsOutput struct{ *pulumi.OutputState }
 
 func (TransferConfigurationTransferFilterDetailsOutput) ElementType() reflect.Type {
@@ -8230,12 +7247,11 @@ func (o TransferConfigurationTransferFilterDetailsOutput) ToTransferConfiguratio
 }
 
 func (o TransferConfigurationTransferFilterDetailsOutput) ToTransferConfigurationTransferFilterDetailsPtrOutputWithContext(ctx context.Context) TransferConfigurationTransferFilterDetailsPtrOutput {
-	return o.ApplyT(func(v TransferConfigurationTransferFilterDetails) *TransferConfigurationTransferFilterDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferConfigurationTransferFilterDetails) *TransferConfigurationTransferFilterDetails {
 		return &v
 	}).(TransferConfigurationTransferFilterDetailsPtrOutput)
 }
 
-// Details of the filtering the transfer of data.
 func (o TransferConfigurationTransferFilterDetailsOutput) Include() TransferFilterDetailsPtrOutput {
 	return o.ApplyT(func(v TransferConfigurationTransferFilterDetails) *TransferFilterDetails { return v.Include }).(TransferFilterDetailsPtrOutput)
 }
@@ -8256,11 +7272,14 @@ func (o TransferConfigurationTransferFilterDetailsPtrOutput) ToTransferConfigura
 
 func (o TransferConfigurationTransferFilterDetailsPtrOutput) Elem() TransferConfigurationTransferFilterDetailsOutput {
 	return o.ApplyT(func(v *TransferConfigurationTransferFilterDetails) TransferConfigurationTransferFilterDetails {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret TransferConfigurationTransferFilterDetails
+		return ret
 	}).(TransferConfigurationTransferFilterDetailsOutput)
 }
 
-// Details of the filtering the transfer of data.
 func (o TransferConfigurationTransferFilterDetailsPtrOutput) Include() TransferFilterDetailsPtrOutput {
 	return o.ApplyT(func(v *TransferConfigurationTransferFilterDetails) *TransferFilterDetails {
 		if v == nil {
@@ -8270,16 +7289,11 @@ func (o TransferConfigurationTransferFilterDetailsPtrOutput) Include() TransferF
 	}).(TransferFilterDetailsPtrOutput)
 }
 
-// Details of the filtering the transfer of data.
 type TransferFilterDetails struct {
-	// Filter details to transfer Azure files.
 	AzureFileFilterDetails *AzureFileFilterDetails `pulumi:"azureFileFilterDetails"`
-	// Filter details to transfer blobs.
-	BlobFilterDetails *BlobFilterDetails `pulumi:"blobFilterDetails"`
-	// Type of the account of data.
-	DataAccountType string `pulumi:"dataAccountType"`
-	// Details of the filter files to be used for data transfer.
-	FilterFileDetails []FilterFileDetails `pulumi:"filterFileDetails"`
+	BlobFilterDetails      *BlobFilterDetails      `pulumi:"blobFilterDetails"`
+	DataAccountType        string                  `pulumi:"dataAccountType"`
+	FilterFileDetails      []FilterFileDetails     `pulumi:"filterFileDetails"`
 }
 
 // TransferFilterDetailsInput is an input type that accepts TransferFilterDetailsArgs and TransferFilterDetailsOutput values.
@@ -8293,16 +7307,11 @@ type TransferFilterDetailsInput interface {
 	ToTransferFilterDetailsOutputWithContext(context.Context) TransferFilterDetailsOutput
 }
 
-// Details of the filtering the transfer of data.
 type TransferFilterDetailsArgs struct {
-	// Filter details to transfer Azure files.
 	AzureFileFilterDetails AzureFileFilterDetailsPtrInput `pulumi:"azureFileFilterDetails"`
-	// Filter details to transfer blobs.
-	BlobFilterDetails BlobFilterDetailsPtrInput `pulumi:"blobFilterDetails"`
-	// Type of the account of data.
-	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
-	// Details of the filter files to be used for data transfer.
-	FilterFileDetails FilterFileDetailsArrayInput `pulumi:"filterFileDetails"`
+	BlobFilterDetails      BlobFilterDetailsPtrInput      `pulumi:"blobFilterDetails"`
+	DataAccountType        pulumi.StringInput             `pulumi:"dataAccountType"`
+	FilterFileDetails      FilterFileDetailsArrayInput    `pulumi:"filterFileDetails"`
 }
 
 func (TransferFilterDetailsArgs) ElementType() reflect.Type {
@@ -8358,7 +7367,6 @@ func (i *transferFilterDetailsPtrType) ToTransferFilterDetailsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TransferFilterDetailsPtrOutput)
 }
 
-// Details of the filtering the transfer of data.
 type TransferFilterDetailsOutput struct{ *pulumi.OutputState }
 
 func (TransferFilterDetailsOutput) ElementType() reflect.Type {
@@ -8378,27 +7386,23 @@ func (o TransferFilterDetailsOutput) ToTransferFilterDetailsPtrOutput() Transfer
 }
 
 func (o TransferFilterDetailsOutput) ToTransferFilterDetailsPtrOutputWithContext(ctx context.Context) TransferFilterDetailsPtrOutput {
-	return o.ApplyT(func(v TransferFilterDetails) *TransferFilterDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferFilterDetails) *TransferFilterDetails {
 		return &v
 	}).(TransferFilterDetailsPtrOutput)
 }
 
-// Filter details to transfer Azure files.
 func (o TransferFilterDetailsOutput) AzureFileFilterDetails() AzureFileFilterDetailsPtrOutput {
 	return o.ApplyT(func(v TransferFilterDetails) *AzureFileFilterDetails { return v.AzureFileFilterDetails }).(AzureFileFilterDetailsPtrOutput)
 }
 
-// Filter details to transfer blobs.
 func (o TransferFilterDetailsOutput) BlobFilterDetails() BlobFilterDetailsPtrOutput {
 	return o.ApplyT(func(v TransferFilterDetails) *BlobFilterDetails { return v.BlobFilterDetails }).(BlobFilterDetailsPtrOutput)
 }
 
-// Type of the account of data.
 func (o TransferFilterDetailsOutput) DataAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v TransferFilterDetails) string { return v.DataAccountType }).(pulumi.StringOutput)
 }
 
-// Details of the filter files to be used for data transfer.
 func (o TransferFilterDetailsOutput) FilterFileDetails() FilterFileDetailsArrayOutput {
 	return o.ApplyT(func(v TransferFilterDetails) []FilterFileDetails { return v.FilterFileDetails }).(FilterFileDetailsArrayOutput)
 }
@@ -8418,10 +7422,15 @@ func (o TransferFilterDetailsPtrOutput) ToTransferFilterDetailsPtrOutputWithCont
 }
 
 func (o TransferFilterDetailsPtrOutput) Elem() TransferFilterDetailsOutput {
-	return o.ApplyT(func(v *TransferFilterDetails) TransferFilterDetails { return *v }).(TransferFilterDetailsOutput)
+	return o.ApplyT(func(v *TransferFilterDetails) TransferFilterDetails {
+		if v != nil {
+			return *v
+		}
+		var ret TransferFilterDetails
+		return ret
+	}).(TransferFilterDetailsOutput)
 }
 
-// Filter details to transfer Azure files.
 func (o TransferFilterDetailsPtrOutput) AzureFileFilterDetails() AzureFileFilterDetailsPtrOutput {
 	return o.ApplyT(func(v *TransferFilterDetails) *AzureFileFilterDetails {
 		if v == nil {
@@ -8431,7 +7440,6 @@ func (o TransferFilterDetailsPtrOutput) AzureFileFilterDetails() AzureFileFilter
 	}).(AzureFileFilterDetailsPtrOutput)
 }
 
-// Filter details to transfer blobs.
 func (o TransferFilterDetailsPtrOutput) BlobFilterDetails() BlobFilterDetailsPtrOutput {
 	return o.ApplyT(func(v *TransferFilterDetails) *BlobFilterDetails {
 		if v == nil {
@@ -8441,7 +7449,6 @@ func (o TransferFilterDetailsPtrOutput) BlobFilterDetails() BlobFilterDetailsPtr
 	}).(BlobFilterDetailsPtrOutput)
 }
 
-// Type of the account of data.
 func (o TransferFilterDetailsPtrOutput) DataAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransferFilterDetails) *string {
 		if v == nil {
@@ -8451,7 +7458,6 @@ func (o TransferFilterDetailsPtrOutput) DataAccountType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of the filter files to be used for data transfer.
 func (o TransferFilterDetailsPtrOutput) FilterFileDetails() FilterFileDetailsArrayOutput {
 	return o.ApplyT(func(v *TransferFilterDetails) []FilterFileDetails {
 		if v == nil {
@@ -8461,16 +7467,11 @@ func (o TransferFilterDetailsPtrOutput) FilterFileDetails() FilterFileDetailsArr
 	}).(FilterFileDetailsArrayOutput)
 }
 
-// Details of the filtering the transfer of data.
 type TransferFilterDetailsResponse struct {
-	// Filter details to transfer Azure files.
 	AzureFileFilterDetails *AzureFileFilterDetailsResponse `pulumi:"azureFileFilterDetails"`
-	// Filter details to transfer blobs.
-	BlobFilterDetails *BlobFilterDetailsResponse `pulumi:"blobFilterDetails"`
-	// Type of the account of data.
-	DataAccountType string `pulumi:"dataAccountType"`
-	// Details of the filter files to be used for data transfer.
-	FilterFileDetails []FilterFileDetailsResponse `pulumi:"filterFileDetails"`
+	BlobFilterDetails      *BlobFilterDetailsResponse      `pulumi:"blobFilterDetails"`
+	DataAccountType        string                          `pulumi:"dataAccountType"`
+	FilterFileDetails      []FilterFileDetailsResponse     `pulumi:"filterFileDetails"`
 }
 
 // TransferFilterDetailsResponseInput is an input type that accepts TransferFilterDetailsResponseArgs and TransferFilterDetailsResponseOutput values.
@@ -8484,16 +7485,11 @@ type TransferFilterDetailsResponseInput interface {
 	ToTransferFilterDetailsResponseOutputWithContext(context.Context) TransferFilterDetailsResponseOutput
 }
 
-// Details of the filtering the transfer of data.
 type TransferFilterDetailsResponseArgs struct {
-	// Filter details to transfer Azure files.
 	AzureFileFilterDetails AzureFileFilterDetailsResponsePtrInput `pulumi:"azureFileFilterDetails"`
-	// Filter details to transfer blobs.
-	BlobFilterDetails BlobFilterDetailsResponsePtrInput `pulumi:"blobFilterDetails"`
-	// Type of the account of data.
-	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
-	// Details of the filter files to be used for data transfer.
-	FilterFileDetails FilterFileDetailsResponseArrayInput `pulumi:"filterFileDetails"`
+	BlobFilterDetails      BlobFilterDetailsResponsePtrInput      `pulumi:"blobFilterDetails"`
+	DataAccountType        pulumi.StringInput                     `pulumi:"dataAccountType"`
+	FilterFileDetails      FilterFileDetailsResponseArrayInput    `pulumi:"filterFileDetails"`
 }
 
 func (TransferFilterDetailsResponseArgs) ElementType() reflect.Type {
@@ -8549,7 +7545,6 @@ func (i *transferFilterDetailsResponsePtrType) ToTransferFilterDetailsResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(TransferFilterDetailsResponsePtrOutput)
 }
 
-// Details of the filtering the transfer of data.
 type TransferFilterDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (TransferFilterDetailsResponseOutput) ElementType() reflect.Type {
@@ -8569,27 +7564,23 @@ func (o TransferFilterDetailsResponseOutput) ToTransferFilterDetailsResponsePtrO
 }
 
 func (o TransferFilterDetailsResponseOutput) ToTransferFilterDetailsResponsePtrOutputWithContext(ctx context.Context) TransferFilterDetailsResponsePtrOutput {
-	return o.ApplyT(func(v TransferFilterDetailsResponse) *TransferFilterDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferFilterDetailsResponse) *TransferFilterDetailsResponse {
 		return &v
 	}).(TransferFilterDetailsResponsePtrOutput)
 }
 
-// Filter details to transfer Azure files.
 func (o TransferFilterDetailsResponseOutput) AzureFileFilterDetails() AzureFileFilterDetailsResponsePtrOutput {
 	return o.ApplyT(func(v TransferFilterDetailsResponse) *AzureFileFilterDetailsResponse { return v.AzureFileFilterDetails }).(AzureFileFilterDetailsResponsePtrOutput)
 }
 
-// Filter details to transfer blobs.
 func (o TransferFilterDetailsResponseOutput) BlobFilterDetails() BlobFilterDetailsResponsePtrOutput {
 	return o.ApplyT(func(v TransferFilterDetailsResponse) *BlobFilterDetailsResponse { return v.BlobFilterDetails }).(BlobFilterDetailsResponsePtrOutput)
 }
 
-// Type of the account of data.
 func (o TransferFilterDetailsResponseOutput) DataAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v TransferFilterDetailsResponse) string { return v.DataAccountType }).(pulumi.StringOutput)
 }
 
-// Details of the filter files to be used for data transfer.
 func (o TransferFilterDetailsResponseOutput) FilterFileDetails() FilterFileDetailsResponseArrayOutput {
 	return o.ApplyT(func(v TransferFilterDetailsResponse) []FilterFileDetailsResponse { return v.FilterFileDetails }).(FilterFileDetailsResponseArrayOutput)
 }
@@ -8609,10 +7600,15 @@ func (o TransferFilterDetailsResponsePtrOutput) ToTransferFilterDetailsResponseP
 }
 
 func (o TransferFilterDetailsResponsePtrOutput) Elem() TransferFilterDetailsResponseOutput {
-	return o.ApplyT(func(v *TransferFilterDetailsResponse) TransferFilterDetailsResponse { return *v }).(TransferFilterDetailsResponseOutput)
+	return o.ApplyT(func(v *TransferFilterDetailsResponse) TransferFilterDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TransferFilterDetailsResponse
+		return ret
+	}).(TransferFilterDetailsResponseOutput)
 }
 
-// Filter details to transfer Azure files.
 func (o TransferFilterDetailsResponsePtrOutput) AzureFileFilterDetails() AzureFileFilterDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *TransferFilterDetailsResponse) *AzureFileFilterDetailsResponse {
 		if v == nil {
@@ -8622,7 +7618,6 @@ func (o TransferFilterDetailsResponsePtrOutput) AzureFileFilterDetails() AzureFi
 	}).(AzureFileFilterDetailsResponsePtrOutput)
 }
 
-// Filter details to transfer blobs.
 func (o TransferFilterDetailsResponsePtrOutput) BlobFilterDetails() BlobFilterDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *TransferFilterDetailsResponse) *BlobFilterDetailsResponse {
 		if v == nil {
@@ -8632,7 +7627,6 @@ func (o TransferFilterDetailsResponsePtrOutput) BlobFilterDetails() BlobFilterDe
 	}).(BlobFilterDetailsResponsePtrOutput)
 }
 
-// Type of the account of data.
 func (o TransferFilterDetailsResponsePtrOutput) DataAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransferFilterDetailsResponse) *string {
 		if v == nil {
@@ -8642,7 +7636,6 @@ func (o TransferFilterDetailsResponsePtrOutput) DataAccountType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of the filter files to be used for data transfer.
 func (o TransferFilterDetailsResponsePtrOutput) FilterFileDetails() FilterFileDetailsResponseArrayOutput {
 	return o.ApplyT(func(v *TransferFilterDetailsResponse) []FilterFileDetailsResponse {
 		if v == nil {
@@ -8652,9 +7645,7 @@ func (o TransferFilterDetailsResponsePtrOutput) FilterFileDetails() FilterFileDe
 	}).(FilterFileDetailsResponseArrayOutput)
 }
 
-// Preferences related to the shipment logistics of the sku
 type TransportPreferences struct {
-	// Indicates Shipment Logistics type that the customer preferred.
 	PreferredShipmentType string `pulumi:"preferredShipmentType"`
 }
 
@@ -8669,9 +7660,7 @@ type TransportPreferencesInput interface {
 	ToTransportPreferencesOutputWithContext(context.Context) TransportPreferencesOutput
 }
 
-// Preferences related to the shipment logistics of the sku
 type TransportPreferencesArgs struct {
-	// Indicates Shipment Logistics type that the customer preferred.
 	PreferredShipmentType pulumi.StringInput `pulumi:"preferredShipmentType"`
 }
 
@@ -8728,7 +7717,6 @@ func (i *transportPreferencesPtrType) ToTransportPreferencesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(TransportPreferencesPtrOutput)
 }
 
-// Preferences related to the shipment logistics of the sku
 type TransportPreferencesOutput struct{ *pulumi.OutputState }
 
 func (TransportPreferencesOutput) ElementType() reflect.Type {
@@ -8748,12 +7736,11 @@ func (o TransportPreferencesOutput) ToTransportPreferencesPtrOutput() TransportP
 }
 
 func (o TransportPreferencesOutput) ToTransportPreferencesPtrOutputWithContext(ctx context.Context) TransportPreferencesPtrOutput {
-	return o.ApplyT(func(v TransportPreferences) *TransportPreferences {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransportPreferences) *TransportPreferences {
 		return &v
 	}).(TransportPreferencesPtrOutput)
 }
 
-// Indicates Shipment Logistics type that the customer preferred.
 func (o TransportPreferencesOutput) PreferredShipmentType() pulumi.StringOutput {
 	return o.ApplyT(func(v TransportPreferences) string { return v.PreferredShipmentType }).(pulumi.StringOutput)
 }
@@ -8773,10 +7760,15 @@ func (o TransportPreferencesPtrOutput) ToTransportPreferencesPtrOutputWithContex
 }
 
 func (o TransportPreferencesPtrOutput) Elem() TransportPreferencesOutput {
-	return o.ApplyT(func(v *TransportPreferences) TransportPreferences { return *v }).(TransportPreferencesOutput)
+	return o.ApplyT(func(v *TransportPreferences) TransportPreferences {
+		if v != nil {
+			return *v
+		}
+		var ret TransportPreferences
+		return ret
+	}).(TransportPreferencesOutput)
 }
 
-// Indicates Shipment Logistics type that the customer preferred.
 func (o TransportPreferencesPtrOutput) PreferredShipmentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransportPreferences) *string {
 		if v == nil {
@@ -8786,9 +7778,7 @@ func (o TransportPreferencesPtrOutput) PreferredShipmentType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Preferences related to the shipment logistics of the sku
 type TransportPreferencesResponse struct {
-	// Indicates Shipment Logistics type that the customer preferred.
 	PreferredShipmentType string `pulumi:"preferredShipmentType"`
 }
 
@@ -8803,9 +7793,7 @@ type TransportPreferencesResponseInput interface {
 	ToTransportPreferencesResponseOutputWithContext(context.Context) TransportPreferencesResponseOutput
 }
 
-// Preferences related to the shipment logistics of the sku
 type TransportPreferencesResponseArgs struct {
-	// Indicates Shipment Logistics type that the customer preferred.
 	PreferredShipmentType pulumi.StringInput `pulumi:"preferredShipmentType"`
 }
 
@@ -8862,7 +7850,6 @@ func (i *transportPreferencesResponsePtrType) ToTransportPreferencesResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(TransportPreferencesResponsePtrOutput)
 }
 
-// Preferences related to the shipment logistics of the sku
 type TransportPreferencesResponseOutput struct{ *pulumi.OutputState }
 
 func (TransportPreferencesResponseOutput) ElementType() reflect.Type {
@@ -8882,12 +7869,11 @@ func (o TransportPreferencesResponseOutput) ToTransportPreferencesResponsePtrOut
 }
 
 func (o TransportPreferencesResponseOutput) ToTransportPreferencesResponsePtrOutputWithContext(ctx context.Context) TransportPreferencesResponsePtrOutput {
-	return o.ApplyT(func(v TransportPreferencesResponse) *TransportPreferencesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransportPreferencesResponse) *TransportPreferencesResponse {
 		return &v
 	}).(TransportPreferencesResponsePtrOutput)
 }
 
-// Indicates Shipment Logistics type that the customer preferred.
 func (o TransportPreferencesResponseOutput) PreferredShipmentType() pulumi.StringOutput {
 	return o.ApplyT(func(v TransportPreferencesResponse) string { return v.PreferredShipmentType }).(pulumi.StringOutput)
 }
@@ -8907,10 +7893,15 @@ func (o TransportPreferencesResponsePtrOutput) ToTransportPreferencesResponsePtr
 }
 
 func (o TransportPreferencesResponsePtrOutput) Elem() TransportPreferencesResponseOutput {
-	return o.ApplyT(func(v *TransportPreferencesResponse) TransportPreferencesResponse { return *v }).(TransportPreferencesResponseOutput)
+	return o.ApplyT(func(v *TransportPreferencesResponse) TransportPreferencesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TransportPreferencesResponse
+		return ret
+	}).(TransportPreferencesResponseOutput)
 }
 
-// Indicates Shipment Logistics type that the customer preferred.
 func (o TransportPreferencesResponsePtrOutput) PreferredShipmentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransportPreferencesResponse) *string {
 		if v == nil {
@@ -8920,11 +7911,8 @@ func (o TransportPreferencesResponsePtrOutput) PreferredShipmentType() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Unencrypted credentials for accessing device.
 type UnencryptedCredentialsResponse struct {
-	// Name of the job.
-	JobName string `pulumi:"jobName"`
-	// Secrets related to this job.
+	JobName    string      `pulumi:"jobName"`
 	JobSecrets interface{} `pulumi:"jobSecrets"`
 }
 
@@ -8939,12 +7927,9 @@ type UnencryptedCredentialsResponseInput interface {
 	ToUnencryptedCredentialsResponseOutputWithContext(context.Context) UnencryptedCredentialsResponseOutput
 }
 
-// Unencrypted credentials for accessing device.
 type UnencryptedCredentialsResponseArgs struct {
-	// Name of the job.
-	JobName pulumi.StringInput `pulumi:"jobName"`
-	// Secrets related to this job.
-	JobSecrets pulumi.Input `pulumi:"jobSecrets"`
+	JobName    pulumi.StringInput `pulumi:"jobName"`
+	JobSecrets pulumi.Input       `pulumi:"jobSecrets"`
 }
 
 func (UnencryptedCredentialsResponseArgs) ElementType() reflect.Type {
@@ -8984,7 +7969,6 @@ func (i UnencryptedCredentialsResponseArray) ToUnencryptedCredentialsResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(UnencryptedCredentialsResponseArrayOutput)
 }
 
-// Unencrypted credentials for accessing device.
 type UnencryptedCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (UnencryptedCredentialsResponseOutput) ElementType() reflect.Type {
@@ -8999,12 +7983,10 @@ func (o UnencryptedCredentialsResponseOutput) ToUnencryptedCredentialsResponseOu
 	return o
 }
 
-// Name of the job.
 func (o UnencryptedCredentialsResponseOutput) JobName() pulumi.StringOutput {
 	return o.ApplyT(func(v UnencryptedCredentialsResponse) string { return v.JobName }).(pulumi.StringOutput)
 }
 
-// Secrets related to this job.
 func (o UnencryptedCredentialsResponseOutput) JobSecrets() pulumi.AnyOutput {
 	return o.ApplyT(func(v UnencryptedCredentialsResponse) interface{} { return v.JobSecrets }).(pulumi.AnyOutput)
 }

@@ -187,9 +187,7 @@ func (i *ApiRelease) ToApiReleaseOutputWithContext(ctx context.Context) ApiRelea
 	return pulumi.ToOutputWithContext(ctx, i).(ApiReleaseOutput)
 }
 
-type ApiReleaseOutput struct {
-	*pulumi.OutputState
-}
+type ApiReleaseOutput struct{ *pulumi.OutputState }
 
 func (ApiReleaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiRelease)(nil))

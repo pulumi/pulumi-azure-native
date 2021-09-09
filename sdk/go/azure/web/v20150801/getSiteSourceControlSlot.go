@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes the source control configuration for web app
 func LookupSiteSourceControlSlot(ctx *pulumi.Context, args *LookupSiteSourceControlSlotArgs, opts ...pulumi.InvokeOption) (*LookupSiteSourceControlSlotResult, error) {
 	var rv LookupSiteSourceControlSlotResult
 	err := ctx.Invoke("azure-native:web/v20150801:getSiteSourceControlSlot", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupSiteSourceControlSlot(ctx *pulumi.Context, args *LookupSiteSourceCont
 }
 
 type LookupSiteSourceControlSlotArgs struct {
-	// Name of web app
-	Name string `pulumi:"name"`
-	// Name of resource group
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of web app slot. If not specified then will default to production slot.
-	Slot string `pulumi:"slot"`
+	Slot              string `pulumi:"slot"`
 }
 
 // Describes the source control configuration for web app
 type LookupSiteSourceControlSlotResult struct {
-	// Name of branch to use for deployment
-	Branch *string `pulumi:"branch"`
-	// Whether to manual or continuous integration
-	DeploymentRollbackEnabled *bool `pulumi:"deploymentRollbackEnabled"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Whether to manual or continuous integration
-	IsManualIntegration *bool `pulumi:"isManualIntegration"`
-	// Mercurial or Git repository type
-	IsMercurial *bool `pulumi:"isMercurial"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Repository or source control url
-	RepoUrl *string `pulumi:"repoUrl"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Branch                    *string           `pulumi:"branch"`
+	DeploymentRollbackEnabled *bool             `pulumi:"deploymentRollbackEnabled"`
+	Id                        *string           `pulumi:"id"`
+	IsManualIntegration       *bool             `pulumi:"isManualIntegration"`
+	IsMercurial               *bool             `pulumi:"isMercurial"`
+	Kind                      *string           `pulumi:"kind"`
+	Location                  string            `pulumi:"location"`
+	Name                      *string           `pulumi:"name"`
+	RepoUrl                   *string           `pulumi:"repoUrl"`
+	Tags                      map[string]string `pulumi:"tags"`
+	Type                      *string           `pulumi:"type"`
 }

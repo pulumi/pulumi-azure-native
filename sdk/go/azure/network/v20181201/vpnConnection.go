@@ -11,40 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VpnConnection Resource.
 type VpnConnection struct {
 	pulumi.CustomResourceState
 
-	// Expected bandwidth in MBPS.
-	ConnectionBandwidth pulumi.IntPtrOutput `pulumi:"connectionBandwidth"`
-	// The connection status.
-	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
-	// Egress bytes transferred.
-	EgressBytesTransferred pulumi.Float64Output `pulumi:"egressBytesTransferred"`
-	// EnableBgp flag
-	EnableBgp pulumi.BoolPtrOutput `pulumi:"enableBgp"`
-	// Enable internet security
-	EnableInternetSecurity pulumi.BoolPtrOutput `pulumi:"enableInternetSecurity"`
-	// EnableBgp flag
-	EnableRateLimiting pulumi.BoolPtrOutput `pulumi:"enableRateLimiting"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Ingress bytes transferred.
-	IngressBytesTransferred pulumi.Float64Output `pulumi:"ingressBytesTransferred"`
-	// The IPSec Policies to be considered by this connection.
-	IpsecPolicies IpsecPolicyResponseArrayOutput `pulumi:"ipsecPolicies"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Id of the connected vpn site.
-	RemoteVpnSite SubResourceResponsePtrOutput `pulumi:"remoteVpnSite"`
-	// Routing weight for vpn connection.
-	RoutingWeight pulumi.IntPtrOutput `pulumi:"routingWeight"`
-	// SharedKey for the vpn connection.
-	SharedKey pulumi.StringPtrOutput `pulumi:"sharedKey"`
-	// Connection protocol used for this connection
-	VpnConnectionProtocolType pulumi.StringPtrOutput `pulumi:"vpnConnectionProtocolType"`
+	ConnectionBandwidth       pulumi.IntPtrOutput            `pulumi:"connectionBandwidth"`
+	ConnectionStatus          pulumi.StringOutput            `pulumi:"connectionStatus"`
+	EgressBytesTransferred    pulumi.Float64Output           `pulumi:"egressBytesTransferred"`
+	EnableBgp                 pulumi.BoolPtrOutput           `pulumi:"enableBgp"`
+	EnableInternetSecurity    pulumi.BoolPtrOutput           `pulumi:"enableInternetSecurity"`
+	EnableRateLimiting        pulumi.BoolPtrOutput           `pulumi:"enableRateLimiting"`
+	Etag                      pulumi.StringOutput            `pulumi:"etag"`
+	IngressBytesTransferred   pulumi.Float64Output           `pulumi:"ingressBytesTransferred"`
+	IpsecPolicies             IpsecPolicyResponseArrayOutput `pulumi:"ipsecPolicies"`
+	Name                      pulumi.StringPtrOutput         `pulumi:"name"`
+	ProvisioningState         pulumi.StringOutput            `pulumi:"provisioningState"`
+	RemoteVpnSite             SubResourceResponsePtrOutput   `pulumi:"remoteVpnSite"`
+	RoutingWeight             pulumi.IntPtrOutput            `pulumi:"routingWeight"`
+	SharedKey                 pulumi.StringPtrOutput         `pulumi:"sharedKey"`
+	VpnConnectionProtocolType pulumi.StringPtrOutput         `pulumi:"vpnConnectionProtocolType"`
 }
 
 // NewVpnConnection registers a new resource with the given unique name, arguments, and options.
@@ -242,65 +226,37 @@ func (VpnConnectionState) ElementType() reflect.Type {
 }
 
 type vpnConnectionArgs struct {
-	// Expected bandwidth in MBPS.
-	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
-	// The name of the connection.
-	ConnectionName *string `pulumi:"connectionName"`
-	// EnableBgp flag
-	EnableBgp *bool `pulumi:"enableBgp"`
-	// Enable internet security
-	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
-	// EnableBgp flag
-	EnableRateLimiting *bool `pulumi:"enableRateLimiting"`
-	// The name of the gateway.
-	GatewayName string `pulumi:"gatewayName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The IPSec Policies to be considered by this connection.
-	IpsecPolicies []IpsecPolicy `pulumi:"ipsecPolicies"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// Id of the connected vpn site.
-	RemoteVpnSite *SubResource `pulumi:"remoteVpnSite"`
-	// The resource group name of the VpnGateway.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Routing weight for vpn connection.
-	RoutingWeight *int `pulumi:"routingWeight"`
-	// SharedKey for the vpn connection.
-	SharedKey *string `pulumi:"sharedKey"`
-	// Connection protocol used for this connection
-	VpnConnectionProtocolType *string `pulumi:"vpnConnectionProtocolType"`
+	ConnectionBandwidth       *int          `pulumi:"connectionBandwidth"`
+	ConnectionName            *string       `pulumi:"connectionName"`
+	EnableBgp                 *bool         `pulumi:"enableBgp"`
+	EnableInternetSecurity    *bool         `pulumi:"enableInternetSecurity"`
+	EnableRateLimiting        *bool         `pulumi:"enableRateLimiting"`
+	GatewayName               string        `pulumi:"gatewayName"`
+	Id                        *string       `pulumi:"id"`
+	IpsecPolicies             []IpsecPolicy `pulumi:"ipsecPolicies"`
+	Name                      *string       `pulumi:"name"`
+	RemoteVpnSite             *SubResource  `pulumi:"remoteVpnSite"`
+	ResourceGroupName         string        `pulumi:"resourceGroupName"`
+	RoutingWeight             *int          `pulumi:"routingWeight"`
+	SharedKey                 *string       `pulumi:"sharedKey"`
+	VpnConnectionProtocolType *string       `pulumi:"vpnConnectionProtocolType"`
 }
 
 // The set of arguments for constructing a VpnConnection resource.
 type VpnConnectionArgs struct {
-	// Expected bandwidth in MBPS.
-	ConnectionBandwidth pulumi.IntPtrInput
-	// The name of the connection.
-	ConnectionName pulumi.StringPtrInput
-	// EnableBgp flag
-	EnableBgp pulumi.BoolPtrInput
-	// Enable internet security
-	EnableInternetSecurity pulumi.BoolPtrInput
-	// EnableBgp flag
-	EnableRateLimiting pulumi.BoolPtrInput
-	// The name of the gateway.
-	GatewayName pulumi.StringInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The IPSec Policies to be considered by this connection.
-	IpsecPolicies IpsecPolicyArrayInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// Id of the connected vpn site.
-	RemoteVpnSite SubResourcePtrInput
-	// The resource group name of the VpnGateway.
-	ResourceGroupName pulumi.StringInput
-	// Routing weight for vpn connection.
-	RoutingWeight pulumi.IntPtrInput
-	// SharedKey for the vpn connection.
-	SharedKey pulumi.StringPtrInput
-	// Connection protocol used for this connection
+	ConnectionBandwidth       pulumi.IntPtrInput
+	ConnectionName            pulumi.StringPtrInput
+	EnableBgp                 pulumi.BoolPtrInput
+	EnableInternetSecurity    pulumi.BoolPtrInput
+	EnableRateLimiting        pulumi.BoolPtrInput
+	GatewayName               pulumi.StringInput
+	Id                        pulumi.StringPtrInput
+	IpsecPolicies             IpsecPolicyArrayInput
+	Name                      pulumi.StringPtrInput
+	RemoteVpnSite             SubResourcePtrInput
+	ResourceGroupName         pulumi.StringInput
+	RoutingWeight             pulumi.IntPtrInput
+	SharedKey                 pulumi.StringPtrInput
 	VpnConnectionProtocolType pulumi.StringPtrInput
 }
 
@@ -327,9 +283,7 @@ func (i *VpnConnection) ToVpnConnectionOutputWithContext(ctx context.Context) Vp
 	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionOutput)
 }
 
-type VpnConnectionOutput struct {
-	*pulumi.OutputState
-}
+type VpnConnectionOutput struct{ *pulumi.OutputState }
 
 func (VpnConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VpnConnection)(nil))

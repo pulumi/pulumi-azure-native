@@ -215,9 +215,7 @@ func (i *CloudEndpoint) ToCloudEndpointOutputWithContext(ctx context.Context) Cl
 	return pulumi.ToOutputWithContext(ctx, i).(CloudEndpointOutput)
 }
 
-type CloudEndpointOutput struct {
-	*pulumi.OutputState
-}
+type CloudEndpointOutput struct{ *pulumi.OutputState }
 
 func (CloudEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CloudEndpoint)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A stored credential that can be used by a job to connect to target databases.
 func LookupJobCredential(ctx *pulumi.Context, args *LookupJobCredentialArgs, opts ...pulumi.InvokeOption) (*LookupJobCredentialResult, error) {
 	var rv LookupJobCredentialResult
 	err := ctx.Invoke("azure-native:sql/v20200801preview:getJobCredential", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupJobCredential(ctx *pulumi.Context, args *LookupJobCredentialArgs, opt
 }
 
 type LookupJobCredentialArgs struct {
-	// The name of the credential.
-	CredentialName string `pulumi:"credentialName"`
-	// The name of the job agent.
-	JobAgentName string `pulumi:"jobAgentName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	CredentialName    string `pulumi:"credentialName"`
+	JobAgentName      string `pulumi:"jobAgentName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ServerName        string `pulumi:"serverName"`
 }
 
 // A stored credential that can be used by a job to connect to target databases.
 type LookupJobCredentialResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The credential user name.
+	Id       string `pulumi:"id"`
+	Name     string `pulumi:"name"`
+	Type     string `pulumi:"type"`
 	Username string `pulumi:"username"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an instance of a Dedicated Capacity resource.
 func LookupCapacityDetails(ctx *pulumi.Context, args *LookupCapacityDetailsArgs, opts ...pulumi.InvokeOption) (*LookupCapacityDetailsResult, error) {
 	var rv LookupCapacityDetailsResult
 	err := ctx.Invoke("azure-native:powerbidedicated/v20210101:getCapacityDetails", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupCapacityDetails(ctx *pulumi.Context, args *LookupCapacityDetailsArgs,
 }
 
 type LookupCapacityDetailsArgs struct {
-	// The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
 	DedicatedCapacityName string `pulumi:"dedicatedCapacityName"`
-	// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Represents an instance of a Dedicated Capacity resource.
 type LookupCapacityDetailsResult struct {
-	// A collection of Dedicated capacity administrators
-	Administration *DedicatedCapacityAdministratorsResponse `pulumi:"administration"`
-	// An identifier that represents the PowerBI Dedicated resource.
-	Id string `pulumi:"id"`
-	// Location of the PowerBI Dedicated resource.
-	Location string `pulumi:"location"`
-	// The capacity mode.
-	Mode *string `pulumi:"mode"`
-	// The name of the PowerBI Dedicated resource.
-	Name string `pulumi:"name"`
-	// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The SKU of the PowerBI Dedicated capacity resource.
-	Sku CapacitySkuResponse `pulumi:"sku"`
-	// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
-	State string `pulumi:"state"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the PowerBI Dedicated resource.
-	Type string `pulumi:"type"`
+	Administration    *DedicatedCapacityAdministratorsResponse `pulumi:"administration"`
+	Id                string                                   `pulumi:"id"`
+	Location          string                                   `pulumi:"location"`
+	Mode              *string                                  `pulumi:"mode"`
+	Name              string                                   `pulumi:"name"`
+	ProvisioningState string                                   `pulumi:"provisioningState"`
+	Sku               CapacitySkuResponse                      `pulumi:"sku"`
+	State             string                                   `pulumi:"state"`
+	SystemData        *SystemDataResponse                      `pulumi:"systemData"`
+	Tags              map[string]string                        `pulumi:"tags"`
+	Type              string                                   `pulumi:"type"`
 }

@@ -203,9 +203,7 @@ func (i *JobStep) ToJobStepOutputWithContext(ctx context.Context) JobStepOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutput)
 }
 
-type JobStepOutput struct {
-	*pulumi.OutputState
-}
+type JobStepOutput struct{ *pulumi.OutputState }
 
 func (JobStepOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobStep)(nil))

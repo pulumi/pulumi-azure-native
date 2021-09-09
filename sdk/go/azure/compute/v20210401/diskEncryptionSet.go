@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// disk encryption set resource.
 type DiskEncryptionSet struct {
 	pulumi.CustomResourceState
 
-	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey KeyForDiskEncryptionSetResponsePtrOutput `pulumi:"activeKey"`
-	// The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
-	AutoKeyRotationError ApiErrorResponseOutput `pulumi:"autoKeyRotationError"`
-	// The type of key used to encrypt the data of the disk.
-	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
-	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-	Identity EncryptionSetIdentityResponsePtrOutput `pulumi:"identity"`
-	// The time when the active key of this disk encryption set was updated.
-	LastKeyRotationTimestamp pulumi.StringOutput `pulumi:"lastKeyRotationTimestamp"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
-	PreviousKeys KeyForDiskEncryptionSetResponseArrayOutput `pulumi:"previousKeys"`
-	// The disk encryption set provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
-	RotationToLatestKeyVersionEnabled pulumi.BoolPtrOutput `pulumi:"rotationToLatestKeyVersionEnabled"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ActiveKey                         KeyForDiskEncryptionSetResponsePtrOutput   `pulumi:"activeKey"`
+	AutoKeyRotationError              ApiErrorResponseOutput                     `pulumi:"autoKeyRotationError"`
+	EncryptionType                    pulumi.StringPtrOutput                     `pulumi:"encryptionType"`
+	Identity                          EncryptionSetIdentityResponsePtrOutput     `pulumi:"identity"`
+	LastKeyRotationTimestamp          pulumi.StringOutput                        `pulumi:"lastKeyRotationTimestamp"`
+	Location                          pulumi.StringOutput                        `pulumi:"location"`
+	Name                              pulumi.StringOutput                        `pulumi:"name"`
+	PreviousKeys                      KeyForDiskEncryptionSetResponseArrayOutput `pulumi:"previousKeys"`
+	ProvisioningState                 pulumi.StringOutput                        `pulumi:"provisioningState"`
+	RotationToLatestKeyVersionEnabled pulumi.BoolPtrOutput                       `pulumi:"rotationToLatestKeyVersionEnabled"`
+	Tags                              pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type                              pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewDiskEncryptionSet registers a new resource with the given unique name, arguments, and options.
@@ -131,42 +118,26 @@ func (DiskEncryptionSetState) ElementType() reflect.Type {
 }
 
 type diskEncryptionSetArgs struct {
-	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey *KeyForDiskEncryptionSet `pulumi:"activeKey"`
-	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
-	DiskEncryptionSetName *string `pulumi:"diskEncryptionSetName"`
-	// The type of key used to encrypt the data of the disk.
-	EncryptionType *string `pulumi:"encryptionType"`
-	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-	Identity *EncryptionSetIdentity `pulumi:"identity"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
-	RotationToLatestKeyVersionEnabled *bool `pulumi:"rotationToLatestKeyVersionEnabled"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	ActiveKey                         *KeyForDiskEncryptionSet `pulumi:"activeKey"`
+	DiskEncryptionSetName             *string                  `pulumi:"diskEncryptionSetName"`
+	EncryptionType                    *string                  `pulumi:"encryptionType"`
+	Identity                          *EncryptionSetIdentity   `pulumi:"identity"`
+	Location                          *string                  `pulumi:"location"`
+	ResourceGroupName                 string                   `pulumi:"resourceGroupName"`
+	RotationToLatestKeyVersionEnabled *bool                    `pulumi:"rotationToLatestKeyVersionEnabled"`
+	Tags                              map[string]string        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DiskEncryptionSet resource.
 type DiskEncryptionSetArgs struct {
-	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey KeyForDiskEncryptionSetPtrInput
-	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
-	DiskEncryptionSetName pulumi.StringPtrInput
-	// The type of key used to encrypt the data of the disk.
-	EncryptionType pulumi.StringPtrInput
-	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-	Identity EncryptionSetIdentityPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
+	ActiveKey                         KeyForDiskEncryptionSetPtrInput
+	DiskEncryptionSetName             pulumi.StringPtrInput
+	EncryptionType                    pulumi.StringPtrInput
+	Identity                          EncryptionSetIdentityPtrInput
+	Location                          pulumi.StringPtrInput
+	ResourceGroupName                 pulumi.StringInput
 	RotationToLatestKeyVersionEnabled pulumi.BoolPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Tags                              pulumi.StringMapInput
 }
 
 func (DiskEncryptionSetArgs) ElementType() reflect.Type {
@@ -192,9 +163,7 @@ func (i *DiskEncryptionSet) ToDiskEncryptionSetOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetOutput)
 }
 
-type DiskEncryptionSetOutput struct {
-	*pulumi.OutputState
-}
+type DiskEncryptionSetOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiskEncryptionSet)(nil))

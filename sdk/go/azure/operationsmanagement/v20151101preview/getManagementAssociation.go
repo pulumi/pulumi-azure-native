@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The container for solution.
 func LookupManagementAssociation(ctx *pulumi.Context, args *LookupManagementAssociationArgs, opts ...pulumi.InvokeOption) (*LookupManagementAssociationResult, error) {
 	var rv LookupManagementAssociationResult
 	err := ctx.Invoke("azure-native:operationsmanagement/v20151101preview:getManagementAssociation", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupManagementAssociation(ctx *pulumi.Context, args *LookupManagementAsso
 }
 
 type LookupManagementAssociationArgs struct {
-	// User ManagementAssociation Name.
 	ManagementAssociationName string `pulumi:"managementAssociationName"`
-	// Provider name for the parent resource.
-	ProviderName string `pulumi:"providerName"`
-	// The name of the resource group to get. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Parent resource name.
-	ResourceName string `pulumi:"resourceName"`
-	// Resource type for the parent resource
-	ResourceType string `pulumi:"resourceType"`
+	ProviderName              string `pulumi:"providerName"`
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
+	ResourceName              string `pulumi:"resourceName"`
+	ResourceType              string `pulumi:"resourceType"`
 }
 
 // The container for solution.
 type LookupManagementAssociationResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
+	Id         string                                  `pulumi:"id"`
+	Location   *string                                 `pulumi:"location"`
+	Name       string                                  `pulumi:"name"`
 	Properties ManagementAssociationPropertiesResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type       string                                  `pulumi:"type"`
 }

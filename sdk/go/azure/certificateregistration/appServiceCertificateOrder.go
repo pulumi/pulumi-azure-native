@@ -75,6 +75,9 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ProductType == nil {
+		return nil, errors.New("invalid value for required argument 'ProductType'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -202,7 +205,7 @@ type appServiceCertificateOrderArgs struct {
 	// Resource Location.
 	Location *string `pulumi:"location"`
 	// Certificate product type.
-	ProductType string `pulumi:"productType"`
+	ProductType CertificateProductType `pulumi:"productType"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -230,7 +233,7 @@ type AppServiceCertificateOrderArgs struct {
 	// Resource Location.
 	Location pulumi.StringPtrInput
 	// Certificate product type.
-	ProductType CertificateProductType
+	ProductType CertificateProductTypeInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
@@ -262,9 +265,7 @@ func (i *AppServiceCertificateOrder) ToAppServiceCertificateOrderOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateOrderOutput)
 }
 
-type AppServiceCertificateOrderOutput struct {
-	*pulumi.OutputState
-}
+type AppServiceCertificateOrderOutput struct{ *pulumi.OutputState }
 
 func (AppServiceCertificateOrderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppServiceCertificateOrder)(nil))

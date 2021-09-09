@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines the properties of an Experiment
 type Experiment struct {
 	pulumi.CustomResourceState
 
-	// The description of the details or intents of the Experiment
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The state of the Experiment
-	EnabledState pulumi.StringPtrOutput `pulumi:"enabledState"`
-	// The endpoint A of an experiment
-	EndpointA ExperimentEndpointResponsePtrOutput `pulumi:"endpointA"`
-	// The endpoint B of an experiment
-	EndpointB ExperimentEndpointResponsePtrOutput `pulumi:"endpointB"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource status.
-	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// The uri to the Script used in the Experiment
-	ScriptFileUri pulumi.StringOutput `pulumi:"scriptFileUri"`
-	// The description of Experiment status from the server side
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Description   pulumi.StringPtrOutput              `pulumi:"description"`
+	EnabledState  pulumi.StringPtrOutput              `pulumi:"enabledState"`
+	EndpointA     ExperimentEndpointResponsePtrOutput `pulumi:"endpointA"`
+	EndpointB     ExperimentEndpointResponsePtrOutput `pulumi:"endpointB"`
+	Location      pulumi.StringPtrOutput              `pulumi:"location"`
+	Name          pulumi.StringOutput                 `pulumi:"name"`
+	ResourceState pulumi.StringOutput                 `pulumi:"resourceState"`
+	ScriptFileUri pulumi.StringOutput                 `pulumi:"scriptFileUri"`
+	Status        pulumi.StringOutput                 `pulumi:"status"`
+	Tags          pulumi.StringMapOutput              `pulumi:"tags"`
+	Type          pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewExperiment registers a new resource with the given unique name, arguments, and options.
@@ -96,46 +84,28 @@ func (ExperimentState) ElementType() reflect.Type {
 }
 
 type experimentArgs struct {
-	// The description of the details or intents of the Experiment
-	Description *string `pulumi:"description"`
-	// The state of the Experiment
-	EnabledState *string `pulumi:"enabledState"`
-	// The endpoint A of an experiment
-	EndpointA *ExperimentEndpoint `pulumi:"endpointA"`
-	// The endpoint B of an experiment
-	EndpointB *ExperimentEndpoint `pulumi:"endpointB"`
-	// The Experiment identifier associated with the Experiment
-	ExperimentName *string `pulumi:"experimentName"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The Profile identifier associated with the Tenant and Partner
-	ProfileName string `pulumi:"profileName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Description       *string             `pulumi:"description"`
+	EnabledState      *string             `pulumi:"enabledState"`
+	EndpointA         *ExperimentEndpoint `pulumi:"endpointA"`
+	EndpointB         *ExperimentEndpoint `pulumi:"endpointB"`
+	ExperimentName    *string             `pulumi:"experimentName"`
+	Location          *string             `pulumi:"location"`
+	ProfileName       string              `pulumi:"profileName"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	Tags              map[string]string   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Experiment resource.
 type ExperimentArgs struct {
-	// The description of the details or intents of the Experiment
-	Description pulumi.StringPtrInput
-	// The state of the Experiment
-	EnabledState pulumi.StringPtrInput
-	// The endpoint A of an experiment
-	EndpointA ExperimentEndpointPtrInput
-	// The endpoint B of an experiment
-	EndpointB ExperimentEndpointPtrInput
-	// The Experiment identifier associated with the Experiment
-	ExperimentName pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The Profile identifier associated with the Tenant and Partner
-	ProfileName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
+	Description       pulumi.StringPtrInput
+	EnabledState      pulumi.StringPtrInput
+	EndpointA         ExperimentEndpointPtrInput
+	EndpointB         ExperimentEndpointPtrInput
+	ExperimentName    pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	ProfileName       pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ExperimentArgs) ElementType() reflect.Type {
@@ -161,9 +131,7 @@ func (i *Experiment) ToExperimentOutputWithContext(ctx context.Context) Experime
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentOutput)
 }
 
-type ExperimentOutput struct {
-	*pulumi.OutputState
-}
+type ExperimentOutput struct{ *pulumi.OutputState }
 
 func (ExperimentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Experiment)(nil))

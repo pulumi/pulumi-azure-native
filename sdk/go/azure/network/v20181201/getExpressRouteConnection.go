@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ExpressRouteConnection resource.
 func LookupExpressRouteConnection(ctx *pulumi.Context, args *LookupExpressRouteConnectionArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteConnectionResult, error) {
 	var rv LookupExpressRouteConnectionResult
 	err := ctx.Invoke("azure-native:network/v20181201:getExpressRouteConnection", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupExpressRouteConnection(ctx *pulumi.Context, args *LookupExpressRouteC
 }
 
 type LookupExpressRouteConnectionArgs struct {
-	// The name of the ExpressRoute connection.
-	ConnectionName string `pulumi:"connectionName"`
-	// The name of the ExpressRoute gateway.
+	ConnectionName          string `pulumi:"connectionName"`
 	ExpressRouteGatewayName string `pulumi:"expressRouteGatewayName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
 }
 
 // ExpressRouteConnection resource.
 type LookupExpressRouteConnectionResult struct {
-	// Authorization key to establish the connection.
-	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// The ExpressRoute circuit peering.
+	AuthorizationKey           *string                              `pulumi:"authorizationKey"`
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdResponse `pulumi:"expressRouteCircuitPeering"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The routing weight associated to the connection.
-	RoutingWeight *int `pulumi:"routingWeight"`
+	Id                         *string                              `pulumi:"id"`
+	Name                       string                               `pulumi:"name"`
+	ProvisioningState          string                               `pulumi:"provisioningState"`
+	RoutingWeight              *int                                 `pulumi:"routingWeight"`
 }

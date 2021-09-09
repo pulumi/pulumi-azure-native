@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents the list of environments owned by a user
 func ListGlobalUserEnvironments(ctx *pulumi.Context, args *ListGlobalUserEnvironmentsArgs, opts ...pulumi.InvokeOption) (*ListGlobalUserEnvironmentsResult, error) {
 	var rv ListGlobalUserEnvironmentsResult
 	err := ctx.Invoke("azure-native:labservices/v20181015:listGlobalUserEnvironments", args, &rv, opts...)
@@ -18,14 +17,11 @@ func ListGlobalUserEnvironments(ctx *pulumi.Context, args *ListGlobalUserEnviron
 }
 
 type ListGlobalUserEnvironmentsArgs struct {
-	// The resource Id of the lab
-	LabId *string `pulumi:"labId"`
-	// The name of the user.
-	UserName string `pulumi:"userName"`
+	LabId    *string `pulumi:"labId"`
+	UserName string  `pulumi:"userName"`
 }
 
 // Represents the list of environments owned by a user
 type ListGlobalUserEnvironmentsResult struct {
-	// List of all the environments
 	Environments []EnvironmentDetailsResponse `pulumi:"environments"`
 }

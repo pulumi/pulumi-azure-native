@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Security Partner Provider resource.
 type SecurityPartnerProvider struct {
 	pulumi.CustomResourceState
 
-	// The connection status with the Security Partner Provider.
-	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the Security Partner Provider resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The security provider name.
-	SecurityProviderName pulumi.StringPtrOutput `pulumi:"securityProviderName"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The virtualHub to which the Security Partner Provider belongs.
-	VirtualHub SubResourceResponsePtrOutput `pulumi:"virtualHub"`
+	ConnectionStatus     pulumi.StringOutput          `pulumi:"connectionStatus"`
+	Etag                 pulumi.StringOutput          `pulumi:"etag"`
+	Location             pulumi.StringPtrOutput       `pulumi:"location"`
+	Name                 pulumi.StringOutput          `pulumi:"name"`
+	ProvisioningState    pulumi.StringOutput          `pulumi:"provisioningState"`
+	SecurityProviderName pulumi.StringPtrOutput       `pulumi:"securityProviderName"`
+	Tags                 pulumi.StringMapOutput       `pulumi:"tags"`
+	Type                 pulumi.StringOutput          `pulumi:"type"`
+	VirtualHub           SubResourceResponsePtrOutput `pulumi:"virtualHub"`
 }
 
 // NewSecurityPartnerProvider registers a new resource with the given unique name, arguments, and options.
@@ -137,38 +127,24 @@ func (SecurityPartnerProviderState) ElementType() reflect.Type {
 }
 
 type securityPartnerProviderArgs struct {
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Security Partner Provider.
-	SecurityPartnerProviderName *string `pulumi:"securityPartnerProviderName"`
-	// The security provider name.
-	SecurityProviderName *string `pulumi:"securityProviderName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The virtualHub to which the Security Partner Provider belongs.
-	VirtualHub *SubResource `pulumi:"virtualHub"`
+	Id                          *string           `pulumi:"id"`
+	Location                    *string           `pulumi:"location"`
+	ResourceGroupName           string            `pulumi:"resourceGroupName"`
+	SecurityPartnerProviderName *string           `pulumi:"securityPartnerProviderName"`
+	SecurityProviderName        *string           `pulumi:"securityProviderName"`
+	Tags                        map[string]string `pulumi:"tags"`
+	VirtualHub                  *SubResource      `pulumi:"virtualHub"`
 }
 
 // The set of arguments for constructing a SecurityPartnerProvider resource.
 type SecurityPartnerProviderArgs struct {
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the Security Partner Provider.
+	Id                          pulumi.StringPtrInput
+	Location                    pulumi.StringPtrInput
+	ResourceGroupName           pulumi.StringInput
 	SecurityPartnerProviderName pulumi.StringPtrInput
-	// The security provider name.
-	SecurityProviderName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The virtualHub to which the Security Partner Provider belongs.
-	VirtualHub SubResourcePtrInput
+	SecurityProviderName        pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
+	VirtualHub                  SubResourcePtrInput
 }
 
 func (SecurityPartnerProviderArgs) ElementType() reflect.Type {
@@ -194,9 +170,7 @@ func (i *SecurityPartnerProvider) ToSecurityPartnerProviderOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityPartnerProviderOutput)
 }
 
-type SecurityPartnerProviderOutput struct {
-	*pulumi.OutputState
-}
+type SecurityPartnerProviderOutput struct{ *pulumi.OutputState }
 
 func (SecurityPartnerProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityPartnerProvider)(nil))

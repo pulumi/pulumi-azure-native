@@ -11,33 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A type of trigger based on schedule
 type ScheduledTrigger struct {
 	pulumi.CustomResourceState
 
-	// Time at which the trigger was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Kind of synchronization on trigger.
-	// Expected value is 'ScheduleBased'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets the provisioning state
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Recurrence Interval
-	RecurrenceInterval pulumi.StringOutput `pulumi:"recurrenceInterval"`
-	// Synchronization mode
-	SynchronizationMode pulumi.StringPtrOutput `pulumi:"synchronizationMode"`
-	// Synchronization time
-	SynchronizationTime pulumi.StringOutput `pulumi:"synchronizationTime"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Gets the trigger state
-	TriggerStatus pulumi.StringOutput `pulumi:"triggerStatus"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Name of the user who created the trigger.
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	CreatedAt           pulumi.StringOutput      `pulumi:"createdAt"`
+	Kind                pulumi.StringOutput      `pulumi:"kind"`
+	Name                pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState   pulumi.StringOutput      `pulumi:"provisioningState"`
+	RecurrenceInterval  pulumi.StringOutput      `pulumi:"recurrenceInterval"`
+	SynchronizationMode pulumi.StringPtrOutput   `pulumi:"synchronizationMode"`
+	SynchronizationTime pulumi.StringOutput      `pulumi:"synchronizationTime"`
+	SystemData          SystemDataResponseOutput `pulumi:"systemData"`
+	TriggerStatus       pulumi.StringOutput      `pulumi:"triggerStatus"`
+	Type                pulumi.StringOutput      `pulumi:"type"`
+	UserName            pulumi.StringOutput      `pulumi:"userName"`
 }
 
 // NewScheduledTrigger registers a new resource with the given unique name, arguments, and options.
@@ -128,44 +115,26 @@ func (ScheduledTriggerState) ElementType() reflect.Type {
 }
 
 type scheduledTriggerArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// Kind of synchronization on trigger.
-	// Expected value is 'ScheduleBased'.
-	Kind string `pulumi:"kind"`
-	// Recurrence Interval
-	RecurrenceInterval string `pulumi:"recurrenceInterval"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share subscription which will hold the data set sink.
-	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
-	// Synchronization mode
-	SynchronizationMode *string `pulumi:"synchronizationMode"`
-	// Synchronization time
-	SynchronizationTime string `pulumi:"synchronizationTime"`
-	// The name of the trigger.
-	TriggerName *string `pulumi:"triggerName"`
+	AccountName           string  `pulumi:"accountName"`
+	Kind                  string  `pulumi:"kind"`
+	RecurrenceInterval    string  `pulumi:"recurrenceInterval"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	ShareSubscriptionName string  `pulumi:"shareSubscriptionName"`
+	SynchronizationMode   *string `pulumi:"synchronizationMode"`
+	SynchronizationTime   string  `pulumi:"synchronizationTime"`
+	TriggerName           *string `pulumi:"triggerName"`
 }
 
 // The set of arguments for constructing a ScheduledTrigger resource.
 type ScheduledTriggerArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// Kind of synchronization on trigger.
-	// Expected value is 'ScheduleBased'.
-	Kind pulumi.StringInput
-	// Recurrence Interval
-	RecurrenceInterval pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share subscription which will hold the data set sink.
+	AccountName           pulumi.StringInput
+	Kind                  pulumi.StringInput
+	RecurrenceInterval    pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 	ShareSubscriptionName pulumi.StringInput
-	// Synchronization mode
-	SynchronizationMode pulumi.StringPtrInput
-	// Synchronization time
-	SynchronizationTime pulumi.StringInput
-	// The name of the trigger.
-	TriggerName pulumi.StringPtrInput
+	SynchronizationMode   pulumi.StringPtrInput
+	SynchronizationTime   pulumi.StringInput
+	TriggerName           pulumi.StringPtrInput
 }
 
 func (ScheduledTriggerArgs) ElementType() reflect.Type {
@@ -191,9 +160,7 @@ func (i *ScheduledTrigger) ToScheduledTriggerOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledTriggerOutput)
 }
 
-type ScheduledTriggerOutput struct {
-	*pulumi.OutputState
-}
+type ScheduledTriggerOutput struct{ *pulumi.OutputState }
 
 func (ScheduledTriggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScheduledTrigger)(nil))

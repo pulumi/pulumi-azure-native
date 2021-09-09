@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IoT site model
 type LocationSite struct {
 	pulumi.CustomResourceState
 
-	// Display name of the IoT site
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Tags of the IoT site
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	DisplayName pulumi.StringOutput      `pulumi:"displayName"`
+	Name        pulumi.StringOutput      `pulumi:"name"`
+	SystemData  SystemDataResponseOutput `pulumi:"systemData"`
+	Tags        pulumi.StringMapOutput   `pulumi:"tags"`
+	Type        pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewLocationSite registers a new resource with the given unique name, arguments, and options.
@@ -84,26 +78,18 @@ func (LocationSiteState) ElementType() reflect.Type {
 }
 
 type locationSiteArgs struct {
-	// Display name of the IoT site
-	DisplayName string `pulumi:"displayName"`
-	// Defender for IoT location
-	IotDefenderLocation string `pulumi:"iotDefenderLocation"`
-	// Site Name
-	SiteName *string `pulumi:"siteName"`
-	// Tags of the IoT site
-	Tags map[string]string `pulumi:"tags"`
+	DisplayName         string            `pulumi:"displayName"`
+	IotDefenderLocation string            `pulumi:"iotDefenderLocation"`
+	SiteName            *string           `pulumi:"siteName"`
+	Tags                map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocationSite resource.
 type LocationSiteArgs struct {
-	// Display name of the IoT site
-	DisplayName pulumi.StringInput
-	// Defender for IoT location
+	DisplayName         pulumi.StringInput
 	IotDefenderLocation pulumi.StringInput
-	// Site Name
-	SiteName pulumi.StringPtrInput
-	// Tags of the IoT site
-	Tags pulumi.StringMapInput
+	SiteName            pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
 }
 
 func (LocationSiteArgs) ElementType() reflect.Type {
@@ -129,9 +115,7 @@ func (i *LocationSite) ToLocationSiteOutputWithContext(ctx context.Context) Loca
 	return pulumi.ToOutputWithContext(ctx, i).(LocationSiteOutput)
 }
 
-type LocationSiteOutput struct {
-	*pulumi.OutputState
-}
+type LocationSiteOutput struct{ *pulumi.OutputState }
 
 func (LocationSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LocationSite)(nil))

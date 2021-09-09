@@ -145,9 +145,7 @@ func (i *ManagementLockAtSubscriptionLevel) ToManagementLockAtSubscriptionLevelO
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockAtSubscriptionLevelOutput)
 }
 
-type ManagementLockAtSubscriptionLevelOutput struct {
-	*pulumi.OutputState
-}
+type ManagementLockAtSubscriptionLevelOutput struct{ *pulumi.OutputState }
 
 func (ManagementLockAtSubscriptionLevelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementLockAtSubscriptionLevel)(nil))

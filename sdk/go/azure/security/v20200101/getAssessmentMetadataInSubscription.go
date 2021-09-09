@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Security assessment metadata
 func LookupAssessmentMetadataInSubscription(ctx *pulumi.Context, args *LookupAssessmentMetadataInSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupAssessmentMetadataInSubscriptionResult, error) {
 	var rv LookupAssessmentMetadataInSubscriptionResult
 	err := ctx.Invoke("azure-native:security/v20200101:getAssessmentMetadataInSubscription", args, &rv, opts...)
@@ -18,38 +17,24 @@ func LookupAssessmentMetadataInSubscription(ctx *pulumi.Context, args *LookupAss
 }
 
 type LookupAssessmentMetadataInSubscriptionArgs struct {
-	// The Assessment Key - Unique key for the assessment type
 	AssessmentMetadataName string `pulumi:"assessmentMetadataName"`
 }
 
 // Security assessment metadata
 type LookupAssessmentMetadataInSubscriptionResult struct {
-	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
-	AssessmentType string   `pulumi:"assessmentType"`
-	Categories     []string `pulumi:"categories"`
-	// Human readable description of the assessment
-	Description *string `pulumi:"description"`
-	// User friendly display name of the assessment
-	DisplayName string `pulumi:"displayName"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// The implementation effort required to remediate this assessment
-	ImplementationEffort *string `pulumi:"implementationEffort"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Describes the partner that created the assessment
-	PartnerData *SecurityAssessmentMetadataPartnerDataResponse `pulumi:"partnerData"`
-	// Azure resource ID of the policy definition that turns this assessment calculation on
-	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
-	// True if this assessment is in preview release status
-	Preview *bool `pulumi:"preview"`
-	// Human readable description of what you should do to mitigate this security issue
-	RemediationDescription *string `pulumi:"remediationDescription"`
-	// The severity level of the assessment
-	Severity string   `pulumi:"severity"`
-	Threats  []string `pulumi:"threats"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// The user impact of the assessment
-	UserImpact *string `pulumi:"userImpact"`
+	AssessmentType         string                                         `pulumi:"assessmentType"`
+	Categories             []string                                       `pulumi:"categories"`
+	Description            *string                                        `pulumi:"description"`
+	DisplayName            string                                         `pulumi:"displayName"`
+	Id                     string                                         `pulumi:"id"`
+	ImplementationEffort   *string                                        `pulumi:"implementationEffort"`
+	Name                   string                                         `pulumi:"name"`
+	PartnerData            *SecurityAssessmentMetadataPartnerDataResponse `pulumi:"partnerData"`
+	PolicyDefinitionId     string                                         `pulumi:"policyDefinitionId"`
+	Preview                *bool                                          `pulumi:"preview"`
+	RemediationDescription *string                                        `pulumi:"remediationDescription"`
+	Severity               string                                         `pulumi:"severity"`
+	Threats                []string                                       `pulumi:"threats"`
+	Type                   string                                         `pulumi:"type"`
+	UserImpact             *string                                        `pulumi:"userImpact"`
 }

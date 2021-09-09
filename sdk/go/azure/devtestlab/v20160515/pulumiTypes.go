@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
 type ApplicableSchedule struct {
-	// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-	LabVmsShutdown *ScheduleType `pulumi:"labVmsShutdown"`
-	// The auto-startup schedule, if one has been set at the lab or lab resource level.
-	LabVmsStartup *ScheduleType `pulumi:"labVmsStartup"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
+	LabVmsShutdown *ScheduleType     `pulumi:"labVmsShutdown"`
+	LabVmsStartup  *ScheduleType     `pulumi:"labVmsStartup"`
+	Location       *string           `pulumi:"location"`
+	Tags           map[string]string `pulumi:"tags"`
 }
 
 // ApplicableScheduleInput is an input type that accepts ApplicableScheduleArgs and ApplicableScheduleOutput values.
@@ -33,16 +28,11 @@ type ApplicableScheduleInput interface {
 	ToApplicableScheduleOutputWithContext(context.Context) ApplicableScheduleOutput
 }
 
-// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
 type ApplicableScheduleArgs struct {
-	// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-	LabVmsShutdown ScheduleTypePtrInput `pulumi:"labVmsShutdown"`
-	// The auto-startup schedule, if one has been set at the lab or lab resource level.
-	LabVmsStartup ScheduleTypePtrInput `pulumi:"labVmsStartup"`
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	LabVmsShutdown ScheduleTypePtrInput  `pulumi:"labVmsShutdown"`
+	LabVmsStartup  ScheduleTypePtrInput  `pulumi:"labVmsStartup"`
+	Location       pulumi.StringPtrInput `pulumi:"location"`
+	Tags           pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (ApplicableScheduleArgs) ElementType() reflect.Type {
@@ -98,7 +88,6 @@ func (i *applicableSchedulePtrType) ToApplicableSchedulePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicableSchedulePtrOutput)
 }
 
-// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
 type ApplicableScheduleOutput struct{ *pulumi.OutputState }
 
 func (ApplicableScheduleOutput) ElementType() reflect.Type {
@@ -118,27 +107,23 @@ func (o ApplicableScheduleOutput) ToApplicableSchedulePtrOutput() ApplicableSche
 }
 
 func (o ApplicableScheduleOutput) ToApplicableSchedulePtrOutputWithContext(ctx context.Context) ApplicableSchedulePtrOutput {
-	return o.ApplyT(func(v ApplicableSchedule) *ApplicableSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicableSchedule) *ApplicableSchedule {
 		return &v
 	}).(ApplicableSchedulePtrOutput)
 }
 
-// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
 func (o ApplicableScheduleOutput) LabVmsShutdown() ScheduleTypePtrOutput {
 	return o.ApplyT(func(v ApplicableSchedule) *ScheduleType { return v.LabVmsShutdown }).(ScheduleTypePtrOutput)
 }
 
-// The auto-startup schedule, if one has been set at the lab or lab resource level.
 func (o ApplicableScheduleOutput) LabVmsStartup() ScheduleTypePtrOutput {
 	return o.ApplyT(func(v ApplicableSchedule) *ScheduleType { return v.LabVmsStartup }).(ScheduleTypePtrOutput)
 }
 
-// The location of the resource.
 func (o ApplicableScheduleOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicableSchedule) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// The tags of the resource.
 func (o ApplicableScheduleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ApplicableSchedule) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -158,10 +143,15 @@ func (o ApplicableSchedulePtrOutput) ToApplicableSchedulePtrOutputWithContext(ct
 }
 
 func (o ApplicableSchedulePtrOutput) Elem() ApplicableScheduleOutput {
-	return o.ApplyT(func(v *ApplicableSchedule) ApplicableSchedule { return *v }).(ApplicableScheduleOutput)
+	return o.ApplyT(func(v *ApplicableSchedule) ApplicableSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicableSchedule
+		return ret
+	}).(ApplicableScheduleOutput)
 }
 
-// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
 func (o ApplicableSchedulePtrOutput) LabVmsShutdown() ScheduleTypePtrOutput {
 	return o.ApplyT(func(v *ApplicableSchedule) *ScheduleType {
 		if v == nil {
@@ -171,7 +161,6 @@ func (o ApplicableSchedulePtrOutput) LabVmsShutdown() ScheduleTypePtrOutput {
 	}).(ScheduleTypePtrOutput)
 }
 
-// The auto-startup schedule, if one has been set at the lab or lab resource level.
 func (o ApplicableSchedulePtrOutput) LabVmsStartup() ScheduleTypePtrOutput {
 	return o.ApplyT(func(v *ApplicableSchedule) *ScheduleType {
 		if v == nil {
@@ -181,7 +170,6 @@ func (o ApplicableSchedulePtrOutput) LabVmsStartup() ScheduleTypePtrOutput {
 	}).(ScheduleTypePtrOutput)
 }
 
-// The location of the resource.
 func (o ApplicableSchedulePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicableSchedule) *string {
 		if v == nil {
@@ -191,7 +179,6 @@ func (o ApplicableSchedulePtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tags of the resource.
 func (o ApplicableSchedulePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ApplicableSchedule) map[string]string {
 		if v == nil {
@@ -201,22 +188,14 @@ func (o ApplicableSchedulePtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
 type ApplicableScheduleResponse struct {
-	// The identifier of the resource.
-	Id string `pulumi:"id"`
-	// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+	Id             string            `pulumi:"id"`
 	LabVmsShutdown *ScheduleResponse `pulumi:"labVmsShutdown"`
-	// The auto-startup schedule, if one has been set at the lab or lab resource level.
-	LabVmsStartup *ScheduleResponse `pulumi:"labVmsStartup"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	LabVmsStartup  *ScheduleResponse `pulumi:"labVmsStartup"`
+	Location       *string           `pulumi:"location"`
+	Name           string            `pulumi:"name"`
+	Tags           map[string]string `pulumi:"tags"`
+	Type           string            `pulumi:"type"`
 }
 
 // ApplicableScheduleResponseInput is an input type that accepts ApplicableScheduleResponseArgs and ApplicableScheduleResponseOutput values.
@@ -230,22 +209,14 @@ type ApplicableScheduleResponseInput interface {
 	ToApplicableScheduleResponseOutputWithContext(context.Context) ApplicableScheduleResponseOutput
 }
 
-// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
 type ApplicableScheduleResponseArgs struct {
-	// The identifier of the resource.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+	Id             pulumi.StringInput       `pulumi:"id"`
 	LabVmsShutdown ScheduleResponsePtrInput `pulumi:"labVmsShutdown"`
-	// The auto-startup schedule, if one has been set at the lab or lab resource level.
-	LabVmsStartup ScheduleResponsePtrInput `pulumi:"labVmsStartup"`
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
+	LabVmsStartup  ScheduleResponsePtrInput `pulumi:"labVmsStartup"`
+	Location       pulumi.StringPtrInput    `pulumi:"location"`
+	Name           pulumi.StringInput       `pulumi:"name"`
+	Tags           pulumi.StringMapInput    `pulumi:"tags"`
+	Type           pulumi.StringInput       `pulumi:"type"`
 }
 
 func (ApplicableScheduleResponseArgs) ElementType() reflect.Type {
@@ -301,7 +272,6 @@ func (i *applicableScheduleResponsePtrType) ToApplicableScheduleResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicableScheduleResponsePtrOutput)
 }
 
-// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
 type ApplicableScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicableScheduleResponseOutput) ElementType() reflect.Type {
@@ -321,42 +291,35 @@ func (o ApplicableScheduleResponseOutput) ToApplicableScheduleResponsePtrOutput(
 }
 
 func (o ApplicableScheduleResponseOutput) ToApplicableScheduleResponsePtrOutputWithContext(ctx context.Context) ApplicableScheduleResponsePtrOutput {
-	return o.ApplyT(func(v ApplicableScheduleResponse) *ApplicableScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicableScheduleResponse) *ApplicableScheduleResponse {
 		return &v
 	}).(ApplicableScheduleResponsePtrOutput)
 }
 
-// The identifier of the resource.
 func (o ApplicableScheduleResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicableScheduleResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
 func (o ApplicableScheduleResponseOutput) LabVmsShutdown() ScheduleResponsePtrOutput {
 	return o.ApplyT(func(v ApplicableScheduleResponse) *ScheduleResponse { return v.LabVmsShutdown }).(ScheduleResponsePtrOutput)
 }
 
-// The auto-startup schedule, if one has been set at the lab or lab resource level.
 func (o ApplicableScheduleResponseOutput) LabVmsStartup() ScheduleResponsePtrOutput {
 	return o.ApplyT(func(v ApplicableScheduleResponse) *ScheduleResponse { return v.LabVmsStartup }).(ScheduleResponsePtrOutput)
 }
 
-// The location of the resource.
 func (o ApplicableScheduleResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicableScheduleResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource.
 func (o ApplicableScheduleResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicableScheduleResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tags of the resource.
 func (o ApplicableScheduleResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ApplicableScheduleResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the resource.
 func (o ApplicableScheduleResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicableScheduleResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -376,10 +339,15 @@ func (o ApplicableScheduleResponsePtrOutput) ToApplicableScheduleResponsePtrOutp
 }
 
 func (o ApplicableScheduleResponsePtrOutput) Elem() ApplicableScheduleResponseOutput {
-	return o.ApplyT(func(v *ApplicableScheduleResponse) ApplicableScheduleResponse { return *v }).(ApplicableScheduleResponseOutput)
+	return o.ApplyT(func(v *ApplicableScheduleResponse) ApplicableScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicableScheduleResponse
+		return ret
+	}).(ApplicableScheduleResponseOutput)
 }
 
-// The identifier of the resource.
 func (o ApplicableScheduleResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicableScheduleResponse) *string {
 		if v == nil {
@@ -389,7 +357,6 @@ func (o ApplicableScheduleResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
 func (o ApplicableScheduleResponsePtrOutput) LabVmsShutdown() ScheduleResponsePtrOutput {
 	return o.ApplyT(func(v *ApplicableScheduleResponse) *ScheduleResponse {
 		if v == nil {
@@ -399,7 +366,6 @@ func (o ApplicableScheduleResponsePtrOutput) LabVmsShutdown() ScheduleResponsePt
 	}).(ScheduleResponsePtrOutput)
 }
 
-// The auto-startup schedule, if one has been set at the lab or lab resource level.
 func (o ApplicableScheduleResponsePtrOutput) LabVmsStartup() ScheduleResponsePtrOutput {
 	return o.ApplyT(func(v *ApplicableScheduleResponse) *ScheduleResponse {
 		if v == nil {
@@ -409,7 +375,6 @@ func (o ApplicableScheduleResponsePtrOutput) LabVmsStartup() ScheduleResponsePtr
 	}).(ScheduleResponsePtrOutput)
 }
 
-// The location of the resource.
 func (o ApplicableScheduleResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicableScheduleResponse) *string {
 		if v == nil {
@@ -419,7 +384,6 @@ func (o ApplicableScheduleResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource.
 func (o ApplicableScheduleResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicableScheduleResponse) *string {
 		if v == nil {
@@ -429,7 +393,6 @@ func (o ApplicableScheduleResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tags of the resource.
 func (o ApplicableScheduleResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ApplicableScheduleResponse) map[string]string {
 		if v == nil {
@@ -439,7 +402,6 @@ func (o ApplicableScheduleResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// The type of the resource.
 func (o ApplicableScheduleResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicableScheduleResponse) *string {
 		if v == nil {
@@ -449,11 +411,8 @@ func (o ApplicableScheduleResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of an Azure Resource Manager template parameter.
 type ArmTemplateParameterProperties struct {
-	// The name of the template parameter.
-	Name *string `pulumi:"name"`
-	// The value of the template parameter.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -468,11 +427,8 @@ type ArmTemplateParameterPropertiesInput interface {
 	ToArmTemplateParameterPropertiesOutputWithContext(context.Context) ArmTemplateParameterPropertiesOutput
 }
 
-// Properties of an Azure Resource Manager template parameter.
 type ArmTemplateParameterPropertiesArgs struct {
-	// The name of the template parameter.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the template parameter.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -513,7 +469,6 @@ func (i ArmTemplateParameterPropertiesArray) ToArmTemplateParameterPropertiesArr
 	return pulumi.ToOutputWithContext(ctx, i).(ArmTemplateParameterPropertiesArrayOutput)
 }
 
-// Properties of an Azure Resource Manager template parameter.
 type ArmTemplateParameterPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ArmTemplateParameterPropertiesOutput) ElementType() reflect.Type {
@@ -528,12 +483,10 @@ func (o ArmTemplateParameterPropertiesOutput) ToArmTemplateParameterPropertiesOu
 	return o
 }
 
-// The name of the template parameter.
 func (o ArmTemplateParameterPropertiesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmTemplateParameterProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value of the template parameter.
 func (o ArmTemplateParameterPropertiesOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmTemplateParameterProperties) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -558,11 +511,8 @@ func (o ArmTemplateParameterPropertiesArrayOutput) Index(i pulumi.IntInput) ArmT
 	}).(ArmTemplateParameterPropertiesOutput)
 }
 
-// Properties of an Azure Resource Manager template parameter.
 type ArmTemplateParameterPropertiesResponse struct {
-	// The name of the template parameter.
-	Name *string `pulumi:"name"`
-	// The value of the template parameter.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -577,11 +527,8 @@ type ArmTemplateParameterPropertiesResponseInput interface {
 	ToArmTemplateParameterPropertiesResponseOutputWithContext(context.Context) ArmTemplateParameterPropertiesResponseOutput
 }
 
-// Properties of an Azure Resource Manager template parameter.
 type ArmTemplateParameterPropertiesResponseArgs struct {
-	// The name of the template parameter.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the template parameter.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -622,7 +569,6 @@ func (i ArmTemplateParameterPropertiesResponseArray) ToArmTemplateParameterPrope
 	return pulumi.ToOutputWithContext(ctx, i).(ArmTemplateParameterPropertiesResponseArrayOutput)
 }
 
-// Properties of an Azure Resource Manager template parameter.
 type ArmTemplateParameterPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ArmTemplateParameterPropertiesResponseOutput) ElementType() reflect.Type {
@@ -637,12 +583,10 @@ func (o ArmTemplateParameterPropertiesResponseOutput) ToArmTemplateParameterProp
 	return o
 }
 
-// The name of the template parameter.
 func (o ArmTemplateParameterPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmTemplateParameterPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value of the template parameter.
 func (o ArmTemplateParameterPropertiesResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmTemplateParameterPropertiesResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -667,14 +611,10 @@ func (o ArmTemplateParameterPropertiesResponseArrayOutput) Index(i pulumi.IntInp
 	}).(ArmTemplateParameterPropertiesResponseOutput)
 }
 
-// Properties of an artifact deployment.
 type ArtifactDeploymentStatusProperties struct {
-	// The total count of the artifacts that were successfully applied.
-	ArtifactsApplied *int `pulumi:"artifactsApplied"`
-	// The deployment status of the artifact.
+	ArtifactsApplied *int    `pulumi:"artifactsApplied"`
 	DeploymentStatus *string `pulumi:"deploymentStatus"`
-	// The total count of the artifacts that were tentatively applied.
-	TotalArtifacts *int `pulumi:"totalArtifacts"`
+	TotalArtifacts   *int    `pulumi:"totalArtifacts"`
 }
 
 // ArtifactDeploymentStatusPropertiesInput is an input type that accepts ArtifactDeploymentStatusPropertiesArgs and ArtifactDeploymentStatusPropertiesOutput values.
@@ -688,14 +628,10 @@ type ArtifactDeploymentStatusPropertiesInput interface {
 	ToArtifactDeploymentStatusPropertiesOutputWithContext(context.Context) ArtifactDeploymentStatusPropertiesOutput
 }
 
-// Properties of an artifact deployment.
 type ArtifactDeploymentStatusPropertiesArgs struct {
-	// The total count of the artifacts that were successfully applied.
-	ArtifactsApplied pulumi.IntPtrInput `pulumi:"artifactsApplied"`
-	// The deployment status of the artifact.
+	ArtifactsApplied pulumi.IntPtrInput    `pulumi:"artifactsApplied"`
 	DeploymentStatus pulumi.StringPtrInput `pulumi:"deploymentStatus"`
-	// The total count of the artifacts that were tentatively applied.
-	TotalArtifacts pulumi.IntPtrInput `pulumi:"totalArtifacts"`
+	TotalArtifacts   pulumi.IntPtrInput    `pulumi:"totalArtifacts"`
 }
 
 func (ArtifactDeploymentStatusPropertiesArgs) ElementType() reflect.Type {
@@ -751,7 +687,6 @@ func (i *artifactDeploymentStatusPropertiesPtrType) ToArtifactDeploymentStatusPr
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactDeploymentStatusPropertiesPtrOutput)
 }
 
-// Properties of an artifact deployment.
 type ArtifactDeploymentStatusPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ArtifactDeploymentStatusPropertiesOutput) ElementType() reflect.Type {
@@ -771,22 +706,19 @@ func (o ArtifactDeploymentStatusPropertiesOutput) ToArtifactDeploymentStatusProp
 }
 
 func (o ArtifactDeploymentStatusPropertiesOutput) ToArtifactDeploymentStatusPropertiesPtrOutputWithContext(ctx context.Context) ArtifactDeploymentStatusPropertiesPtrOutput {
-	return o.ApplyT(func(v ArtifactDeploymentStatusProperties) *ArtifactDeploymentStatusProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArtifactDeploymentStatusProperties) *ArtifactDeploymentStatusProperties {
 		return &v
 	}).(ArtifactDeploymentStatusPropertiesPtrOutput)
 }
 
-// The total count of the artifacts that were successfully applied.
 func (o ArtifactDeploymentStatusPropertiesOutput) ArtifactsApplied() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ArtifactDeploymentStatusProperties) *int { return v.ArtifactsApplied }).(pulumi.IntPtrOutput)
 }
 
-// The deployment status of the artifact.
 func (o ArtifactDeploymentStatusPropertiesOutput) DeploymentStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactDeploymentStatusProperties) *string { return v.DeploymentStatus }).(pulumi.StringPtrOutput)
 }
 
-// The total count of the artifacts that were tentatively applied.
 func (o ArtifactDeploymentStatusPropertiesOutput) TotalArtifacts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ArtifactDeploymentStatusProperties) *int { return v.TotalArtifacts }).(pulumi.IntPtrOutput)
 }
@@ -806,10 +738,15 @@ func (o ArtifactDeploymentStatusPropertiesPtrOutput) ToArtifactDeploymentStatusP
 }
 
 func (o ArtifactDeploymentStatusPropertiesPtrOutput) Elem() ArtifactDeploymentStatusPropertiesOutput {
-	return o.ApplyT(func(v *ArtifactDeploymentStatusProperties) ArtifactDeploymentStatusProperties { return *v }).(ArtifactDeploymentStatusPropertiesOutput)
+	return o.ApplyT(func(v *ArtifactDeploymentStatusProperties) ArtifactDeploymentStatusProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ArtifactDeploymentStatusProperties
+		return ret
+	}).(ArtifactDeploymentStatusPropertiesOutput)
 }
 
-// The total count of the artifacts that were successfully applied.
 func (o ArtifactDeploymentStatusPropertiesPtrOutput) ArtifactsApplied() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ArtifactDeploymentStatusProperties) *int {
 		if v == nil {
@@ -819,7 +756,6 @@ func (o ArtifactDeploymentStatusPropertiesPtrOutput) ArtifactsApplied() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// The deployment status of the artifact.
 func (o ArtifactDeploymentStatusPropertiesPtrOutput) DeploymentStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArtifactDeploymentStatusProperties) *string {
 		if v == nil {
@@ -829,7 +765,6 @@ func (o ArtifactDeploymentStatusPropertiesPtrOutput) DeploymentStatus() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The total count of the artifacts that were tentatively applied.
 func (o ArtifactDeploymentStatusPropertiesPtrOutput) TotalArtifacts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ArtifactDeploymentStatusProperties) *int {
 		if v == nil {
@@ -839,14 +774,10 @@ func (o ArtifactDeploymentStatusPropertiesPtrOutput) TotalArtifacts() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// Properties of an artifact deployment.
 type ArtifactDeploymentStatusPropertiesResponse struct {
-	// The total count of the artifacts that were successfully applied.
-	ArtifactsApplied *int `pulumi:"artifactsApplied"`
-	// The deployment status of the artifact.
+	ArtifactsApplied *int    `pulumi:"artifactsApplied"`
 	DeploymentStatus *string `pulumi:"deploymentStatus"`
-	// The total count of the artifacts that were tentatively applied.
-	TotalArtifacts *int `pulumi:"totalArtifacts"`
+	TotalArtifacts   *int    `pulumi:"totalArtifacts"`
 }
 
 // ArtifactDeploymentStatusPropertiesResponseInput is an input type that accepts ArtifactDeploymentStatusPropertiesResponseArgs and ArtifactDeploymentStatusPropertiesResponseOutput values.
@@ -860,14 +791,10 @@ type ArtifactDeploymentStatusPropertiesResponseInput interface {
 	ToArtifactDeploymentStatusPropertiesResponseOutputWithContext(context.Context) ArtifactDeploymentStatusPropertiesResponseOutput
 }
 
-// Properties of an artifact deployment.
 type ArtifactDeploymentStatusPropertiesResponseArgs struct {
-	// The total count of the artifacts that were successfully applied.
-	ArtifactsApplied pulumi.IntPtrInput `pulumi:"artifactsApplied"`
-	// The deployment status of the artifact.
+	ArtifactsApplied pulumi.IntPtrInput    `pulumi:"artifactsApplied"`
 	DeploymentStatus pulumi.StringPtrInput `pulumi:"deploymentStatus"`
-	// The total count of the artifacts that were tentatively applied.
-	TotalArtifacts pulumi.IntPtrInput `pulumi:"totalArtifacts"`
+	TotalArtifacts   pulumi.IntPtrInput    `pulumi:"totalArtifacts"`
 }
 
 func (ArtifactDeploymentStatusPropertiesResponseArgs) ElementType() reflect.Type {
@@ -923,7 +850,6 @@ func (i *artifactDeploymentStatusPropertiesResponsePtrType) ToArtifactDeployment
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactDeploymentStatusPropertiesResponsePtrOutput)
 }
 
-// Properties of an artifact deployment.
 type ArtifactDeploymentStatusPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ArtifactDeploymentStatusPropertiesResponseOutput) ElementType() reflect.Type {
@@ -943,22 +869,19 @@ func (o ArtifactDeploymentStatusPropertiesResponseOutput) ToArtifactDeploymentSt
 }
 
 func (o ArtifactDeploymentStatusPropertiesResponseOutput) ToArtifactDeploymentStatusPropertiesResponsePtrOutputWithContext(ctx context.Context) ArtifactDeploymentStatusPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ArtifactDeploymentStatusPropertiesResponse) *ArtifactDeploymentStatusPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArtifactDeploymentStatusPropertiesResponse) *ArtifactDeploymentStatusPropertiesResponse {
 		return &v
 	}).(ArtifactDeploymentStatusPropertiesResponsePtrOutput)
 }
 
-// The total count of the artifacts that were successfully applied.
 func (o ArtifactDeploymentStatusPropertiesResponseOutput) ArtifactsApplied() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ArtifactDeploymentStatusPropertiesResponse) *int { return v.ArtifactsApplied }).(pulumi.IntPtrOutput)
 }
 
-// The deployment status of the artifact.
 func (o ArtifactDeploymentStatusPropertiesResponseOutput) DeploymentStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactDeploymentStatusPropertiesResponse) *string { return v.DeploymentStatus }).(pulumi.StringPtrOutput)
 }
 
-// The total count of the artifacts that were tentatively applied.
 func (o ArtifactDeploymentStatusPropertiesResponseOutput) TotalArtifacts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ArtifactDeploymentStatusPropertiesResponse) *int { return v.TotalArtifacts }).(pulumi.IntPtrOutput)
 }
@@ -979,11 +902,14 @@ func (o ArtifactDeploymentStatusPropertiesResponsePtrOutput) ToArtifactDeploymen
 
 func (o ArtifactDeploymentStatusPropertiesResponsePtrOutput) Elem() ArtifactDeploymentStatusPropertiesResponseOutput {
 	return o.ApplyT(func(v *ArtifactDeploymentStatusPropertiesResponse) ArtifactDeploymentStatusPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ArtifactDeploymentStatusPropertiesResponse
+		return ret
 	}).(ArtifactDeploymentStatusPropertiesResponseOutput)
 }
 
-// The total count of the artifacts that were successfully applied.
 func (o ArtifactDeploymentStatusPropertiesResponsePtrOutput) ArtifactsApplied() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ArtifactDeploymentStatusPropertiesResponse) *int {
 		if v == nil {
@@ -993,7 +919,6 @@ func (o ArtifactDeploymentStatusPropertiesResponsePtrOutput) ArtifactsApplied() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The deployment status of the artifact.
 func (o ArtifactDeploymentStatusPropertiesResponsePtrOutput) DeploymentStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArtifactDeploymentStatusPropertiesResponse) *string {
 		if v == nil {
@@ -1003,7 +928,6 @@ func (o ArtifactDeploymentStatusPropertiesResponsePtrOutput) DeploymentStatus() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The total count of the artifacts that were tentatively applied.
 func (o ArtifactDeploymentStatusPropertiesResponsePtrOutput) TotalArtifacts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ArtifactDeploymentStatusPropertiesResponse) *int {
 		if v == nil {
@@ -1013,20 +937,13 @@ func (o ArtifactDeploymentStatusPropertiesResponsePtrOutput) TotalArtifacts() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Properties of an artifact.
 type ArtifactInstallProperties struct {
-	// The artifact's identifier.
-	ArtifactId *string `pulumi:"artifactId"`
-	// The status message from the deployment.
-	DeploymentStatusMessage *string `pulumi:"deploymentStatusMessage"`
-	// The time that the artifact starts to install on the virtual machine.
-	InstallTime *string `pulumi:"installTime"`
-	// The parameters of the artifact.
-	Parameters []ArtifactParameterProperties `pulumi:"parameters"`
-	// The status of the artifact.
-	Status *string `pulumi:"status"`
-	// The status message from the virtual machine extension.
-	VmExtensionStatusMessage *string `pulumi:"vmExtensionStatusMessage"`
+	ArtifactId               *string                       `pulumi:"artifactId"`
+	DeploymentStatusMessage  *string                       `pulumi:"deploymentStatusMessage"`
+	InstallTime              *string                       `pulumi:"installTime"`
+	Parameters               []ArtifactParameterProperties `pulumi:"parameters"`
+	Status                   *string                       `pulumi:"status"`
+	VmExtensionStatusMessage *string                       `pulumi:"vmExtensionStatusMessage"`
 }
 
 // ArtifactInstallPropertiesInput is an input type that accepts ArtifactInstallPropertiesArgs and ArtifactInstallPropertiesOutput values.
@@ -1040,20 +957,13 @@ type ArtifactInstallPropertiesInput interface {
 	ToArtifactInstallPropertiesOutputWithContext(context.Context) ArtifactInstallPropertiesOutput
 }
 
-// Properties of an artifact.
 type ArtifactInstallPropertiesArgs struct {
-	// The artifact's identifier.
-	ArtifactId pulumi.StringPtrInput `pulumi:"artifactId"`
-	// The status message from the deployment.
-	DeploymentStatusMessage pulumi.StringPtrInput `pulumi:"deploymentStatusMessage"`
-	// The time that the artifact starts to install on the virtual machine.
-	InstallTime pulumi.StringPtrInput `pulumi:"installTime"`
-	// The parameters of the artifact.
-	Parameters ArtifactParameterPropertiesArrayInput `pulumi:"parameters"`
-	// The status of the artifact.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The status message from the virtual machine extension.
-	VmExtensionStatusMessage pulumi.StringPtrInput `pulumi:"vmExtensionStatusMessage"`
+	ArtifactId               pulumi.StringPtrInput                 `pulumi:"artifactId"`
+	DeploymentStatusMessage  pulumi.StringPtrInput                 `pulumi:"deploymentStatusMessage"`
+	InstallTime              pulumi.StringPtrInput                 `pulumi:"installTime"`
+	Parameters               ArtifactParameterPropertiesArrayInput `pulumi:"parameters"`
+	Status                   pulumi.StringPtrInput                 `pulumi:"status"`
+	VmExtensionStatusMessage pulumi.StringPtrInput                 `pulumi:"vmExtensionStatusMessage"`
 }
 
 func (ArtifactInstallPropertiesArgs) ElementType() reflect.Type {
@@ -1093,7 +1003,6 @@ func (i ArtifactInstallPropertiesArray) ToArtifactInstallPropertiesArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactInstallPropertiesArrayOutput)
 }
 
-// Properties of an artifact.
 type ArtifactInstallPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ArtifactInstallPropertiesOutput) ElementType() reflect.Type {
@@ -1108,32 +1017,26 @@ func (o ArtifactInstallPropertiesOutput) ToArtifactInstallPropertiesOutputWithCo
 	return o
 }
 
-// The artifact's identifier.
 func (o ArtifactInstallPropertiesOutput) ArtifactId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactInstallProperties) *string { return v.ArtifactId }).(pulumi.StringPtrOutput)
 }
 
-// The status message from the deployment.
 func (o ArtifactInstallPropertiesOutput) DeploymentStatusMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactInstallProperties) *string { return v.DeploymentStatusMessage }).(pulumi.StringPtrOutput)
 }
 
-// The time that the artifact starts to install on the virtual machine.
 func (o ArtifactInstallPropertiesOutput) InstallTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactInstallProperties) *string { return v.InstallTime }).(pulumi.StringPtrOutput)
 }
 
-// The parameters of the artifact.
 func (o ArtifactInstallPropertiesOutput) Parameters() ArtifactParameterPropertiesArrayOutput {
 	return o.ApplyT(func(v ArtifactInstallProperties) []ArtifactParameterProperties { return v.Parameters }).(ArtifactParameterPropertiesArrayOutput)
 }
 
-// The status of the artifact.
 func (o ArtifactInstallPropertiesOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactInstallProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The status message from the virtual machine extension.
 func (o ArtifactInstallPropertiesOutput) VmExtensionStatusMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactInstallProperties) *string { return v.VmExtensionStatusMessage }).(pulumi.StringPtrOutput)
 }
@@ -1158,20 +1061,13 @@ func (o ArtifactInstallPropertiesArrayOutput) Index(i pulumi.IntInput) ArtifactI
 	}).(ArtifactInstallPropertiesOutput)
 }
 
-// Properties of an artifact.
 type ArtifactInstallPropertiesResponse struct {
-	// The artifact's identifier.
-	ArtifactId *string `pulumi:"artifactId"`
-	// The status message from the deployment.
-	DeploymentStatusMessage *string `pulumi:"deploymentStatusMessage"`
-	// The time that the artifact starts to install on the virtual machine.
-	InstallTime *string `pulumi:"installTime"`
-	// The parameters of the artifact.
-	Parameters []ArtifactParameterPropertiesResponse `pulumi:"parameters"`
-	// The status of the artifact.
-	Status *string `pulumi:"status"`
-	// The status message from the virtual machine extension.
-	VmExtensionStatusMessage *string `pulumi:"vmExtensionStatusMessage"`
+	ArtifactId               *string                               `pulumi:"artifactId"`
+	DeploymentStatusMessage  *string                               `pulumi:"deploymentStatusMessage"`
+	InstallTime              *string                               `pulumi:"installTime"`
+	Parameters               []ArtifactParameterPropertiesResponse `pulumi:"parameters"`
+	Status                   *string                               `pulumi:"status"`
+	VmExtensionStatusMessage *string                               `pulumi:"vmExtensionStatusMessage"`
 }
 
 // ArtifactInstallPropertiesResponseInput is an input type that accepts ArtifactInstallPropertiesResponseArgs and ArtifactInstallPropertiesResponseOutput values.
@@ -1185,20 +1081,13 @@ type ArtifactInstallPropertiesResponseInput interface {
 	ToArtifactInstallPropertiesResponseOutputWithContext(context.Context) ArtifactInstallPropertiesResponseOutput
 }
 
-// Properties of an artifact.
 type ArtifactInstallPropertiesResponseArgs struct {
-	// The artifact's identifier.
-	ArtifactId pulumi.StringPtrInput `pulumi:"artifactId"`
-	// The status message from the deployment.
-	DeploymentStatusMessage pulumi.StringPtrInput `pulumi:"deploymentStatusMessage"`
-	// The time that the artifact starts to install on the virtual machine.
-	InstallTime pulumi.StringPtrInput `pulumi:"installTime"`
-	// The parameters of the artifact.
-	Parameters ArtifactParameterPropertiesResponseArrayInput `pulumi:"parameters"`
-	// The status of the artifact.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The status message from the virtual machine extension.
-	VmExtensionStatusMessage pulumi.StringPtrInput `pulumi:"vmExtensionStatusMessage"`
+	ArtifactId               pulumi.StringPtrInput                         `pulumi:"artifactId"`
+	DeploymentStatusMessage  pulumi.StringPtrInput                         `pulumi:"deploymentStatusMessage"`
+	InstallTime              pulumi.StringPtrInput                         `pulumi:"installTime"`
+	Parameters               ArtifactParameterPropertiesResponseArrayInput `pulumi:"parameters"`
+	Status                   pulumi.StringPtrInput                         `pulumi:"status"`
+	VmExtensionStatusMessage pulumi.StringPtrInput                         `pulumi:"vmExtensionStatusMessage"`
 }
 
 func (ArtifactInstallPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1238,7 +1127,6 @@ func (i ArtifactInstallPropertiesResponseArray) ToArtifactInstallPropertiesRespo
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactInstallPropertiesResponseArrayOutput)
 }
 
-// Properties of an artifact.
 type ArtifactInstallPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ArtifactInstallPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1253,32 +1141,26 @@ func (o ArtifactInstallPropertiesResponseOutput) ToArtifactInstallPropertiesResp
 	return o
 }
 
-// The artifact's identifier.
 func (o ArtifactInstallPropertiesResponseOutput) ArtifactId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactInstallPropertiesResponse) *string { return v.ArtifactId }).(pulumi.StringPtrOutput)
 }
 
-// The status message from the deployment.
 func (o ArtifactInstallPropertiesResponseOutput) DeploymentStatusMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactInstallPropertiesResponse) *string { return v.DeploymentStatusMessage }).(pulumi.StringPtrOutput)
 }
 
-// The time that the artifact starts to install on the virtual machine.
 func (o ArtifactInstallPropertiesResponseOutput) InstallTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactInstallPropertiesResponse) *string { return v.InstallTime }).(pulumi.StringPtrOutput)
 }
 
-// The parameters of the artifact.
 func (o ArtifactInstallPropertiesResponseOutput) Parameters() ArtifactParameterPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v ArtifactInstallPropertiesResponse) []ArtifactParameterPropertiesResponse { return v.Parameters }).(ArtifactParameterPropertiesResponseArrayOutput)
 }
 
-// The status of the artifact.
 func (o ArtifactInstallPropertiesResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactInstallPropertiesResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The status message from the virtual machine extension.
 func (o ArtifactInstallPropertiesResponseOutput) VmExtensionStatusMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactInstallPropertiesResponse) *string { return v.VmExtensionStatusMessage }).(pulumi.StringPtrOutput)
 }
@@ -1303,11 +1185,8 @@ func (o ArtifactInstallPropertiesResponseArrayOutput) Index(i pulumi.IntInput) A
 	}).(ArtifactInstallPropertiesResponseOutput)
 }
 
-// Properties of an artifact parameter.
 type ArtifactParameterProperties struct {
-	// The name of the artifact parameter.
-	Name *string `pulumi:"name"`
-	// The value of the artifact parameter.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -1322,11 +1201,8 @@ type ArtifactParameterPropertiesInput interface {
 	ToArtifactParameterPropertiesOutputWithContext(context.Context) ArtifactParameterPropertiesOutput
 }
 
-// Properties of an artifact parameter.
 type ArtifactParameterPropertiesArgs struct {
-	// The name of the artifact parameter.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the artifact parameter.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1367,7 +1243,6 @@ func (i ArtifactParameterPropertiesArray) ToArtifactParameterPropertiesArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactParameterPropertiesArrayOutput)
 }
 
-// Properties of an artifact parameter.
 type ArtifactParameterPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ArtifactParameterPropertiesOutput) ElementType() reflect.Type {
@@ -1382,12 +1257,10 @@ func (o ArtifactParameterPropertiesOutput) ToArtifactParameterPropertiesOutputWi
 	return o
 }
 
-// The name of the artifact parameter.
 func (o ArtifactParameterPropertiesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactParameterProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value of the artifact parameter.
 func (o ArtifactParameterPropertiesOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactParameterProperties) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1412,11 +1285,8 @@ func (o ArtifactParameterPropertiesArrayOutput) Index(i pulumi.IntInput) Artifac
 	}).(ArtifactParameterPropertiesOutput)
 }
 
-// Properties of an artifact parameter.
 type ArtifactParameterPropertiesResponse struct {
-	// The name of the artifact parameter.
-	Name *string `pulumi:"name"`
-	// The value of the artifact parameter.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -1431,11 +1301,8 @@ type ArtifactParameterPropertiesResponseInput interface {
 	ToArtifactParameterPropertiesResponseOutputWithContext(context.Context) ArtifactParameterPropertiesResponseOutput
 }
 
-// Properties of an artifact parameter.
 type ArtifactParameterPropertiesResponseArgs struct {
-	// The name of the artifact parameter.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the artifact parameter.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1476,7 +1343,6 @@ func (i ArtifactParameterPropertiesResponseArray) ToArtifactParameterPropertiesR
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactParameterPropertiesResponseArrayOutput)
 }
 
-// Properties of an artifact parameter.
 type ArtifactParameterPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ArtifactParameterPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1491,12 +1357,10 @@ func (o ArtifactParameterPropertiesResponseOutput) ToArtifactParameterProperties
 	return o
 }
 
-// The name of the artifact parameter.
 func (o ArtifactParameterPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactParameterPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value of the artifact parameter.
 func (o ArtifactParameterPropertiesResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactParameterPropertiesResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1521,9 +1385,7 @@ func (o ArtifactParameterPropertiesResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ArtifactParameterPropertiesResponseOutput)
 }
 
-// Parameters for creating multiple virtual machines as a single action.
 type BulkCreationParameters struct {
-	// The number of virtual machine instances to create.
 	InstanceCount *int `pulumi:"instanceCount"`
 }
 
@@ -1538,9 +1400,7 @@ type BulkCreationParametersInput interface {
 	ToBulkCreationParametersOutputWithContext(context.Context) BulkCreationParametersOutput
 }
 
-// Parameters for creating multiple virtual machines as a single action.
 type BulkCreationParametersArgs struct {
-	// The number of virtual machine instances to create.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 }
 
@@ -1597,7 +1457,6 @@ func (i *bulkCreationParametersPtrType) ToBulkCreationParametersPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BulkCreationParametersPtrOutput)
 }
 
-// Parameters for creating multiple virtual machines as a single action.
 type BulkCreationParametersOutput struct{ *pulumi.OutputState }
 
 func (BulkCreationParametersOutput) ElementType() reflect.Type {
@@ -1617,12 +1476,11 @@ func (o BulkCreationParametersOutput) ToBulkCreationParametersPtrOutput() BulkCr
 }
 
 func (o BulkCreationParametersOutput) ToBulkCreationParametersPtrOutputWithContext(ctx context.Context) BulkCreationParametersPtrOutput {
-	return o.ApplyT(func(v BulkCreationParameters) *BulkCreationParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BulkCreationParameters) *BulkCreationParameters {
 		return &v
 	}).(BulkCreationParametersPtrOutput)
 }
 
-// The number of virtual machine instances to create.
 func (o BulkCreationParametersOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BulkCreationParameters) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
@@ -1642,10 +1500,15 @@ func (o BulkCreationParametersPtrOutput) ToBulkCreationParametersPtrOutputWithCo
 }
 
 func (o BulkCreationParametersPtrOutput) Elem() BulkCreationParametersOutput {
-	return o.ApplyT(func(v *BulkCreationParameters) BulkCreationParameters { return *v }).(BulkCreationParametersOutput)
+	return o.ApplyT(func(v *BulkCreationParameters) BulkCreationParameters {
+		if v != nil {
+			return *v
+		}
+		var ret BulkCreationParameters
+		return ret
+	}).(BulkCreationParametersOutput)
 }
 
-// The number of virtual machine instances to create.
 func (o BulkCreationParametersPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BulkCreationParameters) *int {
 		if v == nil {
@@ -1655,9 +1518,7 @@ func (o BulkCreationParametersPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Parameters for creating multiple virtual machines as a single action.
 type BulkCreationParametersResponse struct {
-	// The number of virtual machine instances to create.
 	InstanceCount *int `pulumi:"instanceCount"`
 }
 
@@ -1672,9 +1533,7 @@ type BulkCreationParametersResponseInput interface {
 	ToBulkCreationParametersResponseOutputWithContext(context.Context) BulkCreationParametersResponseOutput
 }
 
-// Parameters for creating multiple virtual machines as a single action.
 type BulkCreationParametersResponseArgs struct {
-	// The number of virtual machine instances to create.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 }
 
@@ -1731,7 +1590,6 @@ func (i *bulkCreationParametersResponsePtrType) ToBulkCreationParametersResponse
 	return pulumi.ToOutputWithContext(ctx, i).(BulkCreationParametersResponsePtrOutput)
 }
 
-// Parameters for creating multiple virtual machines as a single action.
 type BulkCreationParametersResponseOutput struct{ *pulumi.OutputState }
 
 func (BulkCreationParametersResponseOutput) ElementType() reflect.Type {
@@ -1751,12 +1609,11 @@ func (o BulkCreationParametersResponseOutput) ToBulkCreationParametersResponsePt
 }
 
 func (o BulkCreationParametersResponseOutput) ToBulkCreationParametersResponsePtrOutputWithContext(ctx context.Context) BulkCreationParametersResponsePtrOutput {
-	return o.ApplyT(func(v BulkCreationParametersResponse) *BulkCreationParametersResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BulkCreationParametersResponse) *BulkCreationParametersResponse {
 		return &v
 	}).(BulkCreationParametersResponsePtrOutput)
 }
 
-// The number of virtual machine instances to create.
 func (o BulkCreationParametersResponseOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BulkCreationParametersResponse) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
@@ -1776,10 +1633,15 @@ func (o BulkCreationParametersResponsePtrOutput) ToBulkCreationParametersRespons
 }
 
 func (o BulkCreationParametersResponsePtrOutput) Elem() BulkCreationParametersResponseOutput {
-	return o.ApplyT(func(v *BulkCreationParametersResponse) BulkCreationParametersResponse { return *v }).(BulkCreationParametersResponseOutput)
+	return o.ApplyT(func(v *BulkCreationParametersResponse) BulkCreationParametersResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BulkCreationParametersResponse
+		return ret
+	}).(BulkCreationParametersResponseOutput)
 }
 
-// The number of virtual machine instances to create.
 func (o BulkCreationParametersResponsePtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BulkCreationParametersResponse) *int {
 		if v == nil {
@@ -1789,16 +1651,11 @@ func (o BulkCreationParametersResponsePtrOutput) InstanceCount() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// A data disks attached to a virtual machine.
 type ComputeDataDisk struct {
-	// Gets data disk size in GiB.
-	DiskSizeGiB *int `pulumi:"diskSizeGiB"`
-	// When backed by a blob, the URI of underlying blob.
-	DiskUri *string `pulumi:"diskUri"`
-	// When backed by managed disk, this is the ID of the compute disk resource.
+	DiskSizeGiB   *int    `pulumi:"diskSizeGiB"`
+	DiskUri       *string `pulumi:"diskUri"`
 	ManagedDiskId *string `pulumi:"managedDiskId"`
-	// Gets data disk name.
-	Name *string `pulumi:"name"`
+	Name          *string `pulumi:"name"`
 }
 
 // ComputeDataDiskInput is an input type that accepts ComputeDataDiskArgs and ComputeDataDiskOutput values.
@@ -1812,16 +1669,11 @@ type ComputeDataDiskInput interface {
 	ToComputeDataDiskOutputWithContext(context.Context) ComputeDataDiskOutput
 }
 
-// A data disks attached to a virtual machine.
 type ComputeDataDiskArgs struct {
-	// Gets data disk size in GiB.
-	DiskSizeGiB pulumi.IntPtrInput `pulumi:"diskSizeGiB"`
-	// When backed by a blob, the URI of underlying blob.
-	DiskUri pulumi.StringPtrInput `pulumi:"diskUri"`
-	// When backed by managed disk, this is the ID of the compute disk resource.
+	DiskSizeGiB   pulumi.IntPtrInput    `pulumi:"diskSizeGiB"`
+	DiskUri       pulumi.StringPtrInput `pulumi:"diskUri"`
 	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
-	// Gets data disk name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name          pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (ComputeDataDiskArgs) ElementType() reflect.Type {
@@ -1861,7 +1713,6 @@ func (i ComputeDataDiskArray) ToComputeDataDiskArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeDataDiskArrayOutput)
 }
 
-// A data disks attached to a virtual machine.
 type ComputeDataDiskOutput struct{ *pulumi.OutputState }
 
 func (ComputeDataDiskOutput) ElementType() reflect.Type {
@@ -1876,22 +1727,18 @@ func (o ComputeDataDiskOutput) ToComputeDataDiskOutputWithContext(ctx context.Co
 	return o
 }
 
-// Gets data disk size in GiB.
 func (o ComputeDataDiskOutput) DiskSizeGiB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComputeDataDisk) *int { return v.DiskSizeGiB }).(pulumi.IntPtrOutput)
 }
 
-// When backed by a blob, the URI of underlying blob.
 func (o ComputeDataDiskOutput) DiskUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeDataDisk) *string { return v.DiskUri }).(pulumi.StringPtrOutput)
 }
 
-// When backed by managed disk, this is the ID of the compute disk resource.
 func (o ComputeDataDiskOutput) ManagedDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeDataDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
 }
 
-// Gets data disk name.
 func (o ComputeDataDiskOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeDataDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1916,16 +1763,11 @@ func (o ComputeDataDiskArrayOutput) Index(i pulumi.IntInput) ComputeDataDiskOutp
 	}).(ComputeDataDiskOutput)
 }
 
-// A data disks attached to a virtual machine.
 type ComputeDataDiskResponse struct {
-	// Gets data disk size in GiB.
-	DiskSizeGiB *int `pulumi:"diskSizeGiB"`
-	// When backed by a blob, the URI of underlying blob.
-	DiskUri *string `pulumi:"diskUri"`
-	// When backed by managed disk, this is the ID of the compute disk resource.
+	DiskSizeGiB   *int    `pulumi:"diskSizeGiB"`
+	DiskUri       *string `pulumi:"diskUri"`
 	ManagedDiskId *string `pulumi:"managedDiskId"`
-	// Gets data disk name.
-	Name *string `pulumi:"name"`
+	Name          *string `pulumi:"name"`
 }
 
 // ComputeDataDiskResponseInput is an input type that accepts ComputeDataDiskResponseArgs and ComputeDataDiskResponseOutput values.
@@ -1939,16 +1781,11 @@ type ComputeDataDiskResponseInput interface {
 	ToComputeDataDiskResponseOutputWithContext(context.Context) ComputeDataDiskResponseOutput
 }
 
-// A data disks attached to a virtual machine.
 type ComputeDataDiskResponseArgs struct {
-	// Gets data disk size in GiB.
-	DiskSizeGiB pulumi.IntPtrInput `pulumi:"diskSizeGiB"`
-	// When backed by a blob, the URI of underlying blob.
-	DiskUri pulumi.StringPtrInput `pulumi:"diskUri"`
-	// When backed by managed disk, this is the ID of the compute disk resource.
+	DiskSizeGiB   pulumi.IntPtrInput    `pulumi:"diskSizeGiB"`
+	DiskUri       pulumi.StringPtrInput `pulumi:"diskUri"`
 	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
-	// Gets data disk name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name          pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (ComputeDataDiskResponseArgs) ElementType() reflect.Type {
@@ -1988,7 +1825,6 @@ func (i ComputeDataDiskResponseArray) ToComputeDataDiskResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeDataDiskResponseArrayOutput)
 }
 
-// A data disks attached to a virtual machine.
 type ComputeDataDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (ComputeDataDiskResponseOutput) ElementType() reflect.Type {
@@ -2003,22 +1839,18 @@ func (o ComputeDataDiskResponseOutput) ToComputeDataDiskResponseOutputWithContex
 	return o
 }
 
-// Gets data disk size in GiB.
 func (o ComputeDataDiskResponseOutput) DiskSizeGiB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComputeDataDiskResponse) *int { return v.DiskSizeGiB }).(pulumi.IntPtrOutput)
 }
 
-// When backed by a blob, the URI of underlying blob.
 func (o ComputeDataDiskResponseOutput) DiskUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeDataDiskResponse) *string { return v.DiskUri }).(pulumi.StringPtrOutput)
 }
 
-// When backed by managed disk, this is the ID of the compute disk resource.
 func (o ComputeDataDiskResponseOutput) ManagedDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeDataDiskResponse) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
 }
 
-// Gets data disk name.
 func (o ComputeDataDiskResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeDataDiskResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2043,14 +1875,10 @@ func (o ComputeDataDiskResponseArrayOutput) Index(i pulumi.IntInput) ComputeData
 	}).(ComputeDataDiskResponseOutput)
 }
 
-// Status information about a virtual machine.
 type ComputeVmInstanceViewStatus struct {
-	// Gets the status Code.
-	Code *string `pulumi:"code"`
-	// Gets the short localizable label for the status.
+	Code          *string `pulumi:"code"`
 	DisplayStatus *string `pulumi:"displayStatus"`
-	// Gets the message associated with the status.
-	Message *string `pulumi:"message"`
+	Message       *string `pulumi:"message"`
 }
 
 // ComputeVmInstanceViewStatusInput is an input type that accepts ComputeVmInstanceViewStatusArgs and ComputeVmInstanceViewStatusOutput values.
@@ -2064,14 +1892,10 @@ type ComputeVmInstanceViewStatusInput interface {
 	ToComputeVmInstanceViewStatusOutputWithContext(context.Context) ComputeVmInstanceViewStatusOutput
 }
 
-// Status information about a virtual machine.
 type ComputeVmInstanceViewStatusArgs struct {
-	// Gets the status Code.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Gets the short localizable label for the status.
+	Code          pulumi.StringPtrInput `pulumi:"code"`
 	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
-	// Gets the message associated with the status.
-	Message pulumi.StringPtrInput `pulumi:"message"`
+	Message       pulumi.StringPtrInput `pulumi:"message"`
 }
 
 func (ComputeVmInstanceViewStatusArgs) ElementType() reflect.Type {
@@ -2111,7 +1935,6 @@ func (i ComputeVmInstanceViewStatusArray) ToComputeVmInstanceViewStatusArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeVmInstanceViewStatusArrayOutput)
 }
 
-// Status information about a virtual machine.
 type ComputeVmInstanceViewStatusOutput struct{ *pulumi.OutputState }
 
 func (ComputeVmInstanceViewStatusOutput) ElementType() reflect.Type {
@@ -2126,17 +1949,14 @@ func (o ComputeVmInstanceViewStatusOutput) ToComputeVmInstanceViewStatusOutputWi
 	return o
 }
 
-// Gets the status Code.
 func (o ComputeVmInstanceViewStatusOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeVmInstanceViewStatus) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Gets the short localizable label for the status.
 func (o ComputeVmInstanceViewStatusOutput) DisplayStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeVmInstanceViewStatus) *string { return v.DisplayStatus }).(pulumi.StringPtrOutput)
 }
 
-// Gets the message associated with the status.
 func (o ComputeVmInstanceViewStatusOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeVmInstanceViewStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -2161,14 +1981,10 @@ func (o ComputeVmInstanceViewStatusArrayOutput) Index(i pulumi.IntInput) Compute
 	}).(ComputeVmInstanceViewStatusOutput)
 }
 
-// Status information about a virtual machine.
 type ComputeVmInstanceViewStatusResponse struct {
-	// Gets the status Code.
-	Code *string `pulumi:"code"`
-	// Gets the short localizable label for the status.
+	Code          *string `pulumi:"code"`
 	DisplayStatus *string `pulumi:"displayStatus"`
-	// Gets the message associated with the status.
-	Message *string `pulumi:"message"`
+	Message       *string `pulumi:"message"`
 }
 
 // ComputeVmInstanceViewStatusResponseInput is an input type that accepts ComputeVmInstanceViewStatusResponseArgs and ComputeVmInstanceViewStatusResponseOutput values.
@@ -2182,14 +1998,10 @@ type ComputeVmInstanceViewStatusResponseInput interface {
 	ToComputeVmInstanceViewStatusResponseOutputWithContext(context.Context) ComputeVmInstanceViewStatusResponseOutput
 }
 
-// Status information about a virtual machine.
 type ComputeVmInstanceViewStatusResponseArgs struct {
-	// Gets the status Code.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Gets the short localizable label for the status.
+	Code          pulumi.StringPtrInput `pulumi:"code"`
 	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
-	// Gets the message associated with the status.
-	Message pulumi.StringPtrInput `pulumi:"message"`
+	Message       pulumi.StringPtrInput `pulumi:"message"`
 }
 
 func (ComputeVmInstanceViewStatusResponseArgs) ElementType() reflect.Type {
@@ -2229,7 +2041,6 @@ func (i ComputeVmInstanceViewStatusResponseArray) ToComputeVmInstanceViewStatusR
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeVmInstanceViewStatusResponseArrayOutput)
 }
 
-// Status information about a virtual machine.
 type ComputeVmInstanceViewStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ComputeVmInstanceViewStatusResponseOutput) ElementType() reflect.Type {
@@ -2244,17 +2055,14 @@ func (o ComputeVmInstanceViewStatusResponseOutput) ToComputeVmInstanceViewStatus
 	return o
 }
 
-// Gets the status Code.
 func (o ComputeVmInstanceViewStatusResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeVmInstanceViewStatusResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Gets the short localizable label for the status.
 func (o ComputeVmInstanceViewStatusResponseOutput) DisplayStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeVmInstanceViewStatusResponse) *string { return v.DisplayStatus }).(pulumi.StringPtrOutput)
 }
 
-// Gets the message associated with the status.
 func (o ComputeVmInstanceViewStatusResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeVmInstanceViewStatusResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -2279,22 +2087,14 @@ func (o ComputeVmInstanceViewStatusResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ComputeVmInstanceViewStatusResponseOutput)
 }
 
-// Properties of a virtual machine returned by the Microsoft.Compute API.
 type ComputeVmProperties struct {
-	// Gets data disks blob uri for the virtual machine.
-	DataDiskIds []string `pulumi:"dataDiskIds"`
-	// Gets all data disks attached to the virtual machine.
-	DataDisks []ComputeDataDisk `pulumi:"dataDisks"`
-	// Gets the network interface ID of the virtual machine.
-	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// Gets OS disk blob uri for the virtual machine.
-	OsDiskId *string `pulumi:"osDiskId"`
-	// Gets the OS type of the virtual machine.
-	OsType *string `pulumi:"osType"`
-	// Gets the statuses of the virtual machine.
-	Statuses []ComputeVmInstanceViewStatus `pulumi:"statuses"`
-	// Gets the size of the virtual machine.
-	VmSize *string `pulumi:"vmSize"`
+	DataDiskIds        []string                      `pulumi:"dataDiskIds"`
+	DataDisks          []ComputeDataDisk             `pulumi:"dataDisks"`
+	NetworkInterfaceId *string                       `pulumi:"networkInterfaceId"`
+	OsDiskId           *string                       `pulumi:"osDiskId"`
+	OsType             *string                       `pulumi:"osType"`
+	Statuses           []ComputeVmInstanceViewStatus `pulumi:"statuses"`
+	VmSize             *string                       `pulumi:"vmSize"`
 }
 
 // ComputeVmPropertiesInput is an input type that accepts ComputeVmPropertiesArgs and ComputeVmPropertiesOutput values.
@@ -2308,22 +2108,14 @@ type ComputeVmPropertiesInput interface {
 	ToComputeVmPropertiesOutputWithContext(context.Context) ComputeVmPropertiesOutput
 }
 
-// Properties of a virtual machine returned by the Microsoft.Compute API.
 type ComputeVmPropertiesArgs struct {
-	// Gets data disks blob uri for the virtual machine.
-	DataDiskIds pulumi.StringArrayInput `pulumi:"dataDiskIds"`
-	// Gets all data disks attached to the virtual machine.
-	DataDisks ComputeDataDiskArrayInput `pulumi:"dataDisks"`
-	// Gets the network interface ID of the virtual machine.
-	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
-	// Gets OS disk blob uri for the virtual machine.
-	OsDiskId pulumi.StringPtrInput `pulumi:"osDiskId"`
-	// Gets the OS type of the virtual machine.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Gets the statuses of the virtual machine.
-	Statuses ComputeVmInstanceViewStatusArrayInput `pulumi:"statuses"`
-	// Gets the size of the virtual machine.
-	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
+	DataDiskIds        pulumi.StringArrayInput               `pulumi:"dataDiskIds"`
+	DataDisks          ComputeDataDiskArrayInput             `pulumi:"dataDisks"`
+	NetworkInterfaceId pulumi.StringPtrInput                 `pulumi:"networkInterfaceId"`
+	OsDiskId           pulumi.StringPtrInput                 `pulumi:"osDiskId"`
+	OsType             pulumi.StringPtrInput                 `pulumi:"osType"`
+	Statuses           ComputeVmInstanceViewStatusArrayInput `pulumi:"statuses"`
+	VmSize             pulumi.StringPtrInput                 `pulumi:"vmSize"`
 }
 
 func (ComputeVmPropertiesArgs) ElementType() reflect.Type {
@@ -2379,7 +2171,6 @@ func (i *computeVmPropertiesPtrType) ToComputeVmPropertiesPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeVmPropertiesPtrOutput)
 }
 
-// Properties of a virtual machine returned by the Microsoft.Compute API.
 type ComputeVmPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ComputeVmPropertiesOutput) ElementType() reflect.Type {
@@ -2399,42 +2190,35 @@ func (o ComputeVmPropertiesOutput) ToComputeVmPropertiesPtrOutput() ComputeVmPro
 }
 
 func (o ComputeVmPropertiesOutput) ToComputeVmPropertiesPtrOutputWithContext(ctx context.Context) ComputeVmPropertiesPtrOutput {
-	return o.ApplyT(func(v ComputeVmProperties) *ComputeVmProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeVmProperties) *ComputeVmProperties {
 		return &v
 	}).(ComputeVmPropertiesPtrOutput)
 }
 
-// Gets data disks blob uri for the virtual machine.
 func (o ComputeVmPropertiesOutput) DataDiskIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComputeVmProperties) []string { return v.DataDiskIds }).(pulumi.StringArrayOutput)
 }
 
-// Gets all data disks attached to the virtual machine.
 func (o ComputeVmPropertiesOutput) DataDisks() ComputeDataDiskArrayOutput {
 	return o.ApplyT(func(v ComputeVmProperties) []ComputeDataDisk { return v.DataDisks }).(ComputeDataDiskArrayOutput)
 }
 
-// Gets the network interface ID of the virtual machine.
 func (o ComputeVmPropertiesOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeVmProperties) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
-// Gets OS disk blob uri for the virtual machine.
 func (o ComputeVmPropertiesOutput) OsDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeVmProperties) *string { return v.OsDiskId }).(pulumi.StringPtrOutput)
 }
 
-// Gets the OS type of the virtual machine.
 func (o ComputeVmPropertiesOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeVmProperties) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Gets the statuses of the virtual machine.
 func (o ComputeVmPropertiesOutput) Statuses() ComputeVmInstanceViewStatusArrayOutput {
 	return o.ApplyT(func(v ComputeVmProperties) []ComputeVmInstanceViewStatus { return v.Statuses }).(ComputeVmInstanceViewStatusArrayOutput)
 }
 
-// Gets the size of the virtual machine.
 func (o ComputeVmPropertiesOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeVmProperties) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
@@ -2454,10 +2238,15 @@ func (o ComputeVmPropertiesPtrOutput) ToComputeVmPropertiesPtrOutputWithContext(
 }
 
 func (o ComputeVmPropertiesPtrOutput) Elem() ComputeVmPropertiesOutput {
-	return o.ApplyT(func(v *ComputeVmProperties) ComputeVmProperties { return *v }).(ComputeVmPropertiesOutput)
+	return o.ApplyT(func(v *ComputeVmProperties) ComputeVmProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeVmProperties
+		return ret
+	}).(ComputeVmPropertiesOutput)
 }
 
-// Gets data disks blob uri for the virtual machine.
 func (o ComputeVmPropertiesPtrOutput) DataDiskIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ComputeVmProperties) []string {
 		if v == nil {
@@ -2467,7 +2256,6 @@ func (o ComputeVmPropertiesPtrOutput) DataDiskIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets all data disks attached to the virtual machine.
 func (o ComputeVmPropertiesPtrOutput) DataDisks() ComputeDataDiskArrayOutput {
 	return o.ApplyT(func(v *ComputeVmProperties) []ComputeDataDisk {
 		if v == nil {
@@ -2477,7 +2265,6 @@ func (o ComputeVmPropertiesPtrOutput) DataDisks() ComputeDataDiskArrayOutput {
 	}).(ComputeDataDiskArrayOutput)
 }
 
-// Gets the network interface ID of the virtual machine.
 func (o ComputeVmPropertiesPtrOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeVmProperties) *string {
 		if v == nil {
@@ -2487,7 +2274,6 @@ func (o ComputeVmPropertiesPtrOutput) NetworkInterfaceId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets OS disk blob uri for the virtual machine.
 func (o ComputeVmPropertiesPtrOutput) OsDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeVmProperties) *string {
 		if v == nil {
@@ -2497,7 +2283,6 @@ func (o ComputeVmPropertiesPtrOutput) OsDiskId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the OS type of the virtual machine.
 func (o ComputeVmPropertiesPtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeVmProperties) *string {
 		if v == nil {
@@ -2507,7 +2292,6 @@ func (o ComputeVmPropertiesPtrOutput) OsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the statuses of the virtual machine.
 func (o ComputeVmPropertiesPtrOutput) Statuses() ComputeVmInstanceViewStatusArrayOutput {
 	return o.ApplyT(func(v *ComputeVmProperties) []ComputeVmInstanceViewStatus {
 		if v == nil {
@@ -2517,7 +2301,6 @@ func (o ComputeVmPropertiesPtrOutput) Statuses() ComputeVmInstanceViewStatusArra
 	}).(ComputeVmInstanceViewStatusArrayOutput)
 }
 
-// Gets the size of the virtual machine.
 func (o ComputeVmPropertiesPtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeVmProperties) *string {
 		if v == nil {
@@ -2527,22 +2310,14 @@ func (o ComputeVmPropertiesPtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a virtual machine returned by the Microsoft.Compute API.
 type ComputeVmPropertiesResponse struct {
-	// Gets data disks blob uri for the virtual machine.
-	DataDiskIds []string `pulumi:"dataDiskIds"`
-	// Gets all data disks attached to the virtual machine.
-	DataDisks []ComputeDataDiskResponse `pulumi:"dataDisks"`
-	// Gets the network interface ID of the virtual machine.
-	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// Gets OS disk blob uri for the virtual machine.
-	OsDiskId *string `pulumi:"osDiskId"`
-	// Gets the OS type of the virtual machine.
-	OsType *string `pulumi:"osType"`
-	// Gets the statuses of the virtual machine.
-	Statuses []ComputeVmInstanceViewStatusResponse `pulumi:"statuses"`
-	// Gets the size of the virtual machine.
-	VmSize *string `pulumi:"vmSize"`
+	DataDiskIds        []string                              `pulumi:"dataDiskIds"`
+	DataDisks          []ComputeDataDiskResponse             `pulumi:"dataDisks"`
+	NetworkInterfaceId *string                               `pulumi:"networkInterfaceId"`
+	OsDiskId           *string                               `pulumi:"osDiskId"`
+	OsType             *string                               `pulumi:"osType"`
+	Statuses           []ComputeVmInstanceViewStatusResponse `pulumi:"statuses"`
+	VmSize             *string                               `pulumi:"vmSize"`
 }
 
 // ComputeVmPropertiesResponseInput is an input type that accepts ComputeVmPropertiesResponseArgs and ComputeVmPropertiesResponseOutput values.
@@ -2556,22 +2331,14 @@ type ComputeVmPropertiesResponseInput interface {
 	ToComputeVmPropertiesResponseOutputWithContext(context.Context) ComputeVmPropertiesResponseOutput
 }
 
-// Properties of a virtual machine returned by the Microsoft.Compute API.
 type ComputeVmPropertiesResponseArgs struct {
-	// Gets data disks blob uri for the virtual machine.
-	DataDiskIds pulumi.StringArrayInput `pulumi:"dataDiskIds"`
-	// Gets all data disks attached to the virtual machine.
-	DataDisks ComputeDataDiskResponseArrayInput `pulumi:"dataDisks"`
-	// Gets the network interface ID of the virtual machine.
-	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
-	// Gets OS disk blob uri for the virtual machine.
-	OsDiskId pulumi.StringPtrInput `pulumi:"osDiskId"`
-	// Gets the OS type of the virtual machine.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Gets the statuses of the virtual machine.
-	Statuses ComputeVmInstanceViewStatusResponseArrayInput `pulumi:"statuses"`
-	// Gets the size of the virtual machine.
-	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
+	DataDiskIds        pulumi.StringArrayInput                       `pulumi:"dataDiskIds"`
+	DataDisks          ComputeDataDiskResponseArrayInput             `pulumi:"dataDisks"`
+	NetworkInterfaceId pulumi.StringPtrInput                         `pulumi:"networkInterfaceId"`
+	OsDiskId           pulumi.StringPtrInput                         `pulumi:"osDiskId"`
+	OsType             pulumi.StringPtrInput                         `pulumi:"osType"`
+	Statuses           ComputeVmInstanceViewStatusResponseArrayInput `pulumi:"statuses"`
+	VmSize             pulumi.StringPtrInput                         `pulumi:"vmSize"`
 }
 
 func (ComputeVmPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2627,7 +2394,6 @@ func (i *computeVmPropertiesResponsePtrType) ToComputeVmPropertiesResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeVmPropertiesResponsePtrOutput)
 }
 
-// Properties of a virtual machine returned by the Microsoft.Compute API.
 type ComputeVmPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ComputeVmPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2647,42 +2413,35 @@ func (o ComputeVmPropertiesResponseOutput) ToComputeVmPropertiesResponsePtrOutpu
 }
 
 func (o ComputeVmPropertiesResponseOutput) ToComputeVmPropertiesResponsePtrOutputWithContext(ctx context.Context) ComputeVmPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ComputeVmPropertiesResponse) *ComputeVmPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeVmPropertiesResponse) *ComputeVmPropertiesResponse {
 		return &v
 	}).(ComputeVmPropertiesResponsePtrOutput)
 }
 
-// Gets data disks blob uri for the virtual machine.
 func (o ComputeVmPropertiesResponseOutput) DataDiskIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComputeVmPropertiesResponse) []string { return v.DataDiskIds }).(pulumi.StringArrayOutput)
 }
 
-// Gets all data disks attached to the virtual machine.
 func (o ComputeVmPropertiesResponseOutput) DataDisks() ComputeDataDiskResponseArrayOutput {
 	return o.ApplyT(func(v ComputeVmPropertiesResponse) []ComputeDataDiskResponse { return v.DataDisks }).(ComputeDataDiskResponseArrayOutput)
 }
 
-// Gets the network interface ID of the virtual machine.
 func (o ComputeVmPropertiesResponseOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeVmPropertiesResponse) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
-// Gets OS disk blob uri for the virtual machine.
 func (o ComputeVmPropertiesResponseOutput) OsDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeVmPropertiesResponse) *string { return v.OsDiskId }).(pulumi.StringPtrOutput)
 }
 
-// Gets the OS type of the virtual machine.
 func (o ComputeVmPropertiesResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeVmPropertiesResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Gets the statuses of the virtual machine.
 func (o ComputeVmPropertiesResponseOutput) Statuses() ComputeVmInstanceViewStatusResponseArrayOutput {
 	return o.ApplyT(func(v ComputeVmPropertiesResponse) []ComputeVmInstanceViewStatusResponse { return v.Statuses }).(ComputeVmInstanceViewStatusResponseArrayOutput)
 }
 
-// Gets the size of the virtual machine.
 func (o ComputeVmPropertiesResponseOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeVmPropertiesResponse) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
@@ -2702,10 +2461,15 @@ func (o ComputeVmPropertiesResponsePtrOutput) ToComputeVmPropertiesResponsePtrOu
 }
 
 func (o ComputeVmPropertiesResponsePtrOutput) Elem() ComputeVmPropertiesResponseOutput {
-	return o.ApplyT(func(v *ComputeVmPropertiesResponse) ComputeVmPropertiesResponse { return *v }).(ComputeVmPropertiesResponseOutput)
+	return o.ApplyT(func(v *ComputeVmPropertiesResponse) ComputeVmPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeVmPropertiesResponse
+		return ret
+	}).(ComputeVmPropertiesResponseOutput)
 }
 
-// Gets data disks blob uri for the virtual machine.
 func (o ComputeVmPropertiesResponsePtrOutput) DataDiskIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ComputeVmPropertiesResponse) []string {
 		if v == nil {
@@ -2715,7 +2479,6 @@ func (o ComputeVmPropertiesResponsePtrOutput) DataDiskIds() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets all data disks attached to the virtual machine.
 func (o ComputeVmPropertiesResponsePtrOutput) DataDisks() ComputeDataDiskResponseArrayOutput {
 	return o.ApplyT(func(v *ComputeVmPropertiesResponse) []ComputeDataDiskResponse {
 		if v == nil {
@@ -2725,7 +2488,6 @@ func (o ComputeVmPropertiesResponsePtrOutput) DataDisks() ComputeDataDiskRespons
 	}).(ComputeDataDiskResponseArrayOutput)
 }
 
-// Gets the network interface ID of the virtual machine.
 func (o ComputeVmPropertiesResponsePtrOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeVmPropertiesResponse) *string {
 		if v == nil {
@@ -2735,7 +2497,6 @@ func (o ComputeVmPropertiesResponsePtrOutput) NetworkInterfaceId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets OS disk blob uri for the virtual machine.
 func (o ComputeVmPropertiesResponsePtrOutput) OsDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeVmPropertiesResponse) *string {
 		if v == nil {
@@ -2745,7 +2506,6 @@ func (o ComputeVmPropertiesResponsePtrOutput) OsDiskId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the OS type of the virtual machine.
 func (o ComputeVmPropertiesResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeVmPropertiesResponse) *string {
 		if v == nil {
@@ -2755,7 +2515,6 @@ func (o ComputeVmPropertiesResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the statuses of the virtual machine.
 func (o ComputeVmPropertiesResponsePtrOutput) Statuses() ComputeVmInstanceViewStatusResponseArrayOutput {
 	return o.ApplyT(func(v *ComputeVmPropertiesResponse) []ComputeVmInstanceViewStatusResponse {
 		if v == nil {
@@ -2765,7 +2524,6 @@ func (o ComputeVmPropertiesResponsePtrOutput) Statuses() ComputeVmInstanceViewSt
 	}).(ComputeVmInstanceViewStatusResponseArrayOutput)
 }
 
-// Gets the size of the virtual machine.
 func (o ComputeVmPropertiesResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeVmPropertiesResponse) *string {
 		if v == nil {
@@ -2775,14 +2533,10 @@ func (o ComputeVmPropertiesResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties for creating a custom image from a VHD.
 type CustomImagePropertiesCustom struct {
-	// The image name.
 	ImageName *string `pulumi:"imageName"`
-	// The OS type of the custom image (i.e. Windows, Linux)
-	OsType string `pulumi:"osType"`
-	// Indicates whether sysprep has been run on the VHD.
-	SysPrep *bool `pulumi:"sysPrep"`
+	OsType    string  `pulumi:"osType"`
+	SysPrep   *bool   `pulumi:"sysPrep"`
 }
 
 // CustomImagePropertiesCustomInput is an input type that accepts CustomImagePropertiesCustomArgs and CustomImagePropertiesCustomOutput values.
@@ -2796,14 +2550,10 @@ type CustomImagePropertiesCustomInput interface {
 	ToCustomImagePropertiesCustomOutputWithContext(context.Context) CustomImagePropertiesCustomOutput
 }
 
-// Properties for creating a custom image from a VHD.
 type CustomImagePropertiesCustomArgs struct {
-	// The image name.
 	ImageName pulumi.StringPtrInput `pulumi:"imageName"`
-	// The OS type of the custom image (i.e. Windows, Linux)
-	OsType pulumi.StringInput `pulumi:"osType"`
-	// Indicates whether sysprep has been run on the VHD.
-	SysPrep pulumi.BoolPtrInput `pulumi:"sysPrep"`
+	OsType    pulumi.StringInput    `pulumi:"osType"`
+	SysPrep   pulumi.BoolPtrInput   `pulumi:"sysPrep"`
 }
 
 func (CustomImagePropertiesCustomArgs) ElementType() reflect.Type {
@@ -2859,7 +2609,6 @@ func (i *customImagePropertiesCustomPtrType) ToCustomImagePropertiesCustomPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(CustomImagePropertiesCustomPtrOutput)
 }
 
-// Properties for creating a custom image from a VHD.
 type CustomImagePropertiesCustomOutput struct{ *pulumi.OutputState }
 
 func (CustomImagePropertiesCustomOutput) ElementType() reflect.Type {
@@ -2879,22 +2628,19 @@ func (o CustomImagePropertiesCustomOutput) ToCustomImagePropertiesCustomPtrOutpu
 }
 
 func (o CustomImagePropertiesCustomOutput) ToCustomImagePropertiesCustomPtrOutputWithContext(ctx context.Context) CustomImagePropertiesCustomPtrOutput {
-	return o.ApplyT(func(v CustomImagePropertiesCustom) *CustomImagePropertiesCustom {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomImagePropertiesCustom) *CustomImagePropertiesCustom {
 		return &v
 	}).(CustomImagePropertiesCustomPtrOutput)
 }
 
-// The image name.
 func (o CustomImagePropertiesCustomOutput) ImageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomImagePropertiesCustom) *string { return v.ImageName }).(pulumi.StringPtrOutput)
 }
 
-// The OS type of the custom image (i.e. Windows, Linux)
 func (o CustomImagePropertiesCustomOutput) OsType() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomImagePropertiesCustom) string { return v.OsType }).(pulumi.StringOutput)
 }
 
-// Indicates whether sysprep has been run on the VHD.
 func (o CustomImagePropertiesCustomOutput) SysPrep() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomImagePropertiesCustom) *bool { return v.SysPrep }).(pulumi.BoolPtrOutput)
 }
@@ -2914,10 +2660,15 @@ func (o CustomImagePropertiesCustomPtrOutput) ToCustomImagePropertiesCustomPtrOu
 }
 
 func (o CustomImagePropertiesCustomPtrOutput) Elem() CustomImagePropertiesCustomOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesCustom) CustomImagePropertiesCustom { return *v }).(CustomImagePropertiesCustomOutput)
+	return o.ApplyT(func(v *CustomImagePropertiesCustom) CustomImagePropertiesCustom {
+		if v != nil {
+			return *v
+		}
+		var ret CustomImagePropertiesCustom
+		return ret
+	}).(CustomImagePropertiesCustomOutput)
 }
 
-// The image name.
 func (o CustomImagePropertiesCustomPtrOutput) ImageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomImagePropertiesCustom) *string {
 		if v == nil {
@@ -2927,7 +2678,6 @@ func (o CustomImagePropertiesCustomPtrOutput) ImageName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OS type of the custom image (i.e. Windows, Linux)
 func (o CustomImagePropertiesCustomPtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomImagePropertiesCustom) *string {
 		if v == nil {
@@ -2937,7 +2687,6 @@ func (o CustomImagePropertiesCustomPtrOutput) OsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether sysprep has been run on the VHD.
 func (o CustomImagePropertiesCustomPtrOutput) SysPrep() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CustomImagePropertiesCustom) *bool {
 		if v == nil {
@@ -2947,14 +2696,10 @@ func (o CustomImagePropertiesCustomPtrOutput) SysPrep() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Properties for creating a custom image from a VHD.
 type CustomImagePropertiesCustomResponse struct {
-	// The image name.
 	ImageName *string `pulumi:"imageName"`
-	// The OS type of the custom image (i.e. Windows, Linux)
-	OsType string `pulumi:"osType"`
-	// Indicates whether sysprep has been run on the VHD.
-	SysPrep *bool `pulumi:"sysPrep"`
+	OsType    string  `pulumi:"osType"`
+	SysPrep   *bool   `pulumi:"sysPrep"`
 }
 
 // CustomImagePropertiesCustomResponseInput is an input type that accepts CustomImagePropertiesCustomResponseArgs and CustomImagePropertiesCustomResponseOutput values.
@@ -2968,14 +2713,10 @@ type CustomImagePropertiesCustomResponseInput interface {
 	ToCustomImagePropertiesCustomResponseOutputWithContext(context.Context) CustomImagePropertiesCustomResponseOutput
 }
 
-// Properties for creating a custom image from a VHD.
 type CustomImagePropertiesCustomResponseArgs struct {
-	// The image name.
 	ImageName pulumi.StringPtrInput `pulumi:"imageName"`
-	// The OS type of the custom image (i.e. Windows, Linux)
-	OsType pulumi.StringInput `pulumi:"osType"`
-	// Indicates whether sysprep has been run on the VHD.
-	SysPrep pulumi.BoolPtrInput `pulumi:"sysPrep"`
+	OsType    pulumi.StringInput    `pulumi:"osType"`
+	SysPrep   pulumi.BoolPtrInput   `pulumi:"sysPrep"`
 }
 
 func (CustomImagePropertiesCustomResponseArgs) ElementType() reflect.Type {
@@ -3031,7 +2772,6 @@ func (i *customImagePropertiesCustomResponsePtrType) ToCustomImagePropertiesCust
 	return pulumi.ToOutputWithContext(ctx, i).(CustomImagePropertiesCustomResponsePtrOutput)
 }
 
-// Properties for creating a custom image from a VHD.
 type CustomImagePropertiesCustomResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomImagePropertiesCustomResponseOutput) ElementType() reflect.Type {
@@ -3051,22 +2791,19 @@ func (o CustomImagePropertiesCustomResponseOutput) ToCustomImagePropertiesCustom
 }
 
 func (o CustomImagePropertiesCustomResponseOutput) ToCustomImagePropertiesCustomResponsePtrOutputWithContext(ctx context.Context) CustomImagePropertiesCustomResponsePtrOutput {
-	return o.ApplyT(func(v CustomImagePropertiesCustomResponse) *CustomImagePropertiesCustomResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomImagePropertiesCustomResponse) *CustomImagePropertiesCustomResponse {
 		return &v
 	}).(CustomImagePropertiesCustomResponsePtrOutput)
 }
 
-// The image name.
 func (o CustomImagePropertiesCustomResponseOutput) ImageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomImagePropertiesCustomResponse) *string { return v.ImageName }).(pulumi.StringPtrOutput)
 }
 
-// The OS type of the custom image (i.e. Windows, Linux)
 func (o CustomImagePropertiesCustomResponseOutput) OsType() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomImagePropertiesCustomResponse) string { return v.OsType }).(pulumi.StringOutput)
 }
 
-// Indicates whether sysprep has been run on the VHD.
 func (o CustomImagePropertiesCustomResponseOutput) SysPrep() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomImagePropertiesCustomResponse) *bool { return v.SysPrep }).(pulumi.BoolPtrOutput)
 }
@@ -3086,10 +2823,15 @@ func (o CustomImagePropertiesCustomResponsePtrOutput) ToCustomImagePropertiesCus
 }
 
 func (o CustomImagePropertiesCustomResponsePtrOutput) Elem() CustomImagePropertiesCustomResponseOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesCustomResponse) CustomImagePropertiesCustomResponse { return *v }).(CustomImagePropertiesCustomResponseOutput)
+	return o.ApplyT(func(v *CustomImagePropertiesCustomResponse) CustomImagePropertiesCustomResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CustomImagePropertiesCustomResponse
+		return ret
+	}).(CustomImagePropertiesCustomResponseOutput)
 }
 
-// The image name.
 func (o CustomImagePropertiesCustomResponsePtrOutput) ImageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomImagePropertiesCustomResponse) *string {
 		if v == nil {
@@ -3099,7 +2841,6 @@ func (o CustomImagePropertiesCustomResponsePtrOutput) ImageName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OS type of the custom image (i.e. Windows, Linux)
 func (o CustomImagePropertiesCustomResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomImagePropertiesCustomResponse) *string {
 		if v == nil {
@@ -3109,7 +2850,6 @@ func (o CustomImagePropertiesCustomResponsePtrOutput) OsType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether sysprep has been run on the VHD.
 func (o CustomImagePropertiesCustomResponsePtrOutput) SysPrep() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CustomImagePropertiesCustomResponse) *bool {
 		if v == nil {
@@ -3119,13 +2859,9 @@ func (o CustomImagePropertiesCustomResponsePtrOutput) SysPrep() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Properties for creating a custom image from a virtual machine.
 type CustomImagePropertiesFromVm struct {
-	// The Linux OS information of the VM.
-	LinuxOsInfo *LinuxOsInfo `pulumi:"linuxOsInfo"`
-	// The source vm identifier.
-	SourceVmId *string `pulumi:"sourceVmId"`
-	// The Windows OS information of the VM.
+	LinuxOsInfo   *LinuxOsInfo   `pulumi:"linuxOsInfo"`
+	SourceVmId    *string        `pulumi:"sourceVmId"`
 	WindowsOsInfo *WindowsOsInfo `pulumi:"windowsOsInfo"`
 }
 
@@ -3140,13 +2876,9 @@ type CustomImagePropertiesFromVmInput interface {
 	ToCustomImagePropertiesFromVmOutputWithContext(context.Context) CustomImagePropertiesFromVmOutput
 }
 
-// Properties for creating a custom image from a virtual machine.
 type CustomImagePropertiesFromVmArgs struct {
-	// The Linux OS information of the VM.
-	LinuxOsInfo LinuxOsInfoPtrInput `pulumi:"linuxOsInfo"`
-	// The source vm identifier.
-	SourceVmId pulumi.StringPtrInput `pulumi:"sourceVmId"`
-	// The Windows OS information of the VM.
+	LinuxOsInfo   LinuxOsInfoPtrInput   `pulumi:"linuxOsInfo"`
+	SourceVmId    pulumi.StringPtrInput `pulumi:"sourceVmId"`
 	WindowsOsInfo WindowsOsInfoPtrInput `pulumi:"windowsOsInfo"`
 }
 
@@ -3203,7 +2935,6 @@ func (i *customImagePropertiesFromVmPtrType) ToCustomImagePropertiesFromVmPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(CustomImagePropertiesFromVmPtrOutput)
 }
 
-// Properties for creating a custom image from a virtual machine.
 type CustomImagePropertiesFromVmOutput struct{ *pulumi.OutputState }
 
 func (CustomImagePropertiesFromVmOutput) ElementType() reflect.Type {
@@ -3223,22 +2954,19 @@ func (o CustomImagePropertiesFromVmOutput) ToCustomImagePropertiesFromVmPtrOutpu
 }
 
 func (o CustomImagePropertiesFromVmOutput) ToCustomImagePropertiesFromVmPtrOutputWithContext(ctx context.Context) CustomImagePropertiesFromVmPtrOutput {
-	return o.ApplyT(func(v CustomImagePropertiesFromVm) *CustomImagePropertiesFromVm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomImagePropertiesFromVm) *CustomImagePropertiesFromVm {
 		return &v
 	}).(CustomImagePropertiesFromVmPtrOutput)
 }
 
-// The Linux OS information of the VM.
 func (o CustomImagePropertiesFromVmOutput) LinuxOsInfo() LinuxOsInfoPtrOutput {
 	return o.ApplyT(func(v CustomImagePropertiesFromVm) *LinuxOsInfo { return v.LinuxOsInfo }).(LinuxOsInfoPtrOutput)
 }
 
-// The source vm identifier.
 func (o CustomImagePropertiesFromVmOutput) SourceVmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomImagePropertiesFromVm) *string { return v.SourceVmId }).(pulumi.StringPtrOutput)
 }
 
-// The Windows OS information of the VM.
 func (o CustomImagePropertiesFromVmOutput) WindowsOsInfo() WindowsOsInfoPtrOutput {
 	return o.ApplyT(func(v CustomImagePropertiesFromVm) *WindowsOsInfo { return v.WindowsOsInfo }).(WindowsOsInfoPtrOutput)
 }
@@ -3258,10 +2986,15 @@ func (o CustomImagePropertiesFromVmPtrOutput) ToCustomImagePropertiesFromVmPtrOu
 }
 
 func (o CustomImagePropertiesFromVmPtrOutput) Elem() CustomImagePropertiesFromVmOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesFromVm) CustomImagePropertiesFromVm { return *v }).(CustomImagePropertiesFromVmOutput)
+	return o.ApplyT(func(v *CustomImagePropertiesFromVm) CustomImagePropertiesFromVm {
+		if v != nil {
+			return *v
+		}
+		var ret CustomImagePropertiesFromVm
+		return ret
+	}).(CustomImagePropertiesFromVmOutput)
 }
 
-// The Linux OS information of the VM.
 func (o CustomImagePropertiesFromVmPtrOutput) LinuxOsInfo() LinuxOsInfoPtrOutput {
 	return o.ApplyT(func(v *CustomImagePropertiesFromVm) *LinuxOsInfo {
 		if v == nil {
@@ -3271,7 +3004,6 @@ func (o CustomImagePropertiesFromVmPtrOutput) LinuxOsInfo() LinuxOsInfoPtrOutput
 	}).(LinuxOsInfoPtrOutput)
 }
 
-// The source vm identifier.
 func (o CustomImagePropertiesFromVmPtrOutput) SourceVmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomImagePropertiesFromVm) *string {
 		if v == nil {
@@ -3281,7 +3013,6 @@ func (o CustomImagePropertiesFromVmPtrOutput) SourceVmId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Windows OS information of the VM.
 func (o CustomImagePropertiesFromVmPtrOutput) WindowsOsInfo() WindowsOsInfoPtrOutput {
 	return o.ApplyT(func(v *CustomImagePropertiesFromVm) *WindowsOsInfo {
 		if v == nil {
@@ -3291,13 +3022,9 @@ func (o CustomImagePropertiesFromVmPtrOutput) WindowsOsInfo() WindowsOsInfoPtrOu
 	}).(WindowsOsInfoPtrOutput)
 }
 
-// Properties for creating a custom image from a virtual machine.
 type CustomImagePropertiesFromVmResponse struct {
-	// The Linux OS information of the VM.
-	LinuxOsInfo *LinuxOsInfoResponse `pulumi:"linuxOsInfo"`
-	// The source vm identifier.
-	SourceVmId *string `pulumi:"sourceVmId"`
-	// The Windows OS information of the VM.
+	LinuxOsInfo   *LinuxOsInfoResponse   `pulumi:"linuxOsInfo"`
+	SourceVmId    *string                `pulumi:"sourceVmId"`
 	WindowsOsInfo *WindowsOsInfoResponse `pulumi:"windowsOsInfo"`
 }
 
@@ -3312,13 +3039,9 @@ type CustomImagePropertiesFromVmResponseInput interface {
 	ToCustomImagePropertiesFromVmResponseOutputWithContext(context.Context) CustomImagePropertiesFromVmResponseOutput
 }
 
-// Properties for creating a custom image from a virtual machine.
 type CustomImagePropertiesFromVmResponseArgs struct {
-	// The Linux OS information of the VM.
-	LinuxOsInfo LinuxOsInfoResponsePtrInput `pulumi:"linuxOsInfo"`
-	// The source vm identifier.
-	SourceVmId pulumi.StringPtrInput `pulumi:"sourceVmId"`
-	// The Windows OS information of the VM.
+	LinuxOsInfo   LinuxOsInfoResponsePtrInput   `pulumi:"linuxOsInfo"`
+	SourceVmId    pulumi.StringPtrInput         `pulumi:"sourceVmId"`
 	WindowsOsInfo WindowsOsInfoResponsePtrInput `pulumi:"windowsOsInfo"`
 }
 
@@ -3375,7 +3098,6 @@ func (i *customImagePropertiesFromVmResponsePtrType) ToCustomImagePropertiesFrom
 	return pulumi.ToOutputWithContext(ctx, i).(CustomImagePropertiesFromVmResponsePtrOutput)
 }
 
-// Properties for creating a custom image from a virtual machine.
 type CustomImagePropertiesFromVmResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomImagePropertiesFromVmResponseOutput) ElementType() reflect.Type {
@@ -3395,22 +3117,19 @@ func (o CustomImagePropertiesFromVmResponseOutput) ToCustomImagePropertiesFromVm
 }
 
 func (o CustomImagePropertiesFromVmResponseOutput) ToCustomImagePropertiesFromVmResponsePtrOutputWithContext(ctx context.Context) CustomImagePropertiesFromVmResponsePtrOutput {
-	return o.ApplyT(func(v CustomImagePropertiesFromVmResponse) *CustomImagePropertiesFromVmResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomImagePropertiesFromVmResponse) *CustomImagePropertiesFromVmResponse {
 		return &v
 	}).(CustomImagePropertiesFromVmResponsePtrOutput)
 }
 
-// The Linux OS information of the VM.
 func (o CustomImagePropertiesFromVmResponseOutput) LinuxOsInfo() LinuxOsInfoResponsePtrOutput {
 	return o.ApplyT(func(v CustomImagePropertiesFromVmResponse) *LinuxOsInfoResponse { return v.LinuxOsInfo }).(LinuxOsInfoResponsePtrOutput)
 }
 
-// The source vm identifier.
 func (o CustomImagePropertiesFromVmResponseOutput) SourceVmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomImagePropertiesFromVmResponse) *string { return v.SourceVmId }).(pulumi.StringPtrOutput)
 }
 
-// The Windows OS information of the VM.
 func (o CustomImagePropertiesFromVmResponseOutput) WindowsOsInfo() WindowsOsInfoResponsePtrOutput {
 	return o.ApplyT(func(v CustomImagePropertiesFromVmResponse) *WindowsOsInfoResponse { return v.WindowsOsInfo }).(WindowsOsInfoResponsePtrOutput)
 }
@@ -3430,10 +3149,15 @@ func (o CustomImagePropertiesFromVmResponsePtrOutput) ToCustomImagePropertiesFro
 }
 
 func (o CustomImagePropertiesFromVmResponsePtrOutput) Elem() CustomImagePropertiesFromVmResponseOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesFromVmResponse) CustomImagePropertiesFromVmResponse { return *v }).(CustomImagePropertiesFromVmResponseOutput)
+	return o.ApplyT(func(v *CustomImagePropertiesFromVmResponse) CustomImagePropertiesFromVmResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CustomImagePropertiesFromVmResponse
+		return ret
+	}).(CustomImagePropertiesFromVmResponseOutput)
 }
 
-// The Linux OS information of the VM.
 func (o CustomImagePropertiesFromVmResponsePtrOutput) LinuxOsInfo() LinuxOsInfoResponsePtrOutput {
 	return o.ApplyT(func(v *CustomImagePropertiesFromVmResponse) *LinuxOsInfoResponse {
 		if v == nil {
@@ -3443,7 +3167,6 @@ func (o CustomImagePropertiesFromVmResponsePtrOutput) LinuxOsInfo() LinuxOsInfoR
 	}).(LinuxOsInfoResponsePtrOutput)
 }
 
-// The source vm identifier.
 func (o CustomImagePropertiesFromVmResponsePtrOutput) SourceVmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomImagePropertiesFromVmResponse) *string {
 		if v == nil {
@@ -3453,7 +3176,6 @@ func (o CustomImagePropertiesFromVmResponsePtrOutput) SourceVmId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Windows OS information of the VM.
 func (o CustomImagePropertiesFromVmResponsePtrOutput) WindowsOsInfo() WindowsOsInfoResponsePtrOutput {
 	return o.ApplyT(func(v *CustomImagePropertiesFromVmResponse) *WindowsOsInfoResponse {
 		if v == nil {
@@ -3463,9 +3185,7 @@ func (o CustomImagePropertiesFromVmResponsePtrOutput) WindowsOsInfo() WindowsOsI
 	}).(WindowsOsInfoResponsePtrOutput)
 }
 
-// Properties of a daily schedule.
 type DayDetails struct {
-	// The time of day the schedule will occur.
 	Time *string `pulumi:"time"`
 }
 
@@ -3480,9 +3200,7 @@ type DayDetailsInput interface {
 	ToDayDetailsOutputWithContext(context.Context) DayDetailsOutput
 }
 
-// Properties of a daily schedule.
 type DayDetailsArgs struct {
-	// The time of day the schedule will occur.
 	Time pulumi.StringPtrInput `pulumi:"time"`
 }
 
@@ -3539,7 +3257,6 @@ func (i *dayDetailsPtrType) ToDayDetailsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DayDetailsPtrOutput)
 }
 
-// Properties of a daily schedule.
 type DayDetailsOutput struct{ *pulumi.OutputState }
 
 func (DayDetailsOutput) ElementType() reflect.Type {
@@ -3559,12 +3276,11 @@ func (o DayDetailsOutput) ToDayDetailsPtrOutput() DayDetailsPtrOutput {
 }
 
 func (o DayDetailsOutput) ToDayDetailsPtrOutputWithContext(ctx context.Context) DayDetailsPtrOutput {
-	return o.ApplyT(func(v DayDetails) *DayDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DayDetails) *DayDetails {
 		return &v
 	}).(DayDetailsPtrOutput)
 }
 
-// The time of day the schedule will occur.
 func (o DayDetailsOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DayDetails) *string { return v.Time }).(pulumi.StringPtrOutput)
 }
@@ -3584,10 +3300,15 @@ func (o DayDetailsPtrOutput) ToDayDetailsPtrOutputWithContext(ctx context.Contex
 }
 
 func (o DayDetailsPtrOutput) Elem() DayDetailsOutput {
-	return o.ApplyT(func(v *DayDetails) DayDetails { return *v }).(DayDetailsOutput)
+	return o.ApplyT(func(v *DayDetails) DayDetails {
+		if v != nil {
+			return *v
+		}
+		var ret DayDetails
+		return ret
+	}).(DayDetailsOutput)
 }
 
-// The time of day the schedule will occur.
 func (o DayDetailsPtrOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DayDetails) *string {
 		if v == nil {
@@ -3597,9 +3318,7 @@ func (o DayDetailsPtrOutput) Time() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a daily schedule.
 type DayDetailsResponse struct {
-	// The time of day the schedule will occur.
 	Time *string `pulumi:"time"`
 }
 
@@ -3614,9 +3333,7 @@ type DayDetailsResponseInput interface {
 	ToDayDetailsResponseOutputWithContext(context.Context) DayDetailsResponseOutput
 }
 
-// Properties of a daily schedule.
 type DayDetailsResponseArgs struct {
-	// The time of day the schedule will occur.
 	Time pulumi.StringPtrInput `pulumi:"time"`
 }
 
@@ -3673,7 +3390,6 @@ func (i *dayDetailsResponsePtrType) ToDayDetailsResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DayDetailsResponsePtrOutput)
 }
 
-// Properties of a daily schedule.
 type DayDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (DayDetailsResponseOutput) ElementType() reflect.Type {
@@ -3693,12 +3409,11 @@ func (o DayDetailsResponseOutput) ToDayDetailsResponsePtrOutput() DayDetailsResp
 }
 
 func (o DayDetailsResponseOutput) ToDayDetailsResponsePtrOutputWithContext(ctx context.Context) DayDetailsResponsePtrOutput {
-	return o.ApplyT(func(v DayDetailsResponse) *DayDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DayDetailsResponse) *DayDetailsResponse {
 		return &v
 	}).(DayDetailsResponsePtrOutput)
 }
 
-// The time of day the schedule will occur.
 func (o DayDetailsResponseOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DayDetailsResponse) *string { return v.Time }).(pulumi.StringPtrOutput)
 }
@@ -3718,10 +3433,15 @@ func (o DayDetailsResponsePtrOutput) ToDayDetailsResponsePtrOutputWithContext(ct
 }
 
 func (o DayDetailsResponsePtrOutput) Elem() DayDetailsResponseOutput {
-	return o.ApplyT(func(v *DayDetailsResponse) DayDetailsResponse { return *v }).(DayDetailsResponseOutput)
+	return o.ApplyT(func(v *DayDetailsResponse) DayDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DayDetailsResponse
+		return ret
+	}).(DayDetailsResponseOutput)
 }
 
-// The time of day the schedule will occur.
 func (o DayDetailsResponsePtrOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DayDetailsResponse) *string {
 		if v == nil {
@@ -3731,12 +3451,9 @@ func (o DayDetailsResponsePtrOutput) Time() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of an environment deployment.
 type EnvironmentDeploymentProperties struct {
-	// The Azure Resource Manager template's identifier.
-	ArmTemplateId *string `pulumi:"armTemplateId"`
-	// The parameters of the Azure Resource Manager template.
-	Parameters []ArmTemplateParameterProperties `pulumi:"parameters"`
+	ArmTemplateId *string                          `pulumi:"armTemplateId"`
+	Parameters    []ArmTemplateParameterProperties `pulumi:"parameters"`
 }
 
 // EnvironmentDeploymentPropertiesInput is an input type that accepts EnvironmentDeploymentPropertiesArgs and EnvironmentDeploymentPropertiesOutput values.
@@ -3750,12 +3467,9 @@ type EnvironmentDeploymentPropertiesInput interface {
 	ToEnvironmentDeploymentPropertiesOutputWithContext(context.Context) EnvironmentDeploymentPropertiesOutput
 }
 
-// Properties of an environment deployment.
 type EnvironmentDeploymentPropertiesArgs struct {
-	// The Azure Resource Manager template's identifier.
-	ArmTemplateId pulumi.StringPtrInput `pulumi:"armTemplateId"`
-	// The parameters of the Azure Resource Manager template.
-	Parameters ArmTemplateParameterPropertiesArrayInput `pulumi:"parameters"`
+	ArmTemplateId pulumi.StringPtrInput                    `pulumi:"armTemplateId"`
+	Parameters    ArmTemplateParameterPropertiesArrayInput `pulumi:"parameters"`
 }
 
 func (EnvironmentDeploymentPropertiesArgs) ElementType() reflect.Type {
@@ -3811,7 +3525,6 @@ func (i *environmentDeploymentPropertiesPtrType) ToEnvironmentDeploymentProperti
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentDeploymentPropertiesPtrOutput)
 }
 
-// Properties of an environment deployment.
 type EnvironmentDeploymentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentDeploymentPropertiesOutput) ElementType() reflect.Type {
@@ -3831,17 +3544,15 @@ func (o EnvironmentDeploymentPropertiesOutput) ToEnvironmentDeploymentProperties
 }
 
 func (o EnvironmentDeploymentPropertiesOutput) ToEnvironmentDeploymentPropertiesPtrOutputWithContext(ctx context.Context) EnvironmentDeploymentPropertiesPtrOutput {
-	return o.ApplyT(func(v EnvironmentDeploymentProperties) *EnvironmentDeploymentProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentDeploymentProperties) *EnvironmentDeploymentProperties {
 		return &v
 	}).(EnvironmentDeploymentPropertiesPtrOutput)
 }
 
-// The Azure Resource Manager template's identifier.
 func (o EnvironmentDeploymentPropertiesOutput) ArmTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentDeploymentProperties) *string { return v.ArmTemplateId }).(pulumi.StringPtrOutput)
 }
 
-// The parameters of the Azure Resource Manager template.
 func (o EnvironmentDeploymentPropertiesOutput) Parameters() ArmTemplateParameterPropertiesArrayOutput {
 	return o.ApplyT(func(v EnvironmentDeploymentProperties) []ArmTemplateParameterProperties { return v.Parameters }).(ArmTemplateParameterPropertiesArrayOutput)
 }
@@ -3861,10 +3572,15 @@ func (o EnvironmentDeploymentPropertiesPtrOutput) ToEnvironmentDeploymentPropert
 }
 
 func (o EnvironmentDeploymentPropertiesPtrOutput) Elem() EnvironmentDeploymentPropertiesOutput {
-	return o.ApplyT(func(v *EnvironmentDeploymentProperties) EnvironmentDeploymentProperties { return *v }).(EnvironmentDeploymentPropertiesOutput)
+	return o.ApplyT(func(v *EnvironmentDeploymentProperties) EnvironmentDeploymentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentDeploymentProperties
+		return ret
+	}).(EnvironmentDeploymentPropertiesOutput)
 }
 
-// The Azure Resource Manager template's identifier.
 func (o EnvironmentDeploymentPropertiesPtrOutput) ArmTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentDeploymentProperties) *string {
 		if v == nil {
@@ -3874,7 +3590,6 @@ func (o EnvironmentDeploymentPropertiesPtrOutput) ArmTemplateId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters of the Azure Resource Manager template.
 func (o EnvironmentDeploymentPropertiesPtrOutput) Parameters() ArmTemplateParameterPropertiesArrayOutput {
 	return o.ApplyT(func(v *EnvironmentDeploymentProperties) []ArmTemplateParameterProperties {
 		if v == nil {
@@ -3884,12 +3599,9 @@ func (o EnvironmentDeploymentPropertiesPtrOutput) Parameters() ArmTemplateParame
 	}).(ArmTemplateParameterPropertiesArrayOutput)
 }
 
-// Properties of an environment deployment.
 type EnvironmentDeploymentPropertiesResponse struct {
-	// The Azure Resource Manager template's identifier.
-	ArmTemplateId *string `pulumi:"armTemplateId"`
-	// The parameters of the Azure Resource Manager template.
-	Parameters []ArmTemplateParameterPropertiesResponse `pulumi:"parameters"`
+	ArmTemplateId *string                                  `pulumi:"armTemplateId"`
+	Parameters    []ArmTemplateParameterPropertiesResponse `pulumi:"parameters"`
 }
 
 // EnvironmentDeploymentPropertiesResponseInput is an input type that accepts EnvironmentDeploymentPropertiesResponseArgs and EnvironmentDeploymentPropertiesResponseOutput values.
@@ -3903,12 +3615,9 @@ type EnvironmentDeploymentPropertiesResponseInput interface {
 	ToEnvironmentDeploymentPropertiesResponseOutputWithContext(context.Context) EnvironmentDeploymentPropertiesResponseOutput
 }
 
-// Properties of an environment deployment.
 type EnvironmentDeploymentPropertiesResponseArgs struct {
-	// The Azure Resource Manager template's identifier.
-	ArmTemplateId pulumi.StringPtrInput `pulumi:"armTemplateId"`
-	// The parameters of the Azure Resource Manager template.
-	Parameters ArmTemplateParameterPropertiesResponseArrayInput `pulumi:"parameters"`
+	ArmTemplateId pulumi.StringPtrInput                            `pulumi:"armTemplateId"`
+	Parameters    ArmTemplateParameterPropertiesResponseArrayInput `pulumi:"parameters"`
 }
 
 func (EnvironmentDeploymentPropertiesResponseArgs) ElementType() reflect.Type {
@@ -3964,7 +3673,6 @@ func (i *environmentDeploymentPropertiesResponsePtrType) ToEnvironmentDeployment
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentDeploymentPropertiesResponsePtrOutput)
 }
 
-// Properties of an environment deployment.
 type EnvironmentDeploymentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentDeploymentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3984,17 +3692,15 @@ func (o EnvironmentDeploymentPropertiesResponseOutput) ToEnvironmentDeploymentPr
 }
 
 func (o EnvironmentDeploymentPropertiesResponseOutput) ToEnvironmentDeploymentPropertiesResponsePtrOutputWithContext(ctx context.Context) EnvironmentDeploymentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v EnvironmentDeploymentPropertiesResponse) *EnvironmentDeploymentPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentDeploymentPropertiesResponse) *EnvironmentDeploymentPropertiesResponse {
 		return &v
 	}).(EnvironmentDeploymentPropertiesResponsePtrOutput)
 }
 
-// The Azure Resource Manager template's identifier.
 func (o EnvironmentDeploymentPropertiesResponseOutput) ArmTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentDeploymentPropertiesResponse) *string { return v.ArmTemplateId }).(pulumi.StringPtrOutput)
 }
 
-// The parameters of the Azure Resource Manager template.
 func (o EnvironmentDeploymentPropertiesResponseOutput) Parameters() ArmTemplateParameterPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v EnvironmentDeploymentPropertiesResponse) []ArmTemplateParameterPropertiesResponse {
 		return v.Parameters
@@ -4016,10 +3722,15 @@ func (o EnvironmentDeploymentPropertiesResponsePtrOutput) ToEnvironmentDeploymen
 }
 
 func (o EnvironmentDeploymentPropertiesResponsePtrOutput) Elem() EnvironmentDeploymentPropertiesResponseOutput {
-	return o.ApplyT(func(v *EnvironmentDeploymentPropertiesResponse) EnvironmentDeploymentPropertiesResponse { return *v }).(EnvironmentDeploymentPropertiesResponseOutput)
+	return o.ApplyT(func(v *EnvironmentDeploymentPropertiesResponse) EnvironmentDeploymentPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentDeploymentPropertiesResponse
+		return ret
+	}).(EnvironmentDeploymentPropertiesResponseOutput)
 }
 
-// The Azure Resource Manager template's identifier.
 func (o EnvironmentDeploymentPropertiesResponsePtrOutput) ArmTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentDeploymentPropertiesResponse) *string {
 		if v == nil {
@@ -4029,7 +3740,6 @@ func (o EnvironmentDeploymentPropertiesResponsePtrOutput) ArmTemplateId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters of the Azure Resource Manager template.
 func (o EnvironmentDeploymentPropertiesResponsePtrOutput) Parameters() ArmTemplateParameterPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *EnvironmentDeploymentPropertiesResponse) []ArmTemplateParameterPropertiesResponse {
 		if v == nil {
@@ -4039,9 +3749,7 @@ func (o EnvironmentDeploymentPropertiesResponsePtrOutput) Parameters() ArmTempla
 	}).(ArmTemplateParameterPropertiesResponseArrayOutput)
 }
 
-// An event to be notified for.
 type Event struct {
-	// The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
 	EventName *string `pulumi:"eventName"`
 }
 
@@ -4056,9 +3764,7 @@ type EventInput interface {
 	ToEventOutputWithContext(context.Context) EventOutput
 }
 
-// An event to be notified for.
 type EventArgs struct {
-	// The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
 	EventName pulumi.StringPtrInput `pulumi:"eventName"`
 }
 
@@ -4099,7 +3805,6 @@ func (i EventArray) ToEventArrayOutputWithContext(ctx context.Context) EventArra
 	return pulumi.ToOutputWithContext(ctx, i).(EventArrayOutput)
 }
 
-// An event to be notified for.
 type EventOutput struct{ *pulumi.OutputState }
 
 func (EventOutput) ElementType() reflect.Type {
@@ -4114,7 +3819,6 @@ func (o EventOutput) ToEventOutputWithContext(ctx context.Context) EventOutput {
 	return o
 }
 
-// The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
 func (o EventOutput) EventName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Event) *string { return v.EventName }).(pulumi.StringPtrOutput)
 }
@@ -4139,9 +3843,7 @@ func (o EventArrayOutput) Index(i pulumi.IntInput) EventOutput {
 	}).(EventOutput)
 }
 
-// An event to be notified for.
 type EventResponse struct {
-	// The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
 	EventName *string `pulumi:"eventName"`
 }
 
@@ -4156,9 +3858,7 @@ type EventResponseInput interface {
 	ToEventResponseOutputWithContext(context.Context) EventResponseOutput
 }
 
-// An event to be notified for.
 type EventResponseArgs struct {
-	// The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
 	EventName pulumi.StringPtrInput `pulumi:"eventName"`
 }
 
@@ -4199,7 +3899,6 @@ func (i EventResponseArray) ToEventResponseArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EventResponseArrayOutput)
 }
 
-// An event to be notified for.
 type EventResponseOutput struct{ *pulumi.OutputState }
 
 func (EventResponseOutput) ElementType() reflect.Type {
@@ -4214,7 +3913,6 @@ func (o EventResponseOutput) ToEventResponseOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
 func (o EventResponseOutput) EventName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventResponse) *string { return v.EventName }).(pulumi.StringPtrOutput)
 }
@@ -4239,11 +3937,8 @@ func (o EventResponseArrayOutput) Index(i pulumi.IntInput) EventResponseOutput {
 	}).(EventResponseOutput)
 }
 
-// Subnet information as returned by the Microsoft.Network API.
 type ExternalSubnet struct {
-	// Gets or sets the identifier.
-	Id *string `pulumi:"id"`
-	// Gets or sets the name.
+	Id   *string `pulumi:"id"`
 	Name *string `pulumi:"name"`
 }
 
@@ -4258,11 +3953,8 @@ type ExternalSubnetInput interface {
 	ToExternalSubnetOutputWithContext(context.Context) ExternalSubnetOutput
 }
 
-// Subnet information as returned by the Microsoft.Network API.
 type ExternalSubnetArgs struct {
-	// Gets or sets the identifier.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the name.
+	Id   pulumi.StringPtrInput `pulumi:"id"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -4303,7 +3995,6 @@ func (i ExternalSubnetArray) ToExternalSubnetArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalSubnetArrayOutput)
 }
 
-// Subnet information as returned by the Microsoft.Network API.
 type ExternalSubnetOutput struct{ *pulumi.OutputState }
 
 func (ExternalSubnetOutput) ElementType() reflect.Type {
@@ -4318,12 +4009,10 @@ func (o ExternalSubnetOutput) ToExternalSubnetOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Gets or sets the identifier.
 func (o ExternalSubnetOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExternalSubnet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the name.
 func (o ExternalSubnetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExternalSubnet) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -4348,11 +4037,8 @@ func (o ExternalSubnetArrayOutput) Index(i pulumi.IntInput) ExternalSubnetOutput
 	}).(ExternalSubnetOutput)
 }
 
-// Subnet information as returned by the Microsoft.Network API.
 type ExternalSubnetResponse struct {
-	// Gets or sets the identifier.
-	Id *string `pulumi:"id"`
-	// Gets or sets the name.
+	Id   *string `pulumi:"id"`
 	Name *string `pulumi:"name"`
 }
 
@@ -4367,11 +4053,8 @@ type ExternalSubnetResponseInput interface {
 	ToExternalSubnetResponseOutputWithContext(context.Context) ExternalSubnetResponseOutput
 }
 
-// Subnet information as returned by the Microsoft.Network API.
 type ExternalSubnetResponseArgs struct {
-	// Gets or sets the identifier.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the name.
+	Id   pulumi.StringPtrInput `pulumi:"id"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -4412,7 +4095,6 @@ func (i ExternalSubnetResponseArray) ToExternalSubnetResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalSubnetResponseArrayOutput)
 }
 
-// Subnet information as returned by the Microsoft.Network API.
 type ExternalSubnetResponseOutput struct{ *pulumi.OutputState }
 
 func (ExternalSubnetResponseOutput) ElementType() reflect.Type {
@@ -4427,12 +4109,10 @@ func (o ExternalSubnetResponseOutput) ToExternalSubnetResponseOutputWithContext(
 	return o
 }
 
-// Gets or sets the identifier.
 func (o ExternalSubnetResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExternalSubnetResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the name.
 func (o ExternalSubnetResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExternalSubnetResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -4457,9 +4137,7 @@ func (o ExternalSubnetResponseArrayOutput) Index(i pulumi.IntInput) ExternalSubn
 	}).(ExternalSubnetResponseOutput)
 }
 
-// Information about a VM from which a formula is to be created.
 type FormulaPropertiesFromVm struct {
-	// The identifier of the VM from which a formula is to be created.
 	LabVmId *string `pulumi:"labVmId"`
 }
 
@@ -4474,9 +4152,7 @@ type FormulaPropertiesFromVmInput interface {
 	ToFormulaPropertiesFromVmOutputWithContext(context.Context) FormulaPropertiesFromVmOutput
 }
 
-// Information about a VM from which a formula is to be created.
 type FormulaPropertiesFromVmArgs struct {
-	// The identifier of the VM from which a formula is to be created.
 	LabVmId pulumi.StringPtrInput `pulumi:"labVmId"`
 }
 
@@ -4533,7 +4209,6 @@ func (i *formulaPropertiesFromVmPtrType) ToFormulaPropertiesFromVmPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FormulaPropertiesFromVmPtrOutput)
 }
 
-// Information about a VM from which a formula is to be created.
 type FormulaPropertiesFromVmOutput struct{ *pulumi.OutputState }
 
 func (FormulaPropertiesFromVmOutput) ElementType() reflect.Type {
@@ -4553,12 +4228,11 @@ func (o FormulaPropertiesFromVmOutput) ToFormulaPropertiesFromVmPtrOutput() Form
 }
 
 func (o FormulaPropertiesFromVmOutput) ToFormulaPropertiesFromVmPtrOutputWithContext(ctx context.Context) FormulaPropertiesFromVmPtrOutput {
-	return o.ApplyT(func(v FormulaPropertiesFromVm) *FormulaPropertiesFromVm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormulaPropertiesFromVm) *FormulaPropertiesFromVm {
 		return &v
 	}).(FormulaPropertiesFromVmPtrOutput)
 }
 
-// The identifier of the VM from which a formula is to be created.
 func (o FormulaPropertiesFromVmOutput) LabVmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormulaPropertiesFromVm) *string { return v.LabVmId }).(pulumi.StringPtrOutput)
 }
@@ -4578,10 +4252,15 @@ func (o FormulaPropertiesFromVmPtrOutput) ToFormulaPropertiesFromVmPtrOutputWith
 }
 
 func (o FormulaPropertiesFromVmPtrOutput) Elem() FormulaPropertiesFromVmOutput {
-	return o.ApplyT(func(v *FormulaPropertiesFromVm) FormulaPropertiesFromVm { return *v }).(FormulaPropertiesFromVmOutput)
+	return o.ApplyT(func(v *FormulaPropertiesFromVm) FormulaPropertiesFromVm {
+		if v != nil {
+			return *v
+		}
+		var ret FormulaPropertiesFromVm
+		return ret
+	}).(FormulaPropertiesFromVmOutput)
 }
 
-// The identifier of the VM from which a formula is to be created.
 func (o FormulaPropertiesFromVmPtrOutput) LabVmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormulaPropertiesFromVm) *string {
 		if v == nil {
@@ -4591,9 +4270,7 @@ func (o FormulaPropertiesFromVmPtrOutput) LabVmId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about a VM from which a formula is to be created.
 type FormulaPropertiesFromVmResponse struct {
-	// The identifier of the VM from which a formula is to be created.
 	LabVmId *string `pulumi:"labVmId"`
 }
 
@@ -4608,9 +4285,7 @@ type FormulaPropertiesFromVmResponseInput interface {
 	ToFormulaPropertiesFromVmResponseOutputWithContext(context.Context) FormulaPropertiesFromVmResponseOutput
 }
 
-// Information about a VM from which a formula is to be created.
 type FormulaPropertiesFromVmResponseArgs struct {
-	// The identifier of the VM from which a formula is to be created.
 	LabVmId pulumi.StringPtrInput `pulumi:"labVmId"`
 }
 
@@ -4667,7 +4342,6 @@ func (i *formulaPropertiesFromVmResponsePtrType) ToFormulaPropertiesFromVmRespon
 	return pulumi.ToOutputWithContext(ctx, i).(FormulaPropertiesFromVmResponsePtrOutput)
 }
 
-// Information about a VM from which a formula is to be created.
 type FormulaPropertiesFromVmResponseOutput struct{ *pulumi.OutputState }
 
 func (FormulaPropertiesFromVmResponseOutput) ElementType() reflect.Type {
@@ -4687,12 +4361,11 @@ func (o FormulaPropertiesFromVmResponseOutput) ToFormulaPropertiesFromVmResponse
 }
 
 func (o FormulaPropertiesFromVmResponseOutput) ToFormulaPropertiesFromVmResponsePtrOutputWithContext(ctx context.Context) FormulaPropertiesFromVmResponsePtrOutput {
-	return o.ApplyT(func(v FormulaPropertiesFromVmResponse) *FormulaPropertiesFromVmResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormulaPropertiesFromVmResponse) *FormulaPropertiesFromVmResponse {
 		return &v
 	}).(FormulaPropertiesFromVmResponsePtrOutput)
 }
 
-// The identifier of the VM from which a formula is to be created.
 func (o FormulaPropertiesFromVmResponseOutput) LabVmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormulaPropertiesFromVmResponse) *string { return v.LabVmId }).(pulumi.StringPtrOutput)
 }
@@ -4712,10 +4385,15 @@ func (o FormulaPropertiesFromVmResponsePtrOutput) ToFormulaPropertiesFromVmRespo
 }
 
 func (o FormulaPropertiesFromVmResponsePtrOutput) Elem() FormulaPropertiesFromVmResponseOutput {
-	return o.ApplyT(func(v *FormulaPropertiesFromVmResponse) FormulaPropertiesFromVmResponse { return *v }).(FormulaPropertiesFromVmResponseOutput)
+	return o.ApplyT(func(v *FormulaPropertiesFromVmResponse) FormulaPropertiesFromVmResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FormulaPropertiesFromVmResponse
+		return ret
+	}).(FormulaPropertiesFromVmResponseOutput)
 }
 
-// The identifier of the VM from which a formula is to be created.
 func (o FormulaPropertiesFromVmResponsePtrOutput) LabVmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormulaPropertiesFromVmResponse) *string {
 		if v == nil {
@@ -4725,18 +4403,12 @@ func (o FormulaPropertiesFromVmResponsePtrOutput) LabVmId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reference information for an Azure Marketplace image.
 type GalleryImageReference struct {
-	// The offer of the gallery image.
-	Offer *string `pulumi:"offer"`
-	// The OS type of the gallery image.
-	OsType *string `pulumi:"osType"`
-	// The publisher of the gallery image.
+	Offer     *string `pulumi:"offer"`
+	OsType    *string `pulumi:"osType"`
 	Publisher *string `pulumi:"publisher"`
-	// The SKU of the gallery image.
-	Sku *string `pulumi:"sku"`
-	// The version of the gallery image.
-	Version *string `pulumi:"version"`
+	Sku       *string `pulumi:"sku"`
+	Version   *string `pulumi:"version"`
 }
 
 // GalleryImageReferenceInput is an input type that accepts GalleryImageReferenceArgs and GalleryImageReferenceOutput values.
@@ -4750,18 +4422,12 @@ type GalleryImageReferenceInput interface {
 	ToGalleryImageReferenceOutputWithContext(context.Context) GalleryImageReferenceOutput
 }
 
-// The reference information for an Azure Marketplace image.
 type GalleryImageReferenceArgs struct {
-	// The offer of the gallery image.
-	Offer pulumi.StringPtrInput `pulumi:"offer"`
-	// The OS type of the gallery image.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The publisher of the gallery image.
+	Offer     pulumi.StringPtrInput `pulumi:"offer"`
+	OsType    pulumi.StringPtrInput `pulumi:"osType"`
 	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	// The SKU of the gallery image.
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-	// The version of the gallery image.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Sku       pulumi.StringPtrInput `pulumi:"sku"`
+	Version   pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (GalleryImageReferenceArgs) ElementType() reflect.Type {
@@ -4817,7 +4483,6 @@ func (i *galleryImageReferencePtrType) ToGalleryImageReferencePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageReferencePtrOutput)
 }
 
-// The reference information for an Azure Marketplace image.
 type GalleryImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageReferenceOutput) ElementType() reflect.Type {
@@ -4837,32 +4502,27 @@ func (o GalleryImageReferenceOutput) ToGalleryImageReferencePtrOutput() GalleryI
 }
 
 func (o GalleryImageReferenceOutput) ToGalleryImageReferencePtrOutputWithContext(ctx context.Context) GalleryImageReferencePtrOutput {
-	return o.ApplyT(func(v GalleryImageReference) *GalleryImageReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryImageReference) *GalleryImageReference {
 		return &v
 	}).(GalleryImageReferencePtrOutput)
 }
 
-// The offer of the gallery image.
 func (o GalleryImageReferenceOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
-// The OS type of the gallery image.
 func (o GalleryImageReferenceOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageReference) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// The publisher of the gallery image.
 func (o GalleryImageReferenceOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the gallery image.
 func (o GalleryImageReferenceOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
-// The version of the gallery image.
 func (o GalleryImageReferenceOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -4882,10 +4542,15 @@ func (o GalleryImageReferencePtrOutput) ToGalleryImageReferencePtrOutputWithCont
 }
 
 func (o GalleryImageReferencePtrOutput) Elem() GalleryImageReferenceOutput {
-	return o.ApplyT(func(v *GalleryImageReference) GalleryImageReference { return *v }).(GalleryImageReferenceOutput)
+	return o.ApplyT(func(v *GalleryImageReference) GalleryImageReference {
+		if v != nil {
+			return *v
+		}
+		var ret GalleryImageReference
+		return ret
+	}).(GalleryImageReferenceOutput)
 }
 
-// The offer of the gallery image.
 func (o GalleryImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageReference) *string {
 		if v == nil {
@@ -4895,7 +4560,6 @@ func (o GalleryImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OS type of the gallery image.
 func (o GalleryImageReferencePtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageReference) *string {
 		if v == nil {
@@ -4905,7 +4569,6 @@ func (o GalleryImageReferencePtrOutput) OsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher of the gallery image.
 func (o GalleryImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageReference) *string {
 		if v == nil {
@@ -4915,7 +4578,6 @@ func (o GalleryImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the gallery image.
 func (o GalleryImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageReference) *string {
 		if v == nil {
@@ -4925,7 +4587,6 @@ func (o GalleryImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the gallery image.
 func (o GalleryImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageReference) *string {
 		if v == nil {
@@ -4935,18 +4596,12 @@ func (o GalleryImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reference information for an Azure Marketplace image.
 type GalleryImageReferenceResponse struct {
-	// The offer of the gallery image.
-	Offer *string `pulumi:"offer"`
-	// The OS type of the gallery image.
-	OsType *string `pulumi:"osType"`
-	// The publisher of the gallery image.
+	Offer     *string `pulumi:"offer"`
+	OsType    *string `pulumi:"osType"`
 	Publisher *string `pulumi:"publisher"`
-	// The SKU of the gallery image.
-	Sku *string `pulumi:"sku"`
-	// The version of the gallery image.
-	Version *string `pulumi:"version"`
+	Sku       *string `pulumi:"sku"`
+	Version   *string `pulumi:"version"`
 }
 
 // GalleryImageReferenceResponseInput is an input type that accepts GalleryImageReferenceResponseArgs and GalleryImageReferenceResponseOutput values.
@@ -4960,18 +4615,12 @@ type GalleryImageReferenceResponseInput interface {
 	ToGalleryImageReferenceResponseOutputWithContext(context.Context) GalleryImageReferenceResponseOutput
 }
 
-// The reference information for an Azure Marketplace image.
 type GalleryImageReferenceResponseArgs struct {
-	// The offer of the gallery image.
-	Offer pulumi.StringPtrInput `pulumi:"offer"`
-	// The OS type of the gallery image.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The publisher of the gallery image.
+	Offer     pulumi.StringPtrInput `pulumi:"offer"`
+	OsType    pulumi.StringPtrInput `pulumi:"osType"`
 	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	// The SKU of the gallery image.
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-	// The version of the gallery image.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Sku       pulumi.StringPtrInput `pulumi:"sku"`
+	Version   pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (GalleryImageReferenceResponseArgs) ElementType() reflect.Type {
@@ -5027,7 +4676,6 @@ func (i *galleryImageReferenceResponsePtrType) ToGalleryImageReferenceResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageReferenceResponsePtrOutput)
 }
 
-// The reference information for an Azure Marketplace image.
 type GalleryImageReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageReferenceResponseOutput) ElementType() reflect.Type {
@@ -5047,32 +4695,27 @@ func (o GalleryImageReferenceResponseOutput) ToGalleryImageReferenceResponsePtrO
 }
 
 func (o GalleryImageReferenceResponseOutput) ToGalleryImageReferenceResponsePtrOutputWithContext(ctx context.Context) GalleryImageReferenceResponsePtrOutput {
-	return o.ApplyT(func(v GalleryImageReferenceResponse) *GalleryImageReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryImageReferenceResponse) *GalleryImageReferenceResponse {
 		return &v
 	}).(GalleryImageReferenceResponsePtrOutput)
 }
 
-// The offer of the gallery image.
 func (o GalleryImageReferenceResponseOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageReferenceResponse) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
-// The OS type of the gallery image.
 func (o GalleryImageReferenceResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageReferenceResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// The publisher of the gallery image.
 func (o GalleryImageReferenceResponseOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageReferenceResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the gallery image.
 func (o GalleryImageReferenceResponseOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageReferenceResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
-// The version of the gallery image.
 func (o GalleryImageReferenceResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageReferenceResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -5092,10 +4735,15 @@ func (o GalleryImageReferenceResponsePtrOutput) ToGalleryImageReferenceResponseP
 }
 
 func (o GalleryImageReferenceResponsePtrOutput) Elem() GalleryImageReferenceResponseOutput {
-	return o.ApplyT(func(v *GalleryImageReferenceResponse) GalleryImageReferenceResponse { return *v }).(GalleryImageReferenceResponseOutput)
+	return o.ApplyT(func(v *GalleryImageReferenceResponse) GalleryImageReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GalleryImageReferenceResponse
+		return ret
+	}).(GalleryImageReferenceResponseOutput)
 }
 
-// The offer of the gallery image.
 func (o GalleryImageReferenceResponsePtrOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageReferenceResponse) *string {
 		if v == nil {
@@ -5105,7 +4753,6 @@ func (o GalleryImageReferenceResponsePtrOutput) Offer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OS type of the gallery image.
 func (o GalleryImageReferenceResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageReferenceResponse) *string {
 		if v == nil {
@@ -5115,7 +4762,6 @@ func (o GalleryImageReferenceResponsePtrOutput) OsType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher of the gallery image.
 func (o GalleryImageReferenceResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageReferenceResponse) *string {
 		if v == nil {
@@ -5125,7 +4771,6 @@ func (o GalleryImageReferenceResponsePtrOutput) Publisher() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the gallery image.
 func (o GalleryImageReferenceResponsePtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageReferenceResponse) *string {
 		if v == nil {
@@ -5135,7 +4780,6 @@ func (o GalleryImageReferenceResponsePtrOutput) Sku() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the gallery image.
 func (o GalleryImageReferenceResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageReferenceResponse) *string {
 		if v == nil {
@@ -5145,9 +4789,7 @@ func (o GalleryImageReferenceResponsePtrOutput) Version() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of an hourly schedule.
 type HourDetails struct {
-	// Minutes of the hour the schedule will run.
 	Minute *int `pulumi:"minute"`
 }
 
@@ -5162,9 +4804,7 @@ type HourDetailsInput interface {
 	ToHourDetailsOutputWithContext(context.Context) HourDetailsOutput
 }
 
-// Properties of an hourly schedule.
 type HourDetailsArgs struct {
-	// Minutes of the hour the schedule will run.
 	Minute pulumi.IntPtrInput `pulumi:"minute"`
 }
 
@@ -5221,7 +4861,6 @@ func (i *hourDetailsPtrType) ToHourDetailsPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HourDetailsPtrOutput)
 }
 
-// Properties of an hourly schedule.
 type HourDetailsOutput struct{ *pulumi.OutputState }
 
 func (HourDetailsOutput) ElementType() reflect.Type {
@@ -5241,12 +4880,11 @@ func (o HourDetailsOutput) ToHourDetailsPtrOutput() HourDetailsPtrOutput {
 }
 
 func (o HourDetailsOutput) ToHourDetailsPtrOutputWithContext(ctx context.Context) HourDetailsPtrOutput {
-	return o.ApplyT(func(v HourDetails) *HourDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HourDetails) *HourDetails {
 		return &v
 	}).(HourDetailsPtrOutput)
 }
 
-// Minutes of the hour the schedule will run.
 func (o HourDetailsOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HourDetails) *int { return v.Minute }).(pulumi.IntPtrOutput)
 }
@@ -5266,10 +4904,15 @@ func (o HourDetailsPtrOutput) ToHourDetailsPtrOutputWithContext(ctx context.Cont
 }
 
 func (o HourDetailsPtrOutput) Elem() HourDetailsOutput {
-	return o.ApplyT(func(v *HourDetails) HourDetails { return *v }).(HourDetailsOutput)
+	return o.ApplyT(func(v *HourDetails) HourDetails {
+		if v != nil {
+			return *v
+		}
+		var ret HourDetails
+		return ret
+	}).(HourDetailsOutput)
 }
 
-// Minutes of the hour the schedule will run.
 func (o HourDetailsPtrOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HourDetails) *int {
 		if v == nil {
@@ -5279,9 +4922,7 @@ func (o HourDetailsPtrOutput) Minute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Properties of an hourly schedule.
 type HourDetailsResponse struct {
-	// Minutes of the hour the schedule will run.
 	Minute *int `pulumi:"minute"`
 }
 
@@ -5296,9 +4937,7 @@ type HourDetailsResponseInput interface {
 	ToHourDetailsResponseOutputWithContext(context.Context) HourDetailsResponseOutput
 }
 
-// Properties of an hourly schedule.
 type HourDetailsResponseArgs struct {
-	// Minutes of the hour the schedule will run.
 	Minute pulumi.IntPtrInput `pulumi:"minute"`
 }
 
@@ -5355,7 +4994,6 @@ func (i *hourDetailsResponsePtrType) ToHourDetailsResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(HourDetailsResponsePtrOutput)
 }
 
-// Properties of an hourly schedule.
 type HourDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HourDetailsResponseOutput) ElementType() reflect.Type {
@@ -5375,12 +5013,11 @@ func (o HourDetailsResponseOutput) ToHourDetailsResponsePtrOutput() HourDetailsR
 }
 
 func (o HourDetailsResponseOutput) ToHourDetailsResponsePtrOutputWithContext(ctx context.Context) HourDetailsResponsePtrOutput {
-	return o.ApplyT(func(v HourDetailsResponse) *HourDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HourDetailsResponse) *HourDetailsResponse {
 		return &v
 	}).(HourDetailsResponsePtrOutput)
 }
 
-// Minutes of the hour the schedule will run.
 func (o HourDetailsResponseOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HourDetailsResponse) *int { return v.Minute }).(pulumi.IntPtrOutput)
 }
@@ -5400,10 +5037,15 @@ func (o HourDetailsResponsePtrOutput) ToHourDetailsResponsePtrOutputWithContext(
 }
 
 func (o HourDetailsResponsePtrOutput) Elem() HourDetailsResponseOutput {
-	return o.ApplyT(func(v *HourDetailsResponse) HourDetailsResponse { return *v }).(HourDetailsResponseOutput)
+	return o.ApplyT(func(v *HourDetailsResponse) HourDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HourDetailsResponse
+		return ret
+	}).(HourDetailsResponseOutput)
 }
 
-// Minutes of the hour the schedule will run.
 func (o HourDetailsResponsePtrOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HourDetailsResponse) *int {
 		if v == nil {
@@ -5413,16 +5055,11 @@ func (o HourDetailsResponsePtrOutput) Minute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Properties of a managed identity
 type IdentityProperties struct {
-	// The client secret URL of the identity.
 	ClientSecretUrl *string `pulumi:"clientSecretUrl"`
-	// The principal id of resource identity.
-	PrincipalId *string `pulumi:"principalId"`
-	// The tenant identifier of resource.
-	TenantId *string `pulumi:"tenantId"`
-	// Managed identity.
-	Type *string `pulumi:"type"`
+	PrincipalId     *string `pulumi:"principalId"`
+	TenantId        *string `pulumi:"tenantId"`
+	Type            *string `pulumi:"type"`
 }
 
 // IdentityPropertiesInput is an input type that accepts IdentityPropertiesArgs and IdentityPropertiesOutput values.
@@ -5436,16 +5073,11 @@ type IdentityPropertiesInput interface {
 	ToIdentityPropertiesOutputWithContext(context.Context) IdentityPropertiesOutput
 }
 
-// Properties of a managed identity
 type IdentityPropertiesArgs struct {
-	// The client secret URL of the identity.
 	ClientSecretUrl pulumi.StringPtrInput `pulumi:"clientSecretUrl"`
-	// The principal id of resource identity.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The tenant identifier of resource.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Managed identity.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId     pulumi.StringPtrInput `pulumi:"principalId"`
+	TenantId        pulumi.StringPtrInput `pulumi:"tenantId"`
+	Type            pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IdentityPropertiesArgs) ElementType() reflect.Type {
@@ -5501,7 +5133,6 @@ func (i *identityPropertiesPtrType) ToIdentityPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesPtrOutput)
 }
 
-// Properties of a managed identity
 type IdentityPropertiesOutput struct{ *pulumi.OutputState }
 
 func (IdentityPropertiesOutput) ElementType() reflect.Type {
@@ -5521,27 +5152,23 @@ func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutput() IdentityProper
 }
 
 func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutputWithContext(ctx context.Context) IdentityPropertiesPtrOutput {
-	return o.ApplyT(func(v IdentityProperties) *IdentityProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProperties) *IdentityProperties {
 		return &v
 	}).(IdentityPropertiesPtrOutput)
 }
 
-// The client secret URL of the identity.
 func (o IdentityPropertiesOutput) ClientSecretUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProperties) *string { return v.ClientSecretUrl }).(pulumi.StringPtrOutput)
 }
 
-// The principal id of resource identity.
 func (o IdentityPropertiesOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProperties) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The tenant identifier of resource.
 func (o IdentityPropertiesOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProperties) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity.
 func (o IdentityPropertiesOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -5561,10 +5188,15 @@ func (o IdentityPropertiesPtrOutput) ToIdentityPropertiesPtrOutputWithContext(ct
 }
 
 func (o IdentityPropertiesPtrOutput) Elem() IdentityPropertiesOutput {
-	return o.ApplyT(func(v *IdentityProperties) IdentityProperties { return *v }).(IdentityPropertiesOutput)
+	return o.ApplyT(func(v *IdentityProperties) IdentityProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityProperties
+		return ret
+	}).(IdentityPropertiesOutput)
 }
 
-// The client secret URL of the identity.
 func (o IdentityPropertiesPtrOutput) ClientSecretUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProperties) *string {
 		if v == nil {
@@ -5574,7 +5206,6 @@ func (o IdentityPropertiesPtrOutput) ClientSecretUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The principal id of resource identity.
 func (o IdentityPropertiesPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProperties) *string {
 		if v == nil {
@@ -5584,7 +5215,6 @@ func (o IdentityPropertiesPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant identifier of resource.
 func (o IdentityPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProperties) *string {
 		if v == nil {
@@ -5594,7 +5224,6 @@ func (o IdentityPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed identity.
 func (o IdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProperties) *string {
 		if v == nil {
@@ -5604,16 +5233,11 @@ func (o IdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a managed identity
 type IdentityPropertiesResponse struct {
-	// The client secret URL of the identity.
 	ClientSecretUrl *string `pulumi:"clientSecretUrl"`
-	// The principal id of resource identity.
-	PrincipalId *string `pulumi:"principalId"`
-	// The tenant identifier of resource.
-	TenantId *string `pulumi:"tenantId"`
-	// Managed identity.
-	Type *string `pulumi:"type"`
+	PrincipalId     *string `pulumi:"principalId"`
+	TenantId        *string `pulumi:"tenantId"`
+	Type            *string `pulumi:"type"`
 }
 
 // IdentityPropertiesResponseInput is an input type that accepts IdentityPropertiesResponseArgs and IdentityPropertiesResponseOutput values.
@@ -5627,16 +5251,11 @@ type IdentityPropertiesResponseInput interface {
 	ToIdentityPropertiesResponseOutputWithContext(context.Context) IdentityPropertiesResponseOutput
 }
 
-// Properties of a managed identity
 type IdentityPropertiesResponseArgs struct {
-	// The client secret URL of the identity.
 	ClientSecretUrl pulumi.StringPtrInput `pulumi:"clientSecretUrl"`
-	// The principal id of resource identity.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The tenant identifier of resource.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Managed identity.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId     pulumi.StringPtrInput `pulumi:"principalId"`
+	TenantId        pulumi.StringPtrInput `pulumi:"tenantId"`
+	Type            pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IdentityPropertiesResponseArgs) ElementType() reflect.Type {
@@ -5692,7 +5311,6 @@ func (i *identityPropertiesResponsePtrType) ToIdentityPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesResponsePtrOutput)
 }
 
-// Properties of a managed identity
 type IdentityPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityPropertiesResponseOutput) ElementType() reflect.Type {
@@ -5712,27 +5330,23 @@ func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutput(
 }
 
 func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) IdentityPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v IdentityPropertiesResponse) *IdentityPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPropertiesResponse) *IdentityPropertiesResponse {
 		return &v
 	}).(IdentityPropertiesResponsePtrOutput)
 }
 
-// The client secret URL of the identity.
 func (o IdentityPropertiesResponseOutput) ClientSecretUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) *string { return v.ClientSecretUrl }).(pulumi.StringPtrOutput)
 }
 
-// The principal id of resource identity.
 func (o IdentityPropertiesResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The tenant identifier of resource.
 func (o IdentityPropertiesResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity.
 func (o IdentityPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -5752,10 +5366,15 @@ func (o IdentityPropertiesResponsePtrOutput) ToIdentityPropertiesResponsePtrOutp
 }
 
 func (o IdentityPropertiesResponsePtrOutput) Elem() IdentityPropertiesResponseOutput {
-	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse { return *v }).(IdentityPropertiesResponseOutput)
+	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityPropertiesResponse
+		return ret
+	}).(IdentityPropertiesResponseOutput)
 }
 
-// The client secret URL of the identity.
 func (o IdentityPropertiesResponsePtrOutput) ClientSecretUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) *string {
 		if v == nil {
@@ -5765,7 +5384,6 @@ func (o IdentityPropertiesResponsePtrOutput) ClientSecretUrl() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The principal id of resource identity.
 func (o IdentityPropertiesResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) *string {
 		if v == nil {
@@ -5775,7 +5393,6 @@ func (o IdentityPropertiesResponsePtrOutput) PrincipalId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant identifier of resource.
 func (o IdentityPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) *string {
 		if v == nil {
@@ -5785,7 +5402,6 @@ func (o IdentityPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed identity.
 func (o IdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) *string {
 		if v == nil {
@@ -5795,13 +5411,9 @@ func (o IdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
 type InboundNatRule struct {
-	// The port to which the external traffic will be redirected.
-	BackendPort *int `pulumi:"backendPort"`
-	// The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
-	FrontendPort *int `pulumi:"frontendPort"`
-	// The transport protocol for the endpoint.
+	BackendPort       *int    `pulumi:"backendPort"`
+	FrontendPort      *int    `pulumi:"frontendPort"`
 	TransportProtocol *string `pulumi:"transportProtocol"`
 }
 
@@ -5816,13 +5428,9 @@ type InboundNatRuleInput interface {
 	ToInboundNatRuleOutputWithContext(context.Context) InboundNatRuleOutput
 }
 
-// A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
 type InboundNatRuleArgs struct {
-	// The port to which the external traffic will be redirected.
-	BackendPort pulumi.IntPtrInput `pulumi:"backendPort"`
-	// The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
-	FrontendPort pulumi.IntPtrInput `pulumi:"frontendPort"`
-	// The transport protocol for the endpoint.
+	BackendPort       pulumi.IntPtrInput    `pulumi:"backendPort"`
+	FrontendPort      pulumi.IntPtrInput    `pulumi:"frontendPort"`
 	TransportProtocol pulumi.StringPtrInput `pulumi:"transportProtocol"`
 }
 
@@ -5863,7 +5471,6 @@ func (i InboundNatRuleArray) ToInboundNatRuleArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(InboundNatRuleArrayOutput)
 }
 
-// A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
 type InboundNatRuleOutput struct{ *pulumi.OutputState }
 
 func (InboundNatRuleOutput) ElementType() reflect.Type {
@@ -5878,17 +5485,14 @@ func (o InboundNatRuleOutput) ToInboundNatRuleOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The port to which the external traffic will be redirected.
 func (o InboundNatRuleOutput) BackendPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InboundNatRule) *int { return v.BackendPort }).(pulumi.IntPtrOutput)
 }
 
-// The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
 func (o InboundNatRuleOutput) FrontendPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InboundNatRule) *int { return v.FrontendPort }).(pulumi.IntPtrOutput)
 }
 
-// The transport protocol for the endpoint.
 func (o InboundNatRuleOutput) TransportProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatRule) *string { return v.TransportProtocol }).(pulumi.StringPtrOutput)
 }
@@ -5913,13 +5517,9 @@ func (o InboundNatRuleArrayOutput) Index(i pulumi.IntInput) InboundNatRuleOutput
 	}).(InboundNatRuleOutput)
 }
 
-// A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
 type InboundNatRuleResponse struct {
-	// The port to which the external traffic will be redirected.
-	BackendPort *int `pulumi:"backendPort"`
-	// The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
-	FrontendPort *int `pulumi:"frontendPort"`
-	// The transport protocol for the endpoint.
+	BackendPort       *int    `pulumi:"backendPort"`
+	FrontendPort      *int    `pulumi:"frontendPort"`
 	TransportProtocol *string `pulumi:"transportProtocol"`
 }
 
@@ -5934,13 +5534,9 @@ type InboundNatRuleResponseInput interface {
 	ToInboundNatRuleResponseOutputWithContext(context.Context) InboundNatRuleResponseOutput
 }
 
-// A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
 type InboundNatRuleResponseArgs struct {
-	// The port to which the external traffic will be redirected.
-	BackendPort pulumi.IntPtrInput `pulumi:"backendPort"`
-	// The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
-	FrontendPort pulumi.IntPtrInput `pulumi:"frontendPort"`
-	// The transport protocol for the endpoint.
+	BackendPort       pulumi.IntPtrInput    `pulumi:"backendPort"`
+	FrontendPort      pulumi.IntPtrInput    `pulumi:"frontendPort"`
 	TransportProtocol pulumi.StringPtrInput `pulumi:"transportProtocol"`
 }
 
@@ -5981,7 +5577,6 @@ func (i InboundNatRuleResponseArray) ToInboundNatRuleResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InboundNatRuleResponseArrayOutput)
 }
 
-// A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
 type InboundNatRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (InboundNatRuleResponseOutput) ElementType() reflect.Type {
@@ -5996,17 +5591,14 @@ func (o InboundNatRuleResponseOutput) ToInboundNatRuleResponseOutputWithContext(
 	return o
 }
 
-// The port to which the external traffic will be redirected.
 func (o InboundNatRuleResponseOutput) BackendPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InboundNatRuleResponse) *int { return v.BackendPort }).(pulumi.IntPtrOutput)
 }
 
-// The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
 func (o InboundNatRuleResponseOutput) FrontendPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InboundNatRuleResponse) *int { return v.FrontendPort }).(pulumi.IntPtrOutput)
 }
 
-// The transport protocol for the endpoint.
 func (o InboundNatRuleResponseOutput) TransportProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InboundNatRuleResponse) *string { return v.TransportProtocol }).(pulumi.StringPtrOutput)
 }
@@ -6031,9 +5623,7 @@ func (o InboundNatRuleResponseArrayOutput) Index(i pulumi.IntInput) InboundNatRu
 	}).(InboundNatRuleResponseOutput)
 }
 
-// Properties of a VHD in the lab.
 type LabVhdResponse struct {
-	// The URI to the VHD.
 	Id *string `pulumi:"id"`
 }
 
@@ -6048,9 +5638,7 @@ type LabVhdResponseInput interface {
 	ToLabVhdResponseOutputWithContext(context.Context) LabVhdResponseOutput
 }
 
-// Properties of a VHD in the lab.
 type LabVhdResponseArgs struct {
-	// The URI to the VHD.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -6091,7 +5679,6 @@ func (i LabVhdResponseArray) ToLabVhdResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LabVhdResponseArrayOutput)
 }
 
-// Properties of a VHD in the lab.
 type LabVhdResponseOutput struct{ *pulumi.OutputState }
 
 func (LabVhdResponseOutput) ElementType() reflect.Type {
@@ -6106,7 +5693,6 @@ func (o LabVhdResponseOutput) ToLabVhdResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The URI to the VHD.
 func (o LabVhdResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVhdResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -6131,76 +5717,41 @@ func (o LabVhdResponseArrayOutput) Index(i pulumi.IntInput) LabVhdResponseOutput
 	}).(LabVhdResponseOutput)
 }
 
-// Properties for creating a virtual machine.
 type LabVirtualMachineCreationParameter struct {
-	// Indicates whether another user can take ownership of the virtual machine
-	AllowClaim *bool `pulumi:"allowClaim"`
-	// The applicable schedule for the virtual machine.
-	ApplicableSchedule *ApplicableSchedule `pulumi:"applicableSchedule"`
-	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus *ArtifactDeploymentStatusProperties `pulumi:"artifactDeploymentStatus"`
-	// The artifacts to be installed on the virtual machine.
-	Artifacts []ArtifactInstallProperties `pulumi:"artifacts"`
-	// The number of virtual machine instances to create.
-	BulkCreationParameters *BulkCreationParameters `pulumi:"bulkCreationParameters"`
-	// The compute virtual machine properties.
-	ComputeVm *ComputeVmProperties `pulumi:"computeVm"`
-	// The email address of creator of the virtual machine.
-	CreatedByUser *string `pulumi:"createdByUser"`
-	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId *string `pulumi:"createdByUserId"`
-	// The creation date of the virtual machine.
-	CreatedDate *string `pulumi:"createdDate"`
-	// The custom image identifier of the virtual machine.
-	CustomImageId *string `pulumi:"customImageId"`
-	// Indicates whether the virtual machine is to be created without a public IP address.
-	DisallowPublicIpAddress *bool `pulumi:"disallowPublicIpAddress"`
-	// The resource ID of the environment that contains this virtual machine, if any.
-	EnvironmentId *string `pulumi:"environmentId"`
-	// The expiration date for VM.
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// The fully-qualified domain name of the virtual machine.
-	Fqdn *string `pulumi:"fqdn"`
-	// The Microsoft Azure Marketplace image reference of the virtual machine.
-	GalleryImageReference *GalleryImageReference `pulumi:"galleryImageReference"`
-	// Indicates whether this virtual machine uses an SSH key for authentication.
-	IsAuthenticationWithSshKey *bool `pulumi:"isAuthenticationWithSshKey"`
-	// The lab subnet name of the virtual machine.
-	LabSubnetName *string `pulumi:"labSubnetName"`
-	// The lab virtual network identifier of the virtual machine.
-	LabVirtualNetworkId *string `pulumi:"labVirtualNetworkId"`
-	// The location of the new virtual machine or environment
-	Location *string `pulumi:"location"`
-	// The name of the virtual machine or environment
-	Name *string `pulumi:"name"`
-	// The network interface properties.
-	NetworkInterface *NetworkInterfaceProperties `pulumi:"networkInterface"`
-	// The notes of the virtual machine.
-	Notes *string `pulumi:"notes"`
-	// The OS type of the virtual machine.
-	OsType *string `pulumi:"osType"`
-	// The object identifier of the owner of the virtual machine.
-	OwnerObjectId *string `pulumi:"ownerObjectId"`
-	// The user principal name of the virtual machine owner.
-	OwnerUserPrincipalName *string `pulumi:"ownerUserPrincipalName"`
-	// The password of the virtual machine administrator.
-	Password *string `pulumi:"password"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The size of the virtual machine.
-	Size *string `pulumi:"size"`
-	// The SSH key of the virtual machine administrator.
-	SshKey *string `pulumi:"sshKey"`
-	// Storage type to use for virtual machine (i.e. Standard, Premium).
-	StorageType *string `pulumi:"storageType"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// The user name of the virtual machine.
-	UserName *string `pulumi:"userName"`
-	// Tells source of creation of lab virtual machine. Output property only.
-	VirtualMachineCreationSource *string `pulumi:"virtualMachineCreationSource"`
+	AllowClaim                   *bool                               `pulumi:"allowClaim"`
+	ApplicableSchedule           *ApplicableSchedule                 `pulumi:"applicableSchedule"`
+	ArtifactDeploymentStatus     *ArtifactDeploymentStatusProperties `pulumi:"artifactDeploymentStatus"`
+	Artifacts                    []ArtifactInstallProperties         `pulumi:"artifacts"`
+	BulkCreationParameters       *BulkCreationParameters             `pulumi:"bulkCreationParameters"`
+	ComputeVm                    *ComputeVmProperties                `pulumi:"computeVm"`
+	CreatedByUser                *string                             `pulumi:"createdByUser"`
+	CreatedByUserId              *string                             `pulumi:"createdByUserId"`
+	CreatedDate                  *string                             `pulumi:"createdDate"`
+	CustomImageId                *string                             `pulumi:"customImageId"`
+	DisallowPublicIpAddress      *bool                               `pulumi:"disallowPublicIpAddress"`
+	EnvironmentId                *string                             `pulumi:"environmentId"`
+	ExpirationDate               *string                             `pulumi:"expirationDate"`
+	Fqdn                         *string                             `pulumi:"fqdn"`
+	GalleryImageReference        *GalleryImageReference              `pulumi:"galleryImageReference"`
+	IsAuthenticationWithSshKey   *bool                               `pulumi:"isAuthenticationWithSshKey"`
+	LabSubnetName                *string                             `pulumi:"labSubnetName"`
+	LabVirtualNetworkId          *string                             `pulumi:"labVirtualNetworkId"`
+	Location                     *string                             `pulumi:"location"`
+	Name                         *string                             `pulumi:"name"`
+	NetworkInterface             *NetworkInterfaceProperties         `pulumi:"networkInterface"`
+	Notes                        *string                             `pulumi:"notes"`
+	OsType                       *string                             `pulumi:"osType"`
+	OwnerObjectId                *string                             `pulumi:"ownerObjectId"`
+	OwnerUserPrincipalName       *string                             `pulumi:"ownerUserPrincipalName"`
+	Password                     *string                             `pulumi:"password"`
+	ProvisioningState            *string                             `pulumi:"provisioningState"`
+	Size                         *string                             `pulumi:"size"`
+	SshKey                       *string                             `pulumi:"sshKey"`
+	StorageType                  *string                             `pulumi:"storageType"`
+	Tags                         map[string]string                   `pulumi:"tags"`
+	UniqueIdentifier             *string                             `pulumi:"uniqueIdentifier"`
+	UserName                     *string                             `pulumi:"userName"`
+	VirtualMachineCreationSource *string                             `pulumi:"virtualMachineCreationSource"`
 }
 
 // LabVirtualMachineCreationParameterInput is an input type that accepts LabVirtualMachineCreationParameterArgs and LabVirtualMachineCreationParameterOutput values.
@@ -6214,76 +5765,41 @@ type LabVirtualMachineCreationParameterInput interface {
 	ToLabVirtualMachineCreationParameterOutputWithContext(context.Context) LabVirtualMachineCreationParameterOutput
 }
 
-// Properties for creating a virtual machine.
 type LabVirtualMachineCreationParameterArgs struct {
-	// Indicates whether another user can take ownership of the virtual machine
-	AllowClaim pulumi.BoolPtrInput `pulumi:"allowClaim"`
-	// The applicable schedule for the virtual machine.
-	ApplicableSchedule ApplicableSchedulePtrInput `pulumi:"applicableSchedule"`
-	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus ArtifactDeploymentStatusPropertiesPtrInput `pulumi:"artifactDeploymentStatus"`
-	// The artifacts to be installed on the virtual machine.
-	Artifacts ArtifactInstallPropertiesArrayInput `pulumi:"artifacts"`
-	// The number of virtual machine instances to create.
-	BulkCreationParameters BulkCreationParametersPtrInput `pulumi:"bulkCreationParameters"`
-	// The compute virtual machine properties.
-	ComputeVm ComputeVmPropertiesPtrInput `pulumi:"computeVm"`
-	// The email address of creator of the virtual machine.
-	CreatedByUser pulumi.StringPtrInput `pulumi:"createdByUser"`
-	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId pulumi.StringPtrInput `pulumi:"createdByUserId"`
-	// The creation date of the virtual machine.
-	CreatedDate pulumi.StringPtrInput `pulumi:"createdDate"`
-	// The custom image identifier of the virtual machine.
-	CustomImageId pulumi.StringPtrInput `pulumi:"customImageId"`
-	// Indicates whether the virtual machine is to be created without a public IP address.
-	DisallowPublicIpAddress pulumi.BoolPtrInput `pulumi:"disallowPublicIpAddress"`
-	// The resource ID of the environment that contains this virtual machine, if any.
-	EnvironmentId pulumi.StringPtrInput `pulumi:"environmentId"`
-	// The expiration date for VM.
-	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
-	// The fully-qualified domain name of the virtual machine.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// The Microsoft Azure Marketplace image reference of the virtual machine.
-	GalleryImageReference GalleryImageReferencePtrInput `pulumi:"galleryImageReference"`
-	// Indicates whether this virtual machine uses an SSH key for authentication.
-	IsAuthenticationWithSshKey pulumi.BoolPtrInput `pulumi:"isAuthenticationWithSshKey"`
-	// The lab subnet name of the virtual machine.
-	LabSubnetName pulumi.StringPtrInput `pulumi:"labSubnetName"`
-	// The lab virtual network identifier of the virtual machine.
-	LabVirtualNetworkId pulumi.StringPtrInput `pulumi:"labVirtualNetworkId"`
-	// The location of the new virtual machine or environment
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the virtual machine or environment
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The network interface properties.
-	NetworkInterface NetworkInterfacePropertiesPtrInput `pulumi:"networkInterface"`
-	// The notes of the virtual machine.
-	Notes pulumi.StringPtrInput `pulumi:"notes"`
-	// The OS type of the virtual machine.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The object identifier of the owner of the virtual machine.
-	OwnerObjectId pulumi.StringPtrInput `pulumi:"ownerObjectId"`
-	// The user principal name of the virtual machine owner.
-	OwnerUserPrincipalName pulumi.StringPtrInput `pulumi:"ownerUserPrincipalName"`
-	// The password of the virtual machine administrator.
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The size of the virtual machine.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The SSH key of the virtual machine administrator.
-	SshKey pulumi.StringPtrInput `pulumi:"sshKey"`
-	// Storage type to use for virtual machine (i.e. Standard, Premium).
-	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-	// The user name of the virtual machine.
-	UserName pulumi.StringPtrInput `pulumi:"userName"`
-	// Tells source of creation of lab virtual machine. Output property only.
-	VirtualMachineCreationSource pulumi.StringPtrInput `pulumi:"virtualMachineCreationSource"`
+	AllowClaim                   pulumi.BoolPtrInput                        `pulumi:"allowClaim"`
+	ApplicableSchedule           ApplicableSchedulePtrInput                 `pulumi:"applicableSchedule"`
+	ArtifactDeploymentStatus     ArtifactDeploymentStatusPropertiesPtrInput `pulumi:"artifactDeploymentStatus"`
+	Artifacts                    ArtifactInstallPropertiesArrayInput        `pulumi:"artifacts"`
+	BulkCreationParameters       BulkCreationParametersPtrInput             `pulumi:"bulkCreationParameters"`
+	ComputeVm                    ComputeVmPropertiesPtrInput                `pulumi:"computeVm"`
+	CreatedByUser                pulumi.StringPtrInput                      `pulumi:"createdByUser"`
+	CreatedByUserId              pulumi.StringPtrInput                      `pulumi:"createdByUserId"`
+	CreatedDate                  pulumi.StringPtrInput                      `pulumi:"createdDate"`
+	CustomImageId                pulumi.StringPtrInput                      `pulumi:"customImageId"`
+	DisallowPublicIpAddress      pulumi.BoolPtrInput                        `pulumi:"disallowPublicIpAddress"`
+	EnvironmentId                pulumi.StringPtrInput                      `pulumi:"environmentId"`
+	ExpirationDate               pulumi.StringPtrInput                      `pulumi:"expirationDate"`
+	Fqdn                         pulumi.StringPtrInput                      `pulumi:"fqdn"`
+	GalleryImageReference        GalleryImageReferencePtrInput              `pulumi:"galleryImageReference"`
+	IsAuthenticationWithSshKey   pulumi.BoolPtrInput                        `pulumi:"isAuthenticationWithSshKey"`
+	LabSubnetName                pulumi.StringPtrInput                      `pulumi:"labSubnetName"`
+	LabVirtualNetworkId          pulumi.StringPtrInput                      `pulumi:"labVirtualNetworkId"`
+	Location                     pulumi.StringPtrInput                      `pulumi:"location"`
+	Name                         pulumi.StringPtrInput                      `pulumi:"name"`
+	NetworkInterface             NetworkInterfacePropertiesPtrInput         `pulumi:"networkInterface"`
+	Notes                        pulumi.StringPtrInput                      `pulumi:"notes"`
+	OsType                       pulumi.StringPtrInput                      `pulumi:"osType"`
+	OwnerObjectId                pulumi.StringPtrInput                      `pulumi:"ownerObjectId"`
+	OwnerUserPrincipalName       pulumi.StringPtrInput                      `pulumi:"ownerUserPrincipalName"`
+	Password                     pulumi.StringPtrInput                      `pulumi:"password"`
+	ProvisioningState            pulumi.StringPtrInput                      `pulumi:"provisioningState"`
+	Size                         pulumi.StringPtrInput                      `pulumi:"size"`
+	SshKey                       pulumi.StringPtrInput                      `pulumi:"sshKey"`
+	StorageType                  pulumi.StringPtrInput                      `pulumi:"storageType"`
+	Tags                         pulumi.StringMapInput                      `pulumi:"tags"`
+	UniqueIdentifier             pulumi.StringPtrInput                      `pulumi:"uniqueIdentifier"`
+	UserName                     pulumi.StringPtrInput                      `pulumi:"userName"`
+	VirtualMachineCreationSource pulumi.StringPtrInput                      `pulumi:"virtualMachineCreationSource"`
 }
 
 func (LabVirtualMachineCreationParameterArgs) ElementType() reflect.Type {
@@ -6339,7 +5855,6 @@ func (i *labVirtualMachineCreationParameterPtrType) ToLabVirtualMachineCreationP
 	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineCreationParameterPtrOutput)
 }
 
-// Properties for creating a virtual machine.
 type LabVirtualMachineCreationParameterOutput struct{ *pulumi.OutputState }
 
 func (LabVirtualMachineCreationParameterOutput) ElementType() reflect.Type {
@@ -6359,179 +5874,145 @@ func (o LabVirtualMachineCreationParameterOutput) ToLabVirtualMachineCreationPar
 }
 
 func (o LabVirtualMachineCreationParameterOutput) ToLabVirtualMachineCreationParameterPtrOutputWithContext(ctx context.Context) LabVirtualMachineCreationParameterPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *LabVirtualMachineCreationParameter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabVirtualMachineCreationParameter) *LabVirtualMachineCreationParameter {
 		return &v
 	}).(LabVirtualMachineCreationParameterPtrOutput)
 }
 
-// Indicates whether another user can take ownership of the virtual machine
 func (o LabVirtualMachineCreationParameterOutput) AllowClaim() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *bool { return v.AllowClaim }).(pulumi.BoolPtrOutput)
 }
 
-// The applicable schedule for the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) ApplicableSchedule() ApplicableSchedulePtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *ApplicableSchedule { return v.ApplicableSchedule }).(ApplicableSchedulePtrOutput)
 }
 
-// The artifact deployment status for the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) ArtifactDeploymentStatus() ArtifactDeploymentStatusPropertiesPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *ArtifactDeploymentStatusProperties {
 		return v.ArtifactDeploymentStatus
 	}).(ArtifactDeploymentStatusPropertiesPtrOutput)
 }
 
-// The artifacts to be installed on the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) Artifacts() ArtifactInstallPropertiesArrayOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) []ArtifactInstallProperties { return v.Artifacts }).(ArtifactInstallPropertiesArrayOutput)
 }
 
-// The number of virtual machine instances to create.
 func (o LabVirtualMachineCreationParameterOutput) BulkCreationParameters() BulkCreationParametersPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *BulkCreationParameters { return v.BulkCreationParameters }).(BulkCreationParametersPtrOutput)
 }
 
-// The compute virtual machine properties.
 func (o LabVirtualMachineCreationParameterOutput) ComputeVm() ComputeVmPropertiesPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *ComputeVmProperties { return v.ComputeVm }).(ComputeVmPropertiesPtrOutput)
 }
 
-// The email address of creator of the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) CreatedByUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.CreatedByUser }).(pulumi.StringPtrOutput)
 }
 
-// The object identifier of the creator of the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) CreatedByUserId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.CreatedByUserId }).(pulumi.StringPtrOutput)
 }
 
-// The creation date of the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) CreatedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
-// The custom image identifier of the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) CustomImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.CustomImageId }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the virtual machine is to be created without a public IP address.
 func (o LabVirtualMachineCreationParameterOutput) DisallowPublicIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *bool { return v.DisallowPublicIpAddress }).(pulumi.BoolPtrOutput)
 }
 
-// The resource ID of the environment that contains this virtual machine, if any.
 func (o LabVirtualMachineCreationParameterOutput) EnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.EnvironmentId }).(pulumi.StringPtrOutput)
 }
 
-// The expiration date for VM.
 func (o LabVirtualMachineCreationParameterOutput) ExpirationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name of the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// The Microsoft Azure Marketplace image reference of the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) GalleryImageReference() GalleryImageReferencePtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *GalleryImageReference { return v.GalleryImageReference }).(GalleryImageReferencePtrOutput)
 }
 
-// Indicates whether this virtual machine uses an SSH key for authentication.
 func (o LabVirtualMachineCreationParameterOutput) IsAuthenticationWithSshKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *bool { return v.IsAuthenticationWithSshKey }).(pulumi.BoolPtrOutput)
 }
 
-// The lab subnet name of the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) LabSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.LabSubnetName }).(pulumi.StringPtrOutput)
 }
 
-// The lab virtual network identifier of the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) LabVirtualNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.LabVirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
-// The location of the new virtual machine or environment
 func (o LabVirtualMachineCreationParameterOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// The name of the virtual machine or environment
 func (o LabVirtualMachineCreationParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The network interface properties.
 func (o LabVirtualMachineCreationParameterOutput) NetworkInterface() NetworkInterfacePropertiesPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *NetworkInterfaceProperties { return v.NetworkInterface }).(NetworkInterfacePropertiesPtrOutput)
 }
 
-// The notes of the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.Notes }).(pulumi.StringPtrOutput)
 }
 
-// The OS type of the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// The object identifier of the owner of the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) OwnerObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.OwnerObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The user principal name of the virtual machine owner.
 func (o LabVirtualMachineCreationParameterOutput) OwnerUserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.OwnerUserPrincipalName }).(pulumi.StringPtrOutput)
 }
 
-// The password of the virtual machine administrator.
 func (o LabVirtualMachineCreationParameterOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The provisioning status of the resource.
 func (o LabVirtualMachineCreationParameterOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// The size of the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The SSH key of the virtual machine administrator.
 func (o LabVirtualMachineCreationParameterOutput) SshKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.SshKey }).(pulumi.StringPtrOutput)
 }
 
-// Storage type to use for virtual machine (i.e. Standard, Premium).
 func (o LabVirtualMachineCreationParameterOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
-// The tags of the resource.
 func (o LabVirtualMachineCreationParameterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The unique immutable identifier of a resource (Guid).
 func (o LabVirtualMachineCreationParameterOutput) UniqueIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The user name of the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
-// Tells source of creation of lab virtual machine. Output property only.
 func (o LabVirtualMachineCreationParameterOutput) VirtualMachineCreationSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.VirtualMachineCreationSource }).(pulumi.StringPtrOutput)
 }
@@ -6551,10 +6032,15 @@ func (o LabVirtualMachineCreationParameterPtrOutput) ToLabVirtualMachineCreation
 }
 
 func (o LabVirtualMachineCreationParameterPtrOutput) Elem() LabVirtualMachineCreationParameterOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) LabVirtualMachineCreationParameter { return *v }).(LabVirtualMachineCreationParameterOutput)
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) LabVirtualMachineCreationParameter {
+		if v != nil {
+			return *v
+		}
+		var ret LabVirtualMachineCreationParameter
+		return ret
+	}).(LabVirtualMachineCreationParameterOutput)
 }
 
-// Indicates whether another user can take ownership of the virtual machine
 func (o LabVirtualMachineCreationParameterPtrOutput) AllowClaim() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *bool {
 		if v == nil {
@@ -6564,7 +6050,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) AllowClaim() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The applicable schedule for the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) ApplicableSchedule() ApplicableSchedulePtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *ApplicableSchedule {
 		if v == nil {
@@ -6574,7 +6059,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) ApplicableSchedule() Applic
 	}).(ApplicableSchedulePtrOutput)
 }
 
-// The artifact deployment status for the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) ArtifactDeploymentStatus() ArtifactDeploymentStatusPropertiesPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *ArtifactDeploymentStatusProperties {
 		if v == nil {
@@ -6584,7 +6068,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) ArtifactDeploymentStatus() 
 	}).(ArtifactDeploymentStatusPropertiesPtrOutput)
 }
 
-// The artifacts to be installed on the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) Artifacts() ArtifactInstallPropertiesArrayOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) []ArtifactInstallProperties {
 		if v == nil {
@@ -6594,7 +6077,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) Artifacts() ArtifactInstall
 	}).(ArtifactInstallPropertiesArrayOutput)
 }
 
-// The number of virtual machine instances to create.
 func (o LabVirtualMachineCreationParameterPtrOutput) BulkCreationParameters() BulkCreationParametersPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *BulkCreationParameters {
 		if v == nil {
@@ -6604,7 +6086,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) BulkCreationParameters() Bu
 	}).(BulkCreationParametersPtrOutput)
 }
 
-// The compute virtual machine properties.
 func (o LabVirtualMachineCreationParameterPtrOutput) ComputeVm() ComputeVmPropertiesPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *ComputeVmProperties {
 		if v == nil {
@@ -6614,7 +6095,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) ComputeVm() ComputeVmProper
 	}).(ComputeVmPropertiesPtrOutput)
 }
 
-// The email address of creator of the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) CreatedByUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6624,7 +6104,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) CreatedByUser() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object identifier of the creator of the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) CreatedByUserId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6634,7 +6113,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) CreatedByUserId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The creation date of the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) CreatedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6644,7 +6122,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) CreatedDate() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The custom image identifier of the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) CustomImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6654,7 +6131,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) CustomImageId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the virtual machine is to be created without a public IP address.
 func (o LabVirtualMachineCreationParameterPtrOutput) DisallowPublicIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *bool {
 		if v == nil {
@@ -6664,7 +6140,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) DisallowPublicIpAddress() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The resource ID of the environment that contains this virtual machine, if any.
 func (o LabVirtualMachineCreationParameterPtrOutput) EnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6674,7 +6149,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) EnvironmentId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The expiration date for VM.
 func (o LabVirtualMachineCreationParameterPtrOutput) ExpirationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6684,7 +6158,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) ExpirationDate() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name of the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6694,7 +6167,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) Fqdn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Microsoft Azure Marketplace image reference of the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) GalleryImageReference() GalleryImageReferencePtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *GalleryImageReference {
 		if v == nil {
@@ -6704,7 +6176,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) GalleryImageReference() Gal
 	}).(GalleryImageReferencePtrOutput)
 }
 
-// Indicates whether this virtual machine uses an SSH key for authentication.
 func (o LabVirtualMachineCreationParameterPtrOutput) IsAuthenticationWithSshKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *bool {
 		if v == nil {
@@ -6714,7 +6185,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) IsAuthenticationWithSshKey(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The lab subnet name of the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) LabSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6724,7 +6194,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) LabSubnetName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The lab virtual network identifier of the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) LabVirtualNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6734,7 +6203,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) LabVirtualNetworkId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The location of the new virtual machine or environment
 func (o LabVirtualMachineCreationParameterPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6744,7 +6212,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) Location() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the virtual machine or environment
 func (o LabVirtualMachineCreationParameterPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6754,7 +6221,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) Name() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The network interface properties.
 func (o LabVirtualMachineCreationParameterPtrOutput) NetworkInterface() NetworkInterfacePropertiesPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *NetworkInterfaceProperties {
 		if v == nil {
@@ -6764,7 +6230,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) NetworkInterface() NetworkI
 	}).(NetworkInterfacePropertiesPtrOutput)
 }
 
-// The notes of the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6774,7 +6239,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) Notes() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OS type of the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6784,7 +6248,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) OsType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object identifier of the owner of the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) OwnerObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6794,7 +6257,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) OwnerObjectId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user principal name of the virtual machine owner.
 func (o LabVirtualMachineCreationParameterPtrOutput) OwnerUserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6804,7 +6266,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) OwnerUserPrincipalName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password of the virtual machine administrator.
 func (o LabVirtualMachineCreationParameterPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6814,7 +6275,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) Password() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The provisioning status of the resource.
 func (o LabVirtualMachineCreationParameterPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6824,7 +6284,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) ProvisioningState() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The size of the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6834,7 +6293,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) Size() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SSH key of the virtual machine administrator.
 func (o LabVirtualMachineCreationParameterPtrOutput) SshKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6844,7 +6302,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) SshKey() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage type to use for virtual machine (i.e. Standard, Premium).
 func (o LabVirtualMachineCreationParameterPtrOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6854,7 +6311,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) StorageType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tags of the resource.
 func (o LabVirtualMachineCreationParameterPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) map[string]string {
 		if v == nil {
@@ -6864,7 +6320,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) Tags() pulumi.StringMapOutp
 	}).(pulumi.StringMapOutput)
 }
 
-// The unique immutable identifier of a resource (Guid).
 func (o LabVirtualMachineCreationParameterPtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6874,7 +6329,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) UniqueIdentifier() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user name of the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6884,7 +6338,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) UserName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tells source of creation of lab virtual machine. Output property only.
 func (o LabVirtualMachineCreationParameterPtrOutput) VirtualMachineCreationSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
 		if v == nil {
@@ -6894,76 +6347,41 @@ func (o LabVirtualMachineCreationParameterPtrOutput) VirtualMachineCreationSourc
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties for creating a virtual machine.
 type LabVirtualMachineCreationParameterResponse struct {
-	// Indicates whether another user can take ownership of the virtual machine
-	AllowClaim *bool `pulumi:"allowClaim"`
-	// The applicable schedule for the virtual machine.
-	ApplicableSchedule *ApplicableScheduleResponse `pulumi:"applicableSchedule"`
-	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus *ArtifactDeploymentStatusPropertiesResponse `pulumi:"artifactDeploymentStatus"`
-	// The artifacts to be installed on the virtual machine.
-	Artifacts []ArtifactInstallPropertiesResponse `pulumi:"artifacts"`
-	// The number of virtual machine instances to create.
-	BulkCreationParameters *BulkCreationParametersResponse `pulumi:"bulkCreationParameters"`
-	// The compute virtual machine properties.
-	ComputeVm *ComputeVmPropertiesResponse `pulumi:"computeVm"`
-	// The email address of creator of the virtual machine.
-	CreatedByUser *string `pulumi:"createdByUser"`
-	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId *string `pulumi:"createdByUserId"`
-	// The creation date of the virtual machine.
-	CreatedDate *string `pulumi:"createdDate"`
-	// The custom image identifier of the virtual machine.
-	CustomImageId *string `pulumi:"customImageId"`
-	// Indicates whether the virtual machine is to be created without a public IP address.
-	DisallowPublicIpAddress *bool `pulumi:"disallowPublicIpAddress"`
-	// The resource ID of the environment that contains this virtual machine, if any.
-	EnvironmentId *string `pulumi:"environmentId"`
-	// The expiration date for VM.
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// The fully-qualified domain name of the virtual machine.
-	Fqdn *string `pulumi:"fqdn"`
-	// The Microsoft Azure Marketplace image reference of the virtual machine.
-	GalleryImageReference *GalleryImageReferenceResponse `pulumi:"galleryImageReference"`
-	// Indicates whether this virtual machine uses an SSH key for authentication.
-	IsAuthenticationWithSshKey *bool `pulumi:"isAuthenticationWithSshKey"`
-	// The lab subnet name of the virtual machine.
-	LabSubnetName *string `pulumi:"labSubnetName"`
-	// The lab virtual network identifier of the virtual machine.
-	LabVirtualNetworkId *string `pulumi:"labVirtualNetworkId"`
-	// The location of the new virtual machine or environment
-	Location *string `pulumi:"location"`
-	// The name of the virtual machine or environment
-	Name *string `pulumi:"name"`
-	// The network interface properties.
-	NetworkInterface *NetworkInterfacePropertiesResponse `pulumi:"networkInterface"`
-	// The notes of the virtual machine.
-	Notes *string `pulumi:"notes"`
-	// The OS type of the virtual machine.
-	OsType *string `pulumi:"osType"`
-	// The object identifier of the owner of the virtual machine.
-	OwnerObjectId *string `pulumi:"ownerObjectId"`
-	// The user principal name of the virtual machine owner.
-	OwnerUserPrincipalName *string `pulumi:"ownerUserPrincipalName"`
-	// The password of the virtual machine administrator.
-	Password *string `pulumi:"password"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The size of the virtual machine.
-	Size *string `pulumi:"size"`
-	// The SSH key of the virtual machine administrator.
-	SshKey *string `pulumi:"sshKey"`
-	// Storage type to use for virtual machine (i.e. Standard, Premium).
-	StorageType *string `pulumi:"storageType"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// The user name of the virtual machine.
-	UserName *string `pulumi:"userName"`
-	// Tells source of creation of lab virtual machine. Output property only.
-	VirtualMachineCreationSource *string `pulumi:"virtualMachineCreationSource"`
+	AllowClaim                   *bool                                       `pulumi:"allowClaim"`
+	ApplicableSchedule           *ApplicableScheduleResponse                 `pulumi:"applicableSchedule"`
+	ArtifactDeploymentStatus     *ArtifactDeploymentStatusPropertiesResponse `pulumi:"artifactDeploymentStatus"`
+	Artifacts                    []ArtifactInstallPropertiesResponse         `pulumi:"artifacts"`
+	BulkCreationParameters       *BulkCreationParametersResponse             `pulumi:"bulkCreationParameters"`
+	ComputeVm                    *ComputeVmPropertiesResponse                `pulumi:"computeVm"`
+	CreatedByUser                *string                                     `pulumi:"createdByUser"`
+	CreatedByUserId              *string                                     `pulumi:"createdByUserId"`
+	CreatedDate                  *string                                     `pulumi:"createdDate"`
+	CustomImageId                *string                                     `pulumi:"customImageId"`
+	DisallowPublicIpAddress      *bool                                       `pulumi:"disallowPublicIpAddress"`
+	EnvironmentId                *string                                     `pulumi:"environmentId"`
+	ExpirationDate               *string                                     `pulumi:"expirationDate"`
+	Fqdn                         *string                                     `pulumi:"fqdn"`
+	GalleryImageReference        *GalleryImageReferenceResponse              `pulumi:"galleryImageReference"`
+	IsAuthenticationWithSshKey   *bool                                       `pulumi:"isAuthenticationWithSshKey"`
+	LabSubnetName                *string                                     `pulumi:"labSubnetName"`
+	LabVirtualNetworkId          *string                                     `pulumi:"labVirtualNetworkId"`
+	Location                     *string                                     `pulumi:"location"`
+	Name                         *string                                     `pulumi:"name"`
+	NetworkInterface             *NetworkInterfacePropertiesResponse         `pulumi:"networkInterface"`
+	Notes                        *string                                     `pulumi:"notes"`
+	OsType                       *string                                     `pulumi:"osType"`
+	OwnerObjectId                *string                                     `pulumi:"ownerObjectId"`
+	OwnerUserPrincipalName       *string                                     `pulumi:"ownerUserPrincipalName"`
+	Password                     *string                                     `pulumi:"password"`
+	ProvisioningState            *string                                     `pulumi:"provisioningState"`
+	Size                         *string                                     `pulumi:"size"`
+	SshKey                       *string                                     `pulumi:"sshKey"`
+	StorageType                  *string                                     `pulumi:"storageType"`
+	Tags                         map[string]string                           `pulumi:"tags"`
+	UniqueIdentifier             *string                                     `pulumi:"uniqueIdentifier"`
+	UserName                     *string                                     `pulumi:"userName"`
+	VirtualMachineCreationSource *string                                     `pulumi:"virtualMachineCreationSource"`
 }
 
 // LabVirtualMachineCreationParameterResponseInput is an input type that accepts LabVirtualMachineCreationParameterResponseArgs and LabVirtualMachineCreationParameterResponseOutput values.
@@ -6977,76 +6395,41 @@ type LabVirtualMachineCreationParameterResponseInput interface {
 	ToLabVirtualMachineCreationParameterResponseOutputWithContext(context.Context) LabVirtualMachineCreationParameterResponseOutput
 }
 
-// Properties for creating a virtual machine.
 type LabVirtualMachineCreationParameterResponseArgs struct {
-	// Indicates whether another user can take ownership of the virtual machine
-	AllowClaim pulumi.BoolPtrInput `pulumi:"allowClaim"`
-	// The applicable schedule for the virtual machine.
-	ApplicableSchedule ApplicableScheduleResponsePtrInput `pulumi:"applicableSchedule"`
-	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus ArtifactDeploymentStatusPropertiesResponsePtrInput `pulumi:"artifactDeploymentStatus"`
-	// The artifacts to be installed on the virtual machine.
-	Artifacts ArtifactInstallPropertiesResponseArrayInput `pulumi:"artifacts"`
-	// The number of virtual machine instances to create.
-	BulkCreationParameters BulkCreationParametersResponsePtrInput `pulumi:"bulkCreationParameters"`
-	// The compute virtual machine properties.
-	ComputeVm ComputeVmPropertiesResponsePtrInput `pulumi:"computeVm"`
-	// The email address of creator of the virtual machine.
-	CreatedByUser pulumi.StringPtrInput `pulumi:"createdByUser"`
-	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId pulumi.StringPtrInput `pulumi:"createdByUserId"`
-	// The creation date of the virtual machine.
-	CreatedDate pulumi.StringPtrInput `pulumi:"createdDate"`
-	// The custom image identifier of the virtual machine.
-	CustomImageId pulumi.StringPtrInput `pulumi:"customImageId"`
-	// Indicates whether the virtual machine is to be created without a public IP address.
-	DisallowPublicIpAddress pulumi.BoolPtrInput `pulumi:"disallowPublicIpAddress"`
-	// The resource ID of the environment that contains this virtual machine, if any.
-	EnvironmentId pulumi.StringPtrInput `pulumi:"environmentId"`
-	// The expiration date for VM.
-	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
-	// The fully-qualified domain name of the virtual machine.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// The Microsoft Azure Marketplace image reference of the virtual machine.
-	GalleryImageReference GalleryImageReferenceResponsePtrInput `pulumi:"galleryImageReference"`
-	// Indicates whether this virtual machine uses an SSH key for authentication.
-	IsAuthenticationWithSshKey pulumi.BoolPtrInput `pulumi:"isAuthenticationWithSshKey"`
-	// The lab subnet name of the virtual machine.
-	LabSubnetName pulumi.StringPtrInput `pulumi:"labSubnetName"`
-	// The lab virtual network identifier of the virtual machine.
-	LabVirtualNetworkId pulumi.StringPtrInput `pulumi:"labVirtualNetworkId"`
-	// The location of the new virtual machine or environment
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the virtual machine or environment
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The network interface properties.
-	NetworkInterface NetworkInterfacePropertiesResponsePtrInput `pulumi:"networkInterface"`
-	// The notes of the virtual machine.
-	Notes pulumi.StringPtrInput `pulumi:"notes"`
-	// The OS type of the virtual machine.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The object identifier of the owner of the virtual machine.
-	OwnerObjectId pulumi.StringPtrInput `pulumi:"ownerObjectId"`
-	// The user principal name of the virtual machine owner.
-	OwnerUserPrincipalName pulumi.StringPtrInput `pulumi:"ownerUserPrincipalName"`
-	// The password of the virtual machine administrator.
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The size of the virtual machine.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The SSH key of the virtual machine administrator.
-	SshKey pulumi.StringPtrInput `pulumi:"sshKey"`
-	// Storage type to use for virtual machine (i.e. Standard, Premium).
-	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-	// The user name of the virtual machine.
-	UserName pulumi.StringPtrInput `pulumi:"userName"`
-	// Tells source of creation of lab virtual machine. Output property only.
-	VirtualMachineCreationSource pulumi.StringPtrInput `pulumi:"virtualMachineCreationSource"`
+	AllowClaim                   pulumi.BoolPtrInput                                `pulumi:"allowClaim"`
+	ApplicableSchedule           ApplicableScheduleResponsePtrInput                 `pulumi:"applicableSchedule"`
+	ArtifactDeploymentStatus     ArtifactDeploymentStatusPropertiesResponsePtrInput `pulumi:"artifactDeploymentStatus"`
+	Artifacts                    ArtifactInstallPropertiesResponseArrayInput        `pulumi:"artifacts"`
+	BulkCreationParameters       BulkCreationParametersResponsePtrInput             `pulumi:"bulkCreationParameters"`
+	ComputeVm                    ComputeVmPropertiesResponsePtrInput                `pulumi:"computeVm"`
+	CreatedByUser                pulumi.StringPtrInput                              `pulumi:"createdByUser"`
+	CreatedByUserId              pulumi.StringPtrInput                              `pulumi:"createdByUserId"`
+	CreatedDate                  pulumi.StringPtrInput                              `pulumi:"createdDate"`
+	CustomImageId                pulumi.StringPtrInput                              `pulumi:"customImageId"`
+	DisallowPublicIpAddress      pulumi.BoolPtrInput                                `pulumi:"disallowPublicIpAddress"`
+	EnvironmentId                pulumi.StringPtrInput                              `pulumi:"environmentId"`
+	ExpirationDate               pulumi.StringPtrInput                              `pulumi:"expirationDate"`
+	Fqdn                         pulumi.StringPtrInput                              `pulumi:"fqdn"`
+	GalleryImageReference        GalleryImageReferenceResponsePtrInput              `pulumi:"galleryImageReference"`
+	IsAuthenticationWithSshKey   pulumi.BoolPtrInput                                `pulumi:"isAuthenticationWithSshKey"`
+	LabSubnetName                pulumi.StringPtrInput                              `pulumi:"labSubnetName"`
+	LabVirtualNetworkId          pulumi.StringPtrInput                              `pulumi:"labVirtualNetworkId"`
+	Location                     pulumi.StringPtrInput                              `pulumi:"location"`
+	Name                         pulumi.StringPtrInput                              `pulumi:"name"`
+	NetworkInterface             NetworkInterfacePropertiesResponsePtrInput         `pulumi:"networkInterface"`
+	Notes                        pulumi.StringPtrInput                              `pulumi:"notes"`
+	OsType                       pulumi.StringPtrInput                              `pulumi:"osType"`
+	OwnerObjectId                pulumi.StringPtrInput                              `pulumi:"ownerObjectId"`
+	OwnerUserPrincipalName       pulumi.StringPtrInput                              `pulumi:"ownerUserPrincipalName"`
+	Password                     pulumi.StringPtrInput                              `pulumi:"password"`
+	ProvisioningState            pulumi.StringPtrInput                              `pulumi:"provisioningState"`
+	Size                         pulumi.StringPtrInput                              `pulumi:"size"`
+	SshKey                       pulumi.StringPtrInput                              `pulumi:"sshKey"`
+	StorageType                  pulumi.StringPtrInput                              `pulumi:"storageType"`
+	Tags                         pulumi.StringMapInput                              `pulumi:"tags"`
+	UniqueIdentifier             pulumi.StringPtrInput                              `pulumi:"uniqueIdentifier"`
+	UserName                     pulumi.StringPtrInput                              `pulumi:"userName"`
+	VirtualMachineCreationSource pulumi.StringPtrInput                              `pulumi:"virtualMachineCreationSource"`
 }
 
 func (LabVirtualMachineCreationParameterResponseArgs) ElementType() reflect.Type {
@@ -7102,7 +6485,6 @@ func (i *labVirtualMachineCreationParameterResponsePtrType) ToLabVirtualMachineC
 	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineCreationParameterResponsePtrOutput)
 }
 
-// Properties for creating a virtual machine.
 type LabVirtualMachineCreationParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (LabVirtualMachineCreationParameterResponseOutput) ElementType() reflect.Type {
@@ -7122,189 +6504,155 @@ func (o LabVirtualMachineCreationParameterResponseOutput) ToLabVirtualMachineCre
 }
 
 func (o LabVirtualMachineCreationParameterResponseOutput) ToLabVirtualMachineCreationParameterResponsePtrOutputWithContext(ctx context.Context) LabVirtualMachineCreationParameterResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *LabVirtualMachineCreationParameterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabVirtualMachineCreationParameterResponse) *LabVirtualMachineCreationParameterResponse {
 		return &v
 	}).(LabVirtualMachineCreationParameterResponsePtrOutput)
 }
 
-// Indicates whether another user can take ownership of the virtual machine
 func (o LabVirtualMachineCreationParameterResponseOutput) AllowClaim() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *bool { return v.AllowClaim }).(pulumi.BoolPtrOutput)
 }
 
-// The applicable schedule for the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) ApplicableSchedule() ApplicableScheduleResponsePtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *ApplicableScheduleResponse {
 		return v.ApplicableSchedule
 	}).(ApplicableScheduleResponsePtrOutput)
 }
 
-// The artifact deployment status for the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) ArtifactDeploymentStatus() ArtifactDeploymentStatusPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *ArtifactDeploymentStatusPropertiesResponse {
 		return v.ArtifactDeploymentStatus
 	}).(ArtifactDeploymentStatusPropertiesResponsePtrOutput)
 }
 
-// The artifacts to be installed on the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) Artifacts() ArtifactInstallPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) []ArtifactInstallPropertiesResponse {
 		return v.Artifacts
 	}).(ArtifactInstallPropertiesResponseArrayOutput)
 }
 
-// The number of virtual machine instances to create.
 func (o LabVirtualMachineCreationParameterResponseOutput) BulkCreationParameters() BulkCreationParametersResponsePtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *BulkCreationParametersResponse {
 		return v.BulkCreationParameters
 	}).(BulkCreationParametersResponsePtrOutput)
 }
 
-// The compute virtual machine properties.
 func (o LabVirtualMachineCreationParameterResponseOutput) ComputeVm() ComputeVmPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *ComputeVmPropertiesResponse { return v.ComputeVm }).(ComputeVmPropertiesResponsePtrOutput)
 }
 
-// The email address of creator of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) CreatedByUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.CreatedByUser }).(pulumi.StringPtrOutput)
 }
 
-// The object identifier of the creator of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) CreatedByUserId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.CreatedByUserId }).(pulumi.StringPtrOutput)
 }
 
-// The creation date of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) CreatedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
-// The custom image identifier of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) CustomImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.CustomImageId }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the virtual machine is to be created without a public IP address.
 func (o LabVirtualMachineCreationParameterResponseOutput) DisallowPublicIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *bool { return v.DisallowPublicIpAddress }).(pulumi.BoolPtrOutput)
 }
 
-// The resource ID of the environment that contains this virtual machine, if any.
 func (o LabVirtualMachineCreationParameterResponseOutput) EnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.EnvironmentId }).(pulumi.StringPtrOutput)
 }
 
-// The expiration date for VM.
 func (o LabVirtualMachineCreationParameterResponseOutput) ExpirationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// The Microsoft Azure Marketplace image reference of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) GalleryImageReference() GalleryImageReferenceResponsePtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *GalleryImageReferenceResponse {
 		return v.GalleryImageReference
 	}).(GalleryImageReferenceResponsePtrOutput)
 }
 
-// Indicates whether this virtual machine uses an SSH key for authentication.
 func (o LabVirtualMachineCreationParameterResponseOutput) IsAuthenticationWithSshKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *bool { return v.IsAuthenticationWithSshKey }).(pulumi.BoolPtrOutput)
 }
 
-// The lab subnet name of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) LabSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.LabSubnetName }).(pulumi.StringPtrOutput)
 }
 
-// The lab virtual network identifier of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) LabVirtualNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.LabVirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
-// The location of the new virtual machine or environment
 func (o LabVirtualMachineCreationParameterResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// The name of the virtual machine or environment
 func (o LabVirtualMachineCreationParameterResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The network interface properties.
 func (o LabVirtualMachineCreationParameterResponseOutput) NetworkInterface() NetworkInterfacePropertiesResponsePtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *NetworkInterfacePropertiesResponse {
 		return v.NetworkInterface
 	}).(NetworkInterfacePropertiesResponsePtrOutput)
 }
 
-// The notes of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.Notes }).(pulumi.StringPtrOutput)
 }
 
-// The OS type of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// The object identifier of the owner of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) OwnerObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.OwnerObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The user principal name of the virtual machine owner.
 func (o LabVirtualMachineCreationParameterResponseOutput) OwnerUserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.OwnerUserPrincipalName }).(pulumi.StringPtrOutput)
 }
 
-// The password of the virtual machine administrator.
 func (o LabVirtualMachineCreationParameterResponseOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The provisioning status of the resource.
 func (o LabVirtualMachineCreationParameterResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// The size of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The SSH key of the virtual machine administrator.
 func (o LabVirtualMachineCreationParameterResponseOutput) SshKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.SshKey }).(pulumi.StringPtrOutput)
 }
 
-// Storage type to use for virtual machine (i.e. Standard, Premium).
 func (o LabVirtualMachineCreationParameterResponseOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
-// The tags of the resource.
 func (o LabVirtualMachineCreationParameterResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The unique immutable identifier of a resource (Guid).
 func (o LabVirtualMachineCreationParameterResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The user name of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
-// Tells source of creation of lab virtual machine. Output property only.
 func (o LabVirtualMachineCreationParameterResponseOutput) VirtualMachineCreationSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.VirtualMachineCreationSource }).(pulumi.StringPtrOutput)
 }
@@ -7325,11 +6673,14 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) ToLabVirtualMachine
 
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) Elem() LabVirtualMachineCreationParameterResponseOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) LabVirtualMachineCreationParameterResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LabVirtualMachineCreationParameterResponse
+		return ret
 	}).(LabVirtualMachineCreationParameterResponseOutput)
 }
 
-// Indicates whether another user can take ownership of the virtual machine
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) AllowClaim() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *bool {
 		if v == nil {
@@ -7339,7 +6690,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) AllowClaim() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The applicable schedule for the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) ApplicableSchedule() ApplicableScheduleResponsePtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *ApplicableScheduleResponse {
 		if v == nil {
@@ -7349,7 +6699,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) ApplicableSchedule(
 	}).(ApplicableScheduleResponsePtrOutput)
 }
 
-// The artifact deployment status for the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) ArtifactDeploymentStatus() ArtifactDeploymentStatusPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *ArtifactDeploymentStatusPropertiesResponse {
 		if v == nil {
@@ -7359,7 +6708,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) ArtifactDeploymentS
 	}).(ArtifactDeploymentStatusPropertiesResponsePtrOutput)
 }
 
-// The artifacts to be installed on the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) Artifacts() ArtifactInstallPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) []ArtifactInstallPropertiesResponse {
 		if v == nil {
@@ -7369,7 +6717,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) Artifacts() Artifac
 	}).(ArtifactInstallPropertiesResponseArrayOutput)
 }
 
-// The number of virtual machine instances to create.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) BulkCreationParameters() BulkCreationParametersResponsePtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *BulkCreationParametersResponse {
 		if v == nil {
@@ -7379,7 +6726,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) BulkCreationParamet
 	}).(BulkCreationParametersResponsePtrOutput)
 }
 
-// The compute virtual machine properties.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) ComputeVm() ComputeVmPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *ComputeVmPropertiesResponse {
 		if v == nil {
@@ -7389,7 +6735,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) ComputeVm() Compute
 	}).(ComputeVmPropertiesResponsePtrOutput)
 }
 
-// The email address of creator of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) CreatedByUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7399,7 +6744,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) CreatedByUser() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object identifier of the creator of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) CreatedByUserId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7409,7 +6753,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) CreatedByUserId() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The creation date of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7419,7 +6762,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) CreatedDate() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The custom image identifier of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) CustomImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7429,7 +6771,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) CustomImageId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the virtual machine is to be created without a public IP address.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) DisallowPublicIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *bool {
 		if v == nil {
@@ -7439,7 +6780,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) DisallowPublicIpAdd
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The resource ID of the environment that contains this virtual machine, if any.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) EnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7449,7 +6789,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) EnvironmentId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The expiration date for VM.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) ExpirationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7459,7 +6798,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) ExpirationDate() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7469,7 +6807,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) Fqdn() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Microsoft Azure Marketplace image reference of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) GalleryImageReference() GalleryImageReferenceResponsePtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *GalleryImageReferenceResponse {
 		if v == nil {
@@ -7479,7 +6816,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) GalleryImageReferen
 	}).(GalleryImageReferenceResponsePtrOutput)
 }
 
-// Indicates whether this virtual machine uses an SSH key for authentication.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) IsAuthenticationWithSshKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *bool {
 		if v == nil {
@@ -7489,7 +6825,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) IsAuthenticationWit
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The lab subnet name of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) LabSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7499,7 +6834,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) LabSubnetName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The lab virtual network identifier of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) LabVirtualNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7509,7 +6843,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) LabVirtualNetworkId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The location of the new virtual machine or environment
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7519,7 +6852,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) Location() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the virtual machine or environment
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7529,7 +6861,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) Name() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The network interface properties.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) NetworkInterface() NetworkInterfacePropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *NetworkInterfacePropertiesResponse {
 		if v == nil {
@@ -7539,7 +6870,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) NetworkInterface() 
 	}).(NetworkInterfacePropertiesResponsePtrOutput)
 }
 
-// The notes of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7549,7 +6879,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) Notes() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OS type of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7559,7 +6888,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) OsType() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object identifier of the owner of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) OwnerObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7569,7 +6897,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) OwnerObjectId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user principal name of the virtual machine owner.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) OwnerUserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7579,7 +6906,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) OwnerUserPrincipalN
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password of the virtual machine administrator.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7589,7 +6915,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) Password() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The provisioning status of the resource.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7599,7 +6924,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) ProvisioningState()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The size of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7609,7 +6933,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) Size() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SSH key of the virtual machine administrator.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) SshKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7619,7 +6942,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) SshKey() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage type to use for virtual machine (i.e. Standard, Premium).
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7629,7 +6951,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) StorageType() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tags of the resource.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) map[string]string {
 		if v == nil {
@@ -7639,7 +6960,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) Tags() pulumi.Strin
 	}).(pulumi.StringMapOutput)
 }
 
-// The unique immutable identifier of a resource (Guid).
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7649,7 +6969,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) UniqueIdentifier() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user name of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7659,7 +6978,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) UserName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tells source of creation of lab virtual machine. Output property only.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) VirtualMachineCreationSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
@@ -7669,9 +6987,7 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) VirtualMachineCreat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about a Linux OS.
 type LinuxOsInfo struct {
-	// The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
 	LinuxOsState *string `pulumi:"linuxOsState"`
 }
 
@@ -7686,9 +7002,7 @@ type LinuxOsInfoInput interface {
 	ToLinuxOsInfoOutputWithContext(context.Context) LinuxOsInfoOutput
 }
 
-// Information about a Linux OS.
 type LinuxOsInfoArgs struct {
-	// The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
 	LinuxOsState pulumi.StringPtrInput `pulumi:"linuxOsState"`
 }
 
@@ -7745,7 +7059,6 @@ func (i *linuxOsInfoPtrType) ToLinuxOsInfoPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxOsInfoPtrOutput)
 }
 
-// Information about a Linux OS.
 type LinuxOsInfoOutput struct{ *pulumi.OutputState }
 
 func (LinuxOsInfoOutput) ElementType() reflect.Type {
@@ -7765,12 +7078,11 @@ func (o LinuxOsInfoOutput) ToLinuxOsInfoPtrOutput() LinuxOsInfoPtrOutput {
 }
 
 func (o LinuxOsInfoOutput) ToLinuxOsInfoPtrOutputWithContext(ctx context.Context) LinuxOsInfoPtrOutput {
-	return o.ApplyT(func(v LinuxOsInfo) *LinuxOsInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxOsInfo) *LinuxOsInfo {
 		return &v
 	}).(LinuxOsInfoPtrOutput)
 }
 
-// The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
 func (o LinuxOsInfoOutput) LinuxOsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxOsInfo) *string { return v.LinuxOsState }).(pulumi.StringPtrOutput)
 }
@@ -7790,10 +7102,15 @@ func (o LinuxOsInfoPtrOutput) ToLinuxOsInfoPtrOutputWithContext(ctx context.Cont
 }
 
 func (o LinuxOsInfoPtrOutput) Elem() LinuxOsInfoOutput {
-	return o.ApplyT(func(v *LinuxOsInfo) LinuxOsInfo { return *v }).(LinuxOsInfoOutput)
+	return o.ApplyT(func(v *LinuxOsInfo) LinuxOsInfo {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxOsInfo
+		return ret
+	}).(LinuxOsInfoOutput)
 }
 
-// The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
 func (o LinuxOsInfoPtrOutput) LinuxOsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxOsInfo) *string {
 		if v == nil {
@@ -7803,9 +7120,7 @@ func (o LinuxOsInfoPtrOutput) LinuxOsState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about a Linux OS.
 type LinuxOsInfoResponse struct {
-	// The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
 	LinuxOsState *string `pulumi:"linuxOsState"`
 }
 
@@ -7820,9 +7135,7 @@ type LinuxOsInfoResponseInput interface {
 	ToLinuxOsInfoResponseOutputWithContext(context.Context) LinuxOsInfoResponseOutput
 }
 
-// Information about a Linux OS.
 type LinuxOsInfoResponseArgs struct {
-	// The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
 	LinuxOsState pulumi.StringPtrInput `pulumi:"linuxOsState"`
 }
 
@@ -7879,7 +7192,6 @@ func (i *linuxOsInfoResponsePtrType) ToLinuxOsInfoResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxOsInfoResponsePtrOutput)
 }
 
-// Information about a Linux OS.
 type LinuxOsInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (LinuxOsInfoResponseOutput) ElementType() reflect.Type {
@@ -7899,12 +7211,11 @@ func (o LinuxOsInfoResponseOutput) ToLinuxOsInfoResponsePtrOutput() LinuxOsInfoR
 }
 
 func (o LinuxOsInfoResponseOutput) ToLinuxOsInfoResponsePtrOutputWithContext(ctx context.Context) LinuxOsInfoResponsePtrOutput {
-	return o.ApplyT(func(v LinuxOsInfoResponse) *LinuxOsInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxOsInfoResponse) *LinuxOsInfoResponse {
 		return &v
 	}).(LinuxOsInfoResponsePtrOutput)
 }
 
-// The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
 func (o LinuxOsInfoResponseOutput) LinuxOsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxOsInfoResponse) *string { return v.LinuxOsState }).(pulumi.StringPtrOutput)
 }
@@ -7924,10 +7235,15 @@ func (o LinuxOsInfoResponsePtrOutput) ToLinuxOsInfoResponsePtrOutputWithContext(
 }
 
 func (o LinuxOsInfoResponsePtrOutput) Elem() LinuxOsInfoResponseOutput {
-	return o.ApplyT(func(v *LinuxOsInfoResponse) LinuxOsInfoResponse { return *v }).(LinuxOsInfoResponseOutput)
+	return o.ApplyT(func(v *LinuxOsInfoResponse) LinuxOsInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxOsInfoResponse
+		return ret
+	}).(LinuxOsInfoResponseOutput)
 }
 
-// The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
 func (o LinuxOsInfoResponsePtrOutput) LinuxOsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxOsInfoResponse) *string {
 		if v == nil {
@@ -7937,26 +7253,16 @@ func (o LinuxOsInfoResponsePtrOutput) LinuxOsState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a network interface.
 type NetworkInterfaceProperties struct {
-	// The DNS name.
-	DnsName *string `pulumi:"dnsName"`
-	// The private IP address.
-	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// The public IP address.
-	PublicIpAddress *string `pulumi:"publicIpAddress"`
-	// The resource ID of the public IP address.
-	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
-	// The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
-	RdpAuthority *string `pulumi:"rdpAuthority"`
-	// The configuration for sharing a public IP address across multiple virtual machines.
+	DnsName                            *string                             `pulumi:"dnsName"`
+	PrivateIpAddress                   *string                             `pulumi:"privateIpAddress"`
+	PublicIpAddress                    *string                             `pulumi:"publicIpAddress"`
+	PublicIpAddressId                  *string                             `pulumi:"publicIpAddressId"`
+	RdpAuthority                       *string                             `pulumi:"rdpAuthority"`
 	SharedPublicIpAddressConfiguration *SharedPublicIpAddressConfiguration `pulumi:"sharedPublicIpAddressConfiguration"`
-	// The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
-	SshAuthority *string `pulumi:"sshAuthority"`
-	// The resource ID of the sub net.
-	SubnetId *string `pulumi:"subnetId"`
-	// The resource ID of the virtual network.
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	SshAuthority                       *string                             `pulumi:"sshAuthority"`
+	SubnetId                           *string                             `pulumi:"subnetId"`
+	VirtualNetworkId                   *string                             `pulumi:"virtualNetworkId"`
 }
 
 // NetworkInterfacePropertiesInput is an input type that accepts NetworkInterfacePropertiesArgs and NetworkInterfacePropertiesOutput values.
@@ -7970,26 +7276,16 @@ type NetworkInterfacePropertiesInput interface {
 	ToNetworkInterfacePropertiesOutputWithContext(context.Context) NetworkInterfacePropertiesOutput
 }
 
-// Properties of a network interface.
 type NetworkInterfacePropertiesArgs struct {
-	// The DNS name.
-	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
-	// The private IP address.
-	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// The public IP address.
-	PublicIpAddress pulumi.StringPtrInput `pulumi:"publicIpAddress"`
-	// The resource ID of the public IP address.
-	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
-	// The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
-	RdpAuthority pulumi.StringPtrInput `pulumi:"rdpAuthority"`
-	// The configuration for sharing a public IP address across multiple virtual machines.
+	DnsName                            pulumi.StringPtrInput                      `pulumi:"dnsName"`
+	PrivateIpAddress                   pulumi.StringPtrInput                      `pulumi:"privateIpAddress"`
+	PublicIpAddress                    pulumi.StringPtrInput                      `pulumi:"publicIpAddress"`
+	PublicIpAddressId                  pulumi.StringPtrInput                      `pulumi:"publicIpAddressId"`
+	RdpAuthority                       pulumi.StringPtrInput                      `pulumi:"rdpAuthority"`
 	SharedPublicIpAddressConfiguration SharedPublicIpAddressConfigurationPtrInput `pulumi:"sharedPublicIpAddressConfiguration"`
-	// The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
-	SshAuthority pulumi.StringPtrInput `pulumi:"sshAuthority"`
-	// The resource ID of the sub net.
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// The resource ID of the virtual network.
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
+	SshAuthority                       pulumi.StringPtrInput                      `pulumi:"sshAuthority"`
+	SubnetId                           pulumi.StringPtrInput                      `pulumi:"subnetId"`
+	VirtualNetworkId                   pulumi.StringPtrInput                      `pulumi:"virtualNetworkId"`
 }
 
 func (NetworkInterfacePropertiesArgs) ElementType() reflect.Type {
@@ -8045,7 +7341,6 @@ func (i *networkInterfacePropertiesPtrType) ToNetworkInterfacePropertiesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfacePropertiesPtrOutput)
 }
 
-// Properties of a network interface.
 type NetworkInterfacePropertiesOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfacePropertiesOutput) ElementType() reflect.Type {
@@ -8065,54 +7360,45 @@ func (o NetworkInterfacePropertiesOutput) ToNetworkInterfacePropertiesPtrOutput(
 }
 
 func (o NetworkInterfacePropertiesOutput) ToNetworkInterfacePropertiesPtrOutputWithContext(ctx context.Context) NetworkInterfacePropertiesPtrOutput {
-	return o.ApplyT(func(v NetworkInterfaceProperties) *NetworkInterfaceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceProperties) *NetworkInterfaceProperties {
 		return &v
 	}).(NetworkInterfacePropertiesPtrOutput)
 }
 
-// The DNS name.
 func (o NetworkInterfacePropertiesOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceProperties) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
-// The private IP address.
 func (o NetworkInterfacePropertiesOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceProperties) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The public IP address.
 func (o NetworkInterfacePropertiesOutput) PublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceProperties) *string { return v.PublicIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the public IP address.
 func (o NetworkInterfacePropertiesOutput) PublicIpAddressId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceProperties) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
 }
 
-// The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
 func (o NetworkInterfacePropertiesOutput) RdpAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceProperties) *string { return v.RdpAuthority }).(pulumi.StringPtrOutput)
 }
 
-// The configuration for sharing a public IP address across multiple virtual machines.
 func (o NetworkInterfacePropertiesOutput) SharedPublicIpAddressConfiguration() SharedPublicIpAddressConfigurationPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceProperties) *SharedPublicIpAddressConfiguration {
 		return v.SharedPublicIpAddressConfiguration
 	}).(SharedPublicIpAddressConfigurationPtrOutput)
 }
 
-// The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
 func (o NetworkInterfacePropertiesOutput) SshAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceProperties) *string { return v.SshAuthority }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the sub net.
 func (o NetworkInterfacePropertiesOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceProperties) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the virtual network.
 func (o NetworkInterfacePropertiesOutput) VirtualNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceProperties) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
@@ -8132,10 +7418,15 @@ func (o NetworkInterfacePropertiesPtrOutput) ToNetworkInterfacePropertiesPtrOutp
 }
 
 func (o NetworkInterfacePropertiesPtrOutput) Elem() NetworkInterfacePropertiesOutput {
-	return o.ApplyT(func(v *NetworkInterfaceProperties) NetworkInterfaceProperties { return *v }).(NetworkInterfacePropertiesOutput)
+	return o.ApplyT(func(v *NetworkInterfaceProperties) NetworkInterfaceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfaceProperties
+		return ret
+	}).(NetworkInterfacePropertiesOutput)
 }
 
-// The DNS name.
 func (o NetworkInterfacePropertiesPtrOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceProperties) *string {
 		if v == nil {
@@ -8145,7 +7436,6 @@ func (o NetworkInterfacePropertiesPtrOutput) DnsName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private IP address.
 func (o NetworkInterfacePropertiesPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceProperties) *string {
 		if v == nil {
@@ -8155,7 +7445,6 @@ func (o NetworkInterfacePropertiesPtrOutput) PrivateIpAddress() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The public IP address.
 func (o NetworkInterfacePropertiesPtrOutput) PublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceProperties) *string {
 		if v == nil {
@@ -8165,7 +7454,6 @@ func (o NetworkInterfacePropertiesPtrOutput) PublicIpAddress() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the public IP address.
 func (o NetworkInterfacePropertiesPtrOutput) PublicIpAddressId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceProperties) *string {
 		if v == nil {
@@ -8175,7 +7463,6 @@ func (o NetworkInterfacePropertiesPtrOutput) PublicIpAddressId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
 func (o NetworkInterfacePropertiesPtrOutput) RdpAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceProperties) *string {
 		if v == nil {
@@ -8185,7 +7472,6 @@ func (o NetworkInterfacePropertiesPtrOutput) RdpAuthority() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration for sharing a public IP address across multiple virtual machines.
 func (o NetworkInterfacePropertiesPtrOutput) SharedPublicIpAddressConfiguration() SharedPublicIpAddressConfigurationPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceProperties) *SharedPublicIpAddressConfiguration {
 		if v == nil {
@@ -8195,7 +7481,6 @@ func (o NetworkInterfacePropertiesPtrOutput) SharedPublicIpAddressConfiguration(
 	}).(SharedPublicIpAddressConfigurationPtrOutput)
 }
 
-// The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
 func (o NetworkInterfacePropertiesPtrOutput) SshAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceProperties) *string {
 		if v == nil {
@@ -8205,7 +7490,6 @@ func (o NetworkInterfacePropertiesPtrOutput) SshAuthority() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the sub net.
 func (o NetworkInterfacePropertiesPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceProperties) *string {
 		if v == nil {
@@ -8215,7 +7499,6 @@ func (o NetworkInterfacePropertiesPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the virtual network.
 func (o NetworkInterfacePropertiesPtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceProperties) *string {
 		if v == nil {
@@ -8225,26 +7508,16 @@ func (o NetworkInterfacePropertiesPtrOutput) VirtualNetworkId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a network interface.
 type NetworkInterfacePropertiesResponse struct {
-	// The DNS name.
-	DnsName *string `pulumi:"dnsName"`
-	// The private IP address.
-	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// The public IP address.
-	PublicIpAddress *string `pulumi:"publicIpAddress"`
-	// The resource ID of the public IP address.
-	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
-	// The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
-	RdpAuthority *string `pulumi:"rdpAuthority"`
-	// The configuration for sharing a public IP address across multiple virtual machines.
+	DnsName                            *string                                     `pulumi:"dnsName"`
+	PrivateIpAddress                   *string                                     `pulumi:"privateIpAddress"`
+	PublicIpAddress                    *string                                     `pulumi:"publicIpAddress"`
+	PublicIpAddressId                  *string                                     `pulumi:"publicIpAddressId"`
+	RdpAuthority                       *string                                     `pulumi:"rdpAuthority"`
 	SharedPublicIpAddressConfiguration *SharedPublicIpAddressConfigurationResponse `pulumi:"sharedPublicIpAddressConfiguration"`
-	// The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
-	SshAuthority *string `pulumi:"sshAuthority"`
-	// The resource ID of the sub net.
-	SubnetId *string `pulumi:"subnetId"`
-	// The resource ID of the virtual network.
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	SshAuthority                       *string                                     `pulumi:"sshAuthority"`
+	SubnetId                           *string                                     `pulumi:"subnetId"`
+	VirtualNetworkId                   *string                                     `pulumi:"virtualNetworkId"`
 }
 
 // NetworkInterfacePropertiesResponseInput is an input type that accepts NetworkInterfacePropertiesResponseArgs and NetworkInterfacePropertiesResponseOutput values.
@@ -8258,26 +7531,16 @@ type NetworkInterfacePropertiesResponseInput interface {
 	ToNetworkInterfacePropertiesResponseOutputWithContext(context.Context) NetworkInterfacePropertiesResponseOutput
 }
 
-// Properties of a network interface.
 type NetworkInterfacePropertiesResponseArgs struct {
-	// The DNS name.
-	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
-	// The private IP address.
-	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// The public IP address.
-	PublicIpAddress pulumi.StringPtrInput `pulumi:"publicIpAddress"`
-	// The resource ID of the public IP address.
-	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
-	// The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
-	RdpAuthority pulumi.StringPtrInput `pulumi:"rdpAuthority"`
-	// The configuration for sharing a public IP address across multiple virtual machines.
+	DnsName                            pulumi.StringPtrInput                              `pulumi:"dnsName"`
+	PrivateIpAddress                   pulumi.StringPtrInput                              `pulumi:"privateIpAddress"`
+	PublicIpAddress                    pulumi.StringPtrInput                              `pulumi:"publicIpAddress"`
+	PublicIpAddressId                  pulumi.StringPtrInput                              `pulumi:"publicIpAddressId"`
+	RdpAuthority                       pulumi.StringPtrInput                              `pulumi:"rdpAuthority"`
 	SharedPublicIpAddressConfiguration SharedPublicIpAddressConfigurationResponsePtrInput `pulumi:"sharedPublicIpAddressConfiguration"`
-	// The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
-	SshAuthority pulumi.StringPtrInput `pulumi:"sshAuthority"`
-	// The resource ID of the sub net.
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// The resource ID of the virtual network.
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
+	SshAuthority                       pulumi.StringPtrInput                              `pulumi:"sshAuthority"`
+	SubnetId                           pulumi.StringPtrInput                              `pulumi:"subnetId"`
+	VirtualNetworkId                   pulumi.StringPtrInput                              `pulumi:"virtualNetworkId"`
 }
 
 func (NetworkInterfacePropertiesResponseArgs) ElementType() reflect.Type {
@@ -8333,7 +7596,6 @@ func (i *networkInterfacePropertiesResponsePtrType) ToNetworkInterfaceProperties
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfacePropertiesResponsePtrOutput)
 }
 
-// Properties of a network interface.
 type NetworkInterfacePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfacePropertiesResponseOutput) ElementType() reflect.Type {
@@ -8353,54 +7615,45 @@ func (o NetworkInterfacePropertiesResponseOutput) ToNetworkInterfacePropertiesRe
 }
 
 func (o NetworkInterfacePropertiesResponseOutput) ToNetworkInterfacePropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkInterfacePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v NetworkInterfacePropertiesResponse) *NetworkInterfacePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfacePropertiesResponse) *NetworkInterfacePropertiesResponse {
 		return &v
 	}).(NetworkInterfacePropertiesResponsePtrOutput)
 }
 
-// The DNS name.
 func (o NetworkInterfacePropertiesResponseOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfacePropertiesResponse) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
-// The private IP address.
 func (o NetworkInterfacePropertiesResponseOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfacePropertiesResponse) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The public IP address.
 func (o NetworkInterfacePropertiesResponseOutput) PublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfacePropertiesResponse) *string { return v.PublicIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the public IP address.
 func (o NetworkInterfacePropertiesResponseOutput) PublicIpAddressId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfacePropertiesResponse) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
 }
 
-// The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
 func (o NetworkInterfacePropertiesResponseOutput) RdpAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfacePropertiesResponse) *string { return v.RdpAuthority }).(pulumi.StringPtrOutput)
 }
 
-// The configuration for sharing a public IP address across multiple virtual machines.
 func (o NetworkInterfacePropertiesResponseOutput) SharedPublicIpAddressConfiguration() SharedPublicIpAddressConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v NetworkInterfacePropertiesResponse) *SharedPublicIpAddressConfigurationResponse {
 		return v.SharedPublicIpAddressConfiguration
 	}).(SharedPublicIpAddressConfigurationResponsePtrOutput)
 }
 
-// The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
 func (o NetworkInterfacePropertiesResponseOutput) SshAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfacePropertiesResponse) *string { return v.SshAuthority }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the sub net.
 func (o NetworkInterfacePropertiesResponseOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfacePropertiesResponse) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the virtual network.
 func (o NetworkInterfacePropertiesResponseOutput) VirtualNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfacePropertiesResponse) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
@@ -8420,10 +7673,15 @@ func (o NetworkInterfacePropertiesResponsePtrOutput) ToNetworkInterfacePropertie
 }
 
 func (o NetworkInterfacePropertiesResponsePtrOutput) Elem() NetworkInterfacePropertiesResponseOutput {
-	return o.ApplyT(func(v *NetworkInterfacePropertiesResponse) NetworkInterfacePropertiesResponse { return *v }).(NetworkInterfacePropertiesResponseOutput)
+	return o.ApplyT(func(v *NetworkInterfacePropertiesResponse) NetworkInterfacePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfacePropertiesResponse
+		return ret
+	}).(NetworkInterfacePropertiesResponseOutput)
 }
 
-// The DNS name.
 func (o NetworkInterfacePropertiesResponsePtrOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfacePropertiesResponse) *string {
 		if v == nil {
@@ -8433,7 +7691,6 @@ func (o NetworkInterfacePropertiesResponsePtrOutput) DnsName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private IP address.
 func (o NetworkInterfacePropertiesResponsePtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfacePropertiesResponse) *string {
 		if v == nil {
@@ -8443,7 +7700,6 @@ func (o NetworkInterfacePropertiesResponsePtrOutput) PrivateIpAddress() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The public IP address.
 func (o NetworkInterfacePropertiesResponsePtrOutput) PublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfacePropertiesResponse) *string {
 		if v == nil {
@@ -8453,7 +7709,6 @@ func (o NetworkInterfacePropertiesResponsePtrOutput) PublicIpAddress() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the public IP address.
 func (o NetworkInterfacePropertiesResponsePtrOutput) PublicIpAddressId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfacePropertiesResponse) *string {
 		if v == nil {
@@ -8463,7 +7718,6 @@ func (o NetworkInterfacePropertiesResponsePtrOutput) PublicIpAddressId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
 func (o NetworkInterfacePropertiesResponsePtrOutput) RdpAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfacePropertiesResponse) *string {
 		if v == nil {
@@ -8473,7 +7727,6 @@ func (o NetworkInterfacePropertiesResponsePtrOutput) RdpAuthority() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration for sharing a public IP address across multiple virtual machines.
 func (o NetworkInterfacePropertiesResponsePtrOutput) SharedPublicIpAddressConfiguration() SharedPublicIpAddressConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *NetworkInterfacePropertiesResponse) *SharedPublicIpAddressConfigurationResponse {
 		if v == nil {
@@ -8483,7 +7736,6 @@ func (o NetworkInterfacePropertiesResponsePtrOutput) SharedPublicIpAddressConfig
 	}).(SharedPublicIpAddressConfigurationResponsePtrOutput)
 }
 
-// The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
 func (o NetworkInterfacePropertiesResponsePtrOutput) SshAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfacePropertiesResponse) *string {
 		if v == nil {
@@ -8493,7 +7745,6 @@ func (o NetworkInterfacePropertiesResponsePtrOutput) SshAuthority() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the sub net.
 func (o NetworkInterfacePropertiesResponsePtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfacePropertiesResponse) *string {
 		if v == nil {
@@ -8503,7 +7754,6 @@ func (o NetworkInterfacePropertiesResponsePtrOutput) SubnetId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the virtual network.
 func (o NetworkInterfacePropertiesResponsePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfacePropertiesResponse) *string {
 		if v == nil {
@@ -8513,14 +7763,10 @@ func (o NetworkInterfacePropertiesResponsePtrOutput) VirtualNetworkId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Notification settings for a schedule.
 type NotificationSettings struct {
-	// If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-	Status *string `pulumi:"status"`
-	// Time in minutes before event at which notification will be sent.
-	TimeInMinutes *int `pulumi:"timeInMinutes"`
-	// The webhook URL to which the notification will be sent.
-	WebhookUrl *string `pulumi:"webhookUrl"`
+	Status        *string `pulumi:"status"`
+	TimeInMinutes *int    `pulumi:"timeInMinutes"`
+	WebhookUrl    *string `pulumi:"webhookUrl"`
 }
 
 // NotificationSettingsInput is an input type that accepts NotificationSettingsArgs and NotificationSettingsOutput values.
@@ -8534,14 +7780,10 @@ type NotificationSettingsInput interface {
 	ToNotificationSettingsOutputWithContext(context.Context) NotificationSettingsOutput
 }
 
-// Notification settings for a schedule.
 type NotificationSettingsArgs struct {
-	// If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Time in minutes before event at which notification will be sent.
-	TimeInMinutes pulumi.IntPtrInput `pulumi:"timeInMinutes"`
-	// The webhook URL to which the notification will be sent.
-	WebhookUrl pulumi.StringPtrInput `pulumi:"webhookUrl"`
+	Status        pulumi.StringPtrInput `pulumi:"status"`
+	TimeInMinutes pulumi.IntPtrInput    `pulumi:"timeInMinutes"`
+	WebhookUrl    pulumi.StringPtrInput `pulumi:"webhookUrl"`
 }
 
 func (NotificationSettingsArgs) ElementType() reflect.Type {
@@ -8597,7 +7839,6 @@ func (i *notificationSettingsPtrType) ToNotificationSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsPtrOutput)
 }
 
-// Notification settings for a schedule.
 type NotificationSettingsOutput struct{ *pulumi.OutputState }
 
 func (NotificationSettingsOutput) ElementType() reflect.Type {
@@ -8617,22 +7858,19 @@ func (o NotificationSettingsOutput) ToNotificationSettingsPtrOutput() Notificati
 }
 
 func (o NotificationSettingsOutput) ToNotificationSettingsPtrOutputWithContext(ctx context.Context) NotificationSettingsPtrOutput {
-	return o.ApplyT(func(v NotificationSettings) *NotificationSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationSettings) *NotificationSettings {
 		return &v
 	}).(NotificationSettingsPtrOutput)
 }
 
-// If notifications are enabled for this schedule (i.e. Enabled, Disabled).
 func (o NotificationSettingsOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationSettings) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Time in minutes before event at which notification will be sent.
 func (o NotificationSettingsOutput) TimeInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NotificationSettings) *int { return v.TimeInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The webhook URL to which the notification will be sent.
 func (o NotificationSettingsOutput) WebhookUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationSettings) *string { return v.WebhookUrl }).(pulumi.StringPtrOutput)
 }
@@ -8652,10 +7890,15 @@ func (o NotificationSettingsPtrOutput) ToNotificationSettingsPtrOutputWithContex
 }
 
 func (o NotificationSettingsPtrOutput) Elem() NotificationSettingsOutput {
-	return o.ApplyT(func(v *NotificationSettings) NotificationSettings { return *v }).(NotificationSettingsOutput)
+	return o.ApplyT(func(v *NotificationSettings) NotificationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationSettings
+		return ret
+	}).(NotificationSettingsOutput)
 }
 
-// If notifications are enabled for this schedule (i.e. Enabled, Disabled).
 func (o NotificationSettingsPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationSettings) *string {
 		if v == nil {
@@ -8665,7 +7908,6 @@ func (o NotificationSettingsPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time in minutes before event at which notification will be sent.
 func (o NotificationSettingsPtrOutput) TimeInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NotificationSettings) *int {
 		if v == nil {
@@ -8675,7 +7917,6 @@ func (o NotificationSettingsPtrOutput) TimeInMinutes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The webhook URL to which the notification will be sent.
 func (o NotificationSettingsPtrOutput) WebhookUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationSettings) *string {
 		if v == nil {
@@ -8685,14 +7926,10 @@ func (o NotificationSettingsPtrOutput) WebhookUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Notification settings for a schedule.
 type NotificationSettingsResponse struct {
-	// If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-	Status *string `pulumi:"status"`
-	// Time in minutes before event at which notification will be sent.
-	TimeInMinutes *int `pulumi:"timeInMinutes"`
-	// The webhook URL to which the notification will be sent.
-	WebhookUrl *string `pulumi:"webhookUrl"`
+	Status        *string `pulumi:"status"`
+	TimeInMinutes *int    `pulumi:"timeInMinutes"`
+	WebhookUrl    *string `pulumi:"webhookUrl"`
 }
 
 // NotificationSettingsResponseInput is an input type that accepts NotificationSettingsResponseArgs and NotificationSettingsResponseOutput values.
@@ -8706,14 +7943,10 @@ type NotificationSettingsResponseInput interface {
 	ToNotificationSettingsResponseOutputWithContext(context.Context) NotificationSettingsResponseOutput
 }
 
-// Notification settings for a schedule.
 type NotificationSettingsResponseArgs struct {
-	// If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Time in minutes before event at which notification will be sent.
-	TimeInMinutes pulumi.IntPtrInput `pulumi:"timeInMinutes"`
-	// The webhook URL to which the notification will be sent.
-	WebhookUrl pulumi.StringPtrInput `pulumi:"webhookUrl"`
+	Status        pulumi.StringPtrInput `pulumi:"status"`
+	TimeInMinutes pulumi.IntPtrInput    `pulumi:"timeInMinutes"`
+	WebhookUrl    pulumi.StringPtrInput `pulumi:"webhookUrl"`
 }
 
 func (NotificationSettingsResponseArgs) ElementType() reflect.Type {
@@ -8769,7 +8002,6 @@ func (i *notificationSettingsResponsePtrType) ToNotificationSettingsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsResponsePtrOutput)
 }
 
-// Notification settings for a schedule.
 type NotificationSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (NotificationSettingsResponseOutput) ElementType() reflect.Type {
@@ -8789,22 +8021,19 @@ func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponsePtrOut
 }
 
 func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponsePtrOutputWithContext(ctx context.Context) NotificationSettingsResponsePtrOutput {
-	return o.ApplyT(func(v NotificationSettingsResponse) *NotificationSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationSettingsResponse) *NotificationSettingsResponse {
 		return &v
 	}).(NotificationSettingsResponsePtrOutput)
 }
 
-// If notifications are enabled for this schedule (i.e. Enabled, Disabled).
 func (o NotificationSettingsResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationSettingsResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Time in minutes before event at which notification will be sent.
 func (o NotificationSettingsResponseOutput) TimeInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NotificationSettingsResponse) *int { return v.TimeInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The webhook URL to which the notification will be sent.
 func (o NotificationSettingsResponseOutput) WebhookUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationSettingsResponse) *string { return v.WebhookUrl }).(pulumi.StringPtrOutput)
 }
@@ -8824,10 +8053,15 @@ func (o NotificationSettingsResponsePtrOutput) ToNotificationSettingsResponsePtr
 }
 
 func (o NotificationSettingsResponsePtrOutput) Elem() NotificationSettingsResponseOutput {
-	return o.ApplyT(func(v *NotificationSettingsResponse) NotificationSettingsResponse { return *v }).(NotificationSettingsResponseOutput)
+	return o.ApplyT(func(v *NotificationSettingsResponse) NotificationSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationSettingsResponse
+		return ret
+	}).(NotificationSettingsResponseOutput)
 }
 
-// If notifications are enabled for this schedule (i.e. Enabled, Disabled).
 func (o NotificationSettingsResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationSettingsResponse) *string {
 		if v == nil {
@@ -8837,7 +8071,6 @@ func (o NotificationSettingsResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time in minutes before event at which notification will be sent.
 func (o NotificationSettingsResponsePtrOutput) TimeInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NotificationSettingsResponse) *int {
 		if v == nil {
@@ -8847,7 +8080,6 @@ func (o NotificationSettingsResponsePtrOutput) TimeInMinutes() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The webhook URL to which the notification will be sent.
 func (o NotificationSettingsResponsePtrOutput) WebhookUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationSettingsResponse) *string {
 		if v == nil {
@@ -8857,11 +8089,8 @@ func (o NotificationSettingsResponsePtrOutput) WebhookUrl() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a network port.
 type Port struct {
-	// Backend port of the target virtual machine.
-	BackendPort *int `pulumi:"backendPort"`
-	// Protocol type of the port.
+	BackendPort       *int    `pulumi:"backendPort"`
 	TransportProtocol *string `pulumi:"transportProtocol"`
 }
 
@@ -8876,11 +8105,8 @@ type PortInput interface {
 	ToPortOutputWithContext(context.Context) PortOutput
 }
 
-// Properties of a network port.
 type PortArgs struct {
-	// Backend port of the target virtual machine.
-	BackendPort pulumi.IntPtrInput `pulumi:"backendPort"`
-	// Protocol type of the port.
+	BackendPort       pulumi.IntPtrInput    `pulumi:"backendPort"`
 	TransportProtocol pulumi.StringPtrInput `pulumi:"transportProtocol"`
 }
 
@@ -8921,7 +8147,6 @@ func (i PortArray) ToPortArrayOutputWithContext(ctx context.Context) PortArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(PortArrayOutput)
 }
 
-// Properties of a network port.
 type PortOutput struct{ *pulumi.OutputState }
 
 func (PortOutput) ElementType() reflect.Type {
@@ -8936,12 +8161,10 @@ func (o PortOutput) ToPortOutputWithContext(ctx context.Context) PortOutput {
 	return o
 }
 
-// Backend port of the target virtual machine.
 func (o PortOutput) BackendPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Port) *int { return v.BackendPort }).(pulumi.IntPtrOutput)
 }
 
-// Protocol type of the port.
 func (o PortOutput) TransportProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Port) *string { return v.TransportProtocol }).(pulumi.StringPtrOutput)
 }
@@ -8966,11 +8189,8 @@ func (o PortArrayOutput) Index(i pulumi.IntInput) PortOutput {
 	}).(PortOutput)
 }
 
-// Properties of a network port.
 type PortResponse struct {
-	// Backend port of the target virtual machine.
-	BackendPort *int `pulumi:"backendPort"`
-	// Protocol type of the port.
+	BackendPort       *int    `pulumi:"backendPort"`
 	TransportProtocol *string `pulumi:"transportProtocol"`
 }
 
@@ -8985,11 +8205,8 @@ type PortResponseInput interface {
 	ToPortResponseOutputWithContext(context.Context) PortResponseOutput
 }
 
-// Properties of a network port.
 type PortResponseArgs struct {
-	// Backend port of the target virtual machine.
-	BackendPort pulumi.IntPtrInput `pulumi:"backendPort"`
-	// Protocol type of the port.
+	BackendPort       pulumi.IntPtrInput    `pulumi:"backendPort"`
 	TransportProtocol pulumi.StringPtrInput `pulumi:"transportProtocol"`
 }
 
@@ -9030,7 +8247,6 @@ func (i PortResponseArray) ToPortResponseArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PortResponseArrayOutput)
 }
 
-// Properties of a network port.
 type PortResponseOutput struct{ *pulumi.OutputState }
 
 func (PortResponseOutput) ElementType() reflect.Type {
@@ -9045,12 +8261,10 @@ func (o PortResponseOutput) ToPortResponseOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Backend port of the target virtual machine.
 func (o PortResponseOutput) BackendPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PortResponse) *int { return v.BackendPort }).(pulumi.IntPtrOutput)
 }
 
-// Protocol type of the port.
 func (o PortResponseOutput) TransportProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PortResponse) *string { return v.TransportProtocol }).(pulumi.StringPtrOutput)
 }
@@ -9075,32 +8289,19 @@ func (o PortResponseArrayOutput) Index(i pulumi.IntInput) PortResponseOutput {
 	}).(PortResponseOutput)
 }
 
-// A schedule.
 type ScheduleType struct {
-	// If the schedule will occur once each day of the week, specify the daily recurrence.
-	DailyRecurrence *DayDetails `pulumi:"dailyRecurrence"`
-	// If the schedule will occur multiple times a day, specify the hourly recurrence.
-	HourlyRecurrence *HourDetails `pulumi:"hourlyRecurrence"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// Notification settings.
+	DailyRecurrence      *DayDetails           `pulumi:"dailyRecurrence"`
+	HourlyRecurrence     *HourDetails          `pulumi:"hourlyRecurrence"`
+	Location             *string               `pulumi:"location"`
 	NotificationSettings *NotificationSettings `pulumi:"notificationSettings"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The status of the schedule (i.e. Enabled, Disabled)
-	Status *string `pulumi:"status"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource ID to which the schedule belongs
-	TargetResourceId *string `pulumi:"targetResourceId"`
-	// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-	TaskType *string `pulumi:"taskType"`
-	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId *string `pulumi:"timeZoneId"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// If the schedule will occur only some days of the week, specify the weekly recurrence.
-	WeeklyRecurrence *WeekDetails `pulumi:"weeklyRecurrence"`
+	ProvisioningState    *string               `pulumi:"provisioningState"`
+	Status               *string               `pulumi:"status"`
+	Tags                 map[string]string     `pulumi:"tags"`
+	TargetResourceId     *string               `pulumi:"targetResourceId"`
+	TaskType             *string               `pulumi:"taskType"`
+	TimeZoneId           *string               `pulumi:"timeZoneId"`
+	UniqueIdentifier     *string               `pulumi:"uniqueIdentifier"`
+	WeeklyRecurrence     *WeekDetails          `pulumi:"weeklyRecurrence"`
 }
 
 // ScheduleTypeInput is an input type that accepts ScheduleTypeArgs and ScheduleTypeOutput values.
@@ -9114,32 +8315,19 @@ type ScheduleTypeInput interface {
 	ToScheduleTypeOutputWithContext(context.Context) ScheduleTypeOutput
 }
 
-// A schedule.
 type ScheduleTypeArgs struct {
-	// If the schedule will occur once each day of the week, specify the daily recurrence.
-	DailyRecurrence DayDetailsPtrInput `pulumi:"dailyRecurrence"`
-	// If the schedule will occur multiple times a day, specify the hourly recurrence.
-	HourlyRecurrence HourDetailsPtrInput `pulumi:"hourlyRecurrence"`
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Notification settings.
+	DailyRecurrence      DayDetailsPtrInput           `pulumi:"dailyRecurrence"`
+	HourlyRecurrence     HourDetailsPtrInput          `pulumi:"hourlyRecurrence"`
+	Location             pulumi.StringPtrInput        `pulumi:"location"`
 	NotificationSettings NotificationSettingsPtrInput `pulumi:"notificationSettings"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The status of the schedule (i.e. Enabled, Disabled)
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The resource ID to which the schedule belongs
-	TargetResourceId pulumi.StringPtrInput `pulumi:"targetResourceId"`
-	// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-	TaskType pulumi.StringPtrInput `pulumi:"taskType"`
-	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId pulumi.StringPtrInput `pulumi:"timeZoneId"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-	// If the schedule will occur only some days of the week, specify the weekly recurrence.
-	WeeklyRecurrence WeekDetailsPtrInput `pulumi:"weeklyRecurrence"`
+	ProvisioningState    pulumi.StringPtrInput        `pulumi:"provisioningState"`
+	Status               pulumi.StringPtrInput        `pulumi:"status"`
+	Tags                 pulumi.StringMapInput        `pulumi:"tags"`
+	TargetResourceId     pulumi.StringPtrInput        `pulumi:"targetResourceId"`
+	TaskType             pulumi.StringPtrInput        `pulumi:"taskType"`
+	TimeZoneId           pulumi.StringPtrInput        `pulumi:"timeZoneId"`
+	UniqueIdentifier     pulumi.StringPtrInput        `pulumi:"uniqueIdentifier"`
+	WeeklyRecurrence     WeekDetailsPtrInput          `pulumi:"weeklyRecurrence"`
 }
 
 func (ScheduleTypeArgs) ElementType() reflect.Type {
@@ -9195,7 +8383,6 @@ func (i *scheduleTypePtrType) ToScheduleTypePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTypePtrOutput)
 }
 
-// A schedule.
 type ScheduleTypeOutput struct{ *pulumi.OutputState }
 
 func (ScheduleTypeOutput) ElementType() reflect.Type {
@@ -9215,67 +8402,55 @@ func (o ScheduleTypeOutput) ToScheduleTypePtrOutput() ScheduleTypePtrOutput {
 }
 
 func (o ScheduleTypeOutput) ToScheduleTypePtrOutputWithContext(ctx context.Context) ScheduleTypePtrOutput {
-	return o.ApplyT(func(v ScheduleType) *ScheduleType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleType) *ScheduleType {
 		return &v
 	}).(ScheduleTypePtrOutput)
 }
 
-// If the schedule will occur once each day of the week, specify the daily recurrence.
 func (o ScheduleTypeOutput) DailyRecurrence() DayDetailsPtrOutput {
 	return o.ApplyT(func(v ScheduleType) *DayDetails { return v.DailyRecurrence }).(DayDetailsPtrOutput)
 }
 
-// If the schedule will occur multiple times a day, specify the hourly recurrence.
 func (o ScheduleTypeOutput) HourlyRecurrence() HourDetailsPtrOutput {
 	return o.ApplyT(func(v ScheduleType) *HourDetails { return v.HourlyRecurrence }).(HourDetailsPtrOutput)
 }
 
-// The location of the resource.
 func (o ScheduleTypeOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleType) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Notification settings.
 func (o ScheduleTypeOutput) NotificationSettings() NotificationSettingsPtrOutput {
 	return o.ApplyT(func(v ScheduleType) *NotificationSettings { return v.NotificationSettings }).(NotificationSettingsPtrOutput)
 }
 
-// The provisioning status of the resource.
 func (o ScheduleTypeOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleType) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// The status of the schedule (i.e. Enabled, Disabled)
 func (o ScheduleTypeOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleType) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The tags of the resource.
 func (o ScheduleTypeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ScheduleType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The resource ID to which the schedule belongs
 func (o ScheduleTypeOutput) TargetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleType) *string { return v.TargetResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
 func (o ScheduleTypeOutput) TaskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleType) *string { return v.TaskType }).(pulumi.StringPtrOutput)
 }
 
-// The time zone ID (e.g. Pacific Standard time).
 func (o ScheduleTypeOutput) TimeZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleType) *string { return v.TimeZoneId }).(pulumi.StringPtrOutput)
 }
 
-// The unique immutable identifier of a resource (Guid).
 func (o ScheduleTypeOutput) UniqueIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleType) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// If the schedule will occur only some days of the week, specify the weekly recurrence.
 func (o ScheduleTypeOutput) WeeklyRecurrence() WeekDetailsPtrOutput {
 	return o.ApplyT(func(v ScheduleType) *WeekDetails { return v.WeeklyRecurrence }).(WeekDetailsPtrOutput)
 }
@@ -9295,10 +8470,15 @@ func (o ScheduleTypePtrOutput) ToScheduleTypePtrOutputWithContext(ctx context.Co
 }
 
 func (o ScheduleTypePtrOutput) Elem() ScheduleTypeOutput {
-	return o.ApplyT(func(v *ScheduleType) ScheduleType { return *v }).(ScheduleTypeOutput)
+	return o.ApplyT(func(v *ScheduleType) ScheduleType {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduleType
+		return ret
+	}).(ScheduleTypeOutput)
 }
 
-// If the schedule will occur once each day of the week, specify the daily recurrence.
 func (o ScheduleTypePtrOutput) DailyRecurrence() DayDetailsPtrOutput {
 	return o.ApplyT(func(v *ScheduleType) *DayDetails {
 		if v == nil {
@@ -9308,7 +8488,6 @@ func (o ScheduleTypePtrOutput) DailyRecurrence() DayDetailsPtrOutput {
 	}).(DayDetailsPtrOutput)
 }
 
-// If the schedule will occur multiple times a day, specify the hourly recurrence.
 func (o ScheduleTypePtrOutput) HourlyRecurrence() HourDetailsPtrOutput {
 	return o.ApplyT(func(v *ScheduleType) *HourDetails {
 		if v == nil {
@@ -9318,7 +8497,6 @@ func (o ScheduleTypePtrOutput) HourlyRecurrence() HourDetailsPtrOutput {
 	}).(HourDetailsPtrOutput)
 }
 
-// The location of the resource.
 func (o ScheduleTypePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleType) *string {
 		if v == nil {
@@ -9328,7 +8506,6 @@ func (o ScheduleTypePtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Notification settings.
 func (o ScheduleTypePtrOutput) NotificationSettings() NotificationSettingsPtrOutput {
 	return o.ApplyT(func(v *ScheduleType) *NotificationSettings {
 		if v == nil {
@@ -9338,7 +8515,6 @@ func (o ScheduleTypePtrOutput) NotificationSettings() NotificationSettingsPtrOut
 	}).(NotificationSettingsPtrOutput)
 }
 
-// The provisioning status of the resource.
 func (o ScheduleTypePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleType) *string {
 		if v == nil {
@@ -9348,7 +8524,6 @@ func (o ScheduleTypePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of the schedule (i.e. Enabled, Disabled)
 func (o ScheduleTypePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleType) *string {
 		if v == nil {
@@ -9358,7 +8533,6 @@ func (o ScheduleTypePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tags of the resource.
 func (o ScheduleTypePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ScheduleType) map[string]string {
 		if v == nil {
@@ -9368,7 +8542,6 @@ func (o ScheduleTypePtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// The resource ID to which the schedule belongs
 func (o ScheduleTypePtrOutput) TargetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleType) *string {
 		if v == nil {
@@ -9378,7 +8551,6 @@ func (o ScheduleTypePtrOutput) TargetResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
 func (o ScheduleTypePtrOutput) TaskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleType) *string {
 		if v == nil {
@@ -9388,7 +8560,6 @@ func (o ScheduleTypePtrOutput) TaskType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time zone ID (e.g. Pacific Standard time).
 func (o ScheduleTypePtrOutput) TimeZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleType) *string {
 		if v == nil {
@@ -9398,7 +8569,6 @@ func (o ScheduleTypePtrOutput) TimeZoneId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The unique immutable identifier of a resource (Guid).
 func (o ScheduleTypePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleType) *string {
 		if v == nil {
@@ -9408,7 +8578,6 @@ func (o ScheduleTypePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If the schedule will occur only some days of the week, specify the weekly recurrence.
 func (o ScheduleTypePtrOutput) WeeklyRecurrence() WeekDetailsPtrOutput {
 	return o.ApplyT(func(v *ScheduleType) *WeekDetails {
 		if v == nil {
@@ -9418,40 +8587,23 @@ func (o ScheduleTypePtrOutput) WeeklyRecurrence() WeekDetailsPtrOutput {
 	}).(WeekDetailsPtrOutput)
 }
 
-// A schedule.
 type ScheduleResponse struct {
-	// The creation date of the schedule.
-	CreatedDate string `pulumi:"createdDate"`
-	// If the schedule will occur once each day of the week, specify the daily recurrence.
-	DailyRecurrence *DayDetailsResponse `pulumi:"dailyRecurrence"`
-	// If the schedule will occur multiple times a day, specify the hourly recurrence.
-	HourlyRecurrence *HourDetailsResponse `pulumi:"hourlyRecurrence"`
-	// The identifier of the resource.
-	Id string `pulumi:"id"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Notification settings.
+	CreatedDate          string                        `pulumi:"createdDate"`
+	DailyRecurrence      *DayDetailsResponse           `pulumi:"dailyRecurrence"`
+	HourlyRecurrence     *HourDetailsResponse          `pulumi:"hourlyRecurrence"`
+	Id                   string                        `pulumi:"id"`
+	Location             *string                       `pulumi:"location"`
+	Name                 string                        `pulumi:"name"`
 	NotificationSettings *NotificationSettingsResponse `pulumi:"notificationSettings"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The status of the schedule (i.e. Enabled, Disabled)
-	Status *string `pulumi:"status"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource ID to which the schedule belongs
-	TargetResourceId *string `pulumi:"targetResourceId"`
-	// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-	TaskType *string `pulumi:"taskType"`
-	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId *string `pulumi:"timeZoneId"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// If the schedule will occur only some days of the week, specify the weekly recurrence.
-	WeeklyRecurrence *WeekDetailsResponse `pulumi:"weeklyRecurrence"`
+	ProvisioningState    *string                       `pulumi:"provisioningState"`
+	Status               *string                       `pulumi:"status"`
+	Tags                 map[string]string             `pulumi:"tags"`
+	TargetResourceId     *string                       `pulumi:"targetResourceId"`
+	TaskType             *string                       `pulumi:"taskType"`
+	TimeZoneId           *string                       `pulumi:"timeZoneId"`
+	Type                 string                        `pulumi:"type"`
+	UniqueIdentifier     *string                       `pulumi:"uniqueIdentifier"`
+	WeeklyRecurrence     *WeekDetailsResponse          `pulumi:"weeklyRecurrence"`
 }
 
 // ScheduleResponseInput is an input type that accepts ScheduleResponseArgs and ScheduleResponseOutput values.
@@ -9465,40 +8617,23 @@ type ScheduleResponseInput interface {
 	ToScheduleResponseOutputWithContext(context.Context) ScheduleResponseOutput
 }
 
-// A schedule.
 type ScheduleResponseArgs struct {
-	// The creation date of the schedule.
-	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
-	// If the schedule will occur once each day of the week, specify the daily recurrence.
-	DailyRecurrence DayDetailsResponsePtrInput `pulumi:"dailyRecurrence"`
-	// If the schedule will occur multiple times a day, specify the hourly recurrence.
-	HourlyRecurrence HourDetailsResponsePtrInput `pulumi:"hourlyRecurrence"`
-	// The identifier of the resource.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Notification settings.
+	CreatedDate          pulumi.StringInput                   `pulumi:"createdDate"`
+	DailyRecurrence      DayDetailsResponsePtrInput           `pulumi:"dailyRecurrence"`
+	HourlyRecurrence     HourDetailsResponsePtrInput          `pulumi:"hourlyRecurrence"`
+	Id                   pulumi.StringInput                   `pulumi:"id"`
+	Location             pulumi.StringPtrInput                `pulumi:"location"`
+	Name                 pulumi.StringInput                   `pulumi:"name"`
 	NotificationSettings NotificationSettingsResponsePtrInput `pulumi:"notificationSettings"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The status of the schedule (i.e. Enabled, Disabled)
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The resource ID to which the schedule belongs
-	TargetResourceId pulumi.StringPtrInput `pulumi:"targetResourceId"`
-	// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-	TaskType pulumi.StringPtrInput `pulumi:"taskType"`
-	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId pulumi.StringPtrInput `pulumi:"timeZoneId"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-	// If the schedule will occur only some days of the week, specify the weekly recurrence.
-	WeeklyRecurrence WeekDetailsResponsePtrInput `pulumi:"weeklyRecurrence"`
+	ProvisioningState    pulumi.StringPtrInput                `pulumi:"provisioningState"`
+	Status               pulumi.StringPtrInput                `pulumi:"status"`
+	Tags                 pulumi.StringMapInput                `pulumi:"tags"`
+	TargetResourceId     pulumi.StringPtrInput                `pulumi:"targetResourceId"`
+	TaskType             pulumi.StringPtrInput                `pulumi:"taskType"`
+	TimeZoneId           pulumi.StringPtrInput                `pulumi:"timeZoneId"`
+	Type                 pulumi.StringInput                   `pulumi:"type"`
+	UniqueIdentifier     pulumi.StringPtrInput                `pulumi:"uniqueIdentifier"`
+	WeeklyRecurrence     WeekDetailsResponsePtrInput          `pulumi:"weeklyRecurrence"`
 }
 
 func (ScheduleResponseArgs) ElementType() reflect.Type {
@@ -9579,7 +8714,6 @@ func (i ScheduleResponseArray) ToScheduleResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResponseArrayOutput)
 }
 
-// A schedule.
 type ScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (ScheduleResponseOutput) ElementType() reflect.Type {
@@ -9599,87 +8733,71 @@ func (o ScheduleResponseOutput) ToScheduleResponsePtrOutput() ScheduleResponsePt
 }
 
 func (o ScheduleResponseOutput) ToScheduleResponsePtrOutputWithContext(ctx context.Context) ScheduleResponsePtrOutput {
-	return o.ApplyT(func(v ScheduleResponse) *ScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleResponse) *ScheduleResponse {
 		return &v
 	}).(ScheduleResponsePtrOutput)
 }
 
-// The creation date of the schedule.
 func (o ScheduleResponseOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleResponse) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// If the schedule will occur once each day of the week, specify the daily recurrence.
 func (o ScheduleResponseOutput) DailyRecurrence() DayDetailsResponsePtrOutput {
 	return o.ApplyT(func(v ScheduleResponse) *DayDetailsResponse { return v.DailyRecurrence }).(DayDetailsResponsePtrOutput)
 }
 
-// If the schedule will occur multiple times a day, specify the hourly recurrence.
 func (o ScheduleResponseOutput) HourlyRecurrence() HourDetailsResponsePtrOutput {
 	return o.ApplyT(func(v ScheduleResponse) *HourDetailsResponse { return v.HourlyRecurrence }).(HourDetailsResponsePtrOutput)
 }
 
-// The identifier of the resource.
 func (o ScheduleResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The location of the resource.
 func (o ScheduleResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource.
 func (o ScheduleResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Notification settings.
 func (o ScheduleResponseOutput) NotificationSettings() NotificationSettingsResponsePtrOutput {
 	return o.ApplyT(func(v ScheduleResponse) *NotificationSettingsResponse { return v.NotificationSettings }).(NotificationSettingsResponsePtrOutput)
 }
 
-// The provisioning status of the resource.
 func (o ScheduleResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// The status of the schedule (i.e. Enabled, Disabled)
 func (o ScheduleResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The tags of the resource.
 func (o ScheduleResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ScheduleResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The resource ID to which the schedule belongs
 func (o ScheduleResponseOutput) TargetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleResponse) *string { return v.TargetResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
 func (o ScheduleResponseOutput) TaskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleResponse) *string { return v.TaskType }).(pulumi.StringPtrOutput)
 }
 
-// The time zone ID (e.g. Pacific Standard time).
 func (o ScheduleResponseOutput) TimeZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleResponse) *string { return v.TimeZoneId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the resource.
 func (o ScheduleResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The unique immutable identifier of a resource (Guid).
 func (o ScheduleResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// If the schedule will occur only some days of the week, specify the weekly recurrence.
 func (o ScheduleResponseOutput) WeeklyRecurrence() WeekDetailsResponsePtrOutput {
 	return o.ApplyT(func(v ScheduleResponse) *WeekDetailsResponse { return v.WeeklyRecurrence }).(WeekDetailsResponsePtrOutput)
 }
@@ -9699,10 +8817,15 @@ func (o ScheduleResponsePtrOutput) ToScheduleResponsePtrOutputWithContext(ctx co
 }
 
 func (o ScheduleResponsePtrOutput) Elem() ScheduleResponseOutput {
-	return o.ApplyT(func(v *ScheduleResponse) ScheduleResponse { return *v }).(ScheduleResponseOutput)
+	return o.ApplyT(func(v *ScheduleResponse) ScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduleResponse
+		return ret
+	}).(ScheduleResponseOutput)
 }
 
-// The creation date of the schedule.
 func (o ScheduleResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *string {
 		if v == nil {
@@ -9712,7 +8835,6 @@ func (o ScheduleResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If the schedule will occur once each day of the week, specify the daily recurrence.
 func (o ScheduleResponsePtrOutput) DailyRecurrence() DayDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *DayDetailsResponse {
 		if v == nil {
@@ -9722,7 +8844,6 @@ func (o ScheduleResponsePtrOutput) DailyRecurrence() DayDetailsResponsePtrOutput
 	}).(DayDetailsResponsePtrOutput)
 }
 
-// If the schedule will occur multiple times a day, specify the hourly recurrence.
 func (o ScheduleResponsePtrOutput) HourlyRecurrence() HourDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *HourDetailsResponse {
 		if v == nil {
@@ -9732,7 +8853,6 @@ func (o ScheduleResponsePtrOutput) HourlyRecurrence() HourDetailsResponsePtrOutp
 	}).(HourDetailsResponsePtrOutput)
 }
 
-// The identifier of the resource.
 func (o ScheduleResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *string {
 		if v == nil {
@@ -9742,7 +8862,6 @@ func (o ScheduleResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The location of the resource.
 func (o ScheduleResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *string {
 		if v == nil {
@@ -9752,7 +8871,6 @@ func (o ScheduleResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource.
 func (o ScheduleResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *string {
 		if v == nil {
@@ -9762,7 +8880,6 @@ func (o ScheduleResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Notification settings.
 func (o ScheduleResponsePtrOutput) NotificationSettings() NotificationSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *NotificationSettingsResponse {
 		if v == nil {
@@ -9772,7 +8889,6 @@ func (o ScheduleResponsePtrOutput) NotificationSettings() NotificationSettingsRe
 	}).(NotificationSettingsResponsePtrOutput)
 }
 
-// The provisioning status of the resource.
 func (o ScheduleResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *string {
 		if v == nil {
@@ -9782,7 +8898,6 @@ func (o ScheduleResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of the schedule (i.e. Enabled, Disabled)
 func (o ScheduleResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *string {
 		if v == nil {
@@ -9792,7 +8907,6 @@ func (o ScheduleResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tags of the resource.
 func (o ScheduleResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ScheduleResponse) map[string]string {
 		if v == nil {
@@ -9802,7 +8916,6 @@ func (o ScheduleResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// The resource ID to which the schedule belongs
 func (o ScheduleResponsePtrOutput) TargetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *string {
 		if v == nil {
@@ -9812,7 +8925,6 @@ func (o ScheduleResponsePtrOutput) TargetResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
 func (o ScheduleResponsePtrOutput) TaskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *string {
 		if v == nil {
@@ -9822,7 +8934,6 @@ func (o ScheduleResponsePtrOutput) TaskType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time zone ID (e.g. Pacific Standard time).
 func (o ScheduleResponsePtrOutput) TimeZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *string {
 		if v == nil {
@@ -9832,7 +8943,6 @@ func (o ScheduleResponsePtrOutput) TimeZoneId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the resource.
 func (o ScheduleResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *string {
 		if v == nil {
@@ -9842,7 +8952,6 @@ func (o ScheduleResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The unique immutable identifier of a resource (Guid).
 func (o ScheduleResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *string {
 		if v == nil {
@@ -9852,7 +8961,6 @@ func (o ScheduleResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If the schedule will occur only some days of the week, specify the weekly recurrence.
 func (o ScheduleResponsePtrOutput) WeeklyRecurrence() WeekDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *WeekDetailsResponse {
 		if v == nil {
@@ -9882,9 +8990,7 @@ func (o ScheduleResponseArrayOutput) Index(i pulumi.IntInput) ScheduleResponseOu
 	}).(ScheduleResponseOutput)
 }
 
-// Properties of a virtual machine that determine how it is connected to a load balancer.
 type SharedPublicIpAddressConfiguration struct {
-	// The incoming NAT rules
 	InboundNatRules []InboundNatRule `pulumi:"inboundNatRules"`
 }
 
@@ -9899,9 +9005,7 @@ type SharedPublicIpAddressConfigurationInput interface {
 	ToSharedPublicIpAddressConfigurationOutputWithContext(context.Context) SharedPublicIpAddressConfigurationOutput
 }
 
-// Properties of a virtual machine that determine how it is connected to a load balancer.
 type SharedPublicIpAddressConfigurationArgs struct {
-	// The incoming NAT rules
 	InboundNatRules InboundNatRuleArrayInput `pulumi:"inboundNatRules"`
 }
 
@@ -9958,7 +9062,6 @@ func (i *sharedPublicIpAddressConfigurationPtrType) ToSharedPublicIpAddressConfi
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPublicIpAddressConfigurationPtrOutput)
 }
 
-// Properties of a virtual machine that determine how it is connected to a load balancer.
 type SharedPublicIpAddressConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SharedPublicIpAddressConfigurationOutput) ElementType() reflect.Type {
@@ -9978,12 +9081,11 @@ func (o SharedPublicIpAddressConfigurationOutput) ToSharedPublicIpAddressConfigu
 }
 
 func (o SharedPublicIpAddressConfigurationOutput) ToSharedPublicIpAddressConfigurationPtrOutputWithContext(ctx context.Context) SharedPublicIpAddressConfigurationPtrOutput {
-	return o.ApplyT(func(v SharedPublicIpAddressConfiguration) *SharedPublicIpAddressConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedPublicIpAddressConfiguration) *SharedPublicIpAddressConfiguration {
 		return &v
 	}).(SharedPublicIpAddressConfigurationPtrOutput)
 }
 
-// The incoming NAT rules
 func (o SharedPublicIpAddressConfigurationOutput) InboundNatRules() InboundNatRuleArrayOutput {
 	return o.ApplyT(func(v SharedPublicIpAddressConfiguration) []InboundNatRule { return v.InboundNatRules }).(InboundNatRuleArrayOutput)
 }
@@ -10003,10 +9105,15 @@ func (o SharedPublicIpAddressConfigurationPtrOutput) ToSharedPublicIpAddressConf
 }
 
 func (o SharedPublicIpAddressConfigurationPtrOutput) Elem() SharedPublicIpAddressConfigurationOutput {
-	return o.ApplyT(func(v *SharedPublicIpAddressConfiguration) SharedPublicIpAddressConfiguration { return *v }).(SharedPublicIpAddressConfigurationOutput)
+	return o.ApplyT(func(v *SharedPublicIpAddressConfiguration) SharedPublicIpAddressConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SharedPublicIpAddressConfiguration
+		return ret
+	}).(SharedPublicIpAddressConfigurationOutput)
 }
 
-// The incoming NAT rules
 func (o SharedPublicIpAddressConfigurationPtrOutput) InboundNatRules() InboundNatRuleArrayOutput {
 	return o.ApplyT(func(v *SharedPublicIpAddressConfiguration) []InboundNatRule {
 		if v == nil {
@@ -10016,9 +9123,7 @@ func (o SharedPublicIpAddressConfigurationPtrOutput) InboundNatRules() InboundNa
 	}).(InboundNatRuleArrayOutput)
 }
 
-// Properties of a virtual machine that determine how it is connected to a load balancer.
 type SharedPublicIpAddressConfigurationResponse struct {
-	// The incoming NAT rules
 	InboundNatRules []InboundNatRuleResponse `pulumi:"inboundNatRules"`
 }
 
@@ -10033,9 +9138,7 @@ type SharedPublicIpAddressConfigurationResponseInput interface {
 	ToSharedPublicIpAddressConfigurationResponseOutputWithContext(context.Context) SharedPublicIpAddressConfigurationResponseOutput
 }
 
-// Properties of a virtual machine that determine how it is connected to a load balancer.
 type SharedPublicIpAddressConfigurationResponseArgs struct {
-	// The incoming NAT rules
 	InboundNatRules InboundNatRuleResponseArrayInput `pulumi:"inboundNatRules"`
 }
 
@@ -10092,7 +9195,6 @@ func (i *sharedPublicIpAddressConfigurationResponsePtrType) ToSharedPublicIpAddr
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPublicIpAddressConfigurationResponsePtrOutput)
 }
 
-// Properties of a virtual machine that determine how it is connected to a load balancer.
 type SharedPublicIpAddressConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (SharedPublicIpAddressConfigurationResponseOutput) ElementType() reflect.Type {
@@ -10112,12 +9214,11 @@ func (o SharedPublicIpAddressConfigurationResponseOutput) ToSharedPublicIpAddres
 }
 
 func (o SharedPublicIpAddressConfigurationResponseOutput) ToSharedPublicIpAddressConfigurationResponsePtrOutputWithContext(ctx context.Context) SharedPublicIpAddressConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v SharedPublicIpAddressConfigurationResponse) *SharedPublicIpAddressConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedPublicIpAddressConfigurationResponse) *SharedPublicIpAddressConfigurationResponse {
 		return &v
 	}).(SharedPublicIpAddressConfigurationResponsePtrOutput)
 }
 
-// The incoming NAT rules
 func (o SharedPublicIpAddressConfigurationResponseOutput) InboundNatRules() InboundNatRuleResponseArrayOutput {
 	return o.ApplyT(func(v SharedPublicIpAddressConfigurationResponse) []InboundNatRuleResponse { return v.InboundNatRules }).(InboundNatRuleResponseArrayOutput)
 }
@@ -10138,11 +9239,14 @@ func (o SharedPublicIpAddressConfigurationResponsePtrOutput) ToSharedPublicIpAdd
 
 func (o SharedPublicIpAddressConfigurationResponsePtrOutput) Elem() SharedPublicIpAddressConfigurationResponseOutput {
 	return o.ApplyT(func(v *SharedPublicIpAddressConfigurationResponse) SharedPublicIpAddressConfigurationResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SharedPublicIpAddressConfigurationResponse
+		return ret
 	}).(SharedPublicIpAddressConfigurationResponseOutput)
 }
 
-// The incoming NAT rules
 func (o SharedPublicIpAddressConfigurationResponsePtrOutput) InboundNatRules() InboundNatRuleResponseArrayOutput {
 	return o.ApplyT(func(v *SharedPublicIpAddressConfigurationResponse) []InboundNatRuleResponse {
 		if v == nil {
@@ -10152,14 +9256,10 @@ func (o SharedPublicIpAddressConfigurationResponsePtrOutput) InboundNatRules() I
 	}).(InboundNatRuleResponseArrayOutput)
 }
 
-// Subnet information.
 type Subnet struct {
-	// The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
 	AllowPublicIp *string `pulumi:"allowPublicIp"`
-	// The name of the subnet as seen in the lab.
 	LabSubnetName *string `pulumi:"labSubnetName"`
-	// The resource ID of the subnet.
-	ResourceId *string `pulumi:"resourceId"`
+	ResourceId    *string `pulumi:"resourceId"`
 }
 
 // SubnetInput is an input type that accepts SubnetArgs and SubnetOutput values.
@@ -10173,14 +9273,10 @@ type SubnetInput interface {
 	ToSubnetOutputWithContext(context.Context) SubnetOutput
 }
 
-// Subnet information.
 type SubnetArgs struct {
-	// The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
 	AllowPublicIp pulumi.StringPtrInput `pulumi:"allowPublicIp"`
-	// The name of the subnet as seen in the lab.
 	LabSubnetName pulumi.StringPtrInput `pulumi:"labSubnetName"`
-	// The resource ID of the subnet.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	ResourceId    pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (SubnetArgs) ElementType() reflect.Type {
@@ -10220,7 +9316,6 @@ func (i SubnetArray) ToSubnetArrayOutputWithContext(ctx context.Context) SubnetA
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetArrayOutput)
 }
 
-// Subnet information.
 type SubnetOutput struct{ *pulumi.OutputState }
 
 func (SubnetOutput) ElementType() reflect.Type {
@@ -10235,17 +9330,14 @@ func (o SubnetOutput) ToSubnetOutputWithContext(ctx context.Context) SubnetOutpu
 	return o
 }
 
-// The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
 func (o SubnetOutput) AllowPublicIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Subnet) *string { return v.AllowPublicIp }).(pulumi.StringPtrOutput)
 }
 
-// The name of the subnet as seen in the lab.
 func (o SubnetOutput) LabSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Subnet) *string { return v.LabSubnetName }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the subnet.
 func (o SubnetOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Subnet) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -10270,20 +9362,13 @@ func (o SubnetArrayOutput) Index(i pulumi.IntInput) SubnetOutput {
 	}).(SubnetOutput)
 }
 
-// Property overrides on a subnet of a virtual network.
 type SubnetOverride struct {
-	// The name given to the subnet within the lab.
-	LabSubnetName *string `pulumi:"labSubnetName"`
-	// The resource ID of the subnet.
-	ResourceId *string `pulumi:"resourceId"`
-	// Properties that virtual machines on this subnet will share.
+	LabSubnetName                      *string                                   `pulumi:"labSubnetName"`
+	ResourceId                         *string                                   `pulumi:"resourceId"`
 	SharedPublicIpAddressConfiguration *SubnetSharedPublicIpAddressConfiguration `pulumi:"sharedPublicIpAddressConfiguration"`
-	// Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
-	UseInVmCreationPermission *string `pulumi:"useInVmCreationPermission"`
-	// Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
-	UsePublicIpAddressPermission *string `pulumi:"usePublicIpAddressPermission"`
-	// The virtual network pool associated with this subnet.
-	VirtualNetworkPoolName *string `pulumi:"virtualNetworkPoolName"`
+	UseInVmCreationPermission          *string                                   `pulumi:"useInVmCreationPermission"`
+	UsePublicIpAddressPermission       *string                                   `pulumi:"usePublicIpAddressPermission"`
+	VirtualNetworkPoolName             *string                                   `pulumi:"virtualNetworkPoolName"`
 }
 
 // SubnetOverrideInput is an input type that accepts SubnetOverrideArgs and SubnetOverrideOutput values.
@@ -10297,20 +9382,13 @@ type SubnetOverrideInput interface {
 	ToSubnetOverrideOutputWithContext(context.Context) SubnetOverrideOutput
 }
 
-// Property overrides on a subnet of a virtual network.
 type SubnetOverrideArgs struct {
-	// The name given to the subnet within the lab.
-	LabSubnetName pulumi.StringPtrInput `pulumi:"labSubnetName"`
-	// The resource ID of the subnet.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-	// Properties that virtual machines on this subnet will share.
+	LabSubnetName                      pulumi.StringPtrInput                            `pulumi:"labSubnetName"`
+	ResourceId                         pulumi.StringPtrInput                            `pulumi:"resourceId"`
 	SharedPublicIpAddressConfiguration SubnetSharedPublicIpAddressConfigurationPtrInput `pulumi:"sharedPublicIpAddressConfiguration"`
-	// Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
-	UseInVmCreationPermission pulumi.StringPtrInput `pulumi:"useInVmCreationPermission"`
-	// Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
-	UsePublicIpAddressPermission pulumi.StringPtrInput `pulumi:"usePublicIpAddressPermission"`
-	// The virtual network pool associated with this subnet.
-	VirtualNetworkPoolName pulumi.StringPtrInput `pulumi:"virtualNetworkPoolName"`
+	UseInVmCreationPermission          pulumi.StringPtrInput                            `pulumi:"useInVmCreationPermission"`
+	UsePublicIpAddressPermission       pulumi.StringPtrInput                            `pulumi:"usePublicIpAddressPermission"`
+	VirtualNetworkPoolName             pulumi.StringPtrInput                            `pulumi:"virtualNetworkPoolName"`
 }
 
 func (SubnetOverrideArgs) ElementType() reflect.Type {
@@ -10350,7 +9428,6 @@ func (i SubnetOverrideArray) ToSubnetOverrideArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetOverrideArrayOutput)
 }
 
-// Property overrides on a subnet of a virtual network.
 type SubnetOverrideOutput struct{ *pulumi.OutputState }
 
 func (SubnetOverrideOutput) ElementType() reflect.Type {
@@ -10365,34 +9442,28 @@ func (o SubnetOverrideOutput) ToSubnetOverrideOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The name given to the subnet within the lab.
 func (o SubnetOverrideOutput) LabSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetOverride) *string { return v.LabSubnetName }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the subnet.
 func (o SubnetOverrideOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetOverride) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Properties that virtual machines on this subnet will share.
 func (o SubnetOverrideOutput) SharedPublicIpAddressConfiguration() SubnetSharedPublicIpAddressConfigurationPtrOutput {
 	return o.ApplyT(func(v SubnetOverride) *SubnetSharedPublicIpAddressConfiguration {
 		return v.SharedPublicIpAddressConfiguration
 	}).(SubnetSharedPublicIpAddressConfigurationPtrOutput)
 }
 
-// Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
 func (o SubnetOverrideOutput) UseInVmCreationPermission() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetOverride) *string { return v.UseInVmCreationPermission }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
 func (o SubnetOverrideOutput) UsePublicIpAddressPermission() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetOverride) *string { return v.UsePublicIpAddressPermission }).(pulumi.StringPtrOutput)
 }
 
-// The virtual network pool associated with this subnet.
 func (o SubnetOverrideOutput) VirtualNetworkPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetOverride) *string { return v.VirtualNetworkPoolName }).(pulumi.StringPtrOutput)
 }
@@ -10417,20 +9488,13 @@ func (o SubnetOverrideArrayOutput) Index(i pulumi.IntInput) SubnetOverrideOutput
 	}).(SubnetOverrideOutput)
 }
 
-// Property overrides on a subnet of a virtual network.
 type SubnetOverrideResponse struct {
-	// The name given to the subnet within the lab.
-	LabSubnetName *string `pulumi:"labSubnetName"`
-	// The resource ID of the subnet.
-	ResourceId *string `pulumi:"resourceId"`
-	// Properties that virtual machines on this subnet will share.
+	LabSubnetName                      *string                                           `pulumi:"labSubnetName"`
+	ResourceId                         *string                                           `pulumi:"resourceId"`
 	SharedPublicIpAddressConfiguration *SubnetSharedPublicIpAddressConfigurationResponse `pulumi:"sharedPublicIpAddressConfiguration"`
-	// Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
-	UseInVmCreationPermission *string `pulumi:"useInVmCreationPermission"`
-	// Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
-	UsePublicIpAddressPermission *string `pulumi:"usePublicIpAddressPermission"`
-	// The virtual network pool associated with this subnet.
-	VirtualNetworkPoolName *string `pulumi:"virtualNetworkPoolName"`
+	UseInVmCreationPermission          *string                                           `pulumi:"useInVmCreationPermission"`
+	UsePublicIpAddressPermission       *string                                           `pulumi:"usePublicIpAddressPermission"`
+	VirtualNetworkPoolName             *string                                           `pulumi:"virtualNetworkPoolName"`
 }
 
 // SubnetOverrideResponseInput is an input type that accepts SubnetOverrideResponseArgs and SubnetOverrideResponseOutput values.
@@ -10444,20 +9508,13 @@ type SubnetOverrideResponseInput interface {
 	ToSubnetOverrideResponseOutputWithContext(context.Context) SubnetOverrideResponseOutput
 }
 
-// Property overrides on a subnet of a virtual network.
 type SubnetOverrideResponseArgs struct {
-	// The name given to the subnet within the lab.
-	LabSubnetName pulumi.StringPtrInput `pulumi:"labSubnetName"`
-	// The resource ID of the subnet.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-	// Properties that virtual machines on this subnet will share.
+	LabSubnetName                      pulumi.StringPtrInput                                    `pulumi:"labSubnetName"`
+	ResourceId                         pulumi.StringPtrInput                                    `pulumi:"resourceId"`
 	SharedPublicIpAddressConfiguration SubnetSharedPublicIpAddressConfigurationResponsePtrInput `pulumi:"sharedPublicIpAddressConfiguration"`
-	// Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
-	UseInVmCreationPermission pulumi.StringPtrInput `pulumi:"useInVmCreationPermission"`
-	// Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
-	UsePublicIpAddressPermission pulumi.StringPtrInput `pulumi:"usePublicIpAddressPermission"`
-	// The virtual network pool associated with this subnet.
-	VirtualNetworkPoolName pulumi.StringPtrInput `pulumi:"virtualNetworkPoolName"`
+	UseInVmCreationPermission          pulumi.StringPtrInput                                    `pulumi:"useInVmCreationPermission"`
+	UsePublicIpAddressPermission       pulumi.StringPtrInput                                    `pulumi:"usePublicIpAddressPermission"`
+	VirtualNetworkPoolName             pulumi.StringPtrInput                                    `pulumi:"virtualNetworkPoolName"`
 }
 
 func (SubnetOverrideResponseArgs) ElementType() reflect.Type {
@@ -10497,7 +9554,6 @@ func (i SubnetOverrideResponseArray) ToSubnetOverrideResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetOverrideResponseArrayOutput)
 }
 
-// Property overrides on a subnet of a virtual network.
 type SubnetOverrideResponseOutput struct{ *pulumi.OutputState }
 
 func (SubnetOverrideResponseOutput) ElementType() reflect.Type {
@@ -10512,34 +9568,28 @@ func (o SubnetOverrideResponseOutput) ToSubnetOverrideResponseOutputWithContext(
 	return o
 }
 
-// The name given to the subnet within the lab.
 func (o SubnetOverrideResponseOutput) LabSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetOverrideResponse) *string { return v.LabSubnetName }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the subnet.
 func (o SubnetOverrideResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetOverrideResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Properties that virtual machines on this subnet will share.
 func (o SubnetOverrideResponseOutput) SharedPublicIpAddressConfiguration() SubnetSharedPublicIpAddressConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v SubnetOverrideResponse) *SubnetSharedPublicIpAddressConfigurationResponse {
 		return v.SharedPublicIpAddressConfiguration
 	}).(SubnetSharedPublicIpAddressConfigurationResponsePtrOutput)
 }
 
-// Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
 func (o SubnetOverrideResponseOutput) UseInVmCreationPermission() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetOverrideResponse) *string { return v.UseInVmCreationPermission }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
 func (o SubnetOverrideResponseOutput) UsePublicIpAddressPermission() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetOverrideResponse) *string { return v.UsePublicIpAddressPermission }).(pulumi.StringPtrOutput)
 }
 
-// The virtual network pool associated with this subnet.
 func (o SubnetOverrideResponseOutput) VirtualNetworkPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetOverrideResponse) *string { return v.VirtualNetworkPoolName }).(pulumi.StringPtrOutput)
 }
@@ -10564,14 +9614,10 @@ func (o SubnetOverrideResponseArrayOutput) Index(i pulumi.IntInput) SubnetOverri
 	}).(SubnetOverrideResponseOutput)
 }
 
-// Subnet information.
 type SubnetResponse struct {
-	// The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
 	AllowPublicIp *string `pulumi:"allowPublicIp"`
-	// The name of the subnet as seen in the lab.
 	LabSubnetName *string `pulumi:"labSubnetName"`
-	// The resource ID of the subnet.
-	ResourceId *string `pulumi:"resourceId"`
+	ResourceId    *string `pulumi:"resourceId"`
 }
 
 // SubnetResponseInput is an input type that accepts SubnetResponseArgs and SubnetResponseOutput values.
@@ -10585,14 +9631,10 @@ type SubnetResponseInput interface {
 	ToSubnetResponseOutputWithContext(context.Context) SubnetResponseOutput
 }
 
-// Subnet information.
 type SubnetResponseArgs struct {
-	// The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
 	AllowPublicIp pulumi.StringPtrInput `pulumi:"allowPublicIp"`
-	// The name of the subnet as seen in the lab.
 	LabSubnetName pulumi.StringPtrInput `pulumi:"labSubnetName"`
-	// The resource ID of the subnet.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	ResourceId    pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (SubnetResponseArgs) ElementType() reflect.Type {
@@ -10632,7 +9674,6 @@ func (i SubnetResponseArray) ToSubnetResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetResponseArrayOutput)
 }
 
-// Subnet information.
 type SubnetResponseOutput struct{ *pulumi.OutputState }
 
 func (SubnetResponseOutput) ElementType() reflect.Type {
@@ -10647,17 +9688,14 @@ func (o SubnetResponseOutput) ToSubnetResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
 func (o SubnetResponseOutput) AllowPublicIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetResponse) *string { return v.AllowPublicIp }).(pulumi.StringPtrOutput)
 }
 
-// The name of the subnet as seen in the lab.
 func (o SubnetResponseOutput) LabSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetResponse) *string { return v.LabSubnetName }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the subnet.
 func (o SubnetResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -10682,9 +9720,7 @@ func (o SubnetResponseArrayOutput) Index(i pulumi.IntInput) SubnetResponseOutput
 	}).(SubnetResponseOutput)
 }
 
-// Configuration for public IP address sharing.
 type SubnetSharedPublicIpAddressConfiguration struct {
-	// Backend ports that virtual machines on this subnet are allowed to expose
 	AllowedPorts []Port `pulumi:"allowedPorts"`
 }
 
@@ -10699,9 +9735,7 @@ type SubnetSharedPublicIpAddressConfigurationInput interface {
 	ToSubnetSharedPublicIpAddressConfigurationOutputWithContext(context.Context) SubnetSharedPublicIpAddressConfigurationOutput
 }
 
-// Configuration for public IP address sharing.
 type SubnetSharedPublicIpAddressConfigurationArgs struct {
-	// Backend ports that virtual machines on this subnet are allowed to expose
 	AllowedPorts PortArrayInput `pulumi:"allowedPorts"`
 }
 
@@ -10758,7 +9792,6 @@ func (i *subnetSharedPublicIpAddressConfigurationPtrType) ToSubnetSharedPublicIp
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetSharedPublicIpAddressConfigurationPtrOutput)
 }
 
-// Configuration for public IP address sharing.
 type SubnetSharedPublicIpAddressConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SubnetSharedPublicIpAddressConfigurationOutput) ElementType() reflect.Type {
@@ -10778,12 +9811,11 @@ func (o SubnetSharedPublicIpAddressConfigurationOutput) ToSubnetSharedPublicIpAd
 }
 
 func (o SubnetSharedPublicIpAddressConfigurationOutput) ToSubnetSharedPublicIpAddressConfigurationPtrOutputWithContext(ctx context.Context) SubnetSharedPublicIpAddressConfigurationPtrOutput {
-	return o.ApplyT(func(v SubnetSharedPublicIpAddressConfiguration) *SubnetSharedPublicIpAddressConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetSharedPublicIpAddressConfiguration) *SubnetSharedPublicIpAddressConfiguration {
 		return &v
 	}).(SubnetSharedPublicIpAddressConfigurationPtrOutput)
 }
 
-// Backend ports that virtual machines on this subnet are allowed to expose
 func (o SubnetSharedPublicIpAddressConfigurationOutput) AllowedPorts() PortArrayOutput {
 	return o.ApplyT(func(v SubnetSharedPublicIpAddressConfiguration) []Port { return v.AllowedPorts }).(PortArrayOutput)
 }
@@ -10803,10 +9835,15 @@ func (o SubnetSharedPublicIpAddressConfigurationPtrOutput) ToSubnetSharedPublicI
 }
 
 func (o SubnetSharedPublicIpAddressConfigurationPtrOutput) Elem() SubnetSharedPublicIpAddressConfigurationOutput {
-	return o.ApplyT(func(v *SubnetSharedPublicIpAddressConfiguration) SubnetSharedPublicIpAddressConfiguration { return *v }).(SubnetSharedPublicIpAddressConfigurationOutput)
+	return o.ApplyT(func(v *SubnetSharedPublicIpAddressConfiguration) SubnetSharedPublicIpAddressConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SubnetSharedPublicIpAddressConfiguration
+		return ret
+	}).(SubnetSharedPublicIpAddressConfigurationOutput)
 }
 
-// Backend ports that virtual machines on this subnet are allowed to expose
 func (o SubnetSharedPublicIpAddressConfigurationPtrOutput) AllowedPorts() PortArrayOutput {
 	return o.ApplyT(func(v *SubnetSharedPublicIpAddressConfiguration) []Port {
 		if v == nil {
@@ -10816,9 +9853,7 @@ func (o SubnetSharedPublicIpAddressConfigurationPtrOutput) AllowedPorts() PortAr
 	}).(PortArrayOutput)
 }
 
-// Configuration for public IP address sharing.
 type SubnetSharedPublicIpAddressConfigurationResponse struct {
-	// Backend ports that virtual machines on this subnet are allowed to expose
 	AllowedPorts []PortResponse `pulumi:"allowedPorts"`
 }
 
@@ -10833,9 +9868,7 @@ type SubnetSharedPublicIpAddressConfigurationResponseInput interface {
 	ToSubnetSharedPublicIpAddressConfigurationResponseOutputWithContext(context.Context) SubnetSharedPublicIpAddressConfigurationResponseOutput
 }
 
-// Configuration for public IP address sharing.
 type SubnetSharedPublicIpAddressConfigurationResponseArgs struct {
-	// Backend ports that virtual machines on this subnet are allowed to expose
 	AllowedPorts PortResponseArrayInput `pulumi:"allowedPorts"`
 }
 
@@ -10892,7 +9925,6 @@ func (i *subnetSharedPublicIpAddressConfigurationResponsePtrType) ToSubnetShared
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetSharedPublicIpAddressConfigurationResponsePtrOutput)
 }
 
-// Configuration for public IP address sharing.
 type SubnetSharedPublicIpAddressConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (SubnetSharedPublicIpAddressConfigurationResponseOutput) ElementType() reflect.Type {
@@ -10912,12 +9944,11 @@ func (o SubnetSharedPublicIpAddressConfigurationResponseOutput) ToSubnetSharedPu
 }
 
 func (o SubnetSharedPublicIpAddressConfigurationResponseOutput) ToSubnetSharedPublicIpAddressConfigurationResponsePtrOutputWithContext(ctx context.Context) SubnetSharedPublicIpAddressConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v SubnetSharedPublicIpAddressConfigurationResponse) *SubnetSharedPublicIpAddressConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetSharedPublicIpAddressConfigurationResponse) *SubnetSharedPublicIpAddressConfigurationResponse {
 		return &v
 	}).(SubnetSharedPublicIpAddressConfigurationResponsePtrOutput)
 }
 
-// Backend ports that virtual machines on this subnet are allowed to expose
 func (o SubnetSharedPublicIpAddressConfigurationResponseOutput) AllowedPorts() PortResponseArrayOutput {
 	return o.ApplyT(func(v SubnetSharedPublicIpAddressConfigurationResponse) []PortResponse { return v.AllowedPorts }).(PortResponseArrayOutput)
 }
@@ -10938,11 +9969,14 @@ func (o SubnetSharedPublicIpAddressConfigurationResponsePtrOutput) ToSubnetShare
 
 func (o SubnetSharedPublicIpAddressConfigurationResponsePtrOutput) Elem() SubnetSharedPublicIpAddressConfigurationResponseOutput {
 	return o.ApplyT(func(v *SubnetSharedPublicIpAddressConfigurationResponse) SubnetSharedPublicIpAddressConfigurationResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SubnetSharedPublicIpAddressConfigurationResponse
+		return ret
 	}).(SubnetSharedPublicIpAddressConfigurationResponseOutput)
 }
 
-// Backend ports that virtual machines on this subnet are allowed to expose
 func (o SubnetSharedPublicIpAddressConfigurationResponsePtrOutput) AllowedPorts() PortResponseArrayOutput {
 	return o.ApplyT(func(v *SubnetSharedPublicIpAddressConfigurationResponse) []PortResponse {
 		if v == nil {
@@ -10952,18 +9986,12 @@ func (o SubnetSharedPublicIpAddressConfigurationResponsePtrOutput) AllowedPorts(
 	}).(PortResponseArrayOutput)
 }
 
-// Identity attributes of a lab user.
 type UserIdentity struct {
-	// Set to the app Id of the client JWT making the request.
-	AppId *string `pulumi:"appId"`
-	// Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
-	ObjectId *string `pulumi:"objectId"`
-	// Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
-	PrincipalId *string `pulumi:"principalId"`
-	// Set to the principal name / UPN of the client JWT making the request.
+	AppId         *string `pulumi:"appId"`
+	ObjectId      *string `pulumi:"objectId"`
+	PrincipalId   *string `pulumi:"principalId"`
 	PrincipalName *string `pulumi:"principalName"`
-	// Set to the tenant ID of the client JWT making the request.
-	TenantId *string `pulumi:"tenantId"`
+	TenantId      *string `pulumi:"tenantId"`
 }
 
 // UserIdentityInput is an input type that accepts UserIdentityArgs and UserIdentityOutput values.
@@ -10977,18 +10005,12 @@ type UserIdentityInput interface {
 	ToUserIdentityOutputWithContext(context.Context) UserIdentityOutput
 }
 
-// Identity attributes of a lab user.
 type UserIdentityArgs struct {
-	// Set to the app Id of the client JWT making the request.
-	AppId pulumi.StringPtrInput `pulumi:"appId"`
-	// Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// Set to the principal name / UPN of the client JWT making the request.
+	AppId         pulumi.StringPtrInput `pulumi:"appId"`
+	ObjectId      pulumi.StringPtrInput `pulumi:"objectId"`
+	PrincipalId   pulumi.StringPtrInput `pulumi:"principalId"`
 	PrincipalName pulumi.StringPtrInput `pulumi:"principalName"`
-	// Set to the tenant ID of the client JWT making the request.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	TenantId      pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (UserIdentityArgs) ElementType() reflect.Type {
@@ -11044,7 +10066,6 @@ func (i *userIdentityPtrType) ToUserIdentityPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityPtrOutput)
 }
 
-// Identity attributes of a lab user.
 type UserIdentityOutput struct{ *pulumi.OutputState }
 
 func (UserIdentityOutput) ElementType() reflect.Type {
@@ -11064,32 +10085,27 @@ func (o UserIdentityOutput) ToUserIdentityPtrOutput() UserIdentityPtrOutput {
 }
 
 func (o UserIdentityOutput) ToUserIdentityPtrOutputWithContext(ctx context.Context) UserIdentityPtrOutput {
-	return o.ApplyT(func(v UserIdentity) *UserIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserIdentity) *UserIdentity {
 		return &v
 	}).(UserIdentityPtrOutput)
 }
 
-// Set to the app Id of the client JWT making the request.
 func (o UserIdentityOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentity) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-// Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
 func (o UserIdentityOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
 func (o UserIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// Set to the principal name / UPN of the client JWT making the request.
 func (o UserIdentityOutput) PrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentity) *string { return v.PrincipalName }).(pulumi.StringPtrOutput)
 }
 
-// Set to the tenant ID of the client JWT making the request.
 func (o UserIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -11109,10 +10125,15 @@ func (o UserIdentityPtrOutput) ToUserIdentityPtrOutputWithContext(ctx context.Co
 }
 
 func (o UserIdentityPtrOutput) Elem() UserIdentityOutput {
-	return o.ApplyT(func(v *UserIdentity) UserIdentity { return *v }).(UserIdentityOutput)
+	return o.ApplyT(func(v *UserIdentity) UserIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret UserIdentity
+		return ret
+	}).(UserIdentityOutput)
 }
 
-// Set to the app Id of the client JWT making the request.
 func (o UserIdentityPtrOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentity) *string {
 		if v == nil {
@@ -11122,7 +10143,6 @@ func (o UserIdentityPtrOutput) AppId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
 func (o UserIdentityPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentity) *string {
 		if v == nil {
@@ -11132,7 +10152,6 @@ func (o UserIdentityPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
 func (o UserIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentity) *string {
 		if v == nil {
@@ -11142,7 +10161,6 @@ func (o UserIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set to the principal name / UPN of the client JWT making the request.
 func (o UserIdentityPtrOutput) PrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentity) *string {
 		if v == nil {
@@ -11152,7 +10170,6 @@ func (o UserIdentityPtrOutput) PrincipalName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set to the tenant ID of the client JWT making the request.
 func (o UserIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentity) *string {
 		if v == nil {
@@ -11162,18 +10179,12 @@ func (o UserIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity attributes of a lab user.
 type UserIdentityResponse struct {
-	// Set to the app Id of the client JWT making the request.
-	AppId *string `pulumi:"appId"`
-	// Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
-	ObjectId *string `pulumi:"objectId"`
-	// Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
-	PrincipalId *string `pulumi:"principalId"`
-	// Set to the principal name / UPN of the client JWT making the request.
+	AppId         *string `pulumi:"appId"`
+	ObjectId      *string `pulumi:"objectId"`
+	PrincipalId   *string `pulumi:"principalId"`
 	PrincipalName *string `pulumi:"principalName"`
-	// Set to the tenant ID of the client JWT making the request.
-	TenantId *string `pulumi:"tenantId"`
+	TenantId      *string `pulumi:"tenantId"`
 }
 
 // UserIdentityResponseInput is an input type that accepts UserIdentityResponseArgs and UserIdentityResponseOutput values.
@@ -11187,18 +10198,12 @@ type UserIdentityResponseInput interface {
 	ToUserIdentityResponseOutputWithContext(context.Context) UserIdentityResponseOutput
 }
 
-// Identity attributes of a lab user.
 type UserIdentityResponseArgs struct {
-	// Set to the app Id of the client JWT making the request.
-	AppId pulumi.StringPtrInput `pulumi:"appId"`
-	// Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// Set to the principal name / UPN of the client JWT making the request.
+	AppId         pulumi.StringPtrInput `pulumi:"appId"`
+	ObjectId      pulumi.StringPtrInput `pulumi:"objectId"`
+	PrincipalId   pulumi.StringPtrInput `pulumi:"principalId"`
 	PrincipalName pulumi.StringPtrInput `pulumi:"principalName"`
-	// Set to the tenant ID of the client JWT making the request.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	TenantId      pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (UserIdentityResponseArgs) ElementType() reflect.Type {
@@ -11254,7 +10259,6 @@ func (i *userIdentityResponsePtrType) ToUserIdentityResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityResponsePtrOutput)
 }
 
-// Identity attributes of a lab user.
 type UserIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (UserIdentityResponseOutput) ElementType() reflect.Type {
@@ -11274,32 +10278,27 @@ func (o UserIdentityResponseOutput) ToUserIdentityResponsePtrOutput() UserIdenti
 }
 
 func (o UserIdentityResponseOutput) ToUserIdentityResponsePtrOutputWithContext(ctx context.Context) UserIdentityResponsePtrOutput {
-	return o.ApplyT(func(v UserIdentityResponse) *UserIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserIdentityResponse) *UserIdentityResponse {
 		return &v
 	}).(UserIdentityResponsePtrOutput)
 }
 
-// Set to the app Id of the client JWT making the request.
 func (o UserIdentityResponseOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-// Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
 func (o UserIdentityResponseOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
 func (o UserIdentityResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// Set to the principal name / UPN of the client JWT making the request.
 func (o UserIdentityResponseOutput) PrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityResponse) *string { return v.PrincipalName }).(pulumi.StringPtrOutput)
 }
 
-// Set to the tenant ID of the client JWT making the request.
 func (o UserIdentityResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -11319,10 +10318,15 @@ func (o UserIdentityResponsePtrOutput) ToUserIdentityResponsePtrOutputWithContex
 }
 
 func (o UserIdentityResponsePtrOutput) Elem() UserIdentityResponseOutput {
-	return o.ApplyT(func(v *UserIdentityResponse) UserIdentityResponse { return *v }).(UserIdentityResponseOutput)
+	return o.ApplyT(func(v *UserIdentityResponse) UserIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserIdentityResponse
+		return ret
+	}).(UserIdentityResponseOutput)
 }
 
-// Set to the app Id of the client JWT making the request.
 func (o UserIdentityResponsePtrOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentityResponse) *string {
 		if v == nil {
@@ -11332,7 +10336,6 @@ func (o UserIdentityResponsePtrOutput) AppId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
 func (o UserIdentityResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentityResponse) *string {
 		if v == nil {
@@ -11342,7 +10345,6 @@ func (o UserIdentityResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
 func (o UserIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentityResponse) *string {
 		if v == nil {
@@ -11352,7 +10354,6 @@ func (o UserIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set to the principal name / UPN of the client JWT making the request.
 func (o UserIdentityResponsePtrOutput) PrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentityResponse) *string {
 		if v == nil {
@@ -11362,7 +10363,6 @@ func (o UserIdentityResponsePtrOutput) PrincipalName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set to the tenant ID of the client JWT making the request.
 func (o UserIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentityResponse) *string {
 		if v == nil {
@@ -11372,11 +10372,8 @@ func (o UserIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a user's secret store.
 type UserSecretStore struct {
-	// The ID of the user's Key vault.
-	KeyVaultId *string `pulumi:"keyVaultId"`
-	// The URI of the user's Key vault.
+	KeyVaultId  *string `pulumi:"keyVaultId"`
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
 }
 
@@ -11391,11 +10388,8 @@ type UserSecretStoreInput interface {
 	ToUserSecretStoreOutputWithContext(context.Context) UserSecretStoreOutput
 }
 
-// Properties of a user's secret store.
 type UserSecretStoreArgs struct {
-	// The ID of the user's Key vault.
-	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	// The URI of the user's Key vault.
+	KeyVaultId  pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
 }
 
@@ -11452,7 +10446,6 @@ func (i *userSecretStorePtrType) ToUserSecretStorePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(UserSecretStorePtrOutput)
 }
 
-// Properties of a user's secret store.
 type UserSecretStoreOutput struct{ *pulumi.OutputState }
 
 func (UserSecretStoreOutput) ElementType() reflect.Type {
@@ -11472,17 +10465,15 @@ func (o UserSecretStoreOutput) ToUserSecretStorePtrOutput() UserSecretStorePtrOu
 }
 
 func (o UserSecretStoreOutput) ToUserSecretStorePtrOutputWithContext(ctx context.Context) UserSecretStorePtrOutput {
-	return o.ApplyT(func(v UserSecretStore) *UserSecretStore {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSecretStore) *UserSecretStore {
 		return &v
 	}).(UserSecretStorePtrOutput)
 }
 
-// The ID of the user's Key vault.
 func (o UserSecretStoreOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSecretStore) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
-// The URI of the user's Key vault.
 func (o UserSecretStoreOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSecretStore) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
@@ -11502,10 +10493,15 @@ func (o UserSecretStorePtrOutput) ToUserSecretStorePtrOutputWithContext(ctx cont
 }
 
 func (o UserSecretStorePtrOutput) Elem() UserSecretStoreOutput {
-	return o.ApplyT(func(v *UserSecretStore) UserSecretStore { return *v }).(UserSecretStoreOutput)
+	return o.ApplyT(func(v *UserSecretStore) UserSecretStore {
+		if v != nil {
+			return *v
+		}
+		var ret UserSecretStore
+		return ret
+	}).(UserSecretStoreOutput)
 }
 
-// The ID of the user's Key vault.
 func (o UserSecretStorePtrOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSecretStore) *string {
 		if v == nil {
@@ -11515,7 +10511,6 @@ func (o UserSecretStorePtrOutput) KeyVaultId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI of the user's Key vault.
 func (o UserSecretStorePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSecretStore) *string {
 		if v == nil {
@@ -11525,11 +10520,8 @@ func (o UserSecretStorePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a user's secret store.
 type UserSecretStoreResponse struct {
-	// The ID of the user's Key vault.
-	KeyVaultId *string `pulumi:"keyVaultId"`
-	// The URI of the user's Key vault.
+	KeyVaultId  *string `pulumi:"keyVaultId"`
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
 }
 
@@ -11544,11 +10536,8 @@ type UserSecretStoreResponseInput interface {
 	ToUserSecretStoreResponseOutputWithContext(context.Context) UserSecretStoreResponseOutput
 }
 
-// Properties of a user's secret store.
 type UserSecretStoreResponseArgs struct {
-	// The ID of the user's Key vault.
-	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	// The URI of the user's Key vault.
+	KeyVaultId  pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
 }
 
@@ -11605,7 +10594,6 @@ func (i *userSecretStoreResponsePtrType) ToUserSecretStoreResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(UserSecretStoreResponsePtrOutput)
 }
 
-// Properties of a user's secret store.
 type UserSecretStoreResponseOutput struct{ *pulumi.OutputState }
 
 func (UserSecretStoreResponseOutput) ElementType() reflect.Type {
@@ -11625,17 +10613,15 @@ func (o UserSecretStoreResponseOutput) ToUserSecretStoreResponsePtrOutput() User
 }
 
 func (o UserSecretStoreResponseOutput) ToUserSecretStoreResponsePtrOutputWithContext(ctx context.Context) UserSecretStoreResponsePtrOutput {
-	return o.ApplyT(func(v UserSecretStoreResponse) *UserSecretStoreResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSecretStoreResponse) *UserSecretStoreResponse {
 		return &v
 	}).(UserSecretStoreResponsePtrOutput)
 }
 
-// The ID of the user's Key vault.
 func (o UserSecretStoreResponseOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSecretStoreResponse) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
-// The URI of the user's Key vault.
 func (o UserSecretStoreResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSecretStoreResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
@@ -11655,10 +10641,15 @@ func (o UserSecretStoreResponsePtrOutput) ToUserSecretStoreResponsePtrOutputWith
 }
 
 func (o UserSecretStoreResponsePtrOutput) Elem() UserSecretStoreResponseOutput {
-	return o.ApplyT(func(v *UserSecretStoreResponse) UserSecretStoreResponse { return *v }).(UserSecretStoreResponseOutput)
+	return o.ApplyT(func(v *UserSecretStoreResponse) UserSecretStoreResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserSecretStoreResponse
+		return ret
+	}).(UserSecretStoreResponseOutput)
 }
 
-// The ID of the user's Key vault.
 func (o UserSecretStoreResponsePtrOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSecretStoreResponse) *string {
 		if v == nil {
@@ -11668,7 +10659,6 @@ func (o UserSecretStoreResponsePtrOutput) KeyVaultId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI of the user's Key vault.
 func (o UserSecretStoreResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSecretStoreResponse) *string {
 		if v == nil {
@@ -11678,11 +10668,8 @@ func (o UserSecretStoreResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a weekly schedule.
 type WeekDetails struct {
-	// The time of the day the schedule will occur.
-	Time *string `pulumi:"time"`
-	// The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+	Time     *string  `pulumi:"time"`
 	Weekdays []string `pulumi:"weekdays"`
 }
 
@@ -11697,11 +10684,8 @@ type WeekDetailsInput interface {
 	ToWeekDetailsOutputWithContext(context.Context) WeekDetailsOutput
 }
 
-// Properties of a weekly schedule.
 type WeekDetailsArgs struct {
-	// The time of the day the schedule will occur.
-	Time pulumi.StringPtrInput `pulumi:"time"`
-	// The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+	Time     pulumi.StringPtrInput   `pulumi:"time"`
 	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
 }
 
@@ -11758,7 +10742,6 @@ func (i *weekDetailsPtrType) ToWeekDetailsPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(WeekDetailsPtrOutput)
 }
 
-// Properties of a weekly schedule.
 type WeekDetailsOutput struct{ *pulumi.OutputState }
 
 func (WeekDetailsOutput) ElementType() reflect.Type {
@@ -11778,17 +10761,15 @@ func (o WeekDetailsOutput) ToWeekDetailsPtrOutput() WeekDetailsPtrOutput {
 }
 
 func (o WeekDetailsOutput) ToWeekDetailsPtrOutputWithContext(ctx context.Context) WeekDetailsPtrOutput {
-	return o.ApplyT(func(v WeekDetails) *WeekDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WeekDetails) *WeekDetails {
 		return &v
 	}).(WeekDetailsPtrOutput)
 }
 
-// The time of the day the schedule will occur.
 func (o WeekDetailsOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WeekDetails) *string { return v.Time }).(pulumi.StringPtrOutput)
 }
 
-// The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
 func (o WeekDetailsOutput) Weekdays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WeekDetails) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
 }
@@ -11808,10 +10789,15 @@ func (o WeekDetailsPtrOutput) ToWeekDetailsPtrOutputWithContext(ctx context.Cont
 }
 
 func (o WeekDetailsPtrOutput) Elem() WeekDetailsOutput {
-	return o.ApplyT(func(v *WeekDetails) WeekDetails { return *v }).(WeekDetailsOutput)
+	return o.ApplyT(func(v *WeekDetails) WeekDetails {
+		if v != nil {
+			return *v
+		}
+		var ret WeekDetails
+		return ret
+	}).(WeekDetailsOutput)
 }
 
-// The time of the day the schedule will occur.
 func (o WeekDetailsPtrOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WeekDetails) *string {
 		if v == nil {
@@ -11821,7 +10807,6 @@ func (o WeekDetailsPtrOutput) Time() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
 func (o WeekDetailsPtrOutput) Weekdays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WeekDetails) []string {
 		if v == nil {
@@ -11831,11 +10816,8 @@ func (o WeekDetailsPtrOutput) Weekdays() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Properties of a weekly schedule.
 type WeekDetailsResponse struct {
-	// The time of the day the schedule will occur.
-	Time *string `pulumi:"time"`
-	// The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+	Time     *string  `pulumi:"time"`
 	Weekdays []string `pulumi:"weekdays"`
 }
 
@@ -11850,11 +10832,8 @@ type WeekDetailsResponseInput interface {
 	ToWeekDetailsResponseOutputWithContext(context.Context) WeekDetailsResponseOutput
 }
 
-// Properties of a weekly schedule.
 type WeekDetailsResponseArgs struct {
-	// The time of the day the schedule will occur.
-	Time pulumi.StringPtrInput `pulumi:"time"`
-	// The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+	Time     pulumi.StringPtrInput   `pulumi:"time"`
 	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
 }
 
@@ -11911,7 +10890,6 @@ func (i *weekDetailsResponsePtrType) ToWeekDetailsResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(WeekDetailsResponsePtrOutput)
 }
 
-// Properties of a weekly schedule.
 type WeekDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (WeekDetailsResponseOutput) ElementType() reflect.Type {
@@ -11931,17 +10909,15 @@ func (o WeekDetailsResponseOutput) ToWeekDetailsResponsePtrOutput() WeekDetailsR
 }
 
 func (o WeekDetailsResponseOutput) ToWeekDetailsResponsePtrOutputWithContext(ctx context.Context) WeekDetailsResponsePtrOutput {
-	return o.ApplyT(func(v WeekDetailsResponse) *WeekDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WeekDetailsResponse) *WeekDetailsResponse {
 		return &v
 	}).(WeekDetailsResponsePtrOutput)
 }
 
-// The time of the day the schedule will occur.
 func (o WeekDetailsResponseOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WeekDetailsResponse) *string { return v.Time }).(pulumi.StringPtrOutput)
 }
 
-// The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
 func (o WeekDetailsResponseOutput) Weekdays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WeekDetailsResponse) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
 }
@@ -11961,10 +10937,15 @@ func (o WeekDetailsResponsePtrOutput) ToWeekDetailsResponsePtrOutputWithContext(
 }
 
 func (o WeekDetailsResponsePtrOutput) Elem() WeekDetailsResponseOutput {
-	return o.ApplyT(func(v *WeekDetailsResponse) WeekDetailsResponse { return *v }).(WeekDetailsResponseOutput)
+	return o.ApplyT(func(v *WeekDetailsResponse) WeekDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WeekDetailsResponse
+		return ret
+	}).(WeekDetailsResponseOutput)
 }
 
-// The time of the day the schedule will occur.
 func (o WeekDetailsResponsePtrOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WeekDetailsResponse) *string {
 		if v == nil {
@@ -11974,7 +10955,6 @@ func (o WeekDetailsResponsePtrOutput) Time() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
 func (o WeekDetailsResponsePtrOutput) Weekdays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WeekDetailsResponse) []string {
 		if v == nil {
@@ -11984,9 +10964,7 @@ func (o WeekDetailsResponsePtrOutput) Weekdays() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Information about a Windows OS.
 type WindowsOsInfo struct {
-	// The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
 	WindowsOsState *string `pulumi:"windowsOsState"`
 }
 
@@ -12001,9 +10979,7 @@ type WindowsOsInfoInput interface {
 	ToWindowsOsInfoOutputWithContext(context.Context) WindowsOsInfoOutput
 }
 
-// Information about a Windows OS.
 type WindowsOsInfoArgs struct {
-	// The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
 	WindowsOsState pulumi.StringPtrInput `pulumi:"windowsOsState"`
 }
 
@@ -12060,7 +11036,6 @@ func (i *windowsOsInfoPtrType) ToWindowsOsInfoPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsOsInfoPtrOutput)
 }
 
-// Information about a Windows OS.
 type WindowsOsInfoOutput struct{ *pulumi.OutputState }
 
 func (WindowsOsInfoOutput) ElementType() reflect.Type {
@@ -12080,12 +11055,11 @@ func (o WindowsOsInfoOutput) ToWindowsOsInfoPtrOutput() WindowsOsInfoPtrOutput {
 }
 
 func (o WindowsOsInfoOutput) ToWindowsOsInfoPtrOutputWithContext(ctx context.Context) WindowsOsInfoPtrOutput {
-	return o.ApplyT(func(v WindowsOsInfo) *WindowsOsInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsOsInfo) *WindowsOsInfo {
 		return &v
 	}).(WindowsOsInfoPtrOutput)
 }
 
-// The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
 func (o WindowsOsInfoOutput) WindowsOsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsOsInfo) *string { return v.WindowsOsState }).(pulumi.StringPtrOutput)
 }
@@ -12105,10 +11079,15 @@ func (o WindowsOsInfoPtrOutput) ToWindowsOsInfoPtrOutputWithContext(ctx context.
 }
 
 func (o WindowsOsInfoPtrOutput) Elem() WindowsOsInfoOutput {
-	return o.ApplyT(func(v *WindowsOsInfo) WindowsOsInfo { return *v }).(WindowsOsInfoOutput)
+	return o.ApplyT(func(v *WindowsOsInfo) WindowsOsInfo {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsOsInfo
+		return ret
+	}).(WindowsOsInfoOutput)
 }
 
-// The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
 func (o WindowsOsInfoPtrOutput) WindowsOsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsOsInfo) *string {
 		if v == nil {
@@ -12118,9 +11097,7 @@ func (o WindowsOsInfoPtrOutput) WindowsOsState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about a Windows OS.
 type WindowsOsInfoResponse struct {
-	// The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
 	WindowsOsState *string `pulumi:"windowsOsState"`
 }
 
@@ -12135,9 +11112,7 @@ type WindowsOsInfoResponseInput interface {
 	ToWindowsOsInfoResponseOutputWithContext(context.Context) WindowsOsInfoResponseOutput
 }
 
-// Information about a Windows OS.
 type WindowsOsInfoResponseArgs struct {
-	// The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
 	WindowsOsState pulumi.StringPtrInput `pulumi:"windowsOsState"`
 }
 
@@ -12194,7 +11169,6 @@ func (i *windowsOsInfoResponsePtrType) ToWindowsOsInfoResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsOsInfoResponsePtrOutput)
 }
 
-// Information about a Windows OS.
 type WindowsOsInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (WindowsOsInfoResponseOutput) ElementType() reflect.Type {
@@ -12214,12 +11188,11 @@ func (o WindowsOsInfoResponseOutput) ToWindowsOsInfoResponsePtrOutput() WindowsO
 }
 
 func (o WindowsOsInfoResponseOutput) ToWindowsOsInfoResponsePtrOutputWithContext(ctx context.Context) WindowsOsInfoResponsePtrOutput {
-	return o.ApplyT(func(v WindowsOsInfoResponse) *WindowsOsInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsOsInfoResponse) *WindowsOsInfoResponse {
 		return &v
 	}).(WindowsOsInfoResponsePtrOutput)
 }
 
-// The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
 func (o WindowsOsInfoResponseOutput) WindowsOsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsOsInfoResponse) *string { return v.WindowsOsState }).(pulumi.StringPtrOutput)
 }
@@ -12239,10 +11212,15 @@ func (o WindowsOsInfoResponsePtrOutput) ToWindowsOsInfoResponsePtrOutputWithCont
 }
 
 func (o WindowsOsInfoResponsePtrOutput) Elem() WindowsOsInfoResponseOutput {
-	return o.ApplyT(func(v *WindowsOsInfoResponse) WindowsOsInfoResponse { return *v }).(WindowsOsInfoResponseOutput)
+	return o.ApplyT(func(v *WindowsOsInfoResponse) WindowsOsInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsOsInfoResponse
+		return ret
+	}).(WindowsOsInfoResponseOutput)
 }
 
-// The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
 func (o WindowsOsInfoResponsePtrOutput) WindowsOsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsOsInfoResponse) *string {
 		if v == nil {

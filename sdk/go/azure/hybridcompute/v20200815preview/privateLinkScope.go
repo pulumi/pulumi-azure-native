@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Arc PrivateLinkScope definition.
 type PrivateLinkScope struct {
 	pulumi.CustomResourceState
 
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of private endpoint connections.
+	Location                   pulumi.StringOutput                          `pulumi:"location"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState          pulumi.StringOutput                          `pulumi:"provisioningState"`
+	PublicNetworkAccess        pulumi.StringPtrOutput                       `pulumi:"publicNetworkAccess"`
+	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
+	Type                       pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewPrivateLinkScope registers a new resource with the given unique name, arguments, and options.
@@ -121,30 +113,20 @@ func (PrivateLinkScopeState) ElementType() reflect.Type {
 }
 
 type privateLinkScopeArgs struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Azure Arc PrivateLinkScope resource.
-	ScopeName *string `pulumi:"scopeName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Location            *string           `pulumi:"location"`
+	PublicNetworkAccess *string           `pulumi:"publicNetworkAccess"`
+	ResourceGroupName   string            `pulumi:"resourceGroupName"`
+	ScopeName           *string           `pulumi:"scopeName"`
+	Tags                map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PrivateLinkScope resource.
 type PrivateLinkScopeArgs struct {
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+	Location            pulumi.StringPtrInput
 	PublicNetworkAccess pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the Azure Arc PrivateLinkScope resource.
-	ScopeName pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	ResourceGroupName   pulumi.StringInput
+	ScopeName           pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
 }
 
 func (PrivateLinkScopeArgs) ElementType() reflect.Type {
@@ -170,9 +152,7 @@ func (i *PrivateLinkScope) ToPrivateLinkScopeOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopeOutput)
 }
 
-type PrivateLinkScopeOutput struct {
-	*pulumi.OutputState
-}
+type PrivateLinkScopeOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkScopeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkScope)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// REST model used to encapsulate the user visible state of a PrivateEndpoint.
 func LookupPrivateEndpointConnectionControllerPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:migrate/v20200501:getPrivateEndpointConnectionControllerPrivateEndpointConnection", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupPrivateEndpointConnectionControllerPrivateEndpointConnection(ctx *pul
 }
 
 type LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs struct {
-	// Migrate project name.
 	MigrateProjectName string `pulumi:"migrateProjectName"`
-	// Private endpoint connection name.
-	PeConnectionName string `pulumi:"peConnectionName"`
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PeConnectionName   string `pulumi:"peConnectionName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
 
 // REST model used to encapsulate the user visible state of a PrivateEndpoint.
 type LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResult struct {
-	// Gets the tag for optimistic concurrency control.
-	ETag string `pulumi:"eTag"`
-	// Relative URL to get this Sites.
-	Id string `pulumi:"id"`
-	// Gets the name of the resource.
-	Name string `pulumi:"name"`
-	// Gets the properties of the object.
+	ETag       string                                      `pulumi:"eTag"`
+	Id         string                                      `pulumi:"id"`
+	Name       string                                      `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
+	SystemData SystemDataResponse                          `pulumi:"systemData"`
+	Type       string                                      `pulumi:"type"`
 }

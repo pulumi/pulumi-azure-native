@@ -11,57 +11,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A class represent a resource.
 type SignalR struct {
 	pulumi.CustomResourceState
 
-	// Cross-Origin Resource Sharing (CORS) settings.
-	Cors SignalRCorsSettingsResponsePtrOutput `pulumi:"cors"`
-	// The publicly accessible IP of the resource.
-	ExternalIP pulumi.StringOutput `pulumi:"externalIP"`
-	// List of the featureFlags.
-	//
-	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
-	// And the response will only include featureFlags that are explicitly set.
-	// When a featureFlag is not explicitly set, its globally default value will be used
-	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-	Features SignalRFeatureResponseArrayOutput `pulumi:"features"`
-	// FQDN of the service instance.
-	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// The managed identity response
-	Identity ManagedIdentityResponsePtrOutput `pulumi:"identity"`
-	// The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Network ACLs
-	NetworkACLs SignalRNetworkACLsResponsePtrOutput `pulumi:"networkACLs"`
-	// Private endpoint connections to the resource.
+	Cors                       SignalRCorsSettingsResponsePtrOutput         `pulumi:"cors"`
+	ExternalIP                 pulumi.StringOutput                          `pulumi:"externalIP"`
+	Features                   SignalRFeatureResponseArrayOutput            `pulumi:"features"`
+	HostName                   pulumi.StringOutput                          `pulumi:"hostName"`
+	Identity                   ManagedIdentityResponsePtrOutput             `pulumi:"identity"`
+	Kind                       pulumi.StringPtrOutput                       `pulumi:"kind"`
+	Location                   pulumi.StringPtrOutput                       `pulumi:"location"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
+	NetworkACLs                SignalRNetworkACLsResponsePtrOutput          `pulumi:"networkACLs"`
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The publicly accessible port of the resource which is designed for browser/client side usage.
-	PublicPort pulumi.IntOutput `pulumi:"publicPort"`
-	// The publicly accessible port of the resource which is designed for customer server side usage.
-	ServerPort pulumi.IntOutput `pulumi:"serverPort"`
-	// The list of shared private link resources.
+	ProvisioningState          pulumi.StringOutput                          `pulumi:"provisioningState"`
+	PublicPort                 pulumi.IntOutput                             `pulumi:"publicPort"`
+	ServerPort                 pulumi.IntOutput                             `pulumi:"serverPort"`
 	SharedPrivateLinkResources SharedPrivateLinkResourceResponseArrayOutput `pulumi:"sharedPrivateLinkResources"`
-	// The billing information of the resource.(e.g. Free, Standard)
-	Sku ResourceSkuResponsePtrOutput `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// TLS settings.
-	Tls SignalRTlsSettingsResponsePtrOutput `pulumi:"tls"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Upstream settings when the service is in server-less mode.
-	Upstream ServerlessUpstreamSettingsResponsePtrOutput `pulumi:"upstream"`
-	// Version of the resource. Probably you need the same or higher version of client SDKs.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Sku                        ResourceSkuResponsePtrOutput                 `pulumi:"sku"`
+	SystemData                 SystemDataResponseOutput                     `pulumi:"systemData"`
+	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
+	Tls                        SignalRTlsSettingsResponsePtrOutput          `pulumi:"tls"`
+	Type                       pulumi.StringOutput                          `pulumi:"type"`
+	Upstream                   ServerlessUpstreamSettingsResponsePtrOutput  `pulumi:"upstream"`
+	Version                    pulumi.StringOutput                          `pulumi:"version"`
 }
 
 // NewSignalR registers a new resource with the given unique name, arguments, and options.
@@ -148,68 +121,34 @@ func (SignalRState) ElementType() reflect.Type {
 }
 
 type signalRArgs struct {
-	// Cross-Origin Resource Sharing (CORS) settings.
-	Cors *SignalRCorsSettings `pulumi:"cors"`
-	// List of the featureFlags.
-	//
-	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
-	// And the response will only include featureFlags that are explicitly set.
-	// When a featureFlag is not explicitly set, its globally default value will be used
-	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-	Features []SignalRFeature `pulumi:"features"`
-	// The managed identity response
-	Identity *ManagedIdentity `pulumi:"identity"`
-	// The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
-	Kind *string `pulumi:"kind"`
-	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-	Location *string `pulumi:"location"`
-	// Network ACLs
-	NetworkACLs *SignalRNetworkACLs `pulumi:"networkACLs"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// The billing information of the resource.(e.g. Free, Standard)
-	Sku *ResourceSku `pulumi:"sku"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// TLS settings.
-	Tls *SignalRTlsSettings `pulumi:"tls"`
-	// Upstream settings when the service is in server-less mode.
-	Upstream *ServerlessUpstreamSettings `pulumi:"upstream"`
+	Cors              *SignalRCorsSettings        `pulumi:"cors"`
+	Features          []SignalRFeature            `pulumi:"features"`
+	Identity          *ManagedIdentity            `pulumi:"identity"`
+	Kind              *string                     `pulumi:"kind"`
+	Location          *string                     `pulumi:"location"`
+	NetworkACLs       *SignalRNetworkACLs         `pulumi:"networkACLs"`
+	ResourceGroupName string                      `pulumi:"resourceGroupName"`
+	ResourceName      *string                     `pulumi:"resourceName"`
+	Sku               *ResourceSku                `pulumi:"sku"`
+	Tags              map[string]string           `pulumi:"tags"`
+	Tls               *SignalRTlsSettings         `pulumi:"tls"`
+	Upstream          *ServerlessUpstreamSettings `pulumi:"upstream"`
 }
 
 // The set of arguments for constructing a SignalR resource.
 type SignalRArgs struct {
-	// Cross-Origin Resource Sharing (CORS) settings.
-	Cors SignalRCorsSettingsPtrInput
-	// List of the featureFlags.
-	//
-	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
-	// And the response will only include featureFlags that are explicitly set.
-	// When a featureFlag is not explicitly set, its globally default value will be used
-	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-	Features SignalRFeatureArrayInput
-	// The managed identity response
-	Identity ManagedIdentityPtrInput
-	// The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
-	Kind pulumi.StringPtrInput
-	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-	Location pulumi.StringPtrInput
-	// Network ACLs
-	NetworkACLs SignalRNetworkACLsPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	Cors              SignalRCorsSettingsPtrInput
+	Features          SignalRFeatureArrayInput
+	Identity          ManagedIdentityPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	NetworkACLs       SignalRNetworkACLsPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the resource.
-	ResourceName pulumi.StringPtrInput
-	// The billing information of the resource.(e.g. Free, Standard)
-	Sku ResourceSkuPtrInput
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags pulumi.StringMapInput
-	// TLS settings.
-	Tls SignalRTlsSettingsPtrInput
-	// Upstream settings when the service is in server-less mode.
-	Upstream ServerlessUpstreamSettingsPtrInput
+	ResourceName      pulumi.StringPtrInput
+	Sku               ResourceSkuPtrInput
+	Tags              pulumi.StringMapInput
+	Tls               SignalRTlsSettingsPtrInput
+	Upstream          ServerlessUpstreamSettingsPtrInput
 }
 
 func (SignalRArgs) ElementType() reflect.Type {
@@ -235,9 +174,7 @@ func (i *SignalR) ToSignalROutputWithContext(ctx context.Context) SignalROutput 
 	return pulumi.ToOutputWithContext(ctx, i).(SignalROutput)
 }
 
-type SignalROutput struct {
-	*pulumi.OutputState
-}
+type SignalROutput struct{ *pulumi.OutputState }
 
 func (SignalROutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SignalR)(nil))

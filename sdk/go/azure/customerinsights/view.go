@@ -155,9 +155,7 @@ func (i *View) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ViewOutput)
 }
 
-type ViewOutput struct {
-	*pulumi.OutputState
-}
+type ViewOutput struct{ *pulumi.OutputState }
 
 func (ViewOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*View)(nil))

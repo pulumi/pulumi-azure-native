@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Role Assignments
 func LookupRoleAssignment(ctx *pulumi.Context, args *LookupRoleAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRoleAssignmentResult, error) {
 	var rv LookupRoleAssignmentResult
 	err := ctx.Invoke("azure-native:authorization/v20171001preview:getRoleAssignment", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupRoleAssignment(ctx *pulumi.Context, args *LookupRoleAssignmentArgs, o
 }
 
 type LookupRoleAssignmentArgs struct {
-	// The name of the role assignment to get.
 	RoleAssignmentName string `pulumi:"roleAssignmentName"`
-	// The scope of the role assignment.
-	Scope string `pulumi:"scope"`
+	Scope              string `pulumi:"scope"`
 }
 
 // Role Assignments
 type LookupRoleAssignmentResult struct {
-	// The Delegation flag for the role assignment
-	CanDelegate *bool `pulumi:"canDelegate"`
-	// The role assignment ID.
-	Id string `pulumi:"id"`
-	// The role assignment name.
-	Name string `pulumi:"name"`
-	// The principal ID.
-	PrincipalId *string `pulumi:"principalId"`
-	// The role definition ID.
+	CanDelegate      *bool   `pulumi:"canDelegate"`
+	Id               string  `pulumi:"id"`
+	Name             string  `pulumi:"name"`
+	PrincipalId      *string `pulumi:"principalId"`
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// The role assignment scope.
-	Scope *string `pulumi:"scope"`
-	// The role assignment type.
-	Type string `pulumi:"type"`
+	Scope            *string `pulumi:"scope"`
+	Type             string  `pulumi:"type"`
 }

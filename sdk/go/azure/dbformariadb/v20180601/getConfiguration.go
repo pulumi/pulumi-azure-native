@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Configuration.
 func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationResult, error) {
 	var rv LookupConfigurationResult
 	err := ctx.Invoke("azure-native:dbformariadb/v20180601:getConfiguration", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opt
 }
 
 type LookupConfigurationArgs struct {
-	// The name of the server configuration.
 	ConfigurationName string `pulumi:"configurationName"`
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ServerName        string `pulumi:"serverName"`
 }
 
 // Represents a Configuration.
 type LookupConfigurationResult struct {
-	// Allowed values of the configuration.
-	AllowedValues string `pulumi:"allowedValues"`
-	// Data type of the configuration.
-	DataType string `pulumi:"dataType"`
-	// Default value of the configuration.
-	DefaultValue string `pulumi:"defaultValue"`
-	// Description of the configuration.
-	Description string `pulumi:"description"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Source of the configuration.
-	Source *string `pulumi:"source"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
-	// Value of the configuration.
-	Value *string `pulumi:"value"`
+	AllowedValues string  `pulumi:"allowedValues"`
+	DataType      string  `pulumi:"dataType"`
+	DefaultValue  string  `pulumi:"defaultValue"`
+	Description   string  `pulumi:"description"`
+	Id            string  `pulumi:"id"`
+	Name          string  `pulumi:"name"`
+	Source        *string `pulumi:"source"`
+	Type          string  `pulumi:"type"`
+	Value         *string `pulumi:"value"`
 }

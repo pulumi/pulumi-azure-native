@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the variable.
 type Variable struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets the creation time.
-	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Gets or sets the encrypted flag of the variable.
-	IsEncrypted pulumi.BoolPtrOutput `pulumi:"isEncrypted"`
-	// Gets or sets the last modified time.
+	CreationTime     pulumi.StringPtrOutput `pulumi:"creationTime"`
+	Description      pulumi.StringPtrOutput `pulumi:"description"`
+	IsEncrypted      pulumi.BoolPtrOutput   `pulumi:"isEncrypted"`
 	LastModifiedTime pulumi.StringPtrOutput `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Gets or sets the value of the variable.
-	Value pulumi.StringPtrOutput `pulumi:"value"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	Type             pulumi.StringOutput    `pulumi:"type"`
+	Value            pulumi.StringPtrOutput `pulumi:"value"`
 }
 
 // NewVariable registers a new resource with the given unique name, arguments, and options.
@@ -103,38 +95,24 @@ func (VariableState) ElementType() reflect.Type {
 }
 
 type variableArgs struct {
-	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Gets or sets the description of the variable.
-	Description *string `pulumi:"description"`
-	// Gets or sets the encrypted flag of the variable.
-	IsEncrypted *bool `pulumi:"isEncrypted"`
-	// Gets or sets the name of the variable.
-	Name string `pulumi:"name"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets the value of the variable.
-	Value *string `pulumi:"value"`
-	// The variable name.
-	VariableName *string `pulumi:"variableName"`
+	AutomationAccountName string  `pulumi:"automationAccountName"`
+	Description           *string `pulumi:"description"`
+	IsEncrypted           *bool   `pulumi:"isEncrypted"`
+	Name                  string  `pulumi:"name"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	Value                 *string `pulumi:"value"`
+	VariableName          *string `pulumi:"variableName"`
 }
 
 // The set of arguments for constructing a Variable resource.
 type VariableArgs struct {
-	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
-	// Gets or sets the description of the variable.
-	Description pulumi.StringPtrInput
-	// Gets or sets the encrypted flag of the variable.
-	IsEncrypted pulumi.BoolPtrInput
-	// Gets or sets the name of the variable.
-	Name pulumi.StringInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets the value of the variable.
-	Value pulumi.StringPtrInput
-	// The variable name.
-	VariableName pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	IsEncrypted           pulumi.BoolPtrInput
+	Name                  pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	Value                 pulumi.StringPtrInput
+	VariableName          pulumi.StringPtrInput
 }
 
 func (VariableArgs) ElementType() reflect.Type {
@@ -160,9 +138,7 @@ func (i *Variable) ToVariableOutputWithContext(ctx context.Context) VariableOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VariableOutput)
 }
 
-type VariableOutput struct {
-	*pulumi.OutputState
-}
+type VariableOutput struct{ *pulumi.OutputState }
 
 func (VariableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Variable)(nil))

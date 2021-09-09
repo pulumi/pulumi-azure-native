@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of a Media Service resource.
 type MediaService struct {
 	pulumi.CustomResourceState
 
-	// Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
-	ApiEndpoints ApiEndpointResponseArrayOutput `pulumi:"apiEndpoints"`
-	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The storage accounts for this resource.
+	ApiEndpoints    ApiEndpointResponseArrayOutput    `pulumi:"apiEndpoints"`
+	Location        pulumi.StringPtrOutput            `pulumi:"location"`
+	Name            pulumi.StringOutput               `pulumi:"name"`
 	StorageAccounts StorageAccountResponseArrayOutput `pulumi:"storageAccounts"`
-	// Tags to help categorize the resource in the Azure portal.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags            pulumi.StringMapOutput            `pulumi:"tags"`
+	Type            pulumi.StringOutput               `pulumi:"type"`
 }
 
 // NewMediaService registers a new resource with the given unique name, arguments, and options.
@@ -119,30 +112,20 @@ func (MediaServiceState) ElementType() reflect.Type {
 }
 
 type mediaServiceArgs struct {
-	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
-	Location *string `pulumi:"location"`
-	// Name of the Media Service.
-	MediaServiceName *string `pulumi:"mediaServiceName"`
-	// Name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The storage accounts for this resource.
-	StorageAccounts []StorageAccount `pulumi:"storageAccounts"`
-	// Tags to help categorize the resource in the Azure portal.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string           `pulumi:"location"`
+	MediaServiceName  *string           `pulumi:"mediaServiceName"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	StorageAccounts   []StorageAccount  `pulumi:"storageAccounts"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MediaService resource.
 type MediaServiceArgs struct {
-	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
-	Location pulumi.StringPtrInput
-	// Name of the Media Service.
-	MediaServiceName pulumi.StringPtrInput
-	// Name of the resource group within the Azure subscription.
+	Location          pulumi.StringPtrInput
+	MediaServiceName  pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The storage accounts for this resource.
-	StorageAccounts StorageAccountArrayInput
-	// Tags to help categorize the resource in the Azure portal.
-	Tags pulumi.StringMapInput
+	StorageAccounts   StorageAccountArrayInput
+	Tags              pulumi.StringMapInput
 }
 
 func (MediaServiceArgs) ElementType() reflect.Type {
@@ -168,9 +151,7 @@ func (i *MediaService) ToMediaServiceOutputWithContext(ctx context.Context) Medi
 	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceOutput)
 }
 
-type MediaServiceOutput struct {
-	*pulumi.OutputState
-}
+type MediaServiceOutput struct{ *pulumi.OutputState }
 
 func (MediaServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MediaService)(nil))

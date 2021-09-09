@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies information about the gallery Application Definition that you want to create or update.
 func LookupGalleryApplication(ctx *pulumi.Context, args *LookupGalleryApplicationArgs, opts ...pulumi.InvokeOption) (*LookupGalleryApplicationResult, error) {
 	var rv LookupGalleryApplicationResult
 	err := ctx.Invoke("azure-native:compute/v20200930:getGalleryApplication", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupGalleryApplication(ctx *pulumi.Context, args *LookupGalleryApplicatio
 }
 
 type LookupGalleryApplicationArgs struct {
-	// The name of the gallery Application Definition to be retrieved.
 	GalleryApplicationName string `pulumi:"galleryApplicationName"`
-	// The name of the Shared Application Gallery from which the Application Definitions are to be retrieved.
-	GalleryName string `pulumi:"galleryName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	GalleryName            string `pulumi:"galleryName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 // Specifies information about the gallery Application Definition that you want to create or update.
 type LookupGalleryApplicationResult struct {
-	// The description of this gallery Application Definition resource. This property is updatable.
-	Description *string `pulumi:"description"`
-	// The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
-	// The Eula agreement for the gallery Application Definition.
-	Eula *string `pulumi:"eula"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The privacy statement uri.
-	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
-	// The release note uri.
-	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
-	// This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	SupportedOSType string `pulumi:"supportedOSType"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Description         *string           `pulumi:"description"`
+	EndOfLifeDate       *string           `pulumi:"endOfLifeDate"`
+	Eula                *string           `pulumi:"eula"`
+	Id                  string            `pulumi:"id"`
+	Location            string            `pulumi:"location"`
+	Name                string            `pulumi:"name"`
+	PrivacyStatementUri *string           `pulumi:"privacyStatementUri"`
+	ReleaseNoteUri      *string           `pulumi:"releaseNoteUri"`
+	SupportedOSType     string            `pulumi:"supportedOSType"`
+	Tags                map[string]string `pulumi:"tags"`
+	Type                string            `pulumi:"type"`
 }

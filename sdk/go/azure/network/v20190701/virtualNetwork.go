@@ -11,37 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual Network resource.
 type VirtualNetwork struct {
 	pulumi.CustomResourceState
 
-	// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
-	AddressSpace AddressSpaceResponsePtrOutput `pulumi:"addressSpace"`
-	// The DDoS protection plan associated with the virtual network.
-	DdosProtectionPlan SubResourceResponsePtrOutput `pulumi:"ddosProtectionPlan"`
-	// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
-	DhcpOptions DhcpOptionsResponsePtrOutput `pulumi:"dhcpOptions"`
-	// Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
-	EnableDdosProtection pulumi.BoolPtrOutput `pulumi:"enableDdosProtection"`
-	// Indicates if VM protection is enabled for all the subnets in the virtual network.
-	EnableVmProtection pulumi.BoolPtrOutput `pulumi:"enableVmProtection"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the virtual network resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The resourceGuid property of the Virtual Network resource.
-	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
-	// A list of subnets in a Virtual Network.
-	Subnets SubnetResponseArrayOutput `pulumi:"subnets"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// A list of peerings in a Virtual Network.
+	AddressSpace           AddressSpaceResponsePtrOutput            `pulumi:"addressSpace"`
+	DdosProtectionPlan     SubResourceResponsePtrOutput             `pulumi:"ddosProtectionPlan"`
+	DhcpOptions            DhcpOptionsResponsePtrOutput             `pulumi:"dhcpOptions"`
+	EnableDdosProtection   pulumi.BoolPtrOutput                     `pulumi:"enableDdosProtection"`
+	EnableVmProtection     pulumi.BoolPtrOutput                     `pulumi:"enableVmProtection"`
+	Etag                   pulumi.StringPtrOutput                   `pulumi:"etag"`
+	Location               pulumi.StringPtrOutput                   `pulumi:"location"`
+	Name                   pulumi.StringOutput                      `pulumi:"name"`
+	ProvisioningState      pulumi.StringOutput                      `pulumi:"provisioningState"`
+	ResourceGuid           pulumi.StringPtrOutput                   `pulumi:"resourceGuid"`
+	Subnets                SubnetResponseArrayOutput                `pulumi:"subnets"`
+	Tags                   pulumi.StringMapOutput                   `pulumi:"tags"`
+	Type                   pulumi.StringOutput                      `pulumi:"type"`
 	VirtualNetworkPeerings VirtualNetworkPeeringResponseArrayOutput `pulumi:"virtualNetworkPeerings"`
 }
 
@@ -327,65 +312,37 @@ func (VirtualNetworkState) ElementType() reflect.Type {
 }
 
 type virtualNetworkArgs struct {
-	// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
-	AddressSpace *AddressSpace `pulumi:"addressSpace"`
-	// The DDoS protection plan associated with the virtual network.
-	DdosProtectionPlan *SubResource `pulumi:"ddosProtectionPlan"`
-	// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
-	DhcpOptions *DhcpOptions `pulumi:"dhcpOptions"`
-	// Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
-	EnableDdosProtection *bool `pulumi:"enableDdosProtection"`
-	// Indicates if VM protection is enabled for all the subnets in the virtual network.
-	EnableVmProtection *bool `pulumi:"enableVmProtection"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resourceGuid property of the Virtual Network resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// A list of subnets in a Virtual Network.
-	Subnets []SubnetType `pulumi:"subnets"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the virtual network.
-	VirtualNetworkName *string `pulumi:"virtualNetworkName"`
-	// A list of peerings in a Virtual Network.
+	AddressSpace           *AddressSpace               `pulumi:"addressSpace"`
+	DdosProtectionPlan     *SubResource                `pulumi:"ddosProtectionPlan"`
+	DhcpOptions            *DhcpOptions                `pulumi:"dhcpOptions"`
+	EnableDdosProtection   *bool                       `pulumi:"enableDdosProtection"`
+	EnableVmProtection     *bool                       `pulumi:"enableVmProtection"`
+	Etag                   *string                     `pulumi:"etag"`
+	Id                     *string                     `pulumi:"id"`
+	Location               *string                     `pulumi:"location"`
+	ResourceGroupName      string                      `pulumi:"resourceGroupName"`
+	ResourceGuid           *string                     `pulumi:"resourceGuid"`
+	Subnets                []SubnetType                `pulumi:"subnets"`
+	Tags                   map[string]string           `pulumi:"tags"`
+	VirtualNetworkName     *string                     `pulumi:"virtualNetworkName"`
 	VirtualNetworkPeerings []VirtualNetworkPeeringType `pulumi:"virtualNetworkPeerings"`
 }
 
 // The set of arguments for constructing a VirtualNetwork resource.
 type VirtualNetworkArgs struct {
-	// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
-	AddressSpace AddressSpacePtrInput
-	// The DDoS protection plan associated with the virtual network.
-	DdosProtectionPlan SubResourcePtrInput
-	// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
-	DhcpOptions DhcpOptionsPtrInput
-	// Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
-	EnableDdosProtection pulumi.BoolPtrInput
-	// Indicates if VM protection is enabled for all the subnets in the virtual network.
-	EnableVmProtection pulumi.BoolPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The resourceGuid property of the Virtual Network resource.
-	ResourceGuid pulumi.StringPtrInput
-	// A list of subnets in a Virtual Network.
-	Subnets SubnetTypeArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the virtual network.
-	VirtualNetworkName pulumi.StringPtrInput
-	// A list of peerings in a Virtual Network.
+	AddressSpace           AddressSpacePtrInput
+	DdosProtectionPlan     SubResourcePtrInput
+	DhcpOptions            DhcpOptionsPtrInput
+	EnableDdosProtection   pulumi.BoolPtrInput
+	EnableVmProtection     pulumi.BoolPtrInput
+	Etag                   pulumi.StringPtrInput
+	Id                     pulumi.StringPtrInput
+	Location               pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	ResourceGuid           pulumi.StringPtrInput
+	Subnets                SubnetTypeArrayInput
+	Tags                   pulumi.StringMapInput
+	VirtualNetworkName     pulumi.StringPtrInput
 	VirtualNetworkPeerings VirtualNetworkPeeringTypeArrayInput
 }
 
@@ -412,9 +369,7 @@ func (i *VirtualNetwork) ToVirtualNetworkOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkOutput)
 }
 
-type VirtualNetworkOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetwork)(nil))

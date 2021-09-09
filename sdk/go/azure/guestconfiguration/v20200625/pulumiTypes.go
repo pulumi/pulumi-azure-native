@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about the guest configuration assignment.
 type AssignmentInfoResponse struct {
-	// Information about the configuration.
 	Configuration *ConfigurationInfoResponse `pulumi:"configuration"`
-	// Name of the guest configuration assignment.
-	Name string `pulumi:"name"`
+	Name          string                     `pulumi:"name"`
 }
 
 // AssignmentInfoResponseInput is an input type that accepts AssignmentInfoResponseArgs and AssignmentInfoResponseOutput values.
@@ -29,12 +26,9 @@ type AssignmentInfoResponseInput interface {
 	ToAssignmentInfoResponseOutputWithContext(context.Context) AssignmentInfoResponseOutput
 }
 
-// Information about the guest configuration assignment.
 type AssignmentInfoResponseArgs struct {
-	// Information about the configuration.
 	Configuration ConfigurationInfoResponsePtrInput `pulumi:"configuration"`
-	// Name of the guest configuration assignment.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name          pulumi.StringInput                `pulumi:"name"`
 }
 
 func (AssignmentInfoResponseArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *assignmentInfoResponsePtrType) ToAssignmentInfoResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentInfoResponsePtrOutput)
 }
 
-// Information about the guest configuration assignment.
 type AssignmentInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AssignmentInfoResponseOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o AssignmentInfoResponseOutput) ToAssignmentInfoResponsePtrOutput() Assign
 }
 
 func (o AssignmentInfoResponseOutput) ToAssignmentInfoResponsePtrOutputWithContext(ctx context.Context) AssignmentInfoResponsePtrOutput {
-	return o.ApplyT(func(v AssignmentInfoResponse) *AssignmentInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentInfoResponse) *AssignmentInfoResponse {
 		return &v
 	}).(AssignmentInfoResponsePtrOutput)
 }
 
-// Information about the configuration.
 func (o AssignmentInfoResponseOutput) Configuration() ConfigurationInfoResponsePtrOutput {
 	return o.ApplyT(func(v AssignmentInfoResponse) *ConfigurationInfoResponse { return v.Configuration }).(ConfigurationInfoResponsePtrOutput)
 }
 
-// Name of the guest configuration assignment.
 func (o AssignmentInfoResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentInfoResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -140,10 +131,15 @@ func (o AssignmentInfoResponsePtrOutput) ToAssignmentInfoResponsePtrOutputWithCo
 }
 
 func (o AssignmentInfoResponsePtrOutput) Elem() AssignmentInfoResponseOutput {
-	return o.ApplyT(func(v *AssignmentInfoResponse) AssignmentInfoResponse { return *v }).(AssignmentInfoResponseOutput)
+	return o.ApplyT(func(v *AssignmentInfoResponse) AssignmentInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AssignmentInfoResponse
+		return ret
+	}).(AssignmentInfoResponseOutput)
 }
 
-// Information about the configuration.
 func (o AssignmentInfoResponsePtrOutput) Configuration() ConfigurationInfoResponsePtrOutput {
 	return o.ApplyT(func(v *AssignmentInfoResponse) *ConfigurationInfoResponse {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o AssignmentInfoResponsePtrOutput) Configuration() ConfigurationInfoRespon
 	}).(ConfigurationInfoResponsePtrOutput)
 }
 
-// Name of the guest configuration assignment.
 func (o AssignmentInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssignmentInfoResponse) *string {
 		if v == nil {
@@ -163,11 +158,8 @@ func (o AssignmentInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reason and code for the compliance of the guest configuration assignment resource.
 type AssignmentReportResourceComplianceReasonResponse struct {
-	// Code for the compliance of the guest configuration assignment resource.
-	Code string `pulumi:"code"`
-	// Reason for the compliance of the guest configuration assignment resource.
+	Code   string `pulumi:"code"`
 	Phrase string `pulumi:"phrase"`
 }
 
@@ -182,11 +174,8 @@ type AssignmentReportResourceComplianceReasonResponseInput interface {
 	ToAssignmentReportResourceComplianceReasonResponseOutputWithContext(context.Context) AssignmentReportResourceComplianceReasonResponseOutput
 }
 
-// Reason and code for the compliance of the guest configuration assignment resource.
 type AssignmentReportResourceComplianceReasonResponseArgs struct {
-	// Code for the compliance of the guest configuration assignment resource.
-	Code pulumi.StringInput `pulumi:"code"`
-	// Reason for the compliance of the guest configuration assignment resource.
+	Code   pulumi.StringInput `pulumi:"code"`
 	Phrase pulumi.StringInput `pulumi:"phrase"`
 }
 
@@ -227,7 +216,6 @@ func (i AssignmentReportResourceComplianceReasonResponseArray) ToAssignmentRepor
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportResourceComplianceReasonResponseArrayOutput)
 }
 
-// Reason and code for the compliance of the guest configuration assignment resource.
 type AssignmentReportResourceComplianceReasonResponseOutput struct{ *pulumi.OutputState }
 
 func (AssignmentReportResourceComplianceReasonResponseOutput) ElementType() reflect.Type {
@@ -242,12 +230,10 @@ func (o AssignmentReportResourceComplianceReasonResponseOutput) ToAssignmentRepo
 	return o
 }
 
-// Code for the compliance of the guest configuration assignment resource.
 func (o AssignmentReportResourceComplianceReasonResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentReportResourceComplianceReasonResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// Reason for the compliance of the guest configuration assignment resource.
 func (o AssignmentReportResourceComplianceReasonResponseOutput) Phrase() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentReportResourceComplianceReasonResponse) string { return v.Phrase }).(pulumi.StringOutput)
 }
@@ -272,16 +258,11 @@ func (o AssignmentReportResourceComplianceReasonResponseArrayOutput) Index(i pul
 	}).(AssignmentReportResourceComplianceReasonResponseOutput)
 }
 
-// The guest configuration assignment resource.
 type AssignmentReportResourceResponse struct {
-	// A value indicating compliance status of the machine for the assigned guest configuration.
-	ComplianceStatus string `pulumi:"complianceStatus"`
-	// Properties of a guest configuration assignment resource.
-	Properties interface{} `pulumi:"properties"`
-	// Compliance reason and reason code for a resource.
-	Reasons []AssignmentReportResourceComplianceReasonResponse `pulumi:"reasons"`
-	// Name of the guest configuration assignment resource setting.
-	ResourceId string `pulumi:"resourceId"`
+	ComplianceStatus string                                             `pulumi:"complianceStatus"`
+	Properties       interface{}                                        `pulumi:"properties"`
+	Reasons          []AssignmentReportResourceComplianceReasonResponse `pulumi:"reasons"`
+	ResourceId       string                                             `pulumi:"resourceId"`
 }
 
 // AssignmentReportResourceResponseInput is an input type that accepts AssignmentReportResourceResponseArgs and AssignmentReportResourceResponseOutput values.
@@ -295,16 +276,11 @@ type AssignmentReportResourceResponseInput interface {
 	ToAssignmentReportResourceResponseOutputWithContext(context.Context) AssignmentReportResourceResponseOutput
 }
 
-// The guest configuration assignment resource.
 type AssignmentReportResourceResponseArgs struct {
-	// A value indicating compliance status of the machine for the assigned guest configuration.
-	ComplianceStatus pulumi.StringInput `pulumi:"complianceStatus"`
-	// Properties of a guest configuration assignment resource.
-	Properties pulumi.Input `pulumi:"properties"`
-	// Compliance reason and reason code for a resource.
-	Reasons AssignmentReportResourceComplianceReasonResponseArrayInput `pulumi:"reasons"`
-	// Name of the guest configuration assignment resource setting.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	ComplianceStatus pulumi.StringInput                                         `pulumi:"complianceStatus"`
+	Properties       pulumi.Input                                               `pulumi:"properties"`
+	Reasons          AssignmentReportResourceComplianceReasonResponseArrayInput `pulumi:"reasons"`
+	ResourceId       pulumi.StringInput                                         `pulumi:"resourceId"`
 }
 
 func (AssignmentReportResourceResponseArgs) ElementType() reflect.Type {
@@ -344,7 +320,6 @@ func (i AssignmentReportResourceResponseArray) ToAssignmentReportResourceRespons
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportResourceResponseArrayOutput)
 }
 
-// The guest configuration assignment resource.
 type AssignmentReportResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (AssignmentReportResourceResponseOutput) ElementType() reflect.Type {
@@ -359,24 +334,20 @@ func (o AssignmentReportResourceResponseOutput) ToAssignmentReportResourceRespon
 	return o
 }
 
-// A value indicating compliance status of the machine for the assigned guest configuration.
 func (o AssignmentReportResourceResponseOutput) ComplianceStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentReportResourceResponse) string { return v.ComplianceStatus }).(pulumi.StringOutput)
 }
 
-// Properties of a guest configuration assignment resource.
 func (o AssignmentReportResourceResponseOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v AssignmentReportResourceResponse) interface{} { return v.Properties }).(pulumi.AnyOutput)
 }
 
-// Compliance reason and reason code for a resource.
 func (o AssignmentReportResourceResponseOutput) Reasons() AssignmentReportResourceComplianceReasonResponseArrayOutput {
 	return o.ApplyT(func(v AssignmentReportResourceResponse) []AssignmentReportResourceComplianceReasonResponse {
 		return v.Reasons
 	}).(AssignmentReportResourceComplianceReasonResponseArrayOutput)
 }
 
-// Name of the guest configuration assignment resource setting.
 func (o AssignmentReportResourceResponseOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentReportResourceResponse) string { return v.ResourceId }).(pulumi.StringOutput)
 }
@@ -402,24 +373,15 @@ func (o AssignmentReportResourceResponseArrayOutput) Index(i pulumi.IntInput) As
 }
 
 type AssignmentReportResponse struct {
-	// Configuration details of the guest configuration assignment.
-	Assignment *AssignmentInfoResponse `pulumi:"assignment"`
-	// A value indicating compliance status of the machine for the assigned guest configuration.
-	ComplianceStatus string `pulumi:"complianceStatus"`
-	// End date and time of the guest configuration assignment compliance status check.
-	EndTime string `pulumi:"endTime"`
-	// ARM resource id of the report for the guest configuration assignment.
-	Id string `pulumi:"id"`
-	// Type of report, Consistency or Initial
-	OperationType string `pulumi:"operationType"`
-	// GUID that identifies the guest configuration assignment report under a subscription, resource group.
-	ReportId string `pulumi:"reportId"`
-	// The list of resources for which guest configuration assignment compliance is checked.
-	Resources []AssignmentReportResourceResponse `pulumi:"resources"`
-	// Start date and time of the guest configuration assignment compliance status check.
-	StartTime string `pulumi:"startTime"`
-	// Information about the VM.
-	Vm *VMInfoResponse `pulumi:"vm"`
+	Assignment       *AssignmentInfoResponse            `pulumi:"assignment"`
+	ComplianceStatus string                             `pulumi:"complianceStatus"`
+	EndTime          string                             `pulumi:"endTime"`
+	Id               string                             `pulumi:"id"`
+	OperationType    string                             `pulumi:"operationType"`
+	ReportId         string                             `pulumi:"reportId"`
+	Resources        []AssignmentReportResourceResponse `pulumi:"resources"`
+	StartTime        string                             `pulumi:"startTime"`
+	Vm               *VMInfoResponse                    `pulumi:"vm"`
 }
 
 // AssignmentReportResponseInput is an input type that accepts AssignmentReportResponseArgs and AssignmentReportResponseOutput values.
@@ -434,24 +396,15 @@ type AssignmentReportResponseInput interface {
 }
 
 type AssignmentReportResponseArgs struct {
-	// Configuration details of the guest configuration assignment.
-	Assignment AssignmentInfoResponsePtrInput `pulumi:"assignment"`
-	// A value indicating compliance status of the machine for the assigned guest configuration.
-	ComplianceStatus pulumi.StringInput `pulumi:"complianceStatus"`
-	// End date and time of the guest configuration assignment compliance status check.
-	EndTime pulumi.StringInput `pulumi:"endTime"`
-	// ARM resource id of the report for the guest configuration assignment.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Type of report, Consistency or Initial
-	OperationType pulumi.StringInput `pulumi:"operationType"`
-	// GUID that identifies the guest configuration assignment report under a subscription, resource group.
-	ReportId pulumi.StringInput `pulumi:"reportId"`
-	// The list of resources for which guest configuration assignment compliance is checked.
-	Resources AssignmentReportResourceResponseArrayInput `pulumi:"resources"`
-	// Start date and time of the guest configuration assignment compliance status check.
-	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// Information about the VM.
-	Vm VMInfoResponsePtrInput `pulumi:"vm"`
+	Assignment       AssignmentInfoResponsePtrInput             `pulumi:"assignment"`
+	ComplianceStatus pulumi.StringInput                         `pulumi:"complianceStatus"`
+	EndTime          pulumi.StringInput                         `pulumi:"endTime"`
+	Id               pulumi.StringInput                         `pulumi:"id"`
+	OperationType    pulumi.StringInput                         `pulumi:"operationType"`
+	ReportId         pulumi.StringInput                         `pulumi:"reportId"`
+	Resources        AssignmentReportResourceResponseArrayInput `pulumi:"resources"`
+	StartTime        pulumi.StringInput                         `pulumi:"startTime"`
+	Vm               VMInfoResponsePtrInput                     `pulumi:"vm"`
 }
 
 func (AssignmentReportResponseArgs) ElementType() reflect.Type {
@@ -526,52 +479,43 @@ func (o AssignmentReportResponseOutput) ToAssignmentReportResponsePtrOutput() As
 }
 
 func (o AssignmentReportResponseOutput) ToAssignmentReportResponsePtrOutputWithContext(ctx context.Context) AssignmentReportResponsePtrOutput {
-	return o.ApplyT(func(v AssignmentReportResponse) *AssignmentReportResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentReportResponse) *AssignmentReportResponse {
 		return &v
 	}).(AssignmentReportResponsePtrOutput)
 }
 
-// Configuration details of the guest configuration assignment.
 func (o AssignmentReportResponseOutput) Assignment() AssignmentInfoResponsePtrOutput {
 	return o.ApplyT(func(v AssignmentReportResponse) *AssignmentInfoResponse { return v.Assignment }).(AssignmentInfoResponsePtrOutput)
 }
 
-// A value indicating compliance status of the machine for the assigned guest configuration.
 func (o AssignmentReportResponseOutput) ComplianceStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentReportResponse) string { return v.ComplianceStatus }).(pulumi.StringOutput)
 }
 
-// End date and time of the guest configuration assignment compliance status check.
 func (o AssignmentReportResponseOutput) EndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentReportResponse) string { return v.EndTime }).(pulumi.StringOutput)
 }
 
-// ARM resource id of the report for the guest configuration assignment.
 func (o AssignmentReportResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentReportResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Type of report, Consistency or Initial
 func (o AssignmentReportResponseOutput) OperationType() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentReportResponse) string { return v.OperationType }).(pulumi.StringOutput)
 }
 
-// GUID that identifies the guest configuration assignment report under a subscription, resource group.
 func (o AssignmentReportResponseOutput) ReportId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentReportResponse) string { return v.ReportId }).(pulumi.StringOutput)
 }
 
-// The list of resources for which guest configuration assignment compliance is checked.
 func (o AssignmentReportResponseOutput) Resources() AssignmentReportResourceResponseArrayOutput {
 	return o.ApplyT(func(v AssignmentReportResponse) []AssignmentReportResourceResponse { return v.Resources }).(AssignmentReportResourceResponseArrayOutput)
 }
 
-// Start date and time of the guest configuration assignment compliance status check.
 func (o AssignmentReportResponseOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentReportResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// Information about the VM.
 func (o AssignmentReportResponseOutput) Vm() VMInfoResponsePtrOutput {
 	return o.ApplyT(func(v AssignmentReportResponse) *VMInfoResponse { return v.Vm }).(VMInfoResponsePtrOutput)
 }
@@ -591,10 +535,15 @@ func (o AssignmentReportResponsePtrOutput) ToAssignmentReportResponsePtrOutputWi
 }
 
 func (o AssignmentReportResponsePtrOutput) Elem() AssignmentReportResponseOutput {
-	return o.ApplyT(func(v *AssignmentReportResponse) AssignmentReportResponse { return *v }).(AssignmentReportResponseOutput)
+	return o.ApplyT(func(v *AssignmentReportResponse) AssignmentReportResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AssignmentReportResponse
+		return ret
+	}).(AssignmentReportResponseOutput)
 }
 
-// Configuration details of the guest configuration assignment.
 func (o AssignmentReportResponsePtrOutput) Assignment() AssignmentInfoResponsePtrOutput {
 	return o.ApplyT(func(v *AssignmentReportResponse) *AssignmentInfoResponse {
 		if v == nil {
@@ -604,7 +553,6 @@ func (o AssignmentReportResponsePtrOutput) Assignment() AssignmentInfoResponsePt
 	}).(AssignmentInfoResponsePtrOutput)
 }
 
-// A value indicating compliance status of the machine for the assigned guest configuration.
 func (o AssignmentReportResponsePtrOutput) ComplianceStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssignmentReportResponse) *string {
 		if v == nil {
@@ -614,7 +562,6 @@ func (o AssignmentReportResponsePtrOutput) ComplianceStatus() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// End date and time of the guest configuration assignment compliance status check.
 func (o AssignmentReportResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssignmentReportResponse) *string {
 		if v == nil {
@@ -624,7 +571,6 @@ func (o AssignmentReportResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARM resource id of the report for the guest configuration assignment.
 func (o AssignmentReportResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssignmentReportResponse) *string {
 		if v == nil {
@@ -634,7 +580,6 @@ func (o AssignmentReportResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of report, Consistency or Initial
 func (o AssignmentReportResponsePtrOutput) OperationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssignmentReportResponse) *string {
 		if v == nil {
@@ -644,7 +589,6 @@ func (o AssignmentReportResponsePtrOutput) OperationType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// GUID that identifies the guest configuration assignment report under a subscription, resource group.
 func (o AssignmentReportResponsePtrOutput) ReportId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssignmentReportResponse) *string {
 		if v == nil {
@@ -654,7 +598,6 @@ func (o AssignmentReportResponsePtrOutput) ReportId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of resources for which guest configuration assignment compliance is checked.
 func (o AssignmentReportResponsePtrOutput) Resources() AssignmentReportResourceResponseArrayOutput {
 	return o.ApplyT(func(v *AssignmentReportResponse) []AssignmentReportResourceResponse {
 		if v == nil {
@@ -664,7 +607,6 @@ func (o AssignmentReportResponsePtrOutput) Resources() AssignmentReportResourceR
 	}).(AssignmentReportResourceResponseArrayOutput)
 }
 
-// Start date and time of the guest configuration assignment compliance status check.
 func (o AssignmentReportResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssignmentReportResponse) *string {
 		if v == nil {
@@ -674,7 +616,6 @@ func (o AssignmentReportResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the VM.
 func (o AssignmentReportResponsePtrOutput) Vm() VMInfoResponsePtrOutput {
 	return o.ApplyT(func(v *AssignmentReportResponse) *VMInfoResponse {
 		if v == nil {
@@ -684,11 +625,8 @@ func (o AssignmentReportResponsePtrOutput) Vm() VMInfoResponsePtrOutput {
 	}).(VMInfoResponsePtrOutput)
 }
 
-// Information about the configuration.
 type ConfigurationInfoResponse struct {
-	// Name of the configuration.
-	Name string `pulumi:"name"`
-	// Version of the configuration.
+	Name    string `pulumi:"name"`
 	Version string `pulumi:"version"`
 }
 
@@ -703,11 +641,8 @@ type ConfigurationInfoResponseInput interface {
 	ToConfigurationInfoResponseOutputWithContext(context.Context) ConfigurationInfoResponseOutput
 }
 
-// Information about the configuration.
 type ConfigurationInfoResponseArgs struct {
-	// Name of the configuration.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Version of the configuration.
+	Name    pulumi.StringInput `pulumi:"name"`
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -764,7 +699,6 @@ func (i *configurationInfoResponsePtrType) ToConfigurationInfoResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInfoResponsePtrOutput)
 }
 
-// Information about the configuration.
 type ConfigurationInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationInfoResponseOutput) ElementType() reflect.Type {
@@ -784,17 +718,15 @@ func (o ConfigurationInfoResponseOutput) ToConfigurationInfoResponsePtrOutput() 
 }
 
 func (o ConfigurationInfoResponseOutput) ToConfigurationInfoResponsePtrOutputWithContext(ctx context.Context) ConfigurationInfoResponsePtrOutput {
-	return o.ApplyT(func(v ConfigurationInfoResponse) *ConfigurationInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationInfoResponse) *ConfigurationInfoResponse {
 		return &v
 	}).(ConfigurationInfoResponsePtrOutput)
 }
 
-// Name of the configuration.
 func (o ConfigurationInfoResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationInfoResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Version of the configuration.
 func (o ConfigurationInfoResponseOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationInfoResponse) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -814,10 +746,15 @@ func (o ConfigurationInfoResponsePtrOutput) ToConfigurationInfoResponsePtrOutput
 }
 
 func (o ConfigurationInfoResponsePtrOutput) Elem() ConfigurationInfoResponseOutput {
-	return o.ApplyT(func(v *ConfigurationInfoResponse) ConfigurationInfoResponse { return *v }).(ConfigurationInfoResponseOutput)
+	return o.ApplyT(func(v *ConfigurationInfoResponse) ConfigurationInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationInfoResponse
+		return ret
+	}).(ConfigurationInfoResponseOutput)
 }
 
-// Name of the configuration.
 func (o ConfigurationInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationInfoResponse) *string {
 		if v == nil {
@@ -827,7 +764,6 @@ func (o ConfigurationInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the configuration.
 func (o ConfigurationInfoResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationInfoResponse) *string {
 		if v == nil {
@@ -837,11 +773,8 @@ func (o ConfigurationInfoResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a configuration parameter.
 type ConfigurationParameter struct {
-	// Name of the configuration parameter.
-	Name *string `pulumi:"name"`
-	// Value of the configuration parameter.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -856,11 +789,8 @@ type ConfigurationParameterInput interface {
 	ToConfigurationParameterOutputWithContext(context.Context) ConfigurationParameterOutput
 }
 
-// Represents a configuration parameter.
 type ConfigurationParameterArgs struct {
-	// Name of the configuration parameter.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Value of the configuration parameter.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -901,7 +831,6 @@ func (i ConfigurationParameterArray) ToConfigurationParameterArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationParameterArrayOutput)
 }
 
-// Represents a configuration parameter.
 type ConfigurationParameterOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationParameterOutput) ElementType() reflect.Type {
@@ -916,12 +845,10 @@ func (o ConfigurationParameterOutput) ToConfigurationParameterOutputWithContext(
 	return o
 }
 
-// Name of the configuration parameter.
 func (o ConfigurationParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Value of the configuration parameter.
 func (o ConfigurationParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -946,11 +873,8 @@ func (o ConfigurationParameterArrayOutput) Index(i pulumi.IntInput) Configuratio
 	}).(ConfigurationParameterOutput)
 }
 
-// Represents a configuration parameter.
 type ConfigurationParameterResponse struct {
-	// Name of the configuration parameter.
-	Name *string `pulumi:"name"`
-	// Value of the configuration parameter.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -965,11 +889,8 @@ type ConfigurationParameterResponseInput interface {
 	ToConfigurationParameterResponseOutputWithContext(context.Context) ConfigurationParameterResponseOutput
 }
 
-// Represents a configuration parameter.
 type ConfigurationParameterResponseArgs struct {
-	// Name of the configuration parameter.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Value of the configuration parameter.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1010,7 +931,6 @@ func (i ConfigurationParameterResponseArray) ToConfigurationParameterResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationParameterResponseArrayOutput)
 }
 
-// Represents a configuration parameter.
 type ConfigurationParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationParameterResponseOutput) ElementType() reflect.Type {
@@ -1025,12 +945,10 @@ func (o ConfigurationParameterResponseOutput) ToConfigurationParameterResponseOu
 	return o
 }
 
-// Name of the configuration parameter.
 func (o ConfigurationParameterResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationParameterResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Value of the configuration parameter.
 func (o ConfigurationParameterResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationParameterResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1055,20 +973,13 @@ func (o ConfigurationParameterResponseArrayOutput) Index(i pulumi.IntInput) Conf
 	}).(ConfigurationParameterResponseOutput)
 }
 
-// Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSetting struct {
-	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-	ActionAfterReboot *string `pulumi:"actionAfterReboot"`
-	// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-	AllowModuleOverwrite *bool `pulumi:"allowModuleOverwrite"`
-	// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-	ConfigurationMode *string `pulumi:"configurationMode"`
-	// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
+	ActionAfterReboot              *string  `pulumi:"actionAfterReboot"`
+	AllowModuleOverwrite           *bool    `pulumi:"allowModuleOverwrite"`
+	ConfigurationMode              *string  `pulumi:"configurationMode"`
 	ConfigurationModeFrequencyMins *float64 `pulumi:"configurationModeFrequencyMins"`
-	// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-	RebootIfNeeded *bool `pulumi:"rebootIfNeeded"`
-	// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-	RefreshFrequencyMins *float64 `pulumi:"refreshFrequencyMins"`
+	RebootIfNeeded                 *bool    `pulumi:"rebootIfNeeded"`
+	RefreshFrequencyMins           *float64 `pulumi:"refreshFrequencyMins"`
 }
 
 // ConfigurationSettingInput is an input type that accepts ConfigurationSettingArgs and ConfigurationSettingOutput values.
@@ -1082,20 +993,13 @@ type ConfigurationSettingInput interface {
 	ToConfigurationSettingOutputWithContext(context.Context) ConfigurationSettingOutput
 }
 
-// Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSettingArgs struct {
-	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-	ActionAfterReboot pulumi.StringPtrInput `pulumi:"actionAfterReboot"`
-	// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-	AllowModuleOverwrite pulumi.BoolPtrInput `pulumi:"allowModuleOverwrite"`
-	// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-	ConfigurationMode pulumi.StringPtrInput `pulumi:"configurationMode"`
-	// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
+	ActionAfterReboot              pulumi.StringPtrInput  `pulumi:"actionAfterReboot"`
+	AllowModuleOverwrite           pulumi.BoolPtrInput    `pulumi:"allowModuleOverwrite"`
+	ConfigurationMode              pulumi.StringPtrInput  `pulumi:"configurationMode"`
 	ConfigurationModeFrequencyMins pulumi.Float64PtrInput `pulumi:"configurationModeFrequencyMins"`
-	// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-	RebootIfNeeded pulumi.BoolPtrInput `pulumi:"rebootIfNeeded"`
-	// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-	RefreshFrequencyMins pulumi.Float64PtrInput `pulumi:"refreshFrequencyMins"`
+	RebootIfNeeded                 pulumi.BoolPtrInput    `pulumi:"rebootIfNeeded"`
+	RefreshFrequencyMins           pulumi.Float64PtrInput `pulumi:"refreshFrequencyMins"`
 }
 
 func (ConfigurationSettingArgs) ElementType() reflect.Type {
@@ -1151,7 +1055,6 @@ func (i *configurationSettingPtrType) ToConfigurationSettingPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSettingPtrOutput)
 }
 
-// Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSettingOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSettingOutput) ElementType() reflect.Type {
@@ -1171,37 +1074,31 @@ func (o ConfigurationSettingOutput) ToConfigurationSettingPtrOutput() Configurat
 }
 
 func (o ConfigurationSettingOutput) ToConfigurationSettingPtrOutputWithContext(ctx context.Context) ConfigurationSettingPtrOutput {
-	return o.ApplyT(func(v ConfigurationSetting) *ConfigurationSetting {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetting) *ConfigurationSetting {
 		return &v
 	}).(ConfigurationSettingPtrOutput)
 }
 
-// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
 func (o ConfigurationSettingOutput) ActionAfterReboot() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetting) *string { return v.ActionAfterReboot }).(pulumi.StringPtrOutput)
 }
 
-// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
 func (o ConfigurationSettingOutput) AllowModuleOverwrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetting) *bool { return v.AllowModuleOverwrite }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
 func (o ConfigurationSettingOutput) ConfigurationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetting) *string { return v.ConfigurationMode }).(pulumi.StringPtrOutput)
 }
 
-// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
 func (o ConfigurationSettingOutput) ConfigurationModeFrequencyMins() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConfigurationSetting) *float64 { return v.ConfigurationModeFrequencyMins }).(pulumi.Float64PtrOutput)
 }
 
-// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
 func (o ConfigurationSettingOutput) RebootIfNeeded() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetting) *bool { return v.RebootIfNeeded }).(pulumi.BoolPtrOutput)
 }
 
-// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
 func (o ConfigurationSettingOutput) RefreshFrequencyMins() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConfigurationSetting) *float64 { return v.RefreshFrequencyMins }).(pulumi.Float64PtrOutput)
 }
@@ -1221,10 +1118,15 @@ func (o ConfigurationSettingPtrOutput) ToConfigurationSettingPtrOutputWithContex
 }
 
 func (o ConfigurationSettingPtrOutput) Elem() ConfigurationSettingOutput {
-	return o.ApplyT(func(v *ConfigurationSetting) ConfigurationSetting { return *v }).(ConfigurationSettingOutput)
+	return o.ApplyT(func(v *ConfigurationSetting) ConfigurationSetting {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetting
+		return ret
+	}).(ConfigurationSettingOutput)
 }
 
-// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
 func (o ConfigurationSettingPtrOutput) ActionAfterReboot() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetting) *string {
 		if v == nil {
@@ -1234,7 +1136,6 @@ func (o ConfigurationSettingPtrOutput) ActionAfterReboot() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
 func (o ConfigurationSettingPtrOutput) AllowModuleOverwrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetting) *bool {
 		if v == nil {
@@ -1244,7 +1145,6 @@ func (o ConfigurationSettingPtrOutput) AllowModuleOverwrite() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
 func (o ConfigurationSettingPtrOutput) ConfigurationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetting) *string {
 		if v == nil {
@@ -1254,7 +1154,6 @@ func (o ConfigurationSettingPtrOutput) ConfigurationMode() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
 func (o ConfigurationSettingPtrOutput) ConfigurationModeFrequencyMins() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetting) *float64 {
 		if v == nil {
@@ -1264,7 +1163,6 @@ func (o ConfigurationSettingPtrOutput) ConfigurationModeFrequencyMins() pulumi.F
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
 func (o ConfigurationSettingPtrOutput) RebootIfNeeded() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetting) *bool {
 		if v == nil {
@@ -1274,7 +1172,6 @@ func (o ConfigurationSettingPtrOutput) RebootIfNeeded() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
 func (o ConfigurationSettingPtrOutput) RefreshFrequencyMins() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetting) *float64 {
 		if v == nil {
@@ -1284,20 +1181,13 @@ func (o ConfigurationSettingPtrOutput) RefreshFrequencyMins() pulumi.Float64PtrO
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSettingResponse struct {
-	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-	ActionAfterReboot *string `pulumi:"actionAfterReboot"`
-	// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-	AllowModuleOverwrite *bool `pulumi:"allowModuleOverwrite"`
-	// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-	ConfigurationMode *string `pulumi:"configurationMode"`
-	// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
+	ActionAfterReboot              *string  `pulumi:"actionAfterReboot"`
+	AllowModuleOverwrite           *bool    `pulumi:"allowModuleOverwrite"`
+	ConfigurationMode              *string  `pulumi:"configurationMode"`
 	ConfigurationModeFrequencyMins *float64 `pulumi:"configurationModeFrequencyMins"`
-	// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-	RebootIfNeeded *bool `pulumi:"rebootIfNeeded"`
-	// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-	RefreshFrequencyMins *float64 `pulumi:"refreshFrequencyMins"`
+	RebootIfNeeded                 *bool    `pulumi:"rebootIfNeeded"`
+	RefreshFrequencyMins           *float64 `pulumi:"refreshFrequencyMins"`
 }
 
 // ConfigurationSettingResponseInput is an input type that accepts ConfigurationSettingResponseArgs and ConfigurationSettingResponseOutput values.
@@ -1311,20 +1201,13 @@ type ConfigurationSettingResponseInput interface {
 	ToConfigurationSettingResponseOutputWithContext(context.Context) ConfigurationSettingResponseOutput
 }
 
-// Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSettingResponseArgs struct {
-	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-	ActionAfterReboot pulumi.StringPtrInput `pulumi:"actionAfterReboot"`
-	// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-	AllowModuleOverwrite pulumi.BoolPtrInput `pulumi:"allowModuleOverwrite"`
-	// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-	ConfigurationMode pulumi.StringPtrInput `pulumi:"configurationMode"`
-	// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
+	ActionAfterReboot              pulumi.StringPtrInput  `pulumi:"actionAfterReboot"`
+	AllowModuleOverwrite           pulumi.BoolPtrInput    `pulumi:"allowModuleOverwrite"`
+	ConfigurationMode              pulumi.StringPtrInput  `pulumi:"configurationMode"`
 	ConfigurationModeFrequencyMins pulumi.Float64PtrInput `pulumi:"configurationModeFrequencyMins"`
-	// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-	RebootIfNeeded pulumi.BoolPtrInput `pulumi:"rebootIfNeeded"`
-	// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-	RefreshFrequencyMins pulumi.Float64PtrInput `pulumi:"refreshFrequencyMins"`
+	RebootIfNeeded                 pulumi.BoolPtrInput    `pulumi:"rebootIfNeeded"`
+	RefreshFrequencyMins           pulumi.Float64PtrInput `pulumi:"refreshFrequencyMins"`
 }
 
 func (ConfigurationSettingResponseArgs) ElementType() reflect.Type {
@@ -1380,7 +1263,6 @@ func (i *configurationSettingResponsePtrType) ToConfigurationSettingResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSettingResponsePtrOutput)
 }
 
-// Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSettingResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSettingResponseOutput) ElementType() reflect.Type {
@@ -1400,37 +1282,31 @@ func (o ConfigurationSettingResponseOutput) ToConfigurationSettingResponsePtrOut
 }
 
 func (o ConfigurationSettingResponseOutput) ToConfigurationSettingResponsePtrOutputWithContext(ctx context.Context) ConfigurationSettingResponsePtrOutput {
-	return o.ApplyT(func(v ConfigurationSettingResponse) *ConfigurationSettingResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSettingResponse) *ConfigurationSettingResponse {
 		return &v
 	}).(ConfigurationSettingResponsePtrOutput)
 }
 
-// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
 func (o ConfigurationSettingResponseOutput) ActionAfterReboot() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSettingResponse) *string { return v.ActionAfterReboot }).(pulumi.StringPtrOutput)
 }
 
-// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
 func (o ConfigurationSettingResponseOutput) AllowModuleOverwrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationSettingResponse) *bool { return v.AllowModuleOverwrite }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
 func (o ConfigurationSettingResponseOutput) ConfigurationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSettingResponse) *string { return v.ConfigurationMode }).(pulumi.StringPtrOutput)
 }
 
-// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
 func (o ConfigurationSettingResponseOutput) ConfigurationModeFrequencyMins() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConfigurationSettingResponse) *float64 { return v.ConfigurationModeFrequencyMins }).(pulumi.Float64PtrOutput)
 }
 
-// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
 func (o ConfigurationSettingResponseOutput) RebootIfNeeded() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationSettingResponse) *bool { return v.RebootIfNeeded }).(pulumi.BoolPtrOutput)
 }
 
-// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
 func (o ConfigurationSettingResponseOutput) RefreshFrequencyMins() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConfigurationSettingResponse) *float64 { return v.RefreshFrequencyMins }).(pulumi.Float64PtrOutput)
 }
@@ -1450,10 +1326,15 @@ func (o ConfigurationSettingResponsePtrOutput) ToConfigurationSettingResponsePtr
 }
 
 func (o ConfigurationSettingResponsePtrOutput) Elem() ConfigurationSettingResponseOutput {
-	return o.ApplyT(func(v *ConfigurationSettingResponse) ConfigurationSettingResponse { return *v }).(ConfigurationSettingResponseOutput)
+	return o.ApplyT(func(v *ConfigurationSettingResponse) ConfigurationSettingResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSettingResponse
+		return ret
+	}).(ConfigurationSettingResponseOutput)
 }
 
-// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
 func (o ConfigurationSettingResponsePtrOutput) ActionAfterReboot() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSettingResponse) *string {
 		if v == nil {
@@ -1463,7 +1344,6 @@ func (o ConfigurationSettingResponsePtrOutput) ActionAfterReboot() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
 func (o ConfigurationSettingResponsePtrOutput) AllowModuleOverwrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSettingResponse) *bool {
 		if v == nil {
@@ -1473,7 +1353,6 @@ func (o ConfigurationSettingResponsePtrOutput) AllowModuleOverwrite() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
 func (o ConfigurationSettingResponsePtrOutput) ConfigurationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSettingResponse) *string {
 		if v == nil {
@@ -1483,7 +1362,6 @@ func (o ConfigurationSettingResponsePtrOutput) ConfigurationMode() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
 func (o ConfigurationSettingResponsePtrOutput) ConfigurationModeFrequencyMins() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ConfigurationSettingResponse) *float64 {
 		if v == nil {
@@ -1493,7 +1371,6 @@ func (o ConfigurationSettingResponsePtrOutput) ConfigurationModeFrequencyMins() 
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
 func (o ConfigurationSettingResponsePtrOutput) RebootIfNeeded() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSettingResponse) *bool {
 		if v == nil {
@@ -1503,7 +1380,6 @@ func (o ConfigurationSettingResponsePtrOutput) RebootIfNeeded() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
 func (o ConfigurationSettingResponsePtrOutput) RefreshFrequencyMins() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ConfigurationSettingResponse) *float64 {
 		if v == nil {
@@ -1513,11 +1389,8 @@ func (o ConfigurationSettingResponsePtrOutput) RefreshFrequencyMins() pulumi.Flo
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Guest configuration assignment properties.
 type GuestConfigurationAssignmentProperties struct {
-	// The source which initiated the guest configuration assignment. Ex: Azure Policy
-	Context *string `pulumi:"context"`
-	// The guest configuration to assign.
+	Context            *string                       `pulumi:"context"`
 	GuestConfiguration *GuestConfigurationNavigation `pulumi:"guestConfiguration"`
 }
 
@@ -1532,11 +1405,8 @@ type GuestConfigurationAssignmentPropertiesInput interface {
 	ToGuestConfigurationAssignmentPropertiesOutputWithContext(context.Context) GuestConfigurationAssignmentPropertiesOutput
 }
 
-// Guest configuration assignment properties.
 type GuestConfigurationAssignmentPropertiesArgs struct {
-	// The source which initiated the guest configuration assignment. Ex: Azure Policy
-	Context pulumi.StringPtrInput `pulumi:"context"`
-	// The guest configuration to assign.
+	Context            pulumi.StringPtrInput                `pulumi:"context"`
 	GuestConfiguration GuestConfigurationNavigationPtrInput `pulumi:"guestConfiguration"`
 }
 
@@ -1593,7 +1463,6 @@ func (i *guestConfigurationAssignmentPropertiesPtrType) ToGuestConfigurationAssi
 	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationAssignmentPropertiesPtrOutput)
 }
 
-// Guest configuration assignment properties.
 type GuestConfigurationAssignmentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (GuestConfigurationAssignmentPropertiesOutput) ElementType() reflect.Type {
@@ -1613,17 +1482,15 @@ func (o GuestConfigurationAssignmentPropertiesOutput) ToGuestConfigurationAssign
 }
 
 func (o GuestConfigurationAssignmentPropertiesOutput) ToGuestConfigurationAssignmentPropertiesPtrOutputWithContext(ctx context.Context) GuestConfigurationAssignmentPropertiesPtrOutput {
-	return o.ApplyT(func(v GuestConfigurationAssignmentProperties) *GuestConfigurationAssignmentProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuestConfigurationAssignmentProperties) *GuestConfigurationAssignmentProperties {
 		return &v
 	}).(GuestConfigurationAssignmentPropertiesPtrOutput)
 }
 
-// The source which initiated the guest configuration assignment. Ex: Azure Policy
 func (o GuestConfigurationAssignmentPropertiesOutput) Context() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationAssignmentProperties) *string { return v.Context }).(pulumi.StringPtrOutput)
 }
 
-// The guest configuration to assign.
 func (o GuestConfigurationAssignmentPropertiesOutput) GuestConfiguration() GuestConfigurationNavigationPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationAssignmentProperties) *GuestConfigurationNavigation {
 		return v.GuestConfiguration
@@ -1645,10 +1512,15 @@ func (o GuestConfigurationAssignmentPropertiesPtrOutput) ToGuestConfigurationAss
 }
 
 func (o GuestConfigurationAssignmentPropertiesPtrOutput) Elem() GuestConfigurationAssignmentPropertiesOutput {
-	return o.ApplyT(func(v *GuestConfigurationAssignmentProperties) GuestConfigurationAssignmentProperties { return *v }).(GuestConfigurationAssignmentPropertiesOutput)
+	return o.ApplyT(func(v *GuestConfigurationAssignmentProperties) GuestConfigurationAssignmentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret GuestConfigurationAssignmentProperties
+		return ret
+	}).(GuestConfigurationAssignmentPropertiesOutput)
 }
 
-// The source which initiated the guest configuration assignment. Ex: Azure Policy
 func (o GuestConfigurationAssignmentPropertiesPtrOutput) Context() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationAssignmentProperties) *string {
 		if v == nil {
@@ -1658,7 +1530,6 @@ func (o GuestConfigurationAssignmentPropertiesPtrOutput) Context() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The guest configuration to assign.
 func (o GuestConfigurationAssignmentPropertiesPtrOutput) GuestConfiguration() GuestConfigurationNavigationPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationAssignmentProperties) *GuestConfigurationNavigation {
 		if v == nil {
@@ -1668,26 +1539,16 @@ func (o GuestConfigurationAssignmentPropertiesPtrOutput) GuestConfiguration() Gu
 	}).(GuestConfigurationNavigationPtrOutput)
 }
 
-// Guest configuration assignment properties.
 type GuestConfigurationAssignmentPropertiesResponse struct {
-	// Combined hash of the configuration package and parameters.
-	AssignmentHash string `pulumi:"assignmentHash"`
-	// A value indicating compliance status of the machine for the assigned guest configuration.
-	ComplianceStatus string `pulumi:"complianceStatus"`
-	// The source which initiated the guest configuration assignment. Ex: Azure Policy
-	Context *string `pulumi:"context"`
-	// The guest configuration to assign.
-	GuestConfiguration *GuestConfigurationNavigationResponse `pulumi:"guestConfiguration"`
-	// Date and time when last compliance status was checked.
-	LastComplianceStatusChecked string `pulumi:"lastComplianceStatusChecked"`
-	// Last reported guest configuration assignment report.
-	LatestAssignmentReport *AssignmentReportResponse `pulumi:"latestAssignmentReport"`
-	// Id of the latest report for the guest configuration assignment.
-	LatestReportId string `pulumi:"latestReportId"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// VM resource Id.
-	TargetResourceId string `pulumi:"targetResourceId"`
+	AssignmentHash              string                                `pulumi:"assignmentHash"`
+	ComplianceStatus            string                                `pulumi:"complianceStatus"`
+	Context                     *string                               `pulumi:"context"`
+	GuestConfiguration          *GuestConfigurationNavigationResponse `pulumi:"guestConfiguration"`
+	LastComplianceStatusChecked string                                `pulumi:"lastComplianceStatusChecked"`
+	LatestAssignmentReport      *AssignmentReportResponse             `pulumi:"latestAssignmentReport"`
+	LatestReportId              string                                `pulumi:"latestReportId"`
+	ProvisioningState           string                                `pulumi:"provisioningState"`
+	TargetResourceId            string                                `pulumi:"targetResourceId"`
 }
 
 // GuestConfigurationAssignmentPropertiesResponseInput is an input type that accepts GuestConfigurationAssignmentPropertiesResponseArgs and GuestConfigurationAssignmentPropertiesResponseOutput values.
@@ -1701,26 +1562,16 @@ type GuestConfigurationAssignmentPropertiesResponseInput interface {
 	ToGuestConfigurationAssignmentPropertiesResponseOutputWithContext(context.Context) GuestConfigurationAssignmentPropertiesResponseOutput
 }
 
-// Guest configuration assignment properties.
 type GuestConfigurationAssignmentPropertiesResponseArgs struct {
-	// Combined hash of the configuration package and parameters.
-	AssignmentHash pulumi.StringInput `pulumi:"assignmentHash"`
-	// A value indicating compliance status of the machine for the assigned guest configuration.
-	ComplianceStatus pulumi.StringInput `pulumi:"complianceStatus"`
-	// The source which initiated the guest configuration assignment. Ex: Azure Policy
-	Context pulumi.StringPtrInput `pulumi:"context"`
-	// The guest configuration to assign.
-	GuestConfiguration GuestConfigurationNavigationResponsePtrInput `pulumi:"guestConfiguration"`
-	// Date and time when last compliance status was checked.
-	LastComplianceStatusChecked pulumi.StringInput `pulumi:"lastComplianceStatusChecked"`
-	// Last reported guest configuration assignment report.
-	LatestAssignmentReport AssignmentReportResponsePtrInput `pulumi:"latestAssignmentReport"`
-	// Id of the latest report for the guest configuration assignment.
-	LatestReportId pulumi.StringInput `pulumi:"latestReportId"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// VM resource Id.
-	TargetResourceId pulumi.StringInput `pulumi:"targetResourceId"`
+	AssignmentHash              pulumi.StringInput                           `pulumi:"assignmentHash"`
+	ComplianceStatus            pulumi.StringInput                           `pulumi:"complianceStatus"`
+	Context                     pulumi.StringPtrInput                        `pulumi:"context"`
+	GuestConfiguration          GuestConfigurationNavigationResponsePtrInput `pulumi:"guestConfiguration"`
+	LastComplianceStatusChecked pulumi.StringInput                           `pulumi:"lastComplianceStatusChecked"`
+	LatestAssignmentReport      AssignmentReportResponsePtrInput             `pulumi:"latestAssignmentReport"`
+	LatestReportId              pulumi.StringInput                           `pulumi:"latestReportId"`
+	ProvisioningState           pulumi.StringInput                           `pulumi:"provisioningState"`
+	TargetResourceId            pulumi.StringInput                           `pulumi:"targetResourceId"`
 }
 
 func (GuestConfigurationAssignmentPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1776,7 +1627,6 @@ func (i *guestConfigurationAssignmentPropertiesResponsePtrType) ToGuestConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationAssignmentPropertiesResponsePtrOutput)
 }
 
-// Guest configuration assignment properties.
 type GuestConfigurationAssignmentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (GuestConfigurationAssignmentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1796,56 +1646,47 @@ func (o GuestConfigurationAssignmentPropertiesResponseOutput) ToGuestConfigurati
 }
 
 func (o GuestConfigurationAssignmentPropertiesResponseOutput) ToGuestConfigurationAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) GuestConfigurationAssignmentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) *GuestConfigurationAssignmentPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuestConfigurationAssignmentPropertiesResponse) *GuestConfigurationAssignmentPropertiesResponse {
 		return &v
 	}).(GuestConfigurationAssignmentPropertiesResponsePtrOutput)
 }
 
-// Combined hash of the configuration package and parameters.
 func (o GuestConfigurationAssignmentPropertiesResponseOutput) AssignmentHash() pulumi.StringOutput {
 	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.AssignmentHash }).(pulumi.StringOutput)
 }
 
-// A value indicating compliance status of the machine for the assigned guest configuration.
 func (o GuestConfigurationAssignmentPropertiesResponseOutput) ComplianceStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.ComplianceStatus }).(pulumi.StringOutput)
 }
 
-// The source which initiated the guest configuration assignment. Ex: Azure Policy
 func (o GuestConfigurationAssignmentPropertiesResponseOutput) Context() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) *string { return v.Context }).(pulumi.StringPtrOutput)
 }
 
-// The guest configuration to assign.
 func (o GuestConfigurationAssignmentPropertiesResponseOutput) GuestConfiguration() GuestConfigurationNavigationResponsePtrOutput {
 	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) *GuestConfigurationNavigationResponse {
 		return v.GuestConfiguration
 	}).(GuestConfigurationNavigationResponsePtrOutput)
 }
 
-// Date and time when last compliance status was checked.
 func (o GuestConfigurationAssignmentPropertiesResponseOutput) LastComplianceStatusChecked() pulumi.StringOutput {
 	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.LastComplianceStatusChecked }).(pulumi.StringOutput)
 }
 
-// Last reported guest configuration assignment report.
 func (o GuestConfigurationAssignmentPropertiesResponseOutput) LatestAssignmentReport() AssignmentReportResponsePtrOutput {
 	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) *AssignmentReportResponse {
 		return v.LatestAssignmentReport
 	}).(AssignmentReportResponsePtrOutput)
 }
 
-// Id of the latest report for the guest configuration assignment.
 func (o GuestConfigurationAssignmentPropertiesResponseOutput) LatestReportId() pulumi.StringOutput {
 	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.LatestReportId }).(pulumi.StringOutput)
 }
 
-// The provisioning state, which only appears in the response.
 func (o GuestConfigurationAssignmentPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// VM resource Id.
 func (o GuestConfigurationAssignmentPropertiesResponseOutput) TargetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.TargetResourceId }).(pulumi.StringOutput)
 }
@@ -1866,11 +1707,14 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) ToGuestConfigur
 
 func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) Elem() GuestConfigurationAssignmentPropertiesResponseOutput {
 	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) GuestConfigurationAssignmentPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GuestConfigurationAssignmentPropertiesResponse
+		return ret
 	}).(GuestConfigurationAssignmentPropertiesResponseOutput)
 }
 
-// Combined hash of the configuration package and parameters.
 func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) AssignmentHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -1880,7 +1724,6 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) AssignmentHash(
 	}).(pulumi.StringPtrOutput)
 }
 
-// A value indicating compliance status of the machine for the assigned guest configuration.
 func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) ComplianceStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -1890,7 +1733,6 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) ComplianceStatu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The source which initiated the guest configuration assignment. Ex: Azure Policy
 func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) Context() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -1900,7 +1742,6 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) Context() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The guest configuration to assign.
 func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) GuestConfiguration() GuestConfigurationNavigationResponsePtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) *GuestConfigurationNavigationResponse {
 		if v == nil {
@@ -1910,7 +1751,6 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) GuestConfigurat
 	}).(GuestConfigurationNavigationResponsePtrOutput)
 }
 
-// Date and time when last compliance status was checked.
 func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) LastComplianceStatusChecked() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -1920,7 +1760,6 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) LastComplianceS
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last reported guest configuration assignment report.
 func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) LatestAssignmentReport() AssignmentReportResponsePtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) *AssignmentReportResponse {
 		if v == nil {
@@ -1930,7 +1769,6 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) LatestAssignmen
 	}).(AssignmentReportResponsePtrOutput)
 }
 
-// Id of the latest report for the guest configuration assignment.
 func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) LatestReportId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -1940,7 +1778,6 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) LatestReportId(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The provisioning state, which only appears in the response.
 func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -1950,7 +1787,6 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) ProvisioningSta
 	}).(pulumi.StringPtrOutput)
 }
 
-// VM resource Id.
 func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) TargetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -1960,24 +1796,15 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) TargetResourceI
 	}).(pulumi.StringPtrOutput)
 }
 
-// Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigation struct {
-	// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
-	AssignmentType *string `pulumi:"assignmentType"`
-	// The configuration parameters for the guest configuration.
+	AssignmentType         *string                  `pulumi:"assignmentType"`
 	ConfigurationParameter []ConfigurationParameter `pulumi:"configurationParameter"`
-	// The configuration setting for the guest configuration.
-	ConfigurationSetting *ConfigurationSetting `pulumi:"configurationSetting"`
-	// Combined hash of the guest configuration package and configuration parameters.
-	ContentHash *string `pulumi:"contentHash"`
-	// Uri of the storage where guest configuration package is uploaded.
-	ContentUri *string `pulumi:"contentUri"`
-	// Kind of the guest configuration. For example:DSC
-	Kind *string `pulumi:"kind"`
-	// Name of the guest configuration.
-	Name *string `pulumi:"name"`
-	// Version of the guest configuration.
-	Version *string `pulumi:"version"`
+	ConfigurationSetting   *ConfigurationSetting    `pulumi:"configurationSetting"`
+	ContentHash            *string                  `pulumi:"contentHash"`
+	ContentUri             *string                  `pulumi:"contentUri"`
+	Kind                   *string                  `pulumi:"kind"`
+	Name                   *string                  `pulumi:"name"`
+	Version                *string                  `pulumi:"version"`
 }
 
 // GuestConfigurationNavigationInput is an input type that accepts GuestConfigurationNavigationArgs and GuestConfigurationNavigationOutput values.
@@ -1991,24 +1818,15 @@ type GuestConfigurationNavigationInput interface {
 	ToGuestConfigurationNavigationOutputWithContext(context.Context) GuestConfigurationNavigationOutput
 }
 
-// Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigationArgs struct {
-	// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
-	AssignmentType pulumi.StringPtrInput `pulumi:"assignmentType"`
-	// The configuration parameters for the guest configuration.
+	AssignmentType         pulumi.StringPtrInput            `pulumi:"assignmentType"`
 	ConfigurationParameter ConfigurationParameterArrayInput `pulumi:"configurationParameter"`
-	// The configuration setting for the guest configuration.
-	ConfigurationSetting ConfigurationSettingPtrInput `pulumi:"configurationSetting"`
-	// Combined hash of the guest configuration package and configuration parameters.
-	ContentHash pulumi.StringPtrInput `pulumi:"contentHash"`
-	// Uri of the storage where guest configuration package is uploaded.
-	ContentUri pulumi.StringPtrInput `pulumi:"contentUri"`
-	// Kind of the guest configuration. For example:DSC
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Name of the guest configuration.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Version of the guest configuration.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	ConfigurationSetting   ConfigurationSettingPtrInput     `pulumi:"configurationSetting"`
+	ContentHash            pulumi.StringPtrInput            `pulumi:"contentHash"`
+	ContentUri             pulumi.StringPtrInput            `pulumi:"contentUri"`
+	Kind                   pulumi.StringPtrInput            `pulumi:"kind"`
+	Name                   pulumi.StringPtrInput            `pulumi:"name"`
+	Version                pulumi.StringPtrInput            `pulumi:"version"`
 }
 
 func (GuestConfigurationNavigationArgs) ElementType() reflect.Type {
@@ -2064,7 +1882,6 @@ func (i *guestConfigurationNavigationPtrType) ToGuestConfigurationNavigationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationNavigationPtrOutput)
 }
 
-// Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigationOutput struct{ *pulumi.OutputState }
 
 func (GuestConfigurationNavigationOutput) ElementType() reflect.Type {
@@ -2084,47 +1901,39 @@ func (o GuestConfigurationNavigationOutput) ToGuestConfigurationNavigationPtrOut
 }
 
 func (o GuestConfigurationNavigationOutput) ToGuestConfigurationNavigationPtrOutputWithContext(ctx context.Context) GuestConfigurationNavigationPtrOutput {
-	return o.ApplyT(func(v GuestConfigurationNavigation) *GuestConfigurationNavigation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuestConfigurationNavigation) *GuestConfigurationNavigation {
 		return &v
 	}).(GuestConfigurationNavigationPtrOutput)
 }
 
-// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
 func (o GuestConfigurationNavigationOutput) AssignmentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigation) *string { return v.AssignmentType }).(pulumi.StringPtrOutput)
 }
 
-// The configuration parameters for the guest configuration.
 func (o GuestConfigurationNavigationOutput) ConfigurationParameter() ConfigurationParameterArrayOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigation) []ConfigurationParameter { return v.ConfigurationParameter }).(ConfigurationParameterArrayOutput)
 }
 
-// The configuration setting for the guest configuration.
 func (o GuestConfigurationNavigationOutput) ConfigurationSetting() ConfigurationSettingPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigation) *ConfigurationSetting { return v.ConfigurationSetting }).(ConfigurationSettingPtrOutput)
 }
 
-// Combined hash of the guest configuration package and configuration parameters.
 func (o GuestConfigurationNavigationOutput) ContentHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigation) *string { return v.ContentHash }).(pulumi.StringPtrOutput)
 }
 
-// Uri of the storage where guest configuration package is uploaded.
 func (o GuestConfigurationNavigationOutput) ContentUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigation) *string { return v.ContentUri }).(pulumi.StringPtrOutput)
 }
 
-// Kind of the guest configuration. For example:DSC
 func (o GuestConfigurationNavigationOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigation) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Name of the guest configuration.
 func (o GuestConfigurationNavigationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Version of the guest configuration.
 func (o GuestConfigurationNavigationOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigation) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -2144,10 +1953,15 @@ func (o GuestConfigurationNavigationPtrOutput) ToGuestConfigurationNavigationPtr
 }
 
 func (o GuestConfigurationNavigationPtrOutput) Elem() GuestConfigurationNavigationOutput {
-	return o.ApplyT(func(v *GuestConfigurationNavigation) GuestConfigurationNavigation { return *v }).(GuestConfigurationNavigationOutput)
+	return o.ApplyT(func(v *GuestConfigurationNavigation) GuestConfigurationNavigation {
+		if v != nil {
+			return *v
+		}
+		var ret GuestConfigurationNavigation
+		return ret
+	}).(GuestConfigurationNavigationOutput)
 }
 
-// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
 func (o GuestConfigurationNavigationPtrOutput) AssignmentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigation) *string {
 		if v == nil {
@@ -2157,7 +1971,6 @@ func (o GuestConfigurationNavigationPtrOutput) AssignmentType() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration parameters for the guest configuration.
 func (o GuestConfigurationNavigationPtrOutput) ConfigurationParameter() ConfigurationParameterArrayOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigation) []ConfigurationParameter {
 		if v == nil {
@@ -2167,7 +1980,6 @@ func (o GuestConfigurationNavigationPtrOutput) ConfigurationParameter() Configur
 	}).(ConfigurationParameterArrayOutput)
 }
 
-// The configuration setting for the guest configuration.
 func (o GuestConfigurationNavigationPtrOutput) ConfigurationSetting() ConfigurationSettingPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigation) *ConfigurationSetting {
 		if v == nil {
@@ -2177,7 +1989,6 @@ func (o GuestConfigurationNavigationPtrOutput) ConfigurationSetting() Configurat
 	}).(ConfigurationSettingPtrOutput)
 }
 
-// Combined hash of the guest configuration package and configuration parameters.
 func (o GuestConfigurationNavigationPtrOutput) ContentHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigation) *string {
 		if v == nil {
@@ -2187,7 +1998,6 @@ func (o GuestConfigurationNavigationPtrOutput) ContentHash() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Uri of the storage where guest configuration package is uploaded.
 func (o GuestConfigurationNavigationPtrOutput) ContentUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigation) *string {
 		if v == nil {
@@ -2197,7 +2007,6 @@ func (o GuestConfigurationNavigationPtrOutput) ContentUri() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kind of the guest configuration. For example:DSC
 func (o GuestConfigurationNavigationPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigation) *string {
 		if v == nil {
@@ -2207,7 +2016,6 @@ func (o GuestConfigurationNavigationPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the guest configuration.
 func (o GuestConfigurationNavigationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigation) *string {
 		if v == nil {
@@ -2217,7 +2025,6 @@ func (o GuestConfigurationNavigationPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the guest configuration.
 func (o GuestConfigurationNavigationPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigation) *string {
 		if v == nil {
@@ -2227,24 +2034,15 @@ func (o GuestConfigurationNavigationPtrOutput) Version() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigationResponse struct {
-	// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
-	AssignmentType *string `pulumi:"assignmentType"`
-	// The configuration parameters for the guest configuration.
+	AssignmentType         *string                          `pulumi:"assignmentType"`
 	ConfigurationParameter []ConfigurationParameterResponse `pulumi:"configurationParameter"`
-	// The configuration setting for the guest configuration.
-	ConfigurationSetting *ConfigurationSettingResponse `pulumi:"configurationSetting"`
-	// Combined hash of the guest configuration package and configuration parameters.
-	ContentHash *string `pulumi:"contentHash"`
-	// Uri of the storage where guest configuration package is uploaded.
-	ContentUri *string `pulumi:"contentUri"`
-	// Kind of the guest configuration. For example:DSC
-	Kind *string `pulumi:"kind"`
-	// Name of the guest configuration.
-	Name *string `pulumi:"name"`
-	// Version of the guest configuration.
-	Version *string `pulumi:"version"`
+	ConfigurationSetting   *ConfigurationSettingResponse    `pulumi:"configurationSetting"`
+	ContentHash            *string                          `pulumi:"contentHash"`
+	ContentUri             *string                          `pulumi:"contentUri"`
+	Kind                   *string                          `pulumi:"kind"`
+	Name                   *string                          `pulumi:"name"`
+	Version                *string                          `pulumi:"version"`
 }
 
 // GuestConfigurationNavigationResponseInput is an input type that accepts GuestConfigurationNavigationResponseArgs and GuestConfigurationNavigationResponseOutput values.
@@ -2258,24 +2056,15 @@ type GuestConfigurationNavigationResponseInput interface {
 	ToGuestConfigurationNavigationResponseOutputWithContext(context.Context) GuestConfigurationNavigationResponseOutput
 }
 
-// Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigationResponseArgs struct {
-	// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
-	AssignmentType pulumi.StringPtrInput `pulumi:"assignmentType"`
-	// The configuration parameters for the guest configuration.
+	AssignmentType         pulumi.StringPtrInput                    `pulumi:"assignmentType"`
 	ConfigurationParameter ConfigurationParameterResponseArrayInput `pulumi:"configurationParameter"`
-	// The configuration setting for the guest configuration.
-	ConfigurationSetting ConfigurationSettingResponsePtrInput `pulumi:"configurationSetting"`
-	// Combined hash of the guest configuration package and configuration parameters.
-	ContentHash pulumi.StringPtrInput `pulumi:"contentHash"`
-	// Uri of the storage where guest configuration package is uploaded.
-	ContentUri pulumi.StringPtrInput `pulumi:"contentUri"`
-	// Kind of the guest configuration. For example:DSC
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Name of the guest configuration.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Version of the guest configuration.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	ConfigurationSetting   ConfigurationSettingResponsePtrInput     `pulumi:"configurationSetting"`
+	ContentHash            pulumi.StringPtrInput                    `pulumi:"contentHash"`
+	ContentUri             pulumi.StringPtrInput                    `pulumi:"contentUri"`
+	Kind                   pulumi.StringPtrInput                    `pulumi:"kind"`
+	Name                   pulumi.StringPtrInput                    `pulumi:"name"`
+	Version                pulumi.StringPtrInput                    `pulumi:"version"`
 }
 
 func (GuestConfigurationNavigationResponseArgs) ElementType() reflect.Type {
@@ -2331,7 +2120,6 @@ func (i *guestConfigurationNavigationResponsePtrType) ToGuestConfigurationNaviga
 	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationNavigationResponsePtrOutput)
 }
 
-// Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigationResponseOutput struct{ *pulumi.OutputState }
 
 func (GuestConfigurationNavigationResponseOutput) ElementType() reflect.Type {
@@ -2351,51 +2139,43 @@ func (o GuestConfigurationNavigationResponseOutput) ToGuestConfigurationNavigati
 }
 
 func (o GuestConfigurationNavigationResponseOutput) ToGuestConfigurationNavigationResponsePtrOutputWithContext(ctx context.Context) GuestConfigurationNavigationResponsePtrOutput {
-	return o.ApplyT(func(v GuestConfigurationNavigationResponse) *GuestConfigurationNavigationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuestConfigurationNavigationResponse) *GuestConfigurationNavigationResponse {
 		return &v
 	}).(GuestConfigurationNavigationResponsePtrOutput)
 }
 
-// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
 func (o GuestConfigurationNavigationResponseOutput) AssignmentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigationResponse) *string { return v.AssignmentType }).(pulumi.StringPtrOutput)
 }
 
-// The configuration parameters for the guest configuration.
 func (o GuestConfigurationNavigationResponseOutput) ConfigurationParameter() ConfigurationParameterResponseArrayOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigationResponse) []ConfigurationParameterResponse {
 		return v.ConfigurationParameter
 	}).(ConfigurationParameterResponseArrayOutput)
 }
 
-// The configuration setting for the guest configuration.
 func (o GuestConfigurationNavigationResponseOutput) ConfigurationSetting() ConfigurationSettingResponsePtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigationResponse) *ConfigurationSettingResponse {
 		return v.ConfigurationSetting
 	}).(ConfigurationSettingResponsePtrOutput)
 }
 
-// Combined hash of the guest configuration package and configuration parameters.
 func (o GuestConfigurationNavigationResponseOutput) ContentHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigationResponse) *string { return v.ContentHash }).(pulumi.StringPtrOutput)
 }
 
-// Uri of the storage where guest configuration package is uploaded.
 func (o GuestConfigurationNavigationResponseOutput) ContentUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigationResponse) *string { return v.ContentUri }).(pulumi.StringPtrOutput)
 }
 
-// Kind of the guest configuration. For example:DSC
 func (o GuestConfigurationNavigationResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigationResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Name of the guest configuration.
 func (o GuestConfigurationNavigationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Version of the guest configuration.
 func (o GuestConfigurationNavigationResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigationResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -2415,10 +2195,15 @@ func (o GuestConfigurationNavigationResponsePtrOutput) ToGuestConfigurationNavig
 }
 
 func (o GuestConfigurationNavigationResponsePtrOutput) Elem() GuestConfigurationNavigationResponseOutput {
-	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) GuestConfigurationNavigationResponse { return *v }).(GuestConfigurationNavigationResponseOutput)
+	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) GuestConfigurationNavigationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GuestConfigurationNavigationResponse
+		return ret
+	}).(GuestConfigurationNavigationResponseOutput)
 }
 
-// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
 func (o GuestConfigurationNavigationResponsePtrOutput) AssignmentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) *string {
 		if v == nil {
@@ -2428,7 +2213,6 @@ func (o GuestConfigurationNavigationResponsePtrOutput) AssignmentType() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration parameters for the guest configuration.
 func (o GuestConfigurationNavigationResponsePtrOutput) ConfigurationParameter() ConfigurationParameterResponseArrayOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) []ConfigurationParameterResponse {
 		if v == nil {
@@ -2438,7 +2222,6 @@ func (o GuestConfigurationNavigationResponsePtrOutput) ConfigurationParameter() 
 	}).(ConfigurationParameterResponseArrayOutput)
 }
 
-// The configuration setting for the guest configuration.
 func (o GuestConfigurationNavigationResponsePtrOutput) ConfigurationSetting() ConfigurationSettingResponsePtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) *ConfigurationSettingResponse {
 		if v == nil {
@@ -2448,7 +2231,6 @@ func (o GuestConfigurationNavigationResponsePtrOutput) ConfigurationSetting() Co
 	}).(ConfigurationSettingResponsePtrOutput)
 }
 
-// Combined hash of the guest configuration package and configuration parameters.
 func (o GuestConfigurationNavigationResponsePtrOutput) ContentHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) *string {
 		if v == nil {
@@ -2458,7 +2240,6 @@ func (o GuestConfigurationNavigationResponsePtrOutput) ContentHash() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Uri of the storage where guest configuration package is uploaded.
 func (o GuestConfigurationNavigationResponsePtrOutput) ContentUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) *string {
 		if v == nil {
@@ -2468,7 +2249,6 @@ func (o GuestConfigurationNavigationResponsePtrOutput) ContentUri() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kind of the guest configuration. For example:DSC
 func (o GuestConfigurationNavigationResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) *string {
 		if v == nil {
@@ -2478,7 +2258,6 @@ func (o GuestConfigurationNavigationResponsePtrOutput) Kind() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the guest configuration.
 func (o GuestConfigurationNavigationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) *string {
 		if v == nil {
@@ -2488,7 +2267,6 @@ func (o GuestConfigurationNavigationResponsePtrOutput) Name() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the guest configuration.
 func (o GuestConfigurationNavigationResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) *string {
 		if v == nil {
@@ -2498,11 +2276,8 @@ func (o GuestConfigurationNavigationResponsePtrOutput) Version() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the VM.
 type VMInfoResponse struct {
-	// Azure resource Id of the VM.
-	Id string `pulumi:"id"`
-	// UUID(Universally Unique Identifier) of the VM.
+	Id   string `pulumi:"id"`
 	Uuid string `pulumi:"uuid"`
 }
 
@@ -2517,11 +2292,8 @@ type VMInfoResponseInput interface {
 	ToVMInfoResponseOutputWithContext(context.Context) VMInfoResponseOutput
 }
 
-// Information about the VM.
 type VMInfoResponseArgs struct {
-	// Azure resource Id of the VM.
-	Id pulumi.StringInput `pulumi:"id"`
-	// UUID(Universally Unique Identifier) of the VM.
+	Id   pulumi.StringInput `pulumi:"id"`
 	Uuid pulumi.StringInput `pulumi:"uuid"`
 }
 
@@ -2578,7 +2350,6 @@ func (i *vminfoResponsePtrType) ToVMInfoResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(VMInfoResponsePtrOutput)
 }
 
-// Information about the VM.
 type VMInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (VMInfoResponseOutput) ElementType() reflect.Type {
@@ -2598,17 +2369,15 @@ func (o VMInfoResponseOutput) ToVMInfoResponsePtrOutput() VMInfoResponsePtrOutpu
 }
 
 func (o VMInfoResponseOutput) ToVMInfoResponsePtrOutputWithContext(ctx context.Context) VMInfoResponsePtrOutput {
-	return o.ApplyT(func(v VMInfoResponse) *VMInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VMInfoResponse) *VMInfoResponse {
 		return &v
 	}).(VMInfoResponsePtrOutput)
 }
 
-// Azure resource Id of the VM.
 func (o VMInfoResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VMInfoResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// UUID(Universally Unique Identifier) of the VM.
 func (o VMInfoResponseOutput) Uuid() pulumi.StringOutput {
 	return o.ApplyT(func(v VMInfoResponse) string { return v.Uuid }).(pulumi.StringOutput)
 }
@@ -2628,10 +2397,15 @@ func (o VMInfoResponsePtrOutput) ToVMInfoResponsePtrOutputWithContext(ctx contex
 }
 
 func (o VMInfoResponsePtrOutput) Elem() VMInfoResponseOutput {
-	return o.ApplyT(func(v *VMInfoResponse) VMInfoResponse { return *v }).(VMInfoResponseOutput)
+	return o.ApplyT(func(v *VMInfoResponse) VMInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VMInfoResponse
+		return ret
+	}).(VMInfoResponseOutput)
 }
 
-// Azure resource Id of the VM.
 func (o VMInfoResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMInfoResponse) *string {
 		if v == nil {
@@ -2641,7 +2415,6 @@ func (o VMInfoResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// UUID(Universally Unique Identifier) of the VM.
 func (o VMInfoResponsePtrOutput) Uuid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMInfoResponse) *string {
 		if v == nil {

@@ -147,9 +147,7 @@ func (i *JitNetworkAccessPolicy) ToJitNetworkAccessPolicyOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessPolicyOutput)
 }
 
-type JitNetworkAccessPolicyOutput struct {
-	*pulumi.OutputState
-}
+type JitNetworkAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (JitNetworkAccessPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JitNetworkAccessPolicy)(nil))

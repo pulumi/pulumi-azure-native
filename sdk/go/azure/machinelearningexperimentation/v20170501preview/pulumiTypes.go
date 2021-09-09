@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of a storage account for a machine learning team account.
 type StorageAccountProperties struct {
-	// The access key to the storage account.
-	AccessKey string `pulumi:"accessKey"`
-	// The fully qualified arm Id of the storage account.
+	AccessKey        string `pulumi:"accessKey"`
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -29,11 +26,8 @@ type StorageAccountPropertiesInput interface {
 	ToStorageAccountPropertiesOutputWithContext(context.Context) StorageAccountPropertiesOutput
 }
 
-// The properties of a storage account for a machine learning team account.
 type StorageAccountPropertiesArgs struct {
-	// The access key to the storage account.
-	AccessKey pulumi.StringInput `pulumi:"accessKey"`
-	// The fully qualified arm Id of the storage account.
+	AccessKey        pulumi.StringInput `pulumi:"accessKey"`
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
@@ -90,7 +84,6 @@ func (i *storageAccountPropertiesPtrType) ToStorageAccountPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesPtrOutput)
 }
 
-// The properties of a storage account for a machine learning team account.
 type StorageAccountPropertiesOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountPropertiesOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o StorageAccountPropertiesOutput) ToStorageAccountPropertiesPtrOutput() St
 }
 
 func (o StorageAccountPropertiesOutput) ToStorageAccountPropertiesPtrOutputWithContext(ctx context.Context) StorageAccountPropertiesPtrOutput {
-	return o.ApplyT(func(v StorageAccountProperties) *StorageAccountProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountProperties) *StorageAccountProperties {
 		return &v
 	}).(StorageAccountPropertiesPtrOutput)
 }
 
-// The access key to the storage account.
 func (o StorageAccountPropertiesOutput) AccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountProperties) string { return v.AccessKey }).(pulumi.StringOutput)
 }
 
-// The fully qualified arm Id of the storage account.
 func (o StorageAccountPropertiesOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountProperties) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
@@ -140,10 +131,15 @@ func (o StorageAccountPropertiesPtrOutput) ToStorageAccountPropertiesPtrOutputWi
 }
 
 func (o StorageAccountPropertiesPtrOutput) Elem() StorageAccountPropertiesOutput {
-	return o.ApplyT(func(v *StorageAccountProperties) StorageAccountProperties { return *v }).(StorageAccountPropertiesOutput)
+	return o.ApplyT(func(v *StorageAccountProperties) StorageAccountProperties {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountProperties
+		return ret
+	}).(StorageAccountPropertiesOutput)
 }
 
-// The access key to the storage account.
 func (o StorageAccountPropertiesPtrOutput) AccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountProperties) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o StorageAccountPropertiesPtrOutput) AccessKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified arm Id of the storage account.
 func (o StorageAccountPropertiesPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountProperties) *string {
 		if v == nil {
@@ -163,11 +158,8 @@ func (o StorageAccountPropertiesPtrOutput) StorageAccountId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a storage account for a machine learning team account.
 type StorageAccountPropertiesResponse struct {
-	// The access key to the storage account.
-	AccessKey string `pulumi:"accessKey"`
-	// The fully qualified arm Id of the storage account.
+	AccessKey        string `pulumi:"accessKey"`
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -182,11 +174,8 @@ type StorageAccountPropertiesResponseInput interface {
 	ToStorageAccountPropertiesResponseOutputWithContext(context.Context) StorageAccountPropertiesResponseOutput
 }
 
-// The properties of a storage account for a machine learning team account.
 type StorageAccountPropertiesResponseArgs struct {
-	// The access key to the storage account.
-	AccessKey pulumi.StringInput `pulumi:"accessKey"`
-	// The fully qualified arm Id of the storage account.
+	AccessKey        pulumi.StringInput `pulumi:"accessKey"`
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
@@ -243,7 +232,6 @@ func (i *storageAccountPropertiesResponsePtrType) ToStorageAccountPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesResponsePtrOutput)
 }
 
-// The properties of a storage account for a machine learning team account.
 type StorageAccountPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountPropertiesResponseOutput) ElementType() reflect.Type {
@@ -263,17 +251,15 @@ func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesRespon
 }
 
 func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageAccountPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
 		return &v
 	}).(StorageAccountPropertiesResponsePtrOutput)
 }
 
-// The access key to the storage account.
 func (o StorageAccountPropertiesResponseOutput) AccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountPropertiesResponse) string { return v.AccessKey }).(pulumi.StringOutput)
 }
 
-// The fully qualified arm Id of the storage account.
 func (o StorageAccountPropertiesResponseOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountPropertiesResponse) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
@@ -293,10 +279,15 @@ func (o StorageAccountPropertiesResponsePtrOutput) ToStorageAccountPropertiesRes
 }
 
 func (o StorageAccountPropertiesResponsePtrOutput) Elem() StorageAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse { return *v }).(StorageAccountPropertiesResponseOutput)
+	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountPropertiesResponse
+		return ret
+	}).(StorageAccountPropertiesResponseOutput)
 }
 
-// The access key to the storage account.
 func (o StorageAccountPropertiesResponsePtrOutput) AccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o StorageAccountPropertiesResponsePtrOutput) AccessKey() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified arm Id of the storage account.
 func (o StorageAccountPropertiesResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
 		if v == nil {

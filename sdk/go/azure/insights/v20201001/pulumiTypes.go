@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A pointer to an Azure Action Group.
 type ActionGroup struct {
-	// The resource ID of the Action Group. This cannot be null or empty.
-	ActionGroupId string `pulumi:"actionGroupId"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	ActionGroupId     string            `pulumi:"actionGroupId"`
 	WebhookProperties map[string]string `pulumi:"webhookProperties"`
 }
 
@@ -29,11 +26,8 @@ type ActionGroupInput interface {
 	ToActionGroupOutputWithContext(context.Context) ActionGroupOutput
 }
 
-// A pointer to an Azure Action Group.
 type ActionGroupArgs struct {
-	// The resource ID of the Action Group. This cannot be null or empty.
-	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	ActionGroupId     pulumi.StringInput    `pulumi:"actionGroupId"`
 	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
 }
 
@@ -74,7 +68,6 @@ func (i ActionGroupArray) ToActionGroupArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupArrayOutput)
 }
 
-// A pointer to an Azure Action Group.
 type ActionGroupOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o ActionGroupOutput) ToActionGroupOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// The resource ID of the Action Group. This cannot be null or empty.
 func (o ActionGroupOutput) ActionGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroup) string { return v.ActionGroupId }).(pulumi.StringOutput)
 }
 
-// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 func (o ActionGroupOutput) WebhookProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ActionGroup) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
 }
@@ -119,11 +110,8 @@ func (o ActionGroupArrayOutput) Index(i pulumi.IntInput) ActionGroupOutput {
 	}).(ActionGroupOutput)
 }
 
-// A pointer to an Azure Action Group.
 type ActionGroupResponse struct {
-	// The resource ID of the Action Group. This cannot be null or empty.
-	ActionGroupId string `pulumi:"actionGroupId"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	ActionGroupId     string            `pulumi:"actionGroupId"`
 	WebhookProperties map[string]string `pulumi:"webhookProperties"`
 }
 
@@ -138,11 +126,8 @@ type ActionGroupResponseInput interface {
 	ToActionGroupResponseOutputWithContext(context.Context) ActionGroupResponseOutput
 }
 
-// A pointer to an Azure Action Group.
 type ActionGroupResponseArgs struct {
-	// The resource ID of the Action Group. This cannot be null or empty.
-	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	ActionGroupId     pulumi.StringInput    `pulumi:"actionGroupId"`
 	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
 }
 
@@ -183,7 +168,6 @@ func (i ActionGroupResponseArray) ToActionGroupResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupResponseArrayOutput)
 }
 
-// A pointer to an Azure Action Group.
 type ActionGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupResponseOutput) ElementType() reflect.Type {
@@ -198,12 +182,10 @@ func (o ActionGroupResponseOutput) ToActionGroupResponseOutputWithContext(ctx co
 	return o
 }
 
-// The resource ID of the Action Group. This cannot be null or empty.
 func (o ActionGroupResponseOutput) ActionGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupResponse) string { return v.ActionGroupId }).(pulumi.StringOutput)
 }
 
-// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 func (o ActionGroupResponseOutput) WebhookProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ActionGroupResponse) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
 }
@@ -228,9 +210,7 @@ func (o ActionGroupResponseArrayOutput) Index(i pulumi.IntInput) ActionGroupResp
 	}).(ActionGroupResponseOutput)
 }
 
-// A list of Activity Log Alert rule actions.
 type ActionList struct {
-	// The list of the Action Groups.
 	ActionGroups []ActionGroup `pulumi:"actionGroups"`
 }
 
@@ -245,9 +225,7 @@ type ActionListInput interface {
 	ToActionListOutputWithContext(context.Context) ActionListOutput
 }
 
-// A list of Activity Log Alert rule actions.
 type ActionListArgs struct {
-	// The list of the Action Groups.
 	ActionGroups ActionGroupArrayInput `pulumi:"actionGroups"`
 }
 
@@ -304,7 +282,6 @@ func (i *actionListPtrType) ToActionListPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ActionListPtrOutput)
 }
 
-// A list of Activity Log Alert rule actions.
 type ActionListOutput struct{ *pulumi.OutputState }
 
 func (ActionListOutput) ElementType() reflect.Type {
@@ -324,12 +301,11 @@ func (o ActionListOutput) ToActionListPtrOutput() ActionListPtrOutput {
 }
 
 func (o ActionListOutput) ToActionListPtrOutputWithContext(ctx context.Context) ActionListPtrOutput {
-	return o.ApplyT(func(v ActionList) *ActionList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionList) *ActionList {
 		return &v
 	}).(ActionListPtrOutput)
 }
 
-// The list of the Action Groups.
 func (o ActionListOutput) ActionGroups() ActionGroupArrayOutput {
 	return o.ApplyT(func(v ActionList) []ActionGroup { return v.ActionGroups }).(ActionGroupArrayOutput)
 }
@@ -349,10 +325,15 @@ func (o ActionListPtrOutput) ToActionListPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ActionListPtrOutput) Elem() ActionListOutput {
-	return o.ApplyT(func(v *ActionList) ActionList { return *v }).(ActionListOutput)
+	return o.ApplyT(func(v *ActionList) ActionList {
+		if v != nil {
+			return *v
+		}
+		var ret ActionList
+		return ret
+	}).(ActionListOutput)
 }
 
-// The list of the Action Groups.
 func (o ActionListPtrOutput) ActionGroups() ActionGroupArrayOutput {
 	return o.ApplyT(func(v *ActionList) []ActionGroup {
 		if v == nil {
@@ -362,9 +343,7 @@ func (o ActionListPtrOutput) ActionGroups() ActionGroupArrayOutput {
 	}).(ActionGroupArrayOutput)
 }
 
-// A list of Activity Log Alert rule actions.
 type ActionListResponse struct {
-	// The list of the Action Groups.
 	ActionGroups []ActionGroupResponse `pulumi:"actionGroups"`
 }
 
@@ -379,9 +358,7 @@ type ActionListResponseInput interface {
 	ToActionListResponseOutputWithContext(context.Context) ActionListResponseOutput
 }
 
-// A list of Activity Log Alert rule actions.
 type ActionListResponseArgs struct {
-	// The list of the Action Groups.
 	ActionGroups ActionGroupResponseArrayInput `pulumi:"actionGroups"`
 }
 
@@ -438,7 +415,6 @@ func (i *actionListResponsePtrType) ToActionListResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ActionListResponsePtrOutput)
 }
 
-// A list of Activity Log Alert rule actions.
 type ActionListResponseOutput struct{ *pulumi.OutputState }
 
 func (ActionListResponseOutput) ElementType() reflect.Type {
@@ -458,12 +434,11 @@ func (o ActionListResponseOutput) ToActionListResponsePtrOutput() ActionListResp
 }
 
 func (o ActionListResponseOutput) ToActionListResponsePtrOutputWithContext(ctx context.Context) ActionListResponsePtrOutput {
-	return o.ApplyT(func(v ActionListResponse) *ActionListResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionListResponse) *ActionListResponse {
 		return &v
 	}).(ActionListResponsePtrOutput)
 }
 
-// The list of the Action Groups.
 func (o ActionListResponseOutput) ActionGroups() ActionGroupResponseArrayOutput {
 	return o.ApplyT(func(v ActionListResponse) []ActionGroupResponse { return v.ActionGroups }).(ActionGroupResponseArrayOutput)
 }
@@ -483,10 +458,15 @@ func (o ActionListResponsePtrOutput) ToActionListResponsePtrOutputWithContext(ct
 }
 
 func (o ActionListResponsePtrOutput) Elem() ActionListResponseOutput {
-	return o.ApplyT(func(v *ActionListResponse) ActionListResponse { return *v }).(ActionListResponseOutput)
+	return o.ApplyT(func(v *ActionListResponse) ActionListResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ActionListResponse
+		return ret
+	}).(ActionListResponseOutput)
 }
 
-// The list of the Action Groups.
 func (o ActionListResponsePtrOutput) ActionGroups() ActionGroupResponseArrayOutput {
 	return o.ApplyT(func(v *ActionListResponse) []ActionGroupResponse {
 		if v == nil {
@@ -496,9 +476,7 @@ func (o ActionListResponsePtrOutput) ActionGroups() ActionGroupResponseArrayOutp
 	}).(ActionGroupResponseArrayOutput)
 }
 
-// An Activity Log Alert rule condition that is met when all its member conditions are met.
 type AlertRuleAllOfCondition struct {
-	// The list of Activity Log Alert rule conditions.
 	AllOf []AlertRuleAnyOfOrLeafCondition `pulumi:"allOf"`
 }
 
@@ -513,9 +491,7 @@ type AlertRuleAllOfConditionInput interface {
 	ToAlertRuleAllOfConditionOutputWithContext(context.Context) AlertRuleAllOfConditionOutput
 }
 
-// An Activity Log Alert rule condition that is met when all its member conditions are met.
 type AlertRuleAllOfConditionArgs struct {
-	// The list of Activity Log Alert rule conditions.
 	AllOf AlertRuleAnyOfOrLeafConditionArrayInput `pulumi:"allOf"`
 }
 
@@ -572,7 +548,6 @@ func (i *alertRuleAllOfConditionPtrType) ToAlertRuleAllOfConditionPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAllOfConditionPtrOutput)
 }
 
-// An Activity Log Alert rule condition that is met when all its member conditions are met.
 type AlertRuleAllOfConditionOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAllOfConditionOutput) ElementType() reflect.Type {
@@ -592,12 +567,11 @@ func (o AlertRuleAllOfConditionOutput) ToAlertRuleAllOfConditionPtrOutput() Aler
 }
 
 func (o AlertRuleAllOfConditionOutput) ToAlertRuleAllOfConditionPtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionPtrOutput {
-	return o.ApplyT(func(v AlertRuleAllOfCondition) *AlertRuleAllOfCondition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleAllOfCondition) *AlertRuleAllOfCondition {
 		return &v
 	}).(AlertRuleAllOfConditionPtrOutput)
 }
 
-// The list of Activity Log Alert rule conditions.
 func (o AlertRuleAllOfConditionOutput) AllOf() AlertRuleAnyOfOrLeafConditionArrayOutput {
 	return o.ApplyT(func(v AlertRuleAllOfCondition) []AlertRuleAnyOfOrLeafCondition { return v.AllOf }).(AlertRuleAnyOfOrLeafConditionArrayOutput)
 }
@@ -617,10 +591,15 @@ func (o AlertRuleAllOfConditionPtrOutput) ToAlertRuleAllOfConditionPtrOutputWith
 }
 
 func (o AlertRuleAllOfConditionPtrOutput) Elem() AlertRuleAllOfConditionOutput {
-	return o.ApplyT(func(v *AlertRuleAllOfCondition) AlertRuleAllOfCondition { return *v }).(AlertRuleAllOfConditionOutput)
+	return o.ApplyT(func(v *AlertRuleAllOfCondition) AlertRuleAllOfCondition {
+		if v != nil {
+			return *v
+		}
+		var ret AlertRuleAllOfCondition
+		return ret
+	}).(AlertRuleAllOfConditionOutput)
 }
 
-// The list of Activity Log Alert rule conditions.
 func (o AlertRuleAllOfConditionPtrOutput) AllOf() AlertRuleAnyOfOrLeafConditionArrayOutput {
 	return o.ApplyT(func(v *AlertRuleAllOfCondition) []AlertRuleAnyOfOrLeafCondition {
 		if v == nil {
@@ -630,9 +609,7 @@ func (o AlertRuleAllOfConditionPtrOutput) AllOf() AlertRuleAnyOfOrLeafConditionA
 	}).(AlertRuleAnyOfOrLeafConditionArrayOutput)
 }
 
-// An Activity Log Alert rule condition that is met when all its member conditions are met.
 type AlertRuleAllOfConditionResponse struct {
-	// The list of Activity Log Alert rule conditions.
 	AllOf []AlertRuleAnyOfOrLeafConditionResponse `pulumi:"allOf"`
 }
 
@@ -647,9 +624,7 @@ type AlertRuleAllOfConditionResponseInput interface {
 	ToAlertRuleAllOfConditionResponseOutputWithContext(context.Context) AlertRuleAllOfConditionResponseOutput
 }
 
-// An Activity Log Alert rule condition that is met when all its member conditions are met.
 type AlertRuleAllOfConditionResponseArgs struct {
-	// The list of Activity Log Alert rule conditions.
 	AllOf AlertRuleAnyOfOrLeafConditionResponseArrayInput `pulumi:"allOf"`
 }
 
@@ -706,7 +681,6 @@ func (i *alertRuleAllOfConditionResponsePtrType) ToAlertRuleAllOfConditionRespon
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAllOfConditionResponsePtrOutput)
 }
 
-// An Activity Log Alert rule condition that is met when all its member conditions are met.
 type AlertRuleAllOfConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAllOfConditionResponseOutput) ElementType() reflect.Type {
@@ -726,12 +700,11 @@ func (o AlertRuleAllOfConditionResponseOutput) ToAlertRuleAllOfConditionResponse
 }
 
 func (o AlertRuleAllOfConditionResponseOutput) ToAlertRuleAllOfConditionResponsePtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionResponsePtrOutput {
-	return o.ApplyT(func(v AlertRuleAllOfConditionResponse) *AlertRuleAllOfConditionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleAllOfConditionResponse) *AlertRuleAllOfConditionResponse {
 		return &v
 	}).(AlertRuleAllOfConditionResponsePtrOutput)
 }
 
-// The list of Activity Log Alert rule conditions.
 func (o AlertRuleAllOfConditionResponseOutput) AllOf() AlertRuleAnyOfOrLeafConditionResponseArrayOutput {
 	return o.ApplyT(func(v AlertRuleAllOfConditionResponse) []AlertRuleAnyOfOrLeafConditionResponse { return v.AllOf }).(AlertRuleAnyOfOrLeafConditionResponseArrayOutput)
 }
@@ -751,10 +724,15 @@ func (o AlertRuleAllOfConditionResponsePtrOutput) ToAlertRuleAllOfConditionRespo
 }
 
 func (o AlertRuleAllOfConditionResponsePtrOutput) Elem() AlertRuleAllOfConditionResponseOutput {
-	return o.ApplyT(func(v *AlertRuleAllOfConditionResponse) AlertRuleAllOfConditionResponse { return *v }).(AlertRuleAllOfConditionResponseOutput)
+	return o.ApplyT(func(v *AlertRuleAllOfConditionResponse) AlertRuleAllOfConditionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AlertRuleAllOfConditionResponse
+		return ret
+	}).(AlertRuleAllOfConditionResponseOutput)
 }
 
-// The list of Activity Log Alert rule conditions.
 func (o AlertRuleAllOfConditionResponsePtrOutput) AllOf() AlertRuleAnyOfOrLeafConditionResponseArrayOutput {
 	return o.ApplyT(func(v *AlertRuleAllOfConditionResponse) []AlertRuleAnyOfOrLeafConditionResponse {
 		if v == nil {
@@ -764,23 +742,11 @@ func (o AlertRuleAllOfConditionResponsePtrOutput) AllOf() AlertRuleAnyOfOrLeafCo
 	}).(AlertRuleAnyOfOrLeafConditionResponseArrayOutput)
 }
 
-// An Activity Log Alert rule condition that is met when all its member conditions are met.
-// Each condition can be of one of the following types:
-// __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 type AlertRuleAnyOfOrLeafCondition struct {
-	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
-	AnyOf []AlertRuleLeafCondition `pulumi:"anyOf"`
-	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
-	ContainsAny []string `pulumi:"containsAny"`
-	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals *string `pulumi:"equals"`
-	// The name of the Activity Log event's field that this condition will examine.
-	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-	Field *string `pulumi:"field"`
+	AnyOf       []AlertRuleLeafCondition `pulumi:"anyOf"`
+	ContainsAny []string                 `pulumi:"containsAny"`
+	Equals      *string                  `pulumi:"equals"`
+	Field       *string                  `pulumi:"field"`
 }
 
 // AlertRuleAnyOfOrLeafConditionInput is an input type that accepts AlertRuleAnyOfOrLeafConditionArgs and AlertRuleAnyOfOrLeafConditionOutput values.
@@ -794,23 +760,11 @@ type AlertRuleAnyOfOrLeafConditionInput interface {
 	ToAlertRuleAnyOfOrLeafConditionOutputWithContext(context.Context) AlertRuleAnyOfOrLeafConditionOutput
 }
 
-// An Activity Log Alert rule condition that is met when all its member conditions are met.
-// Each condition can be of one of the following types:
-// __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 type AlertRuleAnyOfOrLeafConditionArgs struct {
-	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
-	AnyOf AlertRuleLeafConditionArrayInput `pulumi:"anyOf"`
-	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
-	ContainsAny pulumi.StringArrayInput `pulumi:"containsAny"`
-	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals pulumi.StringPtrInput `pulumi:"equals"`
-	// The name of the Activity Log event's field that this condition will examine.
-	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-	Field pulumi.StringPtrInput `pulumi:"field"`
+	AnyOf       AlertRuleLeafConditionArrayInput `pulumi:"anyOf"`
+	ContainsAny pulumi.StringArrayInput          `pulumi:"containsAny"`
+	Equals      pulumi.StringPtrInput            `pulumi:"equals"`
+	Field       pulumi.StringPtrInput            `pulumi:"field"`
 }
 
 func (AlertRuleAnyOfOrLeafConditionArgs) ElementType() reflect.Type {
@@ -850,13 +804,6 @@ func (i AlertRuleAnyOfOrLeafConditionArray) ToAlertRuleAnyOfOrLeafConditionArray
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnyOfOrLeafConditionArrayOutput)
 }
 
-// An Activity Log Alert rule condition that is met when all its member conditions are met.
-// Each condition can be of one of the following types:
-// __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 type AlertRuleAnyOfOrLeafConditionOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnyOfOrLeafConditionOutput) ElementType() reflect.Type {
@@ -871,23 +818,18 @@ func (o AlertRuleAnyOfOrLeafConditionOutput) ToAlertRuleAnyOfOrLeafConditionOutp
 	return o
 }
 
-// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
 func (o AlertRuleAnyOfOrLeafConditionOutput) AnyOf() AlertRuleLeafConditionArrayOutput {
 	return o.ApplyT(func(v AlertRuleAnyOfOrLeafCondition) []AlertRuleLeafCondition { return v.AnyOf }).(AlertRuleLeafConditionArrayOutput)
 }
 
-// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
 func (o AlertRuleAnyOfOrLeafConditionOutput) ContainsAny() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertRuleAnyOfOrLeafCondition) []string { return v.ContainsAny }).(pulumi.StringArrayOutput)
 }
 
-// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
 func (o AlertRuleAnyOfOrLeafConditionOutput) Equals() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleAnyOfOrLeafCondition) *string { return v.Equals }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Activity Log event's field that this condition will examine.
-// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
 func (o AlertRuleAnyOfOrLeafConditionOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleAnyOfOrLeafCondition) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
@@ -912,23 +854,11 @@ func (o AlertRuleAnyOfOrLeafConditionArrayOutput) Index(i pulumi.IntInput) Alert
 	}).(AlertRuleAnyOfOrLeafConditionOutput)
 }
 
-// An Activity Log Alert rule condition that is met when all its member conditions are met.
-// Each condition can be of one of the following types:
-// __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 type AlertRuleAnyOfOrLeafConditionResponse struct {
-	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
-	AnyOf []AlertRuleLeafConditionResponse `pulumi:"anyOf"`
-	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
-	ContainsAny []string `pulumi:"containsAny"`
-	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals *string `pulumi:"equals"`
-	// The name of the Activity Log event's field that this condition will examine.
-	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-	Field *string `pulumi:"field"`
+	AnyOf       []AlertRuleLeafConditionResponse `pulumi:"anyOf"`
+	ContainsAny []string                         `pulumi:"containsAny"`
+	Equals      *string                          `pulumi:"equals"`
+	Field       *string                          `pulumi:"field"`
 }
 
 // AlertRuleAnyOfOrLeafConditionResponseInput is an input type that accepts AlertRuleAnyOfOrLeafConditionResponseArgs and AlertRuleAnyOfOrLeafConditionResponseOutput values.
@@ -942,23 +872,11 @@ type AlertRuleAnyOfOrLeafConditionResponseInput interface {
 	ToAlertRuleAnyOfOrLeafConditionResponseOutputWithContext(context.Context) AlertRuleAnyOfOrLeafConditionResponseOutput
 }
 
-// An Activity Log Alert rule condition that is met when all its member conditions are met.
-// Each condition can be of one of the following types:
-// __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 type AlertRuleAnyOfOrLeafConditionResponseArgs struct {
-	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
-	AnyOf AlertRuleLeafConditionResponseArrayInput `pulumi:"anyOf"`
-	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
-	ContainsAny pulumi.StringArrayInput `pulumi:"containsAny"`
-	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals pulumi.StringPtrInput `pulumi:"equals"`
-	// The name of the Activity Log event's field that this condition will examine.
-	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-	Field pulumi.StringPtrInput `pulumi:"field"`
+	AnyOf       AlertRuleLeafConditionResponseArrayInput `pulumi:"anyOf"`
+	ContainsAny pulumi.StringArrayInput                  `pulumi:"containsAny"`
+	Equals      pulumi.StringPtrInput                    `pulumi:"equals"`
+	Field       pulumi.StringPtrInput                    `pulumi:"field"`
 }
 
 func (AlertRuleAnyOfOrLeafConditionResponseArgs) ElementType() reflect.Type {
@@ -998,13 +916,6 @@ func (i AlertRuleAnyOfOrLeafConditionResponseArray) ToAlertRuleAnyOfOrLeafCondit
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnyOfOrLeafConditionResponseArrayOutput)
 }
 
-// An Activity Log Alert rule condition that is met when all its member conditions are met.
-// Each condition can be of one of the following types:
-// __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 type AlertRuleAnyOfOrLeafConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnyOfOrLeafConditionResponseOutput) ElementType() reflect.Type {
@@ -1019,23 +930,18 @@ func (o AlertRuleAnyOfOrLeafConditionResponseOutput) ToAlertRuleAnyOfOrLeafCondi
 	return o
 }
 
-// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
 func (o AlertRuleAnyOfOrLeafConditionResponseOutput) AnyOf() AlertRuleLeafConditionResponseArrayOutput {
 	return o.ApplyT(func(v AlertRuleAnyOfOrLeafConditionResponse) []AlertRuleLeafConditionResponse { return v.AnyOf }).(AlertRuleLeafConditionResponseArrayOutput)
 }
 
-// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
 func (o AlertRuleAnyOfOrLeafConditionResponseOutput) ContainsAny() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertRuleAnyOfOrLeafConditionResponse) []string { return v.ContainsAny }).(pulumi.StringArrayOutput)
 }
 
-// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
 func (o AlertRuleAnyOfOrLeafConditionResponseOutput) Equals() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleAnyOfOrLeafConditionResponse) *string { return v.Equals }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Activity Log event's field that this condition will examine.
-// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
 func (o AlertRuleAnyOfOrLeafConditionResponseOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleAnyOfOrLeafConditionResponse) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
@@ -1060,16 +966,10 @@ func (o AlertRuleAnyOfOrLeafConditionResponseArrayOutput) Index(i pulumi.IntInpu
 	}).(AlertRuleAnyOfOrLeafConditionResponseOutput)
 }
 
-// An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
-// This condition must contain 'field' and either 'equals' or 'containsAny'.
 type AlertRuleLeafCondition struct {
-	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
 	ContainsAny []string `pulumi:"containsAny"`
-	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals *string `pulumi:"equals"`
-	// The name of the Activity Log event's field that this condition will examine.
-	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-	Field *string `pulumi:"field"`
+	Equals      *string  `pulumi:"equals"`
+	Field       *string  `pulumi:"field"`
 }
 
 // AlertRuleLeafConditionInput is an input type that accepts AlertRuleLeafConditionArgs and AlertRuleLeafConditionOutput values.
@@ -1083,16 +983,10 @@ type AlertRuleLeafConditionInput interface {
 	ToAlertRuleLeafConditionOutputWithContext(context.Context) AlertRuleLeafConditionOutput
 }
 
-// An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
-// This condition must contain 'field' and either 'equals' or 'containsAny'.
 type AlertRuleLeafConditionArgs struct {
-	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
 	ContainsAny pulumi.StringArrayInput `pulumi:"containsAny"`
-	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals pulumi.StringPtrInput `pulumi:"equals"`
-	// The name of the Activity Log event's field that this condition will examine.
-	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-	Field pulumi.StringPtrInput `pulumi:"field"`
+	Equals      pulumi.StringPtrInput   `pulumi:"equals"`
+	Field       pulumi.StringPtrInput   `pulumi:"field"`
 }
 
 func (AlertRuleLeafConditionArgs) ElementType() reflect.Type {
@@ -1132,8 +1026,6 @@ func (i AlertRuleLeafConditionArray) ToAlertRuleLeafConditionArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleLeafConditionArrayOutput)
 }
 
-// An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
-// This condition must contain 'field' and either 'equals' or 'containsAny'.
 type AlertRuleLeafConditionOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleLeafConditionOutput) ElementType() reflect.Type {
@@ -1148,18 +1040,14 @@ func (o AlertRuleLeafConditionOutput) ToAlertRuleLeafConditionOutputWithContext(
 	return o
 }
 
-// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
 func (o AlertRuleLeafConditionOutput) ContainsAny() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertRuleLeafCondition) []string { return v.ContainsAny }).(pulumi.StringArrayOutput)
 }
 
-// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
 func (o AlertRuleLeafConditionOutput) Equals() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleLeafCondition) *string { return v.Equals }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Activity Log event's field that this condition will examine.
-// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
 func (o AlertRuleLeafConditionOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleLeafCondition) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
@@ -1184,16 +1072,10 @@ func (o AlertRuleLeafConditionArrayOutput) Index(i pulumi.IntInput) AlertRuleLea
 	}).(AlertRuleLeafConditionOutput)
 }
 
-// An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
-// This condition must contain 'field' and either 'equals' or 'containsAny'.
 type AlertRuleLeafConditionResponse struct {
-	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
 	ContainsAny []string `pulumi:"containsAny"`
-	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals *string `pulumi:"equals"`
-	// The name of the Activity Log event's field that this condition will examine.
-	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-	Field *string `pulumi:"field"`
+	Equals      *string  `pulumi:"equals"`
+	Field       *string  `pulumi:"field"`
 }
 
 // AlertRuleLeafConditionResponseInput is an input type that accepts AlertRuleLeafConditionResponseArgs and AlertRuleLeafConditionResponseOutput values.
@@ -1207,16 +1089,10 @@ type AlertRuleLeafConditionResponseInput interface {
 	ToAlertRuleLeafConditionResponseOutputWithContext(context.Context) AlertRuleLeafConditionResponseOutput
 }
 
-// An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
-// This condition must contain 'field' and either 'equals' or 'containsAny'.
 type AlertRuleLeafConditionResponseArgs struct {
-	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
 	ContainsAny pulumi.StringArrayInput `pulumi:"containsAny"`
-	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals pulumi.StringPtrInput `pulumi:"equals"`
-	// The name of the Activity Log event's field that this condition will examine.
-	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-	Field pulumi.StringPtrInput `pulumi:"field"`
+	Equals      pulumi.StringPtrInput   `pulumi:"equals"`
+	Field       pulumi.StringPtrInput   `pulumi:"field"`
 }
 
 func (AlertRuleLeafConditionResponseArgs) ElementType() reflect.Type {
@@ -1256,8 +1132,6 @@ func (i AlertRuleLeafConditionResponseArray) ToAlertRuleLeafConditionResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleLeafConditionResponseArrayOutput)
 }
 
-// An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
-// This condition must contain 'field' and either 'equals' or 'containsAny'.
 type AlertRuleLeafConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleLeafConditionResponseOutput) ElementType() reflect.Type {
@@ -1272,18 +1146,14 @@ func (o AlertRuleLeafConditionResponseOutput) ToAlertRuleLeafConditionResponseOu
 	return o
 }
 
-// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
 func (o AlertRuleLeafConditionResponseOutput) ContainsAny() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertRuleLeafConditionResponse) []string { return v.ContainsAny }).(pulumi.StringArrayOutput)
 }
 
-// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
 func (o AlertRuleLeafConditionResponseOutput) Equals() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleLeafConditionResponse) *string { return v.Equals }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Activity Log event's field that this condition will examine.
-// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
 func (o AlertRuleLeafConditionResponseOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleLeafConditionResponse) *string { return v.Field }).(pulumi.StringPtrOutput)
 }

@@ -11,29 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual Network information contract.
 type WebAppVnetConnectionSlot struct {
 	pulumi.CustomResourceState
 
-	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-	// Point-To-Site VPN connection.
-	CertBlob pulumi.StringPtrOutput `pulumi:"certBlob"`
-	// The client certificate thumbprint.
-	CertThumbprint pulumi.StringOutput `pulumi:"certThumbprint"`
-	// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
-	DnsServers pulumi.StringPtrOutput `pulumi:"dnsServers"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// <code>true</code> if a resync is required; otherwise, <code>false</code>.
-	ResyncRequired pulumi.BoolOutput `pulumi:"resyncRequired"`
-	// The routes that this Virtual Network connection uses.
-	Routes VnetRouteResponseArrayOutput `pulumi:"routes"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The Virtual Network's resource ID.
-	VnetResourceId pulumi.StringPtrOutput `pulumi:"vnetResourceId"`
+	CertBlob       pulumi.StringPtrOutput       `pulumi:"certBlob"`
+	CertThumbprint pulumi.StringOutput          `pulumi:"certThumbprint"`
+	DnsServers     pulumi.StringPtrOutput       `pulumi:"dnsServers"`
+	Kind           pulumi.StringPtrOutput       `pulumi:"kind"`
+	Name           pulumi.StringOutput          `pulumi:"name"`
+	ResyncRequired pulumi.BoolOutput            `pulumi:"resyncRequired"`
+	Routes         VnetRouteResponseArrayOutput `pulumi:"routes"`
+	Type           pulumi.StringOutput          `pulumi:"type"`
+	VnetResourceId pulumi.StringPtrOutput       `pulumi:"vnetResourceId"`
 }
 
 // NewWebAppVnetConnectionSlot registers a new resource with the given unique name, arguments, and options.
@@ -162,44 +151,26 @@ func (WebAppVnetConnectionSlotState) ElementType() reflect.Type {
 }
 
 type webAppVnetConnectionSlotArgs struct {
-	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-	// Point-To-Site VPN connection.
-	CertBlob *string `pulumi:"certBlob"`
-	// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
-	DnsServers *string `pulumi:"dnsServers"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
-	Slot string `pulumi:"slot"`
-	// Name of an existing Virtual Network.
-	VnetName *string `pulumi:"vnetName"`
-	// The Virtual Network's resource ID.
-	VnetResourceId *string `pulumi:"vnetResourceId"`
+	CertBlob          *string `pulumi:"certBlob"`
+	DnsServers        *string `pulumi:"dnsServers"`
+	Kind              *string `pulumi:"kind"`
+	Name              string  `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	Slot              string  `pulumi:"slot"`
+	VnetName          *string `pulumi:"vnetName"`
+	VnetResourceId    *string `pulumi:"vnetResourceId"`
 }
 
 // The set of arguments for constructing a WebAppVnetConnectionSlot resource.
 type WebAppVnetConnectionSlotArgs struct {
-	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-	// Point-To-Site VPN connection.
-	CertBlob pulumi.StringPtrInput
-	// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
-	DnsServers pulumi.StringPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the app.
-	Name pulumi.StringInput
-	// Name of the resource group to which the resource belongs.
+	CertBlob          pulumi.StringPtrInput
+	DnsServers        pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Name              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
-	Slot pulumi.StringInput
-	// Name of an existing Virtual Network.
-	VnetName pulumi.StringPtrInput
-	// The Virtual Network's resource ID.
-	VnetResourceId pulumi.StringPtrInput
+	Slot              pulumi.StringInput
+	VnetName          pulumi.StringPtrInput
+	VnetResourceId    pulumi.StringPtrInput
 }
 
 func (WebAppVnetConnectionSlotArgs) ElementType() reflect.Type {
@@ -225,9 +196,7 @@ func (i *WebAppVnetConnectionSlot) ToWebAppVnetConnectionSlotOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppVnetConnectionSlotOutput)
 }
 
-type WebAppVnetConnectionSlotOutput struct {
-	*pulumi.OutputState
-}
+type WebAppVnetConnectionSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppVnetConnectionSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppVnetConnectionSlot)(nil))

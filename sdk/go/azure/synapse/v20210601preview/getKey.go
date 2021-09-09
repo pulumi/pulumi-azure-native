@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A workspace key
 func LookupKey(ctx *pulumi.Context, args *LookupKeyArgs, opts ...pulumi.InvokeOption) (*LookupKeyResult, error) {
 	var rv LookupKeyResult
 	err := ctx.Invoke("azure-native:synapse/v20210601preview:getKey", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupKey(ctx *pulumi.Context, args *LookupKeyArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupKeyArgs struct {
-	// The name of the workspace key
-	KeyName string `pulumi:"keyName"`
-	// The name of the resource group. The name is case insensitive.
+	KeyName           string `pulumi:"keyName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // A workspace key
 type LookupKeyResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Used to activate the workspace after a customer managed key is provided.
-	IsActiveCMK *bool `pulumi:"isActiveCMK"`
-	// The Key Vault Url of the workspace key.
+	Id          string  `pulumi:"id"`
+	IsActiveCMK *bool   `pulumi:"isActiveCMK"`
 	KeyVaultUrl *string `pulumi:"keyVaultUrl"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Name        string  `pulumi:"name"`
+	Type        string  `pulumi:"type"`
 }

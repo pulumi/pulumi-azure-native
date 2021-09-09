@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the runbook property type.
 type ContentHash struct {
-	// Gets or sets the content hash algorithm used to hash the content.
 	Algorithm string `pulumi:"algorithm"`
-	// Gets or sets expected hash value of the content.
-	Value string `pulumi:"value"`
+	Value     string `pulumi:"value"`
 }
 
 // ContentHashInput is an input type that accepts ContentHashArgs and ContentHashOutput values.
@@ -29,12 +26,9 @@ type ContentHashInput interface {
 	ToContentHashOutputWithContext(context.Context) ContentHashOutput
 }
 
-// Definition of the runbook property type.
 type ContentHashArgs struct {
-	// Gets or sets the content hash algorithm used to hash the content.
 	Algorithm pulumi.StringInput `pulumi:"algorithm"`
-	// Gets or sets expected hash value of the content.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value     pulumi.StringInput `pulumi:"value"`
 }
 
 func (ContentHashArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *contentHashPtrType) ToContentHashPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ContentHashPtrOutput)
 }
 
-// Definition of the runbook property type.
 type ContentHashOutput struct{ *pulumi.OutputState }
 
 func (ContentHashOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o ContentHashOutput) ToContentHashPtrOutput() ContentHashPtrOutput {
 }
 
 func (o ContentHashOutput) ToContentHashPtrOutputWithContext(ctx context.Context) ContentHashPtrOutput {
-	return o.ApplyT(func(v ContentHash) *ContentHash {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentHash) *ContentHash {
 		return &v
 	}).(ContentHashPtrOutput)
 }
 
-// Gets or sets the content hash algorithm used to hash the content.
 func (o ContentHashOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentHash) string { return v.Algorithm }).(pulumi.StringOutput)
 }
 
-// Gets or sets expected hash value of the content.
 func (o ContentHashOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentHash) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -140,10 +131,15 @@ func (o ContentHashPtrOutput) ToContentHashPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ContentHashPtrOutput) Elem() ContentHashOutput {
-	return o.ApplyT(func(v *ContentHash) ContentHash { return *v }).(ContentHashOutput)
+	return o.ApplyT(func(v *ContentHash) ContentHash {
+		if v != nil {
+			return *v
+		}
+		var ret ContentHash
+		return ret
+	}).(ContentHashOutput)
 }
 
-// Gets or sets the content hash algorithm used to hash the content.
 func (o ContentHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHash) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o ContentHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets expected hash value of the content.
 func (o ContentHashPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHash) *string {
 		if v == nil {
@@ -163,12 +158,9 @@ func (o ContentHashPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Definition of the runbook property type.
 type ContentHashResponse struct {
-	// Gets or sets the content hash algorithm used to hash the content.
 	Algorithm string `pulumi:"algorithm"`
-	// Gets or sets expected hash value of the content.
-	Value string `pulumi:"value"`
+	Value     string `pulumi:"value"`
 }
 
 // ContentHashResponseInput is an input type that accepts ContentHashResponseArgs and ContentHashResponseOutput values.
@@ -182,12 +174,9 @@ type ContentHashResponseInput interface {
 	ToContentHashResponseOutputWithContext(context.Context) ContentHashResponseOutput
 }
 
-// Definition of the runbook property type.
 type ContentHashResponseArgs struct {
-	// Gets or sets the content hash algorithm used to hash the content.
 	Algorithm pulumi.StringInput `pulumi:"algorithm"`
-	// Gets or sets expected hash value of the content.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value     pulumi.StringInput `pulumi:"value"`
 }
 
 func (ContentHashResponseArgs) ElementType() reflect.Type {
@@ -243,7 +232,6 @@ func (i *contentHashResponsePtrType) ToContentHashResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ContentHashResponsePtrOutput)
 }
 
-// Definition of the runbook property type.
 type ContentHashResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentHashResponseOutput) ElementType() reflect.Type {
@@ -263,17 +251,15 @@ func (o ContentHashResponseOutput) ToContentHashResponsePtrOutput() ContentHashR
 }
 
 func (o ContentHashResponseOutput) ToContentHashResponsePtrOutputWithContext(ctx context.Context) ContentHashResponsePtrOutput {
-	return o.ApplyT(func(v ContentHashResponse) *ContentHashResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentHashResponse) *ContentHashResponse {
 		return &v
 	}).(ContentHashResponsePtrOutput)
 }
 
-// Gets or sets the content hash algorithm used to hash the content.
 func (o ContentHashResponseOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentHashResponse) string { return v.Algorithm }).(pulumi.StringOutput)
 }
 
-// Gets or sets expected hash value of the content.
 func (o ContentHashResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentHashResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -293,10 +279,15 @@ func (o ContentHashResponsePtrOutput) ToContentHashResponsePtrOutputWithContext(
 }
 
 func (o ContentHashResponsePtrOutput) Elem() ContentHashResponseOutput {
-	return o.ApplyT(func(v *ContentHashResponse) ContentHashResponse { return *v }).(ContentHashResponseOutput)
+	return o.ApplyT(func(v *ContentHashResponse) ContentHashResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContentHashResponse
+		return ret
+	}).(ContentHashResponseOutput)
 }
 
-// Gets or sets the content hash algorithm used to hash the content.
 func (o ContentHashResponsePtrOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHashResponse) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o ContentHashResponsePtrOutput) Algorithm() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets expected hash value of the content.
 func (o ContentHashResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHashResponse) *string {
 		if v == nil {
@@ -316,14 +306,10 @@ func (o ContentHashResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Definition of the content link.
 type ContentLink struct {
-	// Gets or sets the hash.
 	ContentHash *ContentHash `pulumi:"contentHash"`
-	// Gets or sets the uri of the runbook content.
-	Uri *string `pulumi:"uri"`
-	// Gets or sets the version of the content.
-	Version *string `pulumi:"version"`
+	Uri         *string      `pulumi:"uri"`
+	Version     *string      `pulumi:"version"`
 }
 
 // ContentLinkInput is an input type that accepts ContentLinkArgs and ContentLinkOutput values.
@@ -337,14 +323,10 @@ type ContentLinkInput interface {
 	ToContentLinkOutputWithContext(context.Context) ContentLinkOutput
 }
 
-// Definition of the content link.
 type ContentLinkArgs struct {
-	// Gets or sets the hash.
-	ContentHash ContentHashPtrInput `pulumi:"contentHash"`
-	// Gets or sets the uri of the runbook content.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
-	// Gets or sets the version of the content.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	ContentHash ContentHashPtrInput   `pulumi:"contentHash"`
+	Uri         pulumi.StringPtrInput `pulumi:"uri"`
+	Version     pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (ContentLinkArgs) ElementType() reflect.Type {
@@ -400,7 +382,6 @@ func (i *contentLinkPtrType) ToContentLinkPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ContentLinkPtrOutput)
 }
 
-// Definition of the content link.
 type ContentLinkOutput struct{ *pulumi.OutputState }
 
 func (ContentLinkOutput) ElementType() reflect.Type {
@@ -420,22 +401,19 @@ func (o ContentLinkOutput) ToContentLinkPtrOutput() ContentLinkPtrOutput {
 }
 
 func (o ContentLinkOutput) ToContentLinkPtrOutputWithContext(ctx context.Context) ContentLinkPtrOutput {
-	return o.ApplyT(func(v ContentLink) *ContentLink {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentLink) *ContentLink {
 		return &v
 	}).(ContentLinkPtrOutput)
 }
 
-// Gets or sets the hash.
 func (o ContentLinkOutput) ContentHash() ContentHashPtrOutput {
 	return o.ApplyT(func(v ContentLink) *ContentHash { return v.ContentHash }).(ContentHashPtrOutput)
 }
 
-// Gets or sets the uri of the runbook content.
 func (o ContentLinkOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLink) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the version of the content.
 func (o ContentLinkOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLink) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -455,10 +433,15 @@ func (o ContentLinkPtrOutput) ToContentLinkPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ContentLinkPtrOutput) Elem() ContentLinkOutput {
-	return o.ApplyT(func(v *ContentLink) ContentLink { return *v }).(ContentLinkOutput)
+	return o.ApplyT(func(v *ContentLink) ContentLink {
+		if v != nil {
+			return *v
+		}
+		var ret ContentLink
+		return ret
+	}).(ContentLinkOutput)
 }
 
-// Gets or sets the hash.
 func (o ContentLinkPtrOutput) ContentHash() ContentHashPtrOutput {
 	return o.ApplyT(func(v *ContentLink) *ContentHash {
 		if v == nil {
@@ -468,7 +451,6 @@ func (o ContentLinkPtrOutput) ContentHash() ContentHashPtrOutput {
 	}).(ContentHashPtrOutput)
 }
 
-// Gets or sets the uri of the runbook content.
 func (o ContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLink) *string {
 		if v == nil {
@@ -478,7 +460,6 @@ func (o ContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the version of the content.
 func (o ContentLinkPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLink) *string {
 		if v == nil {
@@ -488,14 +469,10 @@ func (o ContentLinkPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Definition of the content link.
 type ContentLinkResponse struct {
-	// Gets or sets the hash.
 	ContentHash *ContentHashResponse `pulumi:"contentHash"`
-	// Gets or sets the uri of the runbook content.
-	Uri *string `pulumi:"uri"`
-	// Gets or sets the version of the content.
-	Version *string `pulumi:"version"`
+	Uri         *string              `pulumi:"uri"`
+	Version     *string              `pulumi:"version"`
 }
 
 // ContentLinkResponseInput is an input type that accepts ContentLinkResponseArgs and ContentLinkResponseOutput values.
@@ -509,14 +486,10 @@ type ContentLinkResponseInput interface {
 	ToContentLinkResponseOutputWithContext(context.Context) ContentLinkResponseOutput
 }
 
-// Definition of the content link.
 type ContentLinkResponseArgs struct {
-	// Gets or sets the hash.
 	ContentHash ContentHashResponsePtrInput `pulumi:"contentHash"`
-	// Gets or sets the uri of the runbook content.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
-	// Gets or sets the version of the content.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Uri         pulumi.StringPtrInput       `pulumi:"uri"`
+	Version     pulumi.StringPtrInput       `pulumi:"version"`
 }
 
 func (ContentLinkResponseArgs) ElementType() reflect.Type {
@@ -572,7 +545,6 @@ func (i *contentLinkResponsePtrType) ToContentLinkResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ContentLinkResponsePtrOutput)
 }
 
-// Definition of the content link.
 type ContentLinkResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentLinkResponseOutput) ElementType() reflect.Type {
@@ -592,22 +564,19 @@ func (o ContentLinkResponseOutput) ToContentLinkResponsePtrOutput() ContentLinkR
 }
 
 func (o ContentLinkResponseOutput) ToContentLinkResponsePtrOutputWithContext(ctx context.Context) ContentLinkResponsePtrOutput {
-	return o.ApplyT(func(v ContentLinkResponse) *ContentLinkResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentLinkResponse) *ContentLinkResponse {
 		return &v
 	}).(ContentLinkResponsePtrOutput)
 }
 
-// Gets or sets the hash.
 func (o ContentLinkResponseOutput) ContentHash() ContentHashResponsePtrOutput {
 	return o.ApplyT(func(v ContentLinkResponse) *ContentHashResponse { return v.ContentHash }).(ContentHashResponsePtrOutput)
 }
 
-// Gets or sets the uri of the runbook content.
 func (o ContentLinkResponseOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLinkResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the version of the content.
 func (o ContentLinkResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLinkResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -627,10 +596,15 @@ func (o ContentLinkResponsePtrOutput) ToContentLinkResponsePtrOutputWithContext(
 }
 
 func (o ContentLinkResponsePtrOutput) Elem() ContentLinkResponseOutput {
-	return o.ApplyT(func(v *ContentLinkResponse) ContentLinkResponse { return *v }).(ContentLinkResponseOutput)
+	return o.ApplyT(func(v *ContentLinkResponse) ContentLinkResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContentLinkResponse
+		return ret
+	}).(ContentLinkResponseOutput)
 }
 
-// Gets or sets the hash.
 func (o ContentLinkResponsePtrOutput) ContentHash() ContentHashResponsePtrOutput {
 	return o.ApplyT(func(v *ContentLinkResponse) *ContentHashResponse {
 		if v == nil {
@@ -640,7 +614,6 @@ func (o ContentLinkResponsePtrOutput) ContentHash() ContentHashResponsePtrOutput
 	}).(ContentHashResponsePtrOutput)
 }
 
-// Gets or sets the uri of the runbook content.
 func (o ContentLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLinkResponse) *string {
 		if v == nil {
@@ -650,7 +623,6 @@ func (o ContentLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the version of the content.
 func (o ContentLinkResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLinkResponse) *string {
 		if v == nil {
@@ -660,11 +632,8 @@ func (o ContentLinkResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Definition of the module error info type.
 type ModuleErrorInfoResponse struct {
-	// Gets or sets the error code.
-	Code *string `pulumi:"code"`
-	// Gets or sets the error message.
+	Code    *string `pulumi:"code"`
 	Message *string `pulumi:"message"`
 }
 
@@ -679,11 +648,8 @@ type ModuleErrorInfoResponseInput interface {
 	ToModuleErrorInfoResponseOutputWithContext(context.Context) ModuleErrorInfoResponseOutput
 }
 
-// Definition of the module error info type.
 type ModuleErrorInfoResponseArgs struct {
-	// Gets or sets the error code.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Gets or sets the error message.
+	Code    pulumi.StringPtrInput `pulumi:"code"`
 	Message pulumi.StringPtrInput `pulumi:"message"`
 }
 
@@ -740,7 +706,6 @@ func (i *moduleErrorInfoResponsePtrType) ToModuleErrorInfoResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleErrorInfoResponsePtrOutput)
 }
 
-// Definition of the module error info type.
 type ModuleErrorInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ModuleErrorInfoResponseOutput) ElementType() reflect.Type {
@@ -760,17 +725,15 @@ func (o ModuleErrorInfoResponseOutput) ToModuleErrorInfoResponsePtrOutput() Modu
 }
 
 func (o ModuleErrorInfoResponseOutput) ToModuleErrorInfoResponsePtrOutputWithContext(ctx context.Context) ModuleErrorInfoResponsePtrOutput {
-	return o.ApplyT(func(v ModuleErrorInfoResponse) *ModuleErrorInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModuleErrorInfoResponse) *ModuleErrorInfoResponse {
 		return &v
 	}).(ModuleErrorInfoResponsePtrOutput)
 }
 
-// Gets or sets the error code.
 func (o ModuleErrorInfoResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModuleErrorInfoResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the error message.
 func (o ModuleErrorInfoResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModuleErrorInfoResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -790,10 +753,15 @@ func (o ModuleErrorInfoResponsePtrOutput) ToModuleErrorInfoResponsePtrOutputWith
 }
 
 func (o ModuleErrorInfoResponsePtrOutput) Elem() ModuleErrorInfoResponseOutput {
-	return o.ApplyT(func(v *ModuleErrorInfoResponse) ModuleErrorInfoResponse { return *v }).(ModuleErrorInfoResponseOutput)
+	return o.ApplyT(func(v *ModuleErrorInfoResponse) ModuleErrorInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ModuleErrorInfoResponse
+		return ret
+	}).(ModuleErrorInfoResponseOutput)
 }
 
-// Gets or sets the error code.
 func (o ModuleErrorInfoResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModuleErrorInfoResponse) *string {
 		if v == nil {
@@ -803,7 +771,6 @@ func (o ModuleErrorInfoResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the error message.
 func (o ModuleErrorInfoResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModuleErrorInfoResponse) *string {
 		if v == nil {
@@ -814,18 +781,12 @@ func (o ModuleErrorInfoResponsePtrOutput) Message() pulumi.StringPtrOutput {
 }
 
 type RunbookDraft struct {
-	// Gets or sets the creation time of the runbook draft.
-	CreationTime *string `pulumi:"creationTime"`
-	// Gets or sets the draft runbook content link.
-	DraftContentLink *ContentLink `pulumi:"draftContentLink"`
-	// Gets or sets whether runbook is in edit mode.
-	InEdit *bool `pulumi:"inEdit"`
-	// Gets or sets the last modified time of the runbook draft.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// Gets or sets the runbook output types.
-	OutputTypes []string `pulumi:"outputTypes"`
-	// Gets or sets the runbook draft parameters.
-	Parameters map[string]RunbookParameter `pulumi:"parameters"`
+	CreationTime     *string                     `pulumi:"creationTime"`
+	DraftContentLink *ContentLink                `pulumi:"draftContentLink"`
+	InEdit           *bool                       `pulumi:"inEdit"`
+	LastModifiedTime *string                     `pulumi:"lastModifiedTime"`
+	OutputTypes      []string                    `pulumi:"outputTypes"`
+	Parameters       map[string]RunbookParameter `pulumi:"parameters"`
 }
 
 // RunbookDraftInput is an input type that accepts RunbookDraftArgs and RunbookDraftOutput values.
@@ -840,18 +801,12 @@ type RunbookDraftInput interface {
 }
 
 type RunbookDraftArgs struct {
-	// Gets or sets the creation time of the runbook draft.
-	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
-	// Gets or sets the draft runbook content link.
-	DraftContentLink ContentLinkPtrInput `pulumi:"draftContentLink"`
-	// Gets or sets whether runbook is in edit mode.
-	InEdit pulumi.BoolPtrInput `pulumi:"inEdit"`
-	// Gets or sets the last modified time of the runbook draft.
-	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
-	// Gets or sets the runbook output types.
-	OutputTypes pulumi.StringArrayInput `pulumi:"outputTypes"`
-	// Gets or sets the runbook draft parameters.
-	Parameters RunbookParameterMapInput `pulumi:"parameters"`
+	CreationTime     pulumi.StringPtrInput    `pulumi:"creationTime"`
+	DraftContentLink ContentLinkPtrInput      `pulumi:"draftContentLink"`
+	InEdit           pulumi.BoolPtrInput      `pulumi:"inEdit"`
+	LastModifiedTime pulumi.StringPtrInput    `pulumi:"lastModifiedTime"`
+	OutputTypes      pulumi.StringArrayInput  `pulumi:"outputTypes"`
+	Parameters       RunbookParameterMapInput `pulumi:"parameters"`
 }
 
 func (RunbookDraftArgs) ElementType() reflect.Type {
@@ -926,37 +881,31 @@ func (o RunbookDraftOutput) ToRunbookDraftPtrOutput() RunbookDraftPtrOutput {
 }
 
 func (o RunbookDraftOutput) ToRunbookDraftPtrOutputWithContext(ctx context.Context) RunbookDraftPtrOutput {
-	return o.ApplyT(func(v RunbookDraft) *RunbookDraft {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunbookDraft) *RunbookDraft {
 		return &v
 	}).(RunbookDraftPtrOutput)
 }
 
-// Gets or sets the creation time of the runbook draft.
 func (o RunbookDraftOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookDraft) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the draft runbook content link.
 func (o RunbookDraftOutput) DraftContentLink() ContentLinkPtrOutput {
 	return o.ApplyT(func(v RunbookDraft) *ContentLink { return v.DraftContentLink }).(ContentLinkPtrOutput)
 }
 
-// Gets or sets whether runbook is in edit mode.
 func (o RunbookDraftOutput) InEdit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RunbookDraft) *bool { return v.InEdit }).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the last modified time of the runbook draft.
 func (o RunbookDraftOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookDraft) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the runbook output types.
 func (o RunbookDraftOutput) OutputTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RunbookDraft) []string { return v.OutputTypes }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets the runbook draft parameters.
 func (o RunbookDraftOutput) Parameters() RunbookParameterMapOutput {
 	return o.ApplyT(func(v RunbookDraft) map[string]RunbookParameter { return v.Parameters }).(RunbookParameterMapOutput)
 }
@@ -976,10 +925,15 @@ func (o RunbookDraftPtrOutput) ToRunbookDraftPtrOutputWithContext(ctx context.Co
 }
 
 func (o RunbookDraftPtrOutput) Elem() RunbookDraftOutput {
-	return o.ApplyT(func(v *RunbookDraft) RunbookDraft { return *v }).(RunbookDraftOutput)
+	return o.ApplyT(func(v *RunbookDraft) RunbookDraft {
+		if v != nil {
+			return *v
+		}
+		var ret RunbookDraft
+		return ret
+	}).(RunbookDraftOutput)
 }
 
-// Gets or sets the creation time of the runbook draft.
 func (o RunbookDraftPtrOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunbookDraft) *string {
 		if v == nil {
@@ -989,7 +943,6 @@ func (o RunbookDraftPtrOutput) CreationTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the draft runbook content link.
 func (o RunbookDraftPtrOutput) DraftContentLink() ContentLinkPtrOutput {
 	return o.ApplyT(func(v *RunbookDraft) *ContentLink {
 		if v == nil {
@@ -999,7 +952,6 @@ func (o RunbookDraftPtrOutput) DraftContentLink() ContentLinkPtrOutput {
 	}).(ContentLinkPtrOutput)
 }
 
-// Gets or sets whether runbook is in edit mode.
 func (o RunbookDraftPtrOutput) InEdit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RunbookDraft) *bool {
 		if v == nil {
@@ -1009,7 +961,6 @@ func (o RunbookDraftPtrOutput) InEdit() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the last modified time of the runbook draft.
 func (o RunbookDraftPtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunbookDraft) *string {
 		if v == nil {
@@ -1019,7 +970,6 @@ func (o RunbookDraftPtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the runbook output types.
 func (o RunbookDraftPtrOutput) OutputTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RunbookDraft) []string {
 		if v == nil {
@@ -1029,7 +979,6 @@ func (o RunbookDraftPtrOutput) OutputTypes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets the runbook draft parameters.
 func (o RunbookDraftPtrOutput) Parameters() RunbookParameterMapOutput {
 	return o.ApplyT(func(v *RunbookDraft) map[string]RunbookParameter {
 		if v == nil {
@@ -1040,18 +989,12 @@ func (o RunbookDraftPtrOutput) Parameters() RunbookParameterMapOutput {
 }
 
 type RunbookDraftResponse struct {
-	// Gets or sets the creation time of the runbook draft.
-	CreationTime *string `pulumi:"creationTime"`
-	// Gets or sets the draft runbook content link.
-	DraftContentLink *ContentLinkResponse `pulumi:"draftContentLink"`
-	// Gets or sets whether runbook is in edit mode.
-	InEdit *bool `pulumi:"inEdit"`
-	// Gets or sets the last modified time of the runbook draft.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// Gets or sets the runbook output types.
-	OutputTypes []string `pulumi:"outputTypes"`
-	// Gets or sets the runbook draft parameters.
-	Parameters map[string]RunbookParameterResponse `pulumi:"parameters"`
+	CreationTime     *string                             `pulumi:"creationTime"`
+	DraftContentLink *ContentLinkResponse                `pulumi:"draftContentLink"`
+	InEdit           *bool                               `pulumi:"inEdit"`
+	LastModifiedTime *string                             `pulumi:"lastModifiedTime"`
+	OutputTypes      []string                            `pulumi:"outputTypes"`
+	Parameters       map[string]RunbookParameterResponse `pulumi:"parameters"`
 }
 
 // RunbookDraftResponseInput is an input type that accepts RunbookDraftResponseArgs and RunbookDraftResponseOutput values.
@@ -1066,18 +1009,12 @@ type RunbookDraftResponseInput interface {
 }
 
 type RunbookDraftResponseArgs struct {
-	// Gets or sets the creation time of the runbook draft.
-	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
-	// Gets or sets the draft runbook content link.
-	DraftContentLink ContentLinkResponsePtrInput `pulumi:"draftContentLink"`
-	// Gets or sets whether runbook is in edit mode.
-	InEdit pulumi.BoolPtrInput `pulumi:"inEdit"`
-	// Gets or sets the last modified time of the runbook draft.
-	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
-	// Gets or sets the runbook output types.
-	OutputTypes pulumi.StringArrayInput `pulumi:"outputTypes"`
-	// Gets or sets the runbook draft parameters.
-	Parameters RunbookParameterResponseMapInput `pulumi:"parameters"`
+	CreationTime     pulumi.StringPtrInput            `pulumi:"creationTime"`
+	DraftContentLink ContentLinkResponsePtrInput      `pulumi:"draftContentLink"`
+	InEdit           pulumi.BoolPtrInput              `pulumi:"inEdit"`
+	LastModifiedTime pulumi.StringPtrInput            `pulumi:"lastModifiedTime"`
+	OutputTypes      pulumi.StringArrayInput          `pulumi:"outputTypes"`
+	Parameters       RunbookParameterResponseMapInput `pulumi:"parameters"`
 }
 
 func (RunbookDraftResponseArgs) ElementType() reflect.Type {
@@ -1152,37 +1089,31 @@ func (o RunbookDraftResponseOutput) ToRunbookDraftResponsePtrOutput() RunbookDra
 }
 
 func (o RunbookDraftResponseOutput) ToRunbookDraftResponsePtrOutputWithContext(ctx context.Context) RunbookDraftResponsePtrOutput {
-	return o.ApplyT(func(v RunbookDraftResponse) *RunbookDraftResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunbookDraftResponse) *RunbookDraftResponse {
 		return &v
 	}).(RunbookDraftResponsePtrOutput)
 }
 
-// Gets or sets the creation time of the runbook draft.
 func (o RunbookDraftResponseOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookDraftResponse) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the draft runbook content link.
 func (o RunbookDraftResponseOutput) DraftContentLink() ContentLinkResponsePtrOutput {
 	return o.ApplyT(func(v RunbookDraftResponse) *ContentLinkResponse { return v.DraftContentLink }).(ContentLinkResponsePtrOutput)
 }
 
-// Gets or sets whether runbook is in edit mode.
 func (o RunbookDraftResponseOutput) InEdit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RunbookDraftResponse) *bool { return v.InEdit }).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the last modified time of the runbook draft.
 func (o RunbookDraftResponseOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookDraftResponse) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the runbook output types.
 func (o RunbookDraftResponseOutput) OutputTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RunbookDraftResponse) []string { return v.OutputTypes }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets the runbook draft parameters.
 func (o RunbookDraftResponseOutput) Parameters() RunbookParameterResponseMapOutput {
 	return o.ApplyT(func(v RunbookDraftResponse) map[string]RunbookParameterResponse { return v.Parameters }).(RunbookParameterResponseMapOutput)
 }
@@ -1202,10 +1133,15 @@ func (o RunbookDraftResponsePtrOutput) ToRunbookDraftResponsePtrOutputWithContex
 }
 
 func (o RunbookDraftResponsePtrOutput) Elem() RunbookDraftResponseOutput {
-	return o.ApplyT(func(v *RunbookDraftResponse) RunbookDraftResponse { return *v }).(RunbookDraftResponseOutput)
+	return o.ApplyT(func(v *RunbookDraftResponse) RunbookDraftResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RunbookDraftResponse
+		return ret
+	}).(RunbookDraftResponseOutput)
 }
 
-// Gets or sets the creation time of the runbook draft.
 func (o RunbookDraftResponsePtrOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunbookDraftResponse) *string {
 		if v == nil {
@@ -1215,7 +1151,6 @@ func (o RunbookDraftResponsePtrOutput) CreationTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the draft runbook content link.
 func (o RunbookDraftResponsePtrOutput) DraftContentLink() ContentLinkResponsePtrOutput {
 	return o.ApplyT(func(v *RunbookDraftResponse) *ContentLinkResponse {
 		if v == nil {
@@ -1225,7 +1160,6 @@ func (o RunbookDraftResponsePtrOutput) DraftContentLink() ContentLinkResponsePtr
 	}).(ContentLinkResponsePtrOutput)
 }
 
-// Gets or sets whether runbook is in edit mode.
 func (o RunbookDraftResponsePtrOutput) InEdit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RunbookDraftResponse) *bool {
 		if v == nil {
@@ -1235,7 +1169,6 @@ func (o RunbookDraftResponsePtrOutput) InEdit() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Gets or sets the last modified time of the runbook draft.
 func (o RunbookDraftResponsePtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunbookDraftResponse) *string {
 		if v == nil {
@@ -1245,7 +1178,6 @@ func (o RunbookDraftResponsePtrOutput) LastModifiedTime() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the runbook output types.
 func (o RunbookDraftResponsePtrOutput) OutputTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RunbookDraftResponse) []string {
 		if v == nil {
@@ -1255,7 +1187,6 @@ func (o RunbookDraftResponsePtrOutput) OutputTypes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets the runbook draft parameters.
 func (o RunbookDraftResponsePtrOutput) Parameters() RunbookParameterResponseMapOutput {
 	return o.ApplyT(func(v *RunbookDraftResponse) map[string]RunbookParameterResponse {
 		if v == nil {
@@ -1265,16 +1196,11 @@ func (o RunbookDraftResponsePtrOutput) Parameters() RunbookParameterResponseMapO
 	}).(RunbookParameterResponseMapOutput)
 }
 
-// Definition of the runbook parameter type.
 type RunbookParameter struct {
-	// Gets or sets the default value of parameter.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-	IsMandatory *bool `pulumi:"isMandatory"`
-	// Get or sets the position of the parameter.
-	Position *int `pulumi:"position"`
-	// Gets or sets the type of the parameter.
-	Type *string `pulumi:"type"`
+	IsMandatory  *bool   `pulumi:"isMandatory"`
+	Position     *int    `pulumi:"position"`
+	Type         *string `pulumi:"type"`
 }
 
 // RunbookParameterInput is an input type that accepts RunbookParameterArgs and RunbookParameterOutput values.
@@ -1288,16 +1214,11 @@ type RunbookParameterInput interface {
 	ToRunbookParameterOutputWithContext(context.Context) RunbookParameterOutput
 }
 
-// Definition of the runbook parameter type.
 type RunbookParameterArgs struct {
-	// Gets or sets the default value of parameter.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-	IsMandatory pulumi.BoolPtrInput `pulumi:"isMandatory"`
-	// Get or sets the position of the parameter.
-	Position pulumi.IntPtrInput `pulumi:"position"`
-	// Gets or sets the type of the parameter.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	IsMandatory  pulumi.BoolPtrInput   `pulumi:"isMandatory"`
+	Position     pulumi.IntPtrInput    `pulumi:"position"`
+	Type         pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (RunbookParameterArgs) ElementType() reflect.Type {
@@ -1337,7 +1258,6 @@ func (i RunbookParameterMap) ToRunbookParameterMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RunbookParameterMapOutput)
 }
 
-// Definition of the runbook parameter type.
 type RunbookParameterOutput struct{ *pulumi.OutputState }
 
 func (RunbookParameterOutput) ElementType() reflect.Type {
@@ -1352,22 +1272,18 @@ func (o RunbookParameterOutput) ToRunbookParameterOutputWithContext(ctx context.
 	return o
 }
 
-// Gets or sets the default value of parameter.
 func (o RunbookParameterOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
 func (o RunbookParameterOutput) IsMandatory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RunbookParameter) *bool { return v.IsMandatory }).(pulumi.BoolPtrOutput)
 }
 
-// Get or sets the position of the parameter.
 func (o RunbookParameterOutput) Position() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RunbookParameter) *int { return v.Position }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the type of the parameter.
 func (o RunbookParameterOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1392,16 +1308,11 @@ func (o RunbookParameterMapOutput) MapIndex(k pulumi.StringInput) RunbookParamet
 	}).(RunbookParameterOutput)
 }
 
-// Definition of the runbook parameter type.
 type RunbookParameterResponse struct {
-	// Gets or sets the default value of parameter.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-	IsMandatory *bool `pulumi:"isMandatory"`
-	// Get or sets the position of the parameter.
-	Position *int `pulumi:"position"`
-	// Gets or sets the type of the parameter.
-	Type *string `pulumi:"type"`
+	IsMandatory  *bool   `pulumi:"isMandatory"`
+	Position     *int    `pulumi:"position"`
+	Type         *string `pulumi:"type"`
 }
 
 // RunbookParameterResponseInput is an input type that accepts RunbookParameterResponseArgs and RunbookParameterResponseOutput values.
@@ -1415,16 +1326,11 @@ type RunbookParameterResponseInput interface {
 	ToRunbookParameterResponseOutputWithContext(context.Context) RunbookParameterResponseOutput
 }
 
-// Definition of the runbook parameter type.
 type RunbookParameterResponseArgs struct {
-	// Gets or sets the default value of parameter.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-	IsMandatory pulumi.BoolPtrInput `pulumi:"isMandatory"`
-	// Get or sets the position of the parameter.
-	Position pulumi.IntPtrInput `pulumi:"position"`
-	// Gets or sets the type of the parameter.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	IsMandatory  pulumi.BoolPtrInput   `pulumi:"isMandatory"`
+	Position     pulumi.IntPtrInput    `pulumi:"position"`
+	Type         pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (RunbookParameterResponseArgs) ElementType() reflect.Type {
@@ -1464,7 +1370,6 @@ func (i RunbookParameterResponseMap) ToRunbookParameterResponseMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RunbookParameterResponseMapOutput)
 }
 
-// Definition of the runbook parameter type.
 type RunbookParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (RunbookParameterResponseOutput) ElementType() reflect.Type {
@@ -1479,22 +1384,18 @@ func (o RunbookParameterResponseOutput) ToRunbookParameterResponseOutputWithCont
 	return o
 }
 
-// Gets or sets the default value of parameter.
 func (o RunbookParameterResponseOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookParameterResponse) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
 func (o RunbookParameterResponseOutput) IsMandatory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RunbookParameterResponse) *bool { return v.IsMandatory }).(pulumi.BoolPtrOutput)
 }
 
-// Get or sets the position of the parameter.
 func (o RunbookParameterResponseOutput) Position() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RunbookParameterResponse) *int { return v.Position }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the type of the parameter.
 func (o RunbookParameterResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunbookParameterResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

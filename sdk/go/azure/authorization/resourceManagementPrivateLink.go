@@ -119,9 +119,7 @@ func (i *ResourceManagementPrivateLink) ToResourceManagementPrivateLinkOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceManagementPrivateLinkOutput)
 }
 
-type ResourceManagementPrivateLinkOutput struct {
-	*pulumi.OutputState
-}
+type ResourceManagementPrivateLinkOutput struct{ *pulumi.OutputState }
 
 func (ResourceManagementPrivateLinkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceManagementPrivateLink)(nil))

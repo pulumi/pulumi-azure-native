@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The connection info for the given notebook workspace
 func ListNotebookWorkspaceConnectionInfo(ctx *pulumi.Context, args *ListNotebookWorkspaceConnectionInfoArgs, opts ...pulumi.InvokeOption) (*ListNotebookWorkspaceConnectionInfoResult, error) {
 	var rv ListNotebookWorkspaceConnectionInfoResult
 	err := ctx.Invoke("azure-native:documentdb/v20200901:listNotebookWorkspaceConnectionInfo", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListNotebookWorkspaceConnectionInfo(ctx *pulumi.Context, args *ListNotebook
 }
 
 type ListNotebookWorkspaceConnectionInfoArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// The name of the notebook workspace resource.
+	AccountName           string `pulumi:"accountName"`
 	NotebookWorkspaceName string `pulumi:"notebookWorkspaceName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // The connection info for the given notebook workspace
 type ListNotebookWorkspaceConnectionInfoResult struct {
-	// Specifies auth token used for connecting to Notebook server (uses token-based auth).
-	AuthToken string `pulumi:"authToken"`
-	// Specifies the endpoint of Notebook server.
+	AuthToken              string `pulumi:"authToken"`
 	NotebookServerEndpoint string `pulumi:"notebookServerEndpoint"`
 }

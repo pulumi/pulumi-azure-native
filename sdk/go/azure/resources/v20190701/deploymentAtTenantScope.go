@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Deployment information.
 type DeploymentAtTenantScope struct {
 	pulumi.CustomResourceState
 
-	// the location of the deployment.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the deployment.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Deployment properties.
+	Location   pulumi.StringPtrOutput                     `pulumi:"location"`
+	Name       pulumi.StringOutput                        `pulumi:"name"`
 	Properties DeploymentPropertiesExtendedResponseOutput `pulumi:"properties"`
-	// The type of the deployment.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewDeploymentAtTenantScope registers a new resource with the given unique name, arguments, and options.
@@ -121,22 +116,16 @@ func (DeploymentAtTenantScopeState) ElementType() reflect.Type {
 }
 
 type deploymentAtTenantScopeArgs struct {
-	// The name of the deployment.
-	DeploymentName *string `pulumi:"deploymentName"`
-	// The location to store the deployment data.
-	Location *string `pulumi:"location"`
-	// The deployment properties.
-	Properties DeploymentProperties `pulumi:"properties"`
+	DeploymentName *string              `pulumi:"deploymentName"`
+	Location       *string              `pulumi:"location"`
+	Properties     DeploymentProperties `pulumi:"properties"`
 }
 
 // The set of arguments for constructing a DeploymentAtTenantScope resource.
 type DeploymentAtTenantScopeArgs struct {
-	// The name of the deployment.
 	DeploymentName pulumi.StringPtrInput
-	// The location to store the deployment data.
-	Location pulumi.StringPtrInput
-	// The deployment properties.
-	Properties DeploymentPropertiesInput
+	Location       pulumi.StringPtrInput
+	Properties     DeploymentPropertiesInput
 }
 
 func (DeploymentAtTenantScopeArgs) ElementType() reflect.Type {
@@ -162,9 +151,7 @@ func (i *DeploymentAtTenantScope) ToDeploymentAtTenantScopeOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtTenantScopeOutput)
 }
 
-type DeploymentAtTenantScopeOutput struct {
-	*pulumi.OutputState
-}
+type DeploymentAtTenantScopeOutput struct{ *pulumi.OutputState }
 
 func (DeploymentAtTenantScopeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentAtTenantScope)(nil))

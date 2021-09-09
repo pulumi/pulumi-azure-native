@@ -11,54 +11,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about a partner registration.
 type PartnerRegistration struct {
 	pulumi.CustomResourceState
 
-	// List of Azure subscription Ids that are authorized to create a partner namespace
-	// associated with this partner registration. This is an optional property. Creating
-	// partner namespaces is always permitted under the same Azure subscription as the one used
-	// for creating the partner registration.
-	AuthorizedAzureSubscriptionIds pulumi.StringArrayOutput `pulumi:"authorizedAzureSubscriptionIds"`
-	// The extension of the customer service URI of the publisher.
-	CustomerServiceUri pulumi.StringPtrOutput `pulumi:"customerServiceUri"`
-	// Location of the resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// URI of the logo.
-	LogoUri pulumi.StringPtrOutput `pulumi:"logoUri"`
-	// Long description for the custom scenarios and integration to be displayed in the portal if needed.
-	// Length of this description should not exceed 2048 characters.
-	LongDescription pulumi.StringPtrOutput `pulumi:"longDescription"`
-	// Name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
-	PartnerCustomerServiceExtension pulumi.StringPtrOutput `pulumi:"partnerCustomerServiceExtension"`
-	// The customer service number of the publisher. The expected phone format should start with a '+' sign
-	// followed by the country code. The remaining digits are then followed. Only digits and spaces are allowed and its
-	// length cannot exceed 16 digits including country code. Examples of valid phone numbers are: +1 515 123 4567 and
-	// +966 7 5115 2471. Examples of invalid phone numbers are: +1 (515) 123-4567, 1 515 123 4567 and +966 121 5115 24 7 551 1234 43
-	PartnerCustomerServiceNumber pulumi.StringPtrOutput `pulumi:"partnerCustomerServiceNumber"`
-	// Official name of the partner name. For example: "Contoso".
-	PartnerName pulumi.StringPtrOutput `pulumi:"partnerName"`
-	// Short description of the partner resource type. The length of this description should not exceed 256 characters.
-	PartnerResourceTypeDescription pulumi.StringPtrOutput `pulumi:"partnerResourceTypeDescription"`
-	// Display name of the partner resource type.
-	PartnerResourceTypeDisplayName pulumi.StringPtrOutput `pulumi:"partnerResourceTypeDisplayName"`
-	// Name of the partner resource type.
-	PartnerResourceTypeName pulumi.StringPtrOutput `pulumi:"partnerResourceTypeName"`
-	// Provisioning state of the partner registration.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// URI of the partner website that can be used by Azure customers to setup Event Grid
-	// integration on an event source.
-	SetupUri pulumi.StringPtrOutput `pulumi:"setupUri"`
-	// The system metadata relating to Partner Registration resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Visibility state of the partner registration.
-	VisibilityState pulumi.StringPtrOutput `pulumi:"visibilityState"`
+	AuthorizedAzureSubscriptionIds  pulumi.StringArrayOutput `pulumi:"authorizedAzureSubscriptionIds"`
+	CustomerServiceUri              pulumi.StringPtrOutput   `pulumi:"customerServiceUri"`
+	Location                        pulumi.StringOutput      `pulumi:"location"`
+	LogoUri                         pulumi.StringPtrOutput   `pulumi:"logoUri"`
+	LongDescription                 pulumi.StringPtrOutput   `pulumi:"longDescription"`
+	Name                            pulumi.StringOutput      `pulumi:"name"`
+	PartnerCustomerServiceExtension pulumi.StringPtrOutput   `pulumi:"partnerCustomerServiceExtension"`
+	PartnerCustomerServiceNumber    pulumi.StringPtrOutput   `pulumi:"partnerCustomerServiceNumber"`
+	PartnerName                     pulumi.StringPtrOutput   `pulumi:"partnerName"`
+	PartnerResourceTypeDescription  pulumi.StringPtrOutput   `pulumi:"partnerResourceTypeDescription"`
+	PartnerResourceTypeDisplayName  pulumi.StringPtrOutput   `pulumi:"partnerResourceTypeDisplayName"`
+	PartnerResourceTypeName         pulumi.StringPtrOutput   `pulumi:"partnerResourceTypeName"`
+	ProvisioningState               pulumi.StringOutput      `pulumi:"provisioningState"`
+	SetupUri                        pulumi.StringPtrOutput   `pulumi:"setupUri"`
+	SystemData                      SystemDataResponseOutput `pulumi:"systemData"`
+	Tags                            pulumi.StringMapOutput   `pulumi:"tags"`
+	Type                            pulumi.StringOutput      `pulumi:"type"`
+	VisibilityState                 pulumi.StringPtrOutput   `pulumi:"visibilityState"`
 }
 
 // NewPartnerRegistration registers a new resource with the given unique name, arguments, and options.
@@ -127,90 +100,42 @@ func (PartnerRegistrationState) ElementType() reflect.Type {
 }
 
 type partnerRegistrationArgs struct {
-	// List of Azure subscription Ids that are authorized to create a partner namespace
-	// associated with this partner registration. This is an optional property. Creating
-	// partner namespaces is always permitted under the same Azure subscription as the one used
-	// for creating the partner registration.
-	AuthorizedAzureSubscriptionIds []string `pulumi:"authorizedAzureSubscriptionIds"`
-	// The extension of the customer service URI of the publisher.
-	CustomerServiceUri *string `pulumi:"customerServiceUri"`
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// URI of the logo.
-	LogoUri *string `pulumi:"logoUri"`
-	// Long description for the custom scenarios and integration to be displayed in the portal if needed.
-	// Length of this description should not exceed 2048 characters.
-	LongDescription *string `pulumi:"longDescription"`
-	// The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
-	PartnerCustomerServiceExtension *string `pulumi:"partnerCustomerServiceExtension"`
-	// The customer service number of the publisher. The expected phone format should start with a '+' sign
-	// followed by the country code. The remaining digits are then followed. Only digits and spaces are allowed and its
-	// length cannot exceed 16 digits including country code. Examples of valid phone numbers are: +1 515 123 4567 and
-	// +966 7 5115 2471. Examples of invalid phone numbers are: +1 (515) 123-4567, 1 515 123 4567 and +966 121 5115 24 7 551 1234 43
-	PartnerCustomerServiceNumber *string `pulumi:"partnerCustomerServiceNumber"`
-	// Official name of the partner name. For example: "Contoso".
-	PartnerName *string `pulumi:"partnerName"`
-	// Name of the partner registration.
-	PartnerRegistrationName *string `pulumi:"partnerRegistrationName"`
-	// Short description of the partner resource type. The length of this description should not exceed 256 characters.
-	PartnerResourceTypeDescription *string `pulumi:"partnerResourceTypeDescription"`
-	// Display name of the partner resource type.
-	PartnerResourceTypeDisplayName *string `pulumi:"partnerResourceTypeDisplayName"`
-	// Name of the partner resource type.
-	PartnerResourceTypeName *string `pulumi:"partnerResourceTypeName"`
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// URI of the partner website that can be used by Azure customers to setup Event Grid
-	// integration on an event source.
-	SetupUri *string `pulumi:"setupUri"`
-	// Tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Visibility state of the partner registration.
-	VisibilityState *string `pulumi:"visibilityState"`
+	AuthorizedAzureSubscriptionIds  []string          `pulumi:"authorizedAzureSubscriptionIds"`
+	CustomerServiceUri              *string           `pulumi:"customerServiceUri"`
+	Location                        *string           `pulumi:"location"`
+	LogoUri                         *string           `pulumi:"logoUri"`
+	LongDescription                 *string           `pulumi:"longDescription"`
+	PartnerCustomerServiceExtension *string           `pulumi:"partnerCustomerServiceExtension"`
+	PartnerCustomerServiceNumber    *string           `pulumi:"partnerCustomerServiceNumber"`
+	PartnerName                     *string           `pulumi:"partnerName"`
+	PartnerRegistrationName         *string           `pulumi:"partnerRegistrationName"`
+	PartnerResourceTypeDescription  *string           `pulumi:"partnerResourceTypeDescription"`
+	PartnerResourceTypeDisplayName  *string           `pulumi:"partnerResourceTypeDisplayName"`
+	PartnerResourceTypeName         *string           `pulumi:"partnerResourceTypeName"`
+	ResourceGroupName               string            `pulumi:"resourceGroupName"`
+	SetupUri                        *string           `pulumi:"setupUri"`
+	Tags                            map[string]string `pulumi:"tags"`
+	VisibilityState                 *string           `pulumi:"visibilityState"`
 }
 
 // The set of arguments for constructing a PartnerRegistration resource.
 type PartnerRegistrationArgs struct {
-	// List of Azure subscription Ids that are authorized to create a partner namespace
-	// associated with this partner registration. This is an optional property. Creating
-	// partner namespaces is always permitted under the same Azure subscription as the one used
-	// for creating the partner registration.
-	AuthorizedAzureSubscriptionIds pulumi.StringArrayInput
-	// The extension of the customer service URI of the publisher.
-	CustomerServiceUri pulumi.StringPtrInput
-	// Location of the resource.
-	Location pulumi.StringPtrInput
-	// URI of the logo.
-	LogoUri pulumi.StringPtrInput
-	// Long description for the custom scenarios and integration to be displayed in the portal if needed.
-	// Length of this description should not exceed 2048 characters.
-	LongDescription pulumi.StringPtrInput
-	// The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
+	AuthorizedAzureSubscriptionIds  pulumi.StringArrayInput
+	CustomerServiceUri              pulumi.StringPtrInput
+	Location                        pulumi.StringPtrInput
+	LogoUri                         pulumi.StringPtrInput
+	LongDescription                 pulumi.StringPtrInput
 	PartnerCustomerServiceExtension pulumi.StringPtrInput
-	// The customer service number of the publisher. The expected phone format should start with a '+' sign
-	// followed by the country code. The remaining digits are then followed. Only digits and spaces are allowed and its
-	// length cannot exceed 16 digits including country code. Examples of valid phone numbers are: +1 515 123 4567 and
-	// +966 7 5115 2471. Examples of invalid phone numbers are: +1 (515) 123-4567, 1 515 123 4567 and +966 121 5115 24 7 551 1234 43
-	PartnerCustomerServiceNumber pulumi.StringPtrInput
-	// Official name of the partner name. For example: "Contoso".
-	PartnerName pulumi.StringPtrInput
-	// Name of the partner registration.
-	PartnerRegistrationName pulumi.StringPtrInput
-	// Short description of the partner resource type. The length of this description should not exceed 256 characters.
-	PartnerResourceTypeDescription pulumi.StringPtrInput
-	// Display name of the partner resource type.
-	PartnerResourceTypeDisplayName pulumi.StringPtrInput
-	// Name of the partner resource type.
-	PartnerResourceTypeName pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName pulumi.StringInput
-	// URI of the partner website that can be used by Azure customers to setup Event Grid
-	// integration on an event source.
-	SetupUri pulumi.StringPtrInput
-	// Tags of the resource.
-	Tags pulumi.StringMapInput
-	// Visibility state of the partner registration.
-	VisibilityState pulumi.StringPtrInput
+	PartnerCustomerServiceNumber    pulumi.StringPtrInput
+	PartnerName                     pulumi.StringPtrInput
+	PartnerRegistrationName         pulumi.StringPtrInput
+	PartnerResourceTypeDescription  pulumi.StringPtrInput
+	PartnerResourceTypeDisplayName  pulumi.StringPtrInput
+	PartnerResourceTypeName         pulumi.StringPtrInput
+	ResourceGroupName               pulumi.StringInput
+	SetupUri                        pulumi.StringPtrInput
+	Tags                            pulumi.StringMapInput
+	VisibilityState                 pulumi.StringPtrInput
 }
 
 func (PartnerRegistrationArgs) ElementType() reflect.Type {
@@ -236,9 +161,7 @@ func (i *PartnerRegistration) ToPartnerRegistrationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerRegistrationOutput)
 }
 
-type PartnerRegistrationOutput struct {
-	*pulumi.OutputState
-}
+type PartnerRegistrationOutput struct{ *pulumi.OutputState }
 
 func (PartnerRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PartnerRegistration)(nil))

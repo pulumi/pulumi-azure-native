@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This type represents the unencrypted value of the secret.
 func ListSecretValue(ctx *pulumi.Context, args *ListSecretValueArgs, opts ...pulumi.InvokeOption) (*ListSecretValueResult, error) {
 	var rv ListSecretValueResult
 	err := ctx.Invoke("azure-native:servicefabricmesh/v20180901preview:listSecretValue", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListSecretValue(ctx *pulumi.Context, args *ListSecretValueArgs, opts ...pul
 }
 
 type ListSecretValueArgs struct {
-	// Azure resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the secret resource.
-	SecretResourceName string `pulumi:"secretResourceName"`
-	// The name of the secret resource value which is typically the version identifier for the value.
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
+	SecretResourceName      string `pulumi:"secretResourceName"`
 	SecretValueResourceName string `pulumi:"secretValueResourceName"`
 }
 
 // This type represents the unencrypted value of the secret.
 type ListSecretValueResult struct {
-	// The actual value of the secret.
 	Value *string `pulumi:"value"`
 }

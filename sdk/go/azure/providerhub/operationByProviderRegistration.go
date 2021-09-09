@@ -132,9 +132,7 @@ func (i *OperationByProviderRegistration) ToOperationByProviderRegistrationOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(OperationByProviderRegistrationOutput)
 }
 
-type OperationByProviderRegistrationOutput struct {
-	*pulumi.OutputState
-}
+type OperationByProviderRegistrationOutput struct{ *pulumi.OutputState }
 
 func (OperationByProviderRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OperationByProviderRegistration)(nil))

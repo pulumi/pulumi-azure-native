@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Kusto database.
 type Database struct {
 	pulumi.CustomResourceState
 
-	// The time the data that should be kept in cache for fast queries in TimeSpan.
-	HotCachePeriod pulumi.StringPtrOutput `pulumi:"hotCachePeriod"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
-	SoftDeletePeriod pulumi.StringPtrOutput `pulumi:"softDeletePeriod"`
-	// The statistics of the database.
-	Statistics DatabaseStatisticsResponseOutput `pulumi:"statistics"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	HotCachePeriod    pulumi.StringPtrOutput           `pulumi:"hotCachePeriod"`
+	Location          pulumi.StringPtrOutput           `pulumi:"location"`
+	Name              pulumi.StringOutput              `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput              `pulumi:"provisioningState"`
+	SoftDeletePeriod  pulumi.StringPtrOutput           `pulumi:"softDeletePeriod"`
+	Statistics        DatabaseStatisticsResponseOutput `pulumi:"statistics"`
+	Type              pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
@@ -148,34 +140,22 @@ func (DatabaseState) ElementType() reflect.Type {
 }
 
 type databaseArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the database in the Kusto cluster.
-	DatabaseName *string `pulumi:"databaseName"`
-	// The time the data that should be kept in cache for fast queries in TimeSpan.
-	HotCachePeriod *string `pulumi:"hotCachePeriod"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
-	SoftDeletePeriod *string `pulumi:"softDeletePeriod"`
+	ClusterName       string  `pulumi:"clusterName"`
+	DatabaseName      *string `pulumi:"databaseName"`
+	HotCachePeriod    *string `pulumi:"hotCachePeriod"`
+	Location          *string `pulumi:"location"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	SoftDeletePeriod  *string `pulumi:"softDeletePeriod"`
 }
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName pulumi.StringInput
-	// The name of the database in the Kusto cluster.
-	DatabaseName pulumi.StringPtrInput
-	// The time the data that should be kept in cache for fast queries in TimeSpan.
-	HotCachePeriod pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group containing the Kusto cluster.
+	ClusterName       pulumi.StringInput
+	DatabaseName      pulumi.StringPtrInput
+	HotCachePeriod    pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
-	SoftDeletePeriod pulumi.StringPtrInput
+	SoftDeletePeriod  pulumi.StringPtrInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {
@@ -201,9 +181,7 @@ func (i *Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseOutput)
 }
 
-type DatabaseOutput struct {
-	*pulumi.OutputState
-}
+type DatabaseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Database)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// CDN endpoint is the entity within a CDN profile containing configuration information regarding caching behaviors and origins. The CDN endpoint is exposed using the URL format <endpointname>.azureedge.net by default, but custom domains can also be created.
 func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulumi.InvokeOption) (*LookupEndpointResult, error) {
 	var rv LookupEndpointResult
 	err := ctx.Invoke("azure-native:cdn/v20150601:getEndpoint", args, &rv, opts...)
@@ -18,46 +17,27 @@ func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulum
 }
 
 type LookupEndpointArgs struct {
-	// Name of the endpoint within the CDN profile.
-	EndpointName string `pulumi:"endpointName"`
-	// Name of the CDN profile within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Name of the resource group within the Azure subscription.
+	EndpointName      string `pulumi:"endpointName"`
+	ProfileName       string `pulumi:"profileName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // CDN endpoint is the entity within a CDN profile containing configuration information regarding caching behaviors and origins. The CDN endpoint is exposed using the URL format <endpointname>.azureedge.net by default, but custom domains can also be created.
 type LookupEndpointResult struct {
-	// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
-	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
-	// The host name of the endpoint {endpointName}.{DNSZone}
-	HostName string `pulumi:"hostName"`
-	// Resource ID
-	Id string `pulumi:"id"`
-	// Indicates whether the compression is enabled. Default value is false. If compression is enabled, the content transferred from cdn endpoint to end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
-	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
-	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-	IsHttpAllowed *bool `pulumi:"isHttpAllowed"`
-	// Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The host header the CDN provider will send along with content requests to origins. The default value is the host name of the origin.
-	OriginHostHeader *string `pulumi:"originHostHeader"`
-	// The path used for origin requests.
-	OriginPath *string `pulumi:"originPath"`
-	// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
-	Origins []DeepCreatedOriginResponse `pulumi:"origins"`
-	// Provisioning status of the endpoint.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Defines the query string caching behavior.
-	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
-	// Resource status of the endpoint.
-	ResourceState string `pulumi:"resourceState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	ContentTypesToCompress     []string                    `pulumi:"contentTypesToCompress"`
+	HostName                   string                      `pulumi:"hostName"`
+	Id                         string                      `pulumi:"id"`
+	IsCompressionEnabled       *bool                       `pulumi:"isCompressionEnabled"`
+	IsHttpAllowed              *bool                       `pulumi:"isHttpAllowed"`
+	IsHttpsAllowed             *bool                       `pulumi:"isHttpsAllowed"`
+	Location                   string                      `pulumi:"location"`
+	Name                       string                      `pulumi:"name"`
+	OriginHostHeader           *string                     `pulumi:"originHostHeader"`
+	OriginPath                 *string                     `pulumi:"originPath"`
+	Origins                    []DeepCreatedOriginResponse `pulumi:"origins"`
+	ProvisioningState          string                      `pulumi:"provisioningState"`
+	QueryStringCachingBehavior *string                     `pulumi:"queryStringCachingBehavior"`
+	ResourceState              string                      `pulumi:"resourceState"`
+	Tags                       map[string]string           `pulumi:"tags"`
+	Type                       string                      `pulumi:"type"`
 }

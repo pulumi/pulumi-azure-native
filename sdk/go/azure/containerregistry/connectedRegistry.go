@@ -172,9 +172,7 @@ func (i *ConnectedRegistry) ToConnectedRegistryOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedRegistryOutput)
 }
 
-type ConnectedRegistryOutput struct {
-	*pulumi.OutputState
-}
+type ConnectedRegistryOutput struct{ *pulumi.OutputState }
 
 func (ConnectedRegistryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConnectedRegistry)(nil))

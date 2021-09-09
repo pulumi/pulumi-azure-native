@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents Dynamics365 data connector.
 func LookupDynamics365DataConnector(ctx *pulumi.Context, args *LookupDynamics365DataConnectorArgs, opts ...pulumi.InvokeOption) (*LookupDynamics365DataConnectorResult, error) {
 	var rv LookupDynamics365DataConnectorResult
 	err := ctx.Invoke("azure-native:securityinsights/v20190101preview:getDynamics365DataConnector", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupDynamics365DataConnector(ctx *pulumi.Context, args *LookupDynamics365
 }
 
 type LookupDynamics365DataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId string `pulumi:"dataConnectorId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	DataConnectorId                     string `pulumi:"dataConnectorId"`
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Represents Dynamics365 data connector.
 type LookupDynamics365DataConnectorResult struct {
-	// The available data types for the connector.
 	DataTypes Dynamics365DataConnectorDataTypesResponse `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Expected value is 'Dynamics365'.
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The tenant id to connect to, and get the data from.
-	TenantId string `pulumi:"tenantId"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Etag      *string                                   `pulumi:"etag"`
+	Id        string                                    `pulumi:"id"`
+	Kind      string                                    `pulumi:"kind"`
+	Name      string                                    `pulumi:"name"`
+	TenantId  string                                    `pulumi:"tenantId"`
+	Type      string                                    `pulumi:"type"`
 }

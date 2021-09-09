@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration service environment.
 type IntegrationServiceEnvironment struct {
 	pulumi.CustomResourceState
 
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The integration service environment properties.
+	Location   pulumi.StringPtrOutput                                `pulumi:"location"`
+	Name       pulumi.StringOutput                                   `pulumi:"name"`
 	Properties IntegrationServiceEnvironmentPropertiesResponseOutput `pulumi:"properties"`
-	// The sku.
-	Sku IntegrationServiceEnvironmentSkuResponsePtrOutput `pulumi:"sku"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        IntegrationServiceEnvironmentSkuResponsePtrOutput     `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput                                `pulumi:"tags"`
+	Type       pulumi.StringOutput                                   `pulumi:"type"`
 }
 
 // NewIntegrationServiceEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -83,34 +76,22 @@ func (IntegrationServiceEnvironmentState) ElementType() reflect.Type {
 }
 
 type integrationServiceEnvironmentArgs struct {
-	// The integration service environment name.
-	IntegrationServiceEnvironmentName *string `pulumi:"integrationServiceEnvironmentName"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The integration service environment properties.
-	Properties *IntegrationServiceEnvironmentProperties `pulumi:"properties"`
-	// The resource group.
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// The sku.
-	Sku *IntegrationServiceEnvironmentSku `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	IntegrationServiceEnvironmentName *string                                  `pulumi:"integrationServiceEnvironmentName"`
+	Location                          *string                                  `pulumi:"location"`
+	Properties                        *IntegrationServiceEnvironmentProperties `pulumi:"properties"`
+	ResourceGroup                     string                                   `pulumi:"resourceGroup"`
+	Sku                               *IntegrationServiceEnvironmentSku        `pulumi:"sku"`
+	Tags                              map[string]string                        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IntegrationServiceEnvironment resource.
 type IntegrationServiceEnvironmentArgs struct {
-	// The integration service environment name.
 	IntegrationServiceEnvironmentName pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The integration service environment properties.
-	Properties IntegrationServiceEnvironmentPropertiesPtrInput
-	// The resource group.
-	ResourceGroup pulumi.StringInput
-	// The sku.
-	Sku IntegrationServiceEnvironmentSkuPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	Location                          pulumi.StringPtrInput
+	Properties                        IntegrationServiceEnvironmentPropertiesPtrInput
+	ResourceGroup                     pulumi.StringInput
+	Sku                               IntegrationServiceEnvironmentSkuPtrInput
+	Tags                              pulumi.StringMapInput
 }
 
 func (IntegrationServiceEnvironmentArgs) ElementType() reflect.Type {
@@ -136,9 +117,7 @@ func (i *IntegrationServiceEnvironment) ToIntegrationServiceEnvironmentOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentOutput)
 }
 
-type IntegrationServiceEnvironmentOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationServiceEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceEnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationServiceEnvironment)(nil))

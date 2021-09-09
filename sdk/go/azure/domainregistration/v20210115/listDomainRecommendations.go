@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Collection of domain name identifiers.
 func ListDomainRecommendations(ctx *pulumi.Context, args *ListDomainRecommendationsArgs, opts ...pulumi.InvokeOption) (*ListDomainRecommendationsResult, error) {
 	var rv ListDomainRecommendationsResult
 	err := ctx.Invoke("azure-native:domainregistration/v20210115:listDomainRecommendations", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListDomainRecommendations(ctx *pulumi.Context, args *ListDomainRecommendati
 }
 
 type ListDomainRecommendationsArgs struct {
-	// Keywords to be used for generating domain recommendations.
-	Keywords *string `pulumi:"keywords"`
-	// Maximum number of recommendations.
-	MaxDomainRecommendations *int `pulumi:"maxDomainRecommendations"`
+	Keywords                 *string `pulumi:"keywords"`
+	MaxDomainRecommendations *int    `pulumi:"maxDomainRecommendations"`
 }
 
 // Collection of domain name identifiers.
 type ListDomainRecommendationsResult struct {
-	// Link to next page of resources.
-	NextLink string `pulumi:"nextLink"`
-	// Collection of resources.
-	Value []NameIdentifierResponse `pulumi:"value"`
+	NextLink string                   `pulumi:"nextLink"`
+	Value    []NameIdentifierResponse `pulumi:"value"`
 }

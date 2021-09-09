@@ -11,15 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Recipient User details.
 type NotificationRecipientUser struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// API Management UserId subscribed to notification.
+	Name   pulumi.StringOutput    `pulumi:"name"`
+	Type   pulumi.StringOutput    `pulumi:"type"`
 	UserId pulumi.StringPtrOutput `pulumi:"userId"`
 }
 
@@ -131,26 +127,18 @@ func (NotificationRecipientUserState) ElementType() reflect.Type {
 }
 
 type notificationRecipientUserArgs struct {
-	// Notification Name Identifier.
-	NotificationName string `pulumi:"notificationName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// User identifier. Must be unique in the current API Management service instance.
-	Uid *string `pulumi:"uid"`
+	NotificationName  string  `pulumi:"notificationName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
+	Uid               *string `pulumi:"uid"`
 }
 
 // The set of arguments for constructing a NotificationRecipientUser resource.
 type NotificationRecipientUserArgs struct {
-	// Notification Name Identifier.
-	NotificationName pulumi.StringInput
-	// The name of the resource group.
+	NotificationName  pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// User identifier. Must be unique in the current API Management service instance.
-	Uid pulumi.StringPtrInput
+	ServiceName       pulumi.StringInput
+	Uid               pulumi.StringPtrInput
 }
 
 func (NotificationRecipientUserArgs) ElementType() reflect.Type {
@@ -176,9 +164,7 @@ func (i *NotificationRecipientUser) ToNotificationRecipientUserOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRecipientUserOutput)
 }
 
-type NotificationRecipientUserOutput struct {
-	*pulumi.OutputState
-}
+type NotificationRecipientUserOutput struct{ *pulumi.OutputState }
 
 func (NotificationRecipientUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotificationRecipientUser)(nil))

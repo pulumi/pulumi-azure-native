@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
 func LookupNodeType(ctx *pulumi.Context, args *LookupNodeTypeArgs, opts ...pulumi.InvokeOption) (*LookupNodeTypeResult, error) {
 	var rv LookupNodeTypeResult
 	err := ctx.Invoke("azure-native:servicefabric/v20210501:getNodeType", args, &rv, opts...)
@@ -18,62 +17,35 @@ func LookupNodeType(ctx *pulumi.Context, args *LookupNodeTypeArgs, opts ...pulum
 }
 
 type LookupNodeTypeArgs struct {
-	// The name of the cluster resource.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the node type.
-	NodeTypeName string `pulumi:"nodeTypeName"`
-	// The name of the resource group.
+	ClusterName       string `pulumi:"clusterName"`
+	NodeTypeName      string `pulumi:"nodeTypeName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
 type LookupNodeTypeResult struct {
-	// The range of ports from which cluster assigned port to Service Fabric applications.
-	ApplicationPorts *EndpointRangeDescriptionResponse `pulumi:"applicationPorts"`
-	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
-	Capacities map[string]string `pulumi:"capacities"`
-	// Disk size for each vm in the node type in GBs.
-	DataDiskSizeGB int `pulumi:"dataDiskSizeGB"`
-	// Managed data disk type. IOPS and throughput are given by the disk size, to see more information go to https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types.
-	DataDiskType *string `pulumi:"dataDiskType"`
-	// The range of ephemeral ports that nodes in this node type should be configured with.
-	EphemeralPorts *EndpointRangeDescriptionResponse `pulumi:"ephemeralPorts"`
-	// Azure resource identifier.
-	Id string `pulumi:"id"`
-	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
-	IsPrimary bool `pulumi:"isPrimary"`
-	// Indicates if the node type can only host Stateless workloads.
-	IsStateless *bool `pulumi:"isStateless"`
-	// Indicates if scale set associated with the node type can be composed of multiple placement groups.
-	MultiplePlacementGroups *bool `pulumi:"multiplePlacementGroups"`
-	// Azure resource name.
-	Name string `pulumi:"name"`
-	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-	PlacementProperties map[string]string `pulumi:"placementProperties"`
-	// The provisioning state of the managed cluster resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
-	Type string `pulumi:"type"`
-	// Set of extensions that should be installed onto the virtual machines.
-	VmExtensions []VMSSExtensionResponse `pulumi:"vmExtensions"`
-	// The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
-	VmImageOffer *string `pulumi:"vmImageOffer"`
-	// The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
-	VmImagePublisher *string `pulumi:"vmImagePublisher"`
-	// The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
-	VmImageSku *string `pulumi:"vmImageSku"`
-	// The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
-	VmImageVersion *string `pulumi:"vmImageVersion"`
-	// The number of nodes in the node type.
-	VmInstanceCount int `pulumi:"vmInstanceCount"`
-	// Identities for the virtual machine scale set under the node type.
-	VmManagedIdentity *VmManagedIdentityResponse `pulumi:"vmManagedIdentity"`
-	// The secrets to install in the virtual machines.
-	VmSecrets []VaultSecretGroupResponse `pulumi:"vmSecrets"`
-	// The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
-	VmSize *string `pulumi:"vmSize"`
+	ApplicationPorts        *EndpointRangeDescriptionResponse `pulumi:"applicationPorts"`
+	Capacities              map[string]string                 `pulumi:"capacities"`
+	DataDiskSizeGB          int                               `pulumi:"dataDiskSizeGB"`
+	DataDiskType            *string                           `pulumi:"dataDiskType"`
+	EphemeralPorts          *EndpointRangeDescriptionResponse `pulumi:"ephemeralPorts"`
+	Id                      string                            `pulumi:"id"`
+	IsPrimary               bool                              `pulumi:"isPrimary"`
+	IsStateless             *bool                             `pulumi:"isStateless"`
+	MultiplePlacementGroups *bool                             `pulumi:"multiplePlacementGroups"`
+	Name                    string                            `pulumi:"name"`
+	PlacementProperties     map[string]string                 `pulumi:"placementProperties"`
+	ProvisioningState       string                            `pulumi:"provisioningState"`
+	SystemData              SystemDataResponse                `pulumi:"systemData"`
+	Tags                    map[string]string                 `pulumi:"tags"`
+	Type                    string                            `pulumi:"type"`
+	VmExtensions            []VMSSExtensionResponse           `pulumi:"vmExtensions"`
+	VmImageOffer            *string                           `pulumi:"vmImageOffer"`
+	VmImagePublisher        *string                           `pulumi:"vmImagePublisher"`
+	VmImageSku              *string                           `pulumi:"vmImageSku"`
+	VmImageVersion          *string                           `pulumi:"vmImageVersion"`
+	VmInstanceCount         int                               `pulumi:"vmInstanceCount"`
+	VmManagedIdentity       *VmManagedIdentityResponse        `pulumi:"vmManagedIdentity"`
+	VmSecrets               []VaultSecretGroupResponse        `pulumi:"vmSecrets"`
+	VmSize                  *string                           `pulumi:"vmSize"`
 }

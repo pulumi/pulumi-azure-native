@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Watchlist in Azure Security Insights.
 func LookupWatchlist(ctx *pulumi.Context, args *LookupWatchlistArgs, opts ...pulumi.InvokeOption) (*LookupWatchlistResult, error) {
 	var rv LookupWatchlistResult
 	err := ctx.Invoke("azure-native:securityinsights/v20210401:getWatchlist", args, &rv, opts...)
@@ -18,68 +17,37 @@ func LookupWatchlist(ctx *pulumi.Context, args *LookupWatchlistArgs, opts ...pul
 }
 
 type LookupWatchlistArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The watchlist alias
-	WatchlistAlias string `pulumi:"watchlistAlias"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	WatchlistAlias                      string `pulumi:"watchlistAlias"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Represents a Watchlist in Azure Security Insights.
 type LookupWatchlistResult struct {
-	// The content type of the raw content. For now, only text/csv is valid
-	ContentType *string `pulumi:"contentType"`
-	// The time the watchlist was created
-	Created *string `pulumi:"created"`
-	// Describes a user that created the watchlist
-	CreatedBy *WatchlistUserInfoResponse `pulumi:"createdBy"`
-	// The default duration of a watchlist (in ISO 8601 duration format)
-	DefaultDuration *string `pulumi:"defaultDuration"`
-	// A description of the watchlist
-	Description *string `pulumi:"description"`
-	// The display name of the watchlist
-	DisplayName string `pulumi:"displayName"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// A flag that indicates if the watchlist is deleted or not
-	IsDeleted *bool `pulumi:"isDeleted"`
-	// The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
-	ItemsSearchKey string `pulumi:"itemsSearchKey"`
-	// List of labels relevant to this watchlist
-	Labels []string `pulumi:"labels"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The number of lines in a csv content to skip before the header
-	NumberOfLinesToSkip *int `pulumi:"numberOfLinesToSkip"`
-	// The provider of the watchlist
-	Provider string `pulumi:"provider"`
-	// The raw content that represents to watchlist items to create. Example : This line will be skipped
-	// header1,header2
-	// value1,value2
-	RawContent *string `pulumi:"rawContent"`
-	// The source of the watchlist
-	Source string `pulumi:"source"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The tenantId where the watchlist belongs to
-	TenantId *string `pulumi:"tenantId"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-	// The last time the watchlist was updated
-	Updated *string `pulumi:"updated"`
-	// Describes a user that updated the watchlist
-	UpdatedBy *WatchlistUserInfoResponse `pulumi:"updatedBy"`
-	// The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
-	UploadStatus *string `pulumi:"uploadStatus"`
-	// The alias of the watchlist
-	WatchlistAlias *string `pulumi:"watchlistAlias"`
-	// The id (a Guid) of the watchlist
-	WatchlistId *string `pulumi:"watchlistId"`
-	// The type of the watchlist
-	WatchlistType *string `pulumi:"watchlistType"`
+	ContentType         *string                    `pulumi:"contentType"`
+	Created             *string                    `pulumi:"created"`
+	CreatedBy           *WatchlistUserInfoResponse `pulumi:"createdBy"`
+	DefaultDuration     *string                    `pulumi:"defaultDuration"`
+	Description         *string                    `pulumi:"description"`
+	DisplayName         string                     `pulumi:"displayName"`
+	Etag                *string                    `pulumi:"etag"`
+	Id                  string                     `pulumi:"id"`
+	IsDeleted           *bool                      `pulumi:"isDeleted"`
+	ItemsSearchKey      string                     `pulumi:"itemsSearchKey"`
+	Labels              []string                   `pulumi:"labels"`
+	Name                string                     `pulumi:"name"`
+	NumberOfLinesToSkip *int                       `pulumi:"numberOfLinesToSkip"`
+	Provider            string                     `pulumi:"provider"`
+	RawContent          *string                    `pulumi:"rawContent"`
+	Source              string                     `pulumi:"source"`
+	SystemData          SystemDataResponse         `pulumi:"systemData"`
+	TenantId            *string                    `pulumi:"tenantId"`
+	Type                string                     `pulumi:"type"`
+	Updated             *string                    `pulumi:"updated"`
+	UpdatedBy           *WatchlistUserInfoResponse `pulumi:"updatedBy"`
+	UploadStatus        *string                    `pulumi:"uploadStatus"`
+	WatchlistAlias      *string                    `pulumi:"watchlistAlias"`
+	WatchlistId         *string                    `pulumi:"watchlistId"`
+	WatchlistType       *string                    `pulumi:"watchlistType"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Traffic Manager profile.
 func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.InvokeOption) (*LookupProfileResult, error) {
 	var rv LookupProfileResult
 	err := ctx.Invoke("azure-native:network/v20180201:getProfile", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.
 }
 
 type LookupProfileArgs struct {
-	// The name of the Traffic Manager profile.
-	ProfileName string `pulumi:"profileName"`
-	// The name of the resource group containing the Traffic Manager profile.
+	ProfileName       string `pulumi:"profileName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Class representing a Traffic Manager profile.
 type LookupProfileResult struct {
-	// The DNS settings of the Traffic Manager profile.
-	DnsConfig *DnsConfigResponse `pulumi:"dnsConfig"`
-	// The list of endpoints in the Traffic Manager profile.
-	Endpoints []EndpointResponse `pulumi:"endpoints"`
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-	Id string `pulumi:"id"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The endpoint monitoring settings of the Traffic Manager profile.
-	MonitorConfig *MonitorConfigResponse `pulumi:"monitorConfig"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The status of the Traffic Manager profile.
-	ProfileStatus *string `pulumi:"profileStatus"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The traffic routing method of the Traffic Manager profile.
-	TrafficRoutingMethod *string `pulumi:"trafficRoutingMethod"`
-	// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
-	TrafficViewEnrollmentStatus *string `pulumi:"trafficViewEnrollmentStatus"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type string `pulumi:"type"`
+	DnsConfig                   *DnsConfigResponse     `pulumi:"dnsConfig"`
+	Endpoints                   []EndpointResponse     `pulumi:"endpoints"`
+	Id                          string                 `pulumi:"id"`
+	Location                    *string                `pulumi:"location"`
+	MonitorConfig               *MonitorConfigResponse `pulumi:"monitorConfig"`
+	Name                        string                 `pulumi:"name"`
+	ProfileStatus               *string                `pulumi:"profileStatus"`
+	Tags                        map[string]string      `pulumi:"tags"`
+	TrafficRoutingMethod        *string                `pulumi:"trafficRoutingMethod"`
+	TrafficViewEnrollmentStatus *string                `pulumi:"trafficViewEnrollmentStatus"`
+	Type                        string                 `pulumi:"type"`
 }

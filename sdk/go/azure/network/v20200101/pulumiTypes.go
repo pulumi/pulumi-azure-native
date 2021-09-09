@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An A record.
 type ARecord struct {
-	// The IPv4 address of this A record.
 	Ipv4Address *string `pulumi:"ipv4Address"`
 }
 
@@ -27,9 +25,7 @@ type ARecordInput interface {
 	ToARecordOutputWithContext(context.Context) ARecordOutput
 }
 
-// An A record.
 type ARecordArgs struct {
-	// The IPv4 address of this A record.
 	Ipv4Address pulumi.StringPtrInput `pulumi:"ipv4Address"`
 }
 
@@ -70,7 +66,6 @@ func (i ARecordArray) ToARecordArrayOutputWithContext(ctx context.Context) AReco
 	return pulumi.ToOutputWithContext(ctx, i).(ARecordArrayOutput)
 }
 
-// An A record.
 type ARecordOutput struct{ *pulumi.OutputState }
 
 func (ARecordOutput) ElementType() reflect.Type {
@@ -85,7 +80,6 @@ func (o ARecordOutput) ToARecordOutputWithContext(ctx context.Context) ARecordOu
 	return o
 }
 
-// The IPv4 address of this A record.
 func (o ARecordOutput) Ipv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ARecord) *string { return v.Ipv4Address }).(pulumi.StringPtrOutput)
 }
@@ -110,9 +104,7 @@ func (o ARecordArrayOutput) Index(i pulumi.IntInput) ARecordOutput {
 	}).(ARecordOutput)
 }
 
-// An A record.
 type ARecordResponse struct {
-	// The IPv4 address of this A record.
 	Ipv4Address *string `pulumi:"ipv4Address"`
 }
 
@@ -127,9 +119,7 @@ type ARecordResponseInput interface {
 	ToARecordResponseOutputWithContext(context.Context) ARecordResponseOutput
 }
 
-// An A record.
 type ARecordResponseArgs struct {
-	// The IPv4 address of this A record.
 	Ipv4Address pulumi.StringPtrInput `pulumi:"ipv4Address"`
 }
 
@@ -170,7 +160,6 @@ func (i ARecordResponseArray) ToARecordResponseArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ARecordResponseArrayOutput)
 }
 
-// An A record.
 type ARecordResponseOutput struct{ *pulumi.OutputState }
 
 func (ARecordResponseOutput) ElementType() reflect.Type {
@@ -185,7 +174,6 @@ func (o ARecordResponseOutput) ToARecordResponseOutputWithContext(ctx context.Co
 	return o
 }
 
-// The IPv4 address of this A record.
 func (o ARecordResponseOutput) Ipv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ARecordResponse) *string { return v.Ipv4Address }).(pulumi.StringPtrOutput)
 }
@@ -210,9 +198,7 @@ func (o ARecordResponseArrayOutput) Index(i pulumi.IntInput) ARecordResponseOutp
 	}).(ARecordResponseOutput)
 }
 
-// An AAAA record.
 type AaaaRecord struct {
-	// The IPv6 address of this AAAA record.
 	Ipv6Address *string `pulumi:"ipv6Address"`
 }
 
@@ -227,9 +213,7 @@ type AaaaRecordInput interface {
 	ToAaaaRecordOutputWithContext(context.Context) AaaaRecordOutput
 }
 
-// An AAAA record.
 type AaaaRecordArgs struct {
-	// The IPv6 address of this AAAA record.
 	Ipv6Address pulumi.StringPtrInput `pulumi:"ipv6Address"`
 }
 
@@ -270,7 +254,6 @@ func (i AaaaRecordArray) ToAaaaRecordArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AaaaRecordArrayOutput)
 }
 
-// An AAAA record.
 type AaaaRecordOutput struct{ *pulumi.OutputState }
 
 func (AaaaRecordOutput) ElementType() reflect.Type {
@@ -285,7 +268,6 @@ func (o AaaaRecordOutput) ToAaaaRecordOutputWithContext(ctx context.Context) Aaa
 	return o
 }
 
-// The IPv6 address of this AAAA record.
 func (o AaaaRecordOutput) Ipv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AaaaRecord) *string { return v.Ipv6Address }).(pulumi.StringPtrOutput)
 }
@@ -310,9 +292,7 @@ func (o AaaaRecordArrayOutput) Index(i pulumi.IntInput) AaaaRecordOutput {
 	}).(AaaaRecordOutput)
 }
 
-// An AAAA record.
 type AaaaRecordResponse struct {
-	// The IPv6 address of this AAAA record.
 	Ipv6Address *string `pulumi:"ipv6Address"`
 }
 
@@ -327,9 +307,7 @@ type AaaaRecordResponseInput interface {
 	ToAaaaRecordResponseOutputWithContext(context.Context) AaaaRecordResponseOutput
 }
 
-// An AAAA record.
 type AaaaRecordResponseArgs struct {
-	// The IPv6 address of this AAAA record.
 	Ipv6Address pulumi.StringPtrInput `pulumi:"ipv6Address"`
 }
 
@@ -370,7 +348,6 @@ func (i AaaaRecordResponseArray) ToAaaaRecordResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AaaaRecordResponseArrayOutput)
 }
 
-// An AAAA record.
 type AaaaRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (AaaaRecordResponseOutput) ElementType() reflect.Type {
@@ -385,7 +362,6 @@ func (o AaaaRecordResponseOutput) ToAaaaRecordResponseOutputWithContext(ctx cont
 	return o
 }
 
-// The IPv6 address of this AAAA record.
 func (o AaaaRecordResponseOutput) Ipv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AaaaRecordResponse) *string { return v.Ipv6Address }).(pulumi.StringPtrOutput)
 }
@@ -410,26 +386,16 @@ func (o AaaaRecordResponseArrayOutput) Index(i pulumi.IntInput) AaaaRecordRespon
 	}).(AaaaRecordResponseOutput)
 }
 
-// Backend address of a frontDoor load balancer.
 type Backend struct {
-	// Location of the backend (IP address or FQDN)
-	Address *string `pulumi:"address"`
-	// The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.
-	BackendHostHeader *string `pulumi:"backendHostHeader"`
-	// Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState *string `pulumi:"enabledState"`
-	// The HTTP TCP port number. Must be between 1 and 65535.
-	HttpPort *int `pulumi:"httpPort"`
-	// The HTTPS TCP port number. Must be between 1 and 65535.
-	HttpsPort *int `pulumi:"httpsPort"`
-	// Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
-	Priority *int `pulumi:"priority"`
-	// The Alias of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
-	PrivateLinkAlias *string `pulumi:"privateLinkAlias"`
-	// A custom message to be included in the approval request to connect to the Private Link
+	Address                    *string `pulumi:"address"`
+	BackendHostHeader          *string `pulumi:"backendHostHeader"`
+	EnabledState               *string `pulumi:"enabledState"`
+	HttpPort                   *int    `pulumi:"httpPort"`
+	HttpsPort                  *int    `pulumi:"httpsPort"`
+	Priority                   *int    `pulumi:"priority"`
+	PrivateLinkAlias           *string `pulumi:"privateLinkAlias"`
 	PrivateLinkApprovalMessage *string `pulumi:"privateLinkApprovalMessage"`
-	// Weight of this endpoint for load balancing purposes.
-	Weight *int `pulumi:"weight"`
+	Weight                     *int    `pulumi:"weight"`
 }
 
 // BackendInput is an input type that accepts BackendArgs and BackendOutput values.
@@ -443,26 +409,16 @@ type BackendInput interface {
 	ToBackendOutputWithContext(context.Context) BackendOutput
 }
 
-// Backend address of a frontDoor load balancer.
 type BackendArgs struct {
-	// Location of the backend (IP address or FQDN)
-	Address pulumi.StringPtrInput `pulumi:"address"`
-	// The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.
-	BackendHostHeader pulumi.StringPtrInput `pulumi:"backendHostHeader"`
-	// Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// The HTTP TCP port number. Must be between 1 and 65535.
-	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
-	// The HTTPS TCP port number. Must be between 1 and 65535.
-	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
-	// Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// The Alias of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
-	PrivateLinkAlias pulumi.StringPtrInput `pulumi:"privateLinkAlias"`
-	// A custom message to be included in the approval request to connect to the Private Link
+	Address                    pulumi.StringPtrInput `pulumi:"address"`
+	BackendHostHeader          pulumi.StringPtrInput `pulumi:"backendHostHeader"`
+	EnabledState               pulumi.StringPtrInput `pulumi:"enabledState"`
+	HttpPort                   pulumi.IntPtrInput    `pulumi:"httpPort"`
+	HttpsPort                  pulumi.IntPtrInput    `pulumi:"httpsPort"`
+	Priority                   pulumi.IntPtrInput    `pulumi:"priority"`
+	PrivateLinkAlias           pulumi.StringPtrInput `pulumi:"privateLinkAlias"`
 	PrivateLinkApprovalMessage pulumi.StringPtrInput `pulumi:"privateLinkApprovalMessage"`
-	// Weight of this endpoint for load balancing purposes.
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	Weight                     pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (BackendArgs) ElementType() reflect.Type {
@@ -502,7 +458,6 @@ func (i BackendArray) ToBackendArrayOutputWithContext(ctx context.Context) Backe
 	return pulumi.ToOutputWithContext(ctx, i).(BackendArrayOutput)
 }
 
-// Backend address of a frontDoor load balancer.
 type BackendOutput struct{ *pulumi.OutputState }
 
 func (BackendOutput) ElementType() reflect.Type {
@@ -517,47 +472,38 @@ func (o BackendOutput) ToBackendOutputWithContext(ctx context.Context) BackendOu
 	return o
 }
 
-// Location of the backend (IP address or FQDN)
 func (o BackendOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Backend) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.
 func (o BackendOutput) BackendHostHeader() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Backend) *string { return v.BackendHostHeader }).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
 func (o BackendOutput) EnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Backend) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
 }
 
-// The HTTP TCP port number. Must be between 1 and 65535.
 func (o BackendOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Backend) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
 }
 
-// The HTTPS TCP port number. Must be between 1 and 65535.
 func (o BackendOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Backend) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
-// Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
 func (o BackendOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Backend) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// The Alias of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
 func (o BackendOutput) PrivateLinkAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Backend) *string { return v.PrivateLinkAlias }).(pulumi.StringPtrOutput)
 }
 
-// A custom message to be included in the approval request to connect to the Private Link
 func (o BackendOutput) PrivateLinkApprovalMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Backend) *string { return v.PrivateLinkApprovalMessage }).(pulumi.StringPtrOutput)
 }
 
-// Weight of this endpoint for load balancing purposes.
 func (o BackendOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Backend) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -582,18 +528,12 @@ func (o BackendArrayOutput) Index(i pulumi.IntInput) BackendOutput {
 	}).(BackendOutput)
 }
 
-// A backend pool is a collection of backends that can be routed to.
 type BackendPool struct {
-	// The set of backends for this pool
-	Backends []Backend `pulumi:"backends"`
-	// L7 health probe settings for a backend pool
-	HealthProbeSettings *SubResource `pulumi:"healthProbeSettings"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Load balancing settings for a backend pool
+	Backends              []Backend    `pulumi:"backends"`
+	HealthProbeSettings   *SubResource `pulumi:"healthProbeSettings"`
+	Id                    *string      `pulumi:"id"`
 	LoadBalancingSettings *SubResource `pulumi:"loadBalancingSettings"`
-	// Resource name.
-	Name *string `pulumi:"name"`
+	Name                  *string      `pulumi:"name"`
 }
 
 // BackendPoolInput is an input type that accepts BackendPoolArgs and BackendPoolOutput values.
@@ -607,18 +547,12 @@ type BackendPoolInput interface {
 	ToBackendPoolOutputWithContext(context.Context) BackendPoolOutput
 }
 
-// A backend pool is a collection of backends that can be routed to.
 type BackendPoolArgs struct {
-	// The set of backends for this pool
-	Backends BackendArrayInput `pulumi:"backends"`
-	// L7 health probe settings for a backend pool
-	HealthProbeSettings SubResourcePtrInput `pulumi:"healthProbeSettings"`
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Load balancing settings for a backend pool
-	LoadBalancingSettings SubResourcePtrInput `pulumi:"loadBalancingSettings"`
-	// Resource name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Backends              BackendArrayInput     `pulumi:"backends"`
+	HealthProbeSettings   SubResourcePtrInput   `pulumi:"healthProbeSettings"`
+	Id                    pulumi.StringPtrInput `pulumi:"id"`
+	LoadBalancingSettings SubResourcePtrInput   `pulumi:"loadBalancingSettings"`
+	Name                  pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (BackendPoolArgs) ElementType() reflect.Type {
@@ -658,7 +592,6 @@ func (i BackendPoolArray) ToBackendPoolArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BackendPoolArrayOutput)
 }
 
-// A backend pool is a collection of backends that can be routed to.
 type BackendPoolOutput struct{ *pulumi.OutputState }
 
 func (BackendPoolOutput) ElementType() reflect.Type {
@@ -673,27 +606,22 @@ func (o BackendPoolOutput) ToBackendPoolOutputWithContext(ctx context.Context) B
 	return o
 }
 
-// The set of backends for this pool
 func (o BackendPoolOutput) Backends() BackendArrayOutput {
 	return o.ApplyT(func(v BackendPool) []Backend { return v.Backends }).(BackendArrayOutput)
 }
 
-// L7 health probe settings for a backend pool
 func (o BackendPoolOutput) HealthProbeSettings() SubResourcePtrOutput {
 	return o.ApplyT(func(v BackendPool) *SubResource { return v.HealthProbeSettings }).(SubResourcePtrOutput)
 }
 
-// Resource ID.
 func (o BackendPoolOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendPool) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Load balancing settings for a backend pool
 func (o BackendPoolOutput) LoadBalancingSettings() SubResourcePtrOutput {
 	return o.ApplyT(func(v BackendPool) *SubResource { return v.LoadBalancingSettings }).(SubResourcePtrOutput)
 }
 
-// Resource name.
 func (o BackendPoolOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendPool) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -718,22 +646,14 @@ func (o BackendPoolArrayOutput) Index(i pulumi.IntInput) BackendPoolOutput {
 	}).(BackendPoolOutput)
 }
 
-// A backend pool is a collection of backends that can be routed to.
 type BackendPoolResponse struct {
-	// The set of backends for this pool
-	Backends []BackendResponse `pulumi:"backends"`
-	// L7 health probe settings for a backend pool
-	HealthProbeSettings *SubResourceResponse `pulumi:"healthProbeSettings"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Load balancing settings for a backend pool
+	Backends              []BackendResponse    `pulumi:"backends"`
+	HealthProbeSettings   *SubResourceResponse `pulumi:"healthProbeSettings"`
+	Id                    *string              `pulumi:"id"`
 	LoadBalancingSettings *SubResourceResponse `pulumi:"loadBalancingSettings"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource status.
-	ResourceState string `pulumi:"resourceState"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Name                  *string              `pulumi:"name"`
+	ResourceState         string               `pulumi:"resourceState"`
+	Type                  string               `pulumi:"type"`
 }
 
 // BackendPoolResponseInput is an input type that accepts BackendPoolResponseArgs and BackendPoolResponseOutput values.
@@ -747,22 +667,14 @@ type BackendPoolResponseInput interface {
 	ToBackendPoolResponseOutputWithContext(context.Context) BackendPoolResponseOutput
 }
 
-// A backend pool is a collection of backends that can be routed to.
 type BackendPoolResponseArgs struct {
-	// The set of backends for this pool
-	Backends BackendResponseArrayInput `pulumi:"backends"`
-	// L7 health probe settings for a backend pool
-	HealthProbeSettings SubResourceResponsePtrInput `pulumi:"healthProbeSettings"`
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Load balancing settings for a backend pool
+	Backends              BackendResponseArrayInput   `pulumi:"backends"`
+	HealthProbeSettings   SubResourceResponsePtrInput `pulumi:"healthProbeSettings"`
+	Id                    pulumi.StringPtrInput       `pulumi:"id"`
 	LoadBalancingSettings SubResourceResponsePtrInput `pulumi:"loadBalancingSettings"`
-	// Resource name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource status.
-	ResourceState pulumi.StringInput `pulumi:"resourceState"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Name                  pulumi.StringPtrInput       `pulumi:"name"`
+	ResourceState         pulumi.StringInput          `pulumi:"resourceState"`
+	Type                  pulumi.StringInput          `pulumi:"type"`
 }
 
 func (BackendPoolResponseArgs) ElementType() reflect.Type {
@@ -802,7 +714,6 @@ func (i BackendPoolResponseArray) ToBackendPoolResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BackendPoolResponseArrayOutput)
 }
 
-// A backend pool is a collection of backends that can be routed to.
 type BackendPoolResponseOutput struct{ *pulumi.OutputState }
 
 func (BackendPoolResponseOutput) ElementType() reflect.Type {
@@ -817,37 +728,30 @@ func (o BackendPoolResponseOutput) ToBackendPoolResponseOutputWithContext(ctx co
 	return o
 }
 
-// The set of backends for this pool
 func (o BackendPoolResponseOutput) Backends() BackendResponseArrayOutput {
 	return o.ApplyT(func(v BackendPoolResponse) []BackendResponse { return v.Backends }).(BackendResponseArrayOutput)
 }
 
-// L7 health probe settings for a backend pool
 func (o BackendPoolResponseOutput) HealthProbeSettings() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v BackendPoolResponse) *SubResourceResponse { return v.HealthProbeSettings }).(SubResourceResponsePtrOutput)
 }
 
-// Resource ID.
 func (o BackendPoolResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendPoolResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Load balancing settings for a backend pool
 func (o BackendPoolResponseOutput) LoadBalancingSettings() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v BackendPoolResponse) *SubResourceResponse { return v.LoadBalancingSettings }).(SubResourceResponsePtrOutput)
 }
 
-// Resource name.
 func (o BackendPoolResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendPoolResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource status.
 func (o BackendPoolResponseOutput) ResourceState() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendPoolResponse) string { return v.ResourceState }).(pulumi.StringOutput)
 }
 
-// Resource type.
 func (o BackendPoolResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendPoolResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -872,12 +776,9 @@ func (o BackendPoolResponseArrayOutput) Index(i pulumi.IntInput) BackendPoolResp
 	}).(BackendPoolResponseOutput)
 }
 
-// Settings that apply to all backend pools.
 type BackendPoolsSettings struct {
-	// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
 	EnforceCertificateNameCheck *string `pulumi:"enforceCertificateNameCheck"`
-	// Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
-	SendRecvTimeoutSeconds *int `pulumi:"sendRecvTimeoutSeconds"`
+	SendRecvTimeoutSeconds      *int    `pulumi:"sendRecvTimeoutSeconds"`
 }
 
 // BackendPoolsSettingsInput is an input type that accepts BackendPoolsSettingsArgs and BackendPoolsSettingsOutput values.
@@ -891,12 +792,9 @@ type BackendPoolsSettingsInput interface {
 	ToBackendPoolsSettingsOutputWithContext(context.Context) BackendPoolsSettingsOutput
 }
 
-// Settings that apply to all backend pools.
 type BackendPoolsSettingsArgs struct {
-	// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
 	EnforceCertificateNameCheck pulumi.StringPtrInput `pulumi:"enforceCertificateNameCheck"`
-	// Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
-	SendRecvTimeoutSeconds pulumi.IntPtrInput `pulumi:"sendRecvTimeoutSeconds"`
+	SendRecvTimeoutSeconds      pulumi.IntPtrInput    `pulumi:"sendRecvTimeoutSeconds"`
 }
 
 func (BackendPoolsSettingsArgs) ElementType() reflect.Type {
@@ -952,7 +850,6 @@ func (i *backendPoolsSettingsPtrType) ToBackendPoolsSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BackendPoolsSettingsPtrOutput)
 }
 
-// Settings that apply to all backend pools.
 type BackendPoolsSettingsOutput struct{ *pulumi.OutputState }
 
 func (BackendPoolsSettingsOutput) ElementType() reflect.Type {
@@ -972,17 +869,15 @@ func (o BackendPoolsSettingsOutput) ToBackendPoolsSettingsPtrOutput() BackendPoo
 }
 
 func (o BackendPoolsSettingsOutput) ToBackendPoolsSettingsPtrOutputWithContext(ctx context.Context) BackendPoolsSettingsPtrOutput {
-	return o.ApplyT(func(v BackendPoolsSettings) *BackendPoolsSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendPoolsSettings) *BackendPoolsSettings {
 		return &v
 	}).(BackendPoolsSettingsPtrOutput)
 }
 
-// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
 func (o BackendPoolsSettingsOutput) EnforceCertificateNameCheck() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendPoolsSettings) *string { return v.EnforceCertificateNameCheck }).(pulumi.StringPtrOutput)
 }
 
-// Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
 func (o BackendPoolsSettingsOutput) SendRecvTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BackendPoolsSettings) *int { return v.SendRecvTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
@@ -1002,10 +897,15 @@ func (o BackendPoolsSettingsPtrOutput) ToBackendPoolsSettingsPtrOutputWithContex
 }
 
 func (o BackendPoolsSettingsPtrOutput) Elem() BackendPoolsSettingsOutput {
-	return o.ApplyT(func(v *BackendPoolsSettings) BackendPoolsSettings { return *v }).(BackendPoolsSettingsOutput)
+	return o.ApplyT(func(v *BackendPoolsSettings) BackendPoolsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BackendPoolsSettings
+		return ret
+	}).(BackendPoolsSettingsOutput)
 }
 
-// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
 func (o BackendPoolsSettingsPtrOutput) EnforceCertificateNameCheck() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendPoolsSettings) *string {
 		if v == nil {
@@ -1015,7 +915,6 @@ func (o BackendPoolsSettingsPtrOutput) EnforceCertificateNameCheck() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
 func (o BackendPoolsSettingsPtrOutput) SendRecvTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BackendPoolsSettings) *int {
 		if v == nil {
@@ -1025,12 +924,9 @@ func (o BackendPoolsSettingsPtrOutput) SendRecvTimeoutSeconds() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Settings that apply to all backend pools.
 type BackendPoolsSettingsResponse struct {
-	// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
 	EnforceCertificateNameCheck *string `pulumi:"enforceCertificateNameCheck"`
-	// Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
-	SendRecvTimeoutSeconds *int `pulumi:"sendRecvTimeoutSeconds"`
+	SendRecvTimeoutSeconds      *int    `pulumi:"sendRecvTimeoutSeconds"`
 }
 
 // BackendPoolsSettingsResponseInput is an input type that accepts BackendPoolsSettingsResponseArgs and BackendPoolsSettingsResponseOutput values.
@@ -1044,12 +940,9 @@ type BackendPoolsSettingsResponseInput interface {
 	ToBackendPoolsSettingsResponseOutputWithContext(context.Context) BackendPoolsSettingsResponseOutput
 }
 
-// Settings that apply to all backend pools.
 type BackendPoolsSettingsResponseArgs struct {
-	// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
 	EnforceCertificateNameCheck pulumi.StringPtrInput `pulumi:"enforceCertificateNameCheck"`
-	// Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
-	SendRecvTimeoutSeconds pulumi.IntPtrInput `pulumi:"sendRecvTimeoutSeconds"`
+	SendRecvTimeoutSeconds      pulumi.IntPtrInput    `pulumi:"sendRecvTimeoutSeconds"`
 }
 
 func (BackendPoolsSettingsResponseArgs) ElementType() reflect.Type {
@@ -1105,7 +998,6 @@ func (i *backendPoolsSettingsResponsePtrType) ToBackendPoolsSettingsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BackendPoolsSettingsResponsePtrOutput)
 }
 
-// Settings that apply to all backend pools.
 type BackendPoolsSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (BackendPoolsSettingsResponseOutput) ElementType() reflect.Type {
@@ -1125,17 +1017,15 @@ func (o BackendPoolsSettingsResponseOutput) ToBackendPoolsSettingsResponsePtrOut
 }
 
 func (o BackendPoolsSettingsResponseOutput) ToBackendPoolsSettingsResponsePtrOutputWithContext(ctx context.Context) BackendPoolsSettingsResponsePtrOutput {
-	return o.ApplyT(func(v BackendPoolsSettingsResponse) *BackendPoolsSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendPoolsSettingsResponse) *BackendPoolsSettingsResponse {
 		return &v
 	}).(BackendPoolsSettingsResponsePtrOutput)
 }
 
-// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
 func (o BackendPoolsSettingsResponseOutput) EnforceCertificateNameCheck() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendPoolsSettingsResponse) *string { return v.EnforceCertificateNameCheck }).(pulumi.StringPtrOutput)
 }
 
-// Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
 func (o BackendPoolsSettingsResponseOutput) SendRecvTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BackendPoolsSettingsResponse) *int { return v.SendRecvTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
@@ -1155,10 +1045,15 @@ func (o BackendPoolsSettingsResponsePtrOutput) ToBackendPoolsSettingsResponsePtr
 }
 
 func (o BackendPoolsSettingsResponsePtrOutput) Elem() BackendPoolsSettingsResponseOutput {
-	return o.ApplyT(func(v *BackendPoolsSettingsResponse) BackendPoolsSettingsResponse { return *v }).(BackendPoolsSettingsResponseOutput)
+	return o.ApplyT(func(v *BackendPoolsSettingsResponse) BackendPoolsSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BackendPoolsSettingsResponse
+		return ret
+	}).(BackendPoolsSettingsResponseOutput)
 }
 
-// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
 func (o BackendPoolsSettingsResponsePtrOutput) EnforceCertificateNameCheck() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendPoolsSettingsResponse) *string {
 		if v == nil {
@@ -1168,7 +1063,6 @@ func (o BackendPoolsSettingsResponsePtrOutput) EnforceCertificateNameCheck() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
 func (o BackendPoolsSettingsResponsePtrOutput) SendRecvTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BackendPoolsSettingsResponse) *int {
 		if v == nil {
@@ -1178,28 +1072,17 @@ func (o BackendPoolsSettingsResponsePtrOutput) SendRecvTimeoutSeconds() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// Backend address of a frontDoor load balancer.
 type BackendResponse struct {
-	// Location of the backend (IP address or FQDN)
-	Address *string `pulumi:"address"`
-	// The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.
-	BackendHostHeader *string `pulumi:"backendHostHeader"`
-	// Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState *string `pulumi:"enabledState"`
-	// The HTTP TCP port number. Must be between 1 and 65535.
-	HttpPort *int `pulumi:"httpPort"`
-	// The HTTPS TCP port number. Must be between 1 and 65535.
-	HttpsPort *int `pulumi:"httpsPort"`
-	// Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
-	Priority *int `pulumi:"priority"`
-	// The Approval status for the connection to the Private Link
-	PrivateEndpointStatus string `pulumi:"privateEndpointStatus"`
-	// The Alias of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
-	PrivateLinkAlias *string `pulumi:"privateLinkAlias"`
-	// A custom message to be included in the approval request to connect to the Private Link
+	Address                    *string `pulumi:"address"`
+	BackendHostHeader          *string `pulumi:"backendHostHeader"`
+	EnabledState               *string `pulumi:"enabledState"`
+	HttpPort                   *int    `pulumi:"httpPort"`
+	HttpsPort                  *int    `pulumi:"httpsPort"`
+	Priority                   *int    `pulumi:"priority"`
+	PrivateEndpointStatus      string  `pulumi:"privateEndpointStatus"`
+	PrivateLinkAlias           *string `pulumi:"privateLinkAlias"`
 	PrivateLinkApprovalMessage *string `pulumi:"privateLinkApprovalMessage"`
-	// Weight of this endpoint for load balancing purposes.
-	Weight *int `pulumi:"weight"`
+	Weight                     *int    `pulumi:"weight"`
 }
 
 // BackendResponseInput is an input type that accepts BackendResponseArgs and BackendResponseOutput values.
@@ -1213,28 +1096,17 @@ type BackendResponseInput interface {
 	ToBackendResponseOutputWithContext(context.Context) BackendResponseOutput
 }
 
-// Backend address of a frontDoor load balancer.
 type BackendResponseArgs struct {
-	// Location of the backend (IP address or FQDN)
-	Address pulumi.StringPtrInput `pulumi:"address"`
-	// The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.
-	BackendHostHeader pulumi.StringPtrInput `pulumi:"backendHostHeader"`
-	// Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// The HTTP TCP port number. Must be between 1 and 65535.
-	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
-	// The HTTPS TCP port number. Must be between 1 and 65535.
-	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
-	// Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// The Approval status for the connection to the Private Link
-	PrivateEndpointStatus pulumi.StringInput `pulumi:"privateEndpointStatus"`
-	// The Alias of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
-	PrivateLinkAlias pulumi.StringPtrInput `pulumi:"privateLinkAlias"`
-	// A custom message to be included in the approval request to connect to the Private Link
+	Address                    pulumi.StringPtrInput `pulumi:"address"`
+	BackendHostHeader          pulumi.StringPtrInput `pulumi:"backendHostHeader"`
+	EnabledState               pulumi.StringPtrInput `pulumi:"enabledState"`
+	HttpPort                   pulumi.IntPtrInput    `pulumi:"httpPort"`
+	HttpsPort                  pulumi.IntPtrInput    `pulumi:"httpsPort"`
+	Priority                   pulumi.IntPtrInput    `pulumi:"priority"`
+	PrivateEndpointStatus      pulumi.StringInput    `pulumi:"privateEndpointStatus"`
+	PrivateLinkAlias           pulumi.StringPtrInput `pulumi:"privateLinkAlias"`
 	PrivateLinkApprovalMessage pulumi.StringPtrInput `pulumi:"privateLinkApprovalMessage"`
-	// Weight of this endpoint for load balancing purposes.
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	Weight                     pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (BackendResponseArgs) ElementType() reflect.Type {
@@ -1274,7 +1146,6 @@ func (i BackendResponseArray) ToBackendResponseArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BackendResponseArrayOutput)
 }
 
-// Backend address of a frontDoor load balancer.
 type BackendResponseOutput struct{ *pulumi.OutputState }
 
 func (BackendResponseOutput) ElementType() reflect.Type {
@@ -1289,52 +1160,42 @@ func (o BackendResponseOutput) ToBackendResponseOutputWithContext(ctx context.Co
 	return o
 }
 
-// Location of the backend (IP address or FQDN)
 func (o BackendResponseOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendResponse) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.
 func (o BackendResponseOutput) BackendHostHeader() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendResponse) *string { return v.BackendHostHeader }).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
 func (o BackendResponseOutput) EnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
 }
 
-// The HTTP TCP port number. Must be between 1 and 65535.
 func (o BackendResponseOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BackendResponse) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
 }
 
-// The HTTPS TCP port number. Must be between 1 and 65535.
 func (o BackendResponseOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BackendResponse) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
-// Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
 func (o BackendResponseOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BackendResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// The Approval status for the connection to the Private Link
 func (o BackendResponseOutput) PrivateEndpointStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendResponse) string { return v.PrivateEndpointStatus }).(pulumi.StringOutput)
 }
 
-// The Alias of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
 func (o BackendResponseOutput) PrivateLinkAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendResponse) *string { return v.PrivateLinkAlias }).(pulumi.StringPtrOutput)
 }
 
-// A custom message to be included in the approval request to connect to the Private Link
 func (o BackendResponseOutput) PrivateLinkApprovalMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendResponse) *string { return v.PrivateLinkApprovalMessage }).(pulumi.StringPtrOutput)
 }
 
-// Weight of this endpoint for load balancing purposes.
 func (o BackendResponseOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BackendResponse) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -1359,16 +1220,11 @@ func (o BackendResponseArrayOutput) Index(i pulumi.IntInput) BackendResponseOutp
 	}).(BackendResponseOutput)
 }
 
-// Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
 type CacheConfiguration struct {
-	// The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year
-	CacheDuration *string `pulumi:"cacheDuration"`
-	// Whether to use dynamic compression for cached content
-	DynamicCompression *string `pulumi:"dynamicCompression"`
-	// Treatment of URL query terms when forming the cache key.
+	CacheDuration                *string `pulumi:"cacheDuration"`
+	DynamicCompression           *string `pulumi:"dynamicCompression"`
 	QueryParameterStripDirective *string `pulumi:"queryParameterStripDirective"`
-	// query parameters to include or exclude (comma separated).
-	QueryParameters *string `pulumi:"queryParameters"`
+	QueryParameters              *string `pulumi:"queryParameters"`
 }
 
 // CacheConfigurationInput is an input type that accepts CacheConfigurationArgs and CacheConfigurationOutput values.
@@ -1382,16 +1238,11 @@ type CacheConfigurationInput interface {
 	ToCacheConfigurationOutputWithContext(context.Context) CacheConfigurationOutput
 }
 
-// Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
 type CacheConfigurationArgs struct {
-	// The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year
-	CacheDuration pulumi.StringPtrInput `pulumi:"cacheDuration"`
-	// Whether to use dynamic compression for cached content
-	DynamicCompression pulumi.StringPtrInput `pulumi:"dynamicCompression"`
-	// Treatment of URL query terms when forming the cache key.
+	CacheDuration                pulumi.StringPtrInput `pulumi:"cacheDuration"`
+	DynamicCompression           pulumi.StringPtrInput `pulumi:"dynamicCompression"`
 	QueryParameterStripDirective pulumi.StringPtrInput `pulumi:"queryParameterStripDirective"`
-	// query parameters to include or exclude (comma separated).
-	QueryParameters pulumi.StringPtrInput `pulumi:"queryParameters"`
+	QueryParameters              pulumi.StringPtrInput `pulumi:"queryParameters"`
 }
 
 func (CacheConfigurationArgs) ElementType() reflect.Type {
@@ -1447,7 +1298,6 @@ func (i *cacheConfigurationPtrType) ToCacheConfigurationPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(CacheConfigurationPtrOutput)
 }
 
-// Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
 type CacheConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CacheConfigurationOutput) ElementType() reflect.Type {
@@ -1467,27 +1317,23 @@ func (o CacheConfigurationOutput) ToCacheConfigurationPtrOutput() CacheConfigura
 }
 
 func (o CacheConfigurationOutput) ToCacheConfigurationPtrOutputWithContext(ctx context.Context) CacheConfigurationPtrOutput {
-	return o.ApplyT(func(v CacheConfiguration) *CacheConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheConfiguration) *CacheConfiguration {
 		return &v
 	}).(CacheConfigurationPtrOutput)
 }
 
-// The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year
 func (o CacheConfigurationOutput) CacheDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheConfiguration) *string { return v.CacheDuration }).(pulumi.StringPtrOutput)
 }
 
-// Whether to use dynamic compression for cached content
 func (o CacheConfigurationOutput) DynamicCompression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheConfiguration) *string { return v.DynamicCompression }).(pulumi.StringPtrOutput)
 }
 
-// Treatment of URL query terms when forming the cache key.
 func (o CacheConfigurationOutput) QueryParameterStripDirective() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheConfiguration) *string { return v.QueryParameterStripDirective }).(pulumi.StringPtrOutput)
 }
 
-// query parameters to include or exclude (comma separated).
 func (o CacheConfigurationOutput) QueryParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheConfiguration) *string { return v.QueryParameters }).(pulumi.StringPtrOutput)
 }
@@ -1507,10 +1353,15 @@ func (o CacheConfigurationPtrOutput) ToCacheConfigurationPtrOutputWithContext(ct
 }
 
 func (o CacheConfigurationPtrOutput) Elem() CacheConfigurationOutput {
-	return o.ApplyT(func(v *CacheConfiguration) CacheConfiguration { return *v }).(CacheConfigurationOutput)
+	return o.ApplyT(func(v *CacheConfiguration) CacheConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CacheConfiguration
+		return ret
+	}).(CacheConfigurationOutput)
 }
 
-// The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year
 func (o CacheConfigurationPtrOutput) CacheDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheConfiguration) *string {
 		if v == nil {
@@ -1520,7 +1371,6 @@ func (o CacheConfigurationPtrOutput) CacheDuration() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to use dynamic compression for cached content
 func (o CacheConfigurationPtrOutput) DynamicCompression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheConfiguration) *string {
 		if v == nil {
@@ -1530,7 +1380,6 @@ func (o CacheConfigurationPtrOutput) DynamicCompression() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Treatment of URL query terms when forming the cache key.
 func (o CacheConfigurationPtrOutput) QueryParameterStripDirective() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheConfiguration) *string {
 		if v == nil {
@@ -1540,7 +1389,6 @@ func (o CacheConfigurationPtrOutput) QueryParameterStripDirective() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// query parameters to include or exclude (comma separated).
 func (o CacheConfigurationPtrOutput) QueryParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheConfiguration) *string {
 		if v == nil {
@@ -1550,16 +1398,11 @@ func (o CacheConfigurationPtrOutput) QueryParameters() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
 type CacheConfigurationResponse struct {
-	// The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year
-	CacheDuration *string `pulumi:"cacheDuration"`
-	// Whether to use dynamic compression for cached content
-	DynamicCompression *string `pulumi:"dynamicCompression"`
-	// Treatment of URL query terms when forming the cache key.
+	CacheDuration                *string `pulumi:"cacheDuration"`
+	DynamicCompression           *string `pulumi:"dynamicCompression"`
 	QueryParameterStripDirective *string `pulumi:"queryParameterStripDirective"`
-	// query parameters to include or exclude (comma separated).
-	QueryParameters *string `pulumi:"queryParameters"`
+	QueryParameters              *string `pulumi:"queryParameters"`
 }
 
 // CacheConfigurationResponseInput is an input type that accepts CacheConfigurationResponseArgs and CacheConfigurationResponseOutput values.
@@ -1573,16 +1416,11 @@ type CacheConfigurationResponseInput interface {
 	ToCacheConfigurationResponseOutputWithContext(context.Context) CacheConfigurationResponseOutput
 }
 
-// Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
 type CacheConfigurationResponseArgs struct {
-	// The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year
-	CacheDuration pulumi.StringPtrInput `pulumi:"cacheDuration"`
-	// Whether to use dynamic compression for cached content
-	DynamicCompression pulumi.StringPtrInput `pulumi:"dynamicCompression"`
-	// Treatment of URL query terms when forming the cache key.
+	CacheDuration                pulumi.StringPtrInput `pulumi:"cacheDuration"`
+	DynamicCompression           pulumi.StringPtrInput `pulumi:"dynamicCompression"`
 	QueryParameterStripDirective pulumi.StringPtrInput `pulumi:"queryParameterStripDirective"`
-	// query parameters to include or exclude (comma separated).
-	QueryParameters pulumi.StringPtrInput `pulumi:"queryParameters"`
+	QueryParameters              pulumi.StringPtrInput `pulumi:"queryParameters"`
 }
 
 func (CacheConfigurationResponseArgs) ElementType() reflect.Type {
@@ -1638,7 +1476,6 @@ func (i *cacheConfigurationResponsePtrType) ToCacheConfigurationResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CacheConfigurationResponsePtrOutput)
 }
 
-// Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
 type CacheConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1658,27 +1495,23 @@ func (o CacheConfigurationResponseOutput) ToCacheConfigurationResponsePtrOutput(
 }
 
 func (o CacheConfigurationResponseOutput) ToCacheConfigurationResponsePtrOutputWithContext(ctx context.Context) CacheConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v CacheConfigurationResponse) *CacheConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheConfigurationResponse) *CacheConfigurationResponse {
 		return &v
 	}).(CacheConfigurationResponsePtrOutput)
 }
 
-// The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year
 func (o CacheConfigurationResponseOutput) CacheDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheConfigurationResponse) *string { return v.CacheDuration }).(pulumi.StringPtrOutput)
 }
 
-// Whether to use dynamic compression for cached content
 func (o CacheConfigurationResponseOutput) DynamicCompression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheConfigurationResponse) *string { return v.DynamicCompression }).(pulumi.StringPtrOutput)
 }
 
-// Treatment of URL query terms when forming the cache key.
 func (o CacheConfigurationResponseOutput) QueryParameterStripDirective() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheConfigurationResponse) *string { return v.QueryParameterStripDirective }).(pulumi.StringPtrOutput)
 }
 
-// query parameters to include or exclude (comma separated).
 func (o CacheConfigurationResponseOutput) QueryParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheConfigurationResponse) *string { return v.QueryParameters }).(pulumi.StringPtrOutput)
 }
@@ -1698,10 +1531,15 @@ func (o CacheConfigurationResponsePtrOutput) ToCacheConfigurationResponsePtrOutp
 }
 
 func (o CacheConfigurationResponsePtrOutput) Elem() CacheConfigurationResponseOutput {
-	return o.ApplyT(func(v *CacheConfigurationResponse) CacheConfigurationResponse { return *v }).(CacheConfigurationResponseOutput)
+	return o.ApplyT(func(v *CacheConfigurationResponse) CacheConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheConfigurationResponse
+		return ret
+	}).(CacheConfigurationResponseOutput)
 }
 
-// The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year
 func (o CacheConfigurationResponsePtrOutput) CacheDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheConfigurationResponse) *string {
 		if v == nil {
@@ -1711,7 +1549,6 @@ func (o CacheConfigurationResponsePtrOutput) CacheDuration() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to use dynamic compression for cached content
 func (o CacheConfigurationResponsePtrOutput) DynamicCompression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheConfigurationResponse) *string {
 		if v == nil {
@@ -1721,7 +1558,6 @@ func (o CacheConfigurationResponsePtrOutput) DynamicCompression() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Treatment of URL query terms when forming the cache key.
 func (o CacheConfigurationResponsePtrOutput) QueryParameterStripDirective() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheConfigurationResponse) *string {
 		if v == nil {
@@ -1731,7 +1567,6 @@ func (o CacheConfigurationResponsePtrOutput) QueryParameterStripDirective() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// query parameters to include or exclude (comma separated).
 func (o CacheConfigurationResponsePtrOutput) QueryParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheConfigurationResponse) *string {
 		if v == nil {
@@ -1741,9 +1576,7 @@ func (o CacheConfigurationResponsePtrOutput) QueryParameters() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// A CNAME record.
 type CnameRecord struct {
-	// The canonical name for this CNAME record.
 	Cname *string `pulumi:"cname"`
 }
 
@@ -1758,9 +1591,7 @@ type CnameRecordInput interface {
 	ToCnameRecordOutputWithContext(context.Context) CnameRecordOutput
 }
 
-// A CNAME record.
 type CnameRecordArgs struct {
-	// The canonical name for this CNAME record.
 	Cname pulumi.StringPtrInput `pulumi:"cname"`
 }
 
@@ -1817,7 +1648,6 @@ func (i *cnameRecordPtrType) ToCnameRecordPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CnameRecordPtrOutput)
 }
 
-// A CNAME record.
 type CnameRecordOutput struct{ *pulumi.OutputState }
 
 func (CnameRecordOutput) ElementType() reflect.Type {
@@ -1837,12 +1667,11 @@ func (o CnameRecordOutput) ToCnameRecordPtrOutput() CnameRecordPtrOutput {
 }
 
 func (o CnameRecordOutput) ToCnameRecordPtrOutputWithContext(ctx context.Context) CnameRecordPtrOutput {
-	return o.ApplyT(func(v CnameRecord) *CnameRecord {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CnameRecord) *CnameRecord {
 		return &v
 	}).(CnameRecordPtrOutput)
 }
 
-// The canonical name for this CNAME record.
 func (o CnameRecordOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CnameRecord) *string { return v.Cname }).(pulumi.StringPtrOutput)
 }
@@ -1862,10 +1691,15 @@ func (o CnameRecordPtrOutput) ToCnameRecordPtrOutputWithContext(ctx context.Cont
 }
 
 func (o CnameRecordPtrOutput) Elem() CnameRecordOutput {
-	return o.ApplyT(func(v *CnameRecord) CnameRecord { return *v }).(CnameRecordOutput)
+	return o.ApplyT(func(v *CnameRecord) CnameRecord {
+		if v != nil {
+			return *v
+		}
+		var ret CnameRecord
+		return ret
+	}).(CnameRecordOutput)
 }
 
-// The canonical name for this CNAME record.
 func (o CnameRecordPtrOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CnameRecord) *string {
 		if v == nil {
@@ -1875,9 +1709,7 @@ func (o CnameRecordPtrOutput) Cname() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A CNAME record.
 type CnameRecordResponse struct {
-	// The canonical name for this CNAME record.
 	Cname *string `pulumi:"cname"`
 }
 
@@ -1892,9 +1724,7 @@ type CnameRecordResponseInput interface {
 	ToCnameRecordResponseOutputWithContext(context.Context) CnameRecordResponseOutput
 }
 
-// A CNAME record.
 type CnameRecordResponseArgs struct {
-	// The canonical name for this CNAME record.
 	Cname pulumi.StringPtrInput `pulumi:"cname"`
 }
 
@@ -1951,7 +1781,6 @@ func (i *cnameRecordResponsePtrType) ToCnameRecordResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CnameRecordResponsePtrOutput)
 }
 
-// A CNAME record.
 type CnameRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (CnameRecordResponseOutput) ElementType() reflect.Type {
@@ -1971,12 +1800,11 @@ func (o CnameRecordResponseOutput) ToCnameRecordResponsePtrOutput() CnameRecordR
 }
 
 func (o CnameRecordResponseOutput) ToCnameRecordResponsePtrOutputWithContext(ctx context.Context) CnameRecordResponsePtrOutput {
-	return o.ApplyT(func(v CnameRecordResponse) *CnameRecordResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CnameRecordResponse) *CnameRecordResponse {
 		return &v
 	}).(CnameRecordResponsePtrOutput)
 }
 
-// The canonical name for this CNAME record.
 func (o CnameRecordResponseOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CnameRecordResponse) *string { return v.Cname }).(pulumi.StringPtrOutput)
 }
@@ -1996,10 +1824,15 @@ func (o CnameRecordResponsePtrOutput) ToCnameRecordResponsePtrOutputWithContext(
 }
 
 func (o CnameRecordResponsePtrOutput) Elem() CnameRecordResponseOutput {
-	return o.ApplyT(func(v *CnameRecordResponse) CnameRecordResponse { return *v }).(CnameRecordResponseOutput)
+	return o.ApplyT(func(v *CnameRecordResponse) CnameRecordResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CnameRecordResponse
+		return ret
+	}).(CnameRecordResponseOutput)
 }
 
-// The canonical name for this CNAME record.
 func (o CnameRecordResponsePtrOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CnameRecordResponse) *string {
 		if v == nil {
@@ -2009,22 +1842,14 @@ func (o CnameRecordResponsePtrOutput) Cname() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Https settings for a domain
 type CustomHttpsConfigurationResponse struct {
-	// Defines the source of the SSL certificate
-	CertificateSource string `pulumi:"certificateSource"`
-	// Defines the type of the certificate used for secure connections to a frontendEndpoint
-	CertificateType *string `pulumi:"certificateType"`
-	// The minimum TLS version required from the clients to establish an SSL handshake with Front Door.
-	MinimumTlsVersion string `pulumi:"minimumTlsVersion"`
-	// Defines the TLS extension protocol that is used for secure delivery
-	ProtocolType string `pulumi:"protocolType"`
-	// The name of the Key Vault secret representing the full certificate PFX
-	SecretName *string `pulumi:"secretName"`
-	// The version of the Key Vault secret representing the full certificate PFX
-	SecretVersion *string `pulumi:"secretVersion"`
-	// The Key Vault containing the SSL certificate
-	Vault *KeyVaultCertificateSourceParametersResponseVault `pulumi:"vault"`
+	CertificateSource string                                            `pulumi:"certificateSource"`
+	CertificateType   *string                                           `pulumi:"certificateType"`
+	MinimumTlsVersion string                                            `pulumi:"minimumTlsVersion"`
+	ProtocolType      string                                            `pulumi:"protocolType"`
+	SecretName        *string                                           `pulumi:"secretName"`
+	SecretVersion     *string                                           `pulumi:"secretVersion"`
+	Vault             *KeyVaultCertificateSourceParametersResponseVault `pulumi:"vault"`
 }
 
 // CustomHttpsConfigurationResponseInput is an input type that accepts CustomHttpsConfigurationResponseArgs and CustomHttpsConfigurationResponseOutput values.
@@ -2038,22 +1863,14 @@ type CustomHttpsConfigurationResponseInput interface {
 	ToCustomHttpsConfigurationResponseOutputWithContext(context.Context) CustomHttpsConfigurationResponseOutput
 }
 
-// Https settings for a domain
 type CustomHttpsConfigurationResponseArgs struct {
-	// Defines the source of the SSL certificate
-	CertificateSource pulumi.StringInput `pulumi:"certificateSource"`
-	// Defines the type of the certificate used for secure connections to a frontendEndpoint
-	CertificateType pulumi.StringPtrInput `pulumi:"certificateType"`
-	// The minimum TLS version required from the clients to establish an SSL handshake with Front Door.
-	MinimumTlsVersion pulumi.StringInput `pulumi:"minimumTlsVersion"`
-	// Defines the TLS extension protocol that is used for secure delivery
-	ProtocolType pulumi.StringInput `pulumi:"protocolType"`
-	// The name of the Key Vault secret representing the full certificate PFX
-	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
-	// The version of the Key Vault secret representing the full certificate PFX
-	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
-	// The Key Vault containing the SSL certificate
-	Vault KeyVaultCertificateSourceParametersResponseVaultPtrInput `pulumi:"vault"`
+	CertificateSource pulumi.StringInput                                       `pulumi:"certificateSource"`
+	CertificateType   pulumi.StringPtrInput                                    `pulumi:"certificateType"`
+	MinimumTlsVersion pulumi.StringInput                                       `pulumi:"minimumTlsVersion"`
+	ProtocolType      pulumi.StringInput                                       `pulumi:"protocolType"`
+	SecretName        pulumi.StringPtrInput                                    `pulumi:"secretName"`
+	SecretVersion     pulumi.StringPtrInput                                    `pulumi:"secretVersion"`
+	Vault             KeyVaultCertificateSourceParametersResponseVaultPtrInput `pulumi:"vault"`
 }
 
 func (CustomHttpsConfigurationResponseArgs) ElementType() reflect.Type {
@@ -2068,7 +1885,6 @@ func (i CustomHttpsConfigurationResponseArgs) ToCustomHttpsConfigurationResponse
 	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationResponseOutput)
 }
 
-// Https settings for a domain
 type CustomHttpsConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomHttpsConfigurationResponseOutput) ElementType() reflect.Type {
@@ -2083,55 +1899,42 @@ func (o CustomHttpsConfigurationResponseOutput) ToCustomHttpsConfigurationRespon
 	return o
 }
 
-// Defines the source of the SSL certificate
 func (o CustomHttpsConfigurationResponseOutput) CertificateSource() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomHttpsConfigurationResponse) string { return v.CertificateSource }).(pulumi.StringOutput)
 }
 
-// Defines the type of the certificate used for secure connections to a frontendEndpoint
 func (o CustomHttpsConfigurationResponseOutput) CertificateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomHttpsConfigurationResponse) *string { return v.CertificateType }).(pulumi.StringPtrOutput)
 }
 
-// The minimum TLS version required from the clients to establish an SSL handshake with Front Door.
 func (o CustomHttpsConfigurationResponseOutput) MinimumTlsVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomHttpsConfigurationResponse) string { return v.MinimumTlsVersion }).(pulumi.StringOutput)
 }
 
-// Defines the TLS extension protocol that is used for secure delivery
 func (o CustomHttpsConfigurationResponseOutput) ProtocolType() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomHttpsConfigurationResponse) string { return v.ProtocolType }).(pulumi.StringOutput)
 }
 
-// The name of the Key Vault secret representing the full certificate PFX
 func (o CustomHttpsConfigurationResponseOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomHttpsConfigurationResponse) *string { return v.SecretName }).(pulumi.StringPtrOutput)
 }
 
-// The version of the Key Vault secret representing the full certificate PFX
 func (o CustomHttpsConfigurationResponseOutput) SecretVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomHttpsConfigurationResponse) *string { return v.SecretVersion }).(pulumi.StringPtrOutput)
 }
 
-// The Key Vault containing the SSL certificate
 func (o CustomHttpsConfigurationResponseOutput) Vault() KeyVaultCertificateSourceParametersResponseVaultPtrOutput {
 	return o.ApplyT(func(v CustomHttpsConfigurationResponse) *KeyVaultCertificateSourceParametersResponseVault {
 		return v.Vault
 	}).(KeyVaultCertificateSourceParametersResponseVaultPtrOutput)
 }
 
-// Describes Forwarding Route.
 type ForwardingConfiguration struct {
-	// A reference to the BackendPool which this rule routes to.
-	BackendPool *SubResource `pulumi:"backendPool"`
-	// The caching configuration associated with this rule.
-	CacheConfiguration *CacheConfiguration `pulumi:"cacheConfiguration"`
-	// A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
-	CustomForwardingPath *string `pulumi:"customForwardingPath"`
-	// Protocol this rule will use when forwarding traffic to backends.
-	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
-	// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
-	OdataType string `pulumi:"odataType"`
+	BackendPool          *SubResource        `pulumi:"backendPool"`
+	CacheConfiguration   *CacheConfiguration `pulumi:"cacheConfiguration"`
+	CustomForwardingPath *string             `pulumi:"customForwardingPath"`
+	ForwardingProtocol   *string             `pulumi:"forwardingProtocol"`
+	OdataType            string              `pulumi:"odataType"`
 }
 
 // ForwardingConfigurationInput is an input type that accepts ForwardingConfigurationArgs and ForwardingConfigurationOutput values.
@@ -2145,18 +1948,12 @@ type ForwardingConfigurationInput interface {
 	ToForwardingConfigurationOutputWithContext(context.Context) ForwardingConfigurationOutput
 }
 
-// Describes Forwarding Route.
 type ForwardingConfigurationArgs struct {
-	// A reference to the BackendPool which this rule routes to.
-	BackendPool SubResourcePtrInput `pulumi:"backendPool"`
-	// The caching configuration associated with this rule.
-	CacheConfiguration CacheConfigurationPtrInput `pulumi:"cacheConfiguration"`
-	// A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
-	CustomForwardingPath pulumi.StringPtrInput `pulumi:"customForwardingPath"`
-	// Protocol this rule will use when forwarding traffic to backends.
-	ForwardingProtocol pulumi.StringPtrInput `pulumi:"forwardingProtocol"`
-	// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	BackendPool          SubResourcePtrInput        `pulumi:"backendPool"`
+	CacheConfiguration   CacheConfigurationPtrInput `pulumi:"cacheConfiguration"`
+	CustomForwardingPath pulumi.StringPtrInput      `pulumi:"customForwardingPath"`
+	ForwardingProtocol   pulumi.StringPtrInput      `pulumi:"forwardingProtocol"`
+	OdataType            pulumi.StringInput         `pulumi:"odataType"`
 }
 
 func (ForwardingConfigurationArgs) ElementType() reflect.Type {
@@ -2171,7 +1968,6 @@ func (i ForwardingConfigurationArgs) ToForwardingConfigurationOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ForwardingConfigurationOutput)
 }
 
-// Describes Forwarding Route.
 type ForwardingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ForwardingConfigurationOutput) ElementType() reflect.Type {
@@ -2186,43 +1982,32 @@ func (o ForwardingConfigurationOutput) ToForwardingConfigurationOutputWithContex
 	return o
 }
 
-// A reference to the BackendPool which this rule routes to.
 func (o ForwardingConfigurationOutput) BackendPool() SubResourcePtrOutput {
 	return o.ApplyT(func(v ForwardingConfiguration) *SubResource { return v.BackendPool }).(SubResourcePtrOutput)
 }
 
-// The caching configuration associated with this rule.
 func (o ForwardingConfigurationOutput) CacheConfiguration() CacheConfigurationPtrOutput {
 	return o.ApplyT(func(v ForwardingConfiguration) *CacheConfiguration { return v.CacheConfiguration }).(CacheConfigurationPtrOutput)
 }
 
-// A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
 func (o ForwardingConfigurationOutput) CustomForwardingPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ForwardingConfiguration) *string { return v.CustomForwardingPath }).(pulumi.StringPtrOutput)
 }
 
-// Protocol this rule will use when forwarding traffic to backends.
 func (o ForwardingConfigurationOutput) ForwardingProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ForwardingConfiguration) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
 }
 
-// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
 func (o ForwardingConfigurationOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ForwardingConfiguration) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Describes Forwarding Route.
 type ForwardingConfigurationResponse struct {
-	// A reference to the BackendPool which this rule routes to.
-	BackendPool *SubResourceResponse `pulumi:"backendPool"`
-	// The caching configuration associated with this rule.
-	CacheConfiguration *CacheConfigurationResponse `pulumi:"cacheConfiguration"`
-	// A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
-	CustomForwardingPath *string `pulumi:"customForwardingPath"`
-	// Protocol this rule will use when forwarding traffic to backends.
-	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
-	// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
-	OdataType string `pulumi:"odataType"`
+	BackendPool          *SubResourceResponse        `pulumi:"backendPool"`
+	CacheConfiguration   *CacheConfigurationResponse `pulumi:"cacheConfiguration"`
+	CustomForwardingPath *string                     `pulumi:"customForwardingPath"`
+	ForwardingProtocol   *string                     `pulumi:"forwardingProtocol"`
+	OdataType            string                      `pulumi:"odataType"`
 }
 
 // ForwardingConfigurationResponseInput is an input type that accepts ForwardingConfigurationResponseArgs and ForwardingConfigurationResponseOutput values.
@@ -2236,18 +2021,12 @@ type ForwardingConfigurationResponseInput interface {
 	ToForwardingConfigurationResponseOutputWithContext(context.Context) ForwardingConfigurationResponseOutput
 }
 
-// Describes Forwarding Route.
 type ForwardingConfigurationResponseArgs struct {
-	// A reference to the BackendPool which this rule routes to.
-	BackendPool SubResourceResponsePtrInput `pulumi:"backendPool"`
-	// The caching configuration associated with this rule.
-	CacheConfiguration CacheConfigurationResponsePtrInput `pulumi:"cacheConfiguration"`
-	// A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
-	CustomForwardingPath pulumi.StringPtrInput `pulumi:"customForwardingPath"`
-	// Protocol this rule will use when forwarding traffic to backends.
-	ForwardingProtocol pulumi.StringPtrInput `pulumi:"forwardingProtocol"`
-	// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	BackendPool          SubResourceResponsePtrInput        `pulumi:"backendPool"`
+	CacheConfiguration   CacheConfigurationResponsePtrInput `pulumi:"cacheConfiguration"`
+	CustomForwardingPath pulumi.StringPtrInput              `pulumi:"customForwardingPath"`
+	ForwardingProtocol   pulumi.StringPtrInput              `pulumi:"forwardingProtocol"`
+	OdataType            pulumi.StringInput                 `pulumi:"odataType"`
 }
 
 func (ForwardingConfigurationResponseArgs) ElementType() reflect.Type {
@@ -2262,7 +2041,6 @@ func (i ForwardingConfigurationResponseArgs) ToForwardingConfigurationResponseOu
 	return pulumi.ToOutputWithContext(ctx, i).(ForwardingConfigurationResponseOutput)
 }
 
-// Describes Forwarding Route.
 type ForwardingConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ForwardingConfigurationResponseOutput) ElementType() reflect.Type {
@@ -2277,44 +2055,32 @@ func (o ForwardingConfigurationResponseOutput) ToForwardingConfigurationResponse
 	return o
 }
 
-// A reference to the BackendPool which this rule routes to.
 func (o ForwardingConfigurationResponseOutput) BackendPool() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v ForwardingConfigurationResponse) *SubResourceResponse { return v.BackendPool }).(SubResourceResponsePtrOutput)
 }
 
-// The caching configuration associated with this rule.
 func (o ForwardingConfigurationResponseOutput) CacheConfiguration() CacheConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v ForwardingConfigurationResponse) *CacheConfigurationResponse { return v.CacheConfiguration }).(CacheConfigurationResponsePtrOutput)
 }
 
-// A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
 func (o ForwardingConfigurationResponseOutput) CustomForwardingPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ForwardingConfigurationResponse) *string { return v.CustomForwardingPath }).(pulumi.StringPtrOutput)
 }
 
-// Protocol this rule will use when forwarding traffic to backends.
 func (o ForwardingConfigurationResponseOutput) ForwardingProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ForwardingConfigurationResponse) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
 }
 
-// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
 func (o ForwardingConfigurationResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ForwardingConfigurationResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// A frontend endpoint used for routing.
 type FrontendEndpoint struct {
-	// The host name of the frontendEndpoint. Must be a domain name.
-	HostName *string `pulumi:"hostName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-	SessionAffinityEnabledState *string `pulumi:"sessionAffinityEnabledState"`
-	// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
-	SessionAffinityTtlSeconds *int `pulumi:"sessionAffinityTtlSeconds"`
-	// Defines the Web Application Firewall policy for each host (if applicable)
+	HostName                         *string                                                           `pulumi:"hostName"`
+	Id                               *string                                                           `pulumi:"id"`
+	Name                             *string                                                           `pulumi:"name"`
+	SessionAffinityEnabledState      *string                                                           `pulumi:"sessionAffinityEnabledState"`
+	SessionAffinityTtlSeconds        *int                                                              `pulumi:"sessionAffinityTtlSeconds"`
 	WebApplicationFirewallPolicyLink *FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink `pulumi:"webApplicationFirewallPolicyLink"`
 }
 
@@ -2329,19 +2095,12 @@ type FrontendEndpointInput interface {
 	ToFrontendEndpointOutputWithContext(context.Context) FrontendEndpointOutput
 }
 
-// A frontend endpoint used for routing.
 type FrontendEndpointArgs struct {
-	// The host name of the frontendEndpoint. Must be a domain name.
-	HostName pulumi.StringPtrInput `pulumi:"hostName"`
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Resource name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-	SessionAffinityEnabledState pulumi.StringPtrInput `pulumi:"sessionAffinityEnabledState"`
-	// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
-	SessionAffinityTtlSeconds pulumi.IntPtrInput `pulumi:"sessionAffinityTtlSeconds"`
-	// Defines the Web Application Firewall policy for each host (if applicable)
+	HostName                         pulumi.StringPtrInput                                                    `pulumi:"hostName"`
+	Id                               pulumi.StringPtrInput                                                    `pulumi:"id"`
+	Name                             pulumi.StringPtrInput                                                    `pulumi:"name"`
+	SessionAffinityEnabledState      pulumi.StringPtrInput                                                    `pulumi:"sessionAffinityEnabledState"`
+	SessionAffinityTtlSeconds        pulumi.IntPtrInput                                                       `pulumi:"sessionAffinityTtlSeconds"`
 	WebApplicationFirewallPolicyLink FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrInput `pulumi:"webApplicationFirewallPolicyLink"`
 }
 
@@ -2382,7 +2141,6 @@ func (i FrontendEndpointArray) ToFrontendEndpointArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointArrayOutput)
 }
 
-// A frontend endpoint used for routing.
 type FrontendEndpointOutput struct{ *pulumi.OutputState }
 
 func (FrontendEndpointOutput) ElementType() reflect.Type {
@@ -2397,32 +2155,26 @@ func (o FrontendEndpointOutput) ToFrontendEndpointOutputWithContext(ctx context.
 	return o
 }
 
-// The host name of the frontendEndpoint. Must be a domain name.
 func (o FrontendEndpointOutput) HostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendEndpoint) *string { return v.HostName }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID.
 func (o FrontendEndpointOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
 func (o FrontendEndpointOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendEndpoint) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
 func (o FrontendEndpointOutput) SessionAffinityEnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendEndpoint) *string { return v.SessionAffinityEnabledState }).(pulumi.StringPtrOutput)
 }
 
-// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
 func (o FrontendEndpointOutput) SessionAffinityTtlSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FrontendEndpoint) *int { return v.SessionAffinityTtlSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Defines the Web Application Firewall policy for each host (if applicable)
 func (o FrontendEndpointOutput) WebApplicationFirewallPolicyLink() FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput {
 	return o.ApplyT(func(v FrontendEndpoint) *FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink {
 		return v.WebApplicationFirewallPolicyLink
@@ -2449,29 +2201,17 @@ func (o FrontendEndpointArrayOutput) Index(i pulumi.IntInput) FrontendEndpointOu
 	}).(FrontendEndpointOutput)
 }
 
-// A frontend endpoint used for routing.
 type FrontendEndpointResponse struct {
-	// The configuration specifying how to enable HTTPS
-	CustomHttpsConfiguration CustomHttpsConfigurationResponse `pulumi:"customHttpsConfiguration"`
-	// Provisioning status of Custom Https of the frontendEndpoint.
-	CustomHttpsProvisioningState string `pulumi:"customHttpsProvisioningState"`
-	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
-	CustomHttpsProvisioningSubstate string `pulumi:"customHttpsProvisioningSubstate"`
-	// The host name of the frontendEndpoint. Must be a domain name.
-	HostName *string `pulumi:"hostName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource status.
-	ResourceState string `pulumi:"resourceState"`
-	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-	SessionAffinityEnabledState *string `pulumi:"sessionAffinityEnabledState"`
-	// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
-	SessionAffinityTtlSeconds *int `pulumi:"sessionAffinityTtlSeconds"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// Defines the Web Application Firewall policy for each host (if applicable)
+	CustomHttpsConfiguration         CustomHttpsConfigurationResponse                                          `pulumi:"customHttpsConfiguration"`
+	CustomHttpsProvisioningState     string                                                                    `pulumi:"customHttpsProvisioningState"`
+	CustomHttpsProvisioningSubstate  string                                                                    `pulumi:"customHttpsProvisioningSubstate"`
+	HostName                         *string                                                                   `pulumi:"hostName"`
+	Id                               *string                                                                   `pulumi:"id"`
+	Name                             *string                                                                   `pulumi:"name"`
+	ResourceState                    string                                                                    `pulumi:"resourceState"`
+	SessionAffinityEnabledState      *string                                                                   `pulumi:"sessionAffinityEnabledState"`
+	SessionAffinityTtlSeconds        *int                                                                      `pulumi:"sessionAffinityTtlSeconds"`
+	Type                             string                                                                    `pulumi:"type"`
 	WebApplicationFirewallPolicyLink *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink `pulumi:"webApplicationFirewallPolicyLink"`
 }
 
@@ -2486,29 +2226,17 @@ type FrontendEndpointResponseInput interface {
 	ToFrontendEndpointResponseOutputWithContext(context.Context) FrontendEndpointResponseOutput
 }
 
-// A frontend endpoint used for routing.
 type FrontendEndpointResponseArgs struct {
-	// The configuration specifying how to enable HTTPS
-	CustomHttpsConfiguration CustomHttpsConfigurationResponseInput `pulumi:"customHttpsConfiguration"`
-	// Provisioning status of Custom Https of the frontendEndpoint.
-	CustomHttpsProvisioningState pulumi.StringInput `pulumi:"customHttpsProvisioningState"`
-	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
-	CustomHttpsProvisioningSubstate pulumi.StringInput `pulumi:"customHttpsProvisioningSubstate"`
-	// The host name of the frontendEndpoint. Must be a domain name.
-	HostName pulumi.StringPtrInput `pulumi:"hostName"`
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Resource name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource status.
-	ResourceState pulumi.StringInput `pulumi:"resourceState"`
-	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-	SessionAffinityEnabledState pulumi.StringPtrInput `pulumi:"sessionAffinityEnabledState"`
-	// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
-	SessionAffinityTtlSeconds pulumi.IntPtrInput `pulumi:"sessionAffinityTtlSeconds"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Defines the Web Application Firewall policy for each host (if applicable)
+	CustomHttpsConfiguration         CustomHttpsConfigurationResponseInput                                            `pulumi:"customHttpsConfiguration"`
+	CustomHttpsProvisioningState     pulumi.StringInput                                                               `pulumi:"customHttpsProvisioningState"`
+	CustomHttpsProvisioningSubstate  pulumi.StringInput                                                               `pulumi:"customHttpsProvisioningSubstate"`
+	HostName                         pulumi.StringPtrInput                                                            `pulumi:"hostName"`
+	Id                               pulumi.StringPtrInput                                                            `pulumi:"id"`
+	Name                             pulumi.StringPtrInput                                                            `pulumi:"name"`
+	ResourceState                    pulumi.StringInput                                                               `pulumi:"resourceState"`
+	SessionAffinityEnabledState      pulumi.StringPtrInput                                                            `pulumi:"sessionAffinityEnabledState"`
+	SessionAffinityTtlSeconds        pulumi.IntPtrInput                                                               `pulumi:"sessionAffinityTtlSeconds"`
+	Type                             pulumi.StringInput                                                               `pulumi:"type"`
 	WebApplicationFirewallPolicyLink FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrInput `pulumi:"webApplicationFirewallPolicyLink"`
 }
 
@@ -2549,7 +2277,6 @@ func (i FrontendEndpointResponseArray) ToFrontendEndpointResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointResponseArrayOutput)
 }
 
-// A frontend endpoint used for routing.
 type FrontendEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (FrontendEndpointResponseOutput) ElementType() reflect.Type {
@@ -2564,57 +2291,46 @@ func (o FrontendEndpointResponseOutput) ToFrontendEndpointResponseOutputWithCont
 	return o
 }
 
-// The configuration specifying how to enable HTTPS
 func (o FrontendEndpointResponseOutput) CustomHttpsConfiguration() CustomHttpsConfigurationResponseOutput {
 	return o.ApplyT(func(v FrontendEndpointResponse) CustomHttpsConfigurationResponse { return v.CustomHttpsConfiguration }).(CustomHttpsConfigurationResponseOutput)
 }
 
-// Provisioning status of Custom Https of the frontendEndpoint.
 func (o FrontendEndpointResponseOutput) CustomHttpsProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontendEndpointResponse) string { return v.CustomHttpsProvisioningState }).(pulumi.StringOutput)
 }
 
-// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
 func (o FrontendEndpointResponseOutput) CustomHttpsProvisioningSubstate() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontendEndpointResponse) string { return v.CustomHttpsProvisioningSubstate }).(pulumi.StringOutput)
 }
 
-// The host name of the frontendEndpoint. Must be a domain name.
 func (o FrontendEndpointResponseOutput) HostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendEndpointResponse) *string { return v.HostName }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID.
 func (o FrontendEndpointResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendEndpointResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
 func (o FrontendEndpointResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendEndpointResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource status.
 func (o FrontendEndpointResponseOutput) ResourceState() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontendEndpointResponse) string { return v.ResourceState }).(pulumi.StringOutput)
 }
 
-// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
 func (o FrontendEndpointResponseOutput) SessionAffinityEnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendEndpointResponse) *string { return v.SessionAffinityEnabledState }).(pulumi.StringPtrOutput)
 }
 
-// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
 func (o FrontendEndpointResponseOutput) SessionAffinityTtlSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FrontendEndpointResponse) *int { return v.SessionAffinityTtlSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Resource type.
 func (o FrontendEndpointResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontendEndpointResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Defines the Web Application Firewall policy for each host (if applicable)
 func (o FrontendEndpointResponseOutput) WebApplicationFirewallPolicyLink() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
 	return o.ApplyT(func(v FrontendEndpointResponse) *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink {
 		return v.WebApplicationFirewallPolicyLink
@@ -2641,9 +2357,7 @@ func (o FrontendEndpointResponseArrayOutput) Index(i pulumi.IntInput) FrontendEn
 	}).(FrontendEndpointResponseOutput)
 }
 
-// Defines the Web Application Firewall policy for each host (if applicable)
 type FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink struct {
-	// Resource ID.
 	Id *string `pulumi:"id"`
 }
 
@@ -2658,9 +2372,7 @@ type FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkInp
 	ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutputWithContext(context.Context) FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput
 }
 
-// Defines the Web Application Firewall policy for each host (if applicable)
 type FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs struct {
-	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -2717,7 +2429,6 @@ func (i *frontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLin
 	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput)
 }
 
-// Defines the Web Application Firewall policy for each host (if applicable)
 type FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput struct{ *pulumi.OutputState }
 
 func (FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput) ElementType() reflect.Type {
@@ -2737,12 +2448,11 @@ func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink
 }
 
 func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput) ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
-	return o.ApplyT(func(v FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink) *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink) *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink {
 		return &v
 	}).(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput)
 }
 
-// Resource ID.
 func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -2763,11 +2473,14 @@ func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink
 
 func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput) Elem() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput {
 	return o.ApplyT(func(v *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink) FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink
+		return ret
 	}).(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput)
 }
 
-// Resource ID.
 func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink) *string {
 		if v == nil {
@@ -2777,9 +2490,7 @@ func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the Web Application Firewall policy for each host (if applicable)
 type FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink struct {
-	// Resource ID.
 	Id *string `pulumi:"id"`
 }
 
@@ -2794,9 +2505,7 @@ type FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkInput inter
 	ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutputWithContext(context.Context) FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput
 }
 
-// Defines the Web Application Firewall policy for each host (if applicable)
 type FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs struct {
-	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -2853,7 +2562,6 @@ func (i *frontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput)
 }
 
-// Defines the Web Application Firewall policy for each host (if applicable)
 type FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput struct{ *pulumi.OutputState }
 
 func (FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput) ElementType() reflect.Type {
@@ -2873,12 +2581,11 @@ func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput) 
 }
 
 func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput) ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput {
-	return o.ApplyT(func(v FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink) *FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink) *FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink {
 		return &v
 	}).(FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput)
 }
 
-// Resource ID.
 func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -2899,11 +2606,14 @@ func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutpu
 
 func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput) Elem() FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput {
 	return o.ApplyT(func(v *FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink) FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink
+		return ret
 	}).(FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput)
 }
 
-// Resource ID.
 func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink) *string {
 		if v == nil {
@@ -2913,14 +2623,10 @@ func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// An action that can manipulate an http header.
 type HeaderAction struct {
-	// Which type of manipulation to apply to the header.
-	HeaderActionType string `pulumi:"headerActionType"`
-	// The name of the header this action will apply to.
-	HeaderName string `pulumi:"headerName"`
-	// The value to update the given header name with. This value is not used if the actionType is Delete.
-	Value *string `pulumi:"value"`
+	HeaderActionType string  `pulumi:"headerActionType"`
+	HeaderName       string  `pulumi:"headerName"`
+	Value            *string `pulumi:"value"`
 }
 
 // HeaderActionInput is an input type that accepts HeaderActionArgs and HeaderActionOutput values.
@@ -2934,14 +2640,10 @@ type HeaderActionInput interface {
 	ToHeaderActionOutputWithContext(context.Context) HeaderActionOutput
 }
 
-// An action that can manipulate an http header.
 type HeaderActionArgs struct {
-	// Which type of manipulation to apply to the header.
-	HeaderActionType pulumi.StringInput `pulumi:"headerActionType"`
-	// The name of the header this action will apply to.
-	HeaderName pulumi.StringInput `pulumi:"headerName"`
-	// The value to update the given header name with. This value is not used if the actionType is Delete.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	HeaderActionType pulumi.StringInput    `pulumi:"headerActionType"`
+	HeaderName       pulumi.StringInput    `pulumi:"headerName"`
+	Value            pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (HeaderActionArgs) ElementType() reflect.Type {
@@ -2981,7 +2683,6 @@ func (i HeaderActionArray) ToHeaderActionArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(HeaderActionArrayOutput)
 }
 
-// An action that can manipulate an http header.
 type HeaderActionOutput struct{ *pulumi.OutputState }
 
 func (HeaderActionOutput) ElementType() reflect.Type {
@@ -2996,17 +2697,14 @@ func (o HeaderActionOutput) ToHeaderActionOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Which type of manipulation to apply to the header.
 func (o HeaderActionOutput) HeaderActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v HeaderAction) string { return v.HeaderActionType }).(pulumi.StringOutput)
 }
 
-// The name of the header this action will apply to.
 func (o HeaderActionOutput) HeaderName() pulumi.StringOutput {
 	return o.ApplyT(func(v HeaderAction) string { return v.HeaderName }).(pulumi.StringOutput)
 }
 
-// The value to update the given header name with. This value is not used if the actionType is Delete.
 func (o HeaderActionOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HeaderAction) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -3031,14 +2729,10 @@ func (o HeaderActionArrayOutput) Index(i pulumi.IntInput) HeaderActionOutput {
 	}).(HeaderActionOutput)
 }
 
-// An action that can manipulate an http header.
 type HeaderActionResponse struct {
-	// Which type of manipulation to apply to the header.
-	HeaderActionType string `pulumi:"headerActionType"`
-	// The name of the header this action will apply to.
-	HeaderName string `pulumi:"headerName"`
-	// The value to update the given header name with. This value is not used if the actionType is Delete.
-	Value *string `pulumi:"value"`
+	HeaderActionType string  `pulumi:"headerActionType"`
+	HeaderName       string  `pulumi:"headerName"`
+	Value            *string `pulumi:"value"`
 }
 
 // HeaderActionResponseInput is an input type that accepts HeaderActionResponseArgs and HeaderActionResponseOutput values.
@@ -3052,14 +2746,10 @@ type HeaderActionResponseInput interface {
 	ToHeaderActionResponseOutputWithContext(context.Context) HeaderActionResponseOutput
 }
 
-// An action that can manipulate an http header.
 type HeaderActionResponseArgs struct {
-	// Which type of manipulation to apply to the header.
-	HeaderActionType pulumi.StringInput `pulumi:"headerActionType"`
-	// The name of the header this action will apply to.
-	HeaderName pulumi.StringInput `pulumi:"headerName"`
-	// The value to update the given header name with. This value is not used if the actionType is Delete.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	HeaderActionType pulumi.StringInput    `pulumi:"headerActionType"`
+	HeaderName       pulumi.StringInput    `pulumi:"headerName"`
+	Value            pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (HeaderActionResponseArgs) ElementType() reflect.Type {
@@ -3099,7 +2789,6 @@ func (i HeaderActionResponseArray) ToHeaderActionResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(HeaderActionResponseArrayOutput)
 }
 
-// An action that can manipulate an http header.
 type HeaderActionResponseOutput struct{ *pulumi.OutputState }
 
 func (HeaderActionResponseOutput) ElementType() reflect.Type {
@@ -3114,17 +2803,14 @@ func (o HeaderActionResponseOutput) ToHeaderActionResponseOutputWithContext(ctx 
 	return o
 }
 
-// Which type of manipulation to apply to the header.
 func (o HeaderActionResponseOutput) HeaderActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v HeaderActionResponse) string { return v.HeaderActionType }).(pulumi.StringOutput)
 }
 
-// The name of the header this action will apply to.
 func (o HeaderActionResponseOutput) HeaderName() pulumi.StringOutput {
 	return o.ApplyT(func(v HeaderActionResponse) string { return v.HeaderName }).(pulumi.StringOutput)
 }
 
-// The value to update the given header name with. This value is not used if the actionType is Delete.
 func (o HeaderActionResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HeaderActionResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -3149,22 +2835,14 @@ func (o HeaderActionResponseArrayOutput) Index(i pulumi.IntInput) HeaderActionRe
 	}).(HeaderActionResponseOutput)
 }
 
-// Load balancing settings for a backend pool
 type HealthProbeSettingsModel struct {
-	// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
-	EnabledState *string `pulumi:"enabledState"`
-	// Configures which HTTP method to use to probe the backends defined under backendPools.
+	EnabledState      *string `pulumi:"enabledState"`
 	HealthProbeMethod *string `pulumi:"healthProbeMethod"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The number of seconds between health probes.
-	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The path to use for the health probe. Default is /
-	Path *string `pulumi:"path"`
-	// Protocol scheme to use for this probe
-	Protocol *string `pulumi:"protocol"`
+	Id                *string `pulumi:"id"`
+	IntervalInSeconds *int    `pulumi:"intervalInSeconds"`
+	Name              *string `pulumi:"name"`
+	Path              *string `pulumi:"path"`
+	Protocol          *string `pulumi:"protocol"`
 }
 
 // HealthProbeSettingsModelInput is an input type that accepts HealthProbeSettingsModelArgs and HealthProbeSettingsModelOutput values.
@@ -3178,22 +2856,14 @@ type HealthProbeSettingsModelInput interface {
 	ToHealthProbeSettingsModelOutputWithContext(context.Context) HealthProbeSettingsModelOutput
 }
 
-// Load balancing settings for a backend pool
 type HealthProbeSettingsModelArgs struct {
-	// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
-	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// Configures which HTTP method to use to probe the backends defined under backendPools.
+	EnabledState      pulumi.StringPtrInput `pulumi:"enabledState"`
 	HealthProbeMethod pulumi.StringPtrInput `pulumi:"healthProbeMethod"`
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The number of seconds between health probes.
-	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
-	// Resource name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The path to use for the health probe. Default is /
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Protocol scheme to use for this probe
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	Id                pulumi.StringPtrInput `pulumi:"id"`
+	IntervalInSeconds pulumi.IntPtrInput    `pulumi:"intervalInSeconds"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
+	Path              pulumi.StringPtrInput `pulumi:"path"`
+	Protocol          pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
 func (HealthProbeSettingsModelArgs) ElementType() reflect.Type {
@@ -3233,7 +2903,6 @@ func (i HealthProbeSettingsModelArray) ToHealthProbeSettingsModelArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(HealthProbeSettingsModelArrayOutput)
 }
 
-// Load balancing settings for a backend pool
 type HealthProbeSettingsModelOutput struct{ *pulumi.OutputState }
 
 func (HealthProbeSettingsModelOutput) ElementType() reflect.Type {
@@ -3248,37 +2917,30 @@ func (o HealthProbeSettingsModelOutput) ToHealthProbeSettingsModelOutputWithCont
 	return o
 }
 
-// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
 func (o HealthProbeSettingsModelOutput) EnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModel) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
 }
 
-// Configures which HTTP method to use to probe the backends defined under backendPools.
 func (o HealthProbeSettingsModelOutput) HealthProbeMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModel) *string { return v.HealthProbeMethod }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID.
 func (o HealthProbeSettingsModelOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModel) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The number of seconds between health probes.
 func (o HealthProbeSettingsModelOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModel) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Resource name.
 func (o HealthProbeSettingsModelOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModel) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The path to use for the health probe. Default is /
 func (o HealthProbeSettingsModelOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModel) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Protocol scheme to use for this probe
 func (o HealthProbeSettingsModelOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModel) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -3303,26 +2965,16 @@ func (o HealthProbeSettingsModelArrayOutput) Index(i pulumi.IntInput) HealthProb
 	}).(HealthProbeSettingsModelOutput)
 }
 
-// Load balancing settings for a backend pool
 type HealthProbeSettingsModelResponse struct {
-	// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
-	EnabledState *string `pulumi:"enabledState"`
-	// Configures which HTTP method to use to probe the backends defined under backendPools.
+	EnabledState      *string `pulumi:"enabledState"`
 	HealthProbeMethod *string `pulumi:"healthProbeMethod"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The number of seconds between health probes.
-	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The path to use for the health probe. Default is /
-	Path *string `pulumi:"path"`
-	// Protocol scheme to use for this probe
-	Protocol *string `pulumi:"protocol"`
-	// Resource status.
-	ResourceState string `pulumi:"resourceState"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id                *string `pulumi:"id"`
+	IntervalInSeconds *int    `pulumi:"intervalInSeconds"`
+	Name              *string `pulumi:"name"`
+	Path              *string `pulumi:"path"`
+	Protocol          *string `pulumi:"protocol"`
+	ResourceState     string  `pulumi:"resourceState"`
+	Type              string  `pulumi:"type"`
 }
 
 // HealthProbeSettingsModelResponseInput is an input type that accepts HealthProbeSettingsModelResponseArgs and HealthProbeSettingsModelResponseOutput values.
@@ -3336,26 +2988,16 @@ type HealthProbeSettingsModelResponseInput interface {
 	ToHealthProbeSettingsModelResponseOutputWithContext(context.Context) HealthProbeSettingsModelResponseOutput
 }
 
-// Load balancing settings for a backend pool
 type HealthProbeSettingsModelResponseArgs struct {
-	// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
-	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// Configures which HTTP method to use to probe the backends defined under backendPools.
+	EnabledState      pulumi.StringPtrInput `pulumi:"enabledState"`
 	HealthProbeMethod pulumi.StringPtrInput `pulumi:"healthProbeMethod"`
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The number of seconds between health probes.
-	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
-	// Resource name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The path to use for the health probe. Default is /
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Protocol scheme to use for this probe
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// Resource status.
-	ResourceState pulumi.StringInput `pulumi:"resourceState"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Id                pulumi.StringPtrInput `pulumi:"id"`
+	IntervalInSeconds pulumi.IntPtrInput    `pulumi:"intervalInSeconds"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
+	Path              pulumi.StringPtrInput `pulumi:"path"`
+	Protocol          pulumi.StringPtrInput `pulumi:"protocol"`
+	ResourceState     pulumi.StringInput    `pulumi:"resourceState"`
+	Type              pulumi.StringInput    `pulumi:"type"`
 }
 
 func (HealthProbeSettingsModelResponseArgs) ElementType() reflect.Type {
@@ -3395,7 +3037,6 @@ func (i HealthProbeSettingsModelResponseArray) ToHealthProbeSettingsModelRespons
 	return pulumi.ToOutputWithContext(ctx, i).(HealthProbeSettingsModelResponseArrayOutput)
 }
 
-// Load balancing settings for a backend pool
 type HealthProbeSettingsModelResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthProbeSettingsModelResponseOutput) ElementType() reflect.Type {
@@ -3410,47 +3051,38 @@ func (o HealthProbeSettingsModelResponseOutput) ToHealthProbeSettingsModelRespon
 	return o
 }
 
-// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
 func (o HealthProbeSettingsModelResponseOutput) EnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
 }
 
-// Configures which HTTP method to use to probe the backends defined under backendPools.
 func (o HealthProbeSettingsModelResponseOutput) HealthProbeMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *string { return v.HealthProbeMethod }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID.
 func (o HealthProbeSettingsModelResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The number of seconds between health probes.
 func (o HealthProbeSettingsModelResponseOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Resource name.
 func (o HealthProbeSettingsModelResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The path to use for the health probe. Default is /
 func (o HealthProbeSettingsModelResponseOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Protocol scheme to use for this probe
 func (o HealthProbeSettingsModelResponseOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// Resource status.
 func (o HealthProbeSettingsModelResponseOutput) ResourceState() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModelResponse) string { return v.ResourceState }).(pulumi.StringOutput)
 }
 
-// Resource type.
 func (o HealthProbeSettingsModelResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModelResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3475,9 +3107,7 @@ func (o HealthProbeSettingsModelResponseArrayOutput) Index(i pulumi.IntInput) He
 	}).(HealthProbeSettingsModelResponseOutput)
 }
 
-// The Key Vault containing the SSL certificate
 type KeyVaultCertificateSourceParametersResponseVault struct {
-	// Resource ID.
 	Id *string `pulumi:"id"`
 }
 
@@ -3492,9 +3122,7 @@ type KeyVaultCertificateSourceParametersResponseVaultInput interface {
 	ToKeyVaultCertificateSourceParametersResponseVaultOutputWithContext(context.Context) KeyVaultCertificateSourceParametersResponseVaultOutput
 }
 
-// The Key Vault containing the SSL certificate
 type KeyVaultCertificateSourceParametersResponseVaultArgs struct {
-	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -3551,7 +3179,6 @@ func (i *keyVaultCertificateSourceParametersResponseVaultPtrType) ToKeyVaultCert
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificateSourceParametersResponseVaultPtrOutput)
 }
 
-// The Key Vault containing the SSL certificate
 type KeyVaultCertificateSourceParametersResponseVaultOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultCertificateSourceParametersResponseVaultOutput) ElementType() reflect.Type {
@@ -3571,12 +3198,11 @@ func (o KeyVaultCertificateSourceParametersResponseVaultOutput) ToKeyVaultCertif
 }
 
 func (o KeyVaultCertificateSourceParametersResponseVaultOutput) ToKeyVaultCertificateSourceParametersResponseVaultPtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponseVaultPtrOutput {
-	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponseVault) *KeyVaultCertificateSourceParametersResponseVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultCertificateSourceParametersResponseVault) *KeyVaultCertificateSourceParametersResponseVault {
 		return &v
 	}).(KeyVaultCertificateSourceParametersResponseVaultPtrOutput)
 }
 
-// Resource ID.
 func (o KeyVaultCertificateSourceParametersResponseVaultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponseVault) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -3597,11 +3223,14 @@ func (o KeyVaultCertificateSourceParametersResponseVaultPtrOutput) ToKeyVaultCer
 
 func (o KeyVaultCertificateSourceParametersResponseVaultPtrOutput) Elem() KeyVaultCertificateSourceParametersResponseVaultOutput {
 	return o.ApplyT(func(v *KeyVaultCertificateSourceParametersResponseVault) KeyVaultCertificateSourceParametersResponseVault {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultCertificateSourceParametersResponseVault
+		return ret
 	}).(KeyVaultCertificateSourceParametersResponseVaultOutput)
 }
 
-// Resource ID.
 func (o KeyVaultCertificateSourceParametersResponseVaultPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultCertificateSourceParametersResponseVault) *string {
 		if v == nil {
@@ -3611,18 +3240,12 @@ func (o KeyVaultCertificateSourceParametersResponseVaultPtrOutput) Id() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Load balancing settings for a backend pool
 type LoadBalancingSettingsModel struct {
-	// The additional latency in milliseconds for probes to fall into the lowest latency bucket
-	AdditionalLatencyMilliseconds *int `pulumi:"additionalLatencyMilliseconds"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The number of samples to consider for load balancing decisions
-	SampleSize *int `pulumi:"sampleSize"`
-	// The number of samples within the sample period that must succeed
-	SuccessfulSamplesRequired *int `pulumi:"successfulSamplesRequired"`
+	AdditionalLatencyMilliseconds *int    `pulumi:"additionalLatencyMilliseconds"`
+	Id                            *string `pulumi:"id"`
+	Name                          *string `pulumi:"name"`
+	SampleSize                    *int    `pulumi:"sampleSize"`
+	SuccessfulSamplesRequired     *int    `pulumi:"successfulSamplesRequired"`
 }
 
 // LoadBalancingSettingsModelInput is an input type that accepts LoadBalancingSettingsModelArgs and LoadBalancingSettingsModelOutput values.
@@ -3636,18 +3259,12 @@ type LoadBalancingSettingsModelInput interface {
 	ToLoadBalancingSettingsModelOutputWithContext(context.Context) LoadBalancingSettingsModelOutput
 }
 
-// Load balancing settings for a backend pool
 type LoadBalancingSettingsModelArgs struct {
-	// The additional latency in milliseconds for probes to fall into the lowest latency bucket
-	AdditionalLatencyMilliseconds pulumi.IntPtrInput `pulumi:"additionalLatencyMilliseconds"`
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Resource name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The number of samples to consider for load balancing decisions
-	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
-	// The number of samples within the sample period that must succeed
-	SuccessfulSamplesRequired pulumi.IntPtrInput `pulumi:"successfulSamplesRequired"`
+	AdditionalLatencyMilliseconds pulumi.IntPtrInput    `pulumi:"additionalLatencyMilliseconds"`
+	Id                            pulumi.StringPtrInput `pulumi:"id"`
+	Name                          pulumi.StringPtrInput `pulumi:"name"`
+	SampleSize                    pulumi.IntPtrInput    `pulumi:"sampleSize"`
+	SuccessfulSamplesRequired     pulumi.IntPtrInput    `pulumi:"successfulSamplesRequired"`
 }
 
 func (LoadBalancingSettingsModelArgs) ElementType() reflect.Type {
@@ -3687,7 +3304,6 @@ func (i LoadBalancingSettingsModelArray) ToLoadBalancingSettingsModelArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingSettingsModelArrayOutput)
 }
 
-// Load balancing settings for a backend pool
 type LoadBalancingSettingsModelOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancingSettingsModelOutput) ElementType() reflect.Type {
@@ -3702,27 +3318,22 @@ func (o LoadBalancingSettingsModelOutput) ToLoadBalancingSettingsModelOutputWith
 	return o
 }
 
-// The additional latency in milliseconds for probes to fall into the lowest latency bucket
 func (o LoadBalancingSettingsModelOutput) AdditionalLatencyMilliseconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancingSettingsModel) *int { return v.AdditionalLatencyMilliseconds }).(pulumi.IntPtrOutput)
 }
 
-// Resource ID.
 func (o LoadBalancingSettingsModelOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingSettingsModel) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
 func (o LoadBalancingSettingsModelOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingSettingsModel) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The number of samples to consider for load balancing decisions
 func (o LoadBalancingSettingsModelOutput) SampleSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancingSettingsModel) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
 }
 
-// The number of samples within the sample period that must succeed
 func (o LoadBalancingSettingsModelOutput) SuccessfulSamplesRequired() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancingSettingsModel) *int { return v.SuccessfulSamplesRequired }).(pulumi.IntPtrOutput)
 }
@@ -3747,22 +3358,14 @@ func (o LoadBalancingSettingsModelArrayOutput) Index(i pulumi.IntInput) LoadBala
 	}).(LoadBalancingSettingsModelOutput)
 }
 
-// Load balancing settings for a backend pool
 type LoadBalancingSettingsModelResponse struct {
-	// The additional latency in milliseconds for probes to fall into the lowest latency bucket
-	AdditionalLatencyMilliseconds *int `pulumi:"additionalLatencyMilliseconds"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource status.
-	ResourceState string `pulumi:"resourceState"`
-	// The number of samples to consider for load balancing decisions
-	SampleSize *int `pulumi:"sampleSize"`
-	// The number of samples within the sample period that must succeed
-	SuccessfulSamplesRequired *int `pulumi:"successfulSamplesRequired"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	AdditionalLatencyMilliseconds *int    `pulumi:"additionalLatencyMilliseconds"`
+	Id                            *string `pulumi:"id"`
+	Name                          *string `pulumi:"name"`
+	ResourceState                 string  `pulumi:"resourceState"`
+	SampleSize                    *int    `pulumi:"sampleSize"`
+	SuccessfulSamplesRequired     *int    `pulumi:"successfulSamplesRequired"`
+	Type                          string  `pulumi:"type"`
 }
 
 // LoadBalancingSettingsModelResponseInput is an input type that accepts LoadBalancingSettingsModelResponseArgs and LoadBalancingSettingsModelResponseOutput values.
@@ -3776,22 +3379,14 @@ type LoadBalancingSettingsModelResponseInput interface {
 	ToLoadBalancingSettingsModelResponseOutputWithContext(context.Context) LoadBalancingSettingsModelResponseOutput
 }
 
-// Load balancing settings for a backend pool
 type LoadBalancingSettingsModelResponseArgs struct {
-	// The additional latency in milliseconds for probes to fall into the lowest latency bucket
-	AdditionalLatencyMilliseconds pulumi.IntPtrInput `pulumi:"additionalLatencyMilliseconds"`
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Resource name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource status.
-	ResourceState pulumi.StringInput `pulumi:"resourceState"`
-	// The number of samples to consider for load balancing decisions
-	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
-	// The number of samples within the sample period that must succeed
-	SuccessfulSamplesRequired pulumi.IntPtrInput `pulumi:"successfulSamplesRequired"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	AdditionalLatencyMilliseconds pulumi.IntPtrInput    `pulumi:"additionalLatencyMilliseconds"`
+	Id                            pulumi.StringPtrInput `pulumi:"id"`
+	Name                          pulumi.StringPtrInput `pulumi:"name"`
+	ResourceState                 pulumi.StringInput    `pulumi:"resourceState"`
+	SampleSize                    pulumi.IntPtrInput    `pulumi:"sampleSize"`
+	SuccessfulSamplesRequired     pulumi.IntPtrInput    `pulumi:"successfulSamplesRequired"`
+	Type                          pulumi.StringInput    `pulumi:"type"`
 }
 
 func (LoadBalancingSettingsModelResponseArgs) ElementType() reflect.Type {
@@ -3831,7 +3426,6 @@ func (i LoadBalancingSettingsModelResponseArray) ToLoadBalancingSettingsModelRes
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingSettingsModelResponseArrayOutput)
 }
 
-// Load balancing settings for a backend pool
 type LoadBalancingSettingsModelResponseOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancingSettingsModelResponseOutput) ElementType() reflect.Type {
@@ -3846,37 +3440,30 @@ func (o LoadBalancingSettingsModelResponseOutput) ToLoadBalancingSettingsModelRe
 	return o
 }
 
-// The additional latency in milliseconds for probes to fall into the lowest latency bucket
 func (o LoadBalancingSettingsModelResponseOutput) AdditionalLatencyMilliseconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancingSettingsModelResponse) *int { return v.AdditionalLatencyMilliseconds }).(pulumi.IntPtrOutput)
 }
 
-// Resource ID.
 func (o LoadBalancingSettingsModelResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingSettingsModelResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
 func (o LoadBalancingSettingsModelResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingSettingsModelResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource status.
 func (o LoadBalancingSettingsModelResponseOutput) ResourceState() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancingSettingsModelResponse) string { return v.ResourceState }).(pulumi.StringOutput)
 }
 
-// The number of samples to consider for load balancing decisions
 func (o LoadBalancingSettingsModelResponseOutput) SampleSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancingSettingsModelResponse) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
 }
 
-// The number of samples within the sample period that must succeed
 func (o LoadBalancingSettingsModelResponseOutput) SuccessfulSamplesRequired() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancingSettingsModelResponse) *int { return v.SuccessfulSamplesRequired }).(pulumi.IntPtrOutput)
 }
 
-// Resource type.
 func (o LoadBalancingSettingsModelResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancingSettingsModelResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3901,12 +3488,9 @@ func (o LoadBalancingSettingsModelResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(LoadBalancingSettingsModelResponseOutput)
 }
 
-// An MX record.
 type MxRecord struct {
-	// The domain name of the mail host for this MX record.
-	Exchange *string `pulumi:"exchange"`
-	// The preference value for this MX record.
-	Preference *int `pulumi:"preference"`
+	Exchange   *string `pulumi:"exchange"`
+	Preference *int    `pulumi:"preference"`
 }
 
 // MxRecordInput is an input type that accepts MxRecordArgs and MxRecordOutput values.
@@ -3920,12 +3504,9 @@ type MxRecordInput interface {
 	ToMxRecordOutputWithContext(context.Context) MxRecordOutput
 }
 
-// An MX record.
 type MxRecordArgs struct {
-	// The domain name of the mail host for this MX record.
-	Exchange pulumi.StringPtrInput `pulumi:"exchange"`
-	// The preference value for this MX record.
-	Preference pulumi.IntPtrInput `pulumi:"preference"`
+	Exchange   pulumi.StringPtrInput `pulumi:"exchange"`
+	Preference pulumi.IntPtrInput    `pulumi:"preference"`
 }
 
 func (MxRecordArgs) ElementType() reflect.Type {
@@ -3965,7 +3546,6 @@ func (i MxRecordArray) ToMxRecordArrayOutputWithContext(ctx context.Context) MxR
 	return pulumi.ToOutputWithContext(ctx, i).(MxRecordArrayOutput)
 }
 
-// An MX record.
 type MxRecordOutput struct{ *pulumi.OutputState }
 
 func (MxRecordOutput) ElementType() reflect.Type {
@@ -3980,12 +3560,10 @@ func (o MxRecordOutput) ToMxRecordOutputWithContext(ctx context.Context) MxRecor
 	return o
 }
 
-// The domain name of the mail host for this MX record.
 func (o MxRecordOutput) Exchange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MxRecord) *string { return v.Exchange }).(pulumi.StringPtrOutput)
 }
 
-// The preference value for this MX record.
 func (o MxRecordOutput) Preference() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MxRecord) *int { return v.Preference }).(pulumi.IntPtrOutput)
 }
@@ -4010,12 +3588,9 @@ func (o MxRecordArrayOutput) Index(i pulumi.IntInput) MxRecordOutput {
 	}).(MxRecordOutput)
 }
 
-// An MX record.
 type MxRecordResponse struct {
-	// The domain name of the mail host for this MX record.
-	Exchange *string `pulumi:"exchange"`
-	// The preference value for this MX record.
-	Preference *int `pulumi:"preference"`
+	Exchange   *string `pulumi:"exchange"`
+	Preference *int    `pulumi:"preference"`
 }
 
 // MxRecordResponseInput is an input type that accepts MxRecordResponseArgs and MxRecordResponseOutput values.
@@ -4029,12 +3604,9 @@ type MxRecordResponseInput interface {
 	ToMxRecordResponseOutputWithContext(context.Context) MxRecordResponseOutput
 }
 
-// An MX record.
 type MxRecordResponseArgs struct {
-	// The domain name of the mail host for this MX record.
-	Exchange pulumi.StringPtrInput `pulumi:"exchange"`
-	// The preference value for this MX record.
-	Preference pulumi.IntPtrInput `pulumi:"preference"`
+	Exchange   pulumi.StringPtrInput `pulumi:"exchange"`
+	Preference pulumi.IntPtrInput    `pulumi:"preference"`
 }
 
 func (MxRecordResponseArgs) ElementType() reflect.Type {
@@ -4074,7 +3646,6 @@ func (i MxRecordResponseArray) ToMxRecordResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(MxRecordResponseArrayOutput)
 }
 
-// An MX record.
 type MxRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (MxRecordResponseOutput) ElementType() reflect.Type {
@@ -4089,12 +3660,10 @@ func (o MxRecordResponseOutput) ToMxRecordResponseOutputWithContext(ctx context.
 	return o
 }
 
-// The domain name of the mail host for this MX record.
 func (o MxRecordResponseOutput) Exchange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MxRecordResponse) *string { return v.Exchange }).(pulumi.StringPtrOutput)
 }
 
-// The preference value for this MX record.
 func (o MxRecordResponseOutput) Preference() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MxRecordResponse) *int { return v.Preference }).(pulumi.IntPtrOutput)
 }
@@ -4119,9 +3688,7 @@ func (o MxRecordResponseArrayOutput) Index(i pulumi.IntInput) MxRecordResponseOu
 	}).(MxRecordResponseOutput)
 }
 
-// A PTR record.
 type PtrRecord struct {
-	// The PTR target domain name for this PTR record.
 	Ptrdname *string `pulumi:"ptrdname"`
 }
 
@@ -4136,9 +3703,7 @@ type PtrRecordInput interface {
 	ToPtrRecordOutputWithContext(context.Context) PtrRecordOutput
 }
 
-// A PTR record.
 type PtrRecordArgs struct {
-	// The PTR target domain name for this PTR record.
 	Ptrdname pulumi.StringPtrInput `pulumi:"ptrdname"`
 }
 
@@ -4179,7 +3744,6 @@ func (i PtrRecordArray) ToPtrRecordArrayOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PtrRecordArrayOutput)
 }
 
-// A PTR record.
 type PtrRecordOutput struct{ *pulumi.OutputState }
 
 func (PtrRecordOutput) ElementType() reflect.Type {
@@ -4194,7 +3758,6 @@ func (o PtrRecordOutput) ToPtrRecordOutputWithContext(ctx context.Context) PtrRe
 	return o
 }
 
-// The PTR target domain name for this PTR record.
 func (o PtrRecordOutput) Ptrdname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PtrRecord) *string { return v.Ptrdname }).(pulumi.StringPtrOutput)
 }
@@ -4219,9 +3782,7 @@ func (o PtrRecordArrayOutput) Index(i pulumi.IntInput) PtrRecordOutput {
 	}).(PtrRecordOutput)
 }
 
-// A PTR record.
 type PtrRecordResponse struct {
-	// The PTR target domain name for this PTR record.
 	Ptrdname *string `pulumi:"ptrdname"`
 }
 
@@ -4236,9 +3797,7 @@ type PtrRecordResponseInput interface {
 	ToPtrRecordResponseOutputWithContext(context.Context) PtrRecordResponseOutput
 }
 
-// A PTR record.
 type PtrRecordResponseArgs struct {
-	// The PTR target domain name for this PTR record.
 	Ptrdname pulumi.StringPtrInput `pulumi:"ptrdname"`
 }
 
@@ -4279,7 +3838,6 @@ func (i PtrRecordResponseArray) ToPtrRecordResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PtrRecordResponseArrayOutput)
 }
 
-// A PTR record.
 type PtrRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (PtrRecordResponseOutput) ElementType() reflect.Type {
@@ -4294,7 +3852,6 @@ func (o PtrRecordResponseOutput) ToPtrRecordResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The PTR target domain name for this PTR record.
 func (o PtrRecordResponseOutput) Ptrdname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PtrRecordResponse) *string { return v.Ptrdname }).(pulumi.StringPtrOutput)
 }
@@ -4319,22 +3876,14 @@ func (o PtrRecordResponseArrayOutput) Index(i pulumi.IntInput) PtrRecordResponse
 	}).(PtrRecordResponseOutput)
 }
 
-// Describes Redirect Route.
 type RedirectConfiguration struct {
-	// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
-	CustomFragment *string `pulumi:"customFragment"`
-	// Host to redirect. Leave empty to use the incoming host as the destination host.
-	CustomHost *string `pulumi:"customHost"`
-	// The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
-	CustomPath *string `pulumi:"customPath"`
-	// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. The first ? and & will be added automatically so do not include them in the front, but do separate multiple query strings with &.
+	CustomFragment    *string `pulumi:"customFragment"`
+	CustomHost        *string `pulumi:"customHost"`
+	CustomPath        *string `pulumi:"customPath"`
 	CustomQueryString *string `pulumi:"customQueryString"`
-	// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
-	OdataType string `pulumi:"odataType"`
-	// The protocol of the destination to where the traffic is redirected
-	RedirectProtocol *string `pulumi:"redirectProtocol"`
-	// The redirect type the rule will use when redirecting traffic.
-	RedirectType *string `pulumi:"redirectType"`
+	OdataType         string  `pulumi:"odataType"`
+	RedirectProtocol  *string `pulumi:"redirectProtocol"`
+	RedirectType      *string `pulumi:"redirectType"`
 }
 
 // RedirectConfigurationInput is an input type that accepts RedirectConfigurationArgs and RedirectConfigurationOutput values.
@@ -4348,22 +3897,14 @@ type RedirectConfigurationInput interface {
 	ToRedirectConfigurationOutputWithContext(context.Context) RedirectConfigurationOutput
 }
 
-// Describes Redirect Route.
 type RedirectConfigurationArgs struct {
-	// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
-	CustomFragment pulumi.StringPtrInput `pulumi:"customFragment"`
-	// Host to redirect. Leave empty to use the incoming host as the destination host.
-	CustomHost pulumi.StringPtrInput `pulumi:"customHost"`
-	// The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
-	CustomPath pulumi.StringPtrInput `pulumi:"customPath"`
-	// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. The first ? and & will be added automatically so do not include them in the front, but do separate multiple query strings with &.
+	CustomFragment    pulumi.StringPtrInput `pulumi:"customFragment"`
+	CustomHost        pulumi.StringPtrInput `pulumi:"customHost"`
+	CustomPath        pulumi.StringPtrInput `pulumi:"customPath"`
 	CustomQueryString pulumi.StringPtrInput `pulumi:"customQueryString"`
-	// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The protocol of the destination to where the traffic is redirected
-	RedirectProtocol pulumi.StringPtrInput `pulumi:"redirectProtocol"`
-	// The redirect type the rule will use when redirecting traffic.
-	RedirectType pulumi.StringPtrInput `pulumi:"redirectType"`
+	OdataType         pulumi.StringInput    `pulumi:"odataType"`
+	RedirectProtocol  pulumi.StringPtrInput `pulumi:"redirectProtocol"`
+	RedirectType      pulumi.StringPtrInput `pulumi:"redirectType"`
 }
 
 func (RedirectConfigurationArgs) ElementType() reflect.Type {
@@ -4378,7 +3919,6 @@ func (i RedirectConfigurationArgs) ToRedirectConfigurationOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RedirectConfigurationOutput)
 }
 
-// Describes Redirect Route.
 type RedirectConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RedirectConfigurationOutput) ElementType() reflect.Type {
@@ -4393,57 +3933,42 @@ func (o RedirectConfigurationOutput) ToRedirectConfigurationOutputWithContext(ct
 	return o
 }
 
-// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
 func (o RedirectConfigurationOutput) CustomFragment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedirectConfiguration) *string { return v.CustomFragment }).(pulumi.StringPtrOutput)
 }
 
-// Host to redirect. Leave empty to use the incoming host as the destination host.
 func (o RedirectConfigurationOutput) CustomHost() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedirectConfiguration) *string { return v.CustomHost }).(pulumi.StringPtrOutput)
 }
 
-// The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
 func (o RedirectConfigurationOutput) CustomPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedirectConfiguration) *string { return v.CustomPath }).(pulumi.StringPtrOutput)
 }
 
-// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. The first ? and & will be added automatically so do not include them in the front, but do separate multiple query strings with &.
 func (o RedirectConfigurationOutput) CustomQueryString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedirectConfiguration) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
 }
 
-// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
 func (o RedirectConfigurationOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RedirectConfiguration) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The protocol of the destination to where the traffic is redirected
 func (o RedirectConfigurationOutput) RedirectProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedirectConfiguration) *string { return v.RedirectProtocol }).(pulumi.StringPtrOutput)
 }
 
-// The redirect type the rule will use when redirecting traffic.
 func (o RedirectConfigurationOutput) RedirectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedirectConfiguration) *string { return v.RedirectType }).(pulumi.StringPtrOutput)
 }
 
-// Describes Redirect Route.
 type RedirectConfigurationResponse struct {
-	// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
-	CustomFragment *string `pulumi:"customFragment"`
-	// Host to redirect. Leave empty to use the incoming host as the destination host.
-	CustomHost *string `pulumi:"customHost"`
-	// The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
-	CustomPath *string `pulumi:"customPath"`
-	// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. The first ? and & will be added automatically so do not include them in the front, but do separate multiple query strings with &.
+	CustomFragment    *string `pulumi:"customFragment"`
+	CustomHost        *string `pulumi:"customHost"`
+	CustomPath        *string `pulumi:"customPath"`
 	CustomQueryString *string `pulumi:"customQueryString"`
-	// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
-	OdataType string `pulumi:"odataType"`
-	// The protocol of the destination to where the traffic is redirected
-	RedirectProtocol *string `pulumi:"redirectProtocol"`
-	// The redirect type the rule will use when redirecting traffic.
-	RedirectType *string `pulumi:"redirectType"`
+	OdataType         string  `pulumi:"odataType"`
+	RedirectProtocol  *string `pulumi:"redirectProtocol"`
+	RedirectType      *string `pulumi:"redirectType"`
 }
 
 // RedirectConfigurationResponseInput is an input type that accepts RedirectConfigurationResponseArgs and RedirectConfigurationResponseOutput values.
@@ -4457,22 +3982,14 @@ type RedirectConfigurationResponseInput interface {
 	ToRedirectConfigurationResponseOutputWithContext(context.Context) RedirectConfigurationResponseOutput
 }
 
-// Describes Redirect Route.
 type RedirectConfigurationResponseArgs struct {
-	// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
-	CustomFragment pulumi.StringPtrInput `pulumi:"customFragment"`
-	// Host to redirect. Leave empty to use the incoming host as the destination host.
-	CustomHost pulumi.StringPtrInput `pulumi:"customHost"`
-	// The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
-	CustomPath pulumi.StringPtrInput `pulumi:"customPath"`
-	// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. The first ? and & will be added automatically so do not include them in the front, but do separate multiple query strings with &.
+	CustomFragment    pulumi.StringPtrInput `pulumi:"customFragment"`
+	CustomHost        pulumi.StringPtrInput `pulumi:"customHost"`
+	CustomPath        pulumi.StringPtrInput `pulumi:"customPath"`
 	CustomQueryString pulumi.StringPtrInput `pulumi:"customQueryString"`
-	// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The protocol of the destination to where the traffic is redirected
-	RedirectProtocol pulumi.StringPtrInput `pulumi:"redirectProtocol"`
-	// The redirect type the rule will use when redirecting traffic.
-	RedirectType pulumi.StringPtrInput `pulumi:"redirectType"`
+	OdataType         pulumi.StringInput    `pulumi:"odataType"`
+	RedirectProtocol  pulumi.StringPtrInput `pulumi:"redirectProtocol"`
+	RedirectType      pulumi.StringPtrInput `pulumi:"redirectType"`
 }
 
 func (RedirectConfigurationResponseArgs) ElementType() reflect.Type {
@@ -4487,7 +4004,6 @@ func (i RedirectConfigurationResponseArgs) ToRedirectConfigurationResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RedirectConfigurationResponseOutput)
 }
 
-// Describes Redirect Route.
 type RedirectConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (RedirectConfigurationResponseOutput) ElementType() reflect.Type {
@@ -4502,59 +4018,43 @@ func (o RedirectConfigurationResponseOutput) ToRedirectConfigurationResponseOutp
 	return o
 }
 
-// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
 func (o RedirectConfigurationResponseOutput) CustomFragment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedirectConfigurationResponse) *string { return v.CustomFragment }).(pulumi.StringPtrOutput)
 }
 
-// Host to redirect. Leave empty to use the incoming host as the destination host.
 func (o RedirectConfigurationResponseOutput) CustomHost() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedirectConfigurationResponse) *string { return v.CustomHost }).(pulumi.StringPtrOutput)
 }
 
-// The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
 func (o RedirectConfigurationResponseOutput) CustomPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedirectConfigurationResponse) *string { return v.CustomPath }).(pulumi.StringPtrOutput)
 }
 
-// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. The first ? and & will be added automatically so do not include them in the front, but do separate multiple query strings with &.
 func (o RedirectConfigurationResponseOutput) CustomQueryString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedirectConfigurationResponse) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
 }
 
-// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
 func (o RedirectConfigurationResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RedirectConfigurationResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The protocol of the destination to where the traffic is redirected
 func (o RedirectConfigurationResponseOutput) RedirectProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedirectConfigurationResponse) *string { return v.RedirectProtocol }).(pulumi.StringPtrOutput)
 }
 
-// The redirect type the rule will use when redirecting traffic.
 func (o RedirectConfigurationResponseOutput) RedirectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedirectConfigurationResponse) *string { return v.RedirectType }).(pulumi.StringPtrOutput)
 }
 
-// A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
 type RoutingRule struct {
-	// Protocol schemes to match for this rule
-	AcceptedProtocols []string `pulumi:"acceptedProtocols"`
-	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState *string `pulumi:"enabledState"`
-	// Frontend endpoints associated with this rule
-	FrontendEndpoints []SubResource `pulumi:"frontendEndpoints"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The route patterns of the rule.
-	PatternsToMatch []string `pulumi:"patternsToMatch"`
-	// A reference to the routing configuration.
-	RouteConfiguration interface{} `pulumi:"routeConfiguration"`
-	// A reference to a specific Rules Engine Configuration to apply to this route.
-	RulesEngine *SubResource `pulumi:"rulesEngine"`
+	AcceptedProtocols  []string      `pulumi:"acceptedProtocols"`
+	EnabledState       *string       `pulumi:"enabledState"`
+	FrontendEndpoints  []SubResource `pulumi:"frontendEndpoints"`
+	Id                 *string       `pulumi:"id"`
+	Name               *string       `pulumi:"name"`
+	PatternsToMatch    []string      `pulumi:"patternsToMatch"`
+	RouteConfiguration interface{}   `pulumi:"routeConfiguration"`
+	RulesEngine        *SubResource  `pulumi:"rulesEngine"`
 }
 
 // RoutingRuleInput is an input type that accepts RoutingRuleArgs and RoutingRuleOutput values.
@@ -4568,24 +4068,15 @@ type RoutingRuleInput interface {
 	ToRoutingRuleOutputWithContext(context.Context) RoutingRuleOutput
 }
 
-// A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
 type RoutingRuleArgs struct {
-	// Protocol schemes to match for this rule
-	AcceptedProtocols pulumi.StringArrayInput `pulumi:"acceptedProtocols"`
-	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// Frontend endpoints associated with this rule
-	FrontendEndpoints SubResourceArrayInput `pulumi:"frontendEndpoints"`
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Resource name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The route patterns of the rule.
-	PatternsToMatch pulumi.StringArrayInput `pulumi:"patternsToMatch"`
-	// A reference to the routing configuration.
-	RouteConfiguration pulumi.Input `pulumi:"routeConfiguration"`
-	// A reference to a specific Rules Engine Configuration to apply to this route.
-	RulesEngine SubResourcePtrInput `pulumi:"rulesEngine"`
+	AcceptedProtocols  pulumi.StringArrayInput `pulumi:"acceptedProtocols"`
+	EnabledState       pulumi.StringPtrInput   `pulumi:"enabledState"`
+	FrontendEndpoints  SubResourceArrayInput   `pulumi:"frontendEndpoints"`
+	Id                 pulumi.StringPtrInput   `pulumi:"id"`
+	Name               pulumi.StringPtrInput   `pulumi:"name"`
+	PatternsToMatch    pulumi.StringArrayInput `pulumi:"patternsToMatch"`
+	RouteConfiguration pulumi.Input            `pulumi:"routeConfiguration"`
+	RulesEngine        SubResourcePtrInput     `pulumi:"rulesEngine"`
 }
 
 func (RoutingRuleArgs) ElementType() reflect.Type {
@@ -4625,7 +4116,6 @@ func (i RoutingRuleArray) ToRoutingRuleArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleArrayOutput)
 }
 
-// A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
 type RoutingRuleOutput struct{ *pulumi.OutputState }
 
 func (RoutingRuleOutput) ElementType() reflect.Type {
@@ -4640,42 +4130,34 @@ func (o RoutingRuleOutput) ToRoutingRuleOutputWithContext(ctx context.Context) R
 	return o
 }
 
-// Protocol schemes to match for this rule
 func (o RoutingRuleOutput) AcceptedProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoutingRule) []string { return v.AcceptedProtocols }).(pulumi.StringArrayOutput)
 }
 
-// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
 func (o RoutingRuleOutput) EnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingRule) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
 }
 
-// Frontend endpoints associated with this rule
 func (o RoutingRuleOutput) FrontendEndpoints() SubResourceArrayOutput {
 	return o.ApplyT(func(v RoutingRule) []SubResource { return v.FrontendEndpoints }).(SubResourceArrayOutput)
 }
 
-// Resource ID.
 func (o RoutingRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
 func (o RoutingRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The route patterns of the rule.
 func (o RoutingRuleOutput) PatternsToMatch() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoutingRule) []string { return v.PatternsToMatch }).(pulumi.StringArrayOutput)
 }
 
-// A reference to the routing configuration.
 func (o RoutingRuleOutput) RouteConfiguration() pulumi.AnyOutput {
 	return o.ApplyT(func(v RoutingRule) interface{} { return v.RouteConfiguration }).(pulumi.AnyOutput)
 }
 
-// A reference to a specific Rules Engine Configuration to apply to this route.
 func (o RoutingRuleOutput) RulesEngine() SubResourcePtrOutput {
 	return o.ApplyT(func(v RoutingRule) *SubResource { return v.RulesEngine }).(SubResourcePtrOutput)
 }
@@ -4700,28 +4182,17 @@ func (o RoutingRuleArrayOutput) Index(i pulumi.IntInput) RoutingRuleOutput {
 	}).(RoutingRuleOutput)
 }
 
-// A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
 type RoutingRuleResponse struct {
-	// Protocol schemes to match for this rule
-	AcceptedProtocols []string `pulumi:"acceptedProtocols"`
-	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState *string `pulumi:"enabledState"`
-	// Frontend endpoints associated with this rule
-	FrontendEndpoints []SubResourceResponse `pulumi:"frontendEndpoints"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The route patterns of the rule.
-	PatternsToMatch []string `pulumi:"patternsToMatch"`
-	// Resource status.
-	ResourceState string `pulumi:"resourceState"`
-	// A reference to the routing configuration.
-	RouteConfiguration interface{} `pulumi:"routeConfiguration"`
-	// A reference to a specific Rules Engine Configuration to apply to this route.
-	RulesEngine *SubResourceResponse `pulumi:"rulesEngine"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	AcceptedProtocols  []string              `pulumi:"acceptedProtocols"`
+	EnabledState       *string               `pulumi:"enabledState"`
+	FrontendEndpoints  []SubResourceResponse `pulumi:"frontendEndpoints"`
+	Id                 *string               `pulumi:"id"`
+	Name               *string               `pulumi:"name"`
+	PatternsToMatch    []string              `pulumi:"patternsToMatch"`
+	ResourceState      string                `pulumi:"resourceState"`
+	RouteConfiguration interface{}           `pulumi:"routeConfiguration"`
+	RulesEngine        *SubResourceResponse  `pulumi:"rulesEngine"`
+	Type               string                `pulumi:"type"`
 }
 
 // RoutingRuleResponseInput is an input type that accepts RoutingRuleResponseArgs and RoutingRuleResponseOutput values.
@@ -4735,28 +4206,17 @@ type RoutingRuleResponseInput interface {
 	ToRoutingRuleResponseOutputWithContext(context.Context) RoutingRuleResponseOutput
 }
 
-// A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
 type RoutingRuleResponseArgs struct {
-	// Protocol schemes to match for this rule
-	AcceptedProtocols pulumi.StringArrayInput `pulumi:"acceptedProtocols"`
-	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// Frontend endpoints associated with this rule
-	FrontendEndpoints SubResourceResponseArrayInput `pulumi:"frontendEndpoints"`
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Resource name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The route patterns of the rule.
-	PatternsToMatch pulumi.StringArrayInput `pulumi:"patternsToMatch"`
-	// Resource status.
-	ResourceState pulumi.StringInput `pulumi:"resourceState"`
-	// A reference to the routing configuration.
-	RouteConfiguration pulumi.Input `pulumi:"routeConfiguration"`
-	// A reference to a specific Rules Engine Configuration to apply to this route.
-	RulesEngine SubResourceResponsePtrInput `pulumi:"rulesEngine"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	AcceptedProtocols  pulumi.StringArrayInput       `pulumi:"acceptedProtocols"`
+	EnabledState       pulumi.StringPtrInput         `pulumi:"enabledState"`
+	FrontendEndpoints  SubResourceResponseArrayInput `pulumi:"frontendEndpoints"`
+	Id                 pulumi.StringPtrInput         `pulumi:"id"`
+	Name               pulumi.StringPtrInput         `pulumi:"name"`
+	PatternsToMatch    pulumi.StringArrayInput       `pulumi:"patternsToMatch"`
+	ResourceState      pulumi.StringInput            `pulumi:"resourceState"`
+	RouteConfiguration pulumi.Input                  `pulumi:"routeConfiguration"`
+	RulesEngine        SubResourceResponsePtrInput   `pulumi:"rulesEngine"`
+	Type               pulumi.StringInput            `pulumi:"type"`
 }
 
 func (RoutingRuleResponseArgs) ElementType() reflect.Type {
@@ -4796,7 +4256,6 @@ func (i RoutingRuleResponseArray) ToRoutingRuleResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleResponseArrayOutput)
 }
 
-// A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
 type RoutingRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (RoutingRuleResponseOutput) ElementType() reflect.Type {
@@ -4811,52 +4270,42 @@ func (o RoutingRuleResponseOutput) ToRoutingRuleResponseOutputWithContext(ctx co
 	return o
 }
 
-// Protocol schemes to match for this rule
 func (o RoutingRuleResponseOutput) AcceptedProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoutingRuleResponse) []string { return v.AcceptedProtocols }).(pulumi.StringArrayOutput)
 }
 
-// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
 func (o RoutingRuleResponseOutput) EnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingRuleResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
 }
 
-// Frontend endpoints associated with this rule
 func (o RoutingRuleResponseOutput) FrontendEndpoints() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v RoutingRuleResponse) []SubResourceResponse { return v.FrontendEndpoints }).(SubResourceResponseArrayOutput)
 }
 
-// Resource ID.
 func (o RoutingRuleResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
 func (o RoutingRuleResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingRuleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The route patterns of the rule.
 func (o RoutingRuleResponseOutput) PatternsToMatch() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoutingRuleResponse) []string { return v.PatternsToMatch }).(pulumi.StringArrayOutput)
 }
 
-// Resource status.
 func (o RoutingRuleResponseOutput) ResourceState() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingRuleResponse) string { return v.ResourceState }).(pulumi.StringOutput)
 }
 
-// A reference to the routing configuration.
 func (o RoutingRuleResponseOutput) RouteConfiguration() pulumi.AnyOutput {
 	return o.ApplyT(func(v RoutingRuleResponse) interface{} { return v.RouteConfiguration }).(pulumi.AnyOutput)
 }
 
-// A reference to a specific Rules Engine Configuration to apply to this route.
 func (o RoutingRuleResponseOutput) RulesEngine() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v RoutingRuleResponse) *SubResourceResponse { return v.RulesEngine }).(SubResourceResponsePtrOutput)
 }
 
-// Resource type.
 func (o RoutingRuleResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingRuleResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4881,14 +4330,10 @@ func (o RoutingRuleResponseArrayOutput) Index(i pulumi.IntInput) RoutingRuleResp
 	}).(RoutingRuleResponseOutput)
 }
 
-// One or more actions that will execute, modifying the request and/or response.
 type RulesEngineAction struct {
-	// A list of header actions to apply from the request from AFD to the origin.
-	RequestHeaderActions []HeaderAction `pulumi:"requestHeaderActions"`
-	// A list of header actions to apply from the response from AFD to the client.
-	ResponseHeaderActions []HeaderAction `pulumi:"responseHeaderActions"`
-	// Override the route configuration.
-	RouteConfigurationOverride interface{} `pulumi:"routeConfigurationOverride"`
+	RequestHeaderActions       []HeaderAction `pulumi:"requestHeaderActions"`
+	ResponseHeaderActions      []HeaderAction `pulumi:"responseHeaderActions"`
+	RouteConfigurationOverride interface{}    `pulumi:"routeConfigurationOverride"`
 }
 
 // RulesEngineActionInput is an input type that accepts RulesEngineActionArgs and RulesEngineActionOutput values.
@@ -4902,14 +4347,10 @@ type RulesEngineActionInput interface {
 	ToRulesEngineActionOutputWithContext(context.Context) RulesEngineActionOutput
 }
 
-// One or more actions that will execute, modifying the request and/or response.
 type RulesEngineActionArgs struct {
-	// A list of header actions to apply from the request from AFD to the origin.
-	RequestHeaderActions HeaderActionArrayInput `pulumi:"requestHeaderActions"`
-	// A list of header actions to apply from the response from AFD to the client.
-	ResponseHeaderActions HeaderActionArrayInput `pulumi:"responseHeaderActions"`
-	// Override the route configuration.
-	RouteConfigurationOverride pulumi.Input `pulumi:"routeConfigurationOverride"`
+	RequestHeaderActions       HeaderActionArrayInput `pulumi:"requestHeaderActions"`
+	ResponseHeaderActions      HeaderActionArrayInput `pulumi:"responseHeaderActions"`
+	RouteConfigurationOverride pulumi.Input           `pulumi:"routeConfigurationOverride"`
 }
 
 func (RulesEngineActionArgs) ElementType() reflect.Type {
@@ -4924,7 +4365,6 @@ func (i RulesEngineActionArgs) ToRulesEngineActionOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineActionOutput)
 }
 
-// One or more actions that will execute, modifying the request and/or response.
 type RulesEngineActionOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineActionOutput) ElementType() reflect.Type {
@@ -4939,29 +4379,22 @@ func (o RulesEngineActionOutput) ToRulesEngineActionOutputWithContext(ctx contex
 	return o
 }
 
-// A list of header actions to apply from the request from AFD to the origin.
 func (o RulesEngineActionOutput) RequestHeaderActions() HeaderActionArrayOutput {
 	return o.ApplyT(func(v RulesEngineAction) []HeaderAction { return v.RequestHeaderActions }).(HeaderActionArrayOutput)
 }
 
-// A list of header actions to apply from the response from AFD to the client.
 func (o RulesEngineActionOutput) ResponseHeaderActions() HeaderActionArrayOutput {
 	return o.ApplyT(func(v RulesEngineAction) []HeaderAction { return v.ResponseHeaderActions }).(HeaderActionArrayOutput)
 }
 
-// Override the route configuration.
 func (o RulesEngineActionOutput) RouteConfigurationOverride() pulumi.AnyOutput {
 	return o.ApplyT(func(v RulesEngineAction) interface{} { return v.RouteConfigurationOverride }).(pulumi.AnyOutput)
 }
 
-// One or more actions that will execute, modifying the request and/or response.
 type RulesEngineActionResponse struct {
-	// A list of header actions to apply from the request from AFD to the origin.
-	RequestHeaderActions []HeaderActionResponse `pulumi:"requestHeaderActions"`
-	// A list of header actions to apply from the response from AFD to the client.
-	ResponseHeaderActions []HeaderActionResponse `pulumi:"responseHeaderActions"`
-	// Override the route configuration.
-	RouteConfigurationOverride interface{} `pulumi:"routeConfigurationOverride"`
+	RequestHeaderActions       []HeaderActionResponse `pulumi:"requestHeaderActions"`
+	ResponseHeaderActions      []HeaderActionResponse `pulumi:"responseHeaderActions"`
+	RouteConfigurationOverride interface{}            `pulumi:"routeConfigurationOverride"`
 }
 
 // RulesEngineActionResponseInput is an input type that accepts RulesEngineActionResponseArgs and RulesEngineActionResponseOutput values.
@@ -4975,14 +4408,10 @@ type RulesEngineActionResponseInput interface {
 	ToRulesEngineActionResponseOutputWithContext(context.Context) RulesEngineActionResponseOutput
 }
 
-// One or more actions that will execute, modifying the request and/or response.
 type RulesEngineActionResponseArgs struct {
-	// A list of header actions to apply from the request from AFD to the origin.
-	RequestHeaderActions HeaderActionResponseArrayInput `pulumi:"requestHeaderActions"`
-	// A list of header actions to apply from the response from AFD to the client.
-	ResponseHeaderActions HeaderActionResponseArrayInput `pulumi:"responseHeaderActions"`
-	// Override the route configuration.
-	RouteConfigurationOverride pulumi.Input `pulumi:"routeConfigurationOverride"`
+	RequestHeaderActions       HeaderActionResponseArrayInput `pulumi:"requestHeaderActions"`
+	ResponseHeaderActions      HeaderActionResponseArrayInput `pulumi:"responseHeaderActions"`
+	RouteConfigurationOverride pulumi.Input                   `pulumi:"routeConfigurationOverride"`
 }
 
 func (RulesEngineActionResponseArgs) ElementType() reflect.Type {
@@ -4997,7 +4426,6 @@ func (i RulesEngineActionResponseArgs) ToRulesEngineActionResponseOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineActionResponseOutput)
 }
 
-// One or more actions that will execute, modifying the request and/or response.
 type RulesEngineActionResponseOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineActionResponseOutput) ElementType() reflect.Type {
@@ -5012,35 +4440,25 @@ func (o RulesEngineActionResponseOutput) ToRulesEngineActionResponseOutputWithCo
 	return o
 }
 
-// A list of header actions to apply from the request from AFD to the origin.
 func (o RulesEngineActionResponseOutput) RequestHeaderActions() HeaderActionResponseArrayOutput {
 	return o.ApplyT(func(v RulesEngineActionResponse) []HeaderActionResponse { return v.RequestHeaderActions }).(HeaderActionResponseArrayOutput)
 }
 
-// A list of header actions to apply from the response from AFD to the client.
 func (o RulesEngineActionResponseOutput) ResponseHeaderActions() HeaderActionResponseArrayOutput {
 	return o.ApplyT(func(v RulesEngineActionResponse) []HeaderActionResponse { return v.ResponseHeaderActions }).(HeaderActionResponseArrayOutput)
 }
 
-// Override the route configuration.
 func (o RulesEngineActionResponseOutput) RouteConfigurationOverride() pulumi.AnyOutput {
 	return o.ApplyT(func(v RulesEngineActionResponse) interface{} { return v.RouteConfigurationOverride }).(pulumi.AnyOutput)
 }
 
-// Define a match condition
 type RulesEngineMatchCondition struct {
-	// Describes if this is negate condition or not
-	NegateCondition *bool `pulumi:"negateCondition"`
-	// Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
-	RulesEngineMatchValue []string `pulumi:"rulesEngineMatchValue"`
-	// Match Variable
-	RulesEngineMatchVariable string `pulumi:"rulesEngineMatchVariable"`
-	// Describes operator to apply to the match condition.
-	RulesEngineOperator string `pulumi:"rulesEngineOperator"`
-	// Name of selector in RequestHeader or RequestBody to be matched
-	Selector *string `pulumi:"selector"`
-	// List of transforms
-	Transforms []string `pulumi:"transforms"`
+	NegateCondition          *bool    `pulumi:"negateCondition"`
+	RulesEngineMatchValue    []string `pulumi:"rulesEngineMatchValue"`
+	RulesEngineMatchVariable string   `pulumi:"rulesEngineMatchVariable"`
+	RulesEngineOperator      string   `pulumi:"rulesEngineOperator"`
+	Selector                 *string  `pulumi:"selector"`
+	Transforms               []string `pulumi:"transforms"`
 }
 
 // RulesEngineMatchConditionInput is an input type that accepts RulesEngineMatchConditionArgs and RulesEngineMatchConditionOutput values.
@@ -5054,20 +4472,13 @@ type RulesEngineMatchConditionInput interface {
 	ToRulesEngineMatchConditionOutputWithContext(context.Context) RulesEngineMatchConditionOutput
 }
 
-// Define a match condition
 type RulesEngineMatchConditionArgs struct {
-	// Describes if this is negate condition or not
-	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
-	// Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
-	RulesEngineMatchValue pulumi.StringArrayInput `pulumi:"rulesEngineMatchValue"`
-	// Match Variable
-	RulesEngineMatchVariable pulumi.StringInput `pulumi:"rulesEngineMatchVariable"`
-	// Describes operator to apply to the match condition.
-	RulesEngineOperator pulumi.StringInput `pulumi:"rulesEngineOperator"`
-	// Name of selector in RequestHeader or RequestBody to be matched
-	Selector pulumi.StringPtrInput `pulumi:"selector"`
-	// List of transforms
-	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+	NegateCondition          pulumi.BoolPtrInput     `pulumi:"negateCondition"`
+	RulesEngineMatchValue    pulumi.StringArrayInput `pulumi:"rulesEngineMatchValue"`
+	RulesEngineMatchVariable pulumi.StringInput      `pulumi:"rulesEngineMatchVariable"`
+	RulesEngineOperator      pulumi.StringInput      `pulumi:"rulesEngineOperator"`
+	Selector                 pulumi.StringPtrInput   `pulumi:"selector"`
+	Transforms               pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
 func (RulesEngineMatchConditionArgs) ElementType() reflect.Type {
@@ -5107,7 +4518,6 @@ func (i RulesEngineMatchConditionArray) ToRulesEngineMatchConditionArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineMatchConditionArrayOutput)
 }
 
-// Define a match condition
 type RulesEngineMatchConditionOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineMatchConditionOutput) ElementType() reflect.Type {
@@ -5122,32 +4532,26 @@ func (o RulesEngineMatchConditionOutput) ToRulesEngineMatchConditionOutputWithCo
 	return o
 }
 
-// Describes if this is negate condition or not
 func (o RulesEngineMatchConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RulesEngineMatchCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
 }
 
-// Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
 func (o RulesEngineMatchConditionOutput) RulesEngineMatchValue() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RulesEngineMatchCondition) []string { return v.RulesEngineMatchValue }).(pulumi.StringArrayOutput)
 }
 
-// Match Variable
 func (o RulesEngineMatchConditionOutput) RulesEngineMatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v RulesEngineMatchCondition) string { return v.RulesEngineMatchVariable }).(pulumi.StringOutput)
 }
 
-// Describes operator to apply to the match condition.
 func (o RulesEngineMatchConditionOutput) RulesEngineOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v RulesEngineMatchCondition) string { return v.RulesEngineOperator }).(pulumi.StringOutput)
 }
 
-// Name of selector in RequestHeader or RequestBody to be matched
 func (o RulesEngineMatchConditionOutput) Selector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesEngineMatchCondition) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
-// List of transforms
 func (o RulesEngineMatchConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RulesEngineMatchCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -5172,20 +4576,13 @@ func (o RulesEngineMatchConditionArrayOutput) Index(i pulumi.IntInput) RulesEngi
 	}).(RulesEngineMatchConditionOutput)
 }
 
-// Define a match condition
 type RulesEngineMatchConditionResponse struct {
-	// Describes if this is negate condition or not
-	NegateCondition *bool `pulumi:"negateCondition"`
-	// Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
-	RulesEngineMatchValue []string `pulumi:"rulesEngineMatchValue"`
-	// Match Variable
-	RulesEngineMatchVariable string `pulumi:"rulesEngineMatchVariable"`
-	// Describes operator to apply to the match condition.
-	RulesEngineOperator string `pulumi:"rulesEngineOperator"`
-	// Name of selector in RequestHeader or RequestBody to be matched
-	Selector *string `pulumi:"selector"`
-	// List of transforms
-	Transforms []string `pulumi:"transforms"`
+	NegateCondition          *bool    `pulumi:"negateCondition"`
+	RulesEngineMatchValue    []string `pulumi:"rulesEngineMatchValue"`
+	RulesEngineMatchVariable string   `pulumi:"rulesEngineMatchVariable"`
+	RulesEngineOperator      string   `pulumi:"rulesEngineOperator"`
+	Selector                 *string  `pulumi:"selector"`
+	Transforms               []string `pulumi:"transforms"`
 }
 
 // RulesEngineMatchConditionResponseInput is an input type that accepts RulesEngineMatchConditionResponseArgs and RulesEngineMatchConditionResponseOutput values.
@@ -5199,20 +4596,13 @@ type RulesEngineMatchConditionResponseInput interface {
 	ToRulesEngineMatchConditionResponseOutputWithContext(context.Context) RulesEngineMatchConditionResponseOutput
 }
 
-// Define a match condition
 type RulesEngineMatchConditionResponseArgs struct {
-	// Describes if this is negate condition or not
-	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
-	// Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
-	RulesEngineMatchValue pulumi.StringArrayInput `pulumi:"rulesEngineMatchValue"`
-	// Match Variable
-	RulesEngineMatchVariable pulumi.StringInput `pulumi:"rulesEngineMatchVariable"`
-	// Describes operator to apply to the match condition.
-	RulesEngineOperator pulumi.StringInput `pulumi:"rulesEngineOperator"`
-	// Name of selector in RequestHeader or RequestBody to be matched
-	Selector pulumi.StringPtrInput `pulumi:"selector"`
-	// List of transforms
-	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+	NegateCondition          pulumi.BoolPtrInput     `pulumi:"negateCondition"`
+	RulesEngineMatchValue    pulumi.StringArrayInput `pulumi:"rulesEngineMatchValue"`
+	RulesEngineMatchVariable pulumi.StringInput      `pulumi:"rulesEngineMatchVariable"`
+	RulesEngineOperator      pulumi.StringInput      `pulumi:"rulesEngineOperator"`
+	Selector                 pulumi.StringPtrInput   `pulumi:"selector"`
+	Transforms               pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
 func (RulesEngineMatchConditionResponseArgs) ElementType() reflect.Type {
@@ -5252,7 +4642,6 @@ func (i RulesEngineMatchConditionResponseArray) ToRulesEngineMatchConditionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineMatchConditionResponseArrayOutput)
 }
 
-// Define a match condition
 type RulesEngineMatchConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineMatchConditionResponseOutput) ElementType() reflect.Type {
@@ -5267,32 +4656,26 @@ func (o RulesEngineMatchConditionResponseOutput) ToRulesEngineMatchConditionResp
 	return o
 }
 
-// Describes if this is negate condition or not
 func (o RulesEngineMatchConditionResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RulesEngineMatchConditionResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
 }
 
-// Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
 func (o RulesEngineMatchConditionResponseOutput) RulesEngineMatchValue() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RulesEngineMatchConditionResponse) []string { return v.RulesEngineMatchValue }).(pulumi.StringArrayOutput)
 }
 
-// Match Variable
 func (o RulesEngineMatchConditionResponseOutput) RulesEngineMatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v RulesEngineMatchConditionResponse) string { return v.RulesEngineMatchVariable }).(pulumi.StringOutput)
 }
 
-// Describes operator to apply to the match condition.
 func (o RulesEngineMatchConditionResponseOutput) RulesEngineOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v RulesEngineMatchConditionResponse) string { return v.RulesEngineOperator }).(pulumi.StringOutput)
 }
 
-// Name of selector in RequestHeader or RequestBody to be matched
 func (o RulesEngineMatchConditionResponseOutput) Selector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesEngineMatchConditionResponse) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
-// List of transforms
 func (o RulesEngineMatchConditionResponseOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RulesEngineMatchConditionResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -5317,18 +4700,12 @@ func (o RulesEngineMatchConditionResponseArrayOutput) Index(i pulumi.IntInput) R
 	}).(RulesEngineMatchConditionResponseOutput)
 }
 
-// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
 type RulesEngineResponse struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Resource status.
-	ResourceState string `pulumi:"resourceState"`
-	// A list of rules that define a particular Rules Engine Configuration.
-	Rules []RulesEngineRuleResponse `pulumi:"rules"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id            string                    `pulumi:"id"`
+	Name          string                    `pulumi:"name"`
+	ResourceState string                    `pulumi:"resourceState"`
+	Rules         []RulesEngineRuleResponse `pulumi:"rules"`
+	Type          string                    `pulumi:"type"`
 }
 
 // RulesEngineResponseInput is an input type that accepts RulesEngineResponseArgs and RulesEngineResponseOutput values.
@@ -5342,18 +4719,12 @@ type RulesEngineResponseInput interface {
 	ToRulesEngineResponseOutputWithContext(context.Context) RulesEngineResponseOutput
 }
 
-// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
 type RulesEngineResponseArgs struct {
-	// Resource ID.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource status.
-	ResourceState pulumi.StringInput `pulumi:"resourceState"`
-	// A list of rules that define a particular Rules Engine Configuration.
-	Rules RulesEngineRuleResponseArrayInput `pulumi:"rules"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Id            pulumi.StringInput                `pulumi:"id"`
+	Name          pulumi.StringInput                `pulumi:"name"`
+	ResourceState pulumi.StringInput                `pulumi:"resourceState"`
+	Rules         RulesEngineRuleResponseArrayInput `pulumi:"rules"`
+	Type          pulumi.StringInput                `pulumi:"type"`
 }
 
 func (RulesEngineResponseArgs) ElementType() reflect.Type {
@@ -5393,7 +4764,6 @@ func (i RulesEngineResponseArray) ToRulesEngineResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineResponseArrayOutput)
 }
 
-// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
 type RulesEngineResponseOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineResponseOutput) ElementType() reflect.Type {
@@ -5408,27 +4778,22 @@ func (o RulesEngineResponseOutput) ToRulesEngineResponseOutputWithContext(ctx co
 	return o
 }
 
-// Resource ID.
 func (o RulesEngineResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v RulesEngineResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
 func (o RulesEngineResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RulesEngineResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource status.
 func (o RulesEngineResponseOutput) ResourceState() pulumi.StringOutput {
 	return o.ApplyT(func(v RulesEngineResponse) string { return v.ResourceState }).(pulumi.StringOutput)
 }
 
-// A list of rules that define a particular Rules Engine Configuration.
 func (o RulesEngineResponseOutput) Rules() RulesEngineRuleResponseArrayOutput {
 	return o.ApplyT(func(v RulesEngineResponse) []RulesEngineRuleResponse { return v.Rules }).(RulesEngineRuleResponseArrayOutput)
 }
 
-// Resource type.
 func (o RulesEngineResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RulesEngineResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5453,18 +4818,12 @@ func (o RulesEngineResponseArrayOutput) Index(i pulumi.IntInput) RulesEngineResp
 	}).(RulesEngineResponseOutput)
 }
 
-// Contains a list of match conditions, and an action on how to modify the request/response. If multiple rules match, the actions from one rule that conflict with a previous rule overwrite for a singular action, or append in the case of headers manipulation.
 type RulesEngineRule struct {
-	// Actions to perform on the request and response if all of the match conditions are met.
-	Action RulesEngineAction `pulumi:"action"`
-	// A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
-	MatchConditions []RulesEngineMatchCondition `pulumi:"matchConditions"`
-	// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
-	MatchProcessingBehavior *string `pulumi:"matchProcessingBehavior"`
-	// A name to refer to this specific rule.
-	Name string `pulumi:"name"`
-	// A priority assigned to this rule.
-	Priority int `pulumi:"priority"`
+	Action                  RulesEngineAction           `pulumi:"action"`
+	MatchConditions         []RulesEngineMatchCondition `pulumi:"matchConditions"`
+	MatchProcessingBehavior *string                     `pulumi:"matchProcessingBehavior"`
+	Name                    string                      `pulumi:"name"`
+	Priority                int                         `pulumi:"priority"`
 }
 
 // RulesEngineRuleInput is an input type that accepts RulesEngineRuleArgs and RulesEngineRuleOutput values.
@@ -5478,18 +4837,12 @@ type RulesEngineRuleInput interface {
 	ToRulesEngineRuleOutputWithContext(context.Context) RulesEngineRuleOutput
 }
 
-// Contains a list of match conditions, and an action on how to modify the request/response. If multiple rules match, the actions from one rule that conflict with a previous rule overwrite for a singular action, or append in the case of headers manipulation.
 type RulesEngineRuleArgs struct {
-	// Actions to perform on the request and response if all of the match conditions are met.
-	Action RulesEngineActionInput `pulumi:"action"`
-	// A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
-	MatchConditions RulesEngineMatchConditionArrayInput `pulumi:"matchConditions"`
-	// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
-	MatchProcessingBehavior pulumi.StringPtrInput `pulumi:"matchProcessingBehavior"`
-	// A name to refer to this specific rule.
-	Name pulumi.StringInput `pulumi:"name"`
-	// A priority assigned to this rule.
-	Priority pulumi.IntInput `pulumi:"priority"`
+	Action                  RulesEngineActionInput              `pulumi:"action"`
+	MatchConditions         RulesEngineMatchConditionArrayInput `pulumi:"matchConditions"`
+	MatchProcessingBehavior pulumi.StringPtrInput               `pulumi:"matchProcessingBehavior"`
+	Name                    pulumi.StringInput                  `pulumi:"name"`
+	Priority                pulumi.IntInput                     `pulumi:"priority"`
 }
 
 func (RulesEngineRuleArgs) ElementType() reflect.Type {
@@ -5529,7 +4882,6 @@ func (i RulesEngineRuleArray) ToRulesEngineRuleArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleArrayOutput)
 }
 
-// Contains a list of match conditions, and an action on how to modify the request/response. If multiple rules match, the actions from one rule that conflict with a previous rule overwrite for a singular action, or append in the case of headers manipulation.
 type RulesEngineRuleOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineRuleOutput) ElementType() reflect.Type {
@@ -5544,27 +4896,22 @@ func (o RulesEngineRuleOutput) ToRulesEngineRuleOutputWithContext(ctx context.Co
 	return o
 }
 
-// Actions to perform on the request and response if all of the match conditions are met.
 func (o RulesEngineRuleOutput) Action() RulesEngineActionOutput {
 	return o.ApplyT(func(v RulesEngineRule) RulesEngineAction { return v.Action }).(RulesEngineActionOutput)
 }
 
-// A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
 func (o RulesEngineRuleOutput) MatchConditions() RulesEngineMatchConditionArrayOutput {
 	return o.ApplyT(func(v RulesEngineRule) []RulesEngineMatchCondition { return v.MatchConditions }).(RulesEngineMatchConditionArrayOutput)
 }
 
-// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
 func (o RulesEngineRuleOutput) MatchProcessingBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesEngineRule) *string { return v.MatchProcessingBehavior }).(pulumi.StringPtrOutput)
 }
 
-// A name to refer to this specific rule.
 func (o RulesEngineRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RulesEngineRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A priority assigned to this rule.
 func (o RulesEngineRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RulesEngineRule) int { return v.Priority }).(pulumi.IntOutput)
 }
@@ -5589,18 +4936,12 @@ func (o RulesEngineRuleArrayOutput) Index(i pulumi.IntInput) RulesEngineRuleOutp
 	}).(RulesEngineRuleOutput)
 }
 
-// Contains a list of match conditions, and an action on how to modify the request/response. If multiple rules match, the actions from one rule that conflict with a previous rule overwrite for a singular action, or append in the case of headers manipulation.
 type RulesEngineRuleResponse struct {
-	// Actions to perform on the request and response if all of the match conditions are met.
-	Action RulesEngineActionResponse `pulumi:"action"`
-	// A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
-	MatchConditions []RulesEngineMatchConditionResponse `pulumi:"matchConditions"`
-	// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
-	MatchProcessingBehavior *string `pulumi:"matchProcessingBehavior"`
-	// A name to refer to this specific rule.
-	Name string `pulumi:"name"`
-	// A priority assigned to this rule.
-	Priority int `pulumi:"priority"`
+	Action                  RulesEngineActionResponse           `pulumi:"action"`
+	MatchConditions         []RulesEngineMatchConditionResponse `pulumi:"matchConditions"`
+	MatchProcessingBehavior *string                             `pulumi:"matchProcessingBehavior"`
+	Name                    string                              `pulumi:"name"`
+	Priority                int                                 `pulumi:"priority"`
 }
 
 // RulesEngineRuleResponseInput is an input type that accepts RulesEngineRuleResponseArgs and RulesEngineRuleResponseOutput values.
@@ -5614,18 +4955,12 @@ type RulesEngineRuleResponseInput interface {
 	ToRulesEngineRuleResponseOutputWithContext(context.Context) RulesEngineRuleResponseOutput
 }
 
-// Contains a list of match conditions, and an action on how to modify the request/response. If multiple rules match, the actions from one rule that conflict with a previous rule overwrite for a singular action, or append in the case of headers manipulation.
 type RulesEngineRuleResponseArgs struct {
-	// Actions to perform on the request and response if all of the match conditions are met.
-	Action RulesEngineActionResponseInput `pulumi:"action"`
-	// A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
-	MatchConditions RulesEngineMatchConditionResponseArrayInput `pulumi:"matchConditions"`
-	// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
-	MatchProcessingBehavior pulumi.StringPtrInput `pulumi:"matchProcessingBehavior"`
-	// A name to refer to this specific rule.
-	Name pulumi.StringInput `pulumi:"name"`
-	// A priority assigned to this rule.
-	Priority pulumi.IntInput `pulumi:"priority"`
+	Action                  RulesEngineActionResponseInput              `pulumi:"action"`
+	MatchConditions         RulesEngineMatchConditionResponseArrayInput `pulumi:"matchConditions"`
+	MatchProcessingBehavior pulumi.StringPtrInput                       `pulumi:"matchProcessingBehavior"`
+	Name                    pulumi.StringInput                          `pulumi:"name"`
+	Priority                pulumi.IntInput                             `pulumi:"priority"`
 }
 
 func (RulesEngineRuleResponseArgs) ElementType() reflect.Type {
@@ -5665,7 +5000,6 @@ func (i RulesEngineRuleResponseArray) ToRulesEngineRuleResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleResponseArrayOutput)
 }
 
-// Contains a list of match conditions, and an action on how to modify the request/response. If multiple rules match, the actions from one rule that conflict with a previous rule overwrite for a singular action, or append in the case of headers manipulation.
 type RulesEngineRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineRuleResponseOutput) ElementType() reflect.Type {
@@ -5680,27 +5014,22 @@ func (o RulesEngineRuleResponseOutput) ToRulesEngineRuleResponseOutputWithContex
 	return o
 }
 
-// Actions to perform on the request and response if all of the match conditions are met.
 func (o RulesEngineRuleResponseOutput) Action() RulesEngineActionResponseOutput {
 	return o.ApplyT(func(v RulesEngineRuleResponse) RulesEngineActionResponse { return v.Action }).(RulesEngineActionResponseOutput)
 }
 
-// A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
 func (o RulesEngineRuleResponseOutput) MatchConditions() RulesEngineMatchConditionResponseArrayOutput {
 	return o.ApplyT(func(v RulesEngineRuleResponse) []RulesEngineMatchConditionResponse { return v.MatchConditions }).(RulesEngineMatchConditionResponseArrayOutput)
 }
 
-// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
 func (o RulesEngineRuleResponseOutput) MatchProcessingBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesEngineRuleResponse) *string { return v.MatchProcessingBehavior }).(pulumi.StringPtrOutput)
 }
 
-// A name to refer to this specific rule.
 func (o RulesEngineRuleResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RulesEngineRuleResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A priority assigned to this rule.
 func (o RulesEngineRuleResponseOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RulesEngineRuleResponse) int { return v.Priority }).(pulumi.IntOutput)
 }
@@ -5725,21 +5054,13 @@ func (o RulesEngineRuleResponseArrayOutput) Index(i pulumi.IntInput) RulesEngine
 	}).(RulesEngineRuleResponseOutput)
 }
 
-// An SOA record.
 type SoaRecord struct {
-	// The email contact for this SOA record.
-	Email *string `pulumi:"email"`
-	// The expire time for this SOA record.
-	ExpireTime *float64 `pulumi:"expireTime"`
-	// The domain name of the authoritative name server for this SOA record.
-	Host *string `pulumi:"host"`
-	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTtl *float64 `pulumi:"minimumTtl"`
-	// The refresh value for this SOA record.
-	RefreshTime *float64 `pulumi:"refreshTime"`
-	// The retry time for this SOA record.
-	RetryTime *float64 `pulumi:"retryTime"`
-	// The serial number for this SOA record.
+	Email        *string  `pulumi:"email"`
+	ExpireTime   *float64 `pulumi:"expireTime"`
+	Host         *string  `pulumi:"host"`
+	MinimumTtl   *float64 `pulumi:"minimumTtl"`
+	RefreshTime  *float64 `pulumi:"refreshTime"`
+	RetryTime    *float64 `pulumi:"retryTime"`
 	SerialNumber *float64 `pulumi:"serialNumber"`
 }
 
@@ -5754,21 +5075,13 @@ type SoaRecordInput interface {
 	ToSoaRecordOutputWithContext(context.Context) SoaRecordOutput
 }
 
-// An SOA record.
 type SoaRecordArgs struct {
-	// The email contact for this SOA record.
-	Email pulumi.StringPtrInput `pulumi:"email"`
-	// The expire time for this SOA record.
-	ExpireTime pulumi.Float64PtrInput `pulumi:"expireTime"`
-	// The domain name of the authoritative name server for this SOA record.
-	Host pulumi.StringPtrInput `pulumi:"host"`
-	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTtl pulumi.Float64PtrInput `pulumi:"minimumTtl"`
-	// The refresh value for this SOA record.
-	RefreshTime pulumi.Float64PtrInput `pulumi:"refreshTime"`
-	// The retry time for this SOA record.
-	RetryTime pulumi.Float64PtrInput `pulumi:"retryTime"`
-	// The serial number for this SOA record.
+	Email        pulumi.StringPtrInput  `pulumi:"email"`
+	ExpireTime   pulumi.Float64PtrInput `pulumi:"expireTime"`
+	Host         pulumi.StringPtrInput  `pulumi:"host"`
+	MinimumTtl   pulumi.Float64PtrInput `pulumi:"minimumTtl"`
+	RefreshTime  pulumi.Float64PtrInput `pulumi:"refreshTime"`
+	RetryTime    pulumi.Float64PtrInput `pulumi:"retryTime"`
 	SerialNumber pulumi.Float64PtrInput `pulumi:"serialNumber"`
 }
 
@@ -5825,7 +5138,6 @@ func (i *soaRecordPtrType) ToSoaRecordPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SoaRecordPtrOutput)
 }
 
-// An SOA record.
 type SoaRecordOutput struct{ *pulumi.OutputState }
 
 func (SoaRecordOutput) ElementType() reflect.Type {
@@ -5845,42 +5157,35 @@ func (o SoaRecordOutput) ToSoaRecordPtrOutput() SoaRecordPtrOutput {
 }
 
 func (o SoaRecordOutput) ToSoaRecordPtrOutputWithContext(ctx context.Context) SoaRecordPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *SoaRecord {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoaRecord) *SoaRecord {
 		return &v
 	}).(SoaRecordPtrOutput)
 }
 
-// The email contact for this SOA record.
 func (o SoaRecordOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SoaRecord) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// The expire time for this SOA record.
 func (o SoaRecordOutput) ExpireTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecord) *float64 { return v.ExpireTime }).(pulumi.Float64PtrOutput)
 }
 
-// The domain name of the authoritative name server for this SOA record.
 func (o SoaRecordOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SoaRecord) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
 func (o SoaRecordOutput) MinimumTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecord) *float64 { return v.MinimumTtl }).(pulumi.Float64PtrOutput)
 }
 
-// The refresh value for this SOA record.
 func (o SoaRecordOutput) RefreshTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecord) *float64 { return v.RefreshTime }).(pulumi.Float64PtrOutput)
 }
 
-// The retry time for this SOA record.
 func (o SoaRecordOutput) RetryTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecord) *float64 { return v.RetryTime }).(pulumi.Float64PtrOutput)
 }
 
-// The serial number for this SOA record.
 func (o SoaRecordOutput) SerialNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecord) *float64 { return v.SerialNumber }).(pulumi.Float64PtrOutput)
 }
@@ -5900,10 +5205,15 @@ func (o SoaRecordPtrOutput) ToSoaRecordPtrOutputWithContext(ctx context.Context)
 }
 
 func (o SoaRecordPtrOutput) Elem() SoaRecordOutput {
-	return o.ApplyT(func(v *SoaRecord) SoaRecord { return *v }).(SoaRecordOutput)
+	return o.ApplyT(func(v *SoaRecord) SoaRecord {
+		if v != nil {
+			return *v
+		}
+		var ret SoaRecord
+		return ret
+	}).(SoaRecordOutput)
 }
 
-// The email contact for this SOA record.
 func (o SoaRecordPtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SoaRecord) *string {
 		if v == nil {
@@ -5913,7 +5223,6 @@ func (o SoaRecordPtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The expire time for this SOA record.
 func (o SoaRecordPtrOutput) ExpireTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
@@ -5923,7 +5232,6 @@ func (o SoaRecordPtrOutput) ExpireTime() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The domain name of the authoritative name server for this SOA record.
 func (o SoaRecordPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SoaRecord) *string {
 		if v == nil {
@@ -5933,7 +5241,6 @@ func (o SoaRecordPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
 func (o SoaRecordPtrOutput) MinimumTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
@@ -5943,7 +5250,6 @@ func (o SoaRecordPtrOutput) MinimumTtl() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The refresh value for this SOA record.
 func (o SoaRecordPtrOutput) RefreshTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
@@ -5953,7 +5259,6 @@ func (o SoaRecordPtrOutput) RefreshTime() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The retry time for this SOA record.
 func (o SoaRecordPtrOutput) RetryTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
@@ -5963,7 +5268,6 @@ func (o SoaRecordPtrOutput) RetryTime() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The serial number for this SOA record.
 func (o SoaRecordPtrOutput) SerialNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
@@ -5973,21 +5277,13 @@ func (o SoaRecordPtrOutput) SerialNumber() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// An SOA record.
 type SoaRecordResponse struct {
-	// The email contact for this SOA record.
-	Email *string `pulumi:"email"`
-	// The expire time for this SOA record.
-	ExpireTime *float64 `pulumi:"expireTime"`
-	// The domain name of the authoritative name server for this SOA record.
-	Host *string `pulumi:"host"`
-	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTtl *float64 `pulumi:"minimumTtl"`
-	// The refresh value for this SOA record.
-	RefreshTime *float64 `pulumi:"refreshTime"`
-	// The retry time for this SOA record.
-	RetryTime *float64 `pulumi:"retryTime"`
-	// The serial number for this SOA record.
+	Email        *string  `pulumi:"email"`
+	ExpireTime   *float64 `pulumi:"expireTime"`
+	Host         *string  `pulumi:"host"`
+	MinimumTtl   *float64 `pulumi:"minimumTtl"`
+	RefreshTime  *float64 `pulumi:"refreshTime"`
+	RetryTime    *float64 `pulumi:"retryTime"`
 	SerialNumber *float64 `pulumi:"serialNumber"`
 }
 
@@ -6002,21 +5298,13 @@ type SoaRecordResponseInput interface {
 	ToSoaRecordResponseOutputWithContext(context.Context) SoaRecordResponseOutput
 }
 
-// An SOA record.
 type SoaRecordResponseArgs struct {
-	// The email contact for this SOA record.
-	Email pulumi.StringPtrInput `pulumi:"email"`
-	// The expire time for this SOA record.
-	ExpireTime pulumi.Float64PtrInput `pulumi:"expireTime"`
-	// The domain name of the authoritative name server for this SOA record.
-	Host pulumi.StringPtrInput `pulumi:"host"`
-	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTtl pulumi.Float64PtrInput `pulumi:"minimumTtl"`
-	// The refresh value for this SOA record.
-	RefreshTime pulumi.Float64PtrInput `pulumi:"refreshTime"`
-	// The retry time for this SOA record.
-	RetryTime pulumi.Float64PtrInput `pulumi:"retryTime"`
-	// The serial number for this SOA record.
+	Email        pulumi.StringPtrInput  `pulumi:"email"`
+	ExpireTime   pulumi.Float64PtrInput `pulumi:"expireTime"`
+	Host         pulumi.StringPtrInput  `pulumi:"host"`
+	MinimumTtl   pulumi.Float64PtrInput `pulumi:"minimumTtl"`
+	RefreshTime  pulumi.Float64PtrInput `pulumi:"refreshTime"`
+	RetryTime    pulumi.Float64PtrInput `pulumi:"retryTime"`
 	SerialNumber pulumi.Float64PtrInput `pulumi:"serialNumber"`
 }
 
@@ -6073,7 +5361,6 @@ func (i *soaRecordResponsePtrType) ToSoaRecordResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SoaRecordResponsePtrOutput)
 }
 
-// An SOA record.
 type SoaRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (SoaRecordResponseOutput) ElementType() reflect.Type {
@@ -6093,42 +5380,35 @@ func (o SoaRecordResponseOutput) ToSoaRecordResponsePtrOutput() SoaRecordRespons
 }
 
 func (o SoaRecordResponseOutput) ToSoaRecordResponsePtrOutputWithContext(ctx context.Context) SoaRecordResponsePtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *SoaRecordResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoaRecordResponse) *SoaRecordResponse {
 		return &v
 	}).(SoaRecordResponsePtrOutput)
 }
 
-// The email contact for this SOA record.
 func (o SoaRecordResponseOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SoaRecordResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// The expire time for this SOA record.
 func (o SoaRecordResponseOutput) ExpireTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.ExpireTime }).(pulumi.Float64PtrOutput)
 }
 
-// The domain name of the authoritative name server for this SOA record.
 func (o SoaRecordResponseOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SoaRecordResponse) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
 func (o SoaRecordResponseOutput) MinimumTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.MinimumTtl }).(pulumi.Float64PtrOutput)
 }
 
-// The refresh value for this SOA record.
 func (o SoaRecordResponseOutput) RefreshTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.RefreshTime }).(pulumi.Float64PtrOutput)
 }
 
-// The retry time for this SOA record.
 func (o SoaRecordResponseOutput) RetryTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.RetryTime }).(pulumi.Float64PtrOutput)
 }
 
-// The serial number for this SOA record.
 func (o SoaRecordResponseOutput) SerialNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.SerialNumber }).(pulumi.Float64PtrOutput)
 }
@@ -6148,10 +5428,15 @@ func (o SoaRecordResponsePtrOutput) ToSoaRecordResponsePtrOutputWithContext(ctx 
 }
 
 func (o SoaRecordResponsePtrOutput) Elem() SoaRecordResponseOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) SoaRecordResponse { return *v }).(SoaRecordResponseOutput)
+	return o.ApplyT(func(v *SoaRecordResponse) SoaRecordResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SoaRecordResponse
+		return ret
+	}).(SoaRecordResponseOutput)
 }
 
-// The email contact for this SOA record.
 func (o SoaRecordResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SoaRecordResponse) *string {
 		if v == nil {
@@ -6161,7 +5446,6 @@ func (o SoaRecordResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The expire time for this SOA record.
 func (o SoaRecordResponsePtrOutput) ExpireTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
@@ -6171,7 +5455,6 @@ func (o SoaRecordResponsePtrOutput) ExpireTime() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The domain name of the authoritative name server for this SOA record.
 func (o SoaRecordResponsePtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SoaRecordResponse) *string {
 		if v == nil {
@@ -6181,7 +5464,6 @@ func (o SoaRecordResponsePtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
 func (o SoaRecordResponsePtrOutput) MinimumTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
@@ -6191,7 +5473,6 @@ func (o SoaRecordResponsePtrOutput) MinimumTtl() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The refresh value for this SOA record.
 func (o SoaRecordResponsePtrOutput) RefreshTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
@@ -6201,7 +5482,6 @@ func (o SoaRecordResponsePtrOutput) RefreshTime() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The retry time for this SOA record.
 func (o SoaRecordResponsePtrOutput) RetryTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
@@ -6211,7 +5491,6 @@ func (o SoaRecordResponsePtrOutput) RetryTime() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The serial number for this SOA record.
 func (o SoaRecordResponsePtrOutput) SerialNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
@@ -6221,16 +5500,11 @@ func (o SoaRecordResponsePtrOutput) SerialNumber() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// An SRV record.
 type SrvRecord struct {
-	// The port value for this SRV record.
-	Port *int `pulumi:"port"`
-	// The priority value for this SRV record.
-	Priority *int `pulumi:"priority"`
-	// The target domain name for this SRV record.
-	Target *string `pulumi:"target"`
-	// The weight value for this SRV record.
-	Weight *int `pulumi:"weight"`
+	Port     *int    `pulumi:"port"`
+	Priority *int    `pulumi:"priority"`
+	Target   *string `pulumi:"target"`
+	Weight   *int    `pulumi:"weight"`
 }
 
 // SrvRecordInput is an input type that accepts SrvRecordArgs and SrvRecordOutput values.
@@ -6244,16 +5518,11 @@ type SrvRecordInput interface {
 	ToSrvRecordOutputWithContext(context.Context) SrvRecordOutput
 }
 
-// An SRV record.
 type SrvRecordArgs struct {
-	// The port value for this SRV record.
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The priority value for this SRV record.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// The target domain name for this SRV record.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// The weight value for this SRV record.
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	Port     pulumi.IntPtrInput    `pulumi:"port"`
+	Priority pulumi.IntPtrInput    `pulumi:"priority"`
+	Target   pulumi.StringPtrInput `pulumi:"target"`
+	Weight   pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (SrvRecordArgs) ElementType() reflect.Type {
@@ -6293,7 +5562,6 @@ func (i SrvRecordArray) ToSrvRecordArrayOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SrvRecordArrayOutput)
 }
 
-// An SRV record.
 type SrvRecordOutput struct{ *pulumi.OutputState }
 
 func (SrvRecordOutput) ElementType() reflect.Type {
@@ -6308,22 +5576,18 @@ func (o SrvRecordOutput) ToSrvRecordOutputWithContext(ctx context.Context) SrvRe
 	return o
 }
 
-// The port value for this SRV record.
 func (o SrvRecordOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SrvRecord) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The priority value for this SRV record.
 func (o SrvRecordOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SrvRecord) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// The target domain name for this SRV record.
 func (o SrvRecordOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SrvRecord) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// The weight value for this SRV record.
 func (o SrvRecordOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SrvRecord) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -6348,16 +5612,11 @@ func (o SrvRecordArrayOutput) Index(i pulumi.IntInput) SrvRecordOutput {
 	}).(SrvRecordOutput)
 }
 
-// An SRV record.
 type SrvRecordResponse struct {
-	// The port value for this SRV record.
-	Port *int `pulumi:"port"`
-	// The priority value for this SRV record.
-	Priority *int `pulumi:"priority"`
-	// The target domain name for this SRV record.
-	Target *string `pulumi:"target"`
-	// The weight value for this SRV record.
-	Weight *int `pulumi:"weight"`
+	Port     *int    `pulumi:"port"`
+	Priority *int    `pulumi:"priority"`
+	Target   *string `pulumi:"target"`
+	Weight   *int    `pulumi:"weight"`
 }
 
 // SrvRecordResponseInput is an input type that accepts SrvRecordResponseArgs and SrvRecordResponseOutput values.
@@ -6371,16 +5630,11 @@ type SrvRecordResponseInput interface {
 	ToSrvRecordResponseOutputWithContext(context.Context) SrvRecordResponseOutput
 }
 
-// An SRV record.
 type SrvRecordResponseArgs struct {
-	// The port value for this SRV record.
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The priority value for this SRV record.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// The target domain name for this SRV record.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// The weight value for this SRV record.
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	Port     pulumi.IntPtrInput    `pulumi:"port"`
+	Priority pulumi.IntPtrInput    `pulumi:"priority"`
+	Target   pulumi.StringPtrInput `pulumi:"target"`
+	Weight   pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (SrvRecordResponseArgs) ElementType() reflect.Type {
@@ -6420,7 +5674,6 @@ func (i SrvRecordResponseArray) ToSrvRecordResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SrvRecordResponseArrayOutput)
 }
 
-// An SRV record.
 type SrvRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (SrvRecordResponseOutput) ElementType() reflect.Type {
@@ -6435,22 +5688,18 @@ func (o SrvRecordResponseOutput) ToSrvRecordResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The port value for this SRV record.
 func (o SrvRecordResponseOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SrvRecordResponse) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The priority value for this SRV record.
 func (o SrvRecordResponseOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SrvRecordResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// The target domain name for this SRV record.
 func (o SrvRecordResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SrvRecordResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// The weight value for this SRV record.
 func (o SrvRecordResponseOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SrvRecordResponse) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -6475,9 +5724,7 @@ func (o SrvRecordResponseArrayOutput) Index(i pulumi.IntInput) SrvRecordResponse
 	}).(SrvRecordResponseOutput)
 }
 
-// Reference to another subresource.
 type SubResource struct {
-	// Resource ID.
 	Id *string `pulumi:"id"`
 }
 
@@ -6492,9 +5739,7 @@ type SubResourceInput interface {
 	ToSubResourceOutputWithContext(context.Context) SubResourceOutput
 }
 
-// Reference to another subresource.
 type SubResourceArgs struct {
-	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -6576,7 +5821,6 @@ func (i SubResourceArray) ToSubResourceArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SubResourceArrayOutput)
 }
 
-// Reference to another subresource.
 type SubResourceOutput struct{ *pulumi.OutputState }
 
 func (SubResourceOutput) ElementType() reflect.Type {
@@ -6596,12 +5840,11 @@ func (o SubResourceOutput) ToSubResourcePtrOutput() SubResourcePtrOutput {
 }
 
 func (o SubResourceOutput) ToSubResourcePtrOutputWithContext(ctx context.Context) SubResourcePtrOutput {
-	return o.ApplyT(func(v SubResource) *SubResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResource) *SubResource {
 		return &v
 	}).(SubResourcePtrOutput)
 }
 
-// Resource ID.
 func (o SubResourceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResource) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -6621,10 +5864,15 @@ func (o SubResourcePtrOutput) ToSubResourcePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SubResourcePtrOutput) Elem() SubResourceOutput {
-	return o.ApplyT(func(v *SubResource) SubResource { return *v }).(SubResourceOutput)
+	return o.ApplyT(func(v *SubResource) SubResource {
+		if v != nil {
+			return *v
+		}
+		var ret SubResource
+		return ret
+	}).(SubResourceOutput)
 }
 
-// Resource ID.
 func (o SubResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubResource) *string {
 		if v == nil {
@@ -6654,9 +5902,7 @@ func (o SubResourceArrayOutput) Index(i pulumi.IntInput) SubResourceOutput {
 	}).(SubResourceOutput)
 }
 
-// Reference to another subresource.
 type SubResourceResponse struct {
-	// Resource ID.
 	Id *string `pulumi:"id"`
 }
 
@@ -6671,9 +5917,7 @@ type SubResourceResponseInput interface {
 	ToSubResourceResponseOutputWithContext(context.Context) SubResourceResponseOutput
 }
 
-// Reference to another subresource.
 type SubResourceResponseArgs struct {
-	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -6755,7 +5999,6 @@ func (i SubResourceResponseArray) ToSubResourceResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponseArrayOutput)
 }
 
-// Reference to another subresource.
 type SubResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SubResourceResponseOutput) ElementType() reflect.Type {
@@ -6775,12 +6018,11 @@ func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutput() SubResourceR
 }
 
 func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v SubResourceResponse) *SubResourceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResourceResponse) *SubResourceResponse {
 		return &v
 	}).(SubResourceResponsePtrOutput)
 }
 
-// Resource ID.
 func (o SubResourceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -6800,10 +6042,15 @@ func (o SubResourceResponsePtrOutput) ToSubResourceResponsePtrOutputWithContext(
 }
 
 func (o SubResourceResponsePtrOutput) Elem() SubResourceResponseOutput {
-	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse { return *v }).(SubResourceResponseOutput)
+	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SubResourceResponse
+		return ret
+	}).(SubResourceResponseOutput)
 }
 
-// Resource ID.
 func (o SubResourceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubResourceResponse) *string {
 		if v == nil {
@@ -6833,9 +6080,7 @@ func (o SubResourceResponseArrayOutput) Index(i pulumi.IntInput) SubResourceResp
 	}).(SubResourceResponseOutput)
 }
 
-// A TXT record.
 type TxtRecord struct {
-	// The text value of this TXT record.
 	Value []string `pulumi:"value"`
 }
 
@@ -6850,9 +6095,7 @@ type TxtRecordInput interface {
 	ToTxtRecordOutputWithContext(context.Context) TxtRecordOutput
 }
 
-// A TXT record.
 type TxtRecordArgs struct {
-	// The text value of this TXT record.
 	Value pulumi.StringArrayInput `pulumi:"value"`
 }
 
@@ -6893,7 +6136,6 @@ func (i TxtRecordArray) ToTxtRecordArrayOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordArrayOutput)
 }
 
-// A TXT record.
 type TxtRecordOutput struct{ *pulumi.OutputState }
 
 func (TxtRecordOutput) ElementType() reflect.Type {
@@ -6908,7 +6150,6 @@ func (o TxtRecordOutput) ToTxtRecordOutputWithContext(ctx context.Context) TxtRe
 	return o
 }
 
-// The text value of this TXT record.
 func (o TxtRecordOutput) Value() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TxtRecord) []string { return v.Value }).(pulumi.StringArrayOutput)
 }
@@ -6933,9 +6174,7 @@ func (o TxtRecordArrayOutput) Index(i pulumi.IntInput) TxtRecordOutput {
 	}).(TxtRecordOutput)
 }
 
-// A TXT record.
 type TxtRecordResponse struct {
-	// The text value of this TXT record.
 	Value []string `pulumi:"value"`
 }
 
@@ -6950,9 +6189,7 @@ type TxtRecordResponseInput interface {
 	ToTxtRecordResponseOutputWithContext(context.Context) TxtRecordResponseOutput
 }
 
-// A TXT record.
 type TxtRecordResponseArgs struct {
-	// The text value of this TXT record.
 	Value pulumi.StringArrayInput `pulumi:"value"`
 }
 
@@ -6993,7 +6230,6 @@ func (i TxtRecordResponseArray) ToTxtRecordResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordResponseArrayOutput)
 }
 
-// A TXT record.
 type TxtRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (TxtRecordResponseOutput) ElementType() reflect.Type {
@@ -7008,7 +6244,6 @@ func (o TxtRecordResponseOutput) ToTxtRecordResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The text value of this TXT record.
 func (o TxtRecordResponseOutput) Value() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TxtRecordResponse) []string { return v.Value }).(pulumi.StringArrayOutput)
 }

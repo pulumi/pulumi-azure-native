@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Collection of static site custom users.
 func ListStaticSiteUsers(ctx *pulumi.Context, args *ListStaticSiteUsersArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteUsersResult, error) {
 	var rv ListStaticSiteUsersResult
 	err := ctx.Invoke("azure-native:web/v20201201:listStaticSiteUsers", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListStaticSiteUsers(ctx *pulumi.Context, args *ListStaticSiteUsersArgs, opt
 }
 
 type ListStaticSiteUsersArgs struct {
-	// The auth provider for the users.
-	Authprovider string `pulumi:"authprovider"`
-	// Name of the static site.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Authprovider      string `pulumi:"authprovider"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Collection of static site custom users.
 type ListStaticSiteUsersResult struct {
-	// Link to next page of resources.
-	NextLink string `pulumi:"nextLink"`
-	// Collection of resources.
-	Value []StaticSiteUserARMResourceResponse `pulumi:"value"`
+	NextLink string                              `pulumi:"nextLink"`
+	Value    []StaticSiteUserARMResourceResponse `pulumi:"value"`
 }

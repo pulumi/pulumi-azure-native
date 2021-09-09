@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure ML commitment plan resource.
 type CommitmentPlan struct {
 	pulumi.CustomResourceState
 
-	// An entity tag used to enforce optimistic concurrency.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The commitment plan properties.
+	Etag       pulumi.StringPtrOutput                 `pulumi:"etag"`
+	Location   pulumi.StringOutput                    `pulumi:"location"`
+	Name       pulumi.StringOutput                    `pulumi:"name"`
 	Properties CommitmentPlanPropertiesResponseOutput `pulumi:"properties"`
-	// The commitment plan SKU.
-	Sku ResourceSkuResponsePtrOutput `pulumi:"sku"`
-	// User-defined tags for the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        ResourceSkuResponsePtrOutput           `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput                 `pulumi:"tags"`
+	Type       pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewCommitmentPlan registers a new resource with the given unique name, arguments, and options.
@@ -85,34 +77,22 @@ func (CommitmentPlanState) ElementType() reflect.Type {
 }
 
 type commitmentPlanArgs struct {
-	// The Azure ML commitment plan name.
-	CommitmentPlanName *string `pulumi:"commitmentPlanName"`
-	// An entity tag used to enforce optimistic concurrency.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The commitment plan SKU.
-	Sku *ResourceSku `pulumi:"sku"`
-	// User-defined tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
+	CommitmentPlanName *string           `pulumi:"commitmentPlanName"`
+	Etag               *string           `pulumi:"etag"`
+	Location           *string           `pulumi:"location"`
+	ResourceGroupName  string            `pulumi:"resourceGroupName"`
+	Sku                *ResourceSku      `pulumi:"sku"`
+	Tags               map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CommitmentPlan resource.
 type CommitmentPlanArgs struct {
-	// The Azure ML commitment plan name.
 	CommitmentPlanName pulumi.StringPtrInput
-	// An entity tag used to enforce optimistic concurrency.
-	Etag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The commitment plan SKU.
-	Sku ResourceSkuPtrInput
-	// User-defined tags for the resource.
-	Tags pulumi.StringMapInput
+	Etag               pulumi.StringPtrInput
+	Location           pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	Sku                ResourceSkuPtrInput
+	Tags               pulumi.StringMapInput
 }
 
 func (CommitmentPlanArgs) ElementType() reflect.Type {
@@ -138,9 +118,7 @@ func (i *CommitmentPlan) ToCommitmentPlanOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanOutput)
 }
 
-type CommitmentPlanOutput struct {
-	*pulumi.OutputState
-}
+type CommitmentPlanOutput struct{ *pulumi.OutputState }
 
 func (CommitmentPlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CommitmentPlan)(nil))

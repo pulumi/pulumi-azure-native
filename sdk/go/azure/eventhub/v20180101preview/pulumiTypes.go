@@ -10,20 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties to configure capture description for eventhub
 type CaptureDescription struct {
-	// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
-	Destination *Destination `pulumi:"destination"`
-	// A value that indicates whether capture description is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-	Encoding *string `pulumi:"encoding"`
-	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
-	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
-	SizeLimitInBytes *int `pulumi:"sizeLimitInBytes"`
-	// A value that indicates whether to Skip Empty Archives
-	SkipEmptyArchives *bool `pulumi:"skipEmptyArchives"`
+	Destination       *Destination                `pulumi:"destination"`
+	Enabled           *bool                       `pulumi:"enabled"`
+	Encoding          *EncodingCaptureDescription `pulumi:"encoding"`
+	IntervalInSeconds *int                        `pulumi:"intervalInSeconds"`
+	SizeLimitInBytes  *int                        `pulumi:"sizeLimitInBytes"`
+	SkipEmptyArchives *bool                       `pulumi:"skipEmptyArchives"`
 }
 
 // CaptureDescriptionInput is an input type that accepts CaptureDescriptionArgs and CaptureDescriptionOutput values.
@@ -37,20 +30,13 @@ type CaptureDescriptionInput interface {
 	ToCaptureDescriptionOutputWithContext(context.Context) CaptureDescriptionOutput
 }
 
-// Properties to configure capture description for eventhub
 type CaptureDescriptionArgs struct {
-	// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
-	Destination DestinationPtrInput `pulumi:"destination"`
-	// A value that indicates whether capture description is enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-	Encoding *EncodingCaptureDescription `pulumi:"encoding"`
-	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
-	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
-	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
-	SizeLimitInBytes pulumi.IntPtrInput `pulumi:"sizeLimitInBytes"`
-	// A value that indicates whether to Skip Empty Archives
-	SkipEmptyArchives pulumi.BoolPtrInput `pulumi:"skipEmptyArchives"`
+	Destination       DestinationPtrInput                `pulumi:"destination"`
+	Enabled           pulumi.BoolPtrInput                `pulumi:"enabled"`
+	Encoding          EncodingCaptureDescriptionPtrInput `pulumi:"encoding"`
+	IntervalInSeconds pulumi.IntPtrInput                 `pulumi:"intervalInSeconds"`
+	SizeLimitInBytes  pulumi.IntPtrInput                 `pulumi:"sizeLimitInBytes"`
+	SkipEmptyArchives pulumi.BoolPtrInput                `pulumi:"skipEmptyArchives"`
 }
 
 func (CaptureDescriptionArgs) ElementType() reflect.Type {
@@ -106,7 +92,6 @@ func (i *captureDescriptionPtrType) ToCaptureDescriptionPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(CaptureDescriptionPtrOutput)
 }
 
-// Properties to configure capture description for eventhub
 type CaptureDescriptionOutput struct{ *pulumi.OutputState }
 
 func (CaptureDescriptionOutput) ElementType() reflect.Type {
@@ -126,37 +111,31 @@ func (o CaptureDescriptionOutput) ToCaptureDescriptionPtrOutput() CaptureDescrip
 }
 
 func (o CaptureDescriptionOutput) ToCaptureDescriptionPtrOutputWithContext(ctx context.Context) CaptureDescriptionPtrOutput {
-	return o.ApplyT(func(v CaptureDescription) *CaptureDescription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CaptureDescription) *CaptureDescription {
 		return &v
 	}).(CaptureDescriptionPtrOutput)
 }
 
-// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
 func (o CaptureDescriptionOutput) Destination() DestinationPtrOutput {
 	return o.ApplyT(func(v CaptureDescription) *Destination { return v.Destination }).(DestinationPtrOutput)
 }
 
-// A value that indicates whether capture description is enabled.
 func (o CaptureDescriptionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CaptureDescription) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-func (o CaptureDescriptionOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CaptureDescription) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+func (o CaptureDescriptionOutput) Encoding() EncodingCaptureDescriptionPtrOutput {
+	return o.ApplyT(func(v CaptureDescription) *EncodingCaptureDescription { return v.Encoding }).(EncodingCaptureDescriptionPtrOutput)
 }
 
-// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
 func (o CaptureDescriptionOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CaptureDescription) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
 func (o CaptureDescriptionOutput) SizeLimitInBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CaptureDescription) *int { return v.SizeLimitInBytes }).(pulumi.IntPtrOutput)
 }
 
-// A value that indicates whether to Skip Empty Archives
 func (o CaptureDescriptionOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CaptureDescription) *bool { return v.SkipEmptyArchives }).(pulumi.BoolPtrOutput)
 }
@@ -176,10 +155,15 @@ func (o CaptureDescriptionPtrOutput) ToCaptureDescriptionPtrOutputWithContext(ct
 }
 
 func (o CaptureDescriptionPtrOutput) Elem() CaptureDescriptionOutput {
-	return o.ApplyT(func(v *CaptureDescription) CaptureDescription { return *v }).(CaptureDescriptionOutput)
+	return o.ApplyT(func(v *CaptureDescription) CaptureDescription {
+		if v != nil {
+			return *v
+		}
+		var ret CaptureDescription
+		return ret
+	}).(CaptureDescriptionOutput)
 }
 
-// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
 func (o CaptureDescriptionPtrOutput) Destination() DestinationPtrOutput {
 	return o.ApplyT(func(v *CaptureDescription) *Destination {
 		if v == nil {
@@ -189,7 +173,6 @@ func (o CaptureDescriptionPtrOutput) Destination() DestinationPtrOutput {
 	}).(DestinationPtrOutput)
 }
 
-// A value that indicates whether capture description is enabled.
 func (o CaptureDescriptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CaptureDescription) *bool {
 		if v == nil {
@@ -199,17 +182,15 @@ func (o CaptureDescriptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-func (o CaptureDescriptionPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CaptureDescription) *string {
+func (o CaptureDescriptionPtrOutput) Encoding() EncodingCaptureDescriptionPtrOutput {
+	return o.ApplyT(func(v *CaptureDescription) *EncodingCaptureDescription {
 		if v == nil {
 			return nil
 		}
 		return v.Encoding
-	}).(pulumi.StringPtrOutput)
+	}).(EncodingCaptureDescriptionPtrOutput)
 }
 
-// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
 func (o CaptureDescriptionPtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CaptureDescription) *int {
 		if v == nil {
@@ -219,7 +200,6 @@ func (o CaptureDescriptionPtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
 func (o CaptureDescriptionPtrOutput) SizeLimitInBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CaptureDescription) *int {
 		if v == nil {
@@ -229,7 +209,6 @@ func (o CaptureDescriptionPtrOutput) SizeLimitInBytes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// A value that indicates whether to Skip Empty Archives
 func (o CaptureDescriptionPtrOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CaptureDescription) *bool {
 		if v == nil {
@@ -239,20 +218,13 @@ func (o CaptureDescriptionPtrOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Properties to configure capture description for eventhub
 type CaptureDescriptionResponse struct {
-	// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
-	Destination *DestinationResponse `pulumi:"destination"`
-	// A value that indicates whether capture description is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-	Encoding *string `pulumi:"encoding"`
-	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
-	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
-	SizeLimitInBytes *int `pulumi:"sizeLimitInBytes"`
-	// A value that indicates whether to Skip Empty Archives
-	SkipEmptyArchives *bool `pulumi:"skipEmptyArchives"`
+	Destination       *DestinationResponse `pulumi:"destination"`
+	Enabled           *bool                `pulumi:"enabled"`
+	Encoding          *string              `pulumi:"encoding"`
+	IntervalInSeconds *int                 `pulumi:"intervalInSeconds"`
+	SizeLimitInBytes  *int                 `pulumi:"sizeLimitInBytes"`
+	SkipEmptyArchives *bool                `pulumi:"skipEmptyArchives"`
 }
 
 // CaptureDescriptionResponseInput is an input type that accepts CaptureDescriptionResponseArgs and CaptureDescriptionResponseOutput values.
@@ -266,20 +238,13 @@ type CaptureDescriptionResponseInput interface {
 	ToCaptureDescriptionResponseOutputWithContext(context.Context) CaptureDescriptionResponseOutput
 }
 
-// Properties to configure capture description for eventhub
 type CaptureDescriptionResponseArgs struct {
-	// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
-	Destination DestinationResponsePtrInput `pulumi:"destination"`
-	// A value that indicates whether capture description is enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
-	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
-	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
-	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
-	SizeLimitInBytes pulumi.IntPtrInput `pulumi:"sizeLimitInBytes"`
-	// A value that indicates whether to Skip Empty Archives
-	SkipEmptyArchives pulumi.BoolPtrInput `pulumi:"skipEmptyArchives"`
+	Destination       DestinationResponsePtrInput `pulumi:"destination"`
+	Enabled           pulumi.BoolPtrInput         `pulumi:"enabled"`
+	Encoding          pulumi.StringPtrInput       `pulumi:"encoding"`
+	IntervalInSeconds pulumi.IntPtrInput          `pulumi:"intervalInSeconds"`
+	SizeLimitInBytes  pulumi.IntPtrInput          `pulumi:"sizeLimitInBytes"`
+	SkipEmptyArchives pulumi.BoolPtrInput         `pulumi:"skipEmptyArchives"`
 }
 
 func (CaptureDescriptionResponseArgs) ElementType() reflect.Type {
@@ -335,7 +300,6 @@ func (i *captureDescriptionResponsePtrType) ToCaptureDescriptionResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CaptureDescriptionResponsePtrOutput)
 }
 
-// Properties to configure capture description for eventhub
 type CaptureDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (CaptureDescriptionResponseOutput) ElementType() reflect.Type {
@@ -355,37 +319,31 @@ func (o CaptureDescriptionResponseOutput) ToCaptureDescriptionResponsePtrOutput(
 }
 
 func (o CaptureDescriptionResponseOutput) ToCaptureDescriptionResponsePtrOutputWithContext(ctx context.Context) CaptureDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v CaptureDescriptionResponse) *CaptureDescriptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CaptureDescriptionResponse) *CaptureDescriptionResponse {
 		return &v
 	}).(CaptureDescriptionResponsePtrOutput)
 }
 
-// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
 func (o CaptureDescriptionResponseOutput) Destination() DestinationResponsePtrOutput {
 	return o.ApplyT(func(v CaptureDescriptionResponse) *DestinationResponse { return v.Destination }).(DestinationResponsePtrOutput)
 }
 
-// A value that indicates whether capture description is enabled.
 func (o CaptureDescriptionResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CaptureDescriptionResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
 func (o CaptureDescriptionResponseOutput) Encoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CaptureDescriptionResponse) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
-// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
 func (o CaptureDescriptionResponseOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CaptureDescriptionResponse) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
 func (o CaptureDescriptionResponseOutput) SizeLimitInBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CaptureDescriptionResponse) *int { return v.SizeLimitInBytes }).(pulumi.IntPtrOutput)
 }
 
-// A value that indicates whether to Skip Empty Archives
 func (o CaptureDescriptionResponseOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CaptureDescriptionResponse) *bool { return v.SkipEmptyArchives }).(pulumi.BoolPtrOutput)
 }
@@ -405,10 +363,15 @@ func (o CaptureDescriptionResponsePtrOutput) ToCaptureDescriptionResponsePtrOutp
 }
 
 func (o CaptureDescriptionResponsePtrOutput) Elem() CaptureDescriptionResponseOutput {
-	return o.ApplyT(func(v *CaptureDescriptionResponse) CaptureDescriptionResponse { return *v }).(CaptureDescriptionResponseOutput)
+	return o.ApplyT(func(v *CaptureDescriptionResponse) CaptureDescriptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CaptureDescriptionResponse
+		return ret
+	}).(CaptureDescriptionResponseOutput)
 }
 
-// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
 func (o CaptureDescriptionResponsePtrOutput) Destination() DestinationResponsePtrOutput {
 	return o.ApplyT(func(v *CaptureDescriptionResponse) *DestinationResponse {
 		if v == nil {
@@ -418,7 +381,6 @@ func (o CaptureDescriptionResponsePtrOutput) Destination() DestinationResponsePt
 	}).(DestinationResponsePtrOutput)
 }
 
-// A value that indicates whether capture description is enabled.
 func (o CaptureDescriptionResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CaptureDescriptionResponse) *bool {
 		if v == nil {
@@ -428,7 +390,6 @@ func (o CaptureDescriptionResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
 func (o CaptureDescriptionResponsePtrOutput) Encoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CaptureDescriptionResponse) *string {
 		if v == nil {
@@ -438,7 +399,6 @@ func (o CaptureDescriptionResponsePtrOutput) Encoding() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
 func (o CaptureDescriptionResponsePtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CaptureDescriptionResponse) *int {
 		if v == nil {
@@ -448,7 +408,6 @@ func (o CaptureDescriptionResponsePtrOutput) IntervalInSeconds() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
 func (o CaptureDescriptionResponsePtrOutput) SizeLimitInBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CaptureDescriptionResponse) *int {
 		if v == nil {
@@ -458,7 +417,6 @@ func (o CaptureDescriptionResponsePtrOutput) SizeLimitInBytes() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// A value that indicates whether to Skip Empty Archives
 func (o CaptureDescriptionResponsePtrOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CaptureDescriptionResponse) *bool {
 		if v == nil {
@@ -468,12 +426,9 @@ func (o CaptureDescriptionResponsePtrOutput) SkipEmptyArchives() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// SKU parameters particular to a cluster instance.
 type ClusterSku struct {
-	// The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
-	Capacity *int `pulumi:"capacity"`
-	// Name of this SKU.
-	Name string `pulumi:"name"`
+	Capacity *int   `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
 }
 
 // ClusterSkuInput is an input type that accepts ClusterSkuArgs and ClusterSkuOutput values.
@@ -487,12 +442,9 @@ type ClusterSkuInput interface {
 	ToClusterSkuOutputWithContext(context.Context) ClusterSkuOutput
 }
 
-// SKU parameters particular to a cluster instance.
 type ClusterSkuArgs struct {
-	// The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Name of this SKU.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (ClusterSkuArgs) ElementType() reflect.Type {
@@ -548,7 +500,6 @@ func (i *clusterSkuPtrType) ToClusterSkuPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuPtrOutput)
 }
 
-// SKU parameters particular to a cluster instance.
 type ClusterSkuOutput struct{ *pulumi.OutputState }
 
 func (ClusterSkuOutput) ElementType() reflect.Type {
@@ -568,17 +519,15 @@ func (o ClusterSkuOutput) ToClusterSkuPtrOutput() ClusterSkuPtrOutput {
 }
 
 func (o ClusterSkuOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) ClusterSkuPtrOutput {
-	return o.ApplyT(func(v ClusterSku) *ClusterSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSku) *ClusterSku {
 		return &v
 	}).(ClusterSkuPtrOutput)
 }
 
-// The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
 func (o ClusterSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Name of this SKU.
 func (o ClusterSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -598,10 +547,15 @@ func (o ClusterSkuPtrOutput) ToClusterSkuPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ClusterSkuPtrOutput) Elem() ClusterSkuOutput {
-	return o.ApplyT(func(v *ClusterSku) ClusterSku { return *v }).(ClusterSkuOutput)
+	return o.ApplyT(func(v *ClusterSku) ClusterSku {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSku
+		return ret
+	}).(ClusterSkuOutput)
 }
 
-// The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
 func (o ClusterSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterSku) *int {
 		if v == nil {
@@ -611,7 +565,6 @@ func (o ClusterSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of this SKU.
 func (o ClusterSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterSku) *string {
 		if v == nil {
@@ -621,12 +574,9 @@ func (o ClusterSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU parameters particular to a cluster instance.
 type ClusterSkuResponse struct {
-	// The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
-	Capacity *int `pulumi:"capacity"`
-	// Name of this SKU.
-	Name string `pulumi:"name"`
+	Capacity *int   `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
 }
 
 // ClusterSkuResponseInput is an input type that accepts ClusterSkuResponseArgs and ClusterSkuResponseOutput values.
@@ -640,12 +590,9 @@ type ClusterSkuResponseInput interface {
 	ToClusterSkuResponseOutputWithContext(context.Context) ClusterSkuResponseOutput
 }
 
-// SKU parameters particular to a cluster instance.
 type ClusterSkuResponseArgs struct {
-	// The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Name of this SKU.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (ClusterSkuResponseArgs) ElementType() reflect.Type {
@@ -701,7 +648,6 @@ func (i *clusterSkuResponsePtrType) ToClusterSkuResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuResponsePtrOutput)
 }
 
-// SKU parameters particular to a cluster instance.
 type ClusterSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterSkuResponseOutput) ElementType() reflect.Type {
@@ -721,17 +667,15 @@ func (o ClusterSkuResponseOutput) ToClusterSkuResponsePtrOutput() ClusterSkuResp
 }
 
 func (o ClusterSkuResponseOutput) ToClusterSkuResponsePtrOutputWithContext(ctx context.Context) ClusterSkuResponsePtrOutput {
-	return o.ApplyT(func(v ClusterSkuResponse) *ClusterSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSkuResponse) *ClusterSkuResponse {
 		return &v
 	}).(ClusterSkuResponsePtrOutput)
 }
 
-// The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
 func (o ClusterSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Name of this SKU.
 func (o ClusterSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -751,10 +695,15 @@ func (o ClusterSkuResponsePtrOutput) ToClusterSkuResponsePtrOutputWithContext(ct
 }
 
 func (o ClusterSkuResponsePtrOutput) Elem() ClusterSkuResponseOutput {
-	return o.ApplyT(func(v *ClusterSkuResponse) ClusterSkuResponse { return *v }).(ClusterSkuResponseOutput)
+	return o.ApplyT(func(v *ClusterSkuResponse) ClusterSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSkuResponse
+		return ret
+	}).(ClusterSkuResponseOutput)
 }
 
-// The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
 func (o ClusterSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterSkuResponse) *int {
 		if v == nil {
@@ -764,7 +713,6 @@ func (o ClusterSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of this SKU.
 func (o ClusterSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterSkuResponse) *string {
 		if v == nil {
@@ -774,12 +722,9 @@ func (o ClusterSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionState struct {
-	// Description of the connection state.
 	Description *string `pulumi:"description"`
-	// Status of the connection.
-	Status *string `pulumi:"status"`
+	Status      *string `pulumi:"status"`
 }
 
 // ConnectionStateInput is an input type that accepts ConnectionStateArgs and ConnectionStateOutput values.
@@ -793,12 +738,9 @@ type ConnectionStateInput interface {
 	ToConnectionStateOutputWithContext(context.Context) ConnectionStateOutput
 }
 
-// ConnectionState information.
 type ConnectionStateArgs struct {
-	// Description of the connection state.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Status of the connection.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status      pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (ConnectionStateArgs) ElementType() reflect.Type {
@@ -854,7 +796,6 @@ func (i *connectionStatePtrType) ToConnectionStatePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStatePtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (ConnectionStateOutput) ElementType() reflect.Type {
@@ -874,17 +815,15 @@ func (o ConnectionStateOutput) ToConnectionStatePtrOutput() ConnectionStatePtrOu
 }
 
 func (o ConnectionStateOutput) ToConnectionStatePtrOutputWithContext(ctx context.Context) ConnectionStatePtrOutput {
-	return o.ApplyT(func(v ConnectionState) *ConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionState) *ConnectionState {
 		return &v
 	}).(ConnectionStatePtrOutput)
 }
 
-// Description of the connection state.
 func (o ConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Status of the connection.
 func (o ConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -904,10 +843,15 @@ func (o ConnectionStatePtrOutput) ToConnectionStatePtrOutputWithContext(ctx cont
 }
 
 func (o ConnectionStatePtrOutput) Elem() ConnectionStateOutput {
-	return o.ApplyT(func(v *ConnectionState) ConnectionState { return *v }).(ConnectionStateOutput)
+	return o.ApplyT(func(v *ConnectionState) ConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionState
+		return ret
+	}).(ConnectionStateOutput)
 }
 
-// Description of the connection state.
 func (o ConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionState) *string {
 		if v == nil {
@@ -917,7 +861,6 @@ func (o ConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status of the connection.
 func (o ConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionState) *string {
 		if v == nil {
@@ -927,12 +870,9 @@ func (o ConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionStateResponse struct {
-	// Description of the connection state.
 	Description *string `pulumi:"description"`
-	// Status of the connection.
-	Status *string `pulumi:"status"`
+	Status      *string `pulumi:"status"`
 }
 
 // ConnectionStateResponseInput is an input type that accepts ConnectionStateResponseArgs and ConnectionStateResponseOutput values.
@@ -946,12 +886,9 @@ type ConnectionStateResponseInput interface {
 	ToConnectionStateResponseOutputWithContext(context.Context) ConnectionStateResponseOutput
 }
 
-// ConnectionState information.
 type ConnectionStateResponseArgs struct {
-	// Description of the connection state.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Status of the connection.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status      pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (ConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -1007,7 +944,6 @@ func (i *connectionStateResponsePtrType) ToConnectionStateResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStateResponsePtrOutput)
 }
 
-// ConnectionState information.
 type ConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -1027,17 +963,15 @@ func (o ConnectionStateResponseOutput) ToConnectionStateResponsePtrOutput() Conn
 }
 
 func (o ConnectionStateResponseOutput) ToConnectionStateResponsePtrOutputWithContext(ctx context.Context) ConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v ConnectionStateResponse) *ConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionStateResponse) *ConnectionStateResponse {
 		return &v
 	}).(ConnectionStateResponsePtrOutput)
 }
 
-// Description of the connection state.
 func (o ConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Status of the connection.
 func (o ConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1057,10 +991,15 @@ func (o ConnectionStateResponsePtrOutput) ToConnectionStateResponsePtrOutputWith
 }
 
 func (o ConnectionStateResponsePtrOutput) Elem() ConnectionStateResponseOutput {
-	return o.ApplyT(func(v *ConnectionStateResponse) ConnectionStateResponse { return *v }).(ConnectionStateResponseOutput)
+	return o.ApplyT(func(v *ConnectionStateResponse) ConnectionStateResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionStateResponse
+		return ret
+	}).(ConnectionStateResponseOutput)
 }
 
-// Description of the connection state.
 func (o ConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionStateResponse) *string {
 		if v == nil {
@@ -1070,7 +1009,6 @@ func (o ConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status of the connection.
 func (o ConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionStateResponse) *string {
 		if v == nil {
@@ -1080,15 +1018,10 @@ func (o ConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Capture storage details for capture description
 type Destination struct {
-	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
-	ArchiveNameFormat *string `pulumi:"archiveNameFormat"`
-	// Blob container Name
-	BlobContainer *string `pulumi:"blobContainer"`
-	// Name for capture destination
-	Name *string `pulumi:"name"`
-	// Resource id of the storage account to be used to create the blobs
+	ArchiveNameFormat        *string `pulumi:"archiveNameFormat"`
+	BlobContainer            *string `pulumi:"blobContainer"`
+	Name                     *string `pulumi:"name"`
 	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
 }
 
@@ -1103,15 +1036,10 @@ type DestinationInput interface {
 	ToDestinationOutputWithContext(context.Context) DestinationOutput
 }
 
-// Capture storage details for capture description
 type DestinationArgs struct {
-	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
-	ArchiveNameFormat pulumi.StringPtrInput `pulumi:"archiveNameFormat"`
-	// Blob container Name
-	BlobContainer pulumi.StringPtrInput `pulumi:"blobContainer"`
-	// Name for capture destination
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource id of the storage account to be used to create the blobs
+	ArchiveNameFormat        pulumi.StringPtrInput `pulumi:"archiveNameFormat"`
+	BlobContainer            pulumi.StringPtrInput `pulumi:"blobContainer"`
+	Name                     pulumi.StringPtrInput `pulumi:"name"`
 	StorageAccountResourceId pulumi.StringPtrInput `pulumi:"storageAccountResourceId"`
 }
 
@@ -1168,7 +1096,6 @@ func (i *destinationPtrType) ToDestinationPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DestinationPtrOutput)
 }
 
-// Capture storage details for capture description
 type DestinationOutput struct{ *pulumi.OutputState }
 
 func (DestinationOutput) ElementType() reflect.Type {
@@ -1188,27 +1115,23 @@ func (o DestinationOutput) ToDestinationPtrOutput() DestinationPtrOutput {
 }
 
 func (o DestinationOutput) ToDestinationPtrOutputWithContext(ctx context.Context) DestinationPtrOutput {
-	return o.ApplyT(func(v Destination) *Destination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Destination) *Destination {
 		return &v
 	}).(DestinationPtrOutput)
 }
 
-// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
 func (o DestinationOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Destination) *string { return v.ArchiveNameFormat }).(pulumi.StringPtrOutput)
 }
 
-// Blob container Name
 func (o DestinationOutput) BlobContainer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Destination) *string { return v.BlobContainer }).(pulumi.StringPtrOutput)
 }
 
-// Name for capture destination
 func (o DestinationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Destination) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource id of the storage account to be used to create the blobs
 func (o DestinationOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Destination) *string { return v.StorageAccountResourceId }).(pulumi.StringPtrOutput)
 }
@@ -1228,10 +1151,15 @@ func (o DestinationPtrOutput) ToDestinationPtrOutputWithContext(ctx context.Cont
 }
 
 func (o DestinationPtrOutput) Elem() DestinationOutput {
-	return o.ApplyT(func(v *Destination) Destination { return *v }).(DestinationOutput)
+	return o.ApplyT(func(v *Destination) Destination {
+		if v != nil {
+			return *v
+		}
+		var ret Destination
+		return ret
+	}).(DestinationOutput)
 }
 
-// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
 func (o DestinationPtrOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Destination) *string {
 		if v == nil {
@@ -1241,7 +1169,6 @@ func (o DestinationPtrOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Blob container Name
 func (o DestinationPtrOutput) BlobContainer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Destination) *string {
 		if v == nil {
@@ -1251,7 +1178,6 @@ func (o DestinationPtrOutput) BlobContainer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name for capture destination
 func (o DestinationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Destination) *string {
 		if v == nil {
@@ -1261,7 +1187,6 @@ func (o DestinationPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id of the storage account to be used to create the blobs
 func (o DestinationPtrOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Destination) *string {
 		if v == nil {
@@ -1271,15 +1196,10 @@ func (o DestinationPtrOutput) StorageAccountResourceId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Capture storage details for capture description
 type DestinationResponse struct {
-	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
-	ArchiveNameFormat *string `pulumi:"archiveNameFormat"`
-	// Blob container Name
-	BlobContainer *string `pulumi:"blobContainer"`
-	// Name for capture destination
-	Name *string `pulumi:"name"`
-	// Resource id of the storage account to be used to create the blobs
+	ArchiveNameFormat        *string `pulumi:"archiveNameFormat"`
+	BlobContainer            *string `pulumi:"blobContainer"`
+	Name                     *string `pulumi:"name"`
 	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
 }
 
@@ -1294,15 +1214,10 @@ type DestinationResponseInput interface {
 	ToDestinationResponseOutputWithContext(context.Context) DestinationResponseOutput
 }
 
-// Capture storage details for capture description
 type DestinationResponseArgs struct {
-	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
-	ArchiveNameFormat pulumi.StringPtrInput `pulumi:"archiveNameFormat"`
-	// Blob container Name
-	BlobContainer pulumi.StringPtrInput `pulumi:"blobContainer"`
-	// Name for capture destination
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource id of the storage account to be used to create the blobs
+	ArchiveNameFormat        pulumi.StringPtrInput `pulumi:"archiveNameFormat"`
+	BlobContainer            pulumi.StringPtrInput `pulumi:"blobContainer"`
+	Name                     pulumi.StringPtrInput `pulumi:"name"`
 	StorageAccountResourceId pulumi.StringPtrInput `pulumi:"storageAccountResourceId"`
 }
 
@@ -1359,7 +1274,6 @@ func (i *destinationResponsePtrType) ToDestinationResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DestinationResponsePtrOutput)
 }
 
-// Capture storage details for capture description
 type DestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (DestinationResponseOutput) ElementType() reflect.Type {
@@ -1379,27 +1293,23 @@ func (o DestinationResponseOutput) ToDestinationResponsePtrOutput() DestinationR
 }
 
 func (o DestinationResponseOutput) ToDestinationResponsePtrOutputWithContext(ctx context.Context) DestinationResponsePtrOutput {
-	return o.ApplyT(func(v DestinationResponse) *DestinationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationResponse) *DestinationResponse {
 		return &v
 	}).(DestinationResponsePtrOutput)
 }
 
-// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
 func (o DestinationResponseOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DestinationResponse) *string { return v.ArchiveNameFormat }).(pulumi.StringPtrOutput)
 }
 
-// Blob container Name
 func (o DestinationResponseOutput) BlobContainer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DestinationResponse) *string { return v.BlobContainer }).(pulumi.StringPtrOutput)
 }
 
-// Name for capture destination
 func (o DestinationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DestinationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource id of the storage account to be used to create the blobs
 func (o DestinationResponseOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DestinationResponse) *string { return v.StorageAccountResourceId }).(pulumi.StringPtrOutput)
 }
@@ -1419,10 +1329,15 @@ func (o DestinationResponsePtrOutput) ToDestinationResponsePtrOutputWithContext(
 }
 
 func (o DestinationResponsePtrOutput) Elem() DestinationResponseOutput {
-	return o.ApplyT(func(v *DestinationResponse) DestinationResponse { return *v }).(DestinationResponseOutput)
+	return o.ApplyT(func(v *DestinationResponse) DestinationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationResponse
+		return ret
+	}).(DestinationResponseOutput)
 }
 
-// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
 func (o DestinationResponsePtrOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DestinationResponse) *string {
 		if v == nil {
@@ -1432,7 +1347,6 @@ func (o DestinationResponsePtrOutput) ArchiveNameFormat() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Blob container Name
 func (o DestinationResponsePtrOutput) BlobContainer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DestinationResponse) *string {
 		if v == nil {
@@ -1442,7 +1356,6 @@ func (o DestinationResponsePtrOutput) BlobContainer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name for capture destination
 func (o DestinationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DestinationResponse) *string {
 		if v == nil {
@@ -1452,7 +1365,6 @@ func (o DestinationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id of the storage account to be used to create the blobs
 func (o DestinationResponsePtrOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DestinationResponse) *string {
 		if v == nil {
@@ -1462,11 +1374,8 @@ func (o DestinationResponsePtrOutput) StorageAccountResourceId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties to configure Encryption
 type Encryption struct {
-	// Enumerates the possible value of keySource for Encryption
-	KeySource *string `pulumi:"keySource"`
-	// Properties of KeyVault
+	KeySource          *KeySource           `pulumi:"keySource"`
 	KeyVaultProperties []KeyVaultProperties `pulumi:"keyVaultProperties"`
 }
 
@@ -1481,11 +1390,8 @@ type EncryptionInput interface {
 	ToEncryptionOutputWithContext(context.Context) EncryptionOutput
 }
 
-// Properties to configure Encryption
 type EncryptionArgs struct {
-	// Enumerates the possible value of keySource for Encryption
-	KeySource *KeySource `pulumi:"keySource"`
-	// Properties of KeyVault
+	KeySource          KeySourcePtrInput            `pulumi:"keySource"`
 	KeyVaultProperties KeyVaultPropertiesArrayInput `pulumi:"keyVaultProperties"`
 }
 
@@ -1542,7 +1448,6 @@ func (i *encryptionPtrType) ToEncryptionPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPtrOutput)
 }
 
-// Properties to configure Encryption
 type EncryptionOutput struct{ *pulumi.OutputState }
 
 func (EncryptionOutput) ElementType() reflect.Type {
@@ -1562,17 +1467,15 @@ func (o EncryptionOutput) ToEncryptionPtrOutput() EncryptionPtrOutput {
 }
 
 func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
-	return o.ApplyT(func(v Encryption) *Encryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Encryption) *Encryption {
 		return &v
 	}).(EncryptionPtrOutput)
 }
 
-// Enumerates the possible value of keySource for Encryption
-func (o EncryptionOutput) KeySource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Encryption) *string { return v.KeySource }).(pulumi.StringPtrOutput)
+func (o EncryptionOutput) KeySource() KeySourcePtrOutput {
+	return o.ApplyT(func(v Encryption) *KeySource { return v.KeySource }).(KeySourcePtrOutput)
 }
 
-// Properties of KeyVault
 func (o EncryptionOutput) KeyVaultProperties() KeyVaultPropertiesArrayOutput {
 	return o.ApplyT(func(v Encryption) []KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesArrayOutput)
 }
@@ -1592,20 +1495,24 @@ func (o EncryptionPtrOutput) ToEncryptionPtrOutputWithContext(ctx context.Contex
 }
 
 func (o EncryptionPtrOutput) Elem() EncryptionOutput {
-	return o.ApplyT(func(v *Encryption) Encryption { return *v }).(EncryptionOutput)
+	return o.ApplyT(func(v *Encryption) Encryption {
+		if v != nil {
+			return *v
+		}
+		var ret Encryption
+		return ret
+	}).(EncryptionOutput)
 }
 
-// Enumerates the possible value of keySource for Encryption
-func (o EncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Encryption) *string {
+func (o EncryptionPtrOutput) KeySource() KeySourcePtrOutput {
+	return o.ApplyT(func(v *Encryption) *KeySource {
 		if v == nil {
 			return nil
 		}
 		return v.KeySource
-	}).(pulumi.StringPtrOutput)
+	}).(KeySourcePtrOutput)
 }
 
-// Properties of KeyVault
 func (o EncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesArrayOutput {
 	return o.ApplyT(func(v *Encryption) []KeyVaultProperties {
 		if v == nil {
@@ -1615,11 +1522,8 @@ func (o EncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesArrayOutput 
 	}).(KeyVaultPropertiesArrayOutput)
 }
 
-// Properties to configure Encryption
 type EncryptionResponse struct {
-	// Enumerates the possible value of keySource for Encryption
-	KeySource *string `pulumi:"keySource"`
-	// Properties of KeyVault
+	KeySource          *string                      `pulumi:"keySource"`
 	KeyVaultProperties []KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
 }
 
@@ -1634,11 +1538,8 @@ type EncryptionResponseInput interface {
 	ToEncryptionResponseOutputWithContext(context.Context) EncryptionResponseOutput
 }
 
-// Properties to configure Encryption
 type EncryptionResponseArgs struct {
-	// Enumerates the possible value of keySource for Encryption
-	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
-	// Properties of KeyVault
+	KeySource          pulumi.StringPtrInput                `pulumi:"keySource"`
 	KeyVaultProperties KeyVaultPropertiesResponseArrayInput `pulumi:"keyVaultProperties"`
 }
 
@@ -1695,7 +1596,6 @@ func (i *encryptionResponsePtrType) ToEncryptionResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionResponsePtrOutput)
 }
 
-// Properties to configure Encryption
 type EncryptionResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionResponseOutput) ElementType() reflect.Type {
@@ -1715,17 +1615,15 @@ func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutput() EncryptionResp
 }
 
 func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutputWithContext(ctx context.Context) EncryptionResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionResponse) *EncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionResponse) *EncryptionResponse {
 		return &v
 	}).(EncryptionResponsePtrOutput)
 }
 
-// Enumerates the possible value of keySource for Encryption
 func (o EncryptionResponseOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionResponse) *string { return v.KeySource }).(pulumi.StringPtrOutput)
 }
 
-// Properties of KeyVault
 func (o EncryptionResponseOutput) KeyVaultProperties() KeyVaultPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v EncryptionResponse) []KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponseArrayOutput)
 }
@@ -1745,10 +1643,15 @@ func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutputWithContext(ct
 }
 
 func (o EncryptionResponsePtrOutput) Elem() EncryptionResponseOutput {
-	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse { return *v }).(EncryptionResponseOutput)
+	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionResponse
+		return ret
+	}).(EncryptionResponseOutput)
 }
 
-// Enumerates the possible value of keySource for Encryption
 func (o EncryptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *string {
 		if v == nil {
@@ -1758,7 +1661,6 @@ func (o EncryptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of KeyVault
 func (o EncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *EncryptionResponse) []KeyVaultPropertiesResponse {
 		if v == nil {
@@ -1768,14 +1670,10 @@ func (o EncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResp
 	}).(KeyVaultPropertiesResponseArrayOutput)
 }
 
-// Properties to configure Identity for Bring your Own Keys
 type Identity struct {
-	// ObjectId from the KeyVault
-	PrincipalId *string `pulumi:"principalId"`
-	// TenantId from the KeyVault
-	TenantId *string `pulumi:"tenantId"`
-	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-	Type *string `pulumi:"type"`
+	PrincipalId *string       `pulumi:"principalId"`
+	TenantId    *string       `pulumi:"tenantId"`
+	Type        *IdentityType `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -1789,14 +1687,10 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Properties to configure Identity for Bring your Own Keys
 type IdentityArgs struct {
-	// ObjectId from the KeyVault
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// TenantId from the KeyVault
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-	Type *IdentityType `pulumi:"type"`
+	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
+	Type        IdentityTypePtrInput  `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -1852,7 +1746,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Properties to configure Identity for Bring your Own Keys
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -1872,24 +1765,21 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
-// ObjectId from the KeyVault
 func (o IdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Identity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// TenantId from the KeyVault
 func (o IdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Identity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-func (o IdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityOutput) Type() IdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *IdentityType { return v.Type }).(IdentityTypePtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1907,10 +1797,15 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
-// ObjectId from the KeyVault
 func (o IdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
@@ -1920,7 +1815,6 @@ func (o IdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// TenantId from the KeyVault
 func (o IdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
@@ -1930,24 +1824,19 @@ func (o IdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *IdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(IdentityTypePtrOutput)
 }
 
-// Properties to configure Identity for Bring your Own Keys
 type IdentityResponse struct {
-	// ObjectId from the KeyVault
 	PrincipalId *string `pulumi:"principalId"`
-	// TenantId from the KeyVault
-	TenantId *string `pulumi:"tenantId"`
-	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-	Type *string `pulumi:"type"`
+	TenantId    *string `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -1961,14 +1850,10 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Properties to configure Identity for Bring your Own Keys
 type IdentityResponseArgs struct {
-	// ObjectId from the KeyVault
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// TenantId from the KeyVault
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -2024,7 +1909,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Properties to configure Identity for Bring your Own Keys
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -2044,22 +1928,19 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
 
-// ObjectId from the KeyVault
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// TenantId from the KeyVault
 func (o IdentityResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
 func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2079,10 +1960,15 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
-// ObjectId from the KeyVault
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -2092,7 +1978,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// TenantId from the KeyVault
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -2102,7 +1987,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -2112,14 +1996,10 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties to configure keyVault Properties
 type KeyVaultProperties struct {
-	// Name of the Key from KeyVault
-	KeyName *string `pulumi:"keyName"`
-	// Uri of KeyVault
+	KeyName     *string `pulumi:"keyName"`
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
-	// Key Version
-	KeyVersion *string `pulumi:"keyVersion"`
+	KeyVersion  *string `pulumi:"keyVersion"`
 }
 
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
@@ -2133,14 +2013,10 @@ type KeyVaultPropertiesInput interface {
 	ToKeyVaultPropertiesOutputWithContext(context.Context) KeyVaultPropertiesOutput
 }
 
-// Properties to configure keyVault Properties
 type KeyVaultPropertiesArgs struct {
-	// Name of the Key from KeyVault
-	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// Uri of KeyVault
+	KeyName     pulumi.StringPtrInput `pulumi:"keyName"`
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
-	// Key Version
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	KeyVersion  pulumi.StringPtrInput `pulumi:"keyVersion"`
 }
 
 func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
@@ -2180,7 +2056,6 @@ func (i KeyVaultPropertiesArray) ToKeyVaultPropertiesArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesArrayOutput)
 }
 
-// Properties to configure keyVault Properties
 type KeyVaultPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesOutput) ElementType() reflect.Type {
@@ -2195,17 +2070,14 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesOutputWithContext(ctx cont
 	return o
 }
 
-// Name of the Key from KeyVault
 func (o KeyVaultPropertiesOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-// Uri of KeyVault
 func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
-// Key Version
 func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
@@ -2230,14 +2102,10 @@ func (o KeyVaultPropertiesArrayOutput) Index(i pulumi.IntInput) KeyVaultProperti
 	}).(KeyVaultPropertiesOutput)
 }
 
-// Properties to configure keyVault Properties
 type KeyVaultPropertiesResponse struct {
-	// Name of the Key from KeyVault
-	KeyName *string `pulumi:"keyName"`
-	// Uri of KeyVault
+	KeyName     *string `pulumi:"keyName"`
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
-	// Key Version
-	KeyVersion *string `pulumi:"keyVersion"`
+	KeyVersion  *string `pulumi:"keyVersion"`
 }
 
 // KeyVaultPropertiesResponseInput is an input type that accepts KeyVaultPropertiesResponseArgs and KeyVaultPropertiesResponseOutput values.
@@ -2251,14 +2119,10 @@ type KeyVaultPropertiesResponseInput interface {
 	ToKeyVaultPropertiesResponseOutputWithContext(context.Context) KeyVaultPropertiesResponseOutput
 }
 
-// Properties to configure keyVault Properties
 type KeyVaultPropertiesResponseArgs struct {
-	// Name of the Key from KeyVault
-	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// Uri of KeyVault
+	KeyName     pulumi.StringPtrInput `pulumi:"keyName"`
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
-	// Key Version
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	KeyVersion  pulumi.StringPtrInput `pulumi:"keyVersion"`
 }
 
 func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2298,7 +2162,6 @@ func (i KeyVaultPropertiesResponseArray) ToKeyVaultPropertiesResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponseArrayOutput)
 }
 
-// Properties to configure keyVault Properties
 type KeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2313,17 +2176,14 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutputWith
 	return o
 }
 
-// Name of the Key from KeyVault
 func (o KeyVaultPropertiesResponseOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-// Uri of KeyVault
 func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
-// Key Version
 func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
@@ -2348,11 +2208,8 @@ func (o KeyVaultPropertiesResponseArrayOutput) Index(i pulumi.IntInput) KeyVault
 	}).(KeyVaultPropertiesResponseOutput)
 }
 
-// The response from the List namespace operation.
 type NWRuleSetIpRules struct {
-	// The IP Filter Action
 	Action *string `pulumi:"action"`
-	// IP Mask
 	IpMask *string `pulumi:"ipMask"`
 }
 
@@ -2367,11 +2224,8 @@ type NWRuleSetIpRulesInput interface {
 	ToNWRuleSetIpRulesOutputWithContext(context.Context) NWRuleSetIpRulesOutput
 }
 
-// The response from the List namespace operation.
 type NWRuleSetIpRulesArgs struct {
-	// The IP Filter Action
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// IP Mask
 	IpMask pulumi.StringPtrInput `pulumi:"ipMask"`
 }
 
@@ -2412,7 +2266,6 @@ func (i NWRuleSetIpRulesArray) ToNWRuleSetIpRulesArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesArrayOutput)
 }
 
-// The response from the List namespace operation.
 type NWRuleSetIpRulesOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetIpRulesOutput) ElementType() reflect.Type {
@@ -2427,12 +2280,10 @@ func (o NWRuleSetIpRulesOutput) ToNWRuleSetIpRulesOutputWithContext(ctx context.
 	return o
 }
 
-// The IP Filter Action
 func (o NWRuleSetIpRulesOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NWRuleSetIpRules) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// IP Mask
 func (o NWRuleSetIpRulesOutput) IpMask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NWRuleSetIpRules) *string { return v.IpMask }).(pulumi.StringPtrOutput)
 }
@@ -2457,11 +2308,8 @@ func (o NWRuleSetIpRulesArrayOutput) Index(i pulumi.IntInput) NWRuleSetIpRulesOu
 	}).(NWRuleSetIpRulesOutput)
 }
 
-// The response from the List namespace operation.
 type NWRuleSetIpRulesResponse struct {
-	// The IP Filter Action
 	Action *string `pulumi:"action"`
-	// IP Mask
 	IpMask *string `pulumi:"ipMask"`
 }
 
@@ -2476,11 +2324,8 @@ type NWRuleSetIpRulesResponseInput interface {
 	ToNWRuleSetIpRulesResponseOutputWithContext(context.Context) NWRuleSetIpRulesResponseOutput
 }
 
-// The response from the List namespace operation.
 type NWRuleSetIpRulesResponseArgs struct {
-	// The IP Filter Action
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// IP Mask
 	IpMask pulumi.StringPtrInput `pulumi:"ipMask"`
 }
 
@@ -2521,7 +2366,6 @@ func (i NWRuleSetIpRulesResponseArray) ToNWRuleSetIpRulesResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesResponseArrayOutput)
 }
 
-// The response from the List namespace operation.
 type NWRuleSetIpRulesResponseOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetIpRulesResponseOutput) ElementType() reflect.Type {
@@ -2536,12 +2380,10 @@ func (o NWRuleSetIpRulesResponseOutput) ToNWRuleSetIpRulesResponseOutputWithCont
 	return o
 }
 
-// The IP Filter Action
 func (o NWRuleSetIpRulesResponseOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NWRuleSetIpRulesResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// IP Mask
 func (o NWRuleSetIpRulesResponseOutput) IpMask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NWRuleSetIpRulesResponse) *string { return v.IpMask }).(pulumi.StringPtrOutput)
 }
@@ -2566,12 +2408,9 @@ func (o NWRuleSetIpRulesResponseArrayOutput) Index(i pulumi.IntInput) NWRuleSetI
 	}).(NWRuleSetIpRulesResponseOutput)
 }
 
-// The response from the List namespace operation.
 type NWRuleSetVirtualNetworkRules struct {
-	// Value that indicates whether to ignore missing Vnet Service Endpoint
-	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// Subnet properties
-	Subnet *Subnet `pulumi:"subnet"`
+	IgnoreMissingVnetServiceEndpoint *bool   `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	Subnet                           *Subnet `pulumi:"subnet"`
 }
 
 // NWRuleSetVirtualNetworkRulesInput is an input type that accepts NWRuleSetVirtualNetworkRulesArgs and NWRuleSetVirtualNetworkRulesOutput values.
@@ -2585,12 +2424,9 @@ type NWRuleSetVirtualNetworkRulesInput interface {
 	ToNWRuleSetVirtualNetworkRulesOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesOutput
 }
 
-// The response from the List namespace operation.
 type NWRuleSetVirtualNetworkRulesArgs struct {
-	// Value that indicates whether to ignore missing Vnet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// Subnet properties
-	Subnet SubnetPtrInput `pulumi:"subnet"`
+	Subnet                           SubnetPtrInput      `pulumi:"subnet"`
 }
 
 func (NWRuleSetVirtualNetworkRulesArgs) ElementType() reflect.Type {
@@ -2630,7 +2466,6 @@ func (i NWRuleSetVirtualNetworkRulesArray) ToNWRuleSetVirtualNetworkRulesArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesArrayOutput)
 }
 
-// The response from the List namespace operation.
 type NWRuleSetVirtualNetworkRulesOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetVirtualNetworkRulesOutput) ElementType() reflect.Type {
@@ -2645,12 +2480,10 @@ func (o NWRuleSetVirtualNetworkRulesOutput) ToNWRuleSetVirtualNetworkRulesOutput
 	return o
 }
 
-// Value that indicates whether to ignore missing Vnet Service Endpoint
 func (o NWRuleSetVirtualNetworkRulesOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NWRuleSetVirtualNetworkRules) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
 
-// Subnet properties
 func (o NWRuleSetVirtualNetworkRulesOutput) Subnet() SubnetPtrOutput {
 	return o.ApplyT(func(v NWRuleSetVirtualNetworkRules) *Subnet { return v.Subnet }).(SubnetPtrOutput)
 }
@@ -2675,12 +2508,9 @@ func (o NWRuleSetVirtualNetworkRulesArrayOutput) Index(i pulumi.IntInput) NWRule
 	}).(NWRuleSetVirtualNetworkRulesOutput)
 }
 
-// The response from the List namespace operation.
 type NWRuleSetVirtualNetworkRulesResponse struct {
-	// Value that indicates whether to ignore missing Vnet Service Endpoint
-	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// Subnet properties
-	Subnet *SubnetResponse `pulumi:"subnet"`
+	IgnoreMissingVnetServiceEndpoint *bool           `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	Subnet                           *SubnetResponse `pulumi:"subnet"`
 }
 
 // NWRuleSetVirtualNetworkRulesResponseInput is an input type that accepts NWRuleSetVirtualNetworkRulesResponseArgs and NWRuleSetVirtualNetworkRulesResponseOutput values.
@@ -2694,12 +2524,9 @@ type NWRuleSetVirtualNetworkRulesResponseInput interface {
 	ToNWRuleSetVirtualNetworkRulesResponseOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesResponseOutput
 }
 
-// The response from the List namespace operation.
 type NWRuleSetVirtualNetworkRulesResponseArgs struct {
-	// Value that indicates whether to ignore missing Vnet Service Endpoint
-	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// Subnet properties
-	Subnet SubnetResponsePtrInput `pulumi:"subnet"`
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput    `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	Subnet                           SubnetResponsePtrInput `pulumi:"subnet"`
 }
 
 func (NWRuleSetVirtualNetworkRulesResponseArgs) ElementType() reflect.Type {
@@ -2739,7 +2566,6 @@ func (i NWRuleSetVirtualNetworkRulesResponseArray) ToNWRuleSetVirtualNetworkRule
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesResponseArrayOutput)
 }
 
-// The response from the List namespace operation.
 type NWRuleSetVirtualNetworkRulesResponseOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetVirtualNetworkRulesResponseOutput) ElementType() reflect.Type {
@@ -2754,12 +2580,10 @@ func (o NWRuleSetVirtualNetworkRulesResponseOutput) ToNWRuleSetVirtualNetworkRul
 	return o
 }
 
-// Value that indicates whether to ignore missing Vnet Service Endpoint
 func (o NWRuleSetVirtualNetworkRulesResponseOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NWRuleSetVirtualNetworkRulesResponse) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
 
-// Subnet properties
 func (o NWRuleSetVirtualNetworkRulesResponseOutput) Subnet() SubnetResponsePtrOutput {
 	return o.ApplyT(func(v NWRuleSetVirtualNetworkRulesResponse) *SubnetResponse { return v.Subnet }).(SubnetResponsePtrOutput)
 }
@@ -2784,9 +2608,7 @@ func (o NWRuleSetVirtualNetworkRulesResponseArrayOutput) Index(i pulumi.IntInput
 	}).(NWRuleSetVirtualNetworkRulesResponseOutput)
 }
 
-// PrivateEndpoint information.
 type PrivateEndpoint struct {
-	// The ARM identifier for Private Endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -2801,9 +2623,7 @@ type PrivateEndpointInput interface {
 	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointArgs struct {
-	// The ARM identifier for Private Endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -2860,7 +2680,6 @@ func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointOutput) ElementType() reflect.Type {
@@ -2880,12 +2699,11 @@ func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOu
 }
 
 func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpoint) *PrivateEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpoint) *PrivateEndpoint {
 		return &v
 	}).(PrivateEndpointPtrOutput)
 }
 
-// The ARM identifier for Private Endpoint.
 func (o PrivateEndpointOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -2905,10 +2723,15 @@ func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutputWithContext(ctx cont
 }
 
 func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
-	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
+	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpoint
+		return ret
+	}).(PrivateEndpointOutput)
 }
 
-// The ARM identifier for Private Endpoint.
 func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpoint) *string {
 		if v == nil {
@@ -2918,9 +2741,7 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointResponse struct {
-	// The ARM identifier for Private Endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -2935,9 +2756,7 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointResponseArgs struct {
-	// The ARM identifier for Private Endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -2994,7 +2813,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// PrivateEndpoint information.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -3014,12 +2832,11 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// The ARM identifier for Private Endpoint.
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -3039,10 +2856,15 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
-// The ARM identifier for Private Endpoint.
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -3052,14 +2874,10 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU parameters supplied to the create namespace operation
 type Sku struct {
-	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
-	Capacity *int `pulumi:"capacity"`
-	// Name of this SKU.
-	Name string `pulumi:"name"`
-	// The billing tier of this particular SKU.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     string  `pulumi:"name"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -3073,14 +2891,10 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// SKU parameters supplied to the create namespace operation
 type SkuArgs struct {
-	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Name of this SKU.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The billing tier of this particular SKU.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -3136,7 +2950,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// SKU parameters supplied to the create namespace operation
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -3156,22 +2969,19 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The Event Hubs throughput units, value should be 0 to 20 throughput units.
 func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Name of this SKU.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The billing tier of this particular SKU.
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -3191,10 +3001,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The Event Hubs throughput units, value should be 0 to 20 throughput units.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -3204,7 +3019,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of this SKU.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -3214,7 +3028,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The billing tier of this particular SKU.
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -3224,14 +3037,10 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU parameters supplied to the create namespace operation
 type SkuResponse struct {
-	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
-	Capacity *int `pulumi:"capacity"`
-	// Name of this SKU.
-	Name string `pulumi:"name"`
-	// The billing tier of this particular SKU.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     string  `pulumi:"name"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -3245,14 +3054,10 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// SKU parameters supplied to the create namespace operation
 type SkuResponseArgs struct {
-	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Name of this SKU.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The billing tier of this particular SKU.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -3308,7 +3113,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// SKU parameters supplied to the create namespace operation
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -3328,22 +3132,19 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The Event Hubs throughput units, value should be 0 to 20 throughput units.
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Name of this SKU.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The billing tier of this particular SKU.
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -3363,10 +3164,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The Event Hubs throughput units, value should be 0 to 20 throughput units.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -3376,7 +3182,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of this SKU.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -3386,7 +3191,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The billing tier of this particular SKU.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -3396,9 +3200,7 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties supplied for Subnet
 type Subnet struct {
-	// Resource ID of Virtual Network Subnet
 	Id *string `pulumi:"id"`
 }
 
@@ -3413,9 +3215,7 @@ type SubnetInput interface {
 	ToSubnetOutputWithContext(context.Context) SubnetOutput
 }
 
-// Properties supplied for Subnet
 type SubnetArgs struct {
-	// Resource ID of Virtual Network Subnet
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -3472,7 +3272,6 @@ func (i *subnetPtrType) ToSubnetPtrOutputWithContext(ctx context.Context) Subnet
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetPtrOutput)
 }
 
-// Properties supplied for Subnet
 type SubnetOutput struct{ *pulumi.OutputState }
 
 func (SubnetOutput) ElementType() reflect.Type {
@@ -3492,12 +3291,11 @@ func (o SubnetOutput) ToSubnetPtrOutput() SubnetPtrOutput {
 }
 
 func (o SubnetOutput) ToSubnetPtrOutputWithContext(ctx context.Context) SubnetPtrOutput {
-	return o.ApplyT(func(v Subnet) *Subnet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Subnet) *Subnet {
 		return &v
 	}).(SubnetPtrOutput)
 }
 
-// Resource ID of Virtual Network Subnet
 func (o SubnetOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Subnet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -3517,10 +3315,15 @@ func (o SubnetPtrOutput) ToSubnetPtrOutputWithContext(ctx context.Context) Subne
 }
 
 func (o SubnetPtrOutput) Elem() SubnetOutput {
-	return o.ApplyT(func(v *Subnet) Subnet { return *v }).(SubnetOutput)
+	return o.ApplyT(func(v *Subnet) Subnet {
+		if v != nil {
+			return *v
+		}
+		var ret Subnet
+		return ret
+	}).(SubnetOutput)
 }
 
-// Resource ID of Virtual Network Subnet
 func (o SubnetPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subnet) *string {
 		if v == nil {
@@ -3530,9 +3333,7 @@ func (o SubnetPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties supplied for Subnet
 type SubnetResponse struct {
-	// Resource ID of Virtual Network Subnet
 	Id *string `pulumi:"id"`
 }
 
@@ -3547,9 +3348,7 @@ type SubnetResponseInput interface {
 	ToSubnetResponseOutputWithContext(context.Context) SubnetResponseOutput
 }
 
-// Properties supplied for Subnet
 type SubnetResponseArgs struct {
-	// Resource ID of Virtual Network Subnet
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -3606,7 +3405,6 @@ func (i *subnetResponsePtrType) ToSubnetResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetResponsePtrOutput)
 }
 
-// Properties supplied for Subnet
 type SubnetResponseOutput struct{ *pulumi.OutputState }
 
 func (SubnetResponseOutput) ElementType() reflect.Type {
@@ -3626,12 +3424,11 @@ func (o SubnetResponseOutput) ToSubnetResponsePtrOutput() SubnetResponsePtrOutpu
 }
 
 func (o SubnetResponseOutput) ToSubnetResponsePtrOutputWithContext(ctx context.Context) SubnetResponsePtrOutput {
-	return o.ApplyT(func(v SubnetResponse) *SubnetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetResponse) *SubnetResponse {
 		return &v
 	}).(SubnetResponsePtrOutput)
 }
 
-// Resource ID of Virtual Network Subnet
 func (o SubnetResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -3651,10 +3448,15 @@ func (o SubnetResponsePtrOutput) ToSubnetResponsePtrOutputWithContext(ctx contex
 }
 
 func (o SubnetResponsePtrOutput) Elem() SubnetResponseOutput {
-	return o.ApplyT(func(v *SubnetResponse) SubnetResponse { return *v }).(SubnetResponseOutput)
+	return o.ApplyT(func(v *SubnetResponse) SubnetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SubnetResponse
+		return ret
+	}).(SubnetResponseOutput)
 }
 
-// Resource ID of Virtual Network Subnet
 func (o SubnetResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetResponse) *string {
 		if v == nil {

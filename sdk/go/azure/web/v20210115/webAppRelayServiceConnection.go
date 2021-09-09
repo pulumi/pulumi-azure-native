@@ -11,23 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Hybrid Connection for an App Service app.
 type WebAppRelayServiceConnection struct {
 	pulumi.CustomResourceState
 
-	BiztalkUri             pulumi.StringPtrOutput `pulumi:"biztalkUri"`
-	EntityConnectionString pulumi.StringPtrOutput `pulumi:"entityConnectionString"`
-	EntityName             pulumi.StringPtrOutput `pulumi:"entityName"`
-	Hostname               pulumi.StringPtrOutput `pulumi:"hostname"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
+	BiztalkUri               pulumi.StringPtrOutput `pulumi:"biztalkUri"`
+	EntityConnectionString   pulumi.StringPtrOutput `pulumi:"entityConnectionString"`
+	EntityName               pulumi.StringPtrOutput `pulumi:"entityName"`
+	Hostname                 pulumi.StringPtrOutput `pulumi:"hostname"`
+	Kind                     pulumi.StringPtrOutput `pulumi:"kind"`
 	Name                     pulumi.StringOutput    `pulumi:"name"`
 	Port                     pulumi.IntPtrOutput    `pulumi:"port"`
 	ResourceConnectionString pulumi.StringPtrOutput `pulumi:"resourceConnectionString"`
 	ResourceType             pulumi.StringPtrOutput `pulumi:"resourceType"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type                     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewWebAppRelayServiceConnection registers a new resource with the given unique name, arguments, and options.
@@ -153,36 +149,30 @@ func (WebAppRelayServiceConnectionState) ElementType() reflect.Type {
 }
 
 type webAppRelayServiceConnectionArgs struct {
-	BiztalkUri             *string `pulumi:"biztalkUri"`
-	EntityConnectionString *string `pulumi:"entityConnectionString"`
-	EntityName             *string `pulumi:"entityName"`
-	Hostname               *string `pulumi:"hostname"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the app.
+	BiztalkUri               *string `pulumi:"biztalkUri"`
+	EntityConnectionString   *string `pulumi:"entityConnectionString"`
+	EntityName               *string `pulumi:"entityName"`
+	Hostname                 *string `pulumi:"hostname"`
+	Kind                     *string `pulumi:"kind"`
 	Name                     string  `pulumi:"name"`
 	Port                     *int    `pulumi:"port"`
 	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string  `pulumi:"resourceGroupName"`
-	ResourceType      *string `pulumi:"resourceType"`
+	ResourceGroupName        string  `pulumi:"resourceGroupName"`
+	ResourceType             *string `pulumi:"resourceType"`
 }
 
 // The set of arguments for constructing a WebAppRelayServiceConnection resource.
 type WebAppRelayServiceConnectionArgs struct {
-	BiztalkUri             pulumi.StringPtrInput
-	EntityConnectionString pulumi.StringPtrInput
-	EntityName             pulumi.StringPtrInput
-	Hostname               pulumi.StringPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the app.
+	BiztalkUri               pulumi.StringPtrInput
+	EntityConnectionString   pulumi.StringPtrInput
+	EntityName               pulumi.StringPtrInput
+	Hostname                 pulumi.StringPtrInput
+	Kind                     pulumi.StringPtrInput
 	Name                     pulumi.StringInput
 	Port                     pulumi.IntPtrInput
 	ResourceConnectionString pulumi.StringPtrInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
-	ResourceType      pulumi.StringPtrInput
+	ResourceGroupName        pulumi.StringInput
+	ResourceType             pulumi.StringPtrInput
 }
 
 func (WebAppRelayServiceConnectionArgs) ElementType() reflect.Type {
@@ -208,9 +198,7 @@ func (i *WebAppRelayServiceConnection) ToWebAppRelayServiceConnectionOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppRelayServiceConnectionOutput)
 }
 
-type WebAppRelayServiceConnectionOutput struct {
-	*pulumi.OutputState
-}
+type WebAppRelayServiceConnectionOutput struct{ *pulumi.OutputState }
 
 func (WebAppRelayServiceConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppRelayServiceConnection)(nil))

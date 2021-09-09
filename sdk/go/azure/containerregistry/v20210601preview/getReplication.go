@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a replication for a container registry.
 func LookupReplication(ctx *pulumi.Context, args *LookupReplicationArgs, opts ...pulumi.InvokeOption) (*LookupReplicationResult, error) {
 	var rv LookupReplicationResult
 	err := ctx.Invoke("azure-native:containerregistry/v20210601preview:getReplication", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupReplication(ctx *pulumi.Context, args *LookupReplicationArgs, opts ..
 }
 
 type LookupReplicationArgs struct {
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the replication.
-	ReplicationName string `pulumi:"replicationName"`
-	// The name of the resource group to which the container registry belongs.
+	RegistryName      string `pulumi:"registryName"`
+	ReplicationName   string `pulumi:"replicationName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // An object that represents a replication for a container registry.
 type LookupReplicationResult struct {
-	// The resource ID.
-	Id string `pulumi:"id"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The provisioning state of the replication at the time the operation was called.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
-	RegionEndpointEnabled *bool `pulumi:"regionEndpointEnabled"`
-	// The status of the replication at the time the operation was called.
-	Status StatusResponse `pulumi:"status"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-	// Whether or not zone redundancy is enabled for this container registry replication
-	ZoneRedundancy *string `pulumi:"zoneRedundancy"`
+	Id                    string             `pulumi:"id"`
+	Location              string             `pulumi:"location"`
+	Name                  string             `pulumi:"name"`
+	ProvisioningState     string             `pulumi:"provisioningState"`
+	RegionEndpointEnabled *bool              `pulumi:"regionEndpointEnabled"`
+	Status                StatusResponse     `pulumi:"status"`
+	SystemData            SystemDataResponse `pulumi:"systemData"`
+	Tags                  map[string]string  `pulumi:"tags"`
+	Type                  string             `pulumi:"type"`
+	ZoneRedundancy        *string            `pulumi:"zoneRedundancy"`
 }

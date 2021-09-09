@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Role Addon
-//
 // Deprecated: Please use one of the variants: ArcAddon, IoTAddon.
 type Addon struct {
 	pulumi.CustomResourceState
 
-	// Addon type.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The object name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Addon type
+	Kind       pulumi.StringOutput      `pulumi:"kind"`
+	Name       pulumi.StringOutput      `pulumi:"name"`
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewAddon registers a new resource with the given unique name, arguments, and options.
@@ -114,30 +108,20 @@ func (AddonState) ElementType() reflect.Type {
 }
 
 type addonArgs struct {
-	// The addon name.
-	AddonName *string `pulumi:"addonName"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// Addon type.
-	Kind string `pulumi:"kind"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The role name.
-	RoleName string `pulumi:"roleName"`
+	AddonName         *string `pulumi:"addonName"`
+	DeviceName        string  `pulumi:"deviceName"`
+	Kind              string  `pulumi:"kind"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	RoleName          string  `pulumi:"roleName"`
 }
 
 // The set of arguments for constructing a Addon resource.
 type AddonArgs struct {
-	// The addon name.
-	AddonName pulumi.StringPtrInput
-	// The device name.
-	DeviceName pulumi.StringInput
-	// Addon type.
-	Kind pulumi.StringInput
-	// The resource group name.
+	AddonName         pulumi.StringPtrInput
+	DeviceName        pulumi.StringInput
+	Kind              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The role name.
-	RoleName pulumi.StringInput
+	RoleName          pulumi.StringInput
 }
 
 func (AddonArgs) ElementType() reflect.Type {
@@ -163,9 +147,7 @@ func (i *Addon) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AddonOutput)
 }
 
-type AddonOutput struct {
-	*pulumi.OutputState
-}
+type AddonOutput struct{ *pulumi.OutputState }
 
 func (AddonOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Addon)(nil))

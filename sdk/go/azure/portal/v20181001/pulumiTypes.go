@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cloud shell properties for creating a console.
 type ConsoleCreateProperties struct {
-	// The operating system type of the cloud shell.
-	OsType string `pulumi:"osType"`
-	// Provisioning state of the console.
+	OsType            string  `pulumi:"osType"`
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Uri of the console.
-	Uri *string `pulumi:"uri"`
+	Uri               *string `pulumi:"uri"`
 }
 
 // ConsoleCreatePropertiesInput is an input type that accepts ConsoleCreatePropertiesArgs and ConsoleCreatePropertiesOutput values.
@@ -31,14 +27,10 @@ type ConsoleCreatePropertiesInput interface {
 	ToConsoleCreatePropertiesOutputWithContext(context.Context) ConsoleCreatePropertiesOutput
 }
 
-// Cloud shell properties for creating a console.
 type ConsoleCreatePropertiesArgs struct {
-	// The operating system type of the cloud shell.
-	OsType pulumi.StringInput `pulumi:"osType"`
-	// Provisioning state of the console.
+	OsType            pulumi.StringInput    `pulumi:"osType"`
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Uri of the console.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	Uri               pulumi.StringPtrInput `pulumi:"uri"`
 }
 
 func (ConsoleCreatePropertiesArgs) ElementType() reflect.Type {
@@ -94,7 +86,6 @@ func (i *consoleCreatePropertiesPtrType) ToConsoleCreatePropertiesPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ConsoleCreatePropertiesPtrOutput)
 }
 
-// Cloud shell properties for creating a console.
 type ConsoleCreatePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConsoleCreatePropertiesOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o ConsoleCreatePropertiesOutput) ToConsoleCreatePropertiesPtrOutput() Cons
 }
 
 func (o ConsoleCreatePropertiesOutput) ToConsoleCreatePropertiesPtrOutputWithContext(ctx context.Context) ConsoleCreatePropertiesPtrOutput {
-	return o.ApplyT(func(v ConsoleCreateProperties) *ConsoleCreateProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConsoleCreateProperties) *ConsoleCreateProperties {
 		return &v
 	}).(ConsoleCreatePropertiesPtrOutput)
 }
 
-// The operating system type of the cloud shell.
 func (o ConsoleCreatePropertiesOutput) OsType() pulumi.StringOutput {
 	return o.ApplyT(func(v ConsoleCreateProperties) string { return v.OsType }).(pulumi.StringOutput)
 }
 
-// Provisioning state of the console.
 func (o ConsoleCreatePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsoleCreateProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Uri of the console.
 func (o ConsoleCreatePropertiesOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsoleCreateProperties) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -149,10 +137,15 @@ func (o ConsoleCreatePropertiesPtrOutput) ToConsoleCreatePropertiesPtrOutputWith
 }
 
 func (o ConsoleCreatePropertiesPtrOutput) Elem() ConsoleCreatePropertiesOutput {
-	return o.ApplyT(func(v *ConsoleCreateProperties) ConsoleCreateProperties { return *v }).(ConsoleCreatePropertiesOutput)
+	return o.ApplyT(func(v *ConsoleCreateProperties) ConsoleCreateProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConsoleCreateProperties
+		return ret
+	}).(ConsoleCreatePropertiesOutput)
 }
 
-// The operating system type of the cloud shell.
 func (o ConsoleCreatePropertiesPtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConsoleCreateProperties) *string {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o ConsoleCreatePropertiesPtrOutput) OsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provisioning state of the console.
 func (o ConsoleCreatePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConsoleCreateProperties) *string {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o ConsoleCreatePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Uri of the console.
 func (o ConsoleCreatePropertiesPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConsoleCreateProperties) *string {
 		if v == nil {
@@ -182,14 +173,10 @@ func (o ConsoleCreatePropertiesPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cloud shell console properties.
 type ConsolePropertiesResponse struct {
-	// The operating system type of the cloud shell.
-	OsType string `pulumi:"osType"`
-	// Provisioning state of the console.
+	OsType            string `pulumi:"osType"`
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Uri of the console.
-	Uri string `pulumi:"uri"`
+	Uri               string `pulumi:"uri"`
 }
 
 // ConsolePropertiesResponseInput is an input type that accepts ConsolePropertiesResponseArgs and ConsolePropertiesResponseOutput values.
@@ -203,14 +190,10 @@ type ConsolePropertiesResponseInput interface {
 	ToConsolePropertiesResponseOutputWithContext(context.Context) ConsolePropertiesResponseOutput
 }
 
-// Cloud shell console properties.
 type ConsolePropertiesResponseArgs struct {
-	// The operating system type of the cloud shell.
-	OsType pulumi.StringInput `pulumi:"osType"`
-	// Provisioning state of the console.
+	OsType            pulumi.StringInput `pulumi:"osType"`
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Uri of the console.
-	Uri pulumi.StringInput `pulumi:"uri"`
+	Uri               pulumi.StringInput `pulumi:"uri"`
 }
 
 func (ConsolePropertiesResponseArgs) ElementType() reflect.Type {
@@ -266,7 +249,6 @@ func (i *consolePropertiesResponsePtrType) ToConsolePropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ConsolePropertiesResponsePtrOutput)
 }
 
-// Cloud shell console properties.
 type ConsolePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ConsolePropertiesResponseOutput) ElementType() reflect.Type {
@@ -286,22 +268,19 @@ func (o ConsolePropertiesResponseOutput) ToConsolePropertiesResponsePtrOutput() 
 }
 
 func (o ConsolePropertiesResponseOutput) ToConsolePropertiesResponsePtrOutputWithContext(ctx context.Context) ConsolePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ConsolePropertiesResponse) *ConsolePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConsolePropertiesResponse) *ConsolePropertiesResponse {
 		return &v
 	}).(ConsolePropertiesResponsePtrOutput)
 }
 
-// The operating system type of the cloud shell.
 func (o ConsolePropertiesResponseOutput) OsType() pulumi.StringOutput {
 	return o.ApplyT(func(v ConsolePropertiesResponse) string { return v.OsType }).(pulumi.StringOutput)
 }
 
-// Provisioning state of the console.
 func (o ConsolePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ConsolePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Uri of the console.
 func (o ConsolePropertiesResponseOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ConsolePropertiesResponse) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -321,10 +300,15 @@ func (o ConsolePropertiesResponsePtrOutput) ToConsolePropertiesResponsePtrOutput
 }
 
 func (o ConsolePropertiesResponsePtrOutput) Elem() ConsolePropertiesResponseOutput {
-	return o.ApplyT(func(v *ConsolePropertiesResponse) ConsolePropertiesResponse { return *v }).(ConsolePropertiesResponseOutput)
+	return o.ApplyT(func(v *ConsolePropertiesResponse) ConsolePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConsolePropertiesResponse
+		return ret
+	}).(ConsolePropertiesResponseOutput)
 }
 
-// The operating system type of the cloud shell.
 func (o ConsolePropertiesResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConsolePropertiesResponse) *string {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o ConsolePropertiesResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provisioning state of the console.
 func (o ConsolePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConsolePropertiesResponse) *string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o ConsolePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Uri of the console.
 func (o ConsolePropertiesResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConsolePropertiesResponse) *string {
 		if v == nil {
@@ -354,13 +336,9 @@ func (o ConsolePropertiesResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage profile of the user settings.
 type StorageProfile struct {
-	// Size of file share
-	DiskSizeInGB *int `pulumi:"diskSizeInGB"`
-	// Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
-	FileShareName *string `pulumi:"fileShareName"`
-	// Full resource ID of storage account.
+	DiskSizeInGB             *int    `pulumi:"diskSizeInGB"`
+	FileShareName            *string `pulumi:"fileShareName"`
 	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
 }
 
@@ -375,13 +353,9 @@ type StorageProfileInput interface {
 	ToStorageProfileOutputWithContext(context.Context) StorageProfileOutput
 }
 
-// The storage profile of the user settings.
 type StorageProfileArgs struct {
-	// Size of file share
-	DiskSizeInGB pulumi.IntPtrInput `pulumi:"diskSizeInGB"`
-	// Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
-	FileShareName pulumi.StringPtrInput `pulumi:"fileShareName"`
-	// Full resource ID of storage account.
+	DiskSizeInGB             pulumi.IntPtrInput    `pulumi:"diskSizeInGB"`
+	FileShareName            pulumi.StringPtrInput `pulumi:"fileShareName"`
 	StorageAccountResourceId pulumi.StringPtrInput `pulumi:"storageAccountResourceId"`
 }
 
@@ -438,7 +412,6 @@ func (i *storageProfilePtrType) ToStorageProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(StorageProfilePtrOutput)
 }
 
-// The storage profile of the user settings.
 type StorageProfileOutput struct{ *pulumi.OutputState }
 
 func (StorageProfileOutput) ElementType() reflect.Type {
@@ -458,22 +431,19 @@ func (o StorageProfileOutput) ToStorageProfilePtrOutput() StorageProfilePtrOutpu
 }
 
 func (o StorageProfileOutput) ToStorageProfilePtrOutputWithContext(ctx context.Context) StorageProfilePtrOutput {
-	return o.ApplyT(func(v StorageProfile) *StorageProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageProfile) *StorageProfile {
 		return &v
 	}).(StorageProfilePtrOutput)
 }
 
-// Size of file share
 func (o StorageProfileOutput) DiskSizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageProfile) *int { return v.DiskSizeInGB }).(pulumi.IntPtrOutput)
 }
 
-// Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
 func (o StorageProfileOutput) FileShareName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageProfile) *string { return v.FileShareName }).(pulumi.StringPtrOutput)
 }
 
-// Full resource ID of storage account.
 func (o StorageProfileOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageProfile) *string { return v.StorageAccountResourceId }).(pulumi.StringPtrOutput)
 }
@@ -493,10 +463,15 @@ func (o StorageProfilePtrOutput) ToStorageProfilePtrOutputWithContext(ctx contex
 }
 
 func (o StorageProfilePtrOutput) Elem() StorageProfileOutput {
-	return o.ApplyT(func(v *StorageProfile) StorageProfile { return *v }).(StorageProfileOutput)
+	return o.ApplyT(func(v *StorageProfile) StorageProfile {
+		if v != nil {
+			return *v
+		}
+		var ret StorageProfile
+		return ret
+	}).(StorageProfileOutput)
 }
 
-// Size of file share
 func (o StorageProfilePtrOutput) DiskSizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageProfile) *int {
 		if v == nil {
@@ -506,7 +481,6 @@ func (o StorageProfilePtrOutput) DiskSizeInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
 func (o StorageProfilePtrOutput) FileShareName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageProfile) *string {
 		if v == nil {
@@ -516,7 +490,6 @@ func (o StorageProfilePtrOutput) FileShareName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Full resource ID of storage account.
 func (o StorageProfilePtrOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageProfile) *string {
 		if v == nil {
@@ -526,13 +499,9 @@ func (o StorageProfilePtrOutput) StorageAccountResourceId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage profile of the user settings.
 type StorageProfileResponse struct {
-	// Size of file share
-	DiskSizeInGB *int `pulumi:"diskSizeInGB"`
-	// Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
-	FileShareName *string `pulumi:"fileShareName"`
-	// Full resource ID of storage account.
+	DiskSizeInGB             *int    `pulumi:"diskSizeInGB"`
+	FileShareName            *string `pulumi:"fileShareName"`
 	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
 }
 
@@ -547,13 +516,9 @@ type StorageProfileResponseInput interface {
 	ToStorageProfileResponseOutputWithContext(context.Context) StorageProfileResponseOutput
 }
 
-// The storage profile of the user settings.
 type StorageProfileResponseArgs struct {
-	// Size of file share
-	DiskSizeInGB pulumi.IntPtrInput `pulumi:"diskSizeInGB"`
-	// Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
-	FileShareName pulumi.StringPtrInput `pulumi:"fileShareName"`
-	// Full resource ID of storage account.
+	DiskSizeInGB             pulumi.IntPtrInput    `pulumi:"diskSizeInGB"`
+	FileShareName            pulumi.StringPtrInput `pulumi:"fileShareName"`
 	StorageAccountResourceId pulumi.StringPtrInput `pulumi:"storageAccountResourceId"`
 }
 
@@ -610,7 +575,6 @@ func (i *storageProfileResponsePtrType) ToStorageProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileResponsePtrOutput)
 }
 
-// The storage profile of the user settings.
 type StorageProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageProfileResponseOutput) ElementType() reflect.Type {
@@ -630,22 +594,19 @@ func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutput() Storag
 }
 
 func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutputWithContext(ctx context.Context) StorageProfileResponsePtrOutput {
-	return o.ApplyT(func(v StorageProfileResponse) *StorageProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageProfileResponse) *StorageProfileResponse {
 		return &v
 	}).(StorageProfileResponsePtrOutput)
 }
 
-// Size of file share
 func (o StorageProfileResponseOutput) DiskSizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *int { return v.DiskSizeInGB }).(pulumi.IntPtrOutput)
 }
 
-// Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
 func (o StorageProfileResponseOutput) FileShareName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *string { return v.FileShareName }).(pulumi.StringPtrOutput)
 }
 
-// Full resource ID of storage account.
 func (o StorageProfileResponseOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *string { return v.StorageAccountResourceId }).(pulumi.StringPtrOutput)
 }
@@ -665,10 +626,15 @@ func (o StorageProfileResponsePtrOutput) ToStorageProfileResponsePtrOutputWithCo
 }
 
 func (o StorageProfileResponsePtrOutput) Elem() StorageProfileResponseOutput {
-	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse { return *v }).(StorageProfileResponseOutput)
+	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageProfileResponse
+		return ret
+	}).(StorageProfileResponseOutput)
 }
 
-// Size of file share
 func (o StorageProfileResponsePtrOutput) DiskSizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageProfileResponse) *int {
 		if v == nil {
@@ -678,7 +644,6 @@ func (o StorageProfileResponsePtrOutput) DiskSizeInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
 func (o StorageProfileResponsePtrOutput) FileShareName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageProfileResponse) *string {
 		if v == nil {
@@ -688,7 +653,6 @@ func (o StorageProfileResponsePtrOutput) FileShareName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Full resource ID of storage account.
 func (o StorageProfileResponsePtrOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageProfileResponse) *string {
 		if v == nil {
@@ -698,11 +662,8 @@ func (o StorageProfileResponsePtrOutput) StorageAccountResourceId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings for terminal appearance.
 type TerminalSettings struct {
-	// Size of terminal font.
-	FontSize *string `pulumi:"fontSize"`
-	// Style of terminal font.
+	FontSize  *string `pulumi:"fontSize"`
 	FontStyle *string `pulumi:"fontStyle"`
 }
 
@@ -717,11 +678,8 @@ type TerminalSettingsInput interface {
 	ToTerminalSettingsOutputWithContext(context.Context) TerminalSettingsOutput
 }
 
-// Settings for terminal appearance.
 type TerminalSettingsArgs struct {
-	// Size of terminal font.
-	FontSize pulumi.StringPtrInput `pulumi:"fontSize"`
-	// Style of terminal font.
+	FontSize  pulumi.StringPtrInput `pulumi:"fontSize"`
 	FontStyle pulumi.StringPtrInput `pulumi:"fontStyle"`
 }
 
@@ -778,7 +736,6 @@ func (i *terminalSettingsPtrType) ToTerminalSettingsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(TerminalSettingsPtrOutput)
 }
 
-// Settings for terminal appearance.
 type TerminalSettingsOutput struct{ *pulumi.OutputState }
 
 func (TerminalSettingsOutput) ElementType() reflect.Type {
@@ -798,17 +755,15 @@ func (o TerminalSettingsOutput) ToTerminalSettingsPtrOutput() TerminalSettingsPt
 }
 
 func (o TerminalSettingsOutput) ToTerminalSettingsPtrOutputWithContext(ctx context.Context) TerminalSettingsPtrOutput {
-	return o.ApplyT(func(v TerminalSettings) *TerminalSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TerminalSettings) *TerminalSettings {
 		return &v
 	}).(TerminalSettingsPtrOutput)
 }
 
-// Size of terminal font.
 func (o TerminalSettingsOutput) FontSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TerminalSettings) *string { return v.FontSize }).(pulumi.StringPtrOutput)
 }
 
-// Style of terminal font.
 func (o TerminalSettingsOutput) FontStyle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TerminalSettings) *string { return v.FontStyle }).(pulumi.StringPtrOutput)
 }
@@ -828,10 +783,15 @@ func (o TerminalSettingsPtrOutput) ToTerminalSettingsPtrOutputWithContext(ctx co
 }
 
 func (o TerminalSettingsPtrOutput) Elem() TerminalSettingsOutput {
-	return o.ApplyT(func(v *TerminalSettings) TerminalSettings { return *v }).(TerminalSettingsOutput)
+	return o.ApplyT(func(v *TerminalSettings) TerminalSettings {
+		if v != nil {
+			return *v
+		}
+		var ret TerminalSettings
+		return ret
+	}).(TerminalSettingsOutput)
 }
 
-// Size of terminal font.
 func (o TerminalSettingsPtrOutput) FontSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TerminalSettings) *string {
 		if v == nil {
@@ -841,7 +801,6 @@ func (o TerminalSettingsPtrOutput) FontSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Style of terminal font.
 func (o TerminalSettingsPtrOutput) FontStyle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TerminalSettings) *string {
 		if v == nil {
@@ -851,11 +810,8 @@ func (o TerminalSettingsPtrOutput) FontStyle() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings for terminal appearance.
 type TerminalSettingsResponse struct {
-	// Size of terminal font.
-	FontSize *string `pulumi:"fontSize"`
-	// Style of terminal font.
+	FontSize  *string `pulumi:"fontSize"`
 	FontStyle *string `pulumi:"fontStyle"`
 }
 
@@ -870,11 +826,8 @@ type TerminalSettingsResponseInput interface {
 	ToTerminalSettingsResponseOutputWithContext(context.Context) TerminalSettingsResponseOutput
 }
 
-// Settings for terminal appearance.
 type TerminalSettingsResponseArgs struct {
-	// Size of terminal font.
-	FontSize pulumi.StringPtrInput `pulumi:"fontSize"`
-	// Style of terminal font.
+	FontSize  pulumi.StringPtrInput `pulumi:"fontSize"`
 	FontStyle pulumi.StringPtrInput `pulumi:"fontStyle"`
 }
 
@@ -931,7 +884,6 @@ func (i *terminalSettingsResponsePtrType) ToTerminalSettingsResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TerminalSettingsResponsePtrOutput)
 }
 
-// Settings for terminal appearance.
 type TerminalSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (TerminalSettingsResponseOutput) ElementType() reflect.Type {
@@ -951,17 +903,15 @@ func (o TerminalSettingsResponseOutput) ToTerminalSettingsResponsePtrOutput() Te
 }
 
 func (o TerminalSettingsResponseOutput) ToTerminalSettingsResponsePtrOutputWithContext(ctx context.Context) TerminalSettingsResponsePtrOutput {
-	return o.ApplyT(func(v TerminalSettingsResponse) *TerminalSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TerminalSettingsResponse) *TerminalSettingsResponse {
 		return &v
 	}).(TerminalSettingsResponsePtrOutput)
 }
 
-// Size of terminal font.
 func (o TerminalSettingsResponseOutput) FontSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TerminalSettingsResponse) *string { return v.FontSize }).(pulumi.StringPtrOutput)
 }
 
-// Style of terminal font.
 func (o TerminalSettingsResponseOutput) FontStyle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TerminalSettingsResponse) *string { return v.FontStyle }).(pulumi.StringPtrOutput)
 }
@@ -981,10 +931,15 @@ func (o TerminalSettingsResponsePtrOutput) ToTerminalSettingsResponsePtrOutputWi
 }
 
 func (o TerminalSettingsResponsePtrOutput) Elem() TerminalSettingsResponseOutput {
-	return o.ApplyT(func(v *TerminalSettingsResponse) TerminalSettingsResponse { return *v }).(TerminalSettingsResponseOutput)
+	return o.ApplyT(func(v *TerminalSettingsResponse) TerminalSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TerminalSettingsResponse
+		return ret
+	}).(TerminalSettingsResponseOutput)
 }
 
-// Size of terminal font.
 func (o TerminalSettingsResponsePtrOutput) FontSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TerminalSettingsResponse) *string {
 		if v == nil {
@@ -994,7 +949,6 @@ func (o TerminalSettingsResponsePtrOutput) FontSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Style of terminal font.
 func (o TerminalSettingsResponsePtrOutput) FontStyle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TerminalSettingsResponse) *string {
 		if v == nil {
@@ -1004,18 +958,12 @@ func (o TerminalSettingsResponsePtrOutput) FontStyle() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The cloud shell user settings properties.
 type UserProperties struct {
-	// The preferred location of the cloud shell.
-	PreferredLocation string `pulumi:"preferredLocation"`
-	// The operating system type of the cloud shell. Deprecated, use preferredShellType.
-	PreferredOsType string `pulumi:"preferredOsType"`
-	// The shell type of the cloud shell.
-	PreferredShellType string `pulumi:"preferredShellType"`
-	// The storage profile of the user settings.
-	StorageProfile StorageProfile `pulumi:"storageProfile"`
-	// Settings for terminal appearance.
-	TerminalSettings TerminalSettings `pulumi:"terminalSettings"`
+	PreferredLocation  string           `pulumi:"preferredLocation"`
+	PreferredOsType    string           `pulumi:"preferredOsType"`
+	PreferredShellType string           `pulumi:"preferredShellType"`
+	StorageProfile     StorageProfile   `pulumi:"storageProfile"`
+	TerminalSettings   TerminalSettings `pulumi:"terminalSettings"`
 }
 
 // UserPropertiesInput is an input type that accepts UserPropertiesArgs and UserPropertiesOutput values.
@@ -1029,18 +977,12 @@ type UserPropertiesInput interface {
 	ToUserPropertiesOutputWithContext(context.Context) UserPropertiesOutput
 }
 
-// The cloud shell user settings properties.
 type UserPropertiesArgs struct {
-	// The preferred location of the cloud shell.
-	PreferredLocation pulumi.StringInput `pulumi:"preferredLocation"`
-	// The operating system type of the cloud shell. Deprecated, use preferredShellType.
-	PreferredOsType pulumi.StringInput `pulumi:"preferredOsType"`
-	// The shell type of the cloud shell.
-	PreferredShellType pulumi.StringInput `pulumi:"preferredShellType"`
-	// The storage profile of the user settings.
-	StorageProfile StorageProfileInput `pulumi:"storageProfile"`
-	// Settings for terminal appearance.
-	TerminalSettings TerminalSettingsInput `pulumi:"terminalSettings"`
+	PreferredLocation  pulumi.StringInput    `pulumi:"preferredLocation"`
+	PreferredOsType    pulumi.StringInput    `pulumi:"preferredOsType"`
+	PreferredShellType pulumi.StringInput    `pulumi:"preferredShellType"`
+	StorageProfile     StorageProfileInput   `pulumi:"storageProfile"`
+	TerminalSettings   TerminalSettingsInput `pulumi:"terminalSettings"`
 }
 
 func (UserPropertiesArgs) ElementType() reflect.Type {
@@ -1096,7 +1038,6 @@ func (i *userPropertiesPtrType) ToUserPropertiesPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(UserPropertiesPtrOutput)
 }
 
-// The cloud shell user settings properties.
 type UserPropertiesOutput struct{ *pulumi.OutputState }
 
 func (UserPropertiesOutput) ElementType() reflect.Type {
@@ -1116,32 +1057,27 @@ func (o UserPropertiesOutput) ToUserPropertiesPtrOutput() UserPropertiesPtrOutpu
 }
 
 func (o UserPropertiesOutput) ToUserPropertiesPtrOutputWithContext(ctx context.Context) UserPropertiesPtrOutput {
-	return o.ApplyT(func(v UserProperties) *UserProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProperties) *UserProperties {
 		return &v
 	}).(UserPropertiesPtrOutput)
 }
 
-// The preferred location of the cloud shell.
 func (o UserPropertiesOutput) PreferredLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v UserProperties) string { return v.PreferredLocation }).(pulumi.StringOutput)
 }
 
-// The operating system type of the cloud shell. Deprecated, use preferredShellType.
 func (o UserPropertiesOutput) PreferredOsType() pulumi.StringOutput {
 	return o.ApplyT(func(v UserProperties) string { return v.PreferredOsType }).(pulumi.StringOutput)
 }
 
-// The shell type of the cloud shell.
 func (o UserPropertiesOutput) PreferredShellType() pulumi.StringOutput {
 	return o.ApplyT(func(v UserProperties) string { return v.PreferredShellType }).(pulumi.StringOutput)
 }
 
-// The storage profile of the user settings.
 func (o UserPropertiesOutput) StorageProfile() StorageProfileOutput {
 	return o.ApplyT(func(v UserProperties) StorageProfile { return v.StorageProfile }).(StorageProfileOutput)
 }
 
-// Settings for terminal appearance.
 func (o UserPropertiesOutput) TerminalSettings() TerminalSettingsOutput {
 	return o.ApplyT(func(v UserProperties) TerminalSettings { return v.TerminalSettings }).(TerminalSettingsOutput)
 }
@@ -1161,10 +1097,15 @@ func (o UserPropertiesPtrOutput) ToUserPropertiesPtrOutputWithContext(ctx contex
 }
 
 func (o UserPropertiesPtrOutput) Elem() UserPropertiesOutput {
-	return o.ApplyT(func(v *UserProperties) UserProperties { return *v }).(UserPropertiesOutput)
+	return o.ApplyT(func(v *UserProperties) UserProperties {
+		if v != nil {
+			return *v
+		}
+		var ret UserProperties
+		return ret
+	}).(UserPropertiesOutput)
 }
 
-// The preferred location of the cloud shell.
 func (o UserPropertiesPtrOutput) PreferredLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProperties) *string {
 		if v == nil {
@@ -1174,7 +1115,6 @@ func (o UserPropertiesPtrOutput) PreferredLocation() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The operating system type of the cloud shell. Deprecated, use preferredShellType.
 func (o UserPropertiesPtrOutput) PreferredOsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProperties) *string {
 		if v == nil {
@@ -1184,7 +1124,6 @@ func (o UserPropertiesPtrOutput) PreferredOsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The shell type of the cloud shell.
 func (o UserPropertiesPtrOutput) PreferredShellType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProperties) *string {
 		if v == nil {
@@ -1194,7 +1133,6 @@ func (o UserPropertiesPtrOutput) PreferredShellType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage profile of the user settings.
 func (o UserPropertiesPtrOutput) StorageProfile() StorageProfilePtrOutput {
 	return o.ApplyT(func(v *UserProperties) *StorageProfile {
 		if v == nil {
@@ -1204,7 +1142,6 @@ func (o UserPropertiesPtrOutput) StorageProfile() StorageProfilePtrOutput {
 	}).(StorageProfilePtrOutput)
 }
 
-// Settings for terminal appearance.
 func (o UserPropertiesPtrOutput) TerminalSettings() TerminalSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProperties) *TerminalSettings {
 		if v == nil {
@@ -1214,18 +1151,12 @@ func (o UserPropertiesPtrOutput) TerminalSettings() TerminalSettingsPtrOutput {
 	}).(TerminalSettingsPtrOutput)
 }
 
-// The cloud shell user settings properties.
 type UserPropertiesResponse struct {
-	// The preferred location of the cloud shell.
-	PreferredLocation string `pulumi:"preferredLocation"`
-	// The operating system type of the cloud shell. Deprecated, use preferredShellType.
-	PreferredOsType string `pulumi:"preferredOsType"`
-	// The shell type of the cloud shell.
-	PreferredShellType string `pulumi:"preferredShellType"`
-	// The storage profile of the user settings.
-	StorageProfile StorageProfileResponse `pulumi:"storageProfile"`
-	// Settings for terminal appearance.
-	TerminalSettings TerminalSettingsResponse `pulumi:"terminalSettings"`
+	PreferredLocation  string                   `pulumi:"preferredLocation"`
+	PreferredOsType    string                   `pulumi:"preferredOsType"`
+	PreferredShellType string                   `pulumi:"preferredShellType"`
+	StorageProfile     StorageProfileResponse   `pulumi:"storageProfile"`
+	TerminalSettings   TerminalSettingsResponse `pulumi:"terminalSettings"`
 }
 
 // UserPropertiesResponseInput is an input type that accepts UserPropertiesResponseArgs and UserPropertiesResponseOutput values.
@@ -1239,18 +1170,12 @@ type UserPropertiesResponseInput interface {
 	ToUserPropertiesResponseOutputWithContext(context.Context) UserPropertiesResponseOutput
 }
 
-// The cloud shell user settings properties.
 type UserPropertiesResponseArgs struct {
-	// The preferred location of the cloud shell.
-	PreferredLocation pulumi.StringInput `pulumi:"preferredLocation"`
-	// The operating system type of the cloud shell. Deprecated, use preferredShellType.
-	PreferredOsType pulumi.StringInput `pulumi:"preferredOsType"`
-	// The shell type of the cloud shell.
-	PreferredShellType pulumi.StringInput `pulumi:"preferredShellType"`
-	// The storage profile of the user settings.
-	StorageProfile StorageProfileResponseInput `pulumi:"storageProfile"`
-	// Settings for terminal appearance.
-	TerminalSettings TerminalSettingsResponseInput `pulumi:"terminalSettings"`
+	PreferredLocation  pulumi.StringInput            `pulumi:"preferredLocation"`
+	PreferredOsType    pulumi.StringInput            `pulumi:"preferredOsType"`
+	PreferredShellType pulumi.StringInput            `pulumi:"preferredShellType"`
+	StorageProfile     StorageProfileResponseInput   `pulumi:"storageProfile"`
+	TerminalSettings   TerminalSettingsResponseInput `pulumi:"terminalSettings"`
 }
 
 func (UserPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1306,7 +1231,6 @@ func (i *userPropertiesResponsePtrType) ToUserPropertiesResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(UserPropertiesResponsePtrOutput)
 }
 
-// The cloud shell user settings properties.
 type UserPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (UserPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1326,32 +1250,27 @@ func (o UserPropertiesResponseOutput) ToUserPropertiesResponsePtrOutput() UserPr
 }
 
 func (o UserPropertiesResponseOutput) ToUserPropertiesResponsePtrOutputWithContext(ctx context.Context) UserPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v UserPropertiesResponse) *UserPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPropertiesResponse) *UserPropertiesResponse {
 		return &v
 	}).(UserPropertiesResponsePtrOutput)
 }
 
-// The preferred location of the cloud shell.
 func (o UserPropertiesResponseOutput) PreferredLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPropertiesResponse) string { return v.PreferredLocation }).(pulumi.StringOutput)
 }
 
-// The operating system type of the cloud shell. Deprecated, use preferredShellType.
 func (o UserPropertiesResponseOutput) PreferredOsType() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPropertiesResponse) string { return v.PreferredOsType }).(pulumi.StringOutput)
 }
 
-// The shell type of the cloud shell.
 func (o UserPropertiesResponseOutput) PreferredShellType() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPropertiesResponse) string { return v.PreferredShellType }).(pulumi.StringOutput)
 }
 
-// The storage profile of the user settings.
 func (o UserPropertiesResponseOutput) StorageProfile() StorageProfileResponseOutput {
 	return o.ApplyT(func(v UserPropertiesResponse) StorageProfileResponse { return v.StorageProfile }).(StorageProfileResponseOutput)
 }
 
-// Settings for terminal appearance.
 func (o UserPropertiesResponseOutput) TerminalSettings() TerminalSettingsResponseOutput {
 	return o.ApplyT(func(v UserPropertiesResponse) TerminalSettingsResponse { return v.TerminalSettings }).(TerminalSettingsResponseOutput)
 }
@@ -1371,10 +1290,15 @@ func (o UserPropertiesResponsePtrOutput) ToUserPropertiesResponsePtrOutputWithCo
 }
 
 func (o UserPropertiesResponsePtrOutput) Elem() UserPropertiesResponseOutput {
-	return o.ApplyT(func(v *UserPropertiesResponse) UserPropertiesResponse { return *v }).(UserPropertiesResponseOutput)
+	return o.ApplyT(func(v *UserPropertiesResponse) UserPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserPropertiesResponse
+		return ret
+	}).(UserPropertiesResponseOutput)
 }
 
-// The preferred location of the cloud shell.
 func (o UserPropertiesResponsePtrOutput) PreferredLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPropertiesResponse) *string {
 		if v == nil {
@@ -1384,7 +1308,6 @@ func (o UserPropertiesResponsePtrOutput) PreferredLocation() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The operating system type of the cloud shell. Deprecated, use preferredShellType.
 func (o UserPropertiesResponsePtrOutput) PreferredOsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPropertiesResponse) *string {
 		if v == nil {
@@ -1394,7 +1317,6 @@ func (o UserPropertiesResponsePtrOutput) PreferredOsType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The shell type of the cloud shell.
 func (o UserPropertiesResponsePtrOutput) PreferredShellType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPropertiesResponse) *string {
 		if v == nil {
@@ -1404,7 +1326,6 @@ func (o UserPropertiesResponsePtrOutput) PreferredShellType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage profile of the user settings.
 func (o UserPropertiesResponsePtrOutput) StorageProfile() StorageProfileResponsePtrOutput {
 	return o.ApplyT(func(v *UserPropertiesResponse) *StorageProfileResponse {
 		if v == nil {
@@ -1414,7 +1335,6 @@ func (o UserPropertiesResponsePtrOutput) StorageProfile() StorageProfileResponse
 	}).(StorageProfileResponsePtrOutput)
 }
 
-// Settings for terminal appearance.
 func (o UserPropertiesResponsePtrOutput) TerminalSettings() TerminalSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *UserPropertiesResponse) *TerminalSettingsResponse {
 		if v == nil {

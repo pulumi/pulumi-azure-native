@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Database Advisor.
 type ServerAdvisor struct {
 	pulumi.CustomResourceState
 
-	// Gets the status of availability of this advisor to customers. Possible values are 'GA', 'PublicPreview', 'LimitedPublicPreview' and 'PrivatePreview'.
-	AdvisorStatus pulumi.StringOutput `pulumi:"advisorStatus"`
-	// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
-	AutoExecuteValue pulumi.StringOutput `pulumi:"autoExecuteValue"`
-	// Resource kind.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Gets the time when the current resource was analyzed for recommendations by this advisor.
-	LastChecked pulumi.StringOutput `pulumi:"lastChecked"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets that status of recommendations for this advisor and reason for not having any recommendations. Possible values include, but are not limited to, 'Ok' (Recommendations available), LowActivity (not enough workload to analyze), 'DbSeemsTuned' (Database is doing well), etc.
+	AdvisorStatus         pulumi.StringOutput `pulumi:"advisorStatus"`
+	AutoExecuteValue      pulumi.StringOutput `pulumi:"autoExecuteValue"`
+	Kind                  pulumi.StringOutput `pulumi:"kind"`
+	LastChecked           pulumi.StringOutput `pulumi:"lastChecked"`
+	Location              pulumi.StringOutput `pulumi:"location"`
+	Name                  pulumi.StringOutput `pulumi:"name"`
 	RecommendationsStatus pulumi.StringOutput `pulumi:"recommendationsStatus"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type                  pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewServerAdvisor registers a new resource with the given unique name, arguments, and options.
@@ -40,6 +31,9 @@ func NewServerAdvisor(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AutoExecuteValue == nil {
+		return nil, errors.New("invalid value for required argument 'AutoExecuteValue'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -120,26 +114,18 @@ func (ServerAdvisorState) ElementType() reflect.Type {
 }
 
 type serverAdvisorArgs struct {
-	// The name of the Server Advisor.
-	AdvisorName *string `pulumi:"advisorName"`
-	// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
-	AutoExecuteValue string `pulumi:"autoExecuteValue"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	AdvisorName       *string           `pulumi:"advisorName"`
+	AutoExecuteValue  AutoExecuteStatus `pulumi:"autoExecuteValue"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ServerName        string            `pulumi:"serverName"`
 }
 
 // The set of arguments for constructing a ServerAdvisor resource.
 type ServerAdvisorArgs struct {
-	// The name of the Server Advisor.
-	AdvisorName pulumi.StringPtrInput
-	// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
-	AutoExecuteValue AutoExecuteStatus
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	AdvisorName       pulumi.StringPtrInput
+	AutoExecuteValue  AutoExecuteStatusInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
+	ServerName        pulumi.StringInput
 }
 
 func (ServerAdvisorArgs) ElementType() reflect.Type {
@@ -165,9 +151,7 @@ func (i *ServerAdvisor) ToServerAdvisorOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAdvisorOutput)
 }
 
-type ServerAdvisorOutput struct {
-	*pulumi.OutputState
-}
+type ServerAdvisorOutput struct{ *pulumi.OutputState }
 
 func (ServerAdvisorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerAdvisor)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Encryption Scope resource.
 func LookupEncryptionScope(ctx *pulumi.Context, args *LookupEncryptionScopeArgs, opts ...pulumi.InvokeOption) (*LookupEncryptionScopeResult, error) {
 	var rv LookupEncryptionScopeResult
 	err := ctx.Invoke("azure-native:storage/v20210401:getEncryptionScope", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupEncryptionScope(ctx *pulumi.Context, args *LookupEncryptionScopeArgs,
 }
 
 type LookupEncryptionScopeArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+	AccountName         string `pulumi:"accountName"`
 	EncryptionScopeName string `pulumi:"encryptionScopeName"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 }
 
 // The Encryption Scope resource.
 type LookupEncryptionScopeResult struct {
-	// Gets the creation date and time of the encryption scope in UTC.
-	CreationTime string `pulumi:"creationTime"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
-	KeyVaultProperties *EncryptionScopeKeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
-	// Gets the last modification date and time of the encryption scope in UTC.
-	LastModifiedTime string `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
-	RequireInfrastructureEncryption *bool `pulumi:"requireInfrastructureEncryption"`
-	// The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
-	Source *string `pulumi:"source"`
-	// The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
-	State *string `pulumi:"state"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	CreationTime                    string                                     `pulumi:"creationTime"`
+	Id                              string                                     `pulumi:"id"`
+	KeyVaultProperties              *EncryptionScopeKeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	LastModifiedTime                string                                     `pulumi:"lastModifiedTime"`
+	Name                            string                                     `pulumi:"name"`
+	RequireInfrastructureEncryption *bool                                      `pulumi:"requireInfrastructureEncryption"`
+	Source                          *string                                    `pulumi:"source"`
+	State                           *string                                    `pulumi:"state"`
+	Type                            string                                     `pulumi:"type"`
 }

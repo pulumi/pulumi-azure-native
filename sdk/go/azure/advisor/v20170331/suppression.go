@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
 type Suppression struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The GUID of the suppression.
+	Name          pulumi.StringOutput    `pulumi:"name"`
 	SuppressionId pulumi.StringPtrOutput `pulumi:"suppressionId"`
-	// The duration for which the suppression is valid.
-	Ttl pulumi.StringPtrOutput `pulumi:"ttl"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Ttl           pulumi.StringPtrOutput `pulumi:"ttl"`
+	Type          pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewSuppression registers a new resource with the given unique name, arguments, and options.
@@ -100,30 +95,20 @@ func (SuppressionState) ElementType() reflect.Type {
 }
 
 type suppressionArgs struct {
-	// The name of the suppression.
-	Name *string `pulumi:"name"`
-	// The recommendation ID.
-	RecommendationId string `pulumi:"recommendationId"`
-	// The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
-	ResourceUri string `pulumi:"resourceUri"`
-	// The GUID of the suppression.
-	SuppressionId *string `pulumi:"suppressionId"`
-	// The duration for which the suppression is valid.
-	Ttl *string `pulumi:"ttl"`
+	Name             *string `pulumi:"name"`
+	RecommendationId string  `pulumi:"recommendationId"`
+	ResourceUri      string  `pulumi:"resourceUri"`
+	SuppressionId    *string `pulumi:"suppressionId"`
+	Ttl              *string `pulumi:"ttl"`
 }
 
 // The set of arguments for constructing a Suppression resource.
 type SuppressionArgs struct {
-	// The name of the suppression.
-	Name pulumi.StringPtrInput
-	// The recommendation ID.
+	Name             pulumi.StringPtrInput
 	RecommendationId pulumi.StringInput
-	// The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
-	ResourceUri pulumi.StringInput
-	// The GUID of the suppression.
-	SuppressionId pulumi.StringPtrInput
-	// The duration for which the suppression is valid.
-	Ttl pulumi.StringPtrInput
+	ResourceUri      pulumi.StringInput
+	SuppressionId    pulumi.StringPtrInput
+	Ttl              pulumi.StringPtrInput
 }
 
 func (SuppressionArgs) ElementType() reflect.Type {
@@ -149,9 +134,7 @@ func (i *Suppression) ToSuppressionOutputWithContext(ctx context.Context) Suppre
 	return pulumi.ToOutputWithContext(ctx, i).(SuppressionOutput)
 }
 
-type SuppressionOutput struct {
-	*pulumi.OutputState
-}
+type SuppressionOutput struct{ *pulumi.OutputState }
 
 func (SuppressionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Suppression)(nil))

@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Workspace definition.
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	// List of applicationGroup resource Ids.
 	ApplicationGroupReferences pulumi.StringArrayOutput `pulumi:"applicationGroupReferences"`
-	// Description of Workspace.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Friendly name of Workspace.
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Description                pulumi.StringPtrOutput   `pulumi:"description"`
+	FriendlyName               pulumi.StringPtrOutput   `pulumi:"friendlyName"`
+	Location                   pulumi.StringOutput      `pulumi:"location"`
+	Name                       pulumi.StringOutput      `pulumi:"name"`
+	Tags                       pulumi.StringMapOutput   `pulumi:"tags"`
+	Type                       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -151,38 +143,24 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// List of applicationGroup resource Ids.
-	ApplicationGroupReferences []string `pulumi:"applicationGroupReferences"`
-	// Description of Workspace.
-	Description *string `pulumi:"description"`
-	// Friendly name of Workspace.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the workspace
-	WorkspaceName *string `pulumi:"workspaceName"`
+	ApplicationGroupReferences []string          `pulumi:"applicationGroupReferences"`
+	Description                *string           `pulumi:"description"`
+	FriendlyName               *string           `pulumi:"friendlyName"`
+	Location                   *string           `pulumi:"location"`
+	ResourceGroupName          string            `pulumi:"resourceGroupName"`
+	Tags                       map[string]string `pulumi:"tags"`
+	WorkspaceName              *string           `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// List of applicationGroup resource Ids.
 	ApplicationGroupReferences pulumi.StringArrayInput
-	// Description of Workspace.
-	Description pulumi.StringPtrInput
-	// Friendly name of Workspace.
-	FriendlyName pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the workspace
-	WorkspaceName pulumi.StringPtrInput
+	Description                pulumi.StringPtrInput
+	FriendlyName               pulumi.StringPtrInput
+	Location                   pulumi.StringPtrInput
+	ResourceGroupName          pulumi.StringInput
+	Tags                       pulumi.StringMapInput
+	WorkspaceName              pulumi.StringPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {
@@ -208,9 +186,7 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceOutput)
 }
 
-type WorkspaceOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workspace)(nil))

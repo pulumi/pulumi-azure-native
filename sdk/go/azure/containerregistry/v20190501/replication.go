@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a replication for a container registry.
 type Replication struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the replication at the time the operation was called.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The status of the replication at the time the operation was called.
-	Status StatusResponseOutput `pulumi:"status"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location          pulumi.StringOutput    `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	Status            StatusResponseOutput   `pulumi:"status"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewReplication registers a new resource with the given unique name, arguments, and options.
@@ -116,30 +109,20 @@ func (ReplicationState) ElementType() reflect.Type {
 }
 
 type replicationArgs struct {
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the replication.
-	ReplicationName *string `pulumi:"replicationName"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string           `pulumi:"location"`
+	RegistryName      string            `pulumi:"registryName"`
+	ReplicationName   *string           `pulumi:"replicationName"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Replication resource.
 type ReplicationArgs struct {
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The name of the container registry.
-	RegistryName pulumi.StringInput
-	// The name of the replication.
-	ReplicationName pulumi.StringPtrInput
-	// The name of the resource group to which the container registry belongs.
+	Location          pulumi.StringPtrInput
+	RegistryName      pulumi.StringInput
+	ReplicationName   pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ReplicationArgs) ElementType() reflect.Type {
@@ -165,9 +148,7 @@ func (i *Replication) ToReplicationOutputWithContext(ctx context.Context) Replic
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationOutput)
 }
 
-type ReplicationOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Replication)(nil))

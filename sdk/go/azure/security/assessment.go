@@ -165,9 +165,7 @@ func (i *Assessment) ToAssessmentOutputWithContext(ctx context.Context) Assessme
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentOutput)
 }
 
-type AssessmentOutput struct {
-	*pulumi.OutputState
-}
+type AssessmentOutput struct{ *pulumi.OutputState }
 
 func (AssessmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Assessment)(nil))

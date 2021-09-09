@@ -111,9 +111,7 @@ func (i *Console) ToConsoleOutputWithContext(ctx context.Context) ConsoleOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ConsoleOutput)
 }
 
-type ConsoleOutput struct {
-	*pulumi.OutputState
-}
+type ConsoleOutput struct{ *pulumi.OutputState }
 
 func (ConsoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Console)(nil))

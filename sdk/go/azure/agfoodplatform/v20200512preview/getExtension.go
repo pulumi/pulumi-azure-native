@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Extension resource.
 func LookupExtension(ctx *pulumi.Context, args *LookupExtensionArgs, opts ...pulumi.InvokeOption) (*LookupExtensionResult, error) {
 	var rv LookupExtensionResult
 	err := ctx.Invoke("azure-native:agfoodplatform/v20200512preview:getExtension", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupExtension(ctx *pulumi.Context, args *LookupExtensionArgs, opts ...pul
 }
 
 type LookupExtensionArgs struct {
-	// Id of extension resource.
-	ExtensionId string `pulumi:"extensionId"`
-	// FarmBeats resource name.
+	ExtensionId           string `pulumi:"extensionId"`
 	FarmBeatsResourceName string `pulumi:"farmBeatsResourceName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Extension resource.
 type LookupExtensionResult struct {
-	// The ETag value to implement optimistic concurrency.
-	ETag string `pulumi:"eTag"`
-	// Extension api docs link.
-	ExtensionApiDocsLink string `pulumi:"extensionApiDocsLink"`
-	// Extension auth link.
-	ExtensionAuthLink string `pulumi:"extensionAuthLink"`
-	// Extension category. e.g. weather/sensor/satellite.
-	ExtensionCategory string `pulumi:"extensionCategory"`
-	// Extension Id.
-	ExtensionId string `pulumi:"extensionId"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Installed extension version.
-	InstalledExtensionVersion string `pulumi:"installedExtensionVersion"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	ETag                      string             `pulumi:"eTag"`
+	ExtensionApiDocsLink      string             `pulumi:"extensionApiDocsLink"`
+	ExtensionAuthLink         string             `pulumi:"extensionAuthLink"`
+	ExtensionCategory         string             `pulumi:"extensionCategory"`
+	ExtensionId               string             `pulumi:"extensionId"`
+	Id                        string             `pulumi:"id"`
+	InstalledExtensionVersion string             `pulumi:"installedExtensionVersion"`
+	Name                      string             `pulumi:"name"`
+	SystemData                SystemDataResponse `pulumi:"systemData"`
+	Type                      string             `pulumi:"type"`
 }

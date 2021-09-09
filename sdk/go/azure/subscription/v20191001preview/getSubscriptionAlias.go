@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Subscription Information with the alias.
 func LookupSubscriptionAlias(ctx *pulumi.Context, args *LookupSubscriptionAliasArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionAliasResult, error) {
 	var rv LookupSubscriptionAliasResult
 	err := ctx.Invoke("azure-native:subscription/v20191001preview:getSubscriptionAlias", args, &rv, opts...)
@@ -18,18 +17,13 @@ func LookupSubscriptionAlias(ctx *pulumi.Context, args *LookupSubscriptionAliasA
 }
 
 type LookupSubscriptionAliasArgs struct {
-	// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
 	AliasName string `pulumi:"aliasName"`
 }
 
 // Subscription Information with the alias.
 type LookupSubscriptionAliasResult struct {
-	// Fully qualified ID for the alias resource.
-	Id string `pulumi:"id"`
-	// Alias ID.
-	Name string `pulumi:"name"`
-	// Put Alias response properties.
+	Id         string                             `pulumi:"id"`
+	Name       string                             `pulumi:"name"`
 	Properties PutAliasResponsePropertiesResponse `pulumi:"properties"`
-	// Resource type, Microsoft.Subscription/aliases.
-	Type string `pulumi:"type"`
+	Type       string                             `pulumi:"type"`
 }

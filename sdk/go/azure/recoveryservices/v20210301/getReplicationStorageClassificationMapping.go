@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Storage mapping object.
 func LookupReplicationStorageClassificationMapping(ctx *pulumi.Context, args *LookupReplicationStorageClassificationMappingArgs, opts ...pulumi.InvokeOption) (*LookupReplicationStorageClassificationMappingResult, error) {
 	var rv LookupReplicationStorageClassificationMappingResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20210301:getReplicationStorageClassificationMapping", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupReplicationStorageClassificationMapping(ctx *pulumi.Context, args *Lo
 }
 
 type LookupReplicationStorageClassificationMappingArgs struct {
-	// Fabric name.
-	FabricName string `pulumi:"fabricName"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
-	// Storage classification mapping name.
+	FabricName                       string `pulumi:"fabricName"`
+	ResourceGroupName                string `pulumi:"resourceGroupName"`
+	ResourceName                     string `pulumi:"resourceName"`
 	StorageClassificationMappingName string `pulumi:"storageClassificationMappingName"`
-	// Storage classification name.
-	StorageClassificationName string `pulumi:"storageClassificationName"`
+	StorageClassificationName        string `pulumi:"storageClassificationName"`
 }
 
 // Storage mapping object.
 type LookupReplicationStorageClassificationMappingResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// Properties of the storage mapping object.
+	Id         string                                         `pulumi:"id"`
+	Location   *string                                        `pulumi:"location"`
+	Name       string                                         `pulumi:"name"`
 	Properties StorageClassificationMappingPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
+	Type       string                                         `pulumi:"type"`
 }

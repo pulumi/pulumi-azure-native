@@ -17,33 +17,20 @@ func LookupIntegrationAccountCertificate(ctx *pulumi.Context, args *LookupIntegr
 }
 
 type LookupIntegrationAccountCertificateArgs struct {
-	// The integration account certificate name.
-	CertificateName string `pulumi:"certificateName"`
-	// The integration account name.
+	CertificateName        string `pulumi:"certificateName"`
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 type LookupIntegrationAccountCertificateResult struct {
-	// The changed time.
-	ChangedTime string `pulumi:"changedTime"`
-	// The created time.
-	CreatedTime string `pulumi:"createdTime"`
-	// The resource id.
-	Id *string `pulumi:"id"`
-	// The key details in the key vault.
-	Key *KeyVaultKeyReferenceResponse `pulumi:"key"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The public certificate.
-	PublicCertificate *string `pulumi:"publicCertificate"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
+	ChangedTime       string                        `pulumi:"changedTime"`
+	CreatedTime       string                        `pulumi:"createdTime"`
+	Id                *string                       `pulumi:"id"`
+	Key               *KeyVaultKeyReferenceResponse `pulumi:"key"`
+	Location          *string                       `pulumi:"location"`
+	Metadata          interface{}                   `pulumi:"metadata"`
+	Name              *string                       `pulumi:"name"`
+	PublicCertificate *string                       `pulumi:"publicCertificate"`
+	Tags              map[string]string             `pulumi:"tags"`
+	Type              *string                       `pulumi:"type"`
 }
