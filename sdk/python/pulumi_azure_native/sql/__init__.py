@@ -119,16 +119,26 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.sql.v20140401 as v20140401
-    import pulumi_azure_native.sql.v20150501preview as v20150501preview
-    import pulumi_azure_native.sql.v20170301preview as v20170301preview
-    import pulumi_azure_native.sql.v20171001preview as v20171001preview
-    import pulumi_azure_native.sql.v20180601preview as v20180601preview
-    import pulumi_azure_native.sql.v20190601preview as v20190601preview
-    import pulumi_azure_native.sql.v20200202preview as v20200202preview
-    import pulumi_azure_native.sql.v20200801preview as v20200801preview
-    import pulumi_azure_native.sql.v20201101preview as v20201101preview
-    import pulumi_azure_native.sql.v20210201preview as v20210201preview
+    import pulumi_azure_native.sql.v20140401 as __v20140401
+    v20140401 = __v20140401
+    import pulumi_azure_native.sql.v20150501preview as __v20150501preview
+    v20150501preview = __v20150501preview
+    import pulumi_azure_native.sql.v20170301preview as __v20170301preview
+    v20170301preview = __v20170301preview
+    import pulumi_azure_native.sql.v20171001preview as __v20171001preview
+    v20171001preview = __v20171001preview
+    import pulumi_azure_native.sql.v20180601preview as __v20180601preview
+    v20180601preview = __v20180601preview
+    import pulumi_azure_native.sql.v20190601preview as __v20190601preview
+    v20190601preview = __v20190601preview
+    import pulumi_azure_native.sql.v20200202preview as __v20200202preview
+    v20200202preview = __v20200202preview
+    import pulumi_azure_native.sql.v20200801preview as __v20200801preview
+    v20200801preview = __v20200801preview
+    import pulumi_azure_native.sql.v20201101preview as __v20201101preview
+    v20201101preview = __v20201101preview
+    import pulumi_azure_native.sql.v20210201preview as __v20210201preview
+    v20210201preview = __v20210201preview
 else:
     v20140401 = _utilities.lazy_import('pulumi_azure_native.sql.v20140401')
     v20150501preview = _utilities.lazy_import('pulumi_azure_native.sql.v20150501preview')

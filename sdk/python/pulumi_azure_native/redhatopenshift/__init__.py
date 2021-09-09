@@ -14,8 +14,10 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.redhatopenshift.v20200430 as v20200430
-    import pulumi_azure_native.redhatopenshift.v20210901preview as v20210901preview
+    import pulumi_azure_native.redhatopenshift.v20200430 as __v20200430
+    v20200430 = __v20200430
+    import pulumi_azure_native.redhatopenshift.v20210901preview as __v20210901preview
+    v20210901preview = __v20210901preview
 else:
     v20200430 = _utilities.lazy_import('pulumi_azure_native.redhatopenshift.v20200430')
     v20210901preview = _utilities.lazy_import('pulumi_azure_native.redhatopenshift.v20210901preview')

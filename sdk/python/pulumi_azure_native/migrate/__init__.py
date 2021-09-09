@@ -37,13 +37,20 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.migrate.v20171111preview as v20171111preview
-    import pulumi_azure_native.migrate.v20180202 as v20180202
-    import pulumi_azure_native.migrate.v20180901preview as v20180901preview
-    import pulumi_azure_native.migrate.v20191001 as v20191001
-    import pulumi_azure_native.migrate.v20191001preview as v20191001preview
-    import pulumi_azure_native.migrate.v20200501 as v20200501
-    import pulumi_azure_native.migrate.v20210101 as v20210101
+    import pulumi_azure_native.migrate.v20171111preview as __v20171111preview
+    v20171111preview = __v20171111preview
+    import pulumi_azure_native.migrate.v20180202 as __v20180202
+    v20180202 = __v20180202
+    import pulumi_azure_native.migrate.v20180901preview as __v20180901preview
+    v20180901preview = __v20180901preview
+    import pulumi_azure_native.migrate.v20191001 as __v20191001
+    v20191001 = __v20191001
+    import pulumi_azure_native.migrate.v20191001preview as __v20191001preview
+    v20191001preview = __v20191001preview
+    import pulumi_azure_native.migrate.v20200501 as __v20200501
+    v20200501 = __v20200501
+    import pulumi_azure_native.migrate.v20210101 as __v20210101
+    v20210101 = __v20210101
 else:
     v20171111preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20171111preview')
     v20180202 = _utilities.lazy_import('pulumi_azure_native.migrate.v20180202')

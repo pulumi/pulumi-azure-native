@@ -26,20 +26,34 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.servicefabric.v20160901 as v20160901
-    import pulumi_azure_native.servicefabric.v20170701preview as v20170701preview
-    import pulumi_azure_native.servicefabric.v20180201 as v20180201
-    import pulumi_azure_native.servicefabric.v20190301 as v20190301
-    import pulumi_azure_native.servicefabric.v20190301preview as v20190301preview
-    import pulumi_azure_native.servicefabric.v20190601preview as v20190601preview
-    import pulumi_azure_native.servicefabric.v20191101preview as v20191101preview
-    import pulumi_azure_native.servicefabric.v20200101preview as v20200101preview
-    import pulumi_azure_native.servicefabric.v20200301 as v20200301
-    import pulumi_azure_native.servicefabric.v20201201preview as v20201201preview
-    import pulumi_azure_native.servicefabric.v20210101preview as v20210101preview
-    import pulumi_azure_native.servicefabric.v20210501 as v20210501
-    import pulumi_azure_native.servicefabric.v20210601 as v20210601
-    import pulumi_azure_native.servicefabric.v20210701preview as v20210701preview
+    import pulumi_azure_native.servicefabric.v20160901 as __v20160901
+    v20160901 = __v20160901
+    import pulumi_azure_native.servicefabric.v20170701preview as __v20170701preview
+    v20170701preview = __v20170701preview
+    import pulumi_azure_native.servicefabric.v20180201 as __v20180201
+    v20180201 = __v20180201
+    import pulumi_azure_native.servicefabric.v20190301 as __v20190301
+    v20190301 = __v20190301
+    import pulumi_azure_native.servicefabric.v20190301preview as __v20190301preview
+    v20190301preview = __v20190301preview
+    import pulumi_azure_native.servicefabric.v20190601preview as __v20190601preview
+    v20190601preview = __v20190601preview
+    import pulumi_azure_native.servicefabric.v20191101preview as __v20191101preview
+    v20191101preview = __v20191101preview
+    import pulumi_azure_native.servicefabric.v20200101preview as __v20200101preview
+    v20200101preview = __v20200101preview
+    import pulumi_azure_native.servicefabric.v20200301 as __v20200301
+    v20200301 = __v20200301
+    import pulumi_azure_native.servicefabric.v20201201preview as __v20201201preview
+    v20201201preview = __v20201201preview
+    import pulumi_azure_native.servicefabric.v20210101preview as __v20210101preview
+    v20210101preview = __v20210101preview
+    import pulumi_azure_native.servicefabric.v20210501 as __v20210501
+    v20210501 = __v20210501
+    import pulumi_azure_native.servicefabric.v20210601 as __v20210601
+    v20210601 = __v20210601
+    import pulumi_azure_native.servicefabric.v20210701preview as __v20210701preview
+    v20210701preview = __v20210701preview
 else:
     v20160901 = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20160901')
     v20170701preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20170701preview')

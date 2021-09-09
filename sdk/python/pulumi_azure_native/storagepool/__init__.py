@@ -15,9 +15,12 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.storagepool.v20200315preview as v20200315preview
-    import pulumi_azure_native.storagepool.v20210401preview as v20210401preview
-    import pulumi_azure_native.storagepool.v20210801 as v20210801
+    import pulumi_azure_native.storagepool.v20200315preview as __v20200315preview
+    v20200315preview = __v20200315preview
+    import pulumi_azure_native.storagepool.v20210401preview as __v20210401preview
+    v20210401preview = __v20210401preview
+    import pulumi_azure_native.storagepool.v20210801 as __v20210801
+    v20210801 = __v20210801
 else:
     v20200315preview = _utilities.lazy_import('pulumi_azure_native.storagepool.v20200315preview')
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.storagepool.v20210401preview')

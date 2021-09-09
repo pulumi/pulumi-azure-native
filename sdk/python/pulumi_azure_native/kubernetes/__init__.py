@@ -14,9 +14,12 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.kubernetes.v20200101preview as v20200101preview
-    import pulumi_azure_native.kubernetes.v20210301 as v20210301
-    import pulumi_azure_native.kubernetes.v20210401preview as v20210401preview
+    import pulumi_azure_native.kubernetes.v20200101preview as __v20200101preview
+    v20200101preview = __v20200101preview
+    import pulumi_azure_native.kubernetes.v20210301 as __v20210301
+    v20210301 = __v20210301
+    import pulumi_azure_native.kubernetes.v20210401preview as __v20210401preview
+    v20210401preview = __v20210401preview
 else:
     v20200101preview = _utilities.lazy_import('pulumi_azure_native.kubernetes.v20200101preview')
     v20210301 = _utilities.lazy_import('pulumi_azure_native.kubernetes.v20210301')
