@@ -5,30 +5,16 @@
 from enum import Enum
 
 __all__ = [
-    'AuthenticationMode',
     'ClusterSkuName',
     'CompatibilityLevel',
-    'CompressionType',
-    'ContentStoragePolicy',
     'Encoding',
     'EventSerializationType',
     'EventsOutOfOrderPolicy',
-    'JobType',
     'JsonOutputSerializationFormat',
     'OutputErrorPolicy',
     'OutputStartMode',
-    'RefreshType',
     'SkuName',
 ]
-
-
-class AuthenticationMode(str, Enum):
-    """
-    Authentication Mode.
-    """
-    MSI = "Msi"
-    USER_TOKEN = "UserToken"
-    CONNECTION_STRING = "ConnectionString"
 
 
 class ClusterSkuName(str, Enum):
@@ -44,24 +30,6 @@ class CompatibilityLevel(str, Enum):
     Controls certain runtime behaviors of the streaming job.
     """
     COMPATIBILITY_LEVEL_1_0 = "1.0"
-    COMPATIBILITY_LEVEL_1_2 = "1.2"
-
-
-class CompressionType(str, Enum):
-    """
-    Indicates the type of compression that the input uses. Required on PUT (CreateOrReplace) requests.
-    """
-    NONE = "None"
-    G_ZIP = "GZip"
-    DEFLATE = "Deflate"
-
-
-class ContentStoragePolicy(str, Enum):
-    """
-    Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
-    """
-    SYSTEM_ACCOUNT = "SystemAccount"
-    JOB_STORAGE_ACCOUNT = "JobStorageAccount"
 
 
 class Encoding(str, Enum):
@@ -78,7 +46,6 @@ class EventSerializationType(str, Enum):
     CSV = "Csv"
     AVRO = "Avro"
     JSON = "Json"
-    PARQUET = "Parquet"
 
 
 class EventsOutOfOrderPolicy(str, Enum):
@@ -87,14 +54,6 @@ class EventsOutOfOrderPolicy(str, Enum):
     """
     ADJUST = "Adjust"
     DROP = "Drop"
-
-
-class JobType(str, Enum):
-    """
-    Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
-    """
-    CLOUD = "Cloud"
-    EDGE = "Edge"
 
 
 class JsonOutputSerializationFormat(str, Enum):
@@ -120,15 +79,6 @@ class OutputStartMode(str, Enum):
     JOB_START_TIME = "JobStartTime"
     CUSTOM_TIME = "CustomTime"
     LAST_OUTPUT_EVENT_TIME = "LastOutputEventTime"
-
-
-class RefreshType(str, Enum):
-    """
-    Indicates the type of data refresh option.
-    """
-    STATIC = "Static"
-    REFRESH_PERIODICALLY_WITH_FULL = "RefreshPeriodicallyWithFull"
-    REFRESH_PERIODICALLY_WITH_DELTA = "RefreshPeriodicallyWithDelta"
 
 
 class SkuName(str, Enum):

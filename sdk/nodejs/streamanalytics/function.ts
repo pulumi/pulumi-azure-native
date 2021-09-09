@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A function object, containing all information associated with the named function. All functions are contained under a streaming job.
- * API Version: 2020-03-01.
+ * API Version: 2016-03-01.
  */
 export class Function extends pulumi.CustomResource {
     /**
@@ -107,7 +107,7 @@ export interface FunctionArgs {
      */
     properties?: pulumi.Input<inputs.streamanalytics.ScalarFunctionPropertiesArgs>;
     /**
-     * The name of the resource group. The name is case insensitive.
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     resourceGroupName: pulumi.Input<string>;
 }

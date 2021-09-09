@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
     /// </summary>
     public sealed class ServiceBusQueueOutputDataSourceArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Authentication Mode.
-        /// </summary>
-        [Input("authenticationMode")]
-        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.AuthenticationMode>? AuthenticationMode { get; set; }
-
         [Input("propertyColumns")]
         private InputList<string>? _propertyColumns;
 
@@ -56,12 +50,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         /// </summary>
         [Input("sharedAccessPolicyName")]
         public Input<string>? SharedAccessPolicyName { get; set; }
-
-        /// <summary>
-        /// The system properties associated with the Service Bus Queue. The following system properties are supported: ReplyToSessionId, ContentType, To, Subject, CorrelationId, TimeToLive, PartitionKey, SessionId, ScheduledEnqueueTime, MessageId, ReplyTo, Label, ScheduledEnqueueTimeUtc.
-        /// </summary>
-        [Input("systemPropertyColumns")]
-        public Input<object>? SystemPropertyColumns { get; set; }
 
         /// <summary>
         /// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.

@@ -14,21 +14,9 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
     public sealed class AzureSqlDatabaseOutputDataSourceResponse
     {
         /// <summary>
-        /// Authentication Mode.
-        /// </summary>
-        public readonly string? AuthenticationMode;
-        /// <summary>
         /// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         public readonly string? Database;
-        /// <summary>
-        /// Max Batch count for write to Sql database, the default value is 10,000. Optional on PUT requests.
-        /// </summary>
-        public readonly double? MaxBatchCount;
-        /// <summary>
-        /// Max Writer count, currently only 1(single writer) and 0(based on query partition) are available. Optional on PUT requests.
-        /// </summary>
-        public readonly double? MaxWriterCount;
         /// <summary>
         /// The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         /// </summary>
@@ -53,13 +41,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
         [OutputConstructor]
         private AzureSqlDatabaseOutputDataSourceResponse(
-            string? authenticationMode,
-
             string? database,
-
-            double? maxBatchCount,
-
-            double? maxWriterCount,
 
             string? password,
 
@@ -71,10 +53,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             string? user)
         {
-            AuthenticationMode = authenticationMode;
             Database = database;
-            MaxBatchCount = maxBatchCount;
-            MaxWriterCount = maxWriterCount;
             Password = password;
             Server = server;
             Table = table;

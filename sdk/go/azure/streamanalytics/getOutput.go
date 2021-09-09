@@ -8,7 +8,7 @@ import (
 )
 
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-// API Version: 2020-03-01.
+// API Version: 2016-03-01.
 func LookupOutput(ctx *pulumi.Context, args *LookupOutputArgs, opts ...pulumi.InvokeOption) (*LookupOutputResult, error) {
 	var rv LookupOutputResult
 	err := ctx.Invoke("azure-native:streamanalytics:getOutput", args, &rv, opts...)
@@ -23,7 +23,7 @@ type LookupOutputArgs struct {
 	JobName string `pulumi:"jobName"`
 	// The name of the output.
 	OutputName string `pulumi:"outputName"`
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -41,10 +41,6 @@ type LookupOutputResult struct {
 	Name *string `pulumi:"name"`
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
 	Serialization interface{} `pulumi:"serialization"`
-	// The size window to constrain a Stream Analytics output to.
-	SizeWindow *float64 `pulumi:"sizeWindow"`
-	// The time frame for filtering Stream Analytics job outputs.
-	TimeWindow *string `pulumi:"timeWindow"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

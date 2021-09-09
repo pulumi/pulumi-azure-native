@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
- * API Version: 2020-03-01.
+ * API Version: 2016-03-01.
  */
 export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetOutputResult> {
     if (!opts) {
@@ -34,7 +34,7 @@ export interface GetOutputArgs {
      */
     outputName: string;
     /**
-     * The name of the resource group. The name is case insensitive.
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     resourceGroupName: string;
 }
@@ -46,7 +46,7 @@ export interface GetOutputResult {
     /**
      * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
      */
-    readonly datasource?: outputs.streamanalytics.AzureDataLakeStoreOutputDataSourceResponse | outputs.streamanalytics.AzureSqlDatabaseOutputDataSourceResponse | outputs.streamanalytics.AzureSynapseOutputDataSourceResponse | outputs.streamanalytics.AzureTableOutputDataSourceResponse | outputs.streamanalytics.BlobOutputDataSourceResponse | outputs.streamanalytics.DocumentDbOutputDataSourceResponse | outputs.streamanalytics.EventHubOutputDataSourceResponse | outputs.streamanalytics.EventHubV2OutputDataSourceResponse | outputs.streamanalytics.PowerBIOutputDataSourceResponse | outputs.streamanalytics.ServiceBusQueueOutputDataSourceResponse | outputs.streamanalytics.ServiceBusTopicOutputDataSourceResponse;
+    readonly datasource?: outputs.streamanalytics.AzureDataLakeStoreOutputDataSourceResponse | outputs.streamanalytics.AzureSqlDatabaseOutputDataSourceResponse | outputs.streamanalytics.AzureTableOutputDataSourceResponse | outputs.streamanalytics.BlobOutputDataSourceResponse | outputs.streamanalytics.DocumentDbOutputDataSourceResponse | outputs.streamanalytics.EventHubOutputDataSourceResponse | outputs.streamanalytics.PowerBIOutputDataSourceResponse | outputs.streamanalytics.ServiceBusQueueOutputDataSourceResponse | outputs.streamanalytics.ServiceBusTopicOutputDataSourceResponse;
     /**
      * Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
      */
@@ -66,15 +66,7 @@ export interface GetOutputResult {
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    readonly serialization?: outputs.streamanalytics.AvroSerializationResponse | outputs.streamanalytics.CsvSerializationResponse | outputs.streamanalytics.JsonSerializationResponse | outputs.streamanalytics.ParquetSerializationResponse;
-    /**
-     * The size window to constrain a Stream Analytics output to.
-     */
-    readonly sizeWindow?: number;
-    /**
-     * The time frame for filtering Stream Analytics job outputs.
-     */
-    readonly timeWindow?: string;
+    readonly serialization?: outputs.streamanalytics.AvroSerializationResponse | outputs.streamanalytics.CsvSerializationResponse | outputs.streamanalytics.JsonSerializationResponse;
     /**
      * Resource type
      */

@@ -38,14 +38,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// </summary>
         public readonly object? Serialization;
         /// <summary>
-        /// The size window to constrain a Stream Analytics output to.
-        /// </summary>
-        public readonly double? SizeWindow;
-        /// <summary>
-        /// The time frame for filtering Stream Analytics job outputs.
-        /// </summary>
-        public readonly string? TimeWindow;
-        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
@@ -64,10 +56,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             object? serialization,
 
-            double? sizeWindow,
-
-            string? timeWindow,
-
             string type)
         {
             Datasource = datasource;
@@ -76,8 +64,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
             Id = id;
             Name = name;
             Serialization = serialization;
-            SizeWindow = sizeWindow;
-            TimeWindow = timeWindow;
             Type = type;
         }
     }

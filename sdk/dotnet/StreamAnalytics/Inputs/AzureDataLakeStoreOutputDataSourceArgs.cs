@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// Authentication Mode.
-        /// </summary>
-        [Input("authenticationMode")]
-        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.AuthenticationMode>? AuthenticationMode { get; set; }
-
-        /// <summary>
         /// The date format. Wherever {date} appears in filePathPrefix, the value of this property is used as the date format instead.
         /// </summary>
         [Input("dateFormat")]

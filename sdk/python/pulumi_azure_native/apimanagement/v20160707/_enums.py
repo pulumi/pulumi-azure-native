@@ -5,61 +5,10 @@
 from enum import Enum
 
 __all__ = [
-    'ApiProtocolContract',
-    'ApiTypeContract',
-    'BearerTokenSendingMethodsContract',
-    'ClientAuthenticationMethodContract',
-    'GrantTypesContract',
-    'GroupTypeContract',
     'HostnameType',
-    'IdentityProviderNameType',
-    'LoggerTypeContract',
-    'MethodContract',
-    'ProductStateContract',
     'SkuType',
-    'SubscriptionStateContract',
-    'UserStateContract',
     'VirtualNetworkType',
 ]
-
-
-class ApiProtocolContract(str, Enum):
-    HTTP = "Http"
-    HTTPS = "Https"
-
-
-class ApiTypeContract(str, Enum):
-    """
-    Type of API.
-    """
-    HTTP = "Http"
-    SOAP = "Soap"
-
-
-class BearerTokenSendingMethodsContract(str, Enum):
-    AUTHORIZATION_HEADER = "authorizationHeader"
-    QUERY = "query"
-
-
-class ClientAuthenticationMethodContract(str, Enum):
-    BASIC = "Basic"
-    BODY = "Body"
-
-
-class GrantTypesContract(str, Enum):
-    AUTHORIZATION_CODE = "authorizationCode"
-    IMPLICIT = "implicit"
-    RESOURCE_OWNER_PASSWORD = "resourceOwnerPassword"
-    CLIENT_CREDENTIALS = "clientCredentials"
-
-
-class GroupTypeContract(str, Enum):
-    """
-    Group type.
-    """
-    CUSTOM = "Custom"
-    SYSTEM = "System"
-    EXTERNAL = "External"
 
 
 class HostnameType(str, Enum):
@@ -72,43 +21,6 @@ class HostnameType(str, Enum):
     SCM = "Scm"
 
 
-class IdentityProviderNameType(str, Enum):
-    """
-    Identity Provider Type identifier.
-    """
-    FACEBOOK = "facebook"
-    GOOGLE = "google"
-    MICROSOFT = "microsoft"
-    TWITTER = "twitter"
-    AAD = "aad"
-
-
-class LoggerTypeContract(str, Enum):
-    """
-    Logger type.
-    """
-    AZURE_EVENT_HUB = "AzureEventHub"
-
-
-class MethodContract(str, Enum):
-    HEAD = "HEAD"
-    OPTIONS = "OPTIONS"
-    TRACE = "TRACE"
-    GET = "GET"
-    POST = "POST"
-    PUT = "PUT"
-    PATCH = "PATCH"
-    DELETE = "DELETE"
-
-
-class ProductStateContract(str, Enum):
-    """
-    whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is NotPublished.
-    """
-    NOT_PUBLISHED = "NotPublished"
-    PUBLISHED = "Published"
-
-
 class SkuType(str, Enum):
     """
     Name of the Sku.
@@ -116,26 +28,6 @@ class SkuType(str, Enum):
     DEVELOPER = "Developer"
     STANDARD = "Standard"
     PREMIUM = "Premium"
-
-
-class SubscriptionStateContract(str, Enum):
-    """
-    Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-    """
-    SUSPENDED = "Suspended"
-    ACTIVE = "Active"
-    EXPIRED = "Expired"
-    SUBMITTED = "Submitted"
-    REJECTED = "Rejected"
-    CANCELLED = "Cancelled"
-
-
-class UserStateContract(str, Enum):
-    """
-    Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
-    """
-    ACTIVE = "Active"
-    BLOCKED = "Blocked"
 
 
 class VirtualNetworkType(str, Enum):

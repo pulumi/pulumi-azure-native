@@ -12,7 +12,7 @@ import (
 )
 
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-// API Version: 2020-03-01.
+// API Version: 2016-03-01.
 type Output struct {
 	pulumi.CustomResourceState
 
@@ -26,10 +26,6 @@ type Output struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
 	Serialization pulumi.AnyOutput `pulumi:"serialization"`
-	// The size window to constrain a Stream Analytics output to.
-	SizeWindow pulumi.Float64PtrOutput `pulumi:"sizeWindow"`
-	// The time frame for filtering Stream Analytics job outputs.
-	TimeWindow pulumi.StringPtrOutput `pulumi:"timeWindow"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -111,14 +107,10 @@ type outputArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the output.
 	OutputName *string `pulumi:"outputName"`
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
 	Serialization interface{} `pulumi:"serialization"`
-	// The size window to constrain a Stream Analytics output to.
-	SizeWindow *float64 `pulumi:"sizeWindow"`
-	// The time frame for filtering Stream Analytics job outputs.
-	TimeWindow *string `pulumi:"timeWindow"`
 }
 
 // The set of arguments for constructing a Output resource.
@@ -131,14 +123,10 @@ type OutputArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the output.
 	OutputName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
 	Serialization pulumi.Input
-	// The size window to constrain a Stream Analytics output to.
-	SizeWindow pulumi.Float64PtrInput
-	// The time frame for filtering Stream Analytics job outputs.
-	TimeWindow pulumi.StringPtrInput
 }
 
 func (OutputArgs) ElementType() reflect.Type {

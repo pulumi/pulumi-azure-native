@@ -14,10 +14,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
     public sealed class ServiceBusQueueOutputDataSourceResponse
     {
         /// <summary>
-        /// Authentication Mode.
-        /// </summary>
-        public readonly string? AuthenticationMode;
-        /// <summary>
         /// A string array of the names of output columns to be attached to Service Bus messages as custom properties.
         /// </summary>
         public readonly ImmutableArray<string> PropertyColumns;
@@ -38,10 +34,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// </summary>
         public readonly string? SharedAccessPolicyName;
         /// <summary>
-        /// The system properties associated with the Service Bus Queue. The following system properties are supported: ReplyToSessionId, ContentType, To, Subject, CorrelationId, TimeToLive, PartitionKey, SessionId, ScheduledEnqueueTime, MessageId, ReplyTo, Label, ScheduledEnqueueTimeUtc.
-        /// </summary>
-        public readonly object? SystemPropertyColumns;
-        /// <summary>
         /// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
         /// Expected value is 'Microsoft.ServiceBus/Queue'.
         /// </summary>
@@ -49,8 +41,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
         [OutputConstructor]
         private ServiceBusQueueOutputDataSourceResponse(
-            string? authenticationMode,
-
             ImmutableArray<string> propertyColumns,
 
             string? queueName,
@@ -61,17 +51,13 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             string? sharedAccessPolicyName,
 
-            object? systemPropertyColumns,
-
             string type)
         {
-            AuthenticationMode = authenticationMode;
             PropertyColumns = propertyColumns;
             QueueName = queueName;
             ServiceBusNamespace = serviceBusNamespace;
             SharedAccessPolicyKey = sharedAccessPolicyKey;
             SharedAccessPolicyName = sharedAccessPolicyName;
-            SystemPropertyColumns = systemPropertyColumns;
             Type = type;
         }
     }

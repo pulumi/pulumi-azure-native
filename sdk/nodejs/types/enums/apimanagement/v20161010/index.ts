@@ -2,67 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ApiProtocolContract = {
-    Http: "Http",
-    Https: "Https",
-} as const;
-
-export type ApiProtocolContract = (typeof ApiProtocolContract)[keyof typeof ApiProtocolContract];
-
-export const ApiTypeContract = {
-    Http: "Http",
-    Soap: "Soap",
-} as const;
-
-/**
- * Type of API.
- */
-export type ApiTypeContract = (typeof ApiTypeContract)[keyof typeof ApiTypeContract];
-
-export const BackendProtocol = {
-    Http: "http",
-    Soap: "soap",
-} as const;
-
-/**
- * Backend communication protocol.
- */
-export type BackendProtocol = (typeof BackendProtocol)[keyof typeof BackendProtocol];
-
-export const BearerTokenSendingMethodsContract = {
-    AuthorizationHeader: "authorizationHeader",
-    Query: "query",
-} as const;
-
-export type BearerTokenSendingMethodsContract = (typeof BearerTokenSendingMethodsContract)[keyof typeof BearerTokenSendingMethodsContract];
-
-export const ClientAuthenticationMethodContract = {
-    Basic: "Basic",
-    Body: "Body",
-} as const;
-
-export type ClientAuthenticationMethodContract = (typeof ClientAuthenticationMethodContract)[keyof typeof ClientAuthenticationMethodContract];
-
-export const GrantTypesContract = {
-    AuthorizationCode: "authorizationCode",
-    Implicit: "implicit",
-    ResourceOwnerPassword: "resourceOwnerPassword",
-    ClientCredentials: "clientCredentials",
-} as const;
-
-export type GrantTypesContract = (typeof GrantTypesContract)[keyof typeof GrantTypesContract];
-
-export const GroupTypeContract = {
-    Custom: "Custom",
-    System: "System",
-    External: "External",
-} as const;
-
-/**
- * Group type.
- */
-export type GroupTypeContract = (typeof GroupTypeContract)[keyof typeof GroupTypeContract];
-
 export const HostnameType = {
     Proxy: "Proxy",
     Portal: "Portal",
@@ -75,20 +14,6 @@ export const HostnameType = {
  */
 export type HostnameType = (typeof HostnameType)[keyof typeof HostnameType];
 
-export const IdentityProviderNameType = {
-    Facebook: "facebook",
-    Google: "google",
-    Microsoft: "microsoft",
-    Twitter: "twitter",
-    Aad: "aad",
-    AadB2C: "aadB2C",
-} as const;
-
-/**
- * Identity Provider Type identifier.
- */
-export type IdentityProviderNameType = (typeof IdentityProviderNameType)[keyof typeof IdentityProviderNameType];
-
 export const KeyTypeContract = {
     Primary: "primary",
     Secondary: "secondary",
@@ -98,38 +23,6 @@ export const KeyTypeContract = {
  * The Key to be used to generate token for user.
  */
 export type KeyTypeContract = (typeof KeyTypeContract)[keyof typeof KeyTypeContract];
-
-export const LoggerTypeContract = {
-    AzureEventHub: "AzureEventHub",
-} as const;
-
-/**
- * Logger type.
- */
-export type LoggerTypeContract = (typeof LoggerTypeContract)[keyof typeof LoggerTypeContract];
-
-export const MethodContract = {
-    HEAD: "HEAD",
-    OPTIONS: "OPTIONS",
-    TRACE: "TRACE",
-    GET: "GET",
-    POST: "POST",
-    PUT: "PUT",
-    PATCH: "PATCH",
-    DELETE: "DELETE",
-} as const;
-
-export type MethodContract = (typeof MethodContract)[keyof typeof MethodContract];
-
-export const ProductStateContract = {
-    NotPublished: "NotPublished",
-    Published: "Published",
-} as const;
-
-/**
- * whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is NotPublished.
- */
-export type ProductStateContract = (typeof ProductStateContract)[keyof typeof ProductStateContract];
 
 export const SkuType = {
     Developer: "Developer",
@@ -141,30 +34,6 @@ export const SkuType = {
  * Name of the Sku.
  */
 export type SkuType = (typeof SkuType)[keyof typeof SkuType];
-
-export const SubscriptionStateContract = {
-    Suspended: "Suspended",
-    Active: "Active",
-    Expired: "Expired",
-    Submitted: "Submitted",
-    Rejected: "Rejected",
-    Cancelled: "Cancelled",
-} as const;
-
-/**
- * Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
- */
-export type SubscriptionStateContract = (typeof SubscriptionStateContract)[keyof typeof SubscriptionStateContract];
-
-export const UserStateContract = {
-    Active: "Active",
-    Blocked: "Blocked",
-} as const;
-
-/**
- * Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
- */
-export type UserStateContract = (typeof UserStateContract)[keyof typeof UserStateContract];
 
 export const VirtualNetworkType = {
     None: "None",

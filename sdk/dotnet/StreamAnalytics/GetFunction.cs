@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
     {
         /// <summary>
         /// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-        /// API Version: 2020-03-01.
+        /// API Version: 2016-03-01.
         /// </summary>
         public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("azure-native:streamanalytics:getFunction", args ?? new GetFunctionArgs(), options.WithVersion());
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public string JobName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;

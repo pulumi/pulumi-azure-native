@@ -39,35 +39,4 @@ namespace Pulumi.AzureNative.Marketplace.V20210601
 
         public override string ToString() => _value;
     }
-
-    /// <summary>
-    /// Indicates private store availability
-    /// </summary>
-    [EnumType]
-    public readonly struct Availability : IEquatable<Availability>
-    {
-        private readonly string _value;
-
-        private Availability(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Availability Enabled { get; } = new Availability("enabled");
-        public static Availability Disabled { get; } = new Availability("disabled");
-
-        public static bool operator ==(Availability left, Availability right) => left.Equals(right);
-        public static bool operator !=(Availability left, Availability right) => !left.Equals(right);
-
-        public static explicit operator string(Availability value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Availability other && Equals(other);
-        public bool Equals(Availability other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
 }

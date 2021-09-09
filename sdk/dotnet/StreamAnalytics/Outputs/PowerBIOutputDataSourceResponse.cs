@@ -14,10 +14,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
     public sealed class PowerBIOutputDataSourceResponse
     {
         /// <summary>
-        /// Authentication Mode.
-        /// </summary>
-        public readonly string? AuthenticationMode;
-        /// <summary>
         /// The name of the Power BI dataset. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         public readonly string? Dataset;
@@ -53,8 +49,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
         [OutputConstructor]
         private PowerBIOutputDataSourceResponse(
-            string? authenticationMode,
-
             string? dataset,
 
             string? groupId,
@@ -71,7 +65,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             string type)
         {
-            AuthenticationMode = authenticationMode;
             Dataset = dataset;
             GroupId = groupId;
             GroupName = groupName;

@@ -2,36 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const BackupManagementType = {
-    Invalid: "Invalid",
-    AzureIaasVM: "AzureIaasVM",
-    MAB: "MAB",
-    DPM: "DPM",
-    AzureBackupServer: "AzureBackupServer",
-    AzureSql: "AzureSql",
-} as const;
-
-/**
- * The backup management type associated with the backup item.
- */
-export type BackupManagementType = (typeof BackupManagementType)[keyof typeof BackupManagementType];
-
-export const DataSourceType = {
-    Invalid: "Invalid",
-    VM: "VM",
-    FileFolder: "FileFolder",
-    AzureSqlDb: "AzureSqlDb",
-    SQLDB: "SQLDB",
-    Exchange: "Exchange",
-    Sharepoint: "Sharepoint",
-    DPMUnknown: "DPMUnknown",
-} as const;
-
-/**
- * The workload type for this item.
- */
-export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
-
 export const DayOfWeek = {
     Sunday: "Sunday",
     Monday: "Monday",
@@ -61,34 +31,6 @@ export const MonthOfYear = {
 } as const;
 
 export type MonthOfYear = (typeof MonthOfYear)[keyof typeof MonthOfYear];
-
-export const ProtectedItemState = {
-    Invalid: "Invalid",
-    IRPending: "IRPending",
-    Protected: "Protected",
-    ProtectionError: "ProtectionError",
-    ProtectionStopped: "ProtectionStopped",
-    ProtectionPaused: "ProtectionPaused",
-} as const;
-
-/**
- * The backup state of the backup item.
- */
-export type ProtectedItemState = (typeof ProtectedItemState)[keyof typeof ProtectedItemState];
-
-export const ProtectionState = {
-    Invalid: "Invalid",
-    IRPending: "IRPending",
-    Protected: "Protected",
-    ProtectionError: "ProtectionError",
-    ProtectionStopped: "ProtectionStopped",
-    ProtectionPaused: "ProtectionPaused",
-} as const;
-
-/**
- * The backup state of this backup item.
- */
-export type ProtectionState = (typeof ProtectionState)[keyof typeof ProtectionState];
 
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",

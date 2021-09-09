@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
- * API Version: 2020-03-01.
+ * API Version: 2016-03-01.
  */
 export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
     if (!opts) {
@@ -34,7 +34,7 @@ export interface GetInputArgs {
      */
     jobName: string;
     /**
-     * The name of the resource group. The name is case insensitive.
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     resourceGroupName: string;
 }

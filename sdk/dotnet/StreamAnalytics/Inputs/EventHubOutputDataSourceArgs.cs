@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
     public sealed class EventHubOutputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Authentication Mode.
-        /// </summary>
-        [Input("authenticationMode")]
-        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.AuthenticationMode>? AuthenticationMode { get; set; }
-
-        /// <summary>
         /// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("eventHubName")]
@@ -32,18 +26,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         /// </summary>
         [Input("partitionKey")]
         public Input<string>? PartitionKey { get; set; }
-
-        [Input("propertyColumns")]
-        private InputList<string>? _propertyColumns;
-
-        /// <summary>
-        /// The properties associated with this Event Hub output.
-        /// </summary>
-        public InputList<string> PropertyColumns
-        {
-            get => _propertyColumns ?? (_propertyColumns = new InputList<string>());
-            set => _propertyColumns = value;
-        }
 
         /// <summary>
         /// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.

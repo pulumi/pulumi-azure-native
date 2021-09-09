@@ -135,6 +135,7 @@ var cutoffProviderVersions = map[string]string{
 	"servicefabric":           "v20200301",
 	"signalrservice":          "v20210401preview",
 	"sql":                     "v20201101preview",
+	"streamanalytics":         "v20160301",
 	"storage":                 "v20210201",
 	"storagecache":            "v20210301",
 	"storagesync":             "v20200301",

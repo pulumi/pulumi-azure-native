@@ -14,13 +14,9 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
     public sealed class ReferenceInputPropertiesResponse
     {
         /// <summary>
-        /// Describes how input data is compressed
-        /// </summary>
-        public readonly Outputs.CompressionResponse? Compression;
-        /// <summary>
         /// Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Union<Outputs.AzureSqlReferenceInputDataSourceResponse, Outputs.BlobReferenceInputDataSourceResponse>? Datasource;
+        public readonly Outputs.BlobReferenceInputDataSourceResponse? Datasource;
         /// <summary>
         /// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         /// </summary>
@@ -29,10 +25,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         /// </summary>
         public readonly string Etag;
-        /// <summary>
-        /// partitionKey Describes a key in the input data which is used for partitioning the input data
-        /// </summary>
-        public readonly string? PartitionKey;
         /// <summary>
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
@@ -45,25 +37,19 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
         [OutputConstructor]
         private ReferenceInputPropertiesResponse(
-            Outputs.CompressionResponse? compression,
-
-            Union<Outputs.AzureSqlReferenceInputDataSourceResponse, Outputs.BlobReferenceInputDataSourceResponse>? datasource,
+            Outputs.BlobReferenceInputDataSourceResponse? datasource,
 
             Outputs.DiagnosticsResponse diagnostics,
 
             string etag,
 
-            string? partitionKey,
-
             object? serialization,
 
             string type)
         {
-            Compression = compression;
             Datasource = datasource;
             Diagnostics = diagnostics;
             Etag = etag;
-            PartitionKey = partitionKey;
             Serialization = serialization;
             Type = type;
         }

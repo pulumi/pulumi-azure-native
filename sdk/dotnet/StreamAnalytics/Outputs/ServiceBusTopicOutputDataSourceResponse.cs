@@ -14,10 +14,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
     public sealed class ServiceBusTopicOutputDataSourceResponse
     {
         /// <summary>
-        /// Authentication Mode.
-        /// </summary>
-        public readonly string? AuthenticationMode;
-        /// <summary>
         /// A string array of the names of output columns to be attached to Service Bus messages as custom properties.
         /// </summary>
         public readonly ImmutableArray<string> PropertyColumns;
@@ -34,10 +30,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// </summary>
         public readonly string? SharedAccessPolicyName;
         /// <summary>
-        /// The system properties associated with the Service Bus Topic Output. The following system properties are supported: ReplyToSessionId, ContentType, To, Subject, CorrelationId, TimeToLive, PartitionKey, SessionId, ScheduledEnqueueTime, MessageId, ReplyTo, Label, ScheduledEnqueueTimeUtc.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? SystemPropertyColumns;
-        /// <summary>
         /// The name of the Service Bus Topic. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         public readonly string? TopicName;
@@ -49,8 +41,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
         [OutputConstructor]
         private ServiceBusTopicOutputDataSourceResponse(
-            string? authenticationMode,
-
             ImmutableArray<string> propertyColumns,
 
             string? serviceBusNamespace,
@@ -59,18 +49,14 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             string? sharedAccessPolicyName,
 
-            ImmutableDictionary<string, string>? systemPropertyColumns,
-
             string? topicName,
 
             string type)
         {
-            AuthenticationMode = authenticationMode;
             PropertyColumns = propertyColumns;
             ServiceBusNamespace = serviceBusNamespace;
             SharedAccessPolicyKey = sharedAccessPolicyKey;
             SharedAccessPolicyName = sharedAccessPolicyName;
-            SystemPropertyColumns = systemPropertyColumns;
             TopicName = topicName;
             Type = type;
         }

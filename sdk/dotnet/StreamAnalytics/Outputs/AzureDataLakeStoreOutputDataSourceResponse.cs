@@ -18,10 +18,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// </summary>
         public readonly string? AccountName;
         /// <summary>
-        /// Authentication Mode.
-        /// </summary>
-        public readonly string? AuthenticationMode;
-        /// <summary>
         /// The date format. Wherever {date} appears in filePathPrefix, the value of this property is used as the date format instead.
         /// </summary>
         public readonly string? DateFormat;
@@ -59,8 +55,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         private AzureDataLakeStoreOutputDataSourceResponse(
             string? accountName,
 
-            string? authenticationMode,
-
             string? dateFormat,
 
             string? filePathPrefix,
@@ -78,7 +72,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
             string type)
         {
             AccountName = accountName;
-            AuthenticationMode = authenticationMode;
             DateFormat = dateFormat;
             FilePathPrefix = filePathPrefix;
             RefreshToken = refreshToken;

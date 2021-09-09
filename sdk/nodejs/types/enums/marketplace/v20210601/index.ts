@@ -13,13 +13,3 @@ export const Accessibility = {
  * Plan accessibility
  */
 export type Accessibility = (typeof Accessibility)[keyof typeof Accessibility];
-
-export const Availability = {
-    Enabled: "enabled",
-    Disabled: "disabled",
-} as const;
-
-/**
- * Indicates private store availability
- */
-export type Availability = (typeof Availability)[keyof typeof Availability];

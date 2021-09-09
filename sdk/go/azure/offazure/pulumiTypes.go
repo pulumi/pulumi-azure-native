@@ -1576,79 +1576,6 @@ func (o SiteSpnPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class for vCenter properties.
-type VCenterProperties struct {
-	// FQDN/IPAddress of the vCenter.
-	Fqdn *string `pulumi:"fqdn"`
-	// Port of the vCenter.
-	Port *string `pulumi:"port"`
-	// Run as account ID of the vCenter.
-	RunAsAccountId *string `pulumi:"runAsAccountId"`
-}
-
-// VCenterPropertiesInput is an input type that accepts VCenterPropertiesArgs and VCenterPropertiesOutput values.
-// You can construct a concrete instance of `VCenterPropertiesInput` via:
-//
-//          VCenterPropertiesArgs{...}
-type VCenterPropertiesInput interface {
-	pulumi.Input
-
-	ToVCenterPropertiesOutput() VCenterPropertiesOutput
-	ToVCenterPropertiesOutputWithContext(context.Context) VCenterPropertiesOutput
-}
-
-// Class for vCenter properties.
-type VCenterPropertiesArgs struct {
-	// FQDN/IPAddress of the vCenter.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Port of the vCenter.
-	Port pulumi.StringPtrInput `pulumi:"port"`
-	// Run as account ID of the vCenter.
-	RunAsAccountId pulumi.StringPtrInput `pulumi:"runAsAccountId"`
-}
-
-func (VCenterPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VCenterProperties)(nil)).Elem()
-}
-
-func (i VCenterPropertiesArgs) ToVCenterPropertiesOutput() VCenterPropertiesOutput {
-	return i.ToVCenterPropertiesOutputWithContext(context.Background())
-}
-
-func (i VCenterPropertiesArgs) ToVCenterPropertiesOutputWithContext(ctx context.Context) VCenterPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VCenterPropertiesOutput)
-}
-
-// Class for vCenter properties.
-type VCenterPropertiesOutput struct{ *pulumi.OutputState }
-
-func (VCenterPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VCenterProperties)(nil)).Elem()
-}
-
-func (o VCenterPropertiesOutput) ToVCenterPropertiesOutput() VCenterPropertiesOutput {
-	return o
-}
-
-func (o VCenterPropertiesOutput) ToVCenterPropertiesOutputWithContext(ctx context.Context) VCenterPropertiesOutput {
-	return o
-}
-
-// FQDN/IPAddress of the vCenter.
-func (o VCenterPropertiesOutput) Fqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VCenterProperties) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
-}
-
-// Port of the vCenter.
-func (o VCenterPropertiesOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VCenterProperties) *string { return v.Port }).(pulumi.StringPtrOutput)
-}
-
-// Run as account ID of the vCenter.
-func (o VCenterPropertiesOutput) RunAsAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VCenterProperties) *string { return v.RunAsAccountId }).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(MasterSitePropertiesOutput{})
 	pulumi.RegisterOutputType(MasterSitePropertiesPtrOutput{})
@@ -1666,5 +1593,4 @@ func init() {
 	pulumi.RegisterOutputType(SiteSpnPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SiteSpnPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SiteSpnPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(VCenterPropertiesOutput{})
 }

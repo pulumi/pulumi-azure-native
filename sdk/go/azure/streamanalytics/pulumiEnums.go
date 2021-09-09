@@ -10,35 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Authentication Mode.
-type AuthenticationMode pulumi.String
-
-const (
-	AuthenticationModeMsi              = AuthenticationMode("Msi")
-	AuthenticationModeUserToken        = AuthenticationMode("UserToken")
-	AuthenticationModeConnectionString = AuthenticationMode("ConnectionString")
-)
-
-func (AuthenticationMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e AuthenticationMode) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AuthenticationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AuthenticationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AuthenticationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
 type ClusterSkuName pulumi.String
 
@@ -72,7 +43,6 @@ type CompatibilityLevel pulumi.String
 
 const (
 	CompatibilityLevel_1_0 = CompatibilityLevel("1.0")
-	CompatibilityLevel_1_2 = CompatibilityLevel("1.2")
 )
 
 func (CompatibilityLevel) ElementType() reflect.Type {
@@ -92,63 +62,6 @@ func (e CompatibilityLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e CompatibilityLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Indicates the type of compression that the input uses. Required on PUT (CreateOrReplace) requests.
-type CompressionType pulumi.String
-
-const (
-	CompressionTypeNone    = CompressionType("None")
-	CompressionTypeGZip    = CompressionType("GZip")
-	CompressionTypeDeflate = CompressionType("Deflate")
-)
-
-func (CompressionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e CompressionType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e CompressionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e CompressionType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e CompressionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
-type ContentStoragePolicy pulumi.String
-
-const (
-	ContentStoragePolicySystemAccount     = ContentStoragePolicy("SystemAccount")
-	ContentStoragePolicyJobStorageAccount = ContentStoragePolicy("JobStorageAccount")
-)
-
-func (ContentStoragePolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e ContentStoragePolicy) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ContentStoragePolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ContentStoragePolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ContentStoragePolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -183,10 +96,9 @@ func (e Encoding) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 type EventSerializationType pulumi.String
 
 const (
-	EventSerializationTypeCsv     = EventSerializationType("Csv")
-	EventSerializationTypeAvro    = EventSerializationType("Avro")
-	EventSerializationTypeJson    = EventSerializationType("Json")
-	EventSerializationTypeParquet = EventSerializationType("Parquet")
+	EventSerializationTypeCsv  = EventSerializationType("Csv")
+	EventSerializationTypeAvro = EventSerializationType("Avro")
+	EventSerializationTypeJson = EventSerializationType("Json")
 )
 
 func (EventSerializationType) ElementType() reflect.Type {
@@ -234,34 +146,6 @@ func (e EventsOutOfOrderPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e EventsOutOfOrderPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
-type JobType pulumi.String
-
-const (
-	JobTypeCloud = JobType("Cloud")
-	JobTypeEdge  = JobType("Edge")
-)
-
-func (JobType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e JobType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e JobType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e JobType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e JobType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -347,35 +231,6 @@ func (e OutputStartMode) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e OutputStartMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Indicates the type of data refresh option.
-type RefreshType pulumi.String
-
-const (
-	RefreshTypeStatic                       = RefreshType("Static")
-	RefreshTypeRefreshPeriodicallyWithFull  = RefreshType("RefreshPeriodicallyWithFull")
-	RefreshTypeRefreshPeriodicallyWithDelta = RefreshType("RefreshPeriodicallyWithDelta")
-)
-
-func (RefreshType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e RefreshType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RefreshType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RefreshType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e RefreshType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

@@ -8,7 +8,7 @@ import (
 )
 
 // A streaming job object, containing all information associated with the named streaming job.
-// API Version: 2020-03-01.
+// API Version: 2016-03-01.
 func LookupStreamingJob(ctx *pulumi.Context, args *LookupStreamingJobArgs, opts ...pulumi.InvokeOption) (*LookupStreamingJobResult, error) {
 	var rv LookupStreamingJobResult
 	err := ctx.Invoke("azure-native:streamanalytics:getStreamingJob", args, &rv, opts...)
@@ -23,18 +23,14 @@ type LookupStreamingJobArgs struct {
 	Expand *string `pulumi:"expand"`
 	// The name of the streaming job.
 	JobName string `pulumi:"jobName"`
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A streaming job object, containing all information associated with the named streaming job.
 type LookupStreamingJobResult struct {
-	// The cluster which streaming jobs will run on.
-	Cluster *ClusterInfoResponse `pulumi:"cluster"`
 	// Controls certain runtime behaviors of the streaming job.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
-	// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
-	ContentStoragePolicy *string `pulumi:"contentStoragePolicy"`
 	// Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
 	CreatedDate string `pulumi:"createdDate"`
 	// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
@@ -51,18 +47,12 @@ type LookupStreamingJobResult struct {
 	Functions []FunctionResponse `pulumi:"functions"`
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
-	Identity *IdentityResponse `pulumi:"identity"`
 	// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
 	Inputs []InputResponse `pulumi:"inputs"`
 	// A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
 	JobId string `pulumi:"jobId"`
 	// Describes the state of the streaming job.
 	JobState string `pulumi:"jobState"`
-	// The properties that are associated with an Azure Storage account with MSI
-	JobStorageAccount *JobStorageAccountResponse `pulumi:"jobStorageAccount"`
-	// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
-	JobType *string `pulumi:"jobType"`
 	// Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
 	LastOutputEventTime string `pulumi:"lastOutputEventTime"`
 	// The geo-location where the resource lives

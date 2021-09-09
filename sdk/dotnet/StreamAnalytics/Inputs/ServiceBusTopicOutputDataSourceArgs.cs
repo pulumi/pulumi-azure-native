@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
     /// </summary>
     public sealed class ServiceBusTopicOutputDataSourceArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Authentication Mode.
-        /// </summary>
-        [Input("authenticationMode")]
-        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.AuthenticationMode>? AuthenticationMode { get; set; }
-
         [Input("propertyColumns")]
         private InputList<string>? _propertyColumns;
 
@@ -50,18 +44,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         /// </summary>
         [Input("sharedAccessPolicyName")]
         public Input<string>? SharedAccessPolicyName { get; set; }
-
-        [Input("systemPropertyColumns")]
-        private InputMap<string>? _systemPropertyColumns;
-
-        /// <summary>
-        /// The system properties associated with the Service Bus Topic Output. The following system properties are supported: ReplyToSessionId, ContentType, To, Subject, CorrelationId, TimeToLive, PartitionKey, SessionId, ScheduledEnqueueTime, MessageId, ReplyTo, Label, ScheduledEnqueueTimeUtc.
-        /// </summary>
-        public InputMap<string> SystemPropertyColumns
-        {
-            get => _systemPropertyColumns ?? (_systemPropertyColumns = new InputMap<string>());
-            set => _systemPropertyColumns = value;
-        }
 
         /// <summary>
         /// The name of the Service Bus Topic. Required on PUT (CreateOrReplace) requests.

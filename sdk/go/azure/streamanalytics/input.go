@@ -12,7 +12,7 @@ import (
 )
 
 // An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
-// API Version: 2020-03-01.
+// API Version: 2016-03-01.
 type Input struct {
 	pulumi.CustomResourceState
 
@@ -101,7 +101,7 @@ type inputArgs struct {
 	Name *string `pulumi:"name"`
 	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
 	Properties interface{} `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -115,7 +115,7 @@ type InputArgs struct {
 	Name pulumi.StringPtrInput
 	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
 	Properties pulumi.Input
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 }
 

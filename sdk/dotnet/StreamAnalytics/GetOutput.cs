@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
     {
         /// <summary>
         /// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-        /// API Version: 2020-03-01.
+        /// API Version: 2016-03-01.
         /// </summary>
         public static Task<GetOutputResult> InvokeAsync(GetOutputArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOutputResult>("azure-native:streamanalytics:getOutput", args ?? new GetOutputArgs(), options.WithVersion());
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public string OutputName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -74,14 +74,6 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         public readonly object? Serialization;
         /// <summary>
-        /// The size window to constrain a Stream Analytics output to.
-        /// </summary>
-        public readonly double? SizeWindow;
-        /// <summary>
-        /// The time frame for filtering Stream Analytics job outputs.
-        /// </summary>
-        public readonly string? TimeWindow;
-        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
@@ -100,10 +92,6 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
             object? serialization,
 
-            double? sizeWindow,
-
-            string? timeWindow,
-
             string type)
         {
             Datasource = datasource;
@@ -112,8 +100,6 @@ namespace Pulumi.AzureNative.StreamAnalytics
             Id = id;
             Name = name;
             Serialization = serialization;
-            SizeWindow = sizeWindow;
-            TimeWindow = timeWindow;
             Type = type;
         }
     }

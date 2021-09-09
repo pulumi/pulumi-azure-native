@@ -12,7 +12,7 @@ import (
 )
 
 // A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-// API Version: 2020-03-01.
+// API Version: 2016-03-01.
 type Function struct {
 	pulumi.CustomResourceState
 
@@ -101,7 +101,7 @@ type functionArgs struct {
 	Name *string `pulumi:"name"`
 	// The properties that are associated with a function.
 	Properties *ScalarFunctionProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -115,7 +115,7 @@ type FunctionArgs struct {
 	Name pulumi.StringPtrInput
 	// The properties that are associated with a function.
 	Properties ScalarFunctionPropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 }
 
