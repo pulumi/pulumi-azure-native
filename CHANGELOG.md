@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.26.0 (2021-09-09)
+
 #### New resources:
 
 - `aadiam.PrivateEndpointConnection`
@@ -32,8 +38,6 @@ CHANGELOG
 
 - `authorization:ManagementLock*` resources and functions updated from `2016-09-01` to `2017-04-01`
 - `aadiam.privateLinkForAzureAd" changed from `2020-03-01-preview` to `2020-03-01`
-
----
 
 ## 1.25.0 (2021-09-01)
 
