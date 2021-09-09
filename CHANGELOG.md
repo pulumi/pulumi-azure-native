@@ -3,7 +3,17 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `containerservice.Snapshot`
+- `documentdb.CassandraResourceCassandraView`
+- `documentdb.GraphResourceGraph`
+
+#### New functions:
+
+- `containerservice.getSnapshot`
+- `documentdb.getCassandraResourceCassandraView`
+- `documentdb.getGraphResourceGraph`
 
 ---
 
