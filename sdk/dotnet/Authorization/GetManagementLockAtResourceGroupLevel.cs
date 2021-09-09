@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// The lock information.
-        /// API Version: 2016-09-01.
+        /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetManagementLockAtResourceGroupLevelResult> InvokeAsync(GetManagementLockAtResourceGroupLevelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtResourceGroupLevelResult>("azure-native:authorization:getManagementLockAtResourceGroupLevel", args ?? new GetManagementLockAtResourceGroupLevelArgs(), options.WithVersion());

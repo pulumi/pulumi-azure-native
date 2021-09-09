@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The lock information.
- * API Version: 2016-09-01.
+ * API Version: 2017-04-01.
  */
 export class ManagementLockByScope extends pulumi.CustomResource {
     /**
@@ -91,7 +91,7 @@ export class ManagementLockByScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:ManagementLockByScope" }, { type: "azure-native:authorization/v20160901:ManagementLockByScope" }, { type: "azure-nextgen:authorization/v20160901:ManagementLockByScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:ManagementLockByScope" }, { type: "azure-native:authorization/v20160901:ManagementLockByScope" }, { type: "azure-nextgen:authorization/v20160901:ManagementLockByScope" }, { type: "azure-native:authorization/v20170401:ManagementLockByScope" }, { type: "azure-nextgen:authorization/v20170401:ManagementLockByScope" }, { type: "azure-native:authorization/v20200501:ManagementLockByScope" }, { type: "azure-nextgen:authorization/v20200501:ManagementLockByScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementLockByScope.__pulumiType, name, inputs, opts);
     }

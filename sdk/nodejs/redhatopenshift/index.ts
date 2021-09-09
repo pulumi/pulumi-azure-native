@@ -6,14 +6,17 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./getOpenShiftCluster";
+export * from "./listOpenShiftClusterAdminCredentials";
 export * from "./listOpenShiftClusterCredentials";
 export * from "./openShiftCluster";
 
 // Export sub-modules:
 import * as v20200430 from "./v20200430";
+import * as v20210901preview from "./v20210901preview";
 
 export {
     v20200430,
+    v20210901preview,
 };
 
 // Import resources to register:

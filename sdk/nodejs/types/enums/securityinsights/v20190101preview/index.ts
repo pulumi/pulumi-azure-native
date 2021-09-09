@@ -344,34 +344,6 @@ export const AutomationRulePropertyConditionSupportedProperty = {
  */
 export type AutomationRulePropertyConditionSupportedProperty = (typeof AutomationRulePropertyConditionSupportedProperty)[keyof typeof AutomationRulePropertyConditionSupportedProperty];
 
-export const CaseSeverity = {
-    /**
-     * Critical severity
-     */
-    Critical: "Critical",
-    /**
-     * High severity
-     */
-    High: "High",
-    /**
-     * Medium severity
-     */
-    Medium: "Medium",
-    /**
-     * Low severity
-     */
-    Low: "Low",
-    /**
-     * Informational severity
-     */
-    Informational: "Informational",
-} as const;
-
-/**
- * The severity of the incident
- */
-export type CaseSeverity = (typeof CaseSeverity)[keyof typeof CaseSeverity];
-
 export const DataConnectorKind = {
     AzureActiveDirectory: "AzureActiveDirectory",
     AzureSecurityCenter: "AzureSecurityCenter",

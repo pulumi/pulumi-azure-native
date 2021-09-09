@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * PrivateLink Policy configuration object.
- * API Version: 2020-03-01-preview.
+ * API Version: 2020-03-01.
  */
 export function getprivateLinkForAzureAd(args: GetprivateLinkForAzureAdArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkForAzureAdResult> {
     if (!opts) {

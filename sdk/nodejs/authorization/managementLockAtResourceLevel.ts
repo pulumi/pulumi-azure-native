@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The lock information.
- * API Version: 2016-09-01.
+ * API Version: 2017-04-01.
  */
 export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
     /**
@@ -107,7 +107,7 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:ManagementLockAtResourceLevel" }, { type: "azure-native:authorization/v20160901:ManagementLockAtResourceLevel" }, { type: "azure-nextgen:authorization/v20160901:ManagementLockAtResourceLevel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:ManagementLockAtResourceLevel" }, { type: "azure-native:authorization/v20160901:ManagementLockAtResourceLevel" }, { type: "azure-nextgen:authorization/v20160901:ManagementLockAtResourceLevel" }, { type: "azure-native:authorization/v20170401:ManagementLockAtResourceLevel" }, { type: "azure-nextgen:authorization/v20170401:ManagementLockAtResourceLevel" }, { type: "azure-native:authorization/v20200501:ManagementLockAtResourceLevel" }, { type: "azure-nextgen:authorization/v20200501:ManagementLockAtResourceLevel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementLockAtResourceLevel.__pulumiType, name, inputs, opts);
     }

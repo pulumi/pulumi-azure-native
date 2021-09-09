@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Inputs
         /// The severity of the incident
         /// </summary>
         [Input("severity")]
-        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20190101Preview.CaseSeverity>? Severity { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20190101Preview.IncidentSeverity>? Severity { get; set; }
 
         /// <summary>
         /// The title of the incident

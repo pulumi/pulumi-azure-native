@@ -108,7 +108,7 @@ def get_management_lock_at_resource_group_level(lock_name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockAtResourceGroupLevelResult:
     """
     The lock information.
-    API Version: 2016-09-01.
+    API Version: 2017-04-01.
 
 
     :param str lock_name: The name of the lock to get.

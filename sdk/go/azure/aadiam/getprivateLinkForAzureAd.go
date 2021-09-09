@@ -8,7 +8,7 @@ import (
 )
 
 // PrivateLink Policy configuration object.
-// API Version: 2020-03-01-preview.
+// API Version: 2020-03-01.
 func GetprivateLinkForAzureAd(ctx *pulumi.Context, args *GetprivateLinkForAzureAdArgs, opts ...pulumi.InvokeOption) (*GetprivateLinkForAzureAdResult, error) {
 	var rv GetprivateLinkForAzureAdResult
 	err := ctx.Invoke("azure-native:aadiam:getprivateLinkForAzureAd", args, &rv, opts...)

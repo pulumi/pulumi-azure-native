@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_open_shift_cluster import *
+from .list_open_shift_cluster_admin_credentials import *
 from .list_open_shift_cluster_credentials import *
 from .open_shift_cluster import *
 from ._inputs import *
@@ -14,6 +15,8 @@ from . import outputs
 # Make subpackages available:
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.redhatopenshift.v20200430 as v20200430
+    import pulumi_azure_native.redhatopenshift.v20210901preview as v20210901preview
 else:
     v20200430 = _utilities.lazy_import('pulumi_azure_native.redhatopenshift.v20200430')
+    v20210901preview = _utilities.lazy_import('pulumi_azure_native.redhatopenshift.v20210901preview')
 

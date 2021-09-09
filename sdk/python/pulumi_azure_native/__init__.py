@@ -411,6 +411,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.aadiam",
   "classes": {
    "azure-native:aadiam:DiagnosticSetting": "DiagnosticSetting",
+   "azure-native:aadiam:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:aadiam:azureADMetric": "AzureADMetric",
    "azure-native:aadiam:privateLinkForAzureAd": "PrivateLinkForAzureAd"
   }
@@ -429,6 +430,15 @@ _utilities.register(
   "fqn": "pulumi_azure_native.aadiam.v20170401preview",
   "classes": {
    "azure-native:aadiam/v20170401preview:DiagnosticSetting": "DiagnosticSetting"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "aadiam/v20200301",
+  "fqn": "pulumi_azure_native.aadiam.v20200301",
+  "classes": {
+   "azure-native:aadiam/v20200301:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:aadiam/v20200301:privateLinkForAzureAd": "PrivateLinkForAzureAd"
   }
  },
  {
@@ -1375,6 +1385,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "authorization/v20170401",
+  "fqn": "pulumi_azure_native.authorization.v20170401",
+  "classes": {
+   "azure-native:authorization/v20170401:ManagementLockAtResourceGroupLevel": "ManagementLockAtResourceGroupLevel",
+   "azure-native:authorization/v20170401:ManagementLockAtResourceLevel": "ManagementLockAtResourceLevel",
+   "azure-native:authorization/v20170401:ManagementLockAtSubscriptionLevel": "ManagementLockAtSubscriptionLevel",
+   "azure-native:authorization/v20170401:ManagementLockByScope": "ManagementLockByScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "authorization/v20170601preview",
   "fqn": "pulumi_azure_native.authorization.v20170601preview",
   "classes": {
@@ -1509,6 +1530,10 @@ _utilities.register(
   "mod": "authorization/v20200501",
   "fqn": "pulumi_azure_native.authorization.v20200501",
   "classes": {
+   "azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel": "ManagementLockAtResourceGroupLevel",
+   "azure-native:authorization/v20200501:ManagementLockAtResourceLevel": "ManagementLockAtResourceLevel",
+   "azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel": "ManagementLockAtSubscriptionLevel",
+   "azure-native:authorization/v20200501:ManagementLockByScope": "ManagementLockByScope",
    "azure-native:authorization/v20200501:ResourceManagementPrivateLink": "ResourceManagementPrivateLink"
   }
  },
@@ -2014,6 +2039,16 @@ _utilities.register(
    "azure-native:azurestackhci/v20210101preview:ArcSetting": "ArcSetting",
    "azure-native:azurestackhci/v20210101preview:Cluster": "Cluster",
    "azure-native:azurestackhci/v20210101preview:Extension": "Extension"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurestackhci/v20210901",
+  "fqn": "pulumi_azure_native.azurestackhci.v20210901",
+  "classes": {
+   "azure-native:azurestackhci/v20210901:ArcSetting": "ArcSetting",
+   "azure-native:azurestackhci/v20210901:Cluster": "Cluster",
+   "azure-native:azurestackhci/v20210901:Extension": "Extension"
   }
  },
  {
@@ -12661,6 +12696,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.redhatopenshift.v20200430",
   "classes": {
    "azure-native:redhatopenshift/v20200430:OpenShiftCluster": "OpenShiftCluster"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "redhatopenshift/v20210901preview",
+  "fqn": "pulumi_azure_native.redhatopenshift.v20210901preview",
+  "classes": {
+   "azure-native:redhatopenshift/v20210901preview:OpenShiftCluster": "OpenShiftCluster"
   }
  },
  {

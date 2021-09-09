@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
 export * from "./azureADMetric";
 export * from "./diagnosticSetting";
 export * from "./getDiagnosticSetting";
+export * from "./getPrivateEndpointConnection";
 export * from "./getazureADMetric";
 export * from "./getprivateLinkForAzureAd";
+export * from "./privateEndpointConnection";
 export * from "./privateLinkForAzureAd";
 
 // Export enums:
@@ -18,18 +20,21 @@ export * from "../types/enums/aadiam";
 // Export sub-modules:
 import * as v20170401 from "./v20170401";
 import * as v20170401preview from "./v20170401preview";
+import * as v20200301 from "./v20200301";
 import * as v20200301preview from "./v20200301preview";
 import * as v20200701preview from "./v20200701preview";
 
 export {
     v20170401,
     v20170401preview,
+    v20200301,
     v20200301preview,
     v20200701preview,
 };
 
 // Import resources to register:
 import { DiagnosticSetting } from "./diagnosticSetting";
+import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { AzureADMetric } from "./azureADMetric";
 import { PrivateLinkForAzureAd } from "./privateLinkForAzureAd";
 
@@ -39,6 +44,8 @@ const _module = {
         switch (type) {
             case "azure-native:aadiam:DiagnosticSetting":
                 return new DiagnosticSetting(name, <any>undefined, { urn })
+            case "azure-native:aadiam:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:aadiam:azureADMetric":
                 return new AzureADMetric(name, <any>undefined, { urn })
             case "azure-native:aadiam:privateLinkForAzureAd":

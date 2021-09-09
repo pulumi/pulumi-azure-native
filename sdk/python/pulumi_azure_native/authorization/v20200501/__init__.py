@@ -5,6 +5,16 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .get_management_lock_at_resource_group_level import *
+from .get_management_lock_at_resource_level import *
+from .get_management_lock_at_subscription_level import *
+from .get_management_lock_by_scope import *
 from .get_resource_management_private_link import *
+from .management_lock_at_resource_group_level import *
+from .management_lock_at_resource_level import *
+from .management_lock_at_subscription_level import *
+from .management_lock_by_scope import *
 from .resource_management_private_link import *
+from ._inputs import *
 from . import outputs

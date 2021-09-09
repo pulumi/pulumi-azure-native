@@ -12,7 +12,7 @@ import (
 )
 
 // The lock information.
-// API Version: 2016-09-01.
+// API Version: 2017-04-01.
 type ManagementLockAtSubscriptionLevel struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +53,18 @@ func NewManagementLockAtSubscriptionLevel(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20160901:ManagementLockAtSubscriptionLevel"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20170401:ManagementLockAtSubscriptionLevel"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:authorization/v20170401:ManagementLockAtSubscriptionLevel"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:authorization/v20200501:ManagementLockAtSubscriptionLevel"),
 		},
 	})
 	opts = append(opts, aliases)

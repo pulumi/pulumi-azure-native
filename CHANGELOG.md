@@ -5,13 +5,16 @@ CHANGELOG
 
 #### New resources:
 
+- `aadiam.PrivateEndpointConnection`
 - `kusto.ManagedPrivateEndpoint`
 - `kusto.PrivateEndpointConnection`
 
 #### New functions:
 
+- `aadiam:getPrivateEndpointConnection`
 - `kusto.getManagedPrivateEndpoint`
 - `kusto.getPrivateEndpointConnection`
+- `redhatopenshift.listOpenShiftClusterAdminCredentials`
 
 #### Breaking Changes published by Microsoft:
 
@@ -24,6 +27,11 @@ CHANGELOG
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15840))
 - App Service Auth shape restructured for `web` resources
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15283))
+
+#### Updated API versions for top-level resources
+
+- `authorization:ManagementLock*` resources and functions updated from `2016-09-01` to `2017-04-01`
+- `aadiam.privateLinkForAzureAd" changed from `2020-03-01-preview` to `2020-03-01`
 
 ---
 

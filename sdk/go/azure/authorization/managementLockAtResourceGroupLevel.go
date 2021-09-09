@@ -12,7 +12,7 @@ import (
 )
 
 // The lock information.
-// API Version: 2016-09-01.
+// API Version: 2017-04-01.
 type ManagementLockAtResourceGroupLevel struct {
 	pulumi.CustomResourceState
 
@@ -56,6 +56,18 @@ func NewManagementLockAtResourceGroupLevel(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20160901:ManagementLockAtResourceGroupLevel"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20170401:ManagementLockAtResourceGroupLevel"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:authorization/v20170401:ManagementLockAtResourceGroupLevel"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:authorization/v20200501:ManagementLockAtResourceGroupLevel"),
 		},
 	})
 	opts = append(opts, aliases)

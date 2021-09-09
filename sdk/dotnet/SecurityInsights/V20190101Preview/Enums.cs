@@ -497,55 +497,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     }
 
     /// <summary>
-    /// The severity of the incident
-    /// </summary>
-    [EnumType]
-    public readonly struct CaseSeverity : IEquatable<CaseSeverity>
-    {
-        private readonly string _value;
-
-        private CaseSeverity(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Critical severity
-        /// </summary>
-        public static CaseSeverity Critical { get; } = new CaseSeverity("Critical");
-        /// <summary>
-        /// High severity
-        /// </summary>
-        public static CaseSeverity High { get; } = new CaseSeverity("High");
-        /// <summary>
-        /// Medium severity
-        /// </summary>
-        public static CaseSeverity Medium { get; } = new CaseSeverity("Medium");
-        /// <summary>
-        /// Low severity
-        /// </summary>
-        public static CaseSeverity Low { get; } = new CaseSeverity("Low");
-        /// <summary>
-        /// Informational severity
-        /// </summary>
-        public static CaseSeverity Informational { get; } = new CaseSeverity("Informational");
-
-        public static bool operator ==(CaseSeverity left, CaseSeverity right) => left.Equals(right);
-        public static bool operator !=(CaseSeverity left, CaseSeverity right) => !left.Equals(right);
-
-        public static explicit operator string(CaseSeverity value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CaseSeverity other && Equals(other);
-        public bool Equals(CaseSeverity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The kind of the data connector
     /// </summary>
     [EnumType]

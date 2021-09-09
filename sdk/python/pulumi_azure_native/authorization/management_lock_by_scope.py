@@ -112,7 +112,7 @@ class ManagementLockByScope(pulumi.CustomResource):
                  __props__=None):
         """
         The lock information.
-        API Version: 2016-09-01.
+        API Version: 2017-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class ManagementLockByScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The lock information.
-        API Version: 2016-09-01.
+        API Version: 2017-04-01.
 
         :param str resource_name: The name of the resource.
         :param ManagementLockByScopeArgs args: The arguments to use to populate this resource's properties.
@@ -175,7 +175,7 @@ class ManagementLockByScope(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:ManagementLockByScope"), pulumi.Alias(type_="azure-native:authorization/v20160901:ManagementLockByScope"), pulumi.Alias(type_="azure-nextgen:authorization/v20160901:ManagementLockByScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:ManagementLockByScope"), pulumi.Alias(type_="azure-native:authorization/v20160901:ManagementLockByScope"), pulumi.Alias(type_="azure-nextgen:authorization/v20160901:ManagementLockByScope"), pulumi.Alias(type_="azure-native:authorization/v20170401:ManagementLockByScope"), pulumi.Alias(type_="azure-nextgen:authorization/v20170401:ManagementLockByScope"), pulumi.Alias(type_="azure-native:authorization/v20200501:ManagementLockByScope"), pulumi.Alias(type_="azure-nextgen:authorization/v20200501:ManagementLockByScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementLockByScope, __self__).__init__(
             'azure-native:authorization:ManagementLockByScope',

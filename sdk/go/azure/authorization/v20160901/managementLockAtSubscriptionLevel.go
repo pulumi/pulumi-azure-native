@@ -53,6 +53,18 @@ func NewManagementLockAtSubscriptionLevel(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20150101:ManagementLockAtSubscriptionLevel"),
 		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20170401:ManagementLockAtSubscriptionLevel"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:authorization/v20170401:ManagementLockAtSubscriptionLevel"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:authorization/v20200501:ManagementLockAtSubscriptionLevel"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagementLockAtSubscriptionLevel

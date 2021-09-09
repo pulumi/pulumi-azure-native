@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'Category',
+    'PrivateEndpointServiceConnectionStatus',
 ]
 
 
@@ -15,3 +16,13 @@ class Category(str, Enum):
     """
     AUDIT_LOGS = "AuditLogs"
     SIGN_IN_LOGS = "SignInLogs"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been approved, rejected or removed by the given policy owner.
+    """
+    APPROVED = "Approved"
+    PENDING = "Pending"
+    REJECTED = "Rejected"
+    DISCONNECTED = "Disconnected"

@@ -5,16 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./getManagementLockAtResourceGroupLevel";
+export * from "./getManagementLockAtResourceLevel";
+export * from "./getManagementLockAtSubscriptionLevel";
+export * from "./getManagementLockByScope";
 export * from "./getResourceManagementPrivateLink";
+export * from "./managementLockAtResourceGroupLevel";
+export * from "./managementLockAtResourceLevel";
+export * from "./managementLockAtSubscriptionLevel";
+export * from "./managementLockByScope";
 export * from "./resourceManagementPrivateLink";
 
+// Export enums:
+export * from "../../types/enums/authorization/v20200501";
+
 // Import resources to register:
+import { ManagementLockAtResourceGroupLevel } from "./managementLockAtResourceGroupLevel";
+import { ManagementLockAtResourceLevel } from "./managementLockAtResourceLevel";
+import { ManagementLockAtSubscriptionLevel } from "./managementLockAtSubscriptionLevel";
+import { ManagementLockByScope } from "./managementLockByScope";
 import { ResourceManagementPrivateLink } from "./resourceManagementPrivateLink";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel":
+                return new ManagementLockAtResourceGroupLevel(name, <any>undefined, { urn })
+            case "azure-native:authorization/v20200501:ManagementLockAtResourceLevel":
+                return new ManagementLockAtResourceLevel(name, <any>undefined, { urn })
+            case "azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel":
+                return new ManagementLockAtSubscriptionLevel(name, <any>undefined, { urn })
+            case "azure-native:authorization/v20200501:ManagementLockByScope":
+                return new ManagementLockByScope(name, <any>undefined, { urn })
             case "azure-native:authorization/v20200501:ResourceManagementPrivateLink":
                 return new ResourceManagementPrivateLink(name, <any>undefined, { urn })
             default:

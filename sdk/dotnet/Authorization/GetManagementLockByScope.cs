@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// The lock information.
-        /// API Version: 2016-09-01.
+        /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetManagementLockByScopeResult> InvokeAsync(GetManagementLockByScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockByScopeResult>("azure-native:authorization:getManagementLockByScope", args ?? new GetManagementLockByScopeArgs(), options.WithVersion());

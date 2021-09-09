@@ -55,6 +55,12 @@ func NewPrivateLinkForAzureAd(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:aadiam:privateLinkForAzureAd"),
 		},
+		{
+			Type: pulumi.String("azure-native:aadiam/v20200301:privateLinkForAzureAd"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:aadiam/v20200301:privateLinkForAzureAd"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateLinkForAzureAd

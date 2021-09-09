@@ -155,7 +155,7 @@ def getprivate_link_for_azure_ad(policy_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetprivateLinkForAzureAdResult:
     """
     PrivateLink Policy configuration object.
-    API Version: 2020-03-01-preview.
+    API Version: 2020-03-01.
 
 
     :param str policy_name: The name of the private link policy in Azure AD.

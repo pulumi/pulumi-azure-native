@@ -176,7 +176,7 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
                  __props__=None):
         """
         The lock information.
-        API Version: 2016-09-01.
+        API Version: 2017-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,7 +198,7 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The lock information.
-        API Version: 2016-09-01.
+        API Version: 2017-04-01.
 
         :param str resource_name: The name of the resource.
         :param ManagementLockAtResourceLevelArgs args: The arguments to use to populate this resource's properties.
@@ -259,7 +259,7 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:ManagementLockAtResourceLevel"), pulumi.Alias(type_="azure-native:authorization/v20160901:ManagementLockAtResourceLevel"), pulumi.Alias(type_="azure-nextgen:authorization/v20160901:ManagementLockAtResourceLevel")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:ManagementLockAtResourceLevel"), pulumi.Alias(type_="azure-native:authorization/v20160901:ManagementLockAtResourceLevel"), pulumi.Alias(type_="azure-nextgen:authorization/v20160901:ManagementLockAtResourceLevel"), pulumi.Alias(type_="azure-native:authorization/v20170401:ManagementLockAtResourceLevel"), pulumi.Alias(type_="azure-nextgen:authorization/v20170401:ManagementLockAtResourceLevel"), pulumi.Alias(type_="azure-native:authorization/v20200501:ManagementLockAtResourceLevel"), pulumi.Alias(type_="azure-nextgen:authorization/v20200501:ManagementLockAtResourceLevel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementLockAtResourceLevel, __self__).__init__(
             'azure-native:authorization:ManagementLockAtResourceLevel',

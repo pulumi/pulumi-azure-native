@@ -8,7 +8,7 @@ import (
 )
 
 // The lock information.
-// API Version: 2016-09-01.
+// API Version: 2017-04-01.
 func LookupManagementLockByScope(ctx *pulumi.Context, args *LookupManagementLockByScopeArgs, opts ...pulumi.InvokeOption) (*LookupManagementLockByScopeResult, error) {
 	var rv LookupManagementLockByScopeResult
 	err := ctx.Invoke("azure-native:authorization:getManagementLockByScope", args, &rv, opts...)

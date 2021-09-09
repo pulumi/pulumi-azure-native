@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20201001 from "./v20201001";
 import * as v20210101preview from "./v20210101preview";
+import * as v20210901 from "./v20210901";
 
 export {
     v20201001,
     v20210101preview,
+    v20210901,
 };
 
 export const CreatedByType = {

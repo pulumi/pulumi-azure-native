@@ -8,7 +8,7 @@ import (
 )
 
 // The lock information.
-// API Version: 2016-09-01.
+// API Version: 2017-04-01.
 func LookupManagementLockAtSubscriptionLevel(ctx *pulumi.Context, args *LookupManagementLockAtSubscriptionLevelArgs, opts ...pulumi.InvokeOption) (*LookupManagementLockAtSubscriptionLevelResult, error) {
 	var rv LookupManagementLockAtSubscriptionLevelResult
 	err := ctx.Invoke("azure-native:authorization:getManagementLockAtSubscriptionLevel", args, &rv, opts...)

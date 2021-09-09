@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// The lock information.
-    /// API Version: 2016-09-01.
+    /// API Version: 2017-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:ManagementLockAtResourceGroupLevel")]
     public partial class ManagementLockAtResourceGroupLevel : Pulumi.CustomResource
@@ -76,6 +76,10 @@ namespace Pulumi.AzureNative.Authorization
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150101:ManagementLockAtResourceGroupLevel"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20160901:ManagementLockAtResourceGroupLevel"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20170401:ManagementLockAtResourceGroupLevel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20170401:ManagementLockAtResourceGroupLevel"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200501:ManagementLockAtResourceGroupLevel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

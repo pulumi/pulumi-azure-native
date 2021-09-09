@@ -21,6 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel":
+		r = &ManagementLockAtResourceGroupLevel{}
+	case "azure-native:authorization/v20200501:ManagementLockAtResourceLevel":
+		r = &ManagementLockAtResourceLevel{}
+	case "azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel":
+		r = &ManagementLockAtSubscriptionLevel{}
+	case "azure-native:authorization/v20200501:ManagementLockByScope":
+		r = &ManagementLockByScope{}
 	case "azure-native:authorization/v20200501:ResourceManagementPrivateLink":
 		r = &ResourceManagementPrivateLink{}
 	default:

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:aadiam:DiagnosticSetting":
 		r = &DiagnosticSetting{}
+	case "azure-native:aadiam:PrivateEndpointConnection":
+		r = &PrivateEndpointConnection{}
 	case "azure-native:aadiam:azureADMetric":
 		r = &AzureADMetric{}
 	case "azure-native:aadiam:privateLinkForAzureAd":

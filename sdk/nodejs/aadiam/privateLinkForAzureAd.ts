@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * PrivateLink Policy configuration object.
- * API Version: 2020-03-01-preview.
+ * API Version: 2020-03-01.
  */
 export class PrivateLinkForAzureAd extends pulumi.CustomResource {
     /**
@@ -111,7 +111,7 @@ export class PrivateLinkForAzureAd extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:aadiam:privateLinkForAzureAd" }, { type: "azure-native:aadiam/v20200301preview:privateLinkForAzureAd" }, { type: "azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:aadiam:privateLinkForAzureAd" }, { type: "azure-native:aadiam/v20200301:privateLinkForAzureAd" }, { type: "azure-nextgen:aadiam/v20200301:privateLinkForAzureAd" }, { type: "azure-native:aadiam/v20200301preview:privateLinkForAzureAd" }, { type: "azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkForAzureAd.__pulumiType, name, inputs, opts);
     }

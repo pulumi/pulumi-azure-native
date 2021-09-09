@@ -10,6 +10,206 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Lock owner properties.
+type ManagementLockOwner struct {
+	// The application ID of the lock owner.
+	ApplicationId *string `pulumi:"applicationId"`
+}
+
+// ManagementLockOwnerInput is an input type that accepts ManagementLockOwnerArgs and ManagementLockOwnerOutput values.
+// You can construct a concrete instance of `ManagementLockOwnerInput` via:
+//
+//          ManagementLockOwnerArgs{...}
+type ManagementLockOwnerInput interface {
+	pulumi.Input
+
+	ToManagementLockOwnerOutput() ManagementLockOwnerOutput
+	ToManagementLockOwnerOutputWithContext(context.Context) ManagementLockOwnerOutput
+}
+
+// Lock owner properties.
+type ManagementLockOwnerArgs struct {
+	// The application ID of the lock owner.
+	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
+}
+
+func (ManagementLockOwnerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockOwner)(nil)).Elem()
+}
+
+func (i ManagementLockOwnerArgs) ToManagementLockOwnerOutput() ManagementLockOwnerOutput {
+	return i.ToManagementLockOwnerOutputWithContext(context.Background())
+}
+
+func (i ManagementLockOwnerArgs) ToManagementLockOwnerOutputWithContext(ctx context.Context) ManagementLockOwnerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockOwnerOutput)
+}
+
+// ManagementLockOwnerArrayInput is an input type that accepts ManagementLockOwnerArray and ManagementLockOwnerArrayOutput values.
+// You can construct a concrete instance of `ManagementLockOwnerArrayInput` via:
+//
+//          ManagementLockOwnerArray{ ManagementLockOwnerArgs{...} }
+type ManagementLockOwnerArrayInput interface {
+	pulumi.Input
+
+	ToManagementLockOwnerArrayOutput() ManagementLockOwnerArrayOutput
+	ToManagementLockOwnerArrayOutputWithContext(context.Context) ManagementLockOwnerArrayOutput
+}
+
+type ManagementLockOwnerArray []ManagementLockOwnerInput
+
+func (ManagementLockOwnerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagementLockOwner)(nil)).Elem()
+}
+
+func (i ManagementLockOwnerArray) ToManagementLockOwnerArrayOutput() ManagementLockOwnerArrayOutput {
+	return i.ToManagementLockOwnerArrayOutputWithContext(context.Background())
+}
+
+func (i ManagementLockOwnerArray) ToManagementLockOwnerArrayOutputWithContext(ctx context.Context) ManagementLockOwnerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockOwnerArrayOutput)
+}
+
+// Lock owner properties.
+type ManagementLockOwnerOutput struct{ *pulumi.OutputState }
+
+func (ManagementLockOwnerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockOwner)(nil)).Elem()
+}
+
+func (o ManagementLockOwnerOutput) ToManagementLockOwnerOutput() ManagementLockOwnerOutput {
+	return o
+}
+
+func (o ManagementLockOwnerOutput) ToManagementLockOwnerOutputWithContext(ctx context.Context) ManagementLockOwnerOutput {
+	return o
+}
+
+// The application ID of the lock owner.
+func (o ManagementLockOwnerOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementLockOwner) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
+}
+
+type ManagementLockOwnerArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagementLockOwnerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagementLockOwner)(nil)).Elem()
+}
+
+func (o ManagementLockOwnerArrayOutput) ToManagementLockOwnerArrayOutput() ManagementLockOwnerArrayOutput {
+	return o
+}
+
+func (o ManagementLockOwnerArrayOutput) ToManagementLockOwnerArrayOutputWithContext(ctx context.Context) ManagementLockOwnerArrayOutput {
+	return o
+}
+
+func (o ManagementLockOwnerArrayOutput) Index(i pulumi.IntInput) ManagementLockOwnerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagementLockOwner {
+		return vs[0].([]ManagementLockOwner)[vs[1].(int)]
+	}).(ManagementLockOwnerOutput)
+}
+
+// Lock owner properties.
+type ManagementLockOwnerResponse struct {
+	// The application ID of the lock owner.
+	ApplicationId *string `pulumi:"applicationId"`
+}
+
+// ManagementLockOwnerResponseInput is an input type that accepts ManagementLockOwnerResponseArgs and ManagementLockOwnerResponseOutput values.
+// You can construct a concrete instance of `ManagementLockOwnerResponseInput` via:
+//
+//          ManagementLockOwnerResponseArgs{...}
+type ManagementLockOwnerResponseInput interface {
+	pulumi.Input
+
+	ToManagementLockOwnerResponseOutput() ManagementLockOwnerResponseOutput
+	ToManagementLockOwnerResponseOutputWithContext(context.Context) ManagementLockOwnerResponseOutput
+}
+
+// Lock owner properties.
+type ManagementLockOwnerResponseArgs struct {
+	// The application ID of the lock owner.
+	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
+}
+
+func (ManagementLockOwnerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockOwnerResponse)(nil)).Elem()
+}
+
+func (i ManagementLockOwnerResponseArgs) ToManagementLockOwnerResponseOutput() ManagementLockOwnerResponseOutput {
+	return i.ToManagementLockOwnerResponseOutputWithContext(context.Background())
+}
+
+func (i ManagementLockOwnerResponseArgs) ToManagementLockOwnerResponseOutputWithContext(ctx context.Context) ManagementLockOwnerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockOwnerResponseOutput)
+}
+
+// ManagementLockOwnerResponseArrayInput is an input type that accepts ManagementLockOwnerResponseArray and ManagementLockOwnerResponseArrayOutput values.
+// You can construct a concrete instance of `ManagementLockOwnerResponseArrayInput` via:
+//
+//          ManagementLockOwnerResponseArray{ ManagementLockOwnerResponseArgs{...} }
+type ManagementLockOwnerResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagementLockOwnerResponseArrayOutput() ManagementLockOwnerResponseArrayOutput
+	ToManagementLockOwnerResponseArrayOutputWithContext(context.Context) ManagementLockOwnerResponseArrayOutput
+}
+
+type ManagementLockOwnerResponseArray []ManagementLockOwnerResponseInput
+
+func (ManagementLockOwnerResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagementLockOwnerResponse)(nil)).Elem()
+}
+
+func (i ManagementLockOwnerResponseArray) ToManagementLockOwnerResponseArrayOutput() ManagementLockOwnerResponseArrayOutput {
+	return i.ToManagementLockOwnerResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagementLockOwnerResponseArray) ToManagementLockOwnerResponseArrayOutputWithContext(ctx context.Context) ManagementLockOwnerResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockOwnerResponseArrayOutput)
+}
+
+// Lock owner properties.
+type ManagementLockOwnerResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagementLockOwnerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockOwnerResponse)(nil)).Elem()
+}
+
+func (o ManagementLockOwnerResponseOutput) ToManagementLockOwnerResponseOutput() ManagementLockOwnerResponseOutput {
+	return o
+}
+
+func (o ManagementLockOwnerResponseOutput) ToManagementLockOwnerResponseOutputWithContext(ctx context.Context) ManagementLockOwnerResponseOutput {
+	return o
+}
+
+// The application ID of the lock owner.
+func (o ManagementLockOwnerResponseOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementLockOwnerResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
+}
+
+type ManagementLockOwnerResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagementLockOwnerResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagementLockOwnerResponse)(nil)).Elem()
+}
+
+func (o ManagementLockOwnerResponseArrayOutput) ToManagementLockOwnerResponseArrayOutput() ManagementLockOwnerResponseArrayOutput {
+	return o
+}
+
+func (o ManagementLockOwnerResponseArrayOutput) ToManagementLockOwnerResponseArrayOutputWithContext(ctx context.Context) ManagementLockOwnerResponseArrayOutput {
+	return o
+}
+
+func (o ManagementLockOwnerResponseArrayOutput) Index(i pulumi.IntInput) ManagementLockOwnerResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagementLockOwnerResponse {
+		return vs[0].([]ManagementLockOwnerResponse)[vs[1].(int)]
+	}).(ManagementLockOwnerResponseOutput)
+}
+
 type ResourceManagementPrivateLinkEndpointConnectionsResponse struct {
 	// The private endpoint connections.
 	PrivateEndpointConnections []string `pulumi:"privateEndpointConnections"`
@@ -145,7 +345,242 @@ func (o ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput) Priva
 	}).(pulumi.StringArrayOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(ManagementLockOwnerOutput{})
+	pulumi.RegisterOutputType(ManagementLockOwnerArrayOutput{})
+	pulumi.RegisterOutputType(ManagementLockOwnerResponseOutput{})
+	pulumi.RegisterOutputType(ManagementLockOwnerResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceManagementPrivateLinkEndpointConnectionsResponseOutput{})
 	pulumi.RegisterOutputType(ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

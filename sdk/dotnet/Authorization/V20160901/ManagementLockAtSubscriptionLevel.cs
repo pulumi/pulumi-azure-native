@@ -75,6 +75,10 @@ namespace Pulumi.AzureNative.Authorization.V20160901
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:ManagementLockAtSubscriptionLevel"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20150101:ManagementLockAtSubscriptionLevel"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150101:ManagementLockAtSubscriptionLevel"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20170401:ManagementLockAtSubscriptionLevel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20170401:ManagementLockAtSubscriptionLevel"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200501:ManagementLockAtSubscriptionLevel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

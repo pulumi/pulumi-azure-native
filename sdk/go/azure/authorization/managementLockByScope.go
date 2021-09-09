@@ -12,7 +12,7 @@ import (
 )
 
 // The lock information.
-// API Version: 2016-09-01.
+// API Version: 2017-04-01.
 type ManagementLockByScope struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +50,18 @@ func NewManagementLockByScope(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20160901:ManagementLockByScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20170401:ManagementLockByScope"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:authorization/v20170401:ManagementLockByScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20200501:ManagementLockByScope"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:authorization/v20200501:ManagementLockByScope"),
 		},
 	})
 	opts = append(opts, aliases)
