@@ -12,9 +12,6 @@ export * from "./getLinkedStorageAccount";
 export * from "./linkedService";
 export * from "./linkedStorageAccount";
 
-// Export enums:
-export * from "../../types/enums/operationalinsights/v20190801preview";
-
 // Import resources to register:
 import { DataExport } from "./dataExport";
 import { LinkedService } from "./linkedService";

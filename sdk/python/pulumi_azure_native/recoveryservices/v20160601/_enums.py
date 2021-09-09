@@ -5,12 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'BackupManagementType',
-    'DataSourceType',
     'DayOfWeek',
     'MonthOfYear',
-    'ProtectedItemState',
-    'ProtectionState',
     'ResourceIdentityType',
     'RetentionDurationType',
     'RetentionScheduleFormat',
@@ -18,32 +14,6 @@ __all__ = [
     'SkuName',
     'WeekOfMonth',
 ]
-
-
-class BackupManagementType(str, Enum):
-    """
-    The backup management type associated with the backup item.
-    """
-    INVALID = "Invalid"
-    AZURE_IAAS_VM = "AzureIaasVM"
-    MAB = "MAB"
-    DPM = "DPM"
-    AZURE_BACKUP_SERVER = "AzureBackupServer"
-    AZURE_SQL = "AzureSql"
-
-
-class DataSourceType(str, Enum):
-    """
-    The workload type for this item.
-    """
-    INVALID = "Invalid"
-    VM = "VM"
-    FILE_FOLDER = "FileFolder"
-    AZURE_SQL_DB = "AzureSqlDb"
-    SQLDB = "SQLDB"
-    EXCHANGE = "Exchange"
-    SHAREPOINT = "Sharepoint"
-    DPM_UNKNOWN = "DPMUnknown"
 
 
 class DayOfWeek(str, Enum):
@@ -70,30 +40,6 @@ class MonthOfYear(str, Enum):
     OCTOBER = "October"
     NOVEMBER = "November"
     DECEMBER = "December"
-
-
-class ProtectedItemState(str, Enum):
-    """
-    The backup state of the backup item.
-    """
-    INVALID = "Invalid"
-    IR_PENDING = "IRPending"
-    PROTECTED = "Protected"
-    PROTECTION_ERROR = "ProtectionError"
-    PROTECTION_STOPPED = "ProtectionStopped"
-    PROTECTION_PAUSED = "ProtectionPaused"
-
-
-class ProtectionState(str, Enum):
-    """
-    The backup state of this backup item.
-    """
-    INVALID = "Invalid"
-    IR_PENDING = "IRPending"
-    PROTECTED = "Protected"
-    PROTECTION_ERROR = "ProtectionError"
-    PROTECTION_STOPPED = "ProtectionStopped"
-    PROTECTION_PAUSED = "ProtectionPaused"
 
 
 class ResourceIdentityType(str, Enum):

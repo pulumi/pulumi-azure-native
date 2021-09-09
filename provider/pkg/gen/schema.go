@@ -596,14 +596,6 @@ func (g *packageGenerator) genResourceVariant(prov string, resource *resourceVar
 		updateMethod = "PATCH"
 	}
 
-	parameters := resource.Swagger.MergeParameters(updateOp.Parameters, path.Parameters)
-	autoNamer := resources.NewAutoNamer(resource.Path)
-
-	resourceRequest, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, &autoNamer, resource.body)
-	if err != nil {
-		return errors.Wrapf(err, "failed to generate '%s': request type", resourceTok)
-	}
-
 	resourceResponse, err := gen.genResponse(updateOp.Responses.StatusCodeResponses, swagger.ReferenceContext, resource.response)
 	if err != nil {
 		return errors.Wrapf(err, "failed to generate '%s': response type", resourceTok)
@@ -612,6 +604,14 @@ func (g *packageGenerator) genResourceVariant(prov string, resource *resourceVar
 	if resourceResponse == nil || len(resourceResponse.specs) == 0 {
 		// Response is specified empty, do not generate a resource for it.
 		return nil
+	}
+
+	parameters := resource.Swagger.MergeParameters(updateOp.Parameters, path.Parameters)
+	autoNamer := resources.NewAutoNamer(resource.Path)
+
+	resourceRequest, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, &autoNamer, resource.body)
+	if err != nil {
+		return errors.Wrapf(err, "failed to generate '%s': request type", resourceTok)
 	}
 
 	gen.escapeCSharpNames(resource.typeName, resourceResponse)
