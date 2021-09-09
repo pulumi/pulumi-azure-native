@@ -2038,6 +2038,274 @@ func (o ContainerServiceSshPublicKeyResponseArrayOutput) Index(i pulumi.IntInput
 	}).(ContainerServiceSshPublicKeyResponseOutput)
 }
 
+// Data used when creating a target resource from a source resource.
+type CreationData struct {
+	// This is the ARM ID of the source object to be used to create the target object.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+}
+
+// CreationDataInput is an input type that accepts CreationDataArgs and CreationDataOutput values.
+// You can construct a concrete instance of `CreationDataInput` via:
+//
+//          CreationDataArgs{...}
+type CreationDataInput interface {
+	pulumi.Input
+
+	ToCreationDataOutput() CreationDataOutput
+	ToCreationDataOutputWithContext(context.Context) CreationDataOutput
+}
+
+// Data used when creating a target resource from a source resource.
+type CreationDataArgs struct {
+	// This is the ARM ID of the source object to be used to create the target object.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+}
+
+func (CreationDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreationData)(nil)).Elem()
+}
+
+func (i CreationDataArgs) ToCreationDataOutput() CreationDataOutput {
+	return i.ToCreationDataOutputWithContext(context.Background())
+}
+
+func (i CreationDataArgs) ToCreationDataOutputWithContext(ctx context.Context) CreationDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreationDataOutput)
+}
+
+func (i CreationDataArgs) ToCreationDataPtrOutput() CreationDataPtrOutput {
+	return i.ToCreationDataPtrOutputWithContext(context.Background())
+}
+
+func (i CreationDataArgs) ToCreationDataPtrOutputWithContext(ctx context.Context) CreationDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreationDataOutput).ToCreationDataPtrOutputWithContext(ctx)
+}
+
+// CreationDataPtrInput is an input type that accepts CreationDataArgs, CreationDataPtr and CreationDataPtrOutput values.
+// You can construct a concrete instance of `CreationDataPtrInput` via:
+//
+//          CreationDataArgs{...}
+//
+//  or:
+//
+//          nil
+type CreationDataPtrInput interface {
+	pulumi.Input
+
+	ToCreationDataPtrOutput() CreationDataPtrOutput
+	ToCreationDataPtrOutputWithContext(context.Context) CreationDataPtrOutput
+}
+
+type creationDataPtrType CreationDataArgs
+
+func CreationDataPtr(v *CreationDataArgs) CreationDataPtrInput {
+	return (*creationDataPtrType)(v)
+}
+
+func (*creationDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreationData)(nil)).Elem()
+}
+
+func (i *creationDataPtrType) ToCreationDataPtrOutput() CreationDataPtrOutput {
+	return i.ToCreationDataPtrOutputWithContext(context.Background())
+}
+
+func (i *creationDataPtrType) ToCreationDataPtrOutputWithContext(ctx context.Context) CreationDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreationDataPtrOutput)
+}
+
+// Data used when creating a target resource from a source resource.
+type CreationDataOutput struct{ *pulumi.OutputState }
+
+func (CreationDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreationData)(nil)).Elem()
+}
+
+func (o CreationDataOutput) ToCreationDataOutput() CreationDataOutput {
+	return o
+}
+
+func (o CreationDataOutput) ToCreationDataOutputWithContext(ctx context.Context) CreationDataOutput {
+	return o
+}
+
+func (o CreationDataOutput) ToCreationDataPtrOutput() CreationDataPtrOutput {
+	return o.ToCreationDataPtrOutputWithContext(context.Background())
+}
+
+func (o CreationDataOutput) ToCreationDataPtrOutputWithContext(ctx context.Context) CreationDataPtrOutput {
+	return o.ApplyT(func(v CreationData) *CreationData {
+		return &v
+	}).(CreationDataPtrOutput)
+}
+
+// This is the ARM ID of the source object to be used to create the target object.
+func (o CreationDataOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CreationData) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+type CreationDataPtrOutput struct{ *pulumi.OutputState }
+
+func (CreationDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreationData)(nil)).Elem()
+}
+
+func (o CreationDataPtrOutput) ToCreationDataPtrOutput() CreationDataPtrOutput {
+	return o
+}
+
+func (o CreationDataPtrOutput) ToCreationDataPtrOutputWithContext(ctx context.Context) CreationDataPtrOutput {
+	return o
+}
+
+func (o CreationDataPtrOutput) Elem() CreationDataOutput {
+	return o.ApplyT(func(v *CreationData) CreationData { return *v }).(CreationDataOutput)
+}
+
+// This is the ARM ID of the source object to be used to create the target object.
+func (o CreationDataPtrOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CreationData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data used when creating a target resource from a source resource.
+type CreationDataResponse struct {
+	// This is the ARM ID of the source object to be used to create the target object.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+}
+
+// CreationDataResponseInput is an input type that accepts CreationDataResponseArgs and CreationDataResponseOutput values.
+// You can construct a concrete instance of `CreationDataResponseInput` via:
+//
+//          CreationDataResponseArgs{...}
+type CreationDataResponseInput interface {
+	pulumi.Input
+
+	ToCreationDataResponseOutput() CreationDataResponseOutput
+	ToCreationDataResponseOutputWithContext(context.Context) CreationDataResponseOutput
+}
+
+// Data used when creating a target resource from a source resource.
+type CreationDataResponseArgs struct {
+	// This is the ARM ID of the source object to be used to create the target object.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+}
+
+func (CreationDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreationDataResponse)(nil)).Elem()
+}
+
+func (i CreationDataResponseArgs) ToCreationDataResponseOutput() CreationDataResponseOutput {
+	return i.ToCreationDataResponseOutputWithContext(context.Background())
+}
+
+func (i CreationDataResponseArgs) ToCreationDataResponseOutputWithContext(ctx context.Context) CreationDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreationDataResponseOutput)
+}
+
+func (i CreationDataResponseArgs) ToCreationDataResponsePtrOutput() CreationDataResponsePtrOutput {
+	return i.ToCreationDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CreationDataResponseArgs) ToCreationDataResponsePtrOutputWithContext(ctx context.Context) CreationDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreationDataResponseOutput).ToCreationDataResponsePtrOutputWithContext(ctx)
+}
+
+// CreationDataResponsePtrInput is an input type that accepts CreationDataResponseArgs, CreationDataResponsePtr and CreationDataResponsePtrOutput values.
+// You can construct a concrete instance of `CreationDataResponsePtrInput` via:
+//
+//          CreationDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CreationDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToCreationDataResponsePtrOutput() CreationDataResponsePtrOutput
+	ToCreationDataResponsePtrOutputWithContext(context.Context) CreationDataResponsePtrOutput
+}
+
+type creationDataResponsePtrType CreationDataResponseArgs
+
+func CreationDataResponsePtr(v *CreationDataResponseArgs) CreationDataResponsePtrInput {
+	return (*creationDataResponsePtrType)(v)
+}
+
+func (*creationDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreationDataResponse)(nil)).Elem()
+}
+
+func (i *creationDataResponsePtrType) ToCreationDataResponsePtrOutput() CreationDataResponsePtrOutput {
+	return i.ToCreationDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *creationDataResponsePtrType) ToCreationDataResponsePtrOutputWithContext(ctx context.Context) CreationDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreationDataResponsePtrOutput)
+}
+
+// Data used when creating a target resource from a source resource.
+type CreationDataResponseOutput struct{ *pulumi.OutputState }
+
+func (CreationDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreationDataResponse)(nil)).Elem()
+}
+
+func (o CreationDataResponseOutput) ToCreationDataResponseOutput() CreationDataResponseOutput {
+	return o
+}
+
+func (o CreationDataResponseOutput) ToCreationDataResponseOutputWithContext(ctx context.Context) CreationDataResponseOutput {
+	return o
+}
+
+func (o CreationDataResponseOutput) ToCreationDataResponsePtrOutput() CreationDataResponsePtrOutput {
+	return o.ToCreationDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CreationDataResponseOutput) ToCreationDataResponsePtrOutputWithContext(ctx context.Context) CreationDataResponsePtrOutput {
+	return o.ApplyT(func(v CreationDataResponse) *CreationDataResponse {
+		return &v
+	}).(CreationDataResponsePtrOutput)
+}
+
+// This is the ARM ID of the source object to be used to create the target object.
+func (o CreationDataResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CreationDataResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+type CreationDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CreationDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreationDataResponse)(nil)).Elem()
+}
+
+func (o CreationDataResponsePtrOutput) ToCreationDataResponsePtrOutput() CreationDataResponsePtrOutput {
+	return o
+}
+
+func (o CreationDataResponsePtrOutput) ToCreationDataResponsePtrOutputWithContext(ctx context.Context) CreationDataResponsePtrOutput {
+	return o
+}
+
+func (o CreationDataResponsePtrOutput) Elem() CreationDataResponseOutput {
+	return o.ApplyT(func(v *CreationDataResponse) CreationDataResponse { return *v }).(CreationDataResponseOutput)
+}
+
+// This is the ARM ID of the source object to be used to create the target object.
+func (o CreationDataResponsePtrOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CreationDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 // The credential result response.
 type CredentialResultResponse struct {
 	// The name of the credential.
@@ -15794,7 +16062,7 @@ func (o SysctlConfigResponsePtrOutput) VmVfsCachePressure() pulumi.IntPtrOutput 
 
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
+	// The UTC timestamp of resource creation.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The identity that created the resource.
 	CreatedBy *string `pulumi:"createdBy"`
@@ -15821,7 +16089,7 @@ type SystemDataResponseInput interface {
 
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
+	// The UTC timestamp of resource creation.
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
 	// The identity that created the resource.
 	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
@@ -15913,7 +16181,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx c
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
+// The UTC timestamp of resource creation.
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
@@ -15961,7 +16229,7 @@ func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
 	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
+// The UTC timestamp of resource creation.
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -16623,6 +16891,10 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyArrayOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseArrayOutput{})
+	pulumi.RegisterOutputType(CreationDataOutput{})
+	pulumi.RegisterOutputType(CreationDataPtrOutput{})
+	pulumi.RegisterOutputType(CreationDataResponseOutput{})
+	pulumi.RegisterOutputType(CreationDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(CredentialResultResponseOutput{})
 	pulumi.RegisterOutputType(CredentialResultResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationOutput{})

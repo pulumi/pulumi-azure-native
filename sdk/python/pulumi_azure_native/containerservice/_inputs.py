@@ -15,6 +15,7 @@ __all__ = [
     'ContainerServiceNetworkProfileArgs',
     'ContainerServiceSshConfigurationArgs',
     'ContainerServiceSshPublicKeyArgs',
+    'CreationDataArgs',
     'ExtendedLocationArgs',
     'KubeletConfigArgs',
     'LinuxOSConfigArgs',
@@ -341,6 +342,30 @@ class ContainerServiceSshPublicKeyArgs:
     @key_data.setter
     def key_data(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_data", value)
+
+
+@pulumi.input_type
+class CreationDataArgs:
+    def __init__(__self__, *,
+                 source_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Data used when creating a target resource from a source resource.
+        :param pulumi.Input[str] source_resource_id: This is the ARM ID of the source object to be used to create the target object.
+        """
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is the ARM ID of the source object to be used to create the target object.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_resource_id", value)
 
 
 @pulumi.input_type

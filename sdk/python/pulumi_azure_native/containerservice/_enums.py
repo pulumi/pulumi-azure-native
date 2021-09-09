@@ -28,6 +28,7 @@ __all__ = [
     'ResourceIdentityType',
     'ScaleSetEvictionPolicy',
     'ScaleSetPriority',
+    'SnapshotType',
     'UpgradeChannel',
     'WeekDay',
 ]
@@ -249,6 +250,14 @@ class ScaleSetPriority(str, Enum):
     """
     SPOT = "Spot"
     REGULAR = "Regular"
+
+
+class SnapshotType(str, Enum):
+    """
+    The type of a snapshot. The default is NodePool.
+    """
+    NODE_POOL = "NodePool"
+    """The snapshot is a snapshot of a node pool."""
 
 
 class UpgradeChannel(str, Enum):

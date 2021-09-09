@@ -12,6 +12,7 @@ from .get_maintenance_configuration import *
 from .get_managed_cluster import *
 from .get_open_shift_managed_cluster import *
 from .get_private_endpoint_connection import *
+from .get_snapshot import *
 from .list_managed_cluster_access_profile import *
 from .list_managed_cluster_admin_credentials import *
 from .list_managed_cluster_monitoring_user_credentials import *
@@ -20,6 +21,7 @@ from .maintenance_configuration import *
 from .managed_cluster import *
 from .open_shift_managed_cluster import *
 from .private_endpoint_connection import *
+from .snapshot import *
 from ._inputs import *
 from . import outputs
 
@@ -55,6 +57,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.containerservice.v20210301 as v20210301
     import pulumi_azure_native.containerservice.v20210501 as v20210501
     import pulumi_azure_native.containerservice.v20210701 as v20210701
+    import pulumi_azure_native.containerservice.v20210801 as v20210801
 else:
     v20151101preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20151101preview')
     v20160330 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20160330')
@@ -86,4 +89,5 @@ else:
     v20210301 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20210301')
     v20210501 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20210501')
     v20210701 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20210701')
+    v20210801 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20210801')
 

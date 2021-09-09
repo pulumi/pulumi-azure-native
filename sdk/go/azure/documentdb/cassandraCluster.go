@@ -56,6 +56,12 @@ func NewCassandraCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210401preview:CassandraCluster"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210701preview:CassandraCluster"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210701preview:CassandraCluster"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CassandraCluster

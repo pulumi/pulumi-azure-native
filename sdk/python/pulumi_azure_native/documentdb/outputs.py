@@ -20,6 +20,8 @@ __all__ = [
     'CassandraSchemaResponse',
     'CassandraTableGetPropertiesResponseOptions',
     'CassandraTableGetPropertiesResponseResource',
+    'CassandraViewGetPropertiesResponseOptions',
+    'CassandraViewGetPropertiesResponseResource',
     'CertificateResponse',
     'ClusterKeyResponse',
     'ClusterResourceResponseProperties',
@@ -36,6 +38,8 @@ __all__ = [
     'DatabaseAccountConnectionStringResponse',
     'ExcludedPathResponse',
     'FailoverPolicyResponse',
+    'GraphResourceGetPropertiesResponseOptions',
+    'GraphResourceGetPropertiesResponseResource',
     'GremlinDatabaseGetPropertiesResponseOptions',
     'GremlinDatabaseGetPropertiesResponseResource',
     'GremlinGraphGetPropertiesResponseOptions',
@@ -513,6 +517,134 @@ class CassandraTableGetPropertiesResponseResource(dict):
         Schema of the Cosmos DB Cassandra table
         """
         return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class CassandraViewGetPropertiesResponseOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoscaleSettings":
+            suggest = "autoscale_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CassandraViewGetPropertiesResponseOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CassandraViewGetPropertiesResponseOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CassandraViewGetPropertiesResponseOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
+                 throughput: Optional[int] = None):
+        """
+        :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
+        :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional['outputs.AutoscaleSettingsResponse']:
+        """
+        Specifies the Autoscale settings.
+        """
+        return pulumi.get(self, "autoscale_settings")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        return pulumi.get(self, "throughput")
+
+
+@pulumi.output_type
+class CassandraViewGetPropertiesResponseResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "viewDefinition":
+            suggest = "view_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CassandraViewGetPropertiesResponseResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CassandraViewGetPropertiesResponseResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CassandraViewGetPropertiesResponseResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 rid: str,
+                 ts: float,
+                 view_definition: Optional[str] = None):
+        """
+        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
+        :param str id: Name of the Cosmos DB Cassandra view
+        :param str rid: A system generated property. A unique identifier.
+        :param float ts: A system generated property that denotes the last updated timestamp of the resource.
+        :param str view_definition: View Definition of the Cosmos DB Cassandra view
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
+        if view_definition is not None:
+            pulumi.set(__self__, "view_definition", view_definition)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Name of the Cosmos DB Cassandra view
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rid(self) -> str:
+        """
+        A system generated property. A unique identifier.
+        """
+        return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> float:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter(name="viewDefinition")
+    def view_definition(self) -> Optional[str]:
+        """
+        View Definition of the Cosmos DB Cassandra view
+        """
+        return pulumi.get(self, "view_definition")
 
 
 @pulumi.output_type
@@ -1561,6 +1693,105 @@ class FailoverPolicyResponse(dict):
         The name of the region in which the database account exists.
         """
         return pulumi.get(self, "location_name")
+
+
+@pulumi.output_type
+class GraphResourceGetPropertiesResponseOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoscaleSettings":
+            suggest = "autoscale_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphResourceGetPropertiesResponseOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphResourceGetPropertiesResponseOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphResourceGetPropertiesResponseOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
+                 throughput: Optional[int] = None):
+        """
+        :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
+        :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional['outputs.AutoscaleSettingsResponse']:
+        """
+        Specifies the Autoscale settings.
+        """
+        return pulumi.get(self, "autoscale_settings")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        return pulumi.get(self, "throughput")
+
+
+@pulumi.output_type
+class GraphResourceGetPropertiesResponseResource(dict):
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 rid: str,
+                 ts: float):
+        """
+        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
+        :param str id: Name of the Cosmos DB Graph
+        :param str rid: A system generated property. A unique identifier.
+        :param float ts: A system generated property that denotes the last updated timestamp of the resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Name of the Cosmos DB Graph
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rid(self) -> str:
+        """
+        A system generated property. A unique identifier.
+        """
+        return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> float:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
 
 
 @pulumi.output_type

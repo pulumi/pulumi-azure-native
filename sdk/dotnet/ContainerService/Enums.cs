@@ -755,6 +755,39 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// The type of a snapshot. The default is NodePool.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotType : IEquatable<SnapshotType>
+    {
+        private readonly string _value;
+
+        private SnapshotType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The snapshot is a snapshot of a node pool.
+        /// </summary>
+        public static SnapshotType NodePool { get; } = new SnapshotType("NodePool");
+
+        public static bool operator ==(SnapshotType left, SnapshotType right) => left.Equals(right);
+        public static bool operator !=(SnapshotType left, SnapshotType right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotType other && Equals(other);
+        public bool Equals(SnapshotType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// upgrade channel for auto upgrade.
     /// </summary>
     [EnumType]

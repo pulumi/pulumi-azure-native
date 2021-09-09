@@ -31,6 +31,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DedicatedHost{}
 	case "azure-native:compute/v20210401:DedicatedHostGroup":
 		r = &DedicatedHostGroup{}
+	case "azure-native:compute/v20210401:Disk":
+		r = &Disk{}
+	case "azure-native:compute/v20210401:DiskAccess":
+		r = &DiskAccess{}
+	case "azure-native:compute/v20210401:DiskAccessAPrivateEndpointConnection":
+		r = &DiskAccessAPrivateEndpointConnection{}
+	case "azure-native:compute/v20210401:DiskEncryptionSet":
+		r = &DiskEncryptionSet{}
 	case "azure-native:compute/v20210401:Image":
 		r = &Image{}
 	case "azure-native:compute/v20210401:ProximityPlacementGroup":
@@ -39,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RestorePoint{}
 	case "azure-native:compute/v20210401:RestorePointCollection":
 		r = &RestorePointCollection{}
+	case "azure-native:compute/v20210401:Snapshot":
+		r = &Snapshot{}
 	case "azure-native:compute/v20210401:SshPublicKey":
 		r = &SshPublicKey{}
 	case "azure-native:compute/v20210401:VirtualMachine":

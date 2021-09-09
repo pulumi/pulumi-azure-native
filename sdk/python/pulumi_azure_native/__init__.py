@@ -3199,10 +3199,15 @@ _utilities.register(
    "azure-native:compute/v20210401:CapacityReservationGroup": "CapacityReservationGroup",
    "azure-native:compute/v20210401:DedicatedHost": "DedicatedHost",
    "azure-native:compute/v20210401:DedicatedHostGroup": "DedicatedHostGroup",
+   "azure-native:compute/v20210401:Disk": "Disk",
+   "azure-native:compute/v20210401:DiskAccess": "DiskAccess",
+   "azure-native:compute/v20210401:DiskAccessAPrivateEndpointConnection": "DiskAccessAPrivateEndpointConnection",
+   "azure-native:compute/v20210401:DiskEncryptionSet": "DiskEncryptionSet",
    "azure-native:compute/v20210401:Image": "Image",
    "azure-native:compute/v20210401:ProximityPlacementGroup": "ProximityPlacementGroup",
    "azure-native:compute/v20210401:RestorePoint": "RestorePoint",
    "azure-native:compute/v20210401:RestorePointCollection": "RestorePointCollection",
+   "azure-native:compute/v20210401:Snapshot": "Snapshot",
    "azure-native:compute/v20210401:SshPublicKey": "SshPublicKey",
    "azure-native:compute/v20210401:VirtualMachine": "VirtualMachine",
    "azure-native:compute/v20210401:VirtualMachineExtension": "VirtualMachineExtension",
@@ -3688,7 +3693,8 @@ _utilities.register(
    "azure-native:containerservice:MaintenanceConfiguration": "MaintenanceConfiguration",
    "azure-native:containerservice:ManagedCluster": "ManagedCluster",
    "azure-native:containerservice:OpenShiftManagedCluster": "OpenShiftManagedCluster",
-   "azure-native:containerservice:PrivateEndpointConnection": "PrivateEndpointConnection"
+   "azure-native:containerservice:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice:Snapshot": "Snapshot"
   }
  },
  {
@@ -3962,6 +3968,18 @@ _utilities.register(
    "azure-native:containerservice/v20210701:MaintenanceConfiguration": "MaintenanceConfiguration",
    "azure-native:containerservice/v20210701:ManagedCluster": "ManagedCluster",
    "azure-native:containerservice/v20210701:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerservice/v20210801",
+  "fqn": "pulumi_azure_native.containerservice.v20210801",
+  "classes": {
+   "azure-native:containerservice/v20210801:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20210801:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20210801:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20210801:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20210801:Snapshot": "Snapshot"
   }
  },
  {
@@ -5989,7 +6007,9 @@ _utilities.register(
    "azure-native:documentdb:CassandraDataCenter": "CassandraDataCenter",
    "azure-native:documentdb:CassandraResourceCassandraKeyspace": "CassandraResourceCassandraKeyspace",
    "azure-native:documentdb:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
+   "azure-native:documentdb:CassandraResourceCassandraView": "CassandraResourceCassandraView",
    "azure-native:documentdb:DatabaseAccount": "DatabaseAccount",
+   "azure-native:documentdb:GraphResourceGraph": "GraphResourceGraph",
    "azure-native:documentdb:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
    "azure-native:documentdb:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
    "azure-native:documentdb:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
@@ -6395,6 +6415,35 @@ _utilities.register(
    "azure-native:documentdb/v20210615:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
    "azure-native:documentdb/v20210615:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
    "azure-native:documentdb/v20210615:TableResourceTable": "TableResourceTable"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "documentdb/v20210701preview",
+  "fqn": "pulumi_azure_native.documentdb.v20210701preview",
+  "classes": {
+   "azure-native:documentdb/v20210701preview:CassandraCluster": "CassandraCluster",
+   "azure-native:documentdb/v20210701preview:CassandraDataCenter": "CassandraDataCenter",
+   "azure-native:documentdb/v20210701preview:CassandraResourceCassandraKeyspace": "CassandraResourceCassandraKeyspace",
+   "azure-native:documentdb/v20210701preview:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
+   "azure-native:documentdb/v20210701preview:CassandraResourceCassandraView": "CassandraResourceCassandraView",
+   "azure-native:documentdb/v20210701preview:DatabaseAccount": "DatabaseAccount",
+   "azure-native:documentdb/v20210701preview:GraphResourceGraph": "GraphResourceGraph",
+   "azure-native:documentdb/v20210701preview:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
+   "azure-native:documentdb/v20210701preview:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
+   "azure-native:documentdb/v20210701preview:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
+   "azure-native:documentdb/v20210701preview:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
+   "azure-native:documentdb/v20210701preview:NotebookWorkspace": "NotebookWorkspace",
+   "azure-native:documentdb/v20210701preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:documentdb/v20210701preview:Service": "Service",
+   "azure-native:documentdb/v20210701preview:SqlResourceSqlContainer": "SqlResourceSqlContainer",
+   "azure-native:documentdb/v20210701preview:SqlResourceSqlDatabase": "SqlResourceSqlDatabase",
+   "azure-native:documentdb/v20210701preview:SqlResourceSqlRoleAssignment": "SqlResourceSqlRoleAssignment",
+   "azure-native:documentdb/v20210701preview:SqlResourceSqlRoleDefinition": "SqlResourceSqlRoleDefinition",
+   "azure-native:documentdb/v20210701preview:SqlResourceSqlStoredProcedure": "SqlResourceSqlStoredProcedure",
+   "azure-native:documentdb/v20210701preview:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
+   "azure-native:documentdb/v20210701preview:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
+   "azure-native:documentdb/v20210701preview:TableResourceTable": "TableResourceTable"
   }
  },
  {

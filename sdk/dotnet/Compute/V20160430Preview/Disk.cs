@@ -137,6 +137,8 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:Disk"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20201201:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:Disk"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20210401:Disk"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

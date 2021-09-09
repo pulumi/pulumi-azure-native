@@ -18,6 +18,7 @@ __all__ = [
     'ContainerServiceNetworkProfileResponse',
     'ContainerServiceSshConfigurationResponse',
     'ContainerServiceSshPublicKeyResponse',
+    'CreationDataResponse',
     'CredentialResultResponse',
     'ExtendedLocationResponse',
     'KubeletConfigResponse',
@@ -490,6 +491,46 @@ class ContainerServiceSshPublicKeyResponse(dict):
         Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
         """
         return pulumi.get(self, "key_data")
+
+
+@pulumi.output_type
+class CreationDataResponse(dict):
+    """
+    Data used when creating a target resource from a source resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceResourceId":
+            suggest = "source_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CreationDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CreationDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CreationDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_resource_id: Optional[str] = None):
+        """
+        Data used when creating a target resource from a source resource.
+        :param str source_resource_id: This is the ARM ID of the source object to be used to create the target object.
+        """
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[str]:
+        """
+        This is the ARM ID of the source object to be used to create the target object.
+        """
+        return pulumi.get(self, "source_resource_id")
 
 
 @pulumi.output_type
@@ -4005,7 +4046,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
-        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_at: The UTC timestamp of resource creation.
         :param str created_by: The identity that created the resource.
         :param str created_by_type: The type of identity that created the resource.
         :param str last_modified_at: The type of identity that last modified the resource.
@@ -4029,7 +4070,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
         """
-        The timestamp of resource creation (UTC).
+        The UTC timestamp of resource creation.
         """
         return pulumi.get(self, "created_at")
 

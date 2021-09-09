@@ -85,6 +85,12 @@ func NewDiskEncryptionSet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:DiskEncryptionSet"),
 		},
+		{
+			Type: pulumi.String("azure-native:compute/v20210401:DiskEncryptionSet"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20210401:DiskEncryptionSet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DiskEncryptionSet

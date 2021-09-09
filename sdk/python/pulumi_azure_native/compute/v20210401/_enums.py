@@ -11,29 +11,40 @@ __all__ = [
     'DeleteOptions',
     'DiffDiskOptions',
     'DiffDiskPlacement',
+    'DiskCreateOption',
     'DiskCreateOptionTypes',
     'DiskDeleteOptionTypes',
     'DiskDetachOptionTypes',
+    'DiskEncryptionSetIdentityType',
+    'DiskEncryptionSetType',
+    'DiskSecurityTypes',
+    'DiskStorageAccountTypes',
+    'EncryptionType',
     'ExtendedLocationTypes',
+    'HyperVGeneration',
     'HyperVGenerationTypes',
     'IPVersion',
     'IPVersions',
     'IntervalInMins',
     'LinuxPatchAssessmentMode',
     'LinuxVMGuestPatchMode',
+    'NetworkAccessPolicy',
     'NetworkApiVersion',
     'OperatingSystemStateTypes',
     'OperatingSystemTypes',
     'OrchestrationMode',
     'PassNames',
+    'PrivateEndpointServiceConnectionStatus',
     'ProtocolTypes',
     'ProximityPlacementGroupType',
     'PublicIPAddressSkuName',
     'PublicIPAddressSkuTier',
     'PublicIPAllocationMethod',
+    'PublicNetworkAccess',
     'ResourceIdentityType',
     'SecurityTypes',
     'SettingNames',
+    'SnapshotStorageAccountTypes',
     'StatusLevelTypes',
     'StorageAccountTypes',
     'UpgradeMode',
@@ -94,6 +105,28 @@ class DiffDiskPlacement(str, Enum):
     RESOURCE_DISK = "ResourceDisk"
 
 
+class DiskCreateOption(str, Enum):
+    """
+    This enumerates the possible sources of a disk's creation.
+    """
+    EMPTY = "Empty"
+    """Create an empty data disk of a size given by diskSizeGB."""
+    ATTACH = "Attach"
+    """Disk will be attached to a VM."""
+    FROM_IMAGE = "FromImage"
+    """Create a new disk from a platform image specified by the given imageReference or galleryImageReference."""
+    IMPORT_ = "Import"
+    """Create a disk by importing from a blob specified by a sourceUri in a storage account specified by storageAccountId."""
+    COPY = "Copy"
+    """Create a new disk or snapshot by copying from a disk or snapshot specified by the given sourceResourceId."""
+    RESTORE = "Restore"
+    """Create a new disk by copying from a backup recovery point."""
+    UPLOAD = "Upload"
+    """Create a new disk by obtaining a write token and using it to directly upload the contents of the disk."""
+    COPY_START = "CopyStart"
+    """Create a new disk by using a deep copy process, where the resource creation is considered complete only after all data has been copied from the source."""
+
+
 class DiskCreateOptionTypes(str, Enum):
     """
     Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
@@ -118,11 +151,75 @@ class DiskDetachOptionTypes(str, Enum):
     FORCE_DETACH = "ForceDetach"
 
 
+class DiskEncryptionSetIdentityType(str, Enum):
+    """
+    The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    NONE = "None"
+
+
+class DiskEncryptionSetType(str, Enum):
+    """
+    The type of key used to encrypt the data of the disk.
+    """
+    ENCRYPTION_AT_REST_WITH_CUSTOMER_KEY = "EncryptionAtRestWithCustomerKey"
+    """Resource using diskEncryptionSet would be encrypted at rest with Customer managed key that can be changed and revoked by a customer."""
+    ENCRYPTION_AT_REST_WITH_PLATFORM_AND_CUSTOMER_KEYS = "EncryptionAtRestWithPlatformAndCustomerKeys"
+    """Resource using diskEncryptionSet would be encrypted at rest with two layers of encryption. One of the keys is Customer managed and the other key is Platform managed."""
+
+
+class DiskSecurityTypes(str, Enum):
+    """
+    Specifies the SecurityType of the VM. Applicable for OS disks only.
+    """
+    TRUSTED_LAUNCH = "TrustedLaunch"
+    """Trusted Launch provides security features such as secure boot and virtual Trusted Platform Module (vTPM)"""
+
+
+class DiskStorageAccountTypes(str, Enum):
+    """
+    The sku name.
+    """
+    STANDARD_LRS = "Standard_LRS"
+    """Standard HDD locally redundant storage. Best for backup, non-critical, and infrequent access."""
+    PREMIUM_LRS = "Premium_LRS"
+    """Premium SSD locally redundant storage. Best for production and performance sensitive workloads."""
+    STANDARD_SS_D_LRS = "StandardSSD_LRS"
+    """Standard SSD locally redundant storage. Best for web servers, lightly used enterprise applications and dev/test."""
+    ULTRA_SS_D_LRS = "UltraSSD_LRS"
+    """Ultra SSD locally redundant storage. Best for IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads."""
+    PREMIUM_ZRS = "Premium_ZRS"
+    """Premium SSD zone redundant storage. Best for the production workloads that need storage resiliency against zone failures."""
+    STANDARD_SS_D_ZRS = "StandardSSD_ZRS"
+    """Standard SSD zone redundant storage. Best for web servers, lightly used enterprise applications and dev/test that need storage resiliency against zone failures."""
+
+
+class EncryptionType(str, Enum):
+    """
+    The type of key used to encrypt the data of the disk.
+    """
+    ENCRYPTION_AT_REST_WITH_PLATFORM_KEY = "EncryptionAtRestWithPlatformKey"
+    """Disk is encrypted at rest with Platform managed key. It is the default encryption type. This is not a valid encryption type for disk encryption sets."""
+    ENCRYPTION_AT_REST_WITH_CUSTOMER_KEY = "EncryptionAtRestWithCustomerKey"
+    """Disk is encrypted at rest with Customer managed key that can be changed and revoked by a customer."""
+    ENCRYPTION_AT_REST_WITH_PLATFORM_AND_CUSTOMER_KEYS = "EncryptionAtRestWithPlatformAndCustomerKeys"
+    """Disk is encrypted at rest with 2 layers of encryption. One of the keys is Customer managed and the other key is Platform managed."""
+
+
 class ExtendedLocationTypes(str, Enum):
     """
     The type of the extended location.
     """
     EDGE_ZONE = "EdgeZone"
+
+
+class HyperVGeneration(str, Enum):
+    """
+    The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+    """
+    V1 = "V1"
+    V2 = "V2"
 
 
 class HyperVGenerationTypes(str, Enum):
@@ -175,6 +272,18 @@ class LinuxVMGuestPatchMode(str, Enum):
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
 
 
+class NetworkAccessPolicy(str, Enum):
+    """
+    Policy for accessing the disk via network.
+    """
+    ALLOW_ALL = "AllowAll"
+    """The disk can be exported or uploaded to from any network."""
+    ALLOW_PRIVATE = "AllowPrivate"
+    """The disk can be exported or uploaded to using a DiskAccess resource's private endpoints."""
+    DENY_ALL = "DenyAll"
+    """The disk cannot be exported."""
+
+
 class NetworkApiVersion(str, Enum):
     """
     specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
@@ -213,6 +322,15 @@ class PassNames(str, Enum):
     The pass name. Currently, the only allowable value is OobeSystem.
     """
     OOBE_SYSTEM = "OobeSystem"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 class ProtocolTypes(str, Enum):
@@ -255,6 +373,16 @@ class PublicIPAllocationMethod(str, Enum):
     STATIC = "Static"
 
 
+class PublicNetworkAccess(str, Enum):
+    """
+    Policy for controlling export on the disk.
+    """
+    ENABLED = "Enabled"
+    """You can generate a SAS URI to access the underlying data of the disk publicly on the internet when NetworkAccessPolicy is set to AllowAll. You can access the data via the SAS URI only from your trusted Azure VNET when NetworkAccessPolicy is set to AllowPrivate."""
+    DISABLED = "Disabled"
+    """You cannot access the underlying data of the disk publicly on the internet even when NetworkAccessPolicy is set to AllowAll. You can access the data via the SAS URI only from your trusted Azure VNET when NetworkAccessPolicy is set to AllowPrivate."""
+
+
 class ResourceIdentityType(str, Enum):
     """
     The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
@@ -278,6 +406,18 @@ class SettingNames(str, Enum):
     """
     AUTO_LOGON = "AutoLogon"
     FIRST_LOGON_COMMANDS = "FirstLogonCommands"
+
+
+class SnapshotStorageAccountTypes(str, Enum):
+    """
+    The sku name.
+    """
+    STANDARD_LRS = "Standard_LRS"
+    """Standard HDD locally redundant storage"""
+    PREMIUM_LRS = "Premium_LRS"
+    """Premium SSD locally redundant storage"""
+    STANDARD_ZRS = "Standard_ZRS"
+    """Standard zone redundant storage"""
 
 
 class StatusLevelTypes(str, Enum):

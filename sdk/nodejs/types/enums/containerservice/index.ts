@@ -32,6 +32,7 @@ import * as v20210201 from "./v20210201";
 import * as v20210301 from "./v20210301";
 import * as v20210501 from "./v20210501";
 import * as v20210701 from "./v20210701";
+import * as v20210801 from "./v20210801";
 
 export {
     v20151101preview,
@@ -64,6 +65,7 @@ export {
     v20210301,
     v20210501,
     v20210701,
+    v20210801,
 };
 
 export const AgentPoolMode = {
@@ -329,6 +331,18 @@ export const ScaleSetPriority = {
  * ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
  */
 export type ScaleSetPriority = (typeof ScaleSetPriority)[keyof typeof ScaleSetPriority];
+
+export const SnapshotType = {
+    /**
+     * The snapshot is a snapshot of a node pool.
+     */
+    NodePool: "NodePool",
+} as const;
+
+/**
+ * The type of a snapshot. The default is NodePool.
+ */
+export type SnapshotType = (typeof SnapshotType)[keyof typeof SnapshotType];
 
 export const UpgradeChannel = {
     Rapid: "rapid",

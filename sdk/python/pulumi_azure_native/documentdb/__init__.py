@@ -10,12 +10,15 @@ from .cassandra_cluster import *
 from .cassandra_data_center import *
 from .cassandra_resource_cassandra_keyspace import *
 from .cassandra_resource_cassandra_table import *
+from .cassandra_resource_cassandra_view import *
 from .database_account import *
 from .get_cassandra_cluster import *
 from .get_cassandra_data_center import *
 from .get_cassandra_resource_cassandra_keyspace import *
 from .get_cassandra_resource_cassandra_table import *
+from .get_cassandra_resource_cassandra_view import *
 from .get_database_account import *
+from .get_graph_resource_graph import *
 from .get_gremlin_resource_gremlin_database import *
 from .get_gremlin_resource_gremlin_graph import *
 from .get_mongo_db_resource_mongo_db_collection import *
@@ -31,6 +34,7 @@ from .get_sql_resource_sql_stored_procedure import *
 from .get_sql_resource_sql_trigger import *
 from .get_sql_resource_sql_user_defined_function import *
 from .get_table_resource_table import *
+from .graph_resource_graph import *
 from .gremlin_resource_gremlin_database import *
 from .gremlin_resource_gremlin_graph import *
 from .list_database_account_connection_strings import *
@@ -73,6 +77,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.documentdb.v20210415 as v20210415
     import pulumi_azure_native.documentdb.v20210515 as v20210515
     import pulumi_azure_native.documentdb.v20210615 as v20210615
+    import pulumi_azure_native.documentdb.v20210701preview as v20210701preview
 else:
     v20150401 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20150401')
     v20150408 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20150408')
@@ -93,4 +98,5 @@ else:
     v20210415 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20210415')
     v20210515 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20210515')
     v20210615 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20210615')
+    v20210701preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20210701preview')
 

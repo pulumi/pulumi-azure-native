@@ -29,8 +29,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CassandraResourceCassandraKeyspace{}
 	case "azure-native:documentdb:CassandraResourceCassandraTable":
 		r = &CassandraResourceCassandraTable{}
+	case "azure-native:documentdb:CassandraResourceCassandraView":
+		r = &CassandraResourceCassandraView{}
 	case "azure-native:documentdb:DatabaseAccount":
 		r = &DatabaseAccount{}
+	case "azure-native:documentdb:GraphResourceGraph":
+		r = &GraphResourceGraph{}
 	case "azure-native:documentdb:GremlinResourceGremlinDatabase":
 		r = &GremlinResourceGremlinDatabase{}
 	case "azure-native:documentdb:GremlinResourceGremlinGraph":

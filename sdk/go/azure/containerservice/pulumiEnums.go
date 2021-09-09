@@ -690,6 +690,34 @@ func (e ScaleSetPriority) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The type of a snapshot. The default is NodePool.
+type SnapshotType pulumi.String
+
+const (
+	// The snapshot is a snapshot of a node pool.
+	SnapshotTypeNodePool = SnapshotType("NodePool")
+)
+
+func (SnapshotType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SnapshotType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SnapshotType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SnapshotType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SnapshotType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // upgrade channel for auto upgrade.
 type UpgradeChannel pulumi.String
 

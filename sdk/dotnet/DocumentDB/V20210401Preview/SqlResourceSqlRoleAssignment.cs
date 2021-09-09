@@ -83,6 +83,8 @@ namespace Pulumi.AzureNative.DocumentDB.V20210401Preview
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210515:SqlResourceSqlRoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:SqlResourceSqlRoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210615:SqlResourceSqlRoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:SqlResourceSqlRoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210701preview:SqlResourceSqlRoleAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -2348,6 +2348,522 @@ func (o CassandraTableResourcePtrOutput) Schema() CassandraSchemaPtrOutput {
 	}).(CassandraSchemaPtrOutput)
 }
 
+type CassandraViewGetPropertiesResponseOptions struct {
+	// Specifies the Autoscale settings.
+	AutoscaleSettings *AutoscaleSettingsResponse `pulumi:"autoscaleSettings"`
+	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput *int `pulumi:"throughput"`
+}
+
+// CassandraViewGetPropertiesResponseOptionsInput is an input type that accepts CassandraViewGetPropertiesResponseOptionsArgs and CassandraViewGetPropertiesResponseOptionsOutput values.
+// You can construct a concrete instance of `CassandraViewGetPropertiesResponseOptionsInput` via:
+//
+//          CassandraViewGetPropertiesResponseOptionsArgs{...}
+type CassandraViewGetPropertiesResponseOptionsInput interface {
+	pulumi.Input
+
+	ToCassandraViewGetPropertiesResponseOptionsOutput() CassandraViewGetPropertiesResponseOptionsOutput
+	ToCassandraViewGetPropertiesResponseOptionsOutputWithContext(context.Context) CassandraViewGetPropertiesResponseOptionsOutput
+}
+
+type CassandraViewGetPropertiesResponseOptionsArgs struct {
+	// Specifies the Autoscale settings.
+	AutoscaleSettings AutoscaleSettingsResponsePtrInput `pulumi:"autoscaleSettings"`
+	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+}
+
+func (CassandraViewGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraViewGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i CassandraViewGetPropertiesResponseOptionsArgs) ToCassandraViewGetPropertiesResponseOptionsOutput() CassandraViewGetPropertiesResponseOptionsOutput {
+	return i.ToCassandraViewGetPropertiesResponseOptionsOutputWithContext(context.Background())
+}
+
+func (i CassandraViewGetPropertiesResponseOptionsArgs) ToCassandraViewGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) CassandraViewGetPropertiesResponseOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraViewGetPropertiesResponseOptionsOutput)
+}
+
+func (i CassandraViewGetPropertiesResponseOptionsArgs) ToCassandraViewGetPropertiesResponseOptionsPtrOutput() CassandraViewGetPropertiesResponseOptionsPtrOutput {
+	return i.ToCassandraViewGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i CassandraViewGetPropertiesResponseOptionsArgs) ToCassandraViewGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) CassandraViewGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraViewGetPropertiesResponseOptionsOutput).ToCassandraViewGetPropertiesResponseOptionsPtrOutputWithContext(ctx)
+}
+
+// CassandraViewGetPropertiesResponseOptionsPtrInput is an input type that accepts CassandraViewGetPropertiesResponseOptionsArgs, CassandraViewGetPropertiesResponseOptionsPtr and CassandraViewGetPropertiesResponseOptionsPtrOutput values.
+// You can construct a concrete instance of `CassandraViewGetPropertiesResponseOptionsPtrInput` via:
+//
+//          CassandraViewGetPropertiesResponseOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type CassandraViewGetPropertiesResponseOptionsPtrInput interface {
+	pulumi.Input
+
+	ToCassandraViewGetPropertiesResponseOptionsPtrOutput() CassandraViewGetPropertiesResponseOptionsPtrOutput
+	ToCassandraViewGetPropertiesResponseOptionsPtrOutputWithContext(context.Context) CassandraViewGetPropertiesResponseOptionsPtrOutput
+}
+
+type cassandraViewGetPropertiesResponseOptionsPtrType CassandraViewGetPropertiesResponseOptionsArgs
+
+func CassandraViewGetPropertiesResponseOptionsPtr(v *CassandraViewGetPropertiesResponseOptionsArgs) CassandraViewGetPropertiesResponseOptionsPtrInput {
+	return (*cassandraViewGetPropertiesResponseOptionsPtrType)(v)
+}
+
+func (*cassandraViewGetPropertiesResponseOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraViewGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i *cassandraViewGetPropertiesResponseOptionsPtrType) ToCassandraViewGetPropertiesResponseOptionsPtrOutput() CassandraViewGetPropertiesResponseOptionsPtrOutput {
+	return i.ToCassandraViewGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *cassandraViewGetPropertiesResponseOptionsPtrType) ToCassandraViewGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) CassandraViewGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraViewGetPropertiesResponseOptionsPtrOutput)
+}
+
+type CassandraViewGetPropertiesResponseOptionsOutput struct{ *pulumi.OutputState }
+
+func (CassandraViewGetPropertiesResponseOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraViewGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o CassandraViewGetPropertiesResponseOptionsOutput) ToCassandraViewGetPropertiesResponseOptionsOutput() CassandraViewGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o CassandraViewGetPropertiesResponseOptionsOutput) ToCassandraViewGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) CassandraViewGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o CassandraViewGetPropertiesResponseOptionsOutput) ToCassandraViewGetPropertiesResponseOptionsPtrOutput() CassandraViewGetPropertiesResponseOptionsPtrOutput {
+	return o.ToCassandraViewGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o CassandraViewGetPropertiesResponseOptionsOutput) ToCassandraViewGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) CassandraViewGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v CassandraViewGetPropertiesResponseOptions) *CassandraViewGetPropertiesResponseOptions {
+		return &v
+	}).(CassandraViewGetPropertiesResponseOptionsPtrOutput)
+}
+
+// Specifies the Autoscale settings.
+func (o CassandraViewGetPropertiesResponseOptionsOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
+	return o.ApplyT(func(v CassandraViewGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
+		return v.AutoscaleSettings
+	}).(AutoscaleSettingsResponsePtrOutput)
+}
+
+// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+func (o CassandraViewGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CassandraViewGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+type CassandraViewGetPropertiesResponseOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (CassandraViewGetPropertiesResponseOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraViewGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o CassandraViewGetPropertiesResponseOptionsPtrOutput) ToCassandraViewGetPropertiesResponseOptionsPtrOutput() CassandraViewGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o CassandraViewGetPropertiesResponseOptionsPtrOutput) ToCassandraViewGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) CassandraViewGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o CassandraViewGetPropertiesResponseOptionsPtrOutput) Elem() CassandraViewGetPropertiesResponseOptionsOutput {
+	return o.ApplyT(func(v *CassandraViewGetPropertiesResponseOptions) CassandraViewGetPropertiesResponseOptions {
+		return *v
+	}).(CassandraViewGetPropertiesResponseOptionsOutput)
+}
+
+// Specifies the Autoscale settings.
+func (o CassandraViewGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *CassandraViewGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AutoscaleSettings
+	}).(AutoscaleSettingsResponsePtrOutput)
+}
+
+// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+func (o CassandraViewGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CassandraViewGetPropertiesResponseOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type CassandraViewGetPropertiesResponseResource struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag string `pulumi:"etag"`
+	// Name of the Cosmos DB Cassandra view
+	Id string `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid string `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts float64 `pulumi:"ts"`
+	// View Definition of the Cosmos DB Cassandra view
+	ViewDefinition *string `pulumi:"viewDefinition"`
+}
+
+// CassandraViewGetPropertiesResponseResourceInput is an input type that accepts CassandraViewGetPropertiesResponseResourceArgs and CassandraViewGetPropertiesResponseResourceOutput values.
+// You can construct a concrete instance of `CassandraViewGetPropertiesResponseResourceInput` via:
+//
+//          CassandraViewGetPropertiesResponseResourceArgs{...}
+type CassandraViewGetPropertiesResponseResourceInput interface {
+	pulumi.Input
+
+	ToCassandraViewGetPropertiesResponseResourceOutput() CassandraViewGetPropertiesResponseResourceOutput
+	ToCassandraViewGetPropertiesResponseResourceOutputWithContext(context.Context) CassandraViewGetPropertiesResponseResourceOutput
+}
+
+type CassandraViewGetPropertiesResponseResourceArgs struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// Name of the Cosmos DB Cassandra view
+	Id pulumi.StringInput `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid pulumi.StringInput `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts pulumi.Float64Input `pulumi:"ts"`
+	// View Definition of the Cosmos DB Cassandra view
+	ViewDefinition pulumi.StringPtrInput `pulumi:"viewDefinition"`
+}
+
+func (CassandraViewGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraViewGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i CassandraViewGetPropertiesResponseResourceArgs) ToCassandraViewGetPropertiesResponseResourceOutput() CassandraViewGetPropertiesResponseResourceOutput {
+	return i.ToCassandraViewGetPropertiesResponseResourceOutputWithContext(context.Background())
+}
+
+func (i CassandraViewGetPropertiesResponseResourceArgs) ToCassandraViewGetPropertiesResponseResourceOutputWithContext(ctx context.Context) CassandraViewGetPropertiesResponseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraViewGetPropertiesResponseResourceOutput)
+}
+
+func (i CassandraViewGetPropertiesResponseResourceArgs) ToCassandraViewGetPropertiesResponseResourcePtrOutput() CassandraViewGetPropertiesResponseResourcePtrOutput {
+	return i.ToCassandraViewGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i CassandraViewGetPropertiesResponseResourceArgs) ToCassandraViewGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) CassandraViewGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraViewGetPropertiesResponseResourceOutput).ToCassandraViewGetPropertiesResponseResourcePtrOutputWithContext(ctx)
+}
+
+// CassandraViewGetPropertiesResponseResourcePtrInput is an input type that accepts CassandraViewGetPropertiesResponseResourceArgs, CassandraViewGetPropertiesResponseResourcePtr and CassandraViewGetPropertiesResponseResourcePtrOutput values.
+// You can construct a concrete instance of `CassandraViewGetPropertiesResponseResourcePtrInput` via:
+//
+//          CassandraViewGetPropertiesResponseResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type CassandraViewGetPropertiesResponseResourcePtrInput interface {
+	pulumi.Input
+
+	ToCassandraViewGetPropertiesResponseResourcePtrOutput() CassandraViewGetPropertiesResponseResourcePtrOutput
+	ToCassandraViewGetPropertiesResponseResourcePtrOutputWithContext(context.Context) CassandraViewGetPropertiesResponseResourcePtrOutput
+}
+
+type cassandraViewGetPropertiesResponseResourcePtrType CassandraViewGetPropertiesResponseResourceArgs
+
+func CassandraViewGetPropertiesResponseResourcePtr(v *CassandraViewGetPropertiesResponseResourceArgs) CassandraViewGetPropertiesResponseResourcePtrInput {
+	return (*cassandraViewGetPropertiesResponseResourcePtrType)(v)
+}
+
+func (*cassandraViewGetPropertiesResponseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraViewGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i *cassandraViewGetPropertiesResponseResourcePtrType) ToCassandraViewGetPropertiesResponseResourcePtrOutput() CassandraViewGetPropertiesResponseResourcePtrOutput {
+	return i.ToCassandraViewGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *cassandraViewGetPropertiesResponseResourcePtrType) ToCassandraViewGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) CassandraViewGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraViewGetPropertiesResponseResourcePtrOutput)
+}
+
+type CassandraViewGetPropertiesResponseResourceOutput struct{ *pulumi.OutputState }
+
+func (CassandraViewGetPropertiesResponseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraViewGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o CassandraViewGetPropertiesResponseResourceOutput) ToCassandraViewGetPropertiesResponseResourceOutput() CassandraViewGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o CassandraViewGetPropertiesResponseResourceOutput) ToCassandraViewGetPropertiesResponseResourceOutputWithContext(ctx context.Context) CassandraViewGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o CassandraViewGetPropertiesResponseResourceOutput) ToCassandraViewGetPropertiesResponseResourcePtrOutput() CassandraViewGetPropertiesResponseResourcePtrOutput {
+	return o.ToCassandraViewGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (o CassandraViewGetPropertiesResponseResourceOutput) ToCassandraViewGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) CassandraViewGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v CassandraViewGetPropertiesResponseResource) *CassandraViewGetPropertiesResponseResource {
+		return &v
+	}).(CassandraViewGetPropertiesResponseResourcePtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o CassandraViewGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraViewGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Name of the Cosmos DB Cassandra view
+func (o CassandraViewGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraViewGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o CassandraViewGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraViewGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o CassandraViewGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
+	return o.ApplyT(func(v CassandraViewGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
+}
+
+// View Definition of the Cosmos DB Cassandra view
+func (o CassandraViewGetPropertiesResponseResourceOutput) ViewDefinition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CassandraViewGetPropertiesResponseResource) *string { return v.ViewDefinition }).(pulumi.StringPtrOutput)
+}
+
+type CassandraViewGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (CassandraViewGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraViewGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o CassandraViewGetPropertiesResponseResourcePtrOutput) ToCassandraViewGetPropertiesResponseResourcePtrOutput() CassandraViewGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o CassandraViewGetPropertiesResponseResourcePtrOutput) ToCassandraViewGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) CassandraViewGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o CassandraViewGetPropertiesResponseResourcePtrOutput) Elem() CassandraViewGetPropertiesResponseResourceOutput {
+	return o.ApplyT(func(v *CassandraViewGetPropertiesResponseResource) CassandraViewGetPropertiesResponseResource {
+		return *v
+	}).(CassandraViewGetPropertiesResponseResourceOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o CassandraViewGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraViewGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the Cosmos DB Cassandra view
+func (o CassandraViewGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraViewGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o CassandraViewGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraViewGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o CassandraViewGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CassandraViewGetPropertiesResponseResource) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Ts
+	}).(pulumi.Float64PtrOutput)
+}
+
+// View Definition of the Cosmos DB Cassandra view
+func (o CassandraViewGetPropertiesResponseResourcePtrOutput) ViewDefinition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraViewGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ViewDefinition
+	}).(pulumi.StringPtrOutput)
+}
+
+// Cosmos DB Cassandra view resource object
+type CassandraViewResource struct {
+	// Name of the Cosmos DB Cassandra view
+	Id string `pulumi:"id"`
+	// View Definition of the Cosmos DB Cassandra view
+	ViewDefinition *string `pulumi:"viewDefinition"`
+}
+
+// CassandraViewResourceInput is an input type that accepts CassandraViewResourceArgs and CassandraViewResourceOutput values.
+// You can construct a concrete instance of `CassandraViewResourceInput` via:
+//
+//          CassandraViewResourceArgs{...}
+type CassandraViewResourceInput interface {
+	pulumi.Input
+
+	ToCassandraViewResourceOutput() CassandraViewResourceOutput
+	ToCassandraViewResourceOutputWithContext(context.Context) CassandraViewResourceOutput
+}
+
+// Cosmos DB Cassandra view resource object
+type CassandraViewResourceArgs struct {
+	// Name of the Cosmos DB Cassandra view
+	Id pulumi.StringInput `pulumi:"id"`
+	// View Definition of the Cosmos DB Cassandra view
+	ViewDefinition pulumi.StringPtrInput `pulumi:"viewDefinition"`
+}
+
+func (CassandraViewResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraViewResource)(nil)).Elem()
+}
+
+func (i CassandraViewResourceArgs) ToCassandraViewResourceOutput() CassandraViewResourceOutput {
+	return i.ToCassandraViewResourceOutputWithContext(context.Background())
+}
+
+func (i CassandraViewResourceArgs) ToCassandraViewResourceOutputWithContext(ctx context.Context) CassandraViewResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraViewResourceOutput)
+}
+
+func (i CassandraViewResourceArgs) ToCassandraViewResourcePtrOutput() CassandraViewResourcePtrOutput {
+	return i.ToCassandraViewResourcePtrOutputWithContext(context.Background())
+}
+
+func (i CassandraViewResourceArgs) ToCassandraViewResourcePtrOutputWithContext(ctx context.Context) CassandraViewResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraViewResourceOutput).ToCassandraViewResourcePtrOutputWithContext(ctx)
+}
+
+// CassandraViewResourcePtrInput is an input type that accepts CassandraViewResourceArgs, CassandraViewResourcePtr and CassandraViewResourcePtrOutput values.
+// You can construct a concrete instance of `CassandraViewResourcePtrInput` via:
+//
+//          CassandraViewResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type CassandraViewResourcePtrInput interface {
+	pulumi.Input
+
+	ToCassandraViewResourcePtrOutput() CassandraViewResourcePtrOutput
+	ToCassandraViewResourcePtrOutputWithContext(context.Context) CassandraViewResourcePtrOutput
+}
+
+type cassandraViewResourcePtrType CassandraViewResourceArgs
+
+func CassandraViewResourcePtr(v *CassandraViewResourceArgs) CassandraViewResourcePtrInput {
+	return (*cassandraViewResourcePtrType)(v)
+}
+
+func (*cassandraViewResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraViewResource)(nil)).Elem()
+}
+
+func (i *cassandraViewResourcePtrType) ToCassandraViewResourcePtrOutput() CassandraViewResourcePtrOutput {
+	return i.ToCassandraViewResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *cassandraViewResourcePtrType) ToCassandraViewResourcePtrOutputWithContext(ctx context.Context) CassandraViewResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraViewResourcePtrOutput)
+}
+
+// Cosmos DB Cassandra view resource object
+type CassandraViewResourceOutput struct{ *pulumi.OutputState }
+
+func (CassandraViewResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraViewResource)(nil)).Elem()
+}
+
+func (o CassandraViewResourceOutput) ToCassandraViewResourceOutput() CassandraViewResourceOutput {
+	return o
+}
+
+func (o CassandraViewResourceOutput) ToCassandraViewResourceOutputWithContext(ctx context.Context) CassandraViewResourceOutput {
+	return o
+}
+
+func (o CassandraViewResourceOutput) ToCassandraViewResourcePtrOutput() CassandraViewResourcePtrOutput {
+	return o.ToCassandraViewResourcePtrOutputWithContext(context.Background())
+}
+
+func (o CassandraViewResourceOutput) ToCassandraViewResourcePtrOutputWithContext(ctx context.Context) CassandraViewResourcePtrOutput {
+	return o.ApplyT(func(v CassandraViewResource) *CassandraViewResource {
+		return &v
+	}).(CassandraViewResourcePtrOutput)
+}
+
+// Name of the Cosmos DB Cassandra view
+func (o CassandraViewResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraViewResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// View Definition of the Cosmos DB Cassandra view
+func (o CassandraViewResourceOutput) ViewDefinition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CassandraViewResource) *string { return v.ViewDefinition }).(pulumi.StringPtrOutput)
+}
+
+type CassandraViewResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (CassandraViewResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraViewResource)(nil)).Elem()
+}
+
+func (o CassandraViewResourcePtrOutput) ToCassandraViewResourcePtrOutput() CassandraViewResourcePtrOutput {
+	return o
+}
+
+func (o CassandraViewResourcePtrOutput) ToCassandraViewResourcePtrOutputWithContext(ctx context.Context) CassandraViewResourcePtrOutput {
+	return o
+}
+
+func (o CassandraViewResourcePtrOutput) Elem() CassandraViewResourceOutput {
+	return o.ApplyT(func(v *CassandraViewResource) CassandraViewResource { return *v }).(CassandraViewResourceOutput)
+}
+
+// Name of the Cosmos DB Cassandra view
+func (o CassandraViewResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraViewResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// View Definition of the Cosmos DB Cassandra view
+func (o CassandraViewResourcePtrOutput) ViewDefinition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraViewResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ViewDefinition
+	}).(pulumi.StringPtrOutput)
+}
+
 type Certificate struct {
 	// PEM formatted public key.
 	Pem *string `pulumi:"pem"`
@@ -6663,6 +7179,484 @@ func (o FailoverPolicyResponseArrayOutput) Index(i pulumi.IntInput) FailoverPoli
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FailoverPolicyResponse {
 		return vs[0].([]FailoverPolicyResponse)[vs[1].(int)]
 	}).(FailoverPolicyResponseOutput)
+}
+
+// Cosmos DB Graph resource object
+type GraphResource struct {
+	// Name of the Cosmos DB Graph
+	Id string `pulumi:"id"`
+}
+
+// GraphResourceInput is an input type that accepts GraphResourceArgs and GraphResourceOutput values.
+// You can construct a concrete instance of `GraphResourceInput` via:
+//
+//          GraphResourceArgs{...}
+type GraphResourceInput interface {
+	pulumi.Input
+
+	ToGraphResourceOutput() GraphResourceOutput
+	ToGraphResourceOutputWithContext(context.Context) GraphResourceOutput
+}
+
+// Cosmos DB Graph resource object
+type GraphResourceArgs struct {
+	// Name of the Cosmos DB Graph
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GraphResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphResource)(nil)).Elem()
+}
+
+func (i GraphResourceArgs) ToGraphResourceOutput() GraphResourceOutput {
+	return i.ToGraphResourceOutputWithContext(context.Background())
+}
+
+func (i GraphResourceArgs) ToGraphResourceOutputWithContext(ctx context.Context) GraphResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphResourceOutput)
+}
+
+func (i GraphResourceArgs) ToGraphResourcePtrOutput() GraphResourcePtrOutput {
+	return i.ToGraphResourcePtrOutputWithContext(context.Background())
+}
+
+func (i GraphResourceArgs) ToGraphResourcePtrOutputWithContext(ctx context.Context) GraphResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphResourceOutput).ToGraphResourcePtrOutputWithContext(ctx)
+}
+
+// GraphResourcePtrInput is an input type that accepts GraphResourceArgs, GraphResourcePtr and GraphResourcePtrOutput values.
+// You can construct a concrete instance of `GraphResourcePtrInput` via:
+//
+//          GraphResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type GraphResourcePtrInput interface {
+	pulumi.Input
+
+	ToGraphResourcePtrOutput() GraphResourcePtrOutput
+	ToGraphResourcePtrOutputWithContext(context.Context) GraphResourcePtrOutput
+}
+
+type graphResourcePtrType GraphResourceArgs
+
+func GraphResourcePtr(v *GraphResourceArgs) GraphResourcePtrInput {
+	return (*graphResourcePtrType)(v)
+}
+
+func (*graphResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphResource)(nil)).Elem()
+}
+
+func (i *graphResourcePtrType) ToGraphResourcePtrOutput() GraphResourcePtrOutput {
+	return i.ToGraphResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *graphResourcePtrType) ToGraphResourcePtrOutputWithContext(ctx context.Context) GraphResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphResourcePtrOutput)
+}
+
+// Cosmos DB Graph resource object
+type GraphResourceOutput struct{ *pulumi.OutputState }
+
+func (GraphResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphResource)(nil)).Elem()
+}
+
+func (o GraphResourceOutput) ToGraphResourceOutput() GraphResourceOutput {
+	return o
+}
+
+func (o GraphResourceOutput) ToGraphResourceOutputWithContext(ctx context.Context) GraphResourceOutput {
+	return o
+}
+
+func (o GraphResourceOutput) ToGraphResourcePtrOutput() GraphResourcePtrOutput {
+	return o.ToGraphResourcePtrOutputWithContext(context.Background())
+}
+
+func (o GraphResourceOutput) ToGraphResourcePtrOutputWithContext(ctx context.Context) GraphResourcePtrOutput {
+	return o.ApplyT(func(v GraphResource) *GraphResource {
+		return &v
+	}).(GraphResourcePtrOutput)
+}
+
+// Name of the Cosmos DB Graph
+func (o GraphResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GraphResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (GraphResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphResource)(nil)).Elem()
+}
+
+func (o GraphResourcePtrOutput) ToGraphResourcePtrOutput() GraphResourcePtrOutput {
+	return o
+}
+
+func (o GraphResourcePtrOutput) ToGraphResourcePtrOutputWithContext(ctx context.Context) GraphResourcePtrOutput {
+	return o
+}
+
+func (o GraphResourcePtrOutput) Elem() GraphResourceOutput {
+	return o.ApplyT(func(v *GraphResource) GraphResource { return *v }).(GraphResourceOutput)
+}
+
+// Name of the Cosmos DB Graph
+func (o GraphResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type GraphResourceGetPropertiesResponseOptions struct {
+	// Specifies the Autoscale settings.
+	AutoscaleSettings *AutoscaleSettingsResponse `pulumi:"autoscaleSettings"`
+	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput *int `pulumi:"throughput"`
+}
+
+// GraphResourceGetPropertiesResponseOptionsInput is an input type that accepts GraphResourceGetPropertiesResponseOptionsArgs and GraphResourceGetPropertiesResponseOptionsOutput values.
+// You can construct a concrete instance of `GraphResourceGetPropertiesResponseOptionsInput` via:
+//
+//          GraphResourceGetPropertiesResponseOptionsArgs{...}
+type GraphResourceGetPropertiesResponseOptionsInput interface {
+	pulumi.Input
+
+	ToGraphResourceGetPropertiesResponseOptionsOutput() GraphResourceGetPropertiesResponseOptionsOutput
+	ToGraphResourceGetPropertiesResponseOptionsOutputWithContext(context.Context) GraphResourceGetPropertiesResponseOptionsOutput
+}
+
+type GraphResourceGetPropertiesResponseOptionsArgs struct {
+	// Specifies the Autoscale settings.
+	AutoscaleSettings AutoscaleSettingsResponsePtrInput `pulumi:"autoscaleSettings"`
+	// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+}
+
+func (GraphResourceGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphResourceGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i GraphResourceGetPropertiesResponseOptionsArgs) ToGraphResourceGetPropertiesResponseOptionsOutput() GraphResourceGetPropertiesResponseOptionsOutput {
+	return i.ToGraphResourceGetPropertiesResponseOptionsOutputWithContext(context.Background())
+}
+
+func (i GraphResourceGetPropertiesResponseOptionsArgs) ToGraphResourceGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) GraphResourceGetPropertiesResponseOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphResourceGetPropertiesResponseOptionsOutput)
+}
+
+func (i GraphResourceGetPropertiesResponseOptionsArgs) ToGraphResourceGetPropertiesResponseOptionsPtrOutput() GraphResourceGetPropertiesResponseOptionsPtrOutput {
+	return i.ToGraphResourceGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i GraphResourceGetPropertiesResponseOptionsArgs) ToGraphResourceGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) GraphResourceGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphResourceGetPropertiesResponseOptionsOutput).ToGraphResourceGetPropertiesResponseOptionsPtrOutputWithContext(ctx)
+}
+
+// GraphResourceGetPropertiesResponseOptionsPtrInput is an input type that accepts GraphResourceGetPropertiesResponseOptionsArgs, GraphResourceGetPropertiesResponseOptionsPtr and GraphResourceGetPropertiesResponseOptionsPtrOutput values.
+// You can construct a concrete instance of `GraphResourceGetPropertiesResponseOptionsPtrInput` via:
+//
+//          GraphResourceGetPropertiesResponseOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type GraphResourceGetPropertiesResponseOptionsPtrInput interface {
+	pulumi.Input
+
+	ToGraphResourceGetPropertiesResponseOptionsPtrOutput() GraphResourceGetPropertiesResponseOptionsPtrOutput
+	ToGraphResourceGetPropertiesResponseOptionsPtrOutputWithContext(context.Context) GraphResourceGetPropertiesResponseOptionsPtrOutput
+}
+
+type graphResourceGetPropertiesResponseOptionsPtrType GraphResourceGetPropertiesResponseOptionsArgs
+
+func GraphResourceGetPropertiesResponseOptionsPtr(v *GraphResourceGetPropertiesResponseOptionsArgs) GraphResourceGetPropertiesResponseOptionsPtrInput {
+	return (*graphResourceGetPropertiesResponseOptionsPtrType)(v)
+}
+
+func (*graphResourceGetPropertiesResponseOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphResourceGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i *graphResourceGetPropertiesResponseOptionsPtrType) ToGraphResourceGetPropertiesResponseOptionsPtrOutput() GraphResourceGetPropertiesResponseOptionsPtrOutput {
+	return i.ToGraphResourceGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *graphResourceGetPropertiesResponseOptionsPtrType) ToGraphResourceGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) GraphResourceGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphResourceGetPropertiesResponseOptionsPtrOutput)
+}
+
+type GraphResourceGetPropertiesResponseOptionsOutput struct{ *pulumi.OutputState }
+
+func (GraphResourceGetPropertiesResponseOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphResourceGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o GraphResourceGetPropertiesResponseOptionsOutput) ToGraphResourceGetPropertiesResponseOptionsOutput() GraphResourceGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o GraphResourceGetPropertiesResponseOptionsOutput) ToGraphResourceGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) GraphResourceGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o GraphResourceGetPropertiesResponseOptionsOutput) ToGraphResourceGetPropertiesResponseOptionsPtrOutput() GraphResourceGetPropertiesResponseOptionsPtrOutput {
+	return o.ToGraphResourceGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o GraphResourceGetPropertiesResponseOptionsOutput) ToGraphResourceGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) GraphResourceGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v GraphResourceGetPropertiesResponseOptions) *GraphResourceGetPropertiesResponseOptions {
+		return &v
+	}).(GraphResourceGetPropertiesResponseOptionsPtrOutput)
+}
+
+// Specifies the Autoscale settings.
+func (o GraphResourceGetPropertiesResponseOptionsOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
+	return o.ApplyT(func(v GraphResourceGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
+		return v.AutoscaleSettings
+	}).(AutoscaleSettingsResponsePtrOutput)
+}
+
+// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+func (o GraphResourceGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GraphResourceGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+type GraphResourceGetPropertiesResponseOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GraphResourceGetPropertiesResponseOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphResourceGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o GraphResourceGetPropertiesResponseOptionsPtrOutput) ToGraphResourceGetPropertiesResponseOptionsPtrOutput() GraphResourceGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o GraphResourceGetPropertiesResponseOptionsPtrOutput) ToGraphResourceGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) GraphResourceGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o GraphResourceGetPropertiesResponseOptionsPtrOutput) Elem() GraphResourceGetPropertiesResponseOptionsOutput {
+	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseOptions) GraphResourceGetPropertiesResponseOptions {
+		return *v
+	}).(GraphResourceGetPropertiesResponseOptionsOutput)
+}
+
+// Specifies the Autoscale settings.
+func (o GraphResourceGetPropertiesResponseOptionsPtrOutput) AutoscaleSettings() AutoscaleSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseOptions) *AutoscaleSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AutoscaleSettings
+	}).(AutoscaleSettingsResponsePtrOutput)
+}
+
+// Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+func (o GraphResourceGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type GraphResourceGetPropertiesResponseResource struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag string `pulumi:"etag"`
+	// Name of the Cosmos DB Graph
+	Id string `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid string `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts float64 `pulumi:"ts"`
+}
+
+// GraphResourceGetPropertiesResponseResourceInput is an input type that accepts GraphResourceGetPropertiesResponseResourceArgs and GraphResourceGetPropertiesResponseResourceOutput values.
+// You can construct a concrete instance of `GraphResourceGetPropertiesResponseResourceInput` via:
+//
+//          GraphResourceGetPropertiesResponseResourceArgs{...}
+type GraphResourceGetPropertiesResponseResourceInput interface {
+	pulumi.Input
+
+	ToGraphResourceGetPropertiesResponseResourceOutput() GraphResourceGetPropertiesResponseResourceOutput
+	ToGraphResourceGetPropertiesResponseResourceOutputWithContext(context.Context) GraphResourceGetPropertiesResponseResourceOutput
+}
+
+type GraphResourceGetPropertiesResponseResourceArgs struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// Name of the Cosmos DB Graph
+	Id pulumi.StringInput `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid pulumi.StringInput `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts pulumi.Float64Input `pulumi:"ts"`
+}
+
+func (GraphResourceGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphResourceGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i GraphResourceGetPropertiesResponseResourceArgs) ToGraphResourceGetPropertiesResponseResourceOutput() GraphResourceGetPropertiesResponseResourceOutput {
+	return i.ToGraphResourceGetPropertiesResponseResourceOutputWithContext(context.Background())
+}
+
+func (i GraphResourceGetPropertiesResponseResourceArgs) ToGraphResourceGetPropertiesResponseResourceOutputWithContext(ctx context.Context) GraphResourceGetPropertiesResponseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphResourceGetPropertiesResponseResourceOutput)
+}
+
+func (i GraphResourceGetPropertiesResponseResourceArgs) ToGraphResourceGetPropertiesResponseResourcePtrOutput() GraphResourceGetPropertiesResponseResourcePtrOutput {
+	return i.ToGraphResourceGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i GraphResourceGetPropertiesResponseResourceArgs) ToGraphResourceGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) GraphResourceGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphResourceGetPropertiesResponseResourceOutput).ToGraphResourceGetPropertiesResponseResourcePtrOutputWithContext(ctx)
+}
+
+// GraphResourceGetPropertiesResponseResourcePtrInput is an input type that accepts GraphResourceGetPropertiesResponseResourceArgs, GraphResourceGetPropertiesResponseResourcePtr and GraphResourceGetPropertiesResponseResourcePtrOutput values.
+// You can construct a concrete instance of `GraphResourceGetPropertiesResponseResourcePtrInput` via:
+//
+//          GraphResourceGetPropertiesResponseResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type GraphResourceGetPropertiesResponseResourcePtrInput interface {
+	pulumi.Input
+
+	ToGraphResourceGetPropertiesResponseResourcePtrOutput() GraphResourceGetPropertiesResponseResourcePtrOutput
+	ToGraphResourceGetPropertiesResponseResourcePtrOutputWithContext(context.Context) GraphResourceGetPropertiesResponseResourcePtrOutput
+}
+
+type graphResourceGetPropertiesResponseResourcePtrType GraphResourceGetPropertiesResponseResourceArgs
+
+func GraphResourceGetPropertiesResponseResourcePtr(v *GraphResourceGetPropertiesResponseResourceArgs) GraphResourceGetPropertiesResponseResourcePtrInput {
+	return (*graphResourceGetPropertiesResponseResourcePtrType)(v)
+}
+
+func (*graphResourceGetPropertiesResponseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphResourceGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i *graphResourceGetPropertiesResponseResourcePtrType) ToGraphResourceGetPropertiesResponseResourcePtrOutput() GraphResourceGetPropertiesResponseResourcePtrOutput {
+	return i.ToGraphResourceGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *graphResourceGetPropertiesResponseResourcePtrType) ToGraphResourceGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) GraphResourceGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphResourceGetPropertiesResponseResourcePtrOutput)
+}
+
+type GraphResourceGetPropertiesResponseResourceOutput struct{ *pulumi.OutputState }
+
+func (GraphResourceGetPropertiesResponseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphResourceGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o GraphResourceGetPropertiesResponseResourceOutput) ToGraphResourceGetPropertiesResponseResourceOutput() GraphResourceGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o GraphResourceGetPropertiesResponseResourceOutput) ToGraphResourceGetPropertiesResponseResourceOutputWithContext(ctx context.Context) GraphResourceGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o GraphResourceGetPropertiesResponseResourceOutput) ToGraphResourceGetPropertiesResponseResourcePtrOutput() GraphResourceGetPropertiesResponseResourcePtrOutput {
+	return o.ToGraphResourceGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (o GraphResourceGetPropertiesResponseResourceOutput) ToGraphResourceGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) GraphResourceGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v GraphResourceGetPropertiesResponseResource) *GraphResourceGetPropertiesResponseResource {
+		return &v
+	}).(GraphResourceGetPropertiesResponseResourcePtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o GraphResourceGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphResourceGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Name of the Cosmos DB Graph
+func (o GraphResourceGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphResourceGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o GraphResourceGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphResourceGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o GraphResourceGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
+	return o.ApplyT(func(v GraphResourceGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
+}
+
+type GraphResourceGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (GraphResourceGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphResourceGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o GraphResourceGetPropertiesResponseResourcePtrOutput) ToGraphResourceGetPropertiesResponseResourcePtrOutput() GraphResourceGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o GraphResourceGetPropertiesResponseResourcePtrOutput) ToGraphResourceGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) GraphResourceGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Elem() GraphResourceGetPropertiesResponseResourceOutput {
+	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseResource) GraphResourceGetPropertiesResponseResource {
+		return *v
+	}).(GraphResourceGetPropertiesResponseResourceOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the Cosmos DB Graph
+func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseResource) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Ts
+	}).(pulumi.Float64PtrOutput)
 }
 
 type GremlinDatabaseGetPropertiesResponseOptions struct {
@@ -17558,6 +18552,12 @@ func init() {
 	pulumi.RegisterOutputType(CassandraTableGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(CassandraTableResourceOutput{})
 	pulumi.RegisterOutputType(CassandraTableResourcePtrOutput{})
+	pulumi.RegisterOutputType(CassandraViewGetPropertiesResponseOptionsOutput{})
+	pulumi.RegisterOutputType(CassandraViewGetPropertiesResponseOptionsPtrOutput{})
+	pulumi.RegisterOutputType(CassandraViewGetPropertiesResponseResourceOutput{})
+	pulumi.RegisterOutputType(CassandraViewGetPropertiesResponseResourcePtrOutput{})
+	pulumi.RegisterOutputType(CassandraViewResourceOutput{})
+	pulumi.RegisterOutputType(CassandraViewResourcePtrOutput{})
 	pulumi.RegisterOutputType(CertificateOutput{})
 	pulumi.RegisterOutputType(CertificateArrayOutput{})
 	pulumi.RegisterOutputType(CertificateResponseOutput{})
@@ -17614,6 +18614,12 @@ func init() {
 	pulumi.RegisterOutputType(ExcludedPathResponseArrayOutput{})
 	pulumi.RegisterOutputType(FailoverPolicyResponseOutput{})
 	pulumi.RegisterOutputType(FailoverPolicyResponseArrayOutput{})
+	pulumi.RegisterOutputType(GraphResourceOutput{})
+	pulumi.RegisterOutputType(GraphResourcePtrOutput{})
+	pulumi.RegisterOutputType(GraphResourceGetPropertiesResponseOptionsOutput{})
+	pulumi.RegisterOutputType(GraphResourceGetPropertiesResponseOptionsPtrOutput{})
+	pulumi.RegisterOutputType(GraphResourceGetPropertiesResponseResourceOutput{})
+	pulumi.RegisterOutputType(GraphResourceGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(GremlinDatabaseGetPropertiesResponseOptionsOutput{})
 	pulumi.RegisterOutputType(GremlinDatabaseGetPropertiesResponseOptionsPtrOutput{})
 	pulumi.RegisterOutputType(GremlinDatabaseGetPropertiesResponseResourceOutput{})

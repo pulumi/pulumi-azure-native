@@ -80,7 +80,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:Service" }, { type: "azure-native:documentdb/v20210401preview:Service" }, { type: "azure-nextgen:documentdb/v20210401preview:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:Service" }, { type: "azure-native:documentdb/v20210401preview:Service" }, { type: "azure-nextgen:documentdb/v20210401preview:Service" }, { type: "azure-native:documentdb/v20210701preview:Service" }, { type: "azure-nextgen:documentdb/v20210701preview:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, inputs, opts);
     }

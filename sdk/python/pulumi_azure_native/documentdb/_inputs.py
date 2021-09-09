@@ -17,6 +17,7 @@ __all__ = [
     'CassandraPartitionKeyArgs',
     'CassandraSchemaArgs',
     'CassandraTableResourceArgs',
+    'CassandraViewResourceArgs',
     'CertificateArgs',
     'ClusterKeyArgs',
     'ClusterResourcePropertiesArgs',
@@ -31,6 +32,7 @@ __all__ = [
     'DataCenterResourcePropertiesArgs',
     'DataTransferServiceResourcePropertiesArgs',
     'ExcludedPathArgs',
+    'GraphResourceArgs',
     'GremlinDatabaseResourceArgs',
     'GremlinGraphResourceArgs',
     'IncludedPathArgs',
@@ -305,6 +307,45 @@ class CassandraTableResourceArgs:
     @schema.setter
     def schema(self, value: Optional[pulumi.Input['CassandraSchemaArgs']]):
         pulumi.set(self, "schema", value)
+
+
+@pulumi.input_type
+class CassandraViewResourceArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 view_definition: Optional[pulumi.Input[str]] = None):
+        """
+        Cosmos DB Cassandra view resource object
+        :param pulumi.Input[str] id: Name of the Cosmos DB Cassandra view
+        :param pulumi.Input[str] view_definition: View Definition of the Cosmos DB Cassandra view
+        """
+        pulumi.set(__self__, "id", id)
+        if view_definition is not None:
+            pulumi.set(__self__, "view_definition", view_definition)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Name of the Cosmos DB Cassandra view
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="viewDefinition")
+    def view_definition(self) -> Optional[pulumi.Input[str]]:
+        """
+        View Definition of the Cosmos DB Cassandra view
+        """
+        return pulumi.get(self, "view_definition")
+
+    @view_definition.setter
+    def view_definition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "view_definition", value)
 
 
 @pulumi.input_type
@@ -1154,6 +1195,29 @@ class ExcludedPathArgs:
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class GraphResourceArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        Cosmos DB Graph resource object
+        :param pulumi.Input[str] id: Name of the Cosmos DB Graph
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Name of the Cosmos DB Graph
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

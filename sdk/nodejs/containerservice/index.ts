@@ -11,6 +11,7 @@ export * from "./getMaintenanceConfiguration";
 export * from "./getManagedCluster";
 export * from "./getOpenShiftManagedCluster";
 export * from "./getPrivateEndpointConnection";
+export * from "./getSnapshot";
 export * from "./listManagedClusterAccessProfile";
 export * from "./listManagedClusterAdminCredentials";
 export * from "./listManagedClusterMonitoringUserCredentials";
@@ -19,6 +20,7 @@ export * from "./maintenanceConfiguration";
 export * from "./managedCluster";
 export * from "./openShiftManagedCluster";
 export * from "./privateEndpointConnection";
+export * from "./snapshot";
 
 // Export enums:
 export * from "../types/enums/containerservice";
@@ -54,6 +56,7 @@ import * as v20210201 from "./v20210201";
 import * as v20210301 from "./v20210301";
 import * as v20210501 from "./v20210501";
 import * as v20210701 from "./v20210701";
+import * as v20210801 from "./v20210801";
 
 export {
     v20151101preview,
@@ -86,6 +89,7 @@ export {
     v20210301,
     v20210501,
     v20210701,
+    v20210801,
 };
 
 // Import resources to register:
@@ -94,6 +98,7 @@ import { MaintenanceConfiguration } from "./maintenanceConfiguration";
 import { ManagedCluster } from "./managedCluster";
 import { OpenShiftManagedCluster } from "./openShiftManagedCluster";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
+import { Snapshot } from "./snapshot";
 
 const _module = {
     version: utilities.getVersion(),
@@ -109,6 +114,8 @@ const _module = {
                 return new OpenShiftManagedCluster(name, <any>undefined, { urn })
             case "azure-native:containerservice:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:containerservice:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

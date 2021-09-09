@@ -9,12 +9,15 @@ export * from "./cassandraCluster";
 export * from "./cassandraDataCenter";
 export * from "./cassandraResourceCassandraKeyspace";
 export * from "./cassandraResourceCassandraTable";
+export * from "./cassandraResourceCassandraView";
 export * from "./databaseAccount";
 export * from "./getCassandraCluster";
 export * from "./getCassandraDataCenter";
 export * from "./getCassandraResourceCassandraKeyspace";
 export * from "./getCassandraResourceCassandraTable";
+export * from "./getCassandraResourceCassandraView";
 export * from "./getDatabaseAccount";
+export * from "./getGraphResourceGraph";
 export * from "./getGremlinResourceGremlinDatabase";
 export * from "./getGremlinResourceGremlinGraph";
 export * from "./getMongoDBResourceMongoDBCollection";
@@ -30,6 +33,7 @@ export * from "./getSqlResourceSqlStoredProcedure";
 export * from "./getSqlResourceSqlTrigger";
 export * from "./getSqlResourceSqlUserDefinedFunction";
 export * from "./getTableResourceTable";
+export * from "./graphResourceGraph";
 export * from "./gremlinResourceGremlinDatabase";
 export * from "./gremlinResourceGremlinGraph";
 export * from "./listDatabaseAccountConnectionStrings";
@@ -72,6 +76,7 @@ import * as v20210401preview from "./v20210401preview";
 import * as v20210415 from "./v20210415";
 import * as v20210515 from "./v20210515";
 import * as v20210615 from "./v20210615";
+import * as v20210701preview from "./v20210701preview";
 
 export {
     v20150401,
@@ -93,6 +98,7 @@ export {
     v20210415,
     v20210515,
     v20210615,
+    v20210701preview,
 };
 
 // Import resources to register:
@@ -100,7 +106,9 @@ import { CassandraCluster } from "./cassandraCluster";
 import { CassandraDataCenter } from "./cassandraDataCenter";
 import { CassandraResourceCassandraKeyspace } from "./cassandraResourceCassandraKeyspace";
 import { CassandraResourceCassandraTable } from "./cassandraResourceCassandraTable";
+import { CassandraResourceCassandraView } from "./cassandraResourceCassandraView";
 import { DatabaseAccount } from "./databaseAccount";
+import { GraphResourceGraph } from "./graphResourceGraph";
 import { GremlinResourceGremlinDatabase } from "./gremlinResourceGremlinDatabase";
 import { GremlinResourceGremlinGraph } from "./gremlinResourceGremlinGraph";
 import { MongoDBResourceMongoDBCollection } from "./mongoDBResourceMongoDBCollection";
@@ -129,8 +137,12 @@ const _module = {
                 return new CassandraResourceCassandraKeyspace(name, <any>undefined, { urn })
             case "azure-native:documentdb:CassandraResourceCassandraTable":
                 return new CassandraResourceCassandraTable(name, <any>undefined, { urn })
+            case "azure-native:documentdb:CassandraResourceCassandraView":
+                return new CassandraResourceCassandraView(name, <any>undefined, { urn })
             case "azure-native:documentdb:DatabaseAccount":
                 return new DatabaseAccount(name, <any>undefined, { urn })
+            case "azure-native:documentdb:GraphResourceGraph":
+                return new GraphResourceGraph(name, <any>undefined, { urn })
             case "azure-native:documentdb:GremlinResourceGremlinDatabase":
                 return new GremlinResourceGremlinDatabase(name, <any>undefined, { urn })
             case "azure-native:documentdb:GremlinResourceGremlinGraph":
