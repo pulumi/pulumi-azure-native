@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20160601.Outputs
 {
 
+    /// <summary>
+    /// Outbound NAT pool of the load balancer
+    /// </summary>
     [OutputType]
     public sealed class OutboundNatRuleResponse
     {

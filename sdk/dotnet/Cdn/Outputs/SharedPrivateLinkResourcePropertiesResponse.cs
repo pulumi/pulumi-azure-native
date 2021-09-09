@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
+    /// <summary>
+    /// Describes the properties of an existing Shared Private Link Resource to use when connecting to a private origin.
+    /// </summary>
     [OutputType]
     public sealed class SharedPrivateLinkResourcePropertiesResponse
     {

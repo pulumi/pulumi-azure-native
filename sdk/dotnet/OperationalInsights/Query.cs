@@ -188,14 +188,14 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<ImmutableArray<Input<string>>>? _tags;
+        private InputMap<ImmutableArray<string>>? _tags;
 
         /// <summary>
         /// Tags associated with the query.
         /// </summary>
-        public InputMap<ImmutableArray<Input<string>>> Tags
+        public InputMap<ImmutableArray<string>> Tags
         {
-            get => _tags ?? (_tags = new InputMap<ImmutableArray<Input<string>>>());
+            get => _tags ?? (_tags = new InputMap<ImmutableArray<string>>());
             set => _tags = value;
         }
 

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20170131.Outputs
 {
 
+    /// <summary>
+    /// Profile for the container service master.
+    /// </summary>
     [OutputType]
     public sealed class ContainerServiceMasterProfileResponse
     {

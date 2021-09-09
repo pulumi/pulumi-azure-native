@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20181101.Outputs
 {
 
+    /// <summary>
+    /// Rewrite rule of an application gateway.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayRewriteRuleResponse
     {

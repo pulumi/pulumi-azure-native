@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20171012.Outputs
 {
 
+    /// <summary>
+    /// A rule that specifies a set of actions and conditions
+    /// </summary>
     [OutputType]
     public sealed class DeliveryRuleResponse
     {

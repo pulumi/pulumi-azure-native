@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ImportExport.Outputs
 {
 
+    /// <summary>
+    /// A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
+    /// </summary>
     [OutputType]
     public sealed class ExportResponse
     {

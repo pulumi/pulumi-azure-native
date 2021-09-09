@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20190601.Outputs
 {
 
+    /// <summary>
+    /// A system service running on a compute.
+    /// </summary>
     [OutputType]
     public sealed class SystemServiceResponse
     {

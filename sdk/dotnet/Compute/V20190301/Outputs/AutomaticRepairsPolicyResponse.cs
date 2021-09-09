@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20190301.Outputs
 {
 
+    /// <summary>
+    /// Specifies the configuration parameters for automatic repairs on the virtual machine scale set.
+    /// </summary>
     [OutputType]
     public sealed class AutomaticRepairsPolicyResponse
     {

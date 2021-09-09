@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210101.Outputs
 {
 
+    /// <summary>
+    /// The blob service properties for blob restore policy
+    /// </summary>
     [OutputType]
     public sealed class RestorePolicyPropertiesResponse
     {

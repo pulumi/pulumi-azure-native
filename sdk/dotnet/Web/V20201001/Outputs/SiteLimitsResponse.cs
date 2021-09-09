@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201001.Outputs
 {
 
+    /// <summary>
+    /// Metric limits set on an app.
+    /// </summary>
     [OutputType]
     public sealed class SiteLimitsResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20181101.Outputs
 {
 
+    /// <summary>
+    /// Object to define the number of days after last modification.
+    /// </summary>
     [OutputType]
     public sealed class DateAfterModificationResponse
     {

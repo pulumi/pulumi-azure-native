@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20210501.Outputs
 {
 
+    /// <summary>
+    /// Unencrypted credentials for accessing device.
+    /// </summary>
     [OutputType]
     public sealed class UnencryptedCredentialsResponse
     {

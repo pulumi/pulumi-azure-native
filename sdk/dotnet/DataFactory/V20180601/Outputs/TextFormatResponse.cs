@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// The data stored in text format.
+    /// </summary>
     [OutputType]
     public sealed class TextFormatResponse
     {

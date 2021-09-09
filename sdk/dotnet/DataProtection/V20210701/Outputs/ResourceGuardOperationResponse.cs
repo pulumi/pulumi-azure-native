@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.V20210701.Outputs
 {
 
+    /// <summary>
+    /// This class contains all the details about a critical operation.
+    /// </summary>
     [OutputType]
     public sealed class ResourceGuardOperationResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.V20170101.Outputs
 {
 
+    /// <summary>
+    /// Asset output port
+    /// </summary>
     [OutputType]
     public sealed class OutputPortResponse
     {

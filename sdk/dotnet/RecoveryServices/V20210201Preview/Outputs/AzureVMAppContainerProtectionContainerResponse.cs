@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview.Outputs
 {
 
+    /// <summary>
+    /// Container for SQL workloads under Azure Virtual Machines.
+    /// </summary>
     [OutputType]
     public sealed class AzureVMAppContainerProtectionContainerResponse
     {

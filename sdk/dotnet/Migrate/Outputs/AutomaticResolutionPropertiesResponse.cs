@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.Outputs
 {
 
+    /// <summary>
+    /// Defines the properties for automatic resolution.
+    /// </summary>
     [OutputType]
     public sealed class AutomaticResolutionPropertiesResponse
     {

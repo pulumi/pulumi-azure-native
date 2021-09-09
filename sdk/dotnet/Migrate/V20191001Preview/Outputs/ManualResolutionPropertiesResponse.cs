@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.V20191001Preview.Outputs
 {
 
+    /// <summary>
+    /// Defines the properties for manual resolution.
+    /// </summary>
     [OutputType]
     public sealed class ManualResolutionPropertiesResponse
     {

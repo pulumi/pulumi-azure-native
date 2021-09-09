@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CognitiveServices.V20210430.Outputs
 {
 
+    /// <summary>
+    /// The user owned storage for Cognitive Services account.
+    /// </summary>
     [OutputType]
     public sealed class UserOwnedStorageResponse
     {

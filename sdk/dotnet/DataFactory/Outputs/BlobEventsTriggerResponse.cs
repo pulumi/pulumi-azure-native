@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Trigger that runs every time a Blob event occurs.
+    /// </summary>
     [OutputType]
     public sealed class BlobEventsTriggerResponse
     {

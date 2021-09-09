@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20190301.Outputs
 {
 
+    /// <summary>
+    /// Describes the named partition scheme of the service.
+    /// </summary>
     [OutputType]
     public sealed class NamedPartitionSchemeDescriptionResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20180901.Outputs
 {
 
+    /// <summary>
+    /// The properties of the volume mount.
+    /// </summary>
     [OutputType]
     public sealed class VolumeMountResponse
     {

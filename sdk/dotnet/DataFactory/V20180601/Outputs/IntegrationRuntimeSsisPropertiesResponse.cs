@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// SSIS properties for managed integration runtime.
+    /// </summary>
     [OutputType]
     public sealed class IntegrationRuntimeSsisPropertiesResponse
     {

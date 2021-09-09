@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20200202Preview.Outputs
 {
 
+    /// <summary>
+    /// A job target, for example a specific database or a container of databases that is evaluated during job execution.
+    /// </summary>
     [OutputType]
     public sealed class JobTargetResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
+    /// <summary>
+    /// The json object containing security policy waf parameters
+    /// </summary>
     [OutputType]
     public sealed class SecurityPolicyWebApplicationFirewallParametersResponse
     {

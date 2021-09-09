@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// ThreatIntel Whitelist for Firewall Policy.
+    /// </summary>
     [OutputType]
     public sealed class FirewallPolicyThreatIntelWhitelistResponse
     {

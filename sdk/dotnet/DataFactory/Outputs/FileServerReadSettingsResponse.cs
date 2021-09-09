@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// File server read settings.
+    /// </summary>
     [OutputType]
     public sealed class FileServerReadSettingsResponse
     {

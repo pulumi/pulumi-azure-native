@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// WebHook activity.
+    /// </summary>
     [OutputType]
     public sealed class WebHookActivityResponse
     {

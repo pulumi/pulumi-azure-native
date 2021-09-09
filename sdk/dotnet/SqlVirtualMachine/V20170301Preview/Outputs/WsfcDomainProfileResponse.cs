@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Outputs
 {
 
+    /// <summary>
+    /// Active Directory account details to operate Windows Server Failover Cluster.
+    /// </summary>
     [OutputType]
     public sealed class WsfcDomainProfileResponse
     {

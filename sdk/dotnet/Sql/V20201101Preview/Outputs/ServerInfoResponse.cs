@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20201101Preview.Outputs
 {
 
+    /// <summary>
+    /// Server info for the server trust group.
+    /// </summary>
     [OutputType]
     public sealed class ServerInfoResponse
     {

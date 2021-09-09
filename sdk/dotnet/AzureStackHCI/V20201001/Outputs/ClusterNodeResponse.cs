@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureStackHCI.V20201001.Outputs
 {
 
+    /// <summary>
+    /// Cluster node details.
+    /// </summary>
     [OutputType]
     public sealed class ClusterNodeResponse
     {

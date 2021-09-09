@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Dynamics365Fraudprotection.V20210201Preview.Outputs
 {
 
+    /// <summary>
+    /// An array of administrator user identities
+    /// </summary>
     [OutputType]
     public sealed class DFPInstanceAdministratorsResponse
     {

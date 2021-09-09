@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
 {
 
+    /// <summary>
+    /// The storage account where the custom code artifacts are located.
+    /// </summary>
     [OutputType]
     public sealed class ExternalResponse
     {

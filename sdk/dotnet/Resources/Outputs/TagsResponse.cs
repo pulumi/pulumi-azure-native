@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.Outputs
 {
 
+    /// <summary>
+    /// A dictionary of name and value pairs.
+    /// </summary>
     [OutputType]
     public sealed class TagsResponse
     {

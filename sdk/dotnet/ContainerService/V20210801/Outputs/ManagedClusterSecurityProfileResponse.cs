@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210801.Outputs
 {
 
+    /// <summary>
+    /// Security profile for the container service cluster.
+    /// </summary>
     [OutputType]
     public sealed class ManagedClusterSecurityProfileResponse
     {

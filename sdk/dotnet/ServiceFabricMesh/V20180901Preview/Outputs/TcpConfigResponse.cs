@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes the tcp configuration for external connectivity for this network.
+    /// </summary>
     [OutputType]
     public sealed class TcpConfigResponse
     {

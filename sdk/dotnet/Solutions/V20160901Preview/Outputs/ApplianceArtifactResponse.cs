@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Solutions.V20160901Preview.Outputs
 {
 
+    /// <summary>
+    /// Appliance artifact.
+    /// </summary>
     [OutputType]
     public sealed class ApplianceArtifactResponse
     {

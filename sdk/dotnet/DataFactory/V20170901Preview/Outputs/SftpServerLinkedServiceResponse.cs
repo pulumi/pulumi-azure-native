@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
+    /// <summary>
+    /// A linked service for an SSH File Transfer Protocol (SFTP) server. 
+    /// </summary>
     [OutputType]
     public sealed class SftpServerLinkedServiceResponse
     {

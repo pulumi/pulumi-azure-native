@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20180930Preview.Outputs
 {
 
+    /// <summary>
+    /// Defines the configuration of the identity providers to be used in the OpenShift cluster.
+    /// </summary>
     [OutputType]
     public sealed class OpenShiftManagedClusterIdentityProviderResponse
     {

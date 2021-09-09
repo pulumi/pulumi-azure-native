@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CognitiveServices.V20210430.Outputs
 {
 
+    /// <summary>
+    /// The api properties for special APIs.
+    /// </summary>
     [OutputType]
     public sealed class ApiPropertiesResponse
     {

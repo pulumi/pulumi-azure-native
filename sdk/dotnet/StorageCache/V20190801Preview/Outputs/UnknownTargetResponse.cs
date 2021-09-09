@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20190801Preview.Outputs
 {
 
+    /// <summary>
+    /// Storage container for use as a Unknown StorageTarget.
+    /// </summary>
     [OutputType]
     public sealed class UnknownTargetResponse
     {

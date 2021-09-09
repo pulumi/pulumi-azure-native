@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties of the rollout.
+    /// </summary>
     [OutputType]
     public sealed class DefaultRolloutResponseProperties
     {

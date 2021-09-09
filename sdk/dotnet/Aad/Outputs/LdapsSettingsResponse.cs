@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Aad.Outputs
 {
 
+    /// <summary>
+    /// Secure LDAP Settings
+    /// </summary>
     [OutputType]
     public sealed class LdapsSettingsResponse
     {

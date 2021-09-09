@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20210301.Outputs
 {
 
+    /// <summary>
+    /// When present, these are the credentials for the secure LDAP connection.
+    /// </summary>
     [OutputType]
     public sealed class CacheUsernameDownloadSettingsResponseCredentials
     {

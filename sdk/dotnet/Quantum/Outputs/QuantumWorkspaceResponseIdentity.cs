@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Quantum.Outputs
 {
 
+    /// <summary>
+    /// Managed Identity information.
+    /// </summary>
     [OutputType]
     public sealed class QuantumWorkspaceResponseIdentity
     {

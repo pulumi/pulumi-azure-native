@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
+    /// <summary>
+    /// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+    /// </summary>
     [OutputType]
     public sealed class MetricSettingsResponse
     {

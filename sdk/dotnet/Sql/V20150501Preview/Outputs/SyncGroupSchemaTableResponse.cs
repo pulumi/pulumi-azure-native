@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20150501Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties of table in sync group schema.
+    /// </summary>
     [OutputType]
     public sealed class SyncGroupSchemaTableResponse
     {

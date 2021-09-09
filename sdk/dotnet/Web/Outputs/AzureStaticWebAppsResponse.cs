@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// The configuration settings of the Azure Static Web Apps provider.
+    /// </summary>
     [OutputType]
     public sealed class AzureStaticWebAppsResponse
     {

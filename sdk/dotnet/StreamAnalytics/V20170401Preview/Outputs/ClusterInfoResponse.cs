@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
 {
 
+    /// <summary>
+    /// The properties associated with a Stream Analytics cluster.
+    /// </summary>
     [OutputType]
     public sealed class ClusterInfoResponse
     {

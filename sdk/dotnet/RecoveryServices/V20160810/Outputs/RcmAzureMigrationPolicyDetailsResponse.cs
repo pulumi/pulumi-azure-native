@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20160810.Outputs
 {
 
+    /// <summary>
+    /// RCM based Azure migration specific policy details.
+    /// </summary>
     [OutputType]
     public sealed class RcmAzureMigrationPolicyDetailsResponse
     {

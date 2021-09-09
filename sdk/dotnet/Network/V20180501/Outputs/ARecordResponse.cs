@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20180501.Outputs
 {
 
+    /// <summary>
+    /// An A record.
+    /// </summary>
     [OutputType]
     public sealed class ARecordResponse
     {

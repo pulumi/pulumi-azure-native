@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20210701Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties that define the scope private link mode settings.
+    /// </summary>
     [OutputType]
     public sealed class AccessModeSettingsResponse
     {

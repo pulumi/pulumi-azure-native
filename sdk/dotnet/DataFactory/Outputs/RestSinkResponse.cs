@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A copy activity Rest service Sink.
+    /// </summary>
     [OutputType]
     public sealed class RestSinkResponse
     {

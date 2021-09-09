@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// Specification for a Kubernetes Environment to use for this resource.
+    /// </summary>
     [OutputType]
     public sealed class KubeEnvironmentProfileResponse
     {

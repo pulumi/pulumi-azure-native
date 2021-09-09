@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Outputs
 {
 
+    /// <summary>
+    /// The storage Account.
+    /// </summary>
     [OutputType]
     public sealed class StorageAccountResponse
     {

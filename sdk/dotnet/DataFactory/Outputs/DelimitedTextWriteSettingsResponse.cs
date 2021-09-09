@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Delimited text write settings.
+    /// </summary>
     [OutputType]
     public sealed class DelimitedTextWriteSettingsResponse
     {

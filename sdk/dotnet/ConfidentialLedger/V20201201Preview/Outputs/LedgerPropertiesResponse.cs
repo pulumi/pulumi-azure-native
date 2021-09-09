@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ConfidentialLedger.V20201201Preview.Outputs
 {
 
+    /// <summary>
+    /// Additional Confidential Ledger properties.
+    /// </summary>
     [OutputType]
     public sealed class LedgerPropertiesResponse
     {

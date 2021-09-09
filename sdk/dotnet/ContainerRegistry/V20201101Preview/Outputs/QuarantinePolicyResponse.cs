@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview.Outputs
 {
 
+    /// <summary>
+    /// The quarantine policy for a container registry.
+    /// </summary>
     [OutputType]
     public sealed class QuarantinePolicyResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// The express custom setup of installing Azure PowerShell.
+    /// </summary>
     [OutputType]
     public sealed class AzPowerShellSetupResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
+    /// <summary>
+    /// The WSDL service.
+    /// </summary>
     [OutputType]
     public sealed class WsdlServiceResponse
     {

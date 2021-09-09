@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
+    /// </summary>
     [OutputType]
     public sealed class WebBasicAuthenticationResponse
     {

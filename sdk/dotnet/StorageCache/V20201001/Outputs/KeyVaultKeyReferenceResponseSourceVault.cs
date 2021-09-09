@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20201001.Outputs
 {
 
+    /// <summary>
+    /// Describes a resource Id to source Key Vault.
+    /// </summary>
     [OutputType]
     public sealed class KeyVaultKeyReferenceResponseSourceVault
     {

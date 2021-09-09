@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// AmazonRdsForOracle database.
+    /// </summary>
     [OutputType]
     public sealed class AmazonRdsForOracleLinkedServiceResponse
     {

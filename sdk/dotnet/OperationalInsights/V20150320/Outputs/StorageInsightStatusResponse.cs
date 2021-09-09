@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OperationalInsights.V20150320.Outputs
 {
 
+    /// <summary>
+    /// The status of the storage insight.
+    /// </summary>
     [OutputType]
     public sealed class StorageInsightStatusResponse
     {

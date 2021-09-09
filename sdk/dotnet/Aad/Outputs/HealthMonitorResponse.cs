@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Aad.Outputs
 {
 
+    /// <summary>
+    /// Health Monitor Description
+    /// </summary>
     [OutputType]
     public sealed class HealthMonitorResponse
     {

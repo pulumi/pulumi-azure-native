@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CognitiveServices.Outputs
 {
 
+    /// <summary>
+    /// A set of rules governing the network accessibility.
+    /// </summary>
     [OutputType]
     public sealed class NetworkRuleSetResponse
     {

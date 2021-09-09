@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// Individual resource operation information.
+    /// </summary>
     [OutputType]
     public sealed class ResourceOperationResponse
     {

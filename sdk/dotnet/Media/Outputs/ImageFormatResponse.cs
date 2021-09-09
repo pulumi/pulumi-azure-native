@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
+    /// <summary>
+    /// Describes the properties for an output image file.
+    /// </summary>
     [OutputType]
     public sealed class ImageFormatResponse
     {

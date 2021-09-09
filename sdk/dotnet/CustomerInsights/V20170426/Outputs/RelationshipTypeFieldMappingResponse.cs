@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.V20170426.Outputs
 {
 
+    /// <summary>
+    /// Map a field of profile to its corresponding StrongId in Related Profile.
+    /// </summary>
     [OutputType]
     public sealed class RelationshipTypeFieldMappingResponse
     {

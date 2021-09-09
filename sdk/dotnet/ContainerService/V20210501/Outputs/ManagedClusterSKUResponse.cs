@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
 {
 
+    /// <summary>
+    /// The SKU of a Managed Cluster.
+    /// </summary>
     [OutputType]
     public sealed class ManagedClusterSKUResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180330Preview.Outputs
 {
 
+    /// <summary>
+    /// Defines the common properties for all audio codecs.
+    /// </summary>
     [OutputType]
     public sealed class AudioResponse
     {

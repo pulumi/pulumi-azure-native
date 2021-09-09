@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20160601.Outputs
 {
 
+    /// <summary>
+    /// The RosettaNet ProcessConfiguration business document settings.
+    /// </summary>
     [OutputType]
     public sealed class RosettaNetPipBusinessDocumentResponse
     {

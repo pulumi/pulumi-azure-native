@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.V20190201Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes an image source that is an installation ISO. Currently only supports Red Hat Enterprise Linux 7.2-7.5 ISO's.
+    /// </summary>
     [OutputType]
     public sealed class ImageTemplateIsoSourceResponse
     {

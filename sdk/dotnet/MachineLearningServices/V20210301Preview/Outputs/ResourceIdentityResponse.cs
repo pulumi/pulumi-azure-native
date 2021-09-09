@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// Service identity associated with a resource.
+    /// </summary>
     [OutputType]
     public sealed class ResourceIdentityResponse
     {

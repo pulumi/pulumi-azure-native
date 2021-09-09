@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200701.Outputs
 {
 
+    /// <summary>
+    /// Rule of type nat.
+    /// </summary>
     [OutputType]
     public sealed class NatRuleResponse
     {

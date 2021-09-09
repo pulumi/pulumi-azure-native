@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20200415.Outputs
 {
 
+    /// <summary>
+    /// Defines the common attributes for a custom rule that can be included in a waf policy
+    /// </summary>
     [OutputType]
     public sealed class CustomRuleResponse
     {

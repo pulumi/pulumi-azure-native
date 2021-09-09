@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
+    /// <summary>
+    /// Database level result for Sql Server to Azure Sql DB migration.
+    /// </summary>
     [OutputType]
     public sealed class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse
     {

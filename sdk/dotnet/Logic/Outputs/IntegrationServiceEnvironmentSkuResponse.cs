@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
+    /// <summary>
+    /// The integration service environment sku.
+    /// </summary>
     [OutputType]
     public sealed class IntegrationServiceEnvironmentSkuResponse
     {

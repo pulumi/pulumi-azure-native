@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Outputs
 {
 
+    /// <summary>
+    /// Gets the application HTTP endpoints.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGetHttpsEndpointResponse
     {

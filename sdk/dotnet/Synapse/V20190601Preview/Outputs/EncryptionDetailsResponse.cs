@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20190601Preview.Outputs
 {
 
+    /// <summary>
+    /// Details of the encryption associated with the workspace
+    /// </summary>
     [OutputType]
     public sealed class EncryptionDetailsResponse
     {

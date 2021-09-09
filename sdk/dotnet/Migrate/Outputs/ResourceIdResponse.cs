@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.Outputs
 {
 
+    /// <summary>
+    /// ARM id for a resource.
+    /// </summary>
     [OutputType]
     public sealed class ResourceIdResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20191201.Outputs
 {
 
+    /// <summary>
+    /// Properties controlling TLS Certificate Validation.
+    /// </summary>
     [OutputType]
     public sealed class BackendTlsPropertiesResponse
     {

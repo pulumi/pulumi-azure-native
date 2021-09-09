@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210301.Outputs
 {
 
+    /// <summary>
+    /// Configuration needed to perform TLS termination &amp; initiation.
+    /// </summary>
     [OutputType]
     public sealed class FirewallPolicyTransportSecurityResponse
     {

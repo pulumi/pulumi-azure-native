@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// Class to represent configuration settings for Docker Build
+    /// </summary>
     [OutputType]
     public sealed class DockerImageResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TestBase.V20201216Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes a Test Base Account SKU.
+    /// </summary>
     [OutputType]
     public sealed class TestBaseAccountSKUResponse
     {

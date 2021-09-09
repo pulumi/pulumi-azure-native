@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A file in an HTTP web server.
+    /// </summary>
     [OutputType]
     public sealed class HttpDatasetResponse
     {

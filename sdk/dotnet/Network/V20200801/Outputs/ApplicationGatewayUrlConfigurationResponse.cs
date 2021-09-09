@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200801.Outputs
 {
 
+    /// <summary>
+    /// Url configuration of the Actions set in Application Gateway.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayUrlConfigurationResponse
     {

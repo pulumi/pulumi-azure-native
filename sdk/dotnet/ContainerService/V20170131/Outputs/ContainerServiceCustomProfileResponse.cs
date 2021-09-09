@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20170131.Outputs
 {
 
+    /// <summary>
+    /// Properties to configure a custom container service cluster.
+    /// </summary>
     [OutputType]
     public sealed class ContainerServiceCustomProfileResponse
     {

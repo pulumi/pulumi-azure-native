@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200401.Outputs
 {
 
+    /// <summary>
+    /// Defines the Web Application Firewall policy for each host (if applicable)
+    /// </summary>
     [OutputType]
     public sealed class FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink
     {

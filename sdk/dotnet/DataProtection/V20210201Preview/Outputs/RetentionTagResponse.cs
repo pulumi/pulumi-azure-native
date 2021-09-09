@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.V20210201Preview.Outputs
 {
 
+    /// <summary>
+    /// Retention tag
+    /// </summary>
     [OutputType]
     public sealed class RetentionTagResponse
     {

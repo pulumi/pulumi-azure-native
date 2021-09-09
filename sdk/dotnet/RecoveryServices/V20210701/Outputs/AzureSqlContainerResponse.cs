@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210701.Outputs
 {
 
+    /// <summary>
+    /// Azure Sql workload-specific container.
+    /// </summary>
     [OutputType]
     public sealed class AzureSqlContainerResponse
     {

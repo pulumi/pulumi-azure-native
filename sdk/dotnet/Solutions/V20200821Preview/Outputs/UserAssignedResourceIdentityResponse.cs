@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Solutions.V20200821Preview.Outputs
 {
 
+    /// <summary>
+    /// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
+    /// </summary>
     [OutputType]
     public sealed class UserAssignedResourceIdentityResponse
     {

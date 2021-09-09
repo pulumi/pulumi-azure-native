@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
+    /// <summary>
+    /// Specifies the live event type and optional encoding settings for encoding live events.
+    /// </summary>
     [OutputType]
     public sealed class LiveEventEncodingResponse
     {

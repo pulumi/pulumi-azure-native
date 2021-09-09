@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200701.Outputs
 {
 
+    /// <summary>
+    /// A collective group of information about the record set information.
+    /// </summary>
     [OutputType]
     public sealed class RecordSetResponse
     {

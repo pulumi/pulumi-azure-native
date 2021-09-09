@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210301.Outputs
 {
 
+    /// <summary>
+    /// The private IP addresses/IP ranges to which traffic will not be SNAT.
+    /// </summary>
     [OutputType]
     public sealed class FirewallPolicySNATResponse
     {

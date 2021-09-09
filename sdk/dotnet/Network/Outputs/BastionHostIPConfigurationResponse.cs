@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// IP configuration of an Bastion Host.
+    /// </summary>
     [OutputType]
     public sealed class BastionHostIPConfigurationResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
+    /// <summary>
+    /// Information of backup set
+    /// </summary>
     [OutputType]
     public sealed class BackupSetInfoResponse
     {

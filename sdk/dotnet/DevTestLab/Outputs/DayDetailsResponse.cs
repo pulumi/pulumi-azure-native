@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
+    /// <summary>
+    /// Properties of a daily schedule.
+    /// </summary>
     [OutputType]
     public sealed class DayDetailsResponse
     {

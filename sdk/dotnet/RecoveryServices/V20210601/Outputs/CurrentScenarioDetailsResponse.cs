@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210601.Outputs
 {
 
+    /// <summary>
+    /// Current scenario details of the protected entity.
+    /// </summary>
     [OutputType]
     public sealed class CurrentScenarioDetailsResponse
     {

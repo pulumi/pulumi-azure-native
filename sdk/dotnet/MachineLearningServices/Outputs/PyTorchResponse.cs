@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// PyTorch distribution configuration.
+    /// </summary>
     [OutputType]
     public sealed class PyTorchResponse
     {

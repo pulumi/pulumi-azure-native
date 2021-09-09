@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20171101.Outputs
 {
 
+    /// <summary>
+    /// Application gateway probe health response match
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayProbeHealthResponseMatchResponse
     {

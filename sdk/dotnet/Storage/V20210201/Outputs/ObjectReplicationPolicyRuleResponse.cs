@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210201.Outputs
 {
 
+    /// <summary>
+    /// The replication policy rule between two containers.
+    /// </summary>
     [OutputType]
     public sealed class ObjectReplicationPolicyRuleResponse
     {

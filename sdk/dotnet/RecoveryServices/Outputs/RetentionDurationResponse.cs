@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
+    /// <summary>
+    /// Retention duration.
+    /// </summary>
     [OutputType]
     public sealed class RetentionDurationResponse
     {

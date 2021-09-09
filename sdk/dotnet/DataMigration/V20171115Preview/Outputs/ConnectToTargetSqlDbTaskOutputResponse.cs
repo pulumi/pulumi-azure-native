@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20171115Preview.Outputs
 {
 
+    /// <summary>
+    /// Output for the task that validates connection to SQL DB and target server requirements
+    /// </summary>
     [OutputType]
     public sealed class ConnectToTargetSqlDbTaskOutputResponse
     {

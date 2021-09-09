@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageSync.V20200901.Outputs
 {
 
+    /// <summary>
+    /// Background data download activity object
+    /// </summary>
     [OutputType]
     public sealed class ServerEndpointBackgroundDataDownloadActivityResponse
     {

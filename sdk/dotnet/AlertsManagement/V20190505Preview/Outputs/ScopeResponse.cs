@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview.Outputs
 {
 
+    /// <summary>
+    /// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
+    /// </summary>
     [OutputType]
     public sealed class ScopeResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20180301Preview.Outputs
 {
 
+    /// <summary>
+    /// IP rule with specific IP or IP range in CIDR format.
+    /// </summary>
     [OutputType]
     public sealed class IPRuleResponse
     {

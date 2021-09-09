@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A copy activity source for SAP ECC source.
+    /// </summary>
     [OutputType]
     public sealed class SapEccSourceResponse
     {

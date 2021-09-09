@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.Outputs
 {
 
+    /// <summary>
+    /// Azure backup parameters
+    /// </summary>
     [OutputType]
     public sealed class AzureBackupParamsResponse
     {

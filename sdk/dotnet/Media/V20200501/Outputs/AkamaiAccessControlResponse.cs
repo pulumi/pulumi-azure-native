@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20200501.Outputs
 {
 
+    /// <summary>
+    /// Akamai access control
+    /// </summary>
     [OutputType]
     public sealed class AkamaiAccessControlResponse
     {

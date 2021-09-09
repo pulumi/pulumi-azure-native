@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20190601Preview.Outputs
 {
 
+    /// <summary>
+    /// Managed Virtual Network reference type.
+    /// </summary>
     [OutputType]
     public sealed class ManagedVirtualNetworkReferenceResponse
     {

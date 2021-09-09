@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Outputs
 {
 
+    /// <summary>
+    /// Set disk storage settings for SQL Server.
+    /// </summary>
     [OutputType]
     public sealed class SqlStorageUpdateSettingsResponse
     {

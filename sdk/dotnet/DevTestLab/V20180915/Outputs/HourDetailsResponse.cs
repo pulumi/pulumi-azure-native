@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.V20180915.Outputs
 {
 
+    /// <summary>
+    /// Properties of an hourly schedule.
+    /// </summary>
     [OutputType]
     public sealed class HourDetailsResponse
     {

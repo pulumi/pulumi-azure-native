@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.V20210601.Outputs
 {
 
+    /// <summary>
+    /// Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
+    /// </summary>
     [OutputType]
     public sealed class IdentityResponse
     {

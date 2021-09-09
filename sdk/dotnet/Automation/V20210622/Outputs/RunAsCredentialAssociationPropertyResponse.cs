@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20210622.Outputs
 {
 
+    /// <summary>
+    /// Definition of RunAs credential to use for hybrid worker.
+    /// </summary>
     [OutputType]
     public sealed class RunAsCredentialAssociationPropertyResponse
     {

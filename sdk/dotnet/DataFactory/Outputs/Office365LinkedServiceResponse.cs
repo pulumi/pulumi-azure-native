@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Office365 linked service.
+    /// </summary>
     [OutputType]
     public sealed class Office365LinkedServiceResponse
     {

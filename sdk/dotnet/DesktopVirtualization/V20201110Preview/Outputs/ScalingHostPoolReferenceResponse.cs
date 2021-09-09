@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.V20201110Preview.Outputs
 {
 
+    /// <summary>
+    /// Scaling plan reference to hostpool.
+    /// </summary>
     [OutputType]
     public sealed class ScalingHostPoolReferenceResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210401.Outputs
 {
 
+    /// <summary>
+    /// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
+    /// </summary>
     [OutputType]
     public sealed class KeyForDiskEncryptionSetResponse
     {

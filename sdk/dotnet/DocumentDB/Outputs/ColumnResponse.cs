@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.Outputs
 {
 
+    /// <summary>
+    /// Cosmos DB Cassandra table column
+    /// </summary>
     [OutputType]
     public sealed class ColumnResponse
     {

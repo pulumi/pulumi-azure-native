@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.Outputs
 {
 
+    /// <summary>
+    /// Copy log details for a storage account of a DataBox job
+    /// </summary>
     [OutputType]
     public sealed class DataBoxAccountCopyLogDetailsResponse
     {

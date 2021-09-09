@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VMwareCloudSimple.Outputs
 {
 
+    /// <summary>
+    /// Guest OS Customization properties
+    /// </summary>
     [OutputType]
     public sealed class GuestOSCustomizationResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210401.Outputs
 {
 
+    /// <summary>
+    /// The liveness probe requirements.
+    /// </summary>
     [OutputType]
     public sealed class AKSServiceResponseResponseLivenessProbeRequirements
     {

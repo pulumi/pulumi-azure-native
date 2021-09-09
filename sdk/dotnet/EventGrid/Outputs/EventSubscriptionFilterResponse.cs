@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.Outputs
 {
 
+    /// <summary>
+    /// Filter for the Event Subscription.
+    /// </summary>
     [OutputType]
     public sealed class EventSubscriptionFilterResponse
     {

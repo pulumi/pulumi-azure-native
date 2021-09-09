@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210101.Outputs
 {
 
+    /// <summary>
+    /// The configuration settings of the Allowed Audiences validation flow.
+    /// </summary>
     [OutputType]
     public sealed class AllowedAudiencesValidationResponse
     {

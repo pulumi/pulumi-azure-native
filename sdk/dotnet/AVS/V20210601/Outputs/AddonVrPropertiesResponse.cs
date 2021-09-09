@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AVS.V20210601.Outputs
 {
 
+    /// <summary>
+    /// The properties of a vSphere Replication (VR) addon
+    /// </summary>
     [OutputType]
     public sealed class AddonVrPropertiesResponse
     {

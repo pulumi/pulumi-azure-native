@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.V20200501.Outputs
 {
 
+    /// <summary>
+    /// REST model used to encapsulate the user visible state of a PrivateEndpoint.
+    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {

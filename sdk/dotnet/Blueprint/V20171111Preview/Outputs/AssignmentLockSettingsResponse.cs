@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Blueprint.V20171111Preview.Outputs
 {
 
+    /// <summary>
+    /// Defines how Blueprint-managed resources will be locked.
+    /// </summary>
     [OutputType]
     public sealed class AssignmentLockSettingsResponse
     {

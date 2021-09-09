@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.Outputs
 {
 
+    /// <summary>
+    /// Properties of the additional workspaces.
+    /// </summary>
     [OutputType]
     public sealed class AdditionalWorkspacesPropertiesResponse
     {

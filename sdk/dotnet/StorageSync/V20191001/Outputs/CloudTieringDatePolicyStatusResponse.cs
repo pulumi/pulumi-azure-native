@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageSync.V20191001.Outputs
 {
 
+    /// <summary>
+    /// Status of the date policy
+    /// </summary>
     [OutputType]
     public sealed class CloudTieringDatePolicyStatusResponse
     {

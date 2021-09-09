@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// The configuration settings of the Twitter provider.
+    /// </summary>
     [OutputType]
     public sealed class TwitterResponse
     {

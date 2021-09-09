@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180601Preview.Outputs
 {
 
+    /// <summary>
+    /// Represents input files for a Job.
+    /// </summary>
     [OutputType]
     public sealed class JobInputClipResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200501.Outputs
 {
 
+    /// <summary>
+    /// Gateway routing details.
+    /// </summary>
     [OutputType]
     public sealed class GatewayRouteResponse
     {

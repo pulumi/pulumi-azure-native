@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
+    /// <summary>
+    /// Represents a policy option.
+    /// </summary>
     [OutputType]
     public sealed class ContentKeyPolicyOptionResponse
     {

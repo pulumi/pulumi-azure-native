@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210701.Outputs
 {
 
+    /// <summary>
+    /// Initial replication details.
+    /// </summary>
     [OutputType]
     public sealed class InitialReplicationDetailsResponse
     {

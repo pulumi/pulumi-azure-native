@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureStackHCI.V20210901.Outputs
 {
 
+    /// <summary>
+    /// Desired properties of the cluster.
+    /// </summary>
     [OutputType]
     public sealed class ClusterDesiredPropertiesResponse
     {

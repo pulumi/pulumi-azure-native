@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Outputs
 {
 
+    /// <summary>
+    /// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+    /// </summary>
     [OutputType]
     public sealed class FunctionResponse
     {

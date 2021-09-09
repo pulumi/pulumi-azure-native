@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.V20190201Preview.Outputs
 {
 
+    /// <summary>
+    /// Distribute via Shared Image Gallery.
+    /// </summary>
     [OutputType]
     public sealed class ImageTemplateSharedImageDistributorResponse
     {

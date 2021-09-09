@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// Describes the disallowed disk types.
+    /// </summary>
     [OutputType]
     public sealed class DisallowedResponse
     {

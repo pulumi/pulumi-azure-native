@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.Outputs
 {
 
+    /// <summary>
+    /// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+    /// </summary>
     [OutputType]
     public sealed class ProxyServerPropertiesResponse
     {

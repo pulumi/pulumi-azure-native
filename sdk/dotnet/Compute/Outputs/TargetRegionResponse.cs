@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// Describes the target region information.
+    /// </summary>
     [OutputType]
     public sealed class TargetRegionResponse
     {

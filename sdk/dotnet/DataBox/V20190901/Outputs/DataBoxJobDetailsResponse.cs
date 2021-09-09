@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20190901.Outputs
 {
 
+    /// <summary>
+    /// Databox Job Details
+    /// </summary>
     [OutputType]
     public sealed class DataBoxJobDetailsResponse
     {

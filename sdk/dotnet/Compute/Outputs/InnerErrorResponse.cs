@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// Inner error details.
+    /// </summary>
     [OutputType]
     public sealed class InnerErrorResponse
     {

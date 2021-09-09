@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210401.Outputs
 {
 
+    /// <summary>
+    /// Specifies policy and settings for SSH access.
+    /// </summary>
     [OutputType]
     public sealed class ComputeInstanceSshSettingsResponse
     {

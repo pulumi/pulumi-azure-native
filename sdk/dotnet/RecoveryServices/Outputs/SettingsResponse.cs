@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
+    /// <summary>
+    /// Common settings field for backup management
+    /// </summary>
     [OutputType]
     public sealed class SettingsResponse
     {

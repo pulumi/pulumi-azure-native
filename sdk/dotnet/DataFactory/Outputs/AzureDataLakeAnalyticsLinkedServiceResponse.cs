@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Azure Data Lake Analytics linked service.
+    /// </summary>
     [OutputType]
     public sealed class AzureDataLakeAnalyticsLinkedServiceResponse
     {

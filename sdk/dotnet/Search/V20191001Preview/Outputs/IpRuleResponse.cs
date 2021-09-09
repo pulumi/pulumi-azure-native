@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Search.V20191001Preview.Outputs
 {
 
+    /// <summary>
+    /// The IP restriction rule of the Azure Cognitive Search service.
+    /// </summary>
     [OutputType]
     public sealed class IpRuleResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.Outputs
 {
 
+    /// <summary>
+    /// Tagging criteria
+    /// </summary>
     [OutputType]
     public sealed class TaggingCriteriaResponse
     {

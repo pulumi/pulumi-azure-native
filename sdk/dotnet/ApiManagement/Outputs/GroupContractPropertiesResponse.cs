@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.Outputs
 {
 
+    /// <summary>
+    /// Group contract Properties.
+    /// </summary>
     [OutputType]
     public sealed class GroupContractPropertiesResponse
     {

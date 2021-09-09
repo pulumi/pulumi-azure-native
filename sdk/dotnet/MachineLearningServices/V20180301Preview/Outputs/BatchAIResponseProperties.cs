@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20180301Preview.Outputs
 {
 
+    /// <summary>
+    /// BatchAI properties
+    /// </summary>
     [OutputType]
     public sealed class BatchAIResponseProperties
     {

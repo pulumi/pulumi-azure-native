@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210101Preview.Outputs
 {
 
+    /// <summary>
+    /// Represents a scaling policy related to an average load of a metric/resource of a service.
+    /// </summary>
     [OutputType]
     public sealed class AverageServiceLoadScalingTriggerResponse
     {

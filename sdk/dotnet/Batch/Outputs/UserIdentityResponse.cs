@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// Specify either the userName or autoUser property, but not both.
+    /// </summary>
     [OutputType]
     public sealed class UserIdentityResponse
     {

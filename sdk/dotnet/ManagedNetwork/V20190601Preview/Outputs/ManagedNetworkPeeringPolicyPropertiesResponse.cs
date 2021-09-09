@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties of a Managed Network Peering Policy
+    /// </summary>
     [OutputType]
     public sealed class ManagedNetworkPeeringPolicyPropertiesResponse
     {

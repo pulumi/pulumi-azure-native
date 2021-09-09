@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20200930.Outputs
 {
 
+    /// <summary>
+    /// This is the replication status of the gallery image version.
+    /// </summary>
     [OutputType]
     public sealed class ReplicationStatusResponse
     {

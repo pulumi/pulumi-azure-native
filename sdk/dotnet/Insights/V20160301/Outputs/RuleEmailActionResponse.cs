@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20160301.Outputs
 {
 
+    /// <summary>
+    /// Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
+    /// </summary>
     [OutputType]
     public sealed class RuleEmailActionResponse
     {

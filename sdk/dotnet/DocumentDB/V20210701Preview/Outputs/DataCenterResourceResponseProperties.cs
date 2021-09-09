@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties of a managed Cassandra data center.
+    /// </summary>
     [OutputType]
     public sealed class DataCenterResourceResponseProperties
     {

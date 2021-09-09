@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.V20201001Preview.Outputs
 {
 
+    /// <summary>
+    /// Details of role definition
+    /// </summary>
     [OutputType]
     public sealed class PolicyAssignmentPropertiesResponseRoleDefinition
     {

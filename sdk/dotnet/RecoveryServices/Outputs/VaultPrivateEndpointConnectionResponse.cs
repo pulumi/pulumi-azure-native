@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
+    /// <summary>
+    /// Private Endpoint Connection Response Properties.
+    /// </summary>
     [OutputType]
     public sealed class VaultPrivateEndpointConnectionResponse
     {

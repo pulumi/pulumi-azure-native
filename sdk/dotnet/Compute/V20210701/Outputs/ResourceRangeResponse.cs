@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210701.Outputs
 {
 
+    /// <summary>
+    /// Describes the resource range.
+    /// </summary>
     [OutputType]
     public sealed class ResourceRangeResponse
     {

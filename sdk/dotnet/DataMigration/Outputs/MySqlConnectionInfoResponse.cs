@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
+    /// <summary>
+    /// Information for connecting to MySQL server
+    /// </summary>
     [OutputType]
     public sealed class MySqlConnectionInfoResponse
     {

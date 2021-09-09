@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200501.Outputs
 {
 
+    /// <summary>
+    /// Outbound rule of the load balancer.
+    /// </summary>
     [OutputType]
     public sealed class OutboundRuleResponse
     {

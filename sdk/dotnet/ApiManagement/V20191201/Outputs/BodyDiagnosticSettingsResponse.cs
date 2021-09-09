@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20191201.Outputs
 {
 
+    /// <summary>
+    /// Body logging settings.
+    /// </summary>
     [OutputType]
     public sealed class BodyDiagnosticSettingsResponse
     {

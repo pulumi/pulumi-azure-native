@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Consumption.V20191101.Outputs
 {
 
+    /// <summary>
+    /// The comparison expression to be used in the budgets.
+    /// </summary>
     [OutputType]
     public sealed class BudgetComparisonExpressionResponse
     {

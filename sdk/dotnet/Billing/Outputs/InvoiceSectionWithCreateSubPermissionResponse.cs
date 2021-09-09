@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Billing.Outputs
 {
 
+    /// <summary>
+    /// Invoice section properties with create subscription permission.
+    /// </summary>
     [OutputType]
     public sealed class InvoiceSectionWithCreateSubPermissionResponse
     {

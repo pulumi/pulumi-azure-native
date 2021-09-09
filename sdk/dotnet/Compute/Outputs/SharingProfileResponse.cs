@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// Profile for gallery sharing to subscription or tenant
+    /// </summary>
     [OutputType]
     public sealed class SharingProfileResponse
     {

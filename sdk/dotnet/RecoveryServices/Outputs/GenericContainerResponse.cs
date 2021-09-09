@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
+    /// <summary>
+    /// Base class for generic container of backup items
+    /// </summary>
     [OutputType]
     public sealed class GenericContainerResponse
     {

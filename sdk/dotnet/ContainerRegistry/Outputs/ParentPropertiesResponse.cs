@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 {
 
+    /// <summary>
+    /// The properties of the connected registry parent.
+    /// </summary>
     [OutputType]
     public sealed class ParentPropertiesResponse
     {

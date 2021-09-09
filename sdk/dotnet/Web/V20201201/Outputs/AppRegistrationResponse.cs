@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Outputs
 {
 
+    /// <summary>
+    /// The configuration settings of the app registration for providers that have app ids and app secrets
+    /// </summary>
     [OutputType]
     public sealed class AppRegistrationResponse
     {

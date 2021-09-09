@@ -29,14 +29,14 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview.Inputs
         public Input<string> OperatorType { get; set; } = null!;
 
         [Input("values")]
-        private InputList<ImmutableArray<Input<double>>>? _values;
+        private InputList<ImmutableArray<double>>? _values;
 
         /// <summary>
         /// The set of filter values.
         /// </summary>
-        public InputList<ImmutableArray<Input<double>>> Values
+        public InputList<ImmutableArray<double>> Values
         {
-            get => _values ?? (_values = new InputList<ImmutableArray<Input<double>>>());
+            get => _values ?? (_values = new InputList<ImmutableArray<double>>());
             set => _values = value;
         }
 

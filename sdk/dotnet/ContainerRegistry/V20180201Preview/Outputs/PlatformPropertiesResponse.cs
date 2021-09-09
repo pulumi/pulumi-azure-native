@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview.Outputs
 {
 
+    /// <summary>
+    /// The platform properties against which the build has to happen.
+    /// </summary>
     [OutputType]
     public sealed class PlatformPropertiesResponse
     {

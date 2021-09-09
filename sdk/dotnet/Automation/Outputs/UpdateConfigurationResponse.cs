@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.Outputs
 {
 
+    /// <summary>
+    /// Update specific properties of the software update configuration.
+    /// </summary>
     [OutputType]
     public sealed class UpdateConfigurationResponse
     {

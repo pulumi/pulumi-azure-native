@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210401.Outputs
 {
 
+    /// <summary>
+    /// The parameters of a capacity reservation Profile.
+    /// </summary>
     [OutputType]
     public sealed class CapacityReservationProfileResponse
     {

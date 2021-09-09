@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Peering.V20190801Preview.Outputs
 {
 
+    /// <summary>
+    /// The properties that define a direct peering.
+    /// </summary>
     [OutputType]
     public sealed class PeeringPropertiesDirectResponse
     {

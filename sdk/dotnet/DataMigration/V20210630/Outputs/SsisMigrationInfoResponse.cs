@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
+    /// <summary>
+    /// SSIS migration info with SSIS store type, overwrite policy.
+    /// </summary>
     [OutputType]
     public sealed class SsisMigrationInfoResponse
     {

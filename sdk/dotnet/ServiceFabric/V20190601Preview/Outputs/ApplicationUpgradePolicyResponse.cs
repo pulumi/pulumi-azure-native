@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20190601Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes the policy for a monitored application upgrade.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationUpgradePolicyResponse
     {

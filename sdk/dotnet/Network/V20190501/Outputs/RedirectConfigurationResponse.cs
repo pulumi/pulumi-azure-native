@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20190501.Outputs
 {
 
+    /// <summary>
+    /// Describes Redirect Route.
+    /// </summary>
     [OutputType]
     public sealed class RedirectConfigurationResponse
     {

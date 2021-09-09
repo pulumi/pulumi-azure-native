@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20180901.Outputs
 {
 
+    /// <summary>
+    /// The properties of a task step.
+    /// </summary>
     [OutputType]
     public sealed class FileTaskStepResponse
     {

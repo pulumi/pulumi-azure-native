@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// Identity for the virtual machine scale set.
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachineScaleSetIdentityResponse
     {

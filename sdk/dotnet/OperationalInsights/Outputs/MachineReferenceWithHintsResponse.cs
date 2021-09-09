@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OperationalInsights.Outputs
 {
 
+    /// <summary>
+    /// A machine reference with a hint of the machine's name and operating system.
+    /// </summary>
     [OutputType]
     public sealed class MachineReferenceWithHintsResponse
     {

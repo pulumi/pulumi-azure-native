@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20181001.Outputs
 {
 
+    /// <summary>
+    /// The container probe, for liveness or readiness
+    /// </summary>
     [OutputType]
     public sealed class ContainerProbeResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.V20160515.Outputs
 {
 
+    /// <summary>
+    /// An event to be notified for.
+    /// </summary>
     [OutputType]
     public sealed class EventResponse
     {

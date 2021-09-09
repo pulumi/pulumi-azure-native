@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20151106.Outputs
 {
 
+    /// <summary>
+    /// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+    /// </summary>
     [OutputType]
     public sealed class UniqueKeyPolicyResponse
     {

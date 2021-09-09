@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.WebPubSub.Outputs
 {
 
+    /// <summary>
+    /// Feature of a resource, which controls the runtime behavior.
+    /// </summary>
     [OutputType]
     public sealed class WebPubSubFeatureResponse
     {

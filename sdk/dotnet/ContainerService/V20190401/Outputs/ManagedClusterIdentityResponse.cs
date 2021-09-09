@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20190401.Outputs
 {
 
+    /// <summary>
+    /// Identity for the managed cluster.
+    /// </summary>
     [OutputType]
     public sealed class ManagedClusterIdentityResponse
     {

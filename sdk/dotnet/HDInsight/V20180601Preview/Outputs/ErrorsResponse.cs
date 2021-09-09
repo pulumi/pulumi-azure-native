@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Outputs
 {
 
+    /// <summary>
+    /// The error message associated with the cluster creation.
+    /// </summary>
     [OutputType]
     public sealed class ErrorsResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Aad.V20200101.Outputs
 {
 
+    /// <summary>
+    /// Replica Set Definition
+    /// </summary>
     [OutputType]
     public sealed class ReplicaSetResponse
     {

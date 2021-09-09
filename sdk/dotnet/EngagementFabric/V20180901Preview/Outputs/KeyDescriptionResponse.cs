@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// The description of the EngagementFabric account key
+    /// </summary>
     [OutputType]
     public sealed class KeyDescriptionResponse
     {

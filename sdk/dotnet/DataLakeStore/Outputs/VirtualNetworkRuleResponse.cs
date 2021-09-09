@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataLakeStore.Outputs
 {
 
+    /// <summary>
+    /// Data Lake Store virtual network rule information.
+    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkRuleResponse
     {

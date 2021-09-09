@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210210.Outputs
 {
 
+    /// <summary>
+    /// Migration item properties.
+    /// </summary>
     [OutputType]
     public sealed class MigrationItemPropertiesResponse
     {

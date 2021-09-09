@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20191201.Outputs
 {
 
+    /// <summary>
+    /// A flow log resource.
+    /// </summary>
     [OutputType]
     public sealed class FlowLogResponse
     {

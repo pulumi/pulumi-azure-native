@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview.Outputs
 {
 
+    /// <summary>
+    /// Kubernetes cluster configuration
+    /// </summary>
     [OutputType]
     public sealed class KubernetesClusterInfoResponse
     {

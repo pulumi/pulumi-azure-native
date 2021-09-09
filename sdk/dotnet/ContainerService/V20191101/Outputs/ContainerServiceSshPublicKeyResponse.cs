@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20191101.Outputs
 {
 
+    /// <summary>
+    /// Contains information about SSH certificate public key data.
+    /// </summary>
     [OutputType]
     public sealed class ContainerServiceSshPublicKeyResponse
     {

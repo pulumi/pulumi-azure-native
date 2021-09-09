@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Paypal Service dataset.
+    /// </summary>
     [OutputType]
     public sealed class PaypalObjectDatasetResponse
     {

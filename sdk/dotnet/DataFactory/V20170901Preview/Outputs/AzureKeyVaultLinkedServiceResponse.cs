@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
+    /// <summary>
+    /// Azure Key Vault linked service.
+    /// </summary>
     [OutputType]
     public sealed class AzureKeyVaultLinkedServiceResponse
     {

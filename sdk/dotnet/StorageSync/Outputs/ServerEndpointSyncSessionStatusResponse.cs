@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageSync.Outputs
 {
 
+    /// <summary>
+    /// Sync Session status object.
+    /// </summary>
     [OutputType]
     public sealed class ServerEndpointSyncSessionStatusResponse
     {

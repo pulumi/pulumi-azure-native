@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TestBase.V20201216Preview.Outputs
 {
 
+    /// <summary>
+    /// The user object receiver value.
+    /// </summary>
     [OutputType]
     public sealed class DistributionGroupListReceiverValueResponse
     {

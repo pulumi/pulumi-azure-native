@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20180201.Outputs
 {
 
+    /// <summary>
+    /// Push settings for the App.
+    /// </summary>
     [OutputType]
     public sealed class PushSettingsResponse
     {

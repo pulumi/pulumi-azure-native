@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// The Azure Data Lake Storage Gen2 storage.
+    /// </summary>
     [OutputType]
     public sealed class AzureBlobFSDatasetResponse
     {

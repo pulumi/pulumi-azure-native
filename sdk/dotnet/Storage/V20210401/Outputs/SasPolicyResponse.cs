@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210401.Outputs
 {
 
+    /// <summary>
+    /// SasPolicy assigned to the storage account.
+    /// </summary>
     [OutputType]
     public sealed class SasPolicyResponse
     {

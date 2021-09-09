@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Mapping data flow.
+    /// </summary>
     [OutputType]
     public sealed class MappingDataFlowResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20200301.Outputs
 {
 
+    /// <summary>
+    /// Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
+    /// </summary>
     [OutputType]
     public sealed class SingletonPartitionSchemeDescriptionResponse
     {

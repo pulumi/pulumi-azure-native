@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Blueprint.Outputs
 {
 
+    /// <summary>
+    /// Value for the specified parameter. Can be either 'value' or 'reference' but not both.
+    /// </summary>
     [OutputType]
     public sealed class ParameterValueResponse
     {

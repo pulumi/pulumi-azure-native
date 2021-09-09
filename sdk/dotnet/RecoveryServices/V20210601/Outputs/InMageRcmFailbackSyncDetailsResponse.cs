@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210601.Outputs
 {
 
+    /// <summary>
+    /// InMageRcmFailback disk level sync details.
+    /// </summary>
     [OutputType]
     public sealed class InMageRcmFailbackSyncDetailsResponse
     {

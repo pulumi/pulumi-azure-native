@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20190201.Outputs
 {
 
+    /// <summary>
+    /// IP configuration of an application gateway. Currently 1 public and 1 private IP configuration is allowed.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayIPConfigurationResponse
     {

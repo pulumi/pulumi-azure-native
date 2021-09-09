@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KubernetesConfiguration.V20191101Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties for Helm operator.
+    /// </summary>
     [OutputType]
     public sealed class HelmOperatorPropertiesResponse
     {

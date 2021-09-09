@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CognitiveServices.V20170418.Outputs
 {
 
+    /// <summary>
+    /// A rule governing the accessibility from a specific virtual network.
+    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkRuleResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview.Outputs
 {
 
+    /// <summary>
+    /// Specifies the IP address of the network interface.
+    /// </summary>
     [OutputType]
     public sealed class IpAddressResponse
     {

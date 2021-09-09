@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210301.Outputs
 {
 
+    /// <summary>
+    /// Log Analytics Workspace for Firewall Policy Insights.
+    /// </summary>
     [OutputType]
     public sealed class FirewallPolicyLogAnalyticsWorkspaceResponse
     {

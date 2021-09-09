@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview.Outputs
 {
 
+    /// <summary>
+    /// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

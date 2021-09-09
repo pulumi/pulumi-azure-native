@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515.Outputs
 {
 
+    /// <summary>
+    /// The storage configuration provides the non-secret connection details about the customer storage account that is used to store the environment's data.
+    /// </summary>
     [OutputType]
     public sealed class Gen2StorageConfigurationOutputResponse
     {

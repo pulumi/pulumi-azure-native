@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// Support information for the content item.
+    /// </summary>
     [OutputType]
     public sealed class MetadataSupportResponse
     {

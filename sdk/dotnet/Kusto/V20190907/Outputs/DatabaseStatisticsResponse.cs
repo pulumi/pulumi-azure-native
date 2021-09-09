@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Kusto.V20190907.Outputs
 {
 
+    /// <summary>
+    /// A class that contains database statistics information.
+    /// </summary>
     [OutputType]
     public sealed class DatabaseStatisticsResponse
     {

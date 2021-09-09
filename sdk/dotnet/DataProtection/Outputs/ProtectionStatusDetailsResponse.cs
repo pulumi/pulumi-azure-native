@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.Outputs
 {
 
+    /// <summary>
+    /// Protection status details
+    /// </summary>
     [OutputType]
     public sealed class ProtectionStatusDetailsResponse
     {

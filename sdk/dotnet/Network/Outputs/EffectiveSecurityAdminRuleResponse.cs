@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Network admin rule.
+    /// </summary>
     [OutputType]
     public sealed class EffectiveSecurityAdminRuleResponse
     {

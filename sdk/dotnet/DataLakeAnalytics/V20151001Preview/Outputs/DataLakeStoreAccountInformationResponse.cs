@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview.Outputs
 {
 
+    /// <summary>
+    /// Data Lake Store account information.
+    /// </summary>
     [OutputType]
     public sealed class DataLakeStoreAccountInformationResponse
     {

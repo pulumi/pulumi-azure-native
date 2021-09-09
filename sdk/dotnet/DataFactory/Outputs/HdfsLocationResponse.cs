@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The location of HDFS.
+    /// </summary>
     [OutputType]
     public sealed class HdfsLocationResponse
     {

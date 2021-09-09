@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview.Outputs
 {
 
+    /// <summary>
+    /// A list of private link resources
+    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkPropertiesListResponse
     {

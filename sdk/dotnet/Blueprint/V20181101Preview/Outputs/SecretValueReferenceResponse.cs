@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Blueprint.V20181101Preview.Outputs
 {
 
+    /// <summary>
+    /// Reference to a Key Vault secret.
+    /// </summary>
     [OutputType]
     public sealed class SecretValueReferenceResponse
     {

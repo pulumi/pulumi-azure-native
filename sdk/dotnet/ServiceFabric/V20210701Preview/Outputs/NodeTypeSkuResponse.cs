@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210701Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes a node type sku.
+    /// </summary>
     [OutputType]
     public sealed class NodeTypeSkuResponse
     {

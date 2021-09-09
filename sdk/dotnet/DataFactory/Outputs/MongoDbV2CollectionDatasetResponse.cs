@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The MongoDB database dataset.
+    /// </summary>
     [OutputType]
     public sealed class MongoDbV2CollectionDatasetResponse
     {

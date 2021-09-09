@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210501.Outputs
 {
 
+    /// <summary>
+    /// Describes the managed identities for an Azure resource.
+    /// </summary>
     [OutputType]
     public sealed class ManagedIdentityResponse
     {

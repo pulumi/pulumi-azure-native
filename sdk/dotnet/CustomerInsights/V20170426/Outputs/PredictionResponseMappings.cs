@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.V20170426.Outputs
 {
 
+    /// <summary>
+    /// Definition of the link mapping of prediction.
+    /// </summary>
     [OutputType]
     public sealed class PredictionResponseMappings
     {

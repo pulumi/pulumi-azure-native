@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ImportExport.V20210101.Outputs
 {
 
+    /// <summary>
+    /// Contains information about the Microsoft datacenter to which the drives should be shipped.
+    /// </summary>
     [OutputType]
     public sealed class ShippingInformationResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20190501Preview.Outputs
 {
 
+    /// <summary>
+    /// The IP address range in the CIDR scheme.
+    /// </summary>
     [OutputType]
     public sealed class IPRangeResponse
     {

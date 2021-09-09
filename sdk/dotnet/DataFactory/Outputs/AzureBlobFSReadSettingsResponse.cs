@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Azure blobFS read settings.
+    /// </summary>
     [OutputType]
     public sealed class AzureBlobFSReadSettingsResponse
     {

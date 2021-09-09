@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.Outputs
 {
 
+    /// <summary>
+    /// Cache encryption settings.
+    /// </summary>
     [OutputType]
     public sealed class CacheEncryptionSettingsResponse
     {

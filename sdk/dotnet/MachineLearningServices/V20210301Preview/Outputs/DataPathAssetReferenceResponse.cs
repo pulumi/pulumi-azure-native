@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// Reference to an asset via its path in a datastore.
+    /// </summary>
     [OutputType]
     public sealed class DataPathAssetReferenceResponse
     {

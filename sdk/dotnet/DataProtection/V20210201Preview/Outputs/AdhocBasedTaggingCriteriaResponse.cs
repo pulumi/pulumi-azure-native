@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.V20210201Preview.Outputs
 {
 
+    /// <summary>
+    /// Adhoc backup tagging criteria
+    /// </summary>
     [OutputType]
     public sealed class AdhocBasedTaggingCriteriaResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Outputs
 {
 
+    /// <summary>
+    /// The properties that are associated with an input containing stream data.
+    /// </summary>
     [OutputType]
     public sealed class StreamInputPropertiesResponse
     {

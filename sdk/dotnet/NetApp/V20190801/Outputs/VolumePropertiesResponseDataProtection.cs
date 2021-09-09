@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetApp.V20190801.Outputs
 {
 
+    /// <summary>
+    /// DataProtection volume, can have a replication object
+    /// </summary>
     [OutputType]
     public sealed class VolumePropertiesResponseDataProtection
     {

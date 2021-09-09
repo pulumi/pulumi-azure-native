@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// SKU of a load balancer.
+    /// </summary>
     [OutputType]
     public sealed class LoadBalancerSkuResponse
     {

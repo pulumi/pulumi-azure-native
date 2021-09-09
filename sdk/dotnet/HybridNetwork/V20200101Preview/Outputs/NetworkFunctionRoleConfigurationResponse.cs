@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview.Outputs
 {
 
+    /// <summary>
+    /// Network function role configuration.
+    /// </summary>
     [OutputType]
     public sealed class NetworkFunctionRoleConfigurationResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Execute pipeline activity.
+    /// </summary>
     [OutputType]
     public sealed class ExecutePipelineActivityResponse
     {

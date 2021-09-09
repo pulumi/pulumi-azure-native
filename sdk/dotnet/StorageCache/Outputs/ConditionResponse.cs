@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.Outputs
 {
 
+    /// <summary>
+    /// Outstanding conditions that will need to be resolved.
+    /// </summary>
     [OutputType]
     public sealed class ConditionResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Outputs
 {
 
+    /// <summary>
+    /// The presentation time range, this is asset related and not recommended for Account Filter.
+    /// </summary>
     [OutputType]
     public sealed class PresentationTimeRangeResponse
     {

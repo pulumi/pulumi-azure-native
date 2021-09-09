@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
+    /// <summary>
+    /// DPM workload-specific protection container.
+    /// </summary>
     [OutputType]
     public sealed class DpmContainerResponse
     {

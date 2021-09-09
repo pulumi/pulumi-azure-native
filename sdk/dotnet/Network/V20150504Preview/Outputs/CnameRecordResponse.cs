@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20150504Preview.Outputs
 {
 
+    /// <summary>
+    /// A CNAME record.
+    /// </summary>
     [OutputType]
     public sealed class CnameRecordResponse
     {

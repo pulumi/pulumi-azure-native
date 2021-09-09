@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210101.Outputs
 {
 
+    /// <summary>
+    /// An Image asset.
+    /// </summary>
     [OutputType]
     public sealed class ImageAssetResponse
     {

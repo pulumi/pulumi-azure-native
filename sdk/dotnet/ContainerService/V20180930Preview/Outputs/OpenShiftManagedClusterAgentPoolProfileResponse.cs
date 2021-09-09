@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20180930Preview.Outputs
 {
 
+    /// <summary>
+    /// Defines the configuration of the OpenShift cluster VMs.
+    /// </summary>
     [OutputType]
     public sealed class OpenShiftManagedClusterAgentPoolProfileResponse
     {

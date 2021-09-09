@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20200901Preview.Outputs
 {
 
+    /// <summary>
+    /// The set of ARM identities associated with the IoT DPS resource.
+    /// </summary>
     [OutputType]
     public sealed class ArmIdentityResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210701.Outputs
 {
 
+    /// <summary>
+    /// Container for SQL workloads under SQL Availability Group.
+    /// </summary>
     [OutputType]
     public sealed class AzureSQLAGWorkloadContainerProtectionContainerResponse
     {

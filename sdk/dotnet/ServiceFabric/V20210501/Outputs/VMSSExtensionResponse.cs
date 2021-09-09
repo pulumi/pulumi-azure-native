@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210501.Outputs
 {
 
+    /// <summary>
+    /// Specifies set of extensions that should be installed onto the virtual machines.
+    /// </summary>
     [OutputType]
     public sealed class VMSSExtensionResponse
     {

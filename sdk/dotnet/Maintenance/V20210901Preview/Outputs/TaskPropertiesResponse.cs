@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Maintenance.V20210901Preview.Outputs
 {
 
+    /// <summary>
+    /// Task properties of the software update configuration.
+    /// </summary>
     [OutputType]
     public sealed class TaskPropertiesResponse
     {

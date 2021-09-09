@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Magento server dataset.
+    /// </summary>
     [OutputType]
     public sealed class MagentoObjectDatasetResponse
     {

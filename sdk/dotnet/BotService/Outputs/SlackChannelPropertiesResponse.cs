@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.BotService.Outputs
 {
 
+    /// <summary>
+    /// The parameters to provide for the Slack channel.
+    /// </summary>
     [OutputType]
     public sealed class SlackChannelPropertiesResponse
     {

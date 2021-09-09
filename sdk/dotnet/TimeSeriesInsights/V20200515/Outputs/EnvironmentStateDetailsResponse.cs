@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515.Outputs
 {
 
+    /// <summary>
+    /// An object that contains the details about an environment's state.
+    /// </summary>
     [OutputType]
     public sealed class EnvironmentStateDetailsResponse
     {

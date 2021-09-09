@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// The deployment status.
+    /// </summary>
     [OutputType]
     public sealed class AKSServiceResponseResponseDeploymentStatus
     {

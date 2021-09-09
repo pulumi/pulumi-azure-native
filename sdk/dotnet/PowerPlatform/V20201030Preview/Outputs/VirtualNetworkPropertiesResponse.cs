@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview.Outputs
 {
 
+    /// <summary>
+    /// Settings concerning the virtual network.
+    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkPropertiesResponse
     {

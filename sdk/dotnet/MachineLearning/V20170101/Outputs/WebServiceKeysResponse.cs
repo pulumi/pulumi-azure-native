@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.V20170101.Outputs
 {
 
+    /// <summary>
+    /// Access keys for the web service calls.
+    /// </summary>
     [OutputType]
     public sealed class WebServiceKeysResponse
     {

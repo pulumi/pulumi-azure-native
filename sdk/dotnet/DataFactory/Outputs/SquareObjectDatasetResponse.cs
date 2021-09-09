@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Square Service dataset.
+    /// </summary>
     [OutputType]
     public sealed class SquareObjectDatasetResponse
     {

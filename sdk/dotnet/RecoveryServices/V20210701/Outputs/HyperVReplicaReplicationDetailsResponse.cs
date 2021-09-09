@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210701.Outputs
 {
 
+    /// <summary>
+    /// HyperV replica 2012 replication details.
+    /// </summary>
     [OutputType]
     public sealed class HyperVReplicaReplicationDetailsResponse
     {

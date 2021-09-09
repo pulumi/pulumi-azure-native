@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The data stored in JSON format.
+    /// </summary>
     [OutputType]
     public sealed class JsonFormatResponse
     {

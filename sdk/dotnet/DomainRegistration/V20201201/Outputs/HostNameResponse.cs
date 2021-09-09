@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DomainRegistration.V20201201.Outputs
 {
 
+    /// <summary>
+    /// Details of a hostname derived from a domain.
+    /// </summary>
     [OutputType]
     public sealed class HostNameResponse
     {

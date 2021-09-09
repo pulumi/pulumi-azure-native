@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20200901.Outputs
 {
 
+    /// <summary>
+    /// Defines the RequestMethod condition for the delivery rule.
+    /// </summary>
     [OutputType]
     public sealed class DeliveryRuleRequestMethodConditionResponse
     {

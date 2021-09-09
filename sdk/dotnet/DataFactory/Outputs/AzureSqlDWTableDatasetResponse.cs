@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The Azure SQL Data Warehouse dataset.
+    /// </summary>
     [OutputType]
     public sealed class AzureSqlDWTableDatasetResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210401.Outputs
 {
 
+    /// <summary>
+    /// Describes the properties of an virtual machine instance view for available patch summary.
+    /// </summary>
     [OutputType]
     public sealed class AvailablePatchSummaryResponse
     {

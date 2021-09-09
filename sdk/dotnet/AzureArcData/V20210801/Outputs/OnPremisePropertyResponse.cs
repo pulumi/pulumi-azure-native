@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureArcData.V20210801.Outputs
 {
 
+    /// <summary>
+    /// Properties from the Kubernetes data controller
+    /// </summary>
     [OutputType]
     public sealed class OnPremisePropertyResponse
     {

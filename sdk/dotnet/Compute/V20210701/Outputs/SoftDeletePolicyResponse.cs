@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210701.Outputs
 {
 
+    /// <summary>
+    /// Contains information about the soft deletion policy of the gallery.
+    /// </summary>
     [OutputType]
     public sealed class SoftDeletePolicyResponse
     {

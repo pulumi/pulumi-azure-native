@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview.Outputs
 {
 
+    /// <summary>
+    /// Kubernetes storage class info.
+    /// </summary>
     [OutputType]
     public sealed class KubernetesRoleStorageClassInfoResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210101Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
+    /// </summary>
     [OutputType]
     public sealed class UniformInt64RangePartitionSchemeResponse
     {

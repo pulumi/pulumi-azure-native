@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// The path of the SAP Cloud for Customer OData entity.
+    /// </summary>
     [OutputType]
     public sealed class SapCloudForCustomerResourceDatasetResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// A copy activity Azure MySql sink.
+    /// </summary>
     [OutputType]
     public sealed class AzureMySqlSinkResponse
     {

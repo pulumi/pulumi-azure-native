@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20191101.Outputs
 {
 
+    /// <summary>
+    /// A namespace junction.
+    /// </summary>
     [OutputType]
     public sealed class NamespaceJunctionResponse
     {

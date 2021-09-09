@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The path of the SAP ECC OData entity.
+    /// </summary>
     [OutputType]
     public sealed class SapEccResourceDatasetResponse
     {

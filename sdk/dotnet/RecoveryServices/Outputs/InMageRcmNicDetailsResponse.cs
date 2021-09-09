@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
+    /// <summary>
+    /// InMageRcm NIC details.
+    /// </summary>
     [OutputType]
     public sealed class InMageRcmNicDetailsResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureArcData.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// The resource model definition representing SKU for Azure Managed Instance - Azure Arc
+    /// </summary>
     [OutputType]
     public sealed class SqlManagedInstanceSkuResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801.Outputs
 {
 
+    /// <summary>
+    /// VnetRoute contract used to pass routing information for a vnet.
+    /// </summary>
     [OutputType]
     public sealed class VnetRouteResponse
     {

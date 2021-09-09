@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20151101Preview.Outputs
 {
 
+    /// <summary>
+    /// Profile for Windows jumpbox
+    /// </summary>
     [OutputType]
     public sealed class ContainerServiceWindowsProfileResponse
     {

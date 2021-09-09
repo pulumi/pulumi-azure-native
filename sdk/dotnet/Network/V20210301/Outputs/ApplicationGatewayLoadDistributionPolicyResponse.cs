@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210301.Outputs
 {
 
+    /// <summary>
+    /// Load Distribution Policy of an application gateway.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayLoadDistributionPolicyResponse
     {

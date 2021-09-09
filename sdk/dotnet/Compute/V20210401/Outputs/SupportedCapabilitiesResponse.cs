@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210401.Outputs
 {
 
+    /// <summary>
+    /// List of supported capabilities (like accelerated networking) persisted on the disk resource for VM use.
+    /// </summary>
     [OutputType]
     public sealed class SupportedCapabilitiesResponse
     {

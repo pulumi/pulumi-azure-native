@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210401.Outputs
 {
 
+    /// <summary>
+    /// The blob service properties for Last access time based tracking policy.
+    /// </summary>
     [OutputType]
     public sealed class LastAccessTimeTrackingPolicyResponse
     {

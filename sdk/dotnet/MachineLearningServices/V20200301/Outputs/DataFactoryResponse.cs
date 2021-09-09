@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200301.Outputs
 {
 
+    /// <summary>
+    /// A DataFactory compute.
+    /// </summary>
     [OutputType]
     public sealed class DataFactoryResponse
     {

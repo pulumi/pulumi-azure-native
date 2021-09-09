@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RedHatOpenShift.V20200430.Outputs
 {
 
+    /// <summary>
+    /// ConsoleProfile represents a console profile.
+    /// </summary>
     [OutputType]
     public sealed class ConsoleProfileResponse
     {

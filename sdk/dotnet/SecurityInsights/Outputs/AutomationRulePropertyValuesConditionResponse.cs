@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// Describes an automation rule condition that evaluates a property's value
+    /// </summary>
     [OutputType]
     public sealed class AutomationRulePropertyValuesConditionResponse
     {

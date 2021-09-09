@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
+    /// <summary>
+    /// A copy activity Salesforce source.
+    /// </summary>
     [OutputType]
     public sealed class SalesforceSourceResponse
     {

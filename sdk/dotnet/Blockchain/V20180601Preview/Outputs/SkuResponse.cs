@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Blockchain.V20180601Preview.Outputs
 {
 
+    /// <summary>
+    /// Blockchain member Sku in payload
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

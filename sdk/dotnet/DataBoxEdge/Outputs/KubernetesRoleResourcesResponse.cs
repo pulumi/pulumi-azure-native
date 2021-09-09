@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.Outputs
 {
 
+    /// <summary>
+    /// Kubernetes role resources
+    /// </summary>
     [OutputType]
     public sealed class KubernetesRoleResourcesResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210801.Outputs
 {
 
+    /// <summary>
+    /// SSH configuration for Linux-based VMs running on Azure.
+    /// </summary>
     [OutputType]
     public sealed class ContainerServiceSshConfigurationResponse
     {

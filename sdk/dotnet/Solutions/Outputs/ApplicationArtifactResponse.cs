@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Solutions.Outputs
 {
 
+    /// <summary>
+    /// Managed application artifact.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationArtifactResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210701Preview.Outputs
 {
 
+    /// <summary>
+    /// The name of the domain that should used for placement as per this policy.
+    /// </summary>
     [OutputType]
     public sealed class ServicePlacementNonPartiallyPlaceServicePolicyResponse
     {

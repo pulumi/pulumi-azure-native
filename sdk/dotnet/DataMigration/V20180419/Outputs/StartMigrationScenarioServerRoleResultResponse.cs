@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180419.Outputs
 {
 
+    /// <summary>
+    /// Server role migration result
+    /// </summary>
     [OutputType]
     public sealed class StartMigrationScenarioServerRoleResultResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20191201.Outputs
 {
 
+    /// <summary>
+    /// Container group log analytics information.
+    /// </summary>
     [OutputType]
     public sealed class LogAnalyticsResponse
     {

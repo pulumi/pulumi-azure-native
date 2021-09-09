@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Peering.V20190801Preview.Outputs
 {
 
+    /// <summary>
+    /// The properties that define a BGP session.
+    /// </summary>
     [OutputType]
     public sealed class BgpSessionResponse
     {

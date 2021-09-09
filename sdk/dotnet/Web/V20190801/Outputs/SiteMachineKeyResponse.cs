@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20190801.Outputs
 {
 
+    /// <summary>
+    /// MachineKey of an app.
+    /// </summary>
     [OutputType]
     public sealed class SiteMachineKeyResponse
     {
