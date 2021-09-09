@@ -90,7 +90,7 @@ func main() {
 			pkgSpec.Version = version
 			// Work around the SDK size exceeding 512 MB by removing comments from versioned modules.
 			// Roll this back when we have a better fix for the SDK size.
-			specNoComments := removeAllComments(*pkgSpec)
+			specNoComments := removeCommentsFromVersionedPkgs(*pkgSpec)
 			err = emitPackage(specNoComments, language, outdir)
 		default:
 			outdir := path.Join(".", "sdk", language)
@@ -103,7 +103,7 @@ func main() {
 	}
 }
 
-func removeAllComments(pkgSpec schema.PackageSpec) *schema.PackageSpec {
+func removeCommentsFromVersionedPkgs(pkgSpec schema.PackageSpec) *schema.PackageSpec {
 	isVersioned := func(tok string) bool { return strings.Contains(tok, "/v") }
 	types := map[string]schema.ComplexTypeSpec{}
 	for n, t := range pkgSpec.Types {
