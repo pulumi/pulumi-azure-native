@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.27.0 (2021-09-10)
+
 #### New resources:
 
 - `containerservice.Snapshot`
@@ -20,8 +26,6 @@ CHANGELOG
 - Updated `pulumi/pulumi` dependencies to 3.10.3
 - The type of discriminated union inputs in the .NET SDK has changed from `Input<object>` to `object`
 - Support inputty Go enums
-
----
 
 ## 1.26.0 (2021-09-09)
 
