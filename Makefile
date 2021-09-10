@@ -86,7 +86,7 @@ build_nodejs::
 generate_python::
 	$(WORKING_DIR)/bin/$(CODEGEN) python ${VERSION}
 
-build_python:: VERSION := $(shell pulumictl get version --language python)
+build_python:: PYPI_VERSION := $(shell pulumictl get version --language python)
 build_python::
 	cd sdk/python/ && \
 	cp ../../README.md . && \
