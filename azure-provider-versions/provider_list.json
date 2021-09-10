@@ -33201,8 +33201,8 @@
         "locationMappings": null,
         "locations": [
           "South Central US",
-          "West US 3",
           "South Africa North",
+          "West US 3",
           "East US 2",
           "East US",
           "UK South",
@@ -51952,7 +51952,8 @@
           }
         ],
         "apiVersions": [
-          "2016-06-01"
+          "2016-06-01",
+          "2015-08-15"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -52005,7 +52006,8 @@
           }
         ],
         "apiVersions": [
-          "2016-06-01"
+          "2016-06-01",
+          "2015-08-15"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -69649,6 +69651,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01-preview",
           "2021-06-01-preview"
         ],
         "capabilities": "None",
@@ -69662,10 +69665,11 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01-preview",
           "2021-06-01-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2021-06-01-preview",
+        "defaultApiVersion": "2021-09-01-preview",
         "locationMappings": null,
         "locations": [],
         "properties": null,
@@ -69675,6 +69679,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01-preview",
           "2021-06-01-preview"
         ],
         "capabilities": "None",
@@ -69688,6 +69693,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01-preview",
           "2021-06-01-preview"
         ],
         "capabilities": "None",
